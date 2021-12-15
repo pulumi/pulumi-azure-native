@@ -13,7 +13,7 @@ func LookupFlowLog(ctx *pulumi.Context, args *LookupFlowLogArgs, opts ...pulumi.
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupFlowLogArgs struct {
@@ -38,4 +38,17 @@ type LookupFlowLogResult struct {
 	TargetResourceGuid         string                              `pulumi:"targetResourceGuid"`
 	TargetResourceId           string                              `pulumi:"targetResourceId"`
 	Type                       string                              `pulumi:"type"`
+}
+
+
+func (val *LookupFlowLogResult) Defaults() *LookupFlowLogResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Format = tmp.Format.Defaults()
+
+	tmp.RetentionPolicy = tmp.RetentionPolicy.Defaults()
+
+	return &tmp
 }

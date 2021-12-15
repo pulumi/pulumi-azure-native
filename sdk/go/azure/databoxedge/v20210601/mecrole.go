@@ -146,7 +146,7 @@ type MECRoleInput interface {
 }
 
 func (*MECRole) ElementType() reflect.Type {
-	return reflect.TypeOf((*MECRole)(nil))
+	return reflect.TypeOf((**MECRole)(nil)).Elem()
 }
 
 func (i *MECRole) ToMECRoleOutput() MECRoleOutput {
@@ -160,7 +160,7 @@ func (i *MECRole) ToMECRoleOutputWithContext(ctx context.Context) MECRoleOutput 
 type MECRoleOutput struct{ *pulumi.OutputState }
 
 func (MECRoleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MECRole)(nil))
+	return reflect.TypeOf((**MECRole)(nil)).Elem()
 }
 
 func (o MECRoleOutput) ToMECRoleOutput() MECRoleOutput {

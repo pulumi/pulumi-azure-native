@@ -117,7 +117,7 @@ type OrderItemByNameInput interface {
 }
 
 func (*OrderItemByName) ElementType() reflect.Type {
-	return reflect.TypeOf((*OrderItemByName)(nil))
+	return reflect.TypeOf((**OrderItemByName)(nil)).Elem()
 }
 
 func (i *OrderItemByName) ToOrderItemByNameOutput() OrderItemByNameOutput {
@@ -131,7 +131,7 @@ func (i *OrderItemByName) ToOrderItemByNameOutputWithContext(ctx context.Context
 type OrderItemByNameOutput struct{ *pulumi.OutputState }
 
 func (OrderItemByNameOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*OrderItemByName)(nil))
+	return reflect.TypeOf((**OrderItemByName)(nil)).Elem()
 }
 
 func (o OrderItemByNameOutput) ToOrderItemByNameOutput() OrderItemByNameOutput {

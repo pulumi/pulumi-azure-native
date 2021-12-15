@@ -107,7 +107,7 @@ type ReportByDepartmentInput interface {
 }
 
 func (*ReportByDepartment) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReportByDepartment)(nil))
+	return reflect.TypeOf((**ReportByDepartment)(nil)).Elem()
 }
 
 func (i *ReportByDepartment) ToReportByDepartmentOutput() ReportByDepartmentOutput {
@@ -121,7 +121,7 @@ func (i *ReportByDepartment) ToReportByDepartmentOutputWithContext(ctx context.C
 type ReportByDepartmentOutput struct{ *pulumi.OutputState }
 
 func (ReportByDepartmentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReportByDepartment)(nil))
+	return reflect.TypeOf((**ReportByDepartment)(nil)).Elem()
 }
 
 func (o ReportByDepartmentOutput) ToReportByDepartmentOutput() ReportByDepartmentOutput {

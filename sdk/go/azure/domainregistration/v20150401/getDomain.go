@@ -13,7 +13,7 @@ func LookupDomain(ctx *pulumi.Context, args *LookupDomainArgs, opts ...pulumi.In
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupDomainArgs struct {
@@ -44,4 +44,17 @@ type LookupDomainResult struct {
 	Tags                        map[string]string  `pulumi:"tags"`
 	TargetDnsType               *string            `pulumi:"targetDnsType"`
 	Type                        string             `pulumi:"type"`
+}
+
+
+func (val *LookupDomainResult) Defaults() *LookupDomainResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.AutoRenew) {
+		autoRenew_ := true
+		tmp.AutoRenew = &autoRenew_
+	}
+	return &tmp
 }

@@ -63,7 +63,7 @@ export class ApiIssueAttachment extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ApiIssueAttachmentArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.apiId === undefined) && !opts.urn) {
@@ -87,29 +87,29 @@ export class ApiIssueAttachment extends pulumi.CustomResource {
             if ((!args || args.title === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'title'");
             }
-            inputs["apiId"] = args ? args.apiId : undefined;
-            inputs["attachmentId"] = args ? args.attachmentId : undefined;
-            inputs["content"] = args ? args.content : undefined;
-            inputs["contentFormat"] = args ? args.contentFormat : undefined;
-            inputs["issueId"] = args ? args.issueId : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["serviceName"] = args ? args.serviceName : undefined;
-            inputs["title"] = args ? args.title : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["apiId"] = args ? args.apiId : undefined;
+            resourceInputs["attachmentId"] = args ? args.attachmentId : undefined;
+            resourceInputs["content"] = args ? args.content : undefined;
+            resourceInputs["contentFormat"] = args ? args.contentFormat : undefined;
+            resourceInputs["issueId"] = args ? args.issueId : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["serviceName"] = args ? args.serviceName : undefined;
+            resourceInputs["title"] = args ? args.title : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["content"] = undefined /*out*/;
-            inputs["contentFormat"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["title"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["content"] = undefined /*out*/;
+            resourceInputs["contentFormat"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["title"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:ApiIssueAttachment" }, { type: "azure-native:apimanagement/v20170301:ApiIssueAttachment" }, { type: "azure-native:apimanagement/v20180101:ApiIssueAttachment" }, { type: "azure-native:apimanagement/v20180601preview:ApiIssueAttachment" }, { type: "azure-native:apimanagement/v20191201:ApiIssueAttachment" }, { type: "azure-native:apimanagement/v20191201preview:ApiIssueAttachment" }, { type: "azure-native:apimanagement/v20200601preview:ApiIssueAttachment" }, { type: "azure-native:apimanagement/v20201201:ApiIssueAttachment" }, { type: "azure-native:apimanagement/v20210101preview:ApiIssueAttachment" }, { type: "azure-native:apimanagement/v20210401preview:ApiIssueAttachment" }, { type: "azure-native:apimanagement/v20210801:ApiIssueAttachment" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(ApiIssueAttachment.__pulumiType, name, inputs, opts);
+        super(ApiIssueAttachment.__pulumiType, name, resourceInputs, opts);
     }
 }
 

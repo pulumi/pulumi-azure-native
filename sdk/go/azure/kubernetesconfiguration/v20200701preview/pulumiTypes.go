@@ -641,6 +641,19 @@ type ExtensionStatus struct {
 }
 
 
+func (val *ExtensionStatus) Defaults() *ExtensionStatus {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Level) {
+		level_ := "Information"
+		tmp.Level = &level_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -756,6 +769,19 @@ type ExtensionStatusResponse struct {
 	Level         *string `pulumi:"level"`
 	Message       *string `pulumi:"message"`
 	Time          *string `pulumi:"time"`
+}
+
+
+func (val *ExtensionStatusResponse) Defaults() *ExtensionStatusResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Level) {
+		level_ := "Information"
+		tmp.Level = &level_
+	}
+	return &tmp
 }
 
 

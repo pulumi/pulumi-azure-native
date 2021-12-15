@@ -116,7 +116,7 @@ type TransformInput interface {
 }
 
 func (*Transform) ElementType() reflect.Type {
-	return reflect.TypeOf((*Transform)(nil))
+	return reflect.TypeOf((**Transform)(nil)).Elem()
 }
 
 func (i *Transform) ToTransformOutput() TransformOutput {
@@ -130,7 +130,7 @@ func (i *Transform) ToTransformOutputWithContext(ctx context.Context) TransformO
 type TransformOutput struct{ *pulumi.OutputState }
 
 func (TransformOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Transform)(nil))
+	return reflect.TypeOf((**Transform)(nil)).Elem()
 }
 
 func (o TransformOutput) ToTransformOutput() TransformOutput {

@@ -56,7 +56,7 @@ export class Binding extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: BindingArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.appName === undefined) && !opts.urn) {
@@ -68,24 +68,24 @@ export class Binding extends pulumi.CustomResource {
             if ((!args || args.serviceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceName'");
             }
-            inputs["appName"] = args ? args.appName : undefined;
-            inputs["bindingName"] = args ? args.bindingName : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["serviceName"] = args ? args.serviceName : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["appName"] = args ? args.appName : undefined;
+            resourceInputs["bindingName"] = args ? args.bindingName : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["serviceName"] = args ? args.serviceName : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["name"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:appplatform:Binding" }, { type: "azure-native:appplatform/v20190501preview:Binding" }, { type: "azure-native:appplatform/v20200701:Binding" }, { type: "azure-native:appplatform/v20201101preview:Binding" }, { type: "azure-native:appplatform/v20210601preview:Binding" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Binding.__pulumiType, name, inputs, opts);
+        super(Binding.__pulumiType, name, resourceInputs, opts);
     }
 }
 

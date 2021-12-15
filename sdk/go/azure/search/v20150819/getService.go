@@ -13,7 +13,7 @@ func LookupService(ctx *pulumi.Context, args *LookupServiceArgs, opts ...pulumi.
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupServiceArgs struct {
@@ -36,4 +36,25 @@ type LookupServiceResult struct {
 	StatusDetails     string            `pulumi:"statusDetails"`
 	Tags              map[string]string `pulumi:"tags"`
 	Type              string            `pulumi:"type"`
+}
+
+
+func (val *LookupServiceResult) Defaults() *LookupServiceResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.HostingMode) {
+		hostingMode_ := "default"
+		tmp.HostingMode = &hostingMode_
+	}
+	if isZero(tmp.PartitionCount) {
+		partitionCount_ := 1
+		tmp.PartitionCount = &partitionCount_
+	}
+	if isZero(tmp.ReplicaCount) {
+		replicaCount_ := 1
+		tmp.ReplicaCount = &replicaCount_
+	}
+	return &tmp
 }

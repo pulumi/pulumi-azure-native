@@ -2085,6 +2085,17 @@ type IotHubProperties struct {
 }
 
 
+func (val *IotHubProperties) Defaults() *IotHubProperties {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.NetworkRuleSets = tmp.NetworkRuleSets.Defaults()
+
+	return &tmp
+}
+
+
 
 
 
@@ -2414,6 +2425,17 @@ type IotHubPropertiesResponse struct {
 	Routing                       *RoutingPropertiesResponse                       `pulumi:"routing"`
 	State                         string                                           `pulumi:"state"`
 	StorageEndpoints              map[string]StorageEndpointPropertiesResponse     `pulumi:"storageEndpoints"`
+}
+
+
+func (val *IotHubPropertiesResponse) Defaults() *IotHubPropertiesResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.NetworkRuleSets = tmp.NetworkRuleSets.Defaults()
+
+	return &tmp
 }
 
 
@@ -3533,6 +3555,19 @@ type NetworkRuleSetIpRule struct {
 }
 
 
+func (val *NetworkRuleSetIpRule) Defaults() *NetworkRuleSetIpRule {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Action) {
+		action_ := "Allow"
+		tmp.Action = &action_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -3639,6 +3674,19 @@ type NetworkRuleSetIpRuleResponse struct {
 }
 
 
+func (val *NetworkRuleSetIpRuleResponse) Defaults() *NetworkRuleSetIpRuleResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Action) {
+		action_ := "Allow"
+		tmp.Action = &action_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -3742,6 +3790,19 @@ type NetworkRuleSetProperties struct {
 	ApplyToBuiltInEventHubEndpoint bool                   `pulumi:"applyToBuiltInEventHubEndpoint"`
 	DefaultAction                  *string                `pulumi:"defaultAction"`
 	IpRules                        []NetworkRuleSetIpRule `pulumi:"ipRules"`
+}
+
+
+func (val *NetworkRuleSetProperties) Defaults() *NetworkRuleSetProperties {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.DefaultAction) {
+		defaultAction_ := "Deny"
+		tmp.DefaultAction = &defaultAction_
+	}
+	return &tmp
 }
 
 
@@ -3905,6 +3966,19 @@ type NetworkRuleSetPropertiesResponse struct {
 	ApplyToBuiltInEventHubEndpoint bool                           `pulumi:"applyToBuiltInEventHubEndpoint"`
 	DefaultAction                  *string                        `pulumi:"defaultAction"`
 	IpRules                        []NetworkRuleSetIpRuleResponse `pulumi:"ipRules"`
+}
+
+
+func (val *NetworkRuleSetPropertiesResponse) Defaults() *NetworkRuleSetPropertiesResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.DefaultAction) {
+		defaultAction_ := "Deny"
+		tmp.DefaultAction = &defaultAction_
+	}
+	return &tmp
 }
 
 

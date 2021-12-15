@@ -114,7 +114,7 @@ type GetbotInput interface {
 }
 
 func (*Getbot) ElementType() reflect.Type {
-	return reflect.TypeOf((*Getbot)(nil))
+	return reflect.TypeOf((**Getbot)(nil)).Elem()
 }
 
 func (i *Getbot) ToGetbotOutput() GetbotOutput {
@@ -128,7 +128,7 @@ func (i *Getbot) ToGetbotOutputWithContext(ctx context.Context) GetbotOutput {
 type GetbotOutput struct{ *pulumi.OutputState }
 
 func (GetbotOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Getbot)(nil))
+	return reflect.TypeOf((**Getbot)(nil)).Elem()
 }
 
 func (o GetbotOutput) ToGetbotOutput() GetbotOutput {

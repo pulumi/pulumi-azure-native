@@ -91,7 +91,7 @@ export class WebAppFunction extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: WebAppFunctionArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.name === undefined) && !opts.urn) {
@@ -100,40 +100,40 @@ export class WebAppFunction extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["config"] = args ? args.config : undefined;
-            inputs["configHref"] = args ? args.configHref : undefined;
-            inputs["files"] = args ? args.files : undefined;
-            inputs["functionName"] = args ? args.functionName : undefined;
-            inputs["href"] = args ? args.href : undefined;
-            inputs["kind"] = args ? args.kind : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["scriptHref"] = args ? args.scriptHref : undefined;
-            inputs["scriptRootPathHref"] = args ? args.scriptRootPathHref : undefined;
-            inputs["secretsFileHref"] = args ? args.secretsFileHref : undefined;
-            inputs["testData"] = args ? args.testData : undefined;
-            inputs["functionAppId"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["config"] = args ? args.config : undefined;
+            resourceInputs["configHref"] = args ? args.configHref : undefined;
+            resourceInputs["files"] = args ? args.files : undefined;
+            resourceInputs["functionName"] = args ? args.functionName : undefined;
+            resourceInputs["href"] = args ? args.href : undefined;
+            resourceInputs["kind"] = args ? args.kind : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["scriptHref"] = args ? args.scriptHref : undefined;
+            resourceInputs["scriptRootPathHref"] = args ? args.scriptRootPathHref : undefined;
+            resourceInputs["secretsFileHref"] = args ? args.secretsFileHref : undefined;
+            resourceInputs["testData"] = args ? args.testData : undefined;
+            resourceInputs["functionAppId"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["config"] = undefined /*out*/;
-            inputs["configHref"] = undefined /*out*/;
-            inputs["files"] = undefined /*out*/;
-            inputs["functionAppId"] = undefined /*out*/;
-            inputs["href"] = undefined /*out*/;
-            inputs["kind"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["scriptHref"] = undefined /*out*/;
-            inputs["scriptRootPathHref"] = undefined /*out*/;
-            inputs["secretsFileHref"] = undefined /*out*/;
-            inputs["testData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["config"] = undefined /*out*/;
+            resourceInputs["configHref"] = undefined /*out*/;
+            resourceInputs["files"] = undefined /*out*/;
+            resourceInputs["functionAppId"] = undefined /*out*/;
+            resourceInputs["href"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["scriptHref"] = undefined /*out*/;
+            resourceInputs["scriptRootPathHref"] = undefined /*out*/;
+            resourceInputs["secretsFileHref"] = undefined /*out*/;
+            resourceInputs["testData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:web:WebAppFunction" }, { type: "azure-native:web/v20180201:WebAppFunction" }, { type: "azure-native:web/v20181101:WebAppFunction" }, { type: "azure-native:web/v20190801:WebAppFunction" }, { type: "azure-native:web/v20200601:WebAppFunction" }, { type: "azure-native:web/v20200901:WebAppFunction" }, { type: "azure-native:web/v20201001:WebAppFunction" }, { type: "azure-native:web/v20201201:WebAppFunction" }, { type: "azure-native:web/v20210101:WebAppFunction" }, { type: "azure-native:web/v20210115:WebAppFunction" }, { type: "azure-native:web/v20210201:WebAppFunction" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(WebAppFunction.__pulumiType, name, inputs, opts);
+        super(WebAppFunction.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -87,7 +87,7 @@ type UserSettingsInput interface {
 }
 
 func (*UserSettings) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserSettings)(nil))
+	return reflect.TypeOf((**UserSettings)(nil)).Elem()
 }
 
 func (i *UserSettings) ToUserSettingsOutput() UserSettingsOutput {
@@ -101,7 +101,7 @@ func (i *UserSettings) ToUserSettingsOutputWithContext(ctx context.Context) User
 type UserSettingsOutput struct{ *pulumi.OutputState }
 
 func (UserSettingsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserSettings)(nil))
+	return reflect.TypeOf((**UserSettings)(nil)).Elem()
 }
 
 func (o UserSettingsOutput) ToUserSettingsOutput() UserSettingsOutput {

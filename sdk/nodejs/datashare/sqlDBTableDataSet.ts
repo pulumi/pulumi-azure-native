@@ -82,7 +82,7 @@ export class SqlDBTableDataSet extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: SqlDBTableDataSetArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.accountName === undefined) && !opts.urn) {
@@ -109,36 +109,36 @@ export class SqlDBTableDataSet extends pulumi.CustomResource {
             if ((!args || args.tableName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'tableName'");
             }
-            inputs["accountName"] = args ? args.accountName : undefined;
-            inputs["dataSetName"] = args ? args.dataSetName : undefined;
-            inputs["databaseName"] = args ? args.databaseName : undefined;
-            inputs["kind"] = "SqlDBTable";
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["schemaName"] = args ? args.schemaName : undefined;
-            inputs["shareName"] = args ? args.shareName : undefined;
-            inputs["sqlServerResourceId"] = args ? args.sqlServerResourceId : undefined;
-            inputs["tableName"] = args ? args.tableName : undefined;
-            inputs["dataSetId"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["accountName"] = args ? args.accountName : undefined;
+            resourceInputs["dataSetName"] = args ? args.dataSetName : undefined;
+            resourceInputs["databaseName"] = args ? args.databaseName : undefined;
+            resourceInputs["kind"] = "SqlDBTable";
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["schemaName"] = args ? args.schemaName : undefined;
+            resourceInputs["shareName"] = args ? args.shareName : undefined;
+            resourceInputs["sqlServerResourceId"] = args ? args.sqlServerResourceId : undefined;
+            resourceInputs["tableName"] = args ? args.tableName : undefined;
+            resourceInputs["dataSetId"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["dataSetId"] = undefined /*out*/;
-            inputs["databaseName"] = undefined /*out*/;
-            inputs["kind"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["schemaName"] = undefined /*out*/;
-            inputs["sqlServerResourceId"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["tableName"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["dataSetId"] = undefined /*out*/;
+            resourceInputs["databaseName"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["schemaName"] = undefined /*out*/;
+            resourceInputs["sqlServerResourceId"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["tableName"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:datashare/v20181101preview:SqlDBTableDataSet" }, { type: "azure-native:datashare/v20191101:SqlDBTableDataSet" }, { type: "azure-native:datashare/v20200901:SqlDBTableDataSet" }, { type: "azure-native:datashare/v20201001preview:SqlDBTableDataSet" }, { type: "azure-native:datashare/v20210801:SqlDBTableDataSet" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(SqlDBTableDataSet.__pulumiType, name, inputs, opts);
+        super(SqlDBTableDataSet.__pulumiType, name, resourceInputs, opts);
     }
 }
 

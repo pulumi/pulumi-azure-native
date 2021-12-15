@@ -72,7 +72,7 @@ export class MachineLearningDataset extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: MachineLearningDatasetArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.datasetType === undefined) && !opts.urn) {
@@ -90,36 +90,36 @@ export class MachineLearningDataset extends pulumi.CustomResource {
             if ((!args || args.workspaceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            inputs["datasetName"] = args ? args.datasetName : undefined;
-            inputs["datasetType"] = args ? args.datasetType : undefined;
-            inputs["parameters"] = args ? args.parameters : undefined;
-            inputs["registration"] = args ? args.registration : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["skipValidation"] = (args ? args.skipValidation : undefined) ?? false;
-            inputs["timeSeries"] = args ? args.timeSeries : undefined;
-            inputs["workspaceName"] = args ? args.workspaceName : undefined;
-            inputs["identity"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
-            inputs["sku"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["datasetName"] = args ? args.datasetName : undefined;
+            resourceInputs["datasetType"] = args ? args.datasetType : undefined;
+            resourceInputs["parameters"] = args ? (args.parameters ? pulumi.output(args.parameters).apply(inputs.machinelearningservices.v20200501preview.datasetCreateRequestParametersArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["registration"] = args ? args.registration : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["skipValidation"] = (args ? args.skipValidation : undefined) ?? false;
+            resourceInputs["timeSeries"] = args ? args.timeSeries : undefined;
+            resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["identity"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
+            resourceInputs["sku"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["identity"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
-            inputs["sku"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["identity"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
+            resourceInputs["sku"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices:MachineLearningDataset" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(MachineLearningDataset.__pulumiType, name, inputs, opts);
+        super(MachineLearningDataset.__pulumiType, name, resourceInputs, opts);
     }
 }
 

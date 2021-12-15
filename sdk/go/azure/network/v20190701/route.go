@@ -226,7 +226,7 @@ type RouteInput interface {
 }
 
 func (*Route) ElementType() reflect.Type {
-	return reflect.TypeOf((*Route)(nil))
+	return reflect.TypeOf((**Route)(nil)).Elem()
 }
 
 func (i *Route) ToRouteOutput() RouteOutput {
@@ -240,7 +240,7 @@ func (i *Route) ToRouteOutputWithContext(ctx context.Context) RouteOutput {
 type RouteOutput struct{ *pulumi.OutputState }
 
 func (RouteOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Route)(nil))
+	return reflect.TypeOf((**Route)(nil)).Elem()
 }
 
 func (o RouteOutput) ToRouteOutput() RouteOutput {

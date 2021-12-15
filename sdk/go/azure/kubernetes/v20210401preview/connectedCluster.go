@@ -52,7 +52,9 @@ func NewConnectedCluster(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.PrivateLinkState == nil {
+	identityApplier := func(v ConnectedClusterIdentity) *ConnectedClusterIdentity { return v.Defaults() }
+	args.Identity = args.Identity.ToConnectedClusterIdentityOutput().ApplyT(identityApplier).(ConnectedClusterIdentityPtrOutput).Elem()
+	if isZero(args.PrivateLinkState) {
 		args.PrivateLinkState = pulumi.StringPtr("Disabled")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
@@ -142,7 +144,7 @@ type ConnectedClusterInput interface {
 }
 
 func (*ConnectedCluster) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectedCluster)(nil))
+	return reflect.TypeOf((**ConnectedCluster)(nil)).Elem()
 }
 
 func (i *ConnectedCluster) ToConnectedClusterOutput() ConnectedClusterOutput {
@@ -156,7 +158,7 @@ func (i *ConnectedCluster) ToConnectedClusterOutputWithContext(ctx context.Conte
 type ConnectedClusterOutput struct{ *pulumi.OutputState }
 
 func (ConnectedClusterOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectedCluster)(nil))
+	return reflect.TypeOf((**ConnectedCluster)(nil)).Elem()
 }
 
 func (o ConnectedClusterOutput) ToConnectedClusterOutput() ConnectedClusterOutput {

@@ -93,7 +93,7 @@ export class ADLSGen2StorageAccountDataSetMapping extends pulumi.CustomResource 
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ADLSGen2StorageAccountDataSetMappingArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.accountName === undefined) && !opts.urn) {
@@ -120,42 +120,42 @@ export class ADLSGen2StorageAccountDataSetMapping extends pulumi.CustomResource 
             if ((!args || args.storageAccountResourceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'storageAccountResourceId'");
             }
-            inputs["accountName"] = args ? args.accountName : undefined;
-            inputs["containerName"] = args ? args.containerName : undefined;
-            inputs["dataSetId"] = args ? args.dataSetId : undefined;
-            inputs["dataSetMappingName"] = args ? args.dataSetMappingName : undefined;
-            inputs["folder"] = args ? args.folder : undefined;
-            inputs["kind"] = "AdlsGen2StorageAccount";
-            inputs["mountPath"] = args ? args.mountPath : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["shareSubscriptionName"] = args ? args.shareSubscriptionName : undefined;
-            inputs["storageAccountResourceId"] = args ? args.storageAccountResourceId : undefined;
-            inputs["dataSetMappingStatus"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["accountName"] = args ? args.accountName : undefined;
+            resourceInputs["containerName"] = args ? args.containerName : undefined;
+            resourceInputs["dataSetId"] = args ? args.dataSetId : undefined;
+            resourceInputs["dataSetMappingName"] = args ? args.dataSetMappingName : undefined;
+            resourceInputs["folder"] = args ? args.folder : undefined;
+            resourceInputs["kind"] = "AdlsGen2StorageAccount";
+            resourceInputs["mountPath"] = args ? args.mountPath : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["shareSubscriptionName"] = args ? args.shareSubscriptionName : undefined;
+            resourceInputs["storageAccountResourceId"] = args ? args.storageAccountResourceId : undefined;
+            resourceInputs["dataSetMappingStatus"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["containerName"] = undefined /*out*/;
-            inputs["dataSetId"] = undefined /*out*/;
-            inputs["dataSetMappingStatus"] = undefined /*out*/;
-            inputs["folder"] = undefined /*out*/;
-            inputs["kind"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["mountPath"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["storageAccountResourceId"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["containerName"] = undefined /*out*/;
+            resourceInputs["dataSetId"] = undefined /*out*/;
+            resourceInputs["dataSetMappingStatus"] = undefined /*out*/;
+            resourceInputs["folder"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["mountPath"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["storageAccountResourceId"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:datashare:ADLSGen2StorageAccountDataSetMapping" }, { type: "azure-native:datashare/v20181101preview:ADLSGen2StorageAccountDataSetMapping" }, { type: "azure-native:datashare/v20191101:ADLSGen2StorageAccountDataSetMapping" }, { type: "azure-native:datashare/v20200901:ADLSGen2StorageAccountDataSetMapping" }, { type: "azure-native:datashare/v20210801:ADLSGen2StorageAccountDataSetMapping" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(ADLSGen2StorageAccountDataSetMapping.__pulumiType, name, inputs, opts);
+        super(ADLSGen2StorageAccountDataSetMapping.__pulumiType, name, resourceInputs, opts);
     }
 }
 

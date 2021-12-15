@@ -117,59 +117,59 @@ export class VpnServerConfiguration extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: VpnServerConfigurationArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["aadAuthenticationParameters"] = args ? args.aadAuthenticationParameters : undefined;
-            inputs["id"] = args ? args.id : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["radiusClientRootCertificates"] = args ? args.radiusClientRootCertificates : undefined;
-            inputs["radiusServerAddress"] = args ? args.radiusServerAddress : undefined;
-            inputs["radiusServerRootCertificates"] = args ? args.radiusServerRootCertificates : undefined;
-            inputs["radiusServerSecret"] = args ? args.radiusServerSecret : undefined;
-            inputs["radiusServers"] = args ? args.radiusServers : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["vpnAuthenticationTypes"] = args ? args.vpnAuthenticationTypes : undefined;
-            inputs["vpnClientIpsecPolicies"] = args ? args.vpnClientIpsecPolicies : undefined;
-            inputs["vpnClientRevokedCertificates"] = args ? args.vpnClientRevokedCertificates : undefined;
-            inputs["vpnClientRootCertificates"] = args ? args.vpnClientRootCertificates : undefined;
-            inputs["vpnProtocols"] = args ? args.vpnProtocols : undefined;
-            inputs["vpnServerConfigurationName"] = args ? args.vpnServerConfigurationName : undefined;
-            inputs["etag"] = undefined /*out*/;
-            inputs["p2SVpnGateways"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["aadAuthenticationParameters"] = args ? args.aadAuthenticationParameters : undefined;
+            resourceInputs["id"] = args ? args.id : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["radiusClientRootCertificates"] = args ? args.radiusClientRootCertificates : undefined;
+            resourceInputs["radiusServerAddress"] = args ? args.radiusServerAddress : undefined;
+            resourceInputs["radiusServerRootCertificates"] = args ? args.radiusServerRootCertificates : undefined;
+            resourceInputs["radiusServerSecret"] = args ? args.radiusServerSecret : undefined;
+            resourceInputs["radiusServers"] = args ? args.radiusServers : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["vpnAuthenticationTypes"] = args ? args.vpnAuthenticationTypes : undefined;
+            resourceInputs["vpnClientIpsecPolicies"] = args ? args.vpnClientIpsecPolicies : undefined;
+            resourceInputs["vpnClientRevokedCertificates"] = args ? args.vpnClientRevokedCertificates : undefined;
+            resourceInputs["vpnClientRootCertificates"] = args ? args.vpnClientRootCertificates : undefined;
+            resourceInputs["vpnProtocols"] = args ? args.vpnProtocols : undefined;
+            resourceInputs["vpnServerConfigurationName"] = args ? args.vpnServerConfigurationName : undefined;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["p2SVpnGateways"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["aadAuthenticationParameters"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["p2SVpnGateways"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["radiusClientRootCertificates"] = undefined /*out*/;
-            inputs["radiusServerAddress"] = undefined /*out*/;
-            inputs["radiusServerRootCertificates"] = undefined /*out*/;
-            inputs["radiusServerSecret"] = undefined /*out*/;
-            inputs["radiusServers"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["vpnAuthenticationTypes"] = undefined /*out*/;
-            inputs["vpnClientIpsecPolicies"] = undefined /*out*/;
-            inputs["vpnClientRevokedCertificates"] = undefined /*out*/;
-            inputs["vpnClientRootCertificates"] = undefined /*out*/;
-            inputs["vpnProtocols"] = undefined /*out*/;
+            resourceInputs["aadAuthenticationParameters"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["p2SVpnGateways"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["radiusClientRootCertificates"] = undefined /*out*/;
+            resourceInputs["radiusServerAddress"] = undefined /*out*/;
+            resourceInputs["radiusServerRootCertificates"] = undefined /*out*/;
+            resourceInputs["radiusServerSecret"] = undefined /*out*/;
+            resourceInputs["radiusServers"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["vpnAuthenticationTypes"] = undefined /*out*/;
+            resourceInputs["vpnClientIpsecPolicies"] = undefined /*out*/;
+            resourceInputs["vpnClientRevokedCertificates"] = undefined /*out*/;
+            resourceInputs["vpnClientRootCertificates"] = undefined /*out*/;
+            resourceInputs["vpnProtocols"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:network/v20190801:VpnServerConfiguration" }, { type: "azure-native:network/v20190901:VpnServerConfiguration" }, { type: "azure-native:network/v20191101:VpnServerConfiguration" }, { type: "azure-native:network/v20191201:VpnServerConfiguration" }, { type: "azure-native:network/v20200301:VpnServerConfiguration" }, { type: "azure-native:network/v20200401:VpnServerConfiguration" }, { type: "azure-native:network/v20200501:VpnServerConfiguration" }, { type: "azure-native:network/v20200601:VpnServerConfiguration" }, { type: "azure-native:network/v20200701:VpnServerConfiguration" }, { type: "azure-native:network/v20200801:VpnServerConfiguration" }, { type: "azure-native:network/v20201101:VpnServerConfiguration" }, { type: "azure-native:network/v20210201:VpnServerConfiguration" }, { type: "azure-native:network/v20210301:VpnServerConfiguration" }, { type: "azure-native:network/v20210501:VpnServerConfiguration" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(VpnServerConfiguration.__pulumiType, name, inputs, opts);
+        super(VpnServerConfiguration.__pulumiType, name, resourceInputs, opts);
     }
 }
 

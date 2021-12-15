@@ -114,7 +114,7 @@ type CapacityDetailsInput interface {
 }
 
 func (*CapacityDetails) ElementType() reflect.Type {
-	return reflect.TypeOf((*CapacityDetails)(nil))
+	return reflect.TypeOf((**CapacityDetails)(nil)).Elem()
 }
 
 func (i *CapacityDetails) ToCapacityDetailsOutput() CapacityDetailsOutput {
@@ -128,7 +128,7 @@ func (i *CapacityDetails) ToCapacityDetailsOutputWithContext(ctx context.Context
 type CapacityDetailsOutput struct{ *pulumi.OutputState }
 
 func (CapacityDetailsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CapacityDetails)(nil))
+	return reflect.TypeOf((**CapacityDetails)(nil)).Elem()
 }
 
 func (o CapacityDetailsOutput) ToCapacityDetailsOutput() CapacityDetailsOutput {

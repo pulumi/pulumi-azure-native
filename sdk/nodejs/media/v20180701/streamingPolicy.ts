@@ -76,7 +76,7 @@ export class StreamingPolicy extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: StreamingPolicyArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.accountName === undefined) && !opts.urn) {
@@ -85,33 +85,33 @@ export class StreamingPolicy extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["accountName"] = args ? args.accountName : undefined;
-            inputs["commonEncryptionCbcs"] = args ? args.commonEncryptionCbcs : undefined;
-            inputs["commonEncryptionCenc"] = args ? args.commonEncryptionCenc : undefined;
-            inputs["defaultContentKeyPolicyName"] = args ? args.defaultContentKeyPolicyName : undefined;
-            inputs["envelopeEncryption"] = args ? args.envelopeEncryption : undefined;
-            inputs["noEncryption"] = args ? args.noEncryption : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["streamingPolicyName"] = args ? args.streamingPolicyName : undefined;
-            inputs["created"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["accountName"] = args ? args.accountName : undefined;
+            resourceInputs["commonEncryptionCbcs"] = args ? args.commonEncryptionCbcs : undefined;
+            resourceInputs["commonEncryptionCenc"] = args ? args.commonEncryptionCenc : undefined;
+            resourceInputs["defaultContentKeyPolicyName"] = args ? args.defaultContentKeyPolicyName : undefined;
+            resourceInputs["envelopeEncryption"] = args ? args.envelopeEncryption : undefined;
+            resourceInputs["noEncryption"] = args ? args.noEncryption : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["streamingPolicyName"] = args ? args.streamingPolicyName : undefined;
+            resourceInputs["created"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["commonEncryptionCbcs"] = undefined /*out*/;
-            inputs["commonEncryptionCenc"] = undefined /*out*/;
-            inputs["created"] = undefined /*out*/;
-            inputs["defaultContentKeyPolicyName"] = undefined /*out*/;
-            inputs["envelopeEncryption"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["noEncryption"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["commonEncryptionCbcs"] = undefined /*out*/;
+            resourceInputs["commonEncryptionCenc"] = undefined /*out*/;
+            resourceInputs["created"] = undefined /*out*/;
+            resourceInputs["defaultContentKeyPolicyName"] = undefined /*out*/;
+            resourceInputs["envelopeEncryption"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["noEncryption"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:media:StreamingPolicy" }, { type: "azure-native:media/v20180330preview:StreamingPolicy" }, { type: "azure-native:media/v20180601preview:StreamingPolicy" }, { type: "azure-native:media/v20200501:StreamingPolicy" }, { type: "azure-native:media/v20210601:StreamingPolicy" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(StreamingPolicy.__pulumiType, name, inputs, opts);
+        super(StreamingPolicy.__pulumiType, name, resourceInputs, opts);
     }
 }
 

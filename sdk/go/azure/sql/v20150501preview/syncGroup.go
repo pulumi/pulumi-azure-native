@@ -135,7 +135,7 @@ type SyncGroupInput interface {
 }
 
 func (*SyncGroup) ElementType() reflect.Type {
-	return reflect.TypeOf((*SyncGroup)(nil))
+	return reflect.TypeOf((**SyncGroup)(nil)).Elem()
 }
 
 func (i *SyncGroup) ToSyncGroupOutput() SyncGroupOutput {
@@ -149,7 +149,7 @@ func (i *SyncGroup) ToSyncGroupOutputWithContext(ctx context.Context) SyncGroupO
 type SyncGroupOutput struct{ *pulumi.OutputState }
 
 func (SyncGroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SyncGroup)(nil))
+	return reflect.TypeOf((**SyncGroup)(nil)).Elem()
 }
 
 func (o SyncGroupOutput) ToSyncGroupOutput() SyncGroupOutput {

@@ -59,7 +59,7 @@ export class NotebookWorkspace extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: NotebookWorkspaceArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.accountName === undefined) && !opts.urn) {
@@ -68,25 +68,25 @@ export class NotebookWorkspace extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["accountName"] = args ? args.accountName : undefined;
-            inputs["notebookWorkspaceName"] = args ? args.notebookWorkspaceName : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["notebookServerEndpoint"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["accountName"] = args ? args.accountName : undefined;
+            resourceInputs["notebookWorkspaceName"] = args ? args.notebookWorkspaceName : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["notebookServerEndpoint"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["name"] = undefined /*out*/;
-            inputs["notebookServerEndpoint"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["notebookServerEndpoint"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:documentdb:NotebookWorkspace" }, { type: "azure-native:documentdb/v20190801:NotebookWorkspace" }, { type: "azure-native:documentdb/v20200301:NotebookWorkspace" }, { type: "azure-native:documentdb/v20200401:NotebookWorkspace" }, { type: "azure-native:documentdb/v20200601preview:NotebookWorkspace" }, { type: "azure-native:documentdb/v20200901:NotebookWorkspace" }, { type: "azure-native:documentdb/v20210115:NotebookWorkspace" }, { type: "azure-native:documentdb/v20210301preview:NotebookWorkspace" }, { type: "azure-native:documentdb/v20210315:NotebookWorkspace" }, { type: "azure-native:documentdb/v20210401preview:NotebookWorkspace" }, { type: "azure-native:documentdb/v20210415:NotebookWorkspace" }, { type: "azure-native:documentdb/v20210515:NotebookWorkspace" }, { type: "azure-native:documentdb/v20210615:NotebookWorkspace" }, { type: "azure-native:documentdb/v20210701preview:NotebookWorkspace" }, { type: "azure-native:documentdb/v20211015:NotebookWorkspace" }, { type: "azure-native:documentdb/v20211015preview:NotebookWorkspace" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(NotebookWorkspace.__pulumiType, name, inputs, opts);
+        super(NotebookWorkspace.__pulumiType, name, resourceInputs, opts);
     }
 }
 

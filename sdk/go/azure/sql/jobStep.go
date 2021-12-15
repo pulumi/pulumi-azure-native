@@ -52,6 +52,16 @@ func NewJobStep(ctx *pulumi.Context,
 	if args.TargetGroup == nil {
 		return nil, errors.New("invalid value for required argument 'TargetGroup'")
 	}
+	actionApplier := func(v JobStepAction) *JobStepAction { return v.Defaults() }
+	args.Action = args.Action.ToJobStepActionOutput().ApplyT(actionApplier).(JobStepActionPtrOutput).Elem()
+	executionOptionsApplier := func(v JobStepExecutionOptions) *JobStepExecutionOptions { return v.Defaults() }
+	if args.ExecutionOptions != nil {
+		args.ExecutionOptions = args.ExecutionOptions.ToJobStepExecutionOptionsPtrOutput().Elem().ApplyT(executionOptionsApplier).(JobStepExecutionOptionsPtrOutput)
+	}
+	outputApplier := func(v JobStepOutputType) *JobStepOutputType { return v.Defaults() }
+	if args.Output != nil {
+		args.Output = args.Output.ToJobStepOutputTypePtrOutput().Elem().ApplyT(outputApplier).(JobStepOutputTypePtrOutput)
+	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-native:sql/v20170301preview:JobStep"),
@@ -145,7 +155,7 @@ type JobStepInput interface {
 }
 
 func (*JobStep) ElementType() reflect.Type {
-	return reflect.TypeOf((*JobStep)(nil))
+	return reflect.TypeOf((**JobStep)(nil)).Elem()
 }
 
 func (i *JobStep) ToJobStepOutput() JobStepOutput {
@@ -159,7 +169,7 @@ func (i *JobStep) ToJobStepOutputWithContext(ctx context.Context) JobStepOutput 
 type JobStepOutput struct{ *pulumi.OutputState }
 
 func (JobStepOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*JobStep)(nil))
+	return reflect.TypeOf((**JobStep)(nil)).Elem()
 }
 
 func (o JobStepOutput) ToJobStepOutput() JobStepOutput {

@@ -102,7 +102,7 @@ type PrivateEndpointConnectionsForEDMInput interface {
 }
 
 func (*PrivateEndpointConnectionsForEDM) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateEndpointConnectionsForEDM)(nil))
+	return reflect.TypeOf((**PrivateEndpointConnectionsForEDM)(nil)).Elem()
 }
 
 func (i *PrivateEndpointConnectionsForEDM) ToPrivateEndpointConnectionsForEDMOutput() PrivateEndpointConnectionsForEDMOutput {
@@ -116,7 +116,7 @@ func (i *PrivateEndpointConnectionsForEDM) ToPrivateEndpointConnectionsForEDMOut
 type PrivateEndpointConnectionsForEDMOutput struct{ *pulumi.OutputState }
 
 func (PrivateEndpointConnectionsForEDMOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateEndpointConnectionsForEDM)(nil))
+	return reflect.TypeOf((**PrivateEndpointConnectionsForEDM)(nil)).Elem()
 }
 
 func (o PrivateEndpointConnectionsForEDMOutput) ToPrivateEndpointConnectionsForEDMOutput() PrivateEndpointConnectionsForEDMOutput {

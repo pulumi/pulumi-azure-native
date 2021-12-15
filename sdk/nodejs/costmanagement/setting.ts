@@ -69,33 +69,33 @@ export class Setting extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: SettingArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.scope === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'scope'");
             }
-            inputs["cache"] = args ? args.cache : undefined;
-            inputs["scope"] = args ? args.scope : undefined;
-            inputs["settingName"] = args ? args.settingName : undefined;
-            inputs["startOn"] = args ? args.startOn : undefined;
-            inputs["kind"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["cache"] = args ? args.cache : undefined;
+            resourceInputs["scope"] = args ? args.scope : undefined;
+            resourceInputs["settingName"] = args ? args.settingName : undefined;
+            resourceInputs["startOn"] = args ? args.startOn : undefined;
+            resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["cache"] = undefined /*out*/;
-            inputs["kind"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["scope"] = undefined /*out*/;
-            inputs["startOn"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["cache"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["scope"] = undefined /*out*/;
+            resourceInputs["startOn"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:costmanagement/v20191101:Setting" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Setting.__pulumiType, name, inputs, opts);
+        super(Setting.__pulumiType, name, resourceInputs, opts);
     }
 }
 

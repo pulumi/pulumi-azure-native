@@ -89,7 +89,7 @@ export class ReadOnlyFollowingDatabase extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ReadOnlyFollowingDatabaseArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.clusterName === undefined) && !opts.urn) {
@@ -101,39 +101,39 @@ export class ReadOnlyFollowingDatabase extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["clusterName"] = args ? args.clusterName : undefined;
-            inputs["databaseName"] = args ? args.databaseName : undefined;
-            inputs["hotCachePeriod"] = args ? args.hotCachePeriod : undefined;
-            inputs["kind"] = "ReadOnlyFollowing";
-            inputs["location"] = args ? args.location : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["attachedDatabaseConfigurationName"] = undefined /*out*/;
-            inputs["leaderClusterResourceId"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["principalsModificationKind"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["softDeletePeriod"] = undefined /*out*/;
-            inputs["statistics"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["clusterName"] = args ? args.clusterName : undefined;
+            resourceInputs["databaseName"] = args ? args.databaseName : undefined;
+            resourceInputs["hotCachePeriod"] = args ? args.hotCachePeriod : undefined;
+            resourceInputs["kind"] = "ReadOnlyFollowing";
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["attachedDatabaseConfigurationName"] = undefined /*out*/;
+            resourceInputs["leaderClusterResourceId"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["principalsModificationKind"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["softDeletePeriod"] = undefined /*out*/;
+            resourceInputs["statistics"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["attachedDatabaseConfigurationName"] = undefined /*out*/;
-            inputs["hotCachePeriod"] = undefined /*out*/;
-            inputs["kind"] = undefined /*out*/;
-            inputs["leaderClusterResourceId"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["principalsModificationKind"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["softDeletePeriod"] = undefined /*out*/;
-            inputs["statistics"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["attachedDatabaseConfigurationName"] = undefined /*out*/;
+            resourceInputs["hotCachePeriod"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["leaderClusterResourceId"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["principalsModificationKind"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["softDeletePeriod"] = undefined /*out*/;
+            resourceInputs["statistics"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:kusto:ReadOnlyFollowingDatabase" }, { type: "azure-native:kusto/v20170907privatepreview:ReadOnlyFollowingDatabase" }, { type: "azure-native:kusto/v20180907preview:ReadOnlyFollowingDatabase" }, { type: "azure-native:kusto/v20190121:ReadOnlyFollowingDatabase" }, { type: "azure-native:kusto/v20190515:ReadOnlyFollowingDatabase" }, { type: "azure-native:kusto/v20190907:ReadOnlyFollowingDatabase" }, { type: "azure-native:kusto/v20191109:ReadOnlyFollowingDatabase" }, { type: "azure-native:kusto/v20200215:ReadOnlyFollowingDatabase" }, { type: "azure-native:kusto/v20200918:ReadOnlyFollowingDatabase" }, { type: "azure-native:kusto/v20210101:ReadOnlyFollowingDatabase" }, { type: "azure-native:kusto/v20210827:ReadOnlyFollowingDatabase" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(ReadOnlyFollowingDatabase.__pulumiType, name, inputs, opts);
+        super(ReadOnlyFollowingDatabase.__pulumiType, name, resourceInputs, opts);
     }
 }
 

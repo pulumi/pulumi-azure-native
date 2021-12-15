@@ -13,7 +13,7 @@ func LookupPostgresInstance(ctx *pulumi.Context, args *LookupPostgresInstanceArg
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupPostgresInstanceArgs struct {
@@ -32,4 +32,15 @@ type LookupPostgresInstanceResult struct {
 	SystemData       SystemDataResponse                 `pulumi:"systemData"`
 	Tags             map[string]string                  `pulumi:"tags"`
 	Type             string                             `pulumi:"type"`
+}
+
+
+func (val *LookupPostgresInstanceResult) Defaults() *LookupPostgresInstanceResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Sku = tmp.Sku.Defaults()
+
+	return &tmp
 }

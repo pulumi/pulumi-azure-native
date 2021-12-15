@@ -134,7 +134,7 @@ type ApiReleaseInput interface {
 }
 
 func (*ApiRelease) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApiRelease)(nil))
+	return reflect.TypeOf((**ApiRelease)(nil)).Elem()
 }
 
 func (i *ApiRelease) ToApiReleaseOutput() ApiReleaseOutput {
@@ -148,7 +148,7 @@ func (i *ApiRelease) ToApiReleaseOutputWithContext(ctx context.Context) ApiRelea
 type ApiReleaseOutput struct{ *pulumi.OutputState }
 
 func (ApiReleaseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApiRelease)(nil))
+	return reflect.TypeOf((**ApiRelease)(nil)).Elem()
 }
 
 func (o ApiReleaseOutput) ToApiReleaseOutput() ApiReleaseOutput {

@@ -68,7 +68,7 @@ export class Certificate extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: CertificateArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
@@ -77,31 +77,31 @@ export class Certificate extends pulumi.CustomResource {
             if ((!args || args.serviceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceName'");
             }
-            inputs["certificateId"] = args ? args.certificateId : undefined;
-            inputs["data"] = args ? args.data : undefined;
-            inputs["keyVault"] = args ? args.keyVault : undefined;
-            inputs["password"] = args ? args.password : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["serviceName"] = args ? args.serviceName : undefined;
-            inputs["expirationDate"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["subject"] = undefined /*out*/;
-            inputs["thumbprint"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["certificateId"] = args ? args.certificateId : undefined;
+            resourceInputs["data"] = args ? args.data : undefined;
+            resourceInputs["keyVault"] = args ? args.keyVault : undefined;
+            resourceInputs["password"] = args ? args.password : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["serviceName"] = args ? args.serviceName : undefined;
+            resourceInputs["expirationDate"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["subject"] = undefined /*out*/;
+            resourceInputs["thumbprint"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["expirationDate"] = undefined /*out*/;
-            inputs["keyVault"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["subject"] = undefined /*out*/;
-            inputs["thumbprint"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["expirationDate"] = undefined /*out*/;
+            resourceInputs["keyVault"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["subject"] = undefined /*out*/;
+            resourceInputs["thumbprint"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:Certificate" }, { type: "azure-native:apimanagement/v20160707:Certificate" }, { type: "azure-native:apimanagement/v20161010:Certificate" }, { type: "azure-native:apimanagement/v20170301:Certificate" }, { type: "azure-native:apimanagement/v20180101:Certificate" }, { type: "azure-native:apimanagement/v20180601preview:Certificate" }, { type: "azure-native:apimanagement/v20190101:Certificate" }, { type: "azure-native:apimanagement/v20191201:Certificate" }, { type: "azure-native:apimanagement/v20191201preview:Certificate" }, { type: "azure-native:apimanagement/v20201201:Certificate" }, { type: "azure-native:apimanagement/v20210101preview:Certificate" }, { type: "azure-native:apimanagement/v20210401preview:Certificate" }, { type: "azure-native:apimanagement/v20210801:Certificate" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Certificate.__pulumiType, name, inputs, opts);
+        super(Certificate.__pulumiType, name, resourceInputs, opts);
     }
 }
 

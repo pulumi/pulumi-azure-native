@@ -102,7 +102,7 @@ type AccessControlRecordInput interface {
 }
 
 func (*AccessControlRecord) ElementType() reflect.Type {
-	return reflect.TypeOf((*AccessControlRecord)(nil))
+	return reflect.TypeOf((**AccessControlRecord)(nil)).Elem()
 }
 
 func (i *AccessControlRecord) ToAccessControlRecordOutput() AccessControlRecordOutput {
@@ -116,7 +116,7 @@ func (i *AccessControlRecord) ToAccessControlRecordOutputWithContext(ctx context
 type AccessControlRecordOutput struct{ *pulumi.OutputState }
 
 func (AccessControlRecordOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AccessControlRecord)(nil))
+	return reflect.TypeOf((**AccessControlRecord)(nil)).Elem()
 }
 
 func (o AccessControlRecordOutput) ToAccessControlRecordOutput() AccessControlRecordOutput {

@@ -111,7 +111,7 @@ type IntegrationAccountAssemblyInput interface {
 }
 
 func (*IntegrationAccountAssembly) ElementType() reflect.Type {
-	return reflect.TypeOf((*IntegrationAccountAssembly)(nil))
+	return reflect.TypeOf((**IntegrationAccountAssembly)(nil)).Elem()
 }
 
 func (i *IntegrationAccountAssembly) ToIntegrationAccountAssemblyOutput() IntegrationAccountAssemblyOutput {
@@ -125,7 +125,7 @@ func (i *IntegrationAccountAssembly) ToIntegrationAccountAssemblyOutputWithConte
 type IntegrationAccountAssemblyOutput struct{ *pulumi.OutputState }
 
 func (IntegrationAccountAssemblyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IntegrationAccountAssembly)(nil))
+	return reflect.TypeOf((**IntegrationAccountAssembly)(nil)).Elem()
 }
 
 func (o IntegrationAccountAssemblyOutput) ToIntegrationAccountAssemblyOutput() IntegrationAccountAssemblyOutput {

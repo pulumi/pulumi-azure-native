@@ -89,7 +89,7 @@ type DeviceGroupInput interface {
 }
 
 func (*DeviceGroup) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeviceGroup)(nil))
+	return reflect.TypeOf((**DeviceGroup)(nil)).Elem()
 }
 
 func (i *DeviceGroup) ToDeviceGroupOutput() DeviceGroupOutput {
@@ -103,7 +103,7 @@ func (i *DeviceGroup) ToDeviceGroupOutputWithContext(ctx context.Context) Device
 type DeviceGroupOutput struct{ *pulumi.OutputState }
 
 func (DeviceGroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeviceGroup)(nil))
+	return reflect.TypeOf((**DeviceGroup)(nil)).Elem()
 }
 
 func (o DeviceGroupOutput) ToDeviceGroupOutput() DeviceGroupOutput {

@@ -39,10 +39,10 @@ func NewMachineLearningDatastore(ctx *pulumi.Context,
 	if args.WorkspaceName == nil {
 		return nil, errors.New("invalid value for required argument 'WorkspaceName'")
 	}
-	if args.EnforceSSL == nil {
+	if isZero(args.EnforceSSL) {
 		args.EnforceSSL = pulumi.BoolPtr(true)
 	}
-	if args.IncludeSecret == nil {
+	if isZero(args.IncludeSecret) {
 		args.IncludeSecret = pulumi.BoolPtr(true)
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
@@ -172,7 +172,7 @@ type MachineLearningDatastoreInput interface {
 }
 
 func (*MachineLearningDatastore) ElementType() reflect.Type {
-	return reflect.TypeOf((*MachineLearningDatastore)(nil))
+	return reflect.TypeOf((**MachineLearningDatastore)(nil)).Elem()
 }
 
 func (i *MachineLearningDatastore) ToMachineLearningDatastoreOutput() MachineLearningDatastoreOutput {
@@ -186,7 +186,7 @@ func (i *MachineLearningDatastore) ToMachineLearningDatastoreOutputWithContext(c
 type MachineLearningDatastoreOutput struct{ *pulumi.OutputState }
 
 func (MachineLearningDatastoreOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MachineLearningDatastore)(nil))
+	return reflect.TypeOf((**MachineLearningDatastore)(nil)).Elem()
 }
 
 func (o MachineLearningDatastoreOutput) ToMachineLearningDatastoreOutput() MachineLearningDatastoreOutput {

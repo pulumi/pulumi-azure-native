@@ -1159,6 +1159,19 @@ type ExportPolicy struct {
 }
 
 
+func (val *ExportPolicy) Defaults() *ExportPolicy {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Status) {
+		status_ := "enabled"
+		tmp.Status = &status_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -1289,6 +1302,19 @@ func (o ExportPolicyPtrOutput) Status() pulumi.StringPtrOutput {
 
 type ExportPolicyResponse struct {
 	Status *string `pulumi:"status"`
+}
+
+
+func (val *ExportPolicyResponse) Defaults() *ExportPolicyResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Status) {
+		status_ := "enabled"
+		tmp.Status = &status_
+	}
+	return &tmp
 }
 
 
@@ -1426,6 +1452,19 @@ type IPRule struct {
 }
 
 
+func (val *IPRule) Defaults() *IPRule {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Action) {
+		action_ := "Allow"
+		tmp.Action = &action_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -1523,6 +1562,19 @@ func (o IPRuleArrayOutput) Index(i pulumi.IntInput) IPRuleOutput {
 type IPRuleResponse struct {
 	Action           *string `pulumi:"action"`
 	IPAddressOrRange string  `pulumi:"iPAddressOrRange"`
+}
+
+
+func (val *IPRuleResponse) Defaults() *IPRuleResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Action) {
+		action_ := "Allow"
+		tmp.Action = &action_
+	}
+	return &tmp
 }
 
 
@@ -2325,6 +2377,18 @@ type NetworkRuleSet struct {
 }
 
 
+func (val *NetworkRuleSet) Defaults() *NetworkRuleSet {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.DefaultAction) {
+		tmp.DefaultAction = "Allow"
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -2470,6 +2534,18 @@ func (o NetworkRuleSetPtrOutput) IpRules() IPRuleArrayOutput {
 type NetworkRuleSetResponse struct {
 	DefaultAction string           `pulumi:"defaultAction"`
 	IpRules       []IPRuleResponse `pulumi:"ipRules"`
+}
+
+
+func (val *NetworkRuleSetResponse) Defaults() *NetworkRuleSetResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.DefaultAction) {
+		tmp.DefaultAction = "Allow"
+	}
+	return &tmp
 }
 
 
@@ -2620,6 +2696,23 @@ type Policies struct {
 	QuarantinePolicy *QuarantinePolicy `pulumi:"quarantinePolicy"`
 	RetentionPolicy  *RetentionPolicy  `pulumi:"retentionPolicy"`
 	TrustPolicy      *TrustPolicy      `pulumi:"trustPolicy"`
+}
+
+
+func (val *Policies) Defaults() *Policies {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.ExportPolicy = tmp.ExportPolicy.Defaults()
+
+	tmp.QuarantinePolicy = tmp.QuarantinePolicy.Defaults()
+
+	tmp.RetentionPolicy = tmp.RetentionPolicy.Defaults()
+
+	tmp.TrustPolicy = tmp.TrustPolicy.Defaults()
+
+	return &tmp
 }
 
 
@@ -2798,6 +2891,23 @@ type PoliciesResponse struct {
 	QuarantinePolicy *QuarantinePolicyResponse `pulumi:"quarantinePolicy"`
 	RetentionPolicy  *RetentionPolicyResponse  `pulumi:"retentionPolicy"`
 	TrustPolicy      *TrustPolicyResponse      `pulumi:"trustPolicy"`
+}
+
+
+func (val *PoliciesResponse) Defaults() *PoliciesResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.ExportPolicy = tmp.ExportPolicy.Defaults()
+
+	tmp.QuarantinePolicy = tmp.QuarantinePolicy.Defaults()
+
+	tmp.RetentionPolicy = tmp.RetentionPolicy.Defaults()
+
+	tmp.TrustPolicy = tmp.TrustPolicy.Defaults()
+
+	return &tmp
 }
 
 
@@ -3700,6 +3810,19 @@ type QuarantinePolicy struct {
 }
 
 
+func (val *QuarantinePolicy) Defaults() *QuarantinePolicy {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Status) {
+		status_ := "disabled"
+		tmp.Status = &status_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -3830,6 +3953,19 @@ func (o QuarantinePolicyPtrOutput) Status() pulumi.StringPtrOutput {
 
 type QuarantinePolicyResponse struct {
 	Status *string `pulumi:"status"`
+}
+
+
+func (val *QuarantinePolicyResponse) Defaults() *QuarantinePolicyResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Status) {
+		status_ := "disabled"
+		tmp.Status = &status_
+	}
+	return &tmp
 }
 
 
@@ -4260,6 +4396,23 @@ type RetentionPolicy struct {
 }
 
 
+func (val *RetentionPolicy) Defaults() *RetentionPolicy {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Days) {
+		days_ := 7
+		tmp.Days = &days_
+	}
+	if isZero(tmp.Status) {
+		status_ := "disabled"
+		tmp.Status = &status_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -4406,6 +4559,23 @@ type RetentionPolicyResponse struct {
 	Days            *int    `pulumi:"days"`
 	LastUpdatedTime string  `pulumi:"lastUpdatedTime"`
 	Status          *string `pulumi:"status"`
+}
+
+
+func (val *RetentionPolicyResponse) Defaults() *RetentionPolicyResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Days) {
+		days_ := 7
+		tmp.Days = &days_
+	}
+	if isZero(tmp.Status) {
+		status_ := "disabled"
+		tmp.Status = &status_
+	}
+	return &tmp
 }
 
 
@@ -5624,6 +5794,23 @@ type TrustPolicy struct {
 }
 
 
+func (val *TrustPolicy) Defaults() *TrustPolicy {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Status) {
+		status_ := "disabled"
+		tmp.Status = &status_
+	}
+	if isZero(tmp.Type) {
+		type_ := "Notary"
+		tmp.Type = &type_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -5769,6 +5956,23 @@ func (o TrustPolicyPtrOutput) Type() pulumi.StringPtrOutput {
 type TrustPolicyResponse struct {
 	Status *string `pulumi:"status"`
 	Type   *string `pulumi:"type"`
+}
+
+
+func (val *TrustPolicyResponse) Defaults() *TrustPolicyResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Status) {
+		status_ := "disabled"
+		tmp.Status = &status_
+	}
+	if isZero(tmp.Type) {
+		type_ := "Notary"
+		tmp.Type = &type_
+	}
+	return &tmp
 }
 
 

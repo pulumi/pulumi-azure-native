@@ -103,7 +103,7 @@ type IntegrationServiceEnvironmentInput interface {
 }
 
 func (*IntegrationServiceEnvironment) ElementType() reflect.Type {
-	return reflect.TypeOf((*IntegrationServiceEnvironment)(nil))
+	return reflect.TypeOf((**IntegrationServiceEnvironment)(nil)).Elem()
 }
 
 func (i *IntegrationServiceEnvironment) ToIntegrationServiceEnvironmentOutput() IntegrationServiceEnvironmentOutput {
@@ -117,7 +117,7 @@ func (i *IntegrationServiceEnvironment) ToIntegrationServiceEnvironmentOutputWit
 type IntegrationServiceEnvironmentOutput struct{ *pulumi.OutputState }
 
 func (IntegrationServiceEnvironmentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IntegrationServiceEnvironment)(nil))
+	return reflect.TypeOf((**IntegrationServiceEnvironment)(nil)).Elem()
 }
 
 func (o IntegrationServiceEnvironmentOutput) ToIntegrationServiceEnvironmentOutput() IntegrationServiceEnvironmentOutput {

@@ -156,7 +156,7 @@ type NetworkVirtualApplianceInput interface {
 }
 
 func (*NetworkVirtualAppliance) ElementType() reflect.Type {
-	return reflect.TypeOf((*NetworkVirtualAppliance)(nil))
+	return reflect.TypeOf((**NetworkVirtualAppliance)(nil)).Elem()
 }
 
 func (i *NetworkVirtualAppliance) ToNetworkVirtualApplianceOutput() NetworkVirtualApplianceOutput {
@@ -170,7 +170,7 @@ func (i *NetworkVirtualAppliance) ToNetworkVirtualApplianceOutputWithContext(ctx
 type NetworkVirtualApplianceOutput struct{ *pulumi.OutputState }
 
 func (NetworkVirtualApplianceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NetworkVirtualAppliance)(nil))
+	return reflect.TypeOf((**NetworkVirtualAppliance)(nil)).Elem()
 }
 
 func (o NetworkVirtualApplianceOutput) ToNetworkVirtualApplianceOutput() NetworkVirtualApplianceOutput {

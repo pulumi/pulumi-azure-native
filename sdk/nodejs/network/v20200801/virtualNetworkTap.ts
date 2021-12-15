@@ -88,45 +88,45 @@ export class VirtualNetworkTap extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: VirtualNetworkTapArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["destinationLoadBalancerFrontEndIPConfiguration"] = args ? args.destinationLoadBalancerFrontEndIPConfiguration : undefined;
-            inputs["destinationNetworkInterfaceIPConfiguration"] = args ? args.destinationNetworkInterfaceIPConfiguration : undefined;
-            inputs["destinationPort"] = args ? args.destinationPort : undefined;
-            inputs["id"] = args ? args.id : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["tapName"] = args ? args.tapName : undefined;
-            inputs["etag"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["networkInterfaceTapConfigurations"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["resourceGuid"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["destinationLoadBalancerFrontEndIPConfiguration"] = args ? (args.destinationLoadBalancerFrontEndIPConfiguration ? pulumi.output(args.destinationLoadBalancerFrontEndIPConfiguration).apply(inputs.network.v20200801.frontendIPConfigurationArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["destinationNetworkInterfaceIPConfiguration"] = args ? (args.destinationNetworkInterfaceIPConfiguration ? pulumi.output(args.destinationNetworkInterfaceIPConfiguration).apply(inputs.network.v20200801.networkInterfaceIPConfigurationArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["destinationPort"] = args ? args.destinationPort : undefined;
+            resourceInputs["id"] = args ? args.id : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["tapName"] = args ? args.tapName : undefined;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["networkInterfaceTapConfigurations"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["resourceGuid"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["destinationLoadBalancerFrontEndIPConfiguration"] = undefined /*out*/;
-            inputs["destinationNetworkInterfaceIPConfiguration"] = undefined /*out*/;
-            inputs["destinationPort"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["networkInterfaceTapConfigurations"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["resourceGuid"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["destinationLoadBalancerFrontEndIPConfiguration"] = undefined /*out*/;
+            resourceInputs["destinationNetworkInterfaceIPConfiguration"] = undefined /*out*/;
+            resourceInputs["destinationPort"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["networkInterfaceTapConfigurations"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["resourceGuid"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:network:VirtualNetworkTap" }, { type: "azure-native:network/v20180801:VirtualNetworkTap" }, { type: "azure-native:network/v20181001:VirtualNetworkTap" }, { type: "azure-native:network/v20181101:VirtualNetworkTap" }, { type: "azure-native:network/v20181201:VirtualNetworkTap" }, { type: "azure-native:network/v20190201:VirtualNetworkTap" }, { type: "azure-native:network/v20190401:VirtualNetworkTap" }, { type: "azure-native:network/v20190601:VirtualNetworkTap" }, { type: "azure-native:network/v20190701:VirtualNetworkTap" }, { type: "azure-native:network/v20190801:VirtualNetworkTap" }, { type: "azure-native:network/v20190901:VirtualNetworkTap" }, { type: "azure-native:network/v20191101:VirtualNetworkTap" }, { type: "azure-native:network/v20191201:VirtualNetworkTap" }, { type: "azure-native:network/v20200301:VirtualNetworkTap" }, { type: "azure-native:network/v20200401:VirtualNetworkTap" }, { type: "azure-native:network/v20200501:VirtualNetworkTap" }, { type: "azure-native:network/v20200601:VirtualNetworkTap" }, { type: "azure-native:network/v20200701:VirtualNetworkTap" }, { type: "azure-native:network/v20201101:VirtualNetworkTap" }, { type: "azure-native:network/v20210201:VirtualNetworkTap" }, { type: "azure-native:network/v20210301:VirtualNetworkTap" }, { type: "azure-native:network/v20210501:VirtualNetworkTap" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(VirtualNetworkTap.__pulumiType, name, inputs, opts);
+        super(VirtualNetworkTap.__pulumiType, name, resourceInputs, opts);
     }
 }
 

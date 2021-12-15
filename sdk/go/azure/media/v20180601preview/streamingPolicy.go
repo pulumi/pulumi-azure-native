@@ -121,7 +121,7 @@ type StreamingPolicyInput interface {
 }
 
 func (*StreamingPolicy) ElementType() reflect.Type {
-	return reflect.TypeOf((*StreamingPolicy)(nil))
+	return reflect.TypeOf((**StreamingPolicy)(nil)).Elem()
 }
 
 func (i *StreamingPolicy) ToStreamingPolicyOutput() StreamingPolicyOutput {
@@ -135,7 +135,7 @@ func (i *StreamingPolicy) ToStreamingPolicyOutputWithContext(ctx context.Context
 type StreamingPolicyOutput struct{ *pulumi.OutputState }
 
 func (StreamingPolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StreamingPolicy)(nil))
+	return reflect.TypeOf((**StreamingPolicy)(nil)).Elem()
 }
 
 func (o StreamingPolicyOutput) ToStreamingPolicyOutput() StreamingPolicyOutput {

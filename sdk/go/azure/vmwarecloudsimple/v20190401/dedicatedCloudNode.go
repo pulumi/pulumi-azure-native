@@ -140,7 +140,7 @@ type DedicatedCloudNodeInput interface {
 }
 
 func (*DedicatedCloudNode) ElementType() reflect.Type {
-	return reflect.TypeOf((*DedicatedCloudNode)(nil))
+	return reflect.TypeOf((**DedicatedCloudNode)(nil)).Elem()
 }
 
 func (i *DedicatedCloudNode) ToDedicatedCloudNodeOutput() DedicatedCloudNodeOutput {
@@ -154,7 +154,7 @@ func (i *DedicatedCloudNode) ToDedicatedCloudNodeOutputWithContext(ctx context.C
 type DedicatedCloudNodeOutput struct{ *pulumi.OutputState }
 
 func (DedicatedCloudNodeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DedicatedCloudNode)(nil))
+	return reflect.TypeOf((**DedicatedCloudNode)(nil)).Elem()
 }
 
 func (o DedicatedCloudNodeOutput) ToDedicatedCloudNodeOutput() DedicatedCloudNodeOutput {

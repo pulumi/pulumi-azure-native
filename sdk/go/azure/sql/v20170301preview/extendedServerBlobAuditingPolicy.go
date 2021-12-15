@@ -140,7 +140,7 @@ type ExtendedServerBlobAuditingPolicyInput interface {
 }
 
 func (*ExtendedServerBlobAuditingPolicy) ElementType() reflect.Type {
-	return reflect.TypeOf((*ExtendedServerBlobAuditingPolicy)(nil))
+	return reflect.TypeOf((**ExtendedServerBlobAuditingPolicy)(nil)).Elem()
 }
 
 func (i *ExtendedServerBlobAuditingPolicy) ToExtendedServerBlobAuditingPolicyOutput() ExtendedServerBlobAuditingPolicyOutput {
@@ -154,7 +154,7 @@ func (i *ExtendedServerBlobAuditingPolicy) ToExtendedServerBlobAuditingPolicyOut
 type ExtendedServerBlobAuditingPolicyOutput struct{ *pulumi.OutputState }
 
 func (ExtendedServerBlobAuditingPolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ExtendedServerBlobAuditingPolicy)(nil))
+	return reflect.TypeOf((**ExtendedServerBlobAuditingPolicy)(nil)).Elem()
 }
 
 func (o ExtendedServerBlobAuditingPolicyOutput) ToExtendedServerBlobAuditingPolicyOutput() ExtendedServerBlobAuditingPolicyOutput {

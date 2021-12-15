@@ -107,7 +107,7 @@ type TagAtScopeInput interface {
 }
 
 func (*TagAtScope) ElementType() reflect.Type {
-	return reflect.TypeOf((*TagAtScope)(nil))
+	return reflect.TypeOf((**TagAtScope)(nil)).Elem()
 }
 
 func (i *TagAtScope) ToTagAtScopeOutput() TagAtScopeOutput {
@@ -121,7 +121,7 @@ func (i *TagAtScope) ToTagAtScopeOutputWithContext(ctx context.Context) TagAtSco
 type TagAtScopeOutput struct{ *pulumi.OutputState }
 
 func (TagAtScopeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TagAtScope)(nil))
+	return reflect.TypeOf((**TagAtScope)(nil)).Elem()
 }
 
 func (o TagAtScopeOutput) ToTagAtScopeOutput() TagAtScopeOutput {

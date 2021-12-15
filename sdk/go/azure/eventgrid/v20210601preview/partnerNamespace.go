@@ -38,10 +38,10 @@ func NewPartnerNamespace(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.DisableLocalAuth == nil {
+	if isZero(args.DisableLocalAuth) {
 		args.DisableLocalAuth = pulumi.BoolPtr(false)
 	}
-	if args.PublicNetworkAccess == nil {
+	if isZero(args.PublicNetworkAccess) {
 		args.PublicNetworkAccess = pulumi.StringPtr("Enabled")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
@@ -122,7 +122,7 @@ type PartnerNamespaceInput interface {
 }
 
 func (*PartnerNamespace) ElementType() reflect.Type {
-	return reflect.TypeOf((*PartnerNamespace)(nil))
+	return reflect.TypeOf((**PartnerNamespace)(nil)).Elem()
 }
 
 func (i *PartnerNamespace) ToPartnerNamespaceOutput() PartnerNamespaceOutput {
@@ -136,7 +136,7 @@ func (i *PartnerNamespace) ToPartnerNamespaceOutputWithContext(ctx context.Conte
 type PartnerNamespaceOutput struct{ *pulumi.OutputState }
 
 func (PartnerNamespaceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PartnerNamespace)(nil))
+	return reflect.TypeOf((**PartnerNamespace)(nil)).Elem()
 }
 
 func (o PartnerNamespaceOutput) ToPartnerNamespaceOutput() PartnerNamespaceOutput {

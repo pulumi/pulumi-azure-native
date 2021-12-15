@@ -88,7 +88,7 @@ export class IscsiTarget extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: IscsiTargetArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.aclMode === undefined) && !opts.urn) {
@@ -100,39 +100,39 @@ export class IscsiTarget extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["aclMode"] = args ? args.aclMode : undefined;
-            inputs["diskPoolName"] = args ? args.diskPoolName : undefined;
-            inputs["iscsiTargetName"] = args ? args.iscsiTargetName : undefined;
-            inputs["luns"] = args ? args.luns : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["staticAcls"] = args ? args.staticAcls : undefined;
-            inputs["targetIqn"] = args ? args.targetIqn : undefined;
-            inputs["endpoints"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["port"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["aclMode"] = args ? args.aclMode : undefined;
+            resourceInputs["diskPoolName"] = args ? args.diskPoolName : undefined;
+            resourceInputs["iscsiTargetName"] = args ? args.iscsiTargetName : undefined;
+            resourceInputs["luns"] = args ? args.luns : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["staticAcls"] = args ? args.staticAcls : undefined;
+            resourceInputs["targetIqn"] = args ? args.targetIqn : undefined;
+            resourceInputs["endpoints"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["port"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["aclMode"] = undefined /*out*/;
-            inputs["endpoints"] = undefined /*out*/;
-            inputs["luns"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["port"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["staticAcls"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["targetIqn"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["aclMode"] = undefined /*out*/;
+            resourceInputs["endpoints"] = undefined /*out*/;
+            resourceInputs["luns"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["port"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["staticAcls"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["targetIqn"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:storagepool:IscsiTarget" }, { type: "azure-native:storagepool/v20200315preview:IscsiTarget" }, { type: "azure-native:storagepool/v20210801:IscsiTarget" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(IscsiTarget.__pulumiType, name, inputs, opts);
+        super(IscsiTarget.__pulumiType, name, resourceInputs, opts);
     }
 }
 

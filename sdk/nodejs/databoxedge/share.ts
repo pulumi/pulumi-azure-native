@@ -97,7 +97,7 @@ export class Share extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ShareArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.accessProtocol === undefined) && !opts.urn) {
@@ -115,42 +115,42 @@ export class Share extends pulumi.CustomResource {
             if ((!args || args.shareStatus === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'shareStatus'");
             }
-            inputs["accessProtocol"] = args ? args.accessProtocol : undefined;
-            inputs["azureContainerInfo"] = args ? args.azureContainerInfo : undefined;
-            inputs["clientAccessRights"] = args ? args.clientAccessRights : undefined;
-            inputs["dataPolicy"] = args ? args.dataPolicy : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["deviceName"] = args ? args.deviceName : undefined;
-            inputs["monitoringStatus"] = args ? args.monitoringStatus : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["refreshDetails"] = args ? args.refreshDetails : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["shareStatus"] = args ? args.shareStatus : undefined;
-            inputs["userAccessRights"] = args ? args.userAccessRights : undefined;
-            inputs["shareMappings"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["accessProtocol"] = args ? args.accessProtocol : undefined;
+            resourceInputs["azureContainerInfo"] = args ? args.azureContainerInfo : undefined;
+            resourceInputs["clientAccessRights"] = args ? args.clientAccessRights : undefined;
+            resourceInputs["dataPolicy"] = args ? args.dataPolicy : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["deviceName"] = args ? args.deviceName : undefined;
+            resourceInputs["monitoringStatus"] = args ? args.monitoringStatus : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["refreshDetails"] = args ? args.refreshDetails : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["shareStatus"] = args ? args.shareStatus : undefined;
+            resourceInputs["userAccessRights"] = args ? args.userAccessRights : undefined;
+            resourceInputs["shareMappings"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["accessProtocol"] = undefined /*out*/;
-            inputs["azureContainerInfo"] = undefined /*out*/;
-            inputs["clientAccessRights"] = undefined /*out*/;
-            inputs["dataPolicy"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["monitoringStatus"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["refreshDetails"] = undefined /*out*/;
-            inputs["shareMappings"] = undefined /*out*/;
-            inputs["shareStatus"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["userAccessRights"] = undefined /*out*/;
+            resourceInputs["accessProtocol"] = undefined /*out*/;
+            resourceInputs["azureContainerInfo"] = undefined /*out*/;
+            resourceInputs["clientAccessRights"] = undefined /*out*/;
+            resourceInputs["dataPolicy"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["monitoringStatus"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["refreshDetails"] = undefined /*out*/;
+            resourceInputs["shareMappings"] = undefined /*out*/;
+            resourceInputs["shareStatus"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["userAccessRights"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:databoxedge/v20190301:Share" }, { type: "azure-native:databoxedge/v20190701:Share" }, { type: "azure-native:databoxedge/v20190801:Share" }, { type: "azure-native:databoxedge/v20200501preview:Share" }, { type: "azure-native:databoxedge/v20200901:Share" }, { type: "azure-native:databoxedge/v20200901preview:Share" }, { type: "azure-native:databoxedge/v20201201:Share" }, { type: "azure-native:databoxedge/v20210201:Share" }, { type: "azure-native:databoxedge/v20210201preview:Share" }, { type: "azure-native:databoxedge/v20210601:Share" }, { type: "azure-native:databoxedge/v20210601preview:Share" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Share.__pulumiType, name, inputs, opts);
+        super(Share.__pulumiType, name, resourceInputs, opts);
     }
 }
 

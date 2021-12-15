@@ -84,7 +84,7 @@ export class Resource extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ResourceArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.parentResourcePath === undefined) && !opts.urn) {
@@ -99,39 +99,39 @@ export class Resource extends pulumi.CustomResource {
             if ((!args || args.resourceType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceType'");
             }
-            inputs["identity"] = args ? args.identity : undefined;
-            inputs["kind"] = args ? args.kind : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["managedBy"] = args ? args.managedBy : undefined;
-            inputs["parentResourcePath"] = args ? args.parentResourcePath : undefined;
-            inputs["plan"] = args ? args.plan : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["resourceName"] = args ? args.resourceName : undefined;
-            inputs["resourceProviderNamespace"] = args ? args.resourceProviderNamespace : undefined;
-            inputs["resourceType"] = args ? args.resourceType : undefined;
-            inputs["sku"] = args ? args.sku : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["identity"] = args ? args.identity : undefined;
+            resourceInputs["kind"] = args ? args.kind : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["managedBy"] = args ? args.managedBy : undefined;
+            resourceInputs["parentResourcePath"] = args ? args.parentResourcePath : undefined;
+            resourceInputs["plan"] = args ? args.plan : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["resourceName"] = args ? args.resourceName : undefined;
+            resourceInputs["resourceProviderNamespace"] = args ? args.resourceProviderNamespace : undefined;
+            resourceInputs["resourceType"] = args ? args.resourceType : undefined;
+            resourceInputs["sku"] = args ? args.sku : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["identity"] = undefined /*out*/;
-            inputs["kind"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["managedBy"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["plan"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
-            inputs["sku"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["identity"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["managedBy"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["plan"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
+            resourceInputs["sku"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:resources:Resource" }, { type: "azure-native:resources/v20151101:Resource" }, { type: "azure-native:resources/v20160201:Resource" }, { type: "azure-native:resources/v20160701:Resource" }, { type: "azure-native:resources/v20170510:Resource" }, { type: "azure-native:resources/v20180201:Resource" }, { type: "azure-native:resources/v20180501:Resource" }, { type: "azure-native:resources/v20190301:Resource" }, { type: "azure-native:resources/v20190501:Resource" }, { type: "azure-native:resources/v20190510:Resource" }, { type: "azure-native:resources/v20190701:Resource" }, { type: "azure-native:resources/v20190801:Resource" }, { type: "azure-native:resources/v20191001:Resource" }, { type: "azure-native:resources/v20200601:Resource" }, { type: "azure-native:resources/v20200801:Resource" }, { type: "azure-native:resources/v20201001:Resource" }, { type: "azure-native:resources/v20210101:Resource" }, { type: "azure-native:resources/v20210401:Resource" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Resource.__pulumiType, name, inputs, opts);
+        super(Resource.__pulumiType, name, resourceInputs, opts);
     }
 }
 

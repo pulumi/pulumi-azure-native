@@ -116,7 +116,7 @@ export class DedicatedCloudNode extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: DedicatedCloudNodeArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.availabilityZoneId === undefined) && !opts.urn) {
@@ -140,53 +140,53 @@ export class DedicatedCloudNode extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["availabilityZoneId"] = args ? args.availabilityZoneId : undefined;
-            inputs["dedicatedCloudNodeName"] = args ? args.dedicatedCloudNodeName : undefined;
-            inputs["id"] = args ? args.id : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["nodesCount"] = args ? args.nodesCount : undefined;
-            inputs["placementGroupId"] = args ? args.placementGroupId : undefined;
-            inputs["purchaseId"] = args ? args.purchaseId : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["sku"] = args ? args.sku : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["availabilityZoneName"] = undefined /*out*/;
-            inputs["cloudRackName"] = undefined /*out*/;
-            inputs["created"] = undefined /*out*/;
-            inputs["placementGroupName"] = undefined /*out*/;
-            inputs["privateCloudId"] = undefined /*out*/;
-            inputs["privateCloudName"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["vmwareClusterName"] = undefined /*out*/;
+            resourceInputs["availabilityZoneId"] = args ? args.availabilityZoneId : undefined;
+            resourceInputs["dedicatedCloudNodeName"] = args ? args.dedicatedCloudNodeName : undefined;
+            resourceInputs["id"] = args ? args.id : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["nodesCount"] = args ? args.nodesCount : undefined;
+            resourceInputs["placementGroupId"] = args ? args.placementGroupId : undefined;
+            resourceInputs["purchaseId"] = args ? args.purchaseId : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["sku"] = args ? args.sku : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["availabilityZoneName"] = undefined /*out*/;
+            resourceInputs["cloudRackName"] = undefined /*out*/;
+            resourceInputs["created"] = undefined /*out*/;
+            resourceInputs["placementGroupName"] = undefined /*out*/;
+            resourceInputs["privateCloudId"] = undefined /*out*/;
+            resourceInputs["privateCloudName"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["vmwareClusterName"] = undefined /*out*/;
         } else {
-            inputs["availabilityZoneId"] = undefined /*out*/;
-            inputs["availabilityZoneName"] = undefined /*out*/;
-            inputs["cloudRackName"] = undefined /*out*/;
-            inputs["created"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["nodesCount"] = undefined /*out*/;
-            inputs["placementGroupId"] = undefined /*out*/;
-            inputs["placementGroupName"] = undefined /*out*/;
-            inputs["privateCloudId"] = undefined /*out*/;
-            inputs["privateCloudName"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["purchaseId"] = undefined /*out*/;
-            inputs["sku"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["vmwareClusterName"] = undefined /*out*/;
+            resourceInputs["availabilityZoneId"] = undefined /*out*/;
+            resourceInputs["availabilityZoneName"] = undefined /*out*/;
+            resourceInputs["cloudRackName"] = undefined /*out*/;
+            resourceInputs["created"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["nodesCount"] = undefined /*out*/;
+            resourceInputs["placementGroupId"] = undefined /*out*/;
+            resourceInputs["placementGroupName"] = undefined /*out*/;
+            resourceInputs["privateCloudId"] = undefined /*out*/;
+            resourceInputs["privateCloudName"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["purchaseId"] = undefined /*out*/;
+            resourceInputs["sku"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["vmwareClusterName"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:vmwarecloudsimple:DedicatedCloudNode" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(DedicatedCloudNode.__pulumiType, name, inputs, opts);
+        super(DedicatedCloudNode.__pulumiType, name, resourceInputs, opts);
     }
 }
 

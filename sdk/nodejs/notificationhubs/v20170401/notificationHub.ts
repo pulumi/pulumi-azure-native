@@ -96,7 +96,7 @@ export class NotificationHub extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: NotificationHubArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.namespaceName === undefined) && !opts.urn) {
@@ -105,43 +105,43 @@ export class NotificationHub extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["admCredential"] = args ? args.admCredential : undefined;
-            inputs["apnsCredential"] = args ? args.apnsCredential : undefined;
-            inputs["authorizationRules"] = args ? args.authorizationRules : undefined;
-            inputs["baiduCredential"] = args ? args.baiduCredential : undefined;
-            inputs["gcmCredential"] = args ? args.gcmCredential : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["mpnsCredential"] = args ? args.mpnsCredential : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["namespaceName"] = args ? args.namespaceName : undefined;
-            inputs["notificationHubName"] = args ? args.notificationHubName : undefined;
-            inputs["registrationTtl"] = args ? args.registrationTtl : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["sku"] = args ? args.sku : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["wnsCredential"] = args ? args.wnsCredential : undefined;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["admCredential"] = args ? args.admCredential : undefined;
+            resourceInputs["apnsCredential"] = args ? args.apnsCredential : undefined;
+            resourceInputs["authorizationRules"] = args ? args.authorizationRules : undefined;
+            resourceInputs["baiduCredential"] = args ? args.baiduCredential : undefined;
+            resourceInputs["gcmCredential"] = args ? args.gcmCredential : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["mpnsCredential"] = args ? args.mpnsCredential : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["namespaceName"] = args ? args.namespaceName : undefined;
+            resourceInputs["notificationHubName"] = args ? args.notificationHubName : undefined;
+            resourceInputs["registrationTtl"] = args ? args.registrationTtl : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["sku"] = args ? args.sku : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["wnsCredential"] = args ? args.wnsCredential : undefined;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["admCredential"] = undefined /*out*/;
-            inputs["apnsCredential"] = undefined /*out*/;
-            inputs["authorizationRules"] = undefined /*out*/;
-            inputs["baiduCredential"] = undefined /*out*/;
-            inputs["gcmCredential"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["mpnsCredential"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["registrationTtl"] = undefined /*out*/;
-            inputs["sku"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["wnsCredential"] = undefined /*out*/;
+            resourceInputs["admCredential"] = undefined /*out*/;
+            resourceInputs["apnsCredential"] = undefined /*out*/;
+            resourceInputs["authorizationRules"] = undefined /*out*/;
+            resourceInputs["baiduCredential"] = undefined /*out*/;
+            resourceInputs["gcmCredential"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["mpnsCredential"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["registrationTtl"] = undefined /*out*/;
+            resourceInputs["sku"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["wnsCredential"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:notificationhubs:NotificationHub" }, { type: "azure-native:notificationhubs/v20140901:NotificationHub" }, { type: "azure-native:notificationhubs/v20160301:NotificationHub" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(NotificationHub.__pulumiType, name, inputs, opts);
+        super(NotificationHub.__pulumiType, name, resourceInputs, opts);
     }
 }
 

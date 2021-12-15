@@ -126,7 +126,7 @@ type ConfigurationAssignmentParentInput interface {
 }
 
 func (*ConfigurationAssignmentParent) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConfigurationAssignmentParent)(nil))
+	return reflect.TypeOf((**ConfigurationAssignmentParent)(nil)).Elem()
 }
 
 func (i *ConfigurationAssignmentParent) ToConfigurationAssignmentParentOutput() ConfigurationAssignmentParentOutput {
@@ -140,7 +140,7 @@ func (i *ConfigurationAssignmentParent) ToConfigurationAssignmentParentOutputWit
 type ConfigurationAssignmentParentOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationAssignmentParentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConfigurationAssignmentParent)(nil))
+	return reflect.TypeOf((**ConfigurationAssignmentParent)(nil)).Elem()
 }
 
 func (o ConfigurationAssignmentParentOutput) ToConfigurationAssignmentParentOutput() ConfigurationAssignmentParentOutput {

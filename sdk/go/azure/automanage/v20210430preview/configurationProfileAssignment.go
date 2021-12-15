@@ -100,7 +100,7 @@ type ConfigurationProfileAssignmentInput interface {
 }
 
 func (*ConfigurationProfileAssignment) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConfigurationProfileAssignment)(nil))
+	return reflect.TypeOf((**ConfigurationProfileAssignment)(nil)).Elem()
 }
 
 func (i *ConfigurationProfileAssignment) ToConfigurationProfileAssignmentOutput() ConfigurationProfileAssignmentOutput {
@@ -114,7 +114,7 @@ func (i *ConfigurationProfileAssignment) ToConfigurationProfileAssignmentOutputW
 type ConfigurationProfileAssignmentOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationProfileAssignmentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConfigurationProfileAssignment)(nil))
+	return reflect.TypeOf((**ConfigurationProfileAssignment)(nil)).Elem()
 }
 
 func (o ConfigurationProfileAssignmentOutput) ToConfigurationProfileAssignmentOutput() ConfigurationProfileAssignmentOutput {

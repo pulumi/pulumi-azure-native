@@ -49,10 +49,10 @@ func NewKustoPool(ctx *pulumi.Context,
 	if args.WorkspaceName == nil {
 		return nil, errors.New("invalid value for required argument 'WorkspaceName'")
 	}
-	if args.EnablePurge == nil {
+	if isZero(args.EnablePurge) {
 		args.EnablePurge = pulumi.BoolPtr(false)
 	}
-	if args.EnableStreamingIngest == nil {
+	if isZero(args.EnableStreamingIngest) {
 		args.EnableStreamingIngest = pulumi.BoolPtr(false)
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
@@ -134,7 +134,7 @@ type KustoPoolInput interface {
 }
 
 func (*KustoPool) ElementType() reflect.Type {
-	return reflect.TypeOf((*KustoPool)(nil))
+	return reflect.TypeOf((**KustoPool)(nil)).Elem()
 }
 
 func (i *KustoPool) ToKustoPoolOutput() KustoPoolOutput {
@@ -148,7 +148,7 @@ func (i *KustoPool) ToKustoPoolOutputWithContext(ctx context.Context) KustoPoolO
 type KustoPoolOutput struct{ *pulumi.OutputState }
 
 func (KustoPoolOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*KustoPool)(nil))
+	return reflect.TypeOf((**KustoPool)(nil)).Elem()
 }
 
 func (o KustoPoolOutput) ToKustoPoolOutput() KustoPoolOutput {

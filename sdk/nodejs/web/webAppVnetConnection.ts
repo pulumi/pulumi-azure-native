@@ -86,7 +86,7 @@ export class WebAppVnetConnection extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: WebAppVnetConnectionArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.name === undefined) && !opts.urn) {
@@ -95,36 +95,36 @@ export class WebAppVnetConnection extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["certBlob"] = args ? args.certBlob : undefined;
-            inputs["dnsServers"] = args ? args.dnsServers : undefined;
-            inputs["isSwift"] = args ? args.isSwift : undefined;
-            inputs["kind"] = args ? args.kind : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["vnetName"] = args ? args.vnetName : undefined;
-            inputs["vnetResourceId"] = args ? args.vnetResourceId : undefined;
-            inputs["certThumbprint"] = undefined /*out*/;
-            inputs["resyncRequired"] = undefined /*out*/;
-            inputs["routes"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["certBlob"] = args ? args.certBlob : undefined;
+            resourceInputs["dnsServers"] = args ? args.dnsServers : undefined;
+            resourceInputs["isSwift"] = args ? args.isSwift : undefined;
+            resourceInputs["kind"] = args ? args.kind : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["vnetName"] = args ? args.vnetName : undefined;
+            resourceInputs["vnetResourceId"] = args ? args.vnetResourceId : undefined;
+            resourceInputs["certThumbprint"] = undefined /*out*/;
+            resourceInputs["resyncRequired"] = undefined /*out*/;
+            resourceInputs["routes"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["certBlob"] = undefined /*out*/;
-            inputs["certThumbprint"] = undefined /*out*/;
-            inputs["dnsServers"] = undefined /*out*/;
-            inputs["isSwift"] = undefined /*out*/;
-            inputs["kind"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["resyncRequired"] = undefined /*out*/;
-            inputs["routes"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["vnetResourceId"] = undefined /*out*/;
+            resourceInputs["certBlob"] = undefined /*out*/;
+            resourceInputs["certThumbprint"] = undefined /*out*/;
+            resourceInputs["dnsServers"] = undefined /*out*/;
+            resourceInputs["isSwift"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["resyncRequired"] = undefined /*out*/;
+            resourceInputs["routes"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["vnetResourceId"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:web/v20150801:WebAppVnetConnection" }, { type: "azure-native:web/v20160801:WebAppVnetConnection" }, { type: "azure-native:web/v20180201:WebAppVnetConnection" }, { type: "azure-native:web/v20181101:WebAppVnetConnection" }, { type: "azure-native:web/v20190801:WebAppVnetConnection" }, { type: "azure-native:web/v20200601:WebAppVnetConnection" }, { type: "azure-native:web/v20200901:WebAppVnetConnection" }, { type: "azure-native:web/v20201001:WebAppVnetConnection" }, { type: "azure-native:web/v20201201:WebAppVnetConnection" }, { type: "azure-native:web/v20210101:WebAppVnetConnection" }, { type: "azure-native:web/v20210115:WebAppVnetConnection" }, { type: "azure-native:web/v20210201:WebAppVnetConnection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(WebAppVnetConnection.__pulumiType, name, inputs, opts);
+        super(WebAppVnetConnection.__pulumiType, name, resourceInputs, opts);
     }
 }
 

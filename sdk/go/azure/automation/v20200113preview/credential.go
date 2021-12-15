@@ -120,7 +120,7 @@ type CredentialInput interface {
 }
 
 func (*Credential) ElementType() reflect.Type {
-	return reflect.TypeOf((*Credential)(nil))
+	return reflect.TypeOf((**Credential)(nil)).Elem()
 }
 
 func (i *Credential) ToCredentialOutput() CredentialOutput {
@@ -134,7 +134,7 @@ func (i *Credential) ToCredentialOutputWithContext(ctx context.Context) Credenti
 type CredentialOutput struct{ *pulumi.OutputState }
 
 func (CredentialOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Credential)(nil))
+	return reflect.TypeOf((**Credential)(nil)).Elem()
 }
 
 func (o CredentialOutput) ToCredentialOutput() CredentialOutput {

@@ -147,7 +147,7 @@ type VirtualRouterPeeringInput interface {
 }
 
 func (*VirtualRouterPeering) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualRouterPeering)(nil))
+	return reflect.TypeOf((**VirtualRouterPeering)(nil)).Elem()
 }
 
 func (i *VirtualRouterPeering) ToVirtualRouterPeeringOutput() VirtualRouterPeeringOutput {
@@ -161,7 +161,7 @@ func (i *VirtualRouterPeering) ToVirtualRouterPeeringOutputWithContext(ctx conte
 type VirtualRouterPeeringOutput struct{ *pulumi.OutputState }
 
 func (VirtualRouterPeeringOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualRouterPeering)(nil))
+	return reflect.TypeOf((**VirtualRouterPeering)(nil)).Elem()
 }
 
 func (o VirtualRouterPeeringOutput) ToVirtualRouterPeeringOutput() VirtualRouterPeeringOutput {

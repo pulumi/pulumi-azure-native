@@ -125,7 +125,7 @@ type FhirServiceInput interface {
 }
 
 func (*FhirService) ElementType() reflect.Type {
-	return reflect.TypeOf((*FhirService)(nil))
+	return reflect.TypeOf((**FhirService)(nil)).Elem()
 }
 
 func (i *FhirService) ToFhirServiceOutput() FhirServiceOutput {
@@ -139,7 +139,7 @@ func (i *FhirService) ToFhirServiceOutputWithContext(ctx context.Context) FhirSe
 type FhirServiceOutput struct{ *pulumi.OutputState }
 
 func (FhirServiceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FhirService)(nil))
+	return reflect.TypeOf((**FhirService)(nil)).Elem()
 }
 
 func (o FhirServiceOutput) ToFhirServiceOutput() FhirServiceOutput {

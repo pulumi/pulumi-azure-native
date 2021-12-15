@@ -165,7 +165,7 @@ type WebAppFunctionInput interface {
 }
 
 func (*WebAppFunction) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAppFunction)(nil))
+	return reflect.TypeOf((**WebAppFunction)(nil)).Elem()
 }
 
 func (i *WebAppFunction) ToWebAppFunctionOutput() WebAppFunctionOutput {
@@ -179,7 +179,7 @@ func (i *WebAppFunction) ToWebAppFunctionOutputWithContext(ctx context.Context) 
 type WebAppFunctionOutput struct{ *pulumi.OutputState }
 
 func (WebAppFunctionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAppFunction)(nil))
+	return reflect.TypeOf((**WebAppFunction)(nil)).Elem()
 }
 
 func (o WebAppFunctionOutput) ToWebAppFunctionOutput() WebAppFunctionOutput {

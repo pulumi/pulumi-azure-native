@@ -80,7 +80,7 @@ export class VirtualNetworkResource extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: VirtualNetworkResourceArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.labName === undefined) && !opts.urn) {
@@ -89,35 +89,35 @@ export class VirtualNetworkResource extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["allowedSubnets"] = args ? args.allowedSubnets : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["externalProviderResourceId"] = args ? args.externalProviderResourceId : undefined;
-            inputs["id"] = args ? args.id : undefined;
-            inputs["labName"] = args ? args.labName : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["provisioningState"] = args ? args.provisioningState : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["subnetOverrides"] = args ? args.subnetOverrides : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["type"] = args ? args.type : undefined;
+            resourceInputs["allowedSubnets"] = args ? args.allowedSubnets : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["externalProviderResourceId"] = args ? args.externalProviderResourceId : undefined;
+            resourceInputs["id"] = args ? args.id : undefined;
+            resourceInputs["labName"] = args ? args.labName : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["provisioningState"] = args ? args.provisioningState : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["subnetOverrides"] = args ? args.subnetOverrides : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
         } else {
-            inputs["allowedSubnets"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["externalProviderResourceId"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["subnetOverrides"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["allowedSubnets"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["externalProviderResourceId"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["subnetOverrides"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:devtestlab:VirtualNetworkResource" }, { type: "azure-native:devtestlab/v20160515:VirtualNetworkResource" }, { type: "azure-native:devtestlab/v20180915:VirtualNetworkResource" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(VirtualNetworkResource.__pulumiType, name, inputs, opts);
+        super(VirtualNetworkResource.__pulumiType, name, resourceInputs, opts);
     }
 }
 

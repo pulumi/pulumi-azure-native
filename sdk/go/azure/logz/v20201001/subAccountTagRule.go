@@ -105,7 +105,7 @@ type SubAccountTagRuleInput interface {
 }
 
 func (*SubAccountTagRule) ElementType() reflect.Type {
-	return reflect.TypeOf((*SubAccountTagRule)(nil))
+	return reflect.TypeOf((**SubAccountTagRule)(nil)).Elem()
 }
 
 func (i *SubAccountTagRule) ToSubAccountTagRuleOutput() SubAccountTagRuleOutput {
@@ -119,7 +119,7 @@ func (i *SubAccountTagRule) ToSubAccountTagRuleOutputWithContext(ctx context.Con
 type SubAccountTagRuleOutput struct{ *pulumi.OutputState }
 
 func (SubAccountTagRuleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SubAccountTagRule)(nil))
+	return reflect.TypeOf((**SubAccountTagRule)(nil)).Elem()
 }
 
 func (o SubAccountTagRuleOutput) ToSubAccountTagRuleOutput() SubAccountTagRuleOutput {

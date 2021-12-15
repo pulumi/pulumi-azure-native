@@ -4121,6 +4121,17 @@ type AmlCompute struct {
 }
 
 
+func (val *AmlCompute) Defaults() *AmlCompute {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Properties = tmp.Properties.Defaults()
+
+	return &tmp
+}
+
+
 
 
 
@@ -4320,6 +4331,25 @@ type AmlComputeProperties struct {
 	VirtualMachineImage         *VirtualMachineImage    `pulumi:"virtualMachineImage"`
 	VmPriority                  *string                 `pulumi:"vmPriority"`
 	VmSize                      *string                 `pulumi:"vmSize"`
+}
+
+
+func (val *AmlComputeProperties) Defaults() *AmlComputeProperties {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.EnableNodePublicIp) {
+		enableNodePublicIp_ := true
+		tmp.EnableNodePublicIp = &enableNodePublicIp_
+	}
+	if isZero(tmp.RemoteLoginPortPublicAccess) {
+		remoteLoginPortPublicAccess_ := "NotSpecified"
+		tmp.RemoteLoginPortPublicAccess = &remoteLoginPortPublicAccess_
+	}
+	tmp.ScaleSettings = tmp.ScaleSettings.Defaults()
+
+	return &tmp
 }
 
 
@@ -4591,6 +4621,17 @@ type AmlComputeResponse struct {
 }
 
 
+func (val *AmlComputeResponse) Defaults() *AmlComputeResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Properties = tmp.Properties.Defaults()
+
+	return &tmp
+}
+
+
 
 
 
@@ -4697,6 +4738,25 @@ type AmlComputeResponseProperties struct {
 	VirtualMachineImage           *VirtualMachineImageResponse          `pulumi:"virtualMachineImage"`
 	VmPriority                    *string                               `pulumi:"vmPriority"`
 	VmSize                        *string                               `pulumi:"vmSize"`
+}
+
+
+func (val *AmlComputeResponseProperties) Defaults() *AmlComputeResponseProperties {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.EnableNodePublicIp) {
+		enableNodePublicIp_ := true
+		tmp.EnableNodePublicIp = &enableNodePublicIp_
+	}
+	if isZero(tmp.RemoteLoginPortPublicAccess) {
+		remoteLoginPortPublicAccess_ := "NotSpecified"
+		tmp.RemoteLoginPortPublicAccess = &remoteLoginPortPublicAccess_
+	}
+	tmp.ScaleSettings = tmp.ScaleSettings.Defaults()
+
+	return &tmp
 }
 
 
@@ -13868,6 +13928,19 @@ type ScaleSettings struct {
 }
 
 
+func (val *ScaleSettings) Defaults() *ScaleSettings {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.MinNodeCount) {
+		minNodeCount_ := 0
+		tmp.MinNodeCount = &minNodeCount_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -14028,6 +14101,19 @@ type ScaleSettingsResponse struct {
 	MaxNodeCount                int     `pulumi:"maxNodeCount"`
 	MinNodeCount                *int    `pulumi:"minNodeCount"`
 	NodeIdleTimeBeforeScaleDown *string `pulumi:"nodeIdleTimeBeforeScaleDown"`
+}
+
+
+func (val *ScaleSettingsResponse) Defaults() *ScaleSettingsResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.MinNodeCount) {
+		minNodeCount_ := 0
+		tmp.MinNodeCount = &minNodeCount_
+	}
+	return &tmp
 }
 
 

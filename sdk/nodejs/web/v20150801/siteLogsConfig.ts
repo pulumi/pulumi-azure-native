@@ -80,7 +80,7 @@ export class SiteLogsConfig extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: SiteLogsConfigArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.name === undefined) && !opts.urn) {
@@ -89,34 +89,34 @@ export class SiteLogsConfig extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["applicationLogs"] = args ? args.applicationLogs : undefined;
-            inputs["detailedErrorMessages"] = args ? args.detailedErrorMessages : undefined;
-            inputs["failedRequestsTracing"] = args ? args.failedRequestsTracing : undefined;
-            inputs["httpLogs"] = args ? args.httpLogs : undefined;
-            inputs["id"] = args ? args.id : undefined;
-            inputs["kind"] = args ? args.kind : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["type"] = args ? args.type : undefined;
+            resourceInputs["applicationLogs"] = args ? args.applicationLogs : undefined;
+            resourceInputs["detailedErrorMessages"] = args ? args.detailedErrorMessages : undefined;
+            resourceInputs["failedRequestsTracing"] = args ? args.failedRequestsTracing : undefined;
+            resourceInputs["httpLogs"] = args ? args.httpLogs : undefined;
+            resourceInputs["id"] = args ? args.id : undefined;
+            resourceInputs["kind"] = args ? args.kind : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
         } else {
-            inputs["applicationLogs"] = undefined /*out*/;
-            inputs["detailedErrorMessages"] = undefined /*out*/;
-            inputs["failedRequestsTracing"] = undefined /*out*/;
-            inputs["httpLogs"] = undefined /*out*/;
-            inputs["kind"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["applicationLogs"] = undefined /*out*/;
+            resourceInputs["detailedErrorMessages"] = undefined /*out*/;
+            resourceInputs["failedRequestsTracing"] = undefined /*out*/;
+            resourceInputs["httpLogs"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:web:SiteLogsConfig" }, { type: "azure-native:web/v20160801:SiteLogsConfig" }, { type: "azure-native:web/v20180201:SiteLogsConfig" }, { type: "azure-native:web/v20181101:SiteLogsConfig" }, { type: "azure-native:web/v20190801:SiteLogsConfig" }, { type: "azure-native:web/v20200601:SiteLogsConfig" }, { type: "azure-native:web/v20200901:SiteLogsConfig" }, { type: "azure-native:web/v20201001:SiteLogsConfig" }, { type: "azure-native:web/v20201201:SiteLogsConfig" }, { type: "azure-native:web/v20210101:SiteLogsConfig" }, { type: "azure-native:web/v20210115:SiteLogsConfig" }, { type: "azure-native:web/v20210201:SiteLogsConfig" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(SiteLogsConfig.__pulumiType, name, inputs, opts);
+        super(SiteLogsConfig.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -135,7 +135,7 @@ type SiteInstanceDeploymentSlotInput interface {
 }
 
 func (*SiteInstanceDeploymentSlot) ElementType() reflect.Type {
-	return reflect.TypeOf((*SiteInstanceDeploymentSlot)(nil))
+	return reflect.TypeOf((**SiteInstanceDeploymentSlot)(nil)).Elem()
 }
 
 func (i *SiteInstanceDeploymentSlot) ToSiteInstanceDeploymentSlotOutput() SiteInstanceDeploymentSlotOutput {
@@ -149,7 +149,7 @@ func (i *SiteInstanceDeploymentSlot) ToSiteInstanceDeploymentSlotOutputWithConte
 type SiteInstanceDeploymentSlotOutput struct{ *pulumi.OutputState }
 
 func (SiteInstanceDeploymentSlotOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SiteInstanceDeploymentSlot)(nil))
+	return reflect.TypeOf((**SiteInstanceDeploymentSlot)(nil)).Elem()
 }
 
 func (o SiteInstanceDeploymentSlotOutput) ToSiteInstanceDeploymentSlotOutput() SiteInstanceDeploymentSlotOutput {

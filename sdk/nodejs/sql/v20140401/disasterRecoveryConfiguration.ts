@@ -83,7 +83,7 @@ export class DisasterRecoveryConfiguration extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: DisasterRecoveryConfigurationArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
@@ -92,37 +92,37 @@ export class DisasterRecoveryConfiguration extends pulumi.CustomResource {
             if ((!args || args.serverName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serverName'");
             }
-            inputs["disasterRecoveryConfigurationName"] = args ? args.disasterRecoveryConfigurationName : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["serverName"] = args ? args.serverName : undefined;
-            inputs["autoFailover"] = undefined /*out*/;
-            inputs["failoverPolicy"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["logicalServerName"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["partnerLogicalServerName"] = undefined /*out*/;
-            inputs["partnerServerId"] = undefined /*out*/;
-            inputs["role"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["disasterRecoveryConfigurationName"] = args ? args.disasterRecoveryConfigurationName : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["serverName"] = args ? args.serverName : undefined;
+            resourceInputs["autoFailover"] = undefined /*out*/;
+            resourceInputs["failoverPolicy"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["logicalServerName"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["partnerLogicalServerName"] = undefined /*out*/;
+            resourceInputs["partnerServerId"] = undefined /*out*/;
+            resourceInputs["role"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["autoFailover"] = undefined /*out*/;
-            inputs["failoverPolicy"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["logicalServerName"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["partnerLogicalServerName"] = undefined /*out*/;
-            inputs["partnerServerId"] = undefined /*out*/;
-            inputs["role"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["autoFailover"] = undefined /*out*/;
+            resourceInputs["failoverPolicy"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["logicalServerName"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["partnerLogicalServerName"] = undefined /*out*/;
+            resourceInputs["partnerServerId"] = undefined /*out*/;
+            resourceInputs["role"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:sql:DisasterRecoveryConfiguration" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(DisasterRecoveryConfiguration.__pulumiType, name, inputs, opts);
+        super(DisasterRecoveryConfiguration.__pulumiType, name, resourceInputs, opts);
     }
 }
 

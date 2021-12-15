@@ -144,7 +144,7 @@ type LiveEventInput interface {
 }
 
 func (*LiveEvent) ElementType() reflect.Type {
-	return reflect.TypeOf((*LiveEvent)(nil))
+	return reflect.TypeOf((**LiveEvent)(nil)).Elem()
 }
 
 func (i *LiveEvent) ToLiveEventOutput() LiveEventOutput {
@@ -158,7 +158,7 @@ func (i *LiveEvent) ToLiveEventOutputWithContext(ctx context.Context) LiveEventO
 type LiveEventOutput struct{ *pulumi.OutputState }
 
 func (LiveEventOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LiveEvent)(nil))
+	return reflect.TypeOf((**LiveEvent)(nil)).Elem()
 }
 
 func (o LiveEventOutput) ToLiveEventOutput() LiveEventOutput {

@@ -60,7 +60,7 @@ export class RulesEngine extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: RulesEngineArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.frontDoorName === undefined) && !opts.urn) {
@@ -69,25 +69,25 @@ export class RulesEngine extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["frontDoorName"] = args ? args.frontDoorName : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["rules"] = args ? args.rules : undefined;
-            inputs["rulesEngineName"] = args ? args.rulesEngineName : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["resourceState"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["frontDoorName"] = args ? args.frontDoorName : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["rules"] = args ? args.rules : undefined;
+            resourceInputs["rulesEngineName"] = args ? args.rulesEngineName : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["resourceState"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["name"] = undefined /*out*/;
-            inputs["resourceState"] = undefined /*out*/;
-            inputs["rules"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["resourceState"] = undefined /*out*/;
+            resourceInputs["rules"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:network:RulesEngine" }, { type: "azure-native:network/v20200101:RulesEngine" }, { type: "azure-native:network/v20200401:RulesEngine" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(RulesEngine.__pulumiType, name, inputs, opts);
+        super(RulesEngine.__pulumiType, name, resourceInputs, opts);
     }
 }
 

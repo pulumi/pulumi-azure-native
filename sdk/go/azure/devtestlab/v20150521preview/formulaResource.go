@@ -130,7 +130,7 @@ type FormulaResourceInput interface {
 }
 
 func (*FormulaResource) ElementType() reflect.Type {
-	return reflect.TypeOf((*FormulaResource)(nil))
+	return reflect.TypeOf((**FormulaResource)(nil)).Elem()
 }
 
 func (i *FormulaResource) ToFormulaResourceOutput() FormulaResourceOutput {
@@ -144,7 +144,7 @@ func (i *FormulaResource) ToFormulaResourceOutputWithContext(ctx context.Context
 type FormulaResourceOutput struct{ *pulumi.OutputState }
 
 func (FormulaResourceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FormulaResource)(nil))
+	return reflect.TypeOf((**FormulaResource)(nil)).Elem()
 }
 
 func (o FormulaResourceOutput) ToFormulaResourceOutput() FormulaResourceOutput {

@@ -84,7 +84,7 @@ export class IscsiDisk extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: IscsiDiskArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.accessControlRecords === undefined) && !opts.urn) {
@@ -114,37 +114,37 @@ export class IscsiDisk extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["accessControlRecords"] = args ? args.accessControlRecords : undefined;
-            inputs["dataPolicy"] = args ? args.dataPolicy : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["deviceName"] = args ? args.deviceName : undefined;
-            inputs["diskName"] = args ? args.diskName : undefined;
-            inputs["diskStatus"] = args ? args.diskStatus : undefined;
-            inputs["iscsiServerName"] = args ? args.iscsiServerName : undefined;
-            inputs["managerName"] = args ? args.managerName : undefined;
-            inputs["monitoringStatus"] = args ? args.monitoringStatus : undefined;
-            inputs["provisionedCapacityInBytes"] = args ? args.provisionedCapacityInBytes : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["localUsedCapacityInBytes"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["usedCapacityInBytes"] = undefined /*out*/;
+            resourceInputs["accessControlRecords"] = args ? args.accessControlRecords : undefined;
+            resourceInputs["dataPolicy"] = args ? args.dataPolicy : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["deviceName"] = args ? args.deviceName : undefined;
+            resourceInputs["diskName"] = args ? args.diskName : undefined;
+            resourceInputs["diskStatus"] = args ? args.diskStatus : undefined;
+            resourceInputs["iscsiServerName"] = args ? args.iscsiServerName : undefined;
+            resourceInputs["managerName"] = args ? args.managerName : undefined;
+            resourceInputs["monitoringStatus"] = args ? args.monitoringStatus : undefined;
+            resourceInputs["provisionedCapacityInBytes"] = args ? args.provisionedCapacityInBytes : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["localUsedCapacityInBytes"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["usedCapacityInBytes"] = undefined /*out*/;
         } else {
-            inputs["accessControlRecords"] = undefined /*out*/;
-            inputs["dataPolicy"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["diskStatus"] = undefined /*out*/;
-            inputs["localUsedCapacityInBytes"] = undefined /*out*/;
-            inputs["monitoringStatus"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisionedCapacityInBytes"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["usedCapacityInBytes"] = undefined /*out*/;
+            resourceInputs["accessControlRecords"] = undefined /*out*/;
+            resourceInputs["dataPolicy"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["diskStatus"] = undefined /*out*/;
+            resourceInputs["localUsedCapacityInBytes"] = undefined /*out*/;
+            resourceInputs["monitoringStatus"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisionedCapacityInBytes"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["usedCapacityInBytes"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(IscsiDisk.__pulumiType, name, inputs, opts);
+        super(IscsiDisk.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -115,7 +115,7 @@ type AutomationInput interface {
 }
 
 func (*Automation) ElementType() reflect.Type {
-	return reflect.TypeOf((*Automation)(nil))
+	return reflect.TypeOf((**Automation)(nil)).Elem()
 }
 
 func (i *Automation) ToAutomationOutput() AutomationOutput {
@@ -129,7 +129,7 @@ func (i *Automation) ToAutomationOutputWithContext(ctx context.Context) Automati
 type AutomationOutput struct{ *pulumi.OutputState }
 
 func (AutomationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Automation)(nil))
+	return reflect.TypeOf((**Automation)(nil)).Elem()
 }
 
 func (o AutomationOutput) ToAutomationOutput() AutomationOutput {

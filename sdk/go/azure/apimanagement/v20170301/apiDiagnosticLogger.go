@@ -111,7 +111,7 @@ type ApiDiagnosticLoggerInput interface {
 }
 
 func (*ApiDiagnosticLogger) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApiDiagnosticLogger)(nil))
+	return reflect.TypeOf((**ApiDiagnosticLogger)(nil)).Elem()
 }
 
 func (i *ApiDiagnosticLogger) ToApiDiagnosticLoggerOutput() ApiDiagnosticLoggerOutput {
@@ -125,7 +125,7 @@ func (i *ApiDiagnosticLogger) ToApiDiagnosticLoggerOutputWithContext(ctx context
 type ApiDiagnosticLoggerOutput struct{ *pulumi.OutputState }
 
 func (ApiDiagnosticLoggerOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApiDiagnosticLogger)(nil))
+	return reflect.TypeOf((**ApiDiagnosticLogger)(nil)).Elem()
 }
 
 func (o ApiDiagnosticLoggerOutput) ToApiDiagnosticLoggerOutput() ApiDiagnosticLoggerOutput {

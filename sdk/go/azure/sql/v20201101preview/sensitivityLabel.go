@@ -148,7 +148,7 @@ type SensitivityLabelInput interface {
 }
 
 func (*SensitivityLabel) ElementType() reflect.Type {
-	return reflect.TypeOf((*SensitivityLabel)(nil))
+	return reflect.TypeOf((**SensitivityLabel)(nil)).Elem()
 }
 
 func (i *SensitivityLabel) ToSensitivityLabelOutput() SensitivityLabelOutput {
@@ -162,7 +162,7 @@ func (i *SensitivityLabel) ToSensitivityLabelOutputWithContext(ctx context.Conte
 type SensitivityLabelOutput struct{ *pulumi.OutputState }
 
 func (SensitivityLabelOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SensitivityLabel)(nil))
+	return reflect.TypeOf((**SensitivityLabel)(nil)).Elem()
 }
 
 func (o SensitivityLabelOutput) ToSensitivityLabelOutput() SensitivityLabelOutput {

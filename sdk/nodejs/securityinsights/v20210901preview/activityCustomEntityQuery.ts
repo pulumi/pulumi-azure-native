@@ -109,7 +109,7 @@ export class ActivityCustomEntityQuery extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ActivityCustomEntityQueryArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.kind === undefined) && !opts.urn) {
@@ -121,49 +121,49 @@ export class ActivityCustomEntityQuery extends pulumi.CustomResource {
             if ((!args || args.workspaceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            inputs["content"] = args ? args.content : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["enabled"] = args ? args.enabled : undefined;
-            inputs["entitiesFilter"] = args ? args.entitiesFilter : undefined;
-            inputs["entityQueryId"] = args ? args.entityQueryId : undefined;
-            inputs["etag"] = args ? args.etag : undefined;
-            inputs["inputEntityType"] = args ? args.inputEntityType : undefined;
-            inputs["kind"] = "Activity";
-            inputs["queryDefinitions"] = args ? args.queryDefinitions : undefined;
-            inputs["requiredInputFieldsSets"] = args ? args.requiredInputFieldsSets : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["templateName"] = args ? args.templateName : undefined;
-            inputs["title"] = args ? args.title : undefined;
-            inputs["workspaceName"] = args ? args.workspaceName : undefined;
-            inputs["createdTimeUtc"] = undefined /*out*/;
-            inputs["lastModifiedTimeUtc"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["content"] = args ? args.content : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["enabled"] = args ? args.enabled : undefined;
+            resourceInputs["entitiesFilter"] = args ? args.entitiesFilter : undefined;
+            resourceInputs["entityQueryId"] = args ? args.entityQueryId : undefined;
+            resourceInputs["etag"] = args ? args.etag : undefined;
+            resourceInputs["inputEntityType"] = args ? args.inputEntityType : undefined;
+            resourceInputs["kind"] = "Activity";
+            resourceInputs["queryDefinitions"] = args ? args.queryDefinitions : undefined;
+            resourceInputs["requiredInputFieldsSets"] = args ? args.requiredInputFieldsSets : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["templateName"] = args ? args.templateName : undefined;
+            resourceInputs["title"] = args ? args.title : undefined;
+            resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["createdTimeUtc"] = undefined /*out*/;
+            resourceInputs["lastModifiedTimeUtc"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["content"] = undefined /*out*/;
-            inputs["createdTimeUtc"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["enabled"] = undefined /*out*/;
-            inputs["entitiesFilter"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
-            inputs["inputEntityType"] = undefined /*out*/;
-            inputs["kind"] = undefined /*out*/;
-            inputs["lastModifiedTimeUtc"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["queryDefinitions"] = undefined /*out*/;
-            inputs["requiredInputFieldsSets"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["templateName"] = undefined /*out*/;
-            inputs["title"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["content"] = undefined /*out*/;
+            resourceInputs["createdTimeUtc"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["enabled"] = undefined /*out*/;
+            resourceInputs["entitiesFilter"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["inputEntityType"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["lastModifiedTimeUtc"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["queryDefinitions"] = undefined /*out*/;
+            resourceInputs["requiredInputFieldsSets"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["templateName"] = undefined /*out*/;
+            resourceInputs["title"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:securityinsights:ActivityCustomEntityQuery" }, { type: "azure-native:securityinsights/v20210301preview:ActivityCustomEntityQuery" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(ActivityCustomEntityQuery.__pulumiType, name, inputs, opts);
+        super(ActivityCustomEntityQuery.__pulumiType, name, resourceInputs, opts);
     }
 }
 

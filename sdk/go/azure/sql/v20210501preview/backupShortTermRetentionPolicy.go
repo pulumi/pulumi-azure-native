@@ -119,7 +119,7 @@ type BackupShortTermRetentionPolicyInput interface {
 }
 
 func (*BackupShortTermRetentionPolicy) ElementType() reflect.Type {
-	return reflect.TypeOf((*BackupShortTermRetentionPolicy)(nil))
+	return reflect.TypeOf((**BackupShortTermRetentionPolicy)(nil)).Elem()
 }
 
 func (i *BackupShortTermRetentionPolicy) ToBackupShortTermRetentionPolicyOutput() BackupShortTermRetentionPolicyOutput {
@@ -133,7 +133,7 @@ func (i *BackupShortTermRetentionPolicy) ToBackupShortTermRetentionPolicyOutputW
 type BackupShortTermRetentionPolicyOutput struct{ *pulumi.OutputState }
 
 func (BackupShortTermRetentionPolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BackupShortTermRetentionPolicy)(nil))
+	return reflect.TypeOf((**BackupShortTermRetentionPolicy)(nil)).Elem()
 }
 
 func (o BackupShortTermRetentionPolicyOutput) ToBackupShortTermRetentionPolicyOutput() BackupShortTermRetentionPolicyOutput {

@@ -64,7 +64,7 @@ export class StorageDomain extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: StorageDomainArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.encryptionStatus === undefined) && !opts.urn) {
@@ -79,25 +79,25 @@ export class StorageDomain extends pulumi.CustomResource {
             if ((!args || args.storageAccountCredentialIds === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'storageAccountCredentialIds'");
             }
-            inputs["encryptionKey"] = args ? args.encryptionKey : undefined;
-            inputs["encryptionStatus"] = args ? args.encryptionStatus : undefined;
-            inputs["managerName"] = args ? args.managerName : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["storageAccountCredentialIds"] = args ? args.storageAccountCredentialIds : undefined;
-            inputs["storageDomainName"] = args ? args.storageDomainName : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["encryptionKey"] = args ? args.encryptionKey : undefined;
+            resourceInputs["encryptionStatus"] = args ? args.encryptionStatus : undefined;
+            resourceInputs["managerName"] = args ? args.managerName : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["storageAccountCredentialIds"] = args ? args.storageAccountCredentialIds : undefined;
+            resourceInputs["storageDomainName"] = args ? args.storageDomainName : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["encryptionKey"] = undefined /*out*/;
-            inputs["encryptionStatus"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["storageAccountCredentialIds"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["encryptionKey"] = undefined /*out*/;
+            resourceInputs["encryptionStatus"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["storageAccountCredentialIds"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(StorageDomain.__pulumiType, name, inputs, opts);
+        super(StorageDomain.__pulumiType, name, resourceInputs, opts);
     }
 }
 

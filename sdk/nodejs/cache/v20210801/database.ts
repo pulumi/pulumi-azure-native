@@ -84,7 +84,7 @@ export class Database extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: DatabaseArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.clusterName === undefined) && !opts.urn) {
@@ -93,37 +93,37 @@ export class Database extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["clientProtocol"] = args ? args.clientProtocol : undefined;
-            inputs["clusterName"] = args ? args.clusterName : undefined;
-            inputs["clusteringPolicy"] = args ? args.clusteringPolicy : undefined;
-            inputs["databaseName"] = args ? args.databaseName : undefined;
-            inputs["evictionPolicy"] = args ? args.evictionPolicy : undefined;
-            inputs["modules"] = args ? args.modules : undefined;
-            inputs["persistence"] = args ? args.persistence : undefined;
-            inputs["port"] = args ? args.port : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["resourceState"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["clientProtocol"] = args ? args.clientProtocol : undefined;
+            resourceInputs["clusterName"] = args ? args.clusterName : undefined;
+            resourceInputs["clusteringPolicy"] = args ? args.clusteringPolicy : undefined;
+            resourceInputs["databaseName"] = args ? args.databaseName : undefined;
+            resourceInputs["evictionPolicy"] = args ? args.evictionPolicy : undefined;
+            resourceInputs["modules"] = args ? args.modules : undefined;
+            resourceInputs["persistence"] = args ? args.persistence : undefined;
+            resourceInputs["port"] = args ? args.port : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["resourceState"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["clientProtocol"] = undefined /*out*/;
-            inputs["clusteringPolicy"] = undefined /*out*/;
-            inputs["evictionPolicy"] = undefined /*out*/;
-            inputs["modules"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["persistence"] = undefined /*out*/;
-            inputs["port"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["resourceState"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["clientProtocol"] = undefined /*out*/;
+            resourceInputs["clusteringPolicy"] = undefined /*out*/;
+            resourceInputs["evictionPolicy"] = undefined /*out*/;
+            resourceInputs["modules"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["persistence"] = undefined /*out*/;
+            resourceInputs["port"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["resourceState"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:cache:Database" }, { type: "azure-native:cache/v20201001preview:Database" }, { type: "azure-native:cache/v20210201preview:Database" }, { type: "azure-native:cache/v20210301:Database" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Database.__pulumiType, name, inputs, opts);
+        super(Database.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -108,7 +108,7 @@ type SecurityAdminConfigurationInput interface {
 }
 
 func (*SecurityAdminConfiguration) ElementType() reflect.Type {
-	return reflect.TypeOf((*SecurityAdminConfiguration)(nil))
+	return reflect.TypeOf((**SecurityAdminConfiguration)(nil)).Elem()
 }
 
 func (i *SecurityAdminConfiguration) ToSecurityAdminConfigurationOutput() SecurityAdminConfigurationOutput {
@@ -122,7 +122,7 @@ func (i *SecurityAdminConfiguration) ToSecurityAdminConfigurationOutputWithConte
 type SecurityAdminConfigurationOutput struct{ *pulumi.OutputState }
 
 func (SecurityAdminConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SecurityAdminConfiguration)(nil))
+	return reflect.TypeOf((**SecurityAdminConfiguration)(nil)).Elem()
 }
 
 func (o SecurityAdminConfigurationOutput) ToSecurityAdminConfigurationOutput() SecurityAdminConfigurationOutput {

@@ -112,7 +112,7 @@ type HanaInstanceInput interface {
 }
 
 func (*HanaInstance) ElementType() reflect.Type {
-	return reflect.TypeOf((*HanaInstance)(nil))
+	return reflect.TypeOf((**HanaInstance)(nil)).Elem()
 }
 
 func (i *HanaInstance) ToHanaInstanceOutput() HanaInstanceOutput {
@@ -126,7 +126,7 @@ func (i *HanaInstance) ToHanaInstanceOutputWithContext(ctx context.Context) Hana
 type HanaInstanceOutput struct{ *pulumi.OutputState }
 
 func (HanaInstanceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*HanaInstance)(nil))
+	return reflect.TypeOf((**HanaInstance)(nil)).Elem()
 }
 
 func (o HanaInstanceOutput) ToHanaInstanceOutput() HanaInstanceOutput {

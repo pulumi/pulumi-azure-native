@@ -101,7 +101,7 @@ export class LinkedSubscription extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: LinkedSubscriptionArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.linkedSubscriptionId === undefined) && !opts.urn) {
@@ -113,44 +113,44 @@ export class LinkedSubscription extends pulumi.CustomResource {
             if ((!args || args.resourceGroup === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroup'");
             }
-            inputs["linkedSubscriptionId"] = args ? args.linkedSubscriptionId : undefined;
-            inputs["linkedSubscriptionName"] = args ? args.linkedSubscriptionName : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["registrationResourceId"] = args ? args.registrationResourceId : undefined;
-            inputs["resourceGroup"] = args ? args.resourceGroup : undefined;
-            inputs["deviceConnectionStatus"] = undefined /*out*/;
-            inputs["deviceId"] = undefined /*out*/;
-            inputs["deviceLinkState"] = undefined /*out*/;
-            inputs["deviceObjectId"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
-            inputs["kind"] = undefined /*out*/;
-            inputs["lastConnectedTime"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["linkedSubscriptionId"] = args ? args.linkedSubscriptionId : undefined;
+            resourceInputs["linkedSubscriptionName"] = args ? args.linkedSubscriptionName : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["registrationResourceId"] = args ? args.registrationResourceId : undefined;
+            resourceInputs["resourceGroup"] = args ? args.resourceGroup : undefined;
+            resourceInputs["deviceConnectionStatus"] = undefined /*out*/;
+            resourceInputs["deviceId"] = undefined /*out*/;
+            resourceInputs["deviceLinkState"] = undefined /*out*/;
+            resourceInputs["deviceObjectId"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["lastConnectedTime"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["deviceConnectionStatus"] = undefined /*out*/;
-            inputs["deviceId"] = undefined /*out*/;
-            inputs["deviceLinkState"] = undefined /*out*/;
-            inputs["deviceObjectId"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
-            inputs["kind"] = undefined /*out*/;
-            inputs["lastConnectedTime"] = undefined /*out*/;
-            inputs["linkedSubscriptionId"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["registrationResourceId"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["deviceConnectionStatus"] = undefined /*out*/;
+            resourceInputs["deviceId"] = undefined /*out*/;
+            resourceInputs["deviceLinkState"] = undefined /*out*/;
+            resourceInputs["deviceObjectId"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["lastConnectedTime"] = undefined /*out*/;
+            resourceInputs["linkedSubscriptionId"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["registrationResourceId"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:azurestack/v20200601preview:LinkedSubscription" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(LinkedSubscription.__pulumiType, name, inputs, opts);
+        super(LinkedSubscription.__pulumiType, name, resourceInputs, opts);
     }
 }
 

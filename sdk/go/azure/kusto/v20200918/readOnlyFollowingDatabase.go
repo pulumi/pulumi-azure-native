@@ -142,7 +142,7 @@ type ReadOnlyFollowingDatabaseInput interface {
 }
 
 func (*ReadOnlyFollowingDatabase) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReadOnlyFollowingDatabase)(nil))
+	return reflect.TypeOf((**ReadOnlyFollowingDatabase)(nil)).Elem()
 }
 
 func (i *ReadOnlyFollowingDatabase) ToReadOnlyFollowingDatabaseOutput() ReadOnlyFollowingDatabaseOutput {
@@ -156,7 +156,7 @@ func (i *ReadOnlyFollowingDatabase) ToReadOnlyFollowingDatabaseOutputWithContext
 type ReadOnlyFollowingDatabaseOutput struct{ *pulumi.OutputState }
 
 func (ReadOnlyFollowingDatabaseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReadOnlyFollowingDatabase)(nil))
+	return reflect.TypeOf((**ReadOnlyFollowingDatabase)(nil)).Elem()
 }
 
 func (o ReadOnlyFollowingDatabaseOutput) ToReadOnlyFollowingDatabaseOutput() ReadOnlyFollowingDatabaseOutput {

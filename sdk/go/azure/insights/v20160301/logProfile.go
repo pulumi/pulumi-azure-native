@@ -113,7 +113,7 @@ type LogProfileInput interface {
 }
 
 func (*LogProfile) ElementType() reflect.Type {
-	return reflect.TypeOf((*LogProfile)(nil))
+	return reflect.TypeOf((**LogProfile)(nil)).Elem()
 }
 
 func (i *LogProfile) ToLogProfileOutput() LogProfileOutput {
@@ -127,7 +127,7 @@ func (i *LogProfile) ToLogProfileOutputWithContext(ctx context.Context) LogProfi
 type LogProfileOutput struct{ *pulumi.OutputState }
 
 func (LogProfileOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LogProfile)(nil))
+	return reflect.TypeOf((**LogProfile)(nil)).Elem()
 }
 
 func (o LogProfileOutput) ToLogProfileOutput() LogProfileOutput {

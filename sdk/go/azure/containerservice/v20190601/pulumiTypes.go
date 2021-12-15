@@ -317,6 +317,35 @@ type ContainerServiceNetworkProfile struct {
 }
 
 
+func (val *ContainerServiceNetworkProfile) Defaults() *ContainerServiceNetworkProfile {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.DnsServiceIP) {
+		dnsServiceIP_ := "10.0.0.10"
+		tmp.DnsServiceIP = &dnsServiceIP_
+	}
+	if isZero(tmp.DockerBridgeCidr) {
+		dockerBridgeCidr_ := "172.17.0.1/16"
+		tmp.DockerBridgeCidr = &dockerBridgeCidr_
+	}
+	if isZero(tmp.NetworkPlugin) {
+		networkPlugin_ := "kubenet"
+		tmp.NetworkPlugin = &networkPlugin_
+	}
+	if isZero(tmp.PodCidr) {
+		podCidr_ := "10.244.0.0/16"
+		tmp.PodCidr = &podCidr_
+	}
+	if isZero(tmp.ServiceCidr) {
+		serviceCidr_ := "10.0.0.0/16"
+		tmp.ServiceCidr = &serviceCidr_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -537,6 +566,35 @@ type ContainerServiceNetworkProfileResponse struct {
 	NetworkPolicy    *string `pulumi:"networkPolicy"`
 	PodCidr          *string `pulumi:"podCidr"`
 	ServiceCidr      *string `pulumi:"serviceCidr"`
+}
+
+
+func (val *ContainerServiceNetworkProfileResponse) Defaults() *ContainerServiceNetworkProfileResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.DnsServiceIP) {
+		dnsServiceIP_ := "10.0.0.10"
+		tmp.DnsServiceIP = &dnsServiceIP_
+	}
+	if isZero(tmp.DockerBridgeCidr) {
+		dockerBridgeCidr_ := "172.17.0.1/16"
+		tmp.DockerBridgeCidr = &dockerBridgeCidr_
+	}
+	if isZero(tmp.NetworkPlugin) {
+		networkPlugin_ := "kubenet"
+		tmp.NetworkPlugin = &networkPlugin_
+	}
+	if isZero(tmp.PodCidr) {
+		podCidr_ := "10.244.0.0/16"
+		tmp.PodCidr = &podCidr_
+	}
+	if isZero(tmp.ServiceCidr) {
+		serviceCidr_ := "10.0.0.0/16"
+		tmp.ServiceCidr = &serviceCidr_
+	}
+	return &tmp
 }
 
 

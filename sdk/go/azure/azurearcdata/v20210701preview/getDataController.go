@@ -13,7 +13,7 @@ func LookupDataController(ctx *pulumi.Context, args *LookupDataControllerArgs, o
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupDataControllerArgs struct {
@@ -31,4 +31,15 @@ type LookupDataControllerResult struct {
 	SystemData       SystemDataResponse               `pulumi:"systemData"`
 	Tags             map[string]string                `pulumi:"tags"`
 	Type             string                           `pulumi:"type"`
+}
+
+
+func (val *LookupDataControllerResult) Defaults() *LookupDataControllerResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Properties = *tmp.Properties.Defaults()
+
+	return &tmp
 }

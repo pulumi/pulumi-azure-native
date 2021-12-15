@@ -75,7 +75,7 @@ export class SqlPoolWorkloadGroup extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: SqlPoolWorkloadGroupArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.maxResourcePercent === undefined) && !opts.urn) {
@@ -96,34 +96,34 @@ export class SqlPoolWorkloadGroup extends pulumi.CustomResource {
             if ((!args || args.workspaceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            inputs["importance"] = args ? args.importance : undefined;
-            inputs["maxResourcePercent"] = args ? args.maxResourcePercent : undefined;
-            inputs["maxResourcePercentPerRequest"] = args ? args.maxResourcePercentPerRequest : undefined;
-            inputs["minResourcePercent"] = args ? args.minResourcePercent : undefined;
-            inputs["minResourcePercentPerRequest"] = args ? args.minResourcePercentPerRequest : undefined;
-            inputs["queryExecutionTimeout"] = args ? args.queryExecutionTimeout : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["sqlPoolName"] = args ? args.sqlPoolName : undefined;
-            inputs["workloadGroupName"] = args ? args.workloadGroupName : undefined;
-            inputs["workspaceName"] = args ? args.workspaceName : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["importance"] = args ? args.importance : undefined;
+            resourceInputs["maxResourcePercent"] = args ? args.maxResourcePercent : undefined;
+            resourceInputs["maxResourcePercentPerRequest"] = args ? args.maxResourcePercentPerRequest : undefined;
+            resourceInputs["minResourcePercent"] = args ? args.minResourcePercent : undefined;
+            resourceInputs["minResourcePercentPerRequest"] = args ? args.minResourcePercentPerRequest : undefined;
+            resourceInputs["queryExecutionTimeout"] = args ? args.queryExecutionTimeout : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["sqlPoolName"] = args ? args.sqlPoolName : undefined;
+            resourceInputs["workloadGroupName"] = args ? args.workloadGroupName : undefined;
+            resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["importance"] = undefined /*out*/;
-            inputs["maxResourcePercent"] = undefined /*out*/;
-            inputs["maxResourcePercentPerRequest"] = undefined /*out*/;
-            inputs["minResourcePercent"] = undefined /*out*/;
-            inputs["minResourcePercentPerRequest"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["queryExecutionTimeout"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["importance"] = undefined /*out*/;
+            resourceInputs["maxResourcePercent"] = undefined /*out*/;
+            resourceInputs["maxResourcePercentPerRequest"] = undefined /*out*/;
+            resourceInputs["minResourcePercent"] = undefined /*out*/;
+            resourceInputs["minResourcePercentPerRequest"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["queryExecutionTimeout"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:synapse:SqlPoolWorkloadGroup" }, { type: "azure-native:synapse/v20190601preview:SqlPoolWorkloadGroup" }, { type: "azure-native:synapse/v20201201:SqlPoolWorkloadGroup" }, { type: "azure-native:synapse/v20210301:SqlPoolWorkloadGroup" }, { type: "azure-native:synapse/v20210401preview:SqlPoolWorkloadGroup" }, { type: "azure-native:synapse/v20210501:SqlPoolWorkloadGroup" }, { type: "azure-native:synapse/v20210601preview:SqlPoolWorkloadGroup" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(SqlPoolWorkloadGroup.__pulumiType, name, inputs, opts);
+        super(SqlPoolWorkloadGroup.__pulumiType, name, resourceInputs, opts);
     }
 }
 

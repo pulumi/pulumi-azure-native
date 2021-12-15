@@ -104,52 +104,52 @@ export class StorageAccount extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: StorageAccountArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["accountName"] = args ? args.accountName : undefined;
-            inputs["accountType"] = args ? args.accountType : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["creationTime"] = undefined /*out*/;
-            inputs["customDomain"] = undefined /*out*/;
-            inputs["lastGeoFailoverTime"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["primaryEndpoints"] = undefined /*out*/;
-            inputs["primaryLocation"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["secondaryEndpoints"] = undefined /*out*/;
-            inputs["secondaryLocation"] = undefined /*out*/;
-            inputs["statusOfPrimary"] = undefined /*out*/;
-            inputs["statusOfSecondary"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["accountName"] = args ? args.accountName : undefined;
+            resourceInputs["accountType"] = args ? args.accountType : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["creationTime"] = undefined /*out*/;
+            resourceInputs["customDomain"] = undefined /*out*/;
+            resourceInputs["lastGeoFailoverTime"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["primaryEndpoints"] = undefined /*out*/;
+            resourceInputs["primaryLocation"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["secondaryEndpoints"] = undefined /*out*/;
+            resourceInputs["secondaryLocation"] = undefined /*out*/;
+            resourceInputs["statusOfPrimary"] = undefined /*out*/;
+            resourceInputs["statusOfSecondary"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["accountType"] = undefined /*out*/;
-            inputs["creationTime"] = undefined /*out*/;
-            inputs["customDomain"] = undefined /*out*/;
-            inputs["lastGeoFailoverTime"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["primaryEndpoints"] = undefined /*out*/;
-            inputs["primaryLocation"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["secondaryEndpoints"] = undefined /*out*/;
-            inputs["secondaryLocation"] = undefined /*out*/;
-            inputs["statusOfPrimary"] = undefined /*out*/;
-            inputs["statusOfSecondary"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["accountType"] = undefined /*out*/;
+            resourceInputs["creationTime"] = undefined /*out*/;
+            resourceInputs["customDomain"] = undefined /*out*/;
+            resourceInputs["lastGeoFailoverTime"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["primaryEndpoints"] = undefined /*out*/;
+            resourceInputs["primaryLocation"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["secondaryEndpoints"] = undefined /*out*/;
+            resourceInputs["secondaryLocation"] = undefined /*out*/;
+            resourceInputs["statusOfPrimary"] = undefined /*out*/;
+            resourceInputs["statusOfSecondary"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:storage:StorageAccount" }, { type: "azure-native:storage/v20150615:StorageAccount" }, { type: "azure-native:storage/v20160101:StorageAccount" }, { type: "azure-native:storage/v20160501:StorageAccount" }, { type: "azure-native:storage/v20161201:StorageAccount" }, { type: "azure-native:storage/v20170601:StorageAccount" }, { type: "azure-native:storage/v20171001:StorageAccount" }, { type: "azure-native:storage/v20180201:StorageAccount" }, { type: "azure-native:storage/v20180301preview:StorageAccount" }, { type: "azure-native:storage/v20180701:StorageAccount" }, { type: "azure-native:storage/v20181101:StorageAccount" }, { type: "azure-native:storage/v20190401:StorageAccount" }, { type: "azure-native:storage/v20190601:StorageAccount" }, { type: "azure-native:storage/v20200801preview:StorageAccount" }, { type: "azure-native:storage/v20210101:StorageAccount" }, { type: "azure-native:storage/v20210201:StorageAccount" }, { type: "azure-native:storage/v20210401:StorageAccount" }, { type: "azure-native:storage/v20210601:StorageAccount" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(StorageAccount.__pulumiType, name, inputs, opts);
+        super(StorageAccount.__pulumiType, name, resourceInputs, opts);
     }
 }
 

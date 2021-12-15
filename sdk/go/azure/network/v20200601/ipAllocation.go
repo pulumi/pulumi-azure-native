@@ -38,7 +38,7 @@ func NewIpAllocation(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.PrefixLength == nil {
+	if isZero(args.PrefixLength) {
 		args.PrefixLength = pulumi.IntPtr(0)
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
@@ -146,7 +146,7 @@ type IpAllocationInput interface {
 }
 
 func (*IpAllocation) ElementType() reflect.Type {
-	return reflect.TypeOf((*IpAllocation)(nil))
+	return reflect.TypeOf((**IpAllocation)(nil)).Elem()
 }
 
 func (i *IpAllocation) ToIpAllocationOutput() IpAllocationOutput {
@@ -160,7 +160,7 @@ func (i *IpAllocation) ToIpAllocationOutputWithContext(ctx context.Context) IpAl
 type IpAllocationOutput struct{ *pulumi.OutputState }
 
 func (IpAllocationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IpAllocation)(nil))
+	return reflect.TypeOf((**IpAllocation)(nil)).Elem()
 }
 
 func (o IpAllocationOutput) ToIpAllocationOutput() IpAllocationOutput {

@@ -81,7 +81,7 @@ export class ScheduledSynchronizationSetting extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ScheduledSynchronizationSettingArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.accountName === undefined) && !opts.urn) {
@@ -102,36 +102,36 @@ export class ScheduledSynchronizationSetting extends pulumi.CustomResource {
             if ((!args || args.synchronizationTime === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'synchronizationTime'");
             }
-            inputs["accountName"] = args ? args.accountName : undefined;
-            inputs["kind"] = "ScheduleBased";
-            inputs["recurrenceInterval"] = args ? args.recurrenceInterval : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["shareName"] = args ? args.shareName : undefined;
-            inputs["synchronizationSettingName"] = args ? args.synchronizationSettingName : undefined;
-            inputs["synchronizationTime"] = args ? args.synchronizationTime : undefined;
-            inputs["createdAt"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["userName"] = undefined /*out*/;
+            resourceInputs["accountName"] = args ? args.accountName : undefined;
+            resourceInputs["kind"] = "ScheduleBased";
+            resourceInputs["recurrenceInterval"] = args ? args.recurrenceInterval : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["shareName"] = args ? args.shareName : undefined;
+            resourceInputs["synchronizationSettingName"] = args ? args.synchronizationSettingName : undefined;
+            resourceInputs["synchronizationTime"] = args ? args.synchronizationTime : undefined;
+            resourceInputs["createdAt"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["userName"] = undefined /*out*/;
         } else {
-            inputs["createdAt"] = undefined /*out*/;
-            inputs["kind"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["recurrenceInterval"] = undefined /*out*/;
-            inputs["synchronizationTime"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["userName"] = undefined /*out*/;
+            resourceInputs["createdAt"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["recurrenceInterval"] = undefined /*out*/;
+            resourceInputs["synchronizationTime"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["userName"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:datashare:ScheduledSynchronizationSetting" }, { type: "azure-native:datashare/v20181101preview:ScheduledSynchronizationSetting" }, { type: "azure-native:datashare/v20191101:ScheduledSynchronizationSetting" }, { type: "azure-native:datashare/v20201001preview:ScheduledSynchronizationSetting" }, { type: "azure-native:datashare/v20210801:ScheduledSynchronizationSetting" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(ScheduledSynchronizationSetting.__pulumiType, name, inputs, opts);
+        super(ScheduledSynchronizationSetting.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -76,7 +76,7 @@ export class ProactiveDetectionConfiguration extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ProactiveDetectionConfigurationArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
@@ -85,33 +85,33 @@ export class ProactiveDetectionConfiguration extends pulumi.CustomResource {
             if ((!args || args.resourceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceName'");
             }
-            inputs["configurationId"] = args ? args.configurationId : undefined;
-            inputs["customEmails"] = args ? args.customEmails : undefined;
-            inputs["enabled"] = args ? args.enabled : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["resourceName"] = args ? args.resourceName : undefined;
-            inputs["ruleDefinitions"] = args ? args.ruleDefinitions : undefined;
-            inputs["sendEmailsToSubscriptionOwners"] = args ? args.sendEmailsToSubscriptionOwners : undefined;
-            inputs["lastUpdatedTime"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["configurationId"] = args ? args.configurationId : undefined;
+            resourceInputs["customEmails"] = args ? args.customEmails : undefined;
+            resourceInputs["enabled"] = args ? args.enabled : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["resourceName"] = args ? args.resourceName : undefined;
+            resourceInputs["ruleDefinitions"] = args ? args.ruleDefinitions : undefined;
+            resourceInputs["sendEmailsToSubscriptionOwners"] = args ? args.sendEmailsToSubscriptionOwners : undefined;
+            resourceInputs["lastUpdatedTime"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["customEmails"] = undefined /*out*/;
-            inputs["enabled"] = undefined /*out*/;
-            inputs["lastUpdatedTime"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["ruleDefinitions"] = undefined /*out*/;
-            inputs["sendEmailsToSubscriptionOwners"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["customEmails"] = undefined /*out*/;
+            resourceInputs["enabled"] = undefined /*out*/;
+            resourceInputs["lastUpdatedTime"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["ruleDefinitions"] = undefined /*out*/;
+            resourceInputs["sendEmailsToSubscriptionOwners"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:insights:ProactiveDetectionConfiguration" }, { type: "azure-native:insights/v20150501:ProactiveDetectionConfiguration" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(ProactiveDetectionConfiguration.__pulumiType, name, inputs, opts);
+        super(ProactiveDetectionConfiguration.__pulumiType, name, resourceInputs, opts);
     }
 }
 

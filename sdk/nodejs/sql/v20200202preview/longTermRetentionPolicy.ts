@@ -67,7 +67,7 @@ export class LongTermRetentionPolicy extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: LongTermRetentionPolicyArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.databaseName === undefined) && !opts.urn) {
@@ -79,30 +79,30 @@ export class LongTermRetentionPolicy extends pulumi.CustomResource {
             if ((!args || args.serverName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serverName'");
             }
-            inputs["databaseName"] = args ? args.databaseName : undefined;
-            inputs["monthlyRetention"] = args ? args.monthlyRetention : undefined;
-            inputs["policyName"] = args ? args.policyName : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["serverName"] = args ? args.serverName : undefined;
-            inputs["weekOfYear"] = args ? args.weekOfYear : undefined;
-            inputs["weeklyRetention"] = args ? args.weeklyRetention : undefined;
-            inputs["yearlyRetention"] = args ? args.yearlyRetention : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["databaseName"] = args ? args.databaseName : undefined;
+            resourceInputs["monthlyRetention"] = args ? args.monthlyRetention : undefined;
+            resourceInputs["policyName"] = args ? args.policyName : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["serverName"] = args ? args.serverName : undefined;
+            resourceInputs["weekOfYear"] = args ? args.weekOfYear : undefined;
+            resourceInputs["weeklyRetention"] = args ? args.weeklyRetention : undefined;
+            resourceInputs["yearlyRetention"] = args ? args.yearlyRetention : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["monthlyRetention"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["weekOfYear"] = undefined /*out*/;
-            inputs["weeklyRetention"] = undefined /*out*/;
-            inputs["yearlyRetention"] = undefined /*out*/;
+            resourceInputs["monthlyRetention"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["weekOfYear"] = undefined /*out*/;
+            resourceInputs["weeklyRetention"] = undefined /*out*/;
+            resourceInputs["yearlyRetention"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:sql:LongTermRetentionPolicy" }, { type: "azure-native:sql/v20170301preview:LongTermRetentionPolicy" }, { type: "azure-native:sql/v20200801preview:LongTermRetentionPolicy" }, { type: "azure-native:sql/v20201101preview:LongTermRetentionPolicy" }, { type: "azure-native:sql/v20210201preview:LongTermRetentionPolicy" }, { type: "azure-native:sql/v20210501preview:LongTermRetentionPolicy" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(LongTermRetentionPolicy.__pulumiType, name, inputs, opts);
+        super(LongTermRetentionPolicy.__pulumiType, name, resourceInputs, opts);
     }
 }
 

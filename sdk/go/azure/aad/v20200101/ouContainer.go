@@ -119,7 +119,7 @@ type OuContainerInput interface {
 }
 
 func (*OuContainer) ElementType() reflect.Type {
-	return reflect.TypeOf((*OuContainer)(nil))
+	return reflect.TypeOf((**OuContainer)(nil)).Elem()
 }
 
 func (i *OuContainer) ToOuContainerOutput() OuContainerOutput {
@@ -133,7 +133,7 @@ func (i *OuContainer) ToOuContainerOutputWithContext(ctx context.Context) OuCont
 type OuContainerOutput struct{ *pulumi.OutputState }
 
 func (OuContainerOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*OuContainer)(nil))
+	return reflect.TypeOf((**OuContainer)(nil)).Elem()
 }
 
 func (o OuContainerOutput) ToOuContainerOutput() OuContainerOutput {

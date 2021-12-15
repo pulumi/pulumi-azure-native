@@ -148,7 +148,7 @@ type ADLSGen2StorageAccountDataSetMappingInput interface {
 }
 
 func (*ADLSGen2StorageAccountDataSetMapping) ElementType() reflect.Type {
-	return reflect.TypeOf((*ADLSGen2StorageAccountDataSetMapping)(nil))
+	return reflect.TypeOf((**ADLSGen2StorageAccountDataSetMapping)(nil)).Elem()
 }
 
 func (i *ADLSGen2StorageAccountDataSetMapping) ToADLSGen2StorageAccountDataSetMappingOutput() ADLSGen2StorageAccountDataSetMappingOutput {
@@ -162,7 +162,7 @@ func (i *ADLSGen2StorageAccountDataSetMapping) ToADLSGen2StorageAccountDataSetMa
 type ADLSGen2StorageAccountDataSetMappingOutput struct{ *pulumi.OutputState }
 
 func (ADLSGen2StorageAccountDataSetMappingOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ADLSGen2StorageAccountDataSetMapping)(nil))
+	return reflect.TypeOf((**ADLSGen2StorageAccountDataSetMapping)(nil)).Elem()
 }
 
 func (o ADLSGen2StorageAccountDataSetMappingOutput) ToADLSGen2StorageAccountDataSetMappingOutput() ADLSGen2StorageAccountDataSetMappingOutput {

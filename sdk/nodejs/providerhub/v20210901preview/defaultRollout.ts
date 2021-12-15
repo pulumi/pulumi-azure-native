@@ -60,30 +60,30 @@ export class DefaultRollout extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: DefaultRolloutArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.providerNamespace === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'providerNamespace'");
             }
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["providerNamespace"] = args ? args.providerNamespace : undefined;
-            inputs["rolloutName"] = args ? args.rolloutName : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["properties"] = args ? args.properties : undefined;
+            resourceInputs["providerNamespace"] = args ? args.providerNamespace : undefined;
+            resourceInputs["rolloutName"] = args ? args.rolloutName : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["name"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:providerhub:DefaultRollout" }, { type: "azure-native:providerhub/v20201120:DefaultRollout" }, { type: "azure-native:providerhub/v20210501preview:DefaultRollout" }, { type: "azure-native:providerhub/v20210601preview:DefaultRollout" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(DefaultRollout.__pulumiType, name, inputs, opts);
+        super(DefaultRollout.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -102,7 +102,7 @@ type SharedPrivateLinkResourceInput interface {
 }
 
 func (*SharedPrivateLinkResource) ElementType() reflect.Type {
-	return reflect.TypeOf((*SharedPrivateLinkResource)(nil))
+	return reflect.TypeOf((**SharedPrivateLinkResource)(nil)).Elem()
 }
 
 func (i *SharedPrivateLinkResource) ToSharedPrivateLinkResourceOutput() SharedPrivateLinkResourceOutput {
@@ -116,7 +116,7 @@ func (i *SharedPrivateLinkResource) ToSharedPrivateLinkResourceOutputWithContext
 type SharedPrivateLinkResourceOutput struct{ *pulumi.OutputState }
 
 func (SharedPrivateLinkResourceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SharedPrivateLinkResource)(nil))
+	return reflect.TypeOf((**SharedPrivateLinkResource)(nil)).Elem()
 }
 
 func (o SharedPrivateLinkResourceOutput) ToSharedPrivateLinkResourceOutput() SharedPrivateLinkResourceOutput {

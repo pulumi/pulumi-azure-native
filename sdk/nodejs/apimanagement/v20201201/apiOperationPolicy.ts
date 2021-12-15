@@ -60,7 +60,7 @@ export class ApiOperationPolicy extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ApiOperationPolicyArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.apiId === undefined) && !opts.urn) {
@@ -78,27 +78,27 @@ export class ApiOperationPolicy extends pulumi.CustomResource {
             if ((!args || args.value === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'value'");
             }
-            inputs["apiId"] = args ? args.apiId : undefined;
-            inputs["format"] = (args ? args.format : undefined) ?? "xml";
-            inputs["operationId"] = args ? args.operationId : undefined;
-            inputs["policyId"] = args ? args.policyId : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["serviceName"] = args ? args.serviceName : undefined;
-            inputs["value"] = args ? args.value : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["apiId"] = args ? args.apiId : undefined;
+            resourceInputs["format"] = (args ? args.format : undefined) ?? "xml";
+            resourceInputs["operationId"] = args ? args.operationId : undefined;
+            resourceInputs["policyId"] = args ? args.policyId : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["serviceName"] = args ? args.serviceName : undefined;
+            resourceInputs["value"] = args ? args.value : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["format"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["value"] = undefined /*out*/;
+            resourceInputs["format"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["value"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:ApiOperationPolicy" }, { type: "azure-native:apimanagement/v20170301:ApiOperationPolicy" }, { type: "azure-native:apimanagement/v20180101:ApiOperationPolicy" }, { type: "azure-native:apimanagement/v20180601preview:ApiOperationPolicy" }, { type: "azure-native:apimanagement/v20190101:ApiOperationPolicy" }, { type: "azure-native:apimanagement/v20191201:ApiOperationPolicy" }, { type: "azure-native:apimanagement/v20191201preview:ApiOperationPolicy" }, { type: "azure-native:apimanagement/v20200601preview:ApiOperationPolicy" }, { type: "azure-native:apimanagement/v20210101preview:ApiOperationPolicy" }, { type: "azure-native:apimanagement/v20210401preview:ApiOperationPolicy" }, { type: "azure-native:apimanagement/v20210801:ApiOperationPolicy" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(ApiOperationPolicy.__pulumiType, name, inputs, opts);
+        super(ApiOperationPolicy.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -155,7 +155,7 @@ type AvailabilitySetInput interface {
 }
 
 func (*AvailabilitySet) ElementType() reflect.Type {
-	return reflect.TypeOf((*AvailabilitySet)(nil))
+	return reflect.TypeOf((**AvailabilitySet)(nil)).Elem()
 }
 
 func (i *AvailabilitySet) ToAvailabilitySetOutput() AvailabilitySetOutput {
@@ -169,7 +169,7 @@ func (i *AvailabilitySet) ToAvailabilitySetOutputWithContext(ctx context.Context
 type AvailabilitySetOutput struct{ *pulumi.OutputState }
 
 func (AvailabilitySetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AvailabilitySet)(nil))
+	return reflect.TypeOf((**AvailabilitySet)(nil)).Elem()
 }
 
 func (o AvailabilitySetOutput) ToAvailabilitySetOutput() AvailabilitySetOutput {

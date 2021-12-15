@@ -65,7 +65,7 @@ export class SentinelOnboardingState extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: SentinelOnboardingStateArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.operationalInsightsResourceProvider === undefined) && !opts.urn) {
@@ -77,28 +77,28 @@ export class SentinelOnboardingState extends pulumi.CustomResource {
             if ((!args || args.workspaceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            inputs["customerManagedKey"] = args ? args.customerManagedKey : undefined;
-            inputs["etag"] = args ? args.etag : undefined;
-            inputs["operationalInsightsResourceProvider"] = args ? args.operationalInsightsResourceProvider : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["sentinelOnboardingStateName"] = args ? args.sentinelOnboardingStateName : undefined;
-            inputs["workspaceName"] = args ? args.workspaceName : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["customerManagedKey"] = args ? args.customerManagedKey : undefined;
+            resourceInputs["etag"] = args ? args.etag : undefined;
+            resourceInputs["operationalInsightsResourceProvider"] = args ? args.operationalInsightsResourceProvider : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["sentinelOnboardingStateName"] = args ? args.sentinelOnboardingStateName : undefined;
+            resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["customerManagedKey"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["customerManagedKey"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:securityinsights/v20210301preview:SentinelOnboardingState" }, { type: "azure-native:securityinsights/v20210901preview:SentinelOnboardingState" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(SentinelOnboardingState.__pulumiType, name, inputs, opts);
+        super(SentinelOnboardingState.__pulumiType, name, resourceInputs, opts);
     }
 }
 

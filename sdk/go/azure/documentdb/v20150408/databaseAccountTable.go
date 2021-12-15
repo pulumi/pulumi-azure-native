@@ -165,7 +165,7 @@ type DatabaseAccountTableInput interface {
 }
 
 func (*DatabaseAccountTable) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatabaseAccountTable)(nil))
+	return reflect.TypeOf((**DatabaseAccountTable)(nil)).Elem()
 }
 
 func (i *DatabaseAccountTable) ToDatabaseAccountTableOutput() DatabaseAccountTableOutput {
@@ -179,7 +179,7 @@ func (i *DatabaseAccountTable) ToDatabaseAccountTableOutputWithContext(ctx conte
 type DatabaseAccountTableOutput struct{ *pulumi.OutputState }
 
 func (DatabaseAccountTableOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatabaseAccountTable)(nil))
+	return reflect.TypeOf((**DatabaseAccountTable)(nil)).Elem()
 }
 
 func (o DatabaseAccountTableOutput) ToDatabaseAccountTableOutput() DatabaseAccountTableOutput {

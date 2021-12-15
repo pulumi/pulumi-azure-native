@@ -87,7 +87,7 @@ export class KeyValue extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: KeyValueArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.configStoreName === undefined) && !opts.urn) {
@@ -96,37 +96,37 @@ export class KeyValue extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["configStoreName"] = args ? args.configStoreName : undefined;
-            inputs["contentType"] = args ? args.contentType : undefined;
-            inputs["keyValueName"] = args ? args.keyValueName : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["value"] = args ? args.value : undefined;
-            inputs["eTag"] = undefined /*out*/;
-            inputs["key"] = undefined /*out*/;
-            inputs["label"] = undefined /*out*/;
-            inputs["lastModified"] = undefined /*out*/;
-            inputs["locked"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["configStoreName"] = args ? args.configStoreName : undefined;
+            resourceInputs["contentType"] = args ? args.contentType : undefined;
+            resourceInputs["keyValueName"] = args ? args.keyValueName : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["value"] = args ? args.value : undefined;
+            resourceInputs["eTag"] = undefined /*out*/;
+            resourceInputs["key"] = undefined /*out*/;
+            resourceInputs["label"] = undefined /*out*/;
+            resourceInputs["lastModified"] = undefined /*out*/;
+            resourceInputs["locked"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["contentType"] = undefined /*out*/;
-            inputs["eTag"] = undefined /*out*/;
-            inputs["key"] = undefined /*out*/;
-            inputs["label"] = undefined /*out*/;
-            inputs["lastModified"] = undefined /*out*/;
-            inputs["locked"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["value"] = undefined /*out*/;
+            resourceInputs["contentType"] = undefined /*out*/;
+            resourceInputs["eTag"] = undefined /*out*/;
+            resourceInputs["key"] = undefined /*out*/;
+            resourceInputs["label"] = undefined /*out*/;
+            resourceInputs["lastModified"] = undefined /*out*/;
+            resourceInputs["locked"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["value"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:appconfiguration:KeyValue" }, { type: "azure-native:appconfiguration/v20200701preview:KeyValue" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(KeyValue.__pulumiType, name, inputs, opts);
+        super(KeyValue.__pulumiType, name, resourceInputs, opts);
     }
 }
 

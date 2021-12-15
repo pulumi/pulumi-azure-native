@@ -106,7 +106,7 @@ type RoleDefinitionInput interface {
 }
 
 func (*RoleDefinition) ElementType() reflect.Type {
-	return reflect.TypeOf((*RoleDefinition)(nil))
+	return reflect.TypeOf((**RoleDefinition)(nil)).Elem()
 }
 
 func (i *RoleDefinition) ToRoleDefinitionOutput() RoleDefinitionOutput {
@@ -120,7 +120,7 @@ func (i *RoleDefinition) ToRoleDefinitionOutputWithContext(ctx context.Context) 
 type RoleDefinitionOutput struct{ *pulumi.OutputState }
 
 func (RoleDefinitionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RoleDefinition)(nil))
+	return reflect.TypeOf((**RoleDefinition)(nil)).Elem()
 }
 
 func (o RoleDefinitionOutput) ToRoleDefinitionOutput() RoleDefinitionOutput {

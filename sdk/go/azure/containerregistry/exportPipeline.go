@@ -119,7 +119,7 @@ type ExportPipelineInput interface {
 }
 
 func (*ExportPipeline) ElementType() reflect.Type {
-	return reflect.TypeOf((*ExportPipeline)(nil))
+	return reflect.TypeOf((**ExportPipeline)(nil)).Elem()
 }
 
 func (i *ExportPipeline) ToExportPipelineOutput() ExportPipelineOutput {
@@ -133,7 +133,7 @@ func (i *ExportPipeline) ToExportPipelineOutputWithContext(ctx context.Context) 
 type ExportPipelineOutput struct{ *pulumi.OutputState }
 
 func (ExportPipelineOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ExportPipeline)(nil))
+	return reflect.TypeOf((**ExportPipeline)(nil)).Elem()
 }
 
 func (o ExportPipelineOutput) ToExportPipelineOutput() ExportPipelineOutput {

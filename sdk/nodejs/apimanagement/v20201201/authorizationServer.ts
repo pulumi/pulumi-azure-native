@@ -116,7 +116,7 @@ export class AuthorizationServer extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: AuthorizationServerArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.authorizationEndpoint === undefined) && !opts.urn) {
@@ -140,53 +140,53 @@ export class AuthorizationServer extends pulumi.CustomResource {
             if ((!args || args.serviceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceName'");
             }
-            inputs["authorizationEndpoint"] = args ? args.authorizationEndpoint : undefined;
-            inputs["authorizationMethods"] = args ? args.authorizationMethods : undefined;
-            inputs["authsid"] = args ? args.authsid : undefined;
-            inputs["bearerTokenSendingMethods"] = args ? args.bearerTokenSendingMethods : undefined;
-            inputs["clientAuthenticationMethod"] = args ? args.clientAuthenticationMethod : undefined;
-            inputs["clientId"] = args ? args.clientId : undefined;
-            inputs["clientRegistrationEndpoint"] = args ? args.clientRegistrationEndpoint : undefined;
-            inputs["clientSecret"] = args ? args.clientSecret : undefined;
-            inputs["defaultScope"] = args ? args.defaultScope : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["displayName"] = args ? args.displayName : undefined;
-            inputs["grantTypes"] = args ? args.grantTypes : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["resourceOwnerPassword"] = args ? args.resourceOwnerPassword : undefined;
-            inputs["resourceOwnerUsername"] = args ? args.resourceOwnerUsername : undefined;
-            inputs["serviceName"] = args ? args.serviceName : undefined;
-            inputs["supportState"] = args ? args.supportState : undefined;
-            inputs["tokenBodyParameters"] = args ? args.tokenBodyParameters : undefined;
-            inputs["tokenEndpoint"] = args ? args.tokenEndpoint : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["authorizationEndpoint"] = args ? args.authorizationEndpoint : undefined;
+            resourceInputs["authorizationMethods"] = args ? args.authorizationMethods : undefined;
+            resourceInputs["authsid"] = args ? args.authsid : undefined;
+            resourceInputs["bearerTokenSendingMethods"] = args ? args.bearerTokenSendingMethods : undefined;
+            resourceInputs["clientAuthenticationMethod"] = args ? args.clientAuthenticationMethod : undefined;
+            resourceInputs["clientId"] = args ? args.clientId : undefined;
+            resourceInputs["clientRegistrationEndpoint"] = args ? args.clientRegistrationEndpoint : undefined;
+            resourceInputs["clientSecret"] = args ? args.clientSecret : undefined;
+            resourceInputs["defaultScope"] = args ? args.defaultScope : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["displayName"] = args ? args.displayName : undefined;
+            resourceInputs["grantTypes"] = args ? args.grantTypes : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["resourceOwnerPassword"] = args ? args.resourceOwnerPassword : undefined;
+            resourceInputs["resourceOwnerUsername"] = args ? args.resourceOwnerUsername : undefined;
+            resourceInputs["serviceName"] = args ? args.serviceName : undefined;
+            resourceInputs["supportState"] = args ? args.supportState : undefined;
+            resourceInputs["tokenBodyParameters"] = args ? args.tokenBodyParameters : undefined;
+            resourceInputs["tokenEndpoint"] = args ? args.tokenEndpoint : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["authorizationEndpoint"] = undefined /*out*/;
-            inputs["authorizationMethods"] = undefined /*out*/;
-            inputs["bearerTokenSendingMethods"] = undefined /*out*/;
-            inputs["clientAuthenticationMethod"] = undefined /*out*/;
-            inputs["clientId"] = undefined /*out*/;
-            inputs["clientRegistrationEndpoint"] = undefined /*out*/;
-            inputs["clientSecret"] = undefined /*out*/;
-            inputs["defaultScope"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["displayName"] = undefined /*out*/;
-            inputs["grantTypes"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["resourceOwnerPassword"] = undefined /*out*/;
-            inputs["resourceOwnerUsername"] = undefined /*out*/;
-            inputs["supportState"] = undefined /*out*/;
-            inputs["tokenBodyParameters"] = undefined /*out*/;
-            inputs["tokenEndpoint"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["authorizationEndpoint"] = undefined /*out*/;
+            resourceInputs["authorizationMethods"] = undefined /*out*/;
+            resourceInputs["bearerTokenSendingMethods"] = undefined /*out*/;
+            resourceInputs["clientAuthenticationMethod"] = undefined /*out*/;
+            resourceInputs["clientId"] = undefined /*out*/;
+            resourceInputs["clientRegistrationEndpoint"] = undefined /*out*/;
+            resourceInputs["clientSecret"] = undefined /*out*/;
+            resourceInputs["defaultScope"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["displayName"] = undefined /*out*/;
+            resourceInputs["grantTypes"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["resourceOwnerPassword"] = undefined /*out*/;
+            resourceInputs["resourceOwnerUsername"] = undefined /*out*/;
+            resourceInputs["supportState"] = undefined /*out*/;
+            resourceInputs["tokenBodyParameters"] = undefined /*out*/;
+            resourceInputs["tokenEndpoint"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:AuthorizationServer" }, { type: "azure-native:apimanagement/v20160707:AuthorizationServer" }, { type: "azure-native:apimanagement/v20161010:AuthorizationServer" }, { type: "azure-native:apimanagement/v20170301:AuthorizationServer" }, { type: "azure-native:apimanagement/v20180101:AuthorizationServer" }, { type: "azure-native:apimanagement/v20180601preview:AuthorizationServer" }, { type: "azure-native:apimanagement/v20190101:AuthorizationServer" }, { type: "azure-native:apimanagement/v20191201:AuthorizationServer" }, { type: "azure-native:apimanagement/v20191201preview:AuthorizationServer" }, { type: "azure-native:apimanagement/v20200601preview:AuthorizationServer" }, { type: "azure-native:apimanagement/v20210101preview:AuthorizationServer" }, { type: "azure-native:apimanagement/v20210401preview:AuthorizationServer" }, { type: "azure-native:apimanagement/v20210801:AuthorizationServer" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(AuthorizationServer.__pulumiType, name, inputs, opts);
+        super(AuthorizationServer.__pulumiType, name, resourceInputs, opts);
     }
 }
 

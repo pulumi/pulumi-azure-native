@@ -140,7 +140,7 @@ type PrivateLinkServicePrivateEndpointConnectionInput interface {
 }
 
 func (*PrivateLinkServicePrivateEndpointConnection) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateLinkServicePrivateEndpointConnection)(nil))
+	return reflect.TypeOf((**PrivateLinkServicePrivateEndpointConnection)(nil)).Elem()
 }
 
 func (i *PrivateLinkServicePrivateEndpointConnection) ToPrivateLinkServicePrivateEndpointConnectionOutput() PrivateLinkServicePrivateEndpointConnectionOutput {
@@ -154,7 +154,7 @@ func (i *PrivateLinkServicePrivateEndpointConnection) ToPrivateLinkServicePrivat
 type PrivateLinkServicePrivateEndpointConnectionOutput struct{ *pulumi.OutputState }
 
 func (PrivateLinkServicePrivateEndpointConnectionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateLinkServicePrivateEndpointConnection)(nil))
+	return reflect.TypeOf((**PrivateLinkServicePrivateEndpointConnection)(nil)).Elem()
 }
 
 func (o PrivateLinkServicePrivateEndpointConnectionOutput) ToPrivateLinkServicePrivateEndpointConnectionOutput() PrivateLinkServicePrivateEndpointConnectionOutput {

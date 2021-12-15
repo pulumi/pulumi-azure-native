@@ -864,6 +864,19 @@ type IPRule struct {
 }
 
 
+func (val *IPRule) Defaults() *IPRule {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Action) {
+		action_ := "Allow"
+		tmp.Action = &action_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -961,6 +974,19 @@ func (o IPRuleArrayOutput) Index(i pulumi.IntInput) IPRuleOutput {
 type IPRuleResponse struct {
 	Action           *string `pulumi:"action"`
 	IPAddressOrRange string  `pulumi:"iPAddressOrRange"`
+}
+
+
+func (val *IPRuleResponse) Defaults() *IPRuleResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Action) {
+		action_ := "Allow"
+		tmp.Action = &action_
+	}
+	return &tmp
 }
 
 
@@ -1062,6 +1088,18 @@ type NetworkRuleSet struct {
 	DefaultAction       string               `pulumi:"defaultAction"`
 	IpRules             []IPRule             `pulumi:"ipRules"`
 	VirtualNetworkRules []VirtualNetworkRule `pulumi:"virtualNetworkRules"`
+}
+
+
+func (val *NetworkRuleSet) Defaults() *NetworkRuleSet {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.DefaultAction) {
+		tmp.DefaultAction = "Allow"
+	}
+	return &tmp
 }
 
 
@@ -1228,6 +1266,18 @@ type NetworkRuleSetResponse struct {
 }
 
 
+func (val *NetworkRuleSetResponse) Defaults() *NetworkRuleSetResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.DefaultAction) {
+		tmp.DefaultAction = "Allow"
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -1388,6 +1438,21 @@ type Policies struct {
 	QuarantinePolicy *QuarantinePolicy `pulumi:"quarantinePolicy"`
 	RetentionPolicy  *RetentionPolicy  `pulumi:"retentionPolicy"`
 	TrustPolicy      *TrustPolicy      `pulumi:"trustPolicy"`
+}
+
+
+func (val *Policies) Defaults() *Policies {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.QuarantinePolicy = tmp.QuarantinePolicy.Defaults()
+
+	tmp.RetentionPolicy = tmp.RetentionPolicy.Defaults()
+
+	tmp.TrustPolicy = tmp.TrustPolicy.Defaults()
+
+	return &tmp
 }
 
 
@@ -1554,6 +1619,21 @@ type PoliciesResponse struct {
 }
 
 
+func (val *PoliciesResponse) Defaults() *PoliciesResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.QuarantinePolicy = tmp.QuarantinePolicy.Defaults()
+
+	tmp.RetentionPolicy = tmp.RetentionPolicy.Defaults()
+
+	tmp.TrustPolicy = tmp.TrustPolicy.Defaults()
+
+	return &tmp
+}
+
+
 
 
 
@@ -1715,6 +1795,19 @@ type QuarantinePolicy struct {
 }
 
 
+func (val *QuarantinePolicy) Defaults() *QuarantinePolicy {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Status) {
+		status_ := "disabled"
+		tmp.Status = &status_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -1845,6 +1938,19 @@ func (o QuarantinePolicyPtrOutput) Status() pulumi.StringPtrOutput {
 
 type QuarantinePolicyResponse struct {
 	Status *string `pulumi:"status"`
+}
+
+
+func (val *QuarantinePolicyResponse) Defaults() *QuarantinePolicyResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Status) {
+		status_ := "disabled"
+		tmp.Status = &status_
+	}
+	return &tmp
 }
 
 
@@ -2275,6 +2381,23 @@ type RetentionPolicy struct {
 }
 
 
+func (val *RetentionPolicy) Defaults() *RetentionPolicy {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Days) {
+		days_ := 7
+		tmp.Days = &days_
+	}
+	if isZero(tmp.Status) {
+		status_ := "disabled"
+		tmp.Status = &status_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -2421,6 +2544,23 @@ type RetentionPolicyResponse struct {
 	Days            *int    `pulumi:"days"`
 	LastUpdatedTime string  `pulumi:"lastUpdatedTime"`
 	Status          *string `pulumi:"status"`
+}
+
+
+func (val *RetentionPolicyResponse) Defaults() *RetentionPolicyResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Days) {
+		days_ := 7
+		tmp.Days = &days_
+	}
+	if isZero(tmp.Status) {
+		status_ := "disabled"
+		tmp.Status = &status_
+	}
+	return &tmp
 }
 
 
@@ -3697,6 +3837,23 @@ type TrustPolicy struct {
 }
 
 
+func (val *TrustPolicy) Defaults() *TrustPolicy {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Status) {
+		status_ := "disabled"
+		tmp.Status = &status_
+	}
+	if isZero(tmp.Type) {
+		type_ := "Notary"
+		tmp.Type = &type_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -3842,6 +3999,23 @@ func (o TrustPolicyPtrOutput) Type() pulumi.StringPtrOutput {
 type TrustPolicyResponse struct {
 	Status *string `pulumi:"status"`
 	Type   *string `pulumi:"type"`
+}
+
+
+func (val *TrustPolicyResponse) Defaults() *TrustPolicyResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Status) {
+		status_ := "disabled"
+		tmp.Status = &status_
+	}
+	if isZero(tmp.Type) {
+		type_ := "Notary"
+		tmp.Type = &type_
+	}
+	return &tmp
 }
 
 
@@ -3993,6 +4167,19 @@ type VirtualNetworkRule struct {
 }
 
 
+func (val *VirtualNetworkRule) Defaults() *VirtualNetworkRule {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Action) {
+		action_ := "Allow"
+		tmp.Action = &action_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -4090,6 +4277,19 @@ func (o VirtualNetworkRuleArrayOutput) Index(i pulumi.IntInput) VirtualNetworkRu
 type VirtualNetworkRuleResponse struct {
 	Action                   *string `pulumi:"action"`
 	VirtualNetworkResourceId string  `pulumi:"virtualNetworkResourceId"`
+}
+
+
+func (val *VirtualNetworkRuleResponse) Defaults() *VirtualNetworkRuleResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Action) {
+		action_ := "Allow"
+		tmp.Action = &action_
+	}
+	return &tmp
 }
 
 

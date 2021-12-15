@@ -63,22 +63,22 @@ func NewAccount(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.FirewallAllowAzureIps == nil {
+	if isZero(args.FirewallAllowAzureIps) {
 		args.FirewallAllowAzureIps = FirewallAllowAzureIpsState("Disabled")
 	}
-	if args.FirewallState == nil {
+	if isZero(args.FirewallState) {
 		args.FirewallState = FirewallState("Disabled")
 	}
-	if args.MaxDegreeOfParallelismPerJob == nil {
+	if isZero(args.MaxDegreeOfParallelismPerJob) {
 		args.MaxDegreeOfParallelismPerJob = pulumi.IntPtr(32)
 	}
-	if args.MaxJobCount == nil {
+	if isZero(args.MaxJobCount) {
 		args.MaxJobCount = pulumi.IntPtr(20)
 	}
-	if args.NewTier == nil {
+	if isZero(args.NewTier) {
 		args.NewTier = TierType("Consumption")
 	}
-	if args.QueryStoreRetention == nil {
+	if isZero(args.QueryStoreRetention) {
 		args.QueryStoreRetention = pulumi.IntPtr(30)
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
@@ -177,7 +177,7 @@ type AccountInput interface {
 }
 
 func (*Account) ElementType() reflect.Type {
-	return reflect.TypeOf((*Account)(nil))
+	return reflect.TypeOf((**Account)(nil)).Elem()
 }
 
 func (i *Account) ToAccountOutput() AccountOutput {
@@ -191,7 +191,7 @@ func (i *Account) ToAccountOutputWithContext(ctx context.Context) AccountOutput 
 type AccountOutput struct{ *pulumi.OutputState }
 
 func (AccountOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Account)(nil))
+	return reflect.TypeOf((**Account)(nil)).Elem()
 }
 
 func (o AccountOutput) ToAccountOutput() AccountOutput {

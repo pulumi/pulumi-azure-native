@@ -136,7 +136,7 @@ type WebAppSlotConfigurationNamesInput interface {
 }
 
 func (*WebAppSlotConfigurationNames) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAppSlotConfigurationNames)(nil))
+	return reflect.TypeOf((**WebAppSlotConfigurationNames)(nil)).Elem()
 }
 
 func (i *WebAppSlotConfigurationNames) ToWebAppSlotConfigurationNamesOutput() WebAppSlotConfigurationNamesOutput {
@@ -150,7 +150,7 @@ func (i *WebAppSlotConfigurationNames) ToWebAppSlotConfigurationNamesOutputWithC
 type WebAppSlotConfigurationNamesOutput struct{ *pulumi.OutputState }
 
 func (WebAppSlotConfigurationNamesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAppSlotConfigurationNames)(nil))
+	return reflect.TypeOf((**WebAppSlotConfigurationNames)(nil)).Elem()
 }
 
 func (o WebAppSlotConfigurationNamesOutput) ToWebAppSlotConfigurationNamesOutput() WebAppSlotConfigurationNamesOutput {

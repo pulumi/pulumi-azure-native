@@ -88,44 +88,44 @@ export class SqlVirtualMachineGroup extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: SqlVirtualMachineGroupArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["location"] = args ? args.location : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["sqlImageOffer"] = args ? args.sqlImageOffer : undefined;
-            inputs["sqlImageSku"] = args ? args.sqlImageSku : undefined;
-            inputs["sqlVirtualMachineGroupName"] = args ? args.sqlVirtualMachineGroupName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["wsfcDomainProfile"] = args ? args.wsfcDomainProfile : undefined;
-            inputs["clusterConfiguration"] = undefined /*out*/;
-            inputs["clusterManagerType"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["scaleType"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["sqlImageOffer"] = args ? args.sqlImageOffer : undefined;
+            resourceInputs["sqlImageSku"] = args ? args.sqlImageSku : undefined;
+            resourceInputs["sqlVirtualMachineGroupName"] = args ? args.sqlVirtualMachineGroupName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["wsfcDomainProfile"] = args ? args.wsfcDomainProfile : undefined;
+            resourceInputs["clusterConfiguration"] = undefined /*out*/;
+            resourceInputs["clusterManagerType"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["scaleType"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["clusterConfiguration"] = undefined /*out*/;
-            inputs["clusterManagerType"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["scaleType"] = undefined /*out*/;
-            inputs["sqlImageOffer"] = undefined /*out*/;
-            inputs["sqlImageSku"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["wsfcDomainProfile"] = undefined /*out*/;
+            resourceInputs["clusterConfiguration"] = undefined /*out*/;
+            resourceInputs["clusterManagerType"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["scaleType"] = undefined /*out*/;
+            resourceInputs["sqlImageOffer"] = undefined /*out*/;
+            resourceInputs["sqlImageSku"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["wsfcDomainProfile"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:sqlvirtualmachine:SqlVirtualMachineGroup" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(SqlVirtualMachineGroup.__pulumiType, name, inputs, opts);
+        super(SqlVirtualMachineGroup.__pulumiType, name, resourceInputs, opts);
     }
 }
 

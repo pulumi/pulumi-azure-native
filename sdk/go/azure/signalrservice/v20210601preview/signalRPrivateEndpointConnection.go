@@ -116,7 +116,7 @@ type SignalRPrivateEndpointConnectionInput interface {
 }
 
 func (*SignalRPrivateEndpointConnection) ElementType() reflect.Type {
-	return reflect.TypeOf((*SignalRPrivateEndpointConnection)(nil))
+	return reflect.TypeOf((**SignalRPrivateEndpointConnection)(nil)).Elem()
 }
 
 func (i *SignalRPrivateEndpointConnection) ToSignalRPrivateEndpointConnectionOutput() SignalRPrivateEndpointConnectionOutput {
@@ -130,7 +130,7 @@ func (i *SignalRPrivateEndpointConnection) ToSignalRPrivateEndpointConnectionOut
 type SignalRPrivateEndpointConnectionOutput struct{ *pulumi.OutputState }
 
 func (SignalRPrivateEndpointConnectionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SignalRPrivateEndpointConnection)(nil))
+	return reflect.TypeOf((**SignalRPrivateEndpointConnection)(nil)).Elem()
 }
 
 func (o SignalRPrivateEndpointConnectionOutput) ToSignalRPrivateEndpointConnectionOutput() SignalRPrivateEndpointConnectionOutput {

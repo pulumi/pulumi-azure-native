@@ -131,7 +131,7 @@ type BudgetByResourceGroupNameInput interface {
 }
 
 func (*BudgetByResourceGroupName) ElementType() reflect.Type {
-	return reflect.TypeOf((*BudgetByResourceGroupName)(nil))
+	return reflect.TypeOf((**BudgetByResourceGroupName)(nil)).Elem()
 }
 
 func (i *BudgetByResourceGroupName) ToBudgetByResourceGroupNameOutput() BudgetByResourceGroupNameOutput {
@@ -145,7 +145,7 @@ func (i *BudgetByResourceGroupName) ToBudgetByResourceGroupNameOutputWithContext
 type BudgetByResourceGroupNameOutput struct{ *pulumi.OutputState }
 
 func (BudgetByResourceGroupNameOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BudgetByResourceGroupName)(nil))
+	return reflect.TypeOf((**BudgetByResourceGroupName)(nil)).Elem()
 }
 
 func (o BudgetByResourceGroupNameOutput) ToBudgetByResourceGroupNameOutput() BudgetByResourceGroupNameOutput {

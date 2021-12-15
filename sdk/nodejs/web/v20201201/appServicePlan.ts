@@ -149,73 +149,73 @@ export class AppServicePlan extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: AppServicePlanArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["freeOfferExpirationTime"] = args ? args.freeOfferExpirationTime : undefined;
-            inputs["hostingEnvironmentProfile"] = args ? args.hostingEnvironmentProfile : undefined;
-            inputs["hyperV"] = (args ? args.hyperV : undefined) ?? false;
-            inputs["isSpot"] = args ? args.isSpot : undefined;
-            inputs["isXenon"] = (args ? args.isXenon : undefined) ?? false;
-            inputs["kind"] = args ? args.kind : undefined;
-            inputs["kubeEnvironmentProfile"] = args ? args.kubeEnvironmentProfile : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["maximumElasticWorkerCount"] = args ? args.maximumElasticWorkerCount : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["perSiteScaling"] = (args ? args.perSiteScaling : undefined) ?? false;
-            inputs["reserved"] = (args ? args.reserved : undefined) ?? false;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["sku"] = args ? args.sku : undefined;
-            inputs["spotExpirationTime"] = args ? args.spotExpirationTime : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["targetWorkerCount"] = args ? args.targetWorkerCount : undefined;
-            inputs["targetWorkerSizeId"] = args ? args.targetWorkerSizeId : undefined;
-            inputs["workerTierName"] = args ? args.workerTierName : undefined;
-            inputs["geoRegion"] = undefined /*out*/;
-            inputs["maximumNumberOfWorkers"] = undefined /*out*/;
-            inputs["numberOfSites"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["resourceGroup"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["subscription"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["freeOfferExpirationTime"] = args ? args.freeOfferExpirationTime : undefined;
+            resourceInputs["hostingEnvironmentProfile"] = args ? args.hostingEnvironmentProfile : undefined;
+            resourceInputs["hyperV"] = (args ? args.hyperV : undefined) ?? false;
+            resourceInputs["isSpot"] = args ? args.isSpot : undefined;
+            resourceInputs["isXenon"] = (args ? args.isXenon : undefined) ?? false;
+            resourceInputs["kind"] = args ? args.kind : undefined;
+            resourceInputs["kubeEnvironmentProfile"] = args ? args.kubeEnvironmentProfile : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["maximumElasticWorkerCount"] = args ? args.maximumElasticWorkerCount : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["perSiteScaling"] = (args ? args.perSiteScaling : undefined) ?? false;
+            resourceInputs["reserved"] = (args ? args.reserved : undefined) ?? false;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["sku"] = args ? args.sku : undefined;
+            resourceInputs["spotExpirationTime"] = args ? args.spotExpirationTime : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["targetWorkerCount"] = args ? args.targetWorkerCount : undefined;
+            resourceInputs["targetWorkerSizeId"] = args ? args.targetWorkerSizeId : undefined;
+            resourceInputs["workerTierName"] = args ? args.workerTierName : undefined;
+            resourceInputs["geoRegion"] = undefined /*out*/;
+            resourceInputs["maximumNumberOfWorkers"] = undefined /*out*/;
+            resourceInputs["numberOfSites"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["resourceGroup"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["subscription"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["freeOfferExpirationTime"] = undefined /*out*/;
-            inputs["geoRegion"] = undefined /*out*/;
-            inputs["hostingEnvironmentProfile"] = undefined /*out*/;
-            inputs["hyperV"] = undefined /*out*/;
-            inputs["isSpot"] = undefined /*out*/;
-            inputs["isXenon"] = undefined /*out*/;
-            inputs["kind"] = undefined /*out*/;
-            inputs["kubeEnvironmentProfile"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["maximumElasticWorkerCount"] = undefined /*out*/;
-            inputs["maximumNumberOfWorkers"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["numberOfSites"] = undefined /*out*/;
-            inputs["perSiteScaling"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["reserved"] = undefined /*out*/;
-            inputs["resourceGroup"] = undefined /*out*/;
-            inputs["sku"] = undefined /*out*/;
-            inputs["spotExpirationTime"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["subscription"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["targetWorkerCount"] = undefined /*out*/;
-            inputs["targetWorkerSizeId"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["workerTierName"] = undefined /*out*/;
+            resourceInputs["freeOfferExpirationTime"] = undefined /*out*/;
+            resourceInputs["geoRegion"] = undefined /*out*/;
+            resourceInputs["hostingEnvironmentProfile"] = undefined /*out*/;
+            resourceInputs["hyperV"] = undefined /*out*/;
+            resourceInputs["isSpot"] = undefined /*out*/;
+            resourceInputs["isXenon"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["kubeEnvironmentProfile"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["maximumElasticWorkerCount"] = undefined /*out*/;
+            resourceInputs["maximumNumberOfWorkers"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["numberOfSites"] = undefined /*out*/;
+            resourceInputs["perSiteScaling"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["reserved"] = undefined /*out*/;
+            resourceInputs["resourceGroup"] = undefined /*out*/;
+            resourceInputs["sku"] = undefined /*out*/;
+            resourceInputs["spotExpirationTime"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["subscription"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["targetWorkerCount"] = undefined /*out*/;
+            resourceInputs["targetWorkerSizeId"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["workerTierName"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:web:AppServicePlan" }, { type: "azure-native:web/v20150801:AppServicePlan" }, { type: "azure-native:web/v20160901:AppServicePlan" }, { type: "azure-native:web/v20180201:AppServicePlan" }, { type: "azure-native:web/v20190801:AppServicePlan" }, { type: "azure-native:web/v20200601:AppServicePlan" }, { type: "azure-native:web/v20200901:AppServicePlan" }, { type: "azure-native:web/v20201001:AppServicePlan" }, { type: "azure-native:web/v20210101:AppServicePlan" }, { type: "azure-native:web/v20210115:AppServicePlan" }, { type: "azure-native:web/v20210201:AppServicePlan" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(AppServicePlan.__pulumiType, name, inputs, opts);
+        super(AppServicePlan.__pulumiType, name, resourceInputs, opts);
     }
 }
 

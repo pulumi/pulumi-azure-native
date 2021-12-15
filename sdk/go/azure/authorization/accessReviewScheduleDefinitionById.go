@@ -156,7 +156,7 @@ type AccessReviewScheduleDefinitionByIdInput interface {
 }
 
 func (*AccessReviewScheduleDefinitionById) ElementType() reflect.Type {
-	return reflect.TypeOf((*AccessReviewScheduleDefinitionById)(nil))
+	return reflect.TypeOf((**AccessReviewScheduleDefinitionById)(nil)).Elem()
 }
 
 func (i *AccessReviewScheduleDefinitionById) ToAccessReviewScheduleDefinitionByIdOutput() AccessReviewScheduleDefinitionByIdOutput {
@@ -170,7 +170,7 @@ func (i *AccessReviewScheduleDefinitionById) ToAccessReviewScheduleDefinitionByI
 type AccessReviewScheduleDefinitionByIdOutput struct{ *pulumi.OutputState }
 
 func (AccessReviewScheduleDefinitionByIdOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AccessReviewScheduleDefinitionById)(nil))
+	return reflect.TypeOf((**AccessReviewScheduleDefinitionById)(nil)).Elem()
 }
 
 func (o AccessReviewScheduleDefinitionByIdOutput) ToAccessReviewScheduleDefinitionByIdOutput() AccessReviewScheduleDefinitionByIdOutput {

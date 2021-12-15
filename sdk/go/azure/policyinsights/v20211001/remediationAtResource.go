@@ -122,7 +122,7 @@ type RemediationAtResourceInput interface {
 }
 
 func (*RemediationAtResource) ElementType() reflect.Type {
-	return reflect.TypeOf((*RemediationAtResource)(nil))
+	return reflect.TypeOf((**RemediationAtResource)(nil)).Elem()
 }
 
 func (i *RemediationAtResource) ToRemediationAtResourceOutput() RemediationAtResourceOutput {
@@ -136,7 +136,7 @@ func (i *RemediationAtResource) ToRemediationAtResourceOutputWithContext(ctx con
 type RemediationAtResourceOutput struct{ *pulumi.OutputState }
 
 func (RemediationAtResourceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RemediationAtResource)(nil))
+	return reflect.TypeOf((**RemediationAtResource)(nil)).Elem()
 }
 
 func (o RemediationAtResourceOutput) ToRemediationAtResourceOutput() RemediationAtResourceOutput {

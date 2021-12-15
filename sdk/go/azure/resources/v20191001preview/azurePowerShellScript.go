@@ -60,11 +60,11 @@ func NewAzurePowerShellScript(ctx *pulumi.Context,
 	if args.RetentionInterval == nil {
 		return nil, errors.New("invalid value for required argument 'RetentionInterval'")
 	}
-	if args.CleanupPreference == nil {
+	if isZero(args.CleanupPreference) {
 		args.CleanupPreference = pulumi.StringPtr("Always")
 	}
 	args.Kind = pulumi.String("AzurePowerShell")
-	if args.Timeout == nil {
+	if isZero(args.Timeout) {
 		args.Timeout = pulumi.StringPtr("P1D")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
@@ -162,7 +162,7 @@ type AzurePowerShellScriptInput interface {
 }
 
 func (*AzurePowerShellScript) ElementType() reflect.Type {
-	return reflect.TypeOf((*AzurePowerShellScript)(nil))
+	return reflect.TypeOf((**AzurePowerShellScript)(nil)).Elem()
 }
 
 func (i *AzurePowerShellScript) ToAzurePowerShellScriptOutput() AzurePowerShellScriptOutput {
@@ -176,7 +176,7 @@ func (i *AzurePowerShellScript) ToAzurePowerShellScriptOutputWithContext(ctx con
 type AzurePowerShellScriptOutput struct{ *pulumi.OutputState }
 
 func (AzurePowerShellScriptOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AzurePowerShellScript)(nil))
+	return reflect.TypeOf((**AzurePowerShellScript)(nil)).Elem()
 }
 
 func (o AzurePowerShellScriptOutput) ToAzurePowerShellScriptOutput() AzurePowerShellScriptOutput {

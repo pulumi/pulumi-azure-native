@@ -88,7 +88,7 @@ export class CapacityReservation extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: CapacityReservationArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.capacityReservationGroupName === undefined) && !opts.urn) {
@@ -100,39 +100,39 @@ export class CapacityReservation extends pulumi.CustomResource {
             if ((!args || args.sku === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
-            inputs["capacityReservationGroupName"] = args ? args.capacityReservationGroupName : undefined;
-            inputs["capacityReservationName"] = args ? args.capacityReservationName : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["sku"] = args ? args.sku : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["zones"] = args ? args.zones : undefined;
-            inputs["instanceView"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["provisioningTime"] = undefined /*out*/;
-            inputs["reservationId"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["virtualMachinesAssociated"] = undefined /*out*/;
+            resourceInputs["capacityReservationGroupName"] = args ? args.capacityReservationGroupName : undefined;
+            resourceInputs["capacityReservationName"] = args ? args.capacityReservationName : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["sku"] = args ? args.sku : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["zones"] = args ? args.zones : undefined;
+            resourceInputs["instanceView"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["provisioningTime"] = undefined /*out*/;
+            resourceInputs["reservationId"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["virtualMachinesAssociated"] = undefined /*out*/;
         } else {
-            inputs["instanceView"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["provisioningTime"] = undefined /*out*/;
-            inputs["reservationId"] = undefined /*out*/;
-            inputs["sku"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["virtualMachinesAssociated"] = undefined /*out*/;
-            inputs["zones"] = undefined /*out*/;
+            resourceInputs["instanceView"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["provisioningTime"] = undefined /*out*/;
+            resourceInputs["reservationId"] = undefined /*out*/;
+            resourceInputs["sku"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["virtualMachinesAssociated"] = undefined /*out*/;
+            resourceInputs["zones"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:compute:CapacityReservation" }, { type: "azure-native:compute/v20210701:CapacityReservation" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(CapacityReservation.__pulumiType, name, inputs, opts);
+        super(CapacityReservation.__pulumiType, name, resourceInputs, opts);
     }
 }
 

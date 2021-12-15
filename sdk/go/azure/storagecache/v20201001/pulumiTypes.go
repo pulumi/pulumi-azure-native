@@ -745,6 +745,17 @@ type CacheDirectorySettings struct {
 }
 
 
+func (val *CacheDirectorySettings) Defaults() *CacheDirectorySettings {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.UsernameDownload = tmp.UsernameDownload.Defaults()
+
+	return &tmp
+}
+
+
 
 
 
@@ -890,6 +901,17 @@ func (o CacheDirectorySettingsPtrOutput) UsernameDownload() CacheUsernameDownloa
 type CacheDirectorySettingsResponse struct {
 	ActiveDirectory  *CacheActiveDirectorySettingsResponse  `pulumi:"activeDirectory"`
 	UsernameDownload *CacheUsernameDownloadSettingsResponse `pulumi:"usernameDownload"`
+}
+
+
+func (val *CacheDirectorySettingsResponse) Defaults() *CacheDirectorySettingsResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.UsernameDownload = tmp.UsernameDownload.Defaults()
+
+	return &tmp
 }
 
 
@@ -1752,6 +1774,19 @@ type CacheNetworkSettings struct {
 }
 
 
+func (val *CacheNetworkSettings) Defaults() *CacheNetworkSettings {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Mtu) {
+		mtu_ := 1500
+		tmp.Mtu = &mtu_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -1883,6 +1918,19 @@ func (o CacheNetworkSettingsPtrOutput) Mtu() pulumi.IntPtrOutput {
 type CacheNetworkSettingsResponse struct {
 	Mtu              *int     `pulumi:"mtu"`
 	UtilityAddresses []string `pulumi:"utilityAddresses"`
+}
+
+
+func (val *CacheNetworkSettingsResponse) Defaults() *CacheNetworkSettingsResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Mtu) {
+		mtu_ := 1500
+		tmp.Mtu = &mtu_
+	}
+	return &tmp
 }
 
 
@@ -2768,6 +2816,19 @@ type CacheUsernameDownloadSettings struct {
 }
 
 
+func (val *CacheUsernameDownloadSettings) Defaults() *CacheUsernameDownloadSettings {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.UsernameSource) {
+		usernameSource_ := "None"
+		tmp.UsernameSource = &usernameSource_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -3197,6 +3258,19 @@ type CacheUsernameDownloadSettingsResponse struct {
 	UserFileURI             *string                                           `pulumi:"userFileURI"`
 	UsernameDownloaded      string                                            `pulumi:"usernameDownloaded"`
 	UsernameSource          *string                                           `pulumi:"usernameSource"`
+}
+
+
+func (val *CacheUsernameDownloadSettingsResponse) Defaults() *CacheUsernameDownloadSettingsResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.UsernameSource) {
+		usernameSource_ := "None"
+		tmp.UsernameSource = &usernameSource_
+	}
+	return &tmp
 }
 
 
@@ -5192,6 +5266,23 @@ type NfsAccessRule struct {
 }
 
 
+func (val *NfsAccessRule) Defaults() *NfsAccessRule {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.AnonymousGID) {
+		anonymousGID_ := "-2"
+		tmp.AnonymousGID = &anonymousGID_
+	}
+	if isZero(tmp.AnonymousUID) {
+		anonymousUID_ := "-2"
+		tmp.AnonymousUID = &anonymousUID_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -5325,6 +5416,23 @@ type NfsAccessRuleResponse struct {
 	Scope          string  `pulumi:"scope"`
 	SubmountAccess *bool   `pulumi:"submountAccess"`
 	Suid           *bool   `pulumi:"suid"`
+}
+
+
+func (val *NfsAccessRuleResponse) Defaults() *NfsAccessRuleResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.AnonymousGID) {
+		anonymousGID_ := "-2"
+		tmp.AnonymousGID = &anonymousGID_
+	}
+	if isZero(tmp.AnonymousUID) {
+		anonymousUID_ := "-2"
+		tmp.AnonymousUID = &anonymousUID_
+	}
+	return &tmp
 }
 
 

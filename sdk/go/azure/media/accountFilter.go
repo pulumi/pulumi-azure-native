@@ -109,7 +109,7 @@ type AccountFilterInput interface {
 }
 
 func (*AccountFilter) ElementType() reflect.Type {
-	return reflect.TypeOf((*AccountFilter)(nil))
+	return reflect.TypeOf((**AccountFilter)(nil)).Elem()
 }
 
 func (i *AccountFilter) ToAccountFilterOutput() AccountFilterOutput {
@@ -123,7 +123,7 @@ func (i *AccountFilter) ToAccountFilterOutputWithContext(ctx context.Context) Ac
 type AccountFilterOutput struct{ *pulumi.OutputState }
 
 func (AccountFilterOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AccountFilter)(nil))
+	return reflect.TypeOf((**AccountFilter)(nil)).Elem()
 }
 
 func (o AccountFilterOutput) ToAccountFilterOutput() AccountFilterOutput {

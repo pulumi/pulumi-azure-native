@@ -2074,6 +2074,23 @@ type PostgresInstanceSku struct {
 }
 
 
+func (val *PostgresInstanceSku) Defaults() *PostgresInstanceSku {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Dev) {
+		dev_ := true
+		tmp.Dev = &dev_
+	}
+	if isZero(tmp.Tier) {
+		tier_ := PostgresInstanceSkuTier("Hyperscale")
+		tmp.Tier = &tier_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -2279,6 +2296,23 @@ type PostgresInstanceSkuResponse struct {
 	Name     string  `pulumi:"name"`
 	Size     *string `pulumi:"size"`
 	Tier     *string `pulumi:"tier"`
+}
+
+
+func (val *PostgresInstanceSkuResponse) Defaults() *PostgresInstanceSkuResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Dev) {
+		dev_ := true
+		tmp.Dev = &dev_
+	}
+	if isZero(tmp.Tier) {
+		tier_ := "Hyperscale"
+		tmp.Tier = &tier_
+	}
+	return &tmp
 }
 
 
@@ -2953,6 +2987,23 @@ type SqlManagedInstanceSku struct {
 }
 
 
+func (val *SqlManagedInstanceSku) Defaults() *SqlManagedInstanceSku {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Dev) {
+		dev_ := true
+		tmp.Dev = &dev_
+	}
+	if isZero(tmp.Tier) {
+		tier_ := SqlManagedInstanceSkuTier("GeneralPurpose")
+		tmp.Tier = &tier_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -3158,6 +3209,23 @@ type SqlManagedInstanceSkuResponse struct {
 	Name     string  `pulumi:"name"`
 	Size     *string `pulumi:"size"`
 	Tier     *string `pulumi:"tier"`
+}
+
+
+func (val *SqlManagedInstanceSkuResponse) Defaults() *SqlManagedInstanceSkuResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Dev) {
+		dev_ := true
+		tmp.Dev = &dev_
+	}
+	if isZero(tmp.Tier) {
+		tier_ := "GeneralPurpose"
+		tmp.Tier = &tier_
+	}
+	return &tmp
 }
 
 

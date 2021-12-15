@@ -442,6 +442,17 @@ type EligibleAuthorization struct {
 }
 
 
+func (val *EligibleAuthorization) Defaults() *EligibleAuthorization {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.JustInTimeAccessPolicy = tmp.JustInTimeAccessPolicy.Defaults()
+
+	return &tmp
+}
+
+
 
 
 
@@ -554,6 +565,17 @@ type EligibleAuthorizationResponse struct {
 }
 
 
+func (val *EligibleAuthorizationResponse) Defaults() *EligibleAuthorizationResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.JustInTimeAccessPolicy = tmp.JustInTimeAccessPolicy.Defaults()
+
+	return &tmp
+}
+
+
 
 
 
@@ -662,6 +684,22 @@ type JustInTimeAccessPolicy struct {
 	ManagedByTenantApprovers  []EligibleApprover `pulumi:"managedByTenantApprovers"`
 	MaximumActivationDuration *string            `pulumi:"maximumActivationDuration"`
 	MultiFactorAuthProvider   string             `pulumi:"multiFactorAuthProvider"`
+}
+
+
+func (val *JustInTimeAccessPolicy) Defaults() *JustInTimeAccessPolicy {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.MaximumActivationDuration) {
+		maximumActivationDuration_ := "PT8H"
+		tmp.MaximumActivationDuration = &maximumActivationDuration_
+	}
+	if isZero(tmp.MultiFactorAuthProvider) {
+		tmp.MultiFactorAuthProvider = "None"
+	}
+	return &tmp
 }
 
 
@@ -825,6 +863,22 @@ type JustInTimeAccessPolicyResponse struct {
 	ManagedByTenantApprovers  []EligibleApproverResponse `pulumi:"managedByTenantApprovers"`
 	MaximumActivationDuration *string                    `pulumi:"maximumActivationDuration"`
 	MultiFactorAuthProvider   string                     `pulumi:"multiFactorAuthProvider"`
+}
+
+
+func (val *JustInTimeAccessPolicyResponse) Defaults() *JustInTimeAccessPolicyResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.MaximumActivationDuration) {
+		maximumActivationDuration_ := "PT8H"
+		tmp.MaximumActivationDuration = &maximumActivationDuration_
+	}
+	if isZero(tmp.MultiFactorAuthProvider) {
+		tmp.MultiFactorAuthProvider = "None"
+	}
+	return &tmp
 }
 
 

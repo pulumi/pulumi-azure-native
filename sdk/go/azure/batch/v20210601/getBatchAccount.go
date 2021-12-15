@@ -13,7 +13,7 @@ func LookupBatchAccount(ctx *pulumi.Context, args *LookupBatchAccountArgs, opts 
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupBatchAccountArgs struct {
@@ -44,4 +44,15 @@ type LookupBatchAccountResult struct {
 	PublicNetworkAccess                   string                                  `pulumi:"publicNetworkAccess"`
 	Tags                                  map[string]string                       `pulumi:"tags"`
 	Type                                  string                                  `pulumi:"type"`
+}
+
+
+func (val *LookupBatchAccountResult) Defaults() *LookupBatchAccountResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.AutoStorage = *tmp.AutoStorage.Defaults()
+
+	return &tmp
 }

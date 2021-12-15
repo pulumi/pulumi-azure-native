@@ -13,7 +13,7 @@ func LookupAppServicePlan(ctx *pulumi.Context, args *LookupAppServicePlanArgs, o
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupAppServicePlanArgs struct {
@@ -49,4 +49,29 @@ type LookupAppServicePlanResult struct {
 	TargetWorkerSizeId        *int                               `pulumi:"targetWorkerSizeId"`
 	Type                      string                             `pulumi:"type"`
 	WorkerTierName            *string                            `pulumi:"workerTierName"`
+}
+
+
+func (val *LookupAppServicePlanResult) Defaults() *LookupAppServicePlanResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.HyperV) {
+		hyperV_ := false
+		tmp.HyperV = &hyperV_
+	}
+	if isZero(tmp.IsXenon) {
+		isXenon_ := false
+		tmp.IsXenon = &isXenon_
+	}
+	if isZero(tmp.PerSiteScaling) {
+		perSiteScaling_ := false
+		tmp.PerSiteScaling = &perSiteScaling_
+	}
+	if isZero(tmp.Reserved) {
+		reserved_ := false
+		tmp.Reserved = &reserved_
+	}
+	return &tmp
 }

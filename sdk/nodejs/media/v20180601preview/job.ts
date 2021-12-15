@@ -84,7 +84,7 @@ export class Job extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: JobArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.accountName === undefined) && !opts.urn) {
@@ -102,38 +102,38 @@ export class Job extends pulumi.CustomResource {
             if ((!args || args.transformName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'transformName'");
             }
-            inputs["accountName"] = args ? args.accountName : undefined;
-            inputs["correlationData"] = args ? args.correlationData : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["input"] = args ? args.input : undefined;
-            inputs["jobName"] = args ? args.jobName : undefined;
-            inputs["outputs"] = args ? args.outputs : undefined;
-            inputs["priority"] = args ? args.priority : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["transformName"] = args ? args.transformName : undefined;
-            inputs["created"] = undefined /*out*/;
-            inputs["lastModified"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["state"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["accountName"] = args ? args.accountName : undefined;
+            resourceInputs["correlationData"] = args ? args.correlationData : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["input"] = args ? args.input : undefined;
+            resourceInputs["jobName"] = args ? args.jobName : undefined;
+            resourceInputs["outputs"] = args ? args.outputs : undefined;
+            resourceInputs["priority"] = args ? args.priority : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["transformName"] = args ? args.transformName : undefined;
+            resourceInputs["created"] = undefined /*out*/;
+            resourceInputs["lastModified"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["state"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["correlationData"] = undefined /*out*/;
-            inputs["created"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["input"] = undefined /*out*/;
-            inputs["lastModified"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["outputs"] = undefined /*out*/;
-            inputs["priority"] = undefined /*out*/;
-            inputs["state"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["correlationData"] = undefined /*out*/;
+            resourceInputs["created"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["input"] = undefined /*out*/;
+            resourceInputs["lastModified"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["outputs"] = undefined /*out*/;
+            resourceInputs["priority"] = undefined /*out*/;
+            resourceInputs["state"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:media:Job" }, { type: "azure-native:media/v20180330preview:Job" }, { type: "azure-native:media/v20180701:Job" }, { type: "azure-native:media/v20200501:Job" }, { type: "azure-native:media/v20210601:Job" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Job.__pulumiType, name, inputs, opts);
+        super(Job.__pulumiType, name, resourceInputs, opts);
     }
 }
 

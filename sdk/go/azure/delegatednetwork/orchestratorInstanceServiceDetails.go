@@ -129,7 +129,7 @@ type OrchestratorInstanceServiceDetailsInput interface {
 }
 
 func (*OrchestratorInstanceServiceDetails) ElementType() reflect.Type {
-	return reflect.TypeOf((*OrchestratorInstanceServiceDetails)(nil))
+	return reflect.TypeOf((**OrchestratorInstanceServiceDetails)(nil)).Elem()
 }
 
 func (i *OrchestratorInstanceServiceDetails) ToOrchestratorInstanceServiceDetailsOutput() OrchestratorInstanceServiceDetailsOutput {
@@ -143,7 +143,7 @@ func (i *OrchestratorInstanceServiceDetails) ToOrchestratorInstanceServiceDetail
 type OrchestratorInstanceServiceDetailsOutput struct{ *pulumi.OutputState }
 
 func (OrchestratorInstanceServiceDetailsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*OrchestratorInstanceServiceDetails)(nil))
+	return reflect.TypeOf((**OrchestratorInstanceServiceDetails)(nil)).Elem()
 }
 
 func (o OrchestratorInstanceServiceDetailsOutput) ToOrchestratorInstanceServiceDetailsOutput() OrchestratorInstanceServiceDetailsOutput {

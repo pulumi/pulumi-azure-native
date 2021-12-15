@@ -140,7 +140,7 @@ type IoTAddonInput interface {
 }
 
 func (*IoTAddon) ElementType() reflect.Type {
-	return reflect.TypeOf((*IoTAddon)(nil))
+	return reflect.TypeOf((**IoTAddon)(nil)).Elem()
 }
 
 func (i *IoTAddon) ToIoTAddonOutput() IoTAddonOutput {
@@ -154,7 +154,7 @@ func (i *IoTAddon) ToIoTAddonOutputWithContext(ctx context.Context) IoTAddonOutp
 type IoTAddonOutput struct{ *pulumi.OutputState }
 
 func (IoTAddonOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IoTAddon)(nil))
+	return reflect.TypeOf((**IoTAddon)(nil)).Elem()
 }
 
 func (o IoTAddonOutput) ToIoTAddonOutput() IoTAddonOutput {

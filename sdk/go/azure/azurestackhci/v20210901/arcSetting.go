@@ -118,7 +118,7 @@ type ArcSettingInput interface {
 }
 
 func (*ArcSetting) ElementType() reflect.Type {
-	return reflect.TypeOf((*ArcSetting)(nil))
+	return reflect.TypeOf((**ArcSetting)(nil)).Elem()
 }
 
 func (i *ArcSetting) ToArcSettingOutput() ArcSettingOutput {
@@ -132,7 +132,7 @@ func (i *ArcSetting) ToArcSettingOutputWithContext(ctx context.Context) ArcSetti
 type ArcSettingOutput struct{ *pulumi.OutputState }
 
 func (ArcSettingOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ArcSetting)(nil))
+	return reflect.TypeOf((**ArcSetting)(nil)).Elem()
 }
 
 func (o ArcSettingOutput) ToArcSettingOutput() ArcSettingOutput {

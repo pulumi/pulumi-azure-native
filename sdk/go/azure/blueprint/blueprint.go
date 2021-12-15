@@ -111,7 +111,7 @@ type BlueprintInput interface {
 }
 
 func (*Blueprint) ElementType() reflect.Type {
-	return reflect.TypeOf((*Blueprint)(nil))
+	return reflect.TypeOf((**Blueprint)(nil)).Elem()
 }
 
 func (i *Blueprint) ToBlueprintOutput() BlueprintOutput {
@@ -125,7 +125,7 @@ func (i *Blueprint) ToBlueprintOutputWithContext(ctx context.Context) BlueprintO
 type BlueprintOutput struct{ *pulumi.OutputState }
 
 func (BlueprintOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Blueprint)(nil))
+	return reflect.TypeOf((**Blueprint)(nil)).Elem()
 }
 
 func (o BlueprintOutput) ToBlueprintOutput() BlueprintOutput {

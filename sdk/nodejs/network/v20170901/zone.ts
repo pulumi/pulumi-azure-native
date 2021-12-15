@@ -84,42 +84,42 @@ export class Zone extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ZoneArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["etag"] = args ? args.etag : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["zoneName"] = args ? args.zoneName : undefined;
-            inputs["zoneType"] = (args ? args.zoneType : undefined) ?? "Public";
-            inputs["maxNumberOfRecordSets"] = undefined /*out*/;
-            inputs["maxNumberOfRecordsPerRecordSet"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["nameServers"] = undefined /*out*/;
-            inputs["numberOfRecordSets"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["etag"] = args ? args.etag : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["zoneName"] = args ? args.zoneName : undefined;
+            resourceInputs["zoneType"] = (args ? args.zoneType : undefined) ?? "Public";
+            resourceInputs["maxNumberOfRecordSets"] = undefined /*out*/;
+            resourceInputs["maxNumberOfRecordsPerRecordSet"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["nameServers"] = undefined /*out*/;
+            resourceInputs["numberOfRecordSets"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["etag"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["maxNumberOfRecordSets"] = undefined /*out*/;
-            inputs["maxNumberOfRecordsPerRecordSet"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["nameServers"] = undefined /*out*/;
-            inputs["numberOfRecordSets"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["zoneType"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["maxNumberOfRecordSets"] = undefined /*out*/;
+            resourceInputs["maxNumberOfRecordsPerRecordSet"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["nameServers"] = undefined /*out*/;
+            resourceInputs["numberOfRecordSets"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["zoneType"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:network:Zone" }, { type: "azure-native:network/v20150504preview:Zone" }, { type: "azure-native:network/v20160401:Zone" }, { type: "azure-native:network/v20171001:Zone" }, { type: "azure-native:network/v20180301preview:Zone" }, { type: "azure-native:network/v20180501:Zone" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Zone.__pulumiType, name, inputs, opts);
+        super(Zone.__pulumiType, name, resourceInputs, opts);
     }
 }
 

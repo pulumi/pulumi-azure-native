@@ -126,7 +126,7 @@ type DataExportInput interface {
 }
 
 func (*DataExport) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataExport)(nil))
+	return reflect.TypeOf((**DataExport)(nil)).Elem()
 }
 
 func (i *DataExport) ToDataExportOutput() DataExportOutput {
@@ -140,7 +140,7 @@ func (i *DataExport) ToDataExportOutputWithContext(ctx context.Context) DataExpo
 type DataExportOutput struct{ *pulumi.OutputState }
 
 func (DataExportOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataExport)(nil))
+	return reflect.TypeOf((**DataExport)(nil)).Elem()
 }
 
 func (o DataExportOutput) ToDataExportOutput() DataExportOutput {

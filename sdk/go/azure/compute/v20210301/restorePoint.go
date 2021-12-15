@@ -108,7 +108,7 @@ type RestorePointInput interface {
 }
 
 func (*RestorePoint) ElementType() reflect.Type {
-	return reflect.TypeOf((*RestorePoint)(nil))
+	return reflect.TypeOf((**RestorePoint)(nil)).Elem()
 }
 
 func (i *RestorePoint) ToRestorePointOutput() RestorePointOutput {
@@ -122,7 +122,7 @@ func (i *RestorePoint) ToRestorePointOutputWithContext(ctx context.Context) Rest
 type RestorePointOutput struct{ *pulumi.OutputState }
 
 func (RestorePointOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RestorePoint)(nil))
+	return reflect.TypeOf((**RestorePoint)(nil)).Elem()
 }
 
 func (o RestorePointOutput) ToRestorePointOutput() RestorePointOutput {

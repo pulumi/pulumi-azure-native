@@ -64,7 +64,7 @@ export class ManagementLockAtResourceGroupLevel extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ManagementLockAtResourceGroupLevelArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.level === undefined) && !opts.urn) {
@@ -73,26 +73,26 @@ export class ManagementLockAtResourceGroupLevel extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["level"] = args ? args.level : undefined;
-            inputs["lockName"] = args ? args.lockName : undefined;
-            inputs["notes"] = args ? args.notes : undefined;
-            inputs["owners"] = args ? args.owners : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["level"] = args ? args.level : undefined;
+            resourceInputs["lockName"] = args ? args.lockName : undefined;
+            resourceInputs["notes"] = args ? args.notes : undefined;
+            resourceInputs["owners"] = args ? args.owners : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["level"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["notes"] = undefined /*out*/;
-            inputs["owners"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["level"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["notes"] = undefined /*out*/;
+            resourceInputs["owners"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:authorization:ManagementLockAtResourceGroupLevel" }, { type: "azure-native:authorization/v20150101:ManagementLockAtResourceGroupLevel" }, { type: "azure-native:authorization/v20160901:ManagementLockAtResourceGroupLevel" }, { type: "azure-native:authorization/v20200501:ManagementLockAtResourceGroupLevel" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(ManagementLockAtResourceGroupLevel.__pulumiType, name, inputs, opts);
+        super(ManagementLockAtResourceGroupLevel.__pulumiType, name, resourceInputs, opts);
     }
 }
 

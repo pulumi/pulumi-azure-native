@@ -114,7 +114,7 @@ export class DefaultAdminRule extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: DefaultAdminRuleArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.configurationName === undefined) && !opts.urn) {
@@ -132,53 +132,53 @@ export class DefaultAdminRule extends pulumi.CustomResource {
             if ((!args || args.ruleCollectionName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'ruleCollectionName'");
             }
-            inputs["configurationName"] = args ? args.configurationName : undefined;
-            inputs["flag"] = args ? args.flag : undefined;
-            inputs["kind"] = "Default";
-            inputs["networkManagerName"] = args ? args.networkManagerName : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["ruleCollectionName"] = args ? args.ruleCollectionName : undefined;
-            inputs["ruleName"] = args ? args.ruleName : undefined;
-            inputs["access"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["destinationPortRanges"] = undefined /*out*/;
-            inputs["destinations"] = undefined /*out*/;
-            inputs["direction"] = undefined /*out*/;
-            inputs["displayName"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["priority"] = undefined /*out*/;
-            inputs["protocol"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["sourcePortRanges"] = undefined /*out*/;
-            inputs["sources"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["configurationName"] = args ? args.configurationName : undefined;
+            resourceInputs["flag"] = args ? args.flag : undefined;
+            resourceInputs["kind"] = "Default";
+            resourceInputs["networkManagerName"] = args ? args.networkManagerName : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["ruleCollectionName"] = args ? args.ruleCollectionName : undefined;
+            resourceInputs["ruleName"] = args ? args.ruleName : undefined;
+            resourceInputs["access"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["destinationPortRanges"] = undefined /*out*/;
+            resourceInputs["destinations"] = undefined /*out*/;
+            resourceInputs["direction"] = undefined /*out*/;
+            resourceInputs["displayName"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["priority"] = undefined /*out*/;
+            resourceInputs["protocol"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["sourcePortRanges"] = undefined /*out*/;
+            resourceInputs["sources"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["access"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["destinationPortRanges"] = undefined /*out*/;
-            inputs["destinations"] = undefined /*out*/;
-            inputs["direction"] = undefined /*out*/;
-            inputs["displayName"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
-            inputs["flag"] = undefined /*out*/;
-            inputs["kind"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["priority"] = undefined /*out*/;
-            inputs["protocol"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["sourcePortRanges"] = undefined /*out*/;
-            inputs["sources"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["access"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["destinationPortRanges"] = undefined /*out*/;
+            resourceInputs["destinations"] = undefined /*out*/;
+            resourceInputs["direction"] = undefined /*out*/;
+            resourceInputs["displayName"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["flag"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["priority"] = undefined /*out*/;
+            resourceInputs["protocol"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["sourcePortRanges"] = undefined /*out*/;
+            resourceInputs["sources"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:network/v20210201preview:DefaultAdminRule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(DefaultAdminRule.__pulumiType, name, inputs, opts);
+        super(DefaultAdminRule.__pulumiType, name, resourceInputs, opts);
     }
 }
 

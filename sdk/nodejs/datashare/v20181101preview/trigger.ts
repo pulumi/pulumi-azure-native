@@ -61,7 +61,7 @@ export class Trigger extends pulumi.CustomResource {
     /** @deprecated Please use one of the variants: ScheduledTrigger. */
     constructor(name: string, args: TriggerArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("Trigger is deprecated: Please use one of the variants: ScheduledTrigger.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.accountName === undefined) && !opts.urn) {
@@ -76,24 +76,24 @@ export class Trigger extends pulumi.CustomResource {
             if ((!args || args.shareSubscriptionName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'shareSubscriptionName'");
             }
-            inputs["accountName"] = args ? args.accountName : undefined;
-            inputs["kind"] = args ? args.kind : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["shareSubscriptionName"] = args ? args.shareSubscriptionName : undefined;
-            inputs["triggerName"] = args ? args.triggerName : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["accountName"] = args ? args.accountName : undefined;
+            resourceInputs["kind"] = args ? args.kind : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["shareSubscriptionName"] = args ? args.shareSubscriptionName : undefined;
+            resourceInputs["triggerName"] = args ? args.triggerName : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["kind"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:datashare:Trigger" }, { type: "azure-native:datashare/v20191101:Trigger" }, { type: "azure-native:datashare/v20200901:Trigger" }, { type: "azure-native:datashare/v20201001preview:Trigger" }, { type: "azure-native:datashare/v20210801:Trigger" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Trigger.__pulumiType, name, inputs, opts);
+        super(Trigger.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -64,7 +64,7 @@ export class PrivateEndpointConnectionControllerPrivateEndpointConnection extend
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: PrivateEndpointConnectionControllerPrivateEndpointConnectionArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.migrateProjectName === undefined) && !opts.urn) {
@@ -73,25 +73,25 @@ export class PrivateEndpointConnectionControllerPrivateEndpointConnection extend
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["eTag"] = args ? args.eTag : undefined;
-            inputs["migrateProjectName"] = args ? args.migrateProjectName : undefined;
-            inputs["peConnectionName"] = args ? args.peConnectionName : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["eTag"] = args ? args.eTag : undefined;
+            resourceInputs["migrateProjectName"] = args ? args.migrateProjectName : undefined;
+            resourceInputs["peConnectionName"] = args ? args.peConnectionName : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["eTag"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["eTag"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(PrivateEndpointConnectionControllerPrivateEndpointConnection.__pulumiType, name, inputs, opts);
+        super(PrivateEndpointConnectionControllerPrivateEndpointConnection.__pulumiType, name, resourceInputs, opts);
     }
 }
 

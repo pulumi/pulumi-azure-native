@@ -49,7 +49,7 @@ func NewScheduledQueryRule(ctx *pulumi.Context,
 	if args.Source == nil {
 		return nil, errors.New("invalid value for required argument 'Source'")
 	}
-	if args.AutoMitigate == nil {
+	if isZero(args.AutoMitigate) {
 		args.AutoMitigate = pulumi.BoolPtr(false)
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
@@ -139,7 +139,7 @@ type ScheduledQueryRuleInput interface {
 }
 
 func (*ScheduledQueryRule) ElementType() reflect.Type {
-	return reflect.TypeOf((*ScheduledQueryRule)(nil))
+	return reflect.TypeOf((**ScheduledQueryRule)(nil)).Elem()
 }
 
 func (i *ScheduledQueryRule) ToScheduledQueryRuleOutput() ScheduledQueryRuleOutput {
@@ -153,7 +153,7 @@ func (i *ScheduledQueryRule) ToScheduledQueryRuleOutputWithContext(ctx context.C
 type ScheduledQueryRuleOutput struct{ *pulumi.OutputState }
 
 func (ScheduledQueryRuleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ScheduledQueryRule)(nil))
+	return reflect.TypeOf((**ScheduledQueryRule)(nil)).Elem()
 }
 
 func (o ScheduledQueryRuleOutput) ToScheduledQueryRuleOutput() ScheduledQueryRuleOutput {

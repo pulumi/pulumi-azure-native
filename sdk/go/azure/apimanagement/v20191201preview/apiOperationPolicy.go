@@ -42,7 +42,7 @@ func NewApiOperationPolicy(ctx *pulumi.Context,
 	if args.Value == nil {
 		return nil, errors.New("invalid value for required argument 'Value'")
 	}
-	if args.Format == nil {
+	if isZero(args.Format) {
 		args.Format = pulumi.StringPtr("xml")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
@@ -145,7 +145,7 @@ type ApiOperationPolicyInput interface {
 }
 
 func (*ApiOperationPolicy) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApiOperationPolicy)(nil))
+	return reflect.TypeOf((**ApiOperationPolicy)(nil)).Elem()
 }
 
 func (i *ApiOperationPolicy) ToApiOperationPolicyOutput() ApiOperationPolicyOutput {
@@ -159,7 +159,7 @@ func (i *ApiOperationPolicy) ToApiOperationPolicyOutputWithContext(ctx context.C
 type ApiOperationPolicyOutput struct{ *pulumi.OutputState }
 
 func (ApiOperationPolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApiOperationPolicy)(nil))
+	return reflect.TypeOf((**ApiOperationPolicy)(nil)).Elem()
 }
 
 func (o ApiOperationPolicyOutput) ToApiOperationPolicyOutput() ApiOperationPolicyOutput {

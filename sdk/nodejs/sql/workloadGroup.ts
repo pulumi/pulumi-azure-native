@@ -76,7 +76,7 @@ export class WorkloadGroup extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: WorkloadGroupArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.databaseName === undefined) && !opts.urn) {
@@ -97,34 +97,34 @@ export class WorkloadGroup extends pulumi.CustomResource {
             if ((!args || args.serverName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serverName'");
             }
-            inputs["databaseName"] = args ? args.databaseName : undefined;
-            inputs["importance"] = args ? args.importance : undefined;
-            inputs["maxResourcePercent"] = args ? args.maxResourcePercent : undefined;
-            inputs["maxResourcePercentPerRequest"] = args ? args.maxResourcePercentPerRequest : undefined;
-            inputs["minResourcePercent"] = args ? args.minResourcePercent : undefined;
-            inputs["minResourcePercentPerRequest"] = args ? args.minResourcePercentPerRequest : undefined;
-            inputs["queryExecutionTimeout"] = args ? args.queryExecutionTimeout : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["serverName"] = args ? args.serverName : undefined;
-            inputs["workloadGroupName"] = args ? args.workloadGroupName : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["databaseName"] = args ? args.databaseName : undefined;
+            resourceInputs["importance"] = args ? args.importance : undefined;
+            resourceInputs["maxResourcePercent"] = args ? args.maxResourcePercent : undefined;
+            resourceInputs["maxResourcePercentPerRequest"] = args ? args.maxResourcePercentPerRequest : undefined;
+            resourceInputs["minResourcePercent"] = args ? args.minResourcePercent : undefined;
+            resourceInputs["minResourcePercentPerRequest"] = args ? args.minResourcePercentPerRequest : undefined;
+            resourceInputs["queryExecutionTimeout"] = args ? args.queryExecutionTimeout : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["serverName"] = args ? args.serverName : undefined;
+            resourceInputs["workloadGroupName"] = args ? args.workloadGroupName : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["importance"] = undefined /*out*/;
-            inputs["maxResourcePercent"] = undefined /*out*/;
-            inputs["maxResourcePercentPerRequest"] = undefined /*out*/;
-            inputs["minResourcePercent"] = undefined /*out*/;
-            inputs["minResourcePercentPerRequest"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["queryExecutionTimeout"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["importance"] = undefined /*out*/;
+            resourceInputs["maxResourcePercent"] = undefined /*out*/;
+            resourceInputs["maxResourcePercentPerRequest"] = undefined /*out*/;
+            resourceInputs["minResourcePercent"] = undefined /*out*/;
+            resourceInputs["minResourcePercentPerRequest"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["queryExecutionTimeout"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:sql/v20190601preview:WorkloadGroup" }, { type: "azure-native:sql/v20200202preview:WorkloadGroup" }, { type: "azure-native:sql/v20200801preview:WorkloadGroup" }, { type: "azure-native:sql/v20201101preview:WorkloadGroup" }, { type: "azure-native:sql/v20210201preview:WorkloadGroup" }, { type: "azure-native:sql/v20210501preview:WorkloadGroup" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(WorkloadGroup.__pulumiType, name, inputs, opts);
+        super(WorkloadGroup.__pulumiType, name, resourceInputs, opts);
     }
 }
 

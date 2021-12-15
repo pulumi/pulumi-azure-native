@@ -13,7 +13,7 @@ func LookupCluster(ctx *pulumi.Context, args *LookupClusterArgs, opts ...pulumi.
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupClusterArgs struct {
@@ -33,4 +33,15 @@ type LookupClusterResult struct {
 	Tags       map[string]string            `pulumi:"tags"`
 	Type       string                       `pulumi:"type"`
 	Zones      []string                     `pulumi:"zones"`
+}
+
+
+func (val *LookupClusterResult) Defaults() *LookupClusterResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Properties = *tmp.Properties.Defaults()
+
+	return &tmp
 }

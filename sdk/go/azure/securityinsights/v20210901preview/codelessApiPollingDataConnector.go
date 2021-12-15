@@ -119,7 +119,7 @@ type CodelessApiPollingDataConnectorInput interface {
 }
 
 func (*CodelessApiPollingDataConnector) ElementType() reflect.Type {
-	return reflect.TypeOf((*CodelessApiPollingDataConnector)(nil))
+	return reflect.TypeOf((**CodelessApiPollingDataConnector)(nil)).Elem()
 }
 
 func (i *CodelessApiPollingDataConnector) ToCodelessApiPollingDataConnectorOutput() CodelessApiPollingDataConnectorOutput {
@@ -133,7 +133,7 @@ func (i *CodelessApiPollingDataConnector) ToCodelessApiPollingDataConnectorOutpu
 type CodelessApiPollingDataConnectorOutput struct{ *pulumi.OutputState }
 
 func (CodelessApiPollingDataConnectorOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CodelessApiPollingDataConnector)(nil))
+	return reflect.TypeOf((**CodelessApiPollingDataConnector)(nil)).Elem()
 }
 
 func (o CodelessApiPollingDataConnectorOutput) ToCodelessApiPollingDataConnectorOutput() CodelessApiPollingDataConnectorOutput {

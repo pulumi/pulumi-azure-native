@@ -117,58 +117,58 @@ export class SqlVirtualMachine extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: SqlVirtualMachineArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["autoBackupSettings"] = args ? args.autoBackupSettings : undefined;
-            inputs["autoPatchingSettings"] = args ? args.autoPatchingSettings : undefined;
-            inputs["identity"] = args ? args.identity : undefined;
-            inputs["keyVaultCredentialSettings"] = args ? args.keyVaultCredentialSettings : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["serverConfigurationsManagementSettings"] = args ? args.serverConfigurationsManagementSettings : undefined;
-            inputs["sqlImageOffer"] = args ? args.sqlImageOffer : undefined;
-            inputs["sqlImageSku"] = args ? args.sqlImageSku : undefined;
-            inputs["sqlManagement"] = args ? args.sqlManagement : undefined;
-            inputs["sqlServerLicenseType"] = args ? args.sqlServerLicenseType : undefined;
-            inputs["sqlVirtualMachineGroupResourceId"] = args ? args.sqlVirtualMachineGroupResourceId : undefined;
-            inputs["sqlVirtualMachineName"] = args ? args.sqlVirtualMachineName : undefined;
-            inputs["storageConfigurationSettings"] = args ? args.storageConfigurationSettings : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["virtualMachineResourceId"] = args ? args.virtualMachineResourceId : undefined;
-            inputs["wsfcDomainCredentials"] = args ? args.wsfcDomainCredentials : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["autoBackupSettings"] = args ? args.autoBackupSettings : undefined;
+            resourceInputs["autoPatchingSettings"] = args ? args.autoPatchingSettings : undefined;
+            resourceInputs["identity"] = args ? args.identity : undefined;
+            resourceInputs["keyVaultCredentialSettings"] = args ? args.keyVaultCredentialSettings : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["serverConfigurationsManagementSettings"] = args ? args.serverConfigurationsManagementSettings : undefined;
+            resourceInputs["sqlImageOffer"] = args ? args.sqlImageOffer : undefined;
+            resourceInputs["sqlImageSku"] = args ? args.sqlImageSku : undefined;
+            resourceInputs["sqlManagement"] = args ? args.sqlManagement : undefined;
+            resourceInputs["sqlServerLicenseType"] = args ? args.sqlServerLicenseType : undefined;
+            resourceInputs["sqlVirtualMachineGroupResourceId"] = args ? args.sqlVirtualMachineGroupResourceId : undefined;
+            resourceInputs["sqlVirtualMachineName"] = args ? args.sqlVirtualMachineName : undefined;
+            resourceInputs["storageConfigurationSettings"] = args ? args.storageConfigurationSettings : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["virtualMachineResourceId"] = args ? args.virtualMachineResourceId : undefined;
+            resourceInputs["wsfcDomainCredentials"] = args ? args.wsfcDomainCredentials : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["autoBackupSettings"] = undefined /*out*/;
-            inputs["autoPatchingSettings"] = undefined /*out*/;
-            inputs["identity"] = undefined /*out*/;
-            inputs["keyVaultCredentialSettings"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["serverConfigurationsManagementSettings"] = undefined /*out*/;
-            inputs["sqlImageOffer"] = undefined /*out*/;
-            inputs["sqlImageSku"] = undefined /*out*/;
-            inputs["sqlManagement"] = undefined /*out*/;
-            inputs["sqlServerLicenseType"] = undefined /*out*/;
-            inputs["sqlVirtualMachineGroupResourceId"] = undefined /*out*/;
-            inputs["storageConfigurationSettings"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["virtualMachineResourceId"] = undefined /*out*/;
-            inputs["wsfcDomainCredentials"] = undefined /*out*/;
+            resourceInputs["autoBackupSettings"] = undefined /*out*/;
+            resourceInputs["autoPatchingSettings"] = undefined /*out*/;
+            resourceInputs["identity"] = undefined /*out*/;
+            resourceInputs["keyVaultCredentialSettings"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["serverConfigurationsManagementSettings"] = undefined /*out*/;
+            resourceInputs["sqlImageOffer"] = undefined /*out*/;
+            resourceInputs["sqlImageSku"] = undefined /*out*/;
+            resourceInputs["sqlManagement"] = undefined /*out*/;
+            resourceInputs["sqlServerLicenseType"] = undefined /*out*/;
+            resourceInputs["sqlVirtualMachineGroupResourceId"] = undefined /*out*/;
+            resourceInputs["storageConfigurationSettings"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["virtualMachineResourceId"] = undefined /*out*/;
+            resourceInputs["wsfcDomainCredentials"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:sqlvirtualmachine/v20170301preview:SqlVirtualMachine" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(SqlVirtualMachine.__pulumiType, name, inputs, opts);
+        super(SqlVirtualMachine.__pulumiType, name, resourceInputs, opts);
     }
 }
 

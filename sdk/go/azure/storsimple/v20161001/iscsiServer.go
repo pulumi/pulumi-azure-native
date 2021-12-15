@@ -113,7 +113,7 @@ type IscsiServerInput interface {
 }
 
 func (*IscsiServer) ElementType() reflect.Type {
-	return reflect.TypeOf((*IscsiServer)(nil))
+	return reflect.TypeOf((**IscsiServer)(nil)).Elem()
 }
 
 func (i *IscsiServer) ToIscsiServerOutput() IscsiServerOutput {
@@ -127,7 +127,7 @@ func (i *IscsiServer) ToIscsiServerOutputWithContext(ctx context.Context) IscsiS
 type IscsiServerOutput struct{ *pulumi.OutputState }
 
 func (IscsiServerOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IscsiServer)(nil))
+	return reflect.TypeOf((**IscsiServer)(nil)).Elem()
 }
 
 func (o IscsiServerOutput) ToIscsiServerOutput() IscsiServerOutput {

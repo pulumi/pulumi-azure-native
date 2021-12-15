@@ -108,7 +108,7 @@ export class SourceControlConfiguration extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: SourceControlConfigurationArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.clusterName === undefined) && !opts.urn) {
@@ -123,51 +123,51 @@ export class SourceControlConfiguration extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["clusterName"] = args ? args.clusterName : undefined;
-            inputs["clusterResourceName"] = args ? args.clusterResourceName : undefined;
-            inputs["clusterRp"] = args ? args.clusterRp : undefined;
-            inputs["configurationProtectedSettings"] = args ? args.configurationProtectedSettings : undefined;
-            inputs["enableHelmOperator"] = args ? args.enableHelmOperator : undefined;
-            inputs["helmOperatorProperties"] = args ? args.helmOperatorProperties : undefined;
-            inputs["operatorInstanceName"] = args ? args.operatorInstanceName : undefined;
-            inputs["operatorNamespace"] = (args ? args.operatorNamespace : undefined) ?? "default";
-            inputs["operatorParams"] = args ? args.operatorParams : undefined;
-            inputs["operatorScope"] = args ? args.operatorScope : undefined;
-            inputs["operatorType"] = args ? args.operatorType : undefined;
-            inputs["repositoryUrl"] = args ? args.repositoryUrl : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["sourceControlConfigurationName"] = args ? args.sourceControlConfigurationName : undefined;
-            inputs["sshKnownHostsContents"] = args ? args.sshKnownHostsContents : undefined;
-            inputs["complianceStatus"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["repositoryPublicKey"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["clusterName"] = args ? args.clusterName : undefined;
+            resourceInputs["clusterResourceName"] = args ? args.clusterResourceName : undefined;
+            resourceInputs["clusterRp"] = args ? args.clusterRp : undefined;
+            resourceInputs["configurationProtectedSettings"] = args ? args.configurationProtectedSettings : undefined;
+            resourceInputs["enableHelmOperator"] = args ? args.enableHelmOperator : undefined;
+            resourceInputs["helmOperatorProperties"] = args ? args.helmOperatorProperties : undefined;
+            resourceInputs["operatorInstanceName"] = args ? args.operatorInstanceName : undefined;
+            resourceInputs["operatorNamespace"] = (args ? args.operatorNamespace : undefined) ?? "default";
+            resourceInputs["operatorParams"] = args ? args.operatorParams : undefined;
+            resourceInputs["operatorScope"] = args ? args.operatorScope : undefined;
+            resourceInputs["operatorType"] = args ? args.operatorType : undefined;
+            resourceInputs["repositoryUrl"] = args ? args.repositoryUrl : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["sourceControlConfigurationName"] = args ? args.sourceControlConfigurationName : undefined;
+            resourceInputs["sshKnownHostsContents"] = args ? args.sshKnownHostsContents : undefined;
+            resourceInputs["complianceStatus"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["repositoryPublicKey"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["complianceStatus"] = undefined /*out*/;
-            inputs["configurationProtectedSettings"] = undefined /*out*/;
-            inputs["enableHelmOperator"] = undefined /*out*/;
-            inputs["helmOperatorProperties"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["operatorInstanceName"] = undefined /*out*/;
-            inputs["operatorNamespace"] = undefined /*out*/;
-            inputs["operatorParams"] = undefined /*out*/;
-            inputs["operatorScope"] = undefined /*out*/;
-            inputs["operatorType"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["repositoryPublicKey"] = undefined /*out*/;
-            inputs["repositoryUrl"] = undefined /*out*/;
-            inputs["sshKnownHostsContents"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["complianceStatus"] = undefined /*out*/;
+            resourceInputs["configurationProtectedSettings"] = undefined /*out*/;
+            resourceInputs["enableHelmOperator"] = undefined /*out*/;
+            resourceInputs["helmOperatorProperties"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["operatorInstanceName"] = undefined /*out*/;
+            resourceInputs["operatorNamespace"] = undefined /*out*/;
+            resourceInputs["operatorParams"] = undefined /*out*/;
+            resourceInputs["operatorScope"] = undefined /*out*/;
+            resourceInputs["operatorType"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["repositoryPublicKey"] = undefined /*out*/;
+            resourceInputs["repositoryUrl"] = undefined /*out*/;
+            resourceInputs["sshKnownHostsContents"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:kubernetesconfiguration:SourceControlConfiguration" }, { type: "azure-native:kubernetesconfiguration/v20191101preview:SourceControlConfiguration" }, { type: "azure-native:kubernetesconfiguration/v20200701preview:SourceControlConfiguration" }, { type: "azure-native:kubernetesconfiguration/v20201001preview:SourceControlConfiguration" }, { type: "azure-native:kubernetesconfiguration/v20210501preview:SourceControlConfiguration" }, { type: "azure-native:kubernetesconfiguration/v20211101preview:SourceControlConfiguration" }, { type: "azure-native:kubernetesconfiguration/v20220101preview:SourceControlConfiguration" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(SourceControlConfiguration.__pulumiType, name, inputs, opts);
+        super(SourceControlConfiguration.__pulumiType, name, resourceInputs, opts);
     }
 }
 

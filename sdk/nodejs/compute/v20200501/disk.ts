@@ -152,7 +152,7 @@ export class Disk extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: DiskArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.creationData === undefined) && !opts.urn) {
@@ -161,70 +161,70 @@ export class Disk extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["creationData"] = args ? args.creationData : undefined;
-            inputs["diskAccessId"] = args ? args.diskAccessId : undefined;
-            inputs["diskIOPSReadOnly"] = args ? args.diskIOPSReadOnly : undefined;
-            inputs["diskIOPSReadWrite"] = args ? args.diskIOPSReadWrite : undefined;
-            inputs["diskMBpsReadOnly"] = args ? args.diskMBpsReadOnly : undefined;
-            inputs["diskMBpsReadWrite"] = args ? args.diskMBpsReadWrite : undefined;
-            inputs["diskName"] = args ? args.diskName : undefined;
-            inputs["diskSizeGB"] = args ? args.diskSizeGB : undefined;
-            inputs["encryption"] = args ? args.encryption : undefined;
-            inputs["encryptionSettingsCollection"] = args ? args.encryptionSettingsCollection : undefined;
-            inputs["hyperVGeneration"] = args ? args.hyperVGeneration : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["maxShares"] = args ? args.maxShares : undefined;
-            inputs["networkAccessPolicy"] = args ? args.networkAccessPolicy : undefined;
-            inputs["osType"] = args ? args.osType : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["sku"] = args ? args.sku : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["zones"] = args ? args.zones : undefined;
-            inputs["diskSizeBytes"] = undefined /*out*/;
-            inputs["diskState"] = undefined /*out*/;
-            inputs["managedBy"] = undefined /*out*/;
-            inputs["managedByExtended"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["shareInfo"] = undefined /*out*/;
-            inputs["timeCreated"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["uniqueId"] = undefined /*out*/;
+            resourceInputs["creationData"] = args ? args.creationData : undefined;
+            resourceInputs["diskAccessId"] = args ? args.diskAccessId : undefined;
+            resourceInputs["diskIOPSReadOnly"] = args ? args.diskIOPSReadOnly : undefined;
+            resourceInputs["diskIOPSReadWrite"] = args ? args.diskIOPSReadWrite : undefined;
+            resourceInputs["diskMBpsReadOnly"] = args ? args.diskMBpsReadOnly : undefined;
+            resourceInputs["diskMBpsReadWrite"] = args ? args.diskMBpsReadWrite : undefined;
+            resourceInputs["diskName"] = args ? args.diskName : undefined;
+            resourceInputs["diskSizeGB"] = args ? args.diskSizeGB : undefined;
+            resourceInputs["encryption"] = args ? args.encryption : undefined;
+            resourceInputs["encryptionSettingsCollection"] = args ? args.encryptionSettingsCollection : undefined;
+            resourceInputs["hyperVGeneration"] = args ? args.hyperVGeneration : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["maxShares"] = args ? args.maxShares : undefined;
+            resourceInputs["networkAccessPolicy"] = args ? args.networkAccessPolicy : undefined;
+            resourceInputs["osType"] = args ? args.osType : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["sku"] = args ? args.sku : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["zones"] = args ? args.zones : undefined;
+            resourceInputs["diskSizeBytes"] = undefined /*out*/;
+            resourceInputs["diskState"] = undefined /*out*/;
+            resourceInputs["managedBy"] = undefined /*out*/;
+            resourceInputs["managedByExtended"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["shareInfo"] = undefined /*out*/;
+            resourceInputs["timeCreated"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["uniqueId"] = undefined /*out*/;
         } else {
-            inputs["creationData"] = undefined /*out*/;
-            inputs["diskAccessId"] = undefined /*out*/;
-            inputs["diskIOPSReadOnly"] = undefined /*out*/;
-            inputs["diskIOPSReadWrite"] = undefined /*out*/;
-            inputs["diskMBpsReadOnly"] = undefined /*out*/;
-            inputs["diskMBpsReadWrite"] = undefined /*out*/;
-            inputs["diskSizeBytes"] = undefined /*out*/;
-            inputs["diskSizeGB"] = undefined /*out*/;
-            inputs["diskState"] = undefined /*out*/;
-            inputs["encryption"] = undefined /*out*/;
-            inputs["encryptionSettingsCollection"] = undefined /*out*/;
-            inputs["hyperVGeneration"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["managedBy"] = undefined /*out*/;
-            inputs["managedByExtended"] = undefined /*out*/;
-            inputs["maxShares"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["networkAccessPolicy"] = undefined /*out*/;
-            inputs["osType"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["shareInfo"] = undefined /*out*/;
-            inputs["sku"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["timeCreated"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["uniqueId"] = undefined /*out*/;
-            inputs["zones"] = undefined /*out*/;
+            resourceInputs["creationData"] = undefined /*out*/;
+            resourceInputs["diskAccessId"] = undefined /*out*/;
+            resourceInputs["diskIOPSReadOnly"] = undefined /*out*/;
+            resourceInputs["diskIOPSReadWrite"] = undefined /*out*/;
+            resourceInputs["diskMBpsReadOnly"] = undefined /*out*/;
+            resourceInputs["diskMBpsReadWrite"] = undefined /*out*/;
+            resourceInputs["diskSizeBytes"] = undefined /*out*/;
+            resourceInputs["diskSizeGB"] = undefined /*out*/;
+            resourceInputs["diskState"] = undefined /*out*/;
+            resourceInputs["encryption"] = undefined /*out*/;
+            resourceInputs["encryptionSettingsCollection"] = undefined /*out*/;
+            resourceInputs["hyperVGeneration"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["managedBy"] = undefined /*out*/;
+            resourceInputs["managedByExtended"] = undefined /*out*/;
+            resourceInputs["maxShares"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["networkAccessPolicy"] = undefined /*out*/;
+            resourceInputs["osType"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["shareInfo"] = undefined /*out*/;
+            resourceInputs["sku"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["timeCreated"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["uniqueId"] = undefined /*out*/;
+            resourceInputs["zones"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:compute:Disk" }, { type: "azure-native:compute/v20160430preview:Disk" }, { type: "azure-native:compute/v20170330:Disk" }, { type: "azure-native:compute/v20180401:Disk" }, { type: "azure-native:compute/v20180601:Disk" }, { type: "azure-native:compute/v20180930:Disk" }, { type: "azure-native:compute/v20190301:Disk" }, { type: "azure-native:compute/v20190701:Disk" }, { type: "azure-native:compute/v20191101:Disk" }, { type: "azure-native:compute/v20200630:Disk" }, { type: "azure-native:compute/v20200930:Disk" }, { type: "azure-native:compute/v20201201:Disk" }, { type: "azure-native:compute/v20210401:Disk" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Disk.__pulumiType, name, inputs, opts);
+        super(Disk.__pulumiType, name, resourceInputs, opts);
     }
 }
 

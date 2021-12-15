@@ -96,7 +96,7 @@ export class RelationshipLink extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: RelationshipLinkArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.hubName === undefined) && !opts.urn) {
@@ -117,43 +117,43 @@ export class RelationshipLink extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["description"] = args ? args.description : undefined;
-            inputs["displayName"] = args ? args.displayName : undefined;
-            inputs["hubName"] = args ? args.hubName : undefined;
-            inputs["interactionType"] = args ? args.interactionType : undefined;
-            inputs["mappings"] = args ? args.mappings : undefined;
-            inputs["profilePropertyReferences"] = args ? args.profilePropertyReferences : undefined;
-            inputs["relatedProfilePropertyReferences"] = args ? args.relatedProfilePropertyReferences : undefined;
-            inputs["relationshipLinkName"] = args ? args.relationshipLinkName : undefined;
-            inputs["relationshipName"] = args ? args.relationshipName : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["linkName"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["relationshipGuidId"] = undefined /*out*/;
-            inputs["tenantId"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["displayName"] = args ? args.displayName : undefined;
+            resourceInputs["hubName"] = args ? args.hubName : undefined;
+            resourceInputs["interactionType"] = args ? args.interactionType : undefined;
+            resourceInputs["mappings"] = args ? args.mappings : undefined;
+            resourceInputs["profilePropertyReferences"] = args ? args.profilePropertyReferences : undefined;
+            resourceInputs["relatedProfilePropertyReferences"] = args ? args.relatedProfilePropertyReferences : undefined;
+            resourceInputs["relationshipLinkName"] = args ? args.relationshipLinkName : undefined;
+            resourceInputs["relationshipName"] = args ? args.relationshipName : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["linkName"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["relationshipGuidId"] = undefined /*out*/;
+            resourceInputs["tenantId"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["description"] = undefined /*out*/;
-            inputs["displayName"] = undefined /*out*/;
-            inputs["interactionType"] = undefined /*out*/;
-            inputs["linkName"] = undefined /*out*/;
-            inputs["mappings"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["profilePropertyReferences"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["relatedProfilePropertyReferences"] = undefined /*out*/;
-            inputs["relationshipGuidId"] = undefined /*out*/;
-            inputs["relationshipName"] = undefined /*out*/;
-            inputs["tenantId"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["displayName"] = undefined /*out*/;
+            resourceInputs["interactionType"] = undefined /*out*/;
+            resourceInputs["linkName"] = undefined /*out*/;
+            resourceInputs["mappings"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["profilePropertyReferences"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["relatedProfilePropertyReferences"] = undefined /*out*/;
+            resourceInputs["relationshipGuidId"] = undefined /*out*/;
+            resourceInputs["relationshipName"] = undefined /*out*/;
+            resourceInputs["tenantId"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:customerinsights:RelationshipLink" }, { type: "azure-native:customerinsights/v20170426:RelationshipLink" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(RelationshipLink.__pulumiType, name, inputs, opts);
+        super(RelationshipLink.__pulumiType, name, resourceInputs, opts);
     }
 }
 

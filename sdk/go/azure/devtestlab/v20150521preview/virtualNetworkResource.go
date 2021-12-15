@@ -124,7 +124,7 @@ type VirtualNetworkResourceInput interface {
 }
 
 func (*VirtualNetworkResource) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualNetworkResource)(nil))
+	return reflect.TypeOf((**VirtualNetworkResource)(nil)).Elem()
 }
 
 func (i *VirtualNetworkResource) ToVirtualNetworkResourceOutput() VirtualNetworkResourceOutput {
@@ -138,7 +138,7 @@ func (i *VirtualNetworkResource) ToVirtualNetworkResourceOutputWithContext(ctx c
 type VirtualNetworkResourceOutput struct{ *pulumi.OutputState }
 
 func (VirtualNetworkResourceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualNetworkResource)(nil))
+	return reflect.TypeOf((**VirtualNetworkResource)(nil)).Elem()
 }
 
 func (o VirtualNetworkResourceOutput) ToVirtualNetworkResourceOutput() VirtualNetworkResourceOutput {

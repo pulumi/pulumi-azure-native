@@ -165,7 +165,7 @@ type DatabaseAccountCassandraKeyspaceInput interface {
 }
 
 func (*DatabaseAccountCassandraKeyspace) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatabaseAccountCassandraKeyspace)(nil))
+	return reflect.TypeOf((**DatabaseAccountCassandraKeyspace)(nil)).Elem()
 }
 
 func (i *DatabaseAccountCassandraKeyspace) ToDatabaseAccountCassandraKeyspaceOutput() DatabaseAccountCassandraKeyspaceOutput {
@@ -179,7 +179,7 @@ func (i *DatabaseAccountCassandraKeyspace) ToDatabaseAccountCassandraKeyspaceOut
 type DatabaseAccountCassandraKeyspaceOutput struct{ *pulumi.OutputState }
 
 func (DatabaseAccountCassandraKeyspaceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatabaseAccountCassandraKeyspace)(nil))
+	return reflect.TypeOf((**DatabaseAccountCassandraKeyspace)(nil)).Elem()
 }
 
 func (o DatabaseAccountCassandraKeyspaceOutput) ToDatabaseAccountCassandraKeyspaceOutput() DatabaseAccountCassandraKeyspaceOutput {

@@ -13,7 +13,7 @@ func LookupRule(ctx *pulumi.Context, args *LookupRuleArgs, opts ...pulumi.Invoke
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupRuleArgs struct {
@@ -33,4 +33,19 @@ type LookupRuleResult struct {
 	Name              string                     `pulumi:"name"`
 	SqlFilter         *SqlFilterResponse         `pulumi:"sqlFilter"`
 	Type              string                     `pulumi:"type"`
+}
+
+
+func (val *LookupRuleResult) Defaults() *LookupRuleResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Action = tmp.Action.Defaults()
+
+	tmp.CorrelationFilter = tmp.CorrelationFilter.Defaults()
+
+	tmp.SqlFilter = tmp.SqlFilter.Defaults()
+
+	return &tmp
 }

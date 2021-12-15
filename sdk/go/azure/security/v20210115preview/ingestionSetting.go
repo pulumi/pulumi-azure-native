@@ -82,7 +82,7 @@ type IngestionSettingInput interface {
 }
 
 func (*IngestionSetting) ElementType() reflect.Type {
-	return reflect.TypeOf((*IngestionSetting)(nil))
+	return reflect.TypeOf((**IngestionSetting)(nil)).Elem()
 }
 
 func (i *IngestionSetting) ToIngestionSettingOutput() IngestionSettingOutput {
@@ -96,7 +96,7 @@ func (i *IngestionSetting) ToIngestionSettingOutputWithContext(ctx context.Conte
 type IngestionSettingOutput struct{ *pulumi.OutputState }
 
 func (IngestionSettingOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IngestionSetting)(nil))
+	return reflect.TypeOf((**IngestionSetting)(nil)).Elem()
 }
 
 func (o IngestionSettingOutput) ToIngestionSettingOutput() IngestionSettingOutput {

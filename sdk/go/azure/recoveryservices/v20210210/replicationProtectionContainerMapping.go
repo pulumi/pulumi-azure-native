@@ -134,7 +134,7 @@ type ReplicationProtectionContainerMappingInput interface {
 }
 
 func (*ReplicationProtectionContainerMapping) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReplicationProtectionContainerMapping)(nil))
+	return reflect.TypeOf((**ReplicationProtectionContainerMapping)(nil)).Elem()
 }
 
 func (i *ReplicationProtectionContainerMapping) ToReplicationProtectionContainerMappingOutput() ReplicationProtectionContainerMappingOutput {
@@ -148,7 +148,7 @@ func (i *ReplicationProtectionContainerMapping) ToReplicationProtectionContainer
 type ReplicationProtectionContainerMappingOutput struct{ *pulumi.OutputState }
 
 func (ReplicationProtectionContainerMappingOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReplicationProtectionContainerMapping)(nil))
+	return reflect.TypeOf((**ReplicationProtectionContainerMapping)(nil)).Elem()
 }
 
 func (o ReplicationProtectionContainerMappingOutput) ToReplicationProtectionContainerMappingOutput() ReplicationProtectionContainerMappingOutput {

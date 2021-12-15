@@ -125,7 +125,7 @@ type DeploymentAtSubscriptionScopeInput interface {
 }
 
 func (*DeploymentAtSubscriptionScope) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeploymentAtSubscriptionScope)(nil))
+	return reflect.TypeOf((**DeploymentAtSubscriptionScope)(nil)).Elem()
 }
 
 func (i *DeploymentAtSubscriptionScope) ToDeploymentAtSubscriptionScopeOutput() DeploymentAtSubscriptionScopeOutput {
@@ -139,7 +139,7 @@ func (i *DeploymentAtSubscriptionScope) ToDeploymentAtSubscriptionScopeOutputWit
 type DeploymentAtSubscriptionScopeOutput struct{ *pulumi.OutputState }
 
 func (DeploymentAtSubscriptionScopeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeploymentAtSubscriptionScope)(nil))
+	return reflect.TypeOf((**DeploymentAtSubscriptionScope)(nil)).Elem()
 }
 
 func (o DeploymentAtSubscriptionScopeOutput) ToDeploymentAtSubscriptionScopeOutput() DeploymentAtSubscriptionScopeOutput {

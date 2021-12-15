@@ -148,7 +148,7 @@ export class Snapshot extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: SnapshotArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.creationData === undefined) && !opts.urn) {
@@ -157,68 +157,68 @@ export class Snapshot extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["completionPercent"] = args ? args.completionPercent : undefined;
-            inputs["creationData"] = args ? args.creationData : undefined;
-            inputs["diskAccessId"] = args ? args.diskAccessId : undefined;
-            inputs["diskSizeGB"] = args ? args.diskSizeGB : undefined;
-            inputs["encryption"] = args ? args.encryption : undefined;
-            inputs["encryptionSettingsCollection"] = args ? args.encryptionSettingsCollection : undefined;
-            inputs["extendedLocation"] = args ? args.extendedLocation : undefined;
-            inputs["hyperVGeneration"] = args ? args.hyperVGeneration : undefined;
-            inputs["incremental"] = args ? args.incremental : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["networkAccessPolicy"] = args ? args.networkAccessPolicy : undefined;
-            inputs["osType"] = args ? args.osType : undefined;
-            inputs["publicNetworkAccess"] = args ? args.publicNetworkAccess : undefined;
-            inputs["purchasePlan"] = args ? args.purchasePlan : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["sku"] = args ? args.sku : undefined;
-            inputs["snapshotName"] = args ? args.snapshotName : undefined;
-            inputs["supportedCapabilities"] = args ? args.supportedCapabilities : undefined;
-            inputs["supportsHibernation"] = args ? args.supportsHibernation : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["diskSizeBytes"] = undefined /*out*/;
-            inputs["diskState"] = undefined /*out*/;
-            inputs["managedBy"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["timeCreated"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["uniqueId"] = undefined /*out*/;
+            resourceInputs["completionPercent"] = args ? args.completionPercent : undefined;
+            resourceInputs["creationData"] = args ? args.creationData : undefined;
+            resourceInputs["diskAccessId"] = args ? args.diskAccessId : undefined;
+            resourceInputs["diskSizeGB"] = args ? args.diskSizeGB : undefined;
+            resourceInputs["encryption"] = args ? args.encryption : undefined;
+            resourceInputs["encryptionSettingsCollection"] = args ? args.encryptionSettingsCollection : undefined;
+            resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
+            resourceInputs["hyperVGeneration"] = args ? args.hyperVGeneration : undefined;
+            resourceInputs["incremental"] = args ? args.incremental : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["networkAccessPolicy"] = args ? args.networkAccessPolicy : undefined;
+            resourceInputs["osType"] = args ? args.osType : undefined;
+            resourceInputs["publicNetworkAccess"] = args ? args.publicNetworkAccess : undefined;
+            resourceInputs["purchasePlan"] = args ? args.purchasePlan : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["sku"] = args ? args.sku : undefined;
+            resourceInputs["snapshotName"] = args ? args.snapshotName : undefined;
+            resourceInputs["supportedCapabilities"] = args ? args.supportedCapabilities : undefined;
+            resourceInputs["supportsHibernation"] = args ? args.supportsHibernation : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["diskSizeBytes"] = undefined /*out*/;
+            resourceInputs["diskState"] = undefined /*out*/;
+            resourceInputs["managedBy"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["timeCreated"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["uniqueId"] = undefined /*out*/;
         } else {
-            inputs["completionPercent"] = undefined /*out*/;
-            inputs["creationData"] = undefined /*out*/;
-            inputs["diskAccessId"] = undefined /*out*/;
-            inputs["diskSizeBytes"] = undefined /*out*/;
-            inputs["diskSizeGB"] = undefined /*out*/;
-            inputs["diskState"] = undefined /*out*/;
-            inputs["encryption"] = undefined /*out*/;
-            inputs["encryptionSettingsCollection"] = undefined /*out*/;
-            inputs["extendedLocation"] = undefined /*out*/;
-            inputs["hyperVGeneration"] = undefined /*out*/;
-            inputs["incremental"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["managedBy"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["networkAccessPolicy"] = undefined /*out*/;
-            inputs["osType"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["publicNetworkAccess"] = undefined /*out*/;
-            inputs["purchasePlan"] = undefined /*out*/;
-            inputs["sku"] = undefined /*out*/;
-            inputs["supportedCapabilities"] = undefined /*out*/;
-            inputs["supportsHibernation"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["timeCreated"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["uniqueId"] = undefined /*out*/;
+            resourceInputs["completionPercent"] = undefined /*out*/;
+            resourceInputs["creationData"] = undefined /*out*/;
+            resourceInputs["diskAccessId"] = undefined /*out*/;
+            resourceInputs["diskSizeBytes"] = undefined /*out*/;
+            resourceInputs["diskSizeGB"] = undefined /*out*/;
+            resourceInputs["diskState"] = undefined /*out*/;
+            resourceInputs["encryption"] = undefined /*out*/;
+            resourceInputs["encryptionSettingsCollection"] = undefined /*out*/;
+            resourceInputs["extendedLocation"] = undefined /*out*/;
+            resourceInputs["hyperVGeneration"] = undefined /*out*/;
+            resourceInputs["incremental"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["managedBy"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["networkAccessPolicy"] = undefined /*out*/;
+            resourceInputs["osType"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["publicNetworkAccess"] = undefined /*out*/;
+            resourceInputs["purchasePlan"] = undefined /*out*/;
+            resourceInputs["sku"] = undefined /*out*/;
+            resourceInputs["supportedCapabilities"] = undefined /*out*/;
+            resourceInputs["supportsHibernation"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["timeCreated"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["uniqueId"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:compute:Snapshot" }, { type: "azure-native:compute/v20160430preview:Snapshot" }, { type: "azure-native:compute/v20170330:Snapshot" }, { type: "azure-native:compute/v20180401:Snapshot" }, { type: "azure-native:compute/v20180601:Snapshot" }, { type: "azure-native:compute/v20180930:Snapshot" }, { type: "azure-native:compute/v20190301:Snapshot" }, { type: "azure-native:compute/v20190701:Snapshot" }, { type: "azure-native:compute/v20191101:Snapshot" }, { type: "azure-native:compute/v20200501:Snapshot" }, { type: "azure-native:compute/v20200630:Snapshot" }, { type: "azure-native:compute/v20200930:Snapshot" }, { type: "azure-native:compute/v20201201:Snapshot" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Snapshot.__pulumiType, name, inputs, opts);
+        super(Snapshot.__pulumiType, name, resourceInputs, opts);
     }
 }
 

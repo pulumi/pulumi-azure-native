@@ -20,6 +20,19 @@ type AdditionalLocation struct {
 }
 
 
+func (val *AdditionalLocation) Defaults() *AdditionalLocation {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.DisableGateway) {
+		disableGateway_ := false
+		tmp.DisableGateway = &disableGateway_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -145,6 +158,19 @@ type AdditionalLocationResponse struct {
 	Sku                         ApiManagementServiceSkuPropertiesResponse `pulumi:"sku"`
 	VirtualNetworkConfiguration *VirtualNetworkConfigurationResponse      `pulumi:"virtualNetworkConfiguration"`
 	Zones                       []string                                  `pulumi:"zones"`
+}
+
+
+func (val *AdditionalLocationResponse) Defaults() *AdditionalLocationResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.DisableGateway) {
+		disableGateway_ := false
+		tmp.DisableGateway = &disableGateway_
+	}
+	return &tmp
 }
 
 
@@ -4497,6 +4523,23 @@ type BackendTlsProperties struct {
 }
 
 
+func (val *BackendTlsProperties) Defaults() *BackendTlsProperties {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.ValidateCertificateChain) {
+		validateCertificateChain_ := true
+		tmp.ValidateCertificateChain = &validateCertificateChain_
+	}
+	if isZero(tmp.ValidateCertificateName) {
+		validateCertificateName_ := true
+		tmp.ValidateCertificateName = &validateCertificateName_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -4642,6 +4685,23 @@ func (o BackendTlsPropertiesPtrOutput) ValidateCertificateName() pulumi.BoolPtrO
 type BackendTlsPropertiesResponse struct {
 	ValidateCertificateChain *bool `pulumi:"validateCertificateChain"`
 	ValidateCertificateName  *bool `pulumi:"validateCertificateName"`
+}
+
+
+func (val *BackendTlsPropertiesResponse) Defaults() *BackendTlsPropertiesResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.ValidateCertificateChain) {
+		validateCertificateChain_ := true
+		tmp.ValidateCertificateChain = &validateCertificateChain_
+	}
+	if isZero(tmp.ValidateCertificateName) {
+		validateCertificateName_ := true
+		tmp.ValidateCertificateName = &validateCertificateName_
+	}
+	return &tmp
 }
 
 
@@ -6444,6 +6504,23 @@ type HostnameConfiguration struct {
 }
 
 
+func (val *HostnameConfiguration) Defaults() *HostnameConfiguration {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.DefaultSslBinding) {
+		defaultSslBinding_ := false
+		tmp.DefaultSslBinding = &defaultSslBinding_
+	}
+	if isZero(tmp.NegotiateClientCertificate) {
+		negotiateClientCertificate_ := false
+		tmp.NegotiateClientCertificate = &negotiateClientCertificate_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -6595,6 +6672,23 @@ type HostnameConfigurationResponse struct {
 	KeyVaultId                 *string                         `pulumi:"keyVaultId"`
 	NegotiateClientCertificate *bool                           `pulumi:"negotiateClientCertificate"`
 	Type                       string                          `pulumi:"type"`
+}
+
+
+func (val *HostnameConfigurationResponse) Defaults() *HostnameConfigurationResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.DefaultSslBinding) {
+		defaultSslBinding_ := false
+		tmp.DefaultSslBinding = &defaultSslBinding_
+	}
+	if isZero(tmp.NegotiateClientCertificate) {
+		negotiateClientCertificate_ := false
+		tmp.NegotiateClientCertificate = &negotiateClientCertificate_
+	}
+	return &tmp
 }
 
 

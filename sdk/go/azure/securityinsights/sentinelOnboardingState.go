@@ -108,7 +108,7 @@ type SentinelOnboardingStateInput interface {
 }
 
 func (*SentinelOnboardingState) ElementType() reflect.Type {
-	return reflect.TypeOf((*SentinelOnboardingState)(nil))
+	return reflect.TypeOf((**SentinelOnboardingState)(nil)).Elem()
 }
 
 func (i *SentinelOnboardingState) ToSentinelOnboardingStateOutput() SentinelOnboardingStateOutput {
@@ -122,7 +122,7 @@ func (i *SentinelOnboardingState) ToSentinelOnboardingStateOutputWithContext(ctx
 type SentinelOnboardingStateOutput struct{ *pulumi.OutputState }
 
 func (SentinelOnboardingStateOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SentinelOnboardingState)(nil))
+	return reflect.TypeOf((**SentinelOnboardingState)(nil)).Elem()
 }
 
 func (o SentinelOnboardingStateOutput) ToSentinelOnboardingStateOutput() SentinelOnboardingStateOutput {

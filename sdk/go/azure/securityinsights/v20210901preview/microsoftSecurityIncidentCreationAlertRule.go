@@ -147,7 +147,7 @@ type MicrosoftSecurityIncidentCreationAlertRuleInput interface {
 }
 
 func (*MicrosoftSecurityIncidentCreationAlertRule) ElementType() reflect.Type {
-	return reflect.TypeOf((*MicrosoftSecurityIncidentCreationAlertRule)(nil))
+	return reflect.TypeOf((**MicrosoftSecurityIncidentCreationAlertRule)(nil)).Elem()
 }
 
 func (i *MicrosoftSecurityIncidentCreationAlertRule) ToMicrosoftSecurityIncidentCreationAlertRuleOutput() MicrosoftSecurityIncidentCreationAlertRuleOutput {
@@ -161,7 +161,7 @@ func (i *MicrosoftSecurityIncidentCreationAlertRule) ToMicrosoftSecurityIncident
 type MicrosoftSecurityIncidentCreationAlertRuleOutput struct{ *pulumi.OutputState }
 
 func (MicrosoftSecurityIncidentCreationAlertRuleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MicrosoftSecurityIncidentCreationAlertRule)(nil))
+	return reflect.TypeOf((**MicrosoftSecurityIncidentCreationAlertRule)(nil)).Elem()
 }
 
 func (o MicrosoftSecurityIncidentCreationAlertRuleOutput) ToMicrosoftSecurityIncidentCreationAlertRuleOutput() MicrosoftSecurityIncidentCreationAlertRuleOutput {

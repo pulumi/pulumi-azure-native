@@ -95,7 +95,7 @@ type WorkspaceSettingInput interface {
 }
 
 func (*WorkspaceSetting) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkspaceSetting)(nil))
+	return reflect.TypeOf((**WorkspaceSetting)(nil)).Elem()
 }
 
 func (i *WorkspaceSetting) ToWorkspaceSettingOutput() WorkspaceSettingOutput {
@@ -109,7 +109,7 @@ func (i *WorkspaceSetting) ToWorkspaceSettingOutputWithContext(ctx context.Conte
 type WorkspaceSettingOutput struct{ *pulumi.OutputState }
 
 func (WorkspaceSettingOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkspaceSetting)(nil))
+	return reflect.TypeOf((**WorkspaceSetting)(nil)).Elem()
 }
 
 func (o WorkspaceSettingOutput) ToWorkspaceSettingOutput() WorkspaceSettingOutput {

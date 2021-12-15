@@ -135,7 +135,7 @@ type ApplicationPackageInput interface {
 }
 
 func (*ApplicationPackage) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationPackage)(nil))
+	return reflect.TypeOf((**ApplicationPackage)(nil)).Elem()
 }
 
 func (i *ApplicationPackage) ToApplicationPackageOutput() ApplicationPackageOutput {
@@ -149,7 +149,7 @@ func (i *ApplicationPackage) ToApplicationPackageOutputWithContext(ctx context.C
 type ApplicationPackageOutput struct{ *pulumi.OutputState }
 
 func (ApplicationPackageOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationPackage)(nil))
+	return reflect.TypeOf((**ApplicationPackage)(nil)).Elem()
 }
 
 func (o ApplicationPackageOutput) ToApplicationPackageOutput() ApplicationPackageOutput {

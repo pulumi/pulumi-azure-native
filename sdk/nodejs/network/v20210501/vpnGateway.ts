@@ -100,51 +100,51 @@ export class VpnGateway extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: VpnGatewayArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["bgpSettings"] = args ? args.bgpSettings : undefined;
-            inputs["connections"] = args ? args.connections : undefined;
-            inputs["enableBgpRouteTranslationForNat"] = args ? args.enableBgpRouteTranslationForNat : undefined;
-            inputs["gatewayName"] = args ? args.gatewayName : undefined;
-            inputs["id"] = args ? args.id : undefined;
-            inputs["isRoutingPreferenceInternet"] = args ? args.isRoutingPreferenceInternet : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["natRules"] = args ? args.natRules : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["virtualHub"] = args ? args.virtualHub : undefined;
-            inputs["vpnGatewayScaleUnit"] = args ? args.vpnGatewayScaleUnit : undefined;
-            inputs["etag"] = undefined /*out*/;
-            inputs["ipConfigurations"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["bgpSettings"] = args ? args.bgpSettings : undefined;
+            resourceInputs["connections"] = args ? args.connections : undefined;
+            resourceInputs["enableBgpRouteTranslationForNat"] = args ? args.enableBgpRouteTranslationForNat : undefined;
+            resourceInputs["gatewayName"] = args ? args.gatewayName : undefined;
+            resourceInputs["id"] = args ? args.id : undefined;
+            resourceInputs["isRoutingPreferenceInternet"] = args ? args.isRoutingPreferenceInternet : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["natRules"] = args ? args.natRules : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["virtualHub"] = args ? args.virtualHub : undefined;
+            resourceInputs["vpnGatewayScaleUnit"] = args ? args.vpnGatewayScaleUnit : undefined;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["ipConfigurations"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["bgpSettings"] = undefined /*out*/;
-            inputs["connections"] = undefined /*out*/;
-            inputs["enableBgpRouteTranslationForNat"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
-            inputs["ipConfigurations"] = undefined /*out*/;
-            inputs["isRoutingPreferenceInternet"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["natRules"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["virtualHub"] = undefined /*out*/;
-            inputs["vpnGatewayScaleUnit"] = undefined /*out*/;
+            resourceInputs["bgpSettings"] = undefined /*out*/;
+            resourceInputs["connections"] = undefined /*out*/;
+            resourceInputs["enableBgpRouteTranslationForNat"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["ipConfigurations"] = undefined /*out*/;
+            resourceInputs["isRoutingPreferenceInternet"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["natRules"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["virtualHub"] = undefined /*out*/;
+            resourceInputs["vpnGatewayScaleUnit"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:network:VpnGateway" }, { type: "azure-native:network/v20180401:VpnGateway" }, { type: "azure-native:network/v20180601:VpnGateway" }, { type: "azure-native:network/v20180701:VpnGateway" }, { type: "azure-native:network/v20180801:VpnGateway" }, { type: "azure-native:network/v20181001:VpnGateway" }, { type: "azure-native:network/v20181101:VpnGateway" }, { type: "azure-native:network/v20181201:VpnGateway" }, { type: "azure-native:network/v20190201:VpnGateway" }, { type: "azure-native:network/v20190401:VpnGateway" }, { type: "azure-native:network/v20190601:VpnGateway" }, { type: "azure-native:network/v20190701:VpnGateway" }, { type: "azure-native:network/v20190801:VpnGateway" }, { type: "azure-native:network/v20190901:VpnGateway" }, { type: "azure-native:network/v20191101:VpnGateway" }, { type: "azure-native:network/v20191201:VpnGateway" }, { type: "azure-native:network/v20200301:VpnGateway" }, { type: "azure-native:network/v20200401:VpnGateway" }, { type: "azure-native:network/v20200501:VpnGateway" }, { type: "azure-native:network/v20200601:VpnGateway" }, { type: "azure-native:network/v20200701:VpnGateway" }, { type: "azure-native:network/v20200801:VpnGateway" }, { type: "azure-native:network/v20201101:VpnGateway" }, { type: "azure-native:network/v20210201:VpnGateway" }, { type: "azure-native:network/v20210301:VpnGateway" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(VpnGateway.__pulumiType, name, inputs, opts);
+        super(VpnGateway.__pulumiType, name, resourceInputs, opts);
     }
 }
 

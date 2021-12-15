@@ -13,7 +13,7 @@ func LookupJob(ctx *pulumi.Context, args *LookupJobArgs, opts ...pulumi.InvokeOp
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupJobArgs struct {
@@ -31,4 +31,17 @@ type LookupJobResult struct {
 	SystemData SystemDataResponse       `pulumi:"systemData"`
 	Tags       interface{}              `pulumi:"tags"`
 	Type       string                   `pulumi:"type"`
+}
+
+
+func (val *LookupJobResult) Defaults() *LookupJobResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Identity = tmp.Identity.Defaults()
+
+	tmp.Properties = *tmp.Properties.Defaults()
+
+	return &tmp
 }

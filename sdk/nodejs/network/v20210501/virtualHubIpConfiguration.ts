@@ -76,7 +76,7 @@ export class VirtualHubIpConfiguration extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: VirtualHubIpConfigurationArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
@@ -85,34 +85,34 @@ export class VirtualHubIpConfiguration extends pulumi.CustomResource {
             if ((!args || args.virtualHubName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'virtualHubName'");
             }
-            inputs["id"] = args ? args.id : undefined;
-            inputs["ipConfigName"] = args ? args.ipConfigName : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["privateIPAddress"] = args ? args.privateIPAddress : undefined;
-            inputs["privateIPAllocationMethod"] = args ? args.privateIPAllocationMethod : undefined;
-            inputs["publicIPAddress"] = args ? args.publicIPAddress : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["subnet"] = args ? args.subnet : undefined;
-            inputs["virtualHubName"] = args ? args.virtualHubName : undefined;
-            inputs["etag"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["id"] = args ? args.id : undefined;
+            resourceInputs["ipConfigName"] = args ? args.ipConfigName : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["privateIPAddress"] = args ? args.privateIPAddress : undefined;
+            resourceInputs["privateIPAllocationMethod"] = args ? args.privateIPAllocationMethod : undefined;
+            resourceInputs["publicIPAddress"] = args ? args.publicIPAddress : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["subnet"] = args ? (args.subnet ? pulumi.output(args.subnet).apply(inputs.network.v20210501.subnetArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["virtualHubName"] = args ? args.virtualHubName : undefined;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["etag"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["privateIPAddress"] = undefined /*out*/;
-            inputs["privateIPAllocationMethod"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["publicIPAddress"] = undefined /*out*/;
-            inputs["subnet"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["privateIPAddress"] = undefined /*out*/;
+            resourceInputs["privateIPAllocationMethod"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["publicIPAddress"] = undefined /*out*/;
+            resourceInputs["subnet"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:network:VirtualHubIpConfiguration" }, { type: "azure-native:network/v20200501:VirtualHubIpConfiguration" }, { type: "azure-native:network/v20200601:VirtualHubIpConfiguration" }, { type: "azure-native:network/v20200701:VirtualHubIpConfiguration" }, { type: "azure-native:network/v20200801:VirtualHubIpConfiguration" }, { type: "azure-native:network/v20201101:VirtualHubIpConfiguration" }, { type: "azure-native:network/v20210201:VirtualHubIpConfiguration" }, { type: "azure-native:network/v20210301:VirtualHubIpConfiguration" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(VirtualHubIpConfiguration.__pulumiType, name, inputs, opts);
+        super(VirtualHubIpConfiguration.__pulumiType, name, resourceInputs, opts);
     }
 }
 

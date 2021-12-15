@@ -174,7 +174,7 @@ type VirtualNetworkTapInput interface {
 }
 
 func (*VirtualNetworkTap) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualNetworkTap)(nil))
+	return reflect.TypeOf((**VirtualNetworkTap)(nil)).Elem()
 }
 
 func (i *VirtualNetworkTap) ToVirtualNetworkTapOutput() VirtualNetworkTapOutput {
@@ -188,7 +188,7 @@ func (i *VirtualNetworkTap) ToVirtualNetworkTapOutputWithContext(ctx context.Con
 type VirtualNetworkTapOutput struct{ *pulumi.OutputState }
 
 func (VirtualNetworkTapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualNetworkTap)(nil))
+	return reflect.TypeOf((**VirtualNetworkTap)(nil)).Elem()
 }
 
 func (o VirtualNetworkTapOutput) ToVirtualNetworkTapOutput() VirtualNetworkTapOutput {

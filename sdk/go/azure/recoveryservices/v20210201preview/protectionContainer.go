@@ -146,7 +146,7 @@ type ProtectionContainerInput interface {
 }
 
 func (*ProtectionContainer) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProtectionContainer)(nil))
+	return reflect.TypeOf((**ProtectionContainer)(nil)).Elem()
 }
 
 func (i *ProtectionContainer) ToProtectionContainerOutput() ProtectionContainerOutput {
@@ -160,7 +160,7 @@ func (i *ProtectionContainer) ToProtectionContainerOutputWithContext(ctx context
 type ProtectionContainerOutput struct{ *pulumi.OutputState }
 
 func (ProtectionContainerOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProtectionContainer)(nil))
+	return reflect.TypeOf((**ProtectionContainer)(nil)).Elem()
 }
 
 func (o ProtectionContainerOutput) ToProtectionContainerOutput() ProtectionContainerOutput {

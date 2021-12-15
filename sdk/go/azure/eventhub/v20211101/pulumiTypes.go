@@ -1471,6 +1471,19 @@ type Encryption struct {
 }
 
 
+func (val *Encryption) Defaults() *Encryption {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.KeySource) {
+		keySource_ := KeySource("Microsoft.KeyVault")
+		tmp.KeySource = &keySource_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -1631,6 +1644,19 @@ type EncryptionResponse struct {
 	KeySource                       *string                      `pulumi:"keySource"`
 	KeyVaultProperties              []KeyVaultPropertiesResponse `pulumi:"keyVaultProperties"`
 	RequireInfrastructureEncryption *bool                        `pulumi:"requireInfrastructureEncryption"`
+}
+
+
+func (val *EncryptionResponse) Defaults() *EncryptionResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.KeySource) {
+		keySource_ := "Microsoft.KeyVault"
+		tmp.KeySource = &keySource_
+	}
+	return &tmp
 }
 
 

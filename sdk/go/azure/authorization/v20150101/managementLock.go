@@ -99,7 +99,7 @@ type ManagementLockInput interface {
 }
 
 func (*ManagementLock) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagementLock)(nil))
+	return reflect.TypeOf((**ManagementLock)(nil)).Elem()
 }
 
 func (i *ManagementLock) ToManagementLockOutput() ManagementLockOutput {
@@ -113,7 +113,7 @@ func (i *ManagementLock) ToManagementLockOutputWithContext(ctx context.Context) 
 type ManagementLockOutput struct{ *pulumi.OutputState }
 
 func (ManagementLockOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagementLock)(nil))
+	return reflect.TypeOf((**ManagementLock)(nil)).Elem()
 }
 
 func (o ManagementLockOutput) ToManagementLockOutput() ManagementLockOutput {

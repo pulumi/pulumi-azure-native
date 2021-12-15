@@ -149,7 +149,7 @@ type SiteLogsConfigInput interface {
 }
 
 func (*SiteLogsConfig) ElementType() reflect.Type {
-	return reflect.TypeOf((*SiteLogsConfig)(nil))
+	return reflect.TypeOf((**SiteLogsConfig)(nil)).Elem()
 }
 
 func (i *SiteLogsConfig) ToSiteLogsConfigOutput() SiteLogsConfigOutput {
@@ -163,7 +163,7 @@ func (i *SiteLogsConfig) ToSiteLogsConfigOutputWithContext(ctx context.Context) 
 type SiteLogsConfigOutput struct{ *pulumi.OutputState }
 
 func (SiteLogsConfigOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SiteLogsConfig)(nil))
+	return reflect.TypeOf((**SiteLogsConfig)(nil)).Elem()
 }
 
 func (o SiteLogsConfigOutput) ToSiteLogsConfigOutput() SiteLogsConfigOutput {

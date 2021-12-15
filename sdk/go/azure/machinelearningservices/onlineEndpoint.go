@@ -112,7 +112,7 @@ type OnlineEndpointInput interface {
 }
 
 func (*OnlineEndpoint) ElementType() reflect.Type {
-	return reflect.TypeOf((*OnlineEndpoint)(nil))
+	return reflect.TypeOf((**OnlineEndpoint)(nil)).Elem()
 }
 
 func (i *OnlineEndpoint) ToOnlineEndpointOutput() OnlineEndpointOutput {
@@ -126,7 +126,7 @@ func (i *OnlineEndpoint) ToOnlineEndpointOutputWithContext(ctx context.Context) 
 type OnlineEndpointOutput struct{ *pulumi.OutputState }
 
 func (OnlineEndpointOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*OnlineEndpoint)(nil))
+	return reflect.TypeOf((**OnlineEndpoint)(nil)).Elem()
 }
 
 func (o OnlineEndpointOutput) ToOnlineEndpointOutput() OnlineEndpointOutput {

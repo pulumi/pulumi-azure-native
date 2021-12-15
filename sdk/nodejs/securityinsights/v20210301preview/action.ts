@@ -68,7 +68,7 @@ export class Action extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ActionArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.logicAppResourceId === undefined) && !opts.urn) {
@@ -89,32 +89,32 @@ export class Action extends pulumi.CustomResource {
             if ((!args || args.workspaceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            inputs["actionId"] = args ? args.actionId : undefined;
-            inputs["etag"] = args ? args.etag : undefined;
-            inputs["logicAppResourceId"] = args ? args.logicAppResourceId : undefined;
-            inputs["operationalInsightsResourceProvider"] = args ? args.operationalInsightsResourceProvider : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["ruleId"] = args ? args.ruleId : undefined;
-            inputs["triggerUri"] = args ? args.triggerUri : undefined;
-            inputs["workspaceName"] = args ? args.workspaceName : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["workflowId"] = undefined /*out*/;
+            resourceInputs["actionId"] = args ? args.actionId : undefined;
+            resourceInputs["etag"] = args ? args.etag : undefined;
+            resourceInputs["logicAppResourceId"] = args ? args.logicAppResourceId : undefined;
+            resourceInputs["operationalInsightsResourceProvider"] = args ? args.operationalInsightsResourceProvider : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["ruleId"] = args ? args.ruleId : undefined;
+            resourceInputs["triggerUri"] = args ? args.triggerUri : undefined;
+            resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["workflowId"] = undefined /*out*/;
         } else {
-            inputs["etag"] = undefined /*out*/;
-            inputs["logicAppResourceId"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["workflowId"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["logicAppResourceId"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["workflowId"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:securityinsights:Action" }, { type: "azure-native:securityinsights/v20190101preview:Action" }, { type: "azure-native:securityinsights/v20200101:Action" }, { type: "azure-native:securityinsights/v20210901preview:Action" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Action.__pulumiType, name, inputs, opts);
+        super(Action.__pulumiType, name, resourceInputs, opts);
     }
 }
 

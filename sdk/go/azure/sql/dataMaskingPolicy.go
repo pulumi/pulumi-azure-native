@@ -111,7 +111,7 @@ type DataMaskingPolicyInput interface {
 }
 
 func (*DataMaskingPolicy) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataMaskingPolicy)(nil))
+	return reflect.TypeOf((**DataMaskingPolicy)(nil)).Elem()
 }
 
 func (i *DataMaskingPolicy) ToDataMaskingPolicyOutput() DataMaskingPolicyOutput {
@@ -125,7 +125,7 @@ func (i *DataMaskingPolicy) ToDataMaskingPolicyOutputWithContext(ctx context.Con
 type DataMaskingPolicyOutput struct{ *pulumi.OutputState }
 
 func (DataMaskingPolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataMaskingPolicy)(nil))
+	return reflect.TypeOf((**DataMaskingPolicy)(nil)).Elem()
 }
 
 func (o DataMaskingPolicyOutput) ToDataMaskingPolicyOutput() DataMaskingPolicyOutput {

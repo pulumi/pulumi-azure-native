@@ -113,7 +113,7 @@ type DataConnectorInput interface {
 }
 
 func (*DataConnector) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataConnector)(nil))
+	return reflect.TypeOf((**DataConnector)(nil)).Elem()
 }
 
 func (i *DataConnector) ToDataConnectorOutput() DataConnectorOutput {
@@ -127,7 +127,7 @@ func (i *DataConnector) ToDataConnectorOutputWithContext(ctx context.Context) Da
 type DataConnectorOutput struct{ *pulumi.OutputState }
 
 func (DataConnectorOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataConnector)(nil))
+	return reflect.TypeOf((**DataConnector)(nil)).Elem()
 }
 
 func (o DataConnectorOutput) ToDataConnectorOutput() DataConnectorOutput {

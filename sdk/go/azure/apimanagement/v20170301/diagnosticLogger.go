@@ -106,7 +106,7 @@ type DiagnosticLoggerInput interface {
 }
 
 func (*DiagnosticLogger) ElementType() reflect.Type {
-	return reflect.TypeOf((*DiagnosticLogger)(nil))
+	return reflect.TypeOf((**DiagnosticLogger)(nil)).Elem()
 }
 
 func (i *DiagnosticLogger) ToDiagnosticLoggerOutput() DiagnosticLoggerOutput {
@@ -120,7 +120,7 @@ func (i *DiagnosticLogger) ToDiagnosticLoggerOutputWithContext(ctx context.Conte
 type DiagnosticLoggerOutput struct{ *pulumi.OutputState }
 
 func (DiagnosticLoggerOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DiagnosticLogger)(nil))
+	return reflect.TypeOf((**DiagnosticLogger)(nil)).Elem()
 }
 
 func (o DiagnosticLoggerOutput) ToDiagnosticLoggerOutput() DiagnosticLoggerOutput {

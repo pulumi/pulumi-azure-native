@@ -93,7 +93,7 @@ export class AttestationAtResource extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: AttestationAtResourceArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.policyAssignmentId === undefined) && !opts.urn) {
@@ -102,40 +102,40 @@ export class AttestationAtResource extends pulumi.CustomResource {
             if ((!args || args.resourceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceId'");
             }
-            inputs["attestationName"] = args ? args.attestationName : undefined;
-            inputs["comments"] = args ? args.comments : undefined;
-            inputs["complianceState"] = args ? args.complianceState : undefined;
-            inputs["evidence"] = args ? args.evidence : undefined;
-            inputs["expiresOn"] = args ? args.expiresOn : undefined;
-            inputs["owner"] = args ? args.owner : undefined;
-            inputs["policyAssignmentId"] = args ? args.policyAssignmentId : undefined;
-            inputs["policyDefinitionReferenceId"] = args ? args.policyDefinitionReferenceId : undefined;
-            inputs["resourceId"] = args ? args.resourceId : undefined;
-            inputs["lastComplianceStateChangeAt"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["attestationName"] = args ? args.attestationName : undefined;
+            resourceInputs["comments"] = args ? args.comments : undefined;
+            resourceInputs["complianceState"] = args ? args.complianceState : undefined;
+            resourceInputs["evidence"] = args ? args.evidence : undefined;
+            resourceInputs["expiresOn"] = args ? args.expiresOn : undefined;
+            resourceInputs["owner"] = args ? args.owner : undefined;
+            resourceInputs["policyAssignmentId"] = args ? args.policyAssignmentId : undefined;
+            resourceInputs["policyDefinitionReferenceId"] = args ? args.policyDefinitionReferenceId : undefined;
+            resourceInputs["resourceId"] = args ? args.resourceId : undefined;
+            resourceInputs["lastComplianceStateChangeAt"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["comments"] = undefined /*out*/;
-            inputs["complianceState"] = undefined /*out*/;
-            inputs["evidence"] = undefined /*out*/;
-            inputs["expiresOn"] = undefined /*out*/;
-            inputs["lastComplianceStateChangeAt"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["owner"] = undefined /*out*/;
-            inputs["policyAssignmentId"] = undefined /*out*/;
-            inputs["policyDefinitionReferenceId"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["comments"] = undefined /*out*/;
+            resourceInputs["complianceState"] = undefined /*out*/;
+            resourceInputs["evidence"] = undefined /*out*/;
+            resourceInputs["expiresOn"] = undefined /*out*/;
+            resourceInputs["lastComplianceStateChangeAt"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["owner"] = undefined /*out*/;
+            resourceInputs["policyAssignmentId"] = undefined /*out*/;
+            resourceInputs["policyDefinitionReferenceId"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:policyinsights/v20210101:AttestationAtResource" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(AttestationAtResource.__pulumiType, name, inputs, opts);
+        super(AttestationAtResource.__pulumiType, name, resourceInputs, opts);
     }
 }
 

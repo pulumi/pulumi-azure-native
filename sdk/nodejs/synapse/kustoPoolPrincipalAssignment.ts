@@ -85,7 +85,7 @@ export class KustoPoolPrincipalAssignment extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: KustoPoolPrincipalAssignmentArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.kustoPoolName === undefined) && !opts.urn) {
@@ -106,38 +106,38 @@ export class KustoPoolPrincipalAssignment extends pulumi.CustomResource {
             if ((!args || args.workspaceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            inputs["kustoPoolName"] = args ? args.kustoPoolName : undefined;
-            inputs["principalAssignmentName"] = args ? args.principalAssignmentName : undefined;
-            inputs["principalId"] = args ? args.principalId : undefined;
-            inputs["principalType"] = args ? args.principalType : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["role"] = args ? args.role : undefined;
-            inputs["tenantId"] = args ? args.tenantId : undefined;
-            inputs["workspaceName"] = args ? args.workspaceName : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["principalName"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["tenantName"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["kustoPoolName"] = args ? args.kustoPoolName : undefined;
+            resourceInputs["principalAssignmentName"] = args ? args.principalAssignmentName : undefined;
+            resourceInputs["principalId"] = args ? args.principalId : undefined;
+            resourceInputs["principalType"] = args ? args.principalType : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["role"] = args ? args.role : undefined;
+            resourceInputs["tenantId"] = args ? args.tenantId : undefined;
+            resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["principalName"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["tenantName"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["name"] = undefined /*out*/;
-            inputs["principalId"] = undefined /*out*/;
-            inputs["principalName"] = undefined /*out*/;
-            inputs["principalType"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["role"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["tenantId"] = undefined /*out*/;
-            inputs["tenantName"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["principalId"] = undefined /*out*/;
+            resourceInputs["principalName"] = undefined /*out*/;
+            resourceInputs["principalType"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["role"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["tenantId"] = undefined /*out*/;
+            resourceInputs["tenantName"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:synapse/v20210401preview:KustoPoolPrincipalAssignment" }, { type: "azure-native:synapse/v20210601preview:KustoPoolPrincipalAssignment" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(KustoPoolPrincipalAssignment.__pulumiType, name, inputs, opts);
+        super(KustoPoolPrincipalAssignment.__pulumiType, name, resourceInputs, opts);
     }
 }
 

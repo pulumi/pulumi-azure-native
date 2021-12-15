@@ -48,16 +48,16 @@ func NewWebTest(ctx *pulumi.Context,
 	if args.SyntheticMonitorId == nil {
 		return nil, errors.New("invalid value for required argument 'SyntheticMonitorId'")
 	}
-	if args.Frequency == nil {
+	if isZero(args.Frequency) {
 		args.Frequency = pulumi.IntPtr(300)
 	}
-	if args.Kind == nil {
+	if isZero(args.Kind) {
 		args.Kind = WebTestKind("ping")
 	}
-	if args.Timeout == nil {
+	if isZero(args.Timeout) {
 		args.Timeout = pulumi.IntPtr(30)
 	}
-	if args.WebTestKind == nil {
+	if isZero(args.WebTestKind) {
 		args.WebTestKind = WebTestKind("ping")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
@@ -150,7 +150,7 @@ type WebTestInput interface {
 }
 
 func (*WebTest) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebTest)(nil))
+	return reflect.TypeOf((**WebTest)(nil)).Elem()
 }
 
 func (i *WebTest) ToWebTestOutput() WebTestOutput {
@@ -164,7 +164,7 @@ func (i *WebTest) ToWebTestOutputWithContext(ctx context.Context) WebTestOutput 
 type WebTestOutput struct{ *pulumi.OutputState }
 
 func (WebTestOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebTest)(nil))
+	return reflect.TypeOf((**WebTest)(nil)).Elem()
 }
 
 func (o WebTestOutput) ToWebTestOutput() WebTestOutput {

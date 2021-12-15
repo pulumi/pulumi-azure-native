@@ -13,7 +13,7 @@ func LookupPool(ctx *pulumi.Context, args *LookupPoolArgs, opts ...pulumi.Invoke
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupPoolArgs struct {
@@ -39,4 +39,25 @@ type LookupPoolResult struct {
 	TotalThroughputMibps    float64           `pulumi:"totalThroughputMibps"`
 	Type                    string            `pulumi:"type"`
 	UtilizedThroughputMibps float64           `pulumi:"utilizedThroughputMibps"`
+}
+
+
+func (val *LookupPoolResult) Defaults() *LookupPoolResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.CoolAccess) {
+		coolAccess_ := false
+		tmp.CoolAccess = &coolAccess_
+	}
+	if isZero(tmp.EncryptionType) {
+		encryptionType_ := "Single"
+		tmp.EncryptionType = &encryptionType_
+	}
+	if isZero(tmp.QosType) {
+		qosType_ := "Auto"
+		tmp.QosType = &qosType_
+	}
+	return &tmp
 }

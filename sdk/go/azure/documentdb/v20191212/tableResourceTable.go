@@ -170,7 +170,7 @@ type TableResourceTableInput interface {
 }
 
 func (*TableResourceTable) ElementType() reflect.Type {
-	return reflect.TypeOf((*TableResourceTable)(nil))
+	return reflect.TypeOf((**TableResourceTable)(nil)).Elem()
 }
 
 func (i *TableResourceTable) ToTableResourceTableOutput() TableResourceTableOutput {
@@ -184,7 +184,7 @@ func (i *TableResourceTable) ToTableResourceTableOutputWithContext(ctx context.C
 type TableResourceTableOutput struct{ *pulumi.OutputState }
 
 func (TableResourceTableOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TableResourceTable)(nil))
+	return reflect.TypeOf((**TableResourceTable)(nil)).Elem()
 }
 
 func (o TableResourceTableOutput) ToTableResourceTableOutput() TableResourceTableOutput {

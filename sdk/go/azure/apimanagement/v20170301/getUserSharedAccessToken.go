@@ -9,7 +9,7 @@ import (
 
 func GetUserSharedAccessToken(ctx *pulumi.Context, args *GetUserSharedAccessTokenArgs, opts ...pulumi.InvokeOption) (*GetUserSharedAccessTokenResult, error) {
 	var rv GetUserSharedAccessTokenResult
-	err := ctx.Invoke("azure-native:apimanagement/v20170301:getUserSharedAccessToken", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:apimanagement/v20170301:getUserSharedAccessToken", args.Defaults(), &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -22,6 +22,18 @@ type GetUserSharedAccessTokenArgs struct {
 	ResourceGroupName string  `pulumi:"resourceGroupName"`
 	ServiceName       string  `pulumi:"serviceName"`
 	Uid               string  `pulumi:"uid"`
+}
+
+
+func (val *GetUserSharedAccessTokenArgs) Defaults() *GetUserSharedAccessTokenArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.KeyType) {
+		tmp.KeyType = KeyType("primary")
+	}
+	return &tmp
 }
 
 

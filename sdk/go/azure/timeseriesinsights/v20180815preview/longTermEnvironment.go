@@ -142,7 +142,7 @@ type LongTermEnvironmentInput interface {
 }
 
 func (*LongTermEnvironment) ElementType() reflect.Type {
-	return reflect.TypeOf((*LongTermEnvironment)(nil))
+	return reflect.TypeOf((**LongTermEnvironment)(nil)).Elem()
 }
 
 func (i *LongTermEnvironment) ToLongTermEnvironmentOutput() LongTermEnvironmentOutput {
@@ -156,7 +156,7 @@ func (i *LongTermEnvironment) ToLongTermEnvironmentOutputWithContext(ctx context
 type LongTermEnvironmentOutput struct{ *pulumi.OutputState }
 
 func (LongTermEnvironmentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LongTermEnvironment)(nil))
+	return reflect.TypeOf((**LongTermEnvironment)(nil)).Elem()
 }
 
 func (o LongTermEnvironmentOutput) ToLongTermEnvironmentOutput() LongTermEnvironmentOutput {

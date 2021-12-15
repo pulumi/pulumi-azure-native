@@ -68,7 +68,7 @@ export class VirtualApplianceSite extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: VirtualApplianceSiteArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.networkVirtualApplianceName === undefined) && !opts.urn) {
@@ -77,30 +77,30 @@ export class VirtualApplianceSite extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["addressPrefix"] = args ? args.addressPrefix : undefined;
-            inputs["id"] = args ? args.id : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["networkVirtualApplianceName"] = args ? args.networkVirtualApplianceName : undefined;
-            inputs["o365Policy"] = args ? args.o365Policy : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["siteName"] = args ? args.siteName : undefined;
-            inputs["etag"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["addressPrefix"] = args ? args.addressPrefix : undefined;
+            resourceInputs["id"] = args ? args.id : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["networkVirtualApplianceName"] = args ? args.networkVirtualApplianceName : undefined;
+            resourceInputs["o365Policy"] = args ? args.o365Policy : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["siteName"] = args ? args.siteName : undefined;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["addressPrefix"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["o365Policy"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["addressPrefix"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["o365Policy"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:network:VirtualApplianceSite" }, { type: "azure-native:network/v20200601:VirtualApplianceSite" }, { type: "azure-native:network/v20200701:VirtualApplianceSite" }, { type: "azure-native:network/v20200801:VirtualApplianceSite" }, { type: "azure-native:network/v20201101:VirtualApplianceSite" }, { type: "azure-native:network/v20210201:VirtualApplianceSite" }, { type: "azure-native:network/v20210301:VirtualApplianceSite" }, { type: "azure-native:network/v20210501:VirtualApplianceSite" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(VirtualApplianceSite.__pulumiType, name, inputs, opts);
+        super(VirtualApplianceSite.__pulumiType, name, resourceInputs, opts);
     }
 }
 

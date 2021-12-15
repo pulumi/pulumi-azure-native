@@ -13,7 +13,7 @@ func LookupKey(ctx *pulumi.Context, args *LookupKeyArgs, opts ...pulumi.InvokeOp
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupKeyArgs struct {
@@ -38,4 +38,15 @@ type LookupKeyResult struct {
 	RotationPolicy    *RotationPolicyResponse   `pulumi:"rotationPolicy"`
 	Tags              map[string]string         `pulumi:"tags"`
 	Type              string                    `pulumi:"type"`
+}
+
+
+func (val *LookupKeyResult) Defaults() *LookupKeyResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.ReleasePolicy = tmp.ReleasePolicy.Defaults()
+
+	return &tmp
 }

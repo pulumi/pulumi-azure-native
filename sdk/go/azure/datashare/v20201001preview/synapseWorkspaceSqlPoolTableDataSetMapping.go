@@ -132,7 +132,7 @@ type SynapseWorkspaceSqlPoolTableDataSetMappingInput interface {
 }
 
 func (*SynapseWorkspaceSqlPoolTableDataSetMapping) ElementType() reflect.Type {
-	return reflect.TypeOf((*SynapseWorkspaceSqlPoolTableDataSetMapping)(nil))
+	return reflect.TypeOf((**SynapseWorkspaceSqlPoolTableDataSetMapping)(nil)).Elem()
 }
 
 func (i *SynapseWorkspaceSqlPoolTableDataSetMapping) ToSynapseWorkspaceSqlPoolTableDataSetMappingOutput() SynapseWorkspaceSqlPoolTableDataSetMappingOutput {
@@ -146,7 +146,7 @@ func (i *SynapseWorkspaceSqlPoolTableDataSetMapping) ToSynapseWorkspaceSqlPoolTa
 type SynapseWorkspaceSqlPoolTableDataSetMappingOutput struct{ *pulumi.OutputState }
 
 func (SynapseWorkspaceSqlPoolTableDataSetMappingOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SynapseWorkspaceSqlPoolTableDataSetMapping)(nil))
+	return reflect.TypeOf((**SynapseWorkspaceSqlPoolTableDataSetMapping)(nil)).Elem()
 }
 
 func (o SynapseWorkspaceSqlPoolTableDataSetMappingOutput) ToSynapseWorkspaceSqlPoolTableDataSetMappingOutput() SynapseWorkspaceSqlPoolTableDataSetMappingOutput {

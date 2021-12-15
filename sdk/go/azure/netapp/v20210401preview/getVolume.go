@@ -13,7 +13,7 @@ func LookupVolume(ctx *pulumi.Context, args *LookupVolumeArgs, opts ...pulumi.In
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupVolumeArgs struct {
@@ -56,4 +56,52 @@ type LookupVolumeResult struct {
 	Type                      string                                  `pulumi:"type"`
 	UsageThreshold            float64                                 `pulumi:"usageThreshold"`
 	VolumeType                *string                                 `pulumi:"volumeType"`
+}
+
+
+func (val *LookupVolumeResult) Defaults() *LookupVolumeResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.KerberosEnabled) {
+		kerberosEnabled_ := false
+		tmp.KerberosEnabled = &kerberosEnabled_
+	}
+	if isZero(tmp.LdapEnabled) {
+		ldapEnabled_ := false
+		tmp.LdapEnabled = &ldapEnabled_
+	}
+	if isZero(tmp.NetworkFeatures) {
+		networkFeatures_ := "Basic"
+		tmp.NetworkFeatures = &networkFeatures_
+	}
+	if isZero(tmp.SecurityStyle) {
+		securityStyle_ := "unix"
+		tmp.SecurityStyle = &securityStyle_
+	}
+	if isZero(tmp.ServiceLevel) {
+		serviceLevel_ := "Premium"
+		tmp.ServiceLevel = &serviceLevel_
+	}
+	if isZero(tmp.SmbContinuouslyAvailable) {
+		smbContinuouslyAvailable_ := false
+		tmp.SmbContinuouslyAvailable = &smbContinuouslyAvailable_
+	}
+	if isZero(tmp.SmbEncryption) {
+		smbEncryption_ := false
+		tmp.SmbEncryption = &smbEncryption_
+	}
+	if isZero(tmp.SnapshotDirectoryVisible) {
+		snapshotDirectoryVisible_ := true
+		tmp.SnapshotDirectoryVisible = &snapshotDirectoryVisible_
+	}
+	if isZero(tmp.ThroughputMibps) {
+		throughputMibps_ := 0.0
+		tmp.ThroughputMibps = &throughputMibps_
+	}
+	if isZero(tmp.UsageThreshold) {
+		tmp.UsageThreshold = 107374182400.0
+	}
+	return &tmp
 }

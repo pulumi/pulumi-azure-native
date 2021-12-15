@@ -111,7 +111,7 @@ type AssessmentInput interface {
 }
 
 func (*Assessment) ElementType() reflect.Type {
-	return reflect.TypeOf((*Assessment)(nil))
+	return reflect.TypeOf((**Assessment)(nil)).Elem()
 }
 
 func (i *Assessment) ToAssessmentOutput() AssessmentOutput {
@@ -125,7 +125,7 @@ func (i *Assessment) ToAssessmentOutputWithContext(ctx context.Context) Assessme
 type AssessmentOutput struct{ *pulumi.OutputState }
 
 func (AssessmentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Assessment)(nil))
+	return reflect.TypeOf((**Assessment)(nil)).Elem()
 }
 
 func (o AssessmentOutput) ToAssessmentOutput() AssessmentOutput {

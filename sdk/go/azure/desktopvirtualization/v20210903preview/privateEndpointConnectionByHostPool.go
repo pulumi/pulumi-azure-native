@@ -105,7 +105,7 @@ type PrivateEndpointConnectionByHostPoolInput interface {
 }
 
 func (*PrivateEndpointConnectionByHostPool) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateEndpointConnectionByHostPool)(nil))
+	return reflect.TypeOf((**PrivateEndpointConnectionByHostPool)(nil)).Elem()
 }
 
 func (i *PrivateEndpointConnectionByHostPool) ToPrivateEndpointConnectionByHostPoolOutput() PrivateEndpointConnectionByHostPoolOutput {
@@ -119,7 +119,7 @@ func (i *PrivateEndpointConnectionByHostPool) ToPrivateEndpointConnectionByHostP
 type PrivateEndpointConnectionByHostPoolOutput struct{ *pulumi.OutputState }
 
 func (PrivateEndpointConnectionByHostPoolOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateEndpointConnectionByHostPool)(nil))
+	return reflect.TypeOf((**PrivateEndpointConnectionByHostPool)(nil)).Elem()
 }
 
 func (o PrivateEndpointConnectionByHostPoolOutput) ToPrivateEndpointConnectionByHostPoolOutput() PrivateEndpointConnectionByHostPoolOutput {

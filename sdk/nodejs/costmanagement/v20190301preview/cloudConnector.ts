@@ -112,53 +112,53 @@ export class CloudConnector extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args?: CloudConnectorArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            inputs["billingModel"] = args ? args.billingModel : undefined;
-            inputs["connectorName"] = args ? args.connectorName : undefined;
-            inputs["credentialsKey"] = args ? args.credentialsKey : undefined;
-            inputs["credentialsSecret"] = args ? args.credentialsSecret : undefined;
-            inputs["defaultManagementGroupId"] = args ? args.defaultManagementGroupId : undefined;
-            inputs["displayName"] = args ? args.displayName : undefined;
-            inputs["kind"] = args ? args.kind : undefined;
-            inputs["reportId"] = args ? args.reportId : undefined;
-            inputs["subscriptionId"] = args ? args.subscriptionId : undefined;
-            inputs["collectionInfo"] = undefined /*out*/;
-            inputs["createdOn"] = undefined /*out*/;
-            inputs["daysTrialRemaining"] = undefined /*out*/;
-            inputs["externalBillingAccountId"] = undefined /*out*/;
-            inputs["modifiedOn"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["providerBillingAccountDisplayName"] = undefined /*out*/;
-            inputs["providerBillingAccountId"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["billingModel"] = args ? args.billingModel : undefined;
+            resourceInputs["connectorName"] = args ? args.connectorName : undefined;
+            resourceInputs["credentialsKey"] = args ? args.credentialsKey : undefined;
+            resourceInputs["credentialsSecret"] = args ? args.credentialsSecret : undefined;
+            resourceInputs["defaultManagementGroupId"] = args ? args.defaultManagementGroupId : undefined;
+            resourceInputs["displayName"] = args ? args.displayName : undefined;
+            resourceInputs["kind"] = args ? args.kind : undefined;
+            resourceInputs["reportId"] = args ? args.reportId : undefined;
+            resourceInputs["subscriptionId"] = args ? args.subscriptionId : undefined;
+            resourceInputs["collectionInfo"] = undefined /*out*/;
+            resourceInputs["createdOn"] = undefined /*out*/;
+            resourceInputs["daysTrialRemaining"] = undefined /*out*/;
+            resourceInputs["externalBillingAccountId"] = undefined /*out*/;
+            resourceInputs["modifiedOn"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["providerBillingAccountDisplayName"] = undefined /*out*/;
+            resourceInputs["providerBillingAccountId"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["billingModel"] = undefined /*out*/;
-            inputs["collectionInfo"] = undefined /*out*/;
-            inputs["createdOn"] = undefined /*out*/;
-            inputs["credentialsKey"] = undefined /*out*/;
-            inputs["daysTrialRemaining"] = undefined /*out*/;
-            inputs["defaultManagementGroupId"] = undefined /*out*/;
-            inputs["displayName"] = undefined /*out*/;
-            inputs["externalBillingAccountId"] = undefined /*out*/;
-            inputs["kind"] = undefined /*out*/;
-            inputs["modifiedOn"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["providerBillingAccountDisplayName"] = undefined /*out*/;
-            inputs["providerBillingAccountId"] = undefined /*out*/;
-            inputs["reportId"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["subscriptionId"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["billingModel"] = undefined /*out*/;
+            resourceInputs["collectionInfo"] = undefined /*out*/;
+            resourceInputs["createdOn"] = undefined /*out*/;
+            resourceInputs["credentialsKey"] = undefined /*out*/;
+            resourceInputs["daysTrialRemaining"] = undefined /*out*/;
+            resourceInputs["defaultManagementGroupId"] = undefined /*out*/;
+            resourceInputs["displayName"] = undefined /*out*/;
+            resourceInputs["externalBillingAccountId"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["modifiedOn"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["providerBillingAccountDisplayName"] = undefined /*out*/;
+            resourceInputs["providerBillingAccountId"] = undefined /*out*/;
+            resourceInputs["reportId"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["subscriptionId"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:costmanagement:CloudConnector" }, { type: "azure-native:costmanagement/v20180801preview:CloudConnector" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(CloudConnector.__pulumiType, name, inputs, opts);
+        super(CloudConnector.__pulumiType, name, resourceInputs, opts);
     }
 }
 

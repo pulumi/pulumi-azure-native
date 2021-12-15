@@ -13,7 +13,7 @@ func LookupPolicy(ctx *pulumi.Context, args *LookupPolicyArgs, opts ...pulumi.In
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupPolicyArgs struct {
@@ -30,4 +30,17 @@ type LookupPolicyResult struct {
 	Name   string  `pulumi:"name"`
 	Type   string  `pulumi:"type"`
 	Value  string  `pulumi:"value"`
+}
+
+
+func (val *LookupPolicyResult) Defaults() *LookupPolicyResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Format) {
+		format_ := "xml"
+		tmp.Format = &format_
+	}
+	return &tmp
 }

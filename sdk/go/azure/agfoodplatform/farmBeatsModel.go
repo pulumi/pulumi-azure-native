@@ -97,7 +97,7 @@ type FarmBeatsModelInput interface {
 }
 
 func (*FarmBeatsModel) ElementType() reflect.Type {
-	return reflect.TypeOf((*FarmBeatsModel)(nil))
+	return reflect.TypeOf((**FarmBeatsModel)(nil)).Elem()
 }
 
 func (i *FarmBeatsModel) ToFarmBeatsModelOutput() FarmBeatsModelOutput {
@@ -111,7 +111,7 @@ func (i *FarmBeatsModel) ToFarmBeatsModelOutputWithContext(ctx context.Context) 
 type FarmBeatsModelOutput struct{ *pulumi.OutputState }
 
 func (FarmBeatsModelOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FarmBeatsModel)(nil))
+	return reflect.TypeOf((**FarmBeatsModel)(nil)).Elem()
 }
 
 func (o FarmBeatsModelOutput) ToFarmBeatsModelOutput() FarmBeatsModelOutput {

@@ -13,7 +13,7 @@ func LookupConnectedCluster(ctx *pulumi.Context, args *LookupConnectedClusterArg
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupConnectedClusterArgs struct {
@@ -44,4 +44,19 @@ type LookupConnectedClusterResult struct {
 	TotalCoreCount                           int                              `pulumi:"totalCoreCount"`
 	TotalNodeCount                           int                              `pulumi:"totalNodeCount"`
 	Type                                     string                           `pulumi:"type"`
+}
+
+
+func (val *LookupConnectedClusterResult) Defaults() *LookupConnectedClusterResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Identity = *tmp.Identity.Defaults()
+
+	if isZero(tmp.PrivateLinkState) {
+		privateLinkState_ := "Disabled"
+		tmp.PrivateLinkState = &privateLinkState_
+	}
+	return &tmp
 }

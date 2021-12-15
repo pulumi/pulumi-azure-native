@@ -108,7 +108,7 @@ type GlobalSchemaInput interface {
 }
 
 func (*GlobalSchema) ElementType() reflect.Type {
-	return reflect.TypeOf((*GlobalSchema)(nil))
+	return reflect.TypeOf((**GlobalSchema)(nil)).Elem()
 }
 
 func (i *GlobalSchema) ToGlobalSchemaOutput() GlobalSchemaOutput {
@@ -122,7 +122,7 @@ func (i *GlobalSchema) ToGlobalSchemaOutputWithContext(ctx context.Context) Glob
 type GlobalSchemaOutput struct{ *pulumi.OutputState }
 
 func (GlobalSchemaOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GlobalSchema)(nil))
+	return reflect.TypeOf((**GlobalSchema)(nil)).Elem()
 }
 
 func (o GlobalSchemaOutput) ToGlobalSchemaOutput() GlobalSchemaOutput {

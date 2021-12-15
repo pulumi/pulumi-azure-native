@@ -93,7 +93,7 @@ type CustomEntityStoreAssignmentInput interface {
 }
 
 func (*CustomEntityStoreAssignment) ElementType() reflect.Type {
-	return reflect.TypeOf((*CustomEntityStoreAssignment)(nil))
+	return reflect.TypeOf((**CustomEntityStoreAssignment)(nil)).Elem()
 }
 
 func (i *CustomEntityStoreAssignment) ToCustomEntityStoreAssignmentOutput() CustomEntityStoreAssignmentOutput {
@@ -107,7 +107,7 @@ func (i *CustomEntityStoreAssignment) ToCustomEntityStoreAssignmentOutputWithCon
 type CustomEntityStoreAssignmentOutput struct{ *pulumi.OutputState }
 
 func (CustomEntityStoreAssignmentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CustomEntityStoreAssignment)(nil))
+	return reflect.TypeOf((**CustomEntityStoreAssignment)(nil)).Elem()
 }
 
 func (o CustomEntityStoreAssignmentOutput) ToCustomEntityStoreAssignmentOutput() CustomEntityStoreAssignmentOutput {

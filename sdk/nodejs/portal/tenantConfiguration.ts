@@ -56,24 +56,24 @@ export class TenantConfiguration extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args?: TenantConfigurationArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            inputs["configurationName"] = args ? args.configurationName : undefined;
-            inputs["enforcePrivateMarkdownStorage"] = args ? args.enforcePrivateMarkdownStorage : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["configurationName"] = args ? args.configurationName : undefined;
+            resourceInputs["enforcePrivateMarkdownStorage"] = args ? args.enforcePrivateMarkdownStorage : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["enforcePrivateMarkdownStorage"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["enforcePrivateMarkdownStorage"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:portal/v20190101preview:TenantConfiguration" }, { type: "azure-native:portal/v20200901preview:TenantConfiguration" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(TenantConfiguration.__pulumiType, name, inputs, opts);
+        super(TenantConfiguration.__pulumiType, name, resourceInputs, opts);
     }
 }
 

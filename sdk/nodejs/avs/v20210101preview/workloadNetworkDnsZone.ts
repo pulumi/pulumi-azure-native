@@ -79,7 +79,7 @@ export class WorkloadNetworkDnsZone extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: WorkloadNetworkDnsZoneArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.privateCloudName === undefined) && !opts.urn) {
@@ -88,35 +88,35 @@ export class WorkloadNetworkDnsZone extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["displayName"] = args ? args.displayName : undefined;
-            inputs["dnsServerIps"] = args ? args.dnsServerIps : undefined;
-            inputs["dnsServices"] = args ? args.dnsServices : undefined;
-            inputs["dnsZoneId"] = args ? args.dnsZoneId : undefined;
-            inputs["domain"] = args ? args.domain : undefined;
-            inputs["privateCloudName"] = args ? args.privateCloudName : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["revision"] = args ? args.revision : undefined;
-            inputs["sourceIp"] = args ? args.sourceIp : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["displayName"] = args ? args.displayName : undefined;
+            resourceInputs["dnsServerIps"] = args ? args.dnsServerIps : undefined;
+            resourceInputs["dnsServices"] = args ? args.dnsServices : undefined;
+            resourceInputs["dnsZoneId"] = args ? args.dnsZoneId : undefined;
+            resourceInputs["domain"] = args ? args.domain : undefined;
+            resourceInputs["privateCloudName"] = args ? args.privateCloudName : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["revision"] = args ? args.revision : undefined;
+            resourceInputs["sourceIp"] = args ? args.sourceIp : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["displayName"] = undefined /*out*/;
-            inputs["dnsServerIps"] = undefined /*out*/;
-            inputs["dnsServices"] = undefined /*out*/;
-            inputs["domain"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["revision"] = undefined /*out*/;
-            inputs["sourceIp"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["displayName"] = undefined /*out*/;
+            resourceInputs["dnsServerIps"] = undefined /*out*/;
+            resourceInputs["dnsServices"] = undefined /*out*/;
+            resourceInputs["domain"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["revision"] = undefined /*out*/;
+            resourceInputs["sourceIp"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:avs:WorkloadNetworkDnsZone" }, { type: "azure-native:avs/v20200717preview:WorkloadNetworkDnsZone" }, { type: "azure-native:avs/v20210601:WorkloadNetworkDnsZone" }, { type: "azure-native:avs/v20211201:WorkloadNetworkDnsZone" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(WorkloadNetworkDnsZone.__pulumiType, name, inputs, opts);
+        super(WorkloadNetworkDnsZone.__pulumiType, name, resourceInputs, opts);
     }
 }
 

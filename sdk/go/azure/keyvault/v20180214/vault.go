@@ -121,7 +121,7 @@ type VaultInput interface {
 }
 
 func (*Vault) ElementType() reflect.Type {
-	return reflect.TypeOf((*Vault)(nil))
+	return reflect.TypeOf((**Vault)(nil)).Elem()
 }
 
 func (i *Vault) ToVaultOutput() VaultOutput {
@@ -135,7 +135,7 @@ func (i *Vault) ToVaultOutputWithContext(ctx context.Context) VaultOutput {
 type VaultOutput struct{ *pulumi.OutputState }
 
 func (VaultOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Vault)(nil))
+	return reflect.TypeOf((**Vault)(nil)).Elem()
 }
 
 func (o VaultOutput) ToVaultOutput() VaultOutput {

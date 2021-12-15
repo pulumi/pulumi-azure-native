@@ -117,7 +117,7 @@ export class View extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ViewArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.timeframe === undefined) && !opts.urn) {
@@ -126,51 +126,51 @@ export class View extends pulumi.CustomResource {
             if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            inputs["accumulated"] = args ? args.accumulated : undefined;
-            inputs["chart"] = args ? args.chart : undefined;
-            inputs["dataSet"] = args ? args.dataSet : undefined;
-            inputs["displayName"] = args ? args.displayName : undefined;
-            inputs["eTag"] = args ? args.eTag : undefined;
-            inputs["kpis"] = args ? args.kpis : undefined;
-            inputs["metric"] = args ? args.metric : undefined;
-            inputs["pivots"] = args ? args.pivots : undefined;
-            inputs["scope"] = args ? args.scope : undefined;
-            inputs["timePeriod"] = args ? args.timePeriod : undefined;
-            inputs["timeframe"] = args ? args.timeframe : undefined;
-            inputs["type"] = args ? args.type : undefined;
-            inputs["viewName"] = args ? args.viewName : undefined;
-            inputs["createdOn"] = undefined /*out*/;
-            inputs["currency"] = undefined /*out*/;
-            inputs["dateRange"] = undefined /*out*/;
-            inputs["includeMonetaryCommitment"] = undefined /*out*/;
-            inputs["modifiedOn"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
+            resourceInputs["accumulated"] = args ? args.accumulated : undefined;
+            resourceInputs["chart"] = args ? args.chart : undefined;
+            resourceInputs["dataSet"] = args ? args.dataSet : undefined;
+            resourceInputs["displayName"] = args ? args.displayName : undefined;
+            resourceInputs["eTag"] = args ? args.eTag : undefined;
+            resourceInputs["kpis"] = args ? args.kpis : undefined;
+            resourceInputs["metric"] = args ? args.metric : undefined;
+            resourceInputs["pivots"] = args ? args.pivots : undefined;
+            resourceInputs["scope"] = args ? args.scope : undefined;
+            resourceInputs["timePeriod"] = args ? args.timePeriod : undefined;
+            resourceInputs["timeframe"] = args ? args.timeframe : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["viewName"] = args ? args.viewName : undefined;
+            resourceInputs["createdOn"] = undefined /*out*/;
+            resourceInputs["currency"] = undefined /*out*/;
+            resourceInputs["dateRange"] = undefined /*out*/;
+            resourceInputs["includeMonetaryCommitment"] = undefined /*out*/;
+            resourceInputs["modifiedOn"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
         } else {
-            inputs["accumulated"] = undefined /*out*/;
-            inputs["chart"] = undefined /*out*/;
-            inputs["createdOn"] = undefined /*out*/;
-            inputs["currency"] = undefined /*out*/;
-            inputs["dataSet"] = undefined /*out*/;
-            inputs["dateRange"] = undefined /*out*/;
-            inputs["displayName"] = undefined /*out*/;
-            inputs["eTag"] = undefined /*out*/;
-            inputs["includeMonetaryCommitment"] = undefined /*out*/;
-            inputs["kpis"] = undefined /*out*/;
-            inputs["metric"] = undefined /*out*/;
-            inputs["modifiedOn"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["pivots"] = undefined /*out*/;
-            inputs["scope"] = undefined /*out*/;
-            inputs["timePeriod"] = undefined /*out*/;
-            inputs["timeframe"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["accumulated"] = undefined /*out*/;
+            resourceInputs["chart"] = undefined /*out*/;
+            resourceInputs["createdOn"] = undefined /*out*/;
+            resourceInputs["currency"] = undefined /*out*/;
+            resourceInputs["dataSet"] = undefined /*out*/;
+            resourceInputs["dateRange"] = undefined /*out*/;
+            resourceInputs["displayName"] = undefined /*out*/;
+            resourceInputs["eTag"] = undefined /*out*/;
+            resourceInputs["includeMonetaryCommitment"] = undefined /*out*/;
+            resourceInputs["kpis"] = undefined /*out*/;
+            resourceInputs["metric"] = undefined /*out*/;
+            resourceInputs["modifiedOn"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["pivots"] = undefined /*out*/;
+            resourceInputs["scope"] = undefined /*out*/;
+            resourceInputs["timePeriod"] = undefined /*out*/;
+            resourceInputs["timeframe"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:costmanagement/v20190401preview:View" }, { type: "azure-native:costmanagement/v20191101:View" }, { type: "azure-native:costmanagement/v20200601:View" }, { type: "azure-native:costmanagement/v20211001:View" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(View.__pulumiType, name, inputs, opts);
+        super(View.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -13,7 +13,7 @@ func LookupGremlinResourceGremlinGraph(ctx *pulumi.Context, args *LookupGremlinR
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupGremlinResourceGremlinGraphArgs struct {
@@ -32,4 +32,15 @@ type LookupGremlinResourceGremlinGraphResult struct {
 	Resource *GremlinGraphGetPropertiesResponseResource `pulumi:"resource"`
 	Tags     map[string]string                          `pulumi:"tags"`
 	Type     string                                     `pulumi:"type"`
+}
+
+
+func (val *LookupGremlinResourceGremlinGraphResult) Defaults() *LookupGremlinResourceGremlinGraphResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Resource = tmp.Resource.Defaults()
+
+	return &tmp
 }

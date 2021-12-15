@@ -126,7 +126,7 @@ type ManagementLockAtResourceLevelInput interface {
 }
 
 func (*ManagementLockAtResourceLevel) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagementLockAtResourceLevel)(nil))
+	return reflect.TypeOf((**ManagementLockAtResourceLevel)(nil)).Elem()
 }
 
 func (i *ManagementLockAtResourceLevel) ToManagementLockAtResourceLevelOutput() ManagementLockAtResourceLevelOutput {
@@ -140,7 +140,7 @@ func (i *ManagementLockAtResourceLevel) ToManagementLockAtResourceLevelOutputWit
 type ManagementLockAtResourceLevelOutput struct{ *pulumi.OutputState }
 
 func (ManagementLockAtResourceLevelOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagementLockAtResourceLevel)(nil))
+	return reflect.TypeOf((**ManagementLockAtResourceLevel)(nil)).Elem()
 }
 
 func (o ManagementLockAtResourceLevelOutput) ToManagementLockAtResourceLevelOutput() ManagementLockAtResourceLevelOutput {

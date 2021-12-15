@@ -126,7 +126,7 @@ type DomainOwnershipIdentifierInput interface {
 }
 
 func (*DomainOwnershipIdentifier) ElementType() reflect.Type {
-	return reflect.TypeOf((*DomainOwnershipIdentifier)(nil))
+	return reflect.TypeOf((**DomainOwnershipIdentifier)(nil)).Elem()
 }
 
 func (i *DomainOwnershipIdentifier) ToDomainOwnershipIdentifierOutput() DomainOwnershipIdentifierOutput {
@@ -140,7 +140,7 @@ func (i *DomainOwnershipIdentifier) ToDomainOwnershipIdentifierOutputWithContext
 type DomainOwnershipIdentifierOutput struct{ *pulumi.OutputState }
 
 func (DomainOwnershipIdentifierOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DomainOwnershipIdentifier)(nil))
+	return reflect.TypeOf((**DomainOwnershipIdentifier)(nil)).Elem()
 }
 
 func (o DomainOwnershipIdentifierOutput) ToDomainOwnershipIdentifierOutput() DomainOwnershipIdentifierOutput {

@@ -110,7 +110,7 @@ type PrivateZoneInput interface {
 }
 
 func (*PrivateZone) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateZone)(nil))
+	return reflect.TypeOf((**PrivateZone)(nil)).Elem()
 }
 
 func (i *PrivateZone) ToPrivateZoneOutput() PrivateZoneOutput {
@@ -124,7 +124,7 @@ func (i *PrivateZone) ToPrivateZoneOutputWithContext(ctx context.Context) Privat
 type PrivateZoneOutput struct{ *pulumi.OutputState }
 
 func (PrivateZoneOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateZone)(nil))
+	return reflect.TypeOf((**PrivateZone)(nil)).Elem()
 }
 
 func (o PrivateZoneOutput) ToPrivateZoneOutput() PrivateZoneOutput {

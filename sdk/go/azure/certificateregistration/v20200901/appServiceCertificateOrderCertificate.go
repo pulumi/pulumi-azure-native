@@ -137,7 +137,7 @@ type AppServiceCertificateOrderCertificateInput interface {
 }
 
 func (*AppServiceCertificateOrderCertificate) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppServiceCertificateOrderCertificate)(nil))
+	return reflect.TypeOf((**AppServiceCertificateOrderCertificate)(nil)).Elem()
 }
 
 func (i *AppServiceCertificateOrderCertificate) ToAppServiceCertificateOrderCertificateOutput() AppServiceCertificateOrderCertificateOutput {
@@ -151,7 +151,7 @@ func (i *AppServiceCertificateOrderCertificate) ToAppServiceCertificateOrderCert
 type AppServiceCertificateOrderCertificateOutput struct{ *pulumi.OutputState }
 
 func (AppServiceCertificateOrderCertificateOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppServiceCertificateOrderCertificate)(nil))
+	return reflect.TypeOf((**AppServiceCertificateOrderCertificate)(nil)).Elem()
 }
 
 func (o AppServiceCertificateOrderCertificateOutput) ToAppServiceCertificateOrderCertificateOutput() AppServiceCertificateOrderCertificateOutput {

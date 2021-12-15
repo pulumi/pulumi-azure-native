@@ -73,7 +73,7 @@ export class WorkloadNetworkDhcp extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: WorkloadNetworkDhcpArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.dhcpType === undefined) && !opts.urn) {
@@ -85,31 +85,31 @@ export class WorkloadNetworkDhcp extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["dhcpId"] = args ? args.dhcpId : undefined;
-            inputs["dhcpType"] = args ? args.dhcpType : undefined;
-            inputs["displayName"] = args ? args.displayName : undefined;
-            inputs["privateCloudName"] = args ? args.privateCloudName : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["revision"] = args ? args.revision : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["segments"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["dhcpId"] = args ? args.dhcpId : undefined;
+            resourceInputs["dhcpType"] = args ? args.dhcpType : undefined;
+            resourceInputs["displayName"] = args ? args.displayName : undefined;
+            resourceInputs["privateCloudName"] = args ? args.privateCloudName : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["revision"] = args ? args.revision : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["segments"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["dhcpType"] = undefined /*out*/;
-            inputs["displayName"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["revision"] = undefined /*out*/;
-            inputs["segments"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["dhcpType"] = undefined /*out*/;
+            resourceInputs["displayName"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["revision"] = undefined /*out*/;
+            resourceInputs["segments"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:avs/v20200717preview:WorkloadNetworkDhcp" }, { type: "azure-native:avs/v20210101preview:WorkloadNetworkDhcp" }, { type: "azure-native:avs/v20210601:WorkloadNetworkDhcp" }, { type: "azure-native:avs/v20211201:WorkloadNetworkDhcp" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(WorkloadNetworkDhcp.__pulumiType, name, inputs, opts);
+        super(WorkloadNetworkDhcp.__pulumiType, name, resourceInputs, opts);
     }
 }
 

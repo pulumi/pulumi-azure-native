@@ -13,7 +13,7 @@ func LookupConnectionMonitor(ctx *pulumi.Context, args *LookupConnectionMonitorA
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupConnectionMonitorArgs struct {
@@ -43,4 +43,21 @@ type LookupConnectionMonitorResult struct {
 	TestConfigurations          []ConnectionMonitorTestConfigurationResponse `pulumi:"testConfigurations"`
 	TestGroups                  []ConnectionMonitorTestGroupResponse         `pulumi:"testGroups"`
 	Type                        string                                       `pulumi:"type"`
+}
+
+
+func (val *LookupConnectionMonitorResult) Defaults() *LookupConnectionMonitorResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.AutoStart) {
+		autoStart_ := true
+		tmp.AutoStart = &autoStart_
+	}
+	if isZero(tmp.MonitoringIntervalInSeconds) {
+		monitoringIntervalInSeconds_ := 60
+		tmp.MonitoringIntervalInSeconds = &monitoringIntervalInSeconds_
+	}
+	return &tmp
 }

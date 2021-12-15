@@ -68,7 +68,7 @@ export class RedisLinkedServer extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: RedisLinkedServerArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.linkedRedisCacheId === undefined) && !opts.urn) {
@@ -86,28 +86,28 @@ export class RedisLinkedServer extends pulumi.CustomResource {
             if ((!args || args.serverRole === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serverRole'");
             }
-            inputs["linkedRedisCacheId"] = args ? args.linkedRedisCacheId : undefined;
-            inputs["linkedRedisCacheLocation"] = args ? args.linkedRedisCacheLocation : undefined;
-            inputs["linkedServerName"] = args ? args.linkedServerName : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["serverRole"] = args ? args.serverRole : undefined;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["linkedRedisCacheId"] = args ? args.linkedRedisCacheId : undefined;
+            resourceInputs["linkedRedisCacheLocation"] = args ? args.linkedRedisCacheLocation : undefined;
+            resourceInputs["linkedServerName"] = args ? args.linkedServerName : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["serverRole"] = args ? args.serverRole : undefined;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["linkedRedisCacheId"] = undefined /*out*/;
-            inputs["linkedRedisCacheLocation"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["serverRole"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["linkedRedisCacheId"] = undefined /*out*/;
+            resourceInputs["linkedRedisCacheLocation"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["serverRole"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:cache:RedisLinkedServer" }, { type: "azure-native:cache/v20171001:RedisLinkedServer" }, { type: "azure-native:cache/v20180301:RedisLinkedServer" }, { type: "azure-native:cache/v20190701:RedisLinkedServer" }, { type: "azure-native:cache/v20200601:RedisLinkedServer" }, { type: "azure-native:cache/v20201201:RedisLinkedServer" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(RedisLinkedServer.__pulumiType, name, inputs, opts);
+        super(RedisLinkedServer.__pulumiType, name, resourceInputs, opts);
     }
 }
 

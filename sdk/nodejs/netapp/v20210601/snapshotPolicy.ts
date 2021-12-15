@@ -88,7 +88,7 @@ export class SnapshotPolicy extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: SnapshotPolicyArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.accountName === undefined) && !opts.urn) {
@@ -97,39 +97,39 @@ export class SnapshotPolicy extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["accountName"] = args ? args.accountName : undefined;
-            inputs["dailySchedule"] = args ? args.dailySchedule : undefined;
-            inputs["enabled"] = args ? args.enabled : undefined;
-            inputs["hourlySchedule"] = args ? args.hourlySchedule : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["monthlySchedule"] = args ? args.monthlySchedule : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["snapshotPolicyName"] = args ? args.snapshotPolicyName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["weeklySchedule"] = args ? args.weeklySchedule : undefined;
-            inputs["etag"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["accountName"] = args ? args.accountName : undefined;
+            resourceInputs["dailySchedule"] = args ? args.dailySchedule : undefined;
+            resourceInputs["enabled"] = args ? args.enabled : undefined;
+            resourceInputs["hourlySchedule"] = args ? args.hourlySchedule : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["monthlySchedule"] = args ? args.monthlySchedule : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["snapshotPolicyName"] = args ? args.snapshotPolicyName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["weeklySchedule"] = args ? args.weeklySchedule : undefined;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["dailySchedule"] = undefined /*out*/;
-            inputs["enabled"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
-            inputs["hourlySchedule"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["monthlySchedule"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["weeklySchedule"] = undefined /*out*/;
+            resourceInputs["dailySchedule"] = undefined /*out*/;
+            resourceInputs["enabled"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["hourlySchedule"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["monthlySchedule"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["weeklySchedule"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:netapp:SnapshotPolicy" }, { type: "azure-native:netapp/v20200501:SnapshotPolicy" }, { type: "azure-native:netapp/v20200601:SnapshotPolicy" }, { type: "azure-native:netapp/v20200701:SnapshotPolicy" }, { type: "azure-native:netapp/v20200801:SnapshotPolicy" }, { type: "azure-native:netapp/v20200901:SnapshotPolicy" }, { type: "azure-native:netapp/v20201101:SnapshotPolicy" }, { type: "azure-native:netapp/v20201201:SnapshotPolicy" }, { type: "azure-native:netapp/v20210201:SnapshotPolicy" }, { type: "azure-native:netapp/v20210401:SnapshotPolicy" }, { type: "azure-native:netapp/v20210401preview:SnapshotPolicy" }, { type: "azure-native:netapp/v20210801:SnapshotPolicy" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(SnapshotPolicy.__pulumiType, name, inputs, opts);
+        super(SnapshotPolicy.__pulumiType, name, resourceInputs, opts);
     }
 }
 

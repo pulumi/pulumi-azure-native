@@ -108,7 +108,7 @@ type ConnectionMonitorTestInput interface {
 }
 
 func (*ConnectionMonitorTest) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectionMonitorTest)(nil))
+	return reflect.TypeOf((**ConnectionMonitorTest)(nil)).Elem()
 }
 
 func (i *ConnectionMonitorTest) ToConnectionMonitorTestOutput() ConnectionMonitorTestOutput {
@@ -122,7 +122,7 @@ func (i *ConnectionMonitorTest) ToConnectionMonitorTestOutputWithContext(ctx con
 type ConnectionMonitorTestOutput struct{ *pulumi.OutputState }
 
 func (ConnectionMonitorTestOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectionMonitorTest)(nil))
+	return reflect.TypeOf((**ConnectionMonitorTest)(nil)).Elem()
 }
 
 func (o ConnectionMonitorTestOutput) ToConnectionMonitorTestOutput() ConnectionMonitorTestOutput {

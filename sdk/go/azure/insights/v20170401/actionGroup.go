@@ -41,7 +41,7 @@ func NewActionGroup(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.Enabled == nil {
+	if isZero(args.Enabled) {
 		args.Enabled = pulumi.Bool(true)
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
@@ -139,7 +139,7 @@ type ActionGroupInput interface {
 }
 
 func (*ActionGroup) ElementType() reflect.Type {
-	return reflect.TypeOf((*ActionGroup)(nil))
+	return reflect.TypeOf((**ActionGroup)(nil)).Elem()
 }
 
 func (i *ActionGroup) ToActionGroupOutput() ActionGroupOutput {
@@ -153,7 +153,7 @@ func (i *ActionGroup) ToActionGroupOutputWithContext(ctx context.Context) Action
 type ActionGroupOutput struct{ *pulumi.OutputState }
 
 func (ActionGroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ActionGroup)(nil))
+	return reflect.TypeOf((**ActionGroup)(nil)).Elem()
 }
 
 func (o ActionGroupOutput) ToActionGroupOutput() ActionGroupOutput {

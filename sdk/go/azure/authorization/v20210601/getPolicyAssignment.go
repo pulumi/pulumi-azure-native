@@ -13,7 +13,7 @@ func LookupPolicyAssignment(ctx *pulumi.Context, args *LookupPolicyAssignmentArg
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupPolicyAssignmentArgs struct {
@@ -38,4 +38,17 @@ type LookupPolicyAssignmentResult struct {
 	Scope                 string                                  `pulumi:"scope"`
 	SystemData            SystemDataResponse                      `pulumi:"systemData"`
 	Type                  string                                  `pulumi:"type"`
+}
+
+
+func (val *LookupPolicyAssignmentResult) Defaults() *LookupPolicyAssignmentResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.EnforcementMode) {
+		enforcementMode_ := "Default"
+		tmp.EnforcementMode = &enforcementMode_
+	}
+	return &tmp
 }

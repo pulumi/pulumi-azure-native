@@ -92,7 +92,7 @@ export class Map extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: MapArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.integrationAccountName === undefined) && !opts.urn) {
@@ -104,41 +104,41 @@ export class Map extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["content"] = args ? args.content : undefined;
-            inputs["contentType"] = args ? args.contentType : undefined;
-            inputs["integrationAccountName"] = args ? args.integrationAccountName : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["mapName"] = args ? args.mapName : undefined;
-            inputs["mapType"] = args ? args.mapType : undefined;
-            inputs["metadata"] = args ? args.metadata : undefined;
-            inputs["parametersSchema"] = args ? args.parametersSchema : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["changedTime"] = undefined /*out*/;
-            inputs["contentLink"] = undefined /*out*/;
-            inputs["createdTime"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["content"] = args ? args.content : undefined;
+            resourceInputs["contentType"] = args ? args.contentType : undefined;
+            resourceInputs["integrationAccountName"] = args ? args.integrationAccountName : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["mapName"] = args ? args.mapName : undefined;
+            resourceInputs["mapType"] = args ? args.mapType : undefined;
+            resourceInputs["metadata"] = args ? args.metadata : undefined;
+            resourceInputs["parametersSchema"] = args ? args.parametersSchema : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["changedTime"] = undefined /*out*/;
+            resourceInputs["contentLink"] = undefined /*out*/;
+            resourceInputs["createdTime"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["changedTime"] = undefined /*out*/;
-            inputs["content"] = undefined /*out*/;
-            inputs["contentLink"] = undefined /*out*/;
-            inputs["contentType"] = undefined /*out*/;
-            inputs["createdTime"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["mapType"] = undefined /*out*/;
-            inputs["metadata"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["parametersSchema"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["changedTime"] = undefined /*out*/;
+            resourceInputs["content"] = undefined /*out*/;
+            resourceInputs["contentLink"] = undefined /*out*/;
+            resourceInputs["contentType"] = undefined /*out*/;
+            resourceInputs["createdTime"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["mapType"] = undefined /*out*/;
+            resourceInputs["metadata"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["parametersSchema"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:logic:Map" }, { type: "azure-native:logic/v20150801preview:Map" }, { type: "azure-native:logic/v20180701preview:Map" }, { type: "azure-native:logic/v20190501:Map" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Map.__pulumiType, name, inputs, opts);
+        super(Map.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -116,7 +116,7 @@ type NamespaceNetworkRuleSetInput interface {
 }
 
 func (*NamespaceNetworkRuleSet) ElementType() reflect.Type {
-	return reflect.TypeOf((*NamespaceNetworkRuleSet)(nil))
+	return reflect.TypeOf((**NamespaceNetworkRuleSet)(nil)).Elem()
 }
 
 func (i *NamespaceNetworkRuleSet) ToNamespaceNetworkRuleSetOutput() NamespaceNetworkRuleSetOutput {
@@ -130,7 +130,7 @@ func (i *NamespaceNetworkRuleSet) ToNamespaceNetworkRuleSetOutputWithContext(ctx
 type NamespaceNetworkRuleSetOutput struct{ *pulumi.OutputState }
 
 func (NamespaceNetworkRuleSetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NamespaceNetworkRuleSet)(nil))
+	return reflect.TypeOf((**NamespaceNetworkRuleSet)(nil)).Elem()
 }
 
 func (o NamespaceNetworkRuleSetOutput) ToNamespaceNetworkRuleSetOutput() NamespaceNetworkRuleSetOutput {

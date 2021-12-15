@@ -1380,6 +1380,19 @@ type Encryption struct {
 }
 
 
+func (val *Encryption) Defaults() *Encryption {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.KeySource) {
+		keySource_ := KeySource("Microsoft.KeyVault")
+		tmp.KeySource = &keySource_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -1525,6 +1538,19 @@ func (o EncryptionPtrOutput) KeyVaultProperties() KeyVaultPropertiesArrayOutput 
 type EncryptionResponse struct {
 	KeySource          *string                      `pulumi:"keySource"`
 	KeyVaultProperties []KeyVaultPropertiesResponse `pulumi:"keyVaultProperties"`
+}
+
+
+func (val *EncryptionResponse) Defaults() *EncryptionResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.KeySource) {
+		keySource_ := "Microsoft.KeyVault"
+		tmp.KeySource = &keySource_
+	}
+	return &tmp
 }
 
 
@@ -1674,6 +1700,19 @@ type Identity struct {
 	PrincipalId *string       `pulumi:"principalId"`
 	TenantId    *string       `pulumi:"tenantId"`
 	Type        *IdentityType `pulumi:"type"`
+}
+
+
+func (val *Identity) Defaults() *Identity {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Type) {
+		type_ := IdentityType("SystemAssigned")
+		tmp.Type = &type_
+	}
+	return &tmp
 }
 
 
@@ -1837,6 +1876,19 @@ type IdentityResponse struct {
 	PrincipalId *string `pulumi:"principalId"`
 	TenantId    *string `pulumi:"tenantId"`
 	Type        *string `pulumi:"type"`
+}
+
+
+func (val *IdentityResponse) Defaults() *IdentityResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Type) {
+		type_ := "SystemAssigned"
+		tmp.Type = &type_
+	}
+	return &tmp
 }
 
 

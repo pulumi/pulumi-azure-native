@@ -57,28 +57,28 @@ export class CostAllocationRule extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: CostAllocationRuleArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.billingAccountId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'billingAccountId'");
             }
-            inputs["billingAccountId"] = args ? args.billingAccountId : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["ruleName"] = args ? args.ruleName : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["billingAccountId"] = args ? args.billingAccountId : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
+            resourceInputs["ruleName"] = args ? args.ruleName : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["name"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:costmanagement/v20200301preview:CostAllocationRule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(CostAllocationRule.__pulumiType, name, inputs, opts);
+        super(CostAllocationRule.__pulumiType, name, resourceInputs, opts);
     }
 }
 

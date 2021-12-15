@@ -106,7 +106,7 @@ type TestBaseAccountInput interface {
 }
 
 func (*TestBaseAccount) ElementType() reflect.Type {
-	return reflect.TypeOf((*TestBaseAccount)(nil))
+	return reflect.TypeOf((**TestBaseAccount)(nil)).Elem()
 }
 
 func (i *TestBaseAccount) ToTestBaseAccountOutput() TestBaseAccountOutput {
@@ -120,7 +120,7 @@ func (i *TestBaseAccount) ToTestBaseAccountOutputWithContext(ctx context.Context
 type TestBaseAccountOutput struct{ *pulumi.OutputState }
 
 func (TestBaseAccountOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TestBaseAccount)(nil))
+	return reflect.TypeOf((**TestBaseAccount)(nil)).Elem()
 }
 
 func (o TestBaseAccountOutput) ToTestBaseAccountOutput() TestBaseAccountOutput {

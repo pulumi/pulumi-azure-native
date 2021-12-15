@@ -152,7 +152,7 @@ type SiteSourceControlInput interface {
 }
 
 func (*SiteSourceControl) ElementType() reflect.Type {
-	return reflect.TypeOf((*SiteSourceControl)(nil))
+	return reflect.TypeOf((**SiteSourceControl)(nil)).Elem()
 }
 
 func (i *SiteSourceControl) ToSiteSourceControlOutput() SiteSourceControlOutput {
@@ -166,7 +166,7 @@ func (i *SiteSourceControl) ToSiteSourceControlOutputWithContext(ctx context.Con
 type SiteSourceControlOutput struct{ *pulumi.OutputState }
 
 func (SiteSourceControlOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SiteSourceControl)(nil))
+	return reflect.TypeOf((**SiteSourceControl)(nil)).Elem()
 }
 
 func (o SiteSourceControlOutput) ToSiteSourceControlOutput() SiteSourceControlOutput {

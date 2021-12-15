@@ -98,7 +98,7 @@ type EdgeModuleInput interface {
 }
 
 func (*EdgeModule) ElementType() reflect.Type {
-	return reflect.TypeOf((*EdgeModule)(nil))
+	return reflect.TypeOf((**EdgeModule)(nil)).Elem()
 }
 
 func (i *EdgeModule) ToEdgeModuleOutput() EdgeModuleOutput {
@@ -112,7 +112,7 @@ func (i *EdgeModule) ToEdgeModuleOutputWithContext(ctx context.Context) EdgeModu
 type EdgeModuleOutput struct{ *pulumi.OutputState }
 
 func (EdgeModuleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EdgeModule)(nil))
+	return reflect.TypeOf((**EdgeModule)(nil)).Elem()
 }
 
 func (o EdgeModuleOutput) ToEdgeModuleOutput() EdgeModuleOutput {

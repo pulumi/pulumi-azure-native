@@ -114,7 +114,7 @@ type StandardInput interface {
 }
 
 func (*Standard) ElementType() reflect.Type {
-	return reflect.TypeOf((*Standard)(nil))
+	return reflect.TypeOf((**Standard)(nil)).Elem()
 }
 
 func (i *Standard) ToStandardOutput() StandardOutput {
@@ -128,7 +128,7 @@ func (i *Standard) ToStandardOutputWithContext(ctx context.Context) StandardOutp
 type StandardOutput struct{ *pulumi.OutputState }
 
 func (StandardOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Standard)(nil))
+	return reflect.TypeOf((**Standard)(nil)).Elem()
 }
 
 func (o StandardOutput) ToStandardOutput() StandardOutput {

@@ -152,7 +152,7 @@ type SiteBackupConfigurationInput interface {
 }
 
 func (*SiteBackupConfiguration) ElementType() reflect.Type {
-	return reflect.TypeOf((*SiteBackupConfiguration)(nil))
+	return reflect.TypeOf((**SiteBackupConfiguration)(nil)).Elem()
 }
 
 func (i *SiteBackupConfiguration) ToSiteBackupConfigurationOutput() SiteBackupConfigurationOutput {
@@ -166,7 +166,7 @@ func (i *SiteBackupConfiguration) ToSiteBackupConfigurationOutputWithContext(ctx
 type SiteBackupConfigurationOutput struct{ *pulumi.OutputState }
 
 func (SiteBackupConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SiteBackupConfiguration)(nil))
+	return reflect.TypeOf((**SiteBackupConfiguration)(nil)).Elem()
 }
 
 func (o SiteBackupConfigurationOutput) ToSiteBackupConfigurationOutput() SiteBackupConfigurationOutput {

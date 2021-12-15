@@ -447,6 +447,19 @@ type Encryption struct {
 }
 
 
+func (val *Encryption) Defaults() *Encryption {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.KeySource) {
+		keySource_ := "Default"
+		tmp.KeySource = &keySource_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -622,6 +635,19 @@ type EncryptionResponse struct {
 	KeySource   *string `pulumi:"keySource"`
 	KeyVaultUri *string `pulumi:"keyVaultUri"`
 	KeyVersion  *string `pulumi:"keyVersion"`
+}
+
+
+func (val *EncryptionResponse) Defaults() *EncryptionResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.KeySource) {
+		keySource_ := "Default"
+		tmp.KeySource = &keySource_
+	}
+	return &tmp
 }
 
 
@@ -2993,6 +3019,17 @@ type WorkspaceCustomParameters struct {
 }
 
 
+func (val *WorkspaceCustomParameters) Defaults() *WorkspaceCustomParameters {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Encryption = tmp.Encryption.Defaults()
+
+	return &tmp
+}
+
+
 
 
 
@@ -3338,6 +3375,17 @@ type WorkspaceCustomParametersResponse struct {
 	StorageAccountName              *WorkspaceCustomStringParameterResponse  `pulumi:"storageAccountName"`
 	StorageAccountSkuName           *WorkspaceCustomStringParameterResponse  `pulumi:"storageAccountSkuName"`
 	VnetAddressPrefix               *WorkspaceCustomStringParameterResponse  `pulumi:"vnetAddressPrefix"`
+}
+
+
+func (val *WorkspaceCustomParametersResponse) Defaults() *WorkspaceCustomParametersResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Encryption = tmp.Encryption.Defaults()
+
+	return &tmp
 }
 
 
@@ -3995,6 +4043,17 @@ type WorkspaceEncryptionParameter struct {
 }
 
 
+func (val *WorkspaceEncryptionParameter) Defaults() *WorkspaceEncryptionParameter {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Value = tmp.Value.Defaults()
+
+	return &tmp
+}
+
+
 
 
 
@@ -4126,6 +4185,17 @@ func (o WorkspaceEncryptionParameterPtrOutput) Value() EncryptionPtrOutput {
 type WorkspaceEncryptionParameterResponse struct {
 	Type  string              `pulumi:"type"`
 	Value *EncryptionResponse `pulumi:"value"`
+}
+
+
+func (val *WorkspaceEncryptionParameterResponse) Defaults() *WorkspaceEncryptionParameterResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Value = tmp.Value.Defaults()
+
+	return &tmp
 }
 
 

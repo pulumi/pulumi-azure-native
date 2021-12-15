@@ -99,7 +99,7 @@ type SolutionInput interface {
 }
 
 func (*Solution) ElementType() reflect.Type {
-	return reflect.TypeOf((*Solution)(nil))
+	return reflect.TypeOf((**Solution)(nil)).Elem()
 }
 
 func (i *Solution) ToSolutionOutput() SolutionOutput {
@@ -113,7 +113,7 @@ func (i *Solution) ToSolutionOutputWithContext(ctx context.Context) SolutionOutp
 type SolutionOutput struct{ *pulumi.OutputState }
 
 func (SolutionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Solution)(nil))
+	return reflect.TypeOf((**Solution)(nil)).Elem()
 }
 
 func (o SolutionOutput) ToSolutionOutput() SolutionOutput {

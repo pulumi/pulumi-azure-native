@@ -130,7 +130,7 @@ type InstancePoolInput interface {
 }
 
 func (*InstancePool) ElementType() reflect.Type {
-	return reflect.TypeOf((*InstancePool)(nil))
+	return reflect.TypeOf((**InstancePool)(nil)).Elem()
 }
 
 func (i *InstancePool) ToInstancePoolOutput() InstancePoolOutput {
@@ -144,7 +144,7 @@ func (i *InstancePool) ToInstancePoolOutputWithContext(ctx context.Context) Inst
 type InstancePoolOutput struct{ *pulumi.OutputState }
 
 func (InstancePoolOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*InstancePool)(nil))
+	return reflect.TypeOf((**InstancePool)(nil)).Elem()
 }
 
 func (o InstancePoolOutput) ToInstancePoolOutput() InstancePoolOutput {

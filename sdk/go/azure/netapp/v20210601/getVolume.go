@@ -13,7 +13,7 @@ func LookupVolume(ctx *pulumi.Context, args *LookupVolumeArgs, opts ...pulumi.In
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupVolumeArgs struct {
@@ -65,4 +65,72 @@ type LookupVolumeResult struct {
 	UnixPermissions           *string                                 `pulumi:"unixPermissions"`
 	UsageThreshold            float64                                 `pulumi:"usageThreshold"`
 	VolumeType                *string                                 `pulumi:"volumeType"`
+}
+
+
+func (val *LookupVolumeResult) Defaults() *LookupVolumeResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.AvsDataStore) {
+		avsDataStore_ := "Disabled"
+		tmp.AvsDataStore = &avsDataStore_
+	}
+	if isZero(tmp.CoolAccess) {
+		coolAccess_ := false
+		tmp.CoolAccess = &coolAccess_
+	}
+	if isZero(tmp.DefaultGroupQuotaInKiBs) {
+		defaultGroupQuotaInKiBs_ := 0.0
+		tmp.DefaultGroupQuotaInKiBs = &defaultGroupQuotaInKiBs_
+	}
+	if isZero(tmp.DefaultUserQuotaInKiBs) {
+		defaultUserQuotaInKiBs_ := 0.0
+		tmp.DefaultUserQuotaInKiBs = &defaultUserQuotaInKiBs_
+	}
+	if isZero(tmp.IsDefaultQuotaEnabled) {
+		isDefaultQuotaEnabled_ := false
+		tmp.IsDefaultQuotaEnabled = &isDefaultQuotaEnabled_
+	}
+	if isZero(tmp.KerberosEnabled) {
+		kerberosEnabled_ := false
+		tmp.KerberosEnabled = &kerberosEnabled_
+	}
+	if isZero(tmp.LdapEnabled) {
+		ldapEnabled_ := false
+		tmp.LdapEnabled = &ldapEnabled_
+	}
+	if isZero(tmp.NetworkFeatures) {
+		networkFeatures_ := "Basic"
+		tmp.NetworkFeatures = &networkFeatures_
+	}
+	if isZero(tmp.SecurityStyle) {
+		securityStyle_ := "unix"
+		tmp.SecurityStyle = &securityStyle_
+	}
+	if isZero(tmp.SmbContinuouslyAvailable) {
+		smbContinuouslyAvailable_ := false
+		tmp.SmbContinuouslyAvailable = &smbContinuouslyAvailable_
+	}
+	if isZero(tmp.SmbEncryption) {
+		smbEncryption_ := false
+		tmp.SmbEncryption = &smbEncryption_
+	}
+	if isZero(tmp.SnapshotDirectoryVisible) {
+		snapshotDirectoryVisible_ := true
+		tmp.SnapshotDirectoryVisible = &snapshotDirectoryVisible_
+	}
+	if isZero(tmp.ThroughputMibps) {
+		throughputMibps_ := 0.0
+		tmp.ThroughputMibps = &throughputMibps_
+	}
+	if isZero(tmp.UnixPermissions) {
+		unixPermissions_ := "0770"
+		tmp.UnixPermissions = &unixPermissions_
+	}
+	if isZero(tmp.UsageThreshold) {
+		tmp.UsageThreshold = 107374182400.0
+	}
+	return &tmp
 }

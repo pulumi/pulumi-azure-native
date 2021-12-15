@@ -207,7 +207,7 @@ type WebAppAuthSettingsSlotInput interface {
 }
 
 func (*WebAppAuthSettingsSlot) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAppAuthSettingsSlot)(nil))
+	return reflect.TypeOf((**WebAppAuthSettingsSlot)(nil)).Elem()
 }
 
 func (i *WebAppAuthSettingsSlot) ToWebAppAuthSettingsSlotOutput() WebAppAuthSettingsSlotOutput {
@@ -221,7 +221,7 @@ func (i *WebAppAuthSettingsSlot) ToWebAppAuthSettingsSlotOutputWithContext(ctx c
 type WebAppAuthSettingsSlotOutput struct{ *pulumi.OutputState }
 
 func (WebAppAuthSettingsSlotOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAppAuthSettingsSlot)(nil))
+	return reflect.TypeOf((**WebAppAuthSettingsSlot)(nil)).Elem()
 }
 
 func (o WebAppAuthSettingsSlotOutput) ToWebAppAuthSettingsSlotOutput() WebAppAuthSettingsSlotOutput {

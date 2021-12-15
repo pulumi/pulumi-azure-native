@@ -102,7 +102,7 @@ type ProviderInstanceInput interface {
 }
 
 func (*ProviderInstance) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProviderInstance)(nil))
+	return reflect.TypeOf((**ProviderInstance)(nil)).Elem()
 }
 
 func (i *ProviderInstance) ToProviderInstanceOutput() ProviderInstanceOutput {
@@ -116,7 +116,7 @@ func (i *ProviderInstance) ToProviderInstanceOutputWithContext(ctx context.Conte
 type ProviderInstanceOutput struct{ *pulumi.OutputState }
 
 func (ProviderInstanceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProviderInstance)(nil))
+	return reflect.TypeOf((**ProviderInstance)(nil)).Elem()
 }
 
 func (o ProviderInstanceOutput) ToProviderInstanceOutput() ProviderInstanceOutput {

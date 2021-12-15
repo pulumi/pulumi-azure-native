@@ -125,7 +125,7 @@ type LongTermRetentionPolicyInput interface {
 }
 
 func (*LongTermRetentionPolicy) ElementType() reflect.Type {
-	return reflect.TypeOf((*LongTermRetentionPolicy)(nil))
+	return reflect.TypeOf((**LongTermRetentionPolicy)(nil)).Elem()
 }
 
 func (i *LongTermRetentionPolicy) ToLongTermRetentionPolicyOutput() LongTermRetentionPolicyOutput {
@@ -139,7 +139,7 @@ func (i *LongTermRetentionPolicy) ToLongTermRetentionPolicyOutputWithContext(ctx
 type LongTermRetentionPolicyOutput struct{ *pulumi.OutputState }
 
 func (LongTermRetentionPolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LongTermRetentionPolicy)(nil))
+	return reflect.TypeOf((**LongTermRetentionPolicy)(nil)).Elem()
 }
 
 func (o LongTermRetentionPolicyOutput) ToLongTermRetentionPolicyOutput() LongTermRetentionPolicyOutput {

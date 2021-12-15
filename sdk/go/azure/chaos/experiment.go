@@ -104,7 +104,7 @@ type ExperimentInput interface {
 }
 
 func (*Experiment) ElementType() reflect.Type {
-	return reflect.TypeOf((*Experiment)(nil))
+	return reflect.TypeOf((**Experiment)(nil)).Elem()
 }
 
 func (i *Experiment) ToExperimentOutput() ExperimentOutput {
@@ -118,7 +118,7 @@ func (i *Experiment) ToExperimentOutputWithContext(ctx context.Context) Experime
 type ExperimentOutput struct{ *pulumi.OutputState }
 
 func (ExperimentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Experiment)(nil))
+	return reflect.TypeOf((**Experiment)(nil)).Elem()
 }
 
 func (o ExperimentOutput) ToExperimentOutput() ExperimentOutput {

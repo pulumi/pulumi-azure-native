@@ -128,7 +128,7 @@ export class VirtualMachineScaleSetVM extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: VirtualMachineScaleSetVMArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
@@ -137,58 +137,58 @@ export class VirtualMachineScaleSetVM extends pulumi.CustomResource {
             if ((!args || args.vmScaleSetName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vmScaleSetName'");
             }
-            inputs["additionalCapabilities"] = args ? args.additionalCapabilities : undefined;
-            inputs["availabilitySet"] = args ? args.availabilitySet : undefined;
-            inputs["diagnosticsProfile"] = args ? args.diagnosticsProfile : undefined;
-            inputs["hardwareProfile"] = args ? args.hardwareProfile : undefined;
-            inputs["instanceId"] = args ? args.instanceId : undefined;
-            inputs["licenseType"] = args ? args.licenseType : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["networkProfile"] = args ? args.networkProfile : undefined;
-            inputs["osProfile"] = args ? args.osProfile : undefined;
-            inputs["plan"] = args ? args.plan : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["storageProfile"] = args ? args.storageProfile : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["vmScaleSetName"] = args ? args.vmScaleSetName : undefined;
-            inputs["instanceView"] = undefined /*out*/;
-            inputs["latestModelApplied"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["resources"] = undefined /*out*/;
-            inputs["sku"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["vmId"] = undefined /*out*/;
-            inputs["zones"] = undefined /*out*/;
+            resourceInputs["additionalCapabilities"] = args ? args.additionalCapabilities : undefined;
+            resourceInputs["availabilitySet"] = args ? args.availabilitySet : undefined;
+            resourceInputs["diagnosticsProfile"] = args ? args.diagnosticsProfile : undefined;
+            resourceInputs["hardwareProfile"] = args ? args.hardwareProfile : undefined;
+            resourceInputs["instanceId"] = args ? args.instanceId : undefined;
+            resourceInputs["licenseType"] = args ? args.licenseType : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["networkProfile"] = args ? args.networkProfile : undefined;
+            resourceInputs["osProfile"] = args ? args.osProfile : undefined;
+            resourceInputs["plan"] = args ? args.plan : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["storageProfile"] = args ? args.storageProfile : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["vmScaleSetName"] = args ? args.vmScaleSetName : undefined;
+            resourceInputs["instanceView"] = undefined /*out*/;
+            resourceInputs["latestModelApplied"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["resources"] = undefined /*out*/;
+            resourceInputs["sku"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["vmId"] = undefined /*out*/;
+            resourceInputs["zones"] = undefined /*out*/;
         } else {
-            inputs["additionalCapabilities"] = undefined /*out*/;
-            inputs["availabilitySet"] = undefined /*out*/;
-            inputs["diagnosticsProfile"] = undefined /*out*/;
-            inputs["hardwareProfile"] = undefined /*out*/;
-            inputs["instanceId"] = undefined /*out*/;
-            inputs["instanceView"] = undefined /*out*/;
-            inputs["latestModelApplied"] = undefined /*out*/;
-            inputs["licenseType"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["networkProfile"] = undefined /*out*/;
-            inputs["osProfile"] = undefined /*out*/;
-            inputs["plan"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["resources"] = undefined /*out*/;
-            inputs["sku"] = undefined /*out*/;
-            inputs["storageProfile"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["vmId"] = undefined /*out*/;
-            inputs["zones"] = undefined /*out*/;
+            resourceInputs["additionalCapabilities"] = undefined /*out*/;
+            resourceInputs["availabilitySet"] = undefined /*out*/;
+            resourceInputs["diagnosticsProfile"] = undefined /*out*/;
+            resourceInputs["hardwareProfile"] = undefined /*out*/;
+            resourceInputs["instanceId"] = undefined /*out*/;
+            resourceInputs["instanceView"] = undefined /*out*/;
+            resourceInputs["latestModelApplied"] = undefined /*out*/;
+            resourceInputs["licenseType"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["networkProfile"] = undefined /*out*/;
+            resourceInputs["osProfile"] = undefined /*out*/;
+            resourceInputs["plan"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["resources"] = undefined /*out*/;
+            resourceInputs["sku"] = undefined /*out*/;
+            resourceInputs["storageProfile"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["vmId"] = undefined /*out*/;
+            resourceInputs["zones"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:compute:VirtualMachineScaleSetVM" }, { type: "azure-native:compute/v20171201:VirtualMachineScaleSetVM" }, { type: "azure-native:compute/v20180401:VirtualMachineScaleSetVM" }, { type: "azure-native:compute/v20180601:VirtualMachineScaleSetVM" }, { type: "azure-native:compute/v20190301:VirtualMachineScaleSetVM" }, { type: "azure-native:compute/v20190701:VirtualMachineScaleSetVM" }, { type: "azure-native:compute/v20191201:VirtualMachineScaleSetVM" }, { type: "azure-native:compute/v20200601:VirtualMachineScaleSetVM" }, { type: "azure-native:compute/v20201201:VirtualMachineScaleSetVM" }, { type: "azure-native:compute/v20210301:VirtualMachineScaleSetVM" }, { type: "azure-native:compute/v20210401:VirtualMachineScaleSetVM" }, { type: "azure-native:compute/v20210701:VirtualMachineScaleSetVM" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(VirtualMachineScaleSetVM.__pulumiType, name, inputs, opts);
+        super(VirtualMachineScaleSetVM.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -21,6 +21,19 @@ type ApplicableScheduleResponse struct {
 }
 
 
+func (val *ApplicableScheduleResponse) Defaults() *ApplicableScheduleResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.LabVmsShutdown = tmp.LabVmsShutdown.Defaults()
+
+	tmp.LabVmsStartup = tmp.LabVmsStartup.Defaults()
+
+	return &tmp
+}
+
+
 
 
 
@@ -6656,6 +6669,31 @@ type LabVirtualMachineCreationParameter struct {
 }
 
 
+func (val *LabVirtualMachineCreationParameter) Defaults() *LabVirtualMachineCreationParameter {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.AllowClaim) {
+		allowClaim_ := false
+		tmp.AllowClaim = &allowClaim_
+	}
+	if isZero(tmp.DisallowPublicIpAddress) {
+		disallowPublicIpAddress_ := false
+		tmp.DisallowPublicIpAddress = &disallowPublicIpAddress_
+	}
+	if isZero(tmp.OwnerObjectId) {
+		ownerObjectId_ := "dynamicValue"
+		tmp.OwnerObjectId = &ownerObjectId_
+	}
+	if isZero(tmp.StorageType) {
+		storageType_ := "labStorageType"
+		tmp.StorageType = &storageType_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -7176,6 +7214,31 @@ type LabVirtualMachineCreationParameterResponse struct {
 	StorageType                *string                             `pulumi:"storageType"`
 	Tags                       map[string]string                   `pulumi:"tags"`
 	UserName                   *string                             `pulumi:"userName"`
+}
+
+
+func (val *LabVirtualMachineCreationParameterResponse) Defaults() *LabVirtualMachineCreationParameterResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.AllowClaim) {
+		allowClaim_ := false
+		tmp.AllowClaim = &allowClaim_
+	}
+	if isZero(tmp.DisallowPublicIpAddress) {
+		disallowPublicIpAddress_ := false
+		tmp.DisallowPublicIpAddress = &disallowPublicIpAddress_
+	}
+	if isZero(tmp.OwnerObjectId) {
+		ownerObjectId_ := "dynamicValue"
+		tmp.OwnerObjectId = &ownerObjectId_
+	}
+	if isZero(tmp.StorageType) {
+		storageType_ := "labStorageType"
+		tmp.StorageType = &storageType_
+	}
+	return &tmp
 }
 
 
@@ -8468,6 +8531,19 @@ type NotificationSettings struct {
 }
 
 
+func (val *NotificationSettings) Defaults() *NotificationSettings {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Status) {
+		status_ := "Disabled"
+		tmp.Status = &status_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -8658,6 +8734,19 @@ type NotificationSettingsResponse struct {
 	Status             *string `pulumi:"status"`
 	TimeInMinutes      *int    `pulumi:"timeInMinutes"`
 	WebhookUrl         *string `pulumi:"webhookUrl"`
+}
+
+
+func (val *NotificationSettingsResponse) Defaults() *NotificationSettingsResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Status) {
+		status_ := "Disabled"
+		tmp.Status = &status_
+	}
+	return &tmp
 }
 
 
@@ -9059,6 +9148,21 @@ type ScheduleCreationParameter struct {
 }
 
 
+func (val *ScheduleCreationParameter) Defaults() *ScheduleCreationParameter {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.NotificationSettings = tmp.NotificationSettings.Defaults()
+
+	if isZero(tmp.Status) {
+		status_ := "Disabled"
+		tmp.Status = &status_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -9205,6 +9309,21 @@ type ScheduleCreationParameterResponse struct {
 	TaskType             *string                       `pulumi:"taskType"`
 	TimeZoneId           *string                       `pulumi:"timeZoneId"`
 	WeeklyRecurrence     *WeekDetailsResponse          `pulumi:"weeklyRecurrence"`
+}
+
+
+func (val *ScheduleCreationParameterResponse) Defaults() *ScheduleCreationParameterResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.NotificationSettings = tmp.NotificationSettings.Defaults()
+
+	if isZero(tmp.Status) {
+		status_ := "Disabled"
+		tmp.Status = &status_
+	}
+	return &tmp
 }
 
 
@@ -9364,6 +9483,21 @@ type ScheduleResponse struct {
 	Type                 string                        `pulumi:"type"`
 	UniqueIdentifier     string                        `pulumi:"uniqueIdentifier"`
 	WeeklyRecurrence     *WeekDetailsResponse          `pulumi:"weeklyRecurrence"`
+}
+
+
+func (val *ScheduleResponse) Defaults() *ScheduleResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.NotificationSettings = tmp.NotificationSettings.Defaults()
+
+	if isZero(tmp.Status) {
+		status_ := "Disabled"
+		tmp.Status = &status_
+	}
+	return &tmp
 }
 
 

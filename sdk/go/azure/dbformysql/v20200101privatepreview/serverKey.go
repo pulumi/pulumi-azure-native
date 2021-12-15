@@ -107,7 +107,7 @@ type ServerKeyInput interface {
 }
 
 func (*ServerKey) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServerKey)(nil))
+	return reflect.TypeOf((**ServerKey)(nil)).Elem()
 }
 
 func (i *ServerKey) ToServerKeyOutput() ServerKeyOutput {
@@ -121,7 +121,7 @@ func (i *ServerKey) ToServerKeyOutputWithContext(ctx context.Context) ServerKeyO
 type ServerKeyOutput struct{ *pulumi.OutputState }
 
 func (ServerKeyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServerKey)(nil))
+	return reflect.TypeOf((**ServerKey)(nil)).Elem()
 }
 
 func (o ServerKeyOutput) ToServerKeyOutput() ServerKeyOutput {

@@ -81,7 +81,7 @@ export class LogProfile extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: LogProfileArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.categories === undefined) && !opts.urn) {
@@ -93,33 +93,33 @@ export class LogProfile extends pulumi.CustomResource {
             if ((!args || args.retentionPolicy === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'retentionPolicy'");
             }
-            inputs["categories"] = args ? args.categories : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["locations"] = args ? args.locations : undefined;
-            inputs["logProfileName"] = args ? args.logProfileName : undefined;
-            inputs["retentionPolicy"] = args ? args.retentionPolicy : undefined;
-            inputs["serviceBusRuleId"] = args ? args.serviceBusRuleId : undefined;
-            inputs["storageAccountId"] = args ? args.storageAccountId : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["categories"] = args ? args.categories : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["locations"] = args ? args.locations : undefined;
+            resourceInputs["logProfileName"] = args ? args.logProfileName : undefined;
+            resourceInputs["retentionPolicy"] = args ? args.retentionPolicy : undefined;
+            resourceInputs["serviceBusRuleId"] = args ? args.serviceBusRuleId : undefined;
+            resourceInputs["storageAccountId"] = args ? args.storageAccountId : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["categories"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["locations"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["retentionPolicy"] = undefined /*out*/;
-            inputs["serviceBusRuleId"] = undefined /*out*/;
-            inputs["storageAccountId"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["categories"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["locations"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["retentionPolicy"] = undefined /*out*/;
+            resourceInputs["serviceBusRuleId"] = undefined /*out*/;
+            resourceInputs["storageAccountId"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:insights/v20160301:LogProfile" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(LogProfile.__pulumiType, name, inputs, opts);
+        super(LogProfile.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -174,7 +174,7 @@ type InterfaceEndpointInput interface {
 }
 
 func (*InterfaceEndpoint) ElementType() reflect.Type {
-	return reflect.TypeOf((*InterfaceEndpoint)(nil))
+	return reflect.TypeOf((**InterfaceEndpoint)(nil)).Elem()
 }
 
 func (i *InterfaceEndpoint) ToInterfaceEndpointOutput() InterfaceEndpointOutput {
@@ -188,7 +188,7 @@ func (i *InterfaceEndpoint) ToInterfaceEndpointOutputWithContext(ctx context.Con
 type InterfaceEndpointOutput struct{ *pulumi.OutputState }
 
 func (InterfaceEndpointOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*InterfaceEndpoint)(nil))
+	return reflect.TypeOf((**InterfaceEndpoint)(nil)).Elem()
 }
 
 func (o InterfaceEndpointOutput) ToInterfaceEndpointOutput() InterfaceEndpointOutput {

@@ -49,7 +49,7 @@ func NewNetworkInterface(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.NicType == nil {
+	if isZero(args.NicType) {
 		args.NicType = pulumi.StringPtr("Standard")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
@@ -250,7 +250,7 @@ type NetworkInterfaceInput interface {
 }
 
 func (*NetworkInterface) ElementType() reflect.Type {
-	return reflect.TypeOf((*NetworkInterface)(nil))
+	return reflect.TypeOf((**NetworkInterface)(nil)).Elem()
 }
 
 func (i *NetworkInterface) ToNetworkInterfaceOutput() NetworkInterfaceOutput {
@@ -264,7 +264,7 @@ func (i *NetworkInterface) ToNetworkInterfaceOutputWithContext(ctx context.Conte
 type NetworkInterfaceOutput struct{ *pulumi.OutputState }
 
 func (NetworkInterfaceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NetworkInterface)(nil))
+	return reflect.TypeOf((**NetworkInterface)(nil)).Elem()
 }
 
 func (o NetworkInterfaceOutput) ToNetworkInterfaceOutput() NetworkInterfaceOutput {

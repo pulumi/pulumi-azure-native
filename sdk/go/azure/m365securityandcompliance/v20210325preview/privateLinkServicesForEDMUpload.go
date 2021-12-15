@@ -110,7 +110,7 @@ type PrivateLinkServicesForEDMUploadInput interface {
 }
 
 func (*PrivateLinkServicesForEDMUpload) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateLinkServicesForEDMUpload)(nil))
+	return reflect.TypeOf((**PrivateLinkServicesForEDMUpload)(nil)).Elem()
 }
 
 func (i *PrivateLinkServicesForEDMUpload) ToPrivateLinkServicesForEDMUploadOutput() PrivateLinkServicesForEDMUploadOutput {
@@ -124,7 +124,7 @@ func (i *PrivateLinkServicesForEDMUpload) ToPrivateLinkServicesForEDMUploadOutpu
 type PrivateLinkServicesForEDMUploadOutput struct{ *pulumi.OutputState }
 
 func (PrivateLinkServicesForEDMUploadOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateLinkServicesForEDMUpload)(nil))
+	return reflect.TypeOf((**PrivateLinkServicesForEDMUpload)(nil)).Elem()
 }
 
 func (o PrivateLinkServicesForEDMUploadOutput) ToPrivateLinkServicesForEDMUploadOutput() PrivateLinkServicesForEDMUploadOutput {

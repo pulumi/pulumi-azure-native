@@ -100,7 +100,7 @@ type PrivateLinkScopedResourceInput interface {
 }
 
 func (*PrivateLinkScopedResource) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateLinkScopedResource)(nil))
+	return reflect.TypeOf((**PrivateLinkScopedResource)(nil)).Elem()
 }
 
 func (i *PrivateLinkScopedResource) ToPrivateLinkScopedResourceOutput() PrivateLinkScopedResourceOutput {
@@ -114,7 +114,7 @@ func (i *PrivateLinkScopedResource) ToPrivateLinkScopedResourceOutputWithContext
 type PrivateLinkScopedResourceOutput struct{ *pulumi.OutputState }
 
 func (PrivateLinkScopedResourceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateLinkScopedResource)(nil))
+	return reflect.TypeOf((**PrivateLinkScopedResource)(nil)).Elem()
 }
 
 func (o PrivateLinkScopedResourceOutput) ToPrivateLinkScopedResourceOutput() PrivateLinkScopedResourceOutput {

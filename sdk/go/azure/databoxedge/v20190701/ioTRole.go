@@ -157,7 +157,7 @@ type IoTRoleInput interface {
 }
 
 func (*IoTRole) ElementType() reflect.Type {
-	return reflect.TypeOf((*IoTRole)(nil))
+	return reflect.TypeOf((**IoTRole)(nil)).Elem()
 }
 
 func (i *IoTRole) ToIoTRoleOutput() IoTRoleOutput {
@@ -171,7 +171,7 @@ func (i *IoTRole) ToIoTRoleOutputWithContext(ctx context.Context) IoTRoleOutput 
 type IoTRoleOutput struct{ *pulumi.OutputState }
 
 func (IoTRoleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IoTRole)(nil))
+	return reflect.TypeOf((**IoTRole)(nil)).Elem()
 }
 
 func (o IoTRoleOutput) ToIoTRoleOutput() IoTRoleOutput {

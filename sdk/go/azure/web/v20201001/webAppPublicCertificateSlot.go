@@ -139,7 +139,7 @@ type WebAppPublicCertificateSlotInput interface {
 }
 
 func (*WebAppPublicCertificateSlot) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAppPublicCertificateSlot)(nil))
+	return reflect.TypeOf((**WebAppPublicCertificateSlot)(nil)).Elem()
 }
 
 func (i *WebAppPublicCertificateSlot) ToWebAppPublicCertificateSlotOutput() WebAppPublicCertificateSlotOutput {
@@ -153,7 +153,7 @@ func (i *WebAppPublicCertificateSlot) ToWebAppPublicCertificateSlotOutputWithCon
 type WebAppPublicCertificateSlotOutput struct{ *pulumi.OutputState }
 
 func (WebAppPublicCertificateSlotOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAppPublicCertificateSlot)(nil))
+	return reflect.TypeOf((**WebAppPublicCertificateSlot)(nil)).Elem()
 }
 
 func (o WebAppPublicCertificateSlotOutput) ToWebAppPublicCertificateSlotOutput() WebAppPublicCertificateSlotOutput {

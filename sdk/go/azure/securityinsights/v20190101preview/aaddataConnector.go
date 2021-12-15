@@ -126,7 +126,7 @@ type AADDataConnectorInput interface {
 }
 
 func (*AADDataConnector) ElementType() reflect.Type {
-	return reflect.TypeOf((*AADDataConnector)(nil))
+	return reflect.TypeOf((**AADDataConnector)(nil)).Elem()
 }
 
 func (i *AADDataConnector) ToAADDataConnectorOutput() AADDataConnectorOutput {
@@ -140,7 +140,7 @@ func (i *AADDataConnector) ToAADDataConnectorOutputWithContext(ctx context.Conte
 type AADDataConnectorOutput struct{ *pulumi.OutputState }
 
 func (AADDataConnectorOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AADDataConnector)(nil))
+	return reflect.TypeOf((**AADDataConnector)(nil)).Elem()
 }
 
 func (o AADDataConnectorOutput) ToAADDataConnectorOutput() AADDataConnectorOutput {

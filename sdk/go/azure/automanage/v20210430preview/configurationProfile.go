@@ -92,7 +92,7 @@ type ConfigurationProfileInput interface {
 }
 
 func (*ConfigurationProfile) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConfigurationProfile)(nil))
+	return reflect.TypeOf((**ConfigurationProfile)(nil)).Elem()
 }
 
 func (i *ConfigurationProfile) ToConfigurationProfileOutput() ConfigurationProfileOutput {
@@ -106,7 +106,7 @@ func (i *ConfigurationProfile) ToConfigurationProfileOutputWithContext(ctx conte
 type ConfigurationProfileOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationProfileOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConfigurationProfile)(nil))
+	return reflect.TypeOf((**ConfigurationProfile)(nil)).Elem()
 }
 
 func (o ConfigurationProfileOutput) ToConfigurationProfileOutput() ConfigurationProfileOutput {

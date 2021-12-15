@@ -147,7 +147,7 @@ type ArcAddonInput interface {
 }
 
 func (*ArcAddon) ElementType() reflect.Type {
-	return reflect.TypeOf((*ArcAddon)(nil))
+	return reflect.TypeOf((**ArcAddon)(nil)).Elem()
 }
 
 func (i *ArcAddon) ToArcAddonOutput() ArcAddonOutput {
@@ -161,7 +161,7 @@ func (i *ArcAddon) ToArcAddonOutputWithContext(ctx context.Context) ArcAddonOutp
 type ArcAddonOutput struct{ *pulumi.OutputState }
 
 func (ArcAddonOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ArcAddon)(nil))
+	return reflect.TypeOf((**ArcAddon)(nil)).Elem()
 }
 
 func (o ArcAddonOutput) ToArcAddonOutput() ArcAddonOutput {

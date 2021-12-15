@@ -80,7 +80,7 @@ export class DatabaseBlobAuditingPolicy extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: DatabaseBlobAuditingPolicyArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.databaseName === undefined) && !opts.urn) {
@@ -95,37 +95,37 @@ export class DatabaseBlobAuditingPolicy extends pulumi.CustomResource {
             if ((!args || args.state === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'state'");
             }
-            inputs["auditActionsAndGroups"] = args ? args.auditActionsAndGroups : undefined;
-            inputs["blobAuditingPolicyName"] = args ? args.blobAuditingPolicyName : undefined;
-            inputs["databaseName"] = args ? args.databaseName : undefined;
-            inputs["isStorageSecondaryKeyInUse"] = args ? args.isStorageSecondaryKeyInUse : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["retentionDays"] = args ? args.retentionDays : undefined;
-            inputs["serverName"] = args ? args.serverName : undefined;
-            inputs["state"] = args ? args.state : undefined;
-            inputs["storageAccountAccessKey"] = args ? args.storageAccountAccessKey : undefined;
-            inputs["storageAccountSubscriptionId"] = args ? args.storageAccountSubscriptionId : undefined;
-            inputs["storageEndpoint"] = args ? args.storageEndpoint : undefined;
-            inputs["kind"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["auditActionsAndGroups"] = args ? args.auditActionsAndGroups : undefined;
+            resourceInputs["blobAuditingPolicyName"] = args ? args.blobAuditingPolicyName : undefined;
+            resourceInputs["databaseName"] = args ? args.databaseName : undefined;
+            resourceInputs["isStorageSecondaryKeyInUse"] = args ? args.isStorageSecondaryKeyInUse : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["retentionDays"] = args ? args.retentionDays : undefined;
+            resourceInputs["serverName"] = args ? args.serverName : undefined;
+            resourceInputs["state"] = args ? args.state : undefined;
+            resourceInputs["storageAccountAccessKey"] = args ? args.storageAccountAccessKey : undefined;
+            resourceInputs["storageAccountSubscriptionId"] = args ? args.storageAccountSubscriptionId : undefined;
+            resourceInputs["storageEndpoint"] = args ? args.storageEndpoint : undefined;
+            resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["auditActionsAndGroups"] = undefined /*out*/;
-            inputs["isStorageSecondaryKeyInUse"] = undefined /*out*/;
-            inputs["kind"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["retentionDays"] = undefined /*out*/;
-            inputs["state"] = undefined /*out*/;
-            inputs["storageAccountSubscriptionId"] = undefined /*out*/;
-            inputs["storageEndpoint"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["auditActionsAndGroups"] = undefined /*out*/;
+            resourceInputs["isStorageSecondaryKeyInUse"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["retentionDays"] = undefined /*out*/;
+            resourceInputs["state"] = undefined /*out*/;
+            resourceInputs["storageAccountSubscriptionId"] = undefined /*out*/;
+            resourceInputs["storageEndpoint"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:sql:DatabaseBlobAuditingPolicy" }, { type: "azure-native:sql/v20170301preview:DatabaseBlobAuditingPolicy" }, { type: "azure-native:sql/v20200202preview:DatabaseBlobAuditingPolicy" }, { type: "azure-native:sql/v20200801preview:DatabaseBlobAuditingPolicy" }, { type: "azure-native:sql/v20201101preview:DatabaseBlobAuditingPolicy" }, { type: "azure-native:sql/v20210201preview:DatabaseBlobAuditingPolicy" }, { type: "azure-native:sql/v20210501preview:DatabaseBlobAuditingPolicy" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(DatabaseBlobAuditingPolicy.__pulumiType, name, inputs, opts);
+        super(DatabaseBlobAuditingPolicy.__pulumiType, name, resourceInputs, opts);
     }
 }
 

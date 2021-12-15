@@ -100,7 +100,7 @@ export class VirtualMachineImageTemplate extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: VirtualMachineImageTemplateArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.distribute === undefined) && !opts.urn) {
@@ -115,44 +115,44 @@ export class VirtualMachineImageTemplate extends pulumi.CustomResource {
             if ((!args || args.source === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'source'");
             }
-            inputs["buildTimeoutInMinutes"] = (args ? args.buildTimeoutInMinutes : undefined) ?? 0;
-            inputs["customize"] = args ? args.customize : undefined;
-            inputs["distribute"] = args ? args.distribute : undefined;
-            inputs["identity"] = args ? args.identity : undefined;
-            inputs["imageTemplateName"] = args ? args.imageTemplateName : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["source"] = args ? args.source : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["vmProfile"] = args ? args.vmProfile : undefined;
-            inputs["lastRunStatus"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningError"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["buildTimeoutInMinutes"] = (args ? args.buildTimeoutInMinutes : undefined) ?? 0;
+            resourceInputs["customize"] = args ? args.customize : undefined;
+            resourceInputs["distribute"] = args ? args.distribute : undefined;
+            resourceInputs["identity"] = args ? args.identity : undefined;
+            resourceInputs["imageTemplateName"] = args ? args.imageTemplateName : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["source"] = args ? args.source : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["vmProfile"] = args ? (args.vmProfile ? pulumi.output(args.vmProfile).apply(inputs.virtualmachineimages.v20211001.imageTemplateVmProfileArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["lastRunStatus"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningError"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["buildTimeoutInMinutes"] = undefined /*out*/;
-            inputs["customize"] = undefined /*out*/;
-            inputs["distribute"] = undefined /*out*/;
-            inputs["identity"] = undefined /*out*/;
-            inputs["lastRunStatus"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningError"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["source"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["vmProfile"] = undefined /*out*/;
+            resourceInputs["buildTimeoutInMinutes"] = undefined /*out*/;
+            resourceInputs["customize"] = undefined /*out*/;
+            resourceInputs["distribute"] = undefined /*out*/;
+            resourceInputs["identity"] = undefined /*out*/;
+            resourceInputs["lastRunStatus"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningError"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["source"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["vmProfile"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:virtualmachineimages:VirtualMachineImageTemplate" }, { type: "azure-native:virtualmachineimages/v20180201preview:VirtualMachineImageTemplate" }, { type: "azure-native:virtualmachineimages/v20190201preview:VirtualMachineImageTemplate" }, { type: "azure-native:virtualmachineimages/v20190501preview:VirtualMachineImageTemplate" }, { type: "azure-native:virtualmachineimages/v20200214:VirtualMachineImageTemplate" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(VirtualMachineImageTemplate.__pulumiType, name, inputs, opts);
+        super(VirtualMachineImageTemplate.__pulumiType, name, resourceInputs, opts);
     }
 }
 

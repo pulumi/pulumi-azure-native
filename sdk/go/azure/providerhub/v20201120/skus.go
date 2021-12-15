@@ -105,7 +105,7 @@ type SkusInput interface {
 }
 
 func (*Skus) ElementType() reflect.Type {
-	return reflect.TypeOf((*Skus)(nil))
+	return reflect.TypeOf((**Skus)(nil)).Elem()
 }
 
 func (i *Skus) ToSkusOutput() SkusOutput {
@@ -119,7 +119,7 @@ func (i *Skus) ToSkusOutputWithContext(ctx context.Context) SkusOutput {
 type SkusOutput struct{ *pulumi.OutputState }
 
 func (SkusOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Skus)(nil))
+	return reflect.TypeOf((**Skus)(nil)).Elem()
 }
 
 func (o SkusOutput) ToSkusOutput() SkusOutput {

@@ -124,7 +124,7 @@ type SourceControlInput interface {
 }
 
 func (*SourceControl) ElementType() reflect.Type {
-	return reflect.TypeOf((*SourceControl)(nil))
+	return reflect.TypeOf((**SourceControl)(nil)).Elem()
 }
 
 func (i *SourceControl) ToSourceControlOutput() SourceControlOutput {
@@ -138,7 +138,7 @@ func (i *SourceControl) ToSourceControlOutputWithContext(ctx context.Context) So
 type SourceControlOutput struct{ *pulumi.OutputState }
 
 func (SourceControlOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SourceControl)(nil))
+	return reflect.TypeOf((**SourceControl)(nil)).Elem()
 }
 
 func (o SourceControlOutput) ToSourceControlOutput() SourceControlOutput {

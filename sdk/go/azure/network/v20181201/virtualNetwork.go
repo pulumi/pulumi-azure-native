@@ -40,10 +40,10 @@ func NewVirtualNetwork(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.EnableDdosProtection == nil {
+	if isZero(args.EnableDdosProtection) {
 		args.EnableDdosProtection = pulumi.BoolPtr(false)
 	}
-	if args.EnableVmProtection == nil {
+	if isZero(args.EnableVmProtection) {
 		args.EnableVmProtection = pulumi.BoolPtr(false)
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
@@ -246,7 +246,7 @@ type VirtualNetworkInput interface {
 }
 
 func (*VirtualNetwork) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualNetwork)(nil))
+	return reflect.TypeOf((**VirtualNetwork)(nil)).Elem()
 }
 
 func (i *VirtualNetwork) ToVirtualNetworkOutput() VirtualNetworkOutput {
@@ -260,7 +260,7 @@ func (i *VirtualNetwork) ToVirtualNetworkOutputWithContext(ctx context.Context) 
 type VirtualNetworkOutput struct{ *pulumi.OutputState }
 
 func (VirtualNetworkOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualNetwork)(nil))
+	return reflect.TypeOf((**VirtualNetwork)(nil)).Elem()
 }
 
 func (o VirtualNetworkOutput) ToVirtualNetworkOutput() VirtualNetworkOutput {

@@ -120,7 +120,7 @@ export class Topic extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: TopicArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.namespaceName === undefined) && !opts.urn) {
@@ -129,55 +129,55 @@ export class Topic extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["autoDeleteOnIdle"] = args ? args.autoDeleteOnIdle : undefined;
-            inputs["defaultMessageTimeToLive"] = args ? args.defaultMessageTimeToLive : undefined;
-            inputs["duplicateDetectionHistoryTimeWindow"] = args ? args.duplicateDetectionHistoryTimeWindow : undefined;
-            inputs["enableBatchedOperations"] = args ? args.enableBatchedOperations : undefined;
-            inputs["enableExpress"] = args ? args.enableExpress : undefined;
-            inputs["enablePartitioning"] = args ? args.enablePartitioning : undefined;
-            inputs["maxSizeInMegabytes"] = args ? args.maxSizeInMegabytes : undefined;
-            inputs["namespaceName"] = args ? args.namespaceName : undefined;
-            inputs["requiresDuplicateDetection"] = args ? args.requiresDuplicateDetection : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["status"] = args ? args.status : undefined;
-            inputs["supportOrdering"] = args ? args.supportOrdering : undefined;
-            inputs["topicName"] = args ? args.topicName : undefined;
-            inputs["accessedAt"] = undefined /*out*/;
-            inputs["countDetails"] = undefined /*out*/;
-            inputs["createdAt"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["sizeInBytes"] = undefined /*out*/;
-            inputs["subscriptionCount"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["updatedAt"] = undefined /*out*/;
+            resourceInputs["autoDeleteOnIdle"] = args ? args.autoDeleteOnIdle : undefined;
+            resourceInputs["defaultMessageTimeToLive"] = args ? args.defaultMessageTimeToLive : undefined;
+            resourceInputs["duplicateDetectionHistoryTimeWindow"] = args ? args.duplicateDetectionHistoryTimeWindow : undefined;
+            resourceInputs["enableBatchedOperations"] = args ? args.enableBatchedOperations : undefined;
+            resourceInputs["enableExpress"] = args ? args.enableExpress : undefined;
+            resourceInputs["enablePartitioning"] = args ? args.enablePartitioning : undefined;
+            resourceInputs["maxSizeInMegabytes"] = args ? args.maxSizeInMegabytes : undefined;
+            resourceInputs["namespaceName"] = args ? args.namespaceName : undefined;
+            resourceInputs["requiresDuplicateDetection"] = args ? args.requiresDuplicateDetection : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["status"] = args ? args.status : undefined;
+            resourceInputs["supportOrdering"] = args ? args.supportOrdering : undefined;
+            resourceInputs["topicName"] = args ? args.topicName : undefined;
+            resourceInputs["accessedAt"] = undefined /*out*/;
+            resourceInputs["countDetails"] = undefined /*out*/;
+            resourceInputs["createdAt"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["sizeInBytes"] = undefined /*out*/;
+            resourceInputs["subscriptionCount"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["updatedAt"] = undefined /*out*/;
         } else {
-            inputs["accessedAt"] = undefined /*out*/;
-            inputs["autoDeleteOnIdle"] = undefined /*out*/;
-            inputs["countDetails"] = undefined /*out*/;
-            inputs["createdAt"] = undefined /*out*/;
-            inputs["defaultMessageTimeToLive"] = undefined /*out*/;
-            inputs["duplicateDetectionHistoryTimeWindow"] = undefined /*out*/;
-            inputs["enableBatchedOperations"] = undefined /*out*/;
-            inputs["enableExpress"] = undefined /*out*/;
-            inputs["enablePartitioning"] = undefined /*out*/;
-            inputs["maxSizeInMegabytes"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["requiresDuplicateDetection"] = undefined /*out*/;
-            inputs["sizeInBytes"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["subscriptionCount"] = undefined /*out*/;
-            inputs["supportOrdering"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["updatedAt"] = undefined /*out*/;
+            resourceInputs["accessedAt"] = undefined /*out*/;
+            resourceInputs["autoDeleteOnIdle"] = undefined /*out*/;
+            resourceInputs["countDetails"] = undefined /*out*/;
+            resourceInputs["createdAt"] = undefined /*out*/;
+            resourceInputs["defaultMessageTimeToLive"] = undefined /*out*/;
+            resourceInputs["duplicateDetectionHistoryTimeWindow"] = undefined /*out*/;
+            resourceInputs["enableBatchedOperations"] = undefined /*out*/;
+            resourceInputs["enableExpress"] = undefined /*out*/;
+            resourceInputs["enablePartitioning"] = undefined /*out*/;
+            resourceInputs["maxSizeInMegabytes"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["requiresDuplicateDetection"] = undefined /*out*/;
+            resourceInputs["sizeInBytes"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["subscriptionCount"] = undefined /*out*/;
+            resourceInputs["supportOrdering"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["updatedAt"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:servicebus:Topic" }, { type: "azure-native:servicebus/v20140901:Topic" }, { type: "azure-native:servicebus/v20150801:Topic" }, { type: "azure-native:servicebus/v20170401:Topic" }, { type: "azure-native:servicebus/v20180101preview:Topic" }, { type: "azure-native:servicebus/v20210601preview:Topic" }, { type: "azure-native:servicebus/v20211101:Topic" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Topic.__pulumiType, name, inputs, opts);
+        super(Topic.__pulumiType, name, resourceInputs, opts);
     }
 }
 

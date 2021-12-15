@@ -166,7 +166,7 @@ type QueueInput interface {
 }
 
 func (*Queue) ElementType() reflect.Type {
-	return reflect.TypeOf((*Queue)(nil))
+	return reflect.TypeOf((**Queue)(nil)).Elem()
 }
 
 func (i *Queue) ToQueueOutput() QueueOutput {
@@ -180,7 +180,7 @@ func (i *Queue) ToQueueOutputWithContext(ctx context.Context) QueueOutput {
 type QueueOutput struct{ *pulumi.OutputState }
 
 func (QueueOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Queue)(nil))
+	return reflect.TypeOf((**Queue)(nil)).Elem()
 }
 
 func (o QueueOutput) ToQueueOutput() QueueOutput {

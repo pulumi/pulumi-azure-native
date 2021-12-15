@@ -76,39 +76,39 @@ export class BastionHost extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: BastionHostArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["bastionHostName"] = args ? args.bastionHostName : undefined;
-            inputs["dnsName"] = args ? args.dnsName : undefined;
-            inputs["id"] = args ? args.id : undefined;
-            inputs["ipConfigurations"] = args ? args.ipConfigurations : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["etag"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["bastionHostName"] = args ? args.bastionHostName : undefined;
+            resourceInputs["dnsName"] = args ? args.dnsName : undefined;
+            resourceInputs["id"] = args ? args.id : undefined;
+            resourceInputs["ipConfigurations"] = args ? args.ipConfigurations : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["dnsName"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
-            inputs["ipConfigurations"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["dnsName"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["ipConfigurations"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:network:BastionHost" }, { type: "azure-native:network/v20190401:BastionHost" }, { type: "azure-native:network/v20190601:BastionHost" }, { type: "azure-native:network/v20190701:BastionHost" }, { type: "azure-native:network/v20190801:BastionHost" }, { type: "azure-native:network/v20190901:BastionHost" }, { type: "azure-native:network/v20191101:BastionHost" }, { type: "azure-native:network/v20200301:BastionHost" }, { type: "azure-native:network/v20200401:BastionHost" }, { type: "azure-native:network/v20200501:BastionHost" }, { type: "azure-native:network/v20200601:BastionHost" }, { type: "azure-native:network/v20200701:BastionHost" }, { type: "azure-native:network/v20200801:BastionHost" }, { type: "azure-native:network/v20201101:BastionHost" }, { type: "azure-native:network/v20210201:BastionHost" }, { type: "azure-native:network/v20210301:BastionHost" }, { type: "azure-native:network/v20210501:BastionHost" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(BastionHost.__pulumiType, name, inputs, opts);
+        super(BastionHost.__pulumiType, name, resourceInputs, opts);
     }
 }
 

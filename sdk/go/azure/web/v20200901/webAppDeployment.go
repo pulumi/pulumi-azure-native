@@ -157,7 +157,7 @@ type WebAppDeploymentInput interface {
 }
 
 func (*WebAppDeployment) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAppDeployment)(nil))
+	return reflect.TypeOf((**WebAppDeployment)(nil)).Elem()
 }
 
 func (i *WebAppDeployment) ToWebAppDeploymentOutput() WebAppDeploymentOutput {
@@ -171,7 +171,7 @@ func (i *WebAppDeployment) ToWebAppDeploymentOutputWithContext(ctx context.Conte
 type WebAppDeploymentOutput struct{ *pulumi.OutputState }
 
 func (WebAppDeploymentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAppDeployment)(nil))
+	return reflect.TypeOf((**WebAppDeployment)(nil)).Elem()
 }
 
 func (o WebAppDeploymentOutput) ToWebAppDeploymentOutput() WebAppDeploymentOutput {

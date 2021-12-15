@@ -91,46 +91,46 @@ export class BillingRoleAssignmentByBillingAccount extends pulumi.CustomResource
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: BillingRoleAssignmentByBillingAccountArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.billingAccountName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'billingAccountName'");
             }
-            inputs["billingAccountName"] = args ? args.billingAccountName : undefined;
-            inputs["billingRoleAssignmentName"] = args ? args.billingRoleAssignmentName : undefined;
-            inputs["principalId"] = args ? args.principalId : undefined;
-            inputs["principalTenantId"] = args ? args.principalTenantId : undefined;
-            inputs["roleDefinitionId"] = args ? args.roleDefinitionId : undefined;
-            inputs["userAuthenticationType"] = args ? args.userAuthenticationType : undefined;
-            inputs["userEmailAddress"] = args ? args.userEmailAddress : undefined;
-            inputs["createdByPrincipalId"] = undefined /*out*/;
-            inputs["createdByPrincipalTenantId"] = undefined /*out*/;
-            inputs["createdByUserEmailAddress"] = undefined /*out*/;
-            inputs["createdOn"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["scope"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["billingAccountName"] = args ? args.billingAccountName : undefined;
+            resourceInputs["billingRoleAssignmentName"] = args ? args.billingRoleAssignmentName : undefined;
+            resourceInputs["principalId"] = args ? args.principalId : undefined;
+            resourceInputs["principalTenantId"] = args ? args.principalTenantId : undefined;
+            resourceInputs["roleDefinitionId"] = args ? args.roleDefinitionId : undefined;
+            resourceInputs["userAuthenticationType"] = args ? args.userAuthenticationType : undefined;
+            resourceInputs["userEmailAddress"] = args ? args.userEmailAddress : undefined;
+            resourceInputs["createdByPrincipalId"] = undefined /*out*/;
+            resourceInputs["createdByPrincipalTenantId"] = undefined /*out*/;
+            resourceInputs["createdByUserEmailAddress"] = undefined /*out*/;
+            resourceInputs["createdOn"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["scope"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["createdByPrincipalId"] = undefined /*out*/;
-            inputs["createdByPrincipalTenantId"] = undefined /*out*/;
-            inputs["createdByUserEmailAddress"] = undefined /*out*/;
-            inputs["createdOn"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["principalId"] = undefined /*out*/;
-            inputs["principalTenantId"] = undefined /*out*/;
-            inputs["roleDefinitionId"] = undefined /*out*/;
-            inputs["scope"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["userAuthenticationType"] = undefined /*out*/;
-            inputs["userEmailAddress"] = undefined /*out*/;
+            resourceInputs["createdByPrincipalId"] = undefined /*out*/;
+            resourceInputs["createdByPrincipalTenantId"] = undefined /*out*/;
+            resourceInputs["createdByUserEmailAddress"] = undefined /*out*/;
+            resourceInputs["createdOn"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["principalId"] = undefined /*out*/;
+            resourceInputs["principalTenantId"] = undefined /*out*/;
+            resourceInputs["roleDefinitionId"] = undefined /*out*/;
+            resourceInputs["scope"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["userAuthenticationType"] = undefined /*out*/;
+            resourceInputs["userEmailAddress"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:billing:BillingRoleAssignmentByBillingAccount" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(BillingRoleAssignmentByBillingAccount.__pulumiType, name, inputs, opts);
+        super(BillingRoleAssignmentByBillingAccount.__pulumiType, name, resourceInputs, opts);
     }
 }
 

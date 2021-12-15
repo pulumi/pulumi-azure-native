@@ -108,7 +108,7 @@ type CassandraDataCenterInput interface {
 }
 
 func (*CassandraDataCenter) ElementType() reflect.Type {
-	return reflect.TypeOf((*CassandraDataCenter)(nil))
+	return reflect.TypeOf((**CassandraDataCenter)(nil)).Elem()
 }
 
 func (i *CassandraDataCenter) ToCassandraDataCenterOutput() CassandraDataCenterOutput {
@@ -122,7 +122,7 @@ func (i *CassandraDataCenter) ToCassandraDataCenterOutputWithContext(ctx context
 type CassandraDataCenterOutput struct{ *pulumi.OutputState }
 
 func (CassandraDataCenterOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CassandraDataCenter)(nil))
+	return reflect.TypeOf((**CassandraDataCenter)(nil)).Elem()
 }
 
 func (o CassandraDataCenterOutput) ToCassandraDataCenterOutput() CassandraDataCenterOutput {

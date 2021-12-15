@@ -13,7 +13,7 @@ func ListBuildTaskSourceRepositoryProperties(ctx *pulumi.Context, args *ListBuil
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type ListBuildTaskSourceRepositoryPropertiesArgs struct {
@@ -28,4 +28,17 @@ type ListBuildTaskSourceRepositoryPropertiesResult struct {
 	RepositoryUrl               string                         `pulumi:"repositoryUrl"`
 	SourceControlAuthProperties *SourceControlAuthInfoResponse `pulumi:"sourceControlAuthProperties"`
 	SourceControlType           string                         `pulumi:"sourceControlType"`
+}
+
+
+func (val *ListBuildTaskSourceRepositoryPropertiesResult) Defaults() *ListBuildTaskSourceRepositoryPropertiesResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.IsCommitTriggerEnabled) {
+		isCommitTriggerEnabled_ := false
+		tmp.IsCommitTriggerEnabled = &isCommitTriggerEnabled_
+	}
+	return &tmp
 }

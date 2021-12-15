@@ -136,7 +136,7 @@ type WebAppMetadataSlotInput interface {
 }
 
 func (*WebAppMetadataSlot) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAppMetadataSlot)(nil))
+	return reflect.TypeOf((**WebAppMetadataSlot)(nil)).Elem()
 }
 
 func (i *WebAppMetadataSlot) ToWebAppMetadataSlotOutput() WebAppMetadataSlotOutput {
@@ -150,7 +150,7 @@ func (i *WebAppMetadataSlot) ToWebAppMetadataSlotOutputWithContext(ctx context.C
 type WebAppMetadataSlotOutput struct{ *pulumi.OutputState }
 
 func (WebAppMetadataSlotOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAppMetadataSlot)(nil))
+	return reflect.TypeOf((**WebAppMetadataSlot)(nil)).Elem()
 }
 
 func (o WebAppMetadataSlotOutput) ToWebAppMetadataSlotOutput() WebAppMetadataSlotOutput {

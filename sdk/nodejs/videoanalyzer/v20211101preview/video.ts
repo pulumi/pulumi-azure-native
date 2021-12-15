@@ -80,7 +80,7 @@ export class Video extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: VideoArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.accountName === undefined) && !opts.urn) {
@@ -89,35 +89,35 @@ export class Video extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["accountName"] = args ? args.accountName : undefined;
-            inputs["archival"] = args ? args.archival : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["mediaInfo"] = args ? args.mediaInfo : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["title"] = args ? args.title : undefined;
-            inputs["videoName"] = args ? args.videoName : undefined;
-            inputs["contentUrls"] = undefined /*out*/;
-            inputs["flags"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["accountName"] = args ? args.accountName : undefined;
+            resourceInputs["archival"] = args ? args.archival : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["mediaInfo"] = args ? args.mediaInfo : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["title"] = args ? args.title : undefined;
+            resourceInputs["videoName"] = args ? args.videoName : undefined;
+            resourceInputs["contentUrls"] = undefined /*out*/;
+            resourceInputs["flags"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["archival"] = undefined /*out*/;
-            inputs["contentUrls"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["flags"] = undefined /*out*/;
-            inputs["mediaInfo"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["title"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["archival"] = undefined /*out*/;
+            resourceInputs["contentUrls"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["flags"] = undefined /*out*/;
+            resourceInputs["mediaInfo"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["title"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:videoanalyzer:Video" }, { type: "azure-native:videoanalyzer/v20210501preview:Video" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Video.__pulumiType, name, inputs, opts);
+        super(Video.__pulumiType, name, resourceInputs, opts);
     }
 }
 

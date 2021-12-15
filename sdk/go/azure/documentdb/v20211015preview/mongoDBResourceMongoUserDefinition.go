@@ -111,7 +111,7 @@ type MongoDBResourceMongoUserDefinitionInput interface {
 }
 
 func (*MongoDBResourceMongoUserDefinition) ElementType() reflect.Type {
-	return reflect.TypeOf((*MongoDBResourceMongoUserDefinition)(nil))
+	return reflect.TypeOf((**MongoDBResourceMongoUserDefinition)(nil)).Elem()
 }
 
 func (i *MongoDBResourceMongoUserDefinition) ToMongoDBResourceMongoUserDefinitionOutput() MongoDBResourceMongoUserDefinitionOutput {
@@ -125,7 +125,7 @@ func (i *MongoDBResourceMongoUserDefinition) ToMongoDBResourceMongoUserDefinitio
 type MongoDBResourceMongoUserDefinitionOutput struct{ *pulumi.OutputState }
 
 func (MongoDBResourceMongoUserDefinitionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MongoDBResourceMongoUserDefinition)(nil))
+	return reflect.TypeOf((**MongoDBResourceMongoUserDefinition)(nil)).Elem()
 }
 
 func (o MongoDBResourceMongoUserDefinitionOutput) ToMongoDBResourceMongoUserDefinitionOutput() MongoDBResourceMongoUserDefinitionOutput {

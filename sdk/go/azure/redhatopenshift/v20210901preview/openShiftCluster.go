@@ -125,7 +125,7 @@ type OpenShiftClusterInput interface {
 }
 
 func (*OpenShiftCluster) ElementType() reflect.Type {
-	return reflect.TypeOf((*OpenShiftCluster)(nil))
+	return reflect.TypeOf((**OpenShiftCluster)(nil)).Elem()
 }
 
 func (i *OpenShiftCluster) ToOpenShiftClusterOutput() OpenShiftClusterOutput {
@@ -139,7 +139,7 @@ func (i *OpenShiftCluster) ToOpenShiftClusterOutputWithContext(ctx context.Conte
 type OpenShiftClusterOutput struct{ *pulumi.OutputState }
 
 func (OpenShiftClusterOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*OpenShiftCluster)(nil))
+	return reflect.TypeOf((**OpenShiftCluster)(nil)).Elem()
 }
 
 func (o OpenShiftClusterOutput) ToOpenShiftClusterOutput() OpenShiftClusterOutput {

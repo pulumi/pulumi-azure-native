@@ -129,7 +129,7 @@ type StorageTargetInput interface {
 }
 
 func (*StorageTarget) ElementType() reflect.Type {
-	return reflect.TypeOf((*StorageTarget)(nil))
+	return reflect.TypeOf((**StorageTarget)(nil)).Elem()
 }
 
 func (i *StorageTarget) ToStorageTargetOutput() StorageTargetOutput {
@@ -143,7 +143,7 @@ func (i *StorageTarget) ToStorageTargetOutputWithContext(ctx context.Context) St
 type StorageTargetOutput struct{ *pulumi.OutputState }
 
 func (StorageTargetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StorageTarget)(nil))
+	return reflect.TypeOf((**StorageTarget)(nil)).Elem()
 }
 
 func (o StorageTargetOutput) ToStorageTargetOutput() StorageTargetOutput {

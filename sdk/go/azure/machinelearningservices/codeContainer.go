@@ -100,7 +100,7 @@ type CodeContainerInput interface {
 }
 
 func (*CodeContainer) ElementType() reflect.Type {
-	return reflect.TypeOf((*CodeContainer)(nil))
+	return reflect.TypeOf((**CodeContainer)(nil)).Elem()
 }
 
 func (i *CodeContainer) ToCodeContainerOutput() CodeContainerOutput {
@@ -114,7 +114,7 @@ func (i *CodeContainer) ToCodeContainerOutputWithContext(ctx context.Context) Co
 type CodeContainerOutput struct{ *pulumi.OutputState }
 
 func (CodeContainerOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CodeContainer)(nil))
+	return reflect.TypeOf((**CodeContainer)(nil)).Elem()
 }
 
 func (o CodeContainerOutput) ToCodeContainerOutput() CodeContainerOutput {

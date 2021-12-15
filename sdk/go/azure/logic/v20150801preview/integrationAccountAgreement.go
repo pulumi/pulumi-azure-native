@@ -137,7 +137,7 @@ type IntegrationAccountAgreementInput interface {
 }
 
 func (*IntegrationAccountAgreement) ElementType() reflect.Type {
-	return reflect.TypeOf((*IntegrationAccountAgreement)(nil))
+	return reflect.TypeOf((**IntegrationAccountAgreement)(nil)).Elem()
 }
 
 func (i *IntegrationAccountAgreement) ToIntegrationAccountAgreementOutput() IntegrationAccountAgreementOutput {
@@ -151,7 +151,7 @@ func (i *IntegrationAccountAgreement) ToIntegrationAccountAgreementOutputWithCon
 type IntegrationAccountAgreementOutput struct{ *pulumi.OutputState }
 
 func (IntegrationAccountAgreementOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IntegrationAccountAgreement)(nil))
+	return reflect.TypeOf((**IntegrationAccountAgreement)(nil)).Elem()
 }
 
 func (o IntegrationAccountAgreementOutput) ToIntegrationAccountAgreementOutput() IntegrationAccountAgreementOutput {

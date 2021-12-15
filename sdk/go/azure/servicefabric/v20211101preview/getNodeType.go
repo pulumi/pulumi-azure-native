@@ -13,7 +13,7 @@ func LookupNodeType(ctx *pulumi.Context, args *LookupNodeTypeArgs, opts ...pulum
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupNodeTypeArgs struct {
@@ -57,4 +57,25 @@ type LookupNodeTypeResult struct {
 	VmManagedIdentity            *VmManagedIdentityResponse        `pulumi:"vmManagedIdentity"`
 	VmSecrets                    []VaultSecretGroupResponse        `pulumi:"vmSecrets"`
 	VmSize                       *string                           `pulumi:"vmSize"`
+}
+
+
+func (val *LookupNodeTypeResult) Defaults() *LookupNodeTypeResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.EnableEncryptionAtHost) {
+		enableEncryptionAtHost_ := false
+		tmp.EnableEncryptionAtHost = &enableEncryptionAtHost_
+	}
+	if isZero(tmp.IsStateless) {
+		isStateless_ := false
+		tmp.IsStateless = &isStateless_
+	}
+	if isZero(tmp.MultiplePlacementGroups) {
+		multiplePlacementGroups_ := false
+		tmp.MultiplePlacementGroups = &multiplePlacementGroups_
+	}
+	return &tmp
 }

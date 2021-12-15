@@ -112,56 +112,56 @@ export class Project extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ProjectArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["customerWorkspaceId"] = args ? args.customerWorkspaceId : undefined;
-            inputs["customerWorkspaceLocation"] = args ? args.customerWorkspaceLocation : undefined;
-            inputs["eTag"] = args ? args.eTag : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["projectName"] = args ? args.projectName : undefined;
-            inputs["provisioningState"] = args ? args.provisioningState : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["createdTimestamp"] = undefined /*out*/;
-            inputs["discoveryStatus"] = undefined /*out*/;
-            inputs["lastAssessmentTimestamp"] = undefined /*out*/;
-            inputs["lastDiscoverySessionId"] = undefined /*out*/;
-            inputs["lastDiscoveryTimestamp"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["numberOfAssessments"] = undefined /*out*/;
-            inputs["numberOfGroups"] = undefined /*out*/;
-            inputs["numberOfMachines"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["updatedTimestamp"] = undefined /*out*/;
+            resourceInputs["customerWorkspaceId"] = args ? args.customerWorkspaceId : undefined;
+            resourceInputs["customerWorkspaceLocation"] = args ? args.customerWorkspaceLocation : undefined;
+            resourceInputs["eTag"] = args ? args.eTag : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["projectName"] = args ? args.projectName : undefined;
+            resourceInputs["provisioningState"] = args ? args.provisioningState : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["createdTimestamp"] = undefined /*out*/;
+            resourceInputs["discoveryStatus"] = undefined /*out*/;
+            resourceInputs["lastAssessmentTimestamp"] = undefined /*out*/;
+            resourceInputs["lastDiscoverySessionId"] = undefined /*out*/;
+            resourceInputs["lastDiscoveryTimestamp"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["numberOfAssessments"] = undefined /*out*/;
+            resourceInputs["numberOfGroups"] = undefined /*out*/;
+            resourceInputs["numberOfMachines"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["updatedTimestamp"] = undefined /*out*/;
         } else {
-            inputs["createdTimestamp"] = undefined /*out*/;
-            inputs["customerWorkspaceId"] = undefined /*out*/;
-            inputs["customerWorkspaceLocation"] = undefined /*out*/;
-            inputs["discoveryStatus"] = undefined /*out*/;
-            inputs["eTag"] = undefined /*out*/;
-            inputs["lastAssessmentTimestamp"] = undefined /*out*/;
-            inputs["lastDiscoverySessionId"] = undefined /*out*/;
-            inputs["lastDiscoveryTimestamp"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["numberOfAssessments"] = undefined /*out*/;
-            inputs["numberOfGroups"] = undefined /*out*/;
-            inputs["numberOfMachines"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["updatedTimestamp"] = undefined /*out*/;
+            resourceInputs["createdTimestamp"] = undefined /*out*/;
+            resourceInputs["customerWorkspaceId"] = undefined /*out*/;
+            resourceInputs["customerWorkspaceLocation"] = undefined /*out*/;
+            resourceInputs["discoveryStatus"] = undefined /*out*/;
+            resourceInputs["eTag"] = undefined /*out*/;
+            resourceInputs["lastAssessmentTimestamp"] = undefined /*out*/;
+            resourceInputs["lastDiscoverySessionId"] = undefined /*out*/;
+            resourceInputs["lastDiscoveryTimestamp"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["numberOfAssessments"] = undefined /*out*/;
+            resourceInputs["numberOfGroups"] = undefined /*out*/;
+            resourceInputs["numberOfMachines"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["updatedTimestamp"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:migrate/v20171111preview:Project" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Project.__pulumiType, name, inputs, opts);
+        super(Project.__pulumiType, name, resourceInputs, opts);
     }
 }
 

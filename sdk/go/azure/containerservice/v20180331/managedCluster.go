@@ -42,6 +42,10 @@ func NewManagedCluster(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
+	networkProfileApplier := func(v ContainerServiceNetworkProfile) *ContainerServiceNetworkProfile { return v.Defaults() }
+	if args.NetworkProfile != nil {
+		args.NetworkProfile = args.NetworkProfile.ToContainerServiceNetworkProfilePtrOutput().Elem().ApplyT(networkProfileApplier).(ContainerServiceNetworkProfilePtrOutput)
+	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-native:containerservice:ManagedCluster"),
@@ -196,7 +200,7 @@ type ManagedClusterInput interface {
 }
 
 func (*ManagedCluster) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagedCluster)(nil))
+	return reflect.TypeOf((**ManagedCluster)(nil)).Elem()
 }
 
 func (i *ManagedCluster) ToManagedClusterOutput() ManagedClusterOutput {
@@ -210,7 +214,7 @@ func (i *ManagedCluster) ToManagedClusterOutputWithContext(ctx context.Context) 
 type ManagedClusterOutput struct{ *pulumi.OutputState }
 
 func (ManagedClusterOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagedCluster)(nil))
+	return reflect.TypeOf((**ManagedCluster)(nil)).Elem()
 }
 
 func (o ManagedClusterOutput) ToManagedClusterOutput() ManagedClusterOutput {

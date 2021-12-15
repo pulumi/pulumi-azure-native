@@ -117,6 +117,19 @@ type AddStorageAccountWithAccountParameters struct {
 }
 
 
+func (val *AddStorageAccountWithAccountParameters) Defaults() *AddStorageAccountWithAccountParameters {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Suffix) {
+		suffix_ := "azuredatalakestore.net"
+		tmp.Suffix = &suffix_
+	}
+	return &tmp
+}
+
+
 
 
 

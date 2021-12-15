@@ -116,7 +116,7 @@ type NotificationHubAuthorizationRuleInput interface {
 }
 
 func (*NotificationHubAuthorizationRule) ElementType() reflect.Type {
-	return reflect.TypeOf((*NotificationHubAuthorizationRule)(nil))
+	return reflect.TypeOf((**NotificationHubAuthorizationRule)(nil)).Elem()
 }
 
 func (i *NotificationHubAuthorizationRule) ToNotificationHubAuthorizationRuleOutput() NotificationHubAuthorizationRuleOutput {
@@ -130,7 +130,7 @@ func (i *NotificationHubAuthorizationRule) ToNotificationHubAuthorizationRuleOut
 type NotificationHubAuthorizationRuleOutput struct{ *pulumi.OutputState }
 
 func (NotificationHubAuthorizationRuleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NotificationHubAuthorizationRule)(nil))
+	return reflect.TypeOf((**NotificationHubAuthorizationRule)(nil)).Elem()
 }
 
 func (o NotificationHubAuthorizationRuleOutput) ToNotificationHubAuthorizationRuleOutput() NotificationHubAuthorizationRuleOutput {

@@ -100,7 +100,7 @@ type GuestDiagnosticsSettingsAssociationInput interface {
 }
 
 func (*GuestDiagnosticsSettingsAssociation) ElementType() reflect.Type {
-	return reflect.TypeOf((*GuestDiagnosticsSettingsAssociation)(nil))
+	return reflect.TypeOf((**GuestDiagnosticsSettingsAssociation)(nil)).Elem()
 }
 
 func (i *GuestDiagnosticsSettingsAssociation) ToGuestDiagnosticsSettingsAssociationOutput() GuestDiagnosticsSettingsAssociationOutput {
@@ -114,7 +114,7 @@ func (i *GuestDiagnosticsSettingsAssociation) ToGuestDiagnosticsSettingsAssociat
 type GuestDiagnosticsSettingsAssociationOutput struct{ *pulumi.OutputState }
 
 func (GuestDiagnosticsSettingsAssociationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GuestDiagnosticsSettingsAssociation)(nil))
+	return reflect.TypeOf((**GuestDiagnosticsSettingsAssociation)(nil)).Elem()
 }
 
 func (o GuestDiagnosticsSettingsAssociationOutput) ToGuestDiagnosticsSettingsAssociationOutput() GuestDiagnosticsSettingsAssociationOutput {

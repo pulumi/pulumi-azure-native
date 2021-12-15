@@ -13,7 +13,7 @@ func LookupAndroidMAMPolicyByName(ctx *pulumi.Context, args *LookupAndroidMAMPol
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupAndroidMAMPolicyByNameArgs struct {
@@ -49,4 +49,60 @@ type LookupAndroidMAMPolicyByNameResult struct {
 	ScreenCapture               *string           `pulumi:"screenCapture"`
 	Tags                        map[string]string `pulumi:"tags"`
 	Type                        string            `pulumi:"type"`
+}
+
+
+func (val *LookupAndroidMAMPolicyByNameResult) Defaults() *LookupAndroidMAMPolicyByNameResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.AppSharingFromLevel) {
+		appSharingFromLevel_ := "none"
+		tmp.AppSharingFromLevel = &appSharingFromLevel_
+	}
+	if isZero(tmp.AppSharingToLevel) {
+		appSharingToLevel_ := "none"
+		tmp.AppSharingToLevel = &appSharingToLevel_
+	}
+	if isZero(tmp.Authentication) {
+		authentication_ := "required"
+		tmp.Authentication = &authentication_
+	}
+	if isZero(tmp.ClipboardSharingLevel) {
+		clipboardSharingLevel_ := "blocked"
+		tmp.ClipboardSharingLevel = &clipboardSharingLevel_
+	}
+	if isZero(tmp.DataBackup) {
+		dataBackup_ := "allow"
+		tmp.DataBackup = &dataBackup_
+	}
+	if isZero(tmp.DeviceCompliance) {
+		deviceCompliance_ := "enable"
+		tmp.DeviceCompliance = &deviceCompliance_
+	}
+	if isZero(tmp.FileEncryption) {
+		fileEncryption_ := "required"
+		tmp.FileEncryption = &fileEncryption_
+	}
+	if isZero(tmp.FileSharingSaveAs) {
+		fileSharingSaveAs_ := "allow"
+		tmp.FileSharingSaveAs = &fileSharingSaveAs_
+	}
+	if isZero(tmp.GroupStatus) {
+		tmp.GroupStatus = "notTargeted"
+	}
+	if isZero(tmp.ManagedBrowser) {
+		managedBrowser_ := "required"
+		tmp.ManagedBrowser = &managedBrowser_
+	}
+	if isZero(tmp.Pin) {
+		pin_ := "required"
+		tmp.Pin = &pin_
+	}
+	if isZero(tmp.ScreenCapture) {
+		screenCapture_ := "allow"
+		tmp.ScreenCapture = &screenCapture_
+	}
+	return &tmp
 }

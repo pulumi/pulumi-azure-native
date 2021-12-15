@@ -52,19 +52,19 @@ func NewComponent(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.ApplicationType == nil {
+	if isZero(args.ApplicationType) {
 		args.ApplicationType = pulumi.String("web")
 	}
-	if args.FlowType == nil {
+	if isZero(args.FlowType) {
 		args.FlowType = pulumi.StringPtr("Bluefield")
 	}
-	if args.IngestionMode == nil {
+	if isZero(args.IngestionMode) {
 		args.IngestionMode = pulumi.StringPtr("ApplicationInsights")
 	}
-	if args.RequestSource == nil {
+	if isZero(args.RequestSource) {
 		args.RequestSource = pulumi.StringPtr("rest")
 	}
-	if args.RetentionInDays == nil {
+	if isZero(args.RetentionInDays) {
 		args.RetentionInDays = pulumi.IntPtr(90)
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
@@ -160,7 +160,7 @@ type ComponentInput interface {
 }
 
 func (*Component) ElementType() reflect.Type {
-	return reflect.TypeOf((*Component)(nil))
+	return reflect.TypeOf((**Component)(nil)).Elem()
 }
 
 func (i *Component) ToComponentOutput() ComponentOutput {
@@ -174,7 +174,7 @@ func (i *Component) ToComponentOutputWithContext(ctx context.Context) ComponentO
 type ComponentOutput struct{ *pulumi.OutputState }
 
 func (ComponentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Component)(nil))
+	return reflect.TypeOf((**Component)(nil)).Elem()
 }
 
 func (o ComponentOutput) ToComponentOutput() ComponentOutput {

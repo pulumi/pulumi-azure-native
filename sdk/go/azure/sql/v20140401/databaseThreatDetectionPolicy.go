@@ -146,7 +146,7 @@ type DatabaseThreatDetectionPolicyInput interface {
 }
 
 func (*DatabaseThreatDetectionPolicy) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatabaseThreatDetectionPolicy)(nil))
+	return reflect.TypeOf((**DatabaseThreatDetectionPolicy)(nil)).Elem()
 }
 
 func (i *DatabaseThreatDetectionPolicy) ToDatabaseThreatDetectionPolicyOutput() DatabaseThreatDetectionPolicyOutput {
@@ -160,7 +160,7 @@ func (i *DatabaseThreatDetectionPolicy) ToDatabaseThreatDetectionPolicyOutputWit
 type DatabaseThreatDetectionPolicyOutput struct{ *pulumi.OutputState }
 
 func (DatabaseThreatDetectionPolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatabaseThreatDetectionPolicy)(nil))
+	return reflect.TypeOf((**DatabaseThreatDetectionPolicy)(nil)).Elem()
 }
 
 func (o DatabaseThreatDetectionPolicyOutput) ToDatabaseThreatDetectionPolicyOutput() DatabaseThreatDetectionPolicyOutput {

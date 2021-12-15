@@ -98,7 +98,7 @@ type WorkspaceCollectionInput interface {
 }
 
 func (*WorkspaceCollection) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkspaceCollection)(nil))
+	return reflect.TypeOf((**WorkspaceCollection)(nil)).Elem()
 }
 
 func (i *WorkspaceCollection) ToWorkspaceCollectionOutput() WorkspaceCollectionOutput {
@@ -112,7 +112,7 @@ func (i *WorkspaceCollection) ToWorkspaceCollectionOutputWithContext(ctx context
 type WorkspaceCollectionOutput struct{ *pulumi.OutputState }
 
 func (WorkspaceCollectionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkspaceCollection)(nil))
+	return reflect.TypeOf((**WorkspaceCollection)(nil)).Elem()
 }
 
 func (o WorkspaceCollectionOutput) ToWorkspaceCollectionOutput() WorkspaceCollectionOutput {

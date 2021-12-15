@@ -166,82 +166,82 @@ export class VirtualMachine extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: VirtualMachineArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["extendedLocation"] = args ? args.extendedLocation : undefined;
-            inputs["firmwareType"] = args ? args.firmwareType : undefined;
-            inputs["hardwareProfile"] = args ? args.hardwareProfile : undefined;
-            inputs["identity"] = args ? args.identity : undefined;
-            inputs["inventoryItemId"] = args ? args.inventoryItemId : undefined;
-            inputs["kind"] = args ? args.kind : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["moRefId"] = args ? args.moRefId : undefined;
-            inputs["networkProfile"] = args ? args.networkProfile : undefined;
-            inputs["osProfile"] = args ? args.osProfile : undefined;
-            inputs["placementProfile"] = args ? args.placementProfile : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["resourcePoolId"] = args ? args.resourcePoolId : undefined;
-            inputs["smbiosUuid"] = args ? args.smbiosUuid : undefined;
-            inputs["storageProfile"] = args ? args.storageProfile : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["templateId"] = args ? args.templateId : undefined;
-            inputs["vCenterId"] = args ? args.vCenterId : undefined;
-            inputs["virtualMachineName"] = args ? args.virtualMachineName : undefined;
-            inputs["customResourceName"] = undefined /*out*/;
-            inputs["folderPath"] = undefined /*out*/;
-            inputs["guestAgentProfile"] = undefined /*out*/;
-            inputs["instanceUuid"] = undefined /*out*/;
-            inputs["moName"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["powerState"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["statuses"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["uuid"] = undefined /*out*/;
-            inputs["vmId"] = undefined /*out*/;
+            resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
+            resourceInputs["firmwareType"] = args ? args.firmwareType : undefined;
+            resourceInputs["hardwareProfile"] = args ? args.hardwareProfile : undefined;
+            resourceInputs["identity"] = args ? args.identity : undefined;
+            resourceInputs["inventoryItemId"] = args ? args.inventoryItemId : undefined;
+            resourceInputs["kind"] = args ? args.kind : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["moRefId"] = args ? args.moRefId : undefined;
+            resourceInputs["networkProfile"] = args ? args.networkProfile : undefined;
+            resourceInputs["osProfile"] = args ? args.osProfile : undefined;
+            resourceInputs["placementProfile"] = args ? args.placementProfile : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["resourcePoolId"] = args ? args.resourcePoolId : undefined;
+            resourceInputs["smbiosUuid"] = args ? args.smbiosUuid : undefined;
+            resourceInputs["storageProfile"] = args ? args.storageProfile : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["templateId"] = args ? args.templateId : undefined;
+            resourceInputs["vCenterId"] = args ? args.vCenterId : undefined;
+            resourceInputs["virtualMachineName"] = args ? args.virtualMachineName : undefined;
+            resourceInputs["customResourceName"] = undefined /*out*/;
+            resourceInputs["folderPath"] = undefined /*out*/;
+            resourceInputs["guestAgentProfile"] = undefined /*out*/;
+            resourceInputs["instanceUuid"] = undefined /*out*/;
+            resourceInputs["moName"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["powerState"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["statuses"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["uuid"] = undefined /*out*/;
+            resourceInputs["vmId"] = undefined /*out*/;
         } else {
-            inputs["customResourceName"] = undefined /*out*/;
-            inputs["extendedLocation"] = undefined /*out*/;
-            inputs["firmwareType"] = undefined /*out*/;
-            inputs["folderPath"] = undefined /*out*/;
-            inputs["guestAgentProfile"] = undefined /*out*/;
-            inputs["hardwareProfile"] = undefined /*out*/;
-            inputs["identity"] = undefined /*out*/;
-            inputs["instanceUuid"] = undefined /*out*/;
-            inputs["inventoryItemId"] = undefined /*out*/;
-            inputs["kind"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["moName"] = undefined /*out*/;
-            inputs["moRefId"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["networkProfile"] = undefined /*out*/;
-            inputs["osProfile"] = undefined /*out*/;
-            inputs["placementProfile"] = undefined /*out*/;
-            inputs["powerState"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["resourcePoolId"] = undefined /*out*/;
-            inputs["smbiosUuid"] = undefined /*out*/;
-            inputs["statuses"] = undefined /*out*/;
-            inputs["storageProfile"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["templateId"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["uuid"] = undefined /*out*/;
-            inputs["vCenterId"] = undefined /*out*/;
-            inputs["vmId"] = undefined /*out*/;
+            resourceInputs["customResourceName"] = undefined /*out*/;
+            resourceInputs["extendedLocation"] = undefined /*out*/;
+            resourceInputs["firmwareType"] = undefined /*out*/;
+            resourceInputs["folderPath"] = undefined /*out*/;
+            resourceInputs["guestAgentProfile"] = undefined /*out*/;
+            resourceInputs["hardwareProfile"] = undefined /*out*/;
+            resourceInputs["identity"] = undefined /*out*/;
+            resourceInputs["instanceUuid"] = undefined /*out*/;
+            resourceInputs["inventoryItemId"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["moName"] = undefined /*out*/;
+            resourceInputs["moRefId"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["networkProfile"] = undefined /*out*/;
+            resourceInputs["osProfile"] = undefined /*out*/;
+            resourceInputs["placementProfile"] = undefined /*out*/;
+            resourceInputs["powerState"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["resourcePoolId"] = undefined /*out*/;
+            resourceInputs["smbiosUuid"] = undefined /*out*/;
+            resourceInputs["statuses"] = undefined /*out*/;
+            resourceInputs["storageProfile"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["templateId"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["uuid"] = undefined /*out*/;
+            resourceInputs["vCenterId"] = undefined /*out*/;
+            resourceInputs["vmId"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:connectedvmwarevsphere/v20201001preview:VirtualMachine" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(VirtualMachine.__pulumiType, name, inputs, opts);
+        super(VirtualMachine.__pulumiType, name, resourceInputs, opts);
     }
 }
 

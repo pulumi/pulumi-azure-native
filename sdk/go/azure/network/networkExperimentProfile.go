@@ -103,7 +103,7 @@ type NetworkExperimentProfileInput interface {
 }
 
 func (*NetworkExperimentProfile) ElementType() reflect.Type {
-	return reflect.TypeOf((*NetworkExperimentProfile)(nil))
+	return reflect.TypeOf((**NetworkExperimentProfile)(nil)).Elem()
 }
 
 func (i *NetworkExperimentProfile) ToNetworkExperimentProfileOutput() NetworkExperimentProfileOutput {
@@ -117,7 +117,7 @@ func (i *NetworkExperimentProfile) ToNetworkExperimentProfileOutputWithContext(c
 type NetworkExperimentProfileOutput struct{ *pulumi.OutputState }
 
 func (NetworkExperimentProfileOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NetworkExperimentProfile)(nil))
+	return reflect.TypeOf((**NetworkExperimentProfile)(nil)).Elem()
 }
 
 func (o NetworkExperimentProfileOutput) ToNetworkExperimentProfileOutput() NetworkExperimentProfileOutput {

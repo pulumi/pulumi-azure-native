@@ -101,7 +101,7 @@ export class EnvironmentSetting extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: EnvironmentSettingArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.labAccountName === undefined) && !opts.urn) {
@@ -116,46 +116,46 @@ export class EnvironmentSetting extends pulumi.CustomResource {
             if ((!args || args.resourceSettings === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceSettings'");
             }
-            inputs["configurationState"] = args ? args.configurationState : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["environmentSettingName"] = args ? args.environmentSettingName : undefined;
-            inputs["labAccountName"] = args ? args.labAccountName : undefined;
-            inputs["labName"] = args ? args.labName : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["provisioningState"] = args ? args.provisioningState : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["resourceSettings"] = args ? args.resourceSettings : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["title"] = args ? args.title : undefined;
-            inputs["uniqueIdentifier"] = args ? args.uniqueIdentifier : undefined;
-            inputs["lastChanged"] = undefined /*out*/;
-            inputs["lastPublished"] = undefined /*out*/;
-            inputs["latestOperationResult"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["publishingState"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["configurationState"] = args ? args.configurationState : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["environmentSettingName"] = args ? args.environmentSettingName : undefined;
+            resourceInputs["labAccountName"] = args ? args.labAccountName : undefined;
+            resourceInputs["labName"] = args ? args.labName : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["provisioningState"] = args ? args.provisioningState : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["resourceSettings"] = args ? args.resourceSettings : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["title"] = args ? args.title : undefined;
+            resourceInputs["uniqueIdentifier"] = args ? args.uniqueIdentifier : undefined;
+            resourceInputs["lastChanged"] = undefined /*out*/;
+            resourceInputs["lastPublished"] = undefined /*out*/;
+            resourceInputs["latestOperationResult"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["publishingState"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["configurationState"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["lastChanged"] = undefined /*out*/;
-            inputs["lastPublished"] = undefined /*out*/;
-            inputs["latestOperationResult"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["publishingState"] = undefined /*out*/;
-            inputs["resourceSettings"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["title"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["uniqueIdentifier"] = undefined /*out*/;
+            resourceInputs["configurationState"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["lastChanged"] = undefined /*out*/;
+            resourceInputs["lastPublished"] = undefined /*out*/;
+            resourceInputs["latestOperationResult"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["publishingState"] = undefined /*out*/;
+            resourceInputs["resourceSettings"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["title"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["uniqueIdentifier"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:labservices/v20181015:EnvironmentSetting" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(EnvironmentSetting.__pulumiType, name, inputs, opts);
+        super(EnvironmentSetting.__pulumiType, name, resourceInputs, opts);
     }
 }
 

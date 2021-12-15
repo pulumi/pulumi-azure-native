@@ -63,7 +63,7 @@ export class Channel extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ChannelArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.accountName === undefined) && !opts.urn) {
@@ -75,27 +75,27 @@ export class Channel extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["accountName"] = args ? args.accountName : undefined;
-            inputs["channelFunctions"] = args ? args.channelFunctions : undefined;
-            inputs["channelName"] = args ? args.channelName : undefined;
-            inputs["channelType"] = args ? args.channelType : undefined;
-            inputs["credentials"] = args ? args.credentials : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["accountName"] = args ? args.accountName : undefined;
+            resourceInputs["channelFunctions"] = args ? args.channelFunctions : undefined;
+            resourceInputs["channelName"] = args ? args.channelName : undefined;
+            resourceInputs["channelType"] = args ? args.channelType : undefined;
+            resourceInputs["credentials"] = args ? args.credentials : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["channelFunctions"] = undefined /*out*/;
-            inputs["channelType"] = undefined /*out*/;
-            inputs["credentials"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["channelFunctions"] = undefined /*out*/;
+            resourceInputs["channelType"] = undefined /*out*/;
+            resourceInputs["credentials"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:engagementfabric:Channel" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Channel.__pulumiType, name, inputs, opts);
+        super(Channel.__pulumiType, name, resourceInputs, opts);
     }
 }
 

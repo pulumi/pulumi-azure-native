@@ -61,7 +61,7 @@ export class ReplicationFabric extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ReplicationFabricArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
@@ -70,25 +70,25 @@ export class ReplicationFabric extends pulumi.CustomResource {
             if ((!args || args.resourceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceName'");
             }
-            inputs["fabricName"] = args ? args.fabricName : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["resourceName"] = args ? args.resourceName : undefined;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["fabricName"] = args ? args.fabricName : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["resourceName"] = args ? args.resourceName : undefined;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:recoveryservices/v20160810:ReplicationFabric" }, { type: "azure-native:recoveryservices/v20180110:ReplicationFabric" }, { type: "azure-native:recoveryservices/v20180710:ReplicationFabric" }, { type: "azure-native:recoveryservices/v20210210:ReplicationFabric" }, { type: "azure-native:recoveryservices/v20210301:ReplicationFabric" }, { type: "azure-native:recoveryservices/v20210401:ReplicationFabric" }, { type: "azure-native:recoveryservices/v20210601:ReplicationFabric" }, { type: "azure-native:recoveryservices/v20210701:ReplicationFabric" }, { type: "azure-native:recoveryservices/v20210801:ReplicationFabric" }, { type: "azure-native:recoveryservices/v20211001:ReplicationFabric" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(ReplicationFabric.__pulumiType, name, inputs, opts);
+        super(ReplicationFabric.__pulumiType, name, resourceInputs, opts);
     }
 }
 

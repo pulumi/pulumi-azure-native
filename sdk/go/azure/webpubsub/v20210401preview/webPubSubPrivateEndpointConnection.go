@@ -110,7 +110,7 @@ type WebPubSubPrivateEndpointConnectionInput interface {
 }
 
 func (*WebPubSubPrivateEndpointConnection) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebPubSubPrivateEndpointConnection)(nil))
+	return reflect.TypeOf((**WebPubSubPrivateEndpointConnection)(nil)).Elem()
 }
 
 func (i *WebPubSubPrivateEndpointConnection) ToWebPubSubPrivateEndpointConnectionOutput() WebPubSubPrivateEndpointConnectionOutput {
@@ -124,7 +124,7 @@ func (i *WebPubSubPrivateEndpointConnection) ToWebPubSubPrivateEndpointConnectio
 type WebPubSubPrivateEndpointConnectionOutput struct{ *pulumi.OutputState }
 
 func (WebPubSubPrivateEndpointConnectionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebPubSubPrivateEndpointConnection)(nil))
+	return reflect.TypeOf((**WebPubSubPrivateEndpointConnection)(nil)).Elem()
 }
 
 func (o WebPubSubPrivateEndpointConnectionOutput) ToWebPubSubPrivateEndpointConnectionOutput() WebPubSubPrivateEndpointConnectionOutput {

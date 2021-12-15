@@ -129,7 +129,7 @@ type NotificationRecipientUserInput interface {
 }
 
 func (*NotificationRecipientUser) ElementType() reflect.Type {
-	return reflect.TypeOf((*NotificationRecipientUser)(nil))
+	return reflect.TypeOf((**NotificationRecipientUser)(nil)).Elem()
 }
 
 func (i *NotificationRecipientUser) ToNotificationRecipientUserOutput() NotificationRecipientUserOutput {
@@ -143,7 +143,7 @@ func (i *NotificationRecipientUser) ToNotificationRecipientUserOutputWithContext
 type NotificationRecipientUserOutput struct{ *pulumi.OutputState }
 
 func (NotificationRecipientUserOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NotificationRecipientUser)(nil))
+	return reflect.TypeOf((**NotificationRecipientUser)(nil)).Elem()
 }
 
 func (o NotificationRecipientUserOutput) ToNotificationRecipientUserOutput() NotificationRecipientUserOutput {

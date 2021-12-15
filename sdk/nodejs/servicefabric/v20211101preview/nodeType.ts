@@ -172,7 +172,7 @@ export class NodeType extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: NodeTypeArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.clusterName === undefined) && !opts.urn) {
@@ -187,81 +187,81 @@ export class NodeType extends pulumi.CustomResource {
             if ((!args || args.vmInstanceCount === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vmInstanceCount'");
             }
-            inputs["additionalDataDisks"] = args ? args.additionalDataDisks : undefined;
-            inputs["applicationPorts"] = args ? args.applicationPorts : undefined;
-            inputs["capacities"] = args ? args.capacities : undefined;
-            inputs["clusterName"] = args ? args.clusterName : undefined;
-            inputs["dataDiskLetter"] = args ? args.dataDiskLetter : undefined;
-            inputs["dataDiskSizeGB"] = args ? args.dataDiskSizeGB : undefined;
-            inputs["dataDiskType"] = args ? args.dataDiskType : undefined;
-            inputs["enableAcceleratedNetworking"] = args ? args.enableAcceleratedNetworking : undefined;
-            inputs["enableEncryptionAtHost"] = (args ? args.enableEncryptionAtHost : undefined) ?? false;
-            inputs["ephemeralPorts"] = args ? args.ephemeralPorts : undefined;
-            inputs["frontendConfigurations"] = args ? args.frontendConfigurations : undefined;
-            inputs["isPrimary"] = args ? args.isPrimary : undefined;
-            inputs["isStateless"] = (args ? args.isStateless : undefined) ?? false;
-            inputs["multiplePlacementGroups"] = (args ? args.multiplePlacementGroups : undefined) ?? false;
-            inputs["networkSecurityRules"] = args ? args.networkSecurityRules : undefined;
-            inputs["nodeTypeName"] = args ? args.nodeTypeName : undefined;
-            inputs["placementProperties"] = args ? args.placementProperties : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["sku"] = args ? args.sku : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["useDefaultPublicLoadBalancer"] = args ? args.useDefaultPublicLoadBalancer : undefined;
-            inputs["useTempDataDisk"] = args ? args.useTempDataDisk : undefined;
-            inputs["vmExtensions"] = args ? args.vmExtensions : undefined;
-            inputs["vmImageOffer"] = args ? args.vmImageOffer : undefined;
-            inputs["vmImagePublisher"] = args ? args.vmImagePublisher : undefined;
-            inputs["vmImageSku"] = args ? args.vmImageSku : undefined;
-            inputs["vmImageVersion"] = args ? args.vmImageVersion : undefined;
-            inputs["vmInstanceCount"] = args ? args.vmInstanceCount : undefined;
-            inputs["vmManagedIdentity"] = args ? args.vmManagedIdentity : undefined;
-            inputs["vmSecrets"] = args ? args.vmSecrets : undefined;
-            inputs["vmSize"] = args ? args.vmSize : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["additionalDataDisks"] = args ? args.additionalDataDisks : undefined;
+            resourceInputs["applicationPorts"] = args ? args.applicationPorts : undefined;
+            resourceInputs["capacities"] = args ? args.capacities : undefined;
+            resourceInputs["clusterName"] = args ? args.clusterName : undefined;
+            resourceInputs["dataDiskLetter"] = args ? args.dataDiskLetter : undefined;
+            resourceInputs["dataDiskSizeGB"] = args ? args.dataDiskSizeGB : undefined;
+            resourceInputs["dataDiskType"] = args ? args.dataDiskType : undefined;
+            resourceInputs["enableAcceleratedNetworking"] = args ? args.enableAcceleratedNetworking : undefined;
+            resourceInputs["enableEncryptionAtHost"] = (args ? args.enableEncryptionAtHost : undefined) ?? false;
+            resourceInputs["ephemeralPorts"] = args ? args.ephemeralPorts : undefined;
+            resourceInputs["frontendConfigurations"] = args ? args.frontendConfigurations : undefined;
+            resourceInputs["isPrimary"] = args ? args.isPrimary : undefined;
+            resourceInputs["isStateless"] = (args ? args.isStateless : undefined) ?? false;
+            resourceInputs["multiplePlacementGroups"] = (args ? args.multiplePlacementGroups : undefined) ?? false;
+            resourceInputs["networkSecurityRules"] = args ? args.networkSecurityRules : undefined;
+            resourceInputs["nodeTypeName"] = args ? args.nodeTypeName : undefined;
+            resourceInputs["placementProperties"] = args ? args.placementProperties : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["sku"] = args ? args.sku : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["useDefaultPublicLoadBalancer"] = args ? args.useDefaultPublicLoadBalancer : undefined;
+            resourceInputs["useTempDataDisk"] = args ? args.useTempDataDisk : undefined;
+            resourceInputs["vmExtensions"] = args ? args.vmExtensions : undefined;
+            resourceInputs["vmImageOffer"] = args ? args.vmImageOffer : undefined;
+            resourceInputs["vmImagePublisher"] = args ? args.vmImagePublisher : undefined;
+            resourceInputs["vmImageSku"] = args ? args.vmImageSku : undefined;
+            resourceInputs["vmImageVersion"] = args ? args.vmImageVersion : undefined;
+            resourceInputs["vmInstanceCount"] = args ? args.vmInstanceCount : undefined;
+            resourceInputs["vmManagedIdentity"] = args ? args.vmManagedIdentity : undefined;
+            resourceInputs["vmSecrets"] = args ? args.vmSecrets : undefined;
+            resourceInputs["vmSize"] = args ? args.vmSize : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["additionalDataDisks"] = undefined /*out*/;
-            inputs["applicationPorts"] = undefined /*out*/;
-            inputs["capacities"] = undefined /*out*/;
-            inputs["dataDiskLetter"] = undefined /*out*/;
-            inputs["dataDiskSizeGB"] = undefined /*out*/;
-            inputs["dataDiskType"] = undefined /*out*/;
-            inputs["enableAcceleratedNetworking"] = undefined /*out*/;
-            inputs["enableEncryptionAtHost"] = undefined /*out*/;
-            inputs["ephemeralPorts"] = undefined /*out*/;
-            inputs["frontendConfigurations"] = undefined /*out*/;
-            inputs["isPrimary"] = undefined /*out*/;
-            inputs["isStateless"] = undefined /*out*/;
-            inputs["multiplePlacementGroups"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["networkSecurityRules"] = undefined /*out*/;
-            inputs["placementProperties"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["sku"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["useDefaultPublicLoadBalancer"] = undefined /*out*/;
-            inputs["useTempDataDisk"] = undefined /*out*/;
-            inputs["vmExtensions"] = undefined /*out*/;
-            inputs["vmImageOffer"] = undefined /*out*/;
-            inputs["vmImagePublisher"] = undefined /*out*/;
-            inputs["vmImageSku"] = undefined /*out*/;
-            inputs["vmImageVersion"] = undefined /*out*/;
-            inputs["vmInstanceCount"] = undefined /*out*/;
-            inputs["vmManagedIdentity"] = undefined /*out*/;
-            inputs["vmSecrets"] = undefined /*out*/;
-            inputs["vmSize"] = undefined /*out*/;
+            resourceInputs["additionalDataDisks"] = undefined /*out*/;
+            resourceInputs["applicationPorts"] = undefined /*out*/;
+            resourceInputs["capacities"] = undefined /*out*/;
+            resourceInputs["dataDiskLetter"] = undefined /*out*/;
+            resourceInputs["dataDiskSizeGB"] = undefined /*out*/;
+            resourceInputs["dataDiskType"] = undefined /*out*/;
+            resourceInputs["enableAcceleratedNetworking"] = undefined /*out*/;
+            resourceInputs["enableEncryptionAtHost"] = undefined /*out*/;
+            resourceInputs["ephemeralPorts"] = undefined /*out*/;
+            resourceInputs["frontendConfigurations"] = undefined /*out*/;
+            resourceInputs["isPrimary"] = undefined /*out*/;
+            resourceInputs["isStateless"] = undefined /*out*/;
+            resourceInputs["multiplePlacementGroups"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["networkSecurityRules"] = undefined /*out*/;
+            resourceInputs["placementProperties"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["sku"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["useDefaultPublicLoadBalancer"] = undefined /*out*/;
+            resourceInputs["useTempDataDisk"] = undefined /*out*/;
+            resourceInputs["vmExtensions"] = undefined /*out*/;
+            resourceInputs["vmImageOffer"] = undefined /*out*/;
+            resourceInputs["vmImagePublisher"] = undefined /*out*/;
+            resourceInputs["vmImageSku"] = undefined /*out*/;
+            resourceInputs["vmImageVersion"] = undefined /*out*/;
+            resourceInputs["vmInstanceCount"] = undefined /*out*/;
+            resourceInputs["vmManagedIdentity"] = undefined /*out*/;
+            resourceInputs["vmSecrets"] = undefined /*out*/;
+            resourceInputs["vmSize"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:servicefabric:NodeType" }, { type: "azure-native:servicefabric/v20200101preview:NodeType" }, { type: "azure-native:servicefabric/v20210101preview:NodeType" }, { type: "azure-native:servicefabric/v20210501:NodeType" }, { type: "azure-native:servicefabric/v20210701preview:NodeType" }, { type: "azure-native:servicefabric/v20210901privatepreview:NodeType" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(NodeType.__pulumiType, name, inputs, opts);
+        super(NodeType.__pulumiType, name, resourceInputs, opts);
     }
 }
 

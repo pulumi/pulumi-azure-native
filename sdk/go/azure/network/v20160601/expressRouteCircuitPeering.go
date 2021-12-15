@@ -258,7 +258,7 @@ type ExpressRouteCircuitPeeringInput interface {
 }
 
 func (*ExpressRouteCircuitPeering) ElementType() reflect.Type {
-	return reflect.TypeOf((*ExpressRouteCircuitPeering)(nil))
+	return reflect.TypeOf((**ExpressRouteCircuitPeering)(nil)).Elem()
 }
 
 func (i *ExpressRouteCircuitPeering) ToExpressRouteCircuitPeeringOutput() ExpressRouteCircuitPeeringOutput {
@@ -272,7 +272,7 @@ func (i *ExpressRouteCircuitPeering) ToExpressRouteCircuitPeeringOutputWithConte
 type ExpressRouteCircuitPeeringOutput struct{ *pulumi.OutputState }
 
 func (ExpressRouteCircuitPeeringOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ExpressRouteCircuitPeering)(nil))
+	return reflect.TypeOf((**ExpressRouteCircuitPeering)(nil)).Elem()
 }
 
 func (o ExpressRouteCircuitPeeringOutput) ToExpressRouteCircuitPeeringOutput() ExpressRouteCircuitPeeringOutput {

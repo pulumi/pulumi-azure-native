@@ -116,7 +116,7 @@ type SpacecraftInput interface {
 }
 
 func (*Spacecraft) ElementType() reflect.Type {
-	return reflect.TypeOf((*Spacecraft)(nil))
+	return reflect.TypeOf((**Spacecraft)(nil)).Elem()
 }
 
 func (i *Spacecraft) ToSpacecraftOutput() SpacecraftOutput {
@@ -130,7 +130,7 @@ func (i *Spacecraft) ToSpacecraftOutputWithContext(ctx context.Context) Spacecra
 type SpacecraftOutput struct{ *pulumi.OutputState }
 
 func (SpacecraftOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Spacecraft)(nil))
+	return reflect.TypeOf((**Spacecraft)(nil)).Elem()
 }
 
 func (o SpacecraftOutput) ToSpacecraftOutput() SpacecraftOutput {

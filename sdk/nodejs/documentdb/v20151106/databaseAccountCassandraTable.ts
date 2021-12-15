@@ -68,7 +68,7 @@ export class DatabaseAccountCassandraTable extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: DatabaseAccountCassandraTableArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.accountName === undefined) && !opts.urn) {
@@ -86,32 +86,32 @@ export class DatabaseAccountCassandraTable extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["accountName"] = args ? args.accountName : undefined;
-            inputs["keyspaceName"] = args ? args.keyspaceName : undefined;
-            inputs["options"] = args ? args.options : undefined;
-            inputs["resource"] = args ? args.resource : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tableName"] = args ? args.tableName : undefined;
-            inputs["defaultTtl"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["schema"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["accountName"] = args ? args.accountName : undefined;
+            resourceInputs["keyspaceName"] = args ? args.keyspaceName : undefined;
+            resourceInputs["options"] = args ? args.options : undefined;
+            resourceInputs["resource"] = args ? args.resource : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["tableName"] = args ? args.tableName : undefined;
+            resourceInputs["defaultTtl"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["schema"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["defaultTtl"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["schema"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["defaultTtl"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["schema"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:documentdb:DatabaseAccountCassandraTable" }, { type: "azure-native:documentdb/v20150401:DatabaseAccountCassandraTable" }, { type: "azure-native:documentdb/v20150408:DatabaseAccountCassandraTable" }, { type: "azure-native:documentdb/v20160319:DatabaseAccountCassandraTable" }, { type: "azure-native:documentdb/v20160331:DatabaseAccountCassandraTable" }, { type: "azure-native:documentdb/v20190801:DatabaseAccountCassandraTable" }, { type: "azure-native:documentdb/v20191212:DatabaseAccountCassandraTable" }, { type: "azure-native:documentdb/v20200301:DatabaseAccountCassandraTable" }, { type: "azure-native:documentdb/v20200401:DatabaseAccountCassandraTable" }, { type: "azure-native:documentdb/v20200601preview:DatabaseAccountCassandraTable" }, { type: "azure-native:documentdb/v20200901:DatabaseAccountCassandraTable" }, { type: "azure-native:documentdb/v20210115:DatabaseAccountCassandraTable" }, { type: "azure-native:documentdb/v20210301preview:DatabaseAccountCassandraTable" }, { type: "azure-native:documentdb/v20210315:DatabaseAccountCassandraTable" }, { type: "azure-native:documentdb/v20210401preview:DatabaseAccountCassandraTable" }, { type: "azure-native:documentdb/v20210415:DatabaseAccountCassandraTable" }, { type: "azure-native:documentdb/v20210515:DatabaseAccountCassandraTable" }, { type: "azure-native:documentdb/v20210615:DatabaseAccountCassandraTable" }, { type: "azure-native:documentdb/v20210701preview:DatabaseAccountCassandraTable" }, { type: "azure-native:documentdb/v20211015:DatabaseAccountCassandraTable" }, { type: "azure-native:documentdb/v20211015preview:DatabaseAccountCassandraTable" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(DatabaseAccountCassandraTable.__pulumiType, name, inputs, opts);
+        super(DatabaseAccountCassandraTable.__pulumiType, name, resourceInputs, opts);
     }
 }
 

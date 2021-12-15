@@ -45,8 +45,12 @@ func NewApplication(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.MaximumNodes == nil {
+	if isZero(args.MaximumNodes) {
 		args.MaximumNodes = pulumi.Float64Ptr(0.0)
+	}
+	upgradePolicyApplier := func(v ApplicationUpgradePolicy) *ApplicationUpgradePolicy { return v.Defaults() }
+	if args.UpgradePolicy != nil {
+		args.UpgradePolicy = args.UpgradePolicy.ToApplicationUpgradePolicyPtrOutput().Elem().ApplyT(upgradePolicyApplier).(ApplicationUpgradePolicyPtrOutput)
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -155,7 +159,7 @@ type ApplicationInput interface {
 }
 
 func (*Application) ElementType() reflect.Type {
-	return reflect.TypeOf((*Application)(nil))
+	return reflect.TypeOf((**Application)(nil)).Elem()
 }
 
 func (i *Application) ToApplicationOutput() ApplicationOutput {
@@ -169,7 +173,7 @@ func (i *Application) ToApplicationOutputWithContext(ctx context.Context) Applic
 type ApplicationOutput struct{ *pulumi.OutputState }
 
 func (ApplicationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Application)(nil))
+	return reflect.TypeOf((**Application)(nil)).Elem()
 }
 
 func (o ApplicationOutput) ToApplicationOutput() ApplicationOutput {

@@ -147,7 +147,7 @@ type ServerGroupInput interface {
 }
 
 func (*ServerGroup) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServerGroup)(nil))
+	return reflect.TypeOf((**ServerGroup)(nil)).Elem()
 }
 
 func (i *ServerGroup) ToServerGroupOutput() ServerGroupOutput {
@@ -161,7 +161,7 @@ func (i *ServerGroup) ToServerGroupOutputWithContext(ctx context.Context) Server
 type ServerGroupOutput struct{ *pulumi.OutputState }
 
 func (ServerGroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServerGroup)(nil))
+	return reflect.TypeOf((**ServerGroup)(nil)).Elem()
 }
 
 func (o ServerGroupOutput) ToServerGroupOutput() ServerGroupOutput {

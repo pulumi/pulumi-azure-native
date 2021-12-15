@@ -13,7 +13,7 @@ func LookupManagedHsm(ctx *pulumi.Context, args *LookupManagedHsmArgs, opts ...p
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupManagedHsmArgs struct {
@@ -30,4 +30,15 @@ type LookupManagedHsmResult struct {
 	Sku        *ManagedHsmSkuResponse       `pulumi:"sku"`
 	Tags       map[string]string            `pulumi:"tags"`
 	Type       string                       `pulumi:"type"`
+}
+
+
+func (val *LookupManagedHsmResult) Defaults() *LookupManagedHsmResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Properties = *tmp.Properties.Defaults()
+
+	return &tmp
 }

@@ -159,7 +159,7 @@ type ServerFarmInput interface {
 }
 
 func (*ServerFarm) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServerFarm)(nil))
+	return reflect.TypeOf((**ServerFarm)(nil)).Elem()
 }
 
 func (i *ServerFarm) ToServerFarmOutput() ServerFarmOutput {
@@ -173,7 +173,7 @@ func (i *ServerFarm) ToServerFarmOutputWithContext(ctx context.Context) ServerFa
 type ServerFarmOutput struct{ *pulumi.OutputState }
 
 func (ServerFarmOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServerFarm)(nil))
+	return reflect.TypeOf((**ServerFarm)(nil)).Elem()
 }
 
 func (o ServerFarmOutput) ToServerFarmOutput() ServerFarmOutput {

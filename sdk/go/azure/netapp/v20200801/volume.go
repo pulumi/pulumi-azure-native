@@ -61,22 +61,22 @@ func NewVolume(ctx *pulumi.Context,
 	if args.SubnetId == nil {
 		return nil, errors.New("invalid value for required argument 'SubnetId'")
 	}
-	if args.KerberosEnabled == nil {
+	if isZero(args.KerberosEnabled) {
 		args.KerberosEnabled = pulumi.BoolPtr(false)
 	}
-	if args.SecurityStyle == nil {
+	if isZero(args.SecurityStyle) {
 		args.SecurityStyle = pulumi.StringPtr("unix")
 	}
-	if args.ServiceLevel == nil {
+	if isZero(args.ServiceLevel) {
 		args.ServiceLevel = pulumi.StringPtr("Premium")
 	}
-	if args.SnapshotDirectoryVisible == nil {
+	if isZero(args.SnapshotDirectoryVisible) {
 		args.SnapshotDirectoryVisible = pulumi.BoolPtr(true)
 	}
-	if args.ThroughputMibps == nil {
+	if isZero(args.ThroughputMibps) {
 		args.ThroughputMibps = pulumi.Float64Ptr(0.0)
 	}
-	if args.UsageThreshold == nil {
+	if isZero(args.UsageThreshold) {
 		args.UsageThreshold = pulumi.Float64(107374182400.0)
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
@@ -237,7 +237,7 @@ type VolumeInput interface {
 }
 
 func (*Volume) ElementType() reflect.Type {
-	return reflect.TypeOf((*Volume)(nil))
+	return reflect.TypeOf((**Volume)(nil)).Elem()
 }
 
 func (i *Volume) ToVolumeOutput() VolumeOutput {
@@ -251,7 +251,7 @@ func (i *Volume) ToVolumeOutputWithContext(ctx context.Context) VolumeOutput {
 type VolumeOutput struct{ *pulumi.OutputState }
 
 func (VolumeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Volume)(nil))
+	return reflect.TypeOf((**Volume)(nil)).Elem()
 }
 
 func (o VolumeOutput) ToVolumeOutput() VolumeOutput {

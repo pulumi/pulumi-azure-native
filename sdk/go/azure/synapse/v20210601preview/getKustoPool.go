@@ -13,7 +13,7 @@ func LookupKustoPool(ctx *pulumi.Context, args *LookupKustoPoolArgs, opts ...pul
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupKustoPoolArgs struct {
@@ -42,4 +42,21 @@ type LookupKustoPoolResult struct {
 	Type                  string                         `pulumi:"type"`
 	Uri                   string                         `pulumi:"uri"`
 	WorkspaceUID          *string                        `pulumi:"workspaceUID"`
+}
+
+
+func (val *LookupKustoPoolResult) Defaults() *LookupKustoPoolResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.EnablePurge) {
+		enablePurge_ := false
+		tmp.EnablePurge = &enablePurge_
+	}
+	if isZero(tmp.EnableStreamingIngest) {
+		enableStreamingIngest_ := false
+		tmp.EnableStreamingIngest = &enableStreamingIngest_
+	}
+	return &tmp
 }

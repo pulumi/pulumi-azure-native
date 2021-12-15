@@ -132,7 +132,7 @@ type FailoverGroupInput interface {
 }
 
 func (*FailoverGroup) ElementType() reflect.Type {
-	return reflect.TypeOf((*FailoverGroup)(nil))
+	return reflect.TypeOf((**FailoverGroup)(nil)).Elem()
 }
 
 func (i *FailoverGroup) ToFailoverGroupOutput() FailoverGroupOutput {
@@ -146,7 +146,7 @@ func (i *FailoverGroup) ToFailoverGroupOutputWithContext(ctx context.Context) Fa
 type FailoverGroupOutput struct{ *pulumi.OutputState }
 
 func (FailoverGroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FailoverGroup)(nil))
+	return reflect.TypeOf((**FailoverGroup)(nil)).Elem()
 }
 
 func (o FailoverGroupOutput) ToFailoverGroupOutput() FailoverGroupOutput {

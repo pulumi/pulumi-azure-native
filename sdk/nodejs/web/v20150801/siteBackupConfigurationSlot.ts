@@ -80,7 +80,7 @@ export class SiteBackupConfigurationSlot extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: SiteBackupConfigurationSlotArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.name === undefined) && !opts.urn) {
@@ -95,35 +95,35 @@ export class SiteBackupConfigurationSlot extends pulumi.CustomResource {
             if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            inputs["backupSchedule"] = args ? args.backupSchedule : undefined;
-            inputs["databases"] = args ? args.databases : undefined;
-            inputs["enabled"] = args ? args.enabled : undefined;
-            inputs["id"] = args ? args.id : undefined;
-            inputs["kind"] = args ? args.kind : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["slot"] = args ? args.slot : undefined;
-            inputs["storageAccountUrl"] = args ? args.storageAccountUrl : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["type"] = args ? args.type : undefined;
+            resourceInputs["backupSchedule"] = args ? args.backupSchedule : undefined;
+            resourceInputs["databases"] = args ? args.databases : undefined;
+            resourceInputs["enabled"] = args ? args.enabled : undefined;
+            resourceInputs["id"] = args ? args.id : undefined;
+            resourceInputs["kind"] = args ? args.kind : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["slot"] = args ? args.slot : undefined;
+            resourceInputs["storageAccountUrl"] = args ? args.storageAccountUrl : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
         } else {
-            inputs["backupSchedule"] = undefined /*out*/;
-            inputs["databases"] = undefined /*out*/;
-            inputs["enabled"] = undefined /*out*/;
-            inputs["kind"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["storageAccountUrl"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["backupSchedule"] = undefined /*out*/;
+            resourceInputs["databases"] = undefined /*out*/;
+            resourceInputs["enabled"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["storageAccountUrl"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:web:SiteBackupConfigurationSlot" }, { type: "azure-native:web/v20160801:SiteBackupConfigurationSlot" }, { type: "azure-native:web/v20180201:SiteBackupConfigurationSlot" }, { type: "azure-native:web/v20181101:SiteBackupConfigurationSlot" }, { type: "azure-native:web/v20190801:SiteBackupConfigurationSlot" }, { type: "azure-native:web/v20200601:SiteBackupConfigurationSlot" }, { type: "azure-native:web/v20200901:SiteBackupConfigurationSlot" }, { type: "azure-native:web/v20201001:SiteBackupConfigurationSlot" }, { type: "azure-native:web/v20201201:SiteBackupConfigurationSlot" }, { type: "azure-native:web/v20210101:SiteBackupConfigurationSlot" }, { type: "azure-native:web/v20210115:SiteBackupConfigurationSlot" }, { type: "azure-native:web/v20210201:SiteBackupConfigurationSlot" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(SiteBackupConfigurationSlot.__pulumiType, name, inputs, opts);
+        super(SiteBackupConfigurationSlot.__pulumiType, name, resourceInputs, opts);
     }
 }
 

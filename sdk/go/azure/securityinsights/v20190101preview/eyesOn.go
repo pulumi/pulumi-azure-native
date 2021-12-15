@@ -115,7 +115,7 @@ type EyesOnInput interface {
 }
 
 func (*EyesOn) ElementType() reflect.Type {
-	return reflect.TypeOf((*EyesOn)(nil))
+	return reflect.TypeOf((**EyesOn)(nil)).Elem()
 }
 
 func (i *EyesOn) ToEyesOnOutput() EyesOnOutput {
@@ -129,7 +129,7 @@ func (i *EyesOn) ToEyesOnOutputWithContext(ctx context.Context) EyesOnOutput {
 type EyesOnOutput struct{ *pulumi.OutputState }
 
 func (EyesOnOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EyesOn)(nil))
+	return reflect.TypeOf((**EyesOn)(nil)).Elem()
 }
 
 func (o EyesOnOutput) ToEyesOnOutput() EyesOnOutput {

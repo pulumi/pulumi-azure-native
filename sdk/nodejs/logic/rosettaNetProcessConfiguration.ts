@@ -101,7 +101,7 @@ export class RosettaNetProcessConfiguration extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: RosettaNetProcessConfigurationArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.activitySettings === undefined) && !opts.urn) {
@@ -128,45 +128,45 @@ export class RosettaNetProcessConfiguration extends pulumi.CustomResource {
             if ((!args || args.responderRoleSettings === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'responderRoleSettings'");
             }
-            inputs["activitySettings"] = args ? args.activitySettings : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["initiatorRoleSettings"] = args ? args.initiatorRoleSettings : undefined;
-            inputs["integrationAccountName"] = args ? args.integrationAccountName : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["metadata"] = args ? args.metadata : undefined;
-            inputs["processCode"] = args ? args.processCode : undefined;
-            inputs["processName"] = args ? args.processName : undefined;
-            inputs["processVersion"] = args ? args.processVersion : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["responderRoleSettings"] = args ? args.responderRoleSettings : undefined;
-            inputs["rosettaNetProcessConfigurationName"] = args ? args.rosettaNetProcessConfigurationName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["changedTime"] = undefined /*out*/;
-            inputs["createdTime"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["activitySettings"] = args ? args.activitySettings : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["initiatorRoleSettings"] = args ? args.initiatorRoleSettings : undefined;
+            resourceInputs["integrationAccountName"] = args ? args.integrationAccountName : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["metadata"] = args ? args.metadata : undefined;
+            resourceInputs["processCode"] = args ? args.processCode : undefined;
+            resourceInputs["processName"] = args ? args.processName : undefined;
+            resourceInputs["processVersion"] = args ? args.processVersion : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["responderRoleSettings"] = args ? args.responderRoleSettings : undefined;
+            resourceInputs["rosettaNetProcessConfigurationName"] = args ? args.rosettaNetProcessConfigurationName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["changedTime"] = undefined /*out*/;
+            resourceInputs["createdTime"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["activitySettings"] = undefined /*out*/;
-            inputs["changedTime"] = undefined /*out*/;
-            inputs["createdTime"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["initiatorRoleSettings"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["metadata"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["processCode"] = undefined /*out*/;
-            inputs["processName"] = undefined /*out*/;
-            inputs["processVersion"] = undefined /*out*/;
-            inputs["responderRoleSettings"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["activitySettings"] = undefined /*out*/;
+            resourceInputs["changedTime"] = undefined /*out*/;
+            resourceInputs["createdTime"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["initiatorRoleSettings"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["metadata"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["processCode"] = undefined /*out*/;
+            resourceInputs["processName"] = undefined /*out*/;
+            resourceInputs["processVersion"] = undefined /*out*/;
+            resourceInputs["responderRoleSettings"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:logic/v20160601:RosettaNetProcessConfiguration" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(RosettaNetProcessConfiguration.__pulumiType, name, inputs, opts);
+        super(RosettaNetProcessConfiguration.__pulumiType, name, resourceInputs, opts);
     }
 }
 

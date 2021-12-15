@@ -13,7 +13,7 @@ func LookupDeployment(ctx *pulumi.Context, args *LookupDeploymentArgs, opts ...p
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupDeploymentArgs struct {
@@ -30,4 +30,15 @@ type LookupDeploymentResult struct {
 	Properties DeploymentResourcePropertiesResponse `pulumi:"properties"`
 	Sku        *SkuResponse                         `pulumi:"sku"`
 	Type       string                               `pulumi:"type"`
+}
+
+
+func (val *LookupDeploymentResult) Defaults() *LookupDeploymentResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Properties = *tmp.Properties.Defaults()
+
+	return &tmp
 }

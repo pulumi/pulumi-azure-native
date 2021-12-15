@@ -76,7 +76,7 @@ export class Output extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: OutputArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.jobName === undefined) && !opts.urn) {
@@ -85,33 +85,33 @@ export class Output extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["datasource"] = args ? args.datasource : undefined;
-            inputs["jobName"] = args ? args.jobName : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["outputName"] = args ? args.outputName : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["serialization"] = args ? args.serialization : undefined;
-            inputs["sizeWindow"] = args ? args.sizeWindow : undefined;
-            inputs["timeWindow"] = args ? args.timeWindow : undefined;
-            inputs["diagnostics"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["datasource"] = args ? args.datasource : undefined;
+            resourceInputs["jobName"] = args ? args.jobName : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["outputName"] = args ? args.outputName : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["serialization"] = args ? args.serialization : undefined;
+            resourceInputs["sizeWindow"] = args ? args.sizeWindow : undefined;
+            resourceInputs["timeWindow"] = args ? args.timeWindow : undefined;
+            resourceInputs["diagnostics"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["datasource"] = undefined /*out*/;
-            inputs["diagnostics"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["serialization"] = undefined /*out*/;
-            inputs["sizeWindow"] = undefined /*out*/;
-            inputs["timeWindow"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["datasource"] = undefined /*out*/;
+            resourceInputs["diagnostics"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["serialization"] = undefined /*out*/;
+            resourceInputs["sizeWindow"] = undefined /*out*/;
+            resourceInputs["timeWindow"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:streamanalytics:Output" }, { type: "azure-native:streamanalytics/v20160301:Output" }, { type: "azure-native:streamanalytics/v20170401preview:Output" }, { type: "azure-native:streamanalytics/v20211001preview:Output" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Output.__pulumiType, name, inputs, opts);
+        super(Output.__pulumiType, name, resourceInputs, opts);
     }
 }
 

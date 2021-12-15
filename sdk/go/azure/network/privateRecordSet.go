@@ -139,7 +139,7 @@ type PrivateRecordSetInput interface {
 }
 
 func (*PrivateRecordSet) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateRecordSet)(nil))
+	return reflect.TypeOf((**PrivateRecordSet)(nil)).Elem()
 }
 
 func (i *PrivateRecordSet) ToPrivateRecordSetOutput() PrivateRecordSetOutput {
@@ -153,7 +153,7 @@ func (i *PrivateRecordSet) ToPrivateRecordSetOutputWithContext(ctx context.Conte
 type PrivateRecordSetOutput struct{ *pulumi.OutputState }
 
 func (PrivateRecordSetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateRecordSet)(nil))
+	return reflect.TypeOf((**PrivateRecordSet)(nil)).Elem()
 }
 
 func (o PrivateRecordSetOutput) ToPrivateRecordSetOutput() PrivateRecordSetOutput {

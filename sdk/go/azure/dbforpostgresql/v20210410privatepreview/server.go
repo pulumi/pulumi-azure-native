@@ -161,7 +161,7 @@ type ServerInput interface {
 }
 
 func (*Server) ElementType() reflect.Type {
-	return reflect.TypeOf((*Server)(nil))
+	return reflect.TypeOf((**Server)(nil)).Elem()
 }
 
 func (i *Server) ToServerOutput() ServerOutput {
@@ -175,7 +175,7 @@ func (i *Server) ToServerOutputWithContext(ctx context.Context) ServerOutput {
 type ServerOutput struct{ *pulumi.OutputState }
 
 func (ServerOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Server)(nil))
+	return reflect.TypeOf((**Server)(nil)).Elem()
 }
 
 func (o ServerOutput) ToServerOutput() ServerOutput {

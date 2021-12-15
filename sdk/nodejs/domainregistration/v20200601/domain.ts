@@ -122,7 +122,7 @@ export class Domain extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: DomainArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.consent === undefined) && !opts.urn) {
@@ -143,61 +143,61 @@ export class Domain extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["authCode"] = args ? args.authCode : undefined;
-            inputs["autoRenew"] = (args ? args.autoRenew : undefined) ?? true;
-            inputs["consent"] = args ? args.consent : undefined;
-            inputs["contactAdmin"] = args ? args.contactAdmin : undefined;
-            inputs["contactBilling"] = args ? args.contactBilling : undefined;
-            inputs["contactRegistrant"] = args ? args.contactRegistrant : undefined;
-            inputs["contactTech"] = args ? args.contactTech : undefined;
-            inputs["dnsType"] = args ? args.dnsType : undefined;
-            inputs["dnsZoneId"] = args ? args.dnsZoneId : undefined;
-            inputs["domainName"] = args ? args.domainName : undefined;
-            inputs["kind"] = args ? args.kind : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["privacy"] = args ? args.privacy : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["targetDnsType"] = args ? args.targetDnsType : undefined;
-            inputs["createdTime"] = undefined /*out*/;
-            inputs["domainNotRenewableReasons"] = undefined /*out*/;
-            inputs["expirationTime"] = undefined /*out*/;
-            inputs["lastRenewedTime"] = undefined /*out*/;
-            inputs["managedHostNames"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["nameServers"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["readyForDnsRecordManagement"] = undefined /*out*/;
-            inputs["registrationStatus"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["authCode"] = args ? args.authCode : undefined;
+            resourceInputs["autoRenew"] = (args ? args.autoRenew : undefined) ?? true;
+            resourceInputs["consent"] = args ? args.consent : undefined;
+            resourceInputs["contactAdmin"] = args ? args.contactAdmin : undefined;
+            resourceInputs["contactBilling"] = args ? args.contactBilling : undefined;
+            resourceInputs["contactRegistrant"] = args ? args.contactRegistrant : undefined;
+            resourceInputs["contactTech"] = args ? args.contactTech : undefined;
+            resourceInputs["dnsType"] = args ? args.dnsType : undefined;
+            resourceInputs["dnsZoneId"] = args ? args.dnsZoneId : undefined;
+            resourceInputs["domainName"] = args ? args.domainName : undefined;
+            resourceInputs["kind"] = args ? args.kind : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["privacy"] = args ? args.privacy : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["targetDnsType"] = args ? args.targetDnsType : undefined;
+            resourceInputs["createdTime"] = undefined /*out*/;
+            resourceInputs["domainNotRenewableReasons"] = undefined /*out*/;
+            resourceInputs["expirationTime"] = undefined /*out*/;
+            resourceInputs["lastRenewedTime"] = undefined /*out*/;
+            resourceInputs["managedHostNames"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["nameServers"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["readyForDnsRecordManagement"] = undefined /*out*/;
+            resourceInputs["registrationStatus"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["authCode"] = undefined /*out*/;
-            inputs["autoRenew"] = undefined /*out*/;
-            inputs["createdTime"] = undefined /*out*/;
-            inputs["dnsType"] = undefined /*out*/;
-            inputs["dnsZoneId"] = undefined /*out*/;
-            inputs["domainNotRenewableReasons"] = undefined /*out*/;
-            inputs["expirationTime"] = undefined /*out*/;
-            inputs["kind"] = undefined /*out*/;
-            inputs["lastRenewedTime"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["managedHostNames"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["nameServers"] = undefined /*out*/;
-            inputs["privacy"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["readyForDnsRecordManagement"] = undefined /*out*/;
-            inputs["registrationStatus"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["targetDnsType"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["authCode"] = undefined /*out*/;
+            resourceInputs["autoRenew"] = undefined /*out*/;
+            resourceInputs["createdTime"] = undefined /*out*/;
+            resourceInputs["dnsType"] = undefined /*out*/;
+            resourceInputs["dnsZoneId"] = undefined /*out*/;
+            resourceInputs["domainNotRenewableReasons"] = undefined /*out*/;
+            resourceInputs["expirationTime"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["lastRenewedTime"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["managedHostNames"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["nameServers"] = undefined /*out*/;
+            resourceInputs["privacy"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["readyForDnsRecordManagement"] = undefined /*out*/;
+            resourceInputs["registrationStatus"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["targetDnsType"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:domainregistration:Domain" }, { type: "azure-native:domainregistration/v20150401:Domain" }, { type: "azure-native:domainregistration/v20180201:Domain" }, { type: "azure-native:domainregistration/v20190801:Domain" }, { type: "azure-native:domainregistration/v20200901:Domain" }, { type: "azure-native:domainregistration/v20201001:Domain" }, { type: "azure-native:domainregistration/v20201201:Domain" }, { type: "azure-native:domainregistration/v20210101:Domain" }, { type: "azure-native:domainregistration/v20210115:Domain" }, { type: "azure-native:domainregistration/v20210201:Domain" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Domain.__pulumiType, name, inputs, opts);
+        super(Domain.__pulumiType, name, resourceInputs, opts);
     }
 }
 

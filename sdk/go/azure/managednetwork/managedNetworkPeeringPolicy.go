@@ -99,7 +99,7 @@ type ManagedNetworkPeeringPolicyInput interface {
 }
 
 func (*ManagedNetworkPeeringPolicy) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagedNetworkPeeringPolicy)(nil))
+	return reflect.TypeOf((**ManagedNetworkPeeringPolicy)(nil)).Elem()
 }
 
 func (i *ManagedNetworkPeeringPolicy) ToManagedNetworkPeeringPolicyOutput() ManagedNetworkPeeringPolicyOutput {
@@ -113,7 +113,7 @@ func (i *ManagedNetworkPeeringPolicy) ToManagedNetworkPeeringPolicyOutputWithCon
 type ManagedNetworkPeeringPolicyOutput struct{ *pulumi.OutputState }
 
 func (ManagedNetworkPeeringPolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagedNetworkPeeringPolicy)(nil))
+	return reflect.TypeOf((**ManagedNetworkPeeringPolicy)(nil)).Elem()
 }
 
 func (o ManagedNetworkPeeringPolicyOutput) ToManagedNetworkPeeringPolicyOutput() ManagedNetworkPeeringPolicyOutput {

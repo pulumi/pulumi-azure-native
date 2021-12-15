@@ -13,7 +13,7 @@ func LookupWorkspace(ctx *pulumi.Context, args *LookupWorkspaceArgs, opts ...pul
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupWorkspaceArgs struct {
@@ -40,4 +40,15 @@ type LookupWorkspaceResult struct {
 	UpdatedBy              *CreatedByResponse                       `pulumi:"updatedBy"`
 	WorkspaceId            string                                   `pulumi:"workspaceId"`
 	WorkspaceUrl           string                                   `pulumi:"workspaceUrl"`
+}
+
+
+func (val *LookupWorkspaceResult) Defaults() *LookupWorkspaceResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Parameters = tmp.Parameters.Defaults()
+
+	return &tmp
 }

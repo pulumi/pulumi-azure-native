@@ -137,7 +137,7 @@ type DatabasePrincipalAssignmentInput interface {
 }
 
 func (*DatabasePrincipalAssignment) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatabasePrincipalAssignment)(nil))
+	return reflect.TypeOf((**DatabasePrincipalAssignment)(nil)).Elem()
 }
 
 func (i *DatabasePrincipalAssignment) ToDatabasePrincipalAssignmentOutput() DatabasePrincipalAssignmentOutput {
@@ -151,7 +151,7 @@ func (i *DatabasePrincipalAssignment) ToDatabasePrincipalAssignmentOutputWithCon
 type DatabasePrincipalAssignmentOutput struct{ *pulumi.OutputState }
 
 func (DatabasePrincipalAssignmentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatabasePrincipalAssignment)(nil))
+	return reflect.TypeOf((**DatabasePrincipalAssignment)(nil)).Elem()
 }
 
 func (o DatabasePrincipalAssignmentOutput) ToDatabasePrincipalAssignmentOutput() DatabasePrincipalAssignmentOutput {

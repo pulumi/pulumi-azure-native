@@ -4725,6 +4725,19 @@ type SUCScheduleProperties struct {
 }
 
 
+func (val *SUCScheduleProperties) Defaults() *SUCScheduleProperties {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.IsEnabled) {
+		isEnabled_ := false
+		tmp.IsEnabled = &isEnabled_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -5036,6 +5049,19 @@ type SUCSchedulePropertiesResponse struct {
 	StartTime               *string                   `pulumi:"startTime"`
 	StartTimeOffsetMinutes  float64                   `pulumi:"startTimeOffsetMinutes"`
 	TimeZone                *string                   `pulumi:"timeZone"`
+}
+
+
+func (val *SUCSchedulePropertiesResponse) Defaults() *SUCSchedulePropertiesResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.IsEnabled) {
+		isEnabled_ := false
+		tmp.IsEnabled = &isEnabled_
+	}
+	return &tmp
 }
 
 

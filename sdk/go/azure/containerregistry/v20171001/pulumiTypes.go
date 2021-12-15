@@ -864,6 +864,19 @@ type IPRule struct {
 }
 
 
+func (val *IPRule) Defaults() *IPRule {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Action) {
+		action_ := "Allow"
+		tmp.Action = &action_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -961,6 +974,19 @@ func (o IPRuleArrayOutput) Index(i pulumi.IntInput) IPRuleOutput {
 type IPRuleResponse struct {
 	Action           *string `pulumi:"action"`
 	IPAddressOrRange string  `pulumi:"iPAddressOrRange"`
+}
+
+
+func (val *IPRuleResponse) Defaults() *IPRuleResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Action) {
+		action_ := "Allow"
+		tmp.Action = &action_
+	}
+	return &tmp
 }
 
 
@@ -1062,6 +1088,18 @@ type NetworkRuleSet struct {
 	DefaultAction       string               `pulumi:"defaultAction"`
 	IpRules             []IPRule             `pulumi:"ipRules"`
 	VirtualNetworkRules []VirtualNetworkRule `pulumi:"virtualNetworkRules"`
+}
+
+
+func (val *NetworkRuleSet) Defaults() *NetworkRuleSet {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.DefaultAction) {
+		tmp.DefaultAction = "Allow"
+	}
+	return &tmp
 }
 
 
@@ -1225,6 +1263,18 @@ type NetworkRuleSetResponse struct {
 	DefaultAction       string                       `pulumi:"defaultAction"`
 	IpRules             []IPRuleResponse             `pulumi:"ipRules"`
 	VirtualNetworkRules []VirtualNetworkRuleResponse `pulumi:"virtualNetworkRules"`
+}
+
+
+func (val *NetworkRuleSetResponse) Defaults() *NetworkRuleSetResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.DefaultAction) {
+		tmp.DefaultAction = "Allow"
+	}
+	return &tmp
 }
 
 
@@ -2794,6 +2844,19 @@ type VirtualNetworkRule struct {
 }
 
 
+func (val *VirtualNetworkRule) Defaults() *VirtualNetworkRule {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Action) {
+		action_ := "Allow"
+		tmp.Action = &action_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -2891,6 +2954,19 @@ func (o VirtualNetworkRuleArrayOutput) Index(i pulumi.IntInput) VirtualNetworkRu
 type VirtualNetworkRuleResponse struct {
 	Action                   *string `pulumi:"action"`
 	VirtualNetworkResourceId string  `pulumi:"virtualNetworkResourceId"`
+}
+
+
+func (val *VirtualNetworkRuleResponse) Defaults() *VirtualNetworkRuleResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Action) {
+		action_ := "Allow"
+		tmp.Action = &action_
+	}
+	return &tmp
 }
 
 

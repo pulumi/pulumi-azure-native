@@ -204,7 +204,7 @@ type AgentPoolInput interface {
 }
 
 func (*AgentPool) ElementType() reflect.Type {
-	return reflect.TypeOf((*AgentPool)(nil))
+	return reflect.TypeOf((**AgentPool)(nil)).Elem()
 }
 
 func (i *AgentPool) ToAgentPoolOutput() AgentPoolOutput {
@@ -218,7 +218,7 @@ func (i *AgentPool) ToAgentPoolOutputWithContext(ctx context.Context) AgentPoolO
 type AgentPoolOutput struct{ *pulumi.OutputState }
 
 func (AgentPoolOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AgentPool)(nil))
+	return reflect.TypeOf((**AgentPool)(nil)).Elem()
 }
 
 func (o AgentPoolOutput) ToAgentPoolOutput() AgentPoolOutput {

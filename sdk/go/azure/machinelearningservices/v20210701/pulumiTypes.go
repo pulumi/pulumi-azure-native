@@ -20,6 +20,17 @@ type AKS struct {
 }
 
 
+func (val *AKS) Defaults() *AKS {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Properties = tmp.Properties.Defaults()
+
+	return &tmp
+}
+
+
 
 
 
@@ -98,6 +109,23 @@ type AKSProperties struct {
 	LoadBalancerSubnet         *string                     `pulumi:"loadBalancerSubnet"`
 	LoadBalancerType           *string                     `pulumi:"loadBalancerType"`
 	SslConfiguration           *SslConfiguration           `pulumi:"sslConfiguration"`
+}
+
+
+func (val *AKSProperties) Defaults() *AKSProperties {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.ClusterPurpose) {
+		clusterPurpose_ := "FastProd"
+		tmp.ClusterPurpose = &clusterPurpose_
+	}
+	if isZero(tmp.LoadBalancerType) {
+		loadBalancerType_ := "PublicIp"
+		tmp.LoadBalancerType = &loadBalancerType_
+	}
+	return &tmp
 }
 
 
@@ -342,6 +370,17 @@ type AKSResponse struct {
 }
 
 
+func (val *AKSResponse) Defaults() *AKSResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Properties = tmp.Properties.Defaults()
+
+	return &tmp
+}
+
+
 
 
 
@@ -446,6 +485,23 @@ type AKSResponseProperties struct {
 	LoadBalancerType           *string                             `pulumi:"loadBalancerType"`
 	SslConfiguration           *SslConfigurationResponse           `pulumi:"sslConfiguration"`
 	SystemServices             []SystemServiceResponse             `pulumi:"systemServices"`
+}
+
+
+func (val *AKSResponseProperties) Defaults() *AKSResponseProperties {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.ClusterPurpose) {
+		clusterPurpose_ := "FastProd"
+		tmp.ClusterPurpose = &clusterPurpose_
+	}
+	if isZero(tmp.LoadBalancerType) {
+		loadBalancerType_ := "PublicIp"
+		tmp.LoadBalancerType = &loadBalancerType_
+	}
+	return &tmp
 }
 
 
@@ -1055,6 +1111,17 @@ type AmlCompute struct {
 }
 
 
+func (val *AmlCompute) Defaults() *AmlCompute {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Properties = tmp.Properties.Defaults()
+
+	return &tmp
+}
+
+
 
 
 
@@ -1259,6 +1326,29 @@ type AmlComputeProperties struct {
 	VirtualMachineImage         *VirtualMachineImage    `pulumi:"virtualMachineImage"`
 	VmPriority                  *string                 `pulumi:"vmPriority"`
 	VmSize                      *string                 `pulumi:"vmSize"`
+}
+
+
+func (val *AmlComputeProperties) Defaults() *AmlComputeProperties {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.EnableNodePublicIp) {
+		enableNodePublicIp_ := true
+		tmp.EnableNodePublicIp = &enableNodePublicIp_
+	}
+	if isZero(tmp.OsType) {
+		osType_ := "Linux"
+		tmp.OsType = &osType_
+	}
+	if isZero(tmp.RemoteLoginPortPublicAccess) {
+		remoteLoginPortPublicAccess_ := "NotSpecified"
+		tmp.RemoteLoginPortPublicAccess = &remoteLoginPortPublicAccess_
+	}
+	tmp.ScaleSettings = tmp.ScaleSettings.Defaults()
+
+	return &tmp
 }
 
 
@@ -1533,6 +1623,29 @@ type AmlComputePropertiesResponse struct {
 	VirtualMachineImage           *VirtualMachineImageResponse    `pulumi:"virtualMachineImage"`
 	VmPriority                    *string                         `pulumi:"vmPriority"`
 	VmSize                        *string                         `pulumi:"vmSize"`
+}
+
+
+func (val *AmlComputePropertiesResponse) Defaults() *AmlComputePropertiesResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.EnableNodePublicIp) {
+		enableNodePublicIp_ := true
+		tmp.EnableNodePublicIp = &enableNodePublicIp_
+	}
+	if isZero(tmp.OsType) {
+		osType_ := "Linux"
+		tmp.OsType = &osType_
+	}
+	if isZero(tmp.RemoteLoginPortPublicAccess) {
+		remoteLoginPortPublicAccess_ := "NotSpecified"
+		tmp.RemoteLoginPortPublicAccess = &remoteLoginPortPublicAccess_
+	}
+	tmp.ScaleSettings = tmp.ScaleSettings.Defaults()
+
+	return &tmp
 }
 
 
@@ -1886,6 +1999,17 @@ type AmlComputeResponse struct {
 	ProvisioningErrors []ErrorResponseResponse       `pulumi:"provisioningErrors"`
 	ProvisioningState  string                        `pulumi:"provisioningState"`
 	ResourceId         *string                       `pulumi:"resourceId"`
+}
+
+
+func (val *AmlComputeResponse) Defaults() *AmlComputeResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Properties = tmp.Properties.Defaults()
+
+	return &tmp
 }
 
 
@@ -2911,6 +3035,17 @@ type ComputeInstance struct {
 }
 
 
+func (val *ComputeInstance) Defaults() *ComputeInstance {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Properties = tmp.Properties.Defaults()
+
+	return &tmp
+}
+
+
 
 
 
@@ -3565,6 +3700,25 @@ type ComputeInstanceProperties struct {
 }
 
 
+func (val *ComputeInstanceProperties) Defaults() *ComputeInstanceProperties {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.ApplicationSharingPolicy) {
+		applicationSharingPolicy_ := "Shared"
+		tmp.ApplicationSharingPolicy = &applicationSharingPolicy_
+	}
+	if isZero(tmp.ComputeInstanceAuthorizationType) {
+		computeInstanceAuthorizationType_ := "personal"
+		tmp.ComputeInstanceAuthorizationType = &computeInstanceAuthorizationType_
+	}
+	tmp.SshSettings = tmp.SshSettings.Defaults()
+
+	return &tmp
+}
+
+
 
 
 
@@ -3793,6 +3947,25 @@ type ComputeInstancePropertiesResponse struct {
 	State                            string                                       `pulumi:"state"`
 	Subnet                           *ResourceIdResponse                          `pulumi:"subnet"`
 	VmSize                           *string                                      `pulumi:"vmSize"`
+}
+
+
+func (val *ComputeInstancePropertiesResponse) Defaults() *ComputeInstancePropertiesResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.ApplicationSharingPolicy) {
+		applicationSharingPolicy_ := "Shared"
+		tmp.ApplicationSharingPolicy = &applicationSharingPolicy_
+	}
+	if isZero(tmp.ComputeInstanceAuthorizationType) {
+		computeInstanceAuthorizationType_ := "personal"
+		tmp.ComputeInstanceAuthorizationType = &computeInstanceAuthorizationType_
+	}
+	tmp.SshSettings = tmp.SshSettings.Defaults()
+
+	return &tmp
 }
 
 
@@ -4111,6 +4284,17 @@ type ComputeInstanceResponse struct {
 }
 
 
+func (val *ComputeInstanceResponse) Defaults() *ComputeInstanceResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Properties = tmp.Properties.Defaults()
+
+	return &tmp
+}
+
+
 
 
 
@@ -4208,6 +4392,19 @@ func (o ComputeInstanceResponseOutput) ResourceId() pulumi.StringPtrOutput {
 type ComputeInstanceSshSettings struct {
 	AdminPublicKey  *string `pulumi:"adminPublicKey"`
 	SshPublicAccess *string `pulumi:"sshPublicAccess"`
+}
+
+
+func (val *ComputeInstanceSshSettings) Defaults() *ComputeInstanceSshSettings {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.SshPublicAccess) {
+		sshPublicAccess_ := "Disabled"
+		tmp.SshPublicAccess = &sshPublicAccess_
+	}
+	return &tmp
 }
 
 
@@ -4358,6 +4555,19 @@ type ComputeInstanceSshSettingsResponse struct {
 	AdminUserName   string  `pulumi:"adminUserName"`
 	SshPort         int     `pulumi:"sshPort"`
 	SshPublicAccess *string `pulumi:"sshPublicAccess"`
+}
+
+
+func (val *ComputeInstanceSshSettingsResponse) Defaults() *ComputeInstanceSshSettingsResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.SshPublicAccess) {
+		sshPublicAccess_ := "Disabled"
+		tmp.SshPublicAccess = &sshPublicAccess_
+	}
+	return &tmp
 }
 
 
@@ -8609,6 +8819,17 @@ type Kubernetes struct {
 }
 
 
+func (val *Kubernetes) Defaults() *Kubernetes {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Properties = tmp.Properties.Defaults()
+
+	return &tmp
+}
+
+
 
 
 
@@ -8687,6 +8908,19 @@ type KubernetesProperties struct {
 	RelayConnectionString         *string                       `pulumi:"relayConnectionString"`
 	ServiceBusConnectionString    *string                       `pulumi:"serviceBusConnectionString"`
 	VcName                        *string                       `pulumi:"vcName"`
+}
+
+
+func (val *KubernetesProperties) Defaults() *KubernetesProperties {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Namespace) {
+		namespace_ := "default"
+		tmp.Namespace = &namespace_
+	}
+	return &tmp
 }
 
 
@@ -8928,6 +9162,19 @@ type KubernetesPropertiesResponse struct {
 }
 
 
+func (val *KubernetesPropertiesResponse) Defaults() *KubernetesPropertiesResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Namespace) {
+		namespace_ := "default"
+		tmp.Namespace = &namespace_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -9166,6 +9413,17 @@ type KubernetesResponse struct {
 	ProvisioningErrors []ErrorResponseResponse       `pulumi:"provisioningErrors"`
 	ProvisioningState  string                        `pulumi:"provisioningState"`
 	ResourceId         *string                       `pulumi:"resourceId"`
+}
+
+
+func (val *KubernetesResponse) Defaults() *KubernetesResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Properties = tmp.Properties.Defaults()
+
+	return &tmp
 }
 
 
@@ -11169,6 +11427,19 @@ type ScaleSettings struct {
 }
 
 
+func (val *ScaleSettings) Defaults() *ScaleSettings {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.MinNodeCount) {
+		minNodeCount_ := 0
+		tmp.MinNodeCount = &minNodeCount_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -11329,6 +11600,19 @@ type ScaleSettingsResponse struct {
 	MaxNodeCount                int     `pulumi:"maxNodeCount"`
 	MinNodeCount                *int    `pulumi:"minNodeCount"`
 	NodeIdleTimeBeforeScaleDown *string `pulumi:"nodeIdleTimeBeforeScaleDown"`
+}
+
+
+func (val *ScaleSettingsResponse) Defaults() *ScaleSettingsResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.MinNodeCount) {
+		minNodeCount_ := 0
+		tmp.MinNodeCount = &minNodeCount_
+	}
+	return &tmp
 }
 
 

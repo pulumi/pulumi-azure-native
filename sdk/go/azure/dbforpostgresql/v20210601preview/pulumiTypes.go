@@ -16,6 +16,23 @@ type Backup struct {
 }
 
 
+func (val *Backup) Defaults() *Backup {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.BackupRetentionDays) {
+		backupRetentionDays_ := 7
+		tmp.BackupRetentionDays = &backupRetentionDays_
+	}
+	if isZero(tmp.GeoRedundantBackup) {
+		geoRedundantBackup_ := "Disabled"
+		tmp.GeoRedundantBackup = &geoRedundantBackup_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -162,6 +179,23 @@ type BackupResponse struct {
 	BackupRetentionDays *int    `pulumi:"backupRetentionDays"`
 	EarliestRestoreDate string  `pulumi:"earliestRestoreDate"`
 	GeoRedundantBackup  *string `pulumi:"geoRedundantBackup"`
+}
+
+
+func (val *BackupResponse) Defaults() *BackupResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.BackupRetentionDays) {
+		backupRetentionDays_ := 7
+		tmp.BackupRetentionDays = &backupRetentionDays_
+	}
+	if isZero(tmp.GeoRedundantBackup) {
+		geoRedundantBackup_ := "Disabled"
+		tmp.GeoRedundantBackup = &geoRedundantBackup_
+	}
+	return &tmp
 }
 
 
@@ -327,6 +361,23 @@ type HighAvailability struct {
 }
 
 
+func (val *HighAvailability) Defaults() *HighAvailability {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Mode) {
+		mode_ := "Disabled"
+		tmp.Mode = &mode_
+	}
+	if isZero(tmp.StandbyAvailabilityZone) {
+		standbyAvailabilityZone_ := ""
+		tmp.StandbyAvailabilityZone = &standbyAvailabilityZone_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -473,6 +524,23 @@ type HighAvailabilityResponse struct {
 	Mode                    *string `pulumi:"mode"`
 	StandbyAvailabilityZone *string `pulumi:"standbyAvailabilityZone"`
 	State                   string  `pulumi:"state"`
+}
+
+
+func (val *HighAvailabilityResponse) Defaults() *HighAvailabilityResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Mode) {
+		mode_ := "Disabled"
+		tmp.Mode = &mode_
+	}
+	if isZero(tmp.StandbyAvailabilityZone) {
+		standbyAvailabilityZone_ := ""
+		tmp.StandbyAvailabilityZone = &standbyAvailabilityZone_
+	}
+	return &tmp
 }
 
 
@@ -637,6 +705,31 @@ type MaintenanceWindow struct {
 	DayOfWeek    *int    `pulumi:"dayOfWeek"`
 	StartHour    *int    `pulumi:"startHour"`
 	StartMinute  *int    `pulumi:"startMinute"`
+}
+
+
+func (val *MaintenanceWindow) Defaults() *MaintenanceWindow {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.CustomWindow) {
+		customWindow_ := "Disabled"
+		tmp.CustomWindow = &customWindow_
+	}
+	if isZero(tmp.DayOfWeek) {
+		dayOfWeek_ := 0
+		tmp.DayOfWeek = &dayOfWeek_
+	}
+	if isZero(tmp.StartHour) {
+		startHour_ := 0
+		tmp.StartHour = &startHour_
+	}
+	if isZero(tmp.StartMinute) {
+		startMinute_ := 0
+		tmp.StartMinute = &startMinute_
+	}
+	return &tmp
 }
 
 
@@ -818,6 +911,31 @@ type MaintenanceWindowResponse struct {
 }
 
 
+func (val *MaintenanceWindowResponse) Defaults() *MaintenanceWindowResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.CustomWindow) {
+		customWindow_ := "Disabled"
+		tmp.CustomWindow = &customWindow_
+	}
+	if isZero(tmp.DayOfWeek) {
+		dayOfWeek_ := 0
+		tmp.DayOfWeek = &dayOfWeek_
+	}
+	if isZero(tmp.StartHour) {
+		startHour_ := 0
+		tmp.StartHour = &startHour_
+	}
+	if isZero(tmp.StartMinute) {
+		startMinute_ := 0
+		tmp.StartMinute = &startMinute_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -994,6 +1112,23 @@ type Network struct {
 }
 
 
+func (val *Network) Defaults() *Network {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.DelegatedSubnetResourceId) {
+		delegatedSubnetResourceId_ := ""
+		tmp.DelegatedSubnetResourceId = &delegatedSubnetResourceId_
+	}
+	if isZero(tmp.PrivateDnsZoneArmResourceId) {
+		privateDnsZoneArmResourceId_ := ""
+		tmp.PrivateDnsZoneArmResourceId = &privateDnsZoneArmResourceId_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -1140,6 +1275,23 @@ type NetworkResponse struct {
 	DelegatedSubnetResourceId   *string `pulumi:"delegatedSubnetResourceId"`
 	PrivateDnsZoneArmResourceId *string `pulumi:"privateDnsZoneArmResourceId"`
 	PublicNetworkAccess         string  `pulumi:"publicNetworkAccess"`
+}
+
+
+func (val *NetworkResponse) Defaults() *NetworkResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.DelegatedSubnetResourceId) {
+		delegatedSubnetResourceId_ := ""
+		tmp.DelegatedSubnetResourceId = &delegatedSubnetResourceId_
+	}
+	if isZero(tmp.PrivateDnsZoneArmResourceId) {
+		privateDnsZoneArmResourceId_ := ""
+		tmp.PrivateDnsZoneArmResourceId = &privateDnsZoneArmResourceId_
+	}
+	return &tmp
 }
 
 

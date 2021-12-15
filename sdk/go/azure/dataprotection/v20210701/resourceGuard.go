@@ -108,7 +108,7 @@ type ResourceGuardInput interface {
 }
 
 func (*ResourceGuard) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResourceGuard)(nil))
+	return reflect.TypeOf((**ResourceGuard)(nil)).Elem()
 }
 
 func (i *ResourceGuard) ToResourceGuardOutput() ResourceGuardOutput {
@@ -122,7 +122,7 @@ func (i *ResourceGuard) ToResourceGuardOutputWithContext(ctx context.Context) Re
 type ResourceGuardOutput struct{ *pulumi.OutputState }
 
 func (ResourceGuardOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResourceGuard)(nil))
+	return reflect.TypeOf((**ResourceGuard)(nil)).Elem()
 }
 
 func (o ResourceGuardOutput) ToResourceGuardOutput() ResourceGuardOutput {

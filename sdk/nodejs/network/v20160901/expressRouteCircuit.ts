@@ -108,55 +108,55 @@ export class ExpressRouteCircuit extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ExpressRouteCircuitArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["allowClassicOperations"] = args ? args.allowClassicOperations : undefined;
-            inputs["authorizations"] = args ? args.authorizations : undefined;
-            inputs["circuitName"] = args ? args.circuitName : undefined;
-            inputs["circuitProvisioningState"] = args ? args.circuitProvisioningState : undefined;
-            inputs["etag"] = args ? args.etag : undefined;
-            inputs["gatewayManagerEtag"] = args ? args.gatewayManagerEtag : undefined;
-            inputs["id"] = args ? args.id : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["peerings"] = args ? args.peerings : undefined;
-            inputs["provisioningState"] = args ? args.provisioningState : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["serviceKey"] = args ? args.serviceKey : undefined;
-            inputs["serviceProviderNotes"] = args ? args.serviceProviderNotes : undefined;
-            inputs["serviceProviderProperties"] = args ? args.serviceProviderProperties : undefined;
-            inputs["serviceProviderProvisioningState"] = args ? args.serviceProviderProvisioningState : undefined;
-            inputs["sku"] = args ? args.sku : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["allowClassicOperations"] = args ? args.allowClassicOperations : undefined;
+            resourceInputs["authorizations"] = args ? args.authorizations : undefined;
+            resourceInputs["circuitName"] = args ? args.circuitName : undefined;
+            resourceInputs["circuitProvisioningState"] = args ? args.circuitProvisioningState : undefined;
+            resourceInputs["etag"] = args ? args.etag : undefined;
+            resourceInputs["gatewayManagerEtag"] = args ? args.gatewayManagerEtag : undefined;
+            resourceInputs["id"] = args ? args.id : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["peerings"] = args ? args.peerings : undefined;
+            resourceInputs["provisioningState"] = args ? args.provisioningState : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["serviceKey"] = args ? args.serviceKey : undefined;
+            resourceInputs["serviceProviderNotes"] = args ? args.serviceProviderNotes : undefined;
+            resourceInputs["serviceProviderProperties"] = args ? args.serviceProviderProperties : undefined;
+            resourceInputs["serviceProviderProvisioningState"] = args ? args.serviceProviderProvisioningState : undefined;
+            resourceInputs["sku"] = args ? args.sku : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["allowClassicOperations"] = undefined /*out*/;
-            inputs["authorizations"] = undefined /*out*/;
-            inputs["circuitProvisioningState"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
-            inputs["gatewayManagerEtag"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["peerings"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["serviceKey"] = undefined /*out*/;
-            inputs["serviceProviderNotes"] = undefined /*out*/;
-            inputs["serviceProviderProperties"] = undefined /*out*/;
-            inputs["serviceProviderProvisioningState"] = undefined /*out*/;
-            inputs["sku"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["allowClassicOperations"] = undefined /*out*/;
+            resourceInputs["authorizations"] = undefined /*out*/;
+            resourceInputs["circuitProvisioningState"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["gatewayManagerEtag"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["peerings"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["serviceKey"] = undefined /*out*/;
+            resourceInputs["serviceProviderNotes"] = undefined /*out*/;
+            resourceInputs["serviceProviderProperties"] = undefined /*out*/;
+            resourceInputs["serviceProviderProvisioningState"] = undefined /*out*/;
+            resourceInputs["sku"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:network:ExpressRouteCircuit" }, { type: "azure-native:network/v20150501preview:ExpressRouteCircuit" }, { type: "azure-native:network/v20150615:ExpressRouteCircuit" }, { type: "azure-native:network/v20160330:ExpressRouteCircuit" }, { type: "azure-native:network/v20160601:ExpressRouteCircuit" }, { type: "azure-native:network/v20161201:ExpressRouteCircuit" }, { type: "azure-native:network/v20170301:ExpressRouteCircuit" }, { type: "azure-native:network/v20170601:ExpressRouteCircuit" }, { type: "azure-native:network/v20170801:ExpressRouteCircuit" }, { type: "azure-native:network/v20170901:ExpressRouteCircuit" }, { type: "azure-native:network/v20171001:ExpressRouteCircuit" }, { type: "azure-native:network/v20171101:ExpressRouteCircuit" }, { type: "azure-native:network/v20180101:ExpressRouteCircuit" }, { type: "azure-native:network/v20180201:ExpressRouteCircuit" }, { type: "azure-native:network/v20180401:ExpressRouteCircuit" }, { type: "azure-native:network/v20180601:ExpressRouteCircuit" }, { type: "azure-native:network/v20180701:ExpressRouteCircuit" }, { type: "azure-native:network/v20180801:ExpressRouteCircuit" }, { type: "azure-native:network/v20181001:ExpressRouteCircuit" }, { type: "azure-native:network/v20181101:ExpressRouteCircuit" }, { type: "azure-native:network/v20181201:ExpressRouteCircuit" }, { type: "azure-native:network/v20190201:ExpressRouteCircuit" }, { type: "azure-native:network/v20190401:ExpressRouteCircuit" }, { type: "azure-native:network/v20190601:ExpressRouteCircuit" }, { type: "azure-native:network/v20190701:ExpressRouteCircuit" }, { type: "azure-native:network/v20190801:ExpressRouteCircuit" }, { type: "azure-native:network/v20190901:ExpressRouteCircuit" }, { type: "azure-native:network/v20191101:ExpressRouteCircuit" }, { type: "azure-native:network/v20191201:ExpressRouteCircuit" }, { type: "azure-native:network/v20200301:ExpressRouteCircuit" }, { type: "azure-native:network/v20200401:ExpressRouteCircuit" }, { type: "azure-native:network/v20200501:ExpressRouteCircuit" }, { type: "azure-native:network/v20200601:ExpressRouteCircuit" }, { type: "azure-native:network/v20200701:ExpressRouteCircuit" }, { type: "azure-native:network/v20200801:ExpressRouteCircuit" }, { type: "azure-native:network/v20201101:ExpressRouteCircuit" }, { type: "azure-native:network/v20210201:ExpressRouteCircuit" }, { type: "azure-native:network/v20210301:ExpressRouteCircuit" }, { type: "azure-native:network/v20210501:ExpressRouteCircuit" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(ExpressRouteCircuit.__pulumiType, name, inputs, opts);
+        super(ExpressRouteCircuit.__pulumiType, name, resourceInputs, opts);
     }
 }
 

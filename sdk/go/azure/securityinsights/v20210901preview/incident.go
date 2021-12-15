@@ -164,7 +164,7 @@ type IncidentInput interface {
 }
 
 func (*Incident) ElementType() reflect.Type {
-	return reflect.TypeOf((*Incident)(nil))
+	return reflect.TypeOf((**Incident)(nil)).Elem()
 }
 
 func (i *Incident) ToIncidentOutput() IncidentOutput {
@@ -178,7 +178,7 @@ func (i *Incident) ToIncidentOutputWithContext(ctx context.Context) IncidentOutp
 type IncidentOutput struct{ *pulumi.OutputState }
 
 func (IncidentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Incident)(nil))
+	return reflect.TypeOf((**Incident)(nil)).Elem()
 }
 
 func (o IncidentOutput) ToIncidentOutput() IncidentOutput {

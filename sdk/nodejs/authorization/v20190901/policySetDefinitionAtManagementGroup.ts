@@ -80,7 +80,7 @@ export class PolicySetDefinitionAtManagementGroup extends pulumi.CustomResource 
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: PolicySetDefinitionAtManagementGroupArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.managementGroupId === undefined) && !opts.urn) {
@@ -89,34 +89,34 @@ export class PolicySetDefinitionAtManagementGroup extends pulumi.CustomResource 
             if ((!args || args.policyDefinitions === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'policyDefinitions'");
             }
-            inputs["description"] = args ? args.description : undefined;
-            inputs["displayName"] = args ? args.displayName : undefined;
-            inputs["managementGroupId"] = args ? args.managementGroupId : undefined;
-            inputs["metadata"] = args ? args.metadata : undefined;
-            inputs["parameters"] = args ? args.parameters : undefined;
-            inputs["policyDefinitionGroups"] = args ? args.policyDefinitionGroups : undefined;
-            inputs["policyDefinitions"] = args ? args.policyDefinitions : undefined;
-            inputs["policySetDefinitionName"] = args ? args.policySetDefinitionName : undefined;
-            inputs["policyType"] = args ? args.policyType : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["displayName"] = args ? args.displayName : undefined;
+            resourceInputs["managementGroupId"] = args ? args.managementGroupId : undefined;
+            resourceInputs["metadata"] = args ? args.metadata : undefined;
+            resourceInputs["parameters"] = args ? args.parameters : undefined;
+            resourceInputs["policyDefinitionGroups"] = args ? args.policyDefinitionGroups : undefined;
+            resourceInputs["policyDefinitions"] = args ? args.policyDefinitions : undefined;
+            resourceInputs["policySetDefinitionName"] = args ? args.policySetDefinitionName : undefined;
+            resourceInputs["policyType"] = args ? args.policyType : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["description"] = undefined /*out*/;
-            inputs["displayName"] = undefined /*out*/;
-            inputs["metadata"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["parameters"] = undefined /*out*/;
-            inputs["policyDefinitionGroups"] = undefined /*out*/;
-            inputs["policyDefinitions"] = undefined /*out*/;
-            inputs["policyType"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["displayName"] = undefined /*out*/;
+            resourceInputs["metadata"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["parameters"] = undefined /*out*/;
+            resourceInputs["policyDefinitionGroups"] = undefined /*out*/;
+            resourceInputs["policyDefinitions"] = undefined /*out*/;
+            resourceInputs["policyType"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:authorization:PolicySetDefinitionAtManagementGroup" }, { type: "azure-native:authorization/v20170601preview:PolicySetDefinitionAtManagementGroup" }, { type: "azure-native:authorization/v20180301:PolicySetDefinitionAtManagementGroup" }, { type: "azure-native:authorization/v20180501:PolicySetDefinitionAtManagementGroup" }, { type: "azure-native:authorization/v20190101:PolicySetDefinitionAtManagementGroup" }, { type: "azure-native:authorization/v20190601:PolicySetDefinitionAtManagementGroup" }, { type: "azure-native:authorization/v20200301:PolicySetDefinitionAtManagementGroup" }, { type: "azure-native:authorization/v20200901:PolicySetDefinitionAtManagementGroup" }, { type: "azure-native:authorization/v20210601:PolicySetDefinitionAtManagementGroup" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(PolicySetDefinitionAtManagementGroup.__pulumiType, name, inputs, opts);
+        super(PolicySetDefinitionAtManagementGroup.__pulumiType, name, resourceInputs, opts);
     }
 }
 

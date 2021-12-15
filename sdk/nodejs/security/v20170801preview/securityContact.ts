@@ -68,7 +68,7 @@ export class SecurityContact extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: SecurityContactArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.alertNotifications === undefined) && !opts.urn) {
@@ -80,27 +80,27 @@ export class SecurityContact extends pulumi.CustomResource {
             if ((!args || args.email === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'email'");
             }
-            inputs["alertNotifications"] = args ? args.alertNotifications : undefined;
-            inputs["alertsToAdmins"] = args ? args.alertsToAdmins : undefined;
-            inputs["email"] = args ? args.email : undefined;
-            inputs["phone"] = args ? args.phone : undefined;
-            inputs["securityContactName"] = args ? args.securityContactName : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["alertNotifications"] = args ? args.alertNotifications : undefined;
+            resourceInputs["alertsToAdmins"] = args ? args.alertsToAdmins : undefined;
+            resourceInputs["email"] = args ? args.email : undefined;
+            resourceInputs["phone"] = args ? args.phone : undefined;
+            resourceInputs["securityContactName"] = args ? args.securityContactName : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["alertNotifications"] = undefined /*out*/;
-            inputs["alertsToAdmins"] = undefined /*out*/;
-            inputs["email"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["phone"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["alertNotifications"] = undefined /*out*/;
+            resourceInputs["alertsToAdmins"] = undefined /*out*/;
+            resourceInputs["email"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["phone"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:security:SecurityContact" }, { type: "azure-native:security/v20200101preview:SecurityContact" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(SecurityContact.__pulumiType, name, inputs, opts);
+        super(SecurityContact.__pulumiType, name, resourceInputs, opts);
     }
 }
 

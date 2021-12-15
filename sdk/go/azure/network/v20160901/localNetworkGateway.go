@@ -226,7 +226,7 @@ type LocalNetworkGatewayInput interface {
 }
 
 func (*LocalNetworkGateway) ElementType() reflect.Type {
-	return reflect.TypeOf((*LocalNetworkGateway)(nil))
+	return reflect.TypeOf((**LocalNetworkGateway)(nil)).Elem()
 }
 
 func (i *LocalNetworkGateway) ToLocalNetworkGatewayOutput() LocalNetworkGatewayOutput {
@@ -240,7 +240,7 @@ func (i *LocalNetworkGateway) ToLocalNetworkGatewayOutputWithContext(ctx context
 type LocalNetworkGatewayOutput struct{ *pulumi.OutputState }
 
 func (LocalNetworkGatewayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LocalNetworkGateway)(nil))
+	return reflect.TypeOf((**LocalNetworkGateway)(nil)).Elem()
 }
 
 func (o LocalNetworkGatewayOutput) ToLocalNetworkGatewayOutput() LocalNetworkGatewayOutput {

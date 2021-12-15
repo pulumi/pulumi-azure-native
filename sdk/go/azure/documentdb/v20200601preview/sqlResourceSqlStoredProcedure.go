@@ -168,7 +168,7 @@ type SqlResourceSqlStoredProcedureInput interface {
 }
 
 func (*SqlResourceSqlStoredProcedure) ElementType() reflect.Type {
-	return reflect.TypeOf((*SqlResourceSqlStoredProcedure)(nil))
+	return reflect.TypeOf((**SqlResourceSqlStoredProcedure)(nil)).Elem()
 }
 
 func (i *SqlResourceSqlStoredProcedure) ToSqlResourceSqlStoredProcedureOutput() SqlResourceSqlStoredProcedureOutput {
@@ -182,7 +182,7 @@ func (i *SqlResourceSqlStoredProcedure) ToSqlResourceSqlStoredProcedureOutputWit
 type SqlResourceSqlStoredProcedureOutput struct{ *pulumi.OutputState }
 
 func (SqlResourceSqlStoredProcedureOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SqlResourceSqlStoredProcedure)(nil))
+	return reflect.TypeOf((**SqlResourceSqlStoredProcedure)(nil)).Elem()
 }
 
 func (o SqlResourceSqlStoredProcedureOutput) ToSqlResourceSqlStoredProcedureOutput() SqlResourceSqlStoredProcedureOutput {

@@ -88,7 +88,7 @@ export class BuildTask extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: BuildTaskArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.alias === undefined) && !opts.urn) {
@@ -106,39 +106,39 @@ export class BuildTask extends pulumi.CustomResource {
             if ((!args || args.sourceRepository === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sourceRepository'");
             }
-            inputs["alias"] = args ? args.alias : undefined;
-            inputs["buildTaskName"] = args ? args.buildTaskName : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["platform"] = args ? args.platform : undefined;
-            inputs["registryName"] = args ? args.registryName : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["sourceRepository"] = args ? args.sourceRepository : undefined;
-            inputs["status"] = args ? args.status : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["timeout"] = (args ? args.timeout : undefined) ?? 3600;
-            inputs["creationDate"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["alias"] = args ? args.alias : undefined;
+            resourceInputs["buildTaskName"] = args ? args.buildTaskName : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["platform"] = args ? args.platform : undefined;
+            resourceInputs["registryName"] = args ? args.registryName : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["sourceRepository"] = args ? (args.sourceRepository ? pulumi.output(args.sourceRepository).apply(inputs.containerregistry.v20180201preview.sourceRepositoryPropertiesArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["status"] = args ? args.status : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["timeout"] = (args ? args.timeout : undefined) ?? 3600;
+            resourceInputs["creationDate"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["alias"] = undefined /*out*/;
-            inputs["creationDate"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["platform"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["sourceRepository"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["timeout"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["alias"] = undefined /*out*/;
+            resourceInputs["creationDate"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["platform"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["sourceRepository"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["timeout"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:containerregistry:BuildTask" }, { type: "azure-native:containerregistry/v20180901:BuildTask" }, { type: "azure-native:containerregistry/v20190401:BuildTask" }, { type: "azure-native:containerregistry/v20190601preview:BuildTask" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(BuildTask.__pulumiType, name, inputs, opts);
+        super(BuildTask.__pulumiType, name, resourceInputs, opts);
     }
 }
 

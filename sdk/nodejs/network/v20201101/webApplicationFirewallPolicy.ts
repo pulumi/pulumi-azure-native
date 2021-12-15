@@ -96,7 +96,7 @@ export class WebApplicationFirewallPolicy extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: WebApplicationFirewallPolicyArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.managedRules === undefined) && !opts.urn) {
@@ -105,43 +105,43 @@ export class WebApplicationFirewallPolicy extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["customRules"] = args ? args.customRules : undefined;
-            inputs["id"] = args ? args.id : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["managedRules"] = args ? args.managedRules : undefined;
-            inputs["policyName"] = args ? args.policyName : undefined;
-            inputs["policySettings"] = args ? args.policySettings : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["applicationGateways"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
-            inputs["httpListeners"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["pathBasedRules"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["resourceState"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["customRules"] = args ? args.customRules : undefined;
+            resourceInputs["id"] = args ? args.id : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["managedRules"] = args ? args.managedRules : undefined;
+            resourceInputs["policyName"] = args ? args.policyName : undefined;
+            resourceInputs["policySettings"] = args ? args.policySettings : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["applicationGateways"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["httpListeners"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["pathBasedRules"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["resourceState"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["applicationGateways"] = undefined /*out*/;
-            inputs["customRules"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
-            inputs["httpListeners"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["managedRules"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["pathBasedRules"] = undefined /*out*/;
-            inputs["policySettings"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["resourceState"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["applicationGateways"] = undefined /*out*/;
+            resourceInputs["customRules"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["httpListeners"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["managedRules"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["pathBasedRules"] = undefined /*out*/;
+            resourceInputs["policySettings"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["resourceState"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:network:WebApplicationFirewallPolicy" }, { type: "azure-native:network/v20181201:WebApplicationFirewallPolicy" }, { type: "azure-native:network/v20190201:WebApplicationFirewallPolicy" }, { type: "azure-native:network/v20190401:WebApplicationFirewallPolicy" }, { type: "azure-native:network/v20190601:WebApplicationFirewallPolicy" }, { type: "azure-native:network/v20190701:WebApplicationFirewallPolicy" }, { type: "azure-native:network/v20190801:WebApplicationFirewallPolicy" }, { type: "azure-native:network/v20190901:WebApplicationFirewallPolicy" }, { type: "azure-native:network/v20191101:WebApplicationFirewallPolicy" }, { type: "azure-native:network/v20191201:WebApplicationFirewallPolicy" }, { type: "azure-native:network/v20200301:WebApplicationFirewallPolicy" }, { type: "azure-native:network/v20200401:WebApplicationFirewallPolicy" }, { type: "azure-native:network/v20200501:WebApplicationFirewallPolicy" }, { type: "azure-native:network/v20200601:WebApplicationFirewallPolicy" }, { type: "azure-native:network/v20200701:WebApplicationFirewallPolicy" }, { type: "azure-native:network/v20200801:WebApplicationFirewallPolicy" }, { type: "azure-native:network/v20210201:WebApplicationFirewallPolicy" }, { type: "azure-native:network/v20210301:WebApplicationFirewallPolicy" }, { type: "azure-native:network/v20210501:WebApplicationFirewallPolicy" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(WebApplicationFirewallPolicy.__pulumiType, name, inputs, opts);
+        super(WebApplicationFirewallPolicy.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -125,7 +125,7 @@ type OfficeDataConnectorInput interface {
 }
 
 func (*OfficeDataConnector) ElementType() reflect.Type {
-	return reflect.TypeOf((*OfficeDataConnector)(nil))
+	return reflect.TypeOf((**OfficeDataConnector)(nil)).Elem()
 }
 
 func (i *OfficeDataConnector) ToOfficeDataConnectorOutput() OfficeDataConnectorOutput {
@@ -139,7 +139,7 @@ func (i *OfficeDataConnector) ToOfficeDataConnectorOutputWithContext(ctx context
 type OfficeDataConnectorOutput struct{ *pulumi.OutputState }
 
 func (OfficeDataConnectorOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*OfficeDataConnector)(nil))
+	return reflect.TypeOf((**OfficeDataConnector)(nil)).Elem()
 }
 
 func (o OfficeDataConnectorOutput) ToOfficeDataConnectorOutput() OfficeDataConnectorOutput {

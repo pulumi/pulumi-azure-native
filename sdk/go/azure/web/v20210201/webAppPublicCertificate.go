@@ -133,7 +133,7 @@ type WebAppPublicCertificateInput interface {
 }
 
 func (*WebAppPublicCertificate) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAppPublicCertificate)(nil))
+	return reflect.TypeOf((**WebAppPublicCertificate)(nil)).Elem()
 }
 
 func (i *WebAppPublicCertificate) ToWebAppPublicCertificateOutput() WebAppPublicCertificateOutput {
@@ -147,7 +147,7 @@ func (i *WebAppPublicCertificate) ToWebAppPublicCertificateOutputWithContext(ctx
 type WebAppPublicCertificateOutput struct{ *pulumi.OutputState }
 
 func (WebAppPublicCertificateOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAppPublicCertificate)(nil))
+	return reflect.TypeOf((**WebAppPublicCertificate)(nil)).Elem()
 }
 
 func (o WebAppPublicCertificateOutput) ToWebAppPublicCertificateOutput() WebAppPublicCertificateOutput {

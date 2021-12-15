@@ -102,7 +102,7 @@ type ServerCommunicationLinkInput interface {
 }
 
 func (*ServerCommunicationLink) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServerCommunicationLink)(nil))
+	return reflect.TypeOf((**ServerCommunicationLink)(nil)).Elem()
 }
 
 func (i *ServerCommunicationLink) ToServerCommunicationLinkOutput() ServerCommunicationLinkOutput {
@@ -116,7 +116,7 @@ func (i *ServerCommunicationLink) ToServerCommunicationLinkOutputWithContext(ctx
 type ServerCommunicationLinkOutput struct{ *pulumi.OutputState }
 
 func (ServerCommunicationLinkOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServerCommunicationLink)(nil))
+	return reflect.TypeOf((**ServerCommunicationLink)(nil)).Elem()
 }
 
 func (o ServerCommunicationLinkOutput) ToServerCommunicationLinkOutput() ServerCommunicationLinkOutput {

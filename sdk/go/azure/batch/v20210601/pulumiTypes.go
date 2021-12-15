@@ -884,6 +884,19 @@ type AutoStorageBaseProperties struct {
 }
 
 
+func (val *AutoStorageBaseProperties) Defaults() *AutoStorageBaseProperties {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.AuthenticationMode) {
+		authenticationMode_ := AutoStorageAuthenticationMode("StorageKeys")
+		tmp.AuthenticationMode = &authenticationMode_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -1045,6 +1058,19 @@ type AutoStoragePropertiesResponse struct {
 	LastKeySync           string                                `pulumi:"lastKeySync"`
 	NodeIdentityReference *ComputeNodeIdentityReferenceResponse `pulumi:"nodeIdentityReference"`
 	StorageAccountId      string                                `pulumi:"storageAccountId"`
+}
+
+
+func (val *AutoStoragePropertiesResponse) Defaults() *AutoStoragePropertiesResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.AuthenticationMode) {
+		authenticationMode_ := "StorageKeys"
+		tmp.AuthenticationMode = &authenticationMode_
+	}
+	return &tmp
 }
 
 

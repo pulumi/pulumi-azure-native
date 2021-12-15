@@ -60,7 +60,7 @@ export class WorkspaceSetting extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: WorkspaceSettingArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.scope === undefined) && !opts.urn) {
@@ -69,23 +69,23 @@ export class WorkspaceSetting extends pulumi.CustomResource {
             if ((!args || args.workspaceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'workspaceId'");
             }
-            inputs["scope"] = args ? args.scope : undefined;
-            inputs["workspaceId"] = args ? args.workspaceId : undefined;
-            inputs["workspaceSettingName"] = args ? args.workspaceSettingName : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["scope"] = args ? args.scope : undefined;
+            resourceInputs["workspaceId"] = args ? args.workspaceId : undefined;
+            resourceInputs["workspaceSettingName"] = args ? args.workspaceSettingName : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["name"] = undefined /*out*/;
-            inputs["scope"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["workspaceId"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["scope"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["workspaceId"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:security/v20170801preview:WorkspaceSetting" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(WorkspaceSetting.__pulumiType, name, inputs, opts);
+        super(WorkspaceSetting.__pulumiType, name, resourceInputs, opts);
     }
 }
 

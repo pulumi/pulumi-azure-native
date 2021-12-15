@@ -13,7 +13,7 @@ func LookupSourceControlConfiguration(ctx *pulumi.Context, args *LookupSourceCon
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupSourceControlConfigurationArgs struct {
@@ -40,4 +40,21 @@ type LookupSourceControlConfigurationResult struct {
 	RepositoryPublicKey    string                          `pulumi:"repositoryPublicKey"`
 	RepositoryUrl          *string                         `pulumi:"repositoryUrl"`
 	Type                   string                          `pulumi:"type"`
+}
+
+
+func (val *LookupSourceControlConfigurationResult) Defaults() *LookupSourceControlConfigurationResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.OperatorNamespace) {
+		operatorNamespace_ := "default"
+		tmp.OperatorNamespace = &operatorNamespace_
+	}
+	if isZero(tmp.OperatorScope) {
+		operatorScope_ := "cluster"
+		tmp.OperatorScope = &operatorScope_
+	}
+	return &tmp
 }

@@ -13,7 +13,7 @@ func LookupAlertProcessingRuleByName(ctx *pulumi.Context, args *LookupAlertProce
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupAlertProcessingRuleByNameArgs struct {
@@ -30,4 +30,15 @@ type LookupAlertProcessingRuleByNameResult struct {
 	SystemData SystemDataResponse                    `pulumi:"systemData"`
 	Tags       map[string]string                     `pulumi:"tags"`
 	Type       string                                `pulumi:"type"`
+}
+
+
+func (val *LookupAlertProcessingRuleByNameResult) Defaults() *LookupAlertProcessingRuleByNameResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Properties = *tmp.Properties.Defaults()
+
+	return &tmp
 }

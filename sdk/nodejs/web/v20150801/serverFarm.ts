@@ -113,57 +113,57 @@ export class ServerFarm extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ServerFarmArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["adminSiteName"] = args ? args.adminSiteName : undefined;
-            inputs["allowPendingState"] = args ? args.allowPendingState : undefined;
-            inputs["hostingEnvironmentProfile"] = args ? args.hostingEnvironmentProfile : undefined;
-            inputs["id"] = args ? args.id : undefined;
-            inputs["kind"] = args ? args.kind : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["maximumNumberOfWorkers"] = args ? args.maximumNumberOfWorkers : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["perSiteScaling"] = args ? args.perSiteScaling : undefined;
-            inputs["reserved"] = args ? args.reserved : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["sku"] = args ? args.sku : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["type"] = args ? args.type : undefined;
-            inputs["workerTierName"] = args ? args.workerTierName : undefined;
-            inputs["geoRegion"] = undefined /*out*/;
-            inputs["numberOfSites"] = undefined /*out*/;
-            inputs["resourceGroup"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["subscription"] = undefined /*out*/;
+            resourceInputs["adminSiteName"] = args ? args.adminSiteName : undefined;
+            resourceInputs["allowPendingState"] = args ? args.allowPendingState : undefined;
+            resourceInputs["hostingEnvironmentProfile"] = args ? args.hostingEnvironmentProfile : undefined;
+            resourceInputs["id"] = args ? args.id : undefined;
+            resourceInputs["kind"] = args ? args.kind : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["maximumNumberOfWorkers"] = args ? args.maximumNumberOfWorkers : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["perSiteScaling"] = args ? args.perSiteScaling : undefined;
+            resourceInputs["reserved"] = args ? args.reserved : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["sku"] = args ? args.sku : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["workerTierName"] = args ? args.workerTierName : undefined;
+            resourceInputs["geoRegion"] = undefined /*out*/;
+            resourceInputs["numberOfSites"] = undefined /*out*/;
+            resourceInputs["resourceGroup"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["subscription"] = undefined /*out*/;
         } else {
-            inputs["adminSiteName"] = undefined /*out*/;
-            inputs["geoRegion"] = undefined /*out*/;
-            inputs["hostingEnvironmentProfile"] = undefined /*out*/;
-            inputs["kind"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["maximumNumberOfWorkers"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["numberOfSites"] = undefined /*out*/;
-            inputs["perSiteScaling"] = undefined /*out*/;
-            inputs["reserved"] = undefined /*out*/;
-            inputs["resourceGroup"] = undefined /*out*/;
-            inputs["sku"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["subscription"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["workerTierName"] = undefined /*out*/;
+            resourceInputs["adminSiteName"] = undefined /*out*/;
+            resourceInputs["geoRegion"] = undefined /*out*/;
+            resourceInputs["hostingEnvironmentProfile"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["maximumNumberOfWorkers"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["numberOfSites"] = undefined /*out*/;
+            resourceInputs["perSiteScaling"] = undefined /*out*/;
+            resourceInputs["reserved"] = undefined /*out*/;
+            resourceInputs["resourceGroup"] = undefined /*out*/;
+            resourceInputs["sku"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["subscription"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["workerTierName"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:web:ServerFarm" }, { type: "azure-native:web/v20160901:ServerFarm" }, { type: "azure-native:web/v20180201:ServerFarm" }, { type: "azure-native:web/v20190801:ServerFarm" }, { type: "azure-native:web/v20200601:ServerFarm" }, { type: "azure-native:web/v20200901:ServerFarm" }, { type: "azure-native:web/v20201001:ServerFarm" }, { type: "azure-native:web/v20201201:ServerFarm" }, { type: "azure-native:web/v20210101:ServerFarm" }, { type: "azure-native:web/v20210115:ServerFarm" }, { type: "azure-native:web/v20210201:ServerFarm" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(ServerFarm.__pulumiType, name, inputs, opts);
+        super(ServerFarm.__pulumiType, name, resourceInputs, opts);
     }
 }
 

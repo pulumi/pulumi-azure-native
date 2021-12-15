@@ -128,7 +128,7 @@ type ConfigurationStoreInput interface {
 }
 
 func (*ConfigurationStore) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConfigurationStore)(nil))
+	return reflect.TypeOf((**ConfigurationStore)(nil)).Elem()
 }
 
 func (i *ConfigurationStore) ToConfigurationStoreOutput() ConfigurationStoreOutput {
@@ -142,7 +142,7 @@ func (i *ConfigurationStore) ToConfigurationStoreOutputWithContext(ctx context.C
 type ConfigurationStoreOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationStoreOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConfigurationStore)(nil))
+	return reflect.TypeOf((**ConfigurationStore)(nil)).Elem()
 }
 
 func (o ConfigurationStoreOutput) ToConfigurationStoreOutput() ConfigurationStoreOutput {

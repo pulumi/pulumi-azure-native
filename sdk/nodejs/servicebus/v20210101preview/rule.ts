@@ -72,7 +72,7 @@ export class Rule extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: RuleArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.namespaceName === undefined) && !opts.urn) {
@@ -87,33 +87,33 @@ export class Rule extends pulumi.CustomResource {
             if ((!args || args.topicName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'topicName'");
             }
-            inputs["action"] = args ? args.action : undefined;
-            inputs["correlationFilter"] = args ? args.correlationFilter : undefined;
-            inputs["filterType"] = args ? args.filterType : undefined;
-            inputs["namespaceName"] = args ? args.namespaceName : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["ruleName"] = args ? args.ruleName : undefined;
-            inputs["sqlFilter"] = args ? args.sqlFilter : undefined;
-            inputs["subscriptionName"] = args ? args.subscriptionName : undefined;
-            inputs["topicName"] = args ? args.topicName : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["action"] = args ? (args.action ? pulumi.output(args.action).apply(inputs.servicebus.v20210101preview.actionArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["correlationFilter"] = args ? (args.correlationFilter ? pulumi.output(args.correlationFilter).apply(inputs.servicebus.v20210101preview.correlationFilterArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["filterType"] = args ? args.filterType : undefined;
+            resourceInputs["namespaceName"] = args ? args.namespaceName : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["ruleName"] = args ? args.ruleName : undefined;
+            resourceInputs["sqlFilter"] = args ? (args.sqlFilter ? pulumi.output(args.sqlFilter).apply(inputs.servicebus.v20210101preview.sqlFilterArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["subscriptionName"] = args ? args.subscriptionName : undefined;
+            resourceInputs["topicName"] = args ? args.topicName : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["action"] = undefined /*out*/;
-            inputs["correlationFilter"] = undefined /*out*/;
-            inputs["filterType"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["sqlFilter"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["action"] = undefined /*out*/;
+            resourceInputs["correlationFilter"] = undefined /*out*/;
+            resourceInputs["filterType"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["sqlFilter"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:servicebus:Rule" }, { type: "azure-native:servicebus/v20170401:Rule" }, { type: "azure-native:servicebus/v20180101preview:Rule" }, { type: "azure-native:servicebus/v20210601preview:Rule" }, { type: "azure-native:servicebus/v20211101:Rule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Rule.__pulumiType, name, inputs, opts);
+        super(Rule.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -115,7 +115,7 @@ type AttestationAtResourceInput interface {
 }
 
 func (*AttestationAtResource) ElementType() reflect.Type {
-	return reflect.TypeOf((*AttestationAtResource)(nil))
+	return reflect.TypeOf((**AttestationAtResource)(nil)).Elem()
 }
 
 func (i *AttestationAtResource) ToAttestationAtResourceOutput() AttestationAtResourceOutput {
@@ -129,7 +129,7 @@ func (i *AttestationAtResource) ToAttestationAtResourceOutputWithContext(ctx con
 type AttestationAtResourceOutput struct{ *pulumi.OutputState }
 
 func (AttestationAtResourceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AttestationAtResource)(nil))
+	return reflect.TypeOf((**AttestationAtResource)(nil)).Elem()
 }
 
 func (o AttestationAtResourceOutput) ToAttestationAtResourceOutput() AttestationAtResourceOutput {

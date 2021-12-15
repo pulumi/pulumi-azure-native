@@ -114,7 +114,7 @@ type LinkedServiceInput interface {
 }
 
 func (*LinkedService) ElementType() reflect.Type {
-	return reflect.TypeOf((*LinkedService)(nil))
+	return reflect.TypeOf((**LinkedService)(nil)).Elem()
 }
 
 func (i *LinkedService) ToLinkedServiceOutput() LinkedServiceOutput {
@@ -128,7 +128,7 @@ func (i *LinkedService) ToLinkedServiceOutputWithContext(ctx context.Context) Li
 type LinkedServiceOutput struct{ *pulumi.OutputState }
 
 func (LinkedServiceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LinkedService)(nil))
+	return reflect.TypeOf((**LinkedService)(nil)).Elem()
 }
 
 func (o LinkedServiceOutput) ToLinkedServiceOutput() LinkedServiceOutput {

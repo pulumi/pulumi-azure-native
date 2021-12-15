@@ -32,6 +32,10 @@ func NewAlertProcessingRuleByName(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
+	propertiesApplier := func(v AlertProcessingRuleProperties) *AlertProcessingRuleProperties { return v.Defaults() }
+	if args.Properties != nil {
+		args.Properties = args.Properties.ToAlertProcessingRulePropertiesPtrOutput().Elem().ApplyT(propertiesApplier).(AlertProcessingRulePropertiesPtrOutput)
+	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-native:alertsmanagement:AlertProcessingRuleByName"),
@@ -104,7 +108,7 @@ type AlertProcessingRuleByNameInput interface {
 }
 
 func (*AlertProcessingRuleByName) ElementType() reflect.Type {
-	return reflect.TypeOf((*AlertProcessingRuleByName)(nil))
+	return reflect.TypeOf((**AlertProcessingRuleByName)(nil)).Elem()
 }
 
 func (i *AlertProcessingRuleByName) ToAlertProcessingRuleByNameOutput() AlertProcessingRuleByNameOutput {
@@ -118,7 +122,7 @@ func (i *AlertProcessingRuleByName) ToAlertProcessingRuleByNameOutputWithContext
 type AlertProcessingRuleByNameOutput struct{ *pulumi.OutputState }
 
 func (AlertProcessingRuleByNameOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AlertProcessingRuleByName)(nil))
+	return reflect.TypeOf((**AlertProcessingRuleByName)(nil)).Elem()
 }
 
 func (o AlertProcessingRuleByNameOutput) ToAlertProcessingRuleByNameOutput() AlertProcessingRuleByNameOutput {

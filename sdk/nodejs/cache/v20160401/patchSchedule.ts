@@ -60,7 +60,7 @@ export class PatchSchedule extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: PatchScheduleArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.name === undefined) && !opts.urn) {
@@ -72,23 +72,23 @@ export class PatchSchedule extends pulumi.CustomResource {
             if ((!args || args.scheduleEntries === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'scheduleEntries'");
             }
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["scheduleEntries"] = args ? args.scheduleEntries : undefined;
-            inputs["location"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["scheduleEntries"] = args ? args.scheduleEntries : undefined;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["scheduleEntries"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["scheduleEntries"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:cache/v20170201:PatchSchedule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(PatchSchedule.__pulumiType, name, inputs, opts);
+        super(PatchSchedule.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -53,13 +53,13 @@ func NewAppServiceCertificateOrder(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.AutoRenew == nil {
+	if isZero(args.AutoRenew) {
 		args.AutoRenew = pulumi.BoolPtr(true)
 	}
-	if args.KeySize == nil {
+	if isZero(args.KeySize) {
 		args.KeySize = pulumi.IntPtr(2048)
 	}
-	if args.ValidityInYears == nil {
+	if isZero(args.ValidityInYears) {
 		args.ValidityInYears = pulumi.IntPtr(1)
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
@@ -169,7 +169,7 @@ type AppServiceCertificateOrderInput interface {
 }
 
 func (*AppServiceCertificateOrder) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppServiceCertificateOrder)(nil))
+	return reflect.TypeOf((**AppServiceCertificateOrder)(nil)).Elem()
 }
 
 func (i *AppServiceCertificateOrder) ToAppServiceCertificateOrderOutput() AppServiceCertificateOrderOutput {
@@ -183,7 +183,7 @@ func (i *AppServiceCertificateOrder) ToAppServiceCertificateOrderOutputWithConte
 type AppServiceCertificateOrderOutput struct{ *pulumi.OutputState }
 
 func (AppServiceCertificateOrderOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppServiceCertificateOrder)(nil))
+	return reflect.TypeOf((**AppServiceCertificateOrder)(nil)).Elem()
 }
 
 func (o AppServiceCertificateOrderOutput) ToAppServiceCertificateOrderOutput() AppServiceCertificateOrderOutput {

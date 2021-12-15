@@ -101,7 +101,7 @@ type MigrateProjectsControllerMigrateProjectInput interface {
 }
 
 func (*MigrateProjectsControllerMigrateProject) ElementType() reflect.Type {
-	return reflect.TypeOf((*MigrateProjectsControllerMigrateProject)(nil))
+	return reflect.TypeOf((**MigrateProjectsControllerMigrateProject)(nil)).Elem()
 }
 
 func (i *MigrateProjectsControllerMigrateProject) ToMigrateProjectsControllerMigrateProjectOutput() MigrateProjectsControllerMigrateProjectOutput {
@@ -115,7 +115,7 @@ func (i *MigrateProjectsControllerMigrateProject) ToMigrateProjectsControllerMig
 type MigrateProjectsControllerMigrateProjectOutput struct{ *pulumi.OutputState }
 
 func (MigrateProjectsControllerMigrateProjectOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MigrateProjectsControllerMigrateProject)(nil))
+	return reflect.TypeOf((**MigrateProjectsControllerMigrateProject)(nil)).Elem()
 }
 
 func (o MigrateProjectsControllerMigrateProjectOutput) ToMigrateProjectsControllerMigrateProjectOutput() MigrateProjectsControllerMigrateProjectOutput {

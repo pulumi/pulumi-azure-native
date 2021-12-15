@@ -60,7 +60,7 @@ export class ReplicationStorageClassificationMapping extends pulumi.CustomResour
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ReplicationStorageClassificationMappingArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.fabricName === undefined) && !opts.urn) {
@@ -75,27 +75,27 @@ export class ReplicationStorageClassificationMapping extends pulumi.CustomResour
             if ((!args || args.storageClassificationName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'storageClassificationName'");
             }
-            inputs["fabricName"] = args ? args.fabricName : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["resourceName"] = args ? args.resourceName : undefined;
-            inputs["storageClassificationMappingName"] = args ? args.storageClassificationMappingName : undefined;
-            inputs["storageClassificationName"] = args ? args.storageClassificationName : undefined;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["fabricName"] = args ? args.fabricName : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["resourceName"] = args ? args.resourceName : undefined;
+            resourceInputs["storageClassificationMappingName"] = args ? args.storageClassificationMappingName : undefined;
+            resourceInputs["storageClassificationName"] = args ? args.storageClassificationName : undefined;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:recoveryservices:ReplicationStorageClassificationMapping" }, { type: "azure-native:recoveryservices/v20160810:ReplicationStorageClassificationMapping" }, { type: "azure-native:recoveryservices/v20180110:ReplicationStorageClassificationMapping" }, { type: "azure-native:recoveryservices/v20180710:ReplicationStorageClassificationMapping" }, { type: "azure-native:recoveryservices/v20210210:ReplicationStorageClassificationMapping" }, { type: "azure-native:recoveryservices/v20210301:ReplicationStorageClassificationMapping" }, { type: "azure-native:recoveryservices/v20210401:ReplicationStorageClassificationMapping" }, { type: "azure-native:recoveryservices/v20210601:ReplicationStorageClassificationMapping" }, { type: "azure-native:recoveryservices/v20210701:ReplicationStorageClassificationMapping" }, { type: "azure-native:recoveryservices/v20211001:ReplicationStorageClassificationMapping" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(ReplicationStorageClassificationMapping.__pulumiType, name, inputs, opts);
+        super(ReplicationStorageClassificationMapping.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -13,7 +13,7 @@ func LookupBastionHost(ctx *pulumi.Context, args *LookupBastionHostArgs, opts ..
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupBastionHostArgs struct {
@@ -39,4 +39,35 @@ type LookupBastionHostResult struct {
 	Sku                 *SkuResponse                         `pulumi:"sku"`
 	Tags                map[string]string                    `pulumi:"tags"`
 	Type                string                               `pulumi:"type"`
+}
+
+
+func (val *LookupBastionHostResult) Defaults() *LookupBastionHostResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.DisableCopyPaste) {
+		disableCopyPaste_ := false
+		tmp.DisableCopyPaste = &disableCopyPaste_
+	}
+	if isZero(tmp.EnableFileCopy) {
+		enableFileCopy_ := false
+		tmp.EnableFileCopy = &enableFileCopy_
+	}
+	if isZero(tmp.EnableIpConnect) {
+		enableIpConnect_ := false
+		tmp.EnableIpConnect = &enableIpConnect_
+	}
+	if isZero(tmp.EnableShareableLink) {
+		enableShareableLink_ := false
+		tmp.EnableShareableLink = &enableShareableLink_
+	}
+	if isZero(tmp.EnableTunneling) {
+		enableTunneling_ := false
+		tmp.EnableTunneling = &enableTunneling_
+	}
+	tmp.Sku = tmp.Sku.Defaults()
+
+	return &tmp
 }

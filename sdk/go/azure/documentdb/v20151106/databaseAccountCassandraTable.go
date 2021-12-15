@@ -172,7 +172,7 @@ type DatabaseAccountCassandraTableInput interface {
 }
 
 func (*DatabaseAccountCassandraTable) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatabaseAccountCassandraTable)(nil))
+	return reflect.TypeOf((**DatabaseAccountCassandraTable)(nil)).Elem()
 }
 
 func (i *DatabaseAccountCassandraTable) ToDatabaseAccountCassandraTableOutput() DatabaseAccountCassandraTableOutput {
@@ -186,7 +186,7 @@ func (i *DatabaseAccountCassandraTable) ToDatabaseAccountCassandraTableOutputWit
 type DatabaseAccountCassandraTableOutput struct{ *pulumi.OutputState }
 
 func (DatabaseAccountCassandraTableOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatabaseAccountCassandraTable)(nil))
+	return reflect.TypeOf((**DatabaseAccountCassandraTable)(nil)).Elem()
 }
 
 func (o DatabaseAccountCassandraTableOutput) ToDatabaseAccountCassandraTableOutput() DatabaseAccountCassandraTableOutput {

@@ -100,7 +100,7 @@ type SecretInput interface {
 }
 
 func (*Secret) ElementType() reflect.Type {
-	return reflect.TypeOf((*Secret)(nil))
+	return reflect.TypeOf((**Secret)(nil)).Elem()
 }
 
 func (i *Secret) ToSecretOutput() SecretOutput {
@@ -114,7 +114,7 @@ func (i *Secret) ToSecretOutputWithContext(ctx context.Context) SecretOutput {
 type SecretOutput struct{ *pulumi.OutputState }
 
 func (SecretOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Secret)(nil))
+	return reflect.TypeOf((**Secret)(nil)).Elem()
 }
 
 func (o SecretOutput) ToSecretOutput() SecretOutput {

@@ -84,7 +84,7 @@ export class GroupUser extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: GroupUserArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.groupId === undefined) && !opts.urn) {
@@ -96,38 +96,38 @@ export class GroupUser extends pulumi.CustomResource {
             if ((!args || args.serviceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceName'");
             }
-            inputs["groupId"] = args ? args.groupId : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["serviceName"] = args ? args.serviceName : undefined;
-            inputs["userId"] = args ? args.userId : undefined;
-            inputs["email"] = undefined /*out*/;
-            inputs["firstName"] = undefined /*out*/;
-            inputs["groups"] = undefined /*out*/;
-            inputs["identities"] = undefined /*out*/;
-            inputs["lastName"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["note"] = undefined /*out*/;
-            inputs["registrationDate"] = undefined /*out*/;
-            inputs["state"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["groupId"] = args ? args.groupId : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["serviceName"] = args ? args.serviceName : undefined;
+            resourceInputs["userId"] = args ? args.userId : undefined;
+            resourceInputs["email"] = undefined /*out*/;
+            resourceInputs["firstName"] = undefined /*out*/;
+            resourceInputs["groups"] = undefined /*out*/;
+            resourceInputs["identities"] = undefined /*out*/;
+            resourceInputs["lastName"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["note"] = undefined /*out*/;
+            resourceInputs["registrationDate"] = undefined /*out*/;
+            resourceInputs["state"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["email"] = undefined /*out*/;
-            inputs["firstName"] = undefined /*out*/;
-            inputs["groups"] = undefined /*out*/;
-            inputs["identities"] = undefined /*out*/;
-            inputs["lastName"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["note"] = undefined /*out*/;
-            inputs["registrationDate"] = undefined /*out*/;
-            inputs["state"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["email"] = undefined /*out*/;
+            resourceInputs["firstName"] = undefined /*out*/;
+            resourceInputs["groups"] = undefined /*out*/;
+            resourceInputs["identities"] = undefined /*out*/;
+            resourceInputs["lastName"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["note"] = undefined /*out*/;
+            resourceInputs["registrationDate"] = undefined /*out*/;
+            resourceInputs["state"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:GroupUser" }, { type: "azure-native:apimanagement/v20170301:GroupUser" }, { type: "azure-native:apimanagement/v20180101:GroupUser" }, { type: "azure-native:apimanagement/v20180601preview:GroupUser" }, { type: "azure-native:apimanagement/v20190101:GroupUser" }, { type: "azure-native:apimanagement/v20191201:GroupUser" }, { type: "azure-native:apimanagement/v20191201preview:GroupUser" }, { type: "azure-native:apimanagement/v20200601preview:GroupUser" }, { type: "azure-native:apimanagement/v20201201:GroupUser" }, { type: "azure-native:apimanagement/v20210101preview:GroupUser" }, { type: "azure-native:apimanagement/v20210801:GroupUser" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(GroupUser.__pulumiType, name, inputs, opts);
+        super(GroupUser.__pulumiType, name, resourceInputs, opts);
     }
 }
 

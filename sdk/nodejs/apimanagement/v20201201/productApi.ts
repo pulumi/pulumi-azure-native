@@ -124,7 +124,7 @@ export class ProductApi extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ProductApiArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.productId === undefined) && !opts.urn) {
@@ -136,58 +136,58 @@ export class ProductApi extends pulumi.CustomResource {
             if ((!args || args.serviceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceName'");
             }
-            inputs["apiId"] = args ? args.apiId : undefined;
-            inputs["productId"] = args ? args.productId : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["serviceName"] = args ? args.serviceName : undefined;
-            inputs["apiRevision"] = undefined /*out*/;
-            inputs["apiRevisionDescription"] = undefined /*out*/;
-            inputs["apiType"] = undefined /*out*/;
-            inputs["apiVersion"] = undefined /*out*/;
-            inputs["apiVersionDescription"] = undefined /*out*/;
-            inputs["apiVersionSet"] = undefined /*out*/;
-            inputs["apiVersionSetId"] = undefined /*out*/;
-            inputs["authenticationSettings"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["displayName"] = undefined /*out*/;
-            inputs["isCurrent"] = undefined /*out*/;
-            inputs["isOnline"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["path"] = undefined /*out*/;
-            inputs["protocols"] = undefined /*out*/;
-            inputs["serviceUrl"] = undefined /*out*/;
-            inputs["sourceApiId"] = undefined /*out*/;
-            inputs["subscriptionKeyParameterNames"] = undefined /*out*/;
-            inputs["subscriptionRequired"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["apiId"] = args ? args.apiId : undefined;
+            resourceInputs["productId"] = args ? args.productId : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["serviceName"] = args ? args.serviceName : undefined;
+            resourceInputs["apiRevision"] = undefined /*out*/;
+            resourceInputs["apiRevisionDescription"] = undefined /*out*/;
+            resourceInputs["apiType"] = undefined /*out*/;
+            resourceInputs["apiVersion"] = undefined /*out*/;
+            resourceInputs["apiVersionDescription"] = undefined /*out*/;
+            resourceInputs["apiVersionSet"] = undefined /*out*/;
+            resourceInputs["apiVersionSetId"] = undefined /*out*/;
+            resourceInputs["authenticationSettings"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["displayName"] = undefined /*out*/;
+            resourceInputs["isCurrent"] = undefined /*out*/;
+            resourceInputs["isOnline"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["path"] = undefined /*out*/;
+            resourceInputs["protocols"] = undefined /*out*/;
+            resourceInputs["serviceUrl"] = undefined /*out*/;
+            resourceInputs["sourceApiId"] = undefined /*out*/;
+            resourceInputs["subscriptionKeyParameterNames"] = undefined /*out*/;
+            resourceInputs["subscriptionRequired"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["apiRevision"] = undefined /*out*/;
-            inputs["apiRevisionDescription"] = undefined /*out*/;
-            inputs["apiType"] = undefined /*out*/;
-            inputs["apiVersion"] = undefined /*out*/;
-            inputs["apiVersionDescription"] = undefined /*out*/;
-            inputs["apiVersionSet"] = undefined /*out*/;
-            inputs["apiVersionSetId"] = undefined /*out*/;
-            inputs["authenticationSettings"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["displayName"] = undefined /*out*/;
-            inputs["isCurrent"] = undefined /*out*/;
-            inputs["isOnline"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["path"] = undefined /*out*/;
-            inputs["protocols"] = undefined /*out*/;
-            inputs["serviceUrl"] = undefined /*out*/;
-            inputs["sourceApiId"] = undefined /*out*/;
-            inputs["subscriptionKeyParameterNames"] = undefined /*out*/;
-            inputs["subscriptionRequired"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["apiRevision"] = undefined /*out*/;
+            resourceInputs["apiRevisionDescription"] = undefined /*out*/;
+            resourceInputs["apiType"] = undefined /*out*/;
+            resourceInputs["apiVersion"] = undefined /*out*/;
+            resourceInputs["apiVersionDescription"] = undefined /*out*/;
+            resourceInputs["apiVersionSet"] = undefined /*out*/;
+            resourceInputs["apiVersionSetId"] = undefined /*out*/;
+            resourceInputs["authenticationSettings"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["displayName"] = undefined /*out*/;
+            resourceInputs["isCurrent"] = undefined /*out*/;
+            resourceInputs["isOnline"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["path"] = undefined /*out*/;
+            resourceInputs["protocols"] = undefined /*out*/;
+            resourceInputs["serviceUrl"] = undefined /*out*/;
+            resourceInputs["sourceApiId"] = undefined /*out*/;
+            resourceInputs["subscriptionKeyParameterNames"] = undefined /*out*/;
+            resourceInputs["subscriptionRequired"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:ProductApi" }, { type: "azure-native:apimanagement/v20170301:ProductApi" }, { type: "azure-native:apimanagement/v20180101:ProductApi" }, { type: "azure-native:apimanagement/v20180601preview:ProductApi" }, { type: "azure-native:apimanagement/v20190101:ProductApi" }, { type: "azure-native:apimanagement/v20191201:ProductApi" }, { type: "azure-native:apimanagement/v20191201preview:ProductApi" }, { type: "azure-native:apimanagement/v20200601preview:ProductApi" }, { type: "azure-native:apimanagement/v20210101preview:ProductApi" }, { type: "azure-native:apimanagement/v20210401preview:ProductApi" }, { type: "azure-native:apimanagement/v20210801:ProductApi" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(ProductApi.__pulumiType, name, inputs, opts);
+        super(ProductApi.__pulumiType, name, resourceInputs, opts);
     }
 }
 

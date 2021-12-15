@@ -111,7 +111,7 @@ type SkusNestedResourceTypeFirstInput interface {
 }
 
 func (*SkusNestedResourceTypeFirst) ElementType() reflect.Type {
-	return reflect.TypeOf((*SkusNestedResourceTypeFirst)(nil))
+	return reflect.TypeOf((**SkusNestedResourceTypeFirst)(nil)).Elem()
 }
 
 func (i *SkusNestedResourceTypeFirst) ToSkusNestedResourceTypeFirstOutput() SkusNestedResourceTypeFirstOutput {
@@ -125,7 +125,7 @@ func (i *SkusNestedResourceTypeFirst) ToSkusNestedResourceTypeFirstOutputWithCon
 type SkusNestedResourceTypeFirstOutput struct{ *pulumi.OutputState }
 
 func (SkusNestedResourceTypeFirstOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SkusNestedResourceTypeFirst)(nil))
+	return reflect.TypeOf((**SkusNestedResourceTypeFirst)(nil)).Elem()
 }
 
 func (o SkusNestedResourceTypeFirstOutput) ToSkusNestedResourceTypeFirstOutput() SkusNestedResourceTypeFirstOutput {

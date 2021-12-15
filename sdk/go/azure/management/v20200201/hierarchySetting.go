@@ -102,7 +102,7 @@ type HierarchySettingInput interface {
 }
 
 func (*HierarchySetting) ElementType() reflect.Type {
-	return reflect.TypeOf((*HierarchySetting)(nil))
+	return reflect.TypeOf((**HierarchySetting)(nil)).Elem()
 }
 
 func (i *HierarchySetting) ToHierarchySettingOutput() HierarchySettingOutput {
@@ -116,7 +116,7 @@ func (i *HierarchySetting) ToHierarchySettingOutputWithContext(ctx context.Conte
 type HierarchySettingOutput struct{ *pulumi.OutputState }
 
 func (HierarchySettingOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*HierarchySetting)(nil))
+	return reflect.TypeOf((**HierarchySetting)(nil)).Elem()
 }
 
 func (o HierarchySettingOutput) ToHierarchySettingOutput() HierarchySettingOutput {

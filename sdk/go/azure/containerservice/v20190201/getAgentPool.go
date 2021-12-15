@@ -13,7 +13,7 @@ func LookupAgentPool(ctx *pulumi.Context, args *LookupAgentPoolArgs, opts ...pul
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupAgentPoolArgs struct {
@@ -39,4 +39,16 @@ type LookupAgentPoolResult struct {
 	Type                string   `pulumi:"type"`
 	VmSize              string   `pulumi:"vmSize"`
 	VnetSubnetID        *string  `pulumi:"vnetSubnetID"`
+}
+
+
+func (val *LookupAgentPoolResult) Defaults() *LookupAgentPoolResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Count) {
+		tmp.Count = 1
+	}
+	return &tmp
 }

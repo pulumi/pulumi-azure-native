@@ -89,7 +89,7 @@ export class Invitation extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: InvitationArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.accountName === undefined) && !opts.urn) {
@@ -101,40 +101,40 @@ export class Invitation extends pulumi.CustomResource {
             if ((!args || args.shareName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'shareName'");
             }
-            inputs["accountName"] = args ? args.accountName : undefined;
-            inputs["invitationName"] = args ? args.invitationName : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["shareName"] = args ? args.shareName : undefined;
-            inputs["targetActiveDirectoryId"] = args ? args.targetActiveDirectoryId : undefined;
-            inputs["targetEmail"] = args ? args.targetEmail : undefined;
-            inputs["targetObjectId"] = args ? args.targetObjectId : undefined;
-            inputs["invitationId"] = undefined /*out*/;
-            inputs["invitationStatus"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["respondedAt"] = undefined /*out*/;
-            inputs["sentAt"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["userEmail"] = undefined /*out*/;
-            inputs["userName"] = undefined /*out*/;
+            resourceInputs["accountName"] = args ? args.accountName : undefined;
+            resourceInputs["invitationName"] = args ? args.invitationName : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["shareName"] = args ? args.shareName : undefined;
+            resourceInputs["targetActiveDirectoryId"] = args ? args.targetActiveDirectoryId : undefined;
+            resourceInputs["targetEmail"] = args ? args.targetEmail : undefined;
+            resourceInputs["targetObjectId"] = args ? args.targetObjectId : undefined;
+            resourceInputs["invitationId"] = undefined /*out*/;
+            resourceInputs["invitationStatus"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["respondedAt"] = undefined /*out*/;
+            resourceInputs["sentAt"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["userEmail"] = undefined /*out*/;
+            resourceInputs["userName"] = undefined /*out*/;
         } else {
-            inputs["invitationId"] = undefined /*out*/;
-            inputs["invitationStatus"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["respondedAt"] = undefined /*out*/;
-            inputs["sentAt"] = undefined /*out*/;
-            inputs["targetActiveDirectoryId"] = undefined /*out*/;
-            inputs["targetEmail"] = undefined /*out*/;
-            inputs["targetObjectId"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["userEmail"] = undefined /*out*/;
-            inputs["userName"] = undefined /*out*/;
+            resourceInputs["invitationId"] = undefined /*out*/;
+            resourceInputs["invitationStatus"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["respondedAt"] = undefined /*out*/;
+            resourceInputs["sentAt"] = undefined /*out*/;
+            resourceInputs["targetActiveDirectoryId"] = undefined /*out*/;
+            resourceInputs["targetEmail"] = undefined /*out*/;
+            resourceInputs["targetObjectId"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["userEmail"] = undefined /*out*/;
+            resourceInputs["userName"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:datashare:Invitation" }, { type: "azure-native:datashare/v20191101:Invitation" }, { type: "azure-native:datashare/v20200901:Invitation" }, { type: "azure-native:datashare/v20201001preview:Invitation" }, { type: "azure-native:datashare/v20210801:Invitation" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Invitation.__pulumiType, name, inputs, opts);
+        super(Invitation.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -157,7 +157,7 @@ type StorageAccountCredentialInput interface {
 }
 
 func (*StorageAccountCredential) ElementType() reflect.Type {
-	return reflect.TypeOf((*StorageAccountCredential)(nil))
+	return reflect.TypeOf((**StorageAccountCredential)(nil)).Elem()
 }
 
 func (i *StorageAccountCredential) ToStorageAccountCredentialOutput() StorageAccountCredentialOutput {
@@ -171,7 +171,7 @@ func (i *StorageAccountCredential) ToStorageAccountCredentialOutputWithContext(c
 type StorageAccountCredentialOutput struct{ *pulumi.OutputState }
 
 func (StorageAccountCredentialOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StorageAccountCredential)(nil))
+	return reflect.TypeOf((**StorageAccountCredential)(nil)).Elem()
 }
 
 func (o StorageAccountCredentialOutput) ToStorageAccountCredentialOutput() StorageAccountCredentialOutput {

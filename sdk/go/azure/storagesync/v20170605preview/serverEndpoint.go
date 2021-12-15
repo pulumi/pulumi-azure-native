@@ -185,7 +185,7 @@ type ServerEndpointInput interface {
 }
 
 func (*ServerEndpoint) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServerEndpoint)(nil))
+	return reflect.TypeOf((**ServerEndpoint)(nil)).Elem()
 }
 
 func (i *ServerEndpoint) ToServerEndpointOutput() ServerEndpointOutput {
@@ -199,7 +199,7 @@ func (i *ServerEndpoint) ToServerEndpointOutputWithContext(ctx context.Context) 
 type ServerEndpointOutput struct{ *pulumi.OutputState }
 
 func (ServerEndpointOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServerEndpoint)(nil))
+	return reflect.TypeOf((**ServerEndpoint)(nil)).Elem()
 }
 
 func (o ServerEndpointOutput) ToServerEndpointOutput() ServerEndpointOutput {

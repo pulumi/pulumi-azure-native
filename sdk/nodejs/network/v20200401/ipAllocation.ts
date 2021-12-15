@@ -92,47 +92,47 @@ export class IpAllocation extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: IpAllocationArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["allocationTags"] = args ? args.allocationTags : undefined;
-            inputs["id"] = args ? args.id : undefined;
-            inputs["ipAllocationName"] = args ? args.ipAllocationName : undefined;
-            inputs["ipamAllocationId"] = args ? args.ipamAllocationId : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["prefix"] = args ? args.prefix : undefined;
-            inputs["prefixLength"] = (args ? args.prefixLength : undefined) ?? 0;
-            inputs["prefixType"] = args ? args.prefixType : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["type"] = args ? args.type : undefined;
-            inputs["etag"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["subnet"] = undefined /*out*/;
-            inputs["virtualNetwork"] = undefined /*out*/;
+            resourceInputs["allocationTags"] = args ? args.allocationTags : undefined;
+            resourceInputs["id"] = args ? args.id : undefined;
+            resourceInputs["ipAllocationName"] = args ? args.ipAllocationName : undefined;
+            resourceInputs["ipamAllocationId"] = args ? args.ipamAllocationId : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["prefix"] = args ? args.prefix : undefined;
+            resourceInputs["prefixLength"] = (args ? args.prefixLength : undefined) ?? 0;
+            resourceInputs["prefixType"] = args ? args.prefixType : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["subnet"] = undefined /*out*/;
+            resourceInputs["virtualNetwork"] = undefined /*out*/;
         } else {
-            inputs["allocationTags"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
-            inputs["ipamAllocationId"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["prefix"] = undefined /*out*/;
-            inputs["prefixLength"] = undefined /*out*/;
-            inputs["prefixType"] = undefined /*out*/;
-            inputs["subnet"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["virtualNetwork"] = undefined /*out*/;
+            resourceInputs["allocationTags"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["ipamAllocationId"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["prefix"] = undefined /*out*/;
+            resourceInputs["prefixLength"] = undefined /*out*/;
+            resourceInputs["prefixType"] = undefined /*out*/;
+            resourceInputs["subnet"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["virtualNetwork"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:network:IpAllocation" }, { type: "azure-native:network/v20200301:IpAllocation" }, { type: "azure-native:network/v20200501:IpAllocation" }, { type: "azure-native:network/v20200601:IpAllocation" }, { type: "azure-native:network/v20200701:IpAllocation" }, { type: "azure-native:network/v20200801:IpAllocation" }, { type: "azure-native:network/v20201101:IpAllocation" }, { type: "azure-native:network/v20210201:IpAllocation" }, { type: "azure-native:network/v20210301:IpAllocation" }, { type: "azure-native:network/v20210501:IpAllocation" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(IpAllocation.__pulumiType, name, inputs, opts);
+        super(IpAllocation.__pulumiType, name, resourceInputs, opts);
     }
 }
 

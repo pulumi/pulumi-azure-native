@@ -2937,6 +2937,19 @@ type SignalRNetworkACLs struct {
 }
 
 
+func (val *SignalRNetworkACLs) Defaults() *SignalRNetworkACLs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.DefaultAction) {
+		defaultAction_ := "Deny"
+		tmp.DefaultAction = &defaultAction_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -3097,6 +3110,19 @@ type SignalRNetworkACLsResponse struct {
 	DefaultAction    *string                      `pulumi:"defaultAction"`
 	PrivateEndpoints []PrivateEndpointACLResponse `pulumi:"privateEndpoints"`
 	PublicNetwork    *NetworkACLResponse          `pulumi:"publicNetwork"`
+}
+
+
+func (val *SignalRNetworkACLsResponse) Defaults() *SignalRNetworkACLsResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.DefaultAction) {
+		defaultAction_ := "Deny"
+		tmp.DefaultAction = &defaultAction_
+	}
+	return &tmp
 }
 
 

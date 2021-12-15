@@ -1153,6 +1153,17 @@ type NetworkFunctionRoleConfiguration struct {
 }
 
 
+func (val *NetworkFunctionRoleConfiguration) Defaults() *NetworkFunctionRoleConfiguration {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.OsProfile = tmp.OsProfile.Defaults()
+
+	return &tmp
+}
+
+
 
 
 
@@ -1292,6 +1303,17 @@ type NetworkFunctionRoleConfigurationResponse struct {
 	UserDataParameters interface{}                `pulumi:"userDataParameters"`
 	UserDataTemplate   interface{}                `pulumi:"userDataTemplate"`
 	VirtualMachineSize *string                    `pulumi:"virtualMachineSize"`
+}
+
+
+func (val *NetworkFunctionRoleConfigurationResponse) Defaults() *NetworkFunctionRoleConfigurationResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.OsProfile = tmp.OsProfile.Defaults()
+
+	return &tmp
 }
 
 
@@ -3013,6 +3035,19 @@ type OsProfile struct {
 }
 
 
+func (val *OsProfile) Defaults() *OsProfile {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.CustomDataRequired) {
+		customDataRequired_ := true
+		tmp.CustomDataRequired = &customDataRequired_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -3188,6 +3223,19 @@ type OsProfileResponse struct {
 	CustomData         *string                     `pulumi:"customData"`
 	CustomDataRequired *bool                       `pulumi:"customDataRequired"`
 	LinuxConfiguration *LinuxConfigurationResponse `pulumi:"linuxConfiguration"`
+}
+
+
+func (val *OsProfileResponse) Defaults() *OsProfileResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.CustomDataRequired) {
+		customDataRequired_ := true
+		tmp.CustomDataRequired = &customDataRequired_
+	}
+	return &tmp
 }
 
 

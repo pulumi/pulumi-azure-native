@@ -68,7 +68,7 @@ export class FileServiceProperties extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: FileServicePropertiesArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.accountName === undefined) && !opts.urn) {
@@ -77,29 +77,29 @@ export class FileServiceProperties extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["accountName"] = args ? args.accountName : undefined;
-            inputs["cors"] = args ? args.cors : undefined;
-            inputs["fileServicesName"] = args ? args.fileServicesName : undefined;
-            inputs["protocolSettings"] = args ? args.protocolSettings : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["shareDeleteRetentionPolicy"] = args ? args.shareDeleteRetentionPolicy : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["sku"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["accountName"] = args ? args.accountName : undefined;
+            resourceInputs["cors"] = args ? args.cors : undefined;
+            resourceInputs["fileServicesName"] = args ? args.fileServicesName : undefined;
+            resourceInputs["protocolSettings"] = args ? args.protocolSettings : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["shareDeleteRetentionPolicy"] = args ? args.shareDeleteRetentionPolicy : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["sku"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["cors"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["protocolSettings"] = undefined /*out*/;
-            inputs["shareDeleteRetentionPolicy"] = undefined /*out*/;
-            inputs["sku"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["cors"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["protocolSettings"] = undefined /*out*/;
+            resourceInputs["shareDeleteRetentionPolicy"] = undefined /*out*/;
+            resourceInputs["sku"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:storage:FileServiceProperties" }, { type: "azure-native:storage/v20190401:FileServiceProperties" }, { type: "azure-native:storage/v20190601:FileServiceProperties" }, { type: "azure-native:storage/v20200801preview:FileServiceProperties" }, { type: "azure-native:storage/v20210101:FileServiceProperties" }, { type: "azure-native:storage/v20210201:FileServiceProperties" }, { type: "azure-native:storage/v20210401:FileServiceProperties" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(FileServiceProperties.__pulumiType, name, inputs, opts);
+        super(FileServiceProperties.__pulumiType, name, resourceInputs, opts);
     }
 }
 

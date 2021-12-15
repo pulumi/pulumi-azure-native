@@ -104,7 +104,7 @@ type WorkloadNetworkPublicIPInput interface {
 }
 
 func (*WorkloadNetworkPublicIP) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkloadNetworkPublicIP)(nil))
+	return reflect.TypeOf((**WorkloadNetworkPublicIP)(nil)).Elem()
 }
 
 func (i *WorkloadNetworkPublicIP) ToWorkloadNetworkPublicIPOutput() WorkloadNetworkPublicIPOutput {
@@ -118,7 +118,7 @@ func (i *WorkloadNetworkPublicIP) ToWorkloadNetworkPublicIPOutputWithContext(ctx
 type WorkloadNetworkPublicIPOutput struct{ *pulumi.OutputState }
 
 func (WorkloadNetworkPublicIPOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkloadNetworkPublicIP)(nil))
+	return reflect.TypeOf((**WorkloadNetworkPublicIP)(nil)).Elem()
 }
 
 func (o WorkloadNetworkPublicIPOutput) ToWorkloadNetworkPublicIPOutput() WorkloadNetworkPublicIPOutput {

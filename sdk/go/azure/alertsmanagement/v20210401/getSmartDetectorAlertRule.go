@@ -13,7 +13,7 @@ func LookupSmartDetectorAlertRule(ctx *pulumi.Context, args *LookupSmartDetector
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupSmartDetectorAlertRuleArgs struct {
@@ -37,4 +37,17 @@ type LookupSmartDetectorAlertRuleResult struct {
 	Tags         map[string]string               `pulumi:"tags"`
 	Throttling   *ThrottlingInformationResponse  `pulumi:"throttling"`
 	Type         string                          `pulumi:"type"`
+}
+
+
+func (val *LookupSmartDetectorAlertRuleResult) Defaults() *LookupSmartDetectorAlertRuleResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Location) {
+		location_ := "global"
+		tmp.Location = &location_
+	}
+	return &tmp
 }

@@ -107,7 +107,7 @@ type NotebookProxyInput interface {
 }
 
 func (*NotebookProxy) ElementType() reflect.Type {
-	return reflect.TypeOf((*NotebookProxy)(nil))
+	return reflect.TypeOf((**NotebookProxy)(nil)).Elem()
 }
 
 func (i *NotebookProxy) ToNotebookProxyOutput() NotebookProxyOutput {
@@ -121,7 +121,7 @@ func (i *NotebookProxy) ToNotebookProxyOutputWithContext(ctx context.Context) No
 type NotebookProxyOutput struct{ *pulumi.OutputState }
 
 func (NotebookProxyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NotebookProxy)(nil))
+	return reflect.TypeOf((**NotebookProxy)(nil)).Elem()
 }
 
 func (o NotebookProxyOutput) ToNotebookProxyOutput() NotebookProxyOutput {

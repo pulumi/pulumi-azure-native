@@ -13,7 +13,7 @@ func LookupRoleAssignment(ctx *pulumi.Context, args *LookupRoleAssignmentArgs, o
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupRoleAssignmentArgs struct {
@@ -39,4 +39,17 @@ type LookupRoleAssignmentResult struct {
 	Type                               string  `pulumi:"type"`
 	UpdatedBy                          string  `pulumi:"updatedBy"`
 	UpdatedOn                          string  `pulumi:"updatedOn"`
+}
+
+
+func (val *LookupRoleAssignmentResult) Defaults() *LookupRoleAssignmentResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.PrincipalType) {
+		principalType_ := "User"
+		tmp.PrincipalType = &principalType_
+	}
+	return &tmp
 }

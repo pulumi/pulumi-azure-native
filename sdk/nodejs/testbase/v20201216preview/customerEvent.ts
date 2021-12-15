@@ -64,7 +64,7 @@ export class CustomerEvent extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: CustomerEventArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.eventName === undefined) && !opts.urn) {
@@ -79,27 +79,27 @@ export class CustomerEvent extends pulumi.CustomResource {
             if ((!args || args.testBaseAccountName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'testBaseAccountName'");
             }
-            inputs["customerEventName"] = args ? args.customerEventName : undefined;
-            inputs["eventName"] = args ? args.eventName : undefined;
-            inputs["receivers"] = args ? args.receivers : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["testBaseAccountName"] = args ? args.testBaseAccountName : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["customerEventName"] = args ? args.customerEventName : undefined;
+            resourceInputs["eventName"] = args ? args.eventName : undefined;
+            resourceInputs["receivers"] = args ? args.receivers : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["testBaseAccountName"] = args ? args.testBaseAccountName : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["eventName"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["receivers"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["eventName"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["receivers"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:testbase:CustomerEvent" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(CustomerEvent.__pulumiType, name, inputs, opts);
+        super(CustomerEvent.__pulumiType, name, resourceInputs, opts);
     }
 }
 

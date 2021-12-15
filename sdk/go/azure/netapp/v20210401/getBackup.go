@@ -13,7 +13,7 @@ func LookupBackup(ctx *pulumi.Context, args *LookupBackupArgs, opts ...pulumi.In
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupBackupArgs struct {
@@ -40,4 +40,17 @@ type LookupBackupResult struct {
 	Type                string             `pulumi:"type"`
 	UseExistingSnapshot *bool              `pulumi:"useExistingSnapshot"`
 	VolumeName          string             `pulumi:"volumeName"`
+}
+
+
+func (val *LookupBackupResult) Defaults() *LookupBackupResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.UseExistingSnapshot) {
+		useExistingSnapshot_ := false
+		tmp.UseExistingSnapshot = &useExistingSnapshot_
+	}
+	return &tmp
 }

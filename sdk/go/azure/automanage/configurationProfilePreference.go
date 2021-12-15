@@ -97,7 +97,7 @@ type ConfigurationProfilePreferenceInput interface {
 }
 
 func (*ConfigurationProfilePreference) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConfigurationProfilePreference)(nil))
+	return reflect.TypeOf((**ConfigurationProfilePreference)(nil)).Elem()
 }
 
 func (i *ConfigurationProfilePreference) ToConfigurationProfilePreferenceOutput() ConfigurationProfilePreferenceOutput {
@@ -111,7 +111,7 @@ func (i *ConfigurationProfilePreference) ToConfigurationProfilePreferenceOutputW
 type ConfigurationProfilePreferenceOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationProfilePreferenceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConfigurationProfilePreference)(nil))
+	return reflect.TypeOf((**ConfigurationProfilePreference)(nil)).Elem()
 }
 
 func (o ConfigurationProfilePreferenceOutput) ToConfigurationProfilePreferenceOutput() ConfigurationProfilePreferenceOutput {

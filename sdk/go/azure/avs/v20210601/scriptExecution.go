@@ -130,7 +130,7 @@ type ScriptExecutionInput interface {
 }
 
 func (*ScriptExecution) ElementType() reflect.Type {
-	return reflect.TypeOf((*ScriptExecution)(nil))
+	return reflect.TypeOf((**ScriptExecution)(nil)).Elem()
 }
 
 func (i *ScriptExecution) ToScriptExecutionOutput() ScriptExecutionOutput {
@@ -144,7 +144,7 @@ func (i *ScriptExecution) ToScriptExecutionOutputWithContext(ctx context.Context
 type ScriptExecutionOutput struct{ *pulumi.OutputState }
 
 func (ScriptExecutionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ScriptExecution)(nil))
+	return reflect.TypeOf((**ScriptExecution)(nil)).Elem()
 }
 
 func (o ScriptExecutionOutput) ToScriptExecutionOutput() ScriptExecutionOutput {

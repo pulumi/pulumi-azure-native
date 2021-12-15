@@ -136,6 +136,19 @@ type BuildArgumentResponse struct {
 }
 
 
+func (val *BuildArgumentResponse) Defaults() *BuildArgumentResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.IsSecret) {
+		isSecret_ := false
+		tmp.IsSecret = &isSecret_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -252,6 +265,23 @@ type DockerBuildStepResponse struct {
 	NoCache               *bool                         `pulumi:"noCache"`
 	ProvisioningState     string                        `pulumi:"provisioningState"`
 	Type                  string                        `pulumi:"type"`
+}
+
+
+func (val *DockerBuildStepResponse) Defaults() *DockerBuildStepResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.IsPushEnabled) {
+		isPushEnabled_ := true
+		tmp.IsPushEnabled = &isPushEnabled_
+	}
+	if isZero(tmp.NoCache) {
+		noCache_ := false
+		tmp.NoCache = &noCache_
+	}
+	return &tmp
 }
 
 
@@ -1213,6 +1243,19 @@ type SourceRepositoryProperties struct {
 }
 
 
+func (val *SourceRepositoryProperties) Defaults() *SourceRepositoryProperties {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.IsCommitTriggerEnabled) {
+		isCommitTriggerEnabled_ := false
+		tmp.IsCommitTriggerEnabled = &isCommitTriggerEnabled_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -1388,6 +1431,19 @@ type SourceRepositoryPropertiesResponse struct {
 	RepositoryUrl               string                         `pulumi:"repositoryUrl"`
 	SourceControlAuthProperties *SourceControlAuthInfoResponse `pulumi:"sourceControlAuthProperties"`
 	SourceControlType           string                         `pulumi:"sourceControlType"`
+}
+
+
+func (val *SourceRepositoryPropertiesResponse) Defaults() *SourceRepositoryPropertiesResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.IsCommitTriggerEnabled) {
+		isCommitTriggerEnabled_ := false
+		tmp.IsCommitTriggerEnabled = &isCommitTriggerEnabled_
+	}
+	return &tmp
 }
 
 

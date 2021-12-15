@@ -135,7 +135,7 @@ type ExportInput interface {
 }
 
 func (*Export) ElementType() reflect.Type {
-	return reflect.TypeOf((*Export)(nil))
+	return reflect.TypeOf((**Export)(nil)).Elem()
 }
 
 func (i *Export) ToExportOutput() ExportOutput {
@@ -149,7 +149,7 @@ func (i *Export) ToExportOutputWithContext(ctx context.Context) ExportOutput {
 type ExportOutput struct{ *pulumi.OutputState }
 
 func (ExportOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Export)(nil))
+	return reflect.TypeOf((**Export)(nil)).Elem()
 }
 
 func (o ExportOutput) ToExportOutput() ExportOutput {

@@ -108,55 +108,55 @@ export class AzureFirewall extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: AzureFirewallArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["applicationRuleCollections"] = args ? args.applicationRuleCollections : undefined;
-            inputs["azureFirewallName"] = args ? args.azureFirewallName : undefined;
-            inputs["firewallPolicy"] = args ? args.firewallPolicy : undefined;
-            inputs["id"] = args ? args.id : undefined;
-            inputs["ipConfigurations"] = args ? args.ipConfigurations : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["natRuleCollections"] = args ? args.natRuleCollections : undefined;
-            inputs["networkRuleCollections"] = args ? args.networkRuleCollections : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["sku"] = args ? args.sku : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["threatIntelMode"] = args ? args.threatIntelMode : undefined;
-            inputs["virtualHub"] = args ? args.virtualHub : undefined;
-            inputs["zones"] = args ? args.zones : undefined;
-            inputs["etag"] = undefined /*out*/;
-            inputs["hubIpAddresses"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["applicationRuleCollections"] = args ? args.applicationRuleCollections : undefined;
+            resourceInputs["azureFirewallName"] = args ? args.azureFirewallName : undefined;
+            resourceInputs["firewallPolicy"] = args ? args.firewallPolicy : undefined;
+            resourceInputs["id"] = args ? args.id : undefined;
+            resourceInputs["ipConfigurations"] = args ? args.ipConfigurations : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["natRuleCollections"] = args ? args.natRuleCollections : undefined;
+            resourceInputs["networkRuleCollections"] = args ? args.networkRuleCollections : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["sku"] = args ? args.sku : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["threatIntelMode"] = args ? args.threatIntelMode : undefined;
+            resourceInputs["virtualHub"] = args ? args.virtualHub : undefined;
+            resourceInputs["zones"] = args ? args.zones : undefined;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["hubIpAddresses"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["applicationRuleCollections"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
-            inputs["firewallPolicy"] = undefined /*out*/;
-            inputs["hubIpAddresses"] = undefined /*out*/;
-            inputs["ipConfigurations"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["natRuleCollections"] = undefined /*out*/;
-            inputs["networkRuleCollections"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["sku"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["threatIntelMode"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["virtualHub"] = undefined /*out*/;
-            inputs["zones"] = undefined /*out*/;
+            resourceInputs["applicationRuleCollections"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["firewallPolicy"] = undefined /*out*/;
+            resourceInputs["hubIpAddresses"] = undefined /*out*/;
+            resourceInputs["ipConfigurations"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["natRuleCollections"] = undefined /*out*/;
+            resourceInputs["networkRuleCollections"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["sku"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["threatIntelMode"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["virtualHub"] = undefined /*out*/;
+            resourceInputs["zones"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:network:AzureFirewall" }, { type: "azure-native:network/v20180401:AzureFirewall" }, { type: "azure-native:network/v20180601:AzureFirewall" }, { type: "azure-native:network/v20180701:AzureFirewall" }, { type: "azure-native:network/v20180801:AzureFirewall" }, { type: "azure-native:network/v20181001:AzureFirewall" }, { type: "azure-native:network/v20181101:AzureFirewall" }, { type: "azure-native:network/v20181201:AzureFirewall" }, { type: "azure-native:network/v20190201:AzureFirewall" }, { type: "azure-native:network/v20190401:AzureFirewall" }, { type: "azure-native:network/v20190601:AzureFirewall" }, { type: "azure-native:network/v20190701:AzureFirewall" }, { type: "azure-native:network/v20190901:AzureFirewall" }, { type: "azure-native:network/v20191101:AzureFirewall" }, { type: "azure-native:network/v20191201:AzureFirewall" }, { type: "azure-native:network/v20200301:AzureFirewall" }, { type: "azure-native:network/v20200401:AzureFirewall" }, { type: "azure-native:network/v20200501:AzureFirewall" }, { type: "azure-native:network/v20200601:AzureFirewall" }, { type: "azure-native:network/v20200701:AzureFirewall" }, { type: "azure-native:network/v20200801:AzureFirewall" }, { type: "azure-native:network/v20201101:AzureFirewall" }, { type: "azure-native:network/v20210201:AzureFirewall" }, { type: "azure-native:network/v20210301:AzureFirewall" }, { type: "azure-native:network/v20210501:AzureFirewall" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(AzureFirewall.__pulumiType, name, inputs, opts);
+        super(AzureFirewall.__pulumiType, name, resourceInputs, opts);
     }
 }
 

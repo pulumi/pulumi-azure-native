@@ -182,7 +182,7 @@ type ScheduledAlertRuleInput interface {
 }
 
 func (*ScheduledAlertRule) ElementType() reflect.Type {
-	return reflect.TypeOf((*ScheduledAlertRule)(nil))
+	return reflect.TypeOf((**ScheduledAlertRule)(nil)).Elem()
 }
 
 func (i *ScheduledAlertRule) ToScheduledAlertRuleOutput() ScheduledAlertRuleOutput {
@@ -196,7 +196,7 @@ func (i *ScheduledAlertRule) ToScheduledAlertRuleOutputWithContext(ctx context.C
 type ScheduledAlertRuleOutput struct{ *pulumi.OutputState }
 
 func (ScheduledAlertRuleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ScheduledAlertRule)(nil))
+	return reflect.TypeOf((**ScheduledAlertRule)(nil)).Elem()
 }
 
 func (o ScheduledAlertRuleOutput) ToScheduledAlertRuleOutput() ScheduledAlertRuleOutput {

@@ -125,7 +125,7 @@ type ReferenceDataSetInput interface {
 }
 
 func (*ReferenceDataSet) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReferenceDataSet)(nil))
+	return reflect.TypeOf((**ReferenceDataSet)(nil)).Elem()
 }
 
 func (i *ReferenceDataSet) ToReferenceDataSetOutput() ReferenceDataSetOutput {
@@ -139,7 +139,7 @@ func (i *ReferenceDataSet) ToReferenceDataSetOutputWithContext(ctx context.Conte
 type ReferenceDataSetOutput struct{ *pulumi.OutputState }
 
 func (ReferenceDataSetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReferenceDataSet)(nil))
+	return reflect.TypeOf((**ReferenceDataSet)(nil)).Elem()
 }
 
 func (o ReferenceDataSetOutput) ToReferenceDataSetOutput() ReferenceDataSetOutput {

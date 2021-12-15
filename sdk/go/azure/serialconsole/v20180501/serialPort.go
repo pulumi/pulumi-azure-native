@@ -106,7 +106,7 @@ type SerialPortInput interface {
 }
 
 func (*SerialPort) ElementType() reflect.Type {
-	return reflect.TypeOf((*SerialPort)(nil))
+	return reflect.TypeOf((**SerialPort)(nil)).Elem()
 }
 
 func (i *SerialPort) ToSerialPortOutput() SerialPortOutput {
@@ -120,7 +120,7 @@ func (i *SerialPort) ToSerialPortOutputWithContext(ctx context.Context) SerialPo
 type SerialPortOutput struct{ *pulumi.OutputState }
 
 func (SerialPortOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SerialPort)(nil))
+	return reflect.TypeOf((**SerialPort)(nil)).Elem()
 }
 
 func (o SerialPortOutput) ToSerialPortOutput() SerialPortOutput {

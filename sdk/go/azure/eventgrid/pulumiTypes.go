@@ -18,6 +18,23 @@ type AzureFunctionEventSubscriptionDestination struct {
 }
 
 
+func (val *AzureFunctionEventSubscriptionDestination) Defaults() *AzureFunctionEventSubscriptionDestination {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.MaxEventsPerBatch) {
+		maxEventsPerBatch_ := 1
+		tmp.MaxEventsPerBatch = &maxEventsPerBatch_
+	}
+	if isZero(tmp.PreferredBatchSizeInKilobytes) {
+		preferredBatchSizeInKilobytes_ := 64
+		tmp.PreferredBatchSizeInKilobytes = &preferredBatchSizeInKilobytes_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -82,6 +99,23 @@ type AzureFunctionEventSubscriptionDestinationResponse struct {
 	MaxEventsPerBatch             *int    `pulumi:"maxEventsPerBatch"`
 	PreferredBatchSizeInKilobytes *int    `pulumi:"preferredBatchSizeInKilobytes"`
 	ResourceId                    *string `pulumi:"resourceId"`
+}
+
+
+func (val *AzureFunctionEventSubscriptionDestinationResponse) Defaults() *AzureFunctionEventSubscriptionDestinationResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.MaxEventsPerBatch) {
+		maxEventsPerBatch_ := 1
+		tmp.MaxEventsPerBatch = &maxEventsPerBatch_
+	}
+	if isZero(tmp.PreferredBatchSizeInKilobytes) {
+		preferredBatchSizeInKilobytes_ := 64
+		tmp.PreferredBatchSizeInKilobytes = &preferredBatchSizeInKilobytes_
+	}
+	return &tmp
 }
 
 
@@ -1581,6 +1615,19 @@ type EventChannelFilter struct {
 }
 
 
+func (val *EventChannelFilter) Defaults() *EventChannelFilter {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.EnableAdvancedFilteringOnArrays) {
+		enableAdvancedFilteringOnArrays_ := false
+		tmp.EnableAdvancedFilteringOnArrays = &enableAdvancedFilteringOnArrays_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -1726,6 +1773,19 @@ func (o EventChannelFilterPtrOutput) EnableAdvancedFilteringOnArrays() pulumi.Bo
 type EventChannelFilterResponse struct {
 	AdvancedFilters                 []interface{} `pulumi:"advancedFilters"`
 	EnableAdvancedFilteringOnArrays *bool         `pulumi:"enableAdvancedFilteringOnArrays"`
+}
+
+
+func (val *EventChannelFilterResponse) Defaults() *EventChannelFilterResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.EnableAdvancedFilteringOnArrays) {
+		enableAdvancedFilteringOnArrays_ := false
+		tmp.EnableAdvancedFilteringOnArrays = &enableAdvancedFilteringOnArrays_
+	}
+	return &tmp
 }
 
 
@@ -2256,6 +2316,19 @@ type EventSubscriptionFilter struct {
 }
 
 
+func (val *EventSubscriptionFilter) Defaults() *EventSubscriptionFilter {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.IsSubjectCaseSensitive) {
+		isSubjectCaseSensitive_ := false
+		tmp.IsSubjectCaseSensitive = &isSubjectCaseSensitive_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -2446,6 +2519,19 @@ type EventSubscriptionFilterResponse struct {
 	IsSubjectCaseSensitive *bool         `pulumi:"isSubjectCaseSensitive"`
 	SubjectBeginsWith      *string       `pulumi:"subjectBeginsWith"`
 	SubjectEndsWith        *string       `pulumi:"subjectEndsWith"`
+}
+
+
+func (val *EventSubscriptionFilterResponse) Defaults() *EventSubscriptionFilterResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.IsSubjectCaseSensitive) {
+		isSubjectCaseSensitive_ := false
+		tmp.IsSubjectCaseSensitive = &isSubjectCaseSensitive_
+	}
+	return &tmp
 }
 
 
@@ -6723,6 +6809,19 @@ type StaticDeliveryAttributeMappingResponse struct {
 }
 
 
+func (val *StaticDeliveryAttributeMappingResponse) Defaults() *StaticDeliveryAttributeMappingResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.IsSecret) {
+		isSecret_ := false
+		tmp.IsSecret = &isSecret_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -8624,6 +8723,23 @@ type WebHookEventSubscriptionDestination struct {
 }
 
 
+func (val *WebHookEventSubscriptionDestination) Defaults() *WebHookEventSubscriptionDestination {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.MaxEventsPerBatch) {
+		maxEventsPerBatch_ := 1
+		tmp.MaxEventsPerBatch = &maxEventsPerBatch_
+	}
+	if isZero(tmp.PreferredBatchSizeInKilobytes) {
+		preferredBatchSizeInKilobytes_ := 64
+		tmp.PreferredBatchSizeInKilobytes = &preferredBatchSizeInKilobytes_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -8701,6 +8817,23 @@ type WebHookEventSubscriptionDestinationResponse struct {
 	EndpointUrl                            *string `pulumi:"endpointUrl"`
 	MaxEventsPerBatch                      *int    `pulumi:"maxEventsPerBatch"`
 	PreferredBatchSizeInKilobytes          *int    `pulumi:"preferredBatchSizeInKilobytes"`
+}
+
+
+func (val *WebHookEventSubscriptionDestinationResponse) Defaults() *WebHookEventSubscriptionDestinationResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.MaxEventsPerBatch) {
+		maxEventsPerBatch_ := 1
+		tmp.MaxEventsPerBatch = &maxEventsPerBatch_
+	}
+	if isZero(tmp.PreferredBatchSizeInKilobytes) {
+		preferredBatchSizeInKilobytes_ := 64
+		tmp.PreferredBatchSizeInKilobytes = &preferredBatchSizeInKilobytes_
+	}
+	return &tmp
 }
 
 

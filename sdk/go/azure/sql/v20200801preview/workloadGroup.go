@@ -140,7 +140,7 @@ type WorkloadGroupInput interface {
 }
 
 func (*WorkloadGroup) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkloadGroup)(nil))
+	return reflect.TypeOf((**WorkloadGroup)(nil)).Elem()
 }
 
 func (i *WorkloadGroup) ToWorkloadGroupOutput() WorkloadGroupOutput {
@@ -154,7 +154,7 @@ func (i *WorkloadGroup) ToWorkloadGroupOutputWithContext(ctx context.Context) Wo
 type WorkloadGroupOutput struct{ *pulumi.OutputState }
 
 func (WorkloadGroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkloadGroup)(nil))
+	return reflect.TypeOf((**WorkloadGroup)(nil)).Elem()
 }
 
 func (o WorkloadGroupOutput) ToWorkloadGroupOutput() WorkloadGroupOutput {

@@ -91,7 +91,7 @@ type CostAllocationRuleInput interface {
 }
 
 func (*CostAllocationRule) ElementType() reflect.Type {
-	return reflect.TypeOf((*CostAllocationRule)(nil))
+	return reflect.TypeOf((**CostAllocationRule)(nil)).Elem()
 }
 
 func (i *CostAllocationRule) ToCostAllocationRuleOutput() CostAllocationRuleOutput {
@@ -105,7 +105,7 @@ func (i *CostAllocationRule) ToCostAllocationRuleOutputWithContext(ctx context.C
 type CostAllocationRuleOutput struct{ *pulumi.OutputState }
 
 func (CostAllocationRuleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CostAllocationRule)(nil))
+	return reflect.TypeOf((**CostAllocationRule)(nil)).Elem()
 }
 
 func (o CostAllocationRuleOutput) ToCostAllocationRuleOutput() CostAllocationRuleOutput {

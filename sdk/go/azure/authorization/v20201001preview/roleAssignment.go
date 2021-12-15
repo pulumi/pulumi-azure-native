@@ -46,7 +46,7 @@ func NewRoleAssignment(ctx *pulumi.Context,
 	if args.Scope == nil {
 		return nil, errors.New("invalid value for required argument 'Scope'")
 	}
-	if args.PrincipalType == nil {
+	if isZero(args.PrincipalType) {
 		args.PrincipalType = pulumi.StringPtr("User")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
@@ -144,7 +144,7 @@ type RoleAssignmentInput interface {
 }
 
 func (*RoleAssignment) ElementType() reflect.Type {
-	return reflect.TypeOf((*RoleAssignment)(nil))
+	return reflect.TypeOf((**RoleAssignment)(nil)).Elem()
 }
 
 func (i *RoleAssignment) ToRoleAssignmentOutput() RoleAssignmentOutput {
@@ -158,7 +158,7 @@ func (i *RoleAssignment) ToRoleAssignmentOutputWithContext(ctx context.Context) 
 type RoleAssignmentOutput struct{ *pulumi.OutputState }
 
 func (RoleAssignmentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RoleAssignment)(nil))
+	return reflect.TypeOf((**RoleAssignment)(nil)).Elem()
 }
 
 func (o RoleAssignmentOutput) ToRoleAssignmentOutput() RoleAssignmentOutput {

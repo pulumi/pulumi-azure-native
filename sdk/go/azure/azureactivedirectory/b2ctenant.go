@@ -107,7 +107,7 @@ type B2CTenantInput interface {
 }
 
 func (*B2CTenant) ElementType() reflect.Type {
-	return reflect.TypeOf((*B2CTenant)(nil))
+	return reflect.TypeOf((**B2CTenant)(nil)).Elem()
 }
 
 func (i *B2CTenant) ToB2CTenantOutput() B2CTenantOutput {
@@ -121,7 +121,7 @@ func (i *B2CTenant) ToB2CTenantOutputWithContext(ctx context.Context) B2CTenantO
 type B2CTenantOutput struct{ *pulumi.OutputState }
 
 func (B2CTenantOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*B2CTenant)(nil))
+	return reflect.TypeOf((**B2CTenant)(nil)).Elem()
 }
 
 func (o B2CTenantOutput) ToB2CTenantOutput() B2CTenantOutput {

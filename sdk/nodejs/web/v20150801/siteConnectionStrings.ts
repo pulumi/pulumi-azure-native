@@ -68,7 +68,7 @@ export class SiteConnectionStrings extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: SiteConnectionStringsArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.name === undefined) && !opts.urn) {
@@ -77,28 +77,28 @@ export class SiteConnectionStrings extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["id"] = args ? args.id : undefined;
-            inputs["kind"] = args ? args.kind : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["type"] = args ? args.type : undefined;
+            resourceInputs["id"] = args ? args.id : undefined;
+            resourceInputs["kind"] = args ? args.kind : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
         } else {
-            inputs["kind"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:web:SiteConnectionStrings" }, { type: "azure-native:web/v20160801:SiteConnectionStrings" }, { type: "azure-native:web/v20180201:SiteConnectionStrings" }, { type: "azure-native:web/v20181101:SiteConnectionStrings" }, { type: "azure-native:web/v20190801:SiteConnectionStrings" }, { type: "azure-native:web/v20200601:SiteConnectionStrings" }, { type: "azure-native:web/v20200901:SiteConnectionStrings" }, { type: "azure-native:web/v20201001:SiteConnectionStrings" }, { type: "azure-native:web/v20201201:SiteConnectionStrings" }, { type: "azure-native:web/v20210101:SiteConnectionStrings" }, { type: "azure-native:web/v20210115:SiteConnectionStrings" }, { type: "azure-native:web/v20210201:SiteConnectionStrings" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(SiteConnectionStrings.__pulumiType, name, inputs, opts);
+        super(SiteConnectionStrings.__pulumiType, name, resourceInputs, opts);
     }
 }
 

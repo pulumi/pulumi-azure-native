@@ -1868,6 +1868,17 @@ type ApplicationGatewayBackendHealthServerResponse struct {
 }
 
 
+func (val *ApplicationGatewayBackendHealthServerResponse) Defaults() *ApplicationGatewayBackendHealthServerResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.IpConfiguration = tmp.IpConfiguration.Defaults()
+
+	return &tmp
+}
+
+
 
 
 
@@ -5350,6 +5361,17 @@ type ApplicationGatewayPrivateEndpointConnectionResponse struct {
 	PrivateLinkServiceConnectionState *PrivateLinkServiceConnectionStateResponse `pulumi:"privateLinkServiceConnectionState"`
 	ProvisioningState                 string                                     `pulumi:"provisioningState"`
 	Type                              string                                     `pulumi:"type"`
+}
+
+
+func (val *ApplicationGatewayPrivateEndpointConnectionResponse) Defaults() *ApplicationGatewayPrivateEndpointConnectionResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.PrivateEndpoint = *tmp.PrivateEndpoint.Defaults()
+
+	return &tmp
 }
 
 
@@ -31202,6 +31224,19 @@ type FlowLogFormatParameters struct {
 }
 
 
+func (val *FlowLogFormatParameters) Defaults() *FlowLogFormatParameters {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Version) {
+		version_ := 0
+		tmp.Version = &version_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -31347,6 +31382,19 @@ func (o FlowLogFormatParametersPtrOutput) Version() pulumi.IntPtrOutput {
 type FlowLogFormatParametersResponse struct {
 	Type    *string `pulumi:"type"`
 	Version *int    `pulumi:"version"`
+}
+
+
+func (val *FlowLogFormatParametersResponse) Defaults() *FlowLogFormatParametersResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Version) {
+		version_ := 0
+		tmp.Version = &version_
+	}
+	return &tmp
 }
 
 
@@ -31507,6 +31555,19 @@ type FlowLogResponse struct {
 	TargetResourceGuid         string                              `pulumi:"targetResourceGuid"`
 	TargetResourceId           string                              `pulumi:"targetResourceId"`
 	Type                       string                              `pulumi:"type"`
+}
+
+
+func (val *FlowLogResponse) Defaults() *FlowLogResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Format = tmp.Format.Defaults()
+
+	tmp.RetentionPolicy = tmp.RetentionPolicy.Defaults()
+
+	return &tmp
 }
 
 
@@ -31674,6 +31735,17 @@ type FrontendIPConfiguration struct {
 	PublicIPPrefix            *SubResource         `pulumi:"publicIPPrefix"`
 	Subnet                    *SubnetType          `pulumi:"subnet"`
 	Zones                     []string             `pulumi:"zones"`
+}
+
+
+func (val *FrontendIPConfiguration) Defaults() *FrontendIPConfiguration {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Subnet = tmp.Subnet.Defaults()
+
+	return &tmp
 }
 
 
@@ -31979,6 +32051,19 @@ type FrontendIPConfigurationResponse struct {
 	Subnet                    *SubnetResponse          `pulumi:"subnet"`
 	Type                      string                   `pulumi:"type"`
 	Zones                     []string                 `pulumi:"zones"`
+}
+
+
+func (val *FrontendIPConfigurationResponse) Defaults() *FrontendIPConfigurationResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.PublicIPAddress = tmp.PublicIPAddress.Defaults()
+
+	tmp.Subnet = tmp.Subnet.Defaults()
+
+	return &tmp
 }
 
 
@@ -33742,6 +33827,17 @@ type IPConfigurationProfile struct {
 }
 
 
+func (val *IPConfigurationProfile) Defaults() *IPConfigurationProfile {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Subnet = tmp.Subnet.Defaults()
+
+	return &tmp
+}
+
+
 
 
 
@@ -33848,6 +33944,17 @@ type IPConfigurationProfileResponse struct {
 	ProvisioningState string          `pulumi:"provisioningState"`
 	Subnet            *SubnetResponse `pulumi:"subnet"`
 	Type              string          `pulumi:"type"`
+}
+
+
+func (val *IPConfigurationProfileResponse) Defaults() *IPConfigurationProfileResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Subnet = tmp.Subnet.Defaults()
+
+	return &tmp
 }
 
 
@@ -33974,6 +34081,19 @@ type IPConfigurationResponse struct {
 	ProvisioningState         string                   `pulumi:"provisioningState"`
 	PublicIPAddress           *PublicIPAddressResponse `pulumi:"publicIPAddress"`
 	Subnet                    *SubnetResponse          `pulumi:"subnet"`
+}
+
+
+func (val *IPConfigurationResponse) Defaults() *IPConfigurationResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.PublicIPAddress = tmp.PublicIPAddress.Defaults()
+
+	tmp.Subnet = tmp.Subnet.Defaults()
+
+	return &tmp
 }
 
 
@@ -34718,6 +34838,17 @@ type InboundNatRuleResponse struct {
 	Protocol                *string                                 `pulumi:"protocol"`
 	ProvisioningState       string                                  `pulumi:"provisioningState"`
 	Type                    string                                  `pulumi:"type"`
+}
+
+
+func (val *InboundNatRuleResponse) Defaults() *InboundNatRuleResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.BackendIPConfiguration = *tmp.BackendIPConfiguration.Defaults()
+
+	return &tmp
 }
 
 
@@ -40597,6 +40728,17 @@ type NetworkInterfaceIPConfiguration struct {
 }
 
 
+func (val *NetworkInterfaceIPConfiguration) Defaults() *NetworkInterfaceIPConfiguration {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Subnet = tmp.Subnet.Defaults()
+
+	return &tmp
+}
+
+
 
 
 
@@ -41146,6 +41288,19 @@ type NetworkInterfaceIPConfigurationResponse struct {
 }
 
 
+func (val *NetworkInterfaceIPConfigurationResponse) Defaults() *NetworkInterfaceIPConfigurationResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.PublicIPAddress = tmp.PublicIPAddress.Defaults()
+
+	tmp.Subnet = tmp.Subnet.Defaults()
+
+	return &tmp
+}
+
+
 
 
 
@@ -41583,6 +41738,21 @@ type NetworkInterfaceResponse struct {
 }
 
 
+func (val *NetworkInterfaceResponse) Defaults() *NetworkInterfaceResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.NicType) {
+		nicType_ := "Standard"
+		tmp.NicType = &nicType_
+	}
+	tmp.PrivateEndpoint = *tmp.PrivateEndpoint.Defaults()
+
+	return &tmp
+}
+
+
 
 
 
@@ -41796,6 +41966,17 @@ type NetworkInterfaceTapConfigurationResponse struct {
 	ProvisioningState string                     `pulumi:"provisioningState"`
 	Type              string                     `pulumi:"type"`
 	VirtualNetworkTap *VirtualNetworkTapResponse `pulumi:"virtualNetworkTap"`
+}
+
+
+func (val *NetworkInterfaceTapConfigurationResponse) Defaults() *NetworkInterfaceTapConfigurationResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.VirtualNetworkTap = tmp.VirtualNetworkTap.Defaults()
+
+	return &tmp
 }
 
 
@@ -44409,6 +44590,19 @@ type PacketCaptureFilter struct {
 }
 
 
+func (val *PacketCaptureFilter) Defaults() *PacketCaptureFilter {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Protocol) {
+		protocol_ := "Any"
+		tmp.Protocol = &protocol_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -44524,6 +44718,19 @@ type PacketCaptureFilterResponse struct {
 	Protocol        *string `pulumi:"protocol"`
 	RemoteIPAddress *string `pulumi:"remoteIPAddress"`
 	RemotePort      *string `pulumi:"remotePort"`
+}
+
+
+func (val *PacketCaptureFilterResponse) Defaults() *PacketCaptureFilterResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Protocol) {
+		protocol_ := "Any"
+		tmp.Protocol = &protocol_
+	}
+	return &tmp
 }
 
 
@@ -45724,6 +45931,17 @@ type PrivateEndpointConnectionResponse struct {
 }
 
 
+func (val *PrivateEndpointConnectionResponse) Defaults() *PrivateEndpointConnectionResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.PrivateEndpoint = *tmp.PrivateEndpoint.Defaults()
+
+	return &tmp
+}
+
+
 
 
 
@@ -45864,6 +46082,17 @@ type PrivateEndpointResponse struct {
 	Subnet                              *SubnetResponse                           `pulumi:"subnet"`
 	Tags                                map[string]string                         `pulumi:"tags"`
 	Type                                string                                    `pulumi:"type"`
+}
+
+
+func (val *PrivateEndpointResponse) Defaults() *PrivateEndpointResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Subnet = tmp.Subnet.Defaults()
+
+	return &tmp
 }
 
 
@@ -47089,6 +47318,17 @@ type PrivateLinkServiceIpConfiguration struct {
 }
 
 
+func (val *PrivateLinkServiceIpConfiguration) Defaults() *PrivateLinkServiceIpConfiguration {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Subnet = tmp.Subnet.Defaults()
+
+	return &tmp
+}
+
+
 
 
 
@@ -47219,6 +47459,17 @@ type PrivateLinkServiceIpConfigurationResponse struct {
 	ProvisioningState         string          `pulumi:"provisioningState"`
 	Subnet                    *SubnetResponse `pulumi:"subnet"`
 	Type                      string          `pulumi:"type"`
+}
+
+
+func (val *PrivateLinkServiceIpConfigurationResponse) Defaults() *PrivateLinkServiceIpConfigurationResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Subnet = tmp.Subnet.Defaults()
+
+	return &tmp
 }
 
 
@@ -49817,6 +50068,21 @@ type PublicIPAddressResponse struct {
 }
 
 
+func (val *PublicIPAddressResponse) Defaults() *PublicIPAddressResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.IpConfiguration = *tmp.IpConfiguration.Defaults()
+
+	tmp.LinkedPublicIPAddress = tmp.LinkedPublicIPAddress.Defaults()
+
+	tmp.ServicePublicIPAddress = tmp.ServicePublicIPAddress.Defaults()
+
+	return &tmp
+}
+
+
 
 
 
@@ -51825,6 +52091,23 @@ type RetentionPolicyParameters struct {
 }
 
 
+func (val *RetentionPolicyParameters) Defaults() *RetentionPolicyParameters {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Days) {
+		days_ := 0
+		tmp.Days = &days_
+	}
+	if isZero(tmp.Enabled) {
+		enabled_ := false
+		tmp.Enabled = &enabled_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -51970,6 +52253,23 @@ func (o RetentionPolicyParametersPtrOutput) Enabled() pulumi.BoolPtrOutput {
 type RetentionPolicyParametersResponse struct {
 	Days    *int  `pulumi:"days"`
 	Enabled *bool `pulumi:"enabled"`
+}
+
+
+func (val *RetentionPolicyParametersResponse) Defaults() *RetentionPolicyParametersResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Days) {
+		days_ := 0
+		tmp.Days = &days_
+	}
+	if isZero(tmp.Enabled) {
+		enabled_ := false
+		tmp.Enabled = &enabled_
+	}
+	return &tmp
 }
 
 
@@ -55304,6 +55604,23 @@ type SubnetType struct {
 }
 
 
+func (val *SubnetType) Defaults() *SubnetType {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.PrivateEndpointNetworkPolicies) {
+		privateEndpointNetworkPolicies_ := "Enabled"
+		tmp.PrivateEndpointNetworkPolicies = &privateEndpointNetworkPolicies_
+	}
+	if isZero(tmp.PrivateLinkServiceNetworkPolicies) {
+		privateLinkServiceNetworkPolicies_ := "Enabled"
+		tmp.PrivateLinkServiceNetworkPolicies = &privateLinkServiceNetworkPolicies_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -55697,6 +56014,23 @@ type SubnetResponse struct {
 	ServiceEndpointPolicies            []ServiceEndpointPolicyResponse             `pulumi:"serviceEndpointPolicies"`
 	ServiceEndpoints                   []ServiceEndpointPropertiesFormatResponse   `pulumi:"serviceEndpoints"`
 	Type                               *string                                     `pulumi:"type"`
+}
+
+
+func (val *SubnetResponse) Defaults() *SubnetResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.PrivateEndpointNetworkPolicies) {
+		privateEndpointNetworkPolicies_ := "Enabled"
+		tmp.PrivateEndpointNetworkPolicies = &privateEndpointNetworkPolicies_
+	}
+	if isZero(tmp.PrivateLinkServiceNetworkPolicies) {
+		privateLinkServiceNetworkPolicies_ := "Enabled"
+		tmp.PrivateLinkServiceNetworkPolicies = &privateLinkServiceNetworkPolicies_
+	}
+	return &tmp
 }
 
 
@@ -60979,6 +61313,19 @@ type VirtualNetworkTapType struct {
 }
 
 
+func (val *VirtualNetworkTapType) Defaults() *VirtualNetworkTapType {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.DestinationLoadBalancerFrontEndIPConfiguration = tmp.DestinationLoadBalancerFrontEndIPConfiguration.Defaults()
+
+	tmp.DestinationNetworkInterfaceIPConfiguration = tmp.DestinationNetworkInterfaceIPConfiguration.Defaults()
+
+	return &tmp
+}
+
+
 
 
 
@@ -61239,6 +61586,19 @@ type VirtualNetworkTapResponse struct {
 	ResourceGuid                                   string                                     `pulumi:"resourceGuid"`
 	Tags                                           map[string]string                          `pulumi:"tags"`
 	Type                                           string                                     `pulumi:"type"`
+}
+
+
+func (val *VirtualNetworkTapResponse) Defaults() *VirtualNetworkTapResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.DestinationLoadBalancerFrontEndIPConfiguration = tmp.DestinationLoadBalancerFrontEndIPConfiguration.Defaults()
+
+	tmp.DestinationNetworkInterfaceIPConfiguration = tmp.DestinationNetworkInterfaceIPConfiguration.Defaults()
+
+	return &tmp
 }
 
 

@@ -135,7 +135,7 @@ type DiskInput interface {
 }
 
 func (*Disk) ElementType() reflect.Type {
-	return reflect.TypeOf((*Disk)(nil))
+	return reflect.TypeOf((**Disk)(nil)).Elem()
 }
 
 func (i *Disk) ToDiskOutput() DiskOutput {
@@ -149,7 +149,7 @@ func (i *Disk) ToDiskOutputWithContext(ctx context.Context) DiskOutput {
 type DiskOutput struct{ *pulumi.OutputState }
 
 func (DiskOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Disk)(nil))
+	return reflect.TypeOf((**Disk)(nil)).Elem()
 }
 
 func (o DiskOutput) ToDiskOutput() DiskOutput {

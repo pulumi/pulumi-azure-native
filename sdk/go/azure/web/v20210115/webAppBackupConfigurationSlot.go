@@ -43,6 +43,10 @@ func NewWebAppBackupConfigurationSlot(ctx *pulumi.Context,
 	if args.StorageAccountUrl == nil {
 		return nil, errors.New("invalid value for required argument 'StorageAccountUrl'")
 	}
+	backupScheduleApplier := func(v BackupSchedule) *BackupSchedule { return v.Defaults() }
+	if args.BackupSchedule != nil {
+		args.BackupSchedule = args.BackupSchedule.ToBackupSchedulePtrOutput().Elem().ApplyT(backupScheduleApplier).(BackupSchedulePtrOutput)
+	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-native:web:WebAppBackupConfigurationSlot"),
@@ -150,7 +154,7 @@ type WebAppBackupConfigurationSlotInput interface {
 }
 
 func (*WebAppBackupConfigurationSlot) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAppBackupConfigurationSlot)(nil))
+	return reflect.TypeOf((**WebAppBackupConfigurationSlot)(nil)).Elem()
 }
 
 func (i *WebAppBackupConfigurationSlot) ToWebAppBackupConfigurationSlotOutput() WebAppBackupConfigurationSlotOutput {
@@ -164,7 +168,7 @@ func (i *WebAppBackupConfigurationSlot) ToWebAppBackupConfigurationSlotOutputWit
 type WebAppBackupConfigurationSlotOutput struct{ *pulumi.OutputState }
 
 func (WebAppBackupConfigurationSlotOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAppBackupConfigurationSlot)(nil))
+	return reflect.TypeOf((**WebAppBackupConfigurationSlot)(nil)).Elem()
 }
 
 func (o WebAppBackupConfigurationSlotOutput) ToWebAppBackupConfigurationSlotOutput() WebAppBackupConfigurationSlotOutput {

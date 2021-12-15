@@ -110,7 +110,7 @@ type KeyValueInput interface {
 }
 
 func (*KeyValue) ElementType() reflect.Type {
-	return reflect.TypeOf((*KeyValue)(nil))
+	return reflect.TypeOf((**KeyValue)(nil)).Elem()
 }
 
 func (i *KeyValue) ToKeyValueOutput() KeyValueOutput {
@@ -124,7 +124,7 @@ func (i *KeyValue) ToKeyValueOutputWithContext(ctx context.Context) KeyValueOutp
 type KeyValueOutput struct{ *pulumi.OutputState }
 
 func (KeyValueOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*KeyValue)(nil))
+	return reflect.TypeOf((**KeyValue)(nil)).Elem()
 }
 
 func (o KeyValueOutput) ToKeyValueOutput() KeyValueOutput {

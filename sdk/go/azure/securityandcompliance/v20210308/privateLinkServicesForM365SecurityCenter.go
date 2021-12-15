@@ -113,7 +113,7 @@ type PrivateLinkServicesForM365SecurityCenterInput interface {
 }
 
 func (*PrivateLinkServicesForM365SecurityCenter) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateLinkServicesForM365SecurityCenter)(nil))
+	return reflect.TypeOf((**PrivateLinkServicesForM365SecurityCenter)(nil)).Elem()
 }
 
 func (i *PrivateLinkServicesForM365SecurityCenter) ToPrivateLinkServicesForM365SecurityCenterOutput() PrivateLinkServicesForM365SecurityCenterOutput {
@@ -127,7 +127,7 @@ func (i *PrivateLinkServicesForM365SecurityCenter) ToPrivateLinkServicesForM365S
 type PrivateLinkServicesForM365SecurityCenterOutput struct{ *pulumi.OutputState }
 
 func (PrivateLinkServicesForM365SecurityCenterOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateLinkServicesForM365SecurityCenter)(nil))
+	return reflect.TypeOf((**PrivateLinkServicesForM365SecurityCenter)(nil)).Elem()
 }
 
 func (o PrivateLinkServicesForM365SecurityCenterOutput) ToPrivateLinkServicesForM365SecurityCenterOutput() PrivateLinkServicesForM365SecurityCenterOutput {

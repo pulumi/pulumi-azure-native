@@ -134,7 +134,7 @@ export class AzureCliScript extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: AzureCliScriptArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.azCliVersion === undefined) && !opts.urn) {
@@ -149,60 +149,60 @@ export class AzureCliScript extends pulumi.CustomResource {
             if ((!args || args.retentionInterval === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'retentionInterval'");
             }
-            inputs["arguments"] = args ? args.arguments : undefined;
-            inputs["azCliVersion"] = args ? args.azCliVersion : undefined;
-            inputs["cleanupPreference"] = (args ? args.cleanupPreference : undefined) ?? "Always";
-            inputs["containerSettings"] = args ? args.containerSettings : undefined;
-            inputs["environmentVariables"] = args ? args.environmentVariables : undefined;
-            inputs["forceUpdateTag"] = args ? args.forceUpdateTag : undefined;
-            inputs["identity"] = args ? args.identity : undefined;
-            inputs["kind"] = "AzureCLI";
-            inputs["location"] = args ? args.location : undefined;
-            inputs["primaryScriptUri"] = args ? args.primaryScriptUri : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["retentionInterval"] = args ? args.retentionInterval : undefined;
-            inputs["scriptContent"] = args ? args.scriptContent : undefined;
-            inputs["scriptName"] = args ? args.scriptName : undefined;
-            inputs["storageAccountSettings"] = args ? args.storageAccountSettings : undefined;
-            inputs["supportingScriptUris"] = args ? args.supportingScriptUris : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["timeout"] = (args ? args.timeout : undefined) ?? "P1D";
-            inputs["name"] = undefined /*out*/;
-            inputs["outputs"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["arguments"] = args ? args.arguments : undefined;
+            resourceInputs["azCliVersion"] = args ? args.azCliVersion : undefined;
+            resourceInputs["cleanupPreference"] = (args ? args.cleanupPreference : undefined) ?? "Always";
+            resourceInputs["containerSettings"] = args ? args.containerSettings : undefined;
+            resourceInputs["environmentVariables"] = args ? args.environmentVariables : undefined;
+            resourceInputs["forceUpdateTag"] = args ? args.forceUpdateTag : undefined;
+            resourceInputs["identity"] = args ? args.identity : undefined;
+            resourceInputs["kind"] = "AzureCLI";
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["primaryScriptUri"] = args ? args.primaryScriptUri : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["retentionInterval"] = args ? args.retentionInterval : undefined;
+            resourceInputs["scriptContent"] = args ? args.scriptContent : undefined;
+            resourceInputs["scriptName"] = args ? args.scriptName : undefined;
+            resourceInputs["storageAccountSettings"] = args ? args.storageAccountSettings : undefined;
+            resourceInputs["supportingScriptUris"] = args ? args.supportingScriptUris : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["timeout"] = (args ? args.timeout : undefined) ?? "P1D";
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["outputs"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["arguments"] = undefined /*out*/;
-            inputs["azCliVersion"] = undefined /*out*/;
-            inputs["cleanupPreference"] = undefined /*out*/;
-            inputs["containerSettings"] = undefined /*out*/;
-            inputs["environmentVariables"] = undefined /*out*/;
-            inputs["forceUpdateTag"] = undefined /*out*/;
-            inputs["identity"] = undefined /*out*/;
-            inputs["kind"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["outputs"] = undefined /*out*/;
-            inputs["primaryScriptUri"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["retentionInterval"] = undefined /*out*/;
-            inputs["scriptContent"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["storageAccountSettings"] = undefined /*out*/;
-            inputs["supportingScriptUris"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["timeout"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["arguments"] = undefined /*out*/;
+            resourceInputs["azCliVersion"] = undefined /*out*/;
+            resourceInputs["cleanupPreference"] = undefined /*out*/;
+            resourceInputs["containerSettings"] = undefined /*out*/;
+            resourceInputs["environmentVariables"] = undefined /*out*/;
+            resourceInputs["forceUpdateTag"] = undefined /*out*/;
+            resourceInputs["identity"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["outputs"] = undefined /*out*/;
+            resourceInputs["primaryScriptUri"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["retentionInterval"] = undefined /*out*/;
+            resourceInputs["scriptContent"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["storageAccountSettings"] = undefined /*out*/;
+            resourceInputs["supportingScriptUris"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["timeout"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:resources/v20191001preview:AzureCliScript" }, { type: "azure-native:resources/v20201001:AzureCliScript" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(AzureCliScript.__pulumiType, name, inputs, opts);
+        super(AzureCliScript.__pulumiType, name, resourceInputs, opts);
     }
 }
 

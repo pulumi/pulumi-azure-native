@@ -68,7 +68,7 @@ export class WebAppPublicCertificateSlot extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: WebAppPublicCertificateSlotArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.name === undefined) && !opts.urn) {
@@ -80,29 +80,29 @@ export class WebAppPublicCertificateSlot extends pulumi.CustomResource {
             if ((!args || args.slot === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'slot'");
             }
-            inputs["blob"] = args ? args.blob : undefined;
-            inputs["kind"] = args ? args.kind : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["publicCertificateLocation"] = args ? args.publicCertificateLocation : undefined;
-            inputs["publicCertificateName"] = args ? args.publicCertificateName : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["slot"] = args ? args.slot : undefined;
-            inputs["thumbprint"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["blob"] = args ? args.blob : undefined;
+            resourceInputs["kind"] = args ? args.kind : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["publicCertificateLocation"] = args ? args.publicCertificateLocation : undefined;
+            resourceInputs["publicCertificateName"] = args ? args.publicCertificateName : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["slot"] = args ? args.slot : undefined;
+            resourceInputs["thumbprint"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["blob"] = undefined /*out*/;
-            inputs["kind"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["publicCertificateLocation"] = undefined /*out*/;
-            inputs["thumbprint"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["blob"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["publicCertificateLocation"] = undefined /*out*/;
+            resourceInputs["thumbprint"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:web:WebAppPublicCertificateSlot" }, { type: "azure-native:web/v20160801:WebAppPublicCertificateSlot" }, { type: "azure-native:web/v20181101:WebAppPublicCertificateSlot" }, { type: "azure-native:web/v20190801:WebAppPublicCertificateSlot" }, { type: "azure-native:web/v20200601:WebAppPublicCertificateSlot" }, { type: "azure-native:web/v20200901:WebAppPublicCertificateSlot" }, { type: "azure-native:web/v20201001:WebAppPublicCertificateSlot" }, { type: "azure-native:web/v20201201:WebAppPublicCertificateSlot" }, { type: "azure-native:web/v20210101:WebAppPublicCertificateSlot" }, { type: "azure-native:web/v20210115:WebAppPublicCertificateSlot" }, { type: "azure-native:web/v20210201:WebAppPublicCertificateSlot" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(WebAppPublicCertificateSlot.__pulumiType, name, inputs, opts);
+        super(WebAppPublicCertificateSlot.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -90,7 +90,7 @@ type PartnerInput interface {
 }
 
 func (*Partner) ElementType() reflect.Type {
-	return reflect.TypeOf((*Partner)(nil))
+	return reflect.TypeOf((**Partner)(nil)).Elem()
 }
 
 func (i *Partner) ToPartnerOutput() PartnerOutput {
@@ -104,7 +104,7 @@ func (i *Partner) ToPartnerOutputWithContext(ctx context.Context) PartnerOutput 
 type PartnerOutput struct{ *pulumi.OutputState }
 
 func (PartnerOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Partner)(nil))
+	return reflect.TypeOf((**Partner)(nil)).Elem()
 }
 
 func (o PartnerOutput) ToPartnerOutput() PartnerOutput {

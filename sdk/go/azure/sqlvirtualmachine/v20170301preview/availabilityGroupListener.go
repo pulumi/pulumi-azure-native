@@ -106,7 +106,7 @@ type AvailabilityGroupListenerInput interface {
 }
 
 func (*AvailabilityGroupListener) ElementType() reflect.Type {
-	return reflect.TypeOf((*AvailabilityGroupListener)(nil))
+	return reflect.TypeOf((**AvailabilityGroupListener)(nil)).Elem()
 }
 
 func (i *AvailabilityGroupListener) ToAvailabilityGroupListenerOutput() AvailabilityGroupListenerOutput {
@@ -120,7 +120,7 @@ func (i *AvailabilityGroupListener) ToAvailabilityGroupListenerOutputWithContext
 type AvailabilityGroupListenerOutput struct{ *pulumi.OutputState }
 
 func (AvailabilityGroupListenerOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AvailabilityGroupListener)(nil))
+	return reflect.TypeOf((**AvailabilityGroupListener)(nil)).Elem()
 }
 
 func (o AvailabilityGroupListenerOutput) ToAvailabilityGroupListenerOutput() AvailabilityGroupListenerOutput {

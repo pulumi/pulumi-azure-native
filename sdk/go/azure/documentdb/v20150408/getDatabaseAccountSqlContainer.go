@@ -13,7 +13,7 @@ func LookupDatabaseAccountSqlContainer(ctx *pulumi.Context, args *LookupDatabase
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupDatabaseAccountSqlContainerArgs struct {
@@ -38,4 +38,19 @@ type LookupDatabaseAccountSqlContainerResult struct {
 	Ts                       interface{}                       `pulumi:"ts"`
 	Type                     string                            `pulumi:"type"`
 	UniqueKeyPolicy          *UniqueKeyPolicyResponse          `pulumi:"uniqueKeyPolicy"`
+}
+
+
+func (val *LookupDatabaseAccountSqlContainerResult) Defaults() *LookupDatabaseAccountSqlContainerResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.ConflictResolutionPolicy = tmp.ConflictResolutionPolicy.Defaults()
+
+	tmp.IndexingPolicy = tmp.IndexingPolicy.Defaults()
+
+	tmp.PartitionKey = tmp.PartitionKey.Defaults()
+
+	return &tmp
 }

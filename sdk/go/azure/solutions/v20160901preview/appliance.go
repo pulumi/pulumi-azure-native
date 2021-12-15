@@ -141,7 +141,7 @@ type ApplianceInput interface {
 }
 
 func (*Appliance) ElementType() reflect.Type {
-	return reflect.TypeOf((*Appliance)(nil))
+	return reflect.TypeOf((**Appliance)(nil)).Elem()
 }
 
 func (i *Appliance) ToApplianceOutput() ApplianceOutput {
@@ -155,7 +155,7 @@ func (i *Appliance) ToApplianceOutputWithContext(ctx context.Context) ApplianceO
 type ApplianceOutput struct{ *pulumi.OutputState }
 
 func (ApplianceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Appliance)(nil))
+	return reflect.TypeOf((**Appliance)(nil)).Elem()
 }
 
 func (o ApplianceOutput) ToApplianceOutput() ApplianceOutput {

@@ -13,7 +13,7 @@ func LookupBackend(ctx *pulumi.Context, args *LookupBackendArgs, opts ...pulumi.
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupBackendArgs struct {
@@ -36,4 +36,15 @@ type LookupBackendResult struct {
 	Tls         *BackendTlsPropertiesResponse       `pulumi:"tls"`
 	Type        string                              `pulumi:"type"`
 	Url         string                              `pulumi:"url"`
+}
+
+
+func (val *LookupBackendResult) Defaults() *LookupBackendResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Tls = tmp.Tls.Defaults()
+
+	return &tmp
 }

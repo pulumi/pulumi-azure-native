@@ -127,7 +127,7 @@ type DatabaseAdvisorInput interface {
 }
 
 func (*DatabaseAdvisor) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatabaseAdvisor)(nil))
+	return reflect.TypeOf((**DatabaseAdvisor)(nil)).Elem()
 }
 
 func (i *DatabaseAdvisor) ToDatabaseAdvisorOutput() DatabaseAdvisorOutput {
@@ -141,7 +141,7 @@ func (i *DatabaseAdvisor) ToDatabaseAdvisorOutputWithContext(ctx context.Context
 type DatabaseAdvisorOutput struct{ *pulumi.OutputState }
 
 func (DatabaseAdvisorOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatabaseAdvisor)(nil))
+	return reflect.TypeOf((**DatabaseAdvisor)(nil)).Elem()
 }
 
 func (o DatabaseAdvisorOutput) ToDatabaseAdvisorOutput() DatabaseAdvisorOutput {

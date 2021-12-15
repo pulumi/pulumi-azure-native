@@ -19,6 +19,17 @@ type AKS struct {
 }
 
 
+func (val *AKS) Defaults() *AKS {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Properties = tmp.Properties.Defaults()
+
+	return &tmp
+}
+
+
 
 
 
@@ -90,6 +101,17 @@ type AKSProperties struct {
 	ClusterFqdn                *string                     `pulumi:"clusterFqdn"`
 	ClusterPurpose             *string                     `pulumi:"clusterPurpose"`
 	SslConfiguration           *SslConfiguration           `pulumi:"sslConfiguration"`
+}
+
+
+func (val *AKSProperties) Defaults() *AKSProperties {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.SslConfiguration = tmp.SslConfiguration.Defaults()
+
+	return &tmp
 }
 
 
@@ -305,6 +327,17 @@ type AKSResponse struct {
 }
 
 
+func (val *AKSResponse) Defaults() *AKSResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Properties = tmp.Properties.Defaults()
+
+	return &tmp
+}
+
+
 
 
 
@@ -402,6 +435,17 @@ type AKSResponseProperties struct {
 	ClusterPurpose             *string                             `pulumi:"clusterPurpose"`
 	SslConfiguration           *SslConfigurationResponse           `pulumi:"sslConfiguration"`
 	SystemServices             []SystemServiceResponse             `pulumi:"systemServices"`
+}
+
+
+func (val *AKSResponseProperties) Defaults() *AKSResponseProperties {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.SslConfiguration = tmp.SslConfiguration.Defaults()
+
+	return &tmp
 }
 
 
@@ -982,6 +1026,17 @@ type AmlCompute struct {
 }
 
 
+func (val *AmlCompute) Defaults() *AmlCompute {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Properties = tmp.Properties.Defaults()
+
+	return &tmp
+}
+
+
 
 
 
@@ -1177,6 +1232,21 @@ type AmlComputeProperties struct {
 	UserAccountCredentials      *UserAccountCredentials `pulumi:"userAccountCredentials"`
 	VmPriority                  *string                 `pulumi:"vmPriority"`
 	VmSize                      *string                 `pulumi:"vmSize"`
+}
+
+
+func (val *AmlComputeProperties) Defaults() *AmlComputeProperties {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.RemoteLoginPortPublicAccess) {
+		remoteLoginPortPublicAccess_ := "NotSpecified"
+		tmp.RemoteLoginPortPublicAccess = &remoteLoginPortPublicAccess_
+	}
+	tmp.ScaleSettings = tmp.ScaleSettings.Defaults()
+
+	return &tmp
 }
 
 
@@ -1392,6 +1462,17 @@ type AmlComputeResponse struct {
 }
 
 
+func (val *AmlComputeResponse) Defaults() *AmlComputeResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Properties = tmp.Properties.Defaults()
+
+	return &tmp
+}
+
+
 
 
 
@@ -1494,6 +1575,21 @@ type AmlComputeResponseProperties struct {
 	UserAccountCredentials        *UserAccountCredentialsResponse       `pulumi:"userAccountCredentials"`
 	VmPriority                    *string                               `pulumi:"vmPriority"`
 	VmSize                        *string                               `pulumi:"vmSize"`
+}
+
+
+func (val *AmlComputeResponseProperties) Defaults() *AmlComputeResponseProperties {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.RemoteLoginPortPublicAccess) {
+		remoteLoginPortPublicAccess_ := "NotSpecified"
+		tmp.RemoteLoginPortPublicAccess = &remoteLoginPortPublicAccess_
+	}
+	tmp.ScaleSettings = tmp.ScaleSettings.Defaults()
+
+	return &tmp
 }
 
 
@@ -6348,6 +6444,19 @@ type ScaleSettings struct {
 }
 
 
+func (val *ScaleSettings) Defaults() *ScaleSettings {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.MinNodeCount) {
+		minNodeCount_ := 0
+		tmp.MinNodeCount = &minNodeCount_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -6508,6 +6617,19 @@ type ScaleSettingsResponse struct {
 	MaxNodeCount                int     `pulumi:"maxNodeCount"`
 	MinNodeCount                *int    `pulumi:"minNodeCount"`
 	NodeIdleTimeBeforeScaleDown *string `pulumi:"nodeIdleTimeBeforeScaleDown"`
+}
+
+
+func (val *ScaleSettingsResponse) Defaults() *ScaleSettingsResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.MinNodeCount) {
+		minNodeCount_ := 0
+		tmp.MinNodeCount = &minNodeCount_
+	}
+	return &tmp
 }
 
 
@@ -7209,6 +7331,19 @@ type SslConfiguration struct {
 }
 
 
+func (val *SslConfiguration) Defaults() *SslConfiguration {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.OverwriteExistingDomain) {
+		overwriteExistingDomain_ := false
+		tmp.OverwriteExistingDomain = &overwriteExistingDomain_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -7414,6 +7549,19 @@ type SslConfigurationResponse struct {
 	LeafDomainLabel         *string `pulumi:"leafDomainLabel"`
 	OverwriteExistingDomain *bool   `pulumi:"overwriteExistingDomain"`
 	Status                  *string `pulumi:"status"`
+}
+
+
+func (val *SslConfigurationResponse) Defaults() *SslConfigurationResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.OverwriteExistingDomain) {
+		overwriteExistingDomain_ := false
+		tmp.OverwriteExistingDomain = &overwriteExistingDomain_
+	}
+	return &tmp
 }
 
 

@@ -64,7 +64,7 @@ export class ProviderInstance extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ProviderInstanceArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
@@ -73,27 +73,27 @@ export class ProviderInstance extends pulumi.CustomResource {
             if ((!args || args.sapMonitorName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sapMonitorName'");
             }
-            inputs["metadata"] = args ? args.metadata : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["providerInstanceName"] = args ? args.providerInstanceName : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["sapMonitorName"] = args ? args.sapMonitorName : undefined;
-            inputs["type"] = args ? args.type : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["metadata"] = args ? args.metadata : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
+            resourceInputs["providerInstanceName"] = args ? args.providerInstanceName : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["sapMonitorName"] = args ? args.sapMonitorName : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
         } else {
-            inputs["metadata"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["metadata"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:hanaonazure/v20200207preview:ProviderInstance" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(ProviderInstance.__pulumiType, name, inputs, opts);
+        super(ProviderInstance.__pulumiType, name, resourceInputs, opts);
     }
 }
 

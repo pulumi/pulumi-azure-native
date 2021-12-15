@@ -13,7 +13,7 @@ func LookupMachineLearningDatastore(ctx *pulumi.Context, args *LookupMachineLear
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupMachineLearningDatastoreArgs struct {
@@ -32,4 +32,15 @@ type LookupMachineLearningDatastoreResult struct {
 	Sku        *SkuResponse      `pulumi:"sku"`
 	Tags       map[string]string `pulumi:"tags"`
 	Type       string            `pulumi:"type"`
+}
+
+
+func (val *LookupMachineLearningDatastoreResult) Defaults() *LookupMachineLearningDatastoreResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Properties = *tmp.Properties.Defaults()
+
+	return &tmp
 }

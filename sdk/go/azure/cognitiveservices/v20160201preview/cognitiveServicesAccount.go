@@ -118,7 +118,7 @@ type CognitiveServicesAccountInput interface {
 }
 
 func (*CognitiveServicesAccount) ElementType() reflect.Type {
-	return reflect.TypeOf((*CognitiveServicesAccount)(nil))
+	return reflect.TypeOf((**CognitiveServicesAccount)(nil)).Elem()
 }
 
 func (i *CognitiveServicesAccount) ToCognitiveServicesAccountOutput() CognitiveServicesAccountOutput {
@@ -132,7 +132,7 @@ func (i *CognitiveServicesAccount) ToCognitiveServicesAccountOutputWithContext(c
 type CognitiveServicesAccountOutput struct{ *pulumi.OutputState }
 
 func (CognitiveServicesAccountOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CognitiveServicesAccount)(nil))
+	return reflect.TypeOf((**CognitiveServicesAccount)(nil)).Elem()
 }
 
 func (o CognitiveServicesAccountOutput) ToCognitiveServicesAccountOutput() CognitiveServicesAccountOutput {

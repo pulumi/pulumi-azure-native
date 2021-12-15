@@ -117,7 +117,7 @@ type PrivateLinkScopeInput interface {
 }
 
 func (*PrivateLinkScope) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateLinkScope)(nil))
+	return reflect.TypeOf((**PrivateLinkScope)(nil)).Elem()
 }
 
 func (i *PrivateLinkScope) ToPrivateLinkScopeOutput() PrivateLinkScopeOutput {
@@ -131,7 +131,7 @@ func (i *PrivateLinkScope) ToPrivateLinkScopeOutputWithContext(ctx context.Conte
 type PrivateLinkScopeOutput struct{ *pulumi.OutputState }
 
 func (PrivateLinkScopeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateLinkScope)(nil))
+	return reflect.TypeOf((**PrivateLinkScope)(nil)).Elem()
 }
 
 func (o PrivateLinkScopeOutput) ToPrivateLinkScopeOutput() PrivateLinkScopeOutput {

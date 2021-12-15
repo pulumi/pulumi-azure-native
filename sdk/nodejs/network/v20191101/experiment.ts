@@ -88,7 +88,7 @@ export class Experiment extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ExperimentArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.profileName === undefined) && !opts.urn) {
@@ -97,39 +97,39 @@ export class Experiment extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["description"] = args ? args.description : undefined;
-            inputs["enabledState"] = args ? args.enabledState : undefined;
-            inputs["endpointA"] = args ? args.endpointA : undefined;
-            inputs["endpointB"] = args ? args.endpointB : undefined;
-            inputs["experimentName"] = args ? args.experimentName : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["profileName"] = args ? args.profileName : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["resourceState"] = undefined /*out*/;
-            inputs["scriptFileUri"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["enabledState"] = args ? args.enabledState : undefined;
+            resourceInputs["endpointA"] = args ? args.endpointA : undefined;
+            resourceInputs["endpointB"] = args ? args.endpointB : undefined;
+            resourceInputs["experimentName"] = args ? args.experimentName : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["profileName"] = args ? args.profileName : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["resourceState"] = undefined /*out*/;
+            resourceInputs["scriptFileUri"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["description"] = undefined /*out*/;
-            inputs["enabledState"] = undefined /*out*/;
-            inputs["endpointA"] = undefined /*out*/;
-            inputs["endpointB"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["resourceState"] = undefined /*out*/;
-            inputs["scriptFileUri"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["enabledState"] = undefined /*out*/;
+            resourceInputs["endpointA"] = undefined /*out*/;
+            resourceInputs["endpointB"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["resourceState"] = undefined /*out*/;
+            resourceInputs["scriptFileUri"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:network:Experiment" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Experiment.__pulumiType, name, inputs, opts);
+        super(Experiment.__pulumiType, name, resourceInputs, opts);
     }
 }
 

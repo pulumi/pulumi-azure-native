@@ -105,7 +105,7 @@ export class Lab extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: LabArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.labAccountName === undefined) && !opts.urn) {
@@ -114,47 +114,47 @@ export class Lab extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["labAccountName"] = args ? args.labAccountName : undefined;
-            inputs["labName"] = args ? args.labName : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["maxUsersInLab"] = args ? args.maxUsersInLab : undefined;
-            inputs["provisioningState"] = args ? args.provisioningState : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["uniqueIdentifier"] = args ? args.uniqueIdentifier : undefined;
-            inputs["usageQuota"] = args ? args.usageQuota : undefined;
-            inputs["userAccessMode"] = args ? args.userAccessMode : undefined;
-            inputs["createdByObjectId"] = undefined /*out*/;
-            inputs["createdByUserPrincipalName"] = undefined /*out*/;
-            inputs["createdDate"] = undefined /*out*/;
-            inputs["invitationCode"] = undefined /*out*/;
-            inputs["latestOperationResult"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["userQuota"] = undefined /*out*/;
+            resourceInputs["labAccountName"] = args ? args.labAccountName : undefined;
+            resourceInputs["labName"] = args ? args.labName : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["maxUsersInLab"] = args ? args.maxUsersInLab : undefined;
+            resourceInputs["provisioningState"] = args ? args.provisioningState : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["uniqueIdentifier"] = args ? args.uniqueIdentifier : undefined;
+            resourceInputs["usageQuota"] = args ? args.usageQuota : undefined;
+            resourceInputs["userAccessMode"] = args ? args.userAccessMode : undefined;
+            resourceInputs["createdByObjectId"] = undefined /*out*/;
+            resourceInputs["createdByUserPrincipalName"] = undefined /*out*/;
+            resourceInputs["createdDate"] = undefined /*out*/;
+            resourceInputs["invitationCode"] = undefined /*out*/;
+            resourceInputs["latestOperationResult"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["userQuota"] = undefined /*out*/;
         } else {
-            inputs["createdByObjectId"] = undefined /*out*/;
-            inputs["createdByUserPrincipalName"] = undefined /*out*/;
-            inputs["createdDate"] = undefined /*out*/;
-            inputs["invitationCode"] = undefined /*out*/;
-            inputs["latestOperationResult"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["maxUsersInLab"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["uniqueIdentifier"] = undefined /*out*/;
-            inputs["usageQuota"] = undefined /*out*/;
-            inputs["userAccessMode"] = undefined /*out*/;
-            inputs["userQuota"] = undefined /*out*/;
+            resourceInputs["createdByObjectId"] = undefined /*out*/;
+            resourceInputs["createdByUserPrincipalName"] = undefined /*out*/;
+            resourceInputs["createdDate"] = undefined /*out*/;
+            resourceInputs["invitationCode"] = undefined /*out*/;
+            resourceInputs["latestOperationResult"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["maxUsersInLab"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["uniqueIdentifier"] = undefined /*out*/;
+            resourceInputs["usageQuota"] = undefined /*out*/;
+            resourceInputs["userAccessMode"] = undefined /*out*/;
+            resourceInputs["userQuota"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:labservices/v20181015:Lab" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Lab.__pulumiType, name, inputs, opts);
+        super(Lab.__pulumiType, name, resourceInputs, opts);
     }
 }
 

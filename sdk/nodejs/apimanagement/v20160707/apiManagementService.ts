@@ -132,7 +132,7 @@ export class ApiManagementService extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ApiManagementServiceArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.publisherEmail === undefined) && !opts.urn) {
@@ -147,60 +147,60 @@ export class ApiManagementService extends pulumi.CustomResource {
             if ((!args || args.sku === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
-            inputs["additionalLocations"] = args ? args.additionalLocations : undefined;
-            inputs["addresserEmail"] = args ? args.addresserEmail : undefined;
-            inputs["customProperties"] = args ? args.customProperties : undefined;
-            inputs["etag"] = args ? args.etag : undefined;
-            inputs["hostnameConfigurations"] = args ? args.hostnameConfigurations : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["publisherEmail"] = args ? args.publisherEmail : undefined;
-            inputs["publisherName"] = args ? args.publisherName : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["serviceName"] = args ? args.serviceName : undefined;
-            inputs["sku"] = args ? args.sku : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["vpnType"] = (args ? args.vpnType : undefined) ?? "None";
-            inputs["vpnconfiguration"] = args ? args.vpnconfiguration : undefined;
-            inputs["createdAtUtc"] = undefined /*out*/;
-            inputs["managementApiUrl"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["portalUrl"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["runtimeUrl"] = undefined /*out*/;
-            inputs["scmUrl"] = undefined /*out*/;
-            inputs["staticIPs"] = undefined /*out*/;
-            inputs["targetProvisioningState"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["additionalLocations"] = args ? args.additionalLocations : undefined;
+            resourceInputs["addresserEmail"] = args ? args.addresserEmail : undefined;
+            resourceInputs["customProperties"] = args ? args.customProperties : undefined;
+            resourceInputs["etag"] = args ? args.etag : undefined;
+            resourceInputs["hostnameConfigurations"] = args ? args.hostnameConfigurations : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["publisherEmail"] = args ? args.publisherEmail : undefined;
+            resourceInputs["publisherName"] = args ? args.publisherName : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["serviceName"] = args ? args.serviceName : undefined;
+            resourceInputs["sku"] = args ? (args.sku ? pulumi.output(args.sku).apply(inputs.apimanagement.v20160707.apiManagementServiceSkuPropertiesArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["vpnType"] = (args ? args.vpnType : undefined) ?? "None";
+            resourceInputs["vpnconfiguration"] = args ? args.vpnconfiguration : undefined;
+            resourceInputs["createdAtUtc"] = undefined /*out*/;
+            resourceInputs["managementApiUrl"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["portalUrl"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["runtimeUrl"] = undefined /*out*/;
+            resourceInputs["scmUrl"] = undefined /*out*/;
+            resourceInputs["staticIPs"] = undefined /*out*/;
+            resourceInputs["targetProvisioningState"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["additionalLocations"] = undefined /*out*/;
-            inputs["addresserEmail"] = undefined /*out*/;
-            inputs["createdAtUtc"] = undefined /*out*/;
-            inputs["customProperties"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
-            inputs["hostnameConfigurations"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["managementApiUrl"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["portalUrl"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["publisherEmail"] = undefined /*out*/;
-            inputs["publisherName"] = undefined /*out*/;
-            inputs["runtimeUrl"] = undefined /*out*/;
-            inputs["scmUrl"] = undefined /*out*/;
-            inputs["sku"] = undefined /*out*/;
-            inputs["staticIPs"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["targetProvisioningState"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["vpnType"] = undefined /*out*/;
-            inputs["vpnconfiguration"] = undefined /*out*/;
+            resourceInputs["additionalLocations"] = undefined /*out*/;
+            resourceInputs["addresserEmail"] = undefined /*out*/;
+            resourceInputs["createdAtUtc"] = undefined /*out*/;
+            resourceInputs["customProperties"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["hostnameConfigurations"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["managementApiUrl"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["portalUrl"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["publisherEmail"] = undefined /*out*/;
+            resourceInputs["publisherName"] = undefined /*out*/;
+            resourceInputs["runtimeUrl"] = undefined /*out*/;
+            resourceInputs["scmUrl"] = undefined /*out*/;
+            resourceInputs["sku"] = undefined /*out*/;
+            resourceInputs["staticIPs"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["targetProvisioningState"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["vpnType"] = undefined /*out*/;
+            resourceInputs["vpnconfiguration"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:ApiManagementService" }, { type: "azure-native:apimanagement/v20161010:ApiManagementService" }, { type: "azure-native:apimanagement/v20170301:ApiManagementService" }, { type: "azure-native:apimanagement/v20180101:ApiManagementService" }, { type: "azure-native:apimanagement/v20180601preview:ApiManagementService" }, { type: "azure-native:apimanagement/v20190101:ApiManagementService" }, { type: "azure-native:apimanagement/v20191201:ApiManagementService" }, { type: "azure-native:apimanagement/v20191201preview:ApiManagementService" }, { type: "azure-native:apimanagement/v20200601preview:ApiManagementService" }, { type: "azure-native:apimanagement/v20201201:ApiManagementService" }, { type: "azure-native:apimanagement/v20210101preview:ApiManagementService" }, { type: "azure-native:apimanagement/v20210401preview:ApiManagementService" }, { type: "azure-native:apimanagement/v20210801:ApiManagementService" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(ApiManagementService.__pulumiType, name, inputs, opts);
+        super(ApiManagementService.__pulumiType, name, resourceInputs, opts);
     }
 }
 

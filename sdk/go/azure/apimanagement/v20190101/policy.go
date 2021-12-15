@@ -36,7 +36,7 @@ func NewPolicy(ctx *pulumi.Context,
 	if args.Value == nil {
 		return nil, errors.New("invalid value for required argument 'Value'")
 	}
-	if args.Format == nil {
+	if isZero(args.Format) {
 		args.Format = pulumi.StringPtr("xml")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
@@ -135,7 +135,7 @@ type PolicyInput interface {
 }
 
 func (*Policy) ElementType() reflect.Type {
-	return reflect.TypeOf((*Policy)(nil))
+	return reflect.TypeOf((**Policy)(nil)).Elem()
 }
 
 func (i *Policy) ToPolicyOutput() PolicyOutput {
@@ -149,7 +149,7 @@ func (i *Policy) ToPolicyOutputWithContext(ctx context.Context) PolicyOutput {
 type PolicyOutput struct{ *pulumi.OutputState }
 
 func (PolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Policy)(nil))
+	return reflect.TypeOf((**Policy)(nil)).Elem()
 }
 
 func (o PolicyOutput) ToPolicyOutput() PolicyOutput {

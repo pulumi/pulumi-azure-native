@@ -132,7 +132,7 @@ export class Registry extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: RegistryArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
@@ -141,60 +141,60 @@ export class Registry extends pulumi.CustomResource {
             if ((!args || args.sku === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
-            inputs["adminUserEnabled"] = (args ? args.adminUserEnabled : undefined) ?? false;
-            inputs["anonymousPullEnabled"] = (args ? args.anonymousPullEnabled : undefined) ?? false;
-            inputs["dataEndpointEnabled"] = args ? args.dataEndpointEnabled : undefined;
-            inputs["encryption"] = args ? args.encryption : undefined;
-            inputs["identity"] = args ? args.identity : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["networkRuleBypassOptions"] = (args ? args.networkRuleBypassOptions : undefined) ?? "AzureServices";
-            inputs["networkRuleSet"] = args ? args.networkRuleSet : undefined;
-            inputs["policies"] = args ? args.policies : undefined;
-            inputs["publicNetworkAccess"] = (args ? args.publicNetworkAccess : undefined) ?? "Enabled";
-            inputs["registryName"] = args ? args.registryName : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["sku"] = args ? args.sku : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["zoneRedundancy"] = (args ? args.zoneRedundancy : undefined) ?? "Disabled";
-            inputs["creationDate"] = undefined /*out*/;
-            inputs["dataEndpointHostNames"] = undefined /*out*/;
-            inputs["loginServer"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["privateEndpointConnections"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["adminUserEnabled"] = (args ? args.adminUserEnabled : undefined) ?? false;
+            resourceInputs["anonymousPullEnabled"] = (args ? args.anonymousPullEnabled : undefined) ?? false;
+            resourceInputs["dataEndpointEnabled"] = args ? args.dataEndpointEnabled : undefined;
+            resourceInputs["encryption"] = args ? args.encryption : undefined;
+            resourceInputs["identity"] = args ? args.identity : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["networkRuleBypassOptions"] = (args ? args.networkRuleBypassOptions : undefined) ?? "AzureServices";
+            resourceInputs["networkRuleSet"] = args ? (args.networkRuleSet ? pulumi.output(args.networkRuleSet).apply(inputs.containerregistry.v20201101preview.networkRuleSetArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["policies"] = args ? (args.policies ? pulumi.output(args.policies).apply(inputs.containerregistry.v20201101preview.policiesArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["publicNetworkAccess"] = (args ? args.publicNetworkAccess : undefined) ?? "Enabled";
+            resourceInputs["registryName"] = args ? args.registryName : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["sku"] = args ? args.sku : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["zoneRedundancy"] = (args ? args.zoneRedundancy : undefined) ?? "Disabled";
+            resourceInputs["creationDate"] = undefined /*out*/;
+            resourceInputs["dataEndpointHostNames"] = undefined /*out*/;
+            resourceInputs["loginServer"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["privateEndpointConnections"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["adminUserEnabled"] = undefined /*out*/;
-            inputs["anonymousPullEnabled"] = undefined /*out*/;
-            inputs["creationDate"] = undefined /*out*/;
-            inputs["dataEndpointEnabled"] = undefined /*out*/;
-            inputs["dataEndpointHostNames"] = undefined /*out*/;
-            inputs["encryption"] = undefined /*out*/;
-            inputs["identity"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["loginServer"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["networkRuleBypassOptions"] = undefined /*out*/;
-            inputs["networkRuleSet"] = undefined /*out*/;
-            inputs["policies"] = undefined /*out*/;
-            inputs["privateEndpointConnections"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["publicNetworkAccess"] = undefined /*out*/;
-            inputs["sku"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["zoneRedundancy"] = undefined /*out*/;
+            resourceInputs["adminUserEnabled"] = undefined /*out*/;
+            resourceInputs["anonymousPullEnabled"] = undefined /*out*/;
+            resourceInputs["creationDate"] = undefined /*out*/;
+            resourceInputs["dataEndpointEnabled"] = undefined /*out*/;
+            resourceInputs["dataEndpointHostNames"] = undefined /*out*/;
+            resourceInputs["encryption"] = undefined /*out*/;
+            resourceInputs["identity"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["loginServer"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["networkRuleBypassOptions"] = undefined /*out*/;
+            resourceInputs["networkRuleSet"] = undefined /*out*/;
+            resourceInputs["policies"] = undefined /*out*/;
+            resourceInputs["privateEndpointConnections"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["publicNetworkAccess"] = undefined /*out*/;
+            resourceInputs["sku"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["zoneRedundancy"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:containerregistry:Registry" }, { type: "azure-native:containerregistry/v20160627preview:Registry" }, { type: "azure-native:containerregistry/v20170301:Registry" }, { type: "azure-native:containerregistry/v20170601preview:Registry" }, { type: "azure-native:containerregistry/v20171001:Registry" }, { type: "azure-native:containerregistry/v20190501:Registry" }, { type: "azure-native:containerregistry/v20191201preview:Registry" }, { type: "azure-native:containerregistry/v20210601preview:Registry" }, { type: "azure-native:containerregistry/v20210801preview:Registry" }, { type: "azure-native:containerregistry/v20210901:Registry" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Registry.__pulumiType, name, inputs, opts);
+        super(Registry.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -107,7 +107,7 @@ type SqlVirtualMachineGroupInput interface {
 }
 
 func (*SqlVirtualMachineGroup) ElementType() reflect.Type {
-	return reflect.TypeOf((*SqlVirtualMachineGroup)(nil))
+	return reflect.TypeOf((**SqlVirtualMachineGroup)(nil)).Elem()
 }
 
 func (i *SqlVirtualMachineGroup) ToSqlVirtualMachineGroupOutput() SqlVirtualMachineGroupOutput {
@@ -121,7 +121,7 @@ func (i *SqlVirtualMachineGroup) ToSqlVirtualMachineGroupOutputWithContext(ctx c
 type SqlVirtualMachineGroupOutput struct{ *pulumi.OutputState }
 
 func (SqlVirtualMachineGroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SqlVirtualMachineGroup)(nil))
+	return reflect.TypeOf((**SqlVirtualMachineGroup)(nil)).Elem()
 }
 
 func (o SqlVirtualMachineGroupOutput) ToSqlVirtualMachineGroupOutput() SqlVirtualMachineGroupOutput {

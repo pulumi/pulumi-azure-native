@@ -104,53 +104,53 @@ export class Cluster extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ClusterArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["billingType"] = args ? args.billingType : undefined;
-            inputs["clusterName"] = args ? args.clusterName : undefined;
-            inputs["identity"] = args ? args.identity : undefined;
-            inputs["isAvailabilityZonesEnabled"] = args ? args.isAvailabilityZonesEnabled : undefined;
-            inputs["isDoubleEncryptionEnabled"] = args ? args.isDoubleEncryptionEnabled : undefined;
-            inputs["keyVaultProperties"] = args ? args.keyVaultProperties : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["sku"] = args ? args.sku : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["associatedWorkspaces"] = undefined /*out*/;
-            inputs["capacityReservationProperties"] = undefined /*out*/;
-            inputs["clusterId"] = undefined /*out*/;
-            inputs["createdDate"] = undefined /*out*/;
-            inputs["lastModifiedDate"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["billingType"] = args ? args.billingType : undefined;
+            resourceInputs["clusterName"] = args ? args.clusterName : undefined;
+            resourceInputs["identity"] = args ? args.identity : undefined;
+            resourceInputs["isAvailabilityZonesEnabled"] = args ? args.isAvailabilityZonesEnabled : undefined;
+            resourceInputs["isDoubleEncryptionEnabled"] = args ? args.isDoubleEncryptionEnabled : undefined;
+            resourceInputs["keyVaultProperties"] = args ? args.keyVaultProperties : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["sku"] = args ? args.sku : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["associatedWorkspaces"] = undefined /*out*/;
+            resourceInputs["capacityReservationProperties"] = undefined /*out*/;
+            resourceInputs["clusterId"] = undefined /*out*/;
+            resourceInputs["createdDate"] = undefined /*out*/;
+            resourceInputs["lastModifiedDate"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["associatedWorkspaces"] = undefined /*out*/;
-            inputs["billingType"] = undefined /*out*/;
-            inputs["capacityReservationProperties"] = undefined /*out*/;
-            inputs["clusterId"] = undefined /*out*/;
-            inputs["createdDate"] = undefined /*out*/;
-            inputs["identity"] = undefined /*out*/;
-            inputs["isAvailabilityZonesEnabled"] = undefined /*out*/;
-            inputs["keyVaultProperties"] = undefined /*out*/;
-            inputs["lastModifiedDate"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["sku"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["associatedWorkspaces"] = undefined /*out*/;
+            resourceInputs["billingType"] = undefined /*out*/;
+            resourceInputs["capacityReservationProperties"] = undefined /*out*/;
+            resourceInputs["clusterId"] = undefined /*out*/;
+            resourceInputs["createdDate"] = undefined /*out*/;
+            resourceInputs["identity"] = undefined /*out*/;
+            resourceInputs["isAvailabilityZonesEnabled"] = undefined /*out*/;
+            resourceInputs["keyVaultProperties"] = undefined /*out*/;
+            resourceInputs["lastModifiedDate"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["sku"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:operationalinsights:Cluster" }, { type: "azure-native:operationalinsights/v20190801preview:Cluster" }, { type: "azure-native:operationalinsights/v20200301preview:Cluster" }, { type: "azure-native:operationalinsights/v20200801:Cluster" }, { type: "azure-native:operationalinsights/v20201001:Cluster" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Cluster.__pulumiType, name, inputs, opts);
+        super(Cluster.__pulumiType, name, resourceInputs, opts);
     }
 }
 

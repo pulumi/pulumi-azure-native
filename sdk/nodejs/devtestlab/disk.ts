@@ -105,7 +105,7 @@ export class Disk extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: DiskArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.labName === undefined) && !opts.urn) {
@@ -117,47 +117,47 @@ export class Disk extends pulumi.CustomResource {
             if ((!args || args.userName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'userName'");
             }
-            inputs["diskBlobName"] = args ? args.diskBlobName : undefined;
-            inputs["diskSizeGiB"] = args ? args.diskSizeGiB : undefined;
-            inputs["diskType"] = args ? args.diskType : undefined;
-            inputs["diskUri"] = args ? args.diskUri : undefined;
-            inputs["hostCaching"] = args ? args.hostCaching : undefined;
-            inputs["labName"] = args ? args.labName : undefined;
-            inputs["leasedByLabVmId"] = args ? args.leasedByLabVmId : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["managedDiskId"] = args ? args.managedDiskId : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["storageAccountId"] = args ? args.storageAccountId : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["userName"] = args ? args.userName : undefined;
-            inputs["createdDate"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["uniqueIdentifier"] = undefined /*out*/;
+            resourceInputs["diskBlobName"] = args ? args.diskBlobName : undefined;
+            resourceInputs["diskSizeGiB"] = args ? args.diskSizeGiB : undefined;
+            resourceInputs["diskType"] = args ? args.diskType : undefined;
+            resourceInputs["diskUri"] = args ? args.diskUri : undefined;
+            resourceInputs["hostCaching"] = args ? args.hostCaching : undefined;
+            resourceInputs["labName"] = args ? args.labName : undefined;
+            resourceInputs["leasedByLabVmId"] = args ? args.leasedByLabVmId : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["managedDiskId"] = args ? args.managedDiskId : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["storageAccountId"] = args ? args.storageAccountId : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["userName"] = args ? args.userName : undefined;
+            resourceInputs["createdDate"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["uniqueIdentifier"] = undefined /*out*/;
         } else {
-            inputs["createdDate"] = undefined /*out*/;
-            inputs["diskBlobName"] = undefined /*out*/;
-            inputs["diskSizeGiB"] = undefined /*out*/;
-            inputs["diskType"] = undefined /*out*/;
-            inputs["diskUri"] = undefined /*out*/;
-            inputs["hostCaching"] = undefined /*out*/;
-            inputs["leasedByLabVmId"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["managedDiskId"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["storageAccountId"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["uniqueIdentifier"] = undefined /*out*/;
+            resourceInputs["createdDate"] = undefined /*out*/;
+            resourceInputs["diskBlobName"] = undefined /*out*/;
+            resourceInputs["diskSizeGiB"] = undefined /*out*/;
+            resourceInputs["diskType"] = undefined /*out*/;
+            resourceInputs["diskUri"] = undefined /*out*/;
+            resourceInputs["hostCaching"] = undefined /*out*/;
+            resourceInputs["leasedByLabVmId"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["managedDiskId"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["storageAccountId"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["uniqueIdentifier"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:devtestlab/v20160515:Disk" }, { type: "azure-native:devtestlab/v20180915:Disk" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Disk.__pulumiType, name, inputs, opts);
+        super(Disk.__pulumiType, name, resourceInputs, opts);
     }
 }
 

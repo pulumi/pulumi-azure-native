@@ -13,7 +13,7 @@ func LookupAutoscaleSetting(ctx *pulumi.Context, args *LookupAutoscaleSettingArg
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupAutoscaleSettingArgs struct {
@@ -35,4 +35,17 @@ type LookupAutoscaleSettingResult struct {
 	TargetResourceLocation    *string                            `pulumi:"targetResourceLocation"`
 	TargetResourceUri         *string                            `pulumi:"targetResourceUri"`
 	Type                      string                             `pulumi:"type"`
+}
+
+
+func (val *LookupAutoscaleSettingResult) Defaults() *LookupAutoscaleSettingResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Enabled) {
+		enabled_ := true
+		tmp.Enabled = &enabled_
+	}
+	return &tmp
 }

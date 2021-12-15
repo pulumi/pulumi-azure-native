@@ -103,7 +103,7 @@ type FluidRelayServerInput interface {
 }
 
 func (*FluidRelayServer) ElementType() reflect.Type {
-	return reflect.TypeOf((*FluidRelayServer)(nil))
+	return reflect.TypeOf((**FluidRelayServer)(nil)).Elem()
 }
 
 func (i *FluidRelayServer) ToFluidRelayServerOutput() FluidRelayServerOutput {
@@ -117,7 +117,7 @@ func (i *FluidRelayServer) ToFluidRelayServerOutputWithContext(ctx context.Conte
 type FluidRelayServerOutput struct{ *pulumi.OutputState }
 
 func (FluidRelayServerOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FluidRelayServer)(nil))
+	return reflect.TypeOf((**FluidRelayServer)(nil)).Elem()
 }
 
 func (o FluidRelayServerOutput) ToFluidRelayServerOutput() FluidRelayServerOutput {

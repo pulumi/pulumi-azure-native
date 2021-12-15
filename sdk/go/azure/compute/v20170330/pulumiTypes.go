@@ -2484,6 +2484,18 @@ type DiskSkuResponse struct {
 }
 
 
+func (val *DiskSkuResponse) Defaults() *DiskSkuResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Tier) {
+		tmp.Tier = "Standard"
+	}
+	return &tmp
+}
+
+
 
 
 

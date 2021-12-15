@@ -99,7 +99,7 @@ export class RegisteredServer extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: RegisteredServerArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
@@ -108,44 +108,44 @@ export class RegisteredServer extends pulumi.CustomResource {
             if ((!args || args.storageSyncServiceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'storageSyncServiceName'");
             }
-            inputs["agentVersion"] = args ? args.agentVersion : undefined;
-            inputs["clusterId"] = args ? args.clusterId : undefined;
-            inputs["clusterName"] = args ? args.clusterName : undefined;
-            inputs["lastHeartBeat"] = args ? args.lastHeartBeat : undefined;
-            inputs["lastWorkflowId"] = args ? args.lastWorkflowId : undefined;
-            inputs["provisioningState"] = args ? args.provisioningState : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["serverCertificate"] = args ? args.serverCertificate : undefined;
-            inputs["serverId"] = args ? args.serverId : undefined;
-            inputs["serverManagementtErrorCode"] = args ? args.serverManagementtErrorCode : undefined;
-            inputs["serverOSVersion"] = args ? args.serverOSVersion : undefined;
-            inputs["serverRole"] = args ? args.serverRole : undefined;
-            inputs["storageSyncServiceName"] = args ? args.storageSyncServiceName : undefined;
-            inputs["storageSyncServiceUid"] = args ? args.storageSyncServiceUid : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["agentVersion"] = args ? args.agentVersion : undefined;
+            resourceInputs["clusterId"] = args ? args.clusterId : undefined;
+            resourceInputs["clusterName"] = args ? args.clusterName : undefined;
+            resourceInputs["lastHeartBeat"] = args ? args.lastHeartBeat : undefined;
+            resourceInputs["lastWorkflowId"] = args ? args.lastWorkflowId : undefined;
+            resourceInputs["provisioningState"] = args ? args.provisioningState : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["serverCertificate"] = args ? args.serverCertificate : undefined;
+            resourceInputs["serverId"] = args ? args.serverId : undefined;
+            resourceInputs["serverManagementtErrorCode"] = args ? args.serverManagementtErrorCode : undefined;
+            resourceInputs["serverOSVersion"] = args ? args.serverOSVersion : undefined;
+            resourceInputs["serverRole"] = args ? args.serverRole : undefined;
+            resourceInputs["storageSyncServiceName"] = args ? args.storageSyncServiceName : undefined;
+            resourceInputs["storageSyncServiceUid"] = args ? args.storageSyncServiceUid : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["agentVersion"] = undefined /*out*/;
-            inputs["clusterId"] = undefined /*out*/;
-            inputs["clusterName"] = undefined /*out*/;
-            inputs["lastHeartBeat"] = undefined /*out*/;
-            inputs["lastWorkflowId"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["serverCertificate"] = undefined /*out*/;
-            inputs["serverId"] = undefined /*out*/;
-            inputs["serverManagementtErrorCode"] = undefined /*out*/;
-            inputs["serverOSVersion"] = undefined /*out*/;
-            inputs["serverRole"] = undefined /*out*/;
-            inputs["storageSyncServiceUid"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["agentVersion"] = undefined /*out*/;
+            resourceInputs["clusterId"] = undefined /*out*/;
+            resourceInputs["clusterName"] = undefined /*out*/;
+            resourceInputs["lastHeartBeat"] = undefined /*out*/;
+            resourceInputs["lastWorkflowId"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["serverCertificate"] = undefined /*out*/;
+            resourceInputs["serverId"] = undefined /*out*/;
+            resourceInputs["serverManagementtErrorCode"] = undefined /*out*/;
+            resourceInputs["serverOSVersion"] = undefined /*out*/;
+            resourceInputs["serverRole"] = undefined /*out*/;
+            resourceInputs["storageSyncServiceUid"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:storagesync:RegisteredServer" }, { type: "azure-native:storagesync/v20180402:RegisteredServer" }, { type: "azure-native:storagesync/v20180701:RegisteredServer" }, { type: "azure-native:storagesync/v20181001:RegisteredServer" }, { type: "azure-native:storagesync/v20190201:RegisteredServer" }, { type: "azure-native:storagesync/v20190301:RegisteredServer" }, { type: "azure-native:storagesync/v20190601:RegisteredServer" }, { type: "azure-native:storagesync/v20191001:RegisteredServer" }, { type: "azure-native:storagesync/v20200301:RegisteredServer" }, { type: "azure-native:storagesync/v20200901:RegisteredServer" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(RegisteredServer.__pulumiType, name, inputs, opts);
+        super(RegisteredServer.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -41,6 +41,12 @@ func NewImportPipeline(ctx *pulumi.Context,
 	if args.Source == nil {
 		return nil, errors.New("invalid value for required argument 'Source'")
 	}
+	sourceApplier := func(v ImportPipelineSourceProperties) *ImportPipelineSourceProperties { return v.Defaults() }
+	args.Source = args.Source.ToImportPipelineSourcePropertiesOutput().ApplyT(sourceApplier).(ImportPipelineSourcePropertiesPtrOutput).Elem()
+	triggerApplier := func(v PipelineTriggerProperties) *PipelineTriggerProperties { return v.Defaults() }
+	if args.Trigger != nil {
+		args.Trigger = args.Trigger.ToPipelineTriggerPropertiesPtrOutput().Elem().ApplyT(triggerApplier).(PipelineTriggerPropertiesPtrOutput)
+	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-native:containerregistry/v20191201preview:ImportPipeline"),
@@ -122,7 +128,7 @@ type ImportPipelineInput interface {
 }
 
 func (*ImportPipeline) ElementType() reflect.Type {
-	return reflect.TypeOf((*ImportPipeline)(nil))
+	return reflect.TypeOf((**ImportPipeline)(nil)).Elem()
 }
 
 func (i *ImportPipeline) ToImportPipelineOutput() ImportPipelineOutput {
@@ -136,7 +142,7 @@ func (i *ImportPipeline) ToImportPipelineOutputWithContext(ctx context.Context) 
 type ImportPipelineOutput struct{ *pulumi.OutputState }
 
 func (ImportPipelineOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ImportPipeline)(nil))
+	return reflect.TypeOf((**ImportPipeline)(nil)).Elem()
 }
 
 func (o ImportPipelineOutput) ToImportPipelineOutput() ImportPipelineOutput {

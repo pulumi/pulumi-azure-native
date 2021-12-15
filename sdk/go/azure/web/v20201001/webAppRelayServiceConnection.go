@@ -149,7 +149,7 @@ type WebAppRelayServiceConnectionInput interface {
 }
 
 func (*WebAppRelayServiceConnection) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAppRelayServiceConnection)(nil))
+	return reflect.TypeOf((**WebAppRelayServiceConnection)(nil)).Elem()
 }
 
 func (i *WebAppRelayServiceConnection) ToWebAppRelayServiceConnectionOutput() WebAppRelayServiceConnectionOutput {
@@ -163,7 +163,7 @@ func (i *WebAppRelayServiceConnection) ToWebAppRelayServiceConnectionOutputWithC
 type WebAppRelayServiceConnectionOutput struct{ *pulumi.OutputState }
 
 func (WebAppRelayServiceConnectionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAppRelayServiceConnection)(nil))
+	return reflect.TypeOf((**WebAppRelayServiceConnection)(nil)).Elem()
 }
 
 func (o WebAppRelayServiceConnectionOutput) ToWebAppRelayServiceConnectionOutput() WebAppRelayServiceConnectionOutput {

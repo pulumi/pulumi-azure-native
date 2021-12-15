@@ -50,7 +50,11 @@ func NewServiceFabricSchedule(ctx *pulumi.Context,
 	if args.UserName == nil {
 		return nil, errors.New("invalid value for required argument 'UserName'")
 	}
-	if args.Status == nil {
+	notificationSettingsApplier := func(v NotificationSettings) *NotificationSettings { return v.Defaults() }
+	if args.NotificationSettings != nil {
+		args.NotificationSettings = args.NotificationSettings.ToNotificationSettingsPtrOutput().Elem().ApplyT(notificationSettingsApplier).(NotificationSettingsPtrOutput)
+	}
+	if isZero(args.Status) {
 		args.Status = pulumi.StringPtr("Disabled")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
@@ -139,7 +143,7 @@ type ServiceFabricScheduleInput interface {
 }
 
 func (*ServiceFabricSchedule) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceFabricSchedule)(nil))
+	return reflect.TypeOf((**ServiceFabricSchedule)(nil)).Elem()
 }
 
 func (i *ServiceFabricSchedule) ToServiceFabricScheduleOutput() ServiceFabricScheduleOutput {
@@ -153,7 +157,7 @@ func (i *ServiceFabricSchedule) ToServiceFabricScheduleOutputWithContext(ctx con
 type ServiceFabricScheduleOutput struct{ *pulumi.OutputState }
 
 func (ServiceFabricScheduleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceFabricSchedule)(nil))
+	return reflect.TypeOf((**ServiceFabricSchedule)(nil)).Elem()
 }
 
 func (o ServiceFabricScheduleOutput) ToServiceFabricScheduleOutput() ServiceFabricScheduleOutput {

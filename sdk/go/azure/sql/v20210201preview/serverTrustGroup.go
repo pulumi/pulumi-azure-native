@@ -117,7 +117,7 @@ type ServerTrustGroupInput interface {
 }
 
 func (*ServerTrustGroup) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServerTrustGroup)(nil))
+	return reflect.TypeOf((**ServerTrustGroup)(nil)).Elem()
 }
 
 func (i *ServerTrustGroup) ToServerTrustGroupOutput() ServerTrustGroupOutput {
@@ -131,7 +131,7 @@ func (i *ServerTrustGroup) ToServerTrustGroupOutputWithContext(ctx context.Conte
 type ServerTrustGroupOutput struct{ *pulumi.OutputState }
 
 func (ServerTrustGroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServerTrustGroup)(nil))
+	return reflect.TypeOf((**ServerTrustGroup)(nil)).Elem()
 }
 
 func (o ServerTrustGroupOutput) ToServerTrustGroupOutput() ServerTrustGroupOutput {

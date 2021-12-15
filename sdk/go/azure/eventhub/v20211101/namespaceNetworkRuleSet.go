@@ -38,7 +38,7 @@ func NewNamespaceNetworkRuleSet(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.PublicNetworkAccess == nil {
+	if isZero(args.PublicNetworkAccess) {
 		args.PublicNetworkAccess = pulumi.StringPtr("Enabled")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
@@ -123,7 +123,7 @@ type NamespaceNetworkRuleSetInput interface {
 }
 
 func (*NamespaceNetworkRuleSet) ElementType() reflect.Type {
-	return reflect.TypeOf((*NamespaceNetworkRuleSet)(nil))
+	return reflect.TypeOf((**NamespaceNetworkRuleSet)(nil)).Elem()
 }
 
 func (i *NamespaceNetworkRuleSet) ToNamespaceNetworkRuleSetOutput() NamespaceNetworkRuleSetOutput {
@@ -137,7 +137,7 @@ func (i *NamespaceNetworkRuleSet) ToNamespaceNetworkRuleSetOutputWithContext(ctx
 type NamespaceNetworkRuleSetOutput struct{ *pulumi.OutputState }
 
 func (NamespaceNetworkRuleSetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NamespaceNetworkRuleSet)(nil))
+	return reflect.TypeOf((**NamespaceNetworkRuleSet)(nil)).Elem()
 }
 
 func (o NamespaceNetworkRuleSetOutput) ToNamespaceNetworkRuleSetOutput() NamespaceNetworkRuleSetOutput {

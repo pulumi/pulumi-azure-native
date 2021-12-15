@@ -76,7 +76,7 @@ export class ExpressRouteConnection extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ExpressRouteConnectionArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.expressRouteCircuitPeering === undefined) && !opts.urn) {
@@ -91,34 +91,34 @@ export class ExpressRouteConnection extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["authorizationKey"] = args ? args.authorizationKey : undefined;
-            inputs["connectionName"] = args ? args.connectionName : undefined;
-            inputs["enableInternetSecurity"] = args ? args.enableInternetSecurity : undefined;
-            inputs["expressRouteCircuitPeering"] = args ? args.expressRouteCircuitPeering : undefined;
-            inputs["expressRouteGatewayBypass"] = args ? args.expressRouteGatewayBypass : undefined;
-            inputs["expressRouteGatewayName"] = args ? args.expressRouteGatewayName : undefined;
-            inputs["id"] = args ? args.id : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["routingConfiguration"] = args ? args.routingConfiguration : undefined;
-            inputs["routingWeight"] = args ? args.routingWeight : undefined;
-            inputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["authorizationKey"] = args ? args.authorizationKey : undefined;
+            resourceInputs["connectionName"] = args ? args.connectionName : undefined;
+            resourceInputs["enableInternetSecurity"] = args ? args.enableInternetSecurity : undefined;
+            resourceInputs["expressRouteCircuitPeering"] = args ? args.expressRouteCircuitPeering : undefined;
+            resourceInputs["expressRouteGatewayBypass"] = args ? args.expressRouteGatewayBypass : undefined;
+            resourceInputs["expressRouteGatewayName"] = args ? args.expressRouteGatewayName : undefined;
+            resourceInputs["id"] = args ? args.id : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["routingConfiguration"] = args ? args.routingConfiguration : undefined;
+            resourceInputs["routingWeight"] = args ? args.routingWeight : undefined;
+            resourceInputs["provisioningState"] = undefined /*out*/;
         } else {
-            inputs["authorizationKey"] = undefined /*out*/;
-            inputs["enableInternetSecurity"] = undefined /*out*/;
-            inputs["expressRouteCircuitPeering"] = undefined /*out*/;
-            inputs["expressRouteGatewayBypass"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["routingConfiguration"] = undefined /*out*/;
-            inputs["routingWeight"] = undefined /*out*/;
+            resourceInputs["authorizationKey"] = undefined /*out*/;
+            resourceInputs["enableInternetSecurity"] = undefined /*out*/;
+            resourceInputs["expressRouteCircuitPeering"] = undefined /*out*/;
+            resourceInputs["expressRouteGatewayBypass"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["routingConfiguration"] = undefined /*out*/;
+            resourceInputs["routingWeight"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:network:ExpressRouteConnection" }, { type: "azure-native:network/v20180801:ExpressRouteConnection" }, { type: "azure-native:network/v20181001:ExpressRouteConnection" }, { type: "azure-native:network/v20181101:ExpressRouteConnection" }, { type: "azure-native:network/v20181201:ExpressRouteConnection" }, { type: "azure-native:network/v20190201:ExpressRouteConnection" }, { type: "azure-native:network/v20190401:ExpressRouteConnection" }, { type: "azure-native:network/v20190601:ExpressRouteConnection" }, { type: "azure-native:network/v20190701:ExpressRouteConnection" }, { type: "azure-native:network/v20190801:ExpressRouteConnection" }, { type: "azure-native:network/v20190901:ExpressRouteConnection" }, { type: "azure-native:network/v20191101:ExpressRouteConnection" }, { type: "azure-native:network/v20191201:ExpressRouteConnection" }, { type: "azure-native:network/v20200301:ExpressRouteConnection" }, { type: "azure-native:network/v20200401:ExpressRouteConnection" }, { type: "azure-native:network/v20200501:ExpressRouteConnection" }, { type: "azure-native:network/v20200601:ExpressRouteConnection" }, { type: "azure-native:network/v20200701:ExpressRouteConnection" }, { type: "azure-native:network/v20200801:ExpressRouteConnection" }, { type: "azure-native:network/v20201101:ExpressRouteConnection" }, { type: "azure-native:network/v20210201:ExpressRouteConnection" }, { type: "azure-native:network/v20210501:ExpressRouteConnection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(ExpressRouteConnection.__pulumiType, name, inputs, opts);
+        super(ExpressRouteConnection.__pulumiType, name, resourceInputs, opts);
     }
 }
 

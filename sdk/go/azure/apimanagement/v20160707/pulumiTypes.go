@@ -18,6 +18,19 @@ type AdditionalRegion struct {
 }
 
 
+func (val *AdditionalRegion) Defaults() *AdditionalRegion {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.SkuUnitCount) {
+		skuUnitCount_ := 1
+		tmp.SkuUnitCount = &skuUnitCount_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -128,6 +141,19 @@ type AdditionalRegionResponse struct {
 	SkuUnitCount     *int                                 `pulumi:"skuUnitCount"`
 	StaticIPs        []string                             `pulumi:"staticIPs"`
 	Vpnconfiguration *VirtualNetworkConfigurationResponse `pulumi:"vpnconfiguration"`
+}
+
+
+func (val *AdditionalRegionResponse) Defaults() *AdditionalRegionResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.SkuUnitCount) {
+		skuUnitCount_ := 1
+		tmp.SkuUnitCount = &skuUnitCount_
+	}
+	return &tmp
 }
 
 
@@ -243,6 +269,19 @@ func (o AdditionalRegionResponseArrayOutput) Index(i pulumi.IntInput) Additional
 type ApiManagementServiceSkuProperties struct {
 	Capacity *int    `pulumi:"capacity"`
 	Name     SkuType `pulumi:"name"`
+}
+
+
+func (val *ApiManagementServiceSkuProperties) Defaults() *ApiManagementServiceSkuProperties {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Capacity) {
+		capacity_ := 1
+		tmp.Capacity = &capacity_
+	}
+	return &tmp
 }
 
 
@@ -391,6 +430,19 @@ func (o ApiManagementServiceSkuPropertiesPtrOutput) Name() SkuTypePtrOutput {
 type ApiManagementServiceSkuPropertiesResponse struct {
 	Capacity *int   `pulumi:"capacity"`
 	Name     string `pulumi:"name"`
+}
+
+
+func (val *ApiManagementServiceSkuPropertiesResponse) Defaults() *ApiManagementServiceSkuPropertiesResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Capacity) {
+		capacity_ := 1
+		tmp.Capacity = &capacity_
+	}
+	return &tmp
 }
 
 

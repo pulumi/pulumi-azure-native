@@ -108,7 +108,7 @@ type BillingRoleAssignmentByBillingAccountInput interface {
 }
 
 func (*BillingRoleAssignmentByBillingAccount) ElementType() reflect.Type {
-	return reflect.TypeOf((*BillingRoleAssignmentByBillingAccount)(nil))
+	return reflect.TypeOf((**BillingRoleAssignmentByBillingAccount)(nil)).Elem()
 }
 
 func (i *BillingRoleAssignmentByBillingAccount) ToBillingRoleAssignmentByBillingAccountOutput() BillingRoleAssignmentByBillingAccountOutput {
@@ -122,7 +122,7 @@ func (i *BillingRoleAssignmentByBillingAccount) ToBillingRoleAssignmentByBilling
 type BillingRoleAssignmentByBillingAccountOutput struct{ *pulumi.OutputState }
 
 func (BillingRoleAssignmentByBillingAccountOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BillingRoleAssignmentByBillingAccount)(nil))
+	return reflect.TypeOf((**BillingRoleAssignmentByBillingAccount)(nil)).Elem()
 }
 
 func (o BillingRoleAssignmentByBillingAccountOutput) ToBillingRoleAssignmentByBillingAccountOutput() BillingRoleAssignmentByBillingAccountOutput {

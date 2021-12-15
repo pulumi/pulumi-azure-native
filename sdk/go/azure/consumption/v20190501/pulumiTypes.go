@@ -821,6 +821,19 @@ type Notification struct {
 }
 
 
+func (val *Notification) Defaults() *Notification {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.ThresholdType) {
+		thresholdType_ := "Actual"
+		tmp.ThresholdType = &thresholdType_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -948,6 +961,19 @@ type NotificationResponse struct {
 	Operator      string   `pulumi:"operator"`
 	Threshold     float64  `pulumi:"threshold"`
 	ThresholdType *string  `pulumi:"thresholdType"`
+}
+
+
+func (val *NotificationResponse) Defaults() *NotificationResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.ThresholdType) {
+		thresholdType_ := "Actual"
+		tmp.ThresholdType = &thresholdType_
+	}
+	return &tmp
 }
 
 

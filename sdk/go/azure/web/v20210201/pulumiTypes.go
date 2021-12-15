@@ -2327,6 +2327,17 @@ type ApplicationLogsConfig struct {
 }
 
 
+func (val *ApplicationLogsConfig) Defaults() *ApplicationLogsConfig {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.FileSystem = tmp.FileSystem.Defaults()
+
+	return &tmp
+}
+
+
 
 
 
@@ -2487,6 +2498,17 @@ type ApplicationLogsConfigResponse struct {
 	AzureBlobStorage  *AzureBlobStorageApplicationLogsConfigResponse  `pulumi:"azureBlobStorage"`
 	AzureTableStorage *AzureTableStorageApplicationLogsConfigResponse `pulumi:"azureTableStorage"`
 	FileSystem        *FileSystemApplicationLogsConfigResponse        `pulumi:"fileSystem"`
+}
+
+
+func (val *ApplicationLogsConfigResponse) Defaults() *ApplicationLogsConfigResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.FileSystem = tmp.FileSystem.Defaults()
+
+	return &tmp
 }
 
 
@@ -8450,6 +8472,27 @@ type BackupSchedule struct {
 }
 
 
+func (val *BackupSchedule) Defaults() *BackupSchedule {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.FrequencyInterval) {
+		tmp.FrequencyInterval = 7
+	}
+	if isZero(tmp.FrequencyUnit) {
+		tmp.FrequencyUnit = FrequencyUnit("Day")
+	}
+	if isZero(tmp.KeepAtLeastOneBackup) {
+		tmp.KeepAtLeastOneBackup = true
+	}
+	if isZero(tmp.RetentionPeriodInDays) {
+		tmp.RetentionPeriodInDays = 30
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -8641,6 +8684,27 @@ type BackupScheduleResponse struct {
 	LastExecutionTime     string  `pulumi:"lastExecutionTime"`
 	RetentionPeriodInDays int     `pulumi:"retentionPeriodInDays"`
 	StartTime             *string `pulumi:"startTime"`
+}
+
+
+func (val *BackupScheduleResponse) Defaults() *BackupScheduleResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.FrequencyInterval) {
+		tmp.FrequencyInterval = 7
+	}
+	if isZero(tmp.FrequencyUnit) {
+		tmp.FrequencyUnit = "Day"
+	}
+	if isZero(tmp.KeepAtLeastOneBackup) {
+		tmp.KeepAtLeastOneBackup = true
+	}
+	if isZero(tmp.RetentionPeriodInDays) {
+		tmp.RetentionPeriodInDays = 30
+	}
+	return &tmp
 }
 
 
@@ -13092,6 +13156,19 @@ type FileSystemApplicationLogsConfig struct {
 }
 
 
+func (val *FileSystemApplicationLogsConfig) Defaults() *FileSystemApplicationLogsConfig {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Level) {
+		level_ := LogLevel("Off")
+		tmp.Level = &level_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -13222,6 +13299,19 @@ func (o FileSystemApplicationLogsConfigPtrOutput) Level() LogLevelPtrOutput {
 
 type FileSystemApplicationLogsConfigResponse struct {
 	Level *string `pulumi:"level"`
+}
+
+
+func (val *FileSystemApplicationLogsConfigResponse) Defaults() *FileSystemApplicationLogsConfigResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Level) {
+		level_ := "Off"
+		tmp.Level = &level_
+	}
+	return &tmp
 }
 
 
@@ -25281,6 +25371,27 @@ type SiteConfig struct {
 }
 
 
+func (val *SiteConfig) Defaults() *SiteConfig {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Http20Enabled) {
+		http20Enabled_ := true
+		tmp.Http20Enabled = &http20Enabled_
+	}
+	if isZero(tmp.LocalMySqlEnabled) {
+		localMySqlEnabled_ := false
+		tmp.LocalMySqlEnabled = &localMySqlEnabled_
+	}
+	if isZero(tmp.NetFrameworkVersion) {
+		netFrameworkVersion_ := "v4.6"
+		tmp.NetFrameworkVersion = &netFrameworkVersion_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -26387,6 +26498,27 @@ type SiteConfigResponse struct {
 	WebsiteTimeZone                        *string                                  `pulumi:"websiteTimeZone"`
 	WindowsFxVersion                       *string                                  `pulumi:"windowsFxVersion"`
 	XManagedServiceIdentityId              *int                                     `pulumi:"xManagedServiceIdentityId"`
+}
+
+
+func (val *SiteConfigResponse) Defaults() *SiteConfigResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Http20Enabled) {
+		http20Enabled_ := true
+		tmp.Http20Enabled = &http20Enabled_
+	}
+	if isZero(tmp.LocalMySqlEnabled) {
+		localMySqlEnabled_ := false
+		tmp.LocalMySqlEnabled = &localMySqlEnabled_
+	}
+	if isZero(tmp.NetFrameworkVersion) {
+		netFrameworkVersion_ := "v4.6"
+		tmp.NetFrameworkVersion = &netFrameworkVersion_
+	}
+	return &tmp
 }
 
 

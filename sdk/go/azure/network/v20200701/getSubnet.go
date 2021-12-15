@@ -13,7 +13,7 @@ func LookupSubnet(ctx *pulumi.Context, args *LookupSubnetArgs, opts ...pulumi.In
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupSubnetArgs struct {
@@ -47,4 +47,21 @@ type LookupSubnetResult struct {
 	ServiceEndpointPolicies           []ServiceEndpointPolicyResponse           `pulumi:"serviceEndpointPolicies"`
 	ServiceEndpoints                  []ServiceEndpointPropertiesFormatResponse `pulumi:"serviceEndpoints"`
 	Type                              *string                                   `pulumi:"type"`
+}
+
+
+func (val *LookupSubnetResult) Defaults() *LookupSubnetResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.PrivateEndpointNetworkPolicies) {
+		privateEndpointNetworkPolicies_ := "Enabled"
+		tmp.PrivateEndpointNetworkPolicies = &privateEndpointNetworkPolicies_
+	}
+	if isZero(tmp.PrivateLinkServiceNetworkPolicies) {
+		privateLinkServiceNetworkPolicies_ := "Enabled"
+		tmp.PrivateLinkServiceNetworkPolicies = &privateLinkServiceNetworkPolicies_
+	}
+	return &tmp
 }

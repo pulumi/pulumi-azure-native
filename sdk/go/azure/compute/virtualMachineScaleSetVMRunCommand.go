@@ -47,7 +47,7 @@ func NewVirtualMachineScaleSetVMRunCommand(ctx *pulumi.Context,
 	if args.VmScaleSetName == nil {
 		return nil, errors.New("invalid value for required argument 'VmScaleSetName'")
 	}
-	if args.AsyncExecution == nil {
+	if isZero(args.AsyncExecution) {
 		args.AsyncExecution = pulumi.BoolPtr(false)
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
@@ -148,7 +148,7 @@ type VirtualMachineScaleSetVMRunCommandInput interface {
 }
 
 func (*VirtualMachineScaleSetVMRunCommand) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualMachineScaleSetVMRunCommand)(nil))
+	return reflect.TypeOf((**VirtualMachineScaleSetVMRunCommand)(nil)).Elem()
 }
 
 func (i *VirtualMachineScaleSetVMRunCommand) ToVirtualMachineScaleSetVMRunCommandOutput() VirtualMachineScaleSetVMRunCommandOutput {
@@ -162,7 +162,7 @@ func (i *VirtualMachineScaleSetVMRunCommand) ToVirtualMachineScaleSetVMRunComman
 type VirtualMachineScaleSetVMRunCommandOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineScaleSetVMRunCommandOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualMachineScaleSetVMRunCommand)(nil))
+	return reflect.TypeOf((**VirtualMachineScaleSetVMRunCommand)(nil)).Elem()
 }
 
 func (o VirtualMachineScaleSetVMRunCommandOutput) ToVirtualMachineScaleSetVMRunCommandOutput() VirtualMachineScaleSetVMRunCommandOutput {

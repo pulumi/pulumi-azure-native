@@ -88,7 +88,7 @@ export class JobDefinition extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: JobDefinitionArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.dataManagerName === undefined) && !opts.urn) {
@@ -109,40 +109,40 @@ export class JobDefinition extends pulumi.CustomResource {
             if ((!args || args.state === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'state'");
             }
-            inputs["customerSecrets"] = args ? args.customerSecrets : undefined;
-            inputs["dataManagerName"] = args ? args.dataManagerName : undefined;
-            inputs["dataServiceInput"] = args ? args.dataServiceInput : undefined;
-            inputs["dataServiceName"] = args ? args.dataServiceName : undefined;
-            inputs["dataSinkId"] = args ? args.dataSinkId : undefined;
-            inputs["dataSourceId"] = args ? args.dataSourceId : undefined;
-            inputs["jobDefinitionName"] = args ? args.jobDefinitionName : undefined;
-            inputs["lastModifiedTime"] = args ? args.lastModifiedTime : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["runLocation"] = args ? args.runLocation : undefined;
-            inputs["schedules"] = args ? args.schedules : undefined;
-            inputs["state"] = args ? args.state : undefined;
-            inputs["userConfirmation"] = (args ? args.userConfirmation : undefined) ?? "NotRequired";
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["customerSecrets"] = args ? args.customerSecrets : undefined;
+            resourceInputs["dataManagerName"] = args ? args.dataManagerName : undefined;
+            resourceInputs["dataServiceInput"] = args ? args.dataServiceInput : undefined;
+            resourceInputs["dataServiceName"] = args ? args.dataServiceName : undefined;
+            resourceInputs["dataSinkId"] = args ? args.dataSinkId : undefined;
+            resourceInputs["dataSourceId"] = args ? args.dataSourceId : undefined;
+            resourceInputs["jobDefinitionName"] = args ? args.jobDefinitionName : undefined;
+            resourceInputs["lastModifiedTime"] = args ? args.lastModifiedTime : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["runLocation"] = args ? args.runLocation : undefined;
+            resourceInputs["schedules"] = args ? args.schedules : undefined;
+            resourceInputs["state"] = args ? args.state : undefined;
+            resourceInputs["userConfirmation"] = (args ? args.userConfirmation : undefined) ?? "NotRequired";
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["customerSecrets"] = undefined /*out*/;
-            inputs["dataServiceInput"] = undefined /*out*/;
-            inputs["dataSinkId"] = undefined /*out*/;
-            inputs["dataSourceId"] = undefined /*out*/;
-            inputs["lastModifiedTime"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["runLocation"] = undefined /*out*/;
-            inputs["schedules"] = undefined /*out*/;
-            inputs["state"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["userConfirmation"] = undefined /*out*/;
+            resourceInputs["customerSecrets"] = undefined /*out*/;
+            resourceInputs["dataServiceInput"] = undefined /*out*/;
+            resourceInputs["dataSinkId"] = undefined /*out*/;
+            resourceInputs["dataSourceId"] = undefined /*out*/;
+            resourceInputs["lastModifiedTime"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["runLocation"] = undefined /*out*/;
+            resourceInputs["schedules"] = undefined /*out*/;
+            resourceInputs["state"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["userConfirmation"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:hybriddata:JobDefinition" }, { type: "azure-native:hybriddata/v20190601:JobDefinition" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(JobDefinition.__pulumiType, name, inputs, opts);
+        super(JobDefinition.__pulumiType, name, resourceInputs, opts);
     }
 }
 

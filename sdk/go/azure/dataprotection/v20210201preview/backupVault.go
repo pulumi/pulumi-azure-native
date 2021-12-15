@@ -122,7 +122,7 @@ type BackupVaultInput interface {
 }
 
 func (*BackupVault) ElementType() reflect.Type {
-	return reflect.TypeOf((*BackupVault)(nil))
+	return reflect.TypeOf((**BackupVault)(nil)).Elem()
 }
 
 func (i *BackupVault) ToBackupVaultOutput() BackupVaultOutput {
@@ -136,7 +136,7 @@ func (i *BackupVault) ToBackupVaultOutputWithContext(ctx context.Context) Backup
 type BackupVaultOutput struct{ *pulumi.OutputState }
 
 func (BackupVaultOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BackupVault)(nil))
+	return reflect.TypeOf((**BackupVault)(nil)).Elem()
 }
 
 func (o BackupVaultOutput) ToBackupVaultOutput() BackupVaultOutput {

@@ -92,7 +92,7 @@ export class IoTHubEventSource extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: IoTHubEventSourceArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.consumerGroupName === undefined) && !opts.urn) {
@@ -119,42 +119,42 @@ export class IoTHubEventSource extends pulumi.CustomResource {
             if ((!args || args.sharedAccessKey === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sharedAccessKey'");
             }
-            inputs["consumerGroupName"] = args ? args.consumerGroupName : undefined;
-            inputs["environmentName"] = args ? args.environmentName : undefined;
-            inputs["eventSourceName"] = args ? args.eventSourceName : undefined;
-            inputs["eventSourceResourceId"] = args ? args.eventSourceResourceId : undefined;
-            inputs["iotHubName"] = args ? args.iotHubName : undefined;
-            inputs["keyName"] = args ? args.keyName : undefined;
-            inputs["kind"] = "Microsoft.IoTHub";
-            inputs["location"] = args ? args.location : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["sharedAccessKey"] = args ? args.sharedAccessKey : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["timestampPropertyName"] = args ? args.timestampPropertyName : undefined;
-            inputs["creationTime"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["consumerGroupName"] = args ? args.consumerGroupName : undefined;
+            resourceInputs["environmentName"] = args ? args.environmentName : undefined;
+            resourceInputs["eventSourceName"] = args ? args.eventSourceName : undefined;
+            resourceInputs["eventSourceResourceId"] = args ? args.eventSourceResourceId : undefined;
+            resourceInputs["iotHubName"] = args ? args.iotHubName : undefined;
+            resourceInputs["keyName"] = args ? args.keyName : undefined;
+            resourceInputs["kind"] = "Microsoft.IoTHub";
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["sharedAccessKey"] = args ? args.sharedAccessKey : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["timestampPropertyName"] = args ? args.timestampPropertyName : undefined;
+            resourceInputs["creationTime"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["consumerGroupName"] = undefined /*out*/;
-            inputs["creationTime"] = undefined /*out*/;
-            inputs["eventSourceResourceId"] = undefined /*out*/;
-            inputs["iotHubName"] = undefined /*out*/;
-            inputs["keyName"] = undefined /*out*/;
-            inputs["kind"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["timestampPropertyName"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["consumerGroupName"] = undefined /*out*/;
+            resourceInputs["creationTime"] = undefined /*out*/;
+            resourceInputs["eventSourceResourceId"] = undefined /*out*/;
+            resourceInputs["iotHubName"] = undefined /*out*/;
+            resourceInputs["keyName"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["timestampPropertyName"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:timeseriesinsights:IoTHubEventSource" }, { type: "azure-native:timeseriesinsights/v20171115:IoTHubEventSource" }, { type: "azure-native:timeseriesinsights/v20180815preview:IoTHubEventSource" }, { type: "azure-native:timeseriesinsights/v20200515:IoTHubEventSource" }, { type: "azure-native:timeseriesinsights/v20210331preview:IoTHubEventSource" }, { type: "azure-native:timeseriesinsights/v20210630preview:IoTHubEventSource" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(IoTHubEventSource.__pulumiType, name, inputs, opts);
+        super(IoTHubEventSource.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -13,7 +13,7 @@ func LookupConnectedRegistry(ctx *pulumi.Context, args *LookupConnectedRegistryA
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupConnectedRegistryArgs struct {
@@ -40,4 +40,15 @@ type LookupConnectedRegistryResult struct {
 	SystemData        SystemDataResponse               `pulumi:"systemData"`
 	Type              string                           `pulumi:"type"`
 	Version           string                           `pulumi:"version"`
+}
+
+
+func (val *LookupConnectedRegistryResult) Defaults() *LookupConnectedRegistryResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Logging = tmp.Logging.Defaults()
+
+	return &tmp
 }

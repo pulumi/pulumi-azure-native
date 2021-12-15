@@ -134,7 +134,7 @@ type EndpointVariantInput interface {
 }
 
 func (*EndpointVariant) ElementType() reflect.Type {
-	return reflect.TypeOf((*EndpointVariant)(nil))
+	return reflect.TypeOf((**EndpointVariant)(nil)).Elem()
 }
 
 func (i *EndpointVariant) ToEndpointVariantOutput() EndpointVariantOutput {
@@ -148,7 +148,7 @@ func (i *EndpointVariant) ToEndpointVariantOutputWithContext(ctx context.Context
 type EndpointVariantOutput struct{ *pulumi.OutputState }
 
 func (EndpointVariantOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EndpointVariant)(nil))
+	return reflect.TypeOf((**EndpointVariant)(nil)).Elem()
 }
 
 func (o EndpointVariantOutput) ToEndpointVariantOutput() EndpointVariantOutput {

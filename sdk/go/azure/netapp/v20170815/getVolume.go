@@ -13,7 +13,7 @@ func LookupVolume(ctx *pulumi.Context, args *LookupVolumeArgs, opts ...pulumi.In
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupVolumeArgs struct {
@@ -37,4 +37,20 @@ type LookupVolumeResult struct {
 	Tags              interface{}                           `pulumi:"tags"`
 	Type              string                                `pulumi:"type"`
 	UsageThreshold    *float64                              `pulumi:"usageThreshold"`
+}
+
+
+func (val *LookupVolumeResult) Defaults() *LookupVolumeResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.ServiceLevel) {
+		tmp.ServiceLevel = "Premium"
+	}
+	if isZero(tmp.UsageThreshold) {
+		usageThreshold_ := 107374182400.0
+		tmp.UsageThreshold = &usageThreshold_
+	}
+	return &tmp
 }

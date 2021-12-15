@@ -114,7 +114,7 @@ type TokenInput interface {
 }
 
 func (*Token) ElementType() reflect.Type {
-	return reflect.TypeOf((*Token)(nil))
+	return reflect.TypeOf((**Token)(nil)).Elem()
 }
 
 func (i *Token) ToTokenOutput() TokenOutput {
@@ -128,7 +128,7 @@ func (i *Token) ToTokenOutputWithContext(ctx context.Context) TokenOutput {
 type TokenOutput struct{ *pulumi.OutputState }
 
 func (TokenOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Token)(nil))
+	return reflect.TypeOf((**Token)(nil)).Elem()
 }
 
 func (o TokenOutput) ToTokenOutput() TokenOutput {

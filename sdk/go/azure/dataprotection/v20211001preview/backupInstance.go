@@ -112,7 +112,7 @@ type BackupInstanceInput interface {
 }
 
 func (*BackupInstance) ElementType() reflect.Type {
-	return reflect.TypeOf((*BackupInstance)(nil))
+	return reflect.TypeOf((**BackupInstance)(nil)).Elem()
 }
 
 func (i *BackupInstance) ToBackupInstanceOutput() BackupInstanceOutput {
@@ -126,7 +126,7 @@ func (i *BackupInstance) ToBackupInstanceOutputWithContext(ctx context.Context) 
 type BackupInstanceOutput struct{ *pulumi.OutputState }
 
 func (BackupInstanceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BackupInstance)(nil))
+	return reflect.TypeOf((**BackupInstance)(nil)).Elem()
 }
 
 func (o BackupInstanceOutput) ToBackupInstanceOutput() BackupInstanceOutput {

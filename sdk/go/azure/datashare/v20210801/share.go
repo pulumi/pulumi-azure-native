@@ -119,7 +119,7 @@ type ShareInput interface {
 }
 
 func (*Share) ElementType() reflect.Type {
-	return reflect.TypeOf((*Share)(nil))
+	return reflect.TypeOf((**Share)(nil)).Elem()
 }
 
 func (i *Share) ToShareOutput() ShareOutput {
@@ -133,7 +133,7 @@ func (i *Share) ToShareOutputWithContext(ctx context.Context) ShareOutput {
 type ShareOutput struct{ *pulumi.OutputState }
 
 func (ShareOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Share)(nil))
+	return reflect.TypeOf((**Share)(nil)).Elem()
 }
 
 func (o ShareOutput) ToShareOutput() ShareOutput {

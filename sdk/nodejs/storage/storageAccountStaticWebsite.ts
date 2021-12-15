@@ -55,7 +55,7 @@ export class StorageAccountStaticWebsite extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: StorageAccountStaticWebsiteArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.accountName === undefined) && !opts.urn) {
@@ -64,20 +64,20 @@ export class StorageAccountStaticWebsite extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["accountName"] = args ? args.accountName : undefined;
-            inputs["error404Document"] = args ? args.error404Document : undefined;
-            inputs["indexDocument"] = args ? args.indexDocument : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["containerName"] = undefined /*out*/;
+            resourceInputs["accountName"] = args ? args.accountName : undefined;
+            resourceInputs["error404Document"] = args ? args.error404Document : undefined;
+            resourceInputs["indexDocument"] = args ? args.indexDocument : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["containerName"] = undefined /*out*/;
         } else {
-            inputs["containerName"] = undefined /*out*/;
-            inputs["error404Document"] = undefined /*out*/;
-            inputs["indexDocument"] = undefined /*out*/;
+            resourceInputs["containerName"] = undefined /*out*/;
+            resourceInputs["error404Document"] = undefined /*out*/;
+            resourceInputs["indexDocument"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(StorageAccountStaticWebsite.__pulumiType, name, inputs, opts);
+        super(StorageAccountStaticWebsite.__pulumiType, name, resourceInputs, opts);
     }
 }
 

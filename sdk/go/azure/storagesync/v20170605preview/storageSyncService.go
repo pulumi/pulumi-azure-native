@@ -123,7 +123,7 @@ type StorageSyncServiceInput interface {
 }
 
 func (*StorageSyncService) ElementType() reflect.Type {
-	return reflect.TypeOf((*StorageSyncService)(nil))
+	return reflect.TypeOf((**StorageSyncService)(nil)).Elem()
 }
 
 func (i *StorageSyncService) ToStorageSyncServiceOutput() StorageSyncServiceOutput {
@@ -137,7 +137,7 @@ func (i *StorageSyncService) ToStorageSyncServiceOutputWithContext(ctx context.C
 type StorageSyncServiceOutput struct{ *pulumi.OutputState }
 
 func (StorageSyncServiceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StorageSyncService)(nil))
+	return reflect.TypeOf((**StorageSyncService)(nil)).Elem()
 }
 
 func (o StorageSyncServiceOutput) ToStorageSyncServiceOutput() StorageSyncServiceOutput {

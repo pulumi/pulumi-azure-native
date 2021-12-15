@@ -106,57 +106,57 @@ export class Connection extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ConnectionArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["api"] = args ? args.api : undefined;
-            inputs["changedTime"] = args ? args.changedTime : undefined;
-            inputs["connectionName"] = args ? args.connectionName : undefined;
-            inputs["createdTime"] = args ? args.createdTime : undefined;
-            inputs["customParameterValues"] = args ? args.customParameterValues : undefined;
-            inputs["displayName"] = args ? args.displayName : undefined;
-            inputs["firstExpirationTime"] = args ? args.firstExpirationTime : undefined;
-            inputs["id"] = args ? args.id : undefined;
-            inputs["keywords"] = args ? args.keywords : undefined;
-            inputs["kind"] = args ? args.kind : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["metadata"] = args ? args.metadata : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["nonSecretParameterValues"] = args ? args.nonSecretParameterValues : undefined;
-            inputs["parameterValues"] = args ? args.parameterValues : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["statuses"] = args ? args.statuses : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["tenantId"] = args ? args.tenantId : undefined;
-            inputs["type"] = args ? args.type : undefined;
+            resourceInputs["api"] = args ? args.api : undefined;
+            resourceInputs["changedTime"] = args ? args.changedTime : undefined;
+            resourceInputs["connectionName"] = args ? args.connectionName : undefined;
+            resourceInputs["createdTime"] = args ? args.createdTime : undefined;
+            resourceInputs["customParameterValues"] = args ? args.customParameterValues : undefined;
+            resourceInputs["displayName"] = args ? args.displayName : undefined;
+            resourceInputs["firstExpirationTime"] = args ? args.firstExpirationTime : undefined;
+            resourceInputs["id"] = args ? args.id : undefined;
+            resourceInputs["keywords"] = args ? args.keywords : undefined;
+            resourceInputs["kind"] = args ? args.kind : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["metadata"] = args ? args.metadata : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["nonSecretParameterValues"] = args ? args.nonSecretParameterValues : undefined;
+            resourceInputs["parameterValues"] = args ? args.parameterValues : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["statuses"] = args ? args.statuses : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["tenantId"] = args ? args.tenantId : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
         } else {
-            inputs["api"] = undefined /*out*/;
-            inputs["changedTime"] = undefined /*out*/;
-            inputs["createdTime"] = undefined /*out*/;
-            inputs["customParameterValues"] = undefined /*out*/;
-            inputs["displayName"] = undefined /*out*/;
-            inputs["firstExpirationTime"] = undefined /*out*/;
-            inputs["keywords"] = undefined /*out*/;
-            inputs["kind"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["metadata"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["nonSecretParameterValues"] = undefined /*out*/;
-            inputs["parameterValues"] = undefined /*out*/;
-            inputs["statuses"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["tenantId"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["api"] = undefined /*out*/;
+            resourceInputs["changedTime"] = undefined /*out*/;
+            resourceInputs["createdTime"] = undefined /*out*/;
+            resourceInputs["customParameterValues"] = undefined /*out*/;
+            resourceInputs["displayName"] = undefined /*out*/;
+            resourceInputs["firstExpirationTime"] = undefined /*out*/;
+            resourceInputs["keywords"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["metadata"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["nonSecretParameterValues"] = undefined /*out*/;
+            resourceInputs["parameterValues"] = undefined /*out*/;
+            resourceInputs["statuses"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["tenantId"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:web:Connection" }, { type: "azure-native:web/v20160601:Connection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Connection.__pulumiType, name, inputs, opts);
+        super(Connection.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -96,7 +96,7 @@ export class Link extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: LinkArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.hubName === undefined) && !opts.urn) {
@@ -114,42 +114,42 @@ export class Link extends pulumi.CustomResource {
             if ((!args || args.targetProfileType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'targetProfileType'");
             }
-            inputs["description"] = args ? args.description : undefined;
-            inputs["displayName"] = args ? args.displayName : undefined;
-            inputs["hubName"] = args ? args.hubName : undefined;
-            inputs["linkName"] = args ? args.linkName : undefined;
-            inputs["mappings"] = args ? args.mappings : undefined;
-            inputs["operationType"] = args ? args.operationType : undefined;
-            inputs["participantPropertyReferences"] = args ? args.participantPropertyReferences : undefined;
-            inputs["referenceOnly"] = args ? args.referenceOnly : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["sourceInteractionType"] = args ? args.sourceInteractionType : undefined;
-            inputs["targetProfileType"] = args ? args.targetProfileType : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["tenantId"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["displayName"] = args ? args.displayName : undefined;
+            resourceInputs["hubName"] = args ? args.hubName : undefined;
+            resourceInputs["linkName"] = args ? args.linkName : undefined;
+            resourceInputs["mappings"] = args ? args.mappings : undefined;
+            resourceInputs["operationType"] = args ? args.operationType : undefined;
+            resourceInputs["participantPropertyReferences"] = args ? args.participantPropertyReferences : undefined;
+            resourceInputs["referenceOnly"] = args ? args.referenceOnly : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["sourceInteractionType"] = args ? args.sourceInteractionType : undefined;
+            resourceInputs["targetProfileType"] = args ? args.targetProfileType : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["tenantId"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["description"] = undefined /*out*/;
-            inputs["displayName"] = undefined /*out*/;
-            inputs["linkName"] = undefined /*out*/;
-            inputs["mappings"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["operationType"] = undefined /*out*/;
-            inputs["participantPropertyReferences"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["referenceOnly"] = undefined /*out*/;
-            inputs["sourceInteractionType"] = undefined /*out*/;
-            inputs["targetProfileType"] = undefined /*out*/;
-            inputs["tenantId"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["displayName"] = undefined /*out*/;
+            resourceInputs["linkName"] = undefined /*out*/;
+            resourceInputs["mappings"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["operationType"] = undefined /*out*/;
+            resourceInputs["participantPropertyReferences"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["referenceOnly"] = undefined /*out*/;
+            resourceInputs["sourceInteractionType"] = undefined /*out*/;
+            resourceInputs["targetProfileType"] = undefined /*out*/;
+            resourceInputs["tenantId"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:customerinsights:Link" }, { type: "azure-native:customerinsights/v20170426:Link" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Link.__pulumiType, name, inputs, opts);
+        super(Link.__pulumiType, name, resourceInputs, opts);
     }
 }
 

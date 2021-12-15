@@ -36,6 +36,10 @@ func NewPipelineRun(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
+	requestApplier := func(v PipelineRunRequest) *PipelineRunRequest { return v.Defaults() }
+	if args.Request != nil {
+		args.Request = args.Request.ToPipelineRunRequestPtrOutput().Elem().ApplyT(requestApplier).(PipelineRunRequestPtrOutput)
+	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-native:containerregistry/v20191201preview:PipelineRun"),
@@ -111,7 +115,7 @@ type PipelineRunInput interface {
 }
 
 func (*PipelineRun) ElementType() reflect.Type {
-	return reflect.TypeOf((*PipelineRun)(nil))
+	return reflect.TypeOf((**PipelineRun)(nil)).Elem()
 }
 
 func (i *PipelineRun) ToPipelineRunOutput() PipelineRunOutput {
@@ -125,7 +129,7 @@ func (i *PipelineRun) ToPipelineRunOutputWithContext(ctx context.Context) Pipeli
 type PipelineRunOutput struct{ *pulumi.OutputState }
 
 func (PipelineRunOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PipelineRun)(nil))
+	return reflect.TypeOf((**PipelineRun)(nil)).Elem()
 }
 
 func (o PipelineRunOutput) ToPipelineRunOutput() PipelineRunOutput {

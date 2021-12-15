@@ -147,7 +147,7 @@ type WebAppSourceControlSlotInput interface {
 }
 
 func (*WebAppSourceControlSlot) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAppSourceControlSlot)(nil))
+	return reflect.TypeOf((**WebAppSourceControlSlot)(nil)).Elem()
 }
 
 func (i *WebAppSourceControlSlot) ToWebAppSourceControlSlotOutput() WebAppSourceControlSlotOutput {
@@ -161,7 +161,7 @@ func (i *WebAppSourceControlSlot) ToWebAppSourceControlSlotOutputWithContext(ctx
 type WebAppSourceControlSlotOutput struct{ *pulumi.OutputState }
 
 func (WebAppSourceControlSlotOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAppSourceControlSlot)(nil))
+	return reflect.TypeOf((**WebAppSourceControlSlot)(nil)).Elem()
 }
 
 func (o WebAppSourceControlSlotOutput) ToWebAppSourceControlSlotOutput() WebAppSourceControlSlotOutput {

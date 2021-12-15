@@ -13,7 +13,7 @@ func LookupPublicIPAddress(ctx *pulumi.Context, args *LookupPublicIPAddressArgs,
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupPublicIPAddressArgs struct {
@@ -48,4 +48,19 @@ type LookupPublicIPAddressResult struct {
 	Tags                     map[string]string                   `pulumi:"tags"`
 	Type                     string                              `pulumi:"type"`
 	Zones                    []string                            `pulumi:"zones"`
+}
+
+
+func (val *LookupPublicIPAddressResult) Defaults() *LookupPublicIPAddressResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.IpConfiguration = *tmp.IpConfiguration.Defaults()
+
+	tmp.LinkedPublicIPAddress = tmp.LinkedPublicIPAddress.Defaults()
+
+	tmp.ServicePublicIPAddress = tmp.ServicePublicIPAddress.Defaults()
+
+	return &tmp
 }

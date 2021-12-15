@@ -139,7 +139,7 @@ type StandardEnvironmentInput interface {
 }
 
 func (*StandardEnvironment) ElementType() reflect.Type {
-	return reflect.TypeOf((*StandardEnvironment)(nil))
+	return reflect.TypeOf((**StandardEnvironment)(nil)).Elem()
 }
 
 func (i *StandardEnvironment) ToStandardEnvironmentOutput() StandardEnvironmentOutput {
@@ -153,7 +153,7 @@ func (i *StandardEnvironment) ToStandardEnvironmentOutputWithContext(ctx context
 type StandardEnvironmentOutput struct{ *pulumi.OutputState }
 
 func (StandardEnvironmentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StandardEnvironment)(nil))
+	return reflect.TypeOf((**StandardEnvironment)(nil)).Elem()
 }
 
 func (o StandardEnvironmentOutput) ToStandardEnvironmentOutput() StandardEnvironmentOutput {

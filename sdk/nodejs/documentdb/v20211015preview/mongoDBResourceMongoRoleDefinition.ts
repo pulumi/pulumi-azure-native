@@ -68,7 +68,7 @@ export class MongoDBResourceMongoRoleDefinition extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: MongoDBResourceMongoRoleDefinitionArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.accountName === undefined) && !opts.urn) {
@@ -77,29 +77,29 @@ export class MongoDBResourceMongoRoleDefinition extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["accountName"] = args ? args.accountName : undefined;
-            inputs["databaseName"] = args ? args.databaseName : undefined;
-            inputs["mongoRoleDefinitionId"] = args ? args.mongoRoleDefinitionId : undefined;
-            inputs["privileges"] = args ? args.privileges : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["roleName"] = args ? args.roleName : undefined;
-            inputs["roles"] = args ? args.roles : undefined;
-            inputs["type"] = args ? args.type : undefined;
-            inputs["name"] = undefined /*out*/;
+            resourceInputs["accountName"] = args ? args.accountName : undefined;
+            resourceInputs["databaseName"] = args ? args.databaseName : undefined;
+            resourceInputs["mongoRoleDefinitionId"] = args ? args.mongoRoleDefinitionId : undefined;
+            resourceInputs["privileges"] = args ? args.privileges : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["roleName"] = args ? args.roleName : undefined;
+            resourceInputs["roles"] = args ? args.roles : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["name"] = undefined /*out*/;
         } else {
-            inputs["databaseName"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["privileges"] = undefined /*out*/;
-            inputs["roleName"] = undefined /*out*/;
-            inputs["roles"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["databaseName"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["privileges"] = undefined /*out*/;
+            resourceInputs["roleName"] = undefined /*out*/;
+            resourceInputs["roles"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:documentdb:MongoDBResourceMongoRoleDefinition" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(MongoDBResourceMongoRoleDefinition.__pulumiType, name, inputs, opts);
+        super(MongoDBResourceMongoRoleDefinition.__pulumiType, name, resourceInputs, opts);
     }
 }
 

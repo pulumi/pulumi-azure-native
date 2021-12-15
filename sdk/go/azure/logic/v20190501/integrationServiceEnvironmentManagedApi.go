@@ -116,7 +116,7 @@ type IntegrationServiceEnvironmentManagedApiInput interface {
 }
 
 func (*IntegrationServiceEnvironmentManagedApi) ElementType() reflect.Type {
-	return reflect.TypeOf((*IntegrationServiceEnvironmentManagedApi)(nil))
+	return reflect.TypeOf((**IntegrationServiceEnvironmentManagedApi)(nil)).Elem()
 }
 
 func (i *IntegrationServiceEnvironmentManagedApi) ToIntegrationServiceEnvironmentManagedApiOutput() IntegrationServiceEnvironmentManagedApiOutput {
@@ -130,7 +130,7 @@ func (i *IntegrationServiceEnvironmentManagedApi) ToIntegrationServiceEnvironmen
 type IntegrationServiceEnvironmentManagedApiOutput struct{ *pulumi.OutputState }
 
 func (IntegrationServiceEnvironmentManagedApiOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IntegrationServiceEnvironmentManagedApi)(nil))
+	return reflect.TypeOf((**IntegrationServiceEnvironmentManagedApi)(nil)).Elem()
 }
 
 func (o IntegrationServiceEnvironmentManagedApiOutput) ToIntegrationServiceEnvironmentManagedApiOutput() IntegrationServiceEnvironmentManagedApiOutput {

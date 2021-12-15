@@ -142,7 +142,7 @@ type SqlDWTableDataSetInput interface {
 }
 
 func (*SqlDWTableDataSet) ElementType() reflect.Type {
-	return reflect.TypeOf((*SqlDWTableDataSet)(nil))
+	return reflect.TypeOf((**SqlDWTableDataSet)(nil)).Elem()
 }
 
 func (i *SqlDWTableDataSet) ToSqlDWTableDataSetOutput() SqlDWTableDataSetOutput {
@@ -156,7 +156,7 @@ func (i *SqlDWTableDataSet) ToSqlDWTableDataSetOutputWithContext(ctx context.Con
 type SqlDWTableDataSetOutput struct{ *pulumi.OutputState }
 
 func (SqlDWTableDataSetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SqlDWTableDataSet)(nil))
+	return reflect.TypeOf((**SqlDWTableDataSet)(nil)).Elem()
 }
 
 func (o SqlDWTableDataSetOutput) ToSqlDWTableDataSetOutput() SqlDWTableDataSetOutput {

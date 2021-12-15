@@ -123,7 +123,7 @@ type RedisFirewallRuleInput interface {
 }
 
 func (*RedisFirewallRule) ElementType() reflect.Type {
-	return reflect.TypeOf((*RedisFirewallRule)(nil))
+	return reflect.TypeOf((**RedisFirewallRule)(nil)).Elem()
 }
 
 func (i *RedisFirewallRule) ToRedisFirewallRuleOutput() RedisFirewallRuleOutput {
@@ -137,7 +137,7 @@ func (i *RedisFirewallRule) ToRedisFirewallRuleOutputWithContext(ctx context.Con
 type RedisFirewallRuleOutput struct{ *pulumi.OutputState }
 
 func (RedisFirewallRuleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RedisFirewallRule)(nil))
+	return reflect.TypeOf((**RedisFirewallRule)(nil)).Elem()
 }
 
 func (o RedisFirewallRuleOutput) ToRedisFirewallRuleOutput() RedisFirewallRuleOutput {

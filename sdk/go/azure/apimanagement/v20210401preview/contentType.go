@@ -111,7 +111,7 @@ type ContentTypeInput interface {
 }
 
 func (*ContentType) ElementType() reflect.Type {
-	return reflect.TypeOf((*ContentType)(nil))
+	return reflect.TypeOf((**ContentType)(nil)).Elem()
 }
 
 func (i *ContentType) ToContentTypeOutput() ContentTypeOutput {
@@ -125,7 +125,7 @@ func (i *ContentType) ToContentTypeOutputWithContext(ctx context.Context) Conten
 type ContentTypeOutput struct{ *pulumi.OutputState }
 
 func (ContentTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ContentType)(nil))
+	return reflect.TypeOf((**ContentType)(nil)).Elem()
 }
 
 func (o ContentTypeOutput) ToContentTypeOutput() ContentTypeOutput {

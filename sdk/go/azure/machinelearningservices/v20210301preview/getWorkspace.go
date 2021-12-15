@@ -13,7 +13,7 @@ func LookupWorkspace(ctx *pulumi.Context, args *LookupWorkspaceArgs, opts ...pul
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupWorkspaceArgs struct {
@@ -52,4 +52,21 @@ type LookupWorkspaceResult struct {
 	TenantId                        string                                   `pulumi:"tenantId"`
 	Type                            string                                   `pulumi:"type"`
 	WorkspaceId                     string                                   `pulumi:"workspaceId"`
+}
+
+
+func (val *LookupWorkspaceResult) Defaults() *LookupWorkspaceResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.AllowPublicAccessWhenBehindVnet) {
+		allowPublicAccessWhenBehindVnet_ := false
+		tmp.AllowPublicAccessWhenBehindVnet = &allowPublicAccessWhenBehindVnet_
+	}
+	if isZero(tmp.HbiWorkspace) {
+		hbiWorkspace_ := false
+		tmp.HbiWorkspace = &hbiWorkspace_
+	}
+	return &tmp
 }

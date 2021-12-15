@@ -120,7 +120,7 @@ type ConnectivityConfigurationInput interface {
 }
 
 func (*ConnectivityConfiguration) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectivityConfiguration)(nil))
+	return reflect.TypeOf((**ConnectivityConfiguration)(nil)).Elem()
 }
 
 func (i *ConnectivityConfiguration) ToConnectivityConfigurationOutput() ConnectivityConfigurationOutput {
@@ -134,7 +134,7 @@ func (i *ConnectivityConfiguration) ToConnectivityConfigurationOutputWithContext
 type ConnectivityConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ConnectivityConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectivityConfiguration)(nil))
+	return reflect.TypeOf((**ConnectivityConfiguration)(nil)).Elem()
 }
 
 func (o ConnectivityConfigurationOutput) ToConnectivityConfigurationOutput() ConnectivityConfigurationOutput {

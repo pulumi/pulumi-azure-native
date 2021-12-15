@@ -92,7 +92,7 @@ export class DatabaseAccountGremlinGraph extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: DatabaseAccountGremlinGraphArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.accountName === undefined) && !opts.urn) {
@@ -110,44 +110,44 @@ export class DatabaseAccountGremlinGraph extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["accountName"] = args ? args.accountName : undefined;
-            inputs["databaseName"] = args ? args.databaseName : undefined;
-            inputs["graphName"] = args ? args.graphName : undefined;
-            inputs["options"] = args ? args.options : undefined;
-            inputs["resource"] = args ? args.resource : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["conflictResolutionPolicy"] = undefined /*out*/;
-            inputs["defaultTtl"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
-            inputs["indexingPolicy"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["partitionKey"] = undefined /*out*/;
-            inputs["rid"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["ts"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["uniqueKeyPolicy"] = undefined /*out*/;
+            resourceInputs["accountName"] = args ? args.accountName : undefined;
+            resourceInputs["databaseName"] = args ? args.databaseName : undefined;
+            resourceInputs["graphName"] = args ? args.graphName : undefined;
+            resourceInputs["options"] = args ? args.options : undefined;
+            resourceInputs["resource"] = args ? (args.resource ? pulumi.output(args.resource).apply(inputs.documentdb.v20160319.gremlinGraphResourceArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["conflictResolutionPolicy"] = undefined /*out*/;
+            resourceInputs["defaultTtl"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["indexingPolicy"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["partitionKey"] = undefined /*out*/;
+            resourceInputs["rid"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["ts"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["uniqueKeyPolicy"] = undefined /*out*/;
         } else {
-            inputs["conflictResolutionPolicy"] = undefined /*out*/;
-            inputs["defaultTtl"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
-            inputs["indexingPolicy"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["partitionKey"] = undefined /*out*/;
-            inputs["rid"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["ts"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["uniqueKeyPolicy"] = undefined /*out*/;
+            resourceInputs["conflictResolutionPolicy"] = undefined /*out*/;
+            resourceInputs["defaultTtl"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["indexingPolicy"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["partitionKey"] = undefined /*out*/;
+            resourceInputs["rid"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["ts"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["uniqueKeyPolicy"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:documentdb:DatabaseAccountGremlinGraph" }, { type: "azure-native:documentdb/v20150401:DatabaseAccountGremlinGraph" }, { type: "azure-native:documentdb/v20150408:DatabaseAccountGremlinGraph" }, { type: "azure-native:documentdb/v20151106:DatabaseAccountGremlinGraph" }, { type: "azure-native:documentdb/v20160331:DatabaseAccountGremlinGraph" }, { type: "azure-native:documentdb/v20190801:DatabaseAccountGremlinGraph" }, { type: "azure-native:documentdb/v20191212:DatabaseAccountGremlinGraph" }, { type: "azure-native:documentdb/v20200301:DatabaseAccountGremlinGraph" }, { type: "azure-native:documentdb/v20200401:DatabaseAccountGremlinGraph" }, { type: "azure-native:documentdb/v20200601preview:DatabaseAccountGremlinGraph" }, { type: "azure-native:documentdb/v20200901:DatabaseAccountGremlinGraph" }, { type: "azure-native:documentdb/v20210115:DatabaseAccountGremlinGraph" }, { type: "azure-native:documentdb/v20210301preview:DatabaseAccountGremlinGraph" }, { type: "azure-native:documentdb/v20210315:DatabaseAccountGremlinGraph" }, { type: "azure-native:documentdb/v20210401preview:DatabaseAccountGremlinGraph" }, { type: "azure-native:documentdb/v20210415:DatabaseAccountGremlinGraph" }, { type: "azure-native:documentdb/v20210515:DatabaseAccountGremlinGraph" }, { type: "azure-native:documentdb/v20210615:DatabaseAccountGremlinGraph" }, { type: "azure-native:documentdb/v20210701preview:DatabaseAccountGremlinGraph" }, { type: "azure-native:documentdb/v20211015:DatabaseAccountGremlinGraph" }, { type: "azure-native:documentdb/v20211015preview:DatabaseAccountGremlinGraph" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(DatabaseAccountGremlinGraph.__pulumiType, name, inputs, opts);
+        super(DatabaseAccountGremlinGraph.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -67,7 +67,7 @@ export class ProductGroup extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ProductGroupArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.productId === undefined) && !opts.urn) {
@@ -79,30 +79,30 @@ export class ProductGroup extends pulumi.CustomResource {
             if ((!args || args.serviceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceName'");
             }
-            inputs["groupId"] = args ? args.groupId : undefined;
-            inputs["productId"] = args ? args.productId : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["serviceName"] = args ? args.serviceName : undefined;
-            inputs["builtIn"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["displayName"] = undefined /*out*/;
-            inputs["externalId"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["groupId"] = args ? args.groupId : undefined;
+            resourceInputs["productId"] = args ? args.productId : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["serviceName"] = args ? args.serviceName : undefined;
+            resourceInputs["builtIn"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["displayName"] = undefined /*out*/;
+            resourceInputs["externalId"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["builtIn"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["displayName"] = undefined /*out*/;
-            inputs["externalId"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["builtIn"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["displayName"] = undefined /*out*/;
+            resourceInputs["externalId"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:ProductGroup" }, { type: "azure-native:apimanagement/v20180101:ProductGroup" }, { type: "azure-native:apimanagement/v20180601preview:ProductGroup" }, { type: "azure-native:apimanagement/v20190101:ProductGroup" }, { type: "azure-native:apimanagement/v20191201:ProductGroup" }, { type: "azure-native:apimanagement/v20191201preview:ProductGroup" }, { type: "azure-native:apimanagement/v20200601preview:ProductGroup" }, { type: "azure-native:apimanagement/v20201201:ProductGroup" }, { type: "azure-native:apimanagement/v20210101preview:ProductGroup" }, { type: "azure-native:apimanagement/v20210401preview:ProductGroup" }, { type: "azure-native:apimanagement/v20210801:ProductGroup" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(ProductGroup.__pulumiType, name, inputs, opts);
+        super(ProductGroup.__pulumiType, name, resourceInputs, opts);
     }
 }
 

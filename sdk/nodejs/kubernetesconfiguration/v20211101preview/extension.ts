@@ -112,7 +112,7 @@ export class Extension extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ExtensionArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.clusterName === undefined) && !opts.urn) {
@@ -127,53 +127,53 @@ export class Extension extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["aksAssignedIdentity"] = args ? args.aksAssignedIdentity : undefined;
-            inputs["autoUpgradeMinorVersion"] = (args ? args.autoUpgradeMinorVersion : undefined) ?? true;
-            inputs["clusterName"] = args ? args.clusterName : undefined;
-            inputs["clusterResourceName"] = args ? args.clusterResourceName : undefined;
-            inputs["clusterRp"] = args ? args.clusterRp : undefined;
-            inputs["configurationProtectedSettings"] = args ? args.configurationProtectedSettings : undefined;
-            inputs["configurationSettings"] = args ? args.configurationSettings : undefined;
-            inputs["extensionName"] = args ? args.extensionName : undefined;
-            inputs["extensionType"] = args ? args.extensionType : undefined;
-            inputs["identity"] = args ? args.identity : undefined;
-            inputs["releaseTrain"] = (args ? args.releaseTrain : undefined) ?? "Stable";
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["scope"] = args ? args.scope : undefined;
-            inputs["statuses"] = args ? args.statuses : undefined;
-            inputs["version"] = args ? args.version : undefined;
-            inputs["customLocationSettings"] = undefined /*out*/;
-            inputs["errorInfo"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["packageUri"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["aksAssignedIdentity"] = args ? args.aksAssignedIdentity : undefined;
+            resourceInputs["autoUpgradeMinorVersion"] = (args ? args.autoUpgradeMinorVersion : undefined) ?? true;
+            resourceInputs["clusterName"] = args ? args.clusterName : undefined;
+            resourceInputs["clusterResourceName"] = args ? args.clusterResourceName : undefined;
+            resourceInputs["clusterRp"] = args ? args.clusterRp : undefined;
+            resourceInputs["configurationProtectedSettings"] = args ? args.configurationProtectedSettings : undefined;
+            resourceInputs["configurationSettings"] = args ? args.configurationSettings : undefined;
+            resourceInputs["extensionName"] = args ? args.extensionName : undefined;
+            resourceInputs["extensionType"] = args ? args.extensionType : undefined;
+            resourceInputs["identity"] = args ? args.identity : undefined;
+            resourceInputs["releaseTrain"] = (args ? args.releaseTrain : undefined) ?? "Stable";
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["scope"] = args ? args.scope : undefined;
+            resourceInputs["statuses"] = args ? args.statuses : undefined;
+            resourceInputs["version"] = args ? args.version : undefined;
+            resourceInputs["customLocationSettings"] = undefined /*out*/;
+            resourceInputs["errorInfo"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["packageUri"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["aksAssignedIdentity"] = undefined /*out*/;
-            inputs["autoUpgradeMinorVersion"] = undefined /*out*/;
-            inputs["configurationProtectedSettings"] = undefined /*out*/;
-            inputs["configurationSettings"] = undefined /*out*/;
-            inputs["customLocationSettings"] = undefined /*out*/;
-            inputs["errorInfo"] = undefined /*out*/;
-            inputs["extensionType"] = undefined /*out*/;
-            inputs["identity"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["packageUri"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["releaseTrain"] = undefined /*out*/;
-            inputs["scope"] = undefined /*out*/;
-            inputs["statuses"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["version"] = undefined /*out*/;
+            resourceInputs["aksAssignedIdentity"] = undefined /*out*/;
+            resourceInputs["autoUpgradeMinorVersion"] = undefined /*out*/;
+            resourceInputs["configurationProtectedSettings"] = undefined /*out*/;
+            resourceInputs["configurationSettings"] = undefined /*out*/;
+            resourceInputs["customLocationSettings"] = undefined /*out*/;
+            resourceInputs["errorInfo"] = undefined /*out*/;
+            resourceInputs["extensionType"] = undefined /*out*/;
+            resourceInputs["identity"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["packageUri"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["releaseTrain"] = undefined /*out*/;
+            resourceInputs["scope"] = undefined /*out*/;
+            resourceInputs["statuses"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["version"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:kubernetesconfiguration:Extension" }, { type: "azure-native:kubernetesconfiguration/v20200701preview:Extension" }, { type: "azure-native:kubernetesconfiguration/v20210501preview:Extension" }, { type: "azure-native:kubernetesconfiguration/v20210901:Extension" }, { type: "azure-native:kubernetesconfiguration/v20220101preview:Extension" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Extension.__pulumiType, name, inputs, opts);
+        super(Extension.__pulumiType, name, resourceInputs, opts);
     }
 }
 

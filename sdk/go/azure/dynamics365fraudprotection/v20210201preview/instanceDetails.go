@@ -99,7 +99,7 @@ type InstanceDetailsInput interface {
 }
 
 func (*InstanceDetails) ElementType() reflect.Type {
-	return reflect.TypeOf((*InstanceDetails)(nil))
+	return reflect.TypeOf((**InstanceDetails)(nil)).Elem()
 }
 
 func (i *InstanceDetails) ToInstanceDetailsOutput() InstanceDetailsOutput {
@@ -113,7 +113,7 @@ func (i *InstanceDetails) ToInstanceDetailsOutputWithContext(ctx context.Context
 type InstanceDetailsOutput struct{ *pulumi.OutputState }
 
 func (InstanceDetailsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*InstanceDetails)(nil))
+	return reflect.TypeOf((**InstanceDetails)(nil)).Elem()
 }
 
 func (o InstanceDetailsOutput) ToInstanceDetailsOutput() InstanceDetailsOutput {

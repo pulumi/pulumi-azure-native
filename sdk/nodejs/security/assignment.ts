@@ -109,54 +109,54 @@ export class Assignment extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: AssignmentArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["additionalData"] = args ? args.additionalData : undefined;
-            inputs["assignedComponent"] = args ? args.assignedComponent : undefined;
-            inputs["assignedStandard"] = args ? args.assignedStandard : undefined;
-            inputs["assignmentId"] = args ? args.assignmentId : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["displayName"] = args ? args.displayName : undefined;
-            inputs["effect"] = args ? args.effect : undefined;
-            inputs["etag"] = args ? args.etag : undefined;
-            inputs["expiresOn"] = args ? args.expiresOn : undefined;
-            inputs["kind"] = args ? args.kind : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["metadata"] = args ? args.metadata : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["scope"] = args ? args.scope : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["additionalData"] = args ? args.additionalData : undefined;
+            resourceInputs["assignedComponent"] = args ? args.assignedComponent : undefined;
+            resourceInputs["assignedStandard"] = args ? args.assignedStandard : undefined;
+            resourceInputs["assignmentId"] = args ? args.assignmentId : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["displayName"] = args ? args.displayName : undefined;
+            resourceInputs["effect"] = args ? args.effect : undefined;
+            resourceInputs["etag"] = args ? args.etag : undefined;
+            resourceInputs["expiresOn"] = args ? args.expiresOn : undefined;
+            resourceInputs["kind"] = args ? args.kind : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["metadata"] = args ? args.metadata : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["scope"] = args ? args.scope : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["additionalData"] = undefined /*out*/;
-            inputs["assignedComponent"] = undefined /*out*/;
-            inputs["assignedStandard"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["displayName"] = undefined /*out*/;
-            inputs["effect"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
-            inputs["expiresOn"] = undefined /*out*/;
-            inputs["kind"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["metadata"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["scope"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["additionalData"] = undefined /*out*/;
+            resourceInputs["assignedComponent"] = undefined /*out*/;
+            resourceInputs["assignedStandard"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["displayName"] = undefined /*out*/;
+            resourceInputs["effect"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["expiresOn"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["metadata"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["scope"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:security/v20210801preview:Assignment" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Assignment.__pulumiType, name, inputs, opts);
+        super(Assignment.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -186,7 +186,7 @@ type ApplicationSecurityGroupInput interface {
 }
 
 func (*ApplicationSecurityGroup) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationSecurityGroup)(nil))
+	return reflect.TypeOf((**ApplicationSecurityGroup)(nil)).Elem()
 }
 
 func (i *ApplicationSecurityGroup) ToApplicationSecurityGroupOutput() ApplicationSecurityGroupOutput {
@@ -200,7 +200,7 @@ func (i *ApplicationSecurityGroup) ToApplicationSecurityGroupOutputWithContext(c
 type ApplicationSecurityGroupOutput struct{ *pulumi.OutputState }
 
 func (ApplicationSecurityGroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationSecurityGroup)(nil))
+	return reflect.TypeOf((**ApplicationSecurityGroup)(nil)).Elem()
 }
 
 func (o ApplicationSecurityGroupOutput) ToApplicationSecurityGroupOutput() ApplicationSecurityGroupOutput {

@@ -125,6 +125,35 @@ type DomainSecuritySettings struct {
 }
 
 
+func (val *DomainSecuritySettings) Defaults() *DomainSecuritySettings {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.NtlmV1) {
+		ntlmV1_ := "Enabled"
+		tmp.NtlmV1 = &ntlmV1_
+	}
+	if isZero(tmp.SyncKerberosPasswords) {
+		syncKerberosPasswords_ := "Enabled"
+		tmp.SyncKerberosPasswords = &syncKerberosPasswords_
+	}
+	if isZero(tmp.SyncNtlmPasswords) {
+		syncNtlmPasswords_ := "Enabled"
+		tmp.SyncNtlmPasswords = &syncNtlmPasswords_
+	}
+	if isZero(tmp.SyncOnPremPasswords) {
+		syncOnPremPasswords_ := "Enabled"
+		tmp.SyncOnPremPasswords = &syncOnPremPasswords_
+	}
+	if isZero(tmp.TlsV1) {
+		tlsV1_ := "Enabled"
+		tmp.TlsV1 = &tlsV1_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -315,6 +344,35 @@ type DomainSecuritySettingsResponse struct {
 	SyncNtlmPasswords     *string `pulumi:"syncNtlmPasswords"`
 	SyncOnPremPasswords   *string `pulumi:"syncOnPremPasswords"`
 	TlsV1                 *string `pulumi:"tlsV1"`
+}
+
+
+func (val *DomainSecuritySettingsResponse) Defaults() *DomainSecuritySettingsResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.NtlmV1) {
+		ntlmV1_ := "Enabled"
+		tmp.NtlmV1 = &ntlmV1_
+	}
+	if isZero(tmp.SyncKerberosPasswords) {
+		syncKerberosPasswords_ := "Enabled"
+		tmp.SyncKerberosPasswords = &syncKerberosPasswords_
+	}
+	if isZero(tmp.SyncNtlmPasswords) {
+		syncNtlmPasswords_ := "Enabled"
+		tmp.SyncNtlmPasswords = &syncNtlmPasswords_
+	}
+	if isZero(tmp.SyncOnPremPasswords) {
+		syncOnPremPasswords_ := "Enabled"
+		tmp.SyncOnPremPasswords = &syncOnPremPasswords_
+	}
+	if isZero(tmp.TlsV1) {
+		tlsV1_ := "Enabled"
+		tmp.TlsV1 = &tlsV1_
+	}
+	return &tmp
 }
 
 
@@ -982,6 +1040,23 @@ type LdapsSettings struct {
 }
 
 
+func (val *LdapsSettings) Defaults() *LdapsSettings {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.ExternalAccess) {
+		externalAccess_ := "Disabled"
+		tmp.ExternalAccess = &externalAccess_
+	}
+	if isZero(tmp.Ldaps) {
+		ldaps_ := "Disabled"
+		tmp.Ldaps = &ldaps_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -1160,6 +1235,23 @@ type LdapsSettingsResponse struct {
 	PfxCertificate         *string `pulumi:"pfxCertificate"`
 	PfxCertificatePassword *string `pulumi:"pfxCertificatePassword"`
 	PublicCertificate      string  `pulumi:"publicCertificate"`
+}
+
+
+func (val *LdapsSettingsResponse) Defaults() *LdapsSettingsResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.ExternalAccess) {
+		externalAccess_ := "Disabled"
+		tmp.ExternalAccess = &externalAccess_
+	}
+	if isZero(tmp.Ldaps) {
+		ldaps_ := "Disabled"
+		tmp.Ldaps = &ldaps_
+	}
+	return &tmp
 }
 
 

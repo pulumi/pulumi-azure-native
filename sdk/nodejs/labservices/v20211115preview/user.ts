@@ -88,7 +88,7 @@ export class User extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: UserArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.email === undefined) && !opts.urn) {
@@ -100,39 +100,39 @@ export class User extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["additionalUsageQuota"] = args ? args.additionalUsageQuota : undefined;
-            inputs["email"] = args ? args.email : undefined;
-            inputs["labName"] = args ? args.labName : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["userName"] = args ? args.userName : undefined;
-            inputs["displayName"] = undefined /*out*/;
-            inputs["invitationSent"] = undefined /*out*/;
-            inputs["invitationState"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["registrationState"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["totalUsage"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["additionalUsageQuota"] = args ? args.additionalUsageQuota : undefined;
+            resourceInputs["email"] = args ? args.email : undefined;
+            resourceInputs["labName"] = args ? args.labName : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["userName"] = args ? args.userName : undefined;
+            resourceInputs["displayName"] = undefined /*out*/;
+            resourceInputs["invitationSent"] = undefined /*out*/;
+            resourceInputs["invitationState"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["registrationState"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["totalUsage"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["additionalUsageQuota"] = undefined /*out*/;
-            inputs["displayName"] = undefined /*out*/;
-            inputs["email"] = undefined /*out*/;
-            inputs["invitationSent"] = undefined /*out*/;
-            inputs["invitationState"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["registrationState"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["totalUsage"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["additionalUsageQuota"] = undefined /*out*/;
+            resourceInputs["displayName"] = undefined /*out*/;
+            resourceInputs["email"] = undefined /*out*/;
+            resourceInputs["invitationSent"] = undefined /*out*/;
+            resourceInputs["invitationState"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["registrationState"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["totalUsage"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:labservices/v20211001preview:User" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(User.__pulumiType, name, inputs, opts);
+        super(User.__pulumiType, name, resourceInputs, opts);
     }
 }
 

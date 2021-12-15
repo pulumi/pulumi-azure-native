@@ -122,7 +122,7 @@ type PrefixInput interface {
 }
 
 func (*Prefix) ElementType() reflect.Type {
-	return reflect.TypeOf((*Prefix)(nil))
+	return reflect.TypeOf((**Prefix)(nil)).Elem()
 }
 
 func (i *Prefix) ToPrefixOutput() PrefixOutput {
@@ -136,7 +136,7 @@ func (i *Prefix) ToPrefixOutputWithContext(ctx context.Context) PrefixOutput {
 type PrefixOutput struct{ *pulumi.OutputState }
 
 func (PrefixOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Prefix)(nil))
+	return reflect.TypeOf((**Prefix)(nil)).Elem()
 }
 
 func (o PrefixOutput) ToPrefixOutput() PrefixOutput {

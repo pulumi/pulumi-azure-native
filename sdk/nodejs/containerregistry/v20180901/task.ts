@@ -97,7 +97,7 @@ export class Task extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: TaskArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.platform === undefined) && !opts.urn) {
@@ -112,43 +112,43 @@ export class Task extends pulumi.CustomResource {
             if ((!args || args.step === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'step'");
             }
-            inputs["agentConfiguration"] = args ? args.agentConfiguration : undefined;
-            inputs["credentials"] = args ? args.credentials : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["platform"] = args ? args.platform : undefined;
-            inputs["registryName"] = args ? args.registryName : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["status"] = args ? args.status : undefined;
-            inputs["step"] = args ? args.step : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["taskName"] = args ? args.taskName : undefined;
-            inputs["timeout"] = (args ? args.timeout : undefined) ?? 3600;
-            inputs["trigger"] = args ? args.trigger : undefined;
-            inputs["creationDate"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["agentConfiguration"] = args ? args.agentConfiguration : undefined;
+            resourceInputs["credentials"] = args ? args.credentials : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["platform"] = args ? args.platform : undefined;
+            resourceInputs["registryName"] = args ? args.registryName : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["status"] = args ? args.status : undefined;
+            resourceInputs["step"] = args ? args.step : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["taskName"] = args ? args.taskName : undefined;
+            resourceInputs["timeout"] = (args ? args.timeout : undefined) ?? 3600;
+            resourceInputs["trigger"] = args ? (args.trigger ? pulumi.output(args.trigger).apply(inputs.containerregistry.v20180901.triggerPropertiesArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["creationDate"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["agentConfiguration"] = undefined /*out*/;
-            inputs["creationDate"] = undefined /*out*/;
-            inputs["credentials"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["platform"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["step"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["timeout"] = undefined /*out*/;
-            inputs["trigger"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["agentConfiguration"] = undefined /*out*/;
+            resourceInputs["creationDate"] = undefined /*out*/;
+            resourceInputs["credentials"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["platform"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["step"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["timeout"] = undefined /*out*/;
+            resourceInputs["trigger"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:containerregistry:Task" }, { type: "azure-native:containerregistry/v20180201preview:Task" }, { type: "azure-native:containerregistry/v20190401:Task" }, { type: "azure-native:containerregistry/v20190601preview:Task" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Task.__pulumiType, name, inputs, opts);
+        super(Task.__pulumiType, name, resourceInputs, opts);
     }
 }
 

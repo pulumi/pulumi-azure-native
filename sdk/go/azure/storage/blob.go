@@ -39,7 +39,7 @@ func NewBlob(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.Type == nil {
+	if isZero(args.Type) {
 		args.Type = BlobType("Block")
 	}
 	var resource Blob
@@ -112,7 +112,7 @@ type BlobInput interface {
 }
 
 func (*Blob) ElementType() reflect.Type {
-	return reflect.TypeOf((*Blob)(nil))
+	return reflect.TypeOf((**Blob)(nil)).Elem()
 }
 
 func (i *Blob) ToBlobOutput() BlobOutput {
@@ -126,7 +126,7 @@ func (i *Blob) ToBlobOutputWithContext(ctx context.Context) BlobOutput {
 type BlobOutput struct{ *pulumi.OutputState }
 
 func (BlobOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Blob)(nil))
+	return reflect.TypeOf((**Blob)(nil)).Elem()
 }
 
 func (o BlobOutput) ToBlobOutput() BlobOutput {

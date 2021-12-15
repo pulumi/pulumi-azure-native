@@ -129,7 +129,7 @@ type NotificationRecipientEmailInput interface {
 }
 
 func (*NotificationRecipientEmail) ElementType() reflect.Type {
-	return reflect.TypeOf((*NotificationRecipientEmail)(nil))
+	return reflect.TypeOf((**NotificationRecipientEmail)(nil)).Elem()
 }
 
 func (i *NotificationRecipientEmail) ToNotificationRecipientEmailOutput() NotificationRecipientEmailOutput {
@@ -143,7 +143,7 @@ func (i *NotificationRecipientEmail) ToNotificationRecipientEmailOutputWithConte
 type NotificationRecipientEmailOutput struct{ *pulumi.OutputState }
 
 func (NotificationRecipientEmailOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NotificationRecipientEmail)(nil))
+	return reflect.TypeOf((**NotificationRecipientEmail)(nil)).Elem()
 }
 
 func (o NotificationRecipientEmailOutput) ToNotificationRecipientEmailOutput() NotificationRecipientEmailOutput {

@@ -71,7 +71,7 @@ export class RegisteredPrefix extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: RegisteredPrefixArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.peeringName === undefined) && !opts.urn) {
@@ -80,31 +80,31 @@ export class RegisteredPrefix extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["peeringName"] = args ? args.peeringName : undefined;
-            inputs["prefix"] = args ? args.prefix : undefined;
-            inputs["registeredPrefixName"] = args ? args.registeredPrefixName : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["errorMessage"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["peeringServicePrefixKey"] = undefined /*out*/;
-            inputs["prefixValidationState"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["peeringName"] = args ? args.peeringName : undefined;
+            resourceInputs["prefix"] = args ? args.prefix : undefined;
+            resourceInputs["registeredPrefixName"] = args ? args.registeredPrefixName : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["errorMessage"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["peeringServicePrefixKey"] = undefined /*out*/;
+            resourceInputs["prefixValidationState"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["errorMessage"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["peeringServicePrefixKey"] = undefined /*out*/;
-            inputs["prefix"] = undefined /*out*/;
-            inputs["prefixValidationState"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["errorMessage"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["peeringServicePrefixKey"] = undefined /*out*/;
+            resourceInputs["prefix"] = undefined /*out*/;
+            resourceInputs["prefixValidationState"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:peering:RegisteredPrefix" }, { type: "azure-native:peering/v20200101preview:RegisteredPrefix" }, { type: "azure-native:peering/v20200401:RegisteredPrefix" }, { type: "azure-native:peering/v20201001:RegisteredPrefix" }, { type: "azure-native:peering/v20210601:RegisteredPrefix" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(RegisteredPrefix.__pulumiType, name, inputs, opts);
+        super(RegisteredPrefix.__pulumiType, name, resourceInputs, opts);
     }
 }
 

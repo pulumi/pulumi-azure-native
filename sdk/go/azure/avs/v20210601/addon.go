@@ -105,7 +105,7 @@ type AddonInput interface {
 }
 
 func (*Addon) ElementType() reflect.Type {
-	return reflect.TypeOf((*Addon)(nil))
+	return reflect.TypeOf((**Addon)(nil)).Elem()
 }
 
 func (i *Addon) ToAddonOutput() AddonOutput {
@@ -119,7 +119,7 @@ func (i *Addon) ToAddonOutputWithContext(ctx context.Context) AddonOutput {
 type AddonOutput struct{ *pulumi.OutputState }
 
 func (AddonOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Addon)(nil))
+	return reflect.TypeOf((**Addon)(nil)).Elem()
 }
 
 func (o AddonOutput) ToAddonOutput() AddonOutput {

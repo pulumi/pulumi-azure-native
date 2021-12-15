@@ -69,7 +69,7 @@ export class CodelessUiDataConnector extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: CodelessUiDataConnectorArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.kind === undefined) && !opts.urn) {
@@ -84,30 +84,30 @@ export class CodelessUiDataConnector extends pulumi.CustomResource {
             if ((!args || args.workspaceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            inputs["connectorUiConfig"] = args ? args.connectorUiConfig : undefined;
-            inputs["dataConnectorId"] = args ? args.dataConnectorId : undefined;
-            inputs["etag"] = args ? args.etag : undefined;
-            inputs["kind"] = "GenericUI";
-            inputs["operationalInsightsResourceProvider"] = args ? args.operationalInsightsResourceProvider : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["workspaceName"] = args ? args.workspaceName : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["connectorUiConfig"] = args ? args.connectorUiConfig : undefined;
+            resourceInputs["dataConnectorId"] = args ? args.dataConnectorId : undefined;
+            resourceInputs["etag"] = args ? args.etag : undefined;
+            resourceInputs["kind"] = "GenericUI";
+            resourceInputs["operationalInsightsResourceProvider"] = args ? args.operationalInsightsResourceProvider : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["connectorUiConfig"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
-            inputs["kind"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["connectorUiConfig"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:securityinsights:CodelessUiDataConnector" }, { type: "azure-native:securityinsights/v20190101preview:CodelessUiDataConnector" }, { type: "azure-native:securityinsights/v20200101:CodelessUiDataConnector" }, { type: "azure-native:securityinsights/v20210901preview:CodelessUiDataConnector" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(CodelessUiDataConnector.__pulumiType, name, inputs, opts);
+        super(CodelessUiDataConnector.__pulumiType, name, resourceInputs, opts);
     }
 }
 

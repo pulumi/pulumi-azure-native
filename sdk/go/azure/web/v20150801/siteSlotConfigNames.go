@@ -143,7 +143,7 @@ type SiteSlotConfigNamesInput interface {
 }
 
 func (*SiteSlotConfigNames) ElementType() reflect.Type {
-	return reflect.TypeOf((*SiteSlotConfigNames)(nil))
+	return reflect.TypeOf((**SiteSlotConfigNames)(nil)).Elem()
 }
 
 func (i *SiteSlotConfigNames) ToSiteSlotConfigNamesOutput() SiteSlotConfigNamesOutput {
@@ -157,7 +157,7 @@ func (i *SiteSlotConfigNames) ToSiteSlotConfigNamesOutputWithContext(ctx context
 type SiteSlotConfigNamesOutput struct{ *pulumi.OutputState }
 
 func (SiteSlotConfigNamesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SiteSlotConfigNames)(nil))
+	return reflect.TypeOf((**SiteSlotConfigNames)(nil)).Elem()
 }
 
 func (o SiteSlotConfigNamesOutput) ToSiteSlotConfigNamesOutput() SiteSlotConfigNamesOutput {

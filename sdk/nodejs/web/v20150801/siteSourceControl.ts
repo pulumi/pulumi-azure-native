@@ -83,7 +83,7 @@ export class SiteSourceControl extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: SiteSourceControlArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.name === undefined) && !opts.urn) {
@@ -92,36 +92,36 @@ export class SiteSourceControl extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["branch"] = args ? args.branch : undefined;
-            inputs["deploymentRollbackEnabled"] = args ? args.deploymentRollbackEnabled : undefined;
-            inputs["id"] = args ? args.id : undefined;
-            inputs["isManualIntegration"] = args ? args.isManualIntegration : undefined;
-            inputs["isMercurial"] = args ? args.isMercurial : undefined;
-            inputs["kind"] = args ? args.kind : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["repoUrl"] = args ? args.repoUrl : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["type"] = args ? args.type : undefined;
+            resourceInputs["branch"] = args ? args.branch : undefined;
+            resourceInputs["deploymentRollbackEnabled"] = args ? args.deploymentRollbackEnabled : undefined;
+            resourceInputs["id"] = args ? args.id : undefined;
+            resourceInputs["isManualIntegration"] = args ? args.isManualIntegration : undefined;
+            resourceInputs["isMercurial"] = args ? args.isMercurial : undefined;
+            resourceInputs["kind"] = args ? args.kind : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["repoUrl"] = args ? args.repoUrl : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
         } else {
-            inputs["branch"] = undefined /*out*/;
-            inputs["deploymentRollbackEnabled"] = undefined /*out*/;
-            inputs["isManualIntegration"] = undefined /*out*/;
-            inputs["isMercurial"] = undefined /*out*/;
-            inputs["kind"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["repoUrl"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["branch"] = undefined /*out*/;
+            resourceInputs["deploymentRollbackEnabled"] = undefined /*out*/;
+            resourceInputs["isManualIntegration"] = undefined /*out*/;
+            resourceInputs["isMercurial"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["repoUrl"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:web:SiteSourceControl" }, { type: "azure-native:web/v20160801:SiteSourceControl" }, { type: "azure-native:web/v20180201:SiteSourceControl" }, { type: "azure-native:web/v20181101:SiteSourceControl" }, { type: "azure-native:web/v20190801:SiteSourceControl" }, { type: "azure-native:web/v20200601:SiteSourceControl" }, { type: "azure-native:web/v20200901:SiteSourceControl" }, { type: "azure-native:web/v20201001:SiteSourceControl" }, { type: "azure-native:web/v20201201:SiteSourceControl" }, { type: "azure-native:web/v20210101:SiteSourceControl" }, { type: "azure-native:web/v20210115:SiteSourceControl" }, { type: "azure-native:web/v20210201:SiteSourceControl" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(SiteSourceControl.__pulumiType, name, inputs, opts);
+        super(SiteSourceControl.__pulumiType, name, resourceInputs, opts);
     }
 }
 

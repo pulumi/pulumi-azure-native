@@ -108,7 +108,7 @@ type AuthorizationInput interface {
 }
 
 func (*Authorization) ElementType() reflect.Type {
-	return reflect.TypeOf((*Authorization)(nil))
+	return reflect.TypeOf((**Authorization)(nil)).Elem()
 }
 
 func (i *Authorization) ToAuthorizationOutput() AuthorizationOutput {
@@ -122,7 +122,7 @@ func (i *Authorization) ToAuthorizationOutputWithContext(ctx context.Context) Au
 type AuthorizationOutput struct{ *pulumi.OutputState }
 
 func (AuthorizationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Authorization)(nil))
+	return reflect.TypeOf((**Authorization)(nil)).Elem()
 }
 
 func (o AuthorizationOutput) ToAuthorizationOutput() AuthorizationOutput {

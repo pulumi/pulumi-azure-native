@@ -98,7 +98,7 @@ type ServerTrustCertificateInput interface {
 }
 
 func (*ServerTrustCertificate) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServerTrustCertificate)(nil))
+	return reflect.TypeOf((**ServerTrustCertificate)(nil)).Elem()
 }
 
 func (i *ServerTrustCertificate) ToServerTrustCertificateOutput() ServerTrustCertificateOutput {
@@ -112,7 +112,7 @@ func (i *ServerTrustCertificate) ToServerTrustCertificateOutputWithContext(ctx c
 type ServerTrustCertificateOutput struct{ *pulumi.OutputState }
 
 func (ServerTrustCertificateOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServerTrustCertificate)(nil))
+	return reflect.TypeOf((**ServerTrustCertificate)(nil)).Elem()
 }
 
 func (o ServerTrustCertificateOutput) ToServerTrustCertificateOutput() ServerTrustCertificateOutput {

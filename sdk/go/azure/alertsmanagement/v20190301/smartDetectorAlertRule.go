@@ -136,7 +136,7 @@ type SmartDetectorAlertRuleInput interface {
 }
 
 func (*SmartDetectorAlertRule) ElementType() reflect.Type {
-	return reflect.TypeOf((*SmartDetectorAlertRule)(nil))
+	return reflect.TypeOf((**SmartDetectorAlertRule)(nil)).Elem()
 }
 
 func (i *SmartDetectorAlertRule) ToSmartDetectorAlertRuleOutput() SmartDetectorAlertRuleOutput {
@@ -150,7 +150,7 @@ func (i *SmartDetectorAlertRule) ToSmartDetectorAlertRuleOutputWithContext(ctx c
 type SmartDetectorAlertRuleOutput struct{ *pulumi.OutputState }
 
 func (SmartDetectorAlertRuleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SmartDetectorAlertRule)(nil))
+	return reflect.TypeOf((**SmartDetectorAlertRule)(nil)).Elem()
 }
 
 func (o SmartDetectorAlertRuleOutput) ToSmartDetectorAlertRuleOutput() SmartDetectorAlertRuleOutput {

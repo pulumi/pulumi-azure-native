@@ -69,7 +69,7 @@ export class ConfigurationAssignmentParent extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ConfigurationAssignmentParentArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.providerName === undefined) && !opts.urn) {
@@ -90,33 +90,33 @@ export class ConfigurationAssignmentParent extends pulumi.CustomResource {
             if ((!args || args.resourceType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceType'");
             }
-            inputs["configurationAssignmentName"] = args ? args.configurationAssignmentName : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["maintenanceConfigurationId"] = args ? args.maintenanceConfigurationId : undefined;
-            inputs["providerName"] = args ? args.providerName : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["resourceId"] = args ? args.resourceId : undefined;
-            inputs["resourceName"] = args ? args.resourceName : undefined;
-            inputs["resourceParentName"] = args ? args.resourceParentName : undefined;
-            inputs["resourceParentType"] = args ? args.resourceParentType : undefined;
-            inputs["resourceType"] = args ? args.resourceType : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["configurationAssignmentName"] = args ? args.configurationAssignmentName : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["maintenanceConfigurationId"] = args ? args.maintenanceConfigurationId : undefined;
+            resourceInputs["providerName"] = args ? args.providerName : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["resourceId"] = args ? args.resourceId : undefined;
+            resourceInputs["resourceName"] = args ? args.resourceName : undefined;
+            resourceInputs["resourceParentName"] = args ? args.resourceParentName : undefined;
+            resourceInputs["resourceParentType"] = args ? args.resourceParentType : undefined;
+            resourceInputs["resourceType"] = args ? args.resourceType : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["location"] = undefined /*out*/;
-            inputs["maintenanceConfigurationId"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["resourceId"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["maintenanceConfigurationId"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["resourceId"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:maintenance/v20210401preview:ConfigurationAssignmentParent" }, { type: "azure-native:maintenance/v20210901preview:ConfigurationAssignmentParent" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(ConfigurationAssignmentParent.__pulumiType, name, inputs, opts);
+        super(ConfigurationAssignmentParent.__pulumiType, name, resourceInputs, opts);
     }
 }
 

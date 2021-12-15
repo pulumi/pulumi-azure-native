@@ -168,7 +168,7 @@ type DatabaseAccountGremlinDatabaseInput interface {
 }
 
 func (*DatabaseAccountGremlinDatabase) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatabaseAccountGremlinDatabase)(nil))
+	return reflect.TypeOf((**DatabaseAccountGremlinDatabase)(nil)).Elem()
 }
 
 func (i *DatabaseAccountGremlinDatabase) ToDatabaseAccountGremlinDatabaseOutput() DatabaseAccountGremlinDatabaseOutput {
@@ -182,7 +182,7 @@ func (i *DatabaseAccountGremlinDatabase) ToDatabaseAccountGremlinDatabaseOutputW
 type DatabaseAccountGremlinDatabaseOutput struct{ *pulumi.OutputState }
 
 func (DatabaseAccountGremlinDatabaseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatabaseAccountGremlinDatabase)(nil))
+	return reflect.TypeOf((**DatabaseAccountGremlinDatabase)(nil)).Elem()
 }
 
 func (o DatabaseAccountGremlinDatabaseOutput) ToDatabaseAccountGremlinDatabaseOutput() DatabaseAccountGremlinDatabaseOutput {

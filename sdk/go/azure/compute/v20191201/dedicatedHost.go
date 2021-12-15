@@ -140,7 +140,7 @@ type DedicatedHostInput interface {
 }
 
 func (*DedicatedHost) ElementType() reflect.Type {
-	return reflect.TypeOf((*DedicatedHost)(nil))
+	return reflect.TypeOf((**DedicatedHost)(nil)).Elem()
 }
 
 func (i *DedicatedHost) ToDedicatedHostOutput() DedicatedHostOutput {
@@ -154,7 +154,7 @@ func (i *DedicatedHost) ToDedicatedHostOutputWithContext(ctx context.Context) De
 type DedicatedHostOutput struct{ *pulumi.OutputState }
 
 func (DedicatedHostOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DedicatedHost)(nil))
+	return reflect.TypeOf((**DedicatedHost)(nil)).Elem()
 }
 
 func (o DedicatedHostOutput) ToDedicatedHostOutput() DedicatedHostOutput {

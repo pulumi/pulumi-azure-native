@@ -75,7 +75,7 @@ export class GatewayHostnameConfiguration extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: GatewayHostnameConfigurationArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.gatewayId === undefined) && !opts.urn) {
@@ -87,34 +87,34 @@ export class GatewayHostnameConfiguration extends pulumi.CustomResource {
             if ((!args || args.serviceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceName'");
             }
-            inputs["certificateId"] = args ? args.certificateId : undefined;
-            inputs["gatewayId"] = args ? args.gatewayId : undefined;
-            inputs["hcId"] = args ? args.hcId : undefined;
-            inputs["hostname"] = args ? args.hostname : undefined;
-            inputs["http2Enabled"] = args ? args.http2Enabled : undefined;
-            inputs["negotiateClientCertificate"] = args ? args.negotiateClientCertificate : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["serviceName"] = args ? args.serviceName : undefined;
-            inputs["tls10Enabled"] = args ? args.tls10Enabled : undefined;
-            inputs["tls11Enabled"] = args ? args.tls11Enabled : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["certificateId"] = args ? args.certificateId : undefined;
+            resourceInputs["gatewayId"] = args ? args.gatewayId : undefined;
+            resourceInputs["hcId"] = args ? args.hcId : undefined;
+            resourceInputs["hostname"] = args ? args.hostname : undefined;
+            resourceInputs["http2Enabled"] = args ? args.http2Enabled : undefined;
+            resourceInputs["negotiateClientCertificate"] = args ? args.negotiateClientCertificate : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["serviceName"] = args ? args.serviceName : undefined;
+            resourceInputs["tls10Enabled"] = args ? args.tls10Enabled : undefined;
+            resourceInputs["tls11Enabled"] = args ? args.tls11Enabled : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["certificateId"] = undefined /*out*/;
-            inputs["hostname"] = undefined /*out*/;
-            inputs["http2Enabled"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["negotiateClientCertificate"] = undefined /*out*/;
-            inputs["tls10Enabled"] = undefined /*out*/;
-            inputs["tls11Enabled"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["certificateId"] = undefined /*out*/;
+            resourceInputs["hostname"] = undefined /*out*/;
+            resourceInputs["http2Enabled"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["negotiateClientCertificate"] = undefined /*out*/;
+            resourceInputs["tls10Enabled"] = undefined /*out*/;
+            resourceInputs["tls11Enabled"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:GatewayHostnameConfiguration" }, { type: "azure-native:apimanagement/v20191201:GatewayHostnameConfiguration" }, { type: "azure-native:apimanagement/v20191201preview:GatewayHostnameConfiguration" }, { type: "azure-native:apimanagement/v20200601preview:GatewayHostnameConfiguration" }, { type: "azure-native:apimanagement/v20201201:GatewayHostnameConfiguration" }, { type: "azure-native:apimanagement/v20210101preview:GatewayHostnameConfiguration" }, { type: "azure-native:apimanagement/v20210801:GatewayHostnameConfiguration" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(GatewayHostnameConfiguration.__pulumiType, name, inputs, opts);
+        super(GatewayHostnameConfiguration.__pulumiType, name, resourceInputs, opts);
     }
 }
 

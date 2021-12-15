@@ -87,7 +87,7 @@ type ConsoleWithLocationInput interface {
 }
 
 func (*ConsoleWithLocation) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConsoleWithLocation)(nil))
+	return reflect.TypeOf((**ConsoleWithLocation)(nil)).Elem()
 }
 
 func (i *ConsoleWithLocation) ToConsoleWithLocationOutput() ConsoleWithLocationOutput {
@@ -101,7 +101,7 @@ func (i *ConsoleWithLocation) ToConsoleWithLocationOutputWithContext(ctx context
 type ConsoleWithLocationOutput struct{ *pulumi.OutputState }
 
 func (ConsoleWithLocationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConsoleWithLocation)(nil))
+	return reflect.TypeOf((**ConsoleWithLocation)(nil)).Elem()
 }
 
 func (o ConsoleWithLocationOutput) ToConsoleWithLocationOutput() ConsoleWithLocationOutput {

@@ -130,7 +130,7 @@ type VirtualHubBgpConnectionInput interface {
 }
 
 func (*VirtualHubBgpConnection) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualHubBgpConnection)(nil))
+	return reflect.TypeOf((**VirtualHubBgpConnection)(nil)).Elem()
 }
 
 func (i *VirtualHubBgpConnection) ToVirtualHubBgpConnectionOutput() VirtualHubBgpConnectionOutput {
@@ -144,7 +144,7 @@ func (i *VirtualHubBgpConnection) ToVirtualHubBgpConnectionOutputWithContext(ctx
 type VirtualHubBgpConnectionOutput struct{ *pulumi.OutputState }
 
 func (VirtualHubBgpConnectionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualHubBgpConnection)(nil))
+	return reflect.TypeOf((**VirtualHubBgpConnection)(nil)).Elem()
 }
 
 func (o VirtualHubBgpConnectionOutput) ToVirtualHubBgpConnectionOutput() VirtualHubBgpConnectionOutput {

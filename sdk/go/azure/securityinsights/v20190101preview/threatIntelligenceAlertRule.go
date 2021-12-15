@@ -134,7 +134,7 @@ type ThreatIntelligenceAlertRuleInput interface {
 }
 
 func (*ThreatIntelligenceAlertRule) ElementType() reflect.Type {
-	return reflect.TypeOf((*ThreatIntelligenceAlertRule)(nil))
+	return reflect.TypeOf((**ThreatIntelligenceAlertRule)(nil)).Elem()
 }
 
 func (i *ThreatIntelligenceAlertRule) ToThreatIntelligenceAlertRuleOutput() ThreatIntelligenceAlertRuleOutput {
@@ -148,7 +148,7 @@ func (i *ThreatIntelligenceAlertRule) ToThreatIntelligenceAlertRuleOutputWithCon
 type ThreatIntelligenceAlertRuleOutput struct{ *pulumi.OutputState }
 
 func (ThreatIntelligenceAlertRuleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ThreatIntelligenceAlertRule)(nil))
+	return reflect.TypeOf((**ThreatIntelligenceAlertRule)(nil)).Elem()
 }
 
 func (o ThreatIntelligenceAlertRuleOutput) ToThreatIntelligenceAlertRuleOutput() ThreatIntelligenceAlertRuleOutput {

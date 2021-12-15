@@ -84,7 +84,7 @@ export class User extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: UserArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.email === undefined) && !opts.urn) {
@@ -102,41 +102,41 @@ export class User extends pulumi.CustomResource {
             if ((!args || args.serviceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceName'");
             }
-            inputs["appType"] = args ? args.appType : undefined;
-            inputs["confirmation"] = args ? args.confirmation : undefined;
-            inputs["email"] = args ? args.email : undefined;
-            inputs["firstName"] = args ? args.firstName : undefined;
-            inputs["identities"] = args ? args.identities : undefined;
-            inputs["lastName"] = args ? args.lastName : undefined;
-            inputs["note"] = args ? args.note : undefined;
-            inputs["notify"] = args ? args.notify : undefined;
-            inputs["password"] = args ? args.password : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["serviceName"] = args ? args.serviceName : undefined;
-            inputs["state"] = (args ? args.state : undefined) ?? "active";
-            inputs["userId"] = args ? args.userId : undefined;
-            inputs["groups"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["registrationDate"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["appType"] = args ? args.appType : undefined;
+            resourceInputs["confirmation"] = args ? args.confirmation : undefined;
+            resourceInputs["email"] = args ? args.email : undefined;
+            resourceInputs["firstName"] = args ? args.firstName : undefined;
+            resourceInputs["identities"] = args ? args.identities : undefined;
+            resourceInputs["lastName"] = args ? args.lastName : undefined;
+            resourceInputs["note"] = args ? args.note : undefined;
+            resourceInputs["notify"] = args ? args.notify : undefined;
+            resourceInputs["password"] = args ? args.password : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["serviceName"] = args ? args.serviceName : undefined;
+            resourceInputs["state"] = (args ? args.state : undefined) ?? "active";
+            resourceInputs["userId"] = args ? args.userId : undefined;
+            resourceInputs["groups"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["registrationDate"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["email"] = undefined /*out*/;
-            inputs["firstName"] = undefined /*out*/;
-            inputs["groups"] = undefined /*out*/;
-            inputs["identities"] = undefined /*out*/;
-            inputs["lastName"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["note"] = undefined /*out*/;
-            inputs["registrationDate"] = undefined /*out*/;
-            inputs["state"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["email"] = undefined /*out*/;
+            resourceInputs["firstName"] = undefined /*out*/;
+            resourceInputs["groups"] = undefined /*out*/;
+            resourceInputs["identities"] = undefined /*out*/;
+            resourceInputs["lastName"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["note"] = undefined /*out*/;
+            resourceInputs["registrationDate"] = undefined /*out*/;
+            resourceInputs["state"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:User" }, { type: "azure-native:apimanagement/v20160707:User" }, { type: "azure-native:apimanagement/v20161010:User" }, { type: "azure-native:apimanagement/v20170301:User" }, { type: "azure-native:apimanagement/v20180101:User" }, { type: "azure-native:apimanagement/v20180601preview:User" }, { type: "azure-native:apimanagement/v20190101:User" }, { type: "azure-native:apimanagement/v20191201preview:User" }, { type: "azure-native:apimanagement/v20200601preview:User" }, { type: "azure-native:apimanagement/v20201201:User" }, { type: "azure-native:apimanagement/v20210101preview:User" }, { type: "azure-native:apimanagement/v20210401preview:User" }, { type: "azure-native:apimanagement/v20210801:User" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(User.__pulumiType, name, inputs, opts);
+        super(User.__pulumiType, name, resourceInputs, opts);
     }
 }
 

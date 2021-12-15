@@ -111,7 +111,7 @@ type StaticSitePrivateEndpointConnectionInput interface {
 }
 
 func (*StaticSitePrivateEndpointConnection) ElementType() reflect.Type {
-	return reflect.TypeOf((*StaticSitePrivateEndpointConnection)(nil))
+	return reflect.TypeOf((**StaticSitePrivateEndpointConnection)(nil)).Elem()
 }
 
 func (i *StaticSitePrivateEndpointConnection) ToStaticSitePrivateEndpointConnectionOutput() StaticSitePrivateEndpointConnectionOutput {
@@ -125,7 +125,7 @@ func (i *StaticSitePrivateEndpointConnection) ToStaticSitePrivateEndpointConnect
 type StaticSitePrivateEndpointConnectionOutput struct{ *pulumi.OutputState }
 
 func (StaticSitePrivateEndpointConnectionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StaticSitePrivateEndpointConnection)(nil))
+	return reflect.TypeOf((**StaticSitePrivateEndpointConnection)(nil)).Elem()
 }
 
 func (o StaticSitePrivateEndpointConnectionOutput) ToStaticSitePrivateEndpointConnectionOutput() StaticSitePrivateEndpointConnectionOutput {

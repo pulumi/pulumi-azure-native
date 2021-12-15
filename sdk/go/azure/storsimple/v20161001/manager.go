@@ -107,7 +107,7 @@ type ManagerInput interface {
 }
 
 func (*Manager) ElementType() reflect.Type {
-	return reflect.TypeOf((*Manager)(nil))
+	return reflect.TypeOf((**Manager)(nil)).Elem()
 }
 
 func (i *Manager) ToManagerOutput() ManagerOutput {
@@ -121,7 +121,7 @@ func (i *Manager) ToManagerOutputWithContext(ctx context.Context) ManagerOutput 
 type ManagerOutput struct{ *pulumi.OutputState }
 
 func (ManagerOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Manager)(nil))
+	return reflect.TypeOf((**Manager)(nil)).Elem()
 }
 
 func (o ManagerOutput) ToManagerOutput() ManagerOutput {

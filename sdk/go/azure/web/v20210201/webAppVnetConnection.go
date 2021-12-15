@@ -144,7 +144,7 @@ type WebAppVnetConnectionInput interface {
 }
 
 func (*WebAppVnetConnection) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAppVnetConnection)(nil))
+	return reflect.TypeOf((**WebAppVnetConnection)(nil)).Elem()
 }
 
 func (i *WebAppVnetConnection) ToWebAppVnetConnectionOutput() WebAppVnetConnectionOutput {
@@ -158,7 +158,7 @@ func (i *WebAppVnetConnection) ToWebAppVnetConnectionOutputWithContext(ctx conte
 type WebAppVnetConnectionOutput struct{ *pulumi.OutputState }
 
 func (WebAppVnetConnectionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAppVnetConnection)(nil))
+	return reflect.TypeOf((**WebAppVnetConnection)(nil)).Elem()
 }
 
 func (o WebAppVnetConnectionOutput) ToWebAppVnetConnectionOutput() WebAppVnetConnectionOutput {

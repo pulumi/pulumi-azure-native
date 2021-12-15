@@ -108,54 +108,54 @@ export class ManagedCluster extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ManagedClusterArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["aadProfile"] = args ? args.aadProfile : undefined;
-            inputs["addonProfiles"] = args ? args.addonProfiles : undefined;
-            inputs["agentPoolProfiles"] = args ? args.agentPoolProfiles : undefined;
-            inputs["dnsPrefix"] = args ? args.dnsPrefix : undefined;
-            inputs["enableRBAC"] = args ? args.enableRBAC : undefined;
-            inputs["kubernetesVersion"] = args ? args.kubernetesVersion : undefined;
-            inputs["linuxProfile"] = args ? args.linuxProfile : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["networkProfile"] = args ? args.networkProfile : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["resourceName"] = args ? args.resourceName : undefined;
-            inputs["servicePrincipalProfile"] = args ? args.servicePrincipalProfile : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["fqdn"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["nodeResourceGroup"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["aadProfile"] = args ? args.aadProfile : undefined;
+            resourceInputs["addonProfiles"] = args ? args.addonProfiles : undefined;
+            resourceInputs["agentPoolProfiles"] = args ? args.agentPoolProfiles : undefined;
+            resourceInputs["dnsPrefix"] = args ? args.dnsPrefix : undefined;
+            resourceInputs["enableRBAC"] = args ? args.enableRBAC : undefined;
+            resourceInputs["kubernetesVersion"] = args ? args.kubernetesVersion : undefined;
+            resourceInputs["linuxProfile"] = args ? args.linuxProfile : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["networkProfile"] = args ? (args.networkProfile ? pulumi.output(args.networkProfile).apply(inputs.containerservice.v20180331.containerServiceNetworkProfileArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["resourceName"] = args ? args.resourceName : undefined;
+            resourceInputs["servicePrincipalProfile"] = args ? args.servicePrincipalProfile : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["fqdn"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["nodeResourceGroup"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["aadProfile"] = undefined /*out*/;
-            inputs["addonProfiles"] = undefined /*out*/;
-            inputs["agentPoolProfiles"] = undefined /*out*/;
-            inputs["dnsPrefix"] = undefined /*out*/;
-            inputs["enableRBAC"] = undefined /*out*/;
-            inputs["fqdn"] = undefined /*out*/;
-            inputs["kubernetesVersion"] = undefined /*out*/;
-            inputs["linuxProfile"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["networkProfile"] = undefined /*out*/;
-            inputs["nodeResourceGroup"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["servicePrincipalProfile"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["aadProfile"] = undefined /*out*/;
+            resourceInputs["addonProfiles"] = undefined /*out*/;
+            resourceInputs["agentPoolProfiles"] = undefined /*out*/;
+            resourceInputs["dnsPrefix"] = undefined /*out*/;
+            resourceInputs["enableRBAC"] = undefined /*out*/;
+            resourceInputs["fqdn"] = undefined /*out*/;
+            resourceInputs["kubernetesVersion"] = undefined /*out*/;
+            resourceInputs["linuxProfile"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["networkProfile"] = undefined /*out*/;
+            resourceInputs["nodeResourceGroup"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["servicePrincipalProfile"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:containerservice:ManagedCluster" }, { type: "azure-native:containerservice/v20170831:ManagedCluster" }, { type: "azure-native:containerservice/v20180801preview:ManagedCluster" }, { type: "azure-native:containerservice/v20190201:ManagedCluster" }, { type: "azure-native:containerservice/v20190401:ManagedCluster" }, { type: "azure-native:containerservice/v20190601:ManagedCluster" }, { type: "azure-native:containerservice/v20190801:ManagedCluster" }, { type: "azure-native:containerservice/v20191001:ManagedCluster" }, { type: "azure-native:containerservice/v20191101:ManagedCluster" }, { type: "azure-native:containerservice/v20200101:ManagedCluster" }, { type: "azure-native:containerservice/v20200201:ManagedCluster" }, { type: "azure-native:containerservice/v20200301:ManagedCluster" }, { type: "azure-native:containerservice/v20200401:ManagedCluster" }, { type: "azure-native:containerservice/v20200601:ManagedCluster" }, { type: "azure-native:containerservice/v20200701:ManagedCluster" }, { type: "azure-native:containerservice/v20200901:ManagedCluster" }, { type: "azure-native:containerservice/v20201101:ManagedCluster" }, { type: "azure-native:containerservice/v20201201:ManagedCluster" }, { type: "azure-native:containerservice/v20210201:ManagedCluster" }, { type: "azure-native:containerservice/v20210301:ManagedCluster" }, { type: "azure-native:containerservice/v20210501:ManagedCluster" }, { type: "azure-native:containerservice/v20210701:ManagedCluster" }, { type: "azure-native:containerservice/v20210801:ManagedCluster" }, { type: "azure-native:containerservice/v20210901:ManagedCluster" }, { type: "azure-native:containerservice/v20211001:ManagedCluster" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(ManagedCluster.__pulumiType, name, inputs, opts);
+        super(ManagedCluster.__pulumiType, name, resourceInputs, opts);
     }
 }
 

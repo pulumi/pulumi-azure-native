@@ -13,7 +13,7 @@ func LookupAccount(ctx *pulumi.Context, args *LookupAccountArgs, opts ...pulumi.
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupAccountArgs struct {
@@ -42,4 +42,17 @@ type LookupAccountResult struct {
 	SystemData                 AccountPropertiesResponseSystemData       `pulumi:"systemData"`
 	Tags                       map[string]string                         `pulumi:"tags"`
 	Type                       string                                    `pulumi:"type"`
+}
+
+
+func (val *LookupAccountResult) Defaults() *LookupAccountResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.PublicNetworkAccess) {
+		publicNetworkAccess_ := "Enabled"
+		tmp.PublicNetworkAccess = &publicNetworkAccess_
+	}
+	return &tmp
 }

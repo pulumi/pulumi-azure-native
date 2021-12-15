@@ -130,7 +130,7 @@ type ScheduleResourceInput interface {
 }
 
 func (*ScheduleResource) ElementType() reflect.Type {
-	return reflect.TypeOf((*ScheduleResource)(nil))
+	return reflect.TypeOf((**ScheduleResource)(nil)).Elem()
 }
 
 func (i *ScheduleResource) ToScheduleResourceOutput() ScheduleResourceOutput {
@@ -144,7 +144,7 @@ func (i *ScheduleResource) ToScheduleResourceOutputWithContext(ctx context.Conte
 type ScheduleResourceOutput struct{ *pulumi.OutputState }
 
 func (ScheduleResourceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ScheduleResource)(nil))
+	return reflect.TypeOf((**ScheduleResource)(nil)).Elem()
 }
 
 func (o ScheduleResourceOutput) ToScheduleResourceOutput() ScheduleResourceOutput {

@@ -11616,6 +11616,19 @@ type VulnerabilityAssessmentRecurringScansProperties struct {
 }
 
 
+func (val *VulnerabilityAssessmentRecurringScansProperties) Defaults() *VulnerabilityAssessmentRecurringScansProperties {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.EmailSubscriptionAdmins) {
+		emailSubscriptionAdmins_ := true
+		tmp.EmailSubscriptionAdmins = &emailSubscriptionAdmins_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -11776,6 +11789,19 @@ type VulnerabilityAssessmentRecurringScansPropertiesResponse struct {
 	EmailSubscriptionAdmins *bool    `pulumi:"emailSubscriptionAdmins"`
 	Emails                  []string `pulumi:"emails"`
 	IsEnabled               *bool    `pulumi:"isEnabled"`
+}
+
+
+func (val *VulnerabilityAssessmentRecurringScansPropertiesResponse) Defaults() *VulnerabilityAssessmentRecurringScansPropertiesResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.EmailSubscriptionAdmins) {
+		emailSubscriptionAdmins_ := true
+		tmp.EmailSubscriptionAdmins = &emailSubscriptionAdmins_
+	}
+	return &tmp
 }
 
 

@@ -45,7 +45,7 @@ func NewWorkspace(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.HbiWorkspace == nil {
+	if isZero(args.HbiWorkspace) {
 		args.HbiWorkspace = pulumi.BoolPtr(false)
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
@@ -185,7 +185,7 @@ type WorkspaceInput interface {
 }
 
 func (*Workspace) ElementType() reflect.Type {
-	return reflect.TypeOf((*Workspace)(nil))
+	return reflect.TypeOf((**Workspace)(nil)).Elem()
 }
 
 func (i *Workspace) ToWorkspaceOutput() WorkspaceOutput {
@@ -199,7 +199,7 @@ func (i *Workspace) ToWorkspaceOutputWithContext(ctx context.Context) WorkspaceO
 type WorkspaceOutput struct{ *pulumi.OutputState }
 
 func (WorkspaceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Workspace)(nil))
+	return reflect.TypeOf((**Workspace)(nil)).Elem()
 }
 
 func (o WorkspaceOutput) ToWorkspaceOutput() WorkspaceOutput {

@@ -55,7 +55,7 @@ export class GatewayCertificateAuthority extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: GatewayCertificateAuthorityArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.gatewayId === undefined) && !opts.urn) {
@@ -67,24 +67,24 @@ export class GatewayCertificateAuthority extends pulumi.CustomResource {
             if ((!args || args.serviceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceName'");
             }
-            inputs["certificateId"] = args ? args.certificateId : undefined;
-            inputs["gatewayId"] = args ? args.gatewayId : undefined;
-            inputs["isTrusted"] = args ? args.isTrusted : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["serviceName"] = args ? args.serviceName : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["certificateId"] = args ? args.certificateId : undefined;
+            resourceInputs["gatewayId"] = args ? args.gatewayId : undefined;
+            resourceInputs["isTrusted"] = args ? args.isTrusted : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["serviceName"] = args ? args.serviceName : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["isTrusted"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["isTrusted"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:GatewayCertificateAuthority" }, { type: "azure-native:apimanagement/v20200601preview:GatewayCertificateAuthority" }, { type: "azure-native:apimanagement/v20201201:GatewayCertificateAuthority" }, { type: "azure-native:apimanagement/v20210401preview:GatewayCertificateAuthority" }, { type: "azure-native:apimanagement/v20210801:GatewayCertificateAuthority" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(GatewayCertificateAuthority.__pulumiType, name, inputs, opts);
+        super(GatewayCertificateAuthority.__pulumiType, name, resourceInputs, opts);
     }
 }
 

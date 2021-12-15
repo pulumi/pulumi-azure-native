@@ -93,7 +93,7 @@ export class ArcAddon extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ArcAddonArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.deviceName === undefined) && !opts.urn) {
@@ -117,41 +117,41 @@ export class ArcAddon extends pulumi.CustomResource {
             if ((!args || args.subscriptionId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'subscriptionId'");
             }
-            inputs["addonName"] = args ? args.addonName : undefined;
-            inputs["deviceName"] = args ? args.deviceName : undefined;
-            inputs["kind"] = "ArcForKubernetes";
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["resourceLocation"] = args ? args.resourceLocation : undefined;
-            inputs["resourceName"] = args ? args.resourceName : undefined;
-            inputs["roleName"] = args ? args.roleName : undefined;
-            inputs["subscriptionId"] = args ? args.subscriptionId : undefined;
-            inputs["hostPlatform"] = undefined /*out*/;
-            inputs["hostPlatformType"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["version"] = undefined /*out*/;
+            resourceInputs["addonName"] = args ? args.addonName : undefined;
+            resourceInputs["deviceName"] = args ? args.deviceName : undefined;
+            resourceInputs["kind"] = "ArcForKubernetes";
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["resourceLocation"] = args ? args.resourceLocation : undefined;
+            resourceInputs["resourceName"] = args ? args.resourceName : undefined;
+            resourceInputs["roleName"] = args ? args.roleName : undefined;
+            resourceInputs["subscriptionId"] = args ? args.subscriptionId : undefined;
+            resourceInputs["hostPlatform"] = undefined /*out*/;
+            resourceInputs["hostPlatformType"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["version"] = undefined /*out*/;
         } else {
-            inputs["hostPlatform"] = undefined /*out*/;
-            inputs["hostPlatformType"] = undefined /*out*/;
-            inputs["kind"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["resourceGroupName"] = undefined /*out*/;
-            inputs["resourceLocation"] = undefined /*out*/;
-            inputs["resourceName"] = undefined /*out*/;
-            inputs["subscriptionId"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["version"] = undefined /*out*/;
+            resourceInputs["hostPlatform"] = undefined /*out*/;
+            resourceInputs["hostPlatformType"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["resourceGroupName"] = undefined /*out*/;
+            resourceInputs["resourceLocation"] = undefined /*out*/;
+            resourceInputs["resourceName"] = undefined /*out*/;
+            resourceInputs["subscriptionId"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["version"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:databoxedge:ArcAddon" }, { type: "azure-native:databoxedge/v20200901:ArcAddon" }, { type: "azure-native:databoxedge/v20200901preview:ArcAddon" }, { type: "azure-native:databoxedge/v20201201:ArcAddon" }, { type: "azure-native:databoxedge/v20210201:ArcAddon" }, { type: "azure-native:databoxedge/v20210201preview:ArcAddon" }, { type: "azure-native:databoxedge/v20210601preview:ArcAddon" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(ArcAddon.__pulumiType, name, inputs, opts);
+        super(ArcAddon.__pulumiType, name, resourceInputs, opts);
     }
 }
 

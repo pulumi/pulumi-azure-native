@@ -137,7 +137,7 @@ type ReplicationNetworkMappingInput interface {
 }
 
 func (*ReplicationNetworkMapping) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReplicationNetworkMapping)(nil))
+	return reflect.TypeOf((**ReplicationNetworkMapping)(nil)).Elem()
 }
 
 func (i *ReplicationNetworkMapping) ToReplicationNetworkMappingOutput() ReplicationNetworkMappingOutput {
@@ -151,7 +151,7 @@ func (i *ReplicationNetworkMapping) ToReplicationNetworkMappingOutputWithContext
 type ReplicationNetworkMappingOutput struct{ *pulumi.OutputState }
 
 func (ReplicationNetworkMappingOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReplicationNetworkMapping)(nil))
+	return reflect.TypeOf((**ReplicationNetworkMapping)(nil)).Elem()
 }
 
 func (o ReplicationNetworkMappingOutput) ToReplicationNetworkMappingOutput() ReplicationNetworkMappingOutput {

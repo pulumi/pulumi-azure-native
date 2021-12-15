@@ -84,7 +84,7 @@ export class SmartDetectorAlertRule extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: SmartDetectorAlertRuleArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.actionGroups === undefined) && !opts.urn) {
@@ -108,36 +108,36 @@ export class SmartDetectorAlertRule extends pulumi.CustomResource {
             if ((!args || args.state === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'state'");
             }
-            inputs["actionGroups"] = args ? args.actionGroups : undefined;
-            inputs["alertRuleName"] = args ? args.alertRuleName : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["detector"] = args ? args.detector : undefined;
-            inputs["frequency"] = args ? args.frequency : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["scope"] = args ? args.scope : undefined;
-            inputs["severity"] = args ? args.severity : undefined;
-            inputs["state"] = args ? args.state : undefined;
-            inputs["throttling"] = args ? args.throttling : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["actionGroups"] = args ? args.actionGroups : undefined;
+            resourceInputs["alertRuleName"] = args ? args.alertRuleName : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["detector"] = args ? args.detector : undefined;
+            resourceInputs["frequency"] = args ? args.frequency : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["scope"] = args ? args.scope : undefined;
+            resourceInputs["severity"] = args ? args.severity : undefined;
+            resourceInputs["state"] = args ? args.state : undefined;
+            resourceInputs["throttling"] = args ? args.throttling : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["actionGroups"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["detector"] = undefined /*out*/;
-            inputs["frequency"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["scope"] = undefined /*out*/;
-            inputs["severity"] = undefined /*out*/;
-            inputs["state"] = undefined /*out*/;
-            inputs["throttling"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["actionGroups"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["detector"] = undefined /*out*/;
+            resourceInputs["frequency"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["scope"] = undefined /*out*/;
+            resourceInputs["severity"] = undefined /*out*/;
+            resourceInputs["state"] = undefined /*out*/;
+            resourceInputs["throttling"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:alertsmanagement:SmartDetectorAlertRule" }, { type: "azure-native:alertsmanagement/v20190601:SmartDetectorAlertRule" }, { type: "azure-native:alertsmanagement/v20210401:SmartDetectorAlertRule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(SmartDetectorAlertRule.__pulumiType, name, inputs, opts);
+        super(SmartDetectorAlertRule.__pulumiType, name, resourceInputs, opts);
     }
 }
 

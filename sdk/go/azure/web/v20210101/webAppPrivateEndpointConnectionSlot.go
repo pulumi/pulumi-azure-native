@@ -116,7 +116,7 @@ type WebAppPrivateEndpointConnectionSlotInput interface {
 }
 
 func (*WebAppPrivateEndpointConnectionSlot) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAppPrivateEndpointConnectionSlot)(nil))
+	return reflect.TypeOf((**WebAppPrivateEndpointConnectionSlot)(nil)).Elem()
 }
 
 func (i *WebAppPrivateEndpointConnectionSlot) ToWebAppPrivateEndpointConnectionSlotOutput() WebAppPrivateEndpointConnectionSlotOutput {
@@ -130,7 +130,7 @@ func (i *WebAppPrivateEndpointConnectionSlot) ToWebAppPrivateEndpointConnectionS
 type WebAppPrivateEndpointConnectionSlotOutput struct{ *pulumi.OutputState }
 
 func (WebAppPrivateEndpointConnectionSlotOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAppPrivateEndpointConnectionSlot)(nil))
+	return reflect.TypeOf((**WebAppPrivateEndpointConnectionSlot)(nil)).Elem()
 }
 
 func (o WebAppPrivateEndpointConnectionSlotOutput) ToWebAppPrivateEndpointConnectionSlotOutput() WebAppPrivateEndpointConnectionSlotOutput {

@@ -129,7 +129,7 @@ type ManagedInstanceAdministratorInput interface {
 }
 
 func (*ManagedInstanceAdministrator) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagedInstanceAdministrator)(nil))
+	return reflect.TypeOf((**ManagedInstanceAdministrator)(nil)).Elem()
 }
 
 func (i *ManagedInstanceAdministrator) ToManagedInstanceAdministratorOutput() ManagedInstanceAdministratorOutput {
@@ -143,7 +143,7 @@ func (i *ManagedInstanceAdministrator) ToManagedInstanceAdministratorOutputWithC
 type ManagedInstanceAdministratorOutput struct{ *pulumi.OutputState }
 
 func (ManagedInstanceAdministratorOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagedInstanceAdministrator)(nil))
+	return reflect.TypeOf((**ManagedInstanceAdministrator)(nil)).Elem()
 }
 
 func (o ManagedInstanceAdministratorOutput) ToManagedInstanceAdministratorOutput() ManagedInstanceAdministratorOutput {

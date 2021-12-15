@@ -283,6 +283,19 @@ type Argument struct {
 }
 
 
+func (val *Argument) Defaults() *Argument {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.IsSecret) {
+		isSecret_ := false
+		tmp.IsSecret = &isSecret_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -386,6 +399,19 @@ type ArgumentResponse struct {
 	IsSecret *bool  `pulumi:"isSecret"`
 	Name     string `pulumi:"name"`
 	Value    string `pulumi:"value"`
+}
+
+
+func (val *ArgumentResponse) Defaults() *ArgumentResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.IsSecret) {
+		isSecret_ := false
+		tmp.IsSecret = &isSecret_
+	}
+	return &tmp
 }
 
 
@@ -1001,6 +1027,19 @@ type BaseImageTrigger struct {
 }
 
 
+func (val *BaseImageTrigger) Defaults() *BaseImageTrigger {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Status) {
+		status_ := "Enabled"
+		tmp.Status = &status_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -1191,6 +1230,19 @@ type BaseImageTriggerResponse struct {
 	Status                   *string `pulumi:"status"`
 	UpdateTriggerEndpoint    *string `pulumi:"updateTriggerEndpoint"`
 	UpdateTriggerPayloadType *string `pulumi:"updateTriggerPayloadType"`
+}
+
+
+func (val *BaseImageTriggerResponse) Defaults() *BaseImageTriggerResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Status) {
+		status_ := "Enabled"
+		tmp.Status = &status_
+	}
+	return &tmp
 }
 
 
@@ -1905,6 +1957,31 @@ type DockerBuildRequest struct {
 }
 
 
+func (val *DockerBuildRequest) Defaults() *DockerBuildRequest {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.IsArchiveEnabled) {
+		isArchiveEnabled_ := false
+		tmp.IsArchiveEnabled = &isArchiveEnabled_
+	}
+	if isZero(tmp.IsPushEnabled) {
+		isPushEnabled_ := true
+		tmp.IsPushEnabled = &isPushEnabled_
+	}
+	if isZero(tmp.NoCache) {
+		noCache_ := false
+		tmp.NoCache = &noCache_
+	}
+	if isZero(tmp.Timeout) {
+		timeout_ := 3600
+		tmp.Timeout = &timeout_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -2038,6 +2115,31 @@ type DockerBuildRequestResponse struct {
 }
 
 
+func (val *DockerBuildRequestResponse) Defaults() *DockerBuildRequestResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.IsArchiveEnabled) {
+		isArchiveEnabled_ := false
+		tmp.IsArchiveEnabled = &isArchiveEnabled_
+	}
+	if isZero(tmp.IsPushEnabled) {
+		isPushEnabled_ := true
+		tmp.IsPushEnabled = &isPushEnabled_
+	}
+	if isZero(tmp.NoCache) {
+		noCache_ := false
+		tmp.NoCache = &noCache_
+	}
+	if isZero(tmp.Timeout) {
+		timeout_ := 3600
+		tmp.Timeout = &timeout_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -2165,6 +2267,23 @@ type DockerBuildStep struct {
 }
 
 
+func (val *DockerBuildStep) Defaults() *DockerBuildStep {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.IsPushEnabled) {
+		isPushEnabled_ := true
+		tmp.IsPushEnabled = &isPushEnabled_
+	}
+	if isZero(tmp.NoCache) {
+		noCache_ := false
+		tmp.NoCache = &noCache_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -2260,6 +2379,23 @@ type DockerBuildStepResponse struct {
 	NoCache               *bool                         `pulumi:"noCache"`
 	Target                *string                       `pulumi:"target"`
 	Type                  string                        `pulumi:"type"`
+}
+
+
+func (val *DockerBuildStepResponse) Defaults() *DockerBuildStepResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.IsPushEnabled) {
+		isPushEnabled_ := true
+		tmp.IsPushEnabled = &isPushEnabled_
+	}
+	if isZero(tmp.NoCache) {
+		noCache_ := false
+		tmp.NoCache = &noCache_
+	}
+	return &tmp
 }
 
 
@@ -2365,6 +2501,23 @@ type EncodedTaskRunRequest struct {
 	Timeout              *int               `pulumi:"timeout"`
 	Type                 string             `pulumi:"type"`
 	Values               []SetValue         `pulumi:"values"`
+}
+
+
+func (val *EncodedTaskRunRequest) Defaults() *EncodedTaskRunRequest {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.IsArchiveEnabled) {
+		isArchiveEnabled_ := false
+		tmp.IsArchiveEnabled = &isArchiveEnabled_
+	}
+	if isZero(tmp.Timeout) {
+		timeout_ := 3600
+		tmp.Timeout = &timeout_
+	}
+	return &tmp
 }
 
 
@@ -2480,6 +2633,23 @@ type EncodedTaskRunRequestResponse struct {
 	Timeout              *int                       `pulumi:"timeout"`
 	Type                 string                     `pulumi:"type"`
 	Values               []SetValueResponse         `pulumi:"values"`
+}
+
+
+func (val *EncodedTaskRunRequestResponse) Defaults() *EncodedTaskRunRequestResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.IsArchiveEnabled) {
+		isArchiveEnabled_ := false
+		tmp.IsArchiveEnabled = &isArchiveEnabled_
+	}
+	if isZero(tmp.Timeout) {
+		timeout_ := 3600
+		tmp.Timeout = &timeout_
+	}
+	return &tmp
 }
 
 
@@ -2762,6 +2932,23 @@ type FileTaskRunRequest struct {
 }
 
 
+func (val *FileTaskRunRequest) Defaults() *FileTaskRunRequest {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.IsArchiveEnabled) {
+		isArchiveEnabled_ := false
+		tmp.IsArchiveEnabled = &isArchiveEnabled_
+	}
+	if isZero(tmp.Timeout) {
+		timeout_ := 3600
+		tmp.Timeout = &timeout_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -2874,6 +3061,23 @@ type FileTaskRunRequestResponse struct {
 	Type               string                     `pulumi:"type"`
 	Values             []SetValueResponse         `pulumi:"values"`
 	ValuesFilePath     *string                    `pulumi:"valuesFilePath"`
+}
+
+
+func (val *FileTaskRunRequestResponse) Defaults() *FileTaskRunRequestResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.IsArchiveEnabled) {
+		isArchiveEnabled_ := false
+		tmp.IsArchiveEnabled = &isArchiveEnabled_
+	}
+	if isZero(tmp.Timeout) {
+		timeout_ := 3600
+		tmp.Timeout = &timeout_
+	}
+	return &tmp
 }
 
 
@@ -4656,6 +4860,19 @@ type RunResponse struct {
 }
 
 
+func (val *RunResponse) Defaults() *RunResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.IsArchiveEnabled) {
+		isArchiveEnabled_ := false
+		tmp.IsArchiveEnabled = &isArchiveEnabled_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -5437,6 +5654,19 @@ type SetValue struct {
 }
 
 
+func (val *SetValue) Defaults() *SetValue {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.IsSecret) {
+		isSecret_ := false
+		tmp.IsSecret = &isSecret_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -5540,6 +5770,19 @@ type SetValueResponse struct {
 	IsSecret *bool  `pulumi:"isSecret"`
 	Name     string `pulumi:"name"`
 	Value    string `pulumi:"value"`
+}
+
+
+func (val *SetValueResponse) Defaults() *SetValueResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.IsSecret) {
+		isSecret_ := false
+		tmp.IsSecret = &isSecret_
+	}
+	return &tmp
 }
 
 
@@ -6050,6 +6293,19 @@ type SourceTrigger struct {
 }
 
 
+func (val *SourceTrigger) Defaults() *SourceTrigger {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Status) {
+		status_ := "Enabled"
+		tmp.Status = &status_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -6385,6 +6641,19 @@ type SourceTriggerResponse struct {
 }
 
 
+func (val *SourceTriggerResponse) Defaults() *SourceTriggerResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Status) {
+		status_ := "Enabled"
+		tmp.Status = &status_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -6707,6 +6976,19 @@ type TaskRunRequest struct {
 }
 
 
+func (val *TaskRunRequest) Defaults() *TaskRunRequest {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.IsArchiveEnabled) {
+		isArchiveEnabled_ := false
+		tmp.IsArchiveEnabled = &isArchiveEnabled_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -6786,6 +7068,19 @@ type TaskRunRequestResponse struct {
 }
 
 
+func (val *TaskRunRequestResponse) Defaults() *TaskRunRequestResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.IsArchiveEnabled) {
+		isArchiveEnabled_ := false
+		tmp.IsArchiveEnabled = &isArchiveEnabled_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -6861,6 +7156,19 @@ type TimerTrigger struct {
 	Name     string  `pulumi:"name"`
 	Schedule string  `pulumi:"schedule"`
 	Status   *string `pulumi:"status"`
+}
+
+
+func (val *TimerTrigger) Defaults() *TimerTrigger {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Status) {
+		status_ := "Enabled"
+		tmp.Status = &status_
+	}
+	return &tmp
 }
 
 
@@ -7118,6 +7426,19 @@ type TimerTriggerResponse struct {
 }
 
 
+func (val *TimerTriggerResponse) Defaults() *TimerTriggerResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Status) {
+		status_ := "Enabled"
+		tmp.Status = &status_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -7221,6 +7542,17 @@ type TriggerProperties struct {
 	BaseImageTrigger *BaseImageTrigger `pulumi:"baseImageTrigger"`
 	SourceTriggers   []SourceTrigger   `pulumi:"sourceTriggers"`
 	TimerTriggers    []TimerTrigger    `pulumi:"timerTriggers"`
+}
+
+
+func (val *TriggerProperties) Defaults() *TriggerProperties {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.BaseImageTrigger = tmp.BaseImageTrigger.Defaults()
+
+	return &tmp
 }
 
 
@@ -7384,6 +7716,17 @@ type TriggerPropertiesResponse struct {
 	BaseImageTrigger *BaseImageTriggerResponse `pulumi:"baseImageTrigger"`
 	SourceTriggers   []SourceTriggerResponse   `pulumi:"sourceTriggers"`
 	TimerTriggers    []TimerTriggerResponse    `pulumi:"timerTriggers"`
+}
+
+
+func (val *TriggerPropertiesResponse) Defaults() *TriggerPropertiesResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.BaseImageTrigger = tmp.BaseImageTrigger.Defaults()
+
+	return &tmp
 }
 
 

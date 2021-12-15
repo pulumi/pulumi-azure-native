@@ -124,7 +124,7 @@ type PolicyAssignmentArtifactInput interface {
 }
 
 func (*PolicyAssignmentArtifact) ElementType() reflect.Type {
-	return reflect.TypeOf((*PolicyAssignmentArtifact)(nil))
+	return reflect.TypeOf((**PolicyAssignmentArtifact)(nil)).Elem()
 }
 
 func (i *PolicyAssignmentArtifact) ToPolicyAssignmentArtifactOutput() PolicyAssignmentArtifactOutput {
@@ -138,7 +138,7 @@ func (i *PolicyAssignmentArtifact) ToPolicyAssignmentArtifactOutputWithContext(c
 type PolicyAssignmentArtifactOutput struct{ *pulumi.OutputState }
 
 func (PolicyAssignmentArtifactOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PolicyAssignmentArtifact)(nil))
+	return reflect.TypeOf((**PolicyAssignmentArtifact)(nil)).Elem()
 }
 
 func (o PolicyAssignmentArtifactOutput) ToPolicyAssignmentArtifactOutput() PolicyAssignmentArtifactOutput {

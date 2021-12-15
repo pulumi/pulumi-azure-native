@@ -113,7 +113,7 @@ type DistributedAvailabilityGroupInput interface {
 }
 
 func (*DistributedAvailabilityGroup) ElementType() reflect.Type {
-	return reflect.TypeOf((*DistributedAvailabilityGroup)(nil))
+	return reflect.TypeOf((**DistributedAvailabilityGroup)(nil)).Elem()
 }
 
 func (i *DistributedAvailabilityGroup) ToDistributedAvailabilityGroupOutput() DistributedAvailabilityGroupOutput {
@@ -127,7 +127,7 @@ func (i *DistributedAvailabilityGroup) ToDistributedAvailabilityGroupOutputWithC
 type DistributedAvailabilityGroupOutput struct{ *pulumi.OutputState }
 
 func (DistributedAvailabilityGroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DistributedAvailabilityGroup)(nil))
+	return reflect.TypeOf((**DistributedAvailabilityGroup)(nil)).Elem()
 }
 
 func (o DistributedAvailabilityGroupOutput) ToDistributedAvailabilityGroupOutput() DistributedAvailabilityGroupOutput {

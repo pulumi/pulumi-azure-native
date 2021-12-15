@@ -121,7 +121,7 @@ type QueryInput interface {
 }
 
 func (*Query) ElementType() reflect.Type {
-	return reflect.TypeOf((*Query)(nil))
+	return reflect.TypeOf((**Query)(nil)).Elem()
 }
 
 func (i *Query) ToQueryOutput() QueryOutput {
@@ -135,7 +135,7 @@ func (i *Query) ToQueryOutputWithContext(ctx context.Context) QueryOutput {
 type QueryOutput struct{ *pulumi.OutputState }
 
 func (QueryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Query)(nil))
+	return reflect.TypeOf((**Query)(nil)).Elem()
 }
 
 func (o QueryOutput) ToQueryOutput() QueryOutput {

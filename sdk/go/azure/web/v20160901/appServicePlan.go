@@ -48,10 +48,10 @@ func NewAppServicePlan(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.PerSiteScaling == nil {
+	if isZero(args.PerSiteScaling) {
 		args.PerSiteScaling = pulumi.BoolPtr(false)
 	}
-	if args.Reserved == nil {
+	if isZero(args.Reserved) {
 		args.Reserved = pulumi.BoolPtr(false)
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
@@ -170,7 +170,7 @@ type AppServicePlanInput interface {
 }
 
 func (*AppServicePlan) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppServicePlan)(nil))
+	return reflect.TypeOf((**AppServicePlan)(nil)).Elem()
 }
 
 func (i *AppServicePlan) ToAppServicePlanOutput() AppServicePlanOutput {
@@ -184,7 +184,7 @@ func (i *AppServicePlan) ToAppServicePlanOutputWithContext(ctx context.Context) 
 type AppServicePlanOutput struct{ *pulumi.OutputState }
 
 func (AppServicePlanOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppServicePlan)(nil))
+	return reflect.TypeOf((**AppServicePlan)(nil)).Elem()
 }
 
 func (o AppServicePlanOutput) ToAppServicePlanOutput() AppServicePlanOutput {

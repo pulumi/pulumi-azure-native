@@ -118,7 +118,7 @@ type AwsCloudTrailDataConnectorInput interface {
 }
 
 func (*AwsCloudTrailDataConnector) ElementType() reflect.Type {
-	return reflect.TypeOf((*AwsCloudTrailDataConnector)(nil))
+	return reflect.TypeOf((**AwsCloudTrailDataConnector)(nil)).Elem()
 }
 
 func (i *AwsCloudTrailDataConnector) ToAwsCloudTrailDataConnectorOutput() AwsCloudTrailDataConnectorOutput {
@@ -132,7 +132,7 @@ func (i *AwsCloudTrailDataConnector) ToAwsCloudTrailDataConnectorOutputWithConte
 type AwsCloudTrailDataConnectorOutput struct{ *pulumi.OutputState }
 
 func (AwsCloudTrailDataConnectorOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AwsCloudTrailDataConnector)(nil))
+	return reflect.TypeOf((**AwsCloudTrailDataConnector)(nil)).Elem()
 }
 
 func (o AwsCloudTrailDataConnectorOutput) ToAwsCloudTrailDataConnectorOutput() AwsCloudTrailDataConnectorOutput {

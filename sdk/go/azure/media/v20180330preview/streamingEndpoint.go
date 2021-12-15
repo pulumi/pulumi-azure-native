@@ -152,7 +152,7 @@ type StreamingEndpointInput interface {
 }
 
 func (*StreamingEndpoint) ElementType() reflect.Type {
-	return reflect.TypeOf((*StreamingEndpoint)(nil))
+	return reflect.TypeOf((**StreamingEndpoint)(nil)).Elem()
 }
 
 func (i *StreamingEndpoint) ToStreamingEndpointOutput() StreamingEndpointOutput {
@@ -166,7 +166,7 @@ func (i *StreamingEndpoint) ToStreamingEndpointOutputWithContext(ctx context.Con
 type StreamingEndpointOutput struct{ *pulumi.OutputState }
 
 func (StreamingEndpointOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StreamingEndpoint)(nil))
+	return reflect.TypeOf((**StreamingEndpoint)(nil)).Elem()
 }
 
 func (o StreamingEndpointOutput) ToStreamingEndpointOutput() StreamingEndpointOutput {

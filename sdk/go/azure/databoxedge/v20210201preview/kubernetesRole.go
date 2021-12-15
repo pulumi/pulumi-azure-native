@@ -157,7 +157,7 @@ type KubernetesRoleInput interface {
 }
 
 func (*KubernetesRole) ElementType() reflect.Type {
-	return reflect.TypeOf((*KubernetesRole)(nil))
+	return reflect.TypeOf((**KubernetesRole)(nil)).Elem()
 }
 
 func (i *KubernetesRole) ToKubernetesRoleOutput() KubernetesRoleOutput {
@@ -171,7 +171,7 @@ func (i *KubernetesRole) ToKubernetesRoleOutputWithContext(ctx context.Context) 
 type KubernetesRoleOutput struct{ *pulumi.OutputState }
 
 func (KubernetesRoleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*KubernetesRole)(nil))
+	return reflect.TypeOf((**KubernetesRole)(nil)).Elem()
 }
 
 func (o KubernetesRoleOutput) ToKubernetesRoleOutput() KubernetesRoleOutput {

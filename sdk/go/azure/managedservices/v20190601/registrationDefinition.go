@@ -106,7 +106,7 @@ type RegistrationDefinitionInput interface {
 }
 
 func (*RegistrationDefinition) ElementType() reflect.Type {
-	return reflect.TypeOf((*RegistrationDefinition)(nil))
+	return reflect.TypeOf((**RegistrationDefinition)(nil)).Elem()
 }
 
 func (i *RegistrationDefinition) ToRegistrationDefinitionOutput() RegistrationDefinitionOutput {
@@ -120,7 +120,7 @@ func (i *RegistrationDefinition) ToRegistrationDefinitionOutputWithContext(ctx c
 type RegistrationDefinitionOutput struct{ *pulumi.OutputState }
 
 func (RegistrationDefinitionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RegistrationDefinition)(nil))
+	return reflect.TypeOf((**RegistrationDefinition)(nil)).Elem()
 }
 
 func (o RegistrationDefinitionOutput) ToRegistrationDefinitionOutput() RegistrationDefinitionOutput {

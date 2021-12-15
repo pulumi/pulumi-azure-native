@@ -119,7 +119,7 @@ type TaskInput interface {
 }
 
 func (*Task) ElementType() reflect.Type {
-	return reflect.TypeOf((*Task)(nil))
+	return reflect.TypeOf((**Task)(nil)).Elem()
 }
 
 func (i *Task) ToTaskOutput() TaskOutput {
@@ -133,7 +133,7 @@ func (i *Task) ToTaskOutputWithContext(ctx context.Context) TaskOutput {
 type TaskOutput struct{ *pulumi.OutputState }
 
 func (TaskOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Task)(nil))
+	return reflect.TypeOf((**Task)(nil)).Elem()
 }
 
 func (o TaskOutput) ToTaskOutput() TaskOutput {

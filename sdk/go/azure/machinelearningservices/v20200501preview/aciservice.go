@@ -39,14 +39,14 @@ func NewACIService(ctx *pulumi.Context,
 	if args.WorkspaceName == nil {
 		return nil, errors.New("invalid value for required argument 'WorkspaceName'")
 	}
-	if args.AppInsightsEnabled == nil {
+	if isZero(args.AppInsightsEnabled) {
 		args.AppInsightsEnabled = pulumi.BoolPtr(false)
 	}
-	if args.AuthEnabled == nil {
+	if isZero(args.AuthEnabled) {
 		args.AuthEnabled = pulumi.BoolPtr(false)
 	}
 	args.ComputeType = pulumi.String("ACI")
-	if args.SslEnabled == nil {
+	if isZero(args.SslEnabled) {
 		args.SslEnabled = pulumi.BoolPtr(false)
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
@@ -159,7 +159,7 @@ type ACIServiceInput interface {
 }
 
 func (*ACIService) ElementType() reflect.Type {
-	return reflect.TypeOf((*ACIService)(nil))
+	return reflect.TypeOf((**ACIService)(nil)).Elem()
 }
 
 func (i *ACIService) ToACIServiceOutput() ACIServiceOutput {
@@ -173,7 +173,7 @@ func (i *ACIService) ToACIServiceOutputWithContext(ctx context.Context) ACIServi
 type ACIServiceOutput struct{ *pulumi.OutputState }
 
 func (ACIServiceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ACIService)(nil))
+	return reflect.TypeOf((**ACIService)(nil)).Elem()
 }
 
 func (o ACIServiceOutput) ToACIServiceOutput() ACIServiceOutput {

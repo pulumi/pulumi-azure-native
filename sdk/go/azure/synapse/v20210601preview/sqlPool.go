@@ -156,7 +156,7 @@ type SqlPoolInput interface {
 }
 
 func (*SqlPool) ElementType() reflect.Type {
-	return reflect.TypeOf((*SqlPool)(nil))
+	return reflect.TypeOf((**SqlPool)(nil)).Elem()
 }
 
 func (i *SqlPool) ToSqlPoolOutput() SqlPoolOutput {
@@ -170,7 +170,7 @@ func (i *SqlPool) ToSqlPoolOutputWithContext(ctx context.Context) SqlPoolOutput 
 type SqlPoolOutput struct{ *pulumi.OutputState }
 
 func (SqlPoolOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SqlPool)(nil))
+	return reflect.TypeOf((**SqlPool)(nil)).Elem()
 }
 
 func (o SqlPoolOutput) ToSqlPoolOutput() SqlPoolOutput {

@@ -166,7 +166,7 @@ type SubscriptionInput interface {
 }
 
 func (*Subscription) ElementType() reflect.Type {
-	return reflect.TypeOf((*Subscription)(nil))
+	return reflect.TypeOf((**Subscription)(nil)).Elem()
 }
 
 func (i *Subscription) ToSubscriptionOutput() SubscriptionOutput {
@@ -180,7 +180,7 @@ func (i *Subscription) ToSubscriptionOutputWithContext(ctx context.Context) Subs
 type SubscriptionOutput struct{ *pulumi.OutputState }
 
 func (SubscriptionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Subscription)(nil))
+	return reflect.TypeOf((**Subscription)(nil)).Elem()
 }
 
 func (o SubscriptionOutput) ToSubscriptionOutput() SubscriptionOutput {

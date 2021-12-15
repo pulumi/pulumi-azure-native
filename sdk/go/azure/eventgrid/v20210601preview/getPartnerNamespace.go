@@ -13,7 +13,7 @@ func LookupPartnerNamespace(ctx *pulumi.Context, args *LookupPartnerNamespaceArg
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupPartnerNamespaceArgs struct {
@@ -36,4 +36,21 @@ type LookupPartnerNamespaceResult struct {
 	SystemData                          SystemDataResponse                  `pulumi:"systemData"`
 	Tags                                map[string]string                   `pulumi:"tags"`
 	Type                                string                              `pulumi:"type"`
+}
+
+
+func (val *LookupPartnerNamespaceResult) Defaults() *LookupPartnerNamespaceResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.DisableLocalAuth) {
+		disableLocalAuth_ := false
+		tmp.DisableLocalAuth = &disableLocalAuth_
+	}
+	if isZero(tmp.PublicNetworkAccess) {
+		publicNetworkAccess_ := "Enabled"
+		tmp.PublicNetworkAccess = &publicNetworkAccess_
+	}
+	return &tmp
 }

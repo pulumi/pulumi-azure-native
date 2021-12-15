@@ -107,7 +107,7 @@ type ReportByBillingAccountInput interface {
 }
 
 func (*ReportByBillingAccount) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReportByBillingAccount)(nil))
+	return reflect.TypeOf((**ReportByBillingAccount)(nil)).Elem()
 }
 
 func (i *ReportByBillingAccount) ToReportByBillingAccountOutput() ReportByBillingAccountOutput {
@@ -121,7 +121,7 @@ func (i *ReportByBillingAccount) ToReportByBillingAccountOutputWithContext(ctx c
 type ReportByBillingAccountOutput struct{ *pulumi.OutputState }
 
 func (ReportByBillingAccountOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReportByBillingAccount)(nil))
+	return reflect.TypeOf((**ReportByBillingAccount)(nil)).Elem()
 }
 
 func (o ReportByBillingAccountOutput) ToReportByBillingAccountOutput() ReportByBillingAccountOutput {

@@ -139,7 +139,7 @@ export class RegisteredServer extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: RegisteredServerArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
@@ -148,64 +148,64 @@ export class RegisteredServer extends pulumi.CustomResource {
             if ((!args || args.storageSyncServiceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'storageSyncServiceName'");
             }
-            inputs["agentVersion"] = args ? args.agentVersion : undefined;
-            inputs["clusterId"] = args ? args.clusterId : undefined;
-            inputs["clusterName"] = args ? args.clusterName : undefined;
-            inputs["friendlyName"] = args ? args.friendlyName : undefined;
-            inputs["lastHeartBeat"] = args ? args.lastHeartBeat : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["serverCertificate"] = args ? args.serverCertificate : undefined;
-            inputs["serverId"] = args ? args.serverId : undefined;
-            inputs["serverOSVersion"] = args ? args.serverOSVersion : undefined;
-            inputs["serverRole"] = args ? args.serverRole : undefined;
-            inputs["storageSyncServiceName"] = args ? args.storageSyncServiceName : undefined;
-            inputs["agentVersionExpirationDate"] = undefined /*out*/;
-            inputs["agentVersionStatus"] = undefined /*out*/;
-            inputs["discoveryEndpointUri"] = undefined /*out*/;
-            inputs["lastOperationName"] = undefined /*out*/;
-            inputs["lastWorkflowId"] = undefined /*out*/;
-            inputs["managementEndpointUri"] = undefined /*out*/;
-            inputs["monitoringConfiguration"] = undefined /*out*/;
-            inputs["monitoringEndpointUri"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["resourceLocation"] = undefined /*out*/;
-            inputs["serverManagementErrorCode"] = undefined /*out*/;
-            inputs["serviceLocation"] = undefined /*out*/;
-            inputs["storageSyncServiceUid"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["agentVersion"] = args ? args.agentVersion : undefined;
+            resourceInputs["clusterId"] = args ? args.clusterId : undefined;
+            resourceInputs["clusterName"] = args ? args.clusterName : undefined;
+            resourceInputs["friendlyName"] = args ? args.friendlyName : undefined;
+            resourceInputs["lastHeartBeat"] = args ? args.lastHeartBeat : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["serverCertificate"] = args ? args.serverCertificate : undefined;
+            resourceInputs["serverId"] = args ? args.serverId : undefined;
+            resourceInputs["serverOSVersion"] = args ? args.serverOSVersion : undefined;
+            resourceInputs["serverRole"] = args ? args.serverRole : undefined;
+            resourceInputs["storageSyncServiceName"] = args ? args.storageSyncServiceName : undefined;
+            resourceInputs["agentVersionExpirationDate"] = undefined /*out*/;
+            resourceInputs["agentVersionStatus"] = undefined /*out*/;
+            resourceInputs["discoveryEndpointUri"] = undefined /*out*/;
+            resourceInputs["lastOperationName"] = undefined /*out*/;
+            resourceInputs["lastWorkflowId"] = undefined /*out*/;
+            resourceInputs["managementEndpointUri"] = undefined /*out*/;
+            resourceInputs["monitoringConfiguration"] = undefined /*out*/;
+            resourceInputs["monitoringEndpointUri"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["resourceLocation"] = undefined /*out*/;
+            resourceInputs["serverManagementErrorCode"] = undefined /*out*/;
+            resourceInputs["serviceLocation"] = undefined /*out*/;
+            resourceInputs["storageSyncServiceUid"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["agentVersion"] = undefined /*out*/;
-            inputs["agentVersionExpirationDate"] = undefined /*out*/;
-            inputs["agentVersionStatus"] = undefined /*out*/;
-            inputs["clusterId"] = undefined /*out*/;
-            inputs["clusterName"] = undefined /*out*/;
-            inputs["discoveryEndpointUri"] = undefined /*out*/;
-            inputs["friendlyName"] = undefined /*out*/;
-            inputs["lastHeartBeat"] = undefined /*out*/;
-            inputs["lastOperationName"] = undefined /*out*/;
-            inputs["lastWorkflowId"] = undefined /*out*/;
-            inputs["managementEndpointUri"] = undefined /*out*/;
-            inputs["monitoringConfiguration"] = undefined /*out*/;
-            inputs["monitoringEndpointUri"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["resourceLocation"] = undefined /*out*/;
-            inputs["serverCertificate"] = undefined /*out*/;
-            inputs["serverId"] = undefined /*out*/;
-            inputs["serverManagementErrorCode"] = undefined /*out*/;
-            inputs["serverOSVersion"] = undefined /*out*/;
-            inputs["serverRole"] = undefined /*out*/;
-            inputs["serviceLocation"] = undefined /*out*/;
-            inputs["storageSyncServiceUid"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["agentVersion"] = undefined /*out*/;
+            resourceInputs["agentVersionExpirationDate"] = undefined /*out*/;
+            resourceInputs["agentVersionStatus"] = undefined /*out*/;
+            resourceInputs["clusterId"] = undefined /*out*/;
+            resourceInputs["clusterName"] = undefined /*out*/;
+            resourceInputs["discoveryEndpointUri"] = undefined /*out*/;
+            resourceInputs["friendlyName"] = undefined /*out*/;
+            resourceInputs["lastHeartBeat"] = undefined /*out*/;
+            resourceInputs["lastOperationName"] = undefined /*out*/;
+            resourceInputs["lastWorkflowId"] = undefined /*out*/;
+            resourceInputs["managementEndpointUri"] = undefined /*out*/;
+            resourceInputs["monitoringConfiguration"] = undefined /*out*/;
+            resourceInputs["monitoringEndpointUri"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["resourceLocation"] = undefined /*out*/;
+            resourceInputs["serverCertificate"] = undefined /*out*/;
+            resourceInputs["serverId"] = undefined /*out*/;
+            resourceInputs["serverManagementErrorCode"] = undefined /*out*/;
+            resourceInputs["serverOSVersion"] = undefined /*out*/;
+            resourceInputs["serverRole"] = undefined /*out*/;
+            resourceInputs["serviceLocation"] = undefined /*out*/;
+            resourceInputs["storageSyncServiceUid"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:storagesync:RegisteredServer" }, { type: "azure-native:storagesync/v20170605preview:RegisteredServer" }, { type: "azure-native:storagesync/v20180402:RegisteredServer" }, { type: "azure-native:storagesync/v20180701:RegisteredServer" }, { type: "azure-native:storagesync/v20181001:RegisteredServer" }, { type: "azure-native:storagesync/v20190201:RegisteredServer" }, { type: "azure-native:storagesync/v20190301:RegisteredServer" }, { type: "azure-native:storagesync/v20190601:RegisteredServer" }, { type: "azure-native:storagesync/v20191001:RegisteredServer" }, { type: "azure-native:storagesync/v20200901:RegisteredServer" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(RegisteredServer.__pulumiType, name, inputs, opts);
+        super(RegisteredServer.__pulumiType, name, resourceInputs, opts);
     }
 }
 

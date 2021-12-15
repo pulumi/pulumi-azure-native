@@ -117,7 +117,7 @@ type OnlineDeploymentInput interface {
 }
 
 func (*OnlineDeployment) ElementType() reflect.Type {
-	return reflect.TypeOf((*OnlineDeployment)(nil))
+	return reflect.TypeOf((**OnlineDeployment)(nil)).Elem()
 }
 
 func (i *OnlineDeployment) ToOnlineDeploymentOutput() OnlineDeploymentOutput {
@@ -131,7 +131,7 @@ func (i *OnlineDeployment) ToOnlineDeploymentOutputWithContext(ctx context.Conte
 type OnlineDeploymentOutput struct{ *pulumi.OutputState }
 
 func (OnlineDeploymentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*OnlineDeployment)(nil))
+	return reflect.TypeOf((**OnlineDeployment)(nil)).Elem()
 }
 
 func (o OnlineDeploymentOutput) ToOnlineDeploymentOutput() OnlineDeploymentOutput {

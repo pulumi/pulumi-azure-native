@@ -56,7 +56,7 @@ func NewSmartDetectorAlertRule(ctx *pulumi.Context,
 	if args.State == nil {
 		return nil, errors.New("invalid value for required argument 'State'")
 	}
-	if args.Location == nil {
+	if isZero(args.Location) {
 		args.Location = pulumi.StringPtr("global")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
@@ -145,7 +145,7 @@ type SmartDetectorAlertRuleInput interface {
 }
 
 func (*SmartDetectorAlertRule) ElementType() reflect.Type {
-	return reflect.TypeOf((*SmartDetectorAlertRule)(nil))
+	return reflect.TypeOf((**SmartDetectorAlertRule)(nil)).Elem()
 }
 
 func (i *SmartDetectorAlertRule) ToSmartDetectorAlertRuleOutput() SmartDetectorAlertRuleOutput {
@@ -159,7 +159,7 @@ func (i *SmartDetectorAlertRule) ToSmartDetectorAlertRuleOutputWithContext(ctx c
 type SmartDetectorAlertRuleOutput struct{ *pulumi.OutputState }
 
 func (SmartDetectorAlertRuleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SmartDetectorAlertRule)(nil))
+	return reflect.TypeOf((**SmartDetectorAlertRule)(nil)).Elem()
 }
 
 func (o SmartDetectorAlertRuleOutput) ToSmartDetectorAlertRuleOutput() SmartDetectorAlertRuleOutput {

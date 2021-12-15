@@ -128,7 +128,7 @@ type IotDpsResourceInput interface {
 }
 
 func (*IotDpsResource) ElementType() reflect.Type {
-	return reflect.TypeOf((*IotDpsResource)(nil))
+	return reflect.TypeOf((**IotDpsResource)(nil)).Elem()
 }
 
 func (i *IotDpsResource) ToIotDpsResourceOutput() IotDpsResourceOutput {
@@ -142,7 +142,7 @@ func (i *IotDpsResource) ToIotDpsResourceOutputWithContext(ctx context.Context) 
 type IotDpsResourceOutput struct{ *pulumi.OutputState }
 
 func (IotDpsResourceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IotDpsResource)(nil))
+	return reflect.TypeOf((**IotDpsResource)(nil)).Elem()
 }
 
 func (o IotDpsResourceOutput) ToIotDpsResourceOutput() IotDpsResourceOutput {

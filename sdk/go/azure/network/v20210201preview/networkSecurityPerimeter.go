@@ -109,7 +109,7 @@ type NetworkSecurityPerimeterInput interface {
 }
 
 func (*NetworkSecurityPerimeter) ElementType() reflect.Type {
-	return reflect.TypeOf((*NetworkSecurityPerimeter)(nil))
+	return reflect.TypeOf((**NetworkSecurityPerimeter)(nil)).Elem()
 }
 
 func (i *NetworkSecurityPerimeter) ToNetworkSecurityPerimeterOutput() NetworkSecurityPerimeterOutput {
@@ -123,7 +123,7 @@ func (i *NetworkSecurityPerimeter) ToNetworkSecurityPerimeterOutputWithContext(c
 type NetworkSecurityPerimeterOutput struct{ *pulumi.OutputState }
 
 func (NetworkSecurityPerimeterOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NetworkSecurityPerimeter)(nil))
+	return reflect.TypeOf((**NetworkSecurityPerimeter)(nil)).Elem()
 }
 
 func (o NetworkSecurityPerimeterOutput) ToNetworkSecurityPerimeterOutput() NetworkSecurityPerimeterOutput {

@@ -65,7 +65,7 @@ export class Addon extends pulumi.CustomResource {
     /** @deprecated Please use one of the variants: ArcAddon, IoTAddon. */
     constructor(name: string, args: AddonArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("Addon is deprecated: Please use one of the variants: ArcAddon, IoTAddon.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.deviceName === undefined) && !opts.urn) {
@@ -80,26 +80,26 @@ export class Addon extends pulumi.CustomResource {
             if ((!args || args.roleName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'roleName'");
             }
-            inputs["addonName"] = args ? args.addonName : undefined;
-            inputs["deviceName"] = args ? args.deviceName : undefined;
-            inputs["kind"] = args ? args.kind : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["roleName"] = args ? args.roleName : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["addonName"] = args ? args.addonName : undefined;
+            resourceInputs["deviceName"] = args ? args.deviceName : undefined;
+            resourceInputs["kind"] = args ? args.kind : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["roleName"] = args ? args.roleName : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["kind"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:databoxedge:Addon" }, { type: "azure-native:databoxedge/v20200901:Addon" }, { type: "azure-native:databoxedge/v20200901preview:Addon" }, { type: "azure-native:databoxedge/v20201201:Addon" }, { type: "azure-native:databoxedge/v20210201:Addon" }, { type: "azure-native:databoxedge/v20210601:Addon" }, { type: "azure-native:databoxedge/v20210601preview:Addon" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Addon.__pulumiType, name, inputs, opts);
+        super(Addon.__pulumiType, name, resourceInputs, opts);
     }
 }
 

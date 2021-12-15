@@ -106,7 +106,7 @@ type MonitorInput interface {
 }
 
 func (*Monitor) ElementType() reflect.Type {
-	return reflect.TypeOf((*Monitor)(nil))
+	return reflect.TypeOf((**Monitor)(nil)).Elem()
 }
 
 func (i *Monitor) ToMonitorOutput() MonitorOutput {
@@ -120,7 +120,7 @@ func (i *Monitor) ToMonitorOutputWithContext(ctx context.Context) MonitorOutput 
 type MonitorOutput struct{ *pulumi.OutputState }
 
 func (MonitorOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Monitor)(nil))
+	return reflect.TypeOf((**Monitor)(nil)).Elem()
 }
 
 func (o MonitorOutput) ToMonitorOutput() MonitorOutput {

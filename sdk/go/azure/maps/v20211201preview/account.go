@@ -38,6 +38,10 @@ func NewAccount(ctx *pulumi.Context,
 	if args.Sku == nil {
 		return nil, errors.New("invalid value for required argument 'Sku'")
 	}
+	propertiesApplier := func(v MapsAccountProperties) *MapsAccountProperties { return v.Defaults() }
+	if args.Properties != nil {
+		args.Properties = args.Properties.ToMapsAccountPropertiesPtrOutput().Elem().ApplyT(propertiesApplier).(MapsAccountPropertiesPtrOutput)
+	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-native:maps:Account"),
@@ -125,7 +129,7 @@ type AccountInput interface {
 }
 
 func (*Account) ElementType() reflect.Type {
-	return reflect.TypeOf((*Account)(nil))
+	return reflect.TypeOf((**Account)(nil)).Elem()
 }
 
 func (i *Account) ToAccountOutput() AccountOutput {
@@ -139,7 +143,7 @@ func (i *Account) ToAccountOutputWithContext(ctx context.Context) AccountOutput 
 type AccountOutput struct{ *pulumi.OutputState }
 
 func (AccountOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Account)(nil))
+	return reflect.TypeOf((**Account)(nil)).Elem()
 }
 
 func (o AccountOutput) ToAccountOutput() AccountOutput {

@@ -159,83 +159,83 @@ export class ManagedInstance extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ManagedInstanceArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["administratorLogin"] = args ? args.administratorLogin : undefined;
-            inputs["administratorLoginPassword"] = args ? args.administratorLoginPassword : undefined;
-            inputs["administrators"] = args ? args.administrators : undefined;
-            inputs["collation"] = args ? args.collation : undefined;
-            inputs["dnsZonePartner"] = args ? args.dnsZonePartner : undefined;
-            inputs["identity"] = args ? args.identity : undefined;
-            inputs["instancePoolId"] = args ? args.instancePoolId : undefined;
-            inputs["keyId"] = args ? args.keyId : undefined;
-            inputs["licenseType"] = args ? args.licenseType : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["maintenanceConfigurationId"] = args ? args.maintenanceConfigurationId : undefined;
-            inputs["managedInstanceCreateMode"] = args ? args.managedInstanceCreateMode : undefined;
-            inputs["managedInstanceName"] = args ? args.managedInstanceName : undefined;
-            inputs["minimalTlsVersion"] = args ? args.minimalTlsVersion : undefined;
-            inputs["primaryUserAssignedIdentityId"] = args ? args.primaryUserAssignedIdentityId : undefined;
-            inputs["proxyOverride"] = args ? args.proxyOverride : undefined;
-            inputs["publicDataEndpointEnabled"] = args ? args.publicDataEndpointEnabled : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["restorePointInTime"] = args ? args.restorePointInTime : undefined;
-            inputs["sku"] = args ? args.sku : undefined;
-            inputs["sourceManagedInstanceId"] = args ? args.sourceManagedInstanceId : undefined;
-            inputs["storageAccountType"] = args ? args.storageAccountType : undefined;
-            inputs["storageSizeInGB"] = args ? args.storageSizeInGB : undefined;
-            inputs["subnetId"] = args ? args.subnetId : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["timezoneId"] = args ? args.timezoneId : undefined;
-            inputs["vCores"] = args ? args.vCores : undefined;
-            inputs["zoneRedundant"] = args ? args.zoneRedundant : undefined;
-            inputs["dnsZone"] = undefined /*out*/;
-            inputs["fullyQualifiedDomainName"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["privateEndpointConnections"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["state"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["administratorLogin"] = args ? args.administratorLogin : undefined;
+            resourceInputs["administratorLoginPassword"] = args ? args.administratorLoginPassword : undefined;
+            resourceInputs["administrators"] = args ? args.administrators : undefined;
+            resourceInputs["collation"] = args ? args.collation : undefined;
+            resourceInputs["dnsZonePartner"] = args ? args.dnsZonePartner : undefined;
+            resourceInputs["identity"] = args ? args.identity : undefined;
+            resourceInputs["instancePoolId"] = args ? args.instancePoolId : undefined;
+            resourceInputs["keyId"] = args ? args.keyId : undefined;
+            resourceInputs["licenseType"] = args ? args.licenseType : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["maintenanceConfigurationId"] = args ? args.maintenanceConfigurationId : undefined;
+            resourceInputs["managedInstanceCreateMode"] = args ? args.managedInstanceCreateMode : undefined;
+            resourceInputs["managedInstanceName"] = args ? args.managedInstanceName : undefined;
+            resourceInputs["minimalTlsVersion"] = args ? args.minimalTlsVersion : undefined;
+            resourceInputs["primaryUserAssignedIdentityId"] = args ? args.primaryUserAssignedIdentityId : undefined;
+            resourceInputs["proxyOverride"] = args ? args.proxyOverride : undefined;
+            resourceInputs["publicDataEndpointEnabled"] = args ? args.publicDataEndpointEnabled : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["restorePointInTime"] = args ? args.restorePointInTime : undefined;
+            resourceInputs["sku"] = args ? args.sku : undefined;
+            resourceInputs["sourceManagedInstanceId"] = args ? args.sourceManagedInstanceId : undefined;
+            resourceInputs["storageAccountType"] = args ? args.storageAccountType : undefined;
+            resourceInputs["storageSizeInGB"] = args ? args.storageSizeInGB : undefined;
+            resourceInputs["subnetId"] = args ? args.subnetId : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["timezoneId"] = args ? args.timezoneId : undefined;
+            resourceInputs["vCores"] = args ? args.vCores : undefined;
+            resourceInputs["zoneRedundant"] = args ? args.zoneRedundant : undefined;
+            resourceInputs["dnsZone"] = undefined /*out*/;
+            resourceInputs["fullyQualifiedDomainName"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["privateEndpointConnections"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["state"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["administratorLogin"] = undefined /*out*/;
-            inputs["administrators"] = undefined /*out*/;
-            inputs["collation"] = undefined /*out*/;
-            inputs["dnsZone"] = undefined /*out*/;
-            inputs["fullyQualifiedDomainName"] = undefined /*out*/;
-            inputs["identity"] = undefined /*out*/;
-            inputs["instancePoolId"] = undefined /*out*/;
-            inputs["keyId"] = undefined /*out*/;
-            inputs["licenseType"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["maintenanceConfigurationId"] = undefined /*out*/;
-            inputs["minimalTlsVersion"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["primaryUserAssignedIdentityId"] = undefined /*out*/;
-            inputs["privateEndpointConnections"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["proxyOverride"] = undefined /*out*/;
-            inputs["publicDataEndpointEnabled"] = undefined /*out*/;
-            inputs["sku"] = undefined /*out*/;
-            inputs["state"] = undefined /*out*/;
-            inputs["storageAccountType"] = undefined /*out*/;
-            inputs["storageSizeInGB"] = undefined /*out*/;
-            inputs["subnetId"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["timezoneId"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["vCores"] = undefined /*out*/;
-            inputs["zoneRedundant"] = undefined /*out*/;
+            resourceInputs["administratorLogin"] = undefined /*out*/;
+            resourceInputs["administrators"] = undefined /*out*/;
+            resourceInputs["collation"] = undefined /*out*/;
+            resourceInputs["dnsZone"] = undefined /*out*/;
+            resourceInputs["fullyQualifiedDomainName"] = undefined /*out*/;
+            resourceInputs["identity"] = undefined /*out*/;
+            resourceInputs["instancePoolId"] = undefined /*out*/;
+            resourceInputs["keyId"] = undefined /*out*/;
+            resourceInputs["licenseType"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["maintenanceConfigurationId"] = undefined /*out*/;
+            resourceInputs["minimalTlsVersion"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["primaryUserAssignedIdentityId"] = undefined /*out*/;
+            resourceInputs["privateEndpointConnections"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["proxyOverride"] = undefined /*out*/;
+            resourceInputs["publicDataEndpointEnabled"] = undefined /*out*/;
+            resourceInputs["sku"] = undefined /*out*/;
+            resourceInputs["state"] = undefined /*out*/;
+            resourceInputs["storageAccountType"] = undefined /*out*/;
+            resourceInputs["storageSizeInGB"] = undefined /*out*/;
+            resourceInputs["subnetId"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["timezoneId"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["vCores"] = undefined /*out*/;
+            resourceInputs["zoneRedundant"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:sql/v20150501preview:ManagedInstance" }, { type: "azure-native:sql/v20180601preview:ManagedInstance" }, { type: "azure-native:sql/v20200202preview:ManagedInstance" }, { type: "azure-native:sql/v20200801preview:ManagedInstance" }, { type: "azure-native:sql/v20201101preview:ManagedInstance" }, { type: "azure-native:sql/v20210201preview:ManagedInstance" }, { type: "azure-native:sql/v20210501preview:ManagedInstance" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(ManagedInstance.__pulumiType, name, inputs, opts);
+        super(ManagedInstance.__pulumiType, name, resourceInputs, opts);
     }
 }
 

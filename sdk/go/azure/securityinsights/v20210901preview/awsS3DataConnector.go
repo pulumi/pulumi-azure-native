@@ -137,7 +137,7 @@ type AwsS3DataConnectorInput interface {
 }
 
 func (*AwsS3DataConnector) ElementType() reflect.Type {
-	return reflect.TypeOf((*AwsS3DataConnector)(nil))
+	return reflect.TypeOf((**AwsS3DataConnector)(nil)).Elem()
 }
 
 func (i *AwsS3DataConnector) ToAwsS3DataConnectorOutput() AwsS3DataConnectorOutput {
@@ -151,7 +151,7 @@ func (i *AwsS3DataConnector) ToAwsS3DataConnectorOutputWithContext(ctx context.C
 type AwsS3DataConnectorOutput struct{ *pulumi.OutputState }
 
 func (AwsS3DataConnectorOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AwsS3DataConnector)(nil))
+	return reflect.TypeOf((**AwsS3DataConnector)(nil)).Elem()
 }
 
 func (o AwsS3DataConnectorOutput) ToAwsS3DataConnectorOutput() AwsS3DataConnectorOutput {

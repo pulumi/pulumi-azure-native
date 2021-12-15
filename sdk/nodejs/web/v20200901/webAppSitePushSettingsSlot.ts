@@ -79,7 +79,7 @@ export class WebAppSitePushSettingsSlot extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: WebAppSitePushSettingsSlotArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.isPushEnabled === undefined) && !opts.urn) {
@@ -94,32 +94,32 @@ export class WebAppSitePushSettingsSlot extends pulumi.CustomResource {
             if ((!args || args.slot === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'slot'");
             }
-            inputs["dynamicTagsJson"] = args ? args.dynamicTagsJson : undefined;
-            inputs["isPushEnabled"] = args ? args.isPushEnabled : undefined;
-            inputs["kind"] = args ? args.kind : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["slot"] = args ? args.slot : undefined;
-            inputs["tagWhitelistJson"] = args ? args.tagWhitelistJson : undefined;
-            inputs["tagsRequiringAuth"] = args ? args.tagsRequiringAuth : undefined;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["dynamicTagsJson"] = args ? args.dynamicTagsJson : undefined;
+            resourceInputs["isPushEnabled"] = args ? args.isPushEnabled : undefined;
+            resourceInputs["kind"] = args ? args.kind : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["slot"] = args ? args.slot : undefined;
+            resourceInputs["tagWhitelistJson"] = args ? args.tagWhitelistJson : undefined;
+            resourceInputs["tagsRequiringAuth"] = args ? args.tagsRequiringAuth : undefined;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["dynamicTagsJson"] = undefined /*out*/;
-            inputs["isPushEnabled"] = undefined /*out*/;
-            inputs["kind"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["tagWhitelistJson"] = undefined /*out*/;
-            inputs["tagsRequiringAuth"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["dynamicTagsJson"] = undefined /*out*/;
+            resourceInputs["isPushEnabled"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["tagWhitelistJson"] = undefined /*out*/;
+            resourceInputs["tagsRequiringAuth"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:web:WebAppSitePushSettingsSlot" }, { type: "azure-native:web/v20160801:WebAppSitePushSettingsSlot" }, { type: "azure-native:web/v20180201:WebAppSitePushSettingsSlot" }, { type: "azure-native:web/v20181101:WebAppSitePushSettingsSlot" }, { type: "azure-native:web/v20190801:WebAppSitePushSettingsSlot" }, { type: "azure-native:web/v20200601:WebAppSitePushSettingsSlot" }, { type: "azure-native:web/v20201001:WebAppSitePushSettingsSlot" }, { type: "azure-native:web/v20201201:WebAppSitePushSettingsSlot" }, { type: "azure-native:web/v20210101:WebAppSitePushSettingsSlot" }, { type: "azure-native:web/v20210115:WebAppSitePushSettingsSlot" }, { type: "azure-native:web/v20210201:WebAppSitePushSettingsSlot" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(WebAppSitePushSettingsSlot.__pulumiType, name, inputs, opts);
+        super(WebAppSitePushSettingsSlot.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -84,7 +84,7 @@ export class NatRule extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: NatRuleArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.gatewayName === undefined) && !opts.urn) {
@@ -93,38 +93,38 @@ export class NatRule extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["externalMappings"] = args ? args.externalMappings : undefined;
-            inputs["gatewayName"] = args ? args.gatewayName : undefined;
-            inputs["id"] = args ? args.id : undefined;
-            inputs["internalMappings"] = args ? args.internalMappings : undefined;
-            inputs["ipConfigurationId"] = args ? args.ipConfigurationId : undefined;
-            inputs["mode"] = args ? args.mode : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["natRuleName"] = args ? args.natRuleName : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["type"] = args ? args.type : undefined;
-            inputs["egressVpnSiteLinkConnections"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
-            inputs["ingressVpnSiteLinkConnections"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["externalMappings"] = args ? args.externalMappings : undefined;
+            resourceInputs["gatewayName"] = args ? args.gatewayName : undefined;
+            resourceInputs["id"] = args ? args.id : undefined;
+            resourceInputs["internalMappings"] = args ? args.internalMappings : undefined;
+            resourceInputs["ipConfigurationId"] = args ? args.ipConfigurationId : undefined;
+            resourceInputs["mode"] = args ? args.mode : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["natRuleName"] = args ? args.natRuleName : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["egressVpnSiteLinkConnections"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["ingressVpnSiteLinkConnections"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
         } else {
-            inputs["egressVpnSiteLinkConnections"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
-            inputs["externalMappings"] = undefined /*out*/;
-            inputs["ingressVpnSiteLinkConnections"] = undefined /*out*/;
-            inputs["internalMappings"] = undefined /*out*/;
-            inputs["ipConfigurationId"] = undefined /*out*/;
-            inputs["mode"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["egressVpnSiteLinkConnections"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["externalMappings"] = undefined /*out*/;
+            resourceInputs["ingressVpnSiteLinkConnections"] = undefined /*out*/;
+            resourceInputs["internalMappings"] = undefined /*out*/;
+            resourceInputs["ipConfigurationId"] = undefined /*out*/;
+            resourceInputs["mode"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:network:NatRule" }, { type: "azure-native:network/v20200801:NatRule" }, { type: "azure-native:network/v20201101:NatRule" }, { type: "azure-native:network/v20210201:NatRule" }, { type: "azure-native:network/v20210501:NatRule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(NatRule.__pulumiType, name, inputs, opts);
+        super(NatRule.__pulumiType, name, resourceInputs, opts);
     }
 }
 

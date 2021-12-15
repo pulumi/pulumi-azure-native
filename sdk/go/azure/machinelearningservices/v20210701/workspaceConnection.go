@@ -126,7 +126,7 @@ type WorkspaceConnectionInput interface {
 }
 
 func (*WorkspaceConnection) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkspaceConnection)(nil))
+	return reflect.TypeOf((**WorkspaceConnection)(nil)).Elem()
 }
 
 func (i *WorkspaceConnection) ToWorkspaceConnectionOutput() WorkspaceConnectionOutput {
@@ -140,7 +140,7 @@ func (i *WorkspaceConnection) ToWorkspaceConnectionOutputWithContext(ctx context
 type WorkspaceConnectionOutput struct{ *pulumi.OutputState }
 
 func (WorkspaceConnectionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkspaceConnection)(nil))
+	return reflect.TypeOf((**WorkspaceConnection)(nil)).Elem()
 }
 
 func (o WorkspaceConnectionOutput) ToWorkspaceConnectionOutput() WorkspaceConnectionOutput {

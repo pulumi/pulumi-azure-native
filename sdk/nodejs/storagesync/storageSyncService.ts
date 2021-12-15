@@ -89,44 +89,44 @@ export class StorageSyncService extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: StorageSyncServiceArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["incomingTrafficPolicy"] = args ? args.incomingTrafficPolicy : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["storageSyncServiceName"] = args ? args.storageSyncServiceName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["lastOperationName"] = undefined /*out*/;
-            inputs["lastWorkflowId"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["privateEndpointConnections"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["storageSyncServiceStatus"] = undefined /*out*/;
-            inputs["storageSyncServiceUid"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["incomingTrafficPolicy"] = args ? args.incomingTrafficPolicy : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["storageSyncServiceName"] = args ? args.storageSyncServiceName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["lastOperationName"] = undefined /*out*/;
+            resourceInputs["lastWorkflowId"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["privateEndpointConnections"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["storageSyncServiceStatus"] = undefined /*out*/;
+            resourceInputs["storageSyncServiceUid"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["incomingTrafficPolicy"] = undefined /*out*/;
-            inputs["lastOperationName"] = undefined /*out*/;
-            inputs["lastWorkflowId"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["privateEndpointConnections"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["storageSyncServiceStatus"] = undefined /*out*/;
-            inputs["storageSyncServiceUid"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["incomingTrafficPolicy"] = undefined /*out*/;
+            resourceInputs["lastOperationName"] = undefined /*out*/;
+            resourceInputs["lastWorkflowId"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["privateEndpointConnections"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["storageSyncServiceStatus"] = undefined /*out*/;
+            resourceInputs["storageSyncServiceUid"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:storagesync/v20170605preview:StorageSyncService" }, { type: "azure-native:storagesync/v20180402:StorageSyncService" }, { type: "azure-native:storagesync/v20180701:StorageSyncService" }, { type: "azure-native:storagesync/v20181001:StorageSyncService" }, { type: "azure-native:storagesync/v20190201:StorageSyncService" }, { type: "azure-native:storagesync/v20190301:StorageSyncService" }, { type: "azure-native:storagesync/v20190601:StorageSyncService" }, { type: "azure-native:storagesync/v20191001:StorageSyncService" }, { type: "azure-native:storagesync/v20200301:StorageSyncService" }, { type: "azure-native:storagesync/v20200901:StorageSyncService" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(StorageSyncService.__pulumiType, name, inputs, opts);
+        super(StorageSyncService.__pulumiType, name, resourceInputs, opts);
     }
 }
 

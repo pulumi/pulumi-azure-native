@@ -13,7 +13,7 @@ func LookupAzurePowerShellScript(ctx *pulumi.Context, args *LookupAzurePowerShel
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupAzurePowerShellScriptArgs struct {
@@ -46,4 +46,21 @@ type LookupAzurePowerShellScriptResult struct {
 	Tags                   map[string]string                    `pulumi:"tags"`
 	Timeout                *string                              `pulumi:"timeout"`
 	Type                   string                               `pulumi:"type"`
+}
+
+
+func (val *LookupAzurePowerShellScriptResult) Defaults() *LookupAzurePowerShellScriptResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.CleanupPreference) {
+		cleanupPreference_ := "Always"
+		tmp.CleanupPreference = &cleanupPreference_
+	}
+	if isZero(tmp.Timeout) {
+		timeout_ := "P1D"
+		tmp.Timeout = &timeout_
+	}
+	return &tmp
 }

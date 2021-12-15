@@ -13,7 +13,7 @@ func LookupLabPlan(ctx *pulumi.Context, args *LookupLabPlanArgs, opts ...pulumi.
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupLabPlanArgs struct {
@@ -37,4 +37,17 @@ type LookupLabPlanResult struct {
 	SystemData                 SystemDataResponse             `pulumi:"systemData"`
 	Tags                       map[string]string              `pulumi:"tags"`
 	Type                       string                         `pulumi:"type"`
+}
+
+
+func (val *LookupLabPlanResult) Defaults() *LookupLabPlanResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.DefaultAutoShutdownProfile = tmp.DefaultAutoShutdownProfile.Defaults()
+
+	tmp.DefaultConnectionProfile = tmp.DefaultConnectionProfile.Defaults()
+
+	return &tmp
 }

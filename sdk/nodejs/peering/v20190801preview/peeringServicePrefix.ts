@@ -68,7 +68,7 @@ export class PeeringServicePrefix extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: PeeringServicePrefixArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.peeringServiceName === undefined) && !opts.urn) {
@@ -77,29 +77,29 @@ export class PeeringServicePrefix extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["learnedType"] = args ? args.learnedType : undefined;
-            inputs["peeringServiceName"] = args ? args.peeringServiceName : undefined;
-            inputs["prefix"] = args ? args.prefix : undefined;
-            inputs["prefixName"] = args ? args.prefixName : undefined;
-            inputs["prefixValidationState"] = args ? args.prefixValidationState : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["learnedType"] = args ? args.learnedType : undefined;
+            resourceInputs["peeringServiceName"] = args ? args.peeringServiceName : undefined;
+            resourceInputs["prefix"] = args ? args.prefix : undefined;
+            resourceInputs["prefixName"] = args ? args.prefixName : undefined;
+            resourceInputs["prefixValidationState"] = args ? args.prefixValidationState : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["learnedType"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["prefix"] = undefined /*out*/;
-            inputs["prefixValidationState"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["learnedType"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["prefix"] = undefined /*out*/;
+            resourceInputs["prefixValidationState"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:peering:PeeringServicePrefix" }, { type: "azure-native:peering/v20190901preview:PeeringServicePrefix" }, { type: "azure-native:peering/v20200101preview:PeeringServicePrefix" }, { type: "azure-native:peering/v20200401:PeeringServicePrefix" }, { type: "azure-native:peering/v20201001:PeeringServicePrefix" }, { type: "azure-native:peering/v20210101:PeeringServicePrefix" }, { type: "azure-native:peering/v20210601:PeeringServicePrefix" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(PeeringServicePrefix.__pulumiType, name, inputs, opts);
+        super(PeeringServicePrefix.__pulumiType, name, resourceInputs, opts);
     }
 }
 

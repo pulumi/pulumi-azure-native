@@ -100,7 +100,7 @@ type DataContainerInput interface {
 }
 
 func (*DataContainer) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataContainer)(nil))
+	return reflect.TypeOf((**DataContainer)(nil)).Elem()
 }
 
 func (i *DataContainer) ToDataContainerOutput() DataContainerOutput {
@@ -114,7 +114,7 @@ func (i *DataContainer) ToDataContainerOutputWithContext(ctx context.Context) Da
 type DataContainerOutput struct{ *pulumi.OutputState }
 
 func (DataContainerOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataContainer)(nil))
+	return reflect.TypeOf((**DataContainer)(nil)).Elem()
 }
 
 func (o DataContainerOutput) ToDataContainerOutput() DataContainerOutput {

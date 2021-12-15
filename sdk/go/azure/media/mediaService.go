@@ -126,7 +126,7 @@ type MediaServiceInput interface {
 }
 
 func (*MediaService) ElementType() reflect.Type {
-	return reflect.TypeOf((*MediaService)(nil))
+	return reflect.TypeOf((**MediaService)(nil)).Elem()
 }
 
 func (i *MediaService) ToMediaServiceOutput() MediaServiceOutput {
@@ -140,7 +140,7 @@ func (i *MediaService) ToMediaServiceOutputWithContext(ctx context.Context) Medi
 type MediaServiceOutput struct{ *pulumi.OutputState }
 
 func (MediaServiceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MediaService)(nil))
+	return reflect.TypeOf((**MediaService)(nil)).Elem()
 }
 
 func (o MediaServiceOutput) ToMediaServiceOutput() MediaServiceOutput {

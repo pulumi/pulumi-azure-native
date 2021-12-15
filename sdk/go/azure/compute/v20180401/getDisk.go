@@ -13,7 +13,7 @@ func LookupDisk(ctx *pulumi.Context, args *LookupDiskArgs, opts ...pulumi.Invoke
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupDiskArgs struct {
@@ -37,4 +37,15 @@ type LookupDiskResult struct {
 	TimeCreated        string                      `pulumi:"timeCreated"`
 	Type               string                      `pulumi:"type"`
 	Zones              []string                    `pulumi:"zones"`
+}
+
+
+func (val *LookupDiskResult) Defaults() *LookupDiskResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Sku = tmp.Sku.Defaults()
+
+	return &tmp
 }

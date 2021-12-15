@@ -108,7 +108,7 @@ export class Metadata extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: MetadataArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.kind === undefined) && !opts.urn) {
@@ -123,49 +123,49 @@ export class Metadata extends pulumi.CustomResource {
             if ((!args || args.workspaceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            inputs["author"] = args ? args.author : undefined;
-            inputs["categories"] = args ? args.categories : undefined;
-            inputs["contentId"] = args ? args.contentId : undefined;
-            inputs["dependencies"] = args ? args.dependencies : undefined;
-            inputs["etag"] = args ? args.etag : undefined;
-            inputs["firstPublishDate"] = args ? args.firstPublishDate : undefined;
-            inputs["kind"] = args ? args.kind : undefined;
-            inputs["lastPublishDate"] = args ? args.lastPublishDate : undefined;
-            inputs["metadataName"] = args ? args.metadataName : undefined;
-            inputs["parentId"] = args ? args.parentId : undefined;
-            inputs["providers"] = args ? args.providers : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["source"] = args ? args.source : undefined;
-            inputs["support"] = args ? args.support : undefined;
-            inputs["version"] = args ? args.version : undefined;
-            inputs["workspaceName"] = args ? args.workspaceName : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["author"] = args ? args.author : undefined;
+            resourceInputs["categories"] = args ? args.categories : undefined;
+            resourceInputs["contentId"] = args ? args.contentId : undefined;
+            resourceInputs["dependencies"] = args ? args.dependencies : undefined;
+            resourceInputs["etag"] = args ? args.etag : undefined;
+            resourceInputs["firstPublishDate"] = args ? args.firstPublishDate : undefined;
+            resourceInputs["kind"] = args ? args.kind : undefined;
+            resourceInputs["lastPublishDate"] = args ? args.lastPublishDate : undefined;
+            resourceInputs["metadataName"] = args ? args.metadataName : undefined;
+            resourceInputs["parentId"] = args ? args.parentId : undefined;
+            resourceInputs["providers"] = args ? args.providers : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["source"] = args ? args.source : undefined;
+            resourceInputs["support"] = args ? args.support : undefined;
+            resourceInputs["version"] = args ? args.version : undefined;
+            resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["author"] = undefined /*out*/;
-            inputs["categories"] = undefined /*out*/;
-            inputs["contentId"] = undefined /*out*/;
-            inputs["dependencies"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
-            inputs["firstPublishDate"] = undefined /*out*/;
-            inputs["kind"] = undefined /*out*/;
-            inputs["lastPublishDate"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["parentId"] = undefined /*out*/;
-            inputs["providers"] = undefined /*out*/;
-            inputs["source"] = undefined /*out*/;
-            inputs["support"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["version"] = undefined /*out*/;
+            resourceInputs["author"] = undefined /*out*/;
+            resourceInputs["categories"] = undefined /*out*/;
+            resourceInputs["contentId"] = undefined /*out*/;
+            resourceInputs["dependencies"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["firstPublishDate"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["lastPublishDate"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["parentId"] = undefined /*out*/;
+            resourceInputs["providers"] = undefined /*out*/;
+            resourceInputs["source"] = undefined /*out*/;
+            resourceInputs["support"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["version"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:securityinsights:Metadata" }, { type: "azure-native:securityinsights/v20210301preview:Metadata" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Metadata.__pulumiType, name, inputs, opts);
+        super(Metadata.__pulumiType, name, resourceInputs, opts);
     }
 }
 

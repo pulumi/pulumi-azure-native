@@ -72,7 +72,7 @@ export class GalleryApplicationVersion extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: GalleryApplicationVersionArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.galleryApplicationName === undefined) && !opts.urn) {
@@ -87,32 +87,32 @@ export class GalleryApplicationVersion extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["galleryApplicationName"] = args ? args.galleryApplicationName : undefined;
-            inputs["galleryApplicationVersionName"] = args ? args.galleryApplicationVersionName : undefined;
-            inputs["galleryName"] = args ? args.galleryName : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["publishingProfile"] = args ? args.publishingProfile : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["replicationStatus"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["galleryApplicationName"] = args ? args.galleryApplicationName : undefined;
+            resourceInputs["galleryApplicationVersionName"] = args ? args.galleryApplicationVersionName : undefined;
+            resourceInputs["galleryName"] = args ? args.galleryName : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["publishingProfile"] = args ? args.publishingProfile : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["replicationStatus"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["publishingProfile"] = undefined /*out*/;
-            inputs["replicationStatus"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["publishingProfile"] = undefined /*out*/;
+            resourceInputs["replicationStatus"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:compute:GalleryApplicationVersion" }, { type: "azure-native:compute/v20190301:GalleryApplicationVersion" }, { type: "azure-native:compute/v20191201:GalleryApplicationVersion" }, { type: "azure-native:compute/v20200930:GalleryApplicationVersion" }, { type: "azure-native:compute/v20210701:GalleryApplicationVersion" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(GalleryApplicationVersion.__pulumiType, name, inputs, opts);
+        super(GalleryApplicationVersion.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -586,6 +586,41 @@ type ContainerServiceNetworkProfile struct {
 }
 
 
+func (val *ContainerServiceNetworkProfile) Defaults() *ContainerServiceNetworkProfile {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.DnsServiceIP) {
+		dnsServiceIP_ := "10.0.0.10"
+		tmp.DnsServiceIP = &dnsServiceIP_
+	}
+	if isZero(tmp.DockerBridgeCidr) {
+		dockerBridgeCidr_ := "172.17.0.1/16"
+		tmp.DockerBridgeCidr = &dockerBridgeCidr_
+	}
+	tmp.LoadBalancerProfile = tmp.LoadBalancerProfile.Defaults()
+
+	if isZero(tmp.NetworkPlugin) {
+		networkPlugin_ := "kubenet"
+		tmp.NetworkPlugin = &networkPlugin_
+	}
+	if isZero(tmp.OutboundType) {
+		outboundType_ := "loadBalancer"
+		tmp.OutboundType = &outboundType_
+	}
+	if isZero(tmp.PodCidr) {
+		podCidr_ := "10.244.0.0/16"
+		tmp.PodCidr = &podCidr_
+	}
+	if isZero(tmp.ServiceCidr) {
+		serviceCidr_ := "10.0.0.0/16"
+		tmp.ServiceCidr = &serviceCidr_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -853,6 +888,41 @@ type ContainerServiceNetworkProfileResponse struct {
 	OutboundType        *string                                    `pulumi:"outboundType"`
 	PodCidr             *string                                    `pulumi:"podCidr"`
 	ServiceCidr         *string                                    `pulumi:"serviceCidr"`
+}
+
+
+func (val *ContainerServiceNetworkProfileResponse) Defaults() *ContainerServiceNetworkProfileResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.DnsServiceIP) {
+		dnsServiceIP_ := "10.0.0.10"
+		tmp.DnsServiceIP = &dnsServiceIP_
+	}
+	if isZero(tmp.DockerBridgeCidr) {
+		dockerBridgeCidr_ := "172.17.0.1/16"
+		tmp.DockerBridgeCidr = &dockerBridgeCidr_
+	}
+	tmp.LoadBalancerProfile = tmp.LoadBalancerProfile.Defaults()
+
+	if isZero(tmp.NetworkPlugin) {
+		networkPlugin_ := "kubenet"
+		tmp.NetworkPlugin = &networkPlugin_
+	}
+	if isZero(tmp.OutboundType) {
+		outboundType_ := "loadBalancer"
+		tmp.OutboundType = &outboundType_
+	}
+	if isZero(tmp.PodCidr) {
+		podCidr_ := "10.244.0.0/16"
+		tmp.PodCidr = &podCidr_
+	}
+	if isZero(tmp.ServiceCidr) {
+		serviceCidr_ := "10.0.0.0/16"
+		tmp.ServiceCidr = &serviceCidr_
+	}
+	return &tmp
 }
 
 
@@ -3415,6 +3485,25 @@ type ManagedClusterLoadBalancerProfile struct {
 }
 
 
+func (val *ManagedClusterLoadBalancerProfile) Defaults() *ManagedClusterLoadBalancerProfile {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.AllocatedOutboundPorts) {
+		allocatedOutboundPorts_ := 0
+		tmp.AllocatedOutboundPorts = &allocatedOutboundPorts_
+	}
+	if isZero(tmp.IdleTimeoutInMinutes) {
+		idleTimeoutInMinutes_ := 30
+		tmp.IdleTimeoutInMinutes = &idleTimeoutInMinutes_
+	}
+	tmp.ManagedOutboundIPs = tmp.ManagedOutboundIPs.Defaults()
+
+	return &tmp
+}
+
+
 
 
 
@@ -3621,6 +3710,19 @@ func (o ManagedClusterLoadBalancerProfilePtrOutput) OutboundIPs() ManagedCluster
 
 type ManagedClusterLoadBalancerProfileManagedOutboundIPs struct {
 	Count *int `pulumi:"count"`
+}
+
+
+func (val *ManagedClusterLoadBalancerProfileManagedOutboundIPs) Defaults() *ManagedClusterLoadBalancerProfileManagedOutboundIPs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Count) {
+		count_ := 1
+		tmp.Count = &count_
+	}
+	return &tmp
 }
 
 
@@ -4030,6 +4132,25 @@ type ManagedClusterLoadBalancerProfileResponse struct {
 }
 
 
+func (val *ManagedClusterLoadBalancerProfileResponse) Defaults() *ManagedClusterLoadBalancerProfileResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.AllocatedOutboundPorts) {
+		allocatedOutboundPorts_ := 0
+		tmp.AllocatedOutboundPorts = &allocatedOutboundPorts_
+	}
+	if isZero(tmp.IdleTimeoutInMinutes) {
+		idleTimeoutInMinutes_ := 30
+		tmp.IdleTimeoutInMinutes = &idleTimeoutInMinutes_
+	}
+	tmp.ManagedOutboundIPs = tmp.ManagedOutboundIPs.Defaults()
+
+	return &tmp
+}
+
+
 
 
 
@@ -4238,6 +4359,19 @@ func (o ManagedClusterLoadBalancerProfileResponsePtrOutput) OutboundIPs() Manage
 
 type ManagedClusterLoadBalancerProfileResponseManagedOutboundIPs struct {
 	Count *int `pulumi:"count"`
+}
+
+
+func (val *ManagedClusterLoadBalancerProfileResponseManagedOutboundIPs) Defaults() *ManagedClusterLoadBalancerProfileResponseManagedOutboundIPs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Count) {
+		count_ := 1
+		tmp.Count = &count_
+	}
+	return &tmp
 }
 
 

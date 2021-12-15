@@ -115,7 +115,7 @@ type ZoneInput interface {
 }
 
 func (*Zone) ElementType() reflect.Type {
-	return reflect.TypeOf((*Zone)(nil))
+	return reflect.TypeOf((**Zone)(nil)).Elem()
 }
 
 func (i *Zone) ToZoneOutput() ZoneOutput {
@@ -129,7 +129,7 @@ func (i *Zone) ToZoneOutputWithContext(ctx context.Context) ZoneOutput {
 type ZoneOutput struct{ *pulumi.OutputState }
 
 func (ZoneOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Zone)(nil))
+	return reflect.TypeOf((**Zone)(nil)).Elem()
 }
 
 func (o ZoneOutput) ToZoneOutput() ZoneOutput {

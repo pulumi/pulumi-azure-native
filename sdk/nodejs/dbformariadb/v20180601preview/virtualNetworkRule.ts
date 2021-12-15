@@ -63,7 +63,7 @@ export class VirtualNetworkRule extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: VirtualNetworkRuleArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
@@ -75,27 +75,27 @@ export class VirtualNetworkRule extends pulumi.CustomResource {
             if ((!args || args.virtualNetworkSubnetId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'virtualNetworkSubnetId'");
             }
-            inputs["ignoreMissingVnetServiceEndpoint"] = args ? args.ignoreMissingVnetServiceEndpoint : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["serverName"] = args ? args.serverName : undefined;
-            inputs["virtualNetworkRuleName"] = args ? args.virtualNetworkRuleName : undefined;
-            inputs["virtualNetworkSubnetId"] = args ? args.virtualNetworkSubnetId : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["state"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["ignoreMissingVnetServiceEndpoint"] = args ? args.ignoreMissingVnetServiceEndpoint : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["serverName"] = args ? args.serverName : undefined;
+            resourceInputs["virtualNetworkRuleName"] = args ? args.virtualNetworkRuleName : undefined;
+            resourceInputs["virtualNetworkSubnetId"] = args ? args.virtualNetworkSubnetId : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["state"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["ignoreMissingVnetServiceEndpoint"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["state"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["virtualNetworkSubnetId"] = undefined /*out*/;
+            resourceInputs["ignoreMissingVnetServiceEndpoint"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["state"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["virtualNetworkSubnetId"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:dbformariadb:VirtualNetworkRule" }, { type: "azure-native:dbformariadb/v20180601:VirtualNetworkRule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(VirtualNetworkRule.__pulumiType, name, inputs, opts);
+        super(VirtualNetworkRule.__pulumiType, name, resourceInputs, opts);
     }
 }
 

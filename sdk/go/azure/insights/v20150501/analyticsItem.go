@@ -116,7 +116,7 @@ type AnalyticsItemInput interface {
 }
 
 func (*AnalyticsItem) ElementType() reflect.Type {
-	return reflect.TypeOf((*AnalyticsItem)(nil))
+	return reflect.TypeOf((**AnalyticsItem)(nil)).Elem()
 }
 
 func (i *AnalyticsItem) ToAnalyticsItemOutput() AnalyticsItemOutput {
@@ -130,7 +130,7 @@ func (i *AnalyticsItem) ToAnalyticsItemOutputWithContext(ctx context.Context) An
 type AnalyticsItemOutput struct{ *pulumi.OutputState }
 
 func (AnalyticsItemOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AnalyticsItem)(nil))
+	return reflect.TypeOf((**AnalyticsItem)(nil)).Elem()
 }
 
 func (o AnalyticsItemOutput) ToAnalyticsItemOutput() AnalyticsItemOutput {

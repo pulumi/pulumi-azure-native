@@ -138,7 +138,7 @@ type SqlPoolsV3Input interface {
 }
 
 func (*SqlPoolsV3) ElementType() reflect.Type {
-	return reflect.TypeOf((*SqlPoolsV3)(nil))
+	return reflect.TypeOf((**SqlPoolsV3)(nil)).Elem()
 }
 
 func (i *SqlPoolsV3) ToSqlPoolsV3Output() SqlPoolsV3Output {
@@ -152,7 +152,7 @@ func (i *SqlPoolsV3) ToSqlPoolsV3OutputWithContext(ctx context.Context) SqlPools
 type SqlPoolsV3Output struct{ *pulumi.OutputState }
 
 func (SqlPoolsV3Output) ElementType() reflect.Type {
-	return reflect.TypeOf((*SqlPoolsV3)(nil))
+	return reflect.TypeOf((**SqlPoolsV3)(nil)).Elem()
 }
 
 func (o SqlPoolsV3Output) ToSqlPoolsV3Output() SqlPoolsV3Output {

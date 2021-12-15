@@ -116,7 +116,7 @@ type ConfigurationAssignmentInput interface {
 }
 
 func (*ConfigurationAssignment) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConfigurationAssignment)(nil))
+	return reflect.TypeOf((**ConfigurationAssignment)(nil)).Elem()
 }
 
 func (i *ConfigurationAssignment) ToConfigurationAssignmentOutput() ConfigurationAssignmentOutput {
@@ -130,7 +130,7 @@ func (i *ConfigurationAssignment) ToConfigurationAssignmentOutputWithContext(ctx
 type ConfigurationAssignmentOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationAssignmentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConfigurationAssignment)(nil))
+	return reflect.TypeOf((**ConfigurationAssignment)(nil)).Elem()
 }
 
 func (o ConfigurationAssignmentOutput) ToConfigurationAssignmentOutput() ConfigurationAssignmentOutput {

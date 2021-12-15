@@ -100,50 +100,50 @@ export class Application extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ApplicationArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["applicationName"] = args ? args.applicationName : undefined;
-            inputs["debugParams"] = args ? args.debugParams : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["diagnostics"] = args ? args.diagnostics : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["services"] = args ? args.services : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["healthState"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["serviceNames"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["statusDetails"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["unhealthyEvaluation"] = undefined /*out*/;
+            resourceInputs["applicationName"] = args ? args.applicationName : undefined;
+            resourceInputs["debugParams"] = args ? args.debugParams : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["diagnostics"] = args ? args.diagnostics : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["services"] = args ? args.services : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["healthState"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["serviceNames"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["statusDetails"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["unhealthyEvaluation"] = undefined /*out*/;
         } else {
-            inputs["debugParams"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["diagnostics"] = undefined /*out*/;
-            inputs["healthState"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["serviceNames"] = undefined /*out*/;
-            inputs["services"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["statusDetails"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["unhealthyEvaluation"] = undefined /*out*/;
+            resourceInputs["debugParams"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["diagnostics"] = undefined /*out*/;
+            resourceInputs["healthState"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["serviceNames"] = undefined /*out*/;
+            resourceInputs["services"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["statusDetails"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["unhealthyEvaluation"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:servicefabricmesh:Application" }, { type: "azure-native:servicefabricmesh/v20180901preview:Application" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Application.__pulumiType, name, inputs, opts);
+        super(Application.__pulumiType, name, resourceInputs, opts);
     }
 }
 

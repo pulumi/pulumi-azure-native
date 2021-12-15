@@ -84,7 +84,7 @@ export class StreamingLocator extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: StreamingLocatorArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.accountName === undefined) && !opts.urn) {
@@ -99,37 +99,37 @@ export class StreamingLocator extends pulumi.CustomResource {
             if ((!args || args.streamingPolicyName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'streamingPolicyName'");
             }
-            inputs["accountName"] = args ? args.accountName : undefined;
-            inputs["assetName"] = args ? args.assetName : undefined;
-            inputs["contentKeys"] = args ? args.contentKeys : undefined;
-            inputs["defaultContentKeyPolicyName"] = args ? args.defaultContentKeyPolicyName : undefined;
-            inputs["endTime"] = args ? args.endTime : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["startTime"] = args ? args.startTime : undefined;
-            inputs["streamingLocatorId"] = args ? args.streamingLocatorId : undefined;
-            inputs["streamingLocatorName"] = args ? args.streamingLocatorName : undefined;
-            inputs["streamingPolicyName"] = args ? args.streamingPolicyName : undefined;
-            inputs["created"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["accountName"] = args ? args.accountName : undefined;
+            resourceInputs["assetName"] = args ? args.assetName : undefined;
+            resourceInputs["contentKeys"] = args ? args.contentKeys : undefined;
+            resourceInputs["defaultContentKeyPolicyName"] = args ? args.defaultContentKeyPolicyName : undefined;
+            resourceInputs["endTime"] = args ? args.endTime : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["startTime"] = args ? args.startTime : undefined;
+            resourceInputs["streamingLocatorId"] = args ? args.streamingLocatorId : undefined;
+            resourceInputs["streamingLocatorName"] = args ? args.streamingLocatorName : undefined;
+            resourceInputs["streamingPolicyName"] = args ? args.streamingPolicyName : undefined;
+            resourceInputs["created"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["assetName"] = undefined /*out*/;
-            inputs["contentKeys"] = undefined /*out*/;
-            inputs["created"] = undefined /*out*/;
-            inputs["defaultContentKeyPolicyName"] = undefined /*out*/;
-            inputs["endTime"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["startTime"] = undefined /*out*/;
-            inputs["streamingLocatorId"] = undefined /*out*/;
-            inputs["streamingPolicyName"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["assetName"] = undefined /*out*/;
+            resourceInputs["contentKeys"] = undefined /*out*/;
+            resourceInputs["created"] = undefined /*out*/;
+            resourceInputs["defaultContentKeyPolicyName"] = undefined /*out*/;
+            resourceInputs["endTime"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["startTime"] = undefined /*out*/;
+            resourceInputs["streamingLocatorId"] = undefined /*out*/;
+            resourceInputs["streamingPolicyName"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:media:StreamingLocator" }, { type: "azure-native:media/v20180601preview:StreamingLocator" }, { type: "azure-native:media/v20180701:StreamingLocator" }, { type: "azure-native:media/v20200501:StreamingLocator" }, { type: "azure-native:media/v20210601:StreamingLocator" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(StreamingLocator.__pulumiType, name, inputs, opts);
+        super(StreamingLocator.__pulumiType, name, resourceInputs, opts);
     }
 }
 

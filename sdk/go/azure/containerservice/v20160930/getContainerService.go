@@ -13,7 +13,7 @@ func LookupContainerService(ctx *pulumi.Context, args *LookupContainerServiceArg
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupContainerServiceArgs struct {
@@ -37,4 +37,15 @@ type LookupContainerServiceResult struct {
 	Tags                    map[string]string                                `pulumi:"tags"`
 	Type                    string                                           `pulumi:"type"`
 	WindowsProfile          *ContainerServiceWindowsProfileResponse          `pulumi:"windowsProfile"`
+}
+
+
+func (val *LookupContainerServiceResult) Defaults() *LookupContainerServiceResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.MasterProfile = *tmp.MasterProfile.Defaults()
+
+	return &tmp
 }

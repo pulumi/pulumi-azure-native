@@ -99,7 +99,7 @@ type SecurityPolicyInput interface {
 }
 
 func (*SecurityPolicy) ElementType() reflect.Type {
-	return reflect.TypeOf((*SecurityPolicy)(nil))
+	return reflect.TypeOf((**SecurityPolicy)(nil)).Elem()
 }
 
 func (i *SecurityPolicy) ToSecurityPolicyOutput() SecurityPolicyOutput {
@@ -113,7 +113,7 @@ func (i *SecurityPolicy) ToSecurityPolicyOutputWithContext(ctx context.Context) 
 type SecurityPolicyOutput struct{ *pulumi.OutputState }
 
 func (SecurityPolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SecurityPolicy)(nil))
+	return reflect.TypeOf((**SecurityPolicy)(nil)).Elem()
 }
 
 func (o SecurityPolicyOutput) ToSecurityPolicyOutput() SecurityPolicyOutput {

@@ -13,7 +13,7 @@ func LookupManagedCluster(ctx *pulumi.Context, args *LookupManagedClusterArgs, o
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupManagedClusterArgs struct {
@@ -55,4 +55,25 @@ type LookupManagedClusterResult struct {
 	Tags                                 map[string]string                             `pulumi:"tags"`
 	Type                                 string                                        `pulumi:"type"`
 	ZonalResiliency                      *bool                                         `pulumi:"zonalResiliency"`
+}
+
+
+func (val *LookupManagedClusterResult) Defaults() *LookupManagedClusterResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.ClientConnectionPort) {
+		clientConnectionPort_ := 19000
+		tmp.ClientConnectionPort = &clientConnectionPort_
+	}
+	if isZero(tmp.HttpGatewayConnectionPort) {
+		httpGatewayConnectionPort_ := 19080
+		tmp.HttpGatewayConnectionPort = &httpGatewayConnectionPort_
+	}
+	if isZero(tmp.ZonalResiliency) {
+		zonalResiliency_ := false
+		tmp.ZonalResiliency = &zonalResiliency_
+	}
+	return &tmp
 }

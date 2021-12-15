@@ -96,7 +96,7 @@ type SettingInput interface {
 }
 
 func (*Setting) ElementType() reflect.Type {
-	return reflect.TypeOf((*Setting)(nil))
+	return reflect.TypeOf((**Setting)(nil)).Elem()
 }
 
 func (i *Setting) ToSettingOutput() SettingOutput {
@@ -110,7 +110,7 @@ func (i *Setting) ToSettingOutputWithContext(ctx context.Context) SettingOutput 
 type SettingOutput struct{ *pulumi.OutputState }
 
 func (SettingOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Setting)(nil))
+	return reflect.TypeOf((**Setting)(nil)).Elem()
 }
 
 func (o SettingOutput) ToSettingOutput() SettingOutput {

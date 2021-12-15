@@ -476,6 +476,18 @@ type RecommendationConfigurationProperties struct {
 }
 
 
+func (val *RecommendationConfigurationProperties) Defaults() *RecommendationConfigurationProperties {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Status) {
+		tmp.Status = "Enabled"
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -574,6 +586,18 @@ type RecommendationConfigurationPropertiesResponse struct {
 	Name               string `pulumi:"name"`
 	RecommendationType string `pulumi:"recommendationType"`
 	Status             string `pulumi:"status"`
+}
+
+
+func (val *RecommendationConfigurationPropertiesResponse) Defaults() *RecommendationConfigurationPropertiesResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Status) {
+		tmp.Status = "Enabled"
+	}
+	return &tmp
 }
 
 

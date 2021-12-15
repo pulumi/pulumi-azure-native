@@ -105,7 +105,7 @@ type DelegatedSubnetServiceDetailsInput interface {
 }
 
 func (*DelegatedSubnetServiceDetails) ElementType() reflect.Type {
-	return reflect.TypeOf((*DelegatedSubnetServiceDetails)(nil))
+	return reflect.TypeOf((**DelegatedSubnetServiceDetails)(nil)).Elem()
 }
 
 func (i *DelegatedSubnetServiceDetails) ToDelegatedSubnetServiceDetailsOutput() DelegatedSubnetServiceDetailsOutput {
@@ -119,7 +119,7 @@ func (i *DelegatedSubnetServiceDetails) ToDelegatedSubnetServiceDetailsOutputWit
 type DelegatedSubnetServiceDetailsOutput struct{ *pulumi.OutputState }
 
 func (DelegatedSubnetServiceDetailsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DelegatedSubnetServiceDetails)(nil))
+	return reflect.TypeOf((**DelegatedSubnetServiceDetails)(nil)).Elem()
 }
 
 func (o DelegatedSubnetServiceDetailsOutput) ToDelegatedSubnetServiceDetailsOutput() DelegatedSubnetServiceDetailsOutput {

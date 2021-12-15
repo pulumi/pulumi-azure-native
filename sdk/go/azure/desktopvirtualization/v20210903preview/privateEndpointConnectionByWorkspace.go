@@ -105,7 +105,7 @@ type PrivateEndpointConnectionByWorkspaceInput interface {
 }
 
 func (*PrivateEndpointConnectionByWorkspace) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateEndpointConnectionByWorkspace)(nil))
+	return reflect.TypeOf((**PrivateEndpointConnectionByWorkspace)(nil)).Elem()
 }
 
 func (i *PrivateEndpointConnectionByWorkspace) ToPrivateEndpointConnectionByWorkspaceOutput() PrivateEndpointConnectionByWorkspaceOutput {
@@ -119,7 +119,7 @@ func (i *PrivateEndpointConnectionByWorkspace) ToPrivateEndpointConnectionByWork
 type PrivateEndpointConnectionByWorkspaceOutput struct{ *pulumi.OutputState }
 
 func (PrivateEndpointConnectionByWorkspaceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateEndpointConnectionByWorkspace)(nil))
+	return reflect.TypeOf((**PrivateEndpointConnectionByWorkspace)(nil)).Elem()
 }
 
 func (o PrivateEndpointConnectionByWorkspaceOutput) ToPrivateEndpointConnectionByWorkspaceOutput() PrivateEndpointConnectionByWorkspaceOutput {

@@ -181,7 +181,7 @@ type ExpressRoutePortInput interface {
 }
 
 func (*ExpressRoutePort) ElementType() reflect.Type {
-	return reflect.TypeOf((*ExpressRoutePort)(nil))
+	return reflect.TypeOf((**ExpressRoutePort)(nil)).Elem()
 }
 
 func (i *ExpressRoutePort) ToExpressRoutePortOutput() ExpressRoutePortOutput {
@@ -195,7 +195,7 @@ func (i *ExpressRoutePort) ToExpressRoutePortOutputWithContext(ctx context.Conte
 type ExpressRoutePortOutput struct{ *pulumi.OutputState }
 
 func (ExpressRoutePortOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ExpressRoutePort)(nil))
+	return reflect.TypeOf((**ExpressRoutePort)(nil)).Elem()
 }
 
 func (o ExpressRoutePortOutput) ToExpressRoutePortOutput() ExpressRoutePortOutput {

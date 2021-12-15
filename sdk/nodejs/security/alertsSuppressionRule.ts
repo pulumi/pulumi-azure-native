@@ -81,7 +81,7 @@ export class AlertsSuppressionRule extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: AlertsSuppressionRuleArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.alertType === undefined) && !opts.urn) {
@@ -93,33 +93,33 @@ export class AlertsSuppressionRule extends pulumi.CustomResource {
             if ((!args || args.state === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'state'");
             }
-            inputs["alertType"] = args ? args.alertType : undefined;
-            inputs["alertsSuppressionRuleName"] = args ? args.alertsSuppressionRuleName : undefined;
-            inputs["comment"] = args ? args.comment : undefined;
-            inputs["expirationDateUtc"] = args ? args.expirationDateUtc : undefined;
-            inputs["reason"] = args ? args.reason : undefined;
-            inputs["state"] = args ? args.state : undefined;
-            inputs["suppressionAlertsScope"] = args ? args.suppressionAlertsScope : undefined;
-            inputs["lastModifiedUtc"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["alertType"] = args ? args.alertType : undefined;
+            resourceInputs["alertsSuppressionRuleName"] = args ? args.alertsSuppressionRuleName : undefined;
+            resourceInputs["comment"] = args ? args.comment : undefined;
+            resourceInputs["expirationDateUtc"] = args ? args.expirationDateUtc : undefined;
+            resourceInputs["reason"] = args ? args.reason : undefined;
+            resourceInputs["state"] = args ? args.state : undefined;
+            resourceInputs["suppressionAlertsScope"] = args ? args.suppressionAlertsScope : undefined;
+            resourceInputs["lastModifiedUtc"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["alertType"] = undefined /*out*/;
-            inputs["comment"] = undefined /*out*/;
-            inputs["expirationDateUtc"] = undefined /*out*/;
-            inputs["lastModifiedUtc"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["reason"] = undefined /*out*/;
-            inputs["state"] = undefined /*out*/;
-            inputs["suppressionAlertsScope"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["alertType"] = undefined /*out*/;
+            resourceInputs["comment"] = undefined /*out*/;
+            resourceInputs["expirationDateUtc"] = undefined /*out*/;
+            resourceInputs["lastModifiedUtc"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["reason"] = undefined /*out*/;
+            resourceInputs["state"] = undefined /*out*/;
+            resourceInputs["suppressionAlertsScope"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:security/v20190101preview:AlertsSuppressionRule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(AlertsSuppressionRule.__pulumiType, name, inputs, opts);
+        super(AlertsSuppressionRule.__pulumiType, name, resourceInputs, opts);
     }
 }
 

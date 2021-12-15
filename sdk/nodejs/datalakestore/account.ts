@@ -137,68 +137,68 @@ export class Account extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: AccountArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["accountName"] = args ? args.accountName : undefined;
-            inputs["defaultGroup"] = args ? args.defaultGroup : undefined;
-            inputs["encryptionConfig"] = args ? args.encryptionConfig : undefined;
-            inputs["encryptionState"] = args ? args.encryptionState : undefined;
-            inputs["firewallAllowAzureIps"] = args ? args.firewallAllowAzureIps : undefined;
-            inputs["firewallRules"] = args ? args.firewallRules : undefined;
-            inputs["firewallState"] = args ? args.firewallState : undefined;
-            inputs["identity"] = args ? args.identity : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["newTier"] = args ? args.newTier : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["trustedIdProviderState"] = args ? args.trustedIdProviderState : undefined;
-            inputs["trustedIdProviders"] = args ? args.trustedIdProviders : undefined;
-            inputs["virtualNetworkRules"] = args ? args.virtualNetworkRules : undefined;
-            inputs["accountId"] = undefined /*out*/;
-            inputs["creationTime"] = undefined /*out*/;
-            inputs["currentTier"] = undefined /*out*/;
-            inputs["encryptionProvisioningState"] = undefined /*out*/;
-            inputs["endpoint"] = undefined /*out*/;
-            inputs["lastModifiedTime"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["state"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["accountName"] = args ? args.accountName : undefined;
+            resourceInputs["defaultGroup"] = args ? args.defaultGroup : undefined;
+            resourceInputs["encryptionConfig"] = args ? args.encryptionConfig : undefined;
+            resourceInputs["encryptionState"] = args ? args.encryptionState : undefined;
+            resourceInputs["firewallAllowAzureIps"] = args ? args.firewallAllowAzureIps : undefined;
+            resourceInputs["firewallRules"] = args ? args.firewallRules : undefined;
+            resourceInputs["firewallState"] = args ? args.firewallState : undefined;
+            resourceInputs["identity"] = args ? args.identity : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["newTier"] = args ? args.newTier : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["trustedIdProviderState"] = args ? args.trustedIdProviderState : undefined;
+            resourceInputs["trustedIdProviders"] = args ? args.trustedIdProviders : undefined;
+            resourceInputs["virtualNetworkRules"] = args ? args.virtualNetworkRules : undefined;
+            resourceInputs["accountId"] = undefined /*out*/;
+            resourceInputs["creationTime"] = undefined /*out*/;
+            resourceInputs["currentTier"] = undefined /*out*/;
+            resourceInputs["encryptionProvisioningState"] = undefined /*out*/;
+            resourceInputs["endpoint"] = undefined /*out*/;
+            resourceInputs["lastModifiedTime"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["state"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["accountId"] = undefined /*out*/;
-            inputs["creationTime"] = undefined /*out*/;
-            inputs["currentTier"] = undefined /*out*/;
-            inputs["defaultGroup"] = undefined /*out*/;
-            inputs["encryptionConfig"] = undefined /*out*/;
-            inputs["encryptionProvisioningState"] = undefined /*out*/;
-            inputs["encryptionState"] = undefined /*out*/;
-            inputs["endpoint"] = undefined /*out*/;
-            inputs["firewallAllowAzureIps"] = undefined /*out*/;
-            inputs["firewallRules"] = undefined /*out*/;
-            inputs["firewallState"] = undefined /*out*/;
-            inputs["identity"] = undefined /*out*/;
-            inputs["lastModifiedTime"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["newTier"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["state"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["trustedIdProviderState"] = undefined /*out*/;
-            inputs["trustedIdProviders"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["virtualNetworkRules"] = undefined /*out*/;
+            resourceInputs["accountId"] = undefined /*out*/;
+            resourceInputs["creationTime"] = undefined /*out*/;
+            resourceInputs["currentTier"] = undefined /*out*/;
+            resourceInputs["defaultGroup"] = undefined /*out*/;
+            resourceInputs["encryptionConfig"] = undefined /*out*/;
+            resourceInputs["encryptionProvisioningState"] = undefined /*out*/;
+            resourceInputs["encryptionState"] = undefined /*out*/;
+            resourceInputs["endpoint"] = undefined /*out*/;
+            resourceInputs["firewallAllowAzureIps"] = undefined /*out*/;
+            resourceInputs["firewallRules"] = undefined /*out*/;
+            resourceInputs["firewallState"] = undefined /*out*/;
+            resourceInputs["identity"] = undefined /*out*/;
+            resourceInputs["lastModifiedTime"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["newTier"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["state"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["trustedIdProviderState"] = undefined /*out*/;
+            resourceInputs["trustedIdProviders"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["virtualNetworkRules"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:datalakestore/v20161101:Account" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Account.__pulumiType, name, inputs, opts);
+        super(Account.__pulumiType, name, resourceInputs, opts);
     }
 }
 

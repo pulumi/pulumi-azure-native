@@ -100,50 +100,50 @@ export class HanaInstance extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: HanaInstanceArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["hanaInstanceName"] = args ? args.hanaInstanceName : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["networkProfile"] = args ? args.networkProfile : undefined;
-            inputs["osProfile"] = args ? args.osProfile : undefined;
-            inputs["partnerNodeId"] = args ? args.partnerNodeId : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["storageProfile"] = args ? args.storageProfile : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["hanaInstanceId"] = undefined /*out*/;
-            inputs["hardwareProfile"] = undefined /*out*/;
-            inputs["hwRevision"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["powerState"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["proximityPlacementGroup"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["hanaInstanceName"] = args ? args.hanaInstanceName : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["networkProfile"] = args ? args.networkProfile : undefined;
+            resourceInputs["osProfile"] = args ? args.osProfile : undefined;
+            resourceInputs["partnerNodeId"] = args ? args.partnerNodeId : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["storageProfile"] = args ? args.storageProfile : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["hanaInstanceId"] = undefined /*out*/;
+            resourceInputs["hardwareProfile"] = undefined /*out*/;
+            resourceInputs["hwRevision"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["powerState"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["proximityPlacementGroup"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["hanaInstanceId"] = undefined /*out*/;
-            inputs["hardwareProfile"] = undefined /*out*/;
-            inputs["hwRevision"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["networkProfile"] = undefined /*out*/;
-            inputs["osProfile"] = undefined /*out*/;
-            inputs["partnerNodeId"] = undefined /*out*/;
-            inputs["powerState"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["proximityPlacementGroup"] = undefined /*out*/;
-            inputs["storageProfile"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["hanaInstanceId"] = undefined /*out*/;
+            resourceInputs["hardwareProfile"] = undefined /*out*/;
+            resourceInputs["hwRevision"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["networkProfile"] = undefined /*out*/;
+            resourceInputs["osProfile"] = undefined /*out*/;
+            resourceInputs["partnerNodeId"] = undefined /*out*/;
+            resourceInputs["powerState"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["proximityPlacementGroup"] = undefined /*out*/;
+            resourceInputs["storageProfile"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:hanaonazure:HanaInstance" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(HanaInstance.__pulumiType, name, inputs, opts);
+        super(HanaInstance.__pulumiType, name, resourceInputs, opts);
     }
 }
 

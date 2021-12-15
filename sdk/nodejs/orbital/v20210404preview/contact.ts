@@ -120,7 +120,7 @@ export class Contact extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ContactArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.contactProfile === undefined) && !opts.urn) {
@@ -141,55 +141,55 @@ export class Contact extends pulumi.CustomResource {
             if ((!args || args.spacecraftName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'spacecraftName'");
             }
-            inputs["contactName"] = args ? args.contactName : undefined;
-            inputs["contactProfile"] = args ? args.contactProfile : undefined;
-            inputs["groundStationName"] = args ? args.groundStationName : undefined;
-            inputs["reservationEndTime"] = args ? args.reservationEndTime : undefined;
-            inputs["reservationStartTime"] = args ? args.reservationStartTime : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["spacecraftName"] = args ? args.spacecraftName : undefined;
-            inputs["endAzimuthDegrees"] = undefined /*out*/;
-            inputs["endElevationDegrees"] = undefined /*out*/;
-            inputs["errorMessage"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
-            inputs["maximumElevationDegrees"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["rxEndTime"] = undefined /*out*/;
-            inputs["rxStartTime"] = undefined /*out*/;
-            inputs["startAzimuthDegrees"] = undefined /*out*/;
-            inputs["startElevationDegrees"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["txEndTime"] = undefined /*out*/;
-            inputs["txStartTime"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["contactName"] = args ? args.contactName : undefined;
+            resourceInputs["contactProfile"] = args ? args.contactProfile : undefined;
+            resourceInputs["groundStationName"] = args ? args.groundStationName : undefined;
+            resourceInputs["reservationEndTime"] = args ? args.reservationEndTime : undefined;
+            resourceInputs["reservationStartTime"] = args ? args.reservationStartTime : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["spacecraftName"] = args ? args.spacecraftName : undefined;
+            resourceInputs["endAzimuthDegrees"] = undefined /*out*/;
+            resourceInputs["endElevationDegrees"] = undefined /*out*/;
+            resourceInputs["errorMessage"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["maximumElevationDegrees"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["rxEndTime"] = undefined /*out*/;
+            resourceInputs["rxStartTime"] = undefined /*out*/;
+            resourceInputs["startAzimuthDegrees"] = undefined /*out*/;
+            resourceInputs["startElevationDegrees"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["txEndTime"] = undefined /*out*/;
+            resourceInputs["txStartTime"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["contactProfile"] = undefined /*out*/;
-            inputs["endAzimuthDegrees"] = undefined /*out*/;
-            inputs["endElevationDegrees"] = undefined /*out*/;
-            inputs["errorMessage"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
-            inputs["groundStationName"] = undefined /*out*/;
-            inputs["maximumElevationDegrees"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["reservationEndTime"] = undefined /*out*/;
-            inputs["reservationStartTime"] = undefined /*out*/;
-            inputs["rxEndTime"] = undefined /*out*/;
-            inputs["rxStartTime"] = undefined /*out*/;
-            inputs["startAzimuthDegrees"] = undefined /*out*/;
-            inputs["startElevationDegrees"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["txEndTime"] = undefined /*out*/;
-            inputs["txStartTime"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["contactProfile"] = undefined /*out*/;
+            resourceInputs["endAzimuthDegrees"] = undefined /*out*/;
+            resourceInputs["endElevationDegrees"] = undefined /*out*/;
+            resourceInputs["errorMessage"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["groundStationName"] = undefined /*out*/;
+            resourceInputs["maximumElevationDegrees"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["reservationEndTime"] = undefined /*out*/;
+            resourceInputs["reservationStartTime"] = undefined /*out*/;
+            resourceInputs["rxEndTime"] = undefined /*out*/;
+            resourceInputs["rxStartTime"] = undefined /*out*/;
+            resourceInputs["startAzimuthDegrees"] = undefined /*out*/;
+            resourceInputs["startElevationDegrees"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["txEndTime"] = undefined /*out*/;
+            resourceInputs["txStartTime"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:orbital:Contact" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Contact.__pulumiType, name, inputs, opts);
+        super(Contact.__pulumiType, name, resourceInputs, opts);
     }
 }
 

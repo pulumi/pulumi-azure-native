@@ -126,7 +126,7 @@ type FirewallPolicyRuleGroupInput interface {
 }
 
 func (*FirewallPolicyRuleGroup) ElementType() reflect.Type {
-	return reflect.TypeOf((*FirewallPolicyRuleGroup)(nil))
+	return reflect.TypeOf((**FirewallPolicyRuleGroup)(nil)).Elem()
 }
 
 func (i *FirewallPolicyRuleGroup) ToFirewallPolicyRuleGroupOutput() FirewallPolicyRuleGroupOutput {
@@ -140,7 +140,7 @@ func (i *FirewallPolicyRuleGroup) ToFirewallPolicyRuleGroupOutputWithContext(ctx
 type FirewallPolicyRuleGroupOutput struct{ *pulumi.OutputState }
 
 func (FirewallPolicyRuleGroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FirewallPolicyRuleGroup)(nil))
+	return reflect.TypeOf((**FirewallPolicyRuleGroup)(nil)).Elem()
 }
 
 func (o FirewallPolicyRuleGroupOutput) ToFirewallPolicyRuleGroupOutput() FirewallPolicyRuleGroupOutput {

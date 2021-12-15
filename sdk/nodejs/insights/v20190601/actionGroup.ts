@@ -116,7 +116,7 @@ export class ActionGroup extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ActionGroupArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.enabled === undefined) && !opts.urn) {
@@ -128,52 +128,52 @@ export class ActionGroup extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["actionGroupName"] = args ? args.actionGroupName : undefined;
-            inputs["armRoleReceivers"] = args ? args.armRoleReceivers : undefined;
-            inputs["automationRunbookReceivers"] = args ? args.automationRunbookReceivers : undefined;
-            inputs["azureAppPushReceivers"] = args ? args.azureAppPushReceivers : undefined;
-            inputs["azureFunctionReceivers"] = args ? args.azureFunctionReceivers : undefined;
-            inputs["emailReceivers"] = args ? args.emailReceivers : undefined;
-            inputs["enabled"] = (args ? args.enabled : undefined) ?? true;
-            inputs["groupShortName"] = args ? args.groupShortName : undefined;
-            inputs["itsmReceivers"] = args ? args.itsmReceivers : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["logicAppReceivers"] = args ? args.logicAppReceivers : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["smsReceivers"] = args ? args.smsReceivers : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["voiceReceivers"] = args ? args.voiceReceivers : undefined;
-            inputs["webhookReceivers"] = args ? args.webhookReceivers : undefined;
-            inputs["identity"] = undefined /*out*/;
-            inputs["kind"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["actionGroupName"] = args ? args.actionGroupName : undefined;
+            resourceInputs["armRoleReceivers"] = args ? args.armRoleReceivers : undefined;
+            resourceInputs["automationRunbookReceivers"] = args ? args.automationRunbookReceivers : undefined;
+            resourceInputs["azureAppPushReceivers"] = args ? args.azureAppPushReceivers : undefined;
+            resourceInputs["azureFunctionReceivers"] = args ? args.azureFunctionReceivers : undefined;
+            resourceInputs["emailReceivers"] = args ? args.emailReceivers : undefined;
+            resourceInputs["enabled"] = (args ? args.enabled : undefined) ?? true;
+            resourceInputs["groupShortName"] = args ? args.groupShortName : undefined;
+            resourceInputs["itsmReceivers"] = args ? args.itsmReceivers : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["logicAppReceivers"] = args ? args.logicAppReceivers : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["smsReceivers"] = args ? args.smsReceivers : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["voiceReceivers"] = args ? args.voiceReceivers : undefined;
+            resourceInputs["webhookReceivers"] = args ? args.webhookReceivers : undefined;
+            resourceInputs["identity"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["armRoleReceivers"] = undefined /*out*/;
-            inputs["automationRunbookReceivers"] = undefined /*out*/;
-            inputs["azureAppPushReceivers"] = undefined /*out*/;
-            inputs["azureFunctionReceivers"] = undefined /*out*/;
-            inputs["emailReceivers"] = undefined /*out*/;
-            inputs["enabled"] = undefined /*out*/;
-            inputs["groupShortName"] = undefined /*out*/;
-            inputs["identity"] = undefined /*out*/;
-            inputs["itsmReceivers"] = undefined /*out*/;
-            inputs["kind"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["logicAppReceivers"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["smsReceivers"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["voiceReceivers"] = undefined /*out*/;
-            inputs["webhookReceivers"] = undefined /*out*/;
+            resourceInputs["armRoleReceivers"] = undefined /*out*/;
+            resourceInputs["automationRunbookReceivers"] = undefined /*out*/;
+            resourceInputs["azureAppPushReceivers"] = undefined /*out*/;
+            resourceInputs["azureFunctionReceivers"] = undefined /*out*/;
+            resourceInputs["emailReceivers"] = undefined /*out*/;
+            resourceInputs["enabled"] = undefined /*out*/;
+            resourceInputs["groupShortName"] = undefined /*out*/;
+            resourceInputs["identity"] = undefined /*out*/;
+            resourceInputs["itsmReceivers"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["logicAppReceivers"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["smsReceivers"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["voiceReceivers"] = undefined /*out*/;
+            resourceInputs["webhookReceivers"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:insights:ActionGroup" }, { type: "azure-native:insights/v20170401:ActionGroup" }, { type: "azure-native:insights/v20180301:ActionGroup" }, { type: "azure-native:insights/v20180901:ActionGroup" }, { type: "azure-native:insights/v20190301:ActionGroup" }, { type: "azure-native:insights/v20210901:ActionGroup" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(ActionGroup.__pulumiType, name, inputs, opts);
+        super(ActionGroup.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -115,7 +115,7 @@ type SystemTopicInput interface {
 }
 
 func (*SystemTopic) ElementType() reflect.Type {
-	return reflect.TypeOf((*SystemTopic)(nil))
+	return reflect.TypeOf((**SystemTopic)(nil)).Elem()
 }
 
 func (i *SystemTopic) ToSystemTopicOutput() SystemTopicOutput {
@@ -129,7 +129,7 @@ func (i *SystemTopic) ToSystemTopicOutputWithContext(ctx context.Context) System
 type SystemTopicOutput struct{ *pulumi.OutputState }
 
 func (SystemTopicOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SystemTopic)(nil))
+	return reflect.TypeOf((**SystemTopic)(nil)).Elem()
 }
 
 func (o SystemTopicOutput) ToSystemTopicOutput() SystemTopicOutput {

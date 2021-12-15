@@ -9,7 +9,7 @@ import (
 
 func ListWebAppBackupStatusSecretsSlot(ctx *pulumi.Context, args *ListWebAppBackupStatusSecretsSlotArgs, opts ...pulumi.InvokeOption) (*ListWebAppBackupStatusSecretsSlotResult, error) {
 	var rv ListWebAppBackupStatusSecretsSlotResult
-	err := ctx.Invoke("azure-native:web/v20160801:listWebAppBackupStatusSecretsSlot", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:web/v20160801:listWebAppBackupStatusSecretsSlot", args.Defaults(), &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -28,6 +28,17 @@ type ListWebAppBackupStatusSecretsSlotArgs struct {
 	Slot              string                      `pulumi:"slot"`
 	StorageAccountUrl string                      `pulumi:"storageAccountUrl"`
 	Type              *BackupRestoreOperationType `pulumi:"type"`
+}
+
+
+func (val *ListWebAppBackupStatusSecretsSlotArgs) Defaults() *ListWebAppBackupStatusSecretsSlotArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.BackupSchedule = tmp.BackupSchedule.Defaults()
+
+	return &tmp
 }
 
 

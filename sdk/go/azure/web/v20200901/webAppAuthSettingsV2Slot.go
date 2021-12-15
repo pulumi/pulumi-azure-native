@@ -133,7 +133,7 @@ type WebAppAuthSettingsV2SlotInput interface {
 }
 
 func (*WebAppAuthSettingsV2Slot) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAppAuthSettingsV2Slot)(nil))
+	return reflect.TypeOf((**WebAppAuthSettingsV2Slot)(nil)).Elem()
 }
 
 func (i *WebAppAuthSettingsV2Slot) ToWebAppAuthSettingsV2SlotOutput() WebAppAuthSettingsV2SlotOutput {
@@ -147,7 +147,7 @@ func (i *WebAppAuthSettingsV2Slot) ToWebAppAuthSettingsV2SlotOutputWithContext(c
 type WebAppAuthSettingsV2SlotOutput struct{ *pulumi.OutputState }
 
 func (WebAppAuthSettingsV2SlotOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAppAuthSettingsV2Slot)(nil))
+	return reflect.TypeOf((**WebAppAuthSettingsV2Slot)(nil)).Elem()
 }
 
 func (o WebAppAuthSettingsV2SlotOutput) ToWebAppAuthSettingsV2SlotOutput() WebAppAuthSettingsV2SlotOutput {

@@ -2266,6 +2266,27 @@ type JobSchedule struct {
 }
 
 
+func (val *JobSchedule) Defaults() *JobSchedule {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.EndTime) {
+		endTime_ := "9999-12-31T11:59:59+00:00"
+		tmp.EndTime = &endTime_
+	}
+	if isZero(tmp.StartTime) {
+		startTime_ := "0001-01-01T00:00:00+00:00"
+		tmp.StartTime = &startTime_
+	}
+	if isZero(tmp.Type) {
+		type_ := JobScheduleType("Once")
+		tmp.Type = &type_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -2456,6 +2477,27 @@ type JobScheduleResponse struct {
 	Interval  *string `pulumi:"interval"`
 	StartTime *string `pulumi:"startTime"`
 	Type      *string `pulumi:"type"`
+}
+
+
+func (val *JobScheduleResponse) Defaults() *JobScheduleResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.EndTime) {
+		endTime_ := "9999-12-31T11:59:59+00:00"
+		tmp.EndTime = &endTime_
+	}
+	if isZero(tmp.StartTime) {
+		startTime_ := "0001-01-01T00:00:00+00:00"
+		tmp.StartTime = &startTime_
+	}
+	if isZero(tmp.Type) {
+		type_ := "Once"
+		tmp.Type = &type_
+	}
+	return &tmp
 }
 
 
@@ -2650,6 +2692,23 @@ type JobStepAction struct {
 }
 
 
+func (val *JobStepAction) Defaults() *JobStepAction {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Source) {
+		source_ := "Inline"
+		tmp.Source = &source_
+	}
+	if isZero(tmp.Type) {
+		type_ := "TSql"
+		tmp.Type = &type_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -2810,6 +2869,23 @@ type JobStepActionResponse struct {
 	Source *string `pulumi:"source"`
 	Type   *string `pulumi:"type"`
 	Value  string  `pulumi:"value"`
+}
+
+
+func (val *JobStepActionResponse) Defaults() *JobStepActionResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Source) {
+		source_ := "Inline"
+		tmp.Source = &source_
+	}
+	if isZero(tmp.Type) {
+		type_ := "TSql"
+		tmp.Type = &type_
+	}
+	return &tmp
 }
 
 
@@ -2975,6 +3051,35 @@ type JobStepExecutionOptions struct {
 	RetryAttempts                  *int     `pulumi:"retryAttempts"`
 	RetryIntervalBackoffMultiplier *float64 `pulumi:"retryIntervalBackoffMultiplier"`
 	TimeoutSeconds                 *int     `pulumi:"timeoutSeconds"`
+}
+
+
+func (val *JobStepExecutionOptions) Defaults() *JobStepExecutionOptions {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.InitialRetryIntervalSeconds) {
+		initialRetryIntervalSeconds_ := 1
+		tmp.InitialRetryIntervalSeconds = &initialRetryIntervalSeconds_
+	}
+	if isZero(tmp.MaximumRetryIntervalSeconds) {
+		maximumRetryIntervalSeconds_ := 120
+		tmp.MaximumRetryIntervalSeconds = &maximumRetryIntervalSeconds_
+	}
+	if isZero(tmp.RetryAttempts) {
+		retryAttempts_ := 10
+		tmp.RetryAttempts = &retryAttempts_
+	}
+	if isZero(tmp.RetryIntervalBackoffMultiplier) {
+		retryIntervalBackoffMultiplier_ := 2.0
+		tmp.RetryIntervalBackoffMultiplier = &retryIntervalBackoffMultiplier_
+	}
+	if isZero(tmp.TimeoutSeconds) {
+		timeoutSeconds_ := 43200
+		tmp.TimeoutSeconds = &timeoutSeconds_
+	}
+	return &tmp
 }
 
 
@@ -3171,6 +3276,35 @@ type JobStepExecutionOptionsResponse struct {
 }
 
 
+func (val *JobStepExecutionOptionsResponse) Defaults() *JobStepExecutionOptionsResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.InitialRetryIntervalSeconds) {
+		initialRetryIntervalSeconds_ := 1
+		tmp.InitialRetryIntervalSeconds = &initialRetryIntervalSeconds_
+	}
+	if isZero(tmp.MaximumRetryIntervalSeconds) {
+		maximumRetryIntervalSeconds_ := 120
+		tmp.MaximumRetryIntervalSeconds = &maximumRetryIntervalSeconds_
+	}
+	if isZero(tmp.RetryAttempts) {
+		retryAttempts_ := 10
+		tmp.RetryAttempts = &retryAttempts_
+	}
+	if isZero(tmp.RetryIntervalBackoffMultiplier) {
+		retryIntervalBackoffMultiplier_ := 2.0
+		tmp.RetryIntervalBackoffMultiplier = &retryIntervalBackoffMultiplier_
+	}
+	if isZero(tmp.TimeoutSeconds) {
+		timeoutSeconds_ := 43200
+		tmp.TimeoutSeconds = &timeoutSeconds_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -3364,6 +3498,23 @@ type JobStepOutputType struct {
 	SubscriptionId    *string `pulumi:"subscriptionId"`
 	TableName         string  `pulumi:"tableName"`
 	Type              *string `pulumi:"type"`
+}
+
+
+func (val *JobStepOutputType) Defaults() *JobStepOutputType {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.SchemaName) {
+		schemaName_ := "dbo"
+		tmp.SchemaName = &schemaName_
+	}
+	if isZero(tmp.Type) {
+		type_ := "SqlDatabase"
+		tmp.Type = &type_
+	}
+	return &tmp
 }
 
 
@@ -3605,6 +3756,23 @@ type JobStepOutputResponse struct {
 }
 
 
+func (val *JobStepOutputResponse) Defaults() *JobStepOutputResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.SchemaName) {
+		schemaName_ := "dbo"
+		tmp.SchemaName = &schemaName_
+	}
+	if isZero(tmp.Type) {
+		type_ := "SqlDatabase"
+		tmp.Type = &type_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -3842,6 +4010,19 @@ type JobTarget struct {
 }
 
 
+func (val *JobTarget) Defaults() *JobTarget {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.MembershipType) {
+		membershipType_ := JobTargetGroupMembershipType("Include")
+		tmp.MembershipType = &membershipType_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -3969,6 +4150,19 @@ type JobTargetResponse struct {
 	ServerName        *string `pulumi:"serverName"`
 	ShardMapName      *string `pulumi:"shardMapName"`
 	Type              string  `pulumi:"type"`
+}
+
+
+func (val *JobTargetResponse) Defaults() *JobTargetResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.MembershipType) {
+		membershipType_ := "Include"
+		tmp.MembershipType = &membershipType_
+	}
+	return &tmp
 }
 
 
@@ -9912,6 +10106,19 @@ type VulnerabilityAssessmentRecurringScansProperties struct {
 }
 
 
+func (val *VulnerabilityAssessmentRecurringScansProperties) Defaults() *VulnerabilityAssessmentRecurringScansProperties {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.EmailSubscriptionAdmins) {
+		emailSubscriptionAdmins_ := true
+		tmp.EmailSubscriptionAdmins = &emailSubscriptionAdmins_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -10072,6 +10279,19 @@ type VulnerabilityAssessmentRecurringScansPropertiesResponse struct {
 	EmailSubscriptionAdmins *bool    `pulumi:"emailSubscriptionAdmins"`
 	Emails                  []string `pulumi:"emails"`
 	IsEnabled               *bool    `pulumi:"isEnabled"`
+}
+
+
+func (val *VulnerabilityAssessmentRecurringScansPropertiesResponse) Defaults() *VulnerabilityAssessmentRecurringScansPropertiesResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.EmailSubscriptionAdmins) {
+		emailSubscriptionAdmins_ := true
+		tmp.EmailSubscriptionAdmins = &emailSubscriptionAdmins_
+	}
+	return &tmp
 }
 
 

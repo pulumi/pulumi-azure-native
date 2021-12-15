@@ -47,7 +47,11 @@ func NewVirtualMachineSchedule(ctx *pulumi.Context,
 	if args.VirtualMachineName == nil {
 		return nil, errors.New("invalid value for required argument 'VirtualMachineName'")
 	}
-	if args.Status == nil {
+	notificationSettingsApplier := func(v NotificationSettings) *NotificationSettings { return v.Defaults() }
+	if args.NotificationSettings != nil {
+		args.NotificationSettings = args.NotificationSettings.ToNotificationSettingsPtrOutput().Elem().ApplyT(notificationSettingsApplier).(NotificationSettingsPtrOutput)
+	}
+	if isZero(args.Status) {
 		args.Status = pulumi.StringPtr("Disabled")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
@@ -137,7 +141,7 @@ type VirtualMachineScheduleInput interface {
 }
 
 func (*VirtualMachineSchedule) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualMachineSchedule)(nil))
+	return reflect.TypeOf((**VirtualMachineSchedule)(nil)).Elem()
 }
 
 func (i *VirtualMachineSchedule) ToVirtualMachineScheduleOutput() VirtualMachineScheduleOutput {
@@ -151,7 +155,7 @@ func (i *VirtualMachineSchedule) ToVirtualMachineScheduleOutputWithContext(ctx c
 type VirtualMachineScheduleOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineScheduleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualMachineSchedule)(nil))
+	return reflect.TypeOf((**VirtualMachineSchedule)(nil)).Elem()
 }
 
 func (o VirtualMachineScheduleOutput) ToVirtualMachineScheduleOutput() VirtualMachineScheduleOutput {

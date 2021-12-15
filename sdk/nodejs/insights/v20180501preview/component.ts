@@ -144,7 +144,7 @@ export class Component extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ComponentArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.applicationType === undefined) && !opts.urn) {
@@ -156,66 +156,66 @@ export class Component extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["applicationType"] = (args ? args.applicationType : undefined) ?? "web";
-            inputs["disableIpMasking"] = args ? args.disableIpMasking : undefined;
-            inputs["flowType"] = (args ? args.flowType : undefined) ?? "Bluefield";
-            inputs["hockeyAppId"] = args ? args.hockeyAppId : undefined;
-            inputs["immediatePurgeDataOn30Days"] = args ? args.immediatePurgeDataOn30Days : undefined;
-            inputs["ingestionMode"] = (args ? args.ingestionMode : undefined) ?? "ApplicationInsights";
-            inputs["kind"] = args ? args.kind : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["publicNetworkAccessForIngestion"] = args ? args.publicNetworkAccessForIngestion : undefined;
-            inputs["publicNetworkAccessForQuery"] = args ? args.publicNetworkAccessForQuery : undefined;
-            inputs["requestSource"] = (args ? args.requestSource : undefined) ?? "rest";
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["resourceName"] = args ? args.resourceName : undefined;
-            inputs["retentionInDays"] = (args ? args.retentionInDays : undefined) ?? 90;
-            inputs["samplingPercentage"] = args ? args.samplingPercentage : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["appId"] = undefined /*out*/;
-            inputs["applicationId"] = undefined /*out*/;
-            inputs["connectionString"] = undefined /*out*/;
-            inputs["creationDate"] = undefined /*out*/;
-            inputs["hockeyAppToken"] = undefined /*out*/;
-            inputs["instrumentationKey"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["privateLinkScopedResources"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["tenantId"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["applicationType"] = (args ? args.applicationType : undefined) ?? "web";
+            resourceInputs["disableIpMasking"] = args ? args.disableIpMasking : undefined;
+            resourceInputs["flowType"] = (args ? args.flowType : undefined) ?? "Bluefield";
+            resourceInputs["hockeyAppId"] = args ? args.hockeyAppId : undefined;
+            resourceInputs["immediatePurgeDataOn30Days"] = args ? args.immediatePurgeDataOn30Days : undefined;
+            resourceInputs["ingestionMode"] = (args ? args.ingestionMode : undefined) ?? "ApplicationInsights";
+            resourceInputs["kind"] = args ? args.kind : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["publicNetworkAccessForIngestion"] = args ? args.publicNetworkAccessForIngestion : undefined;
+            resourceInputs["publicNetworkAccessForQuery"] = args ? args.publicNetworkAccessForQuery : undefined;
+            resourceInputs["requestSource"] = (args ? args.requestSource : undefined) ?? "rest";
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["resourceName"] = args ? args.resourceName : undefined;
+            resourceInputs["retentionInDays"] = (args ? args.retentionInDays : undefined) ?? 90;
+            resourceInputs["samplingPercentage"] = args ? args.samplingPercentage : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["appId"] = undefined /*out*/;
+            resourceInputs["applicationId"] = undefined /*out*/;
+            resourceInputs["connectionString"] = undefined /*out*/;
+            resourceInputs["creationDate"] = undefined /*out*/;
+            resourceInputs["hockeyAppToken"] = undefined /*out*/;
+            resourceInputs["instrumentationKey"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["privateLinkScopedResources"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["tenantId"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["appId"] = undefined /*out*/;
-            inputs["applicationId"] = undefined /*out*/;
-            inputs["applicationType"] = undefined /*out*/;
-            inputs["connectionString"] = undefined /*out*/;
-            inputs["creationDate"] = undefined /*out*/;
-            inputs["disableIpMasking"] = undefined /*out*/;
-            inputs["flowType"] = undefined /*out*/;
-            inputs["hockeyAppId"] = undefined /*out*/;
-            inputs["hockeyAppToken"] = undefined /*out*/;
-            inputs["immediatePurgeDataOn30Days"] = undefined /*out*/;
-            inputs["ingestionMode"] = undefined /*out*/;
-            inputs["instrumentationKey"] = undefined /*out*/;
-            inputs["kind"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["privateLinkScopedResources"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["publicNetworkAccessForIngestion"] = undefined /*out*/;
-            inputs["publicNetworkAccessForQuery"] = undefined /*out*/;
-            inputs["requestSource"] = undefined /*out*/;
-            inputs["retentionInDays"] = undefined /*out*/;
-            inputs["samplingPercentage"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["tenantId"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["appId"] = undefined /*out*/;
+            resourceInputs["applicationId"] = undefined /*out*/;
+            resourceInputs["applicationType"] = undefined /*out*/;
+            resourceInputs["connectionString"] = undefined /*out*/;
+            resourceInputs["creationDate"] = undefined /*out*/;
+            resourceInputs["disableIpMasking"] = undefined /*out*/;
+            resourceInputs["flowType"] = undefined /*out*/;
+            resourceInputs["hockeyAppId"] = undefined /*out*/;
+            resourceInputs["hockeyAppToken"] = undefined /*out*/;
+            resourceInputs["immediatePurgeDataOn30Days"] = undefined /*out*/;
+            resourceInputs["ingestionMode"] = undefined /*out*/;
+            resourceInputs["instrumentationKey"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["privateLinkScopedResources"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["publicNetworkAccessForIngestion"] = undefined /*out*/;
+            resourceInputs["publicNetworkAccessForQuery"] = undefined /*out*/;
+            resourceInputs["requestSource"] = undefined /*out*/;
+            resourceInputs["retentionInDays"] = undefined /*out*/;
+            resourceInputs["samplingPercentage"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["tenantId"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:insights:Component" }, { type: "azure-native:insights/v20150501:Component" }, { type: "azure-native:insights/v20200202:Component" }, { type: "azure-native:insights/v20200202preview:Component" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Component.__pulumiType, name, inputs, opts);
+        super(Component.__pulumiType, name, resourceInputs, opts);
     }
 }
 

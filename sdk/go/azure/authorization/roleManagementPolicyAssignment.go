@@ -96,7 +96,7 @@ type RoleManagementPolicyAssignmentInput interface {
 }
 
 func (*RoleManagementPolicyAssignment) ElementType() reflect.Type {
-	return reflect.TypeOf((*RoleManagementPolicyAssignment)(nil))
+	return reflect.TypeOf((**RoleManagementPolicyAssignment)(nil)).Elem()
 }
 
 func (i *RoleManagementPolicyAssignment) ToRoleManagementPolicyAssignmentOutput() RoleManagementPolicyAssignmentOutput {
@@ -110,7 +110,7 @@ func (i *RoleManagementPolicyAssignment) ToRoleManagementPolicyAssignmentOutputW
 type RoleManagementPolicyAssignmentOutput struct{ *pulumi.OutputState }
 
 func (RoleManagementPolicyAssignmentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RoleManagementPolicyAssignment)(nil))
+	return reflect.TypeOf((**RoleManagementPolicyAssignment)(nil)).Elem()
 }
 
 func (o RoleManagementPolicyAssignmentOutput) ToRoleManagementPolicyAssignmentOutput() RoleManagementPolicyAssignmentOutput {

@@ -89,7 +89,7 @@ export class SensitivityLabel extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: SensitivityLabelArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.columnName === undefined) && !opts.urn) {
@@ -110,42 +110,42 @@ export class SensitivityLabel extends pulumi.CustomResource {
             if ((!args || args.tableName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'tableName'");
             }
-            inputs["columnName"] = args ? args.columnName : undefined;
-            inputs["databaseName"] = args ? args.databaseName : undefined;
-            inputs["informationType"] = args ? args.informationType : undefined;
-            inputs["informationTypeId"] = args ? args.informationTypeId : undefined;
-            inputs["labelId"] = args ? args.labelId : undefined;
-            inputs["labelName"] = args ? args.labelName : undefined;
-            inputs["rank"] = args ? args.rank : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["schemaName"] = args ? args.schemaName : undefined;
-            inputs["sensitivityLabelSource"] = args ? args.sensitivityLabelSource : undefined;
-            inputs["serverName"] = args ? args.serverName : undefined;
-            inputs["tableName"] = args ? args.tableName : undefined;
-            inputs["isDisabled"] = undefined /*out*/;
-            inputs["managedBy"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["columnName"] = args ? args.columnName : undefined;
+            resourceInputs["databaseName"] = args ? args.databaseName : undefined;
+            resourceInputs["informationType"] = args ? args.informationType : undefined;
+            resourceInputs["informationTypeId"] = args ? args.informationTypeId : undefined;
+            resourceInputs["labelId"] = args ? args.labelId : undefined;
+            resourceInputs["labelName"] = args ? args.labelName : undefined;
+            resourceInputs["rank"] = args ? args.rank : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["schemaName"] = args ? args.schemaName : undefined;
+            resourceInputs["sensitivityLabelSource"] = args ? args.sensitivityLabelSource : undefined;
+            resourceInputs["serverName"] = args ? args.serverName : undefined;
+            resourceInputs["tableName"] = args ? args.tableName : undefined;
+            resourceInputs["isDisabled"] = undefined /*out*/;
+            resourceInputs["managedBy"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["columnName"] = undefined /*out*/;
-            inputs["informationType"] = undefined /*out*/;
-            inputs["informationTypeId"] = undefined /*out*/;
-            inputs["isDisabled"] = undefined /*out*/;
-            inputs["labelId"] = undefined /*out*/;
-            inputs["labelName"] = undefined /*out*/;
-            inputs["managedBy"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["rank"] = undefined /*out*/;
-            inputs["schemaName"] = undefined /*out*/;
-            inputs["tableName"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["columnName"] = undefined /*out*/;
+            resourceInputs["informationType"] = undefined /*out*/;
+            resourceInputs["informationTypeId"] = undefined /*out*/;
+            resourceInputs["isDisabled"] = undefined /*out*/;
+            resourceInputs["labelId"] = undefined /*out*/;
+            resourceInputs["labelName"] = undefined /*out*/;
+            resourceInputs["managedBy"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["rank"] = undefined /*out*/;
+            resourceInputs["schemaName"] = undefined /*out*/;
+            resourceInputs["tableName"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:sql:SensitivityLabel" }, { type: "azure-native:sql/v20170301preview:SensitivityLabel" }, { type: "azure-native:sql/v20200202preview:SensitivityLabel" }, { type: "azure-native:sql/v20200801preview:SensitivityLabel" }, { type: "azure-native:sql/v20201101preview:SensitivityLabel" }, { type: "azure-native:sql/v20210501preview:SensitivityLabel" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(SensitivityLabel.__pulumiType, name, inputs, opts);
+        super(SensitivityLabel.__pulumiType, name, resourceInputs, opts);
     }
 }
 

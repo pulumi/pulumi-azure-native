@@ -92,7 +92,7 @@ type AssociationInput interface {
 }
 
 func (*Association) ElementType() reflect.Type {
-	return reflect.TypeOf((*Association)(nil))
+	return reflect.TypeOf((**Association)(nil)).Elem()
 }
 
 func (i *Association) ToAssociationOutput() AssociationOutput {
@@ -106,7 +106,7 @@ func (i *Association) ToAssociationOutputWithContext(ctx context.Context) Associ
 type AssociationOutput struct{ *pulumi.OutputState }
 
 func (AssociationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Association)(nil))
+	return reflect.TypeOf((**Association)(nil)).Elem()
 }
 
 func (o AssociationOutput) ToAssociationOutput() AssociationOutput {

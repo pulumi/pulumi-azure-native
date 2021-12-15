@@ -118,7 +118,7 @@ type FavoriteInput interface {
 }
 
 func (*Favorite) ElementType() reflect.Type {
-	return reflect.TypeOf((*Favorite)(nil))
+	return reflect.TypeOf((**Favorite)(nil)).Elem()
 }
 
 func (i *Favorite) ToFavoriteOutput() FavoriteOutput {
@@ -132,7 +132,7 @@ func (i *Favorite) ToFavoriteOutputWithContext(ctx context.Context) FavoriteOutp
 type FavoriteOutput struct{ *pulumi.OutputState }
 
 func (FavoriteOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Favorite)(nil))
+	return reflect.TypeOf((**Favorite)(nil)).Elem()
 }
 
 func (o FavoriteOutput) ToFavoriteOutput() FavoriteOutput {

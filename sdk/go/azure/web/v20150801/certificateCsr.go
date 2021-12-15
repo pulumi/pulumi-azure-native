@@ -113,7 +113,7 @@ type CertificateCsrInput interface {
 }
 
 func (*CertificateCsr) ElementType() reflect.Type {
-	return reflect.TypeOf((*CertificateCsr)(nil))
+	return reflect.TypeOf((**CertificateCsr)(nil)).Elem()
 }
 
 func (i *CertificateCsr) ToCertificateCsrOutput() CertificateCsrOutput {
@@ -127,7 +127,7 @@ func (i *CertificateCsr) ToCertificateCsrOutputWithContext(ctx context.Context) 
 type CertificateCsrOutput struct{ *pulumi.OutputState }
 
 func (CertificateCsrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CertificateCsr)(nil))
+	return reflect.TypeOf((**CertificateCsr)(nil)).Elem()
 }
 
 func (o CertificateCsrOutput) ToCertificateCsrOutput() CertificateCsrOutput {

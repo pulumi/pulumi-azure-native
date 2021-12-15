@@ -45,7 +45,7 @@ func NewScript(ctx *pulumi.Context,
 	if args.ScriptUrlSasToken == nil {
 		return nil, errors.New("invalid value for required argument 'ScriptUrlSasToken'")
 	}
-	if args.ContinueOnErrors == nil {
+	if isZero(args.ContinueOnErrors) {
 		args.ContinueOnErrors = pulumi.BoolPtr(false)
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
@@ -123,7 +123,7 @@ type ScriptInput interface {
 }
 
 func (*Script) ElementType() reflect.Type {
-	return reflect.TypeOf((*Script)(nil))
+	return reflect.TypeOf((**Script)(nil)).Elem()
 }
 
 func (i *Script) ToScriptOutput() ScriptOutput {
@@ -137,7 +137,7 @@ func (i *Script) ToScriptOutputWithContext(ctx context.Context) ScriptOutput {
 type ScriptOutput struct{ *pulumi.OutputState }
 
 func (ScriptOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Script)(nil))
+	return reflect.TypeOf((**Script)(nil)).Elem()
 }
 
 func (o ScriptOutput) ToScriptOutput() ScriptOutput {

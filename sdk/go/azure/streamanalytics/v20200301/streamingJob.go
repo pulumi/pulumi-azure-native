@@ -163,7 +163,7 @@ type StreamingJobInput interface {
 }
 
 func (*StreamingJob) ElementType() reflect.Type {
-	return reflect.TypeOf((*StreamingJob)(nil))
+	return reflect.TypeOf((**StreamingJob)(nil)).Elem()
 }
 
 func (i *StreamingJob) ToStreamingJobOutput() StreamingJobOutput {
@@ -177,7 +177,7 @@ func (i *StreamingJob) ToStreamingJobOutputWithContext(ctx context.Context) Stre
 type StreamingJobOutput struct{ *pulumi.OutputState }
 
 func (StreamingJobOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StreamingJob)(nil))
+	return reflect.TypeOf((**StreamingJob)(nil)).Elem()
 }
 
 func (o StreamingJobOutput) ToStreamingJobOutput() StreamingJobOutput {

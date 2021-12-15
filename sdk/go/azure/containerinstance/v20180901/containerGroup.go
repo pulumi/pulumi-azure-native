@@ -162,7 +162,7 @@ type ContainerGroupInput interface {
 }
 
 func (*ContainerGroup) ElementType() reflect.Type {
-	return reflect.TypeOf((*ContainerGroup)(nil))
+	return reflect.TypeOf((**ContainerGroup)(nil)).Elem()
 }
 
 func (i *ContainerGroup) ToContainerGroupOutput() ContainerGroupOutput {
@@ -176,7 +176,7 @@ func (i *ContainerGroup) ToContainerGroupOutputWithContext(ctx context.Context) 
 type ContainerGroupOutput struct{ *pulumi.OutputState }
 
 func (ContainerGroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ContainerGroup)(nil))
+	return reflect.TypeOf((**ContainerGroup)(nil)).Elem()
 }
 
 func (o ContainerGroupOutput) ToContainerGroupOutput() ContainerGroupOutput {

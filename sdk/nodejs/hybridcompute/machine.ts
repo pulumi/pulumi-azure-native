@@ -138,69 +138,69 @@ export class Machine extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: MachineArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["clientPublicKey"] = args ? args.clientPublicKey : undefined;
-            inputs["identity"] = args ? args.identity : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["locationData"] = args ? args.locationData : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["vmId"] = args ? args.vmId : undefined;
-            inputs["adFqdn"] = undefined /*out*/;
-            inputs["agentVersion"] = undefined /*out*/;
-            inputs["displayName"] = undefined /*out*/;
-            inputs["dnsFqdn"] = undefined /*out*/;
-            inputs["domainName"] = undefined /*out*/;
-            inputs["errorDetails"] = undefined /*out*/;
-            inputs["extensions"] = undefined /*out*/;
-            inputs["lastStatusChange"] = undefined /*out*/;
-            inputs["machineFqdn"] = undefined /*out*/;
-            inputs["osName"] = undefined /*out*/;
-            inputs["osProfile"] = undefined /*out*/;
-            inputs["osSku"] = undefined /*out*/;
-            inputs["osVersion"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["vmUuid"] = undefined /*out*/;
+            resourceInputs["clientPublicKey"] = args ? args.clientPublicKey : undefined;
+            resourceInputs["identity"] = args ? args.identity : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["locationData"] = args ? args.locationData : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["vmId"] = args ? args.vmId : undefined;
+            resourceInputs["adFqdn"] = undefined /*out*/;
+            resourceInputs["agentVersion"] = undefined /*out*/;
+            resourceInputs["displayName"] = undefined /*out*/;
+            resourceInputs["dnsFqdn"] = undefined /*out*/;
+            resourceInputs["domainName"] = undefined /*out*/;
+            resourceInputs["errorDetails"] = undefined /*out*/;
+            resourceInputs["extensions"] = undefined /*out*/;
+            resourceInputs["lastStatusChange"] = undefined /*out*/;
+            resourceInputs["machineFqdn"] = undefined /*out*/;
+            resourceInputs["osName"] = undefined /*out*/;
+            resourceInputs["osProfile"] = undefined /*out*/;
+            resourceInputs["osSku"] = undefined /*out*/;
+            resourceInputs["osVersion"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["vmUuid"] = undefined /*out*/;
         } else {
-            inputs["adFqdn"] = undefined /*out*/;
-            inputs["agentVersion"] = undefined /*out*/;
-            inputs["clientPublicKey"] = undefined /*out*/;
-            inputs["displayName"] = undefined /*out*/;
-            inputs["dnsFqdn"] = undefined /*out*/;
-            inputs["domainName"] = undefined /*out*/;
-            inputs["errorDetails"] = undefined /*out*/;
-            inputs["extensions"] = undefined /*out*/;
-            inputs["identity"] = undefined /*out*/;
-            inputs["lastStatusChange"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["locationData"] = undefined /*out*/;
-            inputs["machineFqdn"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["osName"] = undefined /*out*/;
-            inputs["osProfile"] = undefined /*out*/;
-            inputs["osSku"] = undefined /*out*/;
-            inputs["osVersion"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["vmId"] = undefined /*out*/;
-            inputs["vmUuid"] = undefined /*out*/;
+            resourceInputs["adFqdn"] = undefined /*out*/;
+            resourceInputs["agentVersion"] = undefined /*out*/;
+            resourceInputs["clientPublicKey"] = undefined /*out*/;
+            resourceInputs["displayName"] = undefined /*out*/;
+            resourceInputs["dnsFqdn"] = undefined /*out*/;
+            resourceInputs["domainName"] = undefined /*out*/;
+            resourceInputs["errorDetails"] = undefined /*out*/;
+            resourceInputs["extensions"] = undefined /*out*/;
+            resourceInputs["identity"] = undefined /*out*/;
+            resourceInputs["lastStatusChange"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["locationData"] = undefined /*out*/;
+            resourceInputs["machineFqdn"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["osName"] = undefined /*out*/;
+            resourceInputs["osProfile"] = undefined /*out*/;
+            resourceInputs["osSku"] = undefined /*out*/;
+            resourceInputs["osVersion"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["vmId"] = undefined /*out*/;
+            resourceInputs["vmUuid"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:hybridcompute/v20190318preview:Machine" }, { type: "azure-native:hybridcompute/v20190802preview:Machine" }, { type: "azure-native:hybridcompute/v20191212:Machine" }, { type: "azure-native:hybridcompute/v20200730preview:Machine" }, { type: "azure-native:hybridcompute/v20200802:Machine" }, { type: "azure-native:hybridcompute/v20200815preview:Machine" }, { type: "azure-native:hybridcompute/v20210128preview:Machine" }, { type: "azure-native:hybridcompute/v20210325preview:Machine" }, { type: "azure-native:hybridcompute/v20210422preview:Machine" }, { type: "azure-native:hybridcompute/v20210517preview:Machine" }, { type: "azure-native:hybridcompute/v20210520:Machine" }, { type: "azure-native:hybridcompute/v20210610preview:Machine" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Machine.__pulumiType, name, inputs, opts);
+        super(Machine.__pulumiType, name, resourceInputs, opts);
     }
 }
 

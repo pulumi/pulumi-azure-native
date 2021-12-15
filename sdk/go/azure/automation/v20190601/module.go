@@ -124,7 +124,7 @@ type ModuleInput interface {
 }
 
 func (*Module) ElementType() reflect.Type {
-	return reflect.TypeOf((*Module)(nil))
+	return reflect.TypeOf((**Module)(nil)).Elem()
 }
 
 func (i *Module) ToModuleOutput() ModuleOutput {
@@ -138,7 +138,7 @@ func (i *Module) ToModuleOutputWithContext(ctx context.Context) ModuleOutput {
 type ModuleOutput struct{ *pulumi.OutputState }
 
 func (ModuleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Module)(nil))
+	return reflect.TypeOf((**Module)(nil)).Elem()
 }
 
 func (o ModuleOutput) ToModuleOutput() ModuleOutput {

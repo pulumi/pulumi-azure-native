@@ -128,64 +128,64 @@ export class Workspace extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: WorkspaceArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["connectivityEndpoints"] = args ? args.connectivityEndpoints : undefined;
-            inputs["defaultDataLakeStorage"] = args ? args.defaultDataLakeStorage : undefined;
-            inputs["encryption"] = args ? args.encryption : undefined;
-            inputs["identity"] = args ? args.identity : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["managedResourceGroupName"] = args ? args.managedResourceGroupName : undefined;
-            inputs["managedVirtualNetwork"] = args ? args.managedVirtualNetwork : undefined;
-            inputs["managedVirtualNetworkSettings"] = args ? args.managedVirtualNetworkSettings : undefined;
-            inputs["privateEndpointConnections"] = args ? args.privateEndpointConnections : undefined;
-            inputs["purviewConfiguration"] = args ? args.purviewConfiguration : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["sqlAdministratorLogin"] = args ? args.sqlAdministratorLogin : undefined;
-            inputs["sqlAdministratorLoginPassword"] = args ? args.sqlAdministratorLoginPassword : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["virtualNetworkProfile"] = args ? args.virtualNetworkProfile : undefined;
-            inputs["workspaceName"] = args ? args.workspaceName : undefined;
-            inputs["workspaceRepositoryConfiguration"] = args ? args.workspaceRepositoryConfiguration : undefined;
-            inputs["adlaResourceId"] = undefined /*out*/;
-            inputs["extraProperties"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["workspaceUID"] = undefined /*out*/;
+            resourceInputs["connectivityEndpoints"] = args ? args.connectivityEndpoints : undefined;
+            resourceInputs["defaultDataLakeStorage"] = args ? args.defaultDataLakeStorage : undefined;
+            resourceInputs["encryption"] = args ? args.encryption : undefined;
+            resourceInputs["identity"] = args ? args.identity : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["managedResourceGroupName"] = args ? args.managedResourceGroupName : undefined;
+            resourceInputs["managedVirtualNetwork"] = args ? args.managedVirtualNetwork : undefined;
+            resourceInputs["managedVirtualNetworkSettings"] = args ? args.managedVirtualNetworkSettings : undefined;
+            resourceInputs["privateEndpointConnections"] = args ? args.privateEndpointConnections : undefined;
+            resourceInputs["purviewConfiguration"] = args ? args.purviewConfiguration : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["sqlAdministratorLogin"] = args ? args.sqlAdministratorLogin : undefined;
+            resourceInputs["sqlAdministratorLoginPassword"] = args ? args.sqlAdministratorLoginPassword : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["virtualNetworkProfile"] = args ? args.virtualNetworkProfile : undefined;
+            resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["workspaceRepositoryConfiguration"] = args ? args.workspaceRepositoryConfiguration : undefined;
+            resourceInputs["adlaResourceId"] = undefined /*out*/;
+            resourceInputs["extraProperties"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["workspaceUID"] = undefined /*out*/;
         } else {
-            inputs["adlaResourceId"] = undefined /*out*/;
-            inputs["connectivityEndpoints"] = undefined /*out*/;
-            inputs["defaultDataLakeStorage"] = undefined /*out*/;
-            inputs["encryption"] = undefined /*out*/;
-            inputs["extraProperties"] = undefined /*out*/;
-            inputs["identity"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["managedResourceGroupName"] = undefined /*out*/;
-            inputs["managedVirtualNetwork"] = undefined /*out*/;
-            inputs["managedVirtualNetworkSettings"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["privateEndpointConnections"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["purviewConfiguration"] = undefined /*out*/;
-            inputs["sqlAdministratorLogin"] = undefined /*out*/;
-            inputs["sqlAdministratorLoginPassword"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["virtualNetworkProfile"] = undefined /*out*/;
-            inputs["workspaceRepositoryConfiguration"] = undefined /*out*/;
-            inputs["workspaceUID"] = undefined /*out*/;
+            resourceInputs["adlaResourceId"] = undefined /*out*/;
+            resourceInputs["connectivityEndpoints"] = undefined /*out*/;
+            resourceInputs["defaultDataLakeStorage"] = undefined /*out*/;
+            resourceInputs["encryption"] = undefined /*out*/;
+            resourceInputs["extraProperties"] = undefined /*out*/;
+            resourceInputs["identity"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["managedResourceGroupName"] = undefined /*out*/;
+            resourceInputs["managedVirtualNetwork"] = undefined /*out*/;
+            resourceInputs["managedVirtualNetworkSettings"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["privateEndpointConnections"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["purviewConfiguration"] = undefined /*out*/;
+            resourceInputs["sqlAdministratorLogin"] = undefined /*out*/;
+            resourceInputs["sqlAdministratorLoginPassword"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["virtualNetworkProfile"] = undefined /*out*/;
+            resourceInputs["workspaceRepositoryConfiguration"] = undefined /*out*/;
+            resourceInputs["workspaceUID"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:synapse:Workspace" }, { type: "azure-native:synapse/v20190601preview:Workspace" }, { type: "azure-native:synapse/v20210301:Workspace" }, { type: "azure-native:synapse/v20210401preview:Workspace" }, { type: "azure-native:synapse/v20210501:Workspace" }, { type: "azure-native:synapse/v20210601:Workspace" }, { type: "azure-native:synapse/v20210601preview:Workspace" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Workspace.__pulumiType, name, inputs, opts);
+        super(Workspace.__pulumiType, name, resourceInputs, opts);
     }
 }
 

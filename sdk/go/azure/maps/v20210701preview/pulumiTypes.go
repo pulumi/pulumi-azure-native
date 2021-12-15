@@ -925,6 +925,19 @@ type MapsAccountProperties struct {
 }
 
 
+func (val *MapsAccountProperties) Defaults() *MapsAccountProperties {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.DisableLocalAuth) {
+		disableLocalAuth_ := false
+		tmp.DisableLocalAuth = &disableLocalAuth_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -1072,6 +1085,19 @@ type MapsAccountPropertiesResponse struct {
 	LinkedResources   []LinkedResourceResponse `pulumi:"linkedResources"`
 	ProvisioningState string                   `pulumi:"provisioningState"`
 	UniqueId          string                   `pulumi:"uniqueId"`
+}
+
+
+func (val *MapsAccountPropertiesResponse) Defaults() *MapsAccountPropertiesResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.DisableLocalAuth) {
+		disableLocalAuth_ := false
+		tmp.DisableLocalAuth = &disableLocalAuth_
+	}
+	return &tmp
 }
 
 

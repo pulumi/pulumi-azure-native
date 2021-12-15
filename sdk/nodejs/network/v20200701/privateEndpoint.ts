@@ -88,45 +88,45 @@ export class PrivateEndpoint extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: PrivateEndpointArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["customDnsConfigs"] = args ? args.customDnsConfigs : undefined;
-            inputs["id"] = args ? args.id : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["manualPrivateLinkServiceConnections"] = args ? args.manualPrivateLinkServiceConnections : undefined;
-            inputs["privateEndpointName"] = args ? args.privateEndpointName : undefined;
-            inputs["privateLinkServiceConnections"] = args ? args.privateLinkServiceConnections : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["subnet"] = args ? args.subnet : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["etag"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["networkInterfaces"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["customDnsConfigs"] = args ? args.customDnsConfigs : undefined;
+            resourceInputs["id"] = args ? args.id : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["manualPrivateLinkServiceConnections"] = args ? args.manualPrivateLinkServiceConnections : undefined;
+            resourceInputs["privateEndpointName"] = args ? args.privateEndpointName : undefined;
+            resourceInputs["privateLinkServiceConnections"] = args ? args.privateLinkServiceConnections : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["subnet"] = args ? (args.subnet ? pulumi.output(args.subnet).apply(inputs.network.v20200701.subnetArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["networkInterfaces"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["customDnsConfigs"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["manualPrivateLinkServiceConnections"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["networkInterfaces"] = undefined /*out*/;
-            inputs["privateLinkServiceConnections"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["subnet"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["customDnsConfigs"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["manualPrivateLinkServiceConnections"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["networkInterfaces"] = undefined /*out*/;
+            resourceInputs["privateLinkServiceConnections"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["subnet"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:network:PrivateEndpoint" }, { type: "azure-native:network/v20180801:PrivateEndpoint" }, { type: "azure-native:network/v20181001:PrivateEndpoint" }, { type: "azure-native:network/v20181101:PrivateEndpoint" }, { type: "azure-native:network/v20181201:PrivateEndpoint" }, { type: "azure-native:network/v20190201:PrivateEndpoint" }, { type: "azure-native:network/v20190401:PrivateEndpoint" }, { type: "azure-native:network/v20190601:PrivateEndpoint" }, { type: "azure-native:network/v20190701:PrivateEndpoint" }, { type: "azure-native:network/v20190801:PrivateEndpoint" }, { type: "azure-native:network/v20190901:PrivateEndpoint" }, { type: "azure-native:network/v20191101:PrivateEndpoint" }, { type: "azure-native:network/v20191201:PrivateEndpoint" }, { type: "azure-native:network/v20200301:PrivateEndpoint" }, { type: "azure-native:network/v20200401:PrivateEndpoint" }, { type: "azure-native:network/v20200501:PrivateEndpoint" }, { type: "azure-native:network/v20200601:PrivateEndpoint" }, { type: "azure-native:network/v20200801:PrivateEndpoint" }, { type: "azure-native:network/v20201101:PrivateEndpoint" }, { type: "azure-native:network/v20210201:PrivateEndpoint" }, { type: "azure-native:network/v20210301:PrivateEndpoint" }, { type: "azure-native:network/v20210501:PrivateEndpoint" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(PrivateEndpoint.__pulumiType, name, inputs, opts);
+        super(PrivateEndpoint.__pulumiType, name, resourceInputs, opts);
     }
 }
 

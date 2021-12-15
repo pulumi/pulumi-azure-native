@@ -106,7 +106,7 @@ type ResourceGuardProxyInput interface {
 }
 
 func (*ResourceGuardProxy) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResourceGuardProxy)(nil))
+	return reflect.TypeOf((**ResourceGuardProxy)(nil)).Elem()
 }
 
 func (i *ResourceGuardProxy) ToResourceGuardProxyOutput() ResourceGuardProxyOutput {
@@ -120,7 +120,7 @@ func (i *ResourceGuardProxy) ToResourceGuardProxyOutputWithContext(ctx context.C
 type ResourceGuardProxyOutput struct{ *pulumi.OutputState }
 
 func (ResourceGuardProxyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResourceGuardProxy)(nil))
+	return reflect.TypeOf((**ResourceGuardProxy)(nil)).Elem()
 }
 
 func (o ResourceGuardProxyOutput) ToResourceGuardProxyOutput() ResourceGuardProxyOutput {

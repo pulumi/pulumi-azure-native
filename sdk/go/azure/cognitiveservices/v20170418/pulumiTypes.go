@@ -557,6 +557,17 @@ type CognitiveServicesAccountProperties struct {
 }
 
 
+func (val *CognitiveServicesAccountProperties) Defaults() *CognitiveServicesAccountProperties {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Encryption = tmp.Encryption.Defaults()
+
+	return &tmp
+}
+
+
 
 
 
@@ -788,6 +799,17 @@ type CognitiveServicesAccountPropertiesResponse struct {
 	PublicNetworkAccess        *string                                        `pulumi:"publicNetworkAccess"`
 	SkuChangeInfo              CognitiveServicesAccountSkuChangeInfoResponse  `pulumi:"skuChangeInfo"`
 	UserOwnedStorage           []UserOwnedStorageResponse                     `pulumi:"userOwnedStorage"`
+}
+
+
+func (val *CognitiveServicesAccountPropertiesResponse) Defaults() *CognitiveServicesAccountPropertiesResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Encryption = tmp.Encryption.Defaults()
+
+	return &tmp
 }
 
 
@@ -1278,6 +1300,19 @@ type Encryption struct {
 }
 
 
+func (val *Encryption) Defaults() *Encryption {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.KeySource) {
+		keySource_ := "Microsoft.KeyVault"
+		tmp.KeySource = &keySource_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -1423,6 +1458,19 @@ func (o EncryptionPtrOutput) KeyVaultProperties() KeyVaultPropertiesPtrOutput {
 type EncryptionResponse struct {
 	KeySource          *string                     `pulumi:"keySource"`
 	KeyVaultProperties *KeyVaultPropertiesResponse `pulumi:"keyVaultProperties"`
+}
+
+
+func (val *EncryptionResponse) Defaults() *EncryptionResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.KeySource) {
+		keySource_ := "Microsoft.KeyVault"
+		tmp.KeySource = &keySource_
+	}
+	return &tmp
 }
 
 

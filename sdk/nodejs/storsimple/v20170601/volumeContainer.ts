@@ -88,7 +88,7 @@ export class VolumeContainer extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: VolumeContainerArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.deviceName === undefined) && !opts.urn) {
@@ -103,40 +103,40 @@ export class VolumeContainer extends pulumi.CustomResource {
             if ((!args || args.storageAccountCredentialId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'storageAccountCredentialId'");
             }
-            inputs["bandWidthRateInMbps"] = args ? args.bandWidthRateInMbps : undefined;
-            inputs["bandwidthSettingId"] = args ? args.bandwidthSettingId : undefined;
-            inputs["deviceName"] = args ? args.deviceName : undefined;
-            inputs["encryptionKey"] = args ? args.encryptionKey : undefined;
-            inputs["kind"] = args ? args.kind : undefined;
-            inputs["managerName"] = args ? args.managerName : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["storageAccountCredentialId"] = args ? args.storageAccountCredentialId : undefined;
-            inputs["volumeContainerName"] = args ? args.volumeContainerName : undefined;
-            inputs["encryptionStatus"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["ownerShipStatus"] = undefined /*out*/;
-            inputs["totalCloudStorageUsageInBytes"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["volumeCount"] = undefined /*out*/;
+            resourceInputs["bandWidthRateInMbps"] = args ? args.bandWidthRateInMbps : undefined;
+            resourceInputs["bandwidthSettingId"] = args ? args.bandwidthSettingId : undefined;
+            resourceInputs["deviceName"] = args ? args.deviceName : undefined;
+            resourceInputs["encryptionKey"] = args ? args.encryptionKey : undefined;
+            resourceInputs["kind"] = args ? args.kind : undefined;
+            resourceInputs["managerName"] = args ? args.managerName : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["storageAccountCredentialId"] = args ? args.storageAccountCredentialId : undefined;
+            resourceInputs["volumeContainerName"] = args ? args.volumeContainerName : undefined;
+            resourceInputs["encryptionStatus"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["ownerShipStatus"] = undefined /*out*/;
+            resourceInputs["totalCloudStorageUsageInBytes"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["volumeCount"] = undefined /*out*/;
         } else {
-            inputs["bandWidthRateInMbps"] = undefined /*out*/;
-            inputs["bandwidthSettingId"] = undefined /*out*/;
-            inputs["encryptionKey"] = undefined /*out*/;
-            inputs["encryptionStatus"] = undefined /*out*/;
-            inputs["kind"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["ownerShipStatus"] = undefined /*out*/;
-            inputs["storageAccountCredentialId"] = undefined /*out*/;
-            inputs["totalCloudStorageUsageInBytes"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["volumeCount"] = undefined /*out*/;
+            resourceInputs["bandWidthRateInMbps"] = undefined /*out*/;
+            resourceInputs["bandwidthSettingId"] = undefined /*out*/;
+            resourceInputs["encryptionKey"] = undefined /*out*/;
+            resourceInputs["encryptionStatus"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["ownerShipStatus"] = undefined /*out*/;
+            resourceInputs["storageAccountCredentialId"] = undefined /*out*/;
+            resourceInputs["totalCloudStorageUsageInBytes"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["volumeCount"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:storsimple:VolumeContainer" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(VolumeContainer.__pulumiType, name, inputs, opts);
+        super(VolumeContainer.__pulumiType, name, resourceInputs, opts);
     }
 }
 

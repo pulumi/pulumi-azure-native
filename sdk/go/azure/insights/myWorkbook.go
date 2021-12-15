@@ -144,7 +144,7 @@ type MyWorkbookInput interface {
 }
 
 func (*MyWorkbook) ElementType() reflect.Type {
-	return reflect.TypeOf((*MyWorkbook)(nil))
+	return reflect.TypeOf((**MyWorkbook)(nil)).Elem()
 }
 
 func (i *MyWorkbook) ToMyWorkbookOutput() MyWorkbookOutput {
@@ -158,7 +158,7 @@ func (i *MyWorkbook) ToMyWorkbookOutputWithContext(ctx context.Context) MyWorkbo
 type MyWorkbookOutput struct{ *pulumi.OutputState }
 
 func (MyWorkbookOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MyWorkbook)(nil))
+	return reflect.TypeOf((**MyWorkbook)(nil)).Elem()
 }
 
 func (o MyWorkbookOutput) ToMyWorkbookOutput() MyWorkbookOutput {

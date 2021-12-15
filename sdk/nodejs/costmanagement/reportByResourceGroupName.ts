@@ -73,7 +73,7 @@ export class ReportByResourceGroupName extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ReportByResourceGroupNameArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.definition === undefined) && !opts.urn) {
@@ -85,30 +85,30 @@ export class ReportByResourceGroupName extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["definition"] = args ? args.definition : undefined;
-            inputs["deliveryInfo"] = args ? args.deliveryInfo : undefined;
-            inputs["format"] = args ? args.format : undefined;
-            inputs["reportName"] = args ? args.reportName : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["schedule"] = args ? args.schedule : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["definition"] = args ? args.definition : undefined;
+            resourceInputs["deliveryInfo"] = args ? args.deliveryInfo : undefined;
+            resourceInputs["format"] = args ? args.format : undefined;
+            resourceInputs["reportName"] = args ? args.reportName : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["schedule"] = args ? args.schedule : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["definition"] = undefined /*out*/;
-            inputs["deliveryInfo"] = undefined /*out*/;
-            inputs["format"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["schedule"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["definition"] = undefined /*out*/;
+            resourceInputs["deliveryInfo"] = undefined /*out*/;
+            resourceInputs["format"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["schedule"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:costmanagement/v20180801preview:ReportByResourceGroupName" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(ReportByResourceGroupName.__pulumiType, name, inputs, opts);
+        super(ReportByResourceGroupName.__pulumiType, name, resourceInputs, opts);
     }
 }
 

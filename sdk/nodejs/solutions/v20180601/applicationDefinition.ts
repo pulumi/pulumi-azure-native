@@ -108,7 +108,7 @@ export class ApplicationDefinition extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ApplicationDefinitionArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.authorizations === undefined) && !opts.urn) {
@@ -120,48 +120,48 @@ export class ApplicationDefinition extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["applicationDefinitionName"] = args ? args.applicationDefinitionName : undefined;
-            inputs["artifacts"] = args ? args.artifacts : undefined;
-            inputs["authorizations"] = args ? args.authorizations : undefined;
-            inputs["createUiDefinition"] = args ? args.createUiDefinition : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["displayName"] = args ? args.displayName : undefined;
-            inputs["identity"] = args ? args.identity : undefined;
-            inputs["isEnabled"] = args ? args.isEnabled : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["lockLevel"] = args ? args.lockLevel : undefined;
-            inputs["mainTemplate"] = args ? args.mainTemplate : undefined;
-            inputs["managedBy"] = args ? args.managedBy : undefined;
-            inputs["packageFileUri"] = args ? args.packageFileUri : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["sku"] = args ? args.sku : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["applicationDefinitionName"] = args ? args.applicationDefinitionName : undefined;
+            resourceInputs["artifacts"] = args ? args.artifacts : undefined;
+            resourceInputs["authorizations"] = args ? args.authorizations : undefined;
+            resourceInputs["createUiDefinition"] = args ? args.createUiDefinition : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["displayName"] = args ? args.displayName : undefined;
+            resourceInputs["identity"] = args ? args.identity : undefined;
+            resourceInputs["isEnabled"] = args ? args.isEnabled : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["lockLevel"] = args ? args.lockLevel : undefined;
+            resourceInputs["mainTemplate"] = args ? args.mainTemplate : undefined;
+            resourceInputs["managedBy"] = args ? args.managedBy : undefined;
+            resourceInputs["packageFileUri"] = args ? args.packageFileUri : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["sku"] = args ? args.sku : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["artifacts"] = undefined /*out*/;
-            inputs["authorizations"] = undefined /*out*/;
-            inputs["createUiDefinition"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["displayName"] = undefined /*out*/;
-            inputs["identity"] = undefined /*out*/;
-            inputs["isEnabled"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["lockLevel"] = undefined /*out*/;
-            inputs["mainTemplate"] = undefined /*out*/;
-            inputs["managedBy"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["packageFileUri"] = undefined /*out*/;
-            inputs["sku"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["artifacts"] = undefined /*out*/;
+            resourceInputs["authorizations"] = undefined /*out*/;
+            resourceInputs["createUiDefinition"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["displayName"] = undefined /*out*/;
+            resourceInputs["identity"] = undefined /*out*/;
+            resourceInputs["isEnabled"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["lockLevel"] = undefined /*out*/;
+            resourceInputs["mainTemplate"] = undefined /*out*/;
+            resourceInputs["managedBy"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["packageFileUri"] = undefined /*out*/;
+            resourceInputs["sku"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:solutions:ApplicationDefinition" }, { type: "azure-native:solutions/v20160901preview:ApplicationDefinition" }, { type: "azure-native:solutions/v20170901:ApplicationDefinition" }, { type: "azure-native:solutions/v20190701:ApplicationDefinition" }, { type: "azure-native:solutions/v20200821preview:ApplicationDefinition" }, { type: "azure-native:solutions/v20210701:ApplicationDefinition" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(ApplicationDefinition.__pulumiType, name, inputs, opts);
+        super(ApplicationDefinition.__pulumiType, name, resourceInputs, opts);
     }
 }
 

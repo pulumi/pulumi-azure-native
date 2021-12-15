@@ -131,7 +131,7 @@ type WebAppConnectionStringsInput interface {
 }
 
 func (*WebAppConnectionStrings) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAppConnectionStrings)(nil))
+	return reflect.TypeOf((**WebAppConnectionStrings)(nil)).Elem()
 }
 
 func (i *WebAppConnectionStrings) ToWebAppConnectionStringsOutput() WebAppConnectionStringsOutput {
@@ -145,7 +145,7 @@ func (i *WebAppConnectionStrings) ToWebAppConnectionStringsOutputWithContext(ctx
 type WebAppConnectionStringsOutput struct{ *pulumi.OutputState }
 
 func (WebAppConnectionStringsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAppConnectionStrings)(nil))
+	return reflect.TypeOf((**WebAppConnectionStrings)(nil)).Elem()
 }
 
 func (o WebAppConnectionStringsOutput) ToWebAppConnectionStringsOutput() WebAppConnectionStringsOutput {

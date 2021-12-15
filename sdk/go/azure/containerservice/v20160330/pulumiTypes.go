@@ -810,6 +810,19 @@ type ContainerServiceMasterProfile struct {
 }
 
 
+func (val *ContainerServiceMasterProfile) Defaults() *ContainerServiceMasterProfile {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Count) {
+		count_ := 1
+		tmp.Count = &count_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -956,6 +969,19 @@ type ContainerServiceMasterProfileResponse struct {
 	Count     *int   `pulumi:"count"`
 	DnsPrefix string `pulumi:"dnsPrefix"`
 	Fqdn      string `pulumi:"fqdn"`
+}
+
+
+func (val *ContainerServiceMasterProfileResponse) Defaults() *ContainerServiceMasterProfileResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Count) {
+		count_ := 1
+		tmp.Count = &count_
+	}
+	return &tmp
 }
 
 

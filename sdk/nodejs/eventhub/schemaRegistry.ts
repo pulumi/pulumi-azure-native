@@ -79,7 +79,7 @@ export class SchemaRegistry extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: SchemaRegistryArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.namespaceName === undefined) && !opts.urn) {
@@ -88,37 +88,37 @@ export class SchemaRegistry extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["groupProperties"] = args ? args.groupProperties : undefined;
-            inputs["namespaceName"] = args ? args.namespaceName : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["schemaCompatibility"] = args ? args.schemaCompatibility : undefined;
-            inputs["schemaGroupName"] = args ? args.schemaGroupName : undefined;
-            inputs["schemaType"] = args ? args.schemaType : undefined;
-            inputs["createdAtUtc"] = undefined /*out*/;
-            inputs["eTag"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["updatedAtUtc"] = undefined /*out*/;
+            resourceInputs["groupProperties"] = args ? args.groupProperties : undefined;
+            resourceInputs["namespaceName"] = args ? args.namespaceName : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["schemaCompatibility"] = args ? args.schemaCompatibility : undefined;
+            resourceInputs["schemaGroupName"] = args ? args.schemaGroupName : undefined;
+            resourceInputs["schemaType"] = args ? args.schemaType : undefined;
+            resourceInputs["createdAtUtc"] = undefined /*out*/;
+            resourceInputs["eTag"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["updatedAtUtc"] = undefined /*out*/;
         } else {
-            inputs["createdAtUtc"] = undefined /*out*/;
-            inputs["eTag"] = undefined /*out*/;
-            inputs["groupProperties"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["schemaCompatibility"] = undefined /*out*/;
-            inputs["schemaType"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["updatedAtUtc"] = undefined /*out*/;
+            resourceInputs["createdAtUtc"] = undefined /*out*/;
+            resourceInputs["eTag"] = undefined /*out*/;
+            resourceInputs["groupProperties"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["schemaCompatibility"] = undefined /*out*/;
+            resourceInputs["schemaType"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["updatedAtUtc"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:eventhub/v20211101:SchemaRegistry" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(SchemaRegistry.__pulumiType, name, inputs, opts);
+        super(SchemaRegistry.__pulumiType, name, resourceInputs, opts);
     }
 }
 

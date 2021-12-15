@@ -124,7 +124,7 @@ type ReplicationFabricInput interface {
 }
 
 func (*ReplicationFabric) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReplicationFabric)(nil))
+	return reflect.TypeOf((**ReplicationFabric)(nil)).Elem()
 }
 
 func (i *ReplicationFabric) ToReplicationFabricOutput() ReplicationFabricOutput {
@@ -138,7 +138,7 @@ func (i *ReplicationFabric) ToReplicationFabricOutputWithContext(ctx context.Con
 type ReplicationFabricOutput struct{ *pulumi.OutputState }
 
 func (ReplicationFabricOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReplicationFabric)(nil))
+	return reflect.TypeOf((**ReplicationFabric)(nil)).Elem()
 }
 
 func (o ReplicationFabricOutput) ToReplicationFabricOutput() ReplicationFabricOutput {

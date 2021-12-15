@@ -63,7 +63,7 @@ export class RegisteredAsn extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: RegisteredAsnArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.peeringName === undefined) && !opts.urn) {
@@ -72,27 +72,27 @@ export class RegisteredAsn extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["asn"] = args ? args.asn : undefined;
-            inputs["peeringName"] = args ? args.peeringName : undefined;
-            inputs["registeredAsnName"] = args ? args.registeredAsnName : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["peeringServicePrefixKey"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["asn"] = args ? args.asn : undefined;
+            resourceInputs["peeringName"] = args ? args.peeringName : undefined;
+            resourceInputs["registeredAsnName"] = args ? args.registeredAsnName : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["peeringServicePrefixKey"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["asn"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["peeringServicePrefixKey"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["asn"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["peeringServicePrefixKey"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:peering:RegisteredAsn" }, { type: "azure-native:peering/v20200101preview:RegisteredAsn" }, { type: "azure-native:peering/v20200401:RegisteredAsn" }, { type: "azure-native:peering/v20201001:RegisteredAsn" }, { type: "azure-native:peering/v20210101:RegisteredAsn" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(RegisteredAsn.__pulumiType, name, inputs, opts);
+        super(RegisteredAsn.__pulumiType, name, resourceInputs, opts);
     }
 }
 

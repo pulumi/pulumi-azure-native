@@ -138,7 +138,7 @@ type IpGroupInput interface {
 }
 
 func (*IpGroup) ElementType() reflect.Type {
-	return reflect.TypeOf((*IpGroup)(nil))
+	return reflect.TypeOf((**IpGroup)(nil)).Elem()
 }
 
 func (i *IpGroup) ToIpGroupOutput() IpGroupOutput {
@@ -152,7 +152,7 @@ func (i *IpGroup) ToIpGroupOutputWithContext(ctx context.Context) IpGroupOutput 
 type IpGroupOutput struct{ *pulumi.OutputState }
 
 func (IpGroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IpGroup)(nil))
+	return reflect.TypeOf((**IpGroup)(nil)).Elem()
 }
 
 func (o IpGroupOutput) ToIpGroupOutput() IpGroupOutput {

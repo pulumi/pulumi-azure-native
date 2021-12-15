@@ -100,7 +100,7 @@ type ManagedNetworkInput interface {
 }
 
 func (*ManagedNetwork) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagedNetwork)(nil))
+	return reflect.TypeOf((**ManagedNetwork)(nil)).Elem()
 }
 
 func (i *ManagedNetwork) ToManagedNetworkOutput() ManagedNetworkOutput {
@@ -114,7 +114,7 @@ func (i *ManagedNetwork) ToManagedNetworkOutputWithContext(ctx context.Context) 
 type ManagedNetworkOutput struct{ *pulumi.OutputState }
 
 func (ManagedNetworkOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagedNetwork)(nil))
+	return reflect.TypeOf((**ManagedNetwork)(nil)).Elem()
 }
 
 func (o ManagedNetworkOutput) ToManagedNetworkOutput() ManagedNetworkOutput {

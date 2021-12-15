@@ -84,7 +84,7 @@ export class FileShare extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: FileShareArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.adminUser === undefined) && !opts.urn) {
@@ -114,37 +114,37 @@ export class FileShare extends pulumi.CustomResource {
             if ((!args || args.shareStatus === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'shareStatus'");
             }
-            inputs["adminUser"] = args ? args.adminUser : undefined;
-            inputs["dataPolicy"] = args ? args.dataPolicy : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["deviceName"] = args ? args.deviceName : undefined;
-            inputs["fileServerName"] = args ? args.fileServerName : undefined;
-            inputs["managerName"] = args ? args.managerName : undefined;
-            inputs["monitoringStatus"] = args ? args.monitoringStatus : undefined;
-            inputs["provisionedCapacityInBytes"] = args ? args.provisionedCapacityInBytes : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["shareName"] = args ? args.shareName : undefined;
-            inputs["shareStatus"] = args ? args.shareStatus : undefined;
-            inputs["localUsedCapacityInBytes"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["usedCapacityInBytes"] = undefined /*out*/;
+            resourceInputs["adminUser"] = args ? args.adminUser : undefined;
+            resourceInputs["dataPolicy"] = args ? args.dataPolicy : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["deviceName"] = args ? args.deviceName : undefined;
+            resourceInputs["fileServerName"] = args ? args.fileServerName : undefined;
+            resourceInputs["managerName"] = args ? args.managerName : undefined;
+            resourceInputs["monitoringStatus"] = args ? args.monitoringStatus : undefined;
+            resourceInputs["provisionedCapacityInBytes"] = args ? args.provisionedCapacityInBytes : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["shareName"] = args ? args.shareName : undefined;
+            resourceInputs["shareStatus"] = args ? args.shareStatus : undefined;
+            resourceInputs["localUsedCapacityInBytes"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["usedCapacityInBytes"] = undefined /*out*/;
         } else {
-            inputs["adminUser"] = undefined /*out*/;
-            inputs["dataPolicy"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["localUsedCapacityInBytes"] = undefined /*out*/;
-            inputs["monitoringStatus"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisionedCapacityInBytes"] = undefined /*out*/;
-            inputs["shareStatus"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["usedCapacityInBytes"] = undefined /*out*/;
+            resourceInputs["adminUser"] = undefined /*out*/;
+            resourceInputs["dataPolicy"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["localUsedCapacityInBytes"] = undefined /*out*/;
+            resourceInputs["monitoringStatus"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisionedCapacityInBytes"] = undefined /*out*/;
+            resourceInputs["shareStatus"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["usedCapacityInBytes"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(FileShare.__pulumiType, name, inputs, opts);
+        super(FileShare.__pulumiType, name, resourceInputs, opts);
     }
 }
 

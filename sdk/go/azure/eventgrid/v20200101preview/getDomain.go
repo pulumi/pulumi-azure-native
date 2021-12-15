@@ -13,7 +13,7 @@ func LookupDomain(ctx *pulumi.Context, args *LookupDomainArgs, opts ...pulumi.In
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupDomainArgs struct {
@@ -33,4 +33,17 @@ type LookupDomainResult struct {
 	ProvisioningState  string                          `pulumi:"provisioningState"`
 	Tags               map[string]string               `pulumi:"tags"`
 	Type               string                          `pulumi:"type"`
+}
+
+
+func (val *LookupDomainResult) Defaults() *LookupDomainResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.InputSchema) {
+		inputSchema_ := "EventGridSchema"
+		tmp.InputSchema = &inputSchema_
+	}
+	return &tmp
 }

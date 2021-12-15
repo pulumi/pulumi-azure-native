@@ -72,7 +72,7 @@ export class MachineLearningDatastore extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: MachineLearningDatastoreArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.dataStoreType === undefined) && !opts.urn) {
@@ -84,61 +84,61 @@ export class MachineLearningDatastore extends pulumi.CustomResource {
             if ((!args || args.workspaceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            inputs["accountKey"] = args ? args.accountKey : undefined;
-            inputs["accountName"] = args ? args.accountName : undefined;
-            inputs["adlsResourceGroup"] = args ? args.adlsResourceGroup : undefined;
-            inputs["adlsSubscriptionId"] = args ? args.adlsSubscriptionId : undefined;
-            inputs["authorityUrl"] = args ? args.authorityUrl : undefined;
-            inputs["clientId"] = args ? args.clientId : undefined;
-            inputs["clientSecret"] = args ? args.clientSecret : undefined;
-            inputs["containerName"] = args ? args.containerName : undefined;
-            inputs["dataStoreType"] = args ? args.dataStoreType : undefined;
-            inputs["databaseName"] = args ? args.databaseName : undefined;
-            inputs["datastoreName"] = args ? args.datastoreName : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["endpoint"] = args ? args.endpoint : undefined;
-            inputs["enforceSSL"] = (args ? args.enforceSSL : undefined) ?? true;
-            inputs["fileSystem"] = args ? args.fileSystem : undefined;
-            inputs["includeSecret"] = (args ? args.includeSecret : undefined) ?? true;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["password"] = args ? args.password : undefined;
-            inputs["port"] = args ? args.port : undefined;
-            inputs["protocol"] = args ? args.protocol : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["resourceUrl"] = args ? args.resourceUrl : undefined;
-            inputs["sasToken"] = args ? args.sasToken : undefined;
-            inputs["serverName"] = args ? args.serverName : undefined;
-            inputs["shareName"] = args ? args.shareName : undefined;
-            inputs["skipValidation"] = args ? args.skipValidation : undefined;
-            inputs["storageAccountResourceGroup"] = args ? args.storageAccountResourceGroup : undefined;
-            inputs["storageAccountSubscriptionId"] = args ? args.storageAccountSubscriptionId : undefined;
-            inputs["storeName"] = args ? args.storeName : undefined;
-            inputs["tenantId"] = args ? args.tenantId : undefined;
-            inputs["userId"] = args ? args.userId : undefined;
-            inputs["userName"] = args ? args.userName : undefined;
-            inputs["workspaceName"] = args ? args.workspaceName : undefined;
-            inputs["workspaceSystemAssignedIdentity"] = args ? args.workspaceSystemAssignedIdentity : undefined;
-            inputs["identity"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
-            inputs["sku"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["accountKey"] = args ? args.accountKey : undefined;
+            resourceInputs["accountName"] = args ? args.accountName : undefined;
+            resourceInputs["adlsResourceGroup"] = args ? args.adlsResourceGroup : undefined;
+            resourceInputs["adlsSubscriptionId"] = args ? args.adlsSubscriptionId : undefined;
+            resourceInputs["authorityUrl"] = args ? args.authorityUrl : undefined;
+            resourceInputs["clientId"] = args ? args.clientId : undefined;
+            resourceInputs["clientSecret"] = args ? args.clientSecret : undefined;
+            resourceInputs["containerName"] = args ? args.containerName : undefined;
+            resourceInputs["dataStoreType"] = args ? args.dataStoreType : undefined;
+            resourceInputs["databaseName"] = args ? args.databaseName : undefined;
+            resourceInputs["datastoreName"] = args ? args.datastoreName : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["endpoint"] = args ? args.endpoint : undefined;
+            resourceInputs["enforceSSL"] = (args ? args.enforceSSL : undefined) ?? true;
+            resourceInputs["fileSystem"] = args ? args.fileSystem : undefined;
+            resourceInputs["includeSecret"] = (args ? args.includeSecret : undefined) ?? true;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["password"] = args ? args.password : undefined;
+            resourceInputs["port"] = args ? args.port : undefined;
+            resourceInputs["protocol"] = args ? args.protocol : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["resourceUrl"] = args ? args.resourceUrl : undefined;
+            resourceInputs["sasToken"] = args ? args.sasToken : undefined;
+            resourceInputs["serverName"] = args ? args.serverName : undefined;
+            resourceInputs["shareName"] = args ? args.shareName : undefined;
+            resourceInputs["skipValidation"] = args ? args.skipValidation : undefined;
+            resourceInputs["storageAccountResourceGroup"] = args ? args.storageAccountResourceGroup : undefined;
+            resourceInputs["storageAccountSubscriptionId"] = args ? args.storageAccountSubscriptionId : undefined;
+            resourceInputs["storeName"] = args ? args.storeName : undefined;
+            resourceInputs["tenantId"] = args ? args.tenantId : undefined;
+            resourceInputs["userId"] = args ? args.userId : undefined;
+            resourceInputs["userName"] = args ? args.userName : undefined;
+            resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["workspaceSystemAssignedIdentity"] = args ? args.workspaceSystemAssignedIdentity : undefined;
+            resourceInputs["identity"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
+            resourceInputs["sku"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["identity"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
-            inputs["sku"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["identity"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
+            resourceInputs["sku"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices:MachineLearningDatastore" }, { type: "azure-native:machinelearningservices/v20210301preview:MachineLearningDatastore" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(MachineLearningDatastore.__pulumiType, name, inputs, opts);
+        super(MachineLearningDatastore.__pulumiType, name, resourceInputs, opts);
     }
 }
 

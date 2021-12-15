@@ -99,7 +99,7 @@ type ServerCollectorInput interface {
 }
 
 func (*ServerCollector) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServerCollector)(nil))
+	return reflect.TypeOf((**ServerCollector)(nil)).Elem()
 }
 
 func (i *ServerCollector) ToServerCollectorOutput() ServerCollectorOutput {
@@ -113,7 +113,7 @@ func (i *ServerCollector) ToServerCollectorOutputWithContext(ctx context.Context
 type ServerCollectorOutput struct{ *pulumi.OutputState }
 
 func (ServerCollectorOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServerCollector)(nil))
+	return reflect.TypeOf((**ServerCollector)(nil)).Elem()
 }
 
 func (o ServerCollectorOutput) ToServerCollectorOutput() ServerCollectorOutput {

@@ -17,6 +17,19 @@ type ArmRoleReceiver struct {
 }
 
 
+func (val *ArmRoleReceiver) Defaults() *ArmRoleReceiver {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.UseCommonAlertSchema) {
+		useCommonAlertSchema_ := false
+		tmp.UseCommonAlertSchema = &useCommonAlertSchema_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -120,6 +133,19 @@ type ArmRoleReceiverResponse struct {
 	Name                 string `pulumi:"name"`
 	RoleId               string `pulumi:"roleId"`
 	UseCommonAlertSchema *bool  `pulumi:"useCommonAlertSchema"`
+}
+
+
+func (val *ArmRoleReceiverResponse) Defaults() *ArmRoleReceiverResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.UseCommonAlertSchema) {
+		useCommonAlertSchema_ := false
+		tmp.UseCommonAlertSchema = &useCommonAlertSchema_
+	}
+	return &tmp
 }
 
 
@@ -230,6 +256,19 @@ type AutomationRunbookReceiver struct {
 	ServiceUri           *string `pulumi:"serviceUri"`
 	UseCommonAlertSchema *bool   `pulumi:"useCommonAlertSchema"`
 	WebhookResourceId    string  `pulumi:"webhookResourceId"`
+}
+
+
+func (val *AutomationRunbookReceiver) Defaults() *AutomationRunbookReceiver {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.UseCommonAlertSchema) {
+		useCommonAlertSchema_ := false
+		tmp.UseCommonAlertSchema = &useCommonAlertSchema_
+	}
+	return &tmp
 }
 
 
@@ -360,6 +399,19 @@ type AutomationRunbookReceiverResponse struct {
 	ServiceUri           *string `pulumi:"serviceUri"`
 	UseCommonAlertSchema *bool   `pulumi:"useCommonAlertSchema"`
 	WebhookResourceId    string  `pulumi:"webhookResourceId"`
+}
+
+
+func (val *AutomationRunbookReceiverResponse) Defaults() *AutomationRunbookReceiverResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.UseCommonAlertSchema) {
+		useCommonAlertSchema_ := false
+		tmp.UseCommonAlertSchema = &useCommonAlertSchema_
+	}
+	return &tmp
 }
 
 
@@ -691,6 +743,19 @@ type AzureFunctionReceiver struct {
 }
 
 
+func (val *AzureFunctionReceiver) Defaults() *AzureFunctionReceiver {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.UseCommonAlertSchema) {
+		useCommonAlertSchema_ := false
+		tmp.UseCommonAlertSchema = &useCommonAlertSchema_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -806,6 +871,19 @@ type AzureFunctionReceiverResponse struct {
 	HttpTriggerUrl        string `pulumi:"httpTriggerUrl"`
 	Name                  string `pulumi:"name"`
 	UseCommonAlertSchema  *bool  `pulumi:"useCommonAlertSchema"`
+}
+
+
+func (val *AzureFunctionReceiverResponse) Defaults() *AzureFunctionReceiverResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.UseCommonAlertSchema) {
+		useCommonAlertSchema_ := false
+		tmp.UseCommonAlertSchema = &useCommonAlertSchema_
+	}
+	return &tmp
 }
 
 
@@ -925,6 +1003,19 @@ type EmailReceiver struct {
 }
 
 
+func (val *EmailReceiver) Defaults() *EmailReceiver {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.UseCommonAlertSchema) {
+		useCommonAlertSchema_ := false
+		tmp.UseCommonAlertSchema = &useCommonAlertSchema_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -1029,6 +1120,19 @@ type EmailReceiverResponse struct {
 	Name                 string `pulumi:"name"`
 	Status               string `pulumi:"status"`
 	UseCommonAlertSchema *bool  `pulumi:"useCommonAlertSchema"`
+}
+
+
+func (val *EmailReceiverResponse) Defaults() *EmailReceiverResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.UseCommonAlertSchema) {
+		useCommonAlertSchema_ := false
+		tmp.UseCommonAlertSchema = &useCommonAlertSchema_
+	}
+	return &tmp
 }
 
 
@@ -1143,6 +1247,19 @@ type EventHubReceiver struct {
 	SubscriptionId       string  `pulumi:"subscriptionId"`
 	TenantId             *string `pulumi:"tenantId"`
 	UseCommonAlertSchema *bool   `pulumi:"useCommonAlertSchema"`
+}
+
+
+func (val *EventHubReceiver) Defaults() *EventHubReceiver {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.UseCommonAlertSchema) {
+		useCommonAlertSchema_ := false
+		tmp.UseCommonAlertSchema = &useCommonAlertSchema_
+	}
+	return &tmp
 }
 
 
@@ -1267,6 +1384,19 @@ type EventHubReceiverResponse struct {
 	SubscriptionId       string  `pulumi:"subscriptionId"`
 	TenantId             *string `pulumi:"tenantId"`
 	UseCommonAlertSchema *bool   `pulumi:"useCommonAlertSchema"`
+}
+
+
+func (val *EventHubReceiverResponse) Defaults() *EventHubReceiverResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.UseCommonAlertSchema) {
+		useCommonAlertSchema_ := false
+		tmp.UseCommonAlertSchema = &useCommonAlertSchema_
+	}
+	return &tmp
 }
 
 
@@ -1628,6 +1758,19 @@ type LogicAppReceiver struct {
 }
 
 
+func (val *LogicAppReceiver) Defaults() *LogicAppReceiver {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.UseCommonAlertSchema) {
+		useCommonAlertSchema_ := false
+		tmp.UseCommonAlertSchema = &useCommonAlertSchema_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -1737,6 +1880,19 @@ type LogicAppReceiverResponse struct {
 	Name                 string `pulumi:"name"`
 	ResourceId           string `pulumi:"resourceId"`
 	UseCommonAlertSchema *bool  `pulumi:"useCommonAlertSchema"`
+}
+
+
+func (val *LogicAppReceiverResponse) Defaults() *LogicAppReceiverResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.UseCommonAlertSchema) {
+		useCommonAlertSchema_ := false
+		tmp.UseCommonAlertSchema = &useCommonAlertSchema_
+	}
+	return &tmp
 }
 
 
@@ -2285,6 +2441,23 @@ type WebhookReceiver struct {
 }
 
 
+func (val *WebhookReceiver) Defaults() *WebhookReceiver {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.UseAadAuth) {
+		useAadAuth_ := false
+		tmp.UseAadAuth = &useAadAuth_
+	}
+	if isZero(tmp.UseCommonAlertSchema) {
+		useCommonAlertSchema_ := false
+		tmp.UseCommonAlertSchema = &useCommonAlertSchema_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -2412,6 +2585,23 @@ type WebhookReceiverResponse struct {
 	TenantId             *string `pulumi:"tenantId"`
 	UseAadAuth           *bool   `pulumi:"useAadAuth"`
 	UseCommonAlertSchema *bool   `pulumi:"useCommonAlertSchema"`
+}
+
+
+func (val *WebhookReceiverResponse) Defaults() *WebhookReceiverResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.UseAadAuth) {
+		useAadAuth_ := false
+		tmp.UseAadAuth = &useAadAuth_
+	}
+	if isZero(tmp.UseCommonAlertSchema) {
+		useCommonAlertSchema_ := false
+		tmp.UseCommonAlertSchema = &useCommonAlertSchema_
+	}
+	return &tmp
 }
 
 

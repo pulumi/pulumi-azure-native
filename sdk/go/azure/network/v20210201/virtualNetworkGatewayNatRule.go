@@ -119,7 +119,7 @@ type VirtualNetworkGatewayNatRuleInput interface {
 }
 
 func (*VirtualNetworkGatewayNatRule) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualNetworkGatewayNatRule)(nil))
+	return reflect.TypeOf((**VirtualNetworkGatewayNatRule)(nil)).Elem()
 }
 
 func (i *VirtualNetworkGatewayNatRule) ToVirtualNetworkGatewayNatRuleOutput() VirtualNetworkGatewayNatRuleOutput {
@@ -133,7 +133,7 @@ func (i *VirtualNetworkGatewayNatRule) ToVirtualNetworkGatewayNatRuleOutputWithC
 type VirtualNetworkGatewayNatRuleOutput struct{ *pulumi.OutputState }
 
 func (VirtualNetworkGatewayNatRuleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualNetworkGatewayNatRule)(nil))
+	return reflect.TypeOf((**VirtualNetworkGatewayNatRule)(nil)).Elem()
 }
 
 func (o VirtualNetworkGatewayNatRuleOutput) ToVirtualNetworkGatewayNatRuleOutput() VirtualNetworkGatewayNatRuleOutput {

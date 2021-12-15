@@ -13,7 +13,7 @@ func LookupGen2Environment(ctx *pulumi.Context, args *LookupGen2EnvironmentArgs,
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupGen2EnvironmentArgs struct {
@@ -41,4 +41,17 @@ type LookupGen2EnvironmentResult struct {
 	TimeSeriesIdProperties     []TimeSeriesIdPropertyResponse            `pulumi:"timeSeriesIdProperties"`
 	Type                       string                                    `pulumi:"type"`
 	WarmStoreConfiguration     *WarmStoreConfigurationPropertiesResponse `pulumi:"warmStoreConfiguration"`
+}
+
+
+func (val *LookupGen2EnvironmentResult) Defaults() *LookupGen2EnvironmentResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.PublicNetworkAccess) {
+		publicNetworkAccess_ := "enabled"
+		tmp.PublicNetworkAccess = &publicNetworkAccess_
+	}
+	return &tmp
 }

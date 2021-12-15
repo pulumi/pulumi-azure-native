@@ -15,6 +15,18 @@ type ConnectedClusterIdentity struct {
 }
 
 
+func (val *ConnectedClusterIdentity) Defaults() *ConnectedClusterIdentity {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Type) {
+		tmp.Type = ResourceIdentityType("SystemAssigned")
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -147,6 +159,18 @@ type ConnectedClusterIdentityResponse struct {
 	PrincipalId string `pulumi:"principalId"`
 	TenantId    string `pulumi:"tenantId"`
 	Type        string `pulumi:"type"`
+}
+
+
+func (val *ConnectedClusterIdentityResponse) Defaults() *ConnectedClusterIdentityResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Type) {
+		tmp.Type = "SystemAssigned"
+	}
+	return &tmp
 }
 
 

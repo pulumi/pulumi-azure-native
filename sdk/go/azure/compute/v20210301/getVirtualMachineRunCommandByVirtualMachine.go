@@ -13,7 +13,7 @@ func LookupVirtualMachineRunCommandByVirtualMachine(ctx *pulumi.Context, args *L
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupVirtualMachineRunCommandByVirtualMachineArgs struct {
@@ -41,4 +41,17 @@ type LookupVirtualMachineRunCommandByVirtualMachineResult struct {
 	Tags                map[string]string                             `pulumi:"tags"`
 	TimeoutInSeconds    *int                                          `pulumi:"timeoutInSeconds"`
 	Type                string                                        `pulumi:"type"`
+}
+
+
+func (val *LookupVirtualMachineRunCommandByVirtualMachineResult) Defaults() *LookupVirtualMachineRunCommandByVirtualMachineResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.AsyncExecution) {
+		asyncExecution_ := false
+		tmp.AsyncExecution = &asyncExecution_
+	}
+	return &tmp
 }

@@ -125,58 +125,58 @@ export class PartnerRegistration extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: PartnerRegistrationArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["authorizedAzureSubscriptionIds"] = args ? args.authorizedAzureSubscriptionIds : undefined;
-            inputs["customerServiceUri"] = args ? args.customerServiceUri : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["logoUri"] = args ? args.logoUri : undefined;
-            inputs["longDescription"] = args ? args.longDescription : undefined;
-            inputs["partnerCustomerServiceExtension"] = args ? args.partnerCustomerServiceExtension : undefined;
-            inputs["partnerCustomerServiceNumber"] = args ? args.partnerCustomerServiceNumber : undefined;
-            inputs["partnerName"] = args ? args.partnerName : undefined;
-            inputs["partnerRegistrationName"] = args ? args.partnerRegistrationName : undefined;
-            inputs["partnerResourceTypeDescription"] = args ? args.partnerResourceTypeDescription : undefined;
-            inputs["partnerResourceTypeDisplayName"] = args ? args.partnerResourceTypeDisplayName : undefined;
-            inputs["partnerResourceTypeName"] = args ? args.partnerResourceTypeName : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["setupUri"] = args ? args.setupUri : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["visibilityState"] = args ? args.visibilityState : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["authorizedAzureSubscriptionIds"] = args ? args.authorizedAzureSubscriptionIds : undefined;
+            resourceInputs["customerServiceUri"] = args ? args.customerServiceUri : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["logoUri"] = args ? args.logoUri : undefined;
+            resourceInputs["longDescription"] = args ? args.longDescription : undefined;
+            resourceInputs["partnerCustomerServiceExtension"] = args ? args.partnerCustomerServiceExtension : undefined;
+            resourceInputs["partnerCustomerServiceNumber"] = args ? args.partnerCustomerServiceNumber : undefined;
+            resourceInputs["partnerName"] = args ? args.partnerName : undefined;
+            resourceInputs["partnerRegistrationName"] = args ? args.partnerRegistrationName : undefined;
+            resourceInputs["partnerResourceTypeDescription"] = args ? args.partnerResourceTypeDescription : undefined;
+            resourceInputs["partnerResourceTypeDisplayName"] = args ? args.partnerResourceTypeDisplayName : undefined;
+            resourceInputs["partnerResourceTypeName"] = args ? args.partnerResourceTypeName : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["setupUri"] = args ? args.setupUri : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["visibilityState"] = args ? args.visibilityState : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["authorizedAzureSubscriptionIds"] = undefined /*out*/;
-            inputs["customerServiceUri"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["logoUri"] = undefined /*out*/;
-            inputs["longDescription"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["partnerCustomerServiceExtension"] = undefined /*out*/;
-            inputs["partnerCustomerServiceNumber"] = undefined /*out*/;
-            inputs["partnerName"] = undefined /*out*/;
-            inputs["partnerResourceTypeDescription"] = undefined /*out*/;
-            inputs["partnerResourceTypeDisplayName"] = undefined /*out*/;
-            inputs["partnerResourceTypeName"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["setupUri"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["visibilityState"] = undefined /*out*/;
+            resourceInputs["authorizedAzureSubscriptionIds"] = undefined /*out*/;
+            resourceInputs["customerServiceUri"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["logoUri"] = undefined /*out*/;
+            resourceInputs["longDescription"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["partnerCustomerServiceExtension"] = undefined /*out*/;
+            resourceInputs["partnerCustomerServiceNumber"] = undefined /*out*/;
+            resourceInputs["partnerName"] = undefined /*out*/;
+            resourceInputs["partnerResourceTypeDescription"] = undefined /*out*/;
+            resourceInputs["partnerResourceTypeDisplayName"] = undefined /*out*/;
+            resourceInputs["partnerResourceTypeName"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["setupUri"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["visibilityState"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:eventgrid/v20200401preview:PartnerRegistration" }, { type: "azure-native:eventgrid/v20201015preview:PartnerRegistration" }, { type: "azure-native:eventgrid/v20210601preview:PartnerRegistration" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(PartnerRegistration.__pulumiType, name, inputs, opts);
+        super(PartnerRegistration.__pulumiType, name, resourceInputs, opts);
     }
 }
 

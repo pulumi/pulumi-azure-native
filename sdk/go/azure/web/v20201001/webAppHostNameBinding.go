@@ -155,7 +155,7 @@ type WebAppHostNameBindingInput interface {
 }
 
 func (*WebAppHostNameBinding) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAppHostNameBinding)(nil))
+	return reflect.TypeOf((**WebAppHostNameBinding)(nil)).Elem()
 }
 
 func (i *WebAppHostNameBinding) ToWebAppHostNameBindingOutput() WebAppHostNameBindingOutput {
@@ -169,7 +169,7 @@ func (i *WebAppHostNameBinding) ToWebAppHostNameBindingOutputWithContext(ctx con
 type WebAppHostNameBindingOutput struct{ *pulumi.OutputState }
 
 func (WebAppHostNameBindingOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAppHostNameBinding)(nil))
+	return reflect.TypeOf((**WebAppHostNameBinding)(nil)).Elem()
 }
 
 func (o WebAppHostNameBindingOutput) ToWebAppHostNameBindingOutput() WebAppHostNameBindingOutput {

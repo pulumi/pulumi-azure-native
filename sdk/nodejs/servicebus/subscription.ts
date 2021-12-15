@@ -121,7 +121,7 @@ export class Subscription extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: SubscriptionArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.namespaceName === undefined) && !opts.urn) {
@@ -133,56 +133,56 @@ export class Subscription extends pulumi.CustomResource {
             if ((!args || args.topicName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'topicName'");
             }
-            inputs["autoDeleteOnIdle"] = args ? args.autoDeleteOnIdle : undefined;
-            inputs["deadLetteringOnFilterEvaluationExceptions"] = args ? args.deadLetteringOnFilterEvaluationExceptions : undefined;
-            inputs["deadLetteringOnMessageExpiration"] = args ? args.deadLetteringOnMessageExpiration : undefined;
-            inputs["defaultMessageTimeToLive"] = args ? args.defaultMessageTimeToLive : undefined;
-            inputs["duplicateDetectionHistoryTimeWindow"] = args ? args.duplicateDetectionHistoryTimeWindow : undefined;
-            inputs["enableBatchedOperations"] = args ? args.enableBatchedOperations : undefined;
-            inputs["forwardDeadLetteredMessagesTo"] = args ? args.forwardDeadLetteredMessagesTo : undefined;
-            inputs["forwardTo"] = args ? args.forwardTo : undefined;
-            inputs["lockDuration"] = args ? args.lockDuration : undefined;
-            inputs["maxDeliveryCount"] = args ? args.maxDeliveryCount : undefined;
-            inputs["namespaceName"] = args ? args.namespaceName : undefined;
-            inputs["requiresSession"] = args ? args.requiresSession : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["status"] = args ? args.status : undefined;
-            inputs["subscriptionName"] = args ? args.subscriptionName : undefined;
-            inputs["topicName"] = args ? args.topicName : undefined;
-            inputs["accessedAt"] = undefined /*out*/;
-            inputs["countDetails"] = undefined /*out*/;
-            inputs["createdAt"] = undefined /*out*/;
-            inputs["messageCount"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["updatedAt"] = undefined /*out*/;
+            resourceInputs["autoDeleteOnIdle"] = args ? args.autoDeleteOnIdle : undefined;
+            resourceInputs["deadLetteringOnFilterEvaluationExceptions"] = args ? args.deadLetteringOnFilterEvaluationExceptions : undefined;
+            resourceInputs["deadLetteringOnMessageExpiration"] = args ? args.deadLetteringOnMessageExpiration : undefined;
+            resourceInputs["defaultMessageTimeToLive"] = args ? args.defaultMessageTimeToLive : undefined;
+            resourceInputs["duplicateDetectionHistoryTimeWindow"] = args ? args.duplicateDetectionHistoryTimeWindow : undefined;
+            resourceInputs["enableBatchedOperations"] = args ? args.enableBatchedOperations : undefined;
+            resourceInputs["forwardDeadLetteredMessagesTo"] = args ? args.forwardDeadLetteredMessagesTo : undefined;
+            resourceInputs["forwardTo"] = args ? args.forwardTo : undefined;
+            resourceInputs["lockDuration"] = args ? args.lockDuration : undefined;
+            resourceInputs["maxDeliveryCount"] = args ? args.maxDeliveryCount : undefined;
+            resourceInputs["namespaceName"] = args ? args.namespaceName : undefined;
+            resourceInputs["requiresSession"] = args ? args.requiresSession : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["status"] = args ? args.status : undefined;
+            resourceInputs["subscriptionName"] = args ? args.subscriptionName : undefined;
+            resourceInputs["topicName"] = args ? args.topicName : undefined;
+            resourceInputs["accessedAt"] = undefined /*out*/;
+            resourceInputs["countDetails"] = undefined /*out*/;
+            resourceInputs["createdAt"] = undefined /*out*/;
+            resourceInputs["messageCount"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["updatedAt"] = undefined /*out*/;
         } else {
-            inputs["accessedAt"] = undefined /*out*/;
-            inputs["autoDeleteOnIdle"] = undefined /*out*/;
-            inputs["countDetails"] = undefined /*out*/;
-            inputs["createdAt"] = undefined /*out*/;
-            inputs["deadLetteringOnFilterEvaluationExceptions"] = undefined /*out*/;
-            inputs["deadLetteringOnMessageExpiration"] = undefined /*out*/;
-            inputs["defaultMessageTimeToLive"] = undefined /*out*/;
-            inputs["duplicateDetectionHistoryTimeWindow"] = undefined /*out*/;
-            inputs["enableBatchedOperations"] = undefined /*out*/;
-            inputs["forwardDeadLetteredMessagesTo"] = undefined /*out*/;
-            inputs["forwardTo"] = undefined /*out*/;
-            inputs["lockDuration"] = undefined /*out*/;
-            inputs["maxDeliveryCount"] = undefined /*out*/;
-            inputs["messageCount"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["requiresSession"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["updatedAt"] = undefined /*out*/;
+            resourceInputs["accessedAt"] = undefined /*out*/;
+            resourceInputs["autoDeleteOnIdle"] = undefined /*out*/;
+            resourceInputs["countDetails"] = undefined /*out*/;
+            resourceInputs["createdAt"] = undefined /*out*/;
+            resourceInputs["deadLetteringOnFilterEvaluationExceptions"] = undefined /*out*/;
+            resourceInputs["deadLetteringOnMessageExpiration"] = undefined /*out*/;
+            resourceInputs["defaultMessageTimeToLive"] = undefined /*out*/;
+            resourceInputs["duplicateDetectionHistoryTimeWindow"] = undefined /*out*/;
+            resourceInputs["enableBatchedOperations"] = undefined /*out*/;
+            resourceInputs["forwardDeadLetteredMessagesTo"] = undefined /*out*/;
+            resourceInputs["forwardTo"] = undefined /*out*/;
+            resourceInputs["lockDuration"] = undefined /*out*/;
+            resourceInputs["maxDeliveryCount"] = undefined /*out*/;
+            resourceInputs["messageCount"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["requiresSession"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["updatedAt"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:servicebus/v20140901:Subscription" }, { type: "azure-native:servicebus/v20150801:Subscription" }, { type: "azure-native:servicebus/v20170401:Subscription" }, { type: "azure-native:servicebus/v20180101preview:Subscription" }, { type: "azure-native:servicebus/v20210101preview:Subscription" }, { type: "azure-native:servicebus/v20210601preview:Subscription" }, { type: "azure-native:servicebus/v20211101:Subscription" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Subscription.__pulumiType, name, inputs, opts);
+        super(Subscription.__pulumiType, name, resourceInputs, opts);
     }
 }
 

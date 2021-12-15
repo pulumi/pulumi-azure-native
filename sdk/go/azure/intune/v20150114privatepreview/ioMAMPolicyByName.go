@@ -53,37 +53,37 @@ func NewIoMAMPolicyByName(ctx *pulumi.Context,
 	if args.HostName == nil {
 		return nil, errors.New("invalid value for required argument 'HostName'")
 	}
-	if args.AppSharingFromLevel == nil {
+	if isZero(args.AppSharingFromLevel) {
 		args.AppSharingFromLevel = pulumi.StringPtr("none")
 	}
-	if args.AppSharingToLevel == nil {
+	if isZero(args.AppSharingToLevel) {
 		args.AppSharingToLevel = pulumi.StringPtr("none")
 	}
-	if args.Authentication == nil {
+	if isZero(args.Authentication) {
 		args.Authentication = pulumi.StringPtr("required")
 	}
-	if args.ClipboardSharingLevel == nil {
+	if isZero(args.ClipboardSharingLevel) {
 		args.ClipboardSharingLevel = pulumi.StringPtr("blocked")
 	}
-	if args.DataBackup == nil {
+	if isZero(args.DataBackup) {
 		args.DataBackup = pulumi.StringPtr("allow")
 	}
-	if args.DeviceCompliance == nil {
+	if isZero(args.DeviceCompliance) {
 		args.DeviceCompliance = pulumi.StringPtr("enable")
 	}
-	if args.FileEncryptionLevel == nil {
+	if isZero(args.FileEncryptionLevel) {
 		args.FileEncryptionLevel = pulumi.StringPtr("deviceLocked")
 	}
-	if args.FileSharingSaveAs == nil {
+	if isZero(args.FileSharingSaveAs) {
 		args.FileSharingSaveAs = pulumi.StringPtr("allow")
 	}
-	if args.ManagedBrowser == nil {
+	if isZero(args.ManagedBrowser) {
 		args.ManagedBrowser = pulumi.StringPtr("required")
 	}
-	if args.Pin == nil {
+	if isZero(args.Pin) {
 		args.Pin = pulumi.StringPtr("required")
 	}
-	if args.TouchId == nil {
+	if isZero(args.TouchId) {
 		args.TouchId = pulumi.StringPtr("enable")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
@@ -187,7 +187,7 @@ type IoMAMPolicyByNameInput interface {
 }
 
 func (*IoMAMPolicyByName) ElementType() reflect.Type {
-	return reflect.TypeOf((*IoMAMPolicyByName)(nil))
+	return reflect.TypeOf((**IoMAMPolicyByName)(nil)).Elem()
 }
 
 func (i *IoMAMPolicyByName) ToIoMAMPolicyByNameOutput() IoMAMPolicyByNameOutput {
@@ -201,7 +201,7 @@ func (i *IoMAMPolicyByName) ToIoMAMPolicyByNameOutputWithContext(ctx context.Con
 type IoMAMPolicyByNameOutput struct{ *pulumi.OutputState }
 
 func (IoMAMPolicyByNameOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IoMAMPolicyByName)(nil))
+	return reflect.TypeOf((**IoMAMPolicyByName)(nil)).Elem()
 }
 
 func (o IoMAMPolicyByNameOutput) ToIoMAMPolicyByNameOutput() IoMAMPolicyByNameOutput {

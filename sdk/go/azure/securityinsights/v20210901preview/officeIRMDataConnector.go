@@ -122,7 +122,7 @@ type OfficeIRMDataConnectorInput interface {
 }
 
 func (*OfficeIRMDataConnector) ElementType() reflect.Type {
-	return reflect.TypeOf((*OfficeIRMDataConnector)(nil))
+	return reflect.TypeOf((**OfficeIRMDataConnector)(nil)).Elem()
 }
 
 func (i *OfficeIRMDataConnector) ToOfficeIRMDataConnectorOutput() OfficeIRMDataConnectorOutput {
@@ -136,7 +136,7 @@ func (i *OfficeIRMDataConnector) ToOfficeIRMDataConnectorOutputWithContext(ctx c
 type OfficeIRMDataConnectorOutput struct{ *pulumi.OutputState }
 
 func (OfficeIRMDataConnectorOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*OfficeIRMDataConnector)(nil))
+	return reflect.TypeOf((**OfficeIRMDataConnector)(nil)).Elem()
 }
 
 func (o OfficeIRMDataConnectorOutput) ToOfficeIRMDataConnectorOutput() OfficeIRMDataConnectorOutput {

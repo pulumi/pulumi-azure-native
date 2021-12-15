@@ -97,7 +97,7 @@ export class Spacecraft extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: SpacecraftArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.noradId === undefined) && !opts.urn) {
@@ -106,42 +106,42 @@ export class Spacecraft extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["links"] = args ? args.links : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["noradId"] = args ? args.noradId : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["spacecraftName"] = args ? args.spacecraftName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["titleLine"] = args ? args.titleLine : undefined;
-            inputs["tleLine1"] = args ? args.tleLine1 : undefined;
-            inputs["tleLine2"] = args ? args.tleLine2 : undefined;
-            inputs["authorizationStatus"] = undefined /*out*/;
-            inputs["authorizationStatusExtended"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["links"] = args ? args.links : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["noradId"] = args ? args.noradId : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["spacecraftName"] = args ? args.spacecraftName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["titleLine"] = args ? args.titleLine : undefined;
+            resourceInputs["tleLine1"] = args ? args.tleLine1 : undefined;
+            resourceInputs["tleLine2"] = args ? args.tleLine2 : undefined;
+            resourceInputs["authorizationStatus"] = undefined /*out*/;
+            resourceInputs["authorizationStatusExtended"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["authorizationStatus"] = undefined /*out*/;
-            inputs["authorizationStatusExtended"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
-            inputs["links"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["noradId"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["titleLine"] = undefined /*out*/;
-            inputs["tleLine1"] = undefined /*out*/;
-            inputs["tleLine2"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["authorizationStatus"] = undefined /*out*/;
+            resourceInputs["authorizationStatusExtended"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["links"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["noradId"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["titleLine"] = undefined /*out*/;
+            resourceInputs["tleLine1"] = undefined /*out*/;
+            resourceInputs["tleLine2"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:orbital/v20210404preview:Spacecraft" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Spacecraft.__pulumiType, name, inputs, opts);
+        super(Spacecraft.__pulumiType, name, resourceInputs, opts);
     }
 }
 

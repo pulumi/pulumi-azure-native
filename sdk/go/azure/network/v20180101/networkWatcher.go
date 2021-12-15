@@ -32,7 +32,7 @@ func NewNetworkWatcher(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.Etag == nil {
+	if isZero(args.Etag) {
 		args.Etag = pulumi.StringPtr("A unique read-only string that changes whenever the resource is updated.")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
@@ -205,7 +205,7 @@ type NetworkWatcherInput interface {
 }
 
 func (*NetworkWatcher) ElementType() reflect.Type {
-	return reflect.TypeOf((*NetworkWatcher)(nil))
+	return reflect.TypeOf((**NetworkWatcher)(nil)).Elem()
 }
 
 func (i *NetworkWatcher) ToNetworkWatcherOutput() NetworkWatcherOutput {
@@ -219,7 +219,7 @@ func (i *NetworkWatcher) ToNetworkWatcherOutputWithContext(ctx context.Context) 
 type NetworkWatcherOutput struct{ *pulumi.OutputState }
 
 func (NetworkWatcherOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NetworkWatcher)(nil))
+	return reflect.TypeOf((**NetworkWatcher)(nil)).Elem()
 }
 
 func (o NetworkWatcherOutput) ToNetworkWatcherOutput() NetworkWatcherOutput {

@@ -127,7 +127,7 @@ type DiskEncryptionSetInput interface {
 }
 
 func (*DiskEncryptionSet) ElementType() reflect.Type {
-	return reflect.TypeOf((*DiskEncryptionSet)(nil))
+	return reflect.TypeOf((**DiskEncryptionSet)(nil)).Elem()
 }
 
 func (i *DiskEncryptionSet) ToDiskEncryptionSetOutput() DiskEncryptionSetOutput {
@@ -141,7 +141,7 @@ func (i *DiskEncryptionSet) ToDiskEncryptionSetOutputWithContext(ctx context.Con
 type DiskEncryptionSetOutput struct{ *pulumi.OutputState }
 
 func (DiskEncryptionSetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DiskEncryptionSet)(nil))
+	return reflect.TypeOf((**DiskEncryptionSet)(nil)).Elem()
 }
 
 func (o DiskEncryptionSetOutput) ToDiskEncryptionSetOutput() DiskEncryptionSetOutput {

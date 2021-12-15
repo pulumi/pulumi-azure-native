@@ -109,7 +109,7 @@ type ServerDnsAliasInput interface {
 }
 
 func (*ServerDnsAlias) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServerDnsAlias)(nil))
+	return reflect.TypeOf((**ServerDnsAlias)(nil)).Elem()
 }
 
 func (i *ServerDnsAlias) ToServerDnsAliasOutput() ServerDnsAliasOutput {
@@ -123,7 +123,7 @@ func (i *ServerDnsAlias) ToServerDnsAliasOutputWithContext(ctx context.Context) 
 type ServerDnsAliasOutput struct{ *pulumi.OutputState }
 
 func (ServerDnsAliasOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServerDnsAlias)(nil))
+	return reflect.TypeOf((**ServerDnsAlias)(nil)).Elem()
 }
 
 func (o ServerDnsAliasOutput) ToServerDnsAliasOutput() ServerDnsAliasOutput {

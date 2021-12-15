@@ -110,7 +110,7 @@ type VendorSkusInput interface {
 }
 
 func (*VendorSkus) ElementType() reflect.Type {
-	return reflect.TypeOf((*VendorSkus)(nil))
+	return reflect.TypeOf((**VendorSkus)(nil)).Elem()
 }
 
 func (i *VendorSkus) ToVendorSkusOutput() VendorSkusOutput {
@@ -124,7 +124,7 @@ func (i *VendorSkus) ToVendorSkusOutputWithContext(ctx context.Context) VendorSk
 type VendorSkusOutput struct{ *pulumi.OutputState }
 
 func (VendorSkusOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VendorSkus)(nil))
+	return reflect.TypeOf((**VendorSkus)(nil)).Elem()
 }
 
 func (o VendorSkusOutput) ToVendorSkusOutput() VendorSkusOutput {

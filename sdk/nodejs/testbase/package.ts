@@ -117,7 +117,7 @@ export class Package extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: PackageArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.applicationName === undefined) && !opts.urn) {
@@ -144,53 +144,53 @@ export class Package extends pulumi.CustomResource {
             if ((!args || args.version === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'version'");
             }
-            inputs["applicationName"] = args ? args.applicationName : undefined;
-            inputs["blobPath"] = args ? args.blobPath : undefined;
-            inputs["flightingRing"] = args ? args.flightingRing : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["packageName"] = args ? args.packageName : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["targetOSList"] = args ? args.targetOSList : undefined;
-            inputs["testBaseAccountName"] = args ? args.testBaseAccountName : undefined;
-            inputs["tests"] = args ? args.tests : undefined;
-            inputs["version"] = args ? args.version : undefined;
-            inputs["etag"] = undefined /*out*/;
-            inputs["isEnabled"] = undefined /*out*/;
-            inputs["lastModifiedTime"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["packageStatus"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["testTypes"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["validationResults"] = undefined /*out*/;
+            resourceInputs["applicationName"] = args ? args.applicationName : undefined;
+            resourceInputs["blobPath"] = args ? args.blobPath : undefined;
+            resourceInputs["flightingRing"] = args ? args.flightingRing : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["packageName"] = args ? args.packageName : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["targetOSList"] = args ? args.targetOSList : undefined;
+            resourceInputs["testBaseAccountName"] = args ? args.testBaseAccountName : undefined;
+            resourceInputs["tests"] = args ? args.tests : undefined;
+            resourceInputs["version"] = args ? args.version : undefined;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["isEnabled"] = undefined /*out*/;
+            resourceInputs["lastModifiedTime"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["packageStatus"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["testTypes"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["validationResults"] = undefined /*out*/;
         } else {
-            inputs["applicationName"] = undefined /*out*/;
-            inputs["blobPath"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
-            inputs["flightingRing"] = undefined /*out*/;
-            inputs["isEnabled"] = undefined /*out*/;
-            inputs["lastModifiedTime"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["packageStatus"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["targetOSList"] = undefined /*out*/;
-            inputs["testTypes"] = undefined /*out*/;
-            inputs["tests"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["validationResults"] = undefined /*out*/;
-            inputs["version"] = undefined /*out*/;
+            resourceInputs["applicationName"] = undefined /*out*/;
+            resourceInputs["blobPath"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["flightingRing"] = undefined /*out*/;
+            resourceInputs["isEnabled"] = undefined /*out*/;
+            resourceInputs["lastModifiedTime"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["packageStatus"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["targetOSList"] = undefined /*out*/;
+            resourceInputs["testTypes"] = undefined /*out*/;
+            resourceInputs["tests"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["validationResults"] = undefined /*out*/;
+            resourceInputs["version"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:testbase/v20201216preview:Package" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Package.__pulumiType, name, inputs, opts);
+        super(Package.__pulumiType, name, resourceInputs, opts);
     }
 }
 

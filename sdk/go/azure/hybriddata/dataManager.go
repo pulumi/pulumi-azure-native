@@ -103,7 +103,7 @@ type DataManagerInput interface {
 }
 
 func (*DataManager) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataManager)(nil))
+	return reflect.TypeOf((**DataManager)(nil)).Elem()
 }
 
 func (i *DataManager) ToDataManagerOutput() DataManagerOutput {
@@ -117,7 +117,7 @@ func (i *DataManager) ToDataManagerOutputWithContext(ctx context.Context) DataMa
 type DataManagerOutput struct{ *pulumi.OutputState }
 
 func (DataManagerOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataManager)(nil))
+	return reflect.TypeOf((**DataManager)(nil)).Elem()
 }
 
 func (o DataManagerOutput) ToDataManagerOutput() DataManagerOutput {

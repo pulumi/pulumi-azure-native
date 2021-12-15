@@ -87,42 +87,42 @@ export class CertificateCsr extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: CertificateCsrArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["csrString"] = args ? args.csrString : undefined;
-            inputs["distinguishedName"] = args ? args.distinguishedName : undefined;
-            inputs["hostingEnvironment"] = args ? args.hostingEnvironment : undefined;
-            inputs["id"] = args ? args.id : undefined;
-            inputs["kind"] = args ? args.kind : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["password"] = args ? args.password : undefined;
-            inputs["pfxBlob"] = args ? args.pfxBlob : undefined;
-            inputs["publicKeyHash"] = args ? args.publicKeyHash : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["type"] = args ? args.type : undefined;
+            resourceInputs["csrString"] = args ? args.csrString : undefined;
+            resourceInputs["distinguishedName"] = args ? args.distinguishedName : undefined;
+            resourceInputs["hostingEnvironment"] = args ? args.hostingEnvironment : undefined;
+            resourceInputs["id"] = args ? args.id : undefined;
+            resourceInputs["kind"] = args ? args.kind : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["password"] = args ? args.password : undefined;
+            resourceInputs["pfxBlob"] = args ? args.pfxBlob : undefined;
+            resourceInputs["publicKeyHash"] = args ? args.publicKeyHash : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
         } else {
-            inputs["csrString"] = undefined /*out*/;
-            inputs["distinguishedName"] = undefined /*out*/;
-            inputs["hostingEnvironment"] = undefined /*out*/;
-            inputs["kind"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["password"] = undefined /*out*/;
-            inputs["pfxBlob"] = undefined /*out*/;
-            inputs["publicKeyHash"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["csrString"] = undefined /*out*/;
+            resourceInputs["distinguishedName"] = undefined /*out*/;
+            resourceInputs["hostingEnvironment"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["password"] = undefined /*out*/;
+            resourceInputs["pfxBlob"] = undefined /*out*/;
+            resourceInputs["publicKeyHash"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(CertificateCsr.__pulumiType, name, inputs, opts);
+        super(CertificateCsr.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -202,7 +202,7 @@ type NetworkWatcherInput interface {
 }
 
 func (*NetworkWatcher) ElementType() reflect.Type {
-	return reflect.TypeOf((*NetworkWatcher)(nil))
+	return reflect.TypeOf((**NetworkWatcher)(nil)).Elem()
 }
 
 func (i *NetworkWatcher) ToNetworkWatcherOutput() NetworkWatcherOutput {
@@ -216,7 +216,7 @@ func (i *NetworkWatcher) ToNetworkWatcherOutputWithContext(ctx context.Context) 
 type NetworkWatcherOutput struct{ *pulumi.OutputState }
 
 func (NetworkWatcherOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NetworkWatcher)(nil))
+	return reflect.TypeOf((**NetworkWatcher)(nil)).Elem()
 }
 
 func (o NetworkWatcherOutput) ToNetworkWatcherOutput() NetworkWatcherOutput {

@@ -36,6 +36,8 @@ func NewDataController(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
+	propertiesApplier := func(v DataControllerProperties) *DataControllerProperties { return v.Defaults() }
+	args.Properties = args.Properties.ToDataControllerPropertiesOutput().ApplyT(propertiesApplier).(DataControllerPropertiesPtrOutput).Elem()
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-native:azurearcdata:DataController"),
@@ -113,7 +115,7 @@ type DataControllerInput interface {
 }
 
 func (*DataController) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataController)(nil))
+	return reflect.TypeOf((**DataController)(nil)).Elem()
 }
 
 func (i *DataController) ToDataControllerOutput() DataControllerOutput {
@@ -127,7 +129,7 @@ func (i *DataController) ToDataControllerOutputWithContext(ctx context.Context) 
 type DataControllerOutput struct{ *pulumi.OutputState }
 
 func (DataControllerOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataController)(nil))
+	return reflect.TypeOf((**DataController)(nil)).Elem()
 }
 
 func (o DataControllerOutput) ToDataControllerOutput() DataControllerOutput {

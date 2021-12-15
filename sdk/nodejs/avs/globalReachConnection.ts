@@ -72,7 +72,7 @@ export class GlobalReachConnection extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: GlobalReachConnectionArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.privateCloudName === undefined) && !opts.urn) {
@@ -81,31 +81,31 @@ export class GlobalReachConnection extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["authorizationKey"] = args ? args.authorizationKey : undefined;
-            inputs["globalReachConnectionName"] = args ? args.globalReachConnectionName : undefined;
-            inputs["peerExpressRouteCircuit"] = args ? args.peerExpressRouteCircuit : undefined;
-            inputs["privateCloudName"] = args ? args.privateCloudName : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["addressPrefix"] = undefined /*out*/;
-            inputs["circuitConnectionStatus"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["authorizationKey"] = args ? args.authorizationKey : undefined;
+            resourceInputs["globalReachConnectionName"] = args ? args.globalReachConnectionName : undefined;
+            resourceInputs["peerExpressRouteCircuit"] = args ? args.peerExpressRouteCircuit : undefined;
+            resourceInputs["privateCloudName"] = args ? args.privateCloudName : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["addressPrefix"] = undefined /*out*/;
+            resourceInputs["circuitConnectionStatus"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["addressPrefix"] = undefined /*out*/;
-            inputs["authorizationKey"] = undefined /*out*/;
-            inputs["circuitConnectionStatus"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["peerExpressRouteCircuit"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["addressPrefix"] = undefined /*out*/;
+            resourceInputs["authorizationKey"] = undefined /*out*/;
+            resourceInputs["circuitConnectionStatus"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["peerExpressRouteCircuit"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:avs/v20200717preview:GlobalReachConnection" }, { type: "azure-native:avs/v20210101preview:GlobalReachConnection" }, { type: "azure-native:avs/v20210601:GlobalReachConnection" }, { type: "azure-native:avs/v20211201:GlobalReachConnection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(GlobalReachConnection.__pulumiType, name, inputs, opts);
+        super(GlobalReachConnection.__pulumiType, name, resourceInputs, opts);
     }
 }
 

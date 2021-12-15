@@ -13,7 +13,7 @@ func ListWebAppBackupConfiguration(ctx *pulumi.Context, args *ListWebAppBackupCo
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type ListWebAppBackupConfigurationArgs struct {
@@ -32,4 +32,15 @@ type ListWebAppBackupConfigurationResult struct {
 	Name              string                          `pulumi:"name"`
 	StorageAccountUrl string                          `pulumi:"storageAccountUrl"`
 	Type              string                          `pulumi:"type"`
+}
+
+
+func (val *ListWebAppBackupConfigurationResult) Defaults() *ListWebAppBackupConfigurationResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.BackupSchedule = tmp.BackupSchedule.Defaults()
+
+	return &tmp
 }

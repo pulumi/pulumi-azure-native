@@ -120,7 +120,7 @@ type SignalRSharedPrivateLinkResourceInput interface {
 }
 
 func (*SignalRSharedPrivateLinkResource) ElementType() reflect.Type {
-	return reflect.TypeOf((*SignalRSharedPrivateLinkResource)(nil))
+	return reflect.TypeOf((**SignalRSharedPrivateLinkResource)(nil)).Elem()
 }
 
 func (i *SignalRSharedPrivateLinkResource) ToSignalRSharedPrivateLinkResourceOutput() SignalRSharedPrivateLinkResourceOutput {
@@ -134,7 +134,7 @@ func (i *SignalRSharedPrivateLinkResource) ToSignalRSharedPrivateLinkResourceOut
 type SignalRSharedPrivateLinkResourceOutput struct{ *pulumi.OutputState }
 
 func (SignalRSharedPrivateLinkResourceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SignalRSharedPrivateLinkResource)(nil))
+	return reflect.TypeOf((**SignalRSharedPrivateLinkResource)(nil)).Elem()
 }
 
 func (o SignalRSharedPrivateLinkResourceOutput) ToSignalRSharedPrivateLinkResourceOutput() SignalRSharedPrivateLinkResourceOutput {

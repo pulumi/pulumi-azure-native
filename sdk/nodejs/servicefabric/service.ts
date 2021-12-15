@@ -109,7 +109,7 @@ export class Service extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ServiceArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.applicationName === undefined) && !opts.urn) {
@@ -124,50 +124,50 @@ export class Service extends pulumi.CustomResource {
             if ((!args || args.serviceKind === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceKind'");
             }
-            inputs["applicationName"] = args ? args.applicationName : undefined;
-            inputs["clusterName"] = args ? args.clusterName : undefined;
-            inputs["correlationScheme"] = args ? args.correlationScheme : undefined;
-            inputs["defaultMoveCost"] = args ? args.defaultMoveCost : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["partitionDescription"] = args ? args.partitionDescription : undefined;
-            inputs["placementConstraints"] = args ? args.placementConstraints : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["serviceDnsName"] = args ? args.serviceDnsName : undefined;
-            inputs["serviceKind"] = args ? args.serviceKind : undefined;
-            inputs["serviceLoadMetrics"] = args ? args.serviceLoadMetrics : undefined;
-            inputs["serviceName"] = args ? args.serviceName : undefined;
-            inputs["servicePackageActivationMode"] = args ? args.servicePackageActivationMode : undefined;
-            inputs["servicePlacementPolicies"] = args ? args.servicePlacementPolicies : undefined;
-            inputs["serviceTypeName"] = args ? args.serviceTypeName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["etag"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["applicationName"] = args ? args.applicationName : undefined;
+            resourceInputs["clusterName"] = args ? args.clusterName : undefined;
+            resourceInputs["correlationScheme"] = args ? args.correlationScheme : undefined;
+            resourceInputs["defaultMoveCost"] = args ? args.defaultMoveCost : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["partitionDescription"] = args ? args.partitionDescription : undefined;
+            resourceInputs["placementConstraints"] = args ? args.placementConstraints : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["serviceDnsName"] = args ? args.serviceDnsName : undefined;
+            resourceInputs["serviceKind"] = args ? args.serviceKind : undefined;
+            resourceInputs["serviceLoadMetrics"] = args ? args.serviceLoadMetrics : undefined;
+            resourceInputs["serviceName"] = args ? args.serviceName : undefined;
+            resourceInputs["servicePackageActivationMode"] = args ? args.servicePackageActivationMode : undefined;
+            resourceInputs["servicePlacementPolicies"] = args ? args.servicePlacementPolicies : undefined;
+            resourceInputs["serviceTypeName"] = args ? args.serviceTypeName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["correlationScheme"] = undefined /*out*/;
-            inputs["defaultMoveCost"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["partitionDescription"] = undefined /*out*/;
-            inputs["placementConstraints"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["serviceDnsName"] = undefined /*out*/;
-            inputs["serviceKind"] = undefined /*out*/;
-            inputs["serviceLoadMetrics"] = undefined /*out*/;
-            inputs["servicePackageActivationMode"] = undefined /*out*/;
-            inputs["servicePlacementPolicies"] = undefined /*out*/;
-            inputs["serviceTypeName"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["correlationScheme"] = undefined /*out*/;
+            resourceInputs["defaultMoveCost"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["partitionDescription"] = undefined /*out*/;
+            resourceInputs["placementConstraints"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["serviceDnsName"] = undefined /*out*/;
+            resourceInputs["serviceKind"] = undefined /*out*/;
+            resourceInputs["serviceLoadMetrics"] = undefined /*out*/;
+            resourceInputs["servicePackageActivationMode"] = undefined /*out*/;
+            resourceInputs["servicePlacementPolicies"] = undefined /*out*/;
+            resourceInputs["serviceTypeName"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:servicefabric/v20170701preview:Service" }, { type: "azure-native:servicefabric/v20190301:Service" }, { type: "azure-native:servicefabric/v20190301preview:Service" }, { type: "azure-native:servicefabric/v20190601preview:Service" }, { type: "azure-native:servicefabric/v20191101preview:Service" }, { type: "azure-native:servicefabric/v20200301:Service" }, { type: "azure-native:servicefabric/v20201201preview:Service" }, { type: "azure-native:servicefabric/v20210601:Service" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Service.__pulumiType, name, inputs, opts);
+        super(Service.__pulumiType, name, resourceInputs, opts);
     }
 }
 

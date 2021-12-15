@@ -133,7 +133,7 @@ type ArtifactSourceResourceInput interface {
 }
 
 func (*ArtifactSourceResource) ElementType() reflect.Type {
-	return reflect.TypeOf((*ArtifactSourceResource)(nil))
+	return reflect.TypeOf((**ArtifactSourceResource)(nil)).Elem()
 }
 
 func (i *ArtifactSourceResource) ToArtifactSourceResourceOutput() ArtifactSourceResourceOutput {
@@ -147,7 +147,7 @@ func (i *ArtifactSourceResource) ToArtifactSourceResourceOutputWithContext(ctx c
 type ArtifactSourceResourceOutput struct{ *pulumi.OutputState }
 
 func (ArtifactSourceResourceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ArtifactSourceResource)(nil))
+	return reflect.TypeOf((**ArtifactSourceResource)(nil)).Elem()
 }
 
 func (o ArtifactSourceResourceOutput) ToArtifactSourceResourceOutput() ArtifactSourceResourceOutput {

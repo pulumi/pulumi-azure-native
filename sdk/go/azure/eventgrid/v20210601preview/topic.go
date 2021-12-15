@@ -44,17 +44,21 @@ func NewTopic(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.DisableLocalAuth == nil {
+	if isZero(args.DisableLocalAuth) {
 		args.DisableLocalAuth = pulumi.BoolPtr(false)
 	}
-	if args.InputSchema == nil {
+	if isZero(args.InputSchema) {
 		args.InputSchema = pulumi.StringPtr("EventGridSchema")
 	}
-	if args.Kind == nil {
+	if isZero(args.Kind) {
 		args.Kind = pulumi.StringPtr("Azure")
 	}
-	if args.PublicNetworkAccess == nil {
+	if isZero(args.PublicNetworkAccess) {
 		args.PublicNetworkAccess = pulumi.StringPtr("Enabled")
+	}
+	skuApplier := func(v ResourceSku) *ResourceSku { return v.Defaults() }
+	if args.Sku != nil {
+		args.Sku = args.Sku.ToResourceSkuPtrOutput().Elem().ApplyT(skuApplier).(ResourceSkuPtrOutput)
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -177,7 +181,7 @@ type TopicInput interface {
 }
 
 func (*Topic) ElementType() reflect.Type {
-	return reflect.TypeOf((*Topic)(nil))
+	return reflect.TypeOf((**Topic)(nil)).Elem()
 }
 
 func (i *Topic) ToTopicOutput() TopicOutput {
@@ -191,7 +195,7 @@ func (i *Topic) ToTopicOutputWithContext(ctx context.Context) TopicOutput {
 type TopicOutput struct{ *pulumi.OutputState }
 
 func (TopicOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Topic)(nil))
+	return reflect.TypeOf((**Topic)(nil)).Elem()
 }
 
 func (o TopicOutput) ToTopicOutput() TopicOutput {

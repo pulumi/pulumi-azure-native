@@ -87,7 +87,7 @@ export class CloudEndpoint extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: CloudEndpointArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
@@ -99,40 +99,40 @@ export class CloudEndpoint extends pulumi.CustomResource {
             if ((!args || args.syncGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'syncGroupName'");
             }
-            inputs["cloudEndpointName"] = args ? args.cloudEndpointName : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["storageAccountResourceId"] = args ? args.storageAccountResourceId : undefined;
-            inputs["storageAccountShareName"] = args ? args.storageAccountShareName : undefined;
-            inputs["storageAccountTenantId"] = args ? args.storageAccountTenantId : undefined;
-            inputs["storageSyncServiceName"] = args ? args.storageSyncServiceName : undefined;
-            inputs["syncGroupName"] = args ? args.syncGroupName : undefined;
-            inputs["backupEnabled"] = undefined /*out*/;
-            inputs["friendlyName"] = undefined /*out*/;
-            inputs["lastOperationName"] = undefined /*out*/;
-            inputs["lastWorkflowId"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["partnershipId"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["cloudEndpointName"] = args ? args.cloudEndpointName : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["storageAccountResourceId"] = args ? args.storageAccountResourceId : undefined;
+            resourceInputs["storageAccountShareName"] = args ? args.storageAccountShareName : undefined;
+            resourceInputs["storageAccountTenantId"] = args ? args.storageAccountTenantId : undefined;
+            resourceInputs["storageSyncServiceName"] = args ? args.storageSyncServiceName : undefined;
+            resourceInputs["syncGroupName"] = args ? args.syncGroupName : undefined;
+            resourceInputs["backupEnabled"] = undefined /*out*/;
+            resourceInputs["friendlyName"] = undefined /*out*/;
+            resourceInputs["lastOperationName"] = undefined /*out*/;
+            resourceInputs["lastWorkflowId"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["partnershipId"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["backupEnabled"] = undefined /*out*/;
-            inputs["friendlyName"] = undefined /*out*/;
-            inputs["lastOperationName"] = undefined /*out*/;
-            inputs["lastWorkflowId"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["partnershipId"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["storageAccountResourceId"] = undefined /*out*/;
-            inputs["storageAccountShareName"] = undefined /*out*/;
-            inputs["storageAccountTenantId"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["backupEnabled"] = undefined /*out*/;
+            resourceInputs["friendlyName"] = undefined /*out*/;
+            resourceInputs["lastOperationName"] = undefined /*out*/;
+            resourceInputs["lastWorkflowId"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["partnershipId"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["storageAccountResourceId"] = undefined /*out*/;
+            resourceInputs["storageAccountShareName"] = undefined /*out*/;
+            resourceInputs["storageAccountTenantId"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:storagesync:CloudEndpoint" }, { type: "azure-native:storagesync/v20170605preview:CloudEndpoint" }, { type: "azure-native:storagesync/v20180402:CloudEndpoint" }, { type: "azure-native:storagesync/v20180701:CloudEndpoint" }, { type: "azure-native:storagesync/v20190201:CloudEndpoint" }, { type: "azure-native:storagesync/v20190301:CloudEndpoint" }, { type: "azure-native:storagesync/v20190601:CloudEndpoint" }, { type: "azure-native:storagesync/v20191001:CloudEndpoint" }, { type: "azure-native:storagesync/v20200301:CloudEndpoint" }, { type: "azure-native:storagesync/v20200901:CloudEndpoint" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(CloudEndpoint.__pulumiType, name, inputs, opts);
+        super(CloudEndpoint.__pulumiType, name, resourceInputs, opts);
     }
 }
 

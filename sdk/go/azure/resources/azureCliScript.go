@@ -57,11 +57,11 @@ func NewAzureCliScript(ctx *pulumi.Context,
 	if args.RetentionInterval == nil {
 		return nil, errors.New("invalid value for required argument 'RetentionInterval'")
 	}
-	if args.CleanupPreference == nil {
+	if isZero(args.CleanupPreference) {
 		args.CleanupPreference = pulumi.StringPtr("Always")
 	}
 	args.Kind = pulumi.String("AzureCLI")
-	if args.Timeout == nil {
+	if isZero(args.Timeout) {
 		args.Timeout = pulumi.StringPtr("P1D")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
@@ -159,7 +159,7 @@ type AzureCliScriptInput interface {
 }
 
 func (*AzureCliScript) ElementType() reflect.Type {
-	return reflect.TypeOf((*AzureCliScript)(nil))
+	return reflect.TypeOf((**AzureCliScript)(nil)).Elem()
 }
 
 func (i *AzureCliScript) ToAzureCliScriptOutput() AzureCliScriptOutput {
@@ -173,7 +173,7 @@ func (i *AzureCliScript) ToAzureCliScriptOutputWithContext(ctx context.Context) 
 type AzureCliScriptOutput struct{ *pulumi.OutputState }
 
 func (AzureCliScriptOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AzureCliScript)(nil))
+	return reflect.TypeOf((**AzureCliScript)(nil)).Elem()
 }
 
 func (o AzureCliScriptOutput) ToAzureCliScriptOutput() AzureCliScriptOutput {

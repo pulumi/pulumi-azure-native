@@ -76,39 +76,39 @@ export class RouteFilter extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: RouteFilterArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["id"] = args ? args.id : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["peerings"] = args ? args.peerings : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["routeFilterName"] = args ? args.routeFilterName : undefined;
-            inputs["rules"] = args ? args.rules : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["etag"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["id"] = args ? args.id : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["peerings"] = args ? args.peerings : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["routeFilterName"] = args ? args.routeFilterName : undefined;
+            resourceInputs["rules"] = args ? args.rules : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["etag"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["peerings"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["rules"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["peerings"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["rules"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:network:RouteFilter" }, { type: "azure-native:network/v20161201:RouteFilter" }, { type: "azure-native:network/v20170301:RouteFilter" }, { type: "azure-native:network/v20170601:RouteFilter" }, { type: "azure-native:network/v20170801:RouteFilter" }, { type: "azure-native:network/v20170901:RouteFilter" }, { type: "azure-native:network/v20171001:RouteFilter" }, { type: "azure-native:network/v20171101:RouteFilter" }, { type: "azure-native:network/v20180101:RouteFilter" }, { type: "azure-native:network/v20180401:RouteFilter" }, { type: "azure-native:network/v20180601:RouteFilter" }, { type: "azure-native:network/v20180701:RouteFilter" }, { type: "azure-native:network/v20180801:RouteFilter" }, { type: "azure-native:network/v20181001:RouteFilter" }, { type: "azure-native:network/v20181101:RouteFilter" }, { type: "azure-native:network/v20181201:RouteFilter" }, { type: "azure-native:network/v20190201:RouteFilter" }, { type: "azure-native:network/v20190401:RouteFilter" }, { type: "azure-native:network/v20190601:RouteFilter" }, { type: "azure-native:network/v20190701:RouteFilter" }, { type: "azure-native:network/v20190801:RouteFilter" }, { type: "azure-native:network/v20190901:RouteFilter" }, { type: "azure-native:network/v20191101:RouteFilter" }, { type: "azure-native:network/v20191201:RouteFilter" }, { type: "azure-native:network/v20200301:RouteFilter" }, { type: "azure-native:network/v20200401:RouteFilter" }, { type: "azure-native:network/v20200501:RouteFilter" }, { type: "azure-native:network/v20200601:RouteFilter" }, { type: "azure-native:network/v20200701:RouteFilter" }, { type: "azure-native:network/v20200801:RouteFilter" }, { type: "azure-native:network/v20201101:RouteFilter" }, { type: "azure-native:network/v20210201:RouteFilter" }, { type: "azure-native:network/v20210301:RouteFilter" }, { type: "azure-native:network/v20210501:RouteFilter" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(RouteFilter.__pulumiType, name, inputs, opts);
+        super(RouteFilter.__pulumiType, name, resourceInputs, opts);
     }
 }
 

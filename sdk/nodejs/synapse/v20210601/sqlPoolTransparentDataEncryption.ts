@@ -60,7 +60,7 @@ export class SqlPoolTransparentDataEncryption extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: SqlPoolTransparentDataEncryptionArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
@@ -72,26 +72,26 @@ export class SqlPoolTransparentDataEncryption extends pulumi.CustomResource {
             if ((!args || args.workspaceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["sqlPoolName"] = args ? args.sqlPoolName : undefined;
-            inputs["status"] = args ? args.status : undefined;
-            inputs["transparentDataEncryptionName"] = args ? args.transparentDataEncryptionName : undefined;
-            inputs["workspaceName"] = args ? args.workspaceName : undefined;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["sqlPoolName"] = args ? args.sqlPoolName : undefined;
+            resourceInputs["status"] = args ? args.status : undefined;
+            resourceInputs["transparentDataEncryptionName"] = args ? args.transparentDataEncryptionName : undefined;
+            resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:synapse:SqlPoolTransparentDataEncryption" }, { type: "azure-native:synapse/v20190601preview:SqlPoolTransparentDataEncryption" }, { type: "azure-native:synapse/v20201201:SqlPoolTransparentDataEncryption" }, { type: "azure-native:synapse/v20210301:SqlPoolTransparentDataEncryption" }, { type: "azure-native:synapse/v20210401preview:SqlPoolTransparentDataEncryption" }, { type: "azure-native:synapse/v20210501:SqlPoolTransparentDataEncryption" }, { type: "azure-native:synapse/v20210601preview:SqlPoolTransparentDataEncryption" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(SqlPoolTransparentDataEncryption.__pulumiType, name, inputs, opts);
+        super(SqlPoolTransparentDataEncryption.__pulumiType, name, resourceInputs, opts);
     }
 }
 

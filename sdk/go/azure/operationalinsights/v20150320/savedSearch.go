@@ -126,7 +126,7 @@ type SavedSearchInput interface {
 }
 
 func (*SavedSearch) ElementType() reflect.Type {
-	return reflect.TypeOf((*SavedSearch)(nil))
+	return reflect.TypeOf((**SavedSearch)(nil)).Elem()
 }
 
 func (i *SavedSearch) ToSavedSearchOutput() SavedSearchOutput {
@@ -140,7 +140,7 @@ func (i *SavedSearch) ToSavedSearchOutputWithContext(ctx context.Context) SavedS
 type SavedSearchOutput struct{ *pulumi.OutputState }
 
 func (SavedSearchOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SavedSearch)(nil))
+	return reflect.TypeOf((**SavedSearch)(nil)).Elem()
 }
 
 func (o SavedSearchOutput) ToSavedSearchOutput() SavedSearchOutput {

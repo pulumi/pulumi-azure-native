@@ -109,7 +109,7 @@ export class Environment extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: EnvironmentArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.environmentSettingName === undefined) && !opts.urn) {
@@ -124,51 +124,51 @@ export class Environment extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["environmentName"] = args ? args.environmentName : undefined;
-            inputs["environmentSettingName"] = args ? args.environmentSettingName : undefined;
-            inputs["labAccountName"] = args ? args.labAccountName : undefined;
-            inputs["labName"] = args ? args.labName : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["provisioningState"] = args ? args.provisioningState : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["resourceSets"] = args ? args.resourceSets : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["uniqueIdentifier"] = args ? args.uniqueIdentifier : undefined;
-            inputs["claimedByUserName"] = undefined /*out*/;
-            inputs["claimedByUserObjectId"] = undefined /*out*/;
-            inputs["claimedByUserPrincipalId"] = undefined /*out*/;
-            inputs["isClaimed"] = undefined /*out*/;
-            inputs["lastKnownPowerState"] = undefined /*out*/;
-            inputs["latestOperationResult"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["networkInterface"] = undefined /*out*/;
-            inputs["passwordLastReset"] = undefined /*out*/;
-            inputs["totalUsage"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["environmentName"] = args ? args.environmentName : undefined;
+            resourceInputs["environmentSettingName"] = args ? args.environmentSettingName : undefined;
+            resourceInputs["labAccountName"] = args ? args.labAccountName : undefined;
+            resourceInputs["labName"] = args ? args.labName : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["provisioningState"] = args ? args.provisioningState : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["resourceSets"] = args ? args.resourceSets : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["uniqueIdentifier"] = args ? args.uniqueIdentifier : undefined;
+            resourceInputs["claimedByUserName"] = undefined /*out*/;
+            resourceInputs["claimedByUserObjectId"] = undefined /*out*/;
+            resourceInputs["claimedByUserPrincipalId"] = undefined /*out*/;
+            resourceInputs["isClaimed"] = undefined /*out*/;
+            resourceInputs["lastKnownPowerState"] = undefined /*out*/;
+            resourceInputs["latestOperationResult"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["networkInterface"] = undefined /*out*/;
+            resourceInputs["passwordLastReset"] = undefined /*out*/;
+            resourceInputs["totalUsage"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["claimedByUserName"] = undefined /*out*/;
-            inputs["claimedByUserObjectId"] = undefined /*out*/;
-            inputs["claimedByUserPrincipalId"] = undefined /*out*/;
-            inputs["isClaimed"] = undefined /*out*/;
-            inputs["lastKnownPowerState"] = undefined /*out*/;
-            inputs["latestOperationResult"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["networkInterface"] = undefined /*out*/;
-            inputs["passwordLastReset"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["resourceSets"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["totalUsage"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["uniqueIdentifier"] = undefined /*out*/;
+            resourceInputs["claimedByUserName"] = undefined /*out*/;
+            resourceInputs["claimedByUserObjectId"] = undefined /*out*/;
+            resourceInputs["claimedByUserPrincipalId"] = undefined /*out*/;
+            resourceInputs["isClaimed"] = undefined /*out*/;
+            resourceInputs["lastKnownPowerState"] = undefined /*out*/;
+            resourceInputs["latestOperationResult"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["networkInterface"] = undefined /*out*/;
+            resourceInputs["passwordLastReset"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["resourceSets"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["totalUsage"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["uniqueIdentifier"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:labservices/v20181015:Environment" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Environment.__pulumiType, name, inputs, opts);
+        super(Environment.__pulumiType, name, resourceInputs, opts);
     }
 }
 
