@@ -55,6 +55,7 @@ setup(name='pulumi_azure_native',
       package_data={
           'pulumi_azure_native': [
               'py.typed',
+              'pulumiplugin.json',
           ]
       },
       install_requires=[
