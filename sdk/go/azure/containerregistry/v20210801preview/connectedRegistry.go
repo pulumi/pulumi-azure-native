@@ -50,9 +50,8 @@ func NewConnectedRegistry(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	loggingApplier := func(v LoggingProperties) *LoggingProperties { return v.Defaults() }
 	if args.Logging != nil {
-		args.Logging = args.Logging.ToLoggingPropertiesPtrOutput().Elem().ApplyT(loggingApplier).(LoggingPropertiesPtrOutput)
+		args.Logging = args.Logging.ToLoggingPropertiesPtrOutput().ApplyT(func(v *LoggingProperties) *LoggingProperties { return v.Defaults() }).(LoggingPropertiesPtrOutput)
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

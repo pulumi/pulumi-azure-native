@@ -32,9 +32,8 @@ func NewAlertProcessingRuleByName(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	propertiesApplier := func(v AlertProcessingRuleProperties) *AlertProcessingRuleProperties { return v.Defaults() }
 	if args.Properties != nil {
-		args.Properties = args.Properties.ToAlertProcessingRulePropertiesPtrOutput().Elem().ApplyT(propertiesApplier).(AlertProcessingRulePropertiesPtrOutput)
+		args.Properties = args.Properties.ToAlertProcessingRulePropertiesPtrOutput().ApplyT(func(v *AlertProcessingRuleProperties) *AlertProcessingRuleProperties { return v.Defaults() }).(AlertProcessingRulePropertiesPtrOutput)
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

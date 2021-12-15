@@ -40,9 +40,8 @@ func NewJob(ctx *pulumi.Context,
 	if isZero(args.Description) {
 		args.Description = pulumi.StringPtr("")
 	}
-	scheduleApplier := func(v JobSchedule) *JobSchedule { return v.Defaults() }
 	if args.Schedule != nil {
-		args.Schedule = args.Schedule.ToJobSchedulePtrOutput().Elem().ApplyT(scheduleApplier).(JobSchedulePtrOutput)
+		args.Schedule = args.Schedule.ToJobSchedulePtrOutput().ApplyT(func(v *JobSchedule) *JobSchedule { return v.Defaults() }).(JobSchedulePtrOutput)
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

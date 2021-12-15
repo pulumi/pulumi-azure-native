@@ -52,9 +52,8 @@ func NewVirtualMachineImageTemplate(ctx *pulumi.Context,
 	if isZero(args.BuildTimeoutInMinutes) {
 		args.BuildTimeoutInMinutes = pulumi.IntPtr(0)
 	}
-	vmProfileApplier := func(v ImageTemplateVmProfile) *ImageTemplateVmProfile { return v.Defaults() }
 	if args.VmProfile != nil {
-		args.VmProfile = args.VmProfile.ToImageTemplateVmProfilePtrOutput().Elem().ApplyT(vmProfileApplier).(ImageTemplateVmProfilePtrOutput)
+		args.VmProfile = args.VmProfile.ToImageTemplateVmProfilePtrOutput().ApplyT(func(v *ImageTemplateVmProfile) *ImageTemplateVmProfile { return v.Defaults() }).(ImageTemplateVmProfilePtrOutput)
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

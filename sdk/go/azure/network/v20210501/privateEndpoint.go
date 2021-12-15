@@ -41,9 +41,8 @@ func NewPrivateEndpoint(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	subnetApplier := func(v SubnetType) *SubnetType { return v.Defaults() }
 	if args.Subnet != nil {
-		args.Subnet = args.Subnet.ToSubnetTypePtrOutput().Elem().ApplyT(subnetApplier).(SubnetTypePtrOutput)
+		args.Subnet = args.Subnet.ToSubnetTypePtrOutput().ApplyT(func(v *SubnetType) *SubnetType { return v.Defaults() }).(SubnetTypePtrOutput)
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

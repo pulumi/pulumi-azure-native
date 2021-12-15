@@ -46,9 +46,8 @@ func NewBatchAccount(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	autoStorageApplier := func(v AutoStorageBaseProperties) *AutoStorageBaseProperties { return v.Defaults() }
 	if args.AutoStorage != nil {
-		args.AutoStorage = args.AutoStorage.ToAutoStorageBasePropertiesPtrOutput().Elem().ApplyT(autoStorageApplier).(AutoStorageBasePropertiesPtrOutput)
+		args.AutoStorage = args.AutoStorage.ToAutoStorageBasePropertiesPtrOutput().ApplyT(func(v *AutoStorageBaseProperties) *AutoStorageBaseProperties { return v.Defaults() }).(AutoStorageBasePropertiesPtrOutput)
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

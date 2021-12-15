@@ -37,9 +37,8 @@ func NewAccount(ctx *pulumi.Context,
 	if args.Sku == nil {
 		return nil, errors.New("invalid value for required argument 'Sku'")
 	}
-	propertiesApplier := func(v MapsAccountProperties) *MapsAccountProperties { return v.Defaults() }
 	if args.Properties != nil {
-		args.Properties = args.Properties.ToMapsAccountPropertiesPtrOutput().Elem().ApplyT(propertiesApplier).(MapsAccountPropertiesPtrOutput)
+		args.Properties = args.Properties.ToMapsAccountPropertiesPtrOutput().ApplyT(func(v *MapsAccountProperties) *MapsAccountProperties { return v.Defaults() }).(MapsAccountPropertiesPtrOutput)
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

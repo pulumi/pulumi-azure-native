@@ -47,9 +47,8 @@ func NewVirtualMachineSchedule(ctx *pulumi.Context,
 	if args.VirtualMachineName == nil {
 		return nil, errors.New("invalid value for required argument 'VirtualMachineName'")
 	}
-	notificationSettingsApplier := func(v NotificationSettings) *NotificationSettings { return v.Defaults() }
 	if args.NotificationSettings != nil {
-		args.NotificationSettings = args.NotificationSettings.ToNotificationSettingsPtrOutput().Elem().ApplyT(notificationSettingsApplier).(NotificationSettingsPtrOutput)
+		args.NotificationSettings = args.NotificationSettings.ToNotificationSettingsPtrOutput().ApplyT(func(v *NotificationSettings) *NotificationSettings { return v.Defaults() }).(NotificationSettingsPtrOutput)
 	}
 	if isZero(args.Status) {
 		args.Status = pulumi.StringPtr("Disabled")

@@ -34,9 +34,8 @@ func NewApp(ctx *pulumi.Context,
 	if args.ServiceName == nil {
 		return nil, errors.New("invalid value for required argument 'ServiceName'")
 	}
-	propertiesApplier := func(v AppResourceProperties) *AppResourceProperties { return v.Defaults() }
 	if args.Properties != nil {
-		args.Properties = args.Properties.ToAppResourcePropertiesPtrOutput().Elem().ApplyT(propertiesApplier).(AppResourcePropertiesPtrOutput)
+		args.Properties = args.Properties.ToAppResourcePropertiesPtrOutput().ApplyT(func(v *AppResourceProperties) *AppResourceProperties { return v.Defaults() }).(AppResourcePropertiesPtrOutput)
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

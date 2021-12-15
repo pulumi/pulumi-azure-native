@@ -36,9 +36,8 @@ func NewWebAppDiagnosticLogsConfiguration(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	applicationLogsApplier := func(v ApplicationLogsConfig) *ApplicationLogsConfig { return v.Defaults() }
 	if args.ApplicationLogs != nil {
-		args.ApplicationLogs = args.ApplicationLogs.ToApplicationLogsConfigPtrOutput().Elem().ApplyT(applicationLogsApplier).(ApplicationLogsConfigPtrOutput)
+		args.ApplicationLogs = args.ApplicationLogs.ToApplicationLogsConfigPtrOutput().ApplyT(func(v *ApplicationLogsConfig) *ApplicationLogsConfig { return v.Defaults() }).(ApplicationLogsConfigPtrOutput)
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

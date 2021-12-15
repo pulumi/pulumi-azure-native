@@ -36,9 +36,8 @@ func NewPipelineRun(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	requestApplier := func(v PipelineRunRequest) *PipelineRunRequest { return v.Defaults() }
 	if args.Request != nil {
-		args.Request = args.Request.ToPipelineRunRequestPtrOutput().Elem().ApplyT(requestApplier).(PipelineRunRequestPtrOutput)
+		args.Request = args.Request.ToPipelineRunRequestPtrOutput().ApplyT(func(v *PipelineRunRequest) *PipelineRunRequest { return v.Defaults() }).(PipelineRunRequestPtrOutput)
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

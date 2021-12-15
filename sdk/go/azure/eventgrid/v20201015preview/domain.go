@@ -47,9 +47,8 @@ func NewDomain(ctx *pulumi.Context,
 	if isZero(args.PublicNetworkAccess) {
 		args.PublicNetworkAccess = pulumi.StringPtr("Enabled")
 	}
-	skuApplier := func(v ResourceSku) *ResourceSku { return v.Defaults() }
 	if args.Sku != nil {
-		args.Sku = args.Sku.ToResourceSkuPtrOutput().Elem().ApplyT(skuApplier).(ResourceSkuPtrOutput)
+		args.Sku = args.Sku.ToResourceSkuPtrOutput().ApplyT(func(v *ResourceSku) *ResourceSku { return v.Defaults() }).(ResourceSkuPtrOutput)
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

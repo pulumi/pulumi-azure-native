@@ -37,9 +37,8 @@ func NewSqlManagedInstance(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	skuApplier := func(v SqlManagedInstanceSku) *SqlManagedInstanceSku { return v.Defaults() }
 	if args.Sku != nil {
-		args.Sku = args.Sku.ToSqlManagedInstanceSkuPtrOutput().Elem().ApplyT(skuApplier).(SqlManagedInstanceSkuPtrOutput)
+		args.Sku = args.Sku.ToSqlManagedInstanceSkuPtrOutput().ApplyT(func(v *SqlManagedInstanceSku) *SqlManagedInstanceSku { return v.Defaults() }).(SqlManagedInstanceSkuPtrOutput)
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

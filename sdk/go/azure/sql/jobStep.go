@@ -52,15 +52,12 @@ func NewJobStep(ctx *pulumi.Context,
 	if args.TargetGroup == nil {
 		return nil, errors.New("invalid value for required argument 'TargetGroup'")
 	}
-	actionApplier := func(v JobStepAction) *JobStepAction { return v.Defaults() }
-	args.Action = args.Action.ToJobStepActionOutput().ApplyT(actionApplier).(JobStepActionPtrOutput).Elem()
-	executionOptionsApplier := func(v JobStepExecutionOptions) *JobStepExecutionOptions { return v.Defaults() }
+	args.Action = args.Action.ToJobStepActionOutput().ApplyT(func(v JobStepAction) JobStepAction { return *v.Defaults() }).(JobStepActionOutput)
 	if args.ExecutionOptions != nil {
-		args.ExecutionOptions = args.ExecutionOptions.ToJobStepExecutionOptionsPtrOutput().Elem().ApplyT(executionOptionsApplier).(JobStepExecutionOptionsPtrOutput)
+		args.ExecutionOptions = args.ExecutionOptions.ToJobStepExecutionOptionsPtrOutput().ApplyT(func(v *JobStepExecutionOptions) *JobStepExecutionOptions { return v.Defaults() }).(JobStepExecutionOptionsPtrOutput)
 	}
-	outputApplier := func(v JobStepOutputType) *JobStepOutputType { return v.Defaults() }
 	if args.Output != nil {
-		args.Output = args.Output.ToJobStepOutputTypePtrOutput().Elem().ApplyT(outputApplier).(JobStepOutputTypePtrOutput)
+		args.Output = args.Output.ToJobStepOutputTypePtrOutput().ApplyT(func(v *JobStepOutputType) *JobStepOutputType { return v.Defaults() }).(JobStepOutputTypePtrOutput)
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

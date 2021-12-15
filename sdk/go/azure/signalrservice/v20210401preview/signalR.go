@@ -47,13 +47,11 @@ func NewSignalR(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	networkACLsApplier := func(v SignalRNetworkACLs) *SignalRNetworkACLs { return v.Defaults() }
 	if args.NetworkACLs != nil {
-		args.NetworkACLs = args.NetworkACLs.ToSignalRNetworkACLsPtrOutput().Elem().ApplyT(networkACLsApplier).(SignalRNetworkACLsPtrOutput)
+		args.NetworkACLs = args.NetworkACLs.ToSignalRNetworkACLsPtrOutput().ApplyT(func(v *SignalRNetworkACLs) *SignalRNetworkACLs { return v.Defaults() }).(SignalRNetworkACLsPtrOutput)
 	}
-	tlsApplier := func(v SignalRTlsSettings) *SignalRTlsSettings { return v.Defaults() }
 	if args.Tls != nil {
-		args.Tls = args.Tls.ToSignalRTlsSettingsPtrOutput().Elem().ApplyT(tlsApplier).(SignalRTlsSettingsPtrOutput)
+		args.Tls = args.Tls.ToSignalRTlsSettingsPtrOutput().ApplyT(func(v *SignalRTlsSettings) *SignalRTlsSettings { return v.Defaults() }).(SignalRTlsSettingsPtrOutput)
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

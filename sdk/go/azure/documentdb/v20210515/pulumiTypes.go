@@ -14537,7 +14537,7 @@ func (o VirtualNetworkRuleResponseArrayOutput) Index(i pulumi.IntInput) VirtualN
 type CompositePathArrayArray []CompositePathArrayInput
 
 func (CompositePathArrayArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*CompositePathArray)(nil)).Elem()
+	return reflect.TypeOf((*[][]CompositePath)(nil)).Elem()
 }
 
 func (i CompositePathArrayArray) ToCompositePathArrayArrayOutput() CompositePathArrayArrayOutput {
@@ -14551,7 +14551,7 @@ func (i CompositePathArrayArray) ToCompositePathArrayArrayOutputWithContext(ctx 
 type CompositePathArrayArrayOutput struct{ *pulumi.OutputState }
 
 func (CompositePathArrayArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]CompositePathArray)(nil)).Elem()
+	return reflect.TypeOf((*[][]CompositePath)(nil)).Elem()
 }
 
 func (o CompositePathArrayArrayOutput) ToCompositePathArrayArrayOutput() CompositePathArrayArrayOutput {
@@ -14563,8 +14563,8 @@ func (o CompositePathArrayArrayOutput) ToCompositePathArrayArrayOutputWithContex
 }
 
 func (o CompositePathArrayArrayOutput) Index(i pulumi.IntInput) CompositePathArrayOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CompositePathArray {
-		return vs[0].([]CompositePathArray)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) []CompositePath {
+		return vs[0].([][]CompositePath)[vs[1].(int)]
 	}).(CompositePathArrayOutput)
 }
 
@@ -14582,7 +14582,7 @@ type CompositePathArrayArrayInput interface {
 type CompositePathResponseArrayArray []CompositePathResponseArrayInput
 
 func (CompositePathResponseArrayArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*CompositePathResponseArray)(nil)).Elem()
+	return reflect.TypeOf((*[][]CompositePathResponse)(nil)).Elem()
 }
 
 func (i CompositePathResponseArrayArray) ToCompositePathResponseArrayArrayOutput() CompositePathResponseArrayArrayOutput {
@@ -14596,7 +14596,7 @@ func (i CompositePathResponseArrayArray) ToCompositePathResponseArrayArrayOutput
 type CompositePathResponseArrayArrayOutput struct{ *pulumi.OutputState }
 
 func (CompositePathResponseArrayArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]CompositePathResponseArray)(nil)).Elem()
+	return reflect.TypeOf((*[][]CompositePathResponse)(nil)).Elem()
 }
 
 func (o CompositePathResponseArrayArrayOutput) ToCompositePathResponseArrayArrayOutput() CompositePathResponseArrayArrayOutput {
@@ -14608,8 +14608,8 @@ func (o CompositePathResponseArrayArrayOutput) ToCompositePathResponseArrayArray
 }
 
 func (o CompositePathResponseArrayArrayOutput) Index(i pulumi.IntInput) CompositePathResponseArrayOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CompositePathResponseArray {
-		return vs[0].([]CompositePathResponseArray)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) []CompositePathResponse {
+		return vs[0].([][]CompositePathResponse)[vs[1].(int)]
 	}).(CompositePathResponseArrayOutput)
 }
 

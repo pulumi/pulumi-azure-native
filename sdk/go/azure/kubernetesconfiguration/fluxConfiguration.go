@@ -52,9 +52,8 @@ func NewFluxConfiguration(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	gitRepositoryApplier := func(v GitRepositoryDefinition) *GitRepositoryDefinition { return v.Defaults() }
 	if args.GitRepository != nil {
-		args.GitRepository = args.GitRepository.ToGitRepositoryDefinitionPtrOutput().Elem().ApplyT(gitRepositoryApplier).(GitRepositoryDefinitionPtrOutput)
+		args.GitRepository = args.GitRepository.ToGitRepositoryDefinitionPtrOutput().ApplyT(func(v *GitRepositoryDefinition) *GitRepositoryDefinition { return v.Defaults() }).(GitRepositoryDefinitionPtrOutput)
 	}
 	if isZero(args.Namespace) {
 		args.Namespace = pulumi.StringPtr("default")

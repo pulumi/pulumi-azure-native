@@ -7632,7 +7632,7 @@ func (o TransportPreferencesResponsePtrOutput) PreferredShipmentType() pulumi.St
 type FilterablePropertyArrayMap map[string]FilterablePropertyArrayInput
 
 func (FilterablePropertyArrayMap) ElementType() reflect.Type {
-	return reflect.TypeOf((*FilterablePropertyArray)(nil)).Elem()
+	return reflect.TypeOf((*map[string][]FilterableProperty)(nil)).Elem()
 }
 
 func (i FilterablePropertyArrayMap) ToFilterablePropertyArrayMapOutput() FilterablePropertyArrayMapOutput {
@@ -7646,7 +7646,7 @@ func (i FilterablePropertyArrayMap) ToFilterablePropertyArrayMapOutputWithContex
 type FilterablePropertyArrayMapOutput struct{ *pulumi.OutputState }
 
 func (FilterablePropertyArrayMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]FilterablePropertyArray)(nil)).Elem()
+	return reflect.TypeOf((*map[string][]FilterableProperty)(nil)).Elem()
 }
 
 func (o FilterablePropertyArrayMapOutput) ToFilterablePropertyArrayMapOutput() FilterablePropertyArrayMapOutput {
@@ -7658,8 +7658,8 @@ func (o FilterablePropertyArrayMapOutput) ToFilterablePropertyArrayMapOutputWith
 }
 
 func (o FilterablePropertyArrayMapOutput) MapIndex(k pulumi.StringInput) FilterablePropertyArrayOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) FilterablePropertyArray {
-		return vs[0].(map[string]FilterablePropertyArray)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) []FilterableProperty {
+		return vs[0].(map[string][]FilterableProperty)[vs[1].(string)]
 	}).(FilterablePropertyArrayOutput)
 }
 

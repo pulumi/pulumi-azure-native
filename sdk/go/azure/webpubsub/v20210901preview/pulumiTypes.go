@@ -4597,7 +4597,7 @@ func (o WebPubSubTlsSettingsResponsePtrOutput) ClientCertEnabled() pulumi.BoolPt
 type EventHandlerTemplateArrayMap map[string]EventHandlerTemplateArrayInput
 
 func (EventHandlerTemplateArrayMap) ElementType() reflect.Type {
-	return reflect.TypeOf((*EventHandlerTemplateArray)(nil)).Elem()
+	return reflect.TypeOf((*map[string][]EventHandlerTemplate)(nil)).Elem()
 }
 
 func (i EventHandlerTemplateArrayMap) ToEventHandlerTemplateArrayMapOutput() EventHandlerTemplateArrayMapOutput {
@@ -4611,7 +4611,7 @@ func (i EventHandlerTemplateArrayMap) ToEventHandlerTemplateArrayMapOutputWithCo
 type EventHandlerTemplateArrayMapOutput struct{ *pulumi.OutputState }
 
 func (EventHandlerTemplateArrayMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]EventHandlerTemplateArray)(nil)).Elem()
+	return reflect.TypeOf((*map[string][]EventHandlerTemplate)(nil)).Elem()
 }
 
 func (o EventHandlerTemplateArrayMapOutput) ToEventHandlerTemplateArrayMapOutput() EventHandlerTemplateArrayMapOutput {
@@ -4623,8 +4623,8 @@ func (o EventHandlerTemplateArrayMapOutput) ToEventHandlerTemplateArrayMapOutput
 }
 
 func (o EventHandlerTemplateArrayMapOutput) MapIndex(k pulumi.StringInput) EventHandlerTemplateArrayOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) EventHandlerTemplateArray {
-		return vs[0].(map[string]EventHandlerTemplateArray)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) []EventHandlerTemplate {
+		return vs[0].(map[string][]EventHandlerTemplate)[vs[1].(string)]
 	}).(EventHandlerTemplateArrayOutput)
 }
 
@@ -4642,7 +4642,7 @@ type EventHandlerTemplateArrayMapInput interface {
 type EventHandlerTemplateResponseArrayMap map[string]EventHandlerTemplateResponseArrayInput
 
 func (EventHandlerTemplateResponseArrayMap) ElementType() reflect.Type {
-	return reflect.TypeOf((*EventHandlerTemplateResponseArray)(nil)).Elem()
+	return reflect.TypeOf((*map[string][]EventHandlerTemplateResponse)(nil)).Elem()
 }
 
 func (i EventHandlerTemplateResponseArrayMap) ToEventHandlerTemplateResponseArrayMapOutput() EventHandlerTemplateResponseArrayMapOutput {
@@ -4656,7 +4656,7 @@ func (i EventHandlerTemplateResponseArrayMap) ToEventHandlerTemplateResponseArra
 type EventHandlerTemplateResponseArrayMapOutput struct{ *pulumi.OutputState }
 
 func (EventHandlerTemplateResponseArrayMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]EventHandlerTemplateResponseArray)(nil)).Elem()
+	return reflect.TypeOf((*map[string][]EventHandlerTemplateResponse)(nil)).Elem()
 }
 
 func (o EventHandlerTemplateResponseArrayMapOutput) ToEventHandlerTemplateResponseArrayMapOutput() EventHandlerTemplateResponseArrayMapOutput {
@@ -4668,8 +4668,8 @@ func (o EventHandlerTemplateResponseArrayMapOutput) ToEventHandlerTemplateRespon
 }
 
 func (o EventHandlerTemplateResponseArrayMapOutput) MapIndex(k pulumi.StringInput) EventHandlerTemplateResponseArrayOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) EventHandlerTemplateResponseArray {
-		return vs[0].(map[string]EventHandlerTemplateResponseArray)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) []EventHandlerTemplateResponse {
+		return vs[0].(map[string][]EventHandlerTemplateResponse)[vs[1].(string)]
 	}).(EventHandlerTemplateResponseArrayOutput)
 }
 

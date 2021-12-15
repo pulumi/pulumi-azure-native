@@ -53752,7 +53752,7 @@ func (o ZohoSourceResponseOutput) Type() pulumi.StringOutput {
 type SSISExecutionParameterMapMap map[string]SSISExecutionParameterMapInput
 
 func (SSISExecutionParameterMapMap) ElementType() reflect.Type {
-	return reflect.TypeOf((*SSISExecutionParameterMap)(nil)).Elem()
+	return reflect.TypeOf((*map[string]map[string]SSISExecutionParameter)(nil)).Elem()
 }
 
 func (i SSISExecutionParameterMapMap) ToSSISExecutionParameterMapMapOutput() SSISExecutionParameterMapMapOutput {
@@ -53766,7 +53766,7 @@ func (i SSISExecutionParameterMapMap) ToSSISExecutionParameterMapMapOutputWithCo
 type SSISExecutionParameterMapMapOutput struct{ *pulumi.OutputState }
 
 func (SSISExecutionParameterMapMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]SSISExecutionParameterMap)(nil)).Elem()
+	return reflect.TypeOf((*map[string]map[string]SSISExecutionParameter)(nil)).Elem()
 }
 
 func (o SSISExecutionParameterMapMapOutput) ToSSISExecutionParameterMapMapOutput() SSISExecutionParameterMapMapOutput {
@@ -53778,8 +53778,8 @@ func (o SSISExecutionParameterMapMapOutput) ToSSISExecutionParameterMapMapOutput
 }
 
 func (o SSISExecutionParameterMapMapOutput) MapIndex(k pulumi.StringInput) SSISExecutionParameterMapOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) SSISExecutionParameterMap {
-		return vs[0].(map[string]SSISExecutionParameterMap)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) map[string]SSISExecutionParameter {
+		return vs[0].(map[string]map[string]SSISExecutionParameter)[vs[1].(string)]
 	}).(SSISExecutionParameterMapOutput)
 }
 
@@ -53797,7 +53797,7 @@ type SSISExecutionParameterMapMapInput interface {
 type SSISExecutionParameterResponseMapMap map[string]SSISExecutionParameterResponseMapInput
 
 func (SSISExecutionParameterResponseMapMap) ElementType() reflect.Type {
-	return reflect.TypeOf((*SSISExecutionParameterResponseMap)(nil)).Elem()
+	return reflect.TypeOf((*map[string]map[string]SSISExecutionParameterResponse)(nil)).Elem()
 }
 
 func (i SSISExecutionParameterResponseMapMap) ToSSISExecutionParameterResponseMapMapOutput() SSISExecutionParameterResponseMapMapOutput {
@@ -53811,7 +53811,7 @@ func (i SSISExecutionParameterResponseMapMap) ToSSISExecutionParameterResponseMa
 type SSISExecutionParameterResponseMapMapOutput struct{ *pulumi.OutputState }
 
 func (SSISExecutionParameterResponseMapMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]SSISExecutionParameterResponseMap)(nil)).Elem()
+	return reflect.TypeOf((*map[string]map[string]SSISExecutionParameterResponse)(nil)).Elem()
 }
 
 func (o SSISExecutionParameterResponseMapMapOutput) ToSSISExecutionParameterResponseMapMapOutput() SSISExecutionParameterResponseMapMapOutput {
@@ -53823,8 +53823,8 @@ func (o SSISExecutionParameterResponseMapMapOutput) ToSSISExecutionParameterResp
 }
 
 func (o SSISExecutionParameterResponseMapMapOutput) MapIndex(k pulumi.StringInput) SSISExecutionParameterResponseMapOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) SSISExecutionParameterResponseMap {
-		return vs[0].(map[string]SSISExecutionParameterResponseMap)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) map[string]SSISExecutionParameterResponse {
+		return vs[0].(map[string]map[string]SSISExecutionParameterResponse)[vs[1].(string)]
 	}).(SSISExecutionParameterResponseMapOutput)
 }
 

@@ -32,9 +32,8 @@ func NewManagedHsm(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	propertiesApplier := func(v ManagedHsmProperties) *ManagedHsmProperties { return v.Defaults() }
 	if args.Properties != nil {
-		args.Properties = args.Properties.ToManagedHsmPropertiesPtrOutput().Elem().ApplyT(propertiesApplier).(ManagedHsmPropertiesPtrOutput)
+		args.Properties = args.Properties.ToManagedHsmPropertiesPtrOutput().ApplyT(func(v *ManagedHsmProperties) *ManagedHsmProperties { return v.Defaults() }).(ManagedHsmPropertiesPtrOutput)
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

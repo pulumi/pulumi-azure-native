@@ -45,8 +45,7 @@ func NewKey(ctx *pulumi.Context,
 	if args.VaultName == nil {
 		return nil, errors.New("invalid value for required argument 'VaultName'")
 	}
-	propertiesApplier := func(v KeyProperties) *KeyProperties { return v.Defaults() }
-	args.Properties = args.Properties.ToKeyPropertiesOutput().ApplyT(propertiesApplier).(KeyPropertiesPtrOutput).Elem()
+	args.Properties = args.Properties.ToKeyPropertiesOutput().ApplyT(func(v KeyProperties) KeyProperties { return *v.Defaults() }).(KeyPropertiesOutput)
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-native:keyvault:Key"),

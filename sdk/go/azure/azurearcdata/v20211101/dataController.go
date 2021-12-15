@@ -36,8 +36,7 @@ func NewDataController(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	propertiesApplier := func(v DataControllerProperties) *DataControllerProperties { return v.Defaults() }
-	args.Properties = args.Properties.ToDataControllerPropertiesOutput().ApplyT(propertiesApplier).(DataControllerPropertiesPtrOutput).Elem()
+	args.Properties = args.Properties.ToDataControllerPropertiesOutput().ApplyT(func(v DataControllerProperties) DataControllerProperties { return *v.Defaults() }).(DataControllerPropertiesOutput)
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-native:azurearcdata:DataController"),

@@ -69,17 +69,14 @@ func NewStorageAccount(ctx *pulumi.Context,
 	if args.Sku == nil {
 		return nil, errors.New("invalid value for required argument 'Sku'")
 	}
-	encryptionApplier := func(v Encryption) *Encryption { return v.Defaults() }
 	if args.Encryption != nil {
-		args.Encryption = args.Encryption.ToEncryptionPtrOutput().Elem().ApplyT(encryptionApplier).(EncryptionPtrOutput)
+		args.Encryption = args.Encryption.ToEncryptionPtrOutput().ApplyT(func(v *Encryption) *Encryption { return v.Defaults() }).(EncryptionPtrOutput)
 	}
-	networkRuleSetApplier := func(v NetworkRuleSet) *NetworkRuleSet { return v.Defaults() }
 	if args.NetworkRuleSet != nil {
-		args.NetworkRuleSet = args.NetworkRuleSet.ToNetworkRuleSetPtrOutput().Elem().ApplyT(networkRuleSetApplier).(NetworkRuleSetPtrOutput)
+		args.NetworkRuleSet = args.NetworkRuleSet.ToNetworkRuleSetPtrOutput().ApplyT(func(v *NetworkRuleSet) *NetworkRuleSet { return v.Defaults() }).(NetworkRuleSetPtrOutput)
 	}
-	sasPolicyApplier := func(v SasPolicy) *SasPolicy { return v.Defaults() }
 	if args.SasPolicy != nil {
-		args.SasPolicy = args.SasPolicy.ToSasPolicyPtrOutput().Elem().ApplyT(sasPolicyApplier).(SasPolicyPtrOutput)
+		args.SasPolicy = args.SasPolicy.ToSasPolicyPtrOutput().ApplyT(func(v *SasPolicy) *SasPolicy { return v.Defaults() }).(SasPolicyPtrOutput)
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

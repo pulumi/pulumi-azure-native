@@ -46,9 +46,8 @@ func NewOpenShiftManagedCluster(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	networkProfileApplier := func(v NetworkProfile) *NetworkProfile { return v.Defaults() }
 	if args.NetworkProfile != nil {
-		args.NetworkProfile = args.NetworkProfile.ToNetworkProfilePtrOutput().Elem().ApplyT(networkProfileApplier).(NetworkProfilePtrOutput)
+		args.NetworkProfile = args.NetworkProfile.ToNetworkProfilePtrOutput().ApplyT(func(v *NetworkProfile) *NetworkProfile { return v.Defaults() }).(NetworkProfilePtrOutput)
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

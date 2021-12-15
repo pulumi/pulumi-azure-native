@@ -34,9 +34,8 @@ func NewNetworkInterfaceTapConfiguration(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	virtualNetworkTapApplier := func(v VirtualNetworkTapType) *VirtualNetworkTapType { return v.Defaults() }
 	if args.VirtualNetworkTap != nil {
-		args.VirtualNetworkTap = args.VirtualNetworkTap.ToVirtualNetworkTapTypePtrOutput().Elem().ApplyT(virtualNetworkTapApplier).(VirtualNetworkTapTypePtrOutput)
+		args.VirtualNetworkTap = args.VirtualNetworkTap.ToVirtualNetworkTapTypePtrOutput().ApplyT(func(v *VirtualNetworkTapType) *VirtualNetworkTapType { return v.Defaults() }).(VirtualNetworkTapTypePtrOutput)
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

@@ -43,13 +43,11 @@ func NewCache(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	directoryServicesSettingsApplier := func(v CacheDirectorySettings) *CacheDirectorySettings { return v.Defaults() }
 	if args.DirectoryServicesSettings != nil {
-		args.DirectoryServicesSettings = args.DirectoryServicesSettings.ToCacheDirectorySettingsPtrOutput().Elem().ApplyT(directoryServicesSettingsApplier).(CacheDirectorySettingsPtrOutput)
+		args.DirectoryServicesSettings = args.DirectoryServicesSettings.ToCacheDirectorySettingsPtrOutput().ApplyT(func(v *CacheDirectorySettings) *CacheDirectorySettings { return v.Defaults() }).(CacheDirectorySettingsPtrOutput)
 	}
-	networkSettingsApplier := func(v CacheNetworkSettings) *CacheNetworkSettings { return v.Defaults() }
 	if args.NetworkSettings != nil {
-		args.NetworkSettings = args.NetworkSettings.ToCacheNetworkSettingsPtrOutput().Elem().ApplyT(networkSettingsApplier).(CacheNetworkSettingsPtrOutput)
+		args.NetworkSettings = args.NetworkSettings.ToCacheNetworkSettingsPtrOutput().ApplyT(func(v *CacheNetworkSettings) *CacheNetworkSettings { return v.Defaults() }).(CacheNetworkSettingsPtrOutput)
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

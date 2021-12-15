@@ -44,9 +44,8 @@ func NewApplication(ctx *pulumi.Context,
 	if isZero(args.MaximumNodes) {
 		args.MaximumNodes = pulumi.Float64Ptr(0.0)
 	}
-	upgradePolicyApplier := func(v ApplicationUpgradePolicy) *ApplicationUpgradePolicy { return v.Defaults() }
 	if args.UpgradePolicy != nil {
-		args.UpgradePolicy = args.UpgradePolicy.ToApplicationUpgradePolicyPtrOutput().Elem().ApplyT(upgradePolicyApplier).(ApplicationUpgradePolicyPtrOutput)
+		args.UpgradePolicy = args.UpgradePolicy.ToApplicationUpgradePolicyPtrOutput().ApplyT(func(v *ApplicationUpgradePolicy) *ApplicationUpgradePolicy { return v.Defaults() }).(ApplicationUpgradePolicyPtrOutput)
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

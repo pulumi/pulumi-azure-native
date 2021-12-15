@@ -41,11 +41,9 @@ func NewImportPipeline(ctx *pulumi.Context,
 	if args.Source == nil {
 		return nil, errors.New("invalid value for required argument 'Source'")
 	}
-	sourceApplier := func(v ImportPipelineSourceProperties) *ImportPipelineSourceProperties { return v.Defaults() }
-	args.Source = args.Source.ToImportPipelineSourcePropertiesOutput().ApplyT(sourceApplier).(ImportPipelineSourcePropertiesPtrOutput).Elem()
-	triggerApplier := func(v PipelineTriggerProperties) *PipelineTriggerProperties { return v.Defaults() }
+	args.Source = args.Source.ToImportPipelineSourcePropertiesOutput().ApplyT(func(v ImportPipelineSourceProperties) ImportPipelineSourceProperties { return *v.Defaults() }).(ImportPipelineSourcePropertiesOutput)
 	if args.Trigger != nil {
-		args.Trigger = args.Trigger.ToPipelineTriggerPropertiesPtrOutput().Elem().ApplyT(triggerApplier).(PipelineTriggerPropertiesPtrOutput)
+		args.Trigger = args.Trigger.ToPipelineTriggerPropertiesPtrOutput().ApplyT(func(v *PipelineTriggerProperties) *PipelineTriggerProperties { return v.Defaults() }).(PipelineTriggerPropertiesPtrOutput)
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

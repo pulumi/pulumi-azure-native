@@ -44,9 +44,8 @@ func NewRegistry(ctx *pulumi.Context,
 	if isZero(args.AdminUserEnabled) {
 		args.AdminUserEnabled = pulumi.BoolPtr(false)
 	}
-	networkRuleSetApplier := func(v NetworkRuleSet) *NetworkRuleSet { return v.Defaults() }
 	if args.NetworkRuleSet != nil {
-		args.NetworkRuleSet = args.NetworkRuleSet.ToNetworkRuleSetPtrOutput().Elem().ApplyT(networkRuleSetApplier).(NetworkRuleSetPtrOutput)
+		args.NetworkRuleSet = args.NetworkRuleSet.ToNetworkRuleSetPtrOutput().ApplyT(func(v *NetworkRuleSet) *NetworkRuleSet { return v.Defaults() }).(NetworkRuleSetPtrOutput)
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

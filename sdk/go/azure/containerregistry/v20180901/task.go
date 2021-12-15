@@ -51,9 +51,8 @@ func NewTask(ctx *pulumi.Context,
 	if isZero(args.Timeout) {
 		args.Timeout = pulumi.IntPtr(3600)
 	}
-	triggerApplier := func(v TriggerProperties) *TriggerProperties { return v.Defaults() }
 	if args.Trigger != nil {
-		args.Trigger = args.Trigger.ToTriggerPropertiesPtrOutput().Elem().ApplyT(triggerApplier).(TriggerPropertiesPtrOutput)
+		args.Trigger = args.Trigger.ToTriggerPropertiesPtrOutput().ApplyT(func(v *TriggerProperties) *TriggerProperties { return v.Defaults() }).(TriggerPropertiesPtrOutput)
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

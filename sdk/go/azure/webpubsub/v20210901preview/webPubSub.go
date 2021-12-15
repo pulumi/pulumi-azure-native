@@ -54,20 +54,17 @@ func NewWebPubSub(ctx *pulumi.Context,
 	if isZero(args.DisableLocalAuth) {
 		args.DisableLocalAuth = pulumi.BoolPtr(false)
 	}
-	liveTraceConfigurationApplier := func(v LiveTraceConfiguration) *LiveTraceConfiguration { return v.Defaults() }
 	if args.LiveTraceConfiguration != nil {
-		args.LiveTraceConfiguration = args.LiveTraceConfiguration.ToLiveTraceConfigurationPtrOutput().Elem().ApplyT(liveTraceConfigurationApplier).(LiveTraceConfigurationPtrOutput)
+		args.LiveTraceConfiguration = args.LiveTraceConfiguration.ToLiveTraceConfigurationPtrOutput().ApplyT(func(v *LiveTraceConfiguration) *LiveTraceConfiguration { return v.Defaults() }).(LiveTraceConfigurationPtrOutput)
 	}
-	networkACLsApplier := func(v WebPubSubNetworkACLs) *WebPubSubNetworkACLs { return v.Defaults() }
 	if args.NetworkACLs != nil {
-		args.NetworkACLs = args.NetworkACLs.ToWebPubSubNetworkACLsPtrOutput().Elem().ApplyT(networkACLsApplier).(WebPubSubNetworkACLsPtrOutput)
+		args.NetworkACLs = args.NetworkACLs.ToWebPubSubNetworkACLsPtrOutput().ApplyT(func(v *WebPubSubNetworkACLs) *WebPubSubNetworkACLs { return v.Defaults() }).(WebPubSubNetworkACLsPtrOutput)
 	}
 	if isZero(args.PublicNetworkAccess) {
 		args.PublicNetworkAccess = pulumi.StringPtr("Enabled")
 	}
-	tlsApplier := func(v WebPubSubTlsSettings) *WebPubSubTlsSettings { return v.Defaults() }
 	if args.Tls != nil {
-		args.Tls = args.Tls.ToWebPubSubTlsSettingsPtrOutput().Elem().ApplyT(tlsApplier).(WebPubSubTlsSettingsPtrOutput)
+		args.Tls = args.Tls.ToWebPubSubTlsSettingsPtrOutput().ApplyT(func(v *WebPubSubTlsSettings) *WebPubSubTlsSettings { return v.Defaults() }).(WebPubSubTlsSettingsPtrOutput)
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

@@ -36,8 +36,7 @@ func NewWebPubSubHub(ctx *pulumi.Context,
 	if args.ResourceName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceName'")
 	}
-	propertiesApplier := func(v WebPubSubHubProperties) *WebPubSubHubProperties { return v.Defaults() }
-	args.Properties = args.Properties.ToWebPubSubHubPropertiesOutput().ApplyT(propertiesApplier).(WebPubSubHubPropertiesPtrOutput).Elem()
+	args.Properties = args.Properties.ToWebPubSubHubPropertiesOutput().ApplyT(func(v WebPubSubHubProperties) WebPubSubHubProperties { return *v.Defaults() }).(WebPubSubHubPropertiesOutput)
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-native:webpubsub/v20211001:WebPubSubHub"),

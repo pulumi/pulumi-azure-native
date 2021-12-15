@@ -33,9 +33,8 @@ func NewJob(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	propertiesApplier := func(v JobDetails) *JobDetails { return v.Defaults() }
 	if args.Properties != nil {
-		args.Properties = args.Properties.ToJobDetailsPtrOutput().Elem().ApplyT(propertiesApplier).(JobDetailsPtrOutput)
+		args.Properties = args.Properties.ToJobDetailsPtrOutput().ApplyT(func(v *JobDetails) *JobDetails { return v.Defaults() }).(JobDetailsPtrOutput)
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

@@ -39,13 +39,11 @@ func NewLabPlan(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	defaultAutoShutdownProfileApplier := func(v AutoShutdownProfile) *AutoShutdownProfile { return v.Defaults() }
 	if args.DefaultAutoShutdownProfile != nil {
-		args.DefaultAutoShutdownProfile = args.DefaultAutoShutdownProfile.ToAutoShutdownProfilePtrOutput().Elem().ApplyT(defaultAutoShutdownProfileApplier).(AutoShutdownProfilePtrOutput)
+		args.DefaultAutoShutdownProfile = args.DefaultAutoShutdownProfile.ToAutoShutdownProfilePtrOutput().ApplyT(func(v *AutoShutdownProfile) *AutoShutdownProfile { return v.Defaults() }).(AutoShutdownProfilePtrOutput)
 	}
-	defaultConnectionProfileApplier := func(v ConnectionProfile) *ConnectionProfile { return v.Defaults() }
 	if args.DefaultConnectionProfile != nil {
-		args.DefaultConnectionProfile = args.DefaultConnectionProfile.ToConnectionProfilePtrOutput().Elem().ApplyT(defaultConnectionProfileApplier).(ConnectionProfilePtrOutput)
+		args.DefaultConnectionProfile = args.DefaultConnectionProfile.ToConnectionProfilePtrOutput().ApplyT(func(v *ConnectionProfile) *ConnectionProfile { return v.Defaults() }).(ConnectionProfilePtrOutput)
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

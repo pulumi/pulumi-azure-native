@@ -39,9 +39,8 @@ func NewEventChannel(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	filterApplier := func(v EventChannelFilter) *EventChannelFilter { return v.Defaults() }
 	if args.Filter != nil {
-		args.Filter = args.Filter.ToEventChannelFilterPtrOutput().Elem().ApplyT(filterApplier).(EventChannelFilterPtrOutput)
+		args.Filter = args.Filter.ToEventChannelFilterPtrOutput().ApplyT(func(v *EventChannelFilter) *EventChannelFilter { return v.Defaults() }).(EventChannelFilterPtrOutput)
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

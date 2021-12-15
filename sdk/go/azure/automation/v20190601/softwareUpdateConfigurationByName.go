@@ -46,8 +46,7 @@ func NewSoftwareUpdateConfigurationByName(ctx *pulumi.Context,
 	if args.UpdateConfiguration == nil {
 		return nil, errors.New("invalid value for required argument 'UpdateConfiguration'")
 	}
-	scheduleInfoApplier := func(v SUCScheduleProperties) *SUCScheduleProperties { return v.Defaults() }
-	args.ScheduleInfo = args.ScheduleInfo.ToSUCSchedulePropertiesOutput().ApplyT(scheduleInfoApplier).(SUCSchedulePropertiesPtrOutput).Elem()
+	args.ScheduleInfo = args.ScheduleInfo.ToSUCSchedulePropertiesOutput().ApplyT(func(v SUCScheduleProperties) SUCScheduleProperties { return *v.Defaults() }).(SUCSchedulePropertiesOutput)
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-native:automation:SoftwareUpdateConfigurationByName"),

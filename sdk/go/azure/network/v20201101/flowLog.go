@@ -48,13 +48,11 @@ func NewFlowLog(ctx *pulumi.Context,
 	if args.TargetResourceId == nil {
 		return nil, errors.New("invalid value for required argument 'TargetResourceId'")
 	}
-	formatApplier := func(v FlowLogFormatParameters) *FlowLogFormatParameters { return v.Defaults() }
 	if args.Format != nil {
-		args.Format = args.Format.ToFlowLogFormatParametersPtrOutput().Elem().ApplyT(formatApplier).(FlowLogFormatParametersPtrOutput)
+		args.Format = args.Format.ToFlowLogFormatParametersPtrOutput().ApplyT(func(v *FlowLogFormatParameters) *FlowLogFormatParameters { return v.Defaults() }).(FlowLogFormatParametersPtrOutput)
 	}
-	retentionPolicyApplier := func(v RetentionPolicyParameters) *RetentionPolicyParameters { return v.Defaults() }
 	if args.RetentionPolicy != nil {
-		args.RetentionPolicy = args.RetentionPolicy.ToRetentionPolicyParametersPtrOutput().Elem().ApplyT(retentionPolicyApplier).(RetentionPolicyParametersPtrOutput)
+		args.RetentionPolicy = args.RetentionPolicy.ToRetentionPolicyParametersPtrOutput().ApplyT(func(v *RetentionPolicyParameters) *RetentionPolicyParameters { return v.Defaults() }).(RetentionPolicyParametersPtrOutput)
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

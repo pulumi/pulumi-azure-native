@@ -54,12 +54,9 @@ func NewLab(ctx *pulumi.Context,
 	if args.VirtualMachineProfile == nil {
 		return nil, errors.New("invalid value for required argument 'VirtualMachineProfile'")
 	}
-	autoShutdownProfileApplier := func(v AutoShutdownProfile) *AutoShutdownProfile { return v.Defaults() }
-	args.AutoShutdownProfile = args.AutoShutdownProfile.ToAutoShutdownProfileOutput().ApplyT(autoShutdownProfileApplier).(AutoShutdownProfilePtrOutput).Elem()
-	connectionProfileApplier := func(v ConnectionProfile) *ConnectionProfile { return v.Defaults() }
-	args.ConnectionProfile = args.ConnectionProfile.ToConnectionProfileOutput().ApplyT(connectionProfileApplier).(ConnectionProfilePtrOutput).Elem()
-	virtualMachineProfileApplier := func(v VirtualMachineProfile) *VirtualMachineProfile { return v.Defaults() }
-	args.VirtualMachineProfile = args.VirtualMachineProfile.ToVirtualMachineProfileOutput().ApplyT(virtualMachineProfileApplier).(VirtualMachineProfilePtrOutput).Elem()
+	args.AutoShutdownProfile = args.AutoShutdownProfile.ToAutoShutdownProfileOutput().ApplyT(func(v AutoShutdownProfile) AutoShutdownProfile { return *v.Defaults() }).(AutoShutdownProfileOutput)
+	args.ConnectionProfile = args.ConnectionProfile.ToConnectionProfileOutput().ApplyT(func(v ConnectionProfile) ConnectionProfile { return *v.Defaults() }).(ConnectionProfileOutput)
+	args.VirtualMachineProfile = args.VirtualMachineProfile.ToVirtualMachineProfileOutput().ApplyT(func(v VirtualMachineProfile) VirtualMachineProfile { return *v.Defaults() }).(VirtualMachineProfileOutput)
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-native:labservices/v20211115preview:Lab"),

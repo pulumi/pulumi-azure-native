@@ -1152,7 +1152,7 @@ func (o WorkbookTemplateLocalizedGalleryResponseArrayOutput) Index(i pulumi.IntI
 type WorkbookTemplateLocalizedGalleryArrayMap map[string]WorkbookTemplateLocalizedGalleryArrayInput
 
 func (WorkbookTemplateLocalizedGalleryArrayMap) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkbookTemplateLocalizedGalleryArray)(nil)).Elem()
+	return reflect.TypeOf((*map[string][]WorkbookTemplateLocalizedGallery)(nil)).Elem()
 }
 
 func (i WorkbookTemplateLocalizedGalleryArrayMap) ToWorkbookTemplateLocalizedGalleryArrayMapOutput() WorkbookTemplateLocalizedGalleryArrayMapOutput {
@@ -1166,7 +1166,7 @@ func (i WorkbookTemplateLocalizedGalleryArrayMap) ToWorkbookTemplateLocalizedGal
 type WorkbookTemplateLocalizedGalleryArrayMapOutput struct{ *pulumi.OutputState }
 
 func (WorkbookTemplateLocalizedGalleryArrayMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]WorkbookTemplateLocalizedGalleryArray)(nil)).Elem()
+	return reflect.TypeOf((*map[string][]WorkbookTemplateLocalizedGallery)(nil)).Elem()
 }
 
 func (o WorkbookTemplateLocalizedGalleryArrayMapOutput) ToWorkbookTemplateLocalizedGalleryArrayMapOutput() WorkbookTemplateLocalizedGalleryArrayMapOutput {
@@ -1178,8 +1178,8 @@ func (o WorkbookTemplateLocalizedGalleryArrayMapOutput) ToWorkbookTemplateLocali
 }
 
 func (o WorkbookTemplateLocalizedGalleryArrayMapOutput) MapIndex(k pulumi.StringInput) WorkbookTemplateLocalizedGalleryArrayOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) WorkbookTemplateLocalizedGalleryArray {
-		return vs[0].(map[string]WorkbookTemplateLocalizedGalleryArray)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) []WorkbookTemplateLocalizedGallery {
+		return vs[0].(map[string][]WorkbookTemplateLocalizedGallery)[vs[1].(string)]
 	}).(WorkbookTemplateLocalizedGalleryArrayOutput)
 }
 
@@ -1197,7 +1197,7 @@ type WorkbookTemplateLocalizedGalleryArrayMapInput interface {
 type WorkbookTemplateLocalizedGalleryResponseArrayMap map[string]WorkbookTemplateLocalizedGalleryResponseArrayInput
 
 func (WorkbookTemplateLocalizedGalleryResponseArrayMap) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkbookTemplateLocalizedGalleryResponseArray)(nil)).Elem()
+	return reflect.TypeOf((*map[string][]WorkbookTemplateLocalizedGalleryResponse)(nil)).Elem()
 }
 
 func (i WorkbookTemplateLocalizedGalleryResponseArrayMap) ToWorkbookTemplateLocalizedGalleryResponseArrayMapOutput() WorkbookTemplateLocalizedGalleryResponseArrayMapOutput {
@@ -1211,7 +1211,7 @@ func (i WorkbookTemplateLocalizedGalleryResponseArrayMap) ToWorkbookTemplateLoca
 type WorkbookTemplateLocalizedGalleryResponseArrayMapOutput struct{ *pulumi.OutputState }
 
 func (WorkbookTemplateLocalizedGalleryResponseArrayMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]WorkbookTemplateLocalizedGalleryResponseArray)(nil)).Elem()
+	return reflect.TypeOf((*map[string][]WorkbookTemplateLocalizedGalleryResponse)(nil)).Elem()
 }
 
 func (o WorkbookTemplateLocalizedGalleryResponseArrayMapOutput) ToWorkbookTemplateLocalizedGalleryResponseArrayMapOutput() WorkbookTemplateLocalizedGalleryResponseArrayMapOutput {
@@ -1223,8 +1223,8 @@ func (o WorkbookTemplateLocalizedGalleryResponseArrayMapOutput) ToWorkbookTempla
 }
 
 func (o WorkbookTemplateLocalizedGalleryResponseArrayMapOutput) MapIndex(k pulumi.StringInput) WorkbookTemplateLocalizedGalleryResponseArrayOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) WorkbookTemplateLocalizedGalleryResponseArray {
-		return vs[0].(map[string]WorkbookTemplateLocalizedGalleryResponseArray)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) []WorkbookTemplateLocalizedGalleryResponse {
+		return vs[0].(map[string][]WorkbookTemplateLocalizedGalleryResponse)[vs[1].(string)]
 	}).(WorkbookTemplateLocalizedGalleryResponseArrayOutput)
 }
 

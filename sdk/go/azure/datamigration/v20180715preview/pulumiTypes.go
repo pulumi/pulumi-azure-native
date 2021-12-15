@@ -33283,7 +33283,7 @@ func (o ValidateSyncMigrationInputSqlServerTaskOutputResponseArrayOutput) Index(
 type DatabaseTableResponseArrayMap map[string]DatabaseTableResponseArrayInput
 
 func (DatabaseTableResponseArrayMap) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatabaseTableResponseArray)(nil)).Elem()
+	return reflect.TypeOf((*map[string][]DatabaseTableResponse)(nil)).Elem()
 }
 
 func (i DatabaseTableResponseArrayMap) ToDatabaseTableResponseArrayMapOutput() DatabaseTableResponseArrayMapOutput {
@@ -33297,7 +33297,7 @@ func (i DatabaseTableResponseArrayMap) ToDatabaseTableResponseArrayMapOutputWith
 type DatabaseTableResponseArrayMapOutput struct{ *pulumi.OutputState }
 
 func (DatabaseTableResponseArrayMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]DatabaseTableResponseArray)(nil)).Elem()
+	return reflect.TypeOf((*map[string][]DatabaseTableResponse)(nil)).Elem()
 }
 
 func (o DatabaseTableResponseArrayMapOutput) ToDatabaseTableResponseArrayMapOutput() DatabaseTableResponseArrayMapOutput {
@@ -33309,8 +33309,8 @@ func (o DatabaseTableResponseArrayMapOutput) ToDatabaseTableResponseArrayMapOutp
 }
 
 func (o DatabaseTableResponseArrayMapOutput) MapIndex(k pulumi.StringInput) DatabaseTableResponseArrayOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) DatabaseTableResponseArray {
-		return vs[0].(map[string]DatabaseTableResponseArray)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) []DatabaseTableResponse {
+		return vs[0].(map[string][]DatabaseTableResponse)[vs[1].(string)]
 	}).(DatabaseTableResponseArrayOutput)
 }
 
