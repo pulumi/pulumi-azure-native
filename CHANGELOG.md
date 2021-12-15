@@ -3,9 +3,19 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 
+(None)
+
+---
+
+## 1.50.0 (2021-12-15)
+
 #### New functions:
 
 - `elastic.listUpgradableVersionDetails`
+
+#### Enhancements:
+
+- Update to `pulumi/pulumi` 3.19.0
 
 #### Breaking Changes published by Microsoft:
 
@@ -13,8 +23,6 @@ CHANGELOG
   ([source](https://github.com/Azure/azure-rest-api-specs/pull/16882))
 - `alertsmanagement.PrometheusRuleGroup` resource removed
   ([source](https://github.com/Azure/azure-rest-api-specs/pull/17060))
-
----
 
 ## 1.49.0 (2021-12-06)
 
