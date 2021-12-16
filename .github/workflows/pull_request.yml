@@ -55,8 +55,6 @@ jobs:
           repo: mikhailshilkov/schema-tools
       - name: Install Pulumi CLI
         uses: pulumi/setup-pulumi@v2
-        with:
-          pulumi-version: 3.0.0-rc.1
       - name: Initialize submodules
         run: make init_submodules
       - name: Build codegen binaries
@@ -132,8 +130,6 @@ jobs:
           repo: pulumi/pulumictl
       - name: Install Pulumi CLI
         uses: pulumi/setup-pulumi@v2
-        with:
-          pulumi-version: 3.0.0-rc.1
       - name: Download provider + tfgen binaries
         uses: actions/download-artifact@v2
         with:
@@ -189,8 +185,6 @@ jobs:
           repo: pulumi/pulumictl
       - name: Install Pulumi CLI
         uses: pulumi/setup-pulumi@v2
-        with:
-          pulumi-version: 3.0.0-rc.1
       - name: Setup Node
         uses: actions/setup-node@v1
         with:
