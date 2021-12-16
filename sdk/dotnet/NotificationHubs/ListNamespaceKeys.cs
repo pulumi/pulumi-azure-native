@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.NotificationHubs
     public static class ListNamespaceKeys
     {
         /// <summary>
-        /// The response of the List Namespace operation.
+        /// Namespace/NotificationHub Connection String
         /// API Version: 2017-04-01.
         /// </summary>
         public static Task<ListNamespaceKeysResult> InvokeAsync(ListNamespaceKeysArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListNamespaceKeysResult>("azure-native:notificationhubs:listNamespaceKeys", args ?? new ListNamespaceKeysArgs(), options.WithVersion());
 
         /// <summary>
-        /// The response of the List Namespace operation.
+        /// Namespace/NotificationHub Connection String
         /// API Version: 2017-04-01.
         /// </summary>
         public static Output<ListNamespaceKeysResult> Invoke(ListNamespaceKeysInvokeArgs args, InvokeOptions? options = null)
@@ -83,22 +83,43 @@ namespace Pulumi.AzureNative.NotificationHubs
     public sealed class ListNamespaceKeysResult
     {
         /// <summary>
-        /// Link to the next set of results. Not empty if Value contains incomplete list of AuthorizationRules
+        /// KeyName of the created AuthorizationRule
         /// </summary>
-        public readonly string? NextLink;
+        public readonly string? KeyName;
         /// <summary>
-        /// Result of the List AuthorizationRules operation.
+        /// PrimaryConnectionString of the AuthorizationRule.
         /// </summary>
-        public readonly ImmutableArray<Outputs.SharedAccessAuthorizationRuleResourceResponse> Value;
+        public readonly string? PrimaryConnectionString;
+        /// <summary>
+        /// PrimaryKey of the created AuthorizationRule.
+        /// </summary>
+        public readonly string? PrimaryKey;
+        /// <summary>
+        /// SecondaryConnectionString of the created AuthorizationRule
+        /// </summary>
+        public readonly string? SecondaryConnectionString;
+        /// <summary>
+        /// SecondaryKey of the created AuthorizationRule
+        /// </summary>
+        public readonly string? SecondaryKey;
 
         [OutputConstructor]
         private ListNamespaceKeysResult(
-            string? nextLink,
+            string? keyName,
 
-            ImmutableArray<Outputs.SharedAccessAuthorizationRuleResourceResponse> value)
+            string? primaryConnectionString,
+
+            string? primaryKey,
+
+            string? secondaryConnectionString,
+
+            string? secondaryKey)
         {
-            NextLink = nextLink;
-            Value = value;
+            KeyName = keyName;
+            PrimaryConnectionString = primaryConnectionString;
+            PrimaryKey = primaryKey;
+            SecondaryConnectionString = secondaryConnectionString;
+            SecondaryKey = secondaryKey;
         }
     }
 }

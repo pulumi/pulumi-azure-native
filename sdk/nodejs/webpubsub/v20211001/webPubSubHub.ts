@@ -40,7 +40,7 @@ export class WebPubSubHub extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Properties of the hub setting.
+     * Properties of a hub.
      */
     public readonly properties!: pulumi.Output<outputs.webpubsub.v20211001.WebPubSubHubPropertiesResponse>;
     /**
@@ -103,7 +103,7 @@ export interface WebPubSubHubArgs {
      */
     hubName?: pulumi.Input<string>;
     /**
-     * Properties of the hub setting.
+     * Properties of a hub.
      */
     properties: pulumi.Input<inputs.webpubsub.v20211001.WebPubSubHubPropertiesArgs>;
     /**

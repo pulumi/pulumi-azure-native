@@ -181,7 +181,7 @@ class GetSignalRResult:
     @pulumi.getter
     def identity(self) -> Optional['outputs.ManagedIdentityResponse']:
         """
-        The managed identity response
+        A class represent managed identities used for request and response
         """
         return pulumi.get(self, "identity")
 
@@ -189,7 +189,7 @@ class GetSignalRResult:
     @pulumi.getter
     def kind(self) -> Optional[str]:
         """
-        The kind of the service - e.g. "SignalR" for "Microsoft.SignalRService/SignalR"
+        The kind of the service, it can be SignalR or RawWebSockets
         """
         return pulumi.get(self, "kind")
 
@@ -213,7 +213,7 @@ class GetSignalRResult:
     @pulumi.getter(name="networkACLs")
     def network_acls(self) -> Optional['outputs.SignalRNetworkACLsResponse']:
         """
-        Network ACLs
+        Network ACLs for the resource
         """
         return pulumi.get(self, "network_acls")
 
@@ -256,8 +256,6 @@ class GetSignalRResult:
     def resource_log_configuration(self) -> Optional['outputs.ResourceLogConfigurationResponse']:
         """
         Resource log configuration of a Microsoft.SignalRService resource.
-        If resourceLogConfiguration isn't null or empty, it will override options "EnableConnectivityLog" and "EnableMessagingLogs" in features.
-        Otherwise, use options "EnableConnectivityLog" and "EnableMessagingLogs" in features.
         """
         return pulumi.get(self, "resource_log_configuration")
 
@@ -281,7 +279,7 @@ class GetSignalRResult:
     @pulumi.getter
     def sku(self) -> Optional['outputs.ResourceSkuResponse']:
         """
-        The billing information of the resource.(e.g. Free, Standard)
+        The billing information of the resource.
         """
         return pulumi.get(self, "sku")
 
@@ -305,7 +303,7 @@ class GetSignalRResult:
     @pulumi.getter
     def tls(self) -> Optional['outputs.SignalRTlsSettingsResponse']:
         """
-        TLS settings.
+        TLS settings for the resource
         """
         return pulumi.get(self, "tls")
 
@@ -321,7 +319,7 @@ class GetSignalRResult:
     @pulumi.getter
     def upstream(self) -> Optional['outputs.ServerlessUpstreamSettingsResponse']:
         """
-        Upstream settings when the service is in server-less mode.
+        The settings for the Upstream when the service is in server-less mode.
         """
         return pulumi.get(self, "upstream")
 

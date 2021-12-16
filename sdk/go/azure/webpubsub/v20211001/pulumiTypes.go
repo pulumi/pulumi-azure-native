@@ -4485,19 +4485,6 @@ type WebPubSubNetworkACLs struct {
 }
 
 
-func (val *WebPubSubNetworkACLs) Defaults() *WebPubSubNetworkACLs {
-	if val == nil {
-		return nil
-	}
-	tmp := *val
-	if isZero(tmp.DefaultAction) {
-		defaultAction_ := "Deny"
-		tmp.DefaultAction = &defaultAction_
-	}
-	return &tmp
-}
-
-
 
 
 
@@ -4658,19 +4645,6 @@ type WebPubSubNetworkACLsResponse struct {
 	DefaultAction    *string                      `pulumi:"defaultAction"`
 	PrivateEndpoints []PrivateEndpointACLResponse `pulumi:"privateEndpoints"`
 	PublicNetwork    *NetworkACLResponse          `pulumi:"publicNetwork"`
-}
-
-
-func (val *WebPubSubNetworkACLsResponse) Defaults() *WebPubSubNetworkACLsResponse {
-	if val == nil {
-		return nil
-	}
-	tmp := *val
-	if isZero(tmp.DefaultAction) {
-		defaultAction_ := "Deny"
-		tmp.DefaultAction = &defaultAction_
-	}
-	return &tmp
 }
 
 

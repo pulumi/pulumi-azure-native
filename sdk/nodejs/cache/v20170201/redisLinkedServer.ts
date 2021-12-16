@@ -105,7 +105,7 @@ export class RedisLinkedServer extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:cache:RedisLinkedServer" }, { type: "azure-native:cache/v20171001:RedisLinkedServer" }, { type: "azure-native:cache/v20180301:RedisLinkedServer" }, { type: "azure-native:cache/v20190701:RedisLinkedServer" }, { type: "azure-native:cache/v20200601:RedisLinkedServer" }, { type: "azure-native:cache/v20201201:RedisLinkedServer" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:cache:RedisLinkedServer" }, { type: "azure-native:cache/v20171001:RedisLinkedServer" }, { type: "azure-native:cache/v20180301:RedisLinkedServer" }, { type: "azure-native:cache/v20190701:RedisLinkedServer" }, { type: "azure-native:cache/v20200601:RedisLinkedServer" }, { type: "azure-native:cache/v20201201:RedisLinkedServer" }, { type: "azure-native:cache/v20210601:RedisLinkedServer" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(RedisLinkedServer.__pulumiType, name, resourceInputs, opts);
     }

@@ -50,7 +50,7 @@ namespace Pulumi.AzureNative.WebPubSub.V20211001
         public Output<string> HostNamePrefix { get; private set; } = null!;
 
         /// <summary>
-        /// The managed identity response
+        /// A class represent managed identities used for request and response
         /// </summary>
         [Output("identity")]
         public Output<Outputs.ManagedIdentityResponse?> Identity { get; private set; } = null!;
@@ -74,7 +74,7 @@ namespace Pulumi.AzureNative.WebPubSub.V20211001
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Network ACLs
+        /// Network ACLs for the resource
         /// </summary>
         [Output("networkACLs")]
         public Output<Outputs.WebPubSubNetworkACLsResponse?> NetworkACLs { get; private set; } = null!;
@@ -107,8 +107,6 @@ namespace Pulumi.AzureNative.WebPubSub.V20211001
 
         /// <summary>
         /// Resource log configuration of a Microsoft.SignalRService resource.
-        /// If resourceLogConfiguration isn't null or empty, it will override options "EnableConnectivityLog" and "EnableMessagingLogs" in features.
-        /// Otherwise, use options "EnableConnectivityLog" and "EnableMessagingLogs" in features.
         /// </summary>
         [Output("resourceLogConfiguration")]
         public Output<Outputs.ResourceLogConfigurationResponse?> ResourceLogConfiguration { get; private set; } = null!;
@@ -126,7 +124,7 @@ namespace Pulumi.AzureNative.WebPubSub.V20211001
         public Output<ImmutableArray<Outputs.SharedPrivateLinkResourceResponse>> SharedPrivateLinkResources { get; private set; } = null!;
 
         /// <summary>
-        /// The billing information of the resource.(e.g. Free, Standard)
+        /// The billing information of the resource.
         /// </summary>
         [Output("sku")]
         public Output<Outputs.ResourceSkuResponse?> Sku { get; private set; } = null!;
@@ -144,7 +142,7 @@ namespace Pulumi.AzureNative.WebPubSub.V20211001
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// TLS settings.
+        /// TLS settings for the resource
         /// </summary>
         [Output("tls")]
         public Output<Outputs.WebPubSubTlsSettingsResponse?> Tls { get; private set; } = null!;
@@ -230,7 +228,7 @@ namespace Pulumi.AzureNative.WebPubSub.V20211001
         public Input<bool>? DisableLocalAuth { get; set; }
 
         /// <summary>
-        /// The managed identity response
+        /// A class represent managed identities used for request and response
         /// </summary>
         [Input("identity")]
         public Input<Inputs.ManagedIdentityArgs>? Identity { get; set; }
@@ -248,7 +246,7 @@ namespace Pulumi.AzureNative.WebPubSub.V20211001
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Network ACLs
+        /// Network ACLs for the resource
         /// </summary>
         [Input("networkACLs")]
         public Input<Inputs.WebPubSubNetworkACLsArgs>? NetworkACLs { get; set; }
@@ -269,8 +267,6 @@ namespace Pulumi.AzureNative.WebPubSub.V20211001
 
         /// <summary>
         /// Resource log configuration of a Microsoft.SignalRService resource.
-        /// If resourceLogConfiguration isn't null or empty, it will override options "EnableConnectivityLog" and "EnableMessagingLogs" in features.
-        /// Otherwise, use options "EnableConnectivityLog" and "EnableMessagingLogs" in features.
         /// </summary>
         [Input("resourceLogConfiguration")]
         public Input<Inputs.ResourceLogConfigurationArgs>? ResourceLogConfiguration { get; set; }
@@ -282,7 +278,7 @@ namespace Pulumi.AzureNative.WebPubSub.V20211001
         public Input<string>? ResourceName { get; set; }
 
         /// <summary>
-        /// The billing information of the resource.(e.g. Free, Standard)
+        /// The billing information of the resource.
         /// </summary>
         [Input("sku")]
         public Input<Inputs.ResourceSkuArgs>? Sku { get; set; }
@@ -300,7 +296,7 @@ namespace Pulumi.AzureNative.WebPubSub.V20211001
         }
 
         /// <summary>
-        /// TLS settings.
+        /// TLS settings for the resource
         /// </summary>
         [Input("tls")]
         public Input<Inputs.WebPubSubTlsSettingsArgs>? Tls { get; set; }

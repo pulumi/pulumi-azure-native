@@ -8,7 +8,7 @@ using Pulumi;
 namespace Pulumi.AzureNative.SignalRService.V20211001
 {
     /// <summary>
-    /// Default action when no other rule matches
+    /// Azure Networking ACL Action.
     /// </summary>
     [EnumType]
     public readonly struct ACLAction : IEquatable<ACLAction>
@@ -76,7 +76,7 @@ namespace Pulumi.AzureNative.SignalRService.V20211001
     }
 
     /// <summary>
-    /// Represent the identity type: systemAssigned, userAssigned, None
+    /// Represents the identity type: systemAssigned, userAssigned, None
     /// </summary>
     [EnumType]
     public readonly struct ManagedIdentityType : IEquatable<ManagedIdentityType>
@@ -141,7 +141,7 @@ namespace Pulumi.AzureNative.SignalRService.V20211001
     }
 
     /// <summary>
-    /// The kind of the service - e.g. "SignalR" for "Microsoft.SignalRService/SignalR"
+    /// The kind of the service, it can be SignalR or RawWebSockets
     /// </summary>
     [EnumType]
     public readonly struct ServiceKind : IEquatable<ServiceKind>
@@ -172,7 +172,7 @@ namespace Pulumi.AzureNative.SignalRService.V20211001
     }
 
     /// <summary>
-    /// Allowed request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.
+    /// The incoming request type to the service
     /// </summary>
     [EnumType]
     public readonly struct SignalRRequestType : IEquatable<SignalRRequestType>
@@ -240,7 +240,7 @@ namespace Pulumi.AzureNative.SignalRService.V20211001
     }
 
     /// <summary>
-    /// Gets or sets the type of auth. None or ManagedIdentity is supported now.
+    /// Upstream auth type enum.
     /// </summary>
     [EnumType]
     public readonly struct UpstreamAuthType : IEquatable<UpstreamAuthType>

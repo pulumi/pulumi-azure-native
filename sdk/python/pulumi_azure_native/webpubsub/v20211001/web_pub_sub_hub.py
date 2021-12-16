@@ -22,7 +22,7 @@ class WebPubSubHubArgs:
                  hub_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a WebPubSubHub resource.
-        :param pulumi.Input['WebPubSubHubPropertiesArgs'] properties: Properties of the hub setting.
+        :param pulumi.Input['WebPubSubHubPropertiesArgs'] properties: Properties of a hub.
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[str] resource_name: The name of the resource.
         :param pulumi.Input[str] hub_name: The hub name.
@@ -37,7 +37,7 @@ class WebPubSubHubArgs:
     @pulumi.getter
     def properties(self) -> pulumi.Input['WebPubSubHubPropertiesArgs']:
         """
-        Properties of the hub setting.
+        Properties of a hub.
         """
         return pulumi.get(self, "properties")
 
@@ -98,7 +98,7 @@ class WebPubSubHub(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] hub_name: The hub name.
-        :param pulumi.Input[pulumi.InputType['WebPubSubHubPropertiesArgs']] properties: Properties of the hub setting.
+        :param pulumi.Input[pulumi.InputType['WebPubSubHubPropertiesArgs']] properties: Properties of a hub.
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[str] resource_name_: The name of the resource.
         """
@@ -197,7 +197,7 @@ class WebPubSubHub(pulumi.CustomResource):
     @pulumi.getter
     def properties(self) -> pulumi.Output['outputs.WebPubSubHubPropertiesResponse']:
         """
-        Properties of the hub setting.
+        Properties of a hub.
         """
         return pulumi.get(self, "properties")
 

@@ -68,7 +68,7 @@ class EventHandlerResponse(dict):
         Properties of event handler.
         :param str url_template: Gets or sets the EventHandler URL template. You can use a predefined parameter {hub} and {event} inside the template, the value of the EventHandler URL is dynamically calculated when the client request comes in.
                For example, UrlTemplate can be `http://example.com/api/{hub}/{event}`. The host part can't contains parameters.
-        :param 'UpstreamAuthSettingsResponse' auth: Gets or sets the auth settings for an event handler. If not set, no auth is used.
+        :param 'UpstreamAuthSettingsResponse' auth: Upstream auth settings. If not set, no auth is used for upstream messages.
         :param Sequence[str] system_events: Gets ot sets the list of system events.
         :param str user_event_pattern: Gets or sets the matching pattern for event names.
                There are 3 kind of patterns supported:
@@ -97,7 +97,7 @@ class EventHandlerResponse(dict):
     @pulumi.getter
     def auth(self) -> Optional['outputs.UpstreamAuthSettingsResponse']:
         """
-        Gets or sets the auth settings for an event handler. If not set, no auth is used.
+        Upstream auth settings. If not set, no auth is used for upstream messages.
         """
         return pulumi.get(self, "auth")
 
@@ -247,7 +247,7 @@ class ManagedIdentityResponse(dict):
                Only be used in response.
         :param str tenant_id: Get the tenant id for the system assigned identity.
                Only be used in response
-        :param str type: Represent the identity type: systemAssigned, userAssigned, None
+        :param str type: Represents the identity type: systemAssigned, userAssigned, None
         :param Mapping[str, 'UserAssignedIdentityPropertyResponse'] user_assigned_identities: Get or set the user assigned identities
         """
         pulumi.set(__self__, "principal_id", principal_id)
@@ -279,7 +279,7 @@ class ManagedIdentityResponse(dict):
     @pulumi.getter
     def type(self) -> Optional[str]:
         """
-        Represent the identity type: systemAssigned, userAssigned, None
+        Represents the identity type: systemAssigned, userAssigned, None
         """
         return pulumi.get(self, "type")
 
@@ -442,11 +442,11 @@ class PrivateEndpointConnectionResponse(dict):
         :param Sequence[str] group_ids: Group IDs
         :param str id: Fully qualified resource Id for the resource.
         :param str name: The name of the resource.
-        :param str provisioning_state: Provisioning state of the private endpoint connection
+        :param str provisioning_state: Provisioning state of the resource.
         :param 'SystemDataResponse' system_data: Metadata pertaining to creation and last modification of the resource.
         :param str type: The type of the resource - e.g. "Microsoft.SignalRService/SignalR"
-        :param 'PrivateEndpointResponse' private_endpoint: Private endpoint associated with the private endpoint connection
-        :param 'PrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: Connection state
+        :param 'PrivateEndpointResponse' private_endpoint: Private endpoint
+        :param 'PrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: Connection state of the private endpoint connection
         """
         pulumi.set(__self__, "group_ids", group_ids)
         pulumi.set(__self__, "id", id)
@@ -487,7 +487,7 @@ class PrivateEndpointConnectionResponse(dict):
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> str:
         """
-        Provisioning state of the private endpoint connection
+        Provisioning state of the resource.
         """
         return pulumi.get(self, "provisioning_state")
 
@@ -511,7 +511,7 @@ class PrivateEndpointConnectionResponse(dict):
     @pulumi.getter(name="privateEndpoint")
     def private_endpoint(self) -> Optional['outputs.PrivateEndpointResponse']:
         """
-        Private endpoint associated with the private endpoint connection
+        Private endpoint
         """
         return pulumi.get(self, "private_endpoint")
 
@@ -519,7 +519,7 @@ class PrivateEndpointConnectionResponse(dict):
     @pulumi.getter(name="privateLinkServiceConnectionState")
     def private_link_service_connection_state(self) -> Optional['outputs.PrivateLinkServiceConnectionStateResponse']:
         """
-        Connection state
+        Connection state of the private endpoint connection
         """
         return pulumi.get(self, "private_link_service_connection_state")
 
@@ -807,7 +807,7 @@ class SharedPrivateLinkResourceResponse(dict):
         :param str id: Fully qualified resource Id for the resource.
         :param str name: The name of the resource.
         :param str private_link_resource_id: The resource id of the resource the shared private link resource is for
-        :param str provisioning_state: Provisioning state of the shared private link resource
+        :param str provisioning_state: Provisioning state of the resource.
         :param str status: Status of the shared private link resource
         :param 'SystemDataResponse' system_data: Metadata pertaining to creation and last modification of the resource.
         :param str type: The type of the resource - e.g. "Microsoft.SignalRService/SignalR"
@@ -860,7 +860,7 @@ class SharedPrivateLinkResourceResponse(dict):
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> str:
         """
-        Provisioning state of the shared private link resource
+        Provisioning state of the resource.
         """
         return pulumi.get(self, "provisioning_state")
 
@@ -1010,7 +1010,7 @@ class SystemDataResponse(dict):
 @pulumi.output_type
 class UpstreamAuthSettingsResponse(dict):
     """
-    Upstream auth settings.
+    Upstream auth settings. If not set, no auth is used for upstream messages.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -1033,9 +1033,9 @@ class UpstreamAuthSettingsResponse(dict):
                  managed_identity: Optional['outputs.ManagedIdentitySettingsResponse'] = None,
                  type: Optional[str] = None):
         """
-        Upstream auth settings.
-        :param 'ManagedIdentitySettingsResponse' managed_identity: Gets or sets the managed identity settings. It's required if the auth type is set to ManagedIdentity.
-        :param str type: Gets or sets the type of auth. None or ManagedIdentity is supported now.
+        Upstream auth settings. If not set, no auth is used for upstream messages.
+        :param 'ManagedIdentitySettingsResponse' managed_identity: Managed identity settings for upstream.
+        :param str type: Upstream auth type enum.
         """
         if managed_identity is not None:
             pulumi.set(__self__, "managed_identity", managed_identity)
@@ -1046,7 +1046,7 @@ class UpstreamAuthSettingsResponse(dict):
     @pulumi.getter(name="managedIdentity")
     def managed_identity(self) -> Optional['outputs.ManagedIdentitySettingsResponse']:
         """
-        Gets or sets the managed identity settings. It's required if the auth type is set to ManagedIdentity.
+        Managed identity settings for upstream.
         """
         return pulumi.get(self, "managed_identity")
 
@@ -1054,7 +1054,7 @@ class UpstreamAuthSettingsResponse(dict):
     @pulumi.getter
     def type(self) -> Optional[str]:
         """
-        Gets or sets the type of auth. None or ManagedIdentity is supported now.
+        Upstream auth type enum.
         """
         return pulumi.get(self, "type")
 
@@ -1199,12 +1199,10 @@ class WebPubSubNetworkACLsResponse(dict):
                  public_network: Optional['outputs.NetworkACLResponse'] = None):
         """
         Network ACLs for the resource
-        :param str default_action: Default action when no other rule matches
+        :param str default_action: Azure Networking ACL Action.
         :param Sequence['PrivateEndpointACLResponse'] private_endpoints: ACLs for requests from private endpoints
-        :param 'NetworkACLResponse' public_network: ACL for requests from public network
+        :param 'NetworkACLResponse' public_network: Network ACL
         """
-        if default_action is None:
-            default_action = 'Deny'
         if default_action is not None:
             pulumi.set(__self__, "default_action", default_action)
         if private_endpoints is not None:
@@ -1216,7 +1214,7 @@ class WebPubSubNetworkACLsResponse(dict):
     @pulumi.getter(name="defaultAction")
     def default_action(self) -> Optional[str]:
         """
-        Default action when no other rule matches
+        Azure Networking ACL Action.
         """
         return pulumi.get(self, "default_action")
 
@@ -1232,7 +1230,7 @@ class WebPubSubNetworkACLsResponse(dict):
     @pulumi.getter(name="publicNetwork")
     def public_network(self) -> Optional['outputs.NetworkACLResponse']:
         """
-        ACL for requests from public network
+        Network ACL
         """
         return pulumi.get(self, "public_network")
 

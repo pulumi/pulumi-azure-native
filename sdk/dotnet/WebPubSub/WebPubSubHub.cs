@@ -23,7 +23,7 @@ namespace Pulumi.AzureNative.WebPubSub
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Properties of the hub setting.
+        /// Properties of a hub.
         /// </summary>
         [Output("properties")]
         public Output<Outputs.WebPubSubHubPropertiesResponse> Properties { get; private set; } = null!;
@@ -96,7 +96,7 @@ namespace Pulumi.AzureNative.WebPubSub
         public Input<string>? HubName { get; set; }
 
         /// <summary>
-        /// Properties of the hub setting.
+        /// Properties of a hub.
         /// </summary>
         [Input("properties", required: true)]
         public Input<Inputs.WebPubSubHubPropertiesArgs> Properties { get; set; } = null!;

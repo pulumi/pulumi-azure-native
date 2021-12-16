@@ -66,7 +66,7 @@ export interface GetWebPubSubResult {
      */
     readonly id: string;
     /**
-     * The managed identity response
+     * A class represent managed identities used for request and response
      */
     readonly identity?: outputs.webpubsub.v20211001.ManagedIdentityResponse;
     /**
@@ -82,7 +82,7 @@ export interface GetWebPubSubResult {
      */
     readonly name: string;
     /**
-     * Network ACLs
+     * Network ACLs for the resource
      */
     readonly networkACLs?: outputs.webpubsub.v20211001.WebPubSubNetworkACLsResponse;
     /**
@@ -105,8 +105,6 @@ export interface GetWebPubSubResult {
     readonly publicPort: number;
     /**
      * Resource log configuration of a Microsoft.SignalRService resource.
-     * If resourceLogConfiguration isn't null or empty, it will override options "EnableConnectivityLog" and "EnableMessagingLogs" in features.
-     * Otherwise, use options "EnableConnectivityLog" and "EnableMessagingLogs" in features.
      */
     readonly resourceLogConfiguration?: outputs.webpubsub.v20211001.ResourceLogConfigurationResponse;
     /**
@@ -118,7 +116,7 @@ export interface GetWebPubSubResult {
      */
     readonly sharedPrivateLinkResources: outputs.webpubsub.v20211001.SharedPrivateLinkResourceResponse[];
     /**
-     * The billing information of the resource.(e.g. Free, Standard)
+     * The billing information of the resource.
      */
     readonly sku?: outputs.webpubsub.v20211001.ResourceSkuResponse;
     /**
@@ -130,7 +128,7 @@ export interface GetWebPubSubResult {
      */
     readonly tags?: {[key: string]: string};
     /**
-     * TLS settings.
+     * TLS settings for the resource
      */
     readonly tls?: outputs.webpubsub.v20211001.WebPubSubTlsSettingsResponse;
     /**

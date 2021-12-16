@@ -11,17 +11,17 @@ namespace Pulumi.AzureNative.SignalRService.V20211001.Outputs
 {
 
     /// <summary>
-    /// Upstream auth settings.
+    /// Upstream auth settings. If not set, no auth is used for upstream messages.
     /// </summary>
     [OutputType]
     public sealed class UpstreamAuthSettingsResponse
     {
         /// <summary>
-        /// Gets or sets the managed identity settings. It's required if the auth type is set to ManagedIdentity.
+        /// Managed identity settings for upstream.
         /// </summary>
         public readonly Outputs.ManagedIdentitySettingsResponse? ManagedIdentity;
         /// <summary>
-        /// Gets or sets the type of auth. None or ManagedIdentity is supported now.
+        /// Upstream auth type enum.
         /// </summary>
         public readonly string? Type;
 

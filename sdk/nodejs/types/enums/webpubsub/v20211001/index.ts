@@ -8,7 +8,7 @@ export const ACLAction = {
 } as const;
 
 /**
- * Default action when no other rule matches
+ * Azure Networking ACL Action.
  */
 export type ACLAction = (typeof ACLAction)[keyof typeof ACLAction];
 
@@ -19,7 +19,7 @@ export const ManagedIdentityType = {
 } as const;
 
 /**
- * Represent the identity type: systemAssigned, userAssigned, None
+ * Represents the identity type: systemAssigned, userAssigned, None
  */
 export type ManagedIdentityType = (typeof ManagedIdentityType)[keyof typeof ManagedIdentityType];
 
@@ -41,7 +41,7 @@ export const UpstreamAuthType = {
 } as const;
 
 /**
- * Gets or sets the type of auth. None or ManagedIdentity is supported now.
+ * Upstream auth type enum.
  */
 export type UpstreamAuthType = (typeof UpstreamAuthType)[keyof typeof UpstreamAuthType];
 
@@ -53,7 +53,7 @@ export const WebPubSubRequestType = {
 } as const;
 
 /**
- * Allowed request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.
+ * The incoming request type to the service
  */
 export type WebPubSubRequestType = (typeof WebPubSubRequestType)[keyof typeof WebPubSubRequestType];
 

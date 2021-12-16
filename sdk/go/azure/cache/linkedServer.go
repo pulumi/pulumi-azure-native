@@ -63,6 +63,9 @@ func NewLinkedServer(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:cache/v20201201:LinkedServer"),
 		},
+		{
+			Type: pulumi.String("azure-native:cache/v20210601:LinkedServer"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource LinkedServer

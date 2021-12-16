@@ -17,7 +17,7 @@ namespace Pulumi.AzureNative.WebPubSub.Outputs
     public sealed class EventHandlerResponse
     {
         /// <summary>
-        /// Gets or sets the auth settings for an event handler. If not set, no auth is used.
+        /// Upstream auth settings. If not set, no auth is used for upstream messages.
         /// </summary>
         public readonly Outputs.UpstreamAuthSettingsResponse? Auth;
         /// <summary>

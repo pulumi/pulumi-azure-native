@@ -67,7 +67,7 @@ class EventHandlerResponse(dict):
         Properties of event handler.
         :param str url_template: Gets or sets the EventHandler URL template. You can use a predefined parameter {hub} and {event} inside the template, the value of the EventHandler URL is dynamically calculated when the client request comes in.
                For example, UrlTemplate can be `http://example.com/api/{hub}/{event}`. The host part can't contains parameters.
-        :param 'UpstreamAuthSettingsResponse' auth: Gets or sets the auth settings for an event handler. If not set, no auth is used.
+        :param 'UpstreamAuthSettingsResponse' auth: Upstream auth settings. If not set, no auth is used for upstream messages.
         :param Sequence[str] system_events: Gets ot sets the list of system events.
         :param str user_event_pattern: Gets or sets the matching pattern for event names.
                There are 3 kind of patterns supported:
@@ -96,7 +96,7 @@ class EventHandlerResponse(dict):
     @pulumi.getter
     def auth(self) -> Optional['outputs.UpstreamAuthSettingsResponse']:
         """
-        Gets or sets the auth settings for an event handler. If not set, no auth is used.
+        Upstream auth settings. If not set, no auth is used for upstream messages.
         """
         return pulumi.get(self, "auth")
 
@@ -960,7 +960,7 @@ class SystemDataResponse(dict):
 @pulumi.output_type
 class UpstreamAuthSettingsResponse(dict):
     """
-    Upstream auth settings.
+    Upstream auth settings. If not set, no auth is used for upstream messages.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -983,9 +983,9 @@ class UpstreamAuthSettingsResponse(dict):
                  managed_identity: Optional['outputs.ManagedIdentitySettingsResponse'] = None,
                  type: Optional[str] = None):
         """
-        Upstream auth settings.
-        :param 'ManagedIdentitySettingsResponse' managed_identity: Gets or sets the managed identity settings. It's required if the auth type is set to ManagedIdentity.
-        :param str type: Gets or sets the type of auth. None or ManagedIdentity is supported now.
+        Upstream auth settings. If not set, no auth is used for upstream messages.
+        :param 'ManagedIdentitySettingsResponse' managed_identity: Managed identity settings for upstream.
+        :param str type: Upstream auth type enum.
         """
         if managed_identity is not None:
             pulumi.set(__self__, "managed_identity", managed_identity)
@@ -996,7 +996,7 @@ class UpstreamAuthSettingsResponse(dict):
     @pulumi.getter(name="managedIdentity")
     def managed_identity(self) -> Optional['outputs.ManagedIdentitySettingsResponse']:
         """
-        Gets or sets the managed identity settings. It's required if the auth type is set to ManagedIdentity.
+        Managed identity settings for upstream.
         """
         return pulumi.get(self, "managed_identity")
 
@@ -1004,7 +1004,7 @@ class UpstreamAuthSettingsResponse(dict):
     @pulumi.getter
     def type(self) -> Optional[str]:
         """
-        Gets or sets the type of auth. None or ManagedIdentity is supported now.
+        Upstream auth type enum.
         """
         return pulumi.get(self, "type")
 

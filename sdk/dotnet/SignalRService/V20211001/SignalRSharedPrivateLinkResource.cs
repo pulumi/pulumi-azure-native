@@ -34,7 +34,7 @@ namespace Pulumi.AzureNative.SignalRService.V20211001
         public Output<string> PrivateLinkResourceId { get; private set; } = null!;
 
         /// <summary>
-        /// Provisioning state of the shared private link resource
+        /// Provisioning state of the resource.
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;

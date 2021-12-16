@@ -59,7 +59,7 @@ export interface GetWebPubSubSharedPrivateLinkResourceResult {
      */
     readonly privateLinkResourceId: string;
     /**
-     * Provisioning state of the shared private link resource
+     * Provisioning state of the resource.
      */
     readonly provisioningState: string;
     /**

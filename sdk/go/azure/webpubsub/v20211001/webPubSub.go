@@ -59,10 +59,6 @@ func NewWebPubSub(ctx *pulumi.Context,
 	if args.LiveTraceConfiguration != nil {
 		args.LiveTraceConfiguration = args.LiveTraceConfiguration.ToLiveTraceConfigurationPtrOutput().Elem().ApplyT(liveTraceConfigurationApplier).(LiveTraceConfigurationPtrOutput)
 	}
-	networkACLsApplier := func(v WebPubSubNetworkACLs) *WebPubSubNetworkACLs { return v.Defaults() }
-	if args.NetworkACLs != nil {
-		args.NetworkACLs = args.NetworkACLs.ToWebPubSubNetworkACLsPtrOutput().Elem().ApplyT(networkACLsApplier).(WebPubSubNetworkACLsPtrOutput)
-	}
 	if isZero(args.PublicNetworkAccess) {
 		args.PublicNetworkAccess = pulumi.StringPtr("Enabled")
 	}

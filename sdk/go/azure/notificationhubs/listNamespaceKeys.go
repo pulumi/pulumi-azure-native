@@ -24,6 +24,9 @@ type ListNamespaceKeysArgs struct {
 
 
 type ListNamespaceKeysResult struct {
-	NextLink *string                                         `pulumi:"nextLink"`
-	Value    []SharedAccessAuthorizationRuleResourceResponse `pulumi:"value"`
+	KeyName                   *string `pulumi:"keyName"`
+	PrimaryConnectionString   *string `pulumi:"primaryConnectionString"`
+	PrimaryKey                *string `pulumi:"primaryKey"`
+	SecondaryConnectionString *string `pulumi:"secondaryConnectionString"`
+	SecondaryKey              *string `pulumi:"secondaryKey"`
 }

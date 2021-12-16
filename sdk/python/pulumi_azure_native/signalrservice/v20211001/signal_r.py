@@ -48,21 +48,19 @@ class SignalRArgs:
                And the response will only include featureFlags that are explicitly set. 
                When a featureFlag is not explicitly set, its globally default value will be used
                But keep in mind, the default value doesn't mean "false". It varies in terms of different FeatureFlags.
-        :param pulumi.Input['ManagedIdentityArgs'] identity: The managed identity response
-        :param pulumi.Input[Union[str, 'ServiceKind']] kind: The kind of the service - e.g. "SignalR" for "Microsoft.SignalRService/SignalR"
+        :param pulumi.Input['ManagedIdentityArgs'] identity: A class represent managed identities used for request and response
+        :param pulumi.Input[Union[str, 'ServiceKind']] kind: The kind of the service, it can be SignalR or RawWebSockets
         :param pulumi.Input[str] location: The GEO location of the resource. e.g. West US | East US | North Central US | South Central US.
-        :param pulumi.Input['SignalRNetworkACLsArgs'] network_acls: Network ACLs
+        :param pulumi.Input['SignalRNetworkACLsArgs'] network_acls: Network ACLs for the resource
         :param pulumi.Input[str] public_network_access: Enable or disable public network access. Default to "Enabled".
                When it's Enabled, network ACLs still apply.
                When it's Disabled, public network access is always disabled no matter what you set in network ACLs.
         :param pulumi.Input['ResourceLogConfigurationArgs'] resource_log_configuration: Resource log configuration of a Microsoft.SignalRService resource.
-               If resourceLogConfiguration isn't null or empty, it will override options "EnableConnectivityLog" and "EnableMessagingLogs" in features.
-               Otherwise, use options "EnableConnectivityLog" and "EnableMessagingLogs" in features.
         :param pulumi.Input[str] resource_name: The name of the resource.
-        :param pulumi.Input['ResourceSkuArgs'] sku: The billing information of the resource.(e.g. Free, Standard)
+        :param pulumi.Input['ResourceSkuArgs'] sku: The billing information of the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags of the service which is a list of key value pairs that describe the resource.
-        :param pulumi.Input['SignalRTlsSettingsArgs'] tls: TLS settings.
-        :param pulumi.Input['ServerlessUpstreamSettingsArgs'] upstream: Upstream settings when the service is in server-less mode.
+        :param pulumi.Input['SignalRTlsSettingsArgs'] tls: TLS settings for the resource
+        :param pulumi.Input['ServerlessUpstreamSettingsArgs'] upstream: The settings for the Upstream when the service is in server-less mode.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if cors is not None:
@@ -175,7 +173,7 @@ class SignalRArgs:
     @pulumi.getter
     def identity(self) -> Optional[pulumi.Input['ManagedIdentityArgs']]:
         """
-        The managed identity response
+        A class represent managed identities used for request and response
         """
         return pulumi.get(self, "identity")
 
@@ -187,7 +185,7 @@ class SignalRArgs:
     @pulumi.getter
     def kind(self) -> Optional[pulumi.Input[Union[str, 'ServiceKind']]]:
         """
-        The kind of the service - e.g. "SignalR" for "Microsoft.SignalRService/SignalR"
+        The kind of the service, it can be SignalR or RawWebSockets
         """
         return pulumi.get(self, "kind")
 
@@ -211,7 +209,7 @@ class SignalRArgs:
     @pulumi.getter(name="networkACLs")
     def network_acls(self) -> Optional[pulumi.Input['SignalRNetworkACLsArgs']]:
         """
-        Network ACLs
+        Network ACLs for the resource
         """
         return pulumi.get(self, "network_acls")
 
@@ -238,8 +236,6 @@ class SignalRArgs:
     def resource_log_configuration(self) -> Optional[pulumi.Input['ResourceLogConfigurationArgs']]:
         """
         Resource log configuration of a Microsoft.SignalRService resource.
-        If resourceLogConfiguration isn't null or empty, it will override options "EnableConnectivityLog" and "EnableMessagingLogs" in features.
-        Otherwise, use options "EnableConnectivityLog" and "EnableMessagingLogs" in features.
         """
         return pulumi.get(self, "resource_log_configuration")
 
@@ -263,7 +259,7 @@ class SignalRArgs:
     @pulumi.getter
     def sku(self) -> Optional[pulumi.Input['ResourceSkuArgs']]:
         """
-        The billing information of the resource.(e.g. Free, Standard)
+        The billing information of the resource.
         """
         return pulumi.get(self, "sku")
 
@@ -287,7 +283,7 @@ class SignalRArgs:
     @pulumi.getter
     def tls(self) -> Optional[pulumi.Input['SignalRTlsSettingsArgs']]:
         """
-        TLS settings.
+        TLS settings for the resource
         """
         return pulumi.get(self, "tls")
 
@@ -299,7 +295,7 @@ class SignalRArgs:
     @pulumi.getter
     def upstream(self) -> Optional[pulumi.Input['ServerlessUpstreamSettingsArgs']]:
         """
-        Upstream settings when the service is in server-less mode.
+        The settings for the Upstream when the service is in server-less mode.
         """
         return pulumi.get(self, "upstream")
 
@@ -348,22 +344,20 @@ class SignalR(pulumi.CustomResource):
                And the response will only include featureFlags that are explicitly set. 
                When a featureFlag is not explicitly set, its globally default value will be used
                But keep in mind, the default value doesn't mean "false". It varies in terms of different FeatureFlags.
-        :param pulumi.Input[pulumi.InputType['ManagedIdentityArgs']] identity: The managed identity response
-        :param pulumi.Input[Union[str, 'ServiceKind']] kind: The kind of the service - e.g. "SignalR" for "Microsoft.SignalRService/SignalR"
+        :param pulumi.Input[pulumi.InputType['ManagedIdentityArgs']] identity: A class represent managed identities used for request and response
+        :param pulumi.Input[Union[str, 'ServiceKind']] kind: The kind of the service, it can be SignalR or RawWebSockets
         :param pulumi.Input[str] location: The GEO location of the resource. e.g. West US | East US | North Central US | South Central US.
-        :param pulumi.Input[pulumi.InputType['SignalRNetworkACLsArgs']] network_acls: Network ACLs
+        :param pulumi.Input[pulumi.InputType['SignalRNetworkACLsArgs']] network_acls: Network ACLs for the resource
         :param pulumi.Input[str] public_network_access: Enable or disable public network access. Default to "Enabled".
                When it's Enabled, network ACLs still apply.
                When it's Disabled, public network access is always disabled no matter what you set in network ACLs.
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[pulumi.InputType['ResourceLogConfigurationArgs']] resource_log_configuration: Resource log configuration of a Microsoft.SignalRService resource.
-               If resourceLogConfiguration isn't null or empty, it will override options "EnableConnectivityLog" and "EnableMessagingLogs" in features.
-               Otherwise, use options "EnableConnectivityLog" and "EnableMessagingLogs" in features.
         :param pulumi.Input[str] resource_name_: The name of the resource.
-        :param pulumi.Input[pulumi.InputType['ResourceSkuArgs']] sku: The billing information of the resource.(e.g. Free, Standard)
+        :param pulumi.Input[pulumi.InputType['ResourceSkuArgs']] sku: The billing information of the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags of the service which is a list of key value pairs that describe the resource.
-        :param pulumi.Input[pulumi.InputType['SignalRTlsSettingsArgs']] tls: TLS settings.
-        :param pulumi.Input[pulumi.InputType['ServerlessUpstreamSettingsArgs']] upstream: Upstream settings when the service is in server-less mode.
+        :param pulumi.Input[pulumi.InputType['SignalRTlsSettingsArgs']] tls: TLS settings for the resource
+        :param pulumi.Input[pulumi.InputType['ServerlessUpstreamSettingsArgs']] upstream: The settings for the Upstream when the service is in server-less mode.
         """
         ...
     @overload
@@ -574,7 +568,7 @@ class SignalR(pulumi.CustomResource):
     @pulumi.getter
     def identity(self) -> pulumi.Output[Optional['outputs.ManagedIdentityResponse']]:
         """
-        The managed identity response
+        A class represent managed identities used for request and response
         """
         return pulumi.get(self, "identity")
 
@@ -582,7 +576,7 @@ class SignalR(pulumi.CustomResource):
     @pulumi.getter
     def kind(self) -> pulumi.Output[Optional[str]]:
         """
-        The kind of the service - e.g. "SignalR" for "Microsoft.SignalRService/SignalR"
+        The kind of the service, it can be SignalR or RawWebSockets
         """
         return pulumi.get(self, "kind")
 
@@ -606,7 +600,7 @@ class SignalR(pulumi.CustomResource):
     @pulumi.getter(name="networkACLs")
     def network_acls(self) -> pulumi.Output[Optional['outputs.SignalRNetworkACLsResponse']]:
         """
-        Network ACLs
+        Network ACLs for the resource
         """
         return pulumi.get(self, "network_acls")
 
@@ -649,8 +643,6 @@ class SignalR(pulumi.CustomResource):
     def resource_log_configuration(self) -> pulumi.Output[Optional['outputs.ResourceLogConfigurationResponse']]:
         """
         Resource log configuration of a Microsoft.SignalRService resource.
-        If resourceLogConfiguration isn't null or empty, it will override options "EnableConnectivityLog" and "EnableMessagingLogs" in features.
-        Otherwise, use options "EnableConnectivityLog" and "EnableMessagingLogs" in features.
         """
         return pulumi.get(self, "resource_log_configuration")
 
@@ -674,7 +666,7 @@ class SignalR(pulumi.CustomResource):
     @pulumi.getter
     def sku(self) -> pulumi.Output[Optional['outputs.ResourceSkuResponse']]:
         """
-        The billing information of the resource.(e.g. Free, Standard)
+        The billing information of the resource.
         """
         return pulumi.get(self, "sku")
 
@@ -698,7 +690,7 @@ class SignalR(pulumi.CustomResource):
     @pulumi.getter
     def tls(self) -> pulumi.Output[Optional['outputs.SignalRTlsSettingsResponse']]:
         """
-        TLS settings.
+        TLS settings for the resource
         """
         return pulumi.get(self, "tls")
 
@@ -714,7 +706,7 @@ class SignalR(pulumi.CustomResource):
     @pulumi.getter
     def upstream(self) -> pulumi.Output[Optional['outputs.ServerlessUpstreamSettingsResponse']]:
         """
-        Upstream settings when the service is in server-less mode.
+        The settings for the Upstream when the service is in server-less mode.
         """
         return pulumi.get(self, "upstream")
 

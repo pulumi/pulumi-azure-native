@@ -61,7 +61,7 @@ class ManagedIdentityArgs:
                  user_assigned_identities: Optional[pulumi.Input[Mapping[str, Any]]] = None):
         """
         A class represent managed identities used for request and response
-        :param pulumi.Input[Union[str, 'ManagedIdentityType']] type: Represent the identity type: systemAssigned, userAssigned, None
+        :param pulumi.Input[Union[str, 'ManagedIdentityType']] type: Represents the identity type: systemAssigned, userAssigned, None
         :param pulumi.Input[Mapping[str, Any]] user_assigned_identities: Get or set the user assigned identities
         """
         if type is not None:
@@ -73,7 +73,7 @@ class ManagedIdentityArgs:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[Union[str, 'ManagedIdentityType']]]:
         """
-        Represent the identity type: systemAssigned, userAssigned, None
+        Represents the identity type: systemAssigned, userAssigned, None
         """
         return pulumi.get(self, "type")
 
@@ -530,12 +530,10 @@ class SignalRNetworkACLsArgs:
                  public_network: Optional[pulumi.Input['NetworkACLArgs']] = None):
         """
         Network ACLs for the resource
-        :param pulumi.Input[Union[str, 'ACLAction']] default_action: Default action when no other rule matches
+        :param pulumi.Input[Union[str, 'ACLAction']] default_action: Azure Networking ACL Action.
         :param pulumi.Input[Sequence[pulumi.Input['PrivateEndpointACLArgs']]] private_endpoints: ACLs for requests from private endpoints
-        :param pulumi.Input['NetworkACLArgs'] public_network: ACL for requests from public network
+        :param pulumi.Input['NetworkACLArgs'] public_network: Network ACL
         """
-        if default_action is None:
-            default_action = 'Deny'
         if default_action is not None:
             pulumi.set(__self__, "default_action", default_action)
         if private_endpoints is not None:
@@ -547,7 +545,7 @@ class SignalRNetworkACLsArgs:
     @pulumi.getter(name="defaultAction")
     def default_action(self) -> Optional[pulumi.Input[Union[str, 'ACLAction']]]:
         """
-        Default action when no other rule matches
+        Azure Networking ACL Action.
         """
         return pulumi.get(self, "default_action")
 
@@ -571,7 +569,7 @@ class SignalRNetworkACLsArgs:
     @pulumi.getter(name="publicNetwork")
     def public_network(self) -> Optional[pulumi.Input['NetworkACLArgs']]:
         """
-        ACL for requests from public network
+        Network ACL
         """
         return pulumi.get(self, "public_network")
 
@@ -612,9 +610,9 @@ class UpstreamAuthSettingsArgs:
                  managed_identity: Optional[pulumi.Input['ManagedIdentitySettingsArgs']] = None,
                  type: Optional[pulumi.Input[Union[str, 'UpstreamAuthType']]] = None):
         """
-        Upstream auth settings.
-        :param pulumi.Input['ManagedIdentitySettingsArgs'] managed_identity: Gets or sets the managed identity settings. It's required if the auth type is set to ManagedIdentity.
-        :param pulumi.Input[Union[str, 'UpstreamAuthType']] type: Gets or sets the type of auth. None or ManagedIdentity is supported now.
+        Upstream auth settings. If not set, no auth is used for upstream messages.
+        :param pulumi.Input['ManagedIdentitySettingsArgs'] managed_identity: Managed identity settings for upstream.
+        :param pulumi.Input[Union[str, 'UpstreamAuthType']] type: Upstream auth type enum.
         """
         if managed_identity is not None:
             pulumi.set(__self__, "managed_identity", managed_identity)
@@ -625,7 +623,7 @@ class UpstreamAuthSettingsArgs:
     @pulumi.getter(name="managedIdentity")
     def managed_identity(self) -> Optional[pulumi.Input['ManagedIdentitySettingsArgs']]:
         """
-        Gets or sets the managed identity settings. It's required if the auth type is set to ManagedIdentity.
+        Managed identity settings for upstream.
         """
         return pulumi.get(self, "managed_identity")
 
@@ -637,7 +635,7 @@ class UpstreamAuthSettingsArgs:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[Union[str, 'UpstreamAuthType']]]:
         """
-        Gets or sets the type of auth. None or ManagedIdentity is supported now.
+        Upstream auth type enum.
         """
         return pulumi.get(self, "type")
 
@@ -659,7 +657,7 @@ class UpstreamTemplateArgs:
         The template defines the pattern of the event, the hub or the category of the incoming request that matches current URL template.
         :param pulumi.Input[str] url_template: Gets or sets the Upstream URL template. You can use 3 predefined parameters {hub}, {category} {event} inside the template, the value of the Upstream URL is dynamically calculated when the client request comes in.
                For example, if the urlTemplate is `http://example.com/{hub}/api/{event}`, with a client request from hub `chat` connects, it will first POST to this URL: `http://example.com/chat/api/connect`.
-        :param pulumi.Input['UpstreamAuthSettingsArgs'] auth: Gets or sets the auth settings for an upstream. If not set, no auth is used for upstream messages.
+        :param pulumi.Input['UpstreamAuthSettingsArgs'] auth: Upstream auth settings. If not set, no auth is used for upstream messages.
         :param pulumi.Input[str] category_pattern: Gets or sets the matching pattern for category names. If not set, it matches any category.
                There are 3 kind of patterns supported:
                    1. "*", it to matches any category name
@@ -703,7 +701,7 @@ class UpstreamTemplateArgs:
     @pulumi.getter
     def auth(self) -> Optional[pulumi.Input['UpstreamAuthSettingsArgs']]:
         """
-        Gets or sets the auth settings for an upstream. If not set, no auth is used for upstream messages.
+        Upstream auth settings. If not set, no auth is used for upstream messages.
         """
         return pulumi.get(self, "auth")
 

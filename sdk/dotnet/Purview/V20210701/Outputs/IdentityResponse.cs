@@ -28,6 +28,10 @@ namespace Pulumi.AzureNative.Purview.V20210701.Outputs
         /// Identity Type
         /// </summary>
         public readonly string? Type;
+        /// <summary>
+        /// User Assigned Identities
+        /// </summary>
+        public readonly ImmutableDictionary<string, Outputs.UserAssignedIdentityResponse>? UserAssignedIdentities;
 
         [OutputConstructor]
         private IdentityResponse(
@@ -35,11 +39,14 @@ namespace Pulumi.AzureNative.Purview.V20210701.Outputs
 
             string tenantId,
 
-            string? type)
+            string? type,
+
+            ImmutableDictionary<string, Outputs.UserAssignedIdentityResponse>? userAssignedIdentities)
         {
             PrincipalId = principalId;
             TenantId = tenantId;
             Type = type;
+            UserAssignedIdentities = userAssignedIdentities;
         }
     }
 }

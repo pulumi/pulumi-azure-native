@@ -55,15 +55,15 @@ export interface GetWebPubSubPrivateEndpointConnectionResult {
      */
     readonly name: string;
     /**
-     * Private endpoint associated with the private endpoint connection
+     * Private endpoint
      */
     readonly privateEndpoint?: outputs.webpubsub.v20211001.PrivateEndpointResponse;
     /**
-     * Connection state
+     * Connection state of the private endpoint connection
      */
     readonly privateLinkServiceConnectionState?: outputs.webpubsub.v20211001.PrivateLinkServiceConnectionStateResponse;
     /**
-     * Provisioning state of the private endpoint connection
+     * Provisioning state of the resource.
      */
     readonly provisioningState: string;
     /**

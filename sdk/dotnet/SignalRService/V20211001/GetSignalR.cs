@@ -110,11 +110,11 @@ namespace Pulumi.AzureNative.SignalRService.V20211001
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The managed identity response
+        /// A class represent managed identities used for request and response
         /// </summary>
         public readonly Outputs.ManagedIdentityResponse? Identity;
         /// <summary>
-        /// The kind of the service - e.g. "SignalR" for "Microsoft.SignalRService/SignalR"
+        /// The kind of the service, it can be SignalR or RawWebSockets
         /// </summary>
         public readonly string? Kind;
         /// <summary>
@@ -126,7 +126,7 @@ namespace Pulumi.AzureNative.SignalRService.V20211001
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Network ACLs
+        /// Network ACLs for the resource
         /// </summary>
         public readonly Outputs.SignalRNetworkACLsResponse? NetworkACLs;
         /// <summary>
@@ -149,8 +149,6 @@ namespace Pulumi.AzureNative.SignalRService.V20211001
         public readonly int PublicPort;
         /// <summary>
         /// Resource log configuration of a Microsoft.SignalRService resource.
-        /// If resourceLogConfiguration isn't null or empty, it will override options "EnableConnectivityLog" and "EnableMessagingLogs" in features.
-        /// Otherwise, use options "EnableConnectivityLog" and "EnableMessagingLogs" in features.
         /// </summary>
         public readonly Outputs.ResourceLogConfigurationResponse? ResourceLogConfiguration;
         /// <summary>
@@ -162,7 +160,7 @@ namespace Pulumi.AzureNative.SignalRService.V20211001
         /// </summary>
         public readonly ImmutableArray<Outputs.SharedPrivateLinkResourceResponse> SharedPrivateLinkResources;
         /// <summary>
-        /// The billing information of the resource.(e.g. Free, Standard)
+        /// The billing information of the resource.
         /// </summary>
         public readonly Outputs.ResourceSkuResponse? Sku;
         /// <summary>
@@ -174,7 +172,7 @@ namespace Pulumi.AzureNative.SignalRService.V20211001
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
-        /// TLS settings.
+        /// TLS settings for the resource
         /// </summary>
         public readonly Outputs.SignalRTlsSettingsResponse? Tls;
         /// <summary>
@@ -182,7 +180,7 @@ namespace Pulumi.AzureNative.SignalRService.V20211001
         /// </summary>
         public readonly string Type;
         /// <summary>
-        /// Upstream settings when the service is in server-less mode.
+        /// The settings for the Upstream when the service is in server-less mode.
         /// </summary>
         public readonly Outputs.ServerlessUpstreamSettingsResponse? Upstream;
         /// <summary>

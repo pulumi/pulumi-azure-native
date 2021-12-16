@@ -18,7 +18,7 @@ namespace Pulumi.AzureNative.SignalRService.V20211001.Outputs
     public sealed class UpstreamTemplateResponse
     {
         /// <summary>
-        /// Gets or sets the auth settings for an upstream. If not set, no auth is used for upstream messages.
+        /// Upstream auth settings. If not set, no auth is used for upstream messages.
         /// </summary>
         public readonly Outputs.UpstreamAuthSettingsResponse? Auth;
         /// <summary>

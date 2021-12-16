@@ -151,7 +151,7 @@ class GetWebPubSubResult:
     @pulumi.getter
     def identity(self) -> Optional['outputs.ManagedIdentityResponse']:
         """
-        The managed identity response
+        A class represent managed identities used for request and response
         """
         return pulumi.get(self, "identity")
 
@@ -183,7 +183,7 @@ class GetWebPubSubResult:
     @pulumi.getter(name="networkACLs")
     def network_acls(self) -> Optional['outputs.WebPubSubNetworkACLsResponse']:
         """
-        Network ACLs
+        Network ACLs for the resource
         """
         return pulumi.get(self, "network_acls")
 
@@ -226,8 +226,6 @@ class GetWebPubSubResult:
     def resource_log_configuration(self) -> Optional['outputs.ResourceLogConfigurationResponse']:
         """
         Resource log configuration of a Microsoft.SignalRService resource.
-        If resourceLogConfiguration isn't null or empty, it will override options "EnableConnectivityLog" and "EnableMessagingLogs" in features.
-        Otherwise, use options "EnableConnectivityLog" and "EnableMessagingLogs" in features.
         """
         return pulumi.get(self, "resource_log_configuration")
 
@@ -251,7 +249,7 @@ class GetWebPubSubResult:
     @pulumi.getter
     def sku(self) -> Optional['outputs.ResourceSkuResponse']:
         """
-        The billing information of the resource.(e.g. Free, Standard)
+        The billing information of the resource.
         """
         return pulumi.get(self, "sku")
 
@@ -275,7 +273,7 @@ class GetWebPubSubResult:
     @pulumi.getter
     def tls(self) -> Optional['outputs.WebPubSubTlsSettingsResponse']:
         """
-        TLS settings.
+        TLS settings for the resource
         """
         return pulumi.get(self, "tls")
 

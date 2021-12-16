@@ -97,7 +97,7 @@ namespace Pulumi.AzureNative.WebPubSub.V20211001
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The managed identity response
+        /// A class represent managed identities used for request and response
         /// </summary>
         public readonly Outputs.ManagedIdentityResponse? Identity;
         /// <summary>
@@ -113,7 +113,7 @@ namespace Pulumi.AzureNative.WebPubSub.V20211001
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Network ACLs
+        /// Network ACLs for the resource
         /// </summary>
         public readonly Outputs.WebPubSubNetworkACLsResponse? NetworkACLs;
         /// <summary>
@@ -136,8 +136,6 @@ namespace Pulumi.AzureNative.WebPubSub.V20211001
         public readonly int PublicPort;
         /// <summary>
         /// Resource log configuration of a Microsoft.SignalRService resource.
-        /// If resourceLogConfiguration isn't null or empty, it will override options "EnableConnectivityLog" and "EnableMessagingLogs" in features.
-        /// Otherwise, use options "EnableConnectivityLog" and "EnableMessagingLogs" in features.
         /// </summary>
         public readonly Outputs.ResourceLogConfigurationResponse? ResourceLogConfiguration;
         /// <summary>
@@ -149,7 +147,7 @@ namespace Pulumi.AzureNative.WebPubSub.V20211001
         /// </summary>
         public readonly ImmutableArray<Outputs.SharedPrivateLinkResourceResponse> SharedPrivateLinkResources;
         /// <summary>
-        /// The billing information of the resource.(e.g. Free, Standard)
+        /// The billing information of the resource.
         /// </summary>
         public readonly Outputs.ResourceSkuResponse? Sku;
         /// <summary>
@@ -161,7 +159,7 @@ namespace Pulumi.AzureNative.WebPubSub.V20211001
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
-        /// TLS settings.
+        /// TLS settings for the resource
         /// </summary>
         public readonly Outputs.WebPubSubTlsSettingsResponse? Tls;
         /// <summary>

@@ -11,18 +11,18 @@ namespace Pulumi.AzureNative.WebPubSub.V20211001.Inputs
 {
 
     /// <summary>
-    /// Upstream auth settings.
+    /// Upstream auth settings. If not set, no auth is used for upstream messages.
     /// </summary>
     public sealed class UpstreamAuthSettingsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Gets or sets the managed identity settings. It's required if the auth type is set to ManagedIdentity.
+        /// Managed identity settings for upstream.
         /// </summary>
         [Input("managedIdentity")]
         public Input<Inputs.ManagedIdentitySettingsArgs>? ManagedIdentity { get; set; }
 
         /// <summary>
-        /// Gets or sets the type of auth. None or ManagedIdentity is supported now.
+        /// Upstream auth type enum.
         /// </summary>
         [Input("type")]
         public InputUnion<string, Pulumi.AzureNative.WebPubSub.V20211001.UpstreamAuthType>? Type { get; set; }

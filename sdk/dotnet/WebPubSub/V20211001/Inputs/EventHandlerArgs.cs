@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.WebPubSub.V20211001.Inputs
     public sealed class EventHandlerArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Gets or sets the auth settings for an event handler. If not set, no auth is used.
+        /// Upstream auth settings. If not set, no auth is used for upstream messages.
         /// </summary>
         [Input("auth")]
         public Input<Inputs.UpstreamAuthSettingsArgs>? Auth { get; set; }

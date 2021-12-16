@@ -38,20 +38,18 @@ class WebPubSubArgs:
         :param pulumi.Input[bool] disable_local_auth: DisableLocalAuth
                Enable or disable local auth with AccessKey
                When set as true, connection with AccessKey=xxx won't work.
-        :param pulumi.Input['ManagedIdentityArgs'] identity: The managed identity response
+        :param pulumi.Input['ManagedIdentityArgs'] identity: A class represent managed identities used for request and response
         :param pulumi.Input['LiveTraceConfigurationArgs'] live_trace_configuration: Live trace configuration of a Microsoft.SignalRService resource.
         :param pulumi.Input[str] location: The GEO location of the resource. e.g. West US | East US | North Central US | South Central US.
-        :param pulumi.Input['WebPubSubNetworkACLsArgs'] network_acls: Network ACLs
+        :param pulumi.Input['WebPubSubNetworkACLsArgs'] network_acls: Network ACLs for the resource
         :param pulumi.Input[str] public_network_access: Enable or disable public network access. Default to "Enabled".
                When it's Enabled, network ACLs still apply.
                When it's Disabled, public network access is always disabled no matter what you set in network ACLs.
         :param pulumi.Input['ResourceLogConfigurationArgs'] resource_log_configuration: Resource log configuration of a Microsoft.SignalRService resource.
-               If resourceLogConfiguration isn't null or empty, it will override options "EnableConnectivityLog" and "EnableMessagingLogs" in features.
-               Otherwise, use options "EnableConnectivityLog" and "EnableMessagingLogs" in features.
         :param pulumi.Input[str] resource_name: The name of the resource.
-        :param pulumi.Input['ResourceSkuArgs'] sku: The billing information of the resource.(e.g. Free, Standard)
+        :param pulumi.Input['ResourceSkuArgs'] sku: The billing information of the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags of the service which is a list of key value pairs that describe the resource.
-        :param pulumi.Input['WebPubSubTlsSettingsArgs'] tls: TLS settings.
+        :param pulumi.Input['WebPubSubTlsSettingsArgs'] tls: TLS settings for the resource
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if disable_aad_auth is None:
@@ -129,7 +127,7 @@ class WebPubSubArgs:
     @pulumi.getter
     def identity(self) -> Optional[pulumi.Input['ManagedIdentityArgs']]:
         """
-        The managed identity response
+        A class represent managed identities used for request and response
         """
         return pulumi.get(self, "identity")
 
@@ -165,7 +163,7 @@ class WebPubSubArgs:
     @pulumi.getter(name="networkACLs")
     def network_acls(self) -> Optional[pulumi.Input['WebPubSubNetworkACLsArgs']]:
         """
-        Network ACLs
+        Network ACLs for the resource
         """
         return pulumi.get(self, "network_acls")
 
@@ -192,8 +190,6 @@ class WebPubSubArgs:
     def resource_log_configuration(self) -> Optional[pulumi.Input['ResourceLogConfigurationArgs']]:
         """
         Resource log configuration of a Microsoft.SignalRService resource.
-        If resourceLogConfiguration isn't null or empty, it will override options "EnableConnectivityLog" and "EnableMessagingLogs" in features.
-        Otherwise, use options "EnableConnectivityLog" and "EnableMessagingLogs" in features.
         """
         return pulumi.get(self, "resource_log_configuration")
 
@@ -217,7 +213,7 @@ class WebPubSubArgs:
     @pulumi.getter
     def sku(self) -> Optional[pulumi.Input['ResourceSkuArgs']]:
         """
-        The billing information of the resource.(e.g. Free, Standard)
+        The billing information of the resource.
         """
         return pulumi.get(self, "sku")
 
@@ -241,7 +237,7 @@ class WebPubSubArgs:
     @pulumi.getter
     def tls(self) -> Optional[pulumi.Input['WebPubSubTlsSettingsArgs']]:
         """
-        TLS settings.
+        TLS settings for the resource
         """
         return pulumi.get(self, "tls")
 
@@ -280,21 +276,19 @@ class WebPubSub(pulumi.CustomResource):
         :param pulumi.Input[bool] disable_local_auth: DisableLocalAuth
                Enable or disable local auth with AccessKey
                When set as true, connection with AccessKey=xxx won't work.
-        :param pulumi.Input[pulumi.InputType['ManagedIdentityArgs']] identity: The managed identity response
+        :param pulumi.Input[pulumi.InputType['ManagedIdentityArgs']] identity: A class represent managed identities used for request and response
         :param pulumi.Input[pulumi.InputType['LiveTraceConfigurationArgs']] live_trace_configuration: Live trace configuration of a Microsoft.SignalRService resource.
         :param pulumi.Input[str] location: The GEO location of the resource. e.g. West US | East US | North Central US | South Central US.
-        :param pulumi.Input[pulumi.InputType['WebPubSubNetworkACLsArgs']] network_acls: Network ACLs
+        :param pulumi.Input[pulumi.InputType['WebPubSubNetworkACLsArgs']] network_acls: Network ACLs for the resource
         :param pulumi.Input[str] public_network_access: Enable or disable public network access. Default to "Enabled".
                When it's Enabled, network ACLs still apply.
                When it's Disabled, public network access is always disabled no matter what you set in network ACLs.
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[pulumi.InputType['ResourceLogConfigurationArgs']] resource_log_configuration: Resource log configuration of a Microsoft.SignalRService resource.
-               If resourceLogConfiguration isn't null or empty, it will override options "EnableConnectivityLog" and "EnableMessagingLogs" in features.
-               Otherwise, use options "EnableConnectivityLog" and "EnableMessagingLogs" in features.
         :param pulumi.Input[str] resource_name_: The name of the resource.
-        :param pulumi.Input[pulumi.InputType['ResourceSkuArgs']] sku: The billing information of the resource.(e.g. Free, Standard)
+        :param pulumi.Input[pulumi.InputType['ResourceSkuArgs']] sku: The billing information of the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags of the service which is a list of key value pairs that describe the resource.
-        :param pulumi.Input[pulumi.InputType['WebPubSubTlsSettingsArgs']] tls: TLS settings.
+        :param pulumi.Input[pulumi.InputType['WebPubSubTlsSettingsArgs']] tls: TLS settings for the resource
         """
         ...
     @overload
@@ -475,7 +469,7 @@ class WebPubSub(pulumi.CustomResource):
     @pulumi.getter
     def identity(self) -> pulumi.Output[Optional['outputs.ManagedIdentityResponse']]:
         """
-        The managed identity response
+        A class represent managed identities used for request and response
         """
         return pulumi.get(self, "identity")
 
@@ -507,7 +501,7 @@ class WebPubSub(pulumi.CustomResource):
     @pulumi.getter(name="networkACLs")
     def network_acls(self) -> pulumi.Output[Optional['outputs.WebPubSubNetworkACLsResponse']]:
         """
-        Network ACLs
+        Network ACLs for the resource
         """
         return pulumi.get(self, "network_acls")
 
@@ -550,8 +544,6 @@ class WebPubSub(pulumi.CustomResource):
     def resource_log_configuration(self) -> pulumi.Output[Optional['outputs.ResourceLogConfigurationResponse']]:
         """
         Resource log configuration of a Microsoft.SignalRService resource.
-        If resourceLogConfiguration isn't null or empty, it will override options "EnableConnectivityLog" and "EnableMessagingLogs" in features.
-        Otherwise, use options "EnableConnectivityLog" and "EnableMessagingLogs" in features.
         """
         return pulumi.get(self, "resource_log_configuration")
 
@@ -575,7 +567,7 @@ class WebPubSub(pulumi.CustomResource):
     @pulumi.getter
     def sku(self) -> pulumi.Output[Optional['outputs.ResourceSkuResponse']]:
         """
-        The billing information of the resource.(e.g. Free, Standard)
+        The billing information of the resource.
         """
         return pulumi.get(self, "sku")
 
@@ -599,7 +591,7 @@ class WebPubSub(pulumi.CustomResource):
     @pulumi.getter
     def tls(self) -> pulumi.Output[Optional['outputs.WebPubSubTlsSettingsResponse']]:
         """
-        TLS settings.
+        TLS settings for the resource
         """
         return pulumi.get(self, "tls")
 

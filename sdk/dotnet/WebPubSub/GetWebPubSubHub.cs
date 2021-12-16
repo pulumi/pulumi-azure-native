@@ -91,7 +91,7 @@ namespace Pulumi.AzureNative.WebPubSub
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Properties of the hub setting.
+        /// Properties of a hub.
         /// </summary>
         public readonly Outputs.WebPubSubHubPropertiesResponse Properties;
         /// <summary>

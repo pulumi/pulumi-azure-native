@@ -28,19 +28,19 @@ namespace Pulumi.AzureNative.WebPubSub.V20211001
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Private endpoint associated with the private endpoint connection
+        /// Private endpoint
         /// </summary>
         [Output("privateEndpoint")]
         public Output<Outputs.PrivateEndpointResponse?> PrivateEndpoint { get; private set; } = null!;
 
         /// <summary>
-        /// Connection state
+        /// Connection state of the private endpoint connection
         /// </summary>
         [Output("privateLinkServiceConnectionState")]
         public Output<Outputs.PrivateLinkServiceConnectionStateResponse?> PrivateLinkServiceConnectionState { get; private set; } = null!;
 
         /// <summary>
-        /// Provisioning state of the private endpoint connection
+        /// Provisioning state of the resource.
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
@@ -110,7 +110,7 @@ namespace Pulumi.AzureNative.WebPubSub.V20211001
     public sealed class WebPubSubPrivateEndpointConnectionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Private endpoint associated with the private endpoint connection
+        /// Private endpoint
         /// </summary>
         [Input("privateEndpoint")]
         public Input<Inputs.PrivateEndpointArgs>? PrivateEndpoint { get; set; }
@@ -122,7 +122,7 @@ namespace Pulumi.AzureNative.WebPubSub.V20211001
         public Input<string>? PrivateEndpointConnectionName { get; set; }
 
         /// <summary>
-        /// Connection state
+        /// Connection state of the private endpoint connection
         /// </summary>
         [Input("privateLinkServiceConnectionState")]
         public Input<Inputs.PrivateLinkServiceConnectionStateArgs>? PrivateLinkServiceConnectionState { get; set; }

@@ -17,7 +17,7 @@ namespace Pulumi.AzureNative.SignalRService.V20211001.Outputs
     public sealed class SignalRNetworkACLsResponse
     {
         /// <summary>
-        /// Default action when no other rule matches
+        /// Azure Networking ACL Action.
         /// </summary>
         public readonly string? DefaultAction;
         /// <summary>
@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.SignalRService.V20211001.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.PrivateEndpointACLResponse> PrivateEndpoints;
         /// <summary>
-        /// ACL for requests from public network
+        /// Network ACL
         /// </summary>
         public readonly Outputs.NetworkACLResponse? PublicNetwork;
 

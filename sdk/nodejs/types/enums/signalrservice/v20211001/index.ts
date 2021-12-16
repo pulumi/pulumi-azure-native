@@ -8,7 +8,7 @@ export const ACLAction = {
 } as const;
 
 /**
- * Default action when no other rule matches
+ * Azure Networking ACL Action.
  */
 export type ACLAction = (typeof ACLAction)[keyof typeof ACLAction];
 
@@ -35,7 +35,7 @@ export const ManagedIdentityType = {
 } as const;
 
 /**
- * Represent the identity type: systemAssigned, userAssigned, None
+ * Represents the identity type: systemAssigned, userAssigned, None
  */
 export type ManagedIdentityType = (typeof ManagedIdentityType)[keyof typeof ManagedIdentityType];
 
@@ -57,7 +57,7 @@ export const ServiceKind = {
 } as const;
 
 /**
- * The kind of the service - e.g. "SignalR" for "Microsoft.SignalRService/SignalR"
+ * The kind of the service, it can be SignalR or RawWebSockets
  */
 export type ServiceKind = (typeof ServiceKind)[keyof typeof ServiceKind];
 
@@ -69,7 +69,7 @@ export const SignalRRequestType = {
 } as const;
 
 /**
- * Allowed request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.
+ * The incoming request type to the service
  */
 export type SignalRRequestType = (typeof SignalRRequestType)[keyof typeof SignalRRequestType];
 
@@ -93,6 +93,6 @@ export const UpstreamAuthType = {
 } as const;
 
 /**
- * Gets or sets the type of auth. None or ManagedIdentity is supported now.
+ * Upstream auth type enum.
  */
 export type UpstreamAuthType = (typeof UpstreamAuthType)[keyof typeof UpstreamAuthType];

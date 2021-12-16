@@ -48,7 +48,7 @@ export class WebPubSubSharedPrivateLinkResource extends pulumi.CustomResource {
      */
     public readonly privateLinkResourceId!: pulumi.Output<string>;
     /**
-     * Provisioning state of the shared private link resource
+     * Provisioning state of the resource.
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**

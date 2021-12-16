@@ -65,8 +65,6 @@ func (val *LookupWebPubSubResult) Defaults() *LookupWebPubSubResult {
 	}
 	tmp.LiveTraceConfiguration = tmp.LiveTraceConfiguration.Defaults()
 
-	tmp.NetworkACLs = tmp.NetworkACLs.Defaults()
-
 	if isZero(tmp.PublicNetworkAccess) {
 		publicNetworkAccess_ := "Enabled"
 		tmp.PublicNetworkAccess = &publicNetworkAccess_

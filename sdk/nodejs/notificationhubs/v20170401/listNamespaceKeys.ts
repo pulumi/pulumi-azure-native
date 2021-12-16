@@ -2,11 +2,10 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
- * The response of the List Namespace operation.
+ * Namespace/NotificationHub Connection String
  */
 export function listNamespaceKeys(args: ListNamespaceKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListNamespaceKeysResult> {
     if (!opts) {
@@ -39,17 +38,29 @@ export interface ListNamespaceKeysArgs {
 }
 
 /**
- * The response of the List Namespace operation.
+ * Namespace/NotificationHub Connection String
  */
 export interface ListNamespaceKeysResult {
     /**
-     * Link to the next set of results. Not empty if Value contains incomplete list of AuthorizationRules
+     * KeyName of the created AuthorizationRule
      */
-    readonly nextLink?: string;
+    readonly keyName?: string;
     /**
-     * Result of the List AuthorizationRules operation.
+     * PrimaryConnectionString of the AuthorizationRule.
      */
-    readonly value?: outputs.notificationhubs.v20170401.SharedAccessAuthorizationRuleResourceResponse[];
+    readonly primaryConnectionString?: string;
+    /**
+     * PrimaryKey of the created AuthorizationRule.
+     */
+    readonly primaryKey?: string;
+    /**
+     * SecondaryConnectionString of the created AuthorizationRule
+     */
+    readonly secondaryConnectionString?: string;
+    /**
+     * SecondaryKey of the created AuthorizationRule
+     */
+    readonly secondaryKey?: string;
 }
 
 export function listNamespaceKeysOutput(args: ListNamespaceKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListNamespaceKeysResult> {

@@ -345,7 +345,9 @@ func (in *statusPtr) ToStatusPtrOutputWithContext(ctx context.Context) StatusPtr
 type Type string
 
 const (
+	TypeNone           = Type("None")
 	TypeSystemAssigned = Type("SystemAssigned")
+	TypeUserAssigned   = Type("UserAssigned")
 )
 
 func (Type) ElementType() reflect.Type {

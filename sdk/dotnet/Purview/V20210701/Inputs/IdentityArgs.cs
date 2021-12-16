@@ -21,6 +21,18 @@ namespace Pulumi.AzureNative.Purview.V20210701.Inputs
         [Input("type")]
         public InputUnion<string, Pulumi.AzureNative.Purview.V20210701.Type>? Type { get; set; }
 
+        [Input("userAssignedIdentities")]
+        private InputMap<object>? _userAssignedIdentities;
+
+        /// <summary>
+        /// User Assigned Identities
+        /// </summary>
+        public InputMap<object> UserAssignedIdentities
+        {
+            get => _userAssignedIdentities ?? (_userAssignedIdentities = new InputMap<object>());
+            set => _userAssignedIdentities = value;
+        }
+
         public IdentityArgs()
         {
         }

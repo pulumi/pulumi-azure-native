@@ -140,7 +140,7 @@ namespace Pulumi.AzureNative.WebPubSub
     }
 
     /// <summary>
-    /// Gets or sets the type of auth. None or ManagedIdentity is supported now.
+    /// Upstream auth type enum.
     /// </summary>
     [EnumType]
     public readonly struct UpstreamAuthType : IEquatable<UpstreamAuthType>

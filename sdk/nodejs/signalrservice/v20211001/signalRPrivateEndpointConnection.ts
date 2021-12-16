@@ -44,15 +44,15 @@ export class SignalRPrivateEndpointConnection extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Private endpoint associated with the private endpoint connection
+     * Private endpoint
      */
     public readonly privateEndpoint!: pulumi.Output<outputs.signalrservice.v20211001.PrivateEndpointResponse | undefined>;
     /**
-     * Connection state
+     * Connection state of the private endpoint connection
      */
     public readonly privateLinkServiceConnectionState!: pulumi.Output<outputs.signalrservice.v20211001.PrivateLinkServiceConnectionStateResponse | undefined>;
     /**
-     * Provisioning state of the private endpoint connection
+     * Provisioning state of the resource.
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
@@ -114,7 +114,7 @@ export class SignalRPrivateEndpointConnection extends pulumi.CustomResource {
  */
 export interface SignalRPrivateEndpointConnectionArgs {
     /**
-     * Private endpoint associated with the private endpoint connection
+     * Private endpoint
      */
     privateEndpoint?: pulumi.Input<inputs.signalrservice.v20211001.PrivateEndpointArgs>;
     /**
@@ -122,7 +122,7 @@ export interface SignalRPrivateEndpointConnectionArgs {
      */
     privateEndpointConnectionName?: pulumi.Input<string>;
     /**
-     * Connection state
+     * Connection state of the private endpoint connection
      */
     privateLinkServiceConnectionState?: pulumi.Input<inputs.signalrservice.v20211001.PrivateLinkServiceConnectionStateArgs>;
     /**

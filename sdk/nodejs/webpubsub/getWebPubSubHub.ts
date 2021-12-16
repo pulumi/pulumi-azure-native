@@ -52,7 +52,7 @@ export interface GetWebPubSubHubResult {
      */
     readonly name: string;
     /**
-     * Properties of the hub setting.
+     * Properties of a hub.
      */
     readonly properties: outputs.webpubsub.WebPubSubHubPropertiesResponse;
     /**

@@ -79,11 +79,11 @@ export interface GetSignalRResult {
      */
     readonly id: string;
     /**
-     * The managed identity response
+     * A class represent managed identities used for request and response
      */
     readonly identity?: outputs.signalrservice.v20211001.ManagedIdentityResponse;
     /**
-     * The kind of the service - e.g. "SignalR" for "Microsoft.SignalRService/SignalR"
+     * The kind of the service, it can be SignalR or RawWebSockets
      */
     readonly kind?: string;
     /**
@@ -95,7 +95,7 @@ export interface GetSignalRResult {
      */
     readonly name: string;
     /**
-     * Network ACLs
+     * Network ACLs for the resource
      */
     readonly networkACLs?: outputs.signalrservice.v20211001.SignalRNetworkACLsResponse;
     /**
@@ -118,8 +118,6 @@ export interface GetSignalRResult {
     readonly publicPort: number;
     /**
      * Resource log configuration of a Microsoft.SignalRService resource.
-     * If resourceLogConfiguration isn't null or empty, it will override options "EnableConnectivityLog" and "EnableMessagingLogs" in features.
-     * Otherwise, use options "EnableConnectivityLog" and "EnableMessagingLogs" in features.
      */
     readonly resourceLogConfiguration?: outputs.signalrservice.v20211001.ResourceLogConfigurationResponse;
     /**
@@ -131,7 +129,7 @@ export interface GetSignalRResult {
      */
     readonly sharedPrivateLinkResources: outputs.signalrservice.v20211001.SharedPrivateLinkResourceResponse[];
     /**
-     * The billing information of the resource.(e.g. Free, Standard)
+     * The billing information of the resource.
      */
     readonly sku?: outputs.signalrservice.v20211001.ResourceSkuResponse;
     /**
@@ -143,7 +141,7 @@ export interface GetSignalRResult {
      */
     readonly tags?: {[key: string]: string};
     /**
-     * TLS settings.
+     * TLS settings for the resource
      */
     readonly tls?: outputs.signalrservice.v20211001.SignalRTlsSettingsResponse;
     /**
@@ -151,7 +149,7 @@ export interface GetSignalRResult {
      */
     readonly type: string;
     /**
-     * Upstream settings when the service is in server-less mode.
+     * The settings for the Upstream when the service is in server-less mode.
      */
     readonly upstream?: outputs.signalrservice.v20211001.ServerlessUpstreamSettingsResponse;
     /**

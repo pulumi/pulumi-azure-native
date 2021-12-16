@@ -57,7 +57,7 @@ class PrivateLinkServiceConnectionStatus(str, Enum):
 
 class UpstreamAuthType(str, Enum):
     """
-    Gets or sets the type of auth. None or ManagedIdentity is supported now.
+    Upstream auth type enum.
     """
     NONE = "None"
     MANAGED_IDENTITY = "ManagedIdentity"

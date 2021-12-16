@@ -2855,6 +2855,18 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "cache/v20210601",
+  "fqn": "pulumi_azure_native.cache.v20210601",
+  "classes": {
+   "azure-native:cache/v20210601:FirewallRule": "FirewallRule",
+   "azure-native:cache/v20210601:LinkedServer": "LinkedServer",
+   "azure-native:cache/v20210601:PatchSchedule": "PatchSchedule",
+   "azure-native:cache/v20210601:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:cache/v20210601:Redis": "Redis"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "cache/v20210801",
   "fqn": "pulumi_azure_native.cache.v20210801",
   "classes": {

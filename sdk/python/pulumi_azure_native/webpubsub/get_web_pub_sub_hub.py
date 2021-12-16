@@ -58,7 +58,7 @@ class GetWebPubSubHubResult:
     @pulumi.getter
     def properties(self) -> 'outputs.WebPubSubHubPropertiesResponse':
         """
-        Properties of the hub setting.
+        Properties of a hub.
         """
         return pulumi.get(self, "properties")
 

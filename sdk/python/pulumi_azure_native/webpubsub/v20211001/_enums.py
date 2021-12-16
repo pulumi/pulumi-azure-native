@@ -16,7 +16,7 @@ __all__ = [
 
 class ACLAction(str, Enum):
     """
-    Default action when no other rule matches
+    Azure Networking ACL Action.
     """
     ALLOW = "Allow"
     DENY = "Deny"
@@ -24,7 +24,7 @@ class ACLAction(str, Enum):
 
 class ManagedIdentityType(str, Enum):
     """
-    Represent the identity type: systemAssigned, userAssigned, None
+    Represents the identity type: systemAssigned, userAssigned, None
     """
     NONE = "None"
     SYSTEM_ASSIGNED = "SystemAssigned"
@@ -43,7 +43,7 @@ class PrivateLinkServiceConnectionStatus(str, Enum):
 
 class UpstreamAuthType(str, Enum):
     """
-    Gets or sets the type of auth. None or ManagedIdentity is supported now.
+    Upstream auth type enum.
     """
     NONE = "None"
     MANAGED_IDENTITY = "ManagedIdentity"
@@ -51,7 +51,7 @@ class UpstreamAuthType(str, Enum):
 
 class WebPubSubRequestType(str, Enum):
     """
-    Allowed request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.
+    The incoming request type to the service
     """
     CLIENT_CONNECTION = "ClientConnection"
     SERVER_CONNECTION = "ServerConnection"

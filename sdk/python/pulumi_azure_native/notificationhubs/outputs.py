@@ -7,7 +7,6 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
-from . import outputs
 from ._enums import *
 
 __all__ = [
@@ -17,7 +16,6 @@ __all__ = [
     'GcmCredentialResponse',
     'MpnsCredentialResponse',
     'SharedAccessAuthorizationRulePropertiesResponse',
-    'SharedAccessAuthorizationRuleResourceResponse',
     'SkuResponse',
     'WnsCredentialResponse',
 ]
@@ -548,186 +546,6 @@ class SharedAccessAuthorizationRulePropertiesResponse(dict):
         The rights associated with the rule.
         """
         return pulumi.get(self, "rights")
-
-
-@pulumi.output_type
-class SharedAccessAuthorizationRuleResourceResponse(dict):
-    """
-    Description of a Namespace AuthorizationRules.
-    """
-    def __init__(__self__, *,
-                 claim_type: str,
-                 claim_value: str,
-                 created_time: str,
-                 id: str,
-                 key_name: str,
-                 modified_time: str,
-                 name: str,
-                 primary_key: str,
-                 revision: int,
-                 secondary_key: str,
-                 type: str,
-                 location: Optional[str] = None,
-                 rights: Optional[Sequence[str]] = None,
-                 sku: Optional['outputs.SkuResponse'] = None,
-                 tags: Optional[Mapping[str, str]] = None):
-        """
-        Description of a Namespace AuthorizationRules.
-        :param str claim_type: A string that describes the claim type
-        :param str claim_value: A string that describes the claim value
-        :param str created_time: The created time for this rule
-        :param str id: Resource Id
-        :param str key_name: A string that describes the authorization rule.
-        :param str modified_time: The last modified time for this rule
-        :param str name: Resource name
-        :param str primary_key: A base64-encoded 256-bit primary key for signing and validating the SAS token.
-        :param int revision: The revision number for the rule
-        :param str secondary_key: A base64-encoded 256-bit primary key for signing and validating the SAS token.
-        :param str type: Resource type
-        :param str location: Resource location
-        :param Sequence[str] rights: The rights associated with the rule.
-        :param 'SkuResponse' sku: The sku of the created namespace
-        :param Mapping[str, str] tags: Resource tags
-        """
-        pulumi.set(__self__, "claim_type", claim_type)
-        pulumi.set(__self__, "claim_value", claim_value)
-        pulumi.set(__self__, "created_time", created_time)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "key_name", key_name)
-        pulumi.set(__self__, "modified_time", modified_time)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "primary_key", primary_key)
-        pulumi.set(__self__, "revision", revision)
-        pulumi.set(__self__, "secondary_key", secondary_key)
-        pulumi.set(__self__, "type", type)
-        if location is not None:
-            pulumi.set(__self__, "location", location)
-        if rights is not None:
-            pulumi.set(__self__, "rights", rights)
-        if sku is not None:
-            pulumi.set(__self__, "sku", sku)
-        if tags is not None:
-            pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter(name="claimType")
-    def claim_type(self) -> str:
-        """
-        A string that describes the claim type
-        """
-        return pulumi.get(self, "claim_type")
-
-    @property
-    @pulumi.getter(name="claimValue")
-    def claim_value(self) -> str:
-        """
-        A string that describes the claim value
-        """
-        return pulumi.get(self, "claim_value")
-
-    @property
-    @pulumi.getter(name="createdTime")
-    def created_time(self) -> str:
-        """
-        The created time for this rule
-        """
-        return pulumi.get(self, "created_time")
-
-    @property
-    @pulumi.getter
-    def id(self) -> str:
-        """
-        Resource Id
-        """
-        return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter(name="keyName")
-    def key_name(self) -> str:
-        """
-        A string that describes the authorization rule.
-        """
-        return pulumi.get(self, "key_name")
-
-    @property
-    @pulumi.getter(name="modifiedTime")
-    def modified_time(self) -> str:
-        """
-        The last modified time for this rule
-        """
-        return pulumi.get(self, "modified_time")
-
-    @property
-    @pulumi.getter
-    def name(self) -> str:
-        """
-        Resource name
-        """
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter(name="primaryKey")
-    def primary_key(self) -> str:
-        """
-        A base64-encoded 256-bit primary key for signing and validating the SAS token.
-        """
-        return pulumi.get(self, "primary_key")
-
-    @property
-    @pulumi.getter
-    def revision(self) -> int:
-        """
-        The revision number for the rule
-        """
-        return pulumi.get(self, "revision")
-
-    @property
-    @pulumi.getter(name="secondaryKey")
-    def secondary_key(self) -> str:
-        """
-        A base64-encoded 256-bit primary key for signing and validating the SAS token.
-        """
-        return pulumi.get(self, "secondary_key")
-
-    @property
-    @pulumi.getter
-    def type(self) -> str:
-        """
-        Resource type
-        """
-        return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter
-    def location(self) -> Optional[str]:
-        """
-        Resource location
-        """
-        return pulumi.get(self, "location")
-
-    @property
-    @pulumi.getter
-    def rights(self) -> Optional[Sequence[str]]:
-        """
-        The rights associated with the rule.
-        """
-        return pulumi.get(self, "rights")
-
-    @property
-    @pulumi.getter
-    def sku(self) -> Optional['outputs.SkuResponse']:
-        """
-        The sku of the created namespace
-        """
-        return pulumi.get(self, "sku")
-
-    @property
-    @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
-        """
-        Resource tags
-        """
-        return pulumi.get(self, "tags")
 
 
 @pulumi.output_type

@@ -60,7 +60,7 @@ export class WebPubSub extends pulumi.CustomResource {
      */
     public /*out*/ readonly hostNamePrefix!: pulumi.Output<string>;
     /**
-     * The managed identity response
+     * A class represent managed identities used for request and response
      */
     public readonly identity!: pulumi.Output<outputs.webpubsub.v20211001.ManagedIdentityResponse | undefined>;
     /**
@@ -76,7 +76,7 @@ export class WebPubSub extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Network ACLs
+     * Network ACLs for the resource
      */
     public readonly networkACLs!: pulumi.Output<outputs.webpubsub.v20211001.WebPubSubNetworkACLsResponse | undefined>;
     /**
@@ -99,8 +99,6 @@ export class WebPubSub extends pulumi.CustomResource {
     public /*out*/ readonly publicPort!: pulumi.Output<number>;
     /**
      * Resource log configuration of a Microsoft.SignalRService resource.
-     * If resourceLogConfiguration isn't null or empty, it will override options "EnableConnectivityLog" and "EnableMessagingLogs" in features.
-     * Otherwise, use options "EnableConnectivityLog" and "EnableMessagingLogs" in features.
      */
     public readonly resourceLogConfiguration!: pulumi.Output<outputs.webpubsub.v20211001.ResourceLogConfigurationResponse | undefined>;
     /**
@@ -112,7 +110,7 @@ export class WebPubSub extends pulumi.CustomResource {
      */
     public /*out*/ readonly sharedPrivateLinkResources!: pulumi.Output<outputs.webpubsub.v20211001.SharedPrivateLinkResourceResponse[]>;
     /**
-     * The billing information of the resource.(e.g. Free, Standard)
+     * The billing information of the resource.
      */
     public readonly sku!: pulumi.Output<outputs.webpubsub.v20211001.ResourceSkuResponse | undefined>;
     /**
@@ -124,7 +122,7 @@ export class WebPubSub extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * TLS settings.
+     * TLS settings for the resource
      */
     public readonly tls!: pulumi.Output<outputs.webpubsub.v20211001.WebPubSubTlsSettingsResponse | undefined>;
     /**
@@ -155,7 +153,7 @@ export class WebPubSub extends pulumi.CustomResource {
             resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["liveTraceConfiguration"] = args ? (args.liveTraceConfiguration ? pulumi.output(args.liveTraceConfiguration).apply(inputs.webpubsub.v20211001.liveTraceConfigurationArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["networkACLs"] = args ? (args.networkACLs ? pulumi.output(args.networkACLs).apply(inputs.webpubsub.v20211001.webPubSubNetworkACLsArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["networkACLs"] = args ? args.networkACLs : undefined;
             resourceInputs["publicNetworkAccess"] = (args ? args.publicNetworkAccess : undefined) ?? "Enabled";
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["resourceLogConfiguration"] = args ? args.resourceLogConfiguration : undefined;
@@ -226,7 +224,7 @@ export interface WebPubSubArgs {
      */
     disableLocalAuth?: pulumi.Input<boolean>;
     /**
-     * The managed identity response
+     * A class represent managed identities used for request and response
      */
     identity?: pulumi.Input<inputs.webpubsub.v20211001.ManagedIdentityArgs>;
     /**
@@ -238,7 +236,7 @@ export interface WebPubSubArgs {
      */
     location?: pulumi.Input<string>;
     /**
-     * Network ACLs
+     * Network ACLs for the resource
      */
     networkACLs?: pulumi.Input<inputs.webpubsub.v20211001.WebPubSubNetworkACLsArgs>;
     /**
@@ -253,8 +251,6 @@ export interface WebPubSubArgs {
     resourceGroupName: pulumi.Input<string>;
     /**
      * Resource log configuration of a Microsoft.SignalRService resource.
-     * If resourceLogConfiguration isn't null or empty, it will override options "EnableConnectivityLog" and "EnableMessagingLogs" in features.
-     * Otherwise, use options "EnableConnectivityLog" and "EnableMessagingLogs" in features.
      */
     resourceLogConfiguration?: pulumi.Input<inputs.webpubsub.v20211001.ResourceLogConfigurationArgs>;
     /**
@@ -262,7 +258,7 @@ export interface WebPubSubArgs {
      */
     resourceName?: pulumi.Input<string>;
     /**
-     * The billing information of the resource.(e.g. Free, Standard)
+     * The billing information of the resource.
      */
     sku?: pulumi.Input<inputs.webpubsub.v20211001.ResourceSkuArgs>;
     /**
@@ -270,7 +266,7 @@ export interface WebPubSubArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * TLS settings.
+     * TLS settings for the resource
      */
     tls?: pulumi.Input<inputs.webpubsub.v20211001.WebPubSubTlsSettingsArgs>;
 }

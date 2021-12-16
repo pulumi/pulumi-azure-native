@@ -66,8 +66,6 @@ func (val *LookupSignalRResult) Defaults() *LookupSignalRResult {
 		disableLocalAuth_ := false
 		tmp.DisableLocalAuth = &disableLocalAuth_
 	}
-	tmp.NetworkACLs = tmp.NetworkACLs.Defaults()
-
 	if isZero(tmp.PublicNetworkAccess) {
 		publicNetworkAccess_ := "Enabled"
 		tmp.PublicNetworkAccess = &publicNetworkAccess_

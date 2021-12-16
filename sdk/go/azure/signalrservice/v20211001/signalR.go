@@ -58,10 +58,6 @@ func NewSignalR(ctx *pulumi.Context,
 	if isZero(args.DisableLocalAuth) {
 		args.DisableLocalAuth = pulumi.BoolPtr(false)
 	}
-	networkACLsApplier := func(v SignalRNetworkACLs) *SignalRNetworkACLs { return v.Defaults() }
-	if args.NetworkACLs != nil {
-		args.NetworkACLs = args.NetworkACLs.ToSignalRNetworkACLsPtrOutput().Elem().ApplyT(networkACLsApplier).(SignalRNetworkACLsPtrOutput)
-	}
 	if isZero(args.PublicNetworkAccess) {
 		args.PublicNetworkAccess = pulumi.StringPtr("Enabled")
 	}
