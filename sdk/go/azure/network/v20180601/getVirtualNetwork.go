@@ -1,0 +1,59 @@
+
+
+
+package v20180601
+
+import (
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+func LookupVirtualNetwork(ctx *pulumi.Context, args *LookupVirtualNetworkArgs, opts ...pulumi.InvokeOption) (*LookupVirtualNetworkResult, error) {
+	var rv LookupVirtualNetworkResult
+	err := ctx.Invoke("azure-native:network/v20180601:getVirtualNetwork", args, &rv, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return rv.Defaults(), nil
+}
+
+type LookupVirtualNetworkArgs struct {
+	Expand             *string `pulumi:"expand"`
+	ResourceGroupName  string  `pulumi:"resourceGroupName"`
+	VirtualNetworkName string  `pulumi:"virtualNetworkName"`
+}
+
+
+type LookupVirtualNetworkResult struct {
+	AddressSpace           *AddressSpaceResponse           `pulumi:"addressSpace"`
+	DdosProtectionPlan     *SubResourceResponse            `pulumi:"ddosProtectionPlan"`
+	DhcpOptions            *DhcpOptionsResponse            `pulumi:"dhcpOptions"`
+	EnableDdosProtection   *bool                           `pulumi:"enableDdosProtection"`
+	EnableVmProtection     *bool                           `pulumi:"enableVmProtection"`
+	Etag                   *string                         `pulumi:"etag"`
+	Id                     *string                         `pulumi:"id"`
+	Location               *string                         `pulumi:"location"`
+	Name                   string                          `pulumi:"name"`
+	ProvisioningState      *string                         `pulumi:"provisioningState"`
+	ResourceGuid           *string                         `pulumi:"resourceGuid"`
+	Subnets                []SubnetResponse                `pulumi:"subnets"`
+	Tags                   map[string]string               `pulumi:"tags"`
+	Type                   string                          `pulumi:"type"`
+	VirtualNetworkPeerings []VirtualNetworkPeeringResponse `pulumi:"virtualNetworkPeerings"`
+}
+
+
+func (val *LookupVirtualNetworkResult) Defaults() *LookupVirtualNetworkResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.EnableDdosProtection) {
+		enableDdosProtection_ := false
+		tmp.EnableDdosProtection = &enableDdosProtection_
+	}
+	if isZero(tmp.EnableVmProtection) {
+		enableVmProtection_ := false
+		tmp.EnableVmProtection = &enableVmProtection_
+	}
+	return &tmp
+}

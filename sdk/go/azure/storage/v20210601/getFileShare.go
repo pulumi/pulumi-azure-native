@@ -1,0 +1,50 @@
+
+
+
+package v20210601
+
+import (
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+func LookupFileShare(ctx *pulumi.Context, args *LookupFileShareArgs, opts ...pulumi.InvokeOption) (*LookupFileShareResult, error) {
+	var rv LookupFileShareResult
+	err := ctx.Invoke("azure-native:storage/v20210601:getFileShare", args, &rv, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return &rv, nil
+}
+
+type LookupFileShareArgs struct {
+	AccountName       string  `pulumi:"accountName"`
+	Expand            *string `pulumi:"expand"`
+	ResourceGroupName string  `pulumi:"resourceGroupName"`
+	ShareName         string  `pulumi:"shareName"`
+}
+
+
+type LookupFileShareResult struct {
+	AccessTier             *string                    `pulumi:"accessTier"`
+	AccessTierChangeTime   string                     `pulumi:"accessTierChangeTime"`
+	AccessTierStatus       string                     `pulumi:"accessTierStatus"`
+	Deleted                bool                       `pulumi:"deleted"`
+	DeletedTime            string                     `pulumi:"deletedTime"`
+	EnabledProtocols       *string                    `pulumi:"enabledProtocols"`
+	Etag                   string                     `pulumi:"etag"`
+	Id                     string                     `pulumi:"id"`
+	LastModifiedTime       string                     `pulumi:"lastModifiedTime"`
+	LeaseDuration          string                     `pulumi:"leaseDuration"`
+	LeaseState             string                     `pulumi:"leaseState"`
+	LeaseStatus            string                     `pulumi:"leaseStatus"`
+	Metadata               map[string]string          `pulumi:"metadata"`
+	Name                   string                     `pulumi:"name"`
+	RemainingRetentionDays int                        `pulumi:"remainingRetentionDays"`
+	RootSquash             *string                    `pulumi:"rootSquash"`
+	ShareQuota             *int                       `pulumi:"shareQuota"`
+	ShareUsageBytes        float64                    `pulumi:"shareUsageBytes"`
+	SignedIdentifiers      []SignedIdentifierResponse `pulumi:"signedIdentifiers"`
+	SnapshotTime           string                     `pulumi:"snapshotTime"`
+	Type                   string                     `pulumi:"type"`
+	Version                string                     `pulumi:"version"`
+}

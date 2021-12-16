@@ -1,0 +1,154 @@
+
+
+
+package v20210501preview
+
+import (
+	"context"
+	"reflect"
+
+	"github.com/pkg/errors"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+type BotConnection struct {
+	pulumi.CustomResourceState
+
+	Etag       pulumi.StringPtrOutput                    `pulumi:"etag"`
+	Kind       pulumi.StringPtrOutput                    `pulumi:"kind"`
+	Location   pulumi.StringPtrOutput                    `pulumi:"location"`
+	Name       pulumi.StringOutput                       `pulumi:"name"`
+	Properties ConnectionSettingPropertiesResponseOutput `pulumi:"properties"`
+	Sku        SkuResponsePtrOutput                      `pulumi:"sku"`
+	Tags       pulumi.StringMapOutput                    `pulumi:"tags"`
+	Type       pulumi.StringOutput                       `pulumi:"type"`
+	Zones      pulumi.StringArrayOutput                  `pulumi:"zones"`
+}
+
+
+func NewBotConnection(ctx *pulumi.Context,
+	name string, args *BotConnectionArgs, opts ...pulumi.ResourceOption) (*BotConnection, error) {
+	if args == nil {
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.ResourceName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceName'")
+	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-native:botservice:BotConnection"),
+		},
+		{
+			Type: pulumi.String("azure-native:botservice/v20171201:BotConnection"),
+		},
+		{
+			Type: pulumi.String("azure-native:botservice/v20180712:BotConnection"),
+		},
+		{
+			Type: pulumi.String("azure-native:botservice/v20200602:BotConnection"),
+		},
+		{
+			Type: pulumi.String("azure-native:botservice/v20210301:BotConnection"),
+		},
+	})
+	opts = append(opts, aliases)
+	var resource BotConnection
+	err := ctx.RegisterResource("azure-native:botservice/v20210501preview:BotConnection", name, args, &resource, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return &resource, nil
+}
+
+
+
+func GetBotConnection(ctx *pulumi.Context,
+	name string, id pulumi.IDInput, state *BotConnectionState, opts ...pulumi.ResourceOption) (*BotConnection, error) {
+	var resource BotConnection
+	err := ctx.ReadResource("azure-native:botservice/v20210501preview:BotConnection", name, id, state, &resource, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return &resource, nil
+}
+
+
+type botConnectionState struct {
+}
+
+type BotConnectionState struct {
+}
+
+func (BotConnectionState) ElementType() reflect.Type {
+	return reflect.TypeOf((*botConnectionState)(nil)).Elem()
+}
+
+type botConnectionArgs struct {
+	ConnectionName    *string                      `pulumi:"connectionName"`
+	Etag              *string                      `pulumi:"etag"`
+	Kind              *string                      `pulumi:"kind"`
+	Location          *string                      `pulumi:"location"`
+	Properties        *ConnectionSettingProperties `pulumi:"properties"`
+	ResourceGroupName string                       `pulumi:"resourceGroupName"`
+	ResourceName      string                       `pulumi:"resourceName"`
+	Sku               *Sku                         `pulumi:"sku"`
+	Tags              map[string]string            `pulumi:"tags"`
+}
+
+
+type BotConnectionArgs struct {
+	ConnectionName    pulumi.StringPtrInput
+	Etag              pulumi.StringPtrInput
+	Kind              pulumi.StringPtrInput
+	Location          pulumi.StringPtrInput
+	Properties        ConnectionSettingPropertiesPtrInput
+	ResourceGroupName pulumi.StringInput
+	ResourceName      pulumi.StringInput
+	Sku               SkuPtrInput
+	Tags              pulumi.StringMapInput
+}
+
+func (BotConnectionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*botConnectionArgs)(nil)).Elem()
+}
+
+type BotConnectionInput interface {
+	pulumi.Input
+
+	ToBotConnectionOutput() BotConnectionOutput
+	ToBotConnectionOutputWithContext(ctx context.Context) BotConnectionOutput
+}
+
+func (*BotConnection) ElementType() reflect.Type {
+	return reflect.TypeOf((**BotConnection)(nil)).Elem()
+}
+
+func (i *BotConnection) ToBotConnectionOutput() BotConnectionOutput {
+	return i.ToBotConnectionOutputWithContext(context.Background())
+}
+
+func (i *BotConnection) ToBotConnectionOutputWithContext(ctx context.Context) BotConnectionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotConnectionOutput)
+}
+
+type BotConnectionOutput struct{ *pulumi.OutputState }
+
+func (BotConnectionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BotConnection)(nil)).Elem()
+}
+
+func (o BotConnectionOutput) ToBotConnectionOutput() BotConnectionOutput {
+	return o
+}
+
+func (o BotConnectionOutput) ToBotConnectionOutputWithContext(ctx context.Context) BotConnectionOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(BotConnectionOutput{})
+}

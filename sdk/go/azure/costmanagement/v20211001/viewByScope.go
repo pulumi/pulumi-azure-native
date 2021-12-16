@@ -1,0 +1,173 @@
+
+
+
+package v20211001
+
+import (
+	"context"
+	"reflect"
+
+	"github.com/pkg/errors"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+type ViewByScope struct {
+	pulumi.CustomResourceState
+
+	Accumulated               pulumi.StringPtrOutput                  `pulumi:"accumulated"`
+	Chart                     pulumi.StringPtrOutput                  `pulumi:"chart"`
+	CreatedOn                 pulumi.StringOutput                     `pulumi:"createdOn"`
+	Currency                  pulumi.StringOutput                     `pulumi:"currency"`
+	Dataset                   ReportConfigDatasetResponsePtrOutput    `pulumi:"dataset"`
+	DateRange                 pulumi.StringOutput                     `pulumi:"dateRange"`
+	DisplayName               pulumi.StringPtrOutput                  `pulumi:"displayName"`
+	ETag                      pulumi.StringPtrOutput                  `pulumi:"eTag"`
+	IncludeMonetaryCommitment pulumi.BoolPtrOutput                    `pulumi:"includeMonetaryCommitment"`
+	Kpis                      KpiPropertiesResponseArrayOutput        `pulumi:"kpis"`
+	Metric                    pulumi.StringPtrOutput                  `pulumi:"metric"`
+	ModifiedOn                pulumi.StringOutput                     `pulumi:"modifiedOn"`
+	Name                      pulumi.StringOutput                     `pulumi:"name"`
+	Pivots                    PivotPropertiesResponseArrayOutput      `pulumi:"pivots"`
+	Scope                     pulumi.StringPtrOutput                  `pulumi:"scope"`
+	TimePeriod                ReportConfigTimePeriodResponsePtrOutput `pulumi:"timePeriod"`
+	Timeframe                 pulumi.StringOutput                     `pulumi:"timeframe"`
+	Type                      pulumi.StringOutput                     `pulumi:"type"`
+}
+
+
+func NewViewByScope(ctx *pulumi.Context,
+	name string, args *ViewByScopeArgs, opts ...pulumi.ResourceOption) (*ViewByScope, error) {
+	if args == nil {
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Scope == nil {
+		return nil, errors.New("invalid value for required argument 'Scope'")
+	}
+	if args.Timeframe == nil {
+		return nil, errors.New("invalid value for required argument 'Timeframe'")
+	}
+	if args.Type == nil {
+		return nil, errors.New("invalid value for required argument 'Type'")
+	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-native:costmanagement:ViewByScope"),
+		},
+		{
+			Type: pulumi.String("azure-native:costmanagement/v20190401preview:ViewByScope"),
+		},
+		{
+			Type: pulumi.String("azure-native:costmanagement/v20191101:ViewByScope"),
+		},
+		{
+			Type: pulumi.String("azure-native:costmanagement/v20200601:ViewByScope"),
+		},
+	})
+	opts = append(opts, aliases)
+	var resource ViewByScope
+	err := ctx.RegisterResource("azure-native:costmanagement/v20211001:ViewByScope", name, args, &resource, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return &resource, nil
+}
+
+
+
+func GetViewByScope(ctx *pulumi.Context,
+	name string, id pulumi.IDInput, state *ViewByScopeState, opts ...pulumi.ResourceOption) (*ViewByScope, error) {
+	var resource ViewByScope
+	err := ctx.ReadResource("azure-native:costmanagement/v20211001:ViewByScope", name, id, state, &resource, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return &resource, nil
+}
+
+
+type viewByScopeState struct {
+}
+
+type ViewByScopeState struct {
+}
+
+func (ViewByScopeState) ElementType() reflect.Type {
+	return reflect.TypeOf((*viewByScopeState)(nil)).Elem()
+}
+
+type viewByScopeArgs struct {
+	Accumulated               *string                 `pulumi:"accumulated"`
+	Chart                     *string                 `pulumi:"chart"`
+	Dataset                   *ReportConfigDataset    `pulumi:"dataset"`
+	DisplayName               *string                 `pulumi:"displayName"`
+	ETag                      *string                 `pulumi:"eTag"`
+	IncludeMonetaryCommitment *bool                   `pulumi:"includeMonetaryCommitment"`
+	Kpis                      []KpiProperties         `pulumi:"kpis"`
+	Metric                    *string                 `pulumi:"metric"`
+	Pivots                    []PivotProperties       `pulumi:"pivots"`
+	Scope                     string                  `pulumi:"scope"`
+	TimePeriod                *ReportConfigTimePeriod `pulumi:"timePeriod"`
+	Timeframe                 string                  `pulumi:"timeframe"`
+	Type                      string                  `pulumi:"type"`
+	ViewName                  *string                 `pulumi:"viewName"`
+}
+
+
+type ViewByScopeArgs struct {
+	Accumulated               pulumi.StringPtrInput
+	Chart                     pulumi.StringPtrInput
+	Dataset                   ReportConfigDatasetPtrInput
+	DisplayName               pulumi.StringPtrInput
+	ETag                      pulumi.StringPtrInput
+	IncludeMonetaryCommitment pulumi.BoolPtrInput
+	Kpis                      KpiPropertiesArrayInput
+	Metric                    pulumi.StringPtrInput
+	Pivots                    PivotPropertiesArrayInput
+	Scope                     pulumi.StringInput
+	TimePeriod                ReportConfigTimePeriodPtrInput
+	Timeframe                 pulumi.StringInput
+	Type                      pulumi.StringInput
+	ViewName                  pulumi.StringPtrInput
+}
+
+func (ViewByScopeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*viewByScopeArgs)(nil)).Elem()
+}
+
+type ViewByScopeInput interface {
+	pulumi.Input
+
+	ToViewByScopeOutput() ViewByScopeOutput
+	ToViewByScopeOutputWithContext(ctx context.Context) ViewByScopeOutput
+}
+
+func (*ViewByScope) ElementType() reflect.Type {
+	return reflect.TypeOf((**ViewByScope)(nil)).Elem()
+}
+
+func (i *ViewByScope) ToViewByScopeOutput() ViewByScopeOutput {
+	return i.ToViewByScopeOutputWithContext(context.Background())
+}
+
+func (i *ViewByScope) ToViewByScopeOutputWithContext(ctx context.Context) ViewByScopeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ViewByScopeOutput)
+}
+
+type ViewByScopeOutput struct{ *pulumi.OutputState }
+
+func (ViewByScopeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ViewByScope)(nil)).Elem()
+}
+
+func (o ViewByScopeOutput) ToViewByScopeOutput() ViewByScopeOutput {
+	return o
+}
+
+func (o ViewByScopeOutput) ToViewByScopeOutputWithContext(ctx context.Context) ViewByScopeOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ViewByScopeOutput{})
+}

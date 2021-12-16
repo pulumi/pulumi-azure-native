@@ -26513,7 +26513,7 @@
           "2015-05-01-preview"
         ],
         "capabilities": "CrossResourceGroupResourceMove, CrossSubscriptionResourceMove, SupportsTags, SupportsLocation",
-        "defaultApiVersion": "2020-06-01",
+        "defaultApiVersion": "2021-07-01",
         "locationMappings": null,
         "locations": [
           "East US",
@@ -26594,7 +26594,7 @@
           "2015-05-01-preview"
         ],
         "capabilities": "CrossResourceGroupResourceMove, CrossSubscriptionResourceMove, SystemAssignedResourceIdentity, SupportsTags, SupportsLocation",
-        "defaultApiVersion": "2020-06-01",
+        "defaultApiVersion": "2021-07-01",
         "locationMappings": null,
         "locations": [
           "East US",
@@ -26876,7 +26876,7 @@
           "2015-05-01-preview"
         ],
         "capabilities": "CrossResourceGroupResourceMove, CrossSubscriptionResourceMove, SupportsTags, SupportsLocation",
-        "defaultApiVersion": "2020-06-01",
+        "defaultApiVersion": "2021-07-01",
         "locationMappings": null,
         "locations": [
           "East US",
@@ -26958,7 +26958,7 @@
           "2015-05-01-preview"
         ],
         "capabilities": "CrossResourceGroupResourceMove, CrossSubscriptionResourceMove, SystemAssignedResourceIdentity, SupportsTags, SupportsLocation",
-        "defaultApiVersion": "2020-06-01",
+        "defaultApiVersion": "2021-07-01",
         "locationMappings": null,
         "locations": [
           "East US",
@@ -27323,7 +27323,7 @@
           "2015-05-01-preview"
         ],
         "capabilities": "None",
-        "defaultApiVersion": "2020-06-01",
+        "defaultApiVersion": "2021-07-01",
         "locationMappings": null,
         "locations": [
           "East US",
@@ -28065,7 +28065,7 @@
           "2016-08-30"
         ],
         "capabilities": "None",
-        "defaultApiVersion": "2020-06-01",
+        "defaultApiVersion": "2021-07-01",
         "locationMappings": null,
         "locations": [
           "East US",
@@ -28138,7 +28138,7 @@
           "2016-08-30"
         ],
         "capabilities": "None",
-        "defaultApiVersion": "2020-06-01",
+        "defaultApiVersion": "2021-07-01",
         "locationMappings": null,
         "locations": [
           "East US",
@@ -28338,6 +28338,62 @@
           "2021-07-01",
           "2021-04-01",
           "2021-03-01",
+          "2020-12-01",
+          "2020-06-01",
+          "2019-12-01"
+        ],
+        "capabilities": "CrossResourceGroupResourceMove, CrossSubscriptionResourceMove, SupportsTags, SupportsLocation",
+        "defaultApiVersion": "2021-07-01",
+        "locationMappings": null,
+        "locations": [
+          "East US",
+          "East US 2",
+          "West US",
+          "Central US",
+          "North Central US",
+          "South Central US",
+          "North Europe",
+          "West Europe",
+          "East Asia",
+          "Southeast Asia",
+          "Japan East",
+          "Japan West",
+          "Australia East",
+          "Australia Southeast",
+          "Australia Central",
+          "Brazil South",
+          "South India",
+          "Central India",
+          "West India",
+          "Canada Central",
+          "Canada East",
+          "West US 2",
+          "West Central US",
+          "UK South",
+          "UK West",
+          "Korea Central",
+          "France Central",
+          "South Africa North",
+          "UAE North",
+          "Switzerland North",
+          "Germany West Central",
+          "Norway East",
+          "West US 3",
+          "Sweden Central",
+          "East US 2 EUAP",
+          "Central US EUAP"
+        ],
+        "properties": null,
+        "resourceType": "virtualMachines/runCommands"
+      },
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2021-11-01",
+          "2021-07-01",
+          "2021-04-01",
+          "2021-03-01",
           "2020-12-01"
         ],
         "capabilities": "None",
@@ -28421,7 +28477,7 @@
           "2017-03-30"
         ],
         "capabilities": "SupportsTags, SupportsLocation",
-        "defaultApiVersion": "2020-06-01",
+        "defaultApiVersion": "2021-07-01",
         "locationMappings": null,
         "locations": [
           "Southeast Asia",
@@ -28545,7 +28601,7 @@
           "2018-04-01"
         ],
         "capabilities": "CrossResourceGroupResourceMove, CrossSubscriptionResourceMove, SupportsTags, SupportsLocation",
-        "defaultApiVersion": "2020-06-01",
+        "defaultApiVersion": "2021-07-01",
         "locationMappings": null,
         "locations": [
           "East US",
@@ -28601,7 +28657,7 @@
           "2019-12-01"
         ],
         "capabilities": "SupportsTags, SupportsLocation",
-        "defaultApiVersion": "2020-06-01",
+        "defaultApiVersion": "2021-07-01",
         "locationMappings": null,
         "locations": [
           "East US",
@@ -28656,7 +28712,7 @@
           "2020-06-01"
         ],
         "capabilities": "SupportsTags, SupportsLocation",
-        "defaultApiVersion": "2020-06-01",
+        "defaultApiVersion": "2021-07-01",
         "locationMappings": null,
         "locations": [
           "East US",
@@ -28912,7 +28968,7 @@
           "2020-06-01"
         ],
         "capabilities": "SupportsTags, SupportsLocation",
-        "defaultApiVersion": "2020-06-01",
+        "defaultApiVersion": "2021-07-01",
         "locationMappings": null,
         "locations": [
           "East US",
@@ -29218,7 +29274,7 @@
           "2020-06-01"
         ],
         "capabilities": "None",
-        "defaultApiVersion": "2020-06-01",
+        "defaultApiVersion": "2021-07-01",
         "locationMappings": null,
         "locations": [
           "East US",
@@ -29273,7 +29329,7 @@
           "2020-06-01"
         ],
         "capabilities": "None",
-        "defaultApiVersion": "2020-06-01",
+        "defaultApiVersion": "2021-07-01",
         "locationMappings": null,
         "locations": [
           "East US",
@@ -29582,6 +29638,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-10-01",
           "2021-07-01",
           "2021-03-01",
           "2020-09-30",
@@ -29639,6 +29696,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-10-01",
           "2021-07-01",
           "2021-03-01",
           "2020-09-30",
@@ -29695,6 +29753,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-10-01",
           "2021-07-01",
           "2021-03-01",
           "2020-09-30",
@@ -29751,6 +29810,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-10-01",
           "2021-07-01",
           "2021-03-01",
           "2020-09-30",
@@ -29807,6 +29867,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-10-01",
           "2021-07-01",
           "2021-03-01",
           "2020-09-30",
@@ -29863,6 +29924,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-10-01",
           "2021-07-01",
           "2021-03-01",
           "2020-09-30",
@@ -29918,6 +29980,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-10-01",
           "2021-07-01",
           "2021-03-01",
           "2020-09-30",
@@ -31240,7 +31303,7 @@
           "2016-04-30-preview"
         ],
         "capabilities": "CrossResourceGroupResourceMove, CrossSubscriptionResourceMove, SupportsTags, SupportsLocation",
-        "defaultApiVersion": "2020-06-01",
+        "defaultApiVersion": "2021-07-01",
         "locationMappings": null,
         "locations": [
           "Southeast Asia",
@@ -31361,7 +31424,7 @@
           "2018-10-01"
         ],
         "capabilities": "SupportsTags, SupportsLocation",
-        "defaultApiVersion": "2020-06-01",
+        "defaultApiVersion": "2021-07-01",
         "locationMappings": null,
         "locations": [
           "Central US",
@@ -31621,7 +31684,7 @@
           "2018-10-01"
         ],
         "capabilities": "SupportsTags, SupportsLocation",
-        "defaultApiVersion": "2020-06-01",
+        "defaultApiVersion": "2021-07-01",
         "locationMappings": null,
         "locations": [
           "Central US",
@@ -52957,7 +53020,13 @@
           "2020-05-01",
           "2020-02-01",
           "2019-11-01",
-          "2018-03-01-beta"
+          "2018-03-01-preview",
+          "2018-03-01-beta",
+          "2018-01-01-preview",
+          "2017-11-01-preview",
+          "2017-08-31-preview",
+          "2017-06-30-preview",
+          "2017-05-31-preview"
         ],
         "capabilities": "None",
         "defaultApiVersion": null,
@@ -65277,7 +65346,9 @@
           "North Central US",
           "Korea Central",
           "Japan East",
-          "East Asia"
+          "West US 3",
+          "East Asia",
+          "East US 2 EUAP"
         ],
         "properties": null,
         "resourceType": "connectedClusters"

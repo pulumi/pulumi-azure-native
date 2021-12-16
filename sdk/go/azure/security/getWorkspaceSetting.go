@@ -1,0 +1,30 @@
+
+
+
+package security
+
+import (
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+func LookupWorkspaceSetting(ctx *pulumi.Context, args *LookupWorkspaceSettingArgs, opts ...pulumi.InvokeOption) (*LookupWorkspaceSettingResult, error) {
+	var rv LookupWorkspaceSettingResult
+	err := ctx.Invoke("azure-native:security:getWorkspaceSetting", args, &rv, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return &rv, nil
+}
+
+type LookupWorkspaceSettingArgs struct {
+	WorkspaceSettingName string `pulumi:"workspaceSettingName"`
+}
+
+
+type LookupWorkspaceSettingResult struct {
+	Id          string `pulumi:"id"`
+	Name        string `pulumi:"name"`
+	Scope       string `pulumi:"scope"`
+	Type        string `pulumi:"type"`
+	WorkspaceId string `pulumi:"workspaceId"`
+}

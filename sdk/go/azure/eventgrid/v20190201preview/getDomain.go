@@ -1,0 +1,48 @@
+
+
+
+package v20190201preview
+
+import (
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+func LookupDomain(ctx *pulumi.Context, args *LookupDomainArgs, opts ...pulumi.InvokeOption) (*LookupDomainResult, error) {
+	var rv LookupDomainResult
+	err := ctx.Invoke("azure-native:eventgrid/v20190201preview:getDomain", args, &rv, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return rv.Defaults(), nil
+}
+
+type LookupDomainArgs struct {
+	DomainName        string `pulumi:"domainName"`
+	ResourceGroupName string `pulumi:"resourceGroupName"`
+}
+
+
+type LookupDomainResult struct {
+	Endpoint           string                          `pulumi:"endpoint"`
+	Id                 string                          `pulumi:"id"`
+	InputSchema        *string                         `pulumi:"inputSchema"`
+	InputSchemaMapping *JsonInputSchemaMappingResponse `pulumi:"inputSchemaMapping"`
+	Location           string                          `pulumi:"location"`
+	Name               string                          `pulumi:"name"`
+	ProvisioningState  string                          `pulumi:"provisioningState"`
+	Tags               map[string]string               `pulumi:"tags"`
+	Type               string                          `pulumi:"type"`
+}
+
+
+func (val *LookupDomainResult) Defaults() *LookupDomainResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.InputSchema) {
+		inputSchema_ := "EventGridSchema"
+		tmp.InputSchema = &inputSchema_
+	}
+	return &tmp
+}
