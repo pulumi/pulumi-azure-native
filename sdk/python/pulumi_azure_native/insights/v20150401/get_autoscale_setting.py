@@ -160,7 +160,7 @@ def get_autoscale_setting(autoscale_setting_name: Optional[str] = None,
 
 
     :param str autoscale_setting_name: The autoscale setting name.
-    :param str resource_group_name: The name of the resource group.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['autoscaleSettingName'] = autoscale_setting_name
@@ -193,6 +193,6 @@ def get_autoscale_setting_output(autoscale_setting_name: Optional[pulumi.Input[s
 
 
     :param str autoscale_setting_name: The autoscale setting name.
-    :param str resource_group_name: The name of the resource group.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     ...

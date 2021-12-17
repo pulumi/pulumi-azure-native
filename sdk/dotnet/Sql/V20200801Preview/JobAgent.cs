@@ -88,6 +88,7 @@ namespace Pulumi.AzureNative.Sql.V20200801Preview
                     new Pulumi.Alias { Type = "azure-native:sql/v20201101preview:JobAgent"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20210201preview:JobAgent"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20210501preview:JobAgent"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20210801preview:JobAgent"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

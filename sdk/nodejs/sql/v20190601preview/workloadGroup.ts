@@ -121,7 +121,7 @@ export class WorkloadGroup extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:sql:WorkloadGroup" }, { type: "azure-native:sql/v20200202preview:WorkloadGroup" }, { type: "azure-native:sql/v20200801preview:WorkloadGroup" }, { type: "azure-native:sql/v20201101preview:WorkloadGroup" }, { type: "azure-native:sql/v20210201preview:WorkloadGroup" }, { type: "azure-native:sql/v20210501preview:WorkloadGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:sql:WorkloadGroup" }, { type: "azure-native:sql/v20200202preview:WorkloadGroup" }, { type: "azure-native:sql/v20200801preview:WorkloadGroup" }, { type: "azure-native:sql/v20201101preview:WorkloadGroup" }, { type: "azure-native:sql/v20210201preview:WorkloadGroup" }, { type: "azure-native:sql/v20210501preview:WorkloadGroup" }, { type: "azure-native:sql/v20210801preview:WorkloadGroup" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WorkloadGroup.__pulumiType, name, resourceInputs, opts);
     }

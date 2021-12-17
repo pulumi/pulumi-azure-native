@@ -54,7 +54,7 @@ export class View extends pulumi.CustomResource {
     /**
      * Has definition for data in this report config.
      */
-    public readonly dataset!: pulumi.Output<outputs.costmanagement.v20211001.ReportConfigDatasetResponse | undefined>;
+    public readonly dataSet!: pulumi.Output<outputs.costmanagement.v20211001.ReportConfigDatasetResponse | undefined>;
     /**
      * Date range of the current view.
      */
@@ -127,7 +127,7 @@ export class View extends pulumi.CustomResource {
             }
             resourceInputs["accumulated"] = args ? args.accumulated : undefined;
             resourceInputs["chart"] = args ? args.chart : undefined;
-            resourceInputs["dataset"] = args ? args.dataset : undefined;
+            resourceInputs["dataSet"] = args ? args.dataSet : undefined;
             resourceInputs["displayName"] = args ? args.displayName : undefined;
             resourceInputs["eTag"] = args ? args.eTag : undefined;
             resourceInputs["includeMonetaryCommitment"] = args ? args.includeMonetaryCommitment : undefined;
@@ -149,7 +149,7 @@ export class View extends pulumi.CustomResource {
             resourceInputs["chart"] = undefined /*out*/;
             resourceInputs["createdOn"] = undefined /*out*/;
             resourceInputs["currency"] = undefined /*out*/;
-            resourceInputs["dataset"] = undefined /*out*/;
+            resourceInputs["dataSet"] = undefined /*out*/;
             resourceInputs["dateRange"] = undefined /*out*/;
             resourceInputs["displayName"] = undefined /*out*/;
             resourceInputs["eTag"] = undefined /*out*/;
@@ -188,7 +188,7 @@ export interface ViewArgs {
     /**
      * Has definition for data in this report config.
      */
-    dataset?: pulumi.Input<inputs.costmanagement.v20211001.ReportConfigDatasetArgs>;
+    dataSet?: pulumi.Input<inputs.costmanagement.v20211001.ReportConfigDatasetArgs>;
     /**
      * User input name of the view. Required.
      */

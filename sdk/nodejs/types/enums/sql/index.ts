@@ -13,6 +13,7 @@ import * as v20200801preview from "./v20200801preview";
 import * as v20201101preview from "./v20201101preview";
 import * as v20210201preview from "./v20210201preview";
 import * as v20210501preview from "./v20210501preview";
+import * as v20210801preview from "./v20210801preview";
 
 export {
     v20140401,
@@ -26,6 +27,7 @@ export {
     v20201101preview,
     v20210201preview,
     v20210501preview,
+    v20210801preview,
 };
 
 export const AdministratorType = {

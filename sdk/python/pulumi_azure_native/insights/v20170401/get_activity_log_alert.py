@@ -160,7 +160,7 @@ def get_activity_log_alert(activity_log_alert_name: Optional[str] = None,
 
 
     :param str activity_log_alert_name: The name of the activity log alert.
-    :param str resource_group_name: The name of the resource group.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['activityLogAlertName'] = activity_log_alert_name
@@ -193,6 +193,6 @@ def get_activity_log_alert_output(activity_log_alert_name: Optional[pulumi.Input
 
 
     :param str activity_log_alert_name: The name of the activity log alert.
-    :param str resource_group_name: The name of the resource group.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     ...

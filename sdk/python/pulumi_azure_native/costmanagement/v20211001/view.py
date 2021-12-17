@@ -20,7 +20,7 @@ class ViewArgs:
                  type: pulumi.Input[Union[str, 'ReportType']],
                  accumulated: Optional[pulumi.Input[Union[str, 'AccumulatedType']]] = None,
                  chart: Optional[pulumi.Input[Union[str, 'ChartType']]] = None,
-                 dataset: Optional[pulumi.Input['ReportConfigDatasetArgs']] = None,
+                 data_set: Optional[pulumi.Input['ReportConfigDatasetArgs']] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  e_tag: Optional[pulumi.Input[str]] = None,
                  include_monetary_commitment: Optional[pulumi.Input[bool]] = None,
@@ -36,7 +36,7 @@ class ViewArgs:
         :param pulumi.Input[Union[str, 'ReportType']] type: The type of the report. Usage represents actual usage, forecast represents forecasted data and UsageAndForecast represents both usage and forecasted data. Actual usage and forecasted data can be differentiated based on dates.
         :param pulumi.Input[Union[str, 'AccumulatedType']] accumulated: Show costs accumulated over time.
         :param pulumi.Input[Union[str, 'ChartType']] chart: Chart type of the main view in Cost Analysis. Required.
-        :param pulumi.Input['ReportConfigDatasetArgs'] dataset: Has definition for data in this report config.
+        :param pulumi.Input['ReportConfigDatasetArgs'] data_set: Has definition for data in this report config.
         :param pulumi.Input[str] display_name: User input name of the view. Required.
         :param pulumi.Input[str] e_tag: eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
         :param pulumi.Input[bool] include_monetary_commitment: If true, report includes monetary commitment.
@@ -53,8 +53,8 @@ class ViewArgs:
             pulumi.set(__self__, "accumulated", accumulated)
         if chart is not None:
             pulumi.set(__self__, "chart", chart)
-        if dataset is not None:
-            pulumi.set(__self__, "dataset", dataset)
+        if data_set is not None:
+            pulumi.set(__self__, "data_set", data_set)
         if display_name is not None:
             pulumi.set(__self__, "display_name", display_name)
         if e_tag is not None:
@@ -123,16 +123,16 @@ class ViewArgs:
         pulumi.set(self, "chart", value)
 
     @property
-    @pulumi.getter
-    def dataset(self) -> Optional[pulumi.Input['ReportConfigDatasetArgs']]:
+    @pulumi.getter(name="dataSet")
+    def data_set(self) -> Optional[pulumi.Input['ReportConfigDatasetArgs']]:
         """
         Has definition for data in this report config.
         """
-        return pulumi.get(self, "dataset")
+        return pulumi.get(self, "data_set")
 
-    @dataset.setter
-    def dataset(self, value: Optional[pulumi.Input['ReportConfigDatasetArgs']]):
-        pulumi.set(self, "dataset", value)
+    @data_set.setter
+    def data_set(self, value: Optional[pulumi.Input['ReportConfigDatasetArgs']]):
+        pulumi.set(self, "data_set", value)
 
     @property
     @pulumi.getter(name="displayName")
@@ -250,7 +250,7 @@ class View(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  accumulated: Optional[pulumi.Input[Union[str, 'AccumulatedType']]] = None,
                  chart: Optional[pulumi.Input[Union[str, 'ChartType']]] = None,
-                 dataset: Optional[pulumi.Input[pulumi.InputType['ReportConfigDatasetArgs']]] = None,
+                 data_set: Optional[pulumi.Input[pulumi.InputType['ReportConfigDatasetArgs']]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  e_tag: Optional[pulumi.Input[str]] = None,
                  include_monetary_commitment: Optional[pulumi.Input[bool]] = None,
@@ -270,7 +270,7 @@ class View(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[str, 'AccumulatedType']] accumulated: Show costs accumulated over time.
         :param pulumi.Input[Union[str, 'ChartType']] chart: Chart type of the main view in Cost Analysis. Required.
-        :param pulumi.Input[pulumi.InputType['ReportConfigDatasetArgs']] dataset: Has definition for data in this report config.
+        :param pulumi.Input[pulumi.InputType['ReportConfigDatasetArgs']] data_set: Has definition for data in this report config.
         :param pulumi.Input[str] display_name: User input name of the view. Required.
         :param pulumi.Input[str] e_tag: eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
         :param pulumi.Input[bool] include_monetary_commitment: If true, report includes monetary commitment.
@@ -309,7 +309,7 @@ class View(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  accumulated: Optional[pulumi.Input[Union[str, 'AccumulatedType']]] = None,
                  chart: Optional[pulumi.Input[Union[str, 'ChartType']]] = None,
-                 dataset: Optional[pulumi.Input[pulumi.InputType['ReportConfigDatasetArgs']]] = None,
+                 data_set: Optional[pulumi.Input[pulumi.InputType['ReportConfigDatasetArgs']]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  e_tag: Optional[pulumi.Input[str]] = None,
                  include_monetary_commitment: Optional[pulumi.Input[bool]] = None,
@@ -335,7 +335,7 @@ class View(pulumi.CustomResource):
 
             __props__.__dict__["accumulated"] = accumulated
             __props__.__dict__["chart"] = chart
-            __props__.__dict__["dataset"] = dataset
+            __props__.__dict__["data_set"] = data_set
             __props__.__dict__["display_name"] = display_name
             __props__.__dict__["e_tag"] = e_tag
             __props__.__dict__["include_monetary_commitment"] = include_monetary_commitment
@@ -384,7 +384,7 @@ class View(pulumi.CustomResource):
         __props__.__dict__["chart"] = None
         __props__.__dict__["created_on"] = None
         __props__.__dict__["currency"] = None
-        __props__.__dict__["dataset"] = None
+        __props__.__dict__["data_set"] = None
         __props__.__dict__["date_range"] = None
         __props__.__dict__["display_name"] = None
         __props__.__dict__["e_tag"] = None
@@ -433,12 +433,12 @@ class View(pulumi.CustomResource):
         return pulumi.get(self, "currency")
 
     @property
-    @pulumi.getter
-    def dataset(self) -> pulumi.Output[Optional['outputs.ReportConfigDatasetResponse']]:
+    @pulumi.getter(name="dataSet")
+    def data_set(self) -> pulumi.Output[Optional['outputs.ReportConfigDatasetResponse']]:
         """
         Has definition for data in this report config.
         """
-        return pulumi.get(self, "dataset")
+        return pulumi.get(self, "data_set")
 
     @property
     @pulumi.getter(name="dateRange")

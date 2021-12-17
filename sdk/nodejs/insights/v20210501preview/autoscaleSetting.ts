@@ -165,7 +165,7 @@ export interface AutoscaleSettingArgs {
      */
     profiles: pulumi.Input<pulumi.Input<inputs.insights.v20210501preview.AutoscaleProfileArgs>[]>;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

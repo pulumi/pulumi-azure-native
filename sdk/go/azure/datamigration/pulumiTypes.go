@@ -18514,6 +18514,148 @@ func (o MySqlConnectionInfoResponsePtrOutput) UserName() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
+type NodeMonitoringDataResponse struct {
+	AdditionalProperties  map[string]interface{} `pulumi:"additionalProperties"`
+	AvailableMemoryInMB   int                    `pulumi:"availableMemoryInMB"`
+	ConcurrentJobsLimit   int                    `pulumi:"concurrentJobsLimit"`
+	ConcurrentJobsRunning int                    `pulumi:"concurrentJobsRunning"`
+	CpuUtilization        int                    `pulumi:"cpuUtilization"`
+	MaxConcurrentJobs     int                    `pulumi:"maxConcurrentJobs"`
+	NodeName              string                 `pulumi:"nodeName"`
+	ReceivedBytes         float64                `pulumi:"receivedBytes"`
+	SentBytes             float64                `pulumi:"sentBytes"`
+}
+
+
+
+
+
+type NodeMonitoringDataResponseInput interface {
+	pulumi.Input
+
+	ToNodeMonitoringDataResponseOutput() NodeMonitoringDataResponseOutput
+	ToNodeMonitoringDataResponseOutputWithContext(context.Context) NodeMonitoringDataResponseOutput
+}
+
+type NodeMonitoringDataResponseArgs struct {
+	AdditionalProperties  pulumi.MapInput     `pulumi:"additionalProperties"`
+	AvailableMemoryInMB   pulumi.IntInput     `pulumi:"availableMemoryInMB"`
+	ConcurrentJobsLimit   pulumi.IntInput     `pulumi:"concurrentJobsLimit"`
+	ConcurrentJobsRunning pulumi.IntInput     `pulumi:"concurrentJobsRunning"`
+	CpuUtilization        pulumi.IntInput     `pulumi:"cpuUtilization"`
+	MaxConcurrentJobs     pulumi.IntInput     `pulumi:"maxConcurrentJobs"`
+	NodeName              pulumi.StringInput  `pulumi:"nodeName"`
+	ReceivedBytes         pulumi.Float64Input `pulumi:"receivedBytes"`
+	SentBytes             pulumi.Float64Input `pulumi:"sentBytes"`
+}
+
+func (NodeMonitoringDataResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NodeMonitoringDataResponse)(nil)).Elem()
+}
+
+func (i NodeMonitoringDataResponseArgs) ToNodeMonitoringDataResponseOutput() NodeMonitoringDataResponseOutput {
+	return i.ToNodeMonitoringDataResponseOutputWithContext(context.Background())
+}
+
+func (i NodeMonitoringDataResponseArgs) ToNodeMonitoringDataResponseOutputWithContext(ctx context.Context) NodeMonitoringDataResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NodeMonitoringDataResponseOutput)
+}
+
+
+
+
+
+type NodeMonitoringDataResponseArrayInput interface {
+	pulumi.Input
+
+	ToNodeMonitoringDataResponseArrayOutput() NodeMonitoringDataResponseArrayOutput
+	ToNodeMonitoringDataResponseArrayOutputWithContext(context.Context) NodeMonitoringDataResponseArrayOutput
+}
+
+type NodeMonitoringDataResponseArray []NodeMonitoringDataResponseInput
+
+func (NodeMonitoringDataResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NodeMonitoringDataResponse)(nil)).Elem()
+}
+
+func (i NodeMonitoringDataResponseArray) ToNodeMonitoringDataResponseArrayOutput() NodeMonitoringDataResponseArrayOutput {
+	return i.ToNodeMonitoringDataResponseArrayOutputWithContext(context.Background())
+}
+
+func (i NodeMonitoringDataResponseArray) ToNodeMonitoringDataResponseArrayOutputWithContext(ctx context.Context) NodeMonitoringDataResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NodeMonitoringDataResponseArrayOutput)
+}
+
+type NodeMonitoringDataResponseOutput struct{ *pulumi.OutputState }
+
+func (NodeMonitoringDataResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NodeMonitoringDataResponse)(nil)).Elem()
+}
+
+func (o NodeMonitoringDataResponseOutput) ToNodeMonitoringDataResponseOutput() NodeMonitoringDataResponseOutput {
+	return o
+}
+
+func (o NodeMonitoringDataResponseOutput) ToNodeMonitoringDataResponseOutputWithContext(ctx context.Context) NodeMonitoringDataResponseOutput {
+	return o
+}
+
+func (o NodeMonitoringDataResponseOutput) AdditionalProperties() pulumi.MapOutput {
+	return o.ApplyT(func(v NodeMonitoringDataResponse) map[string]interface{} { return v.AdditionalProperties }).(pulumi.MapOutput)
+}
+
+func (o NodeMonitoringDataResponseOutput) AvailableMemoryInMB() pulumi.IntOutput {
+	return o.ApplyT(func(v NodeMonitoringDataResponse) int { return v.AvailableMemoryInMB }).(pulumi.IntOutput)
+}
+
+func (o NodeMonitoringDataResponseOutput) ConcurrentJobsLimit() pulumi.IntOutput {
+	return o.ApplyT(func(v NodeMonitoringDataResponse) int { return v.ConcurrentJobsLimit }).(pulumi.IntOutput)
+}
+
+func (o NodeMonitoringDataResponseOutput) ConcurrentJobsRunning() pulumi.IntOutput {
+	return o.ApplyT(func(v NodeMonitoringDataResponse) int { return v.ConcurrentJobsRunning }).(pulumi.IntOutput)
+}
+
+func (o NodeMonitoringDataResponseOutput) CpuUtilization() pulumi.IntOutput {
+	return o.ApplyT(func(v NodeMonitoringDataResponse) int { return v.CpuUtilization }).(pulumi.IntOutput)
+}
+
+func (o NodeMonitoringDataResponseOutput) MaxConcurrentJobs() pulumi.IntOutput {
+	return o.ApplyT(func(v NodeMonitoringDataResponse) int { return v.MaxConcurrentJobs }).(pulumi.IntOutput)
+}
+
+func (o NodeMonitoringDataResponseOutput) NodeName() pulumi.StringOutput {
+	return o.ApplyT(func(v NodeMonitoringDataResponse) string { return v.NodeName }).(pulumi.StringOutput)
+}
+
+func (o NodeMonitoringDataResponseOutput) ReceivedBytes() pulumi.Float64Output {
+	return o.ApplyT(func(v NodeMonitoringDataResponse) float64 { return v.ReceivedBytes }).(pulumi.Float64Output)
+}
+
+func (o NodeMonitoringDataResponseOutput) SentBytes() pulumi.Float64Output {
+	return o.ApplyT(func(v NodeMonitoringDataResponse) float64 { return v.SentBytes }).(pulumi.Float64Output)
+}
+
+type NodeMonitoringDataResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (NodeMonitoringDataResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NodeMonitoringDataResponse)(nil)).Elem()
+}
+
+func (o NodeMonitoringDataResponseArrayOutput) ToNodeMonitoringDataResponseArrayOutput() NodeMonitoringDataResponseArrayOutput {
+	return o
+}
+
+func (o NodeMonitoringDataResponseArrayOutput) ToNodeMonitoringDataResponseArrayOutputWithContext(ctx context.Context) NodeMonitoringDataResponseArrayOutput {
+	return o
+}
+
+func (o NodeMonitoringDataResponseArrayOutput) Index(i pulumi.IntInput) NodeMonitoringDataResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NodeMonitoringDataResponse {
+		return vs[0].([]NodeMonitoringDataResponse)[vs[1].(int)]
+	}).(NodeMonitoringDataResponseOutput)
+}
+
 type ODataErrorResponse struct {
 	Code    string               `pulumi:"code"`
 	Details []ODataErrorResponse `pulumi:"details"`
@@ -21212,6 +21354,214 @@ func (o SyncMigrationDatabaseErrorEventResponseArrayOutput) Index(i pulumi.IntIn
 	}).(SyncMigrationDatabaseErrorEventResponseOutput)
 }
 
+type SystemDataResponse struct {
+	CreatedAt          *string `pulumi:"createdAt"`
+	CreatedBy          *string `pulumi:"createdBy"`
+	CreatedByType      *string `pulumi:"createdByType"`
+	LastModifiedAt     *string `pulumi:"lastModifiedAt"`
+	LastModifiedBy     *string `pulumi:"lastModifiedBy"`
+	LastModifiedByType *string `pulumi:"lastModifiedByType"`
+}
+
+
+
+
+
+type SystemDataResponseInput interface {
+	pulumi.Input
+
+	ToSystemDataResponseOutput() SystemDataResponseOutput
+	ToSystemDataResponseOutputWithContext(context.Context) SystemDataResponseOutput
+}
+
+type SystemDataResponseArgs struct {
+	CreatedAt          pulumi.StringPtrInput `pulumi:"createdAt"`
+	CreatedBy          pulumi.StringPtrInput `pulumi:"createdBy"`
+	CreatedByType      pulumi.StringPtrInput `pulumi:"createdByType"`
+	LastModifiedAt     pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
+	LastModifiedBy     pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
+	LastModifiedByType pulumi.StringPtrInput `pulumi:"lastModifiedByType"`
+}
+
+func (SystemDataResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SystemDataResponse)(nil)).Elem()
+}
+
+func (i SystemDataResponseArgs) ToSystemDataResponseOutput() SystemDataResponseOutput {
+	return i.ToSystemDataResponseOutputWithContext(context.Background())
+}
+
+func (i SystemDataResponseArgs) ToSystemDataResponseOutputWithContext(ctx context.Context) SystemDataResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponseOutput)
+}
+
+func (i SystemDataResponseArgs) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
+	return i.ToSystemDataResponsePtrOutputWithContext(context.Background())
+}
+
+func (i SystemDataResponseArgs) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponseOutput).ToSystemDataResponsePtrOutputWithContext(ctx)
+}
+
+
+
+
+
+
+
+
+
+type SystemDataResponsePtrInput interface {
+	pulumi.Input
+
+	ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput
+	ToSystemDataResponsePtrOutputWithContext(context.Context) SystemDataResponsePtrOutput
+}
+
+type systemDataResponsePtrType SystemDataResponseArgs
+
+func SystemDataResponsePtr(v *SystemDataResponseArgs) SystemDataResponsePtrInput {
+	return (*systemDataResponsePtrType)(v)
+}
+
+func (*systemDataResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SystemDataResponse)(nil)).Elem()
+}
+
+func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
+	return i.ToSystemDataResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponsePtrOutput)
+}
+
+type SystemDataResponseOutput struct{ *pulumi.OutputState }
+
+func (SystemDataResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SystemDataResponse)(nil)).Elem()
+}
+
+func (o SystemDataResponseOutput) ToSystemDataResponseOutput() SystemDataResponseOutput {
+	return o
+}
+
+func (o SystemDataResponseOutput) ToSystemDataResponseOutputWithContext(ctx context.Context) SystemDataResponseOutput {
+	return o
+}
+
+func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
+	return o.ToSystemDataResponsePtrOutputWithContext(context.Background())
+}
+
+func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SystemDataResponse) *SystemDataResponse {
+		return &v
+	}).(SystemDataResponsePtrOutput)
+}
+
+func (o SystemDataResponseOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
+}
+
+func (o SystemDataResponseOutput) CreatedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedBy }).(pulumi.StringPtrOutput)
+}
+
+func (o SystemDataResponseOutput) CreatedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedByType }).(pulumi.StringPtrOutput)
+}
+
+func (o SystemDataResponseOutput) LastModifiedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedAt }).(pulumi.StringPtrOutput)
+}
+
+func (o SystemDataResponseOutput) LastModifiedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedBy }).(pulumi.StringPtrOutput)
+}
+
+func (o SystemDataResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
+}
+
+type SystemDataResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (SystemDataResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SystemDataResponse)(nil)).Elem()
+}
+
+func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
+	return o
+}
+
+func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
+	return o
+}
+
+func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
+	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SystemDataResponse
+		return ret
+	}).(SystemDataResponseOutput)
+}
+
+func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CreatedAt
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CreatedBy
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CreatedByType
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LastModifiedAt
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LastModifiedBy
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LastModifiedByType
+	}).(pulumi.StringPtrOutput)
+}
+
 type ValidateMigrationInputSqlServerSqlDbSyncTaskProperties struct {
 	Input    *ValidateSyncMigrationInputSqlServerTaskInput `pulumi:"input"`
 	TaskType string                                        `pulumi:"taskType"`
@@ -23820,6 +24170,8 @@ func init() {
 	pulumi.RegisterOutputType(MySqlConnectionInfoPtrOutput{})
 	pulumi.RegisterOutputType(MySqlConnectionInfoResponseOutput{})
 	pulumi.RegisterOutputType(MySqlConnectionInfoResponsePtrOutput{})
+	pulumi.RegisterOutputType(NodeMonitoringDataResponseOutput{})
+	pulumi.RegisterOutputType(NodeMonitoringDataResponseArrayOutput{})
 	pulumi.RegisterOutputType(ODataErrorResponseOutput{})
 	pulumi.RegisterOutputType(ODataErrorResponseArrayOutput{})
 	pulumi.RegisterOutputType(OrphanedUserInfoResponseOutput{})
@@ -23854,6 +24206,8 @@ func init() {
 	pulumi.RegisterOutputType(StartMigrationScenarioServerRoleResultResponseMapOutput{})
 	pulumi.RegisterOutputType(SyncMigrationDatabaseErrorEventResponseOutput{})
 	pulumi.RegisterOutputType(SyncMigrationDatabaseErrorEventResponseArrayOutput{})
+	pulumi.RegisterOutputType(SystemDataResponseOutput{})
+	pulumi.RegisterOutputType(SystemDataResponsePtrOutput{})
 	pulumi.RegisterOutputType(ValidateMigrationInputSqlServerSqlDbSyncTaskPropertiesOutput{})
 	pulumi.RegisterOutputType(ValidateMigrationInputSqlServerSqlDbSyncTaskPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(ValidateMigrationInputSqlServerSqlMISyncTaskInputOutput{})

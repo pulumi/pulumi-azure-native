@@ -43,6 +43,9 @@ func NewFile(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:datamigration/v20210630:File"),
 		},
+		{
+			Type: pulumi.String("azure-native:datamigration/v20211030preview:File"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource File

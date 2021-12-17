@@ -124,7 +124,7 @@ def get_private_link_scope(resource_group_name: Optional[str] = None,
     API Version: 2019-10-17-preview.
 
 
-    :param str resource_group_name: The name of the resource group.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str scope_name: The name of the Azure Monitor PrivateLinkScope resource.
     """
     __args__ = dict()
@@ -155,7 +155,7 @@ def get_private_link_scope_output(resource_group_name: Optional[pulumi.Input[str
     API Version: 2019-10-17-preview.
 
 
-    :param str resource_group_name: The name of the resource group.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str scope_name: The name of the Azure Monitor PrivateLinkScope resource.
     """
     ...

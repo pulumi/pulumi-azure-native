@@ -30,7 +30,7 @@ class ScheduledQueryRuleArgs:
         """
         The set of arguments for constructing a ScheduledQueryRule resource.
         :param pulumi.Input[Union['AlertingActionArgs', 'LogToMetricActionArgs']] action: Action needs to be taken on rule execution.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['SourceArgs'] source: Data Source against which rule will Query Data
         :param pulumi.Input[bool] auto_mitigate: The flag that indicates whether the alert should be automatically resolved or not. The default is false.
         :param pulumi.Input[str] description: The description of the Log Search rule.
@@ -79,7 +79,7 @@ class ScheduledQueryRuleArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the resource group.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -225,7 +225,7 @@ class ScheduledQueryRule(pulumi.CustomResource):
         :param pulumi.Input[str] display_name: The display name of the alert rule
         :param pulumi.Input[Union[str, 'Enabled']] enabled: The flag which indicates whether the Log Search rule is enabled. Value should be true or false
         :param pulumi.Input[str] location: Resource location
-        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] rule_name: The name of the rule.
         :param pulumi.Input[pulumi.InputType['ScheduleArgs']] schedule: Schedule (Frequency, Time Window) for rule. Required for action type - AlertingAction
         :param pulumi.Input[pulumi.InputType['SourceArgs']] source: Data Source against which rule will Query Data

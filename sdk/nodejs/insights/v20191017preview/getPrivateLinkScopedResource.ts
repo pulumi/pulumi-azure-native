@@ -28,7 +28,7 @@ export interface GetPrivateLinkScopedResourceArgs {
      */
     name: string;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
     /**
@@ -73,7 +73,7 @@ export interface GetPrivateLinkScopedResourceOutputArgs {
      */
     name: pulumi.Input<string>;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

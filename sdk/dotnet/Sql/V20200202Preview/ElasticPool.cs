@@ -125,6 +125,7 @@ namespace Pulumi.AzureNative.Sql.V20200202Preview
                     new Pulumi.Alias { Type = "azure-native:sql/v20201101preview:ElasticPool"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20210201preview:ElasticPool"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20210501preview:ElasticPool"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20210801preview:ElasticPool"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

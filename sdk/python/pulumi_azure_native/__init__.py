@@ -5273,6 +5273,7 @@ _utilities.register(
    "azure-native:datamigration:File": "File",
    "azure-native:datamigration:Project": "Project",
    "azure-native:datamigration:Service": "Service",
+   "azure-native:datamigration:SqlMigrationService": "SqlMigrationService",
    "azure-native:datamigration:Task": "Task"
   }
  },
@@ -5338,6 +5339,19 @@ _utilities.register(
    "azure-native:datamigration/v20210630:Service": "Service",
    "azure-native:datamigration/v20210630:ServiceTask": "ServiceTask",
    "azure-native:datamigration/v20210630:Task": "Task"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "datamigration/v20211030preview",
+  "fqn": "pulumi_azure_native.datamigration.v20211030preview",
+  "classes": {
+   "azure-native:datamigration/v20211030preview:File": "File",
+   "azure-native:datamigration/v20211030preview:Project": "Project",
+   "azure-native:datamigration/v20211030preview:Service": "Service",
+   "azure-native:datamigration/v20211030preview:ServiceTask": "ServiceTask",
+   "azure-native:datamigration/v20211030preview:SqlMigrationService": "SqlMigrationService",
+   "azure-native:datamigration/v20211030preview:Task": "Task"
   }
  },
  {
@@ -15471,6 +15485,7 @@ _utilities.register(
    "azure-native:sql:FailoverGroup": "FailoverGroup",
    "azure-native:sql:FirewallRule": "FirewallRule",
    "azure-native:sql:GeoBackupPolicy": "GeoBackupPolicy",
+   "azure-native:sql:IPv6FirewallRule": "IPv6FirewallRule",
    "azure-native:sql:InstanceFailoverGroup": "InstanceFailoverGroup",
    "azure-native:sql:InstancePool": "InstancePool",
    "azure-native:sql:Job": "Job",
@@ -15910,6 +15925,67 @@ _utilities.register(
    "azure-native:sql/v20210501preview:VirtualNetworkRule": "VirtualNetworkRule",
    "azure-native:sql/v20210501preview:WorkloadClassifier": "WorkloadClassifier",
    "azure-native:sql/v20210501preview:WorkloadGroup": "WorkloadGroup"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "sql/v20210801preview",
+  "fqn": "pulumi_azure_native.sql.v20210801preview",
+  "classes": {
+   "azure-native:sql/v20210801preview:BackupShortTermRetentionPolicy": "BackupShortTermRetentionPolicy",
+   "azure-native:sql/v20210801preview:Database": "Database",
+   "azure-native:sql/v20210801preview:DatabaseAdvisor": "DatabaseAdvisor",
+   "azure-native:sql/v20210801preview:DatabaseBlobAuditingPolicy": "DatabaseBlobAuditingPolicy",
+   "azure-native:sql/v20210801preview:DatabaseSecurityAlertPolicy": "DatabaseSecurityAlertPolicy",
+   "azure-native:sql/v20210801preview:DatabaseVulnerabilityAssessment": "DatabaseVulnerabilityAssessment",
+   "azure-native:sql/v20210801preview:DatabaseVulnerabilityAssessmentRuleBaseline": "DatabaseVulnerabilityAssessmentRuleBaseline",
+   "azure-native:sql/v20210801preview:DistributedAvailabilityGroup": "DistributedAvailabilityGroup",
+   "azure-native:sql/v20210801preview:ElasticPool": "ElasticPool",
+   "azure-native:sql/v20210801preview:EncryptionProtector": "EncryptionProtector",
+   "azure-native:sql/v20210801preview:ExtendedDatabaseBlobAuditingPolicy": "ExtendedDatabaseBlobAuditingPolicy",
+   "azure-native:sql/v20210801preview:ExtendedServerBlobAuditingPolicy": "ExtendedServerBlobAuditingPolicy",
+   "azure-native:sql/v20210801preview:FailoverGroup": "FailoverGroup",
+   "azure-native:sql/v20210801preview:FirewallRule": "FirewallRule",
+   "azure-native:sql/v20210801preview:IPv6FirewallRule": "IPv6FirewallRule",
+   "azure-native:sql/v20210801preview:InstanceFailoverGroup": "InstanceFailoverGroup",
+   "azure-native:sql/v20210801preview:InstancePool": "InstancePool",
+   "azure-native:sql/v20210801preview:Job": "Job",
+   "azure-native:sql/v20210801preview:JobAgent": "JobAgent",
+   "azure-native:sql/v20210801preview:JobCredential": "JobCredential",
+   "azure-native:sql/v20210801preview:JobStep": "JobStep",
+   "azure-native:sql/v20210801preview:JobTargetGroup": "JobTargetGroup",
+   "azure-native:sql/v20210801preview:LongTermRetentionPolicy": "LongTermRetentionPolicy",
+   "azure-native:sql/v20210801preview:ManagedDatabase": "ManagedDatabase",
+   "azure-native:sql/v20210801preview:ManagedDatabaseSensitivityLabel": "ManagedDatabaseSensitivityLabel",
+   "azure-native:sql/v20210801preview:ManagedDatabaseVulnerabilityAssessment": "ManagedDatabaseVulnerabilityAssessment",
+   "azure-native:sql/v20210801preview:ManagedDatabaseVulnerabilityAssessmentRuleBaseline": "ManagedDatabaseVulnerabilityAssessmentRuleBaseline",
+   "azure-native:sql/v20210801preview:ManagedInstance": "ManagedInstance",
+   "azure-native:sql/v20210801preview:ManagedInstanceAdministrator": "ManagedInstanceAdministrator",
+   "azure-native:sql/v20210801preview:ManagedInstanceAzureADOnlyAuthentication": "ManagedInstanceAzureADOnlyAuthentication",
+   "azure-native:sql/v20210801preview:ManagedInstanceKey": "ManagedInstanceKey",
+   "azure-native:sql/v20210801preview:ManagedInstancePrivateEndpointConnection": "ManagedInstancePrivateEndpointConnection",
+   "azure-native:sql/v20210801preview:ManagedInstanceVulnerabilityAssessment": "ManagedInstanceVulnerabilityAssessment",
+   "azure-native:sql/v20210801preview:OutboundFirewallRule": "OutboundFirewallRule",
+   "azure-native:sql/v20210801preview:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:sql/v20210801preview:SensitivityLabel": "SensitivityLabel",
+   "azure-native:sql/v20210801preview:Server": "Server",
+   "azure-native:sql/v20210801preview:ServerAdvisor": "ServerAdvisor",
+   "azure-native:sql/v20210801preview:ServerAzureADAdministrator": "ServerAzureADAdministrator",
+   "azure-native:sql/v20210801preview:ServerAzureADOnlyAuthentication": "ServerAzureADOnlyAuthentication",
+   "azure-native:sql/v20210801preview:ServerBlobAuditingPolicy": "ServerBlobAuditingPolicy",
+   "azure-native:sql/v20210801preview:ServerDnsAlias": "ServerDnsAlias",
+   "azure-native:sql/v20210801preview:ServerKey": "ServerKey",
+   "azure-native:sql/v20210801preview:ServerSecurityAlertPolicy": "ServerSecurityAlertPolicy",
+   "azure-native:sql/v20210801preview:ServerTrustCertificate": "ServerTrustCertificate",
+   "azure-native:sql/v20210801preview:ServerTrustGroup": "ServerTrustGroup",
+   "azure-native:sql/v20210801preview:ServerVulnerabilityAssessment": "ServerVulnerabilityAssessment",
+   "azure-native:sql/v20210801preview:SyncAgent": "SyncAgent",
+   "azure-native:sql/v20210801preview:SyncGroup": "SyncGroup",
+   "azure-native:sql/v20210801preview:SyncMember": "SyncMember",
+   "azure-native:sql/v20210801preview:TransparentDataEncryption": "TransparentDataEncryption",
+   "azure-native:sql/v20210801preview:VirtualNetworkRule": "VirtualNetworkRule",
+   "azure-native:sql/v20210801preview:WorkloadClassifier": "WorkloadClassifier",
+   "azure-native:sql/v20210801preview:WorkloadGroup": "WorkloadGroup"
   }
  },
  {

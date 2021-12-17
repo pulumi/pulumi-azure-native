@@ -18,7 +18,7 @@ type ViewByScope struct {
 	Chart                     pulumi.StringPtrOutput                  `pulumi:"chart"`
 	CreatedOn                 pulumi.StringOutput                     `pulumi:"createdOn"`
 	Currency                  pulumi.StringOutput                     `pulumi:"currency"`
-	Dataset                   ReportConfigDatasetResponsePtrOutput    `pulumi:"dataset"`
+	DataSet                   ReportConfigDatasetResponsePtrOutput    `pulumi:"dataSet"`
 	DateRange                 pulumi.StringOutput                     `pulumi:"dateRange"`
 	DisplayName               pulumi.StringPtrOutput                  `pulumi:"displayName"`
 	ETag                      pulumi.StringPtrOutput                  `pulumi:"eTag"`
@@ -99,7 +99,7 @@ func (ViewByScopeState) ElementType() reflect.Type {
 type viewByScopeArgs struct {
 	Accumulated               *string                 `pulumi:"accumulated"`
 	Chart                     *string                 `pulumi:"chart"`
-	Dataset                   *ReportConfigDataset    `pulumi:"dataset"`
+	DataSet                   *ReportConfigDataset    `pulumi:"dataSet"`
 	DisplayName               *string                 `pulumi:"displayName"`
 	ETag                      *string                 `pulumi:"eTag"`
 	IncludeMonetaryCommitment *bool                   `pulumi:"includeMonetaryCommitment"`
@@ -117,7 +117,7 @@ type viewByScopeArgs struct {
 type ViewByScopeArgs struct {
 	Accumulated               pulumi.StringPtrInput
 	Chart                     pulumi.StringPtrInput
-	Dataset                   ReportConfigDatasetPtrInput
+	DataSet                   ReportConfigDatasetPtrInput
 	DisplayName               pulumi.StringPtrInput
 	ETag                      pulumi.StringPtrInput
 	IncludeMonetaryCommitment pulumi.BoolPtrInput

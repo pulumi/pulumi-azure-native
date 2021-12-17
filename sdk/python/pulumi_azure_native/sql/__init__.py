@@ -40,6 +40,7 @@ from .get_extended_server_blob_auditing_policy import *
 from .get_failover_group import *
 from .get_firewall_rule import *
 from .get_geo_backup_policy import *
+from .get_i_pv6_firewall_rule import *
 from .get_instance_failover_group import *
 from .get_instance_pool import *
 from .get_job import *
@@ -80,6 +81,7 @@ from .get_transparent_data_encryption import *
 from .get_virtual_network_rule import *
 from .get_workload_classifier import *
 from .get_workload_group import *
+from .i_pv6_firewall_rule import *
 from .instance_failover_group import *
 from .instance_pool import *
 from .job import *
@@ -147,6 +149,8 @@ if typing.TYPE_CHECKING:
     v20210201preview = __v20210201preview
     import pulumi_azure_native.sql.v20210501preview as __v20210501preview
     v20210501preview = __v20210501preview
+    import pulumi_azure_native.sql.v20210801preview as __v20210801preview
+    v20210801preview = __v20210801preview
 else:
     v20140401 = _utilities.lazy_import('pulumi_azure_native.sql.v20140401')
     v20150501preview = _utilities.lazy_import('pulumi_azure_native.sql.v20150501preview')
@@ -159,4 +163,5 @@ else:
     v20201101preview = _utilities.lazy_import('pulumi_azure_native.sql.v20201101preview')
     v20210201preview = _utilities.lazy_import('pulumi_azure_native.sql.v20210201preview')
     v20210501preview = _utilities.lazy_import('pulumi_azure_native.sql.v20210501preview')
+    v20210801preview = _utilities.lazy_import('pulumi_azure_native.sql.v20210801preview')
 

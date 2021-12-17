@@ -118,6 +118,7 @@ __all__ = [
     'MigrationValidationDatabaseSummaryResultResponse',
     'MigrationValidationOptionsResponse',
     'MySqlConnectionInfoResponse',
+    'NodeMonitoringDataResponse',
     'ODataErrorResponse',
     'OrphanedUserInfoResponse',
     'PostgreSqlConnectionInfoResponse',
@@ -132,6 +133,7 @@ __all__ = [
     'SqlConnectionInfoResponse',
     'StartMigrationScenarioServerRoleResultResponse',
     'SyncMigrationDatabaseErrorEventResponse',
+    'SystemDataResponse',
     'ValidateMigrationInputSqlServerSqlDbSyncTaskPropertiesResponse',
     'ValidateMigrationInputSqlServerSqlMISyncTaskInputResponse',
     'ValidateMigrationInputSqlServerSqlMISyncTaskOutputResponse',
@@ -10885,6 +10887,112 @@ class MySqlConnectionInfoResponse(dict):
 
 
 @pulumi.output_type
+class NodeMonitoringDataResponse(dict):
+    def __init__(__self__, *,
+                 additional_properties: Mapping[str, Any],
+                 available_memory_in_mb: int,
+                 concurrent_jobs_limit: int,
+                 concurrent_jobs_running: int,
+                 cpu_utilization: int,
+                 max_concurrent_jobs: int,
+                 node_name: str,
+                 received_bytes: float,
+                 sent_bytes: float):
+        """
+        :param Mapping[str, Any] additional_properties:  Unmatched properties from the message are deserialized in this collection.
+        :param int available_memory_in_mb: Available memory (MB) on the integration runtime node.
+        :param int concurrent_jobs_limit: Maximum concurrent jobs on the integration runtime node.
+        :param int concurrent_jobs_running: The number of jobs currently running on the integration runtime node.
+        :param int cpu_utilization: CPU percentage on the integration runtime node.
+        :param int max_concurrent_jobs: The maximum concurrent jobs in this integration runtime.
+        :param str node_name: Name of the integration runtime node.
+        :param float received_bytes: Received bytes on the integration runtime node.
+        :param float sent_bytes: Sent bytes on the integration runtime node.
+        """
+        pulumi.set(__self__, "additional_properties", additional_properties)
+        pulumi.set(__self__, "available_memory_in_mb", available_memory_in_mb)
+        pulumi.set(__self__, "concurrent_jobs_limit", concurrent_jobs_limit)
+        pulumi.set(__self__, "concurrent_jobs_running", concurrent_jobs_running)
+        pulumi.set(__self__, "cpu_utilization", cpu_utilization)
+        pulumi.set(__self__, "max_concurrent_jobs", max_concurrent_jobs)
+        pulumi.set(__self__, "node_name", node_name)
+        pulumi.set(__self__, "received_bytes", received_bytes)
+        pulumi.set(__self__, "sent_bytes", sent_bytes)
+
+    @property
+    @pulumi.getter(name="additionalProperties")
+    def additional_properties(self) -> Mapping[str, Any]:
+        """
+         Unmatched properties from the message are deserialized in this collection.
+        """
+        return pulumi.get(self, "additional_properties")
+
+    @property
+    @pulumi.getter(name="availableMemoryInMB")
+    def available_memory_in_mb(self) -> int:
+        """
+        Available memory (MB) on the integration runtime node.
+        """
+        return pulumi.get(self, "available_memory_in_mb")
+
+    @property
+    @pulumi.getter(name="concurrentJobsLimit")
+    def concurrent_jobs_limit(self) -> int:
+        """
+        Maximum concurrent jobs on the integration runtime node.
+        """
+        return pulumi.get(self, "concurrent_jobs_limit")
+
+    @property
+    @pulumi.getter(name="concurrentJobsRunning")
+    def concurrent_jobs_running(self) -> int:
+        """
+        The number of jobs currently running on the integration runtime node.
+        """
+        return pulumi.get(self, "concurrent_jobs_running")
+
+    @property
+    @pulumi.getter(name="cpuUtilization")
+    def cpu_utilization(self) -> int:
+        """
+        CPU percentage on the integration runtime node.
+        """
+        return pulumi.get(self, "cpu_utilization")
+
+    @property
+    @pulumi.getter(name="maxConcurrentJobs")
+    def max_concurrent_jobs(self) -> int:
+        """
+        The maximum concurrent jobs in this integration runtime.
+        """
+        return pulumi.get(self, "max_concurrent_jobs")
+
+    @property
+    @pulumi.getter(name="nodeName")
+    def node_name(self) -> str:
+        """
+        Name of the integration runtime node.
+        """
+        return pulumi.get(self, "node_name")
+
+    @property
+    @pulumi.getter(name="receivedBytes")
+    def received_bytes(self) -> float:
+        """
+        Received bytes on the integration runtime node.
+        """
+        return pulumi.get(self, "received_bytes")
+
+    @property
+    @pulumi.getter(name="sentBytes")
+    def sent_bytes(self) -> float:
+        """
+        Sent bytes on the integration runtime node.
+        """
+        return pulumi.get(self, "sent_bytes")
+
+
+@pulumi.output_type
 class ODataErrorResponse(dict):
     """
     Error information in OData format.
@@ -11944,6 +12052,86 @@ class SyncMigrationDatabaseErrorEventResponse(dict):
         String value of timestamp.
         """
         return pulumi.get(self, "timestamp_string")
+
+
+@pulumi.output_type
+class SystemDataResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createdAt":
+            suggest = "created_at"
+        elif key == "createdBy":
+            suggest = "created_by"
+        elif key == "createdByType":
+            suggest = "created_by_type"
+        elif key == "lastModifiedAt":
+            suggest = "last_modified_at"
+        elif key == "lastModifiedBy":
+            suggest = "last_modified_by"
+        elif key == "lastModifiedByType":
+            suggest = "last_modified_by_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SystemDataResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SystemDataResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SystemDataResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 created_at: Optional[str] = None,
+                 created_by: Optional[str] = None,
+                 created_by_type: Optional[str] = None,
+                 last_modified_at: Optional[str] = None,
+                 last_modified_by: Optional[str] = None,
+                 last_modified_by_type: Optional[str] = None):
+        if created_at is not None:
+            pulumi.set(__self__, "created_at", created_at)
+        if created_by is not None:
+            pulumi.set(__self__, "created_by", created_by)
+        if created_by_type is not None:
+            pulumi.set(__self__, "created_by_type", created_by_type)
+        if last_modified_at is not None:
+            pulumi.set(__self__, "last_modified_at", last_modified_at)
+        if last_modified_by is not None:
+            pulumi.set(__self__, "last_modified_by", last_modified_by)
+        if last_modified_by_type is not None:
+            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+
+    @property
+    @pulumi.getter(name="createdAt")
+    def created_at(self) -> Optional[str]:
+        return pulumi.get(self, "created_at")
+
+    @property
+    @pulumi.getter(name="createdBy")
+    def created_by(self) -> Optional[str]:
+        return pulumi.get(self, "created_by")
+
+    @property
+    @pulumi.getter(name="createdByType")
+    def created_by_type(self) -> Optional[str]:
+        return pulumi.get(self, "created_by_type")
+
+    @property
+    @pulumi.getter(name="lastModifiedAt")
+    def last_modified_at(self) -> Optional[str]:
+        return pulumi.get(self, "last_modified_at")
+
+    @property
+    @pulumi.getter(name="lastModifiedBy")
+    def last_modified_by(self) -> Optional[str]:
+        return pulumi.get(self, "last_modified_by")
+
+    @property
+    @pulumi.getter(name="lastModifiedByType")
+    def last_modified_by_type(self) -> Optional[str]:
+        return pulumi.get(self, "last_modified_by_type")
 
 
 @pulumi.output_type

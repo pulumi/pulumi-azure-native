@@ -82,7 +82,7 @@ export class ManagedInstanceAzureADOnlyAuthentication extends pulumi.CustomResou
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:sql/v20200202preview:ManagedInstanceAzureADOnlyAuthentication" }, { type: "azure-native:sql/v20200801preview:ManagedInstanceAzureADOnlyAuthentication" }, { type: "azure-native:sql/v20201101preview:ManagedInstanceAzureADOnlyAuthentication" }, { type: "azure-native:sql/v20210201preview:ManagedInstanceAzureADOnlyAuthentication" }, { type: "azure-native:sql/v20210501preview:ManagedInstanceAzureADOnlyAuthentication" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:sql/v20200202preview:ManagedInstanceAzureADOnlyAuthentication" }, { type: "azure-native:sql/v20200801preview:ManagedInstanceAzureADOnlyAuthentication" }, { type: "azure-native:sql/v20201101preview:ManagedInstanceAzureADOnlyAuthentication" }, { type: "azure-native:sql/v20210201preview:ManagedInstanceAzureADOnlyAuthentication" }, { type: "azure-native:sql/v20210501preview:ManagedInstanceAzureADOnlyAuthentication" }, { type: "azure-native:sql/v20210801preview:ManagedInstanceAzureADOnlyAuthentication" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ManagedInstanceAzureADOnlyAuthentication.__pulumiType, name, resourceInputs, opts);
     }

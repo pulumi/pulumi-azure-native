@@ -76,6 +76,7 @@ namespace Pulumi.AzureNative.Sql.V20201101Preview
                     new Pulumi.Alias { Type = "azure-native:sql/v20200801preview:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20210201preview:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20210501preview:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20210801preview:PrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

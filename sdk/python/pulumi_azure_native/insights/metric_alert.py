@@ -36,7 +36,7 @@ class MetricAlertArgs:
         :param pulumi.Input[Union['MetricAlertMultipleResourceMultipleMetricCriteriaArgs', 'MetricAlertSingleResourceMultipleMetricCriteriaArgs', 'WebtestLocationAvailabilityCriteriaArgs']] criteria: defines the specific alert criteria information.
         :param pulumi.Input[bool] enabled: the flag that indicates whether the metric alert is enabled.
         :param pulumi.Input[str] evaluation_frequency: how often the metric alert is evaluated represented in ISO 8601 duration format.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: the list of resource id's that this metric alert is scoped to.
         :param pulumi.Input[int] severity: Alert severity {0, 1, 2, 3, 4}
         :param pulumi.Input[str] window_size: the period of time (in ISO 8601 duration format) that is used to monitor alert activity based on the threshold.
@@ -113,7 +113,7 @@ class MetricAlertArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the resource group.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -288,7 +288,7 @@ class MetricAlert(pulumi.CustomResource):
         :param pulumi.Input[bool] enabled: the flag that indicates whether the metric alert is enabled.
         :param pulumi.Input[str] evaluation_frequency: how often the metric alert is evaluated represented in ISO 8601 duration format.
         :param pulumi.Input[str] location: Resource location
-        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] rule_name: The name of the rule.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: the list of resource id's that this metric alert is scoped to.
         :param pulumi.Input[int] severity: Alert severity {0, 1, 2, 3, 4}

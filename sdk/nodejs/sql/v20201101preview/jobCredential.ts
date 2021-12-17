@@ -89,7 +89,7 @@ export class JobCredential extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:sql:JobCredential" }, { type: "azure-native:sql/v20170301preview:JobCredential" }, { type: "azure-native:sql/v20200202preview:JobCredential" }, { type: "azure-native:sql/v20200801preview:JobCredential" }, { type: "azure-native:sql/v20210201preview:JobCredential" }, { type: "azure-native:sql/v20210501preview:JobCredential" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:sql:JobCredential" }, { type: "azure-native:sql/v20170301preview:JobCredential" }, { type: "azure-native:sql/v20200202preview:JobCredential" }, { type: "azure-native:sql/v20200801preview:JobCredential" }, { type: "azure-native:sql/v20210201preview:JobCredential" }, { type: "azure-native:sql/v20210501preview:JobCredential" }, { type: "azure-native:sql/v20210801preview:JobCredential" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(JobCredential.__pulumiType, name, resourceInputs, opts);
     }

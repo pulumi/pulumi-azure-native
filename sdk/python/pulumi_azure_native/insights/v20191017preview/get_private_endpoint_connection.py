@@ -113,7 +113,7 @@ def get_private_endpoint_connection(private_endpoint_connection_name: Optional[s
 
 
     :param str private_endpoint_connection_name: The name of the private endpoint connection.
-    :param str resource_group_name: The name of the resource group.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str scope_name: The name of the Azure Monitor PrivateLinkScope resource.
     """
     __args__ = dict()
@@ -145,7 +145,7 @@ def get_private_endpoint_connection_output(private_endpoint_connection_name: Opt
 
 
     :param str private_endpoint_connection_name: The name of the private endpoint connection.
-    :param str resource_group_name: The name of the resource group.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str scope_name: The name of the Azure Monitor PrivateLinkScope resource.
     """
     ...

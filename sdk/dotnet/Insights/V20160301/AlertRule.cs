@@ -186,7 +186,7 @@ namespace Pulumi.AzureNative.Insights.V20160301
         public Input<string>? ProvisioningState { get; set; }
 
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;

@@ -10,9 +10,13 @@ from .file import *
 from .get_file import *
 from .get_project import *
 from .get_service import *
+from .get_sql_migration_service import *
 from .get_task import *
+from .list_sql_migration_service_auth_keys import *
+from .list_sql_migration_service_monitoring_data import *
 from .project import *
 from .service import *
+from .sql_migration_service import *
 from .task import *
 from ._inputs import *
 from . import outputs
@@ -31,6 +35,8 @@ if typing.TYPE_CHECKING:
     v20180715preview = __v20180715preview
     import pulumi_azure_native.datamigration.v20210630 as __v20210630
     v20210630 = __v20210630
+    import pulumi_azure_native.datamigration.v20211030preview as __v20211030preview
+    v20211030preview = __v20211030preview
 else:
     v20171115preview = _utilities.lazy_import('pulumi_azure_native.datamigration.v20171115preview')
     v20180315preview = _utilities.lazy_import('pulumi_azure_native.datamigration.v20180315preview')
@@ -38,4 +44,5 @@ else:
     v20180419 = _utilities.lazy_import('pulumi_azure_native.datamigration.v20180419')
     v20180715preview = _utilities.lazy_import('pulumi_azure_native.datamigration.v20180715preview')
     v20210630 = _utilities.lazy_import('pulumi_azure_native.datamigration.v20210630')
+    v20211030preview = _utilities.lazy_import('pulumi_azure_native.datamigration.v20211030preview')
 

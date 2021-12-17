@@ -82,6 +82,7 @@ namespace Pulumi.AzureNative.Sql.V20201101Preview
                     new Pulumi.Alias { Type = "azure-native:sql/v20200801preview:ManagedInstanceKey"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20210201preview:ManagedInstanceKey"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20210501preview:ManagedInstanceKey"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20210801preview:ManagedInstanceKey"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

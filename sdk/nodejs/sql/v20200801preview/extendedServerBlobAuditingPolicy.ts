@@ -216,7 +216,7 @@ export class ExtendedServerBlobAuditingPolicy extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:sql:ExtendedServerBlobAuditingPolicy" }, { type: "azure-native:sql/v20170301preview:ExtendedServerBlobAuditingPolicy" }, { type: "azure-native:sql/v20200202preview:ExtendedServerBlobAuditingPolicy" }, { type: "azure-native:sql/v20201101preview:ExtendedServerBlobAuditingPolicy" }, { type: "azure-native:sql/v20210201preview:ExtendedServerBlobAuditingPolicy" }, { type: "azure-native:sql/v20210501preview:ExtendedServerBlobAuditingPolicy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:sql:ExtendedServerBlobAuditingPolicy" }, { type: "azure-native:sql/v20170301preview:ExtendedServerBlobAuditingPolicy" }, { type: "azure-native:sql/v20200202preview:ExtendedServerBlobAuditingPolicy" }, { type: "azure-native:sql/v20201101preview:ExtendedServerBlobAuditingPolicy" }, { type: "azure-native:sql/v20210201preview:ExtendedServerBlobAuditingPolicy" }, { type: "azure-native:sql/v20210501preview:ExtendedServerBlobAuditingPolicy" }, { type: "azure-native:sql/v20210801preview:ExtendedServerBlobAuditingPolicy" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ExtendedServerBlobAuditingPolicy.__pulumiType, name, resourceInputs, opts);
     }

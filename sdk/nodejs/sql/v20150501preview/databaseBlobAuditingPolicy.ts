@@ -123,7 +123,7 @@ export class DatabaseBlobAuditingPolicy extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:sql:DatabaseBlobAuditingPolicy" }, { type: "azure-native:sql/v20170301preview:DatabaseBlobAuditingPolicy" }, { type: "azure-native:sql/v20200202preview:DatabaseBlobAuditingPolicy" }, { type: "azure-native:sql/v20200801preview:DatabaseBlobAuditingPolicy" }, { type: "azure-native:sql/v20201101preview:DatabaseBlobAuditingPolicy" }, { type: "azure-native:sql/v20210201preview:DatabaseBlobAuditingPolicy" }, { type: "azure-native:sql/v20210501preview:DatabaseBlobAuditingPolicy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:sql:DatabaseBlobAuditingPolicy" }, { type: "azure-native:sql/v20170301preview:DatabaseBlobAuditingPolicy" }, { type: "azure-native:sql/v20200202preview:DatabaseBlobAuditingPolicy" }, { type: "azure-native:sql/v20200801preview:DatabaseBlobAuditingPolicy" }, { type: "azure-native:sql/v20201101preview:DatabaseBlobAuditingPolicy" }, { type: "azure-native:sql/v20210201preview:DatabaseBlobAuditingPolicy" }, { type: "azure-native:sql/v20210501preview:DatabaseBlobAuditingPolicy" }, { type: "azure-native:sql/v20210801preview:DatabaseBlobAuditingPolicy" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DatabaseBlobAuditingPolicy.__pulumiType, name, resourceInputs, opts);
     }

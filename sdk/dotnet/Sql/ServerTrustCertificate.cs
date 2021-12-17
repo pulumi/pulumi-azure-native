@@ -72,6 +72,7 @@ namespace Pulumi.AzureNative.Sql
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:sql/v20210501preview:ServerTrustCertificate"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20210801preview:ServerTrustCertificate"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

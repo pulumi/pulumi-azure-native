@@ -115,7 +115,7 @@ namespace Pulumi.AzureNative.Insights
         public Input<Inputs.PrivateLinkServiceConnectionStatePropertyArgs>? PrivateLinkServiceConnectionState { get; set; }
 
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;

@@ -24,7 +24,7 @@ export function getPrivateLinkScope(args: GetPrivateLinkScopeArgs, opts?: pulumi
 
 export interface GetPrivateLinkScopeArgs {
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
     /**
@@ -73,7 +73,7 @@ export function getPrivateLinkScopeOutput(args: GetPrivateLinkScopeOutputArgs, o
 
 export interface GetPrivateLinkScopeOutputArgs {
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

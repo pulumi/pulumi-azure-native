@@ -25,7 +25,7 @@ export function getAlertRule(args: GetAlertRuleArgs, opts?: pulumi.InvokeOptions
 
 export interface GetAlertRuleArgs {
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
     /**
@@ -94,7 +94,7 @@ export function getAlertRuleOutput(args: GetAlertRuleOutputArgs, opts?: pulumi.I
 
 export interface GetAlertRuleOutputArgs {
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

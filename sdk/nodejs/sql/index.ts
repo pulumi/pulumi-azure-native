@@ -39,6 +39,7 @@ export * from "./getExtendedServerBlobAuditingPolicy";
 export * from "./getFailoverGroup";
 export * from "./getFirewallRule";
 export * from "./getGeoBackupPolicy";
+export * from "./getIPv6FirewallRule";
 export * from "./getInstanceFailoverGroup";
 export * from "./getInstancePool";
 export * from "./getJob";
@@ -81,6 +82,7 @@ export * from "./getWorkloadClassifier";
 export * from "./getWorkloadGroup";
 export * from "./instanceFailoverGroup";
 export * from "./instancePool";
+export * from "./ipv6FirewallRule";
 export * from "./job";
 export * from "./jobAgent";
 export * from "./jobCredential";
@@ -135,6 +137,7 @@ import * as v20200801preview from "./v20200801preview";
 import * as v20201101preview from "./v20201101preview";
 import * as v20210201preview from "./v20210201preview";
 import * as v20210501preview from "./v20210501preview";
+import * as v20210801preview from "./v20210801preview";
 
 export {
     v20140401,
@@ -148,6 +151,7 @@ export {
     v20201101preview,
     v20210201preview,
     v20210501preview,
+    v20210801preview,
 };
 
 // Import resources to register:
@@ -168,6 +172,7 @@ import { ExtendedServerBlobAuditingPolicy } from "./extendedServerBlobAuditingPo
 import { FailoverGroup } from "./failoverGroup";
 import { FirewallRule } from "./firewallRule";
 import { GeoBackupPolicy } from "./geoBackupPolicy";
+import { IPv6FirewallRule } from "./ipv6FirewallRule";
 import { InstanceFailoverGroup } from "./instanceFailoverGroup";
 import { InstancePool } from "./instancePool";
 import { Job } from "./job";
@@ -247,6 +252,8 @@ const _module = {
                 return new FirewallRule(name, <any>undefined, { urn })
             case "azure-native:sql:GeoBackupPolicy":
                 return new GeoBackupPolicy(name, <any>undefined, { urn })
+            case "azure-native:sql:IPv6FirewallRule":
+                return new IPv6FirewallRule(name, <any>undefined, { urn })
             case "azure-native:sql:InstanceFailoverGroup":
                 return new InstanceFailoverGroup(name, <any>undefined, { urn })
             case "azure-native:sql:InstancePool":

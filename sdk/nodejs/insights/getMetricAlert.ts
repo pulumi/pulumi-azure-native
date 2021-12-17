@@ -25,7 +25,7 @@ export function getMetricAlert(args: GetMetricAlertArgs, opts?: pulumi.InvokeOpt
 
 export interface GetMetricAlertArgs {
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
     /**
@@ -118,7 +118,7 @@ export function getMetricAlertOutput(args: GetMetricAlertOutputArgs, opts?: pulu
 
 export interface GetMetricAlertOutputArgs {
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

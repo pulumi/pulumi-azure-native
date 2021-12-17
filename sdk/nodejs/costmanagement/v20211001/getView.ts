@@ -51,7 +51,7 @@ export interface GetViewResult {
     /**
      * Has definition for data in this report config.
      */
-    readonly dataset?: outputs.costmanagement.v20211001.ReportConfigDatasetResponse;
+    readonly dataSet?: outputs.costmanagement.v20211001.ReportConfigDatasetResponse;
     /**
      * Date range of the current view.
      */

@@ -55,6 +55,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &FirewallRule{}
 	case "azure-native:sql:GeoBackupPolicy":
 		r = &GeoBackupPolicy{}
+	case "azure-native:sql:IPv6FirewallRule":
+		r = &IPv6FirewallRule{}
 	case "azure-native:sql:InstanceFailoverGroup":
 		r = &InstanceFailoverGroup{}
 	case "azure-native:sql:InstancePool":

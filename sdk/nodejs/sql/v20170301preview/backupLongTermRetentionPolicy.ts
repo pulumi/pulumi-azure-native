@@ -100,7 +100,7 @@ export class BackupLongTermRetentionPolicy extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:sql:BackupLongTermRetentionPolicy" }, { type: "azure-native:sql/v20200202preview:BackupLongTermRetentionPolicy" }, { type: "azure-native:sql/v20200801preview:BackupLongTermRetentionPolicy" }, { type: "azure-native:sql/v20201101preview:BackupLongTermRetentionPolicy" }, { type: "azure-native:sql/v20210201preview:BackupLongTermRetentionPolicy" }, { type: "azure-native:sql/v20210501preview:BackupLongTermRetentionPolicy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:sql:BackupLongTermRetentionPolicy" }, { type: "azure-native:sql/v20200202preview:BackupLongTermRetentionPolicy" }, { type: "azure-native:sql/v20200801preview:BackupLongTermRetentionPolicy" }, { type: "azure-native:sql/v20201101preview:BackupLongTermRetentionPolicy" }, { type: "azure-native:sql/v20210201preview:BackupLongTermRetentionPolicy" }, { type: "azure-native:sql/v20210501preview:BackupLongTermRetentionPolicy" }, { type: "azure-native:sql/v20210801preview:BackupLongTermRetentionPolicy" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(BackupLongTermRetentionPolicy.__pulumiType, name, resourceInputs, opts);
     }

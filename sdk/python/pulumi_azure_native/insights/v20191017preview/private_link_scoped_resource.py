@@ -19,7 +19,7 @@ class PrivateLinkScopedResourceArgs:
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a PrivateLinkScopedResource resource.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] scope_name: The name of the Azure Monitor PrivateLinkScope resource.
         :param pulumi.Input[str] linked_resource_id: The resource id of the scoped Azure monitor resource.
         :param pulumi.Input[str] name: The name of the scoped resource object.
@@ -35,7 +35,7 @@ class PrivateLinkScopedResourceArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the resource group.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -97,7 +97,7 @@ class PrivateLinkScopedResource(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] linked_resource_id: The resource id of the scoped Azure monitor resource.
         :param pulumi.Input[str] name: The name of the scoped resource object.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] scope_name: The name of the Azure Monitor PrivateLinkScope resource.
         """
         ...

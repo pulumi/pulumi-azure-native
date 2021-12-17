@@ -210,7 +210,7 @@ export class ServerBlobAuditingPolicy extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:sql:ServerBlobAuditingPolicy" }, { type: "azure-native:sql/v20170301preview:ServerBlobAuditingPolicy" }, { type: "azure-native:sql/v20200202preview:ServerBlobAuditingPolicy" }, { type: "azure-native:sql/v20201101preview:ServerBlobAuditingPolicy" }, { type: "azure-native:sql/v20210201preview:ServerBlobAuditingPolicy" }, { type: "azure-native:sql/v20210501preview:ServerBlobAuditingPolicy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:sql:ServerBlobAuditingPolicy" }, { type: "azure-native:sql/v20170301preview:ServerBlobAuditingPolicy" }, { type: "azure-native:sql/v20200202preview:ServerBlobAuditingPolicy" }, { type: "azure-native:sql/v20201101preview:ServerBlobAuditingPolicy" }, { type: "azure-native:sql/v20210201preview:ServerBlobAuditingPolicy" }, { type: "azure-native:sql/v20210501preview:ServerBlobAuditingPolicy" }, { type: "azure-native:sql/v20210801preview:ServerBlobAuditingPolicy" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ServerBlobAuditingPolicy.__pulumiType, name, resourceInputs, opts);
     }

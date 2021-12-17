@@ -134,7 +134,7 @@ def getguest_diagnostics_setting(diagnostic_settings_name: Optional[str] = None,
 
 
     :param str diagnostic_settings_name: The name of the diagnostic setting.
-    :param str resource_group_name: The name of the resource group.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['diagnosticSettingsName'] = diagnostic_settings_name
@@ -166,6 +166,6 @@ def getguest_diagnostics_setting_output(diagnostic_settings_name: Optional[pulum
 
 
     :param str diagnostic_settings_name: The name of the diagnostic setting.
-    :param str resource_group_name: The name of the resource group.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     ...

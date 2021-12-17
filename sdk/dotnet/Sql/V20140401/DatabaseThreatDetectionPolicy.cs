@@ -113,6 +113,7 @@ namespace Pulumi.AzureNative.Sql.V20140401
                     new Pulumi.Alias { Type = "azure-native:sql/v20201101preview:DatabaseThreatDetectionPolicy"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20210201preview:DatabaseThreatDetectionPolicy"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20210501preview:DatabaseThreatDetectionPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20210801preview:DatabaseThreatDetectionPolicy"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

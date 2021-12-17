@@ -124,7 +124,7 @@ export class ServerAdvisor extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:sql:ServerAdvisor" }, { type: "azure-native:sql/v20140401:ServerAdvisor" }, { type: "azure-native:sql/v20200202preview:ServerAdvisor" }, { type: "azure-native:sql/v20200801preview:ServerAdvisor" }, { type: "azure-native:sql/v20201101preview:ServerAdvisor" }, { type: "azure-native:sql/v20210201preview:ServerAdvisor" }, { type: "azure-native:sql/v20210501preview:ServerAdvisor" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:sql:ServerAdvisor" }, { type: "azure-native:sql/v20140401:ServerAdvisor" }, { type: "azure-native:sql/v20200202preview:ServerAdvisor" }, { type: "azure-native:sql/v20200801preview:ServerAdvisor" }, { type: "azure-native:sql/v20201101preview:ServerAdvisor" }, { type: "azure-native:sql/v20210201preview:ServerAdvisor" }, { type: "azure-native:sql/v20210501preview:ServerAdvisor" }, { type: "azure-native:sql/v20210801preview:ServerAdvisor" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ServerAdvisor.__pulumiType, name, resourceInputs, opts);
     }

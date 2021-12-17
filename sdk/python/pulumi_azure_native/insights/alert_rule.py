@@ -32,7 +32,7 @@ class AlertRuleArgs:
         :param pulumi.Input[Union['LocationThresholdRuleConditionArgs', 'ManagementEventRuleConditionArgs', 'ThresholdRuleConditionArgs']] condition: the condition that results in the alert rule being activated.
         :param pulumi.Input[bool] is_enabled: the flag that indicates whether the alert rule is enabled.
         :param pulumi.Input[str] name: the name of the alert rule.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Union['RuleEmailActionArgs', 'RuleWebhookActionArgs']] action: action that is performed when the alert rule becomes active, and when an alert condition is resolved.
         :param pulumi.Input[Sequence[pulumi.Input[Union['RuleEmailActionArgs', 'RuleWebhookActionArgs']]]] actions: the array of actions that are performed when the alert rule becomes active, and when an alert condition is resolved.
         :param pulumi.Input[str] description: the description of the alert rule that will be included in the alert email.
@@ -100,7 +100,7 @@ class AlertRuleArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the resource group.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -224,7 +224,7 @@ class AlertRule(pulumi.CustomResource):
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[str] name: the name of the alert rule.
         :param pulumi.Input[str] provisioning_state: the provisioning state.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] rule_name: The name of the rule.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         """

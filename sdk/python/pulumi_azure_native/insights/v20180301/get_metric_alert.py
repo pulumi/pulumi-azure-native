@@ -255,7 +255,7 @@ def get_metric_alert(resource_group_name: Optional[str] = None,
     The metric alert resource.
 
 
-    :param str resource_group_name: The name of the resource group.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str rule_name: The name of the rule.
     """
     __args__ = dict()
@@ -296,7 +296,7 @@ def get_metric_alert_output(resource_group_name: Optional[pulumi.Input[str]] = N
     The metric alert resource.
 
 
-    :param str resource_group_name: The name of the resource group.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str rule_name: The name of the rule.
     """
     ...

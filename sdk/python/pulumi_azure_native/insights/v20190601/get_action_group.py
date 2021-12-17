@@ -268,7 +268,7 @@ def get_action_group(action_group_name: Optional[str] = None,
 
 
     :param str action_group_name: The name of the action group.
-    :param str resource_group_name: The name of the resource group.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['actionGroupName'] = action_group_name
@@ -310,6 +310,6 @@ def get_action_group_output(action_group_name: Optional[pulumi.Input[str]] = Non
 
 
     :param str action_group_name: The name of the action group.
-    :param str resource_group_name: The name of the resource group.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     ...

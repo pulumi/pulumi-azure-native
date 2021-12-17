@@ -28,7 +28,7 @@ class ActivityLogAlertArgs:
         The set of arguments for constructing a ActivityLogAlert resource.
         :param pulumi.Input['ActivityLogAlertActionListArgs'] actions: The actions that will activate when the condition is met.
         :param pulumi.Input['ActivityLogAlertAllOfConditionArgs'] condition: The condition that will cause this alert to activate.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: A list of resourceIds that will be used as prefixes. The alert will only apply to activityLogs with resourceIds that fall under one of these prefixes. This list must include at least one item.
         :param pulumi.Input[str] activity_log_alert_name: The name of the activity log alert.
         :param pulumi.Input[str] description: A description of this activity log alert.
@@ -81,7 +81,7 @@ class ActivityLogAlertArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the resource group.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -188,7 +188,7 @@ class ActivityLogAlert(pulumi.CustomResource):
         :param pulumi.Input[str] description: A description of this activity log alert.
         :param pulumi.Input[bool] enabled: Indicates whether this activity log alert is enabled. If an activity log alert is not enabled, then none of its actions will be activated.
         :param pulumi.Input[str] location: Resource location
-        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: A list of resourceIds that will be used as prefixes. The alert will only apply to activityLogs with resourceIds that fall under one of these prefixes. This list must include at least one item.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         """

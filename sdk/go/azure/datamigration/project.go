@@ -65,6 +65,9 @@ func NewProject(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:datamigration/v20210630:Project"),
 		},
+		{
+			Type: pulumi.String("azure-native:datamigration/v20211030preview:Project"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Project

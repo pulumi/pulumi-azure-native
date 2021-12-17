@@ -28,7 +28,7 @@ export interface GetguestDiagnosticsSettingArgs {
      */
     diagnosticSettingsName: string;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
 }
@@ -78,7 +78,7 @@ export interface GetguestDiagnosticsSettingOutputArgs {
      */
     diagnosticSettingsName: pulumi.Input<string>;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
 }

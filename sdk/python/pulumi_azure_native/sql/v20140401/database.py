@@ -579,7 +579,7 @@ class Database(pulumi.CustomResource):
             __props__.__dict__["status"] = None
             __props__.__dict__["transparent_data_encryption"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:sql:Database"), pulumi.Alias(type_="azure-native:sql/v20170301preview:Database"), pulumi.Alias(type_="azure-native:sql/v20171001preview:Database"), pulumi.Alias(type_="azure-native:sql/v20190601preview:Database"), pulumi.Alias(type_="azure-native:sql/v20200202preview:Database"), pulumi.Alias(type_="azure-native:sql/v20200801preview:Database"), pulumi.Alias(type_="azure-native:sql/v20201101preview:Database"), pulumi.Alias(type_="azure-native:sql/v20210201preview:Database"), pulumi.Alias(type_="azure-native:sql/v20210501preview:Database")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:sql:Database"), pulumi.Alias(type_="azure-native:sql/v20170301preview:Database"), pulumi.Alias(type_="azure-native:sql/v20171001preview:Database"), pulumi.Alias(type_="azure-native:sql/v20190601preview:Database"), pulumi.Alias(type_="azure-native:sql/v20200202preview:Database"), pulumi.Alias(type_="azure-native:sql/v20200801preview:Database"), pulumi.Alias(type_="azure-native:sql/v20201101preview:Database"), pulumi.Alias(type_="azure-native:sql/v20210201preview:Database"), pulumi.Alias(type_="azure-native:sql/v20210501preview:Database"), pulumi.Alias(type_="azure-native:sql/v20210801preview:Database")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Database, __self__).__init__(
             'azure-native:sql/v20140401:Database',

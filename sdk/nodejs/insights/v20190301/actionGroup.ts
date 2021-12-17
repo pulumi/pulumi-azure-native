@@ -226,7 +226,7 @@ export interface ActionGroupArgs {
      */
     logicAppReceivers?: pulumi.Input<pulumi.Input<inputs.insights.v20190301.LogicAppReceiverArgs>[]>;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

@@ -137,7 +137,7 @@ export class ManagedDatabase extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:sql:ManagedDatabase" }, { type: "azure-native:sql/v20170301preview:ManagedDatabase" }, { type: "azure-native:sql/v20180601preview:ManagedDatabase" }, { type: "azure-native:sql/v20190601preview:ManagedDatabase" }, { type: "azure-native:sql/v20200801preview:ManagedDatabase" }, { type: "azure-native:sql/v20201101preview:ManagedDatabase" }, { type: "azure-native:sql/v20210201preview:ManagedDatabase" }, { type: "azure-native:sql/v20210501preview:ManagedDatabase" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:sql:ManagedDatabase" }, { type: "azure-native:sql/v20170301preview:ManagedDatabase" }, { type: "azure-native:sql/v20180601preview:ManagedDatabase" }, { type: "azure-native:sql/v20190601preview:ManagedDatabase" }, { type: "azure-native:sql/v20200801preview:ManagedDatabase" }, { type: "azure-native:sql/v20201101preview:ManagedDatabase" }, { type: "azure-native:sql/v20210201preview:ManagedDatabase" }, { type: "azure-native:sql/v20210501preview:ManagedDatabase" }, { type: "azure-native:sql/v20210801preview:ManagedDatabase" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ManagedDatabase.__pulumiType, name, resourceInputs, opts);
     }

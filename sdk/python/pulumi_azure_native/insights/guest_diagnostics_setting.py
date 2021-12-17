@@ -24,7 +24,7 @@ class GuestDiagnosticsSettingArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a GuestDiagnosticsSetting resource.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Sequence[pulumi.Input['DataSourceArgs']]] data_sources: the array of data source object which are configured to collect and send data
         :param pulumi.Input[str] diagnostic_settings_name: The name of the diagnostic setting.
         :param pulumi.Input[str] location: Resource location
@@ -49,7 +49,7 @@ class GuestDiagnosticsSettingArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the resource group.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -150,7 +150,7 @@ class GuestDiagnosticsSetting(pulumi.CustomResource):
         :param pulumi.Input[str] diagnostic_settings_name: The name of the diagnostic setting.
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[str] os_type: Operating system type for the configuration
-        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         """
         ...

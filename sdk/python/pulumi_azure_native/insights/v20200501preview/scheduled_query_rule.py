@@ -37,7 +37,7 @@ class ScheduledQueryRuleArgs:
         :param pulumi.Input['ScheduledQueryRuleCriteriaArgs'] criteria: The rule criteria that defines the conditions of the scheduled query rule.
         :param pulumi.Input[bool] enabled: The flag which indicates whether this scheduled query rule is enabled. Value should be true or false
         :param pulumi.Input[str] evaluation_frequency: How often the scheduled query rule is evaluated represented in ISO 8601 duration format.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: The list of resource id's that this scheduled query rule is scoped to.
         :param pulumi.Input[float] severity: Severity of the alert. Should be an integer between [0-4]. Value of 0 is severest
         :param pulumi.Input[str] window_size: The period of time (in ISO 8601 duration format) on which the Alert query will be executed (bin size).
@@ -116,7 +116,7 @@ class ScheduledQueryRuleArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the resource group.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -301,7 +301,7 @@ class ScheduledQueryRule(pulumi.CustomResource):
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] mute_actions_duration: Mute actions for the chosen period of time (in ISO 8601 duration format) after the alert is fired.
         :param pulumi.Input[str] override_query_time_range: If specified then overrides the query time range (default is WindowSize*NumberOfEvaluationPeriods)
-        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] rule_name: The name of the rule.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: The list of resource id's that this scheduled query rule is scoped to.
         :param pulumi.Input[float] severity: Severity of the alert. Should be an integer between [0-4]. Value of 0 is severest

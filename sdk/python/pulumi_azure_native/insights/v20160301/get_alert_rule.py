@@ -183,7 +183,7 @@ def get_alert_rule(resource_group_name: Optional[str] = None,
     The alert rule resource.
 
 
-    :param str resource_group_name: The name of the resource group.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str rule_name: The name of the rule.
     """
     __args__ = dict()
@@ -218,7 +218,7 @@ def get_alert_rule_output(resource_group_name: Optional[pulumi.Input[str]] = Non
     The alert rule resource.
 
 
-    :param str resource_group_name: The name of the resource group.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str rule_name: The name of the rule.
     """
     ...

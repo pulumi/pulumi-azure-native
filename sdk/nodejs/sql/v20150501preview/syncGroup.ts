@@ -120,7 +120,7 @@ export class SyncGroup extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:sql:SyncGroup" }, { type: "azure-native:sql/v20190601preview:SyncGroup" }, { type: "azure-native:sql/v20200202preview:SyncGroup" }, { type: "azure-native:sql/v20200801preview:SyncGroup" }, { type: "azure-native:sql/v20201101preview:SyncGroup" }, { type: "azure-native:sql/v20210201preview:SyncGroup" }, { type: "azure-native:sql/v20210501preview:SyncGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:sql:SyncGroup" }, { type: "azure-native:sql/v20190601preview:SyncGroup" }, { type: "azure-native:sql/v20200202preview:SyncGroup" }, { type: "azure-native:sql/v20200801preview:SyncGroup" }, { type: "azure-native:sql/v20201101preview:SyncGroup" }, { type: "azure-native:sql/v20210201preview:SyncGroup" }, { type: "azure-native:sql/v20210501preview:SyncGroup" }, { type: "azure-native:sql/v20210801preview:SyncGroup" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SyncGroup.__pulumiType, name, resourceInputs, opts);
     }

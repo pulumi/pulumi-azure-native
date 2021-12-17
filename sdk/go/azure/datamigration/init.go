@@ -27,6 +27,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Project{}
 	case "azure-native:datamigration:Service":
 		r = &Service{}
+	case "azure-native:datamigration:SqlMigrationService":
+		r = &SqlMigrationService{}
 	case "azure-native:datamigration:Task":
 		r = &Task{}
 	default:

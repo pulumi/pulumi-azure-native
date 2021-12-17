@@ -115,7 +115,7 @@ export interface PrivateEndpointConnectionArgs {
      */
     privateLinkServiceConnectionState?: pulumi.Input<inputs.insights.PrivateLinkServiceConnectionStatePropertyArgs>;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

@@ -255,7 +255,7 @@ def get_scheduled_query_rule(resource_group_name: Optional[str] = None,
     The Log Search Rule resource.
 
 
-    :param str resource_group_name: The name of the resource group.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str rule_name: The name of the rule.
     """
     __args__ = dict()
@@ -296,7 +296,7 @@ def get_scheduled_query_rule_output(resource_group_name: Optional[pulumi.Input[s
     The Log Search Rule resource.
 
 
-    :param str resource_group_name: The name of the resource group.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str rule_name: The name of the rule.
     """
     ...

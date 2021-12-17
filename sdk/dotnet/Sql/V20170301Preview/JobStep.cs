@@ -94,6 +94,7 @@ namespace Pulumi.AzureNative.Sql.V20170301Preview
                     new Pulumi.Alias { Type = "azure-native:sql/v20201101preview:JobStep"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20210201preview:JobStep"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20210501preview:JobStep"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20210801preview:JobStep"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

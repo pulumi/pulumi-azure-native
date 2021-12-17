@@ -118,7 +118,7 @@ export class EncryptionProtector extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:sql:EncryptionProtector" }, { type: "azure-native:sql/v20200202preview:EncryptionProtector" }, { type: "azure-native:sql/v20200801preview:EncryptionProtector" }, { type: "azure-native:sql/v20201101preview:EncryptionProtector" }, { type: "azure-native:sql/v20210201preview:EncryptionProtector" }, { type: "azure-native:sql/v20210501preview:EncryptionProtector" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:sql:EncryptionProtector" }, { type: "azure-native:sql/v20200202preview:EncryptionProtector" }, { type: "azure-native:sql/v20200801preview:EncryptionProtector" }, { type: "azure-native:sql/v20201101preview:EncryptionProtector" }, { type: "azure-native:sql/v20210201preview:EncryptionProtector" }, { type: "azure-native:sql/v20210501preview:EncryptionProtector" }, { type: "azure-native:sql/v20210801preview:EncryptionProtector" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(EncryptionProtector.__pulumiType, name, resourceInputs, opts);
     }

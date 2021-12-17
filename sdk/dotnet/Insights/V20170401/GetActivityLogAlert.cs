@@ -35,7 +35,7 @@ namespace Pulumi.AzureNative.Insights.V20170401
         public string ActivityLogAlertName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -54,7 +54,7 @@ namespace Pulumi.AzureNative.Insights.V20170401
         public Input<string> ActivityLogAlertName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
