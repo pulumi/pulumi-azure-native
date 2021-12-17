@@ -18,6 +18,10 @@ CHANGELOG
 #### Enhancements:
 
 - Update to `pulumi/pulumi` 3.20.0
+- Go SDK improvements:
+  - Removed unused input types, see https://github.com/pulumi/pulumi/pull/7943
+  - All comments for resources, types, and properties restored
+  - SDK size reduced by 30%
 
 ---
 
