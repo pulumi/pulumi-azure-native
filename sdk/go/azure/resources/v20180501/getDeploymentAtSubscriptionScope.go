@@ -1,0 +1,30 @@
+
+
+
+package v20180501
+
+import (
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+func LookupDeploymentAtSubscriptionScope(ctx *pulumi.Context, args *LookupDeploymentAtSubscriptionScopeArgs, opts ...pulumi.InvokeOption) (*LookupDeploymentAtSubscriptionScopeResult, error) {
+	var rv LookupDeploymentAtSubscriptionScopeResult
+	err := ctx.Invoke("azure-native:resources/v20180501:getDeploymentAtSubscriptionScope", args, &rv, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return &rv, nil
+}
+
+type LookupDeploymentAtSubscriptionScopeArgs struct {
+	DeploymentName string `pulumi:"deploymentName"`
+}
+
+
+type LookupDeploymentAtSubscriptionScopeResult struct {
+	Id         string                               `pulumi:"id"`
+	Location   *string                              `pulumi:"location"`
+	Name       string                               `pulumi:"name"`
+	Properties DeploymentPropertiesExtendedResponse `pulumi:"properties"`
+	Type       string                               `pulumi:"type"`
+}

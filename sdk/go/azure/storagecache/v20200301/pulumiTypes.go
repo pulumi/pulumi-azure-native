@@ -1,0 +1,3616 @@
+
+
+
+package v20200301
+
+import (
+	"context"
+	"reflect"
+
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+type CacheEncryptionSettings struct {
+	KeyEncryptionKey *KeyVaultKeyReference `pulumi:"keyEncryptionKey"`
+}
+
+
+
+
+
+type CacheEncryptionSettingsInput interface {
+	pulumi.Input
+
+	ToCacheEncryptionSettingsOutput() CacheEncryptionSettingsOutput
+	ToCacheEncryptionSettingsOutputWithContext(context.Context) CacheEncryptionSettingsOutput
+}
+
+type CacheEncryptionSettingsArgs struct {
+	KeyEncryptionKey KeyVaultKeyReferencePtrInput `pulumi:"keyEncryptionKey"`
+}
+
+func (CacheEncryptionSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheEncryptionSettings)(nil)).Elem()
+}
+
+func (i CacheEncryptionSettingsArgs) ToCacheEncryptionSettingsOutput() CacheEncryptionSettingsOutput {
+	return i.ToCacheEncryptionSettingsOutputWithContext(context.Background())
+}
+
+func (i CacheEncryptionSettingsArgs) ToCacheEncryptionSettingsOutputWithContext(ctx context.Context) CacheEncryptionSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheEncryptionSettingsOutput)
+}
+
+func (i CacheEncryptionSettingsArgs) ToCacheEncryptionSettingsPtrOutput() CacheEncryptionSettingsPtrOutput {
+	return i.ToCacheEncryptionSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i CacheEncryptionSettingsArgs) ToCacheEncryptionSettingsPtrOutputWithContext(ctx context.Context) CacheEncryptionSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheEncryptionSettingsOutput).ToCacheEncryptionSettingsPtrOutputWithContext(ctx)
+}
+
+
+
+
+
+
+
+
+
+type CacheEncryptionSettingsPtrInput interface {
+	pulumi.Input
+
+	ToCacheEncryptionSettingsPtrOutput() CacheEncryptionSettingsPtrOutput
+	ToCacheEncryptionSettingsPtrOutputWithContext(context.Context) CacheEncryptionSettingsPtrOutput
+}
+
+type cacheEncryptionSettingsPtrType CacheEncryptionSettingsArgs
+
+func CacheEncryptionSettingsPtr(v *CacheEncryptionSettingsArgs) CacheEncryptionSettingsPtrInput {
+	return (*cacheEncryptionSettingsPtrType)(v)
+}
+
+func (*cacheEncryptionSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CacheEncryptionSettings)(nil)).Elem()
+}
+
+func (i *cacheEncryptionSettingsPtrType) ToCacheEncryptionSettingsPtrOutput() CacheEncryptionSettingsPtrOutput {
+	return i.ToCacheEncryptionSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *cacheEncryptionSettingsPtrType) ToCacheEncryptionSettingsPtrOutputWithContext(ctx context.Context) CacheEncryptionSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheEncryptionSettingsPtrOutput)
+}
+
+type CacheEncryptionSettingsOutput struct{ *pulumi.OutputState }
+
+func (CacheEncryptionSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheEncryptionSettings)(nil)).Elem()
+}
+
+func (o CacheEncryptionSettingsOutput) ToCacheEncryptionSettingsOutput() CacheEncryptionSettingsOutput {
+	return o
+}
+
+func (o CacheEncryptionSettingsOutput) ToCacheEncryptionSettingsOutputWithContext(ctx context.Context) CacheEncryptionSettingsOutput {
+	return o
+}
+
+func (o CacheEncryptionSettingsOutput) ToCacheEncryptionSettingsPtrOutput() CacheEncryptionSettingsPtrOutput {
+	return o.ToCacheEncryptionSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o CacheEncryptionSettingsOutput) ToCacheEncryptionSettingsPtrOutputWithContext(ctx context.Context) CacheEncryptionSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CacheEncryptionSettings) *CacheEncryptionSettings {
+		return &v
+	}).(CacheEncryptionSettingsPtrOutput)
+}
+
+func (o CacheEncryptionSettingsOutput) KeyEncryptionKey() KeyVaultKeyReferencePtrOutput {
+	return o.ApplyT(func(v CacheEncryptionSettings) *KeyVaultKeyReference { return v.KeyEncryptionKey }).(KeyVaultKeyReferencePtrOutput)
+}
+
+type CacheEncryptionSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (CacheEncryptionSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CacheEncryptionSettings)(nil)).Elem()
+}
+
+func (o CacheEncryptionSettingsPtrOutput) ToCacheEncryptionSettingsPtrOutput() CacheEncryptionSettingsPtrOutput {
+	return o
+}
+
+func (o CacheEncryptionSettingsPtrOutput) ToCacheEncryptionSettingsPtrOutputWithContext(ctx context.Context) CacheEncryptionSettingsPtrOutput {
+	return o
+}
+
+func (o CacheEncryptionSettingsPtrOutput) Elem() CacheEncryptionSettingsOutput {
+	return o.ApplyT(func(v *CacheEncryptionSettings) CacheEncryptionSettings {
+		if v != nil {
+			return *v
+		}
+		var ret CacheEncryptionSettings
+		return ret
+	}).(CacheEncryptionSettingsOutput)
+}
+
+func (o CacheEncryptionSettingsPtrOutput) KeyEncryptionKey() KeyVaultKeyReferencePtrOutput {
+	return o.ApplyT(func(v *CacheEncryptionSettings) *KeyVaultKeyReference {
+		if v == nil {
+			return nil
+		}
+		return v.KeyEncryptionKey
+	}).(KeyVaultKeyReferencePtrOutput)
+}
+
+type CacheEncryptionSettingsResponse struct {
+	KeyEncryptionKey *KeyVaultKeyReferenceResponse `pulumi:"keyEncryptionKey"`
+}
+
+
+
+
+
+type CacheEncryptionSettingsResponseInput interface {
+	pulumi.Input
+
+	ToCacheEncryptionSettingsResponseOutput() CacheEncryptionSettingsResponseOutput
+	ToCacheEncryptionSettingsResponseOutputWithContext(context.Context) CacheEncryptionSettingsResponseOutput
+}
+
+type CacheEncryptionSettingsResponseArgs struct {
+	KeyEncryptionKey KeyVaultKeyReferenceResponsePtrInput `pulumi:"keyEncryptionKey"`
+}
+
+func (CacheEncryptionSettingsResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheEncryptionSettingsResponse)(nil)).Elem()
+}
+
+func (i CacheEncryptionSettingsResponseArgs) ToCacheEncryptionSettingsResponseOutput() CacheEncryptionSettingsResponseOutput {
+	return i.ToCacheEncryptionSettingsResponseOutputWithContext(context.Background())
+}
+
+func (i CacheEncryptionSettingsResponseArgs) ToCacheEncryptionSettingsResponseOutputWithContext(ctx context.Context) CacheEncryptionSettingsResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheEncryptionSettingsResponseOutput)
+}
+
+func (i CacheEncryptionSettingsResponseArgs) ToCacheEncryptionSettingsResponsePtrOutput() CacheEncryptionSettingsResponsePtrOutput {
+	return i.ToCacheEncryptionSettingsResponsePtrOutputWithContext(context.Background())
+}
+
+func (i CacheEncryptionSettingsResponseArgs) ToCacheEncryptionSettingsResponsePtrOutputWithContext(ctx context.Context) CacheEncryptionSettingsResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheEncryptionSettingsResponseOutput).ToCacheEncryptionSettingsResponsePtrOutputWithContext(ctx)
+}
+
+
+
+
+
+
+
+
+
+type CacheEncryptionSettingsResponsePtrInput interface {
+	pulumi.Input
+
+	ToCacheEncryptionSettingsResponsePtrOutput() CacheEncryptionSettingsResponsePtrOutput
+	ToCacheEncryptionSettingsResponsePtrOutputWithContext(context.Context) CacheEncryptionSettingsResponsePtrOutput
+}
+
+type cacheEncryptionSettingsResponsePtrType CacheEncryptionSettingsResponseArgs
+
+func CacheEncryptionSettingsResponsePtr(v *CacheEncryptionSettingsResponseArgs) CacheEncryptionSettingsResponsePtrInput {
+	return (*cacheEncryptionSettingsResponsePtrType)(v)
+}
+
+func (*cacheEncryptionSettingsResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CacheEncryptionSettingsResponse)(nil)).Elem()
+}
+
+func (i *cacheEncryptionSettingsResponsePtrType) ToCacheEncryptionSettingsResponsePtrOutput() CacheEncryptionSettingsResponsePtrOutput {
+	return i.ToCacheEncryptionSettingsResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *cacheEncryptionSettingsResponsePtrType) ToCacheEncryptionSettingsResponsePtrOutputWithContext(ctx context.Context) CacheEncryptionSettingsResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheEncryptionSettingsResponsePtrOutput)
+}
+
+type CacheEncryptionSettingsResponseOutput struct{ *pulumi.OutputState }
+
+func (CacheEncryptionSettingsResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheEncryptionSettingsResponse)(nil)).Elem()
+}
+
+func (o CacheEncryptionSettingsResponseOutput) ToCacheEncryptionSettingsResponseOutput() CacheEncryptionSettingsResponseOutput {
+	return o
+}
+
+func (o CacheEncryptionSettingsResponseOutput) ToCacheEncryptionSettingsResponseOutputWithContext(ctx context.Context) CacheEncryptionSettingsResponseOutput {
+	return o
+}
+
+func (o CacheEncryptionSettingsResponseOutput) ToCacheEncryptionSettingsResponsePtrOutput() CacheEncryptionSettingsResponsePtrOutput {
+	return o.ToCacheEncryptionSettingsResponsePtrOutputWithContext(context.Background())
+}
+
+func (o CacheEncryptionSettingsResponseOutput) ToCacheEncryptionSettingsResponsePtrOutputWithContext(ctx context.Context) CacheEncryptionSettingsResponsePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CacheEncryptionSettingsResponse) *CacheEncryptionSettingsResponse {
+		return &v
+	}).(CacheEncryptionSettingsResponsePtrOutput)
+}
+
+func (o CacheEncryptionSettingsResponseOutput) KeyEncryptionKey() KeyVaultKeyReferenceResponsePtrOutput {
+	return o.ApplyT(func(v CacheEncryptionSettingsResponse) *KeyVaultKeyReferenceResponse { return v.KeyEncryptionKey }).(KeyVaultKeyReferenceResponsePtrOutput)
+}
+
+type CacheEncryptionSettingsResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (CacheEncryptionSettingsResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CacheEncryptionSettingsResponse)(nil)).Elem()
+}
+
+func (o CacheEncryptionSettingsResponsePtrOutput) ToCacheEncryptionSettingsResponsePtrOutput() CacheEncryptionSettingsResponsePtrOutput {
+	return o
+}
+
+func (o CacheEncryptionSettingsResponsePtrOutput) ToCacheEncryptionSettingsResponsePtrOutputWithContext(ctx context.Context) CacheEncryptionSettingsResponsePtrOutput {
+	return o
+}
+
+func (o CacheEncryptionSettingsResponsePtrOutput) Elem() CacheEncryptionSettingsResponseOutput {
+	return o.ApplyT(func(v *CacheEncryptionSettingsResponse) CacheEncryptionSettingsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret CacheEncryptionSettingsResponse
+		return ret
+	}).(CacheEncryptionSettingsResponseOutput)
+}
+
+func (o CacheEncryptionSettingsResponsePtrOutput) KeyEncryptionKey() KeyVaultKeyReferenceResponsePtrOutput {
+	return o.ApplyT(func(v *CacheEncryptionSettingsResponse) *KeyVaultKeyReferenceResponse {
+		if v == nil {
+			return nil
+		}
+		return v.KeyEncryptionKey
+	}).(KeyVaultKeyReferenceResponsePtrOutput)
+}
+
+type CacheHealthResponse struct {
+	State             *string `pulumi:"state"`
+	StatusDescription *string `pulumi:"statusDescription"`
+}
+
+
+
+
+
+type CacheHealthResponseInput interface {
+	pulumi.Input
+
+	ToCacheHealthResponseOutput() CacheHealthResponseOutput
+	ToCacheHealthResponseOutputWithContext(context.Context) CacheHealthResponseOutput
+}
+
+type CacheHealthResponseArgs struct {
+	State             pulumi.StringPtrInput `pulumi:"state"`
+	StatusDescription pulumi.StringPtrInput `pulumi:"statusDescription"`
+}
+
+func (CacheHealthResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheHealthResponse)(nil)).Elem()
+}
+
+func (i CacheHealthResponseArgs) ToCacheHealthResponseOutput() CacheHealthResponseOutput {
+	return i.ToCacheHealthResponseOutputWithContext(context.Background())
+}
+
+func (i CacheHealthResponseArgs) ToCacheHealthResponseOutputWithContext(ctx context.Context) CacheHealthResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheHealthResponseOutput)
+}
+
+func (i CacheHealthResponseArgs) ToCacheHealthResponsePtrOutput() CacheHealthResponsePtrOutput {
+	return i.ToCacheHealthResponsePtrOutputWithContext(context.Background())
+}
+
+func (i CacheHealthResponseArgs) ToCacheHealthResponsePtrOutputWithContext(ctx context.Context) CacheHealthResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheHealthResponseOutput).ToCacheHealthResponsePtrOutputWithContext(ctx)
+}
+
+
+
+
+
+
+
+
+
+type CacheHealthResponsePtrInput interface {
+	pulumi.Input
+
+	ToCacheHealthResponsePtrOutput() CacheHealthResponsePtrOutput
+	ToCacheHealthResponsePtrOutputWithContext(context.Context) CacheHealthResponsePtrOutput
+}
+
+type cacheHealthResponsePtrType CacheHealthResponseArgs
+
+func CacheHealthResponsePtr(v *CacheHealthResponseArgs) CacheHealthResponsePtrInput {
+	return (*cacheHealthResponsePtrType)(v)
+}
+
+func (*cacheHealthResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CacheHealthResponse)(nil)).Elem()
+}
+
+func (i *cacheHealthResponsePtrType) ToCacheHealthResponsePtrOutput() CacheHealthResponsePtrOutput {
+	return i.ToCacheHealthResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *cacheHealthResponsePtrType) ToCacheHealthResponsePtrOutputWithContext(ctx context.Context) CacheHealthResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheHealthResponsePtrOutput)
+}
+
+type CacheHealthResponseOutput struct{ *pulumi.OutputState }
+
+func (CacheHealthResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheHealthResponse)(nil)).Elem()
+}
+
+func (o CacheHealthResponseOutput) ToCacheHealthResponseOutput() CacheHealthResponseOutput {
+	return o
+}
+
+func (o CacheHealthResponseOutput) ToCacheHealthResponseOutputWithContext(ctx context.Context) CacheHealthResponseOutput {
+	return o
+}
+
+func (o CacheHealthResponseOutput) ToCacheHealthResponsePtrOutput() CacheHealthResponsePtrOutput {
+	return o.ToCacheHealthResponsePtrOutputWithContext(context.Background())
+}
+
+func (o CacheHealthResponseOutput) ToCacheHealthResponsePtrOutputWithContext(ctx context.Context) CacheHealthResponsePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CacheHealthResponse) *CacheHealthResponse {
+		return &v
+	}).(CacheHealthResponsePtrOutput)
+}
+
+func (o CacheHealthResponseOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CacheHealthResponse) *string { return v.State }).(pulumi.StringPtrOutput)
+}
+
+func (o CacheHealthResponseOutput) StatusDescription() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CacheHealthResponse) *string { return v.StatusDescription }).(pulumi.StringPtrOutput)
+}
+
+type CacheHealthResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (CacheHealthResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CacheHealthResponse)(nil)).Elem()
+}
+
+func (o CacheHealthResponsePtrOutput) ToCacheHealthResponsePtrOutput() CacheHealthResponsePtrOutput {
+	return o
+}
+
+func (o CacheHealthResponsePtrOutput) ToCacheHealthResponsePtrOutputWithContext(ctx context.Context) CacheHealthResponsePtrOutput {
+	return o
+}
+
+func (o CacheHealthResponsePtrOutput) Elem() CacheHealthResponseOutput {
+	return o.ApplyT(func(v *CacheHealthResponse) CacheHealthResponse {
+		if v != nil {
+			return *v
+		}
+		var ret CacheHealthResponse
+		return ret
+	}).(CacheHealthResponseOutput)
+}
+
+func (o CacheHealthResponsePtrOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CacheHealthResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.State
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o CacheHealthResponsePtrOutput) StatusDescription() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CacheHealthResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StatusDescription
+	}).(pulumi.StringPtrOutput)
+}
+
+type CacheIdentity struct {
+	Type *CacheIdentityType `pulumi:"type"`
+}
+
+
+
+
+
+type CacheIdentityInput interface {
+	pulumi.Input
+
+	ToCacheIdentityOutput() CacheIdentityOutput
+	ToCacheIdentityOutputWithContext(context.Context) CacheIdentityOutput
+}
+
+type CacheIdentityArgs struct {
+	Type CacheIdentityTypePtrInput `pulumi:"type"`
+}
+
+func (CacheIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheIdentity)(nil)).Elem()
+}
+
+func (i CacheIdentityArgs) ToCacheIdentityOutput() CacheIdentityOutput {
+	return i.ToCacheIdentityOutputWithContext(context.Background())
+}
+
+func (i CacheIdentityArgs) ToCacheIdentityOutputWithContext(ctx context.Context) CacheIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheIdentityOutput)
+}
+
+func (i CacheIdentityArgs) ToCacheIdentityPtrOutput() CacheIdentityPtrOutput {
+	return i.ToCacheIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i CacheIdentityArgs) ToCacheIdentityPtrOutputWithContext(ctx context.Context) CacheIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheIdentityOutput).ToCacheIdentityPtrOutputWithContext(ctx)
+}
+
+
+
+
+
+
+
+
+
+type CacheIdentityPtrInput interface {
+	pulumi.Input
+
+	ToCacheIdentityPtrOutput() CacheIdentityPtrOutput
+	ToCacheIdentityPtrOutputWithContext(context.Context) CacheIdentityPtrOutput
+}
+
+type cacheIdentityPtrType CacheIdentityArgs
+
+func CacheIdentityPtr(v *CacheIdentityArgs) CacheIdentityPtrInput {
+	return (*cacheIdentityPtrType)(v)
+}
+
+func (*cacheIdentityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CacheIdentity)(nil)).Elem()
+}
+
+func (i *cacheIdentityPtrType) ToCacheIdentityPtrOutput() CacheIdentityPtrOutput {
+	return i.ToCacheIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i *cacheIdentityPtrType) ToCacheIdentityPtrOutputWithContext(ctx context.Context) CacheIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheIdentityPtrOutput)
+}
+
+type CacheIdentityOutput struct{ *pulumi.OutputState }
+
+func (CacheIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheIdentity)(nil)).Elem()
+}
+
+func (o CacheIdentityOutput) ToCacheIdentityOutput() CacheIdentityOutput {
+	return o
+}
+
+func (o CacheIdentityOutput) ToCacheIdentityOutputWithContext(ctx context.Context) CacheIdentityOutput {
+	return o
+}
+
+func (o CacheIdentityOutput) ToCacheIdentityPtrOutput() CacheIdentityPtrOutput {
+	return o.ToCacheIdentityPtrOutputWithContext(context.Background())
+}
+
+func (o CacheIdentityOutput) ToCacheIdentityPtrOutputWithContext(ctx context.Context) CacheIdentityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CacheIdentity) *CacheIdentity {
+		return &v
+	}).(CacheIdentityPtrOutput)
+}
+
+func (o CacheIdentityOutput) Type() CacheIdentityTypePtrOutput {
+	return o.ApplyT(func(v CacheIdentity) *CacheIdentityType { return v.Type }).(CacheIdentityTypePtrOutput)
+}
+
+type CacheIdentityPtrOutput struct{ *pulumi.OutputState }
+
+func (CacheIdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CacheIdentity)(nil)).Elem()
+}
+
+func (o CacheIdentityPtrOutput) ToCacheIdentityPtrOutput() CacheIdentityPtrOutput {
+	return o
+}
+
+func (o CacheIdentityPtrOutput) ToCacheIdentityPtrOutputWithContext(ctx context.Context) CacheIdentityPtrOutput {
+	return o
+}
+
+func (o CacheIdentityPtrOutput) Elem() CacheIdentityOutput {
+	return o.ApplyT(func(v *CacheIdentity) CacheIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret CacheIdentity
+		return ret
+	}).(CacheIdentityOutput)
+}
+
+func (o CacheIdentityPtrOutput) Type() CacheIdentityTypePtrOutput {
+	return o.ApplyT(func(v *CacheIdentity) *CacheIdentityType {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(CacheIdentityTypePtrOutput)
+}
+
+type CacheIdentityResponse struct {
+	PrincipalId string  `pulumi:"principalId"`
+	TenantId    string  `pulumi:"tenantId"`
+	Type        *string `pulumi:"type"`
+}
+
+
+
+
+
+type CacheIdentityResponseInput interface {
+	pulumi.Input
+
+	ToCacheIdentityResponseOutput() CacheIdentityResponseOutput
+	ToCacheIdentityResponseOutputWithContext(context.Context) CacheIdentityResponseOutput
+}
+
+type CacheIdentityResponseArgs struct {
+	PrincipalId pulumi.StringInput    `pulumi:"principalId"`
+	TenantId    pulumi.StringInput    `pulumi:"tenantId"`
+	Type        pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (CacheIdentityResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheIdentityResponse)(nil)).Elem()
+}
+
+func (i CacheIdentityResponseArgs) ToCacheIdentityResponseOutput() CacheIdentityResponseOutput {
+	return i.ToCacheIdentityResponseOutputWithContext(context.Background())
+}
+
+func (i CacheIdentityResponseArgs) ToCacheIdentityResponseOutputWithContext(ctx context.Context) CacheIdentityResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheIdentityResponseOutput)
+}
+
+func (i CacheIdentityResponseArgs) ToCacheIdentityResponsePtrOutput() CacheIdentityResponsePtrOutput {
+	return i.ToCacheIdentityResponsePtrOutputWithContext(context.Background())
+}
+
+func (i CacheIdentityResponseArgs) ToCacheIdentityResponsePtrOutputWithContext(ctx context.Context) CacheIdentityResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheIdentityResponseOutput).ToCacheIdentityResponsePtrOutputWithContext(ctx)
+}
+
+
+
+
+
+
+
+
+
+type CacheIdentityResponsePtrInput interface {
+	pulumi.Input
+
+	ToCacheIdentityResponsePtrOutput() CacheIdentityResponsePtrOutput
+	ToCacheIdentityResponsePtrOutputWithContext(context.Context) CacheIdentityResponsePtrOutput
+}
+
+type cacheIdentityResponsePtrType CacheIdentityResponseArgs
+
+func CacheIdentityResponsePtr(v *CacheIdentityResponseArgs) CacheIdentityResponsePtrInput {
+	return (*cacheIdentityResponsePtrType)(v)
+}
+
+func (*cacheIdentityResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CacheIdentityResponse)(nil)).Elem()
+}
+
+func (i *cacheIdentityResponsePtrType) ToCacheIdentityResponsePtrOutput() CacheIdentityResponsePtrOutput {
+	return i.ToCacheIdentityResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *cacheIdentityResponsePtrType) ToCacheIdentityResponsePtrOutputWithContext(ctx context.Context) CacheIdentityResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheIdentityResponsePtrOutput)
+}
+
+type CacheIdentityResponseOutput struct{ *pulumi.OutputState }
+
+func (CacheIdentityResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheIdentityResponse)(nil)).Elem()
+}
+
+func (o CacheIdentityResponseOutput) ToCacheIdentityResponseOutput() CacheIdentityResponseOutput {
+	return o
+}
+
+func (o CacheIdentityResponseOutput) ToCacheIdentityResponseOutputWithContext(ctx context.Context) CacheIdentityResponseOutput {
+	return o
+}
+
+func (o CacheIdentityResponseOutput) ToCacheIdentityResponsePtrOutput() CacheIdentityResponsePtrOutput {
+	return o.ToCacheIdentityResponsePtrOutputWithContext(context.Background())
+}
+
+func (o CacheIdentityResponseOutput) ToCacheIdentityResponsePtrOutputWithContext(ctx context.Context) CacheIdentityResponsePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CacheIdentityResponse) *CacheIdentityResponse {
+		return &v
+	}).(CacheIdentityResponsePtrOutput)
+}
+
+func (o CacheIdentityResponseOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v CacheIdentityResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+func (o CacheIdentityResponseOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v CacheIdentityResponse) string { return v.TenantId }).(pulumi.StringOutput)
+}
+
+func (o CacheIdentityResponseOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CacheIdentityResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type CacheIdentityResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (CacheIdentityResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CacheIdentityResponse)(nil)).Elem()
+}
+
+func (o CacheIdentityResponsePtrOutput) ToCacheIdentityResponsePtrOutput() CacheIdentityResponsePtrOutput {
+	return o
+}
+
+func (o CacheIdentityResponsePtrOutput) ToCacheIdentityResponsePtrOutputWithContext(ctx context.Context) CacheIdentityResponsePtrOutput {
+	return o
+}
+
+func (o CacheIdentityResponsePtrOutput) Elem() CacheIdentityResponseOutput {
+	return o.ApplyT(func(v *CacheIdentityResponse) CacheIdentityResponse {
+		if v != nil {
+			return *v
+		}
+		var ret CacheIdentityResponse
+		return ret
+	}).(CacheIdentityResponseOutput)
+}
+
+func (o CacheIdentityResponsePtrOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CacheIdentityResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PrincipalId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o CacheIdentityResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CacheIdentityResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TenantId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o CacheIdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CacheIdentityResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type CacheNetworkSettings struct {
+	Mtu *int `pulumi:"mtu"`
+}
+
+
+func (val *CacheNetworkSettings) Defaults() *CacheNetworkSettings {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Mtu) {
+		mtu_ := 1500
+		tmp.Mtu = &mtu_
+	}
+	return &tmp
+}
+
+
+
+
+
+type CacheNetworkSettingsInput interface {
+	pulumi.Input
+
+	ToCacheNetworkSettingsOutput() CacheNetworkSettingsOutput
+	ToCacheNetworkSettingsOutputWithContext(context.Context) CacheNetworkSettingsOutput
+}
+
+type CacheNetworkSettingsArgs struct {
+	Mtu pulumi.IntPtrInput `pulumi:"mtu"`
+}
+
+func (CacheNetworkSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheNetworkSettings)(nil)).Elem()
+}
+
+func (i CacheNetworkSettingsArgs) ToCacheNetworkSettingsOutput() CacheNetworkSettingsOutput {
+	return i.ToCacheNetworkSettingsOutputWithContext(context.Background())
+}
+
+func (i CacheNetworkSettingsArgs) ToCacheNetworkSettingsOutputWithContext(ctx context.Context) CacheNetworkSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheNetworkSettingsOutput)
+}
+
+func (i CacheNetworkSettingsArgs) ToCacheNetworkSettingsPtrOutput() CacheNetworkSettingsPtrOutput {
+	return i.ToCacheNetworkSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i CacheNetworkSettingsArgs) ToCacheNetworkSettingsPtrOutputWithContext(ctx context.Context) CacheNetworkSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheNetworkSettingsOutput).ToCacheNetworkSettingsPtrOutputWithContext(ctx)
+}
+
+
+
+
+
+
+
+
+
+type CacheNetworkSettingsPtrInput interface {
+	pulumi.Input
+
+	ToCacheNetworkSettingsPtrOutput() CacheNetworkSettingsPtrOutput
+	ToCacheNetworkSettingsPtrOutputWithContext(context.Context) CacheNetworkSettingsPtrOutput
+}
+
+type cacheNetworkSettingsPtrType CacheNetworkSettingsArgs
+
+func CacheNetworkSettingsPtr(v *CacheNetworkSettingsArgs) CacheNetworkSettingsPtrInput {
+	return (*cacheNetworkSettingsPtrType)(v)
+}
+
+func (*cacheNetworkSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CacheNetworkSettings)(nil)).Elem()
+}
+
+func (i *cacheNetworkSettingsPtrType) ToCacheNetworkSettingsPtrOutput() CacheNetworkSettingsPtrOutput {
+	return i.ToCacheNetworkSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *cacheNetworkSettingsPtrType) ToCacheNetworkSettingsPtrOutputWithContext(ctx context.Context) CacheNetworkSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheNetworkSettingsPtrOutput)
+}
+
+type CacheNetworkSettingsOutput struct{ *pulumi.OutputState }
+
+func (CacheNetworkSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheNetworkSettings)(nil)).Elem()
+}
+
+func (o CacheNetworkSettingsOutput) ToCacheNetworkSettingsOutput() CacheNetworkSettingsOutput {
+	return o
+}
+
+func (o CacheNetworkSettingsOutput) ToCacheNetworkSettingsOutputWithContext(ctx context.Context) CacheNetworkSettingsOutput {
+	return o
+}
+
+func (o CacheNetworkSettingsOutput) ToCacheNetworkSettingsPtrOutput() CacheNetworkSettingsPtrOutput {
+	return o.ToCacheNetworkSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o CacheNetworkSettingsOutput) ToCacheNetworkSettingsPtrOutputWithContext(ctx context.Context) CacheNetworkSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CacheNetworkSettings) *CacheNetworkSettings {
+		return &v
+	}).(CacheNetworkSettingsPtrOutput)
+}
+
+func (o CacheNetworkSettingsOutput) Mtu() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v CacheNetworkSettings) *int { return v.Mtu }).(pulumi.IntPtrOutput)
+}
+
+type CacheNetworkSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (CacheNetworkSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CacheNetworkSettings)(nil)).Elem()
+}
+
+func (o CacheNetworkSettingsPtrOutput) ToCacheNetworkSettingsPtrOutput() CacheNetworkSettingsPtrOutput {
+	return o
+}
+
+func (o CacheNetworkSettingsPtrOutput) ToCacheNetworkSettingsPtrOutputWithContext(ctx context.Context) CacheNetworkSettingsPtrOutput {
+	return o
+}
+
+func (o CacheNetworkSettingsPtrOutput) Elem() CacheNetworkSettingsOutput {
+	return o.ApplyT(func(v *CacheNetworkSettings) CacheNetworkSettings {
+		if v != nil {
+			return *v
+		}
+		var ret CacheNetworkSettings
+		return ret
+	}).(CacheNetworkSettingsOutput)
+}
+
+func (o CacheNetworkSettingsPtrOutput) Mtu() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CacheNetworkSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Mtu
+	}).(pulumi.IntPtrOutput)
+}
+
+type CacheNetworkSettingsResponse struct {
+	Mtu              *int     `pulumi:"mtu"`
+	UtilityAddresses []string `pulumi:"utilityAddresses"`
+}
+
+
+func (val *CacheNetworkSettingsResponse) Defaults() *CacheNetworkSettingsResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Mtu) {
+		mtu_ := 1500
+		tmp.Mtu = &mtu_
+	}
+	return &tmp
+}
+
+
+
+
+
+type CacheNetworkSettingsResponseInput interface {
+	pulumi.Input
+
+	ToCacheNetworkSettingsResponseOutput() CacheNetworkSettingsResponseOutput
+	ToCacheNetworkSettingsResponseOutputWithContext(context.Context) CacheNetworkSettingsResponseOutput
+}
+
+type CacheNetworkSettingsResponseArgs struct {
+	Mtu              pulumi.IntPtrInput      `pulumi:"mtu"`
+	UtilityAddresses pulumi.StringArrayInput `pulumi:"utilityAddresses"`
+}
+
+func (CacheNetworkSettingsResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheNetworkSettingsResponse)(nil)).Elem()
+}
+
+func (i CacheNetworkSettingsResponseArgs) ToCacheNetworkSettingsResponseOutput() CacheNetworkSettingsResponseOutput {
+	return i.ToCacheNetworkSettingsResponseOutputWithContext(context.Background())
+}
+
+func (i CacheNetworkSettingsResponseArgs) ToCacheNetworkSettingsResponseOutputWithContext(ctx context.Context) CacheNetworkSettingsResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheNetworkSettingsResponseOutput)
+}
+
+func (i CacheNetworkSettingsResponseArgs) ToCacheNetworkSettingsResponsePtrOutput() CacheNetworkSettingsResponsePtrOutput {
+	return i.ToCacheNetworkSettingsResponsePtrOutputWithContext(context.Background())
+}
+
+func (i CacheNetworkSettingsResponseArgs) ToCacheNetworkSettingsResponsePtrOutputWithContext(ctx context.Context) CacheNetworkSettingsResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheNetworkSettingsResponseOutput).ToCacheNetworkSettingsResponsePtrOutputWithContext(ctx)
+}
+
+
+
+
+
+
+
+
+
+type CacheNetworkSettingsResponsePtrInput interface {
+	pulumi.Input
+
+	ToCacheNetworkSettingsResponsePtrOutput() CacheNetworkSettingsResponsePtrOutput
+	ToCacheNetworkSettingsResponsePtrOutputWithContext(context.Context) CacheNetworkSettingsResponsePtrOutput
+}
+
+type cacheNetworkSettingsResponsePtrType CacheNetworkSettingsResponseArgs
+
+func CacheNetworkSettingsResponsePtr(v *CacheNetworkSettingsResponseArgs) CacheNetworkSettingsResponsePtrInput {
+	return (*cacheNetworkSettingsResponsePtrType)(v)
+}
+
+func (*cacheNetworkSettingsResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CacheNetworkSettingsResponse)(nil)).Elem()
+}
+
+func (i *cacheNetworkSettingsResponsePtrType) ToCacheNetworkSettingsResponsePtrOutput() CacheNetworkSettingsResponsePtrOutput {
+	return i.ToCacheNetworkSettingsResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *cacheNetworkSettingsResponsePtrType) ToCacheNetworkSettingsResponsePtrOutputWithContext(ctx context.Context) CacheNetworkSettingsResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheNetworkSettingsResponsePtrOutput)
+}
+
+type CacheNetworkSettingsResponseOutput struct{ *pulumi.OutputState }
+
+func (CacheNetworkSettingsResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheNetworkSettingsResponse)(nil)).Elem()
+}
+
+func (o CacheNetworkSettingsResponseOutput) ToCacheNetworkSettingsResponseOutput() CacheNetworkSettingsResponseOutput {
+	return o
+}
+
+func (o CacheNetworkSettingsResponseOutput) ToCacheNetworkSettingsResponseOutputWithContext(ctx context.Context) CacheNetworkSettingsResponseOutput {
+	return o
+}
+
+func (o CacheNetworkSettingsResponseOutput) ToCacheNetworkSettingsResponsePtrOutput() CacheNetworkSettingsResponsePtrOutput {
+	return o.ToCacheNetworkSettingsResponsePtrOutputWithContext(context.Background())
+}
+
+func (o CacheNetworkSettingsResponseOutput) ToCacheNetworkSettingsResponsePtrOutputWithContext(ctx context.Context) CacheNetworkSettingsResponsePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CacheNetworkSettingsResponse) *CacheNetworkSettingsResponse {
+		return &v
+	}).(CacheNetworkSettingsResponsePtrOutput)
+}
+
+func (o CacheNetworkSettingsResponseOutput) Mtu() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v CacheNetworkSettingsResponse) *int { return v.Mtu }).(pulumi.IntPtrOutput)
+}
+
+func (o CacheNetworkSettingsResponseOutput) UtilityAddresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CacheNetworkSettingsResponse) []string { return v.UtilityAddresses }).(pulumi.StringArrayOutput)
+}
+
+type CacheNetworkSettingsResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (CacheNetworkSettingsResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CacheNetworkSettingsResponse)(nil)).Elem()
+}
+
+func (o CacheNetworkSettingsResponsePtrOutput) ToCacheNetworkSettingsResponsePtrOutput() CacheNetworkSettingsResponsePtrOutput {
+	return o
+}
+
+func (o CacheNetworkSettingsResponsePtrOutput) ToCacheNetworkSettingsResponsePtrOutputWithContext(ctx context.Context) CacheNetworkSettingsResponsePtrOutput {
+	return o
+}
+
+func (o CacheNetworkSettingsResponsePtrOutput) Elem() CacheNetworkSettingsResponseOutput {
+	return o.ApplyT(func(v *CacheNetworkSettingsResponse) CacheNetworkSettingsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret CacheNetworkSettingsResponse
+		return ret
+	}).(CacheNetworkSettingsResponseOutput)
+}
+
+func (o CacheNetworkSettingsResponsePtrOutput) Mtu() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CacheNetworkSettingsResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Mtu
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o CacheNetworkSettingsResponsePtrOutput) UtilityAddresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CacheNetworkSettingsResponse) []string {
+		if v == nil {
+			return nil
+		}
+		return v.UtilityAddresses
+	}).(pulumi.StringArrayOutput)
+}
+
+type CacheResponseSku struct {
+	Name *string `pulumi:"name"`
+}
+
+
+
+
+
+type CacheResponseSkuInput interface {
+	pulumi.Input
+
+	ToCacheResponseSkuOutput() CacheResponseSkuOutput
+	ToCacheResponseSkuOutputWithContext(context.Context) CacheResponseSkuOutput
+}
+
+type CacheResponseSkuArgs struct {
+	Name pulumi.StringPtrInput `pulumi:"name"`
+}
+
+func (CacheResponseSkuArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheResponseSku)(nil)).Elem()
+}
+
+func (i CacheResponseSkuArgs) ToCacheResponseSkuOutput() CacheResponseSkuOutput {
+	return i.ToCacheResponseSkuOutputWithContext(context.Background())
+}
+
+func (i CacheResponseSkuArgs) ToCacheResponseSkuOutputWithContext(ctx context.Context) CacheResponseSkuOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheResponseSkuOutput)
+}
+
+func (i CacheResponseSkuArgs) ToCacheResponseSkuPtrOutput() CacheResponseSkuPtrOutput {
+	return i.ToCacheResponseSkuPtrOutputWithContext(context.Background())
+}
+
+func (i CacheResponseSkuArgs) ToCacheResponseSkuPtrOutputWithContext(ctx context.Context) CacheResponseSkuPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheResponseSkuOutput).ToCacheResponseSkuPtrOutputWithContext(ctx)
+}
+
+
+
+
+
+
+
+
+
+type CacheResponseSkuPtrInput interface {
+	pulumi.Input
+
+	ToCacheResponseSkuPtrOutput() CacheResponseSkuPtrOutput
+	ToCacheResponseSkuPtrOutputWithContext(context.Context) CacheResponseSkuPtrOutput
+}
+
+type cacheResponseSkuPtrType CacheResponseSkuArgs
+
+func CacheResponseSkuPtr(v *CacheResponseSkuArgs) CacheResponseSkuPtrInput {
+	return (*cacheResponseSkuPtrType)(v)
+}
+
+func (*cacheResponseSkuPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CacheResponseSku)(nil)).Elem()
+}
+
+func (i *cacheResponseSkuPtrType) ToCacheResponseSkuPtrOutput() CacheResponseSkuPtrOutput {
+	return i.ToCacheResponseSkuPtrOutputWithContext(context.Background())
+}
+
+func (i *cacheResponseSkuPtrType) ToCacheResponseSkuPtrOutputWithContext(ctx context.Context) CacheResponseSkuPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheResponseSkuPtrOutput)
+}
+
+type CacheResponseSkuOutput struct{ *pulumi.OutputState }
+
+func (CacheResponseSkuOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheResponseSku)(nil)).Elem()
+}
+
+func (o CacheResponseSkuOutput) ToCacheResponseSkuOutput() CacheResponseSkuOutput {
+	return o
+}
+
+func (o CacheResponseSkuOutput) ToCacheResponseSkuOutputWithContext(ctx context.Context) CacheResponseSkuOutput {
+	return o
+}
+
+func (o CacheResponseSkuOutput) ToCacheResponseSkuPtrOutput() CacheResponseSkuPtrOutput {
+	return o.ToCacheResponseSkuPtrOutputWithContext(context.Background())
+}
+
+func (o CacheResponseSkuOutput) ToCacheResponseSkuPtrOutputWithContext(ctx context.Context) CacheResponseSkuPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CacheResponseSku) *CacheResponseSku {
+		return &v
+	}).(CacheResponseSkuPtrOutput)
+}
+
+func (o CacheResponseSkuOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CacheResponseSku) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+type CacheResponseSkuPtrOutput struct{ *pulumi.OutputState }
+
+func (CacheResponseSkuPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CacheResponseSku)(nil)).Elem()
+}
+
+func (o CacheResponseSkuPtrOutput) ToCacheResponseSkuPtrOutput() CacheResponseSkuPtrOutput {
+	return o
+}
+
+func (o CacheResponseSkuPtrOutput) ToCacheResponseSkuPtrOutputWithContext(ctx context.Context) CacheResponseSkuPtrOutput {
+	return o
+}
+
+func (o CacheResponseSkuPtrOutput) Elem() CacheResponseSkuOutput {
+	return o.ApplyT(func(v *CacheResponseSku) CacheResponseSku {
+		if v != nil {
+			return *v
+		}
+		var ret CacheResponseSku
+		return ret
+	}).(CacheResponseSkuOutput)
+}
+
+func (o CacheResponseSkuPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CacheResponseSku) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+type CacheSecuritySettings struct {
+	RootSquash *bool `pulumi:"rootSquash"`
+}
+
+
+
+
+
+type CacheSecuritySettingsInput interface {
+	pulumi.Input
+
+	ToCacheSecuritySettingsOutput() CacheSecuritySettingsOutput
+	ToCacheSecuritySettingsOutputWithContext(context.Context) CacheSecuritySettingsOutput
+}
+
+type CacheSecuritySettingsArgs struct {
+	RootSquash pulumi.BoolPtrInput `pulumi:"rootSquash"`
+}
+
+func (CacheSecuritySettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheSecuritySettings)(nil)).Elem()
+}
+
+func (i CacheSecuritySettingsArgs) ToCacheSecuritySettingsOutput() CacheSecuritySettingsOutput {
+	return i.ToCacheSecuritySettingsOutputWithContext(context.Background())
+}
+
+func (i CacheSecuritySettingsArgs) ToCacheSecuritySettingsOutputWithContext(ctx context.Context) CacheSecuritySettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheSecuritySettingsOutput)
+}
+
+func (i CacheSecuritySettingsArgs) ToCacheSecuritySettingsPtrOutput() CacheSecuritySettingsPtrOutput {
+	return i.ToCacheSecuritySettingsPtrOutputWithContext(context.Background())
+}
+
+func (i CacheSecuritySettingsArgs) ToCacheSecuritySettingsPtrOutputWithContext(ctx context.Context) CacheSecuritySettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheSecuritySettingsOutput).ToCacheSecuritySettingsPtrOutputWithContext(ctx)
+}
+
+
+
+
+
+
+
+
+
+type CacheSecuritySettingsPtrInput interface {
+	pulumi.Input
+
+	ToCacheSecuritySettingsPtrOutput() CacheSecuritySettingsPtrOutput
+	ToCacheSecuritySettingsPtrOutputWithContext(context.Context) CacheSecuritySettingsPtrOutput
+}
+
+type cacheSecuritySettingsPtrType CacheSecuritySettingsArgs
+
+func CacheSecuritySettingsPtr(v *CacheSecuritySettingsArgs) CacheSecuritySettingsPtrInput {
+	return (*cacheSecuritySettingsPtrType)(v)
+}
+
+func (*cacheSecuritySettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CacheSecuritySettings)(nil)).Elem()
+}
+
+func (i *cacheSecuritySettingsPtrType) ToCacheSecuritySettingsPtrOutput() CacheSecuritySettingsPtrOutput {
+	return i.ToCacheSecuritySettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *cacheSecuritySettingsPtrType) ToCacheSecuritySettingsPtrOutputWithContext(ctx context.Context) CacheSecuritySettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheSecuritySettingsPtrOutput)
+}
+
+type CacheSecuritySettingsOutput struct{ *pulumi.OutputState }
+
+func (CacheSecuritySettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheSecuritySettings)(nil)).Elem()
+}
+
+func (o CacheSecuritySettingsOutput) ToCacheSecuritySettingsOutput() CacheSecuritySettingsOutput {
+	return o
+}
+
+func (o CacheSecuritySettingsOutput) ToCacheSecuritySettingsOutputWithContext(ctx context.Context) CacheSecuritySettingsOutput {
+	return o
+}
+
+func (o CacheSecuritySettingsOutput) ToCacheSecuritySettingsPtrOutput() CacheSecuritySettingsPtrOutput {
+	return o.ToCacheSecuritySettingsPtrOutputWithContext(context.Background())
+}
+
+func (o CacheSecuritySettingsOutput) ToCacheSecuritySettingsPtrOutputWithContext(ctx context.Context) CacheSecuritySettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CacheSecuritySettings) *CacheSecuritySettings {
+		return &v
+	}).(CacheSecuritySettingsPtrOutput)
+}
+
+func (o CacheSecuritySettingsOutput) RootSquash() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CacheSecuritySettings) *bool { return v.RootSquash }).(pulumi.BoolPtrOutput)
+}
+
+type CacheSecuritySettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (CacheSecuritySettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CacheSecuritySettings)(nil)).Elem()
+}
+
+func (o CacheSecuritySettingsPtrOutput) ToCacheSecuritySettingsPtrOutput() CacheSecuritySettingsPtrOutput {
+	return o
+}
+
+func (o CacheSecuritySettingsPtrOutput) ToCacheSecuritySettingsPtrOutputWithContext(ctx context.Context) CacheSecuritySettingsPtrOutput {
+	return o
+}
+
+func (o CacheSecuritySettingsPtrOutput) Elem() CacheSecuritySettingsOutput {
+	return o.ApplyT(func(v *CacheSecuritySettings) CacheSecuritySettings {
+		if v != nil {
+			return *v
+		}
+		var ret CacheSecuritySettings
+		return ret
+	}).(CacheSecuritySettingsOutput)
+}
+
+func (o CacheSecuritySettingsPtrOutput) RootSquash() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CacheSecuritySettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.RootSquash
+	}).(pulumi.BoolPtrOutput)
+}
+
+type CacheSecuritySettingsResponse struct {
+	RootSquash *bool `pulumi:"rootSquash"`
+}
+
+
+
+
+
+type CacheSecuritySettingsResponseInput interface {
+	pulumi.Input
+
+	ToCacheSecuritySettingsResponseOutput() CacheSecuritySettingsResponseOutput
+	ToCacheSecuritySettingsResponseOutputWithContext(context.Context) CacheSecuritySettingsResponseOutput
+}
+
+type CacheSecuritySettingsResponseArgs struct {
+	RootSquash pulumi.BoolPtrInput `pulumi:"rootSquash"`
+}
+
+func (CacheSecuritySettingsResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheSecuritySettingsResponse)(nil)).Elem()
+}
+
+func (i CacheSecuritySettingsResponseArgs) ToCacheSecuritySettingsResponseOutput() CacheSecuritySettingsResponseOutput {
+	return i.ToCacheSecuritySettingsResponseOutputWithContext(context.Background())
+}
+
+func (i CacheSecuritySettingsResponseArgs) ToCacheSecuritySettingsResponseOutputWithContext(ctx context.Context) CacheSecuritySettingsResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheSecuritySettingsResponseOutput)
+}
+
+func (i CacheSecuritySettingsResponseArgs) ToCacheSecuritySettingsResponsePtrOutput() CacheSecuritySettingsResponsePtrOutput {
+	return i.ToCacheSecuritySettingsResponsePtrOutputWithContext(context.Background())
+}
+
+func (i CacheSecuritySettingsResponseArgs) ToCacheSecuritySettingsResponsePtrOutputWithContext(ctx context.Context) CacheSecuritySettingsResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheSecuritySettingsResponseOutput).ToCacheSecuritySettingsResponsePtrOutputWithContext(ctx)
+}
+
+
+
+
+
+
+
+
+
+type CacheSecuritySettingsResponsePtrInput interface {
+	pulumi.Input
+
+	ToCacheSecuritySettingsResponsePtrOutput() CacheSecuritySettingsResponsePtrOutput
+	ToCacheSecuritySettingsResponsePtrOutputWithContext(context.Context) CacheSecuritySettingsResponsePtrOutput
+}
+
+type cacheSecuritySettingsResponsePtrType CacheSecuritySettingsResponseArgs
+
+func CacheSecuritySettingsResponsePtr(v *CacheSecuritySettingsResponseArgs) CacheSecuritySettingsResponsePtrInput {
+	return (*cacheSecuritySettingsResponsePtrType)(v)
+}
+
+func (*cacheSecuritySettingsResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CacheSecuritySettingsResponse)(nil)).Elem()
+}
+
+func (i *cacheSecuritySettingsResponsePtrType) ToCacheSecuritySettingsResponsePtrOutput() CacheSecuritySettingsResponsePtrOutput {
+	return i.ToCacheSecuritySettingsResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *cacheSecuritySettingsResponsePtrType) ToCacheSecuritySettingsResponsePtrOutputWithContext(ctx context.Context) CacheSecuritySettingsResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheSecuritySettingsResponsePtrOutput)
+}
+
+type CacheSecuritySettingsResponseOutput struct{ *pulumi.OutputState }
+
+func (CacheSecuritySettingsResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheSecuritySettingsResponse)(nil)).Elem()
+}
+
+func (o CacheSecuritySettingsResponseOutput) ToCacheSecuritySettingsResponseOutput() CacheSecuritySettingsResponseOutput {
+	return o
+}
+
+func (o CacheSecuritySettingsResponseOutput) ToCacheSecuritySettingsResponseOutputWithContext(ctx context.Context) CacheSecuritySettingsResponseOutput {
+	return o
+}
+
+func (o CacheSecuritySettingsResponseOutput) ToCacheSecuritySettingsResponsePtrOutput() CacheSecuritySettingsResponsePtrOutput {
+	return o.ToCacheSecuritySettingsResponsePtrOutputWithContext(context.Background())
+}
+
+func (o CacheSecuritySettingsResponseOutput) ToCacheSecuritySettingsResponsePtrOutputWithContext(ctx context.Context) CacheSecuritySettingsResponsePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CacheSecuritySettingsResponse) *CacheSecuritySettingsResponse {
+		return &v
+	}).(CacheSecuritySettingsResponsePtrOutput)
+}
+
+func (o CacheSecuritySettingsResponseOutput) RootSquash() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CacheSecuritySettingsResponse) *bool { return v.RootSquash }).(pulumi.BoolPtrOutput)
+}
+
+type CacheSecuritySettingsResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (CacheSecuritySettingsResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CacheSecuritySettingsResponse)(nil)).Elem()
+}
+
+func (o CacheSecuritySettingsResponsePtrOutput) ToCacheSecuritySettingsResponsePtrOutput() CacheSecuritySettingsResponsePtrOutput {
+	return o
+}
+
+func (o CacheSecuritySettingsResponsePtrOutput) ToCacheSecuritySettingsResponsePtrOutputWithContext(ctx context.Context) CacheSecuritySettingsResponsePtrOutput {
+	return o
+}
+
+func (o CacheSecuritySettingsResponsePtrOutput) Elem() CacheSecuritySettingsResponseOutput {
+	return o.ApplyT(func(v *CacheSecuritySettingsResponse) CacheSecuritySettingsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret CacheSecuritySettingsResponse
+		return ret
+	}).(CacheSecuritySettingsResponseOutput)
+}
+
+func (o CacheSecuritySettingsResponsePtrOutput) RootSquash() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CacheSecuritySettingsResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.RootSquash
+	}).(pulumi.BoolPtrOutput)
+}
+
+type CacheSku struct {
+	Name *string `pulumi:"name"`
+}
+
+
+
+
+
+type CacheSkuInput interface {
+	pulumi.Input
+
+	ToCacheSkuOutput() CacheSkuOutput
+	ToCacheSkuOutputWithContext(context.Context) CacheSkuOutput
+}
+
+type CacheSkuArgs struct {
+	Name pulumi.StringPtrInput `pulumi:"name"`
+}
+
+func (CacheSkuArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheSku)(nil)).Elem()
+}
+
+func (i CacheSkuArgs) ToCacheSkuOutput() CacheSkuOutput {
+	return i.ToCacheSkuOutputWithContext(context.Background())
+}
+
+func (i CacheSkuArgs) ToCacheSkuOutputWithContext(ctx context.Context) CacheSkuOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheSkuOutput)
+}
+
+func (i CacheSkuArgs) ToCacheSkuPtrOutput() CacheSkuPtrOutput {
+	return i.ToCacheSkuPtrOutputWithContext(context.Background())
+}
+
+func (i CacheSkuArgs) ToCacheSkuPtrOutputWithContext(ctx context.Context) CacheSkuPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheSkuOutput).ToCacheSkuPtrOutputWithContext(ctx)
+}
+
+
+
+
+
+
+
+
+
+type CacheSkuPtrInput interface {
+	pulumi.Input
+
+	ToCacheSkuPtrOutput() CacheSkuPtrOutput
+	ToCacheSkuPtrOutputWithContext(context.Context) CacheSkuPtrOutput
+}
+
+type cacheSkuPtrType CacheSkuArgs
+
+func CacheSkuPtr(v *CacheSkuArgs) CacheSkuPtrInput {
+	return (*cacheSkuPtrType)(v)
+}
+
+func (*cacheSkuPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CacheSku)(nil)).Elem()
+}
+
+func (i *cacheSkuPtrType) ToCacheSkuPtrOutput() CacheSkuPtrOutput {
+	return i.ToCacheSkuPtrOutputWithContext(context.Background())
+}
+
+func (i *cacheSkuPtrType) ToCacheSkuPtrOutputWithContext(ctx context.Context) CacheSkuPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheSkuPtrOutput)
+}
+
+type CacheSkuOutput struct{ *pulumi.OutputState }
+
+func (CacheSkuOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheSku)(nil)).Elem()
+}
+
+func (o CacheSkuOutput) ToCacheSkuOutput() CacheSkuOutput {
+	return o
+}
+
+func (o CacheSkuOutput) ToCacheSkuOutputWithContext(ctx context.Context) CacheSkuOutput {
+	return o
+}
+
+func (o CacheSkuOutput) ToCacheSkuPtrOutput() CacheSkuPtrOutput {
+	return o.ToCacheSkuPtrOutputWithContext(context.Background())
+}
+
+func (o CacheSkuOutput) ToCacheSkuPtrOutputWithContext(ctx context.Context) CacheSkuPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CacheSku) *CacheSku {
+		return &v
+	}).(CacheSkuPtrOutput)
+}
+
+func (o CacheSkuOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CacheSku) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+type CacheSkuPtrOutput struct{ *pulumi.OutputState }
+
+func (CacheSkuPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CacheSku)(nil)).Elem()
+}
+
+func (o CacheSkuPtrOutput) ToCacheSkuPtrOutput() CacheSkuPtrOutput {
+	return o
+}
+
+func (o CacheSkuPtrOutput) ToCacheSkuPtrOutputWithContext(ctx context.Context) CacheSkuPtrOutput {
+	return o
+}
+
+func (o CacheSkuPtrOutput) Elem() CacheSkuOutput {
+	return o.ApplyT(func(v *CacheSku) CacheSku {
+		if v != nil {
+			return *v
+		}
+		var ret CacheSku
+		return ret
+	}).(CacheSkuOutput)
+}
+
+func (o CacheSkuPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CacheSku) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+type CacheUpgradeStatusResponse struct {
+	CurrentFirmwareVersion string `pulumi:"currentFirmwareVersion"`
+	FirmwareUpdateDeadline string `pulumi:"firmwareUpdateDeadline"`
+	FirmwareUpdateStatus   string `pulumi:"firmwareUpdateStatus"`
+	LastFirmwareUpdate     string `pulumi:"lastFirmwareUpdate"`
+	PendingFirmwareVersion string `pulumi:"pendingFirmwareVersion"`
+}
+
+
+
+
+
+type CacheUpgradeStatusResponseInput interface {
+	pulumi.Input
+
+	ToCacheUpgradeStatusResponseOutput() CacheUpgradeStatusResponseOutput
+	ToCacheUpgradeStatusResponseOutputWithContext(context.Context) CacheUpgradeStatusResponseOutput
+}
+
+type CacheUpgradeStatusResponseArgs struct {
+	CurrentFirmwareVersion pulumi.StringInput `pulumi:"currentFirmwareVersion"`
+	FirmwareUpdateDeadline pulumi.StringInput `pulumi:"firmwareUpdateDeadline"`
+	FirmwareUpdateStatus   pulumi.StringInput `pulumi:"firmwareUpdateStatus"`
+	LastFirmwareUpdate     pulumi.StringInput `pulumi:"lastFirmwareUpdate"`
+	PendingFirmwareVersion pulumi.StringInput `pulumi:"pendingFirmwareVersion"`
+}
+
+func (CacheUpgradeStatusResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheUpgradeStatusResponse)(nil)).Elem()
+}
+
+func (i CacheUpgradeStatusResponseArgs) ToCacheUpgradeStatusResponseOutput() CacheUpgradeStatusResponseOutput {
+	return i.ToCacheUpgradeStatusResponseOutputWithContext(context.Background())
+}
+
+func (i CacheUpgradeStatusResponseArgs) ToCacheUpgradeStatusResponseOutputWithContext(ctx context.Context) CacheUpgradeStatusResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheUpgradeStatusResponseOutput)
+}
+
+func (i CacheUpgradeStatusResponseArgs) ToCacheUpgradeStatusResponsePtrOutput() CacheUpgradeStatusResponsePtrOutput {
+	return i.ToCacheUpgradeStatusResponsePtrOutputWithContext(context.Background())
+}
+
+func (i CacheUpgradeStatusResponseArgs) ToCacheUpgradeStatusResponsePtrOutputWithContext(ctx context.Context) CacheUpgradeStatusResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheUpgradeStatusResponseOutput).ToCacheUpgradeStatusResponsePtrOutputWithContext(ctx)
+}
+
+
+
+
+
+
+
+
+
+type CacheUpgradeStatusResponsePtrInput interface {
+	pulumi.Input
+
+	ToCacheUpgradeStatusResponsePtrOutput() CacheUpgradeStatusResponsePtrOutput
+	ToCacheUpgradeStatusResponsePtrOutputWithContext(context.Context) CacheUpgradeStatusResponsePtrOutput
+}
+
+type cacheUpgradeStatusResponsePtrType CacheUpgradeStatusResponseArgs
+
+func CacheUpgradeStatusResponsePtr(v *CacheUpgradeStatusResponseArgs) CacheUpgradeStatusResponsePtrInput {
+	return (*cacheUpgradeStatusResponsePtrType)(v)
+}
+
+func (*cacheUpgradeStatusResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CacheUpgradeStatusResponse)(nil)).Elem()
+}
+
+func (i *cacheUpgradeStatusResponsePtrType) ToCacheUpgradeStatusResponsePtrOutput() CacheUpgradeStatusResponsePtrOutput {
+	return i.ToCacheUpgradeStatusResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *cacheUpgradeStatusResponsePtrType) ToCacheUpgradeStatusResponsePtrOutputWithContext(ctx context.Context) CacheUpgradeStatusResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheUpgradeStatusResponsePtrOutput)
+}
+
+type CacheUpgradeStatusResponseOutput struct{ *pulumi.OutputState }
+
+func (CacheUpgradeStatusResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheUpgradeStatusResponse)(nil)).Elem()
+}
+
+func (o CacheUpgradeStatusResponseOutput) ToCacheUpgradeStatusResponseOutput() CacheUpgradeStatusResponseOutput {
+	return o
+}
+
+func (o CacheUpgradeStatusResponseOutput) ToCacheUpgradeStatusResponseOutputWithContext(ctx context.Context) CacheUpgradeStatusResponseOutput {
+	return o
+}
+
+func (o CacheUpgradeStatusResponseOutput) ToCacheUpgradeStatusResponsePtrOutput() CacheUpgradeStatusResponsePtrOutput {
+	return o.ToCacheUpgradeStatusResponsePtrOutputWithContext(context.Background())
+}
+
+func (o CacheUpgradeStatusResponseOutput) ToCacheUpgradeStatusResponsePtrOutputWithContext(ctx context.Context) CacheUpgradeStatusResponsePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CacheUpgradeStatusResponse) *CacheUpgradeStatusResponse {
+		return &v
+	}).(CacheUpgradeStatusResponsePtrOutput)
+}
+
+func (o CacheUpgradeStatusResponseOutput) CurrentFirmwareVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v CacheUpgradeStatusResponse) string { return v.CurrentFirmwareVersion }).(pulumi.StringOutput)
+}
+
+func (o CacheUpgradeStatusResponseOutput) FirmwareUpdateDeadline() pulumi.StringOutput {
+	return o.ApplyT(func(v CacheUpgradeStatusResponse) string { return v.FirmwareUpdateDeadline }).(pulumi.StringOutput)
+}
+
+func (o CacheUpgradeStatusResponseOutput) FirmwareUpdateStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v CacheUpgradeStatusResponse) string { return v.FirmwareUpdateStatus }).(pulumi.StringOutput)
+}
+
+func (o CacheUpgradeStatusResponseOutput) LastFirmwareUpdate() pulumi.StringOutput {
+	return o.ApplyT(func(v CacheUpgradeStatusResponse) string { return v.LastFirmwareUpdate }).(pulumi.StringOutput)
+}
+
+func (o CacheUpgradeStatusResponseOutput) PendingFirmwareVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v CacheUpgradeStatusResponse) string { return v.PendingFirmwareVersion }).(pulumi.StringOutput)
+}
+
+type CacheUpgradeStatusResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (CacheUpgradeStatusResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CacheUpgradeStatusResponse)(nil)).Elem()
+}
+
+func (o CacheUpgradeStatusResponsePtrOutput) ToCacheUpgradeStatusResponsePtrOutput() CacheUpgradeStatusResponsePtrOutput {
+	return o
+}
+
+func (o CacheUpgradeStatusResponsePtrOutput) ToCacheUpgradeStatusResponsePtrOutputWithContext(ctx context.Context) CacheUpgradeStatusResponsePtrOutput {
+	return o
+}
+
+func (o CacheUpgradeStatusResponsePtrOutput) Elem() CacheUpgradeStatusResponseOutput {
+	return o.ApplyT(func(v *CacheUpgradeStatusResponse) CacheUpgradeStatusResponse {
+		if v != nil {
+			return *v
+		}
+		var ret CacheUpgradeStatusResponse
+		return ret
+	}).(CacheUpgradeStatusResponseOutput)
+}
+
+func (o CacheUpgradeStatusResponsePtrOutput) CurrentFirmwareVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CacheUpgradeStatusResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CurrentFirmwareVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o CacheUpgradeStatusResponsePtrOutput) FirmwareUpdateDeadline() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CacheUpgradeStatusResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.FirmwareUpdateDeadline
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o CacheUpgradeStatusResponsePtrOutput) FirmwareUpdateStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CacheUpgradeStatusResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.FirmwareUpdateStatus
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o CacheUpgradeStatusResponsePtrOutput) LastFirmwareUpdate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CacheUpgradeStatusResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.LastFirmwareUpdate
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o CacheUpgradeStatusResponsePtrOutput) PendingFirmwareVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CacheUpgradeStatusResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PendingFirmwareVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+type ClfsTarget struct {
+	Target *string `pulumi:"target"`
+}
+
+
+
+
+
+type ClfsTargetInput interface {
+	pulumi.Input
+
+	ToClfsTargetOutput() ClfsTargetOutput
+	ToClfsTargetOutputWithContext(context.Context) ClfsTargetOutput
+}
+
+type ClfsTargetArgs struct {
+	Target pulumi.StringPtrInput `pulumi:"target"`
+}
+
+func (ClfsTargetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClfsTarget)(nil)).Elem()
+}
+
+func (i ClfsTargetArgs) ToClfsTargetOutput() ClfsTargetOutput {
+	return i.ToClfsTargetOutputWithContext(context.Background())
+}
+
+func (i ClfsTargetArgs) ToClfsTargetOutputWithContext(ctx context.Context) ClfsTargetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClfsTargetOutput)
+}
+
+func (i ClfsTargetArgs) ToClfsTargetPtrOutput() ClfsTargetPtrOutput {
+	return i.ToClfsTargetPtrOutputWithContext(context.Background())
+}
+
+func (i ClfsTargetArgs) ToClfsTargetPtrOutputWithContext(ctx context.Context) ClfsTargetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClfsTargetOutput).ToClfsTargetPtrOutputWithContext(ctx)
+}
+
+
+
+
+
+
+
+
+
+type ClfsTargetPtrInput interface {
+	pulumi.Input
+
+	ToClfsTargetPtrOutput() ClfsTargetPtrOutput
+	ToClfsTargetPtrOutputWithContext(context.Context) ClfsTargetPtrOutput
+}
+
+type clfsTargetPtrType ClfsTargetArgs
+
+func ClfsTargetPtr(v *ClfsTargetArgs) ClfsTargetPtrInput {
+	return (*clfsTargetPtrType)(v)
+}
+
+func (*clfsTargetPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClfsTarget)(nil)).Elem()
+}
+
+func (i *clfsTargetPtrType) ToClfsTargetPtrOutput() ClfsTargetPtrOutput {
+	return i.ToClfsTargetPtrOutputWithContext(context.Background())
+}
+
+func (i *clfsTargetPtrType) ToClfsTargetPtrOutputWithContext(ctx context.Context) ClfsTargetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClfsTargetPtrOutput)
+}
+
+type ClfsTargetOutput struct{ *pulumi.OutputState }
+
+func (ClfsTargetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClfsTarget)(nil)).Elem()
+}
+
+func (o ClfsTargetOutput) ToClfsTargetOutput() ClfsTargetOutput {
+	return o
+}
+
+func (o ClfsTargetOutput) ToClfsTargetOutputWithContext(ctx context.Context) ClfsTargetOutput {
+	return o
+}
+
+func (o ClfsTargetOutput) ToClfsTargetPtrOutput() ClfsTargetPtrOutput {
+	return o.ToClfsTargetPtrOutputWithContext(context.Background())
+}
+
+func (o ClfsTargetOutput) ToClfsTargetPtrOutputWithContext(ctx context.Context) ClfsTargetPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClfsTarget) *ClfsTarget {
+		return &v
+	}).(ClfsTargetPtrOutput)
+}
+
+func (o ClfsTargetOutput) Target() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClfsTarget) *string { return v.Target }).(pulumi.StringPtrOutput)
+}
+
+type ClfsTargetPtrOutput struct{ *pulumi.OutputState }
+
+func (ClfsTargetPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClfsTarget)(nil)).Elem()
+}
+
+func (o ClfsTargetPtrOutput) ToClfsTargetPtrOutput() ClfsTargetPtrOutput {
+	return o
+}
+
+func (o ClfsTargetPtrOutput) ToClfsTargetPtrOutputWithContext(ctx context.Context) ClfsTargetPtrOutput {
+	return o
+}
+
+func (o ClfsTargetPtrOutput) Elem() ClfsTargetOutput {
+	return o.ApplyT(func(v *ClfsTarget) ClfsTarget {
+		if v != nil {
+			return *v
+		}
+		var ret ClfsTarget
+		return ret
+	}).(ClfsTargetOutput)
+}
+
+func (o ClfsTargetPtrOutput) Target() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClfsTarget) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Target
+	}).(pulumi.StringPtrOutput)
+}
+
+type ClfsTargetResponse struct {
+	Target *string `pulumi:"target"`
+}
+
+
+
+
+
+type ClfsTargetResponseInput interface {
+	pulumi.Input
+
+	ToClfsTargetResponseOutput() ClfsTargetResponseOutput
+	ToClfsTargetResponseOutputWithContext(context.Context) ClfsTargetResponseOutput
+}
+
+type ClfsTargetResponseArgs struct {
+	Target pulumi.StringPtrInput `pulumi:"target"`
+}
+
+func (ClfsTargetResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClfsTargetResponse)(nil)).Elem()
+}
+
+func (i ClfsTargetResponseArgs) ToClfsTargetResponseOutput() ClfsTargetResponseOutput {
+	return i.ToClfsTargetResponseOutputWithContext(context.Background())
+}
+
+func (i ClfsTargetResponseArgs) ToClfsTargetResponseOutputWithContext(ctx context.Context) ClfsTargetResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClfsTargetResponseOutput)
+}
+
+func (i ClfsTargetResponseArgs) ToClfsTargetResponsePtrOutput() ClfsTargetResponsePtrOutput {
+	return i.ToClfsTargetResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ClfsTargetResponseArgs) ToClfsTargetResponsePtrOutputWithContext(ctx context.Context) ClfsTargetResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClfsTargetResponseOutput).ToClfsTargetResponsePtrOutputWithContext(ctx)
+}
+
+
+
+
+
+
+
+
+
+type ClfsTargetResponsePtrInput interface {
+	pulumi.Input
+
+	ToClfsTargetResponsePtrOutput() ClfsTargetResponsePtrOutput
+	ToClfsTargetResponsePtrOutputWithContext(context.Context) ClfsTargetResponsePtrOutput
+}
+
+type clfsTargetResponsePtrType ClfsTargetResponseArgs
+
+func ClfsTargetResponsePtr(v *ClfsTargetResponseArgs) ClfsTargetResponsePtrInput {
+	return (*clfsTargetResponsePtrType)(v)
+}
+
+func (*clfsTargetResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClfsTargetResponse)(nil)).Elem()
+}
+
+func (i *clfsTargetResponsePtrType) ToClfsTargetResponsePtrOutput() ClfsTargetResponsePtrOutput {
+	return i.ToClfsTargetResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *clfsTargetResponsePtrType) ToClfsTargetResponsePtrOutputWithContext(ctx context.Context) ClfsTargetResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClfsTargetResponsePtrOutput)
+}
+
+type ClfsTargetResponseOutput struct{ *pulumi.OutputState }
+
+func (ClfsTargetResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClfsTargetResponse)(nil)).Elem()
+}
+
+func (o ClfsTargetResponseOutput) ToClfsTargetResponseOutput() ClfsTargetResponseOutput {
+	return o
+}
+
+func (o ClfsTargetResponseOutput) ToClfsTargetResponseOutputWithContext(ctx context.Context) ClfsTargetResponseOutput {
+	return o
+}
+
+func (o ClfsTargetResponseOutput) ToClfsTargetResponsePtrOutput() ClfsTargetResponsePtrOutput {
+	return o.ToClfsTargetResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ClfsTargetResponseOutput) ToClfsTargetResponsePtrOutputWithContext(ctx context.Context) ClfsTargetResponsePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClfsTargetResponse) *ClfsTargetResponse {
+		return &v
+	}).(ClfsTargetResponsePtrOutput)
+}
+
+func (o ClfsTargetResponseOutput) Target() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClfsTargetResponse) *string { return v.Target }).(pulumi.StringPtrOutput)
+}
+
+type ClfsTargetResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ClfsTargetResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClfsTargetResponse)(nil)).Elem()
+}
+
+func (o ClfsTargetResponsePtrOutput) ToClfsTargetResponsePtrOutput() ClfsTargetResponsePtrOutput {
+	return o
+}
+
+func (o ClfsTargetResponsePtrOutput) ToClfsTargetResponsePtrOutputWithContext(ctx context.Context) ClfsTargetResponsePtrOutput {
+	return o
+}
+
+func (o ClfsTargetResponsePtrOutput) Elem() ClfsTargetResponseOutput {
+	return o.ApplyT(func(v *ClfsTargetResponse) ClfsTargetResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ClfsTargetResponse
+		return ret
+	}).(ClfsTargetResponseOutput)
+}
+
+func (o ClfsTargetResponsePtrOutput) Target() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClfsTargetResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Target
+	}).(pulumi.StringPtrOutput)
+}
+
+type KeyVaultKeyReference struct {
+	KeyUrl      string                          `pulumi:"keyUrl"`
+	SourceVault KeyVaultKeyReferenceSourceVault `pulumi:"sourceVault"`
+}
+
+
+
+
+
+type KeyVaultKeyReferenceInput interface {
+	pulumi.Input
+
+	ToKeyVaultKeyReferenceOutput() KeyVaultKeyReferenceOutput
+	ToKeyVaultKeyReferenceOutputWithContext(context.Context) KeyVaultKeyReferenceOutput
+}
+
+type KeyVaultKeyReferenceArgs struct {
+	KeyUrl      pulumi.StringInput                   `pulumi:"keyUrl"`
+	SourceVault KeyVaultKeyReferenceSourceVaultInput `pulumi:"sourceVault"`
+}
+
+func (KeyVaultKeyReferenceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyVaultKeyReference)(nil)).Elem()
+}
+
+func (i KeyVaultKeyReferenceArgs) ToKeyVaultKeyReferenceOutput() KeyVaultKeyReferenceOutput {
+	return i.ToKeyVaultKeyReferenceOutputWithContext(context.Background())
+}
+
+func (i KeyVaultKeyReferenceArgs) ToKeyVaultKeyReferenceOutputWithContext(ctx context.Context) KeyVaultKeyReferenceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultKeyReferenceOutput)
+}
+
+func (i KeyVaultKeyReferenceArgs) ToKeyVaultKeyReferencePtrOutput() KeyVaultKeyReferencePtrOutput {
+	return i.ToKeyVaultKeyReferencePtrOutputWithContext(context.Background())
+}
+
+func (i KeyVaultKeyReferenceArgs) ToKeyVaultKeyReferencePtrOutputWithContext(ctx context.Context) KeyVaultKeyReferencePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultKeyReferenceOutput).ToKeyVaultKeyReferencePtrOutputWithContext(ctx)
+}
+
+
+
+
+
+
+
+
+
+type KeyVaultKeyReferencePtrInput interface {
+	pulumi.Input
+
+	ToKeyVaultKeyReferencePtrOutput() KeyVaultKeyReferencePtrOutput
+	ToKeyVaultKeyReferencePtrOutputWithContext(context.Context) KeyVaultKeyReferencePtrOutput
+}
+
+type keyVaultKeyReferencePtrType KeyVaultKeyReferenceArgs
+
+func KeyVaultKeyReferencePtr(v *KeyVaultKeyReferenceArgs) KeyVaultKeyReferencePtrInput {
+	return (*keyVaultKeyReferencePtrType)(v)
+}
+
+func (*keyVaultKeyReferencePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KeyVaultKeyReference)(nil)).Elem()
+}
+
+func (i *keyVaultKeyReferencePtrType) ToKeyVaultKeyReferencePtrOutput() KeyVaultKeyReferencePtrOutput {
+	return i.ToKeyVaultKeyReferencePtrOutputWithContext(context.Background())
+}
+
+func (i *keyVaultKeyReferencePtrType) ToKeyVaultKeyReferencePtrOutputWithContext(ctx context.Context) KeyVaultKeyReferencePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultKeyReferencePtrOutput)
+}
+
+type KeyVaultKeyReferenceOutput struct{ *pulumi.OutputState }
+
+func (KeyVaultKeyReferenceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyVaultKeyReference)(nil)).Elem()
+}
+
+func (o KeyVaultKeyReferenceOutput) ToKeyVaultKeyReferenceOutput() KeyVaultKeyReferenceOutput {
+	return o
+}
+
+func (o KeyVaultKeyReferenceOutput) ToKeyVaultKeyReferenceOutputWithContext(ctx context.Context) KeyVaultKeyReferenceOutput {
+	return o
+}
+
+func (o KeyVaultKeyReferenceOutput) ToKeyVaultKeyReferencePtrOutput() KeyVaultKeyReferencePtrOutput {
+	return o.ToKeyVaultKeyReferencePtrOutputWithContext(context.Background())
+}
+
+func (o KeyVaultKeyReferenceOutput) ToKeyVaultKeyReferencePtrOutputWithContext(ctx context.Context) KeyVaultKeyReferencePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeyVaultKeyReference) *KeyVaultKeyReference {
+		return &v
+	}).(KeyVaultKeyReferencePtrOutput)
+}
+
+func (o KeyVaultKeyReferenceOutput) KeyUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v KeyVaultKeyReference) string { return v.KeyUrl }).(pulumi.StringOutput)
+}
+
+func (o KeyVaultKeyReferenceOutput) SourceVault() KeyVaultKeyReferenceSourceVaultOutput {
+	return o.ApplyT(func(v KeyVaultKeyReference) KeyVaultKeyReferenceSourceVault { return v.SourceVault }).(KeyVaultKeyReferenceSourceVaultOutput)
+}
+
+type KeyVaultKeyReferencePtrOutput struct{ *pulumi.OutputState }
+
+func (KeyVaultKeyReferencePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KeyVaultKeyReference)(nil)).Elem()
+}
+
+func (o KeyVaultKeyReferencePtrOutput) ToKeyVaultKeyReferencePtrOutput() KeyVaultKeyReferencePtrOutput {
+	return o
+}
+
+func (o KeyVaultKeyReferencePtrOutput) ToKeyVaultKeyReferencePtrOutputWithContext(ctx context.Context) KeyVaultKeyReferencePtrOutput {
+	return o
+}
+
+func (o KeyVaultKeyReferencePtrOutput) Elem() KeyVaultKeyReferenceOutput {
+	return o.ApplyT(func(v *KeyVaultKeyReference) KeyVaultKeyReference {
+		if v != nil {
+			return *v
+		}
+		var ret KeyVaultKeyReference
+		return ret
+	}).(KeyVaultKeyReferenceOutput)
+}
+
+func (o KeyVaultKeyReferencePtrOutput) KeyUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KeyVaultKeyReference) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.KeyUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o KeyVaultKeyReferencePtrOutput) SourceVault() KeyVaultKeyReferenceSourceVaultPtrOutput {
+	return o.ApplyT(func(v *KeyVaultKeyReference) *KeyVaultKeyReferenceSourceVault {
+		if v == nil {
+			return nil
+		}
+		return &v.SourceVault
+	}).(KeyVaultKeyReferenceSourceVaultPtrOutput)
+}
+
+type KeyVaultKeyReferenceResponse struct {
+	KeyUrl      string                                  `pulumi:"keyUrl"`
+	SourceVault KeyVaultKeyReferenceResponseSourceVault `pulumi:"sourceVault"`
+}
+
+
+
+
+
+type KeyVaultKeyReferenceResponseInput interface {
+	pulumi.Input
+
+	ToKeyVaultKeyReferenceResponseOutput() KeyVaultKeyReferenceResponseOutput
+	ToKeyVaultKeyReferenceResponseOutputWithContext(context.Context) KeyVaultKeyReferenceResponseOutput
+}
+
+type KeyVaultKeyReferenceResponseArgs struct {
+	KeyUrl      pulumi.StringInput                           `pulumi:"keyUrl"`
+	SourceVault KeyVaultKeyReferenceResponseSourceVaultInput `pulumi:"sourceVault"`
+}
+
+func (KeyVaultKeyReferenceResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyVaultKeyReferenceResponse)(nil)).Elem()
+}
+
+func (i KeyVaultKeyReferenceResponseArgs) ToKeyVaultKeyReferenceResponseOutput() KeyVaultKeyReferenceResponseOutput {
+	return i.ToKeyVaultKeyReferenceResponseOutputWithContext(context.Background())
+}
+
+func (i KeyVaultKeyReferenceResponseArgs) ToKeyVaultKeyReferenceResponseOutputWithContext(ctx context.Context) KeyVaultKeyReferenceResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultKeyReferenceResponseOutput)
+}
+
+func (i KeyVaultKeyReferenceResponseArgs) ToKeyVaultKeyReferenceResponsePtrOutput() KeyVaultKeyReferenceResponsePtrOutput {
+	return i.ToKeyVaultKeyReferenceResponsePtrOutputWithContext(context.Background())
+}
+
+func (i KeyVaultKeyReferenceResponseArgs) ToKeyVaultKeyReferenceResponsePtrOutputWithContext(ctx context.Context) KeyVaultKeyReferenceResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultKeyReferenceResponseOutput).ToKeyVaultKeyReferenceResponsePtrOutputWithContext(ctx)
+}
+
+
+
+
+
+
+
+
+
+type KeyVaultKeyReferenceResponsePtrInput interface {
+	pulumi.Input
+
+	ToKeyVaultKeyReferenceResponsePtrOutput() KeyVaultKeyReferenceResponsePtrOutput
+	ToKeyVaultKeyReferenceResponsePtrOutputWithContext(context.Context) KeyVaultKeyReferenceResponsePtrOutput
+}
+
+type keyVaultKeyReferenceResponsePtrType KeyVaultKeyReferenceResponseArgs
+
+func KeyVaultKeyReferenceResponsePtr(v *KeyVaultKeyReferenceResponseArgs) KeyVaultKeyReferenceResponsePtrInput {
+	return (*keyVaultKeyReferenceResponsePtrType)(v)
+}
+
+func (*keyVaultKeyReferenceResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KeyVaultKeyReferenceResponse)(nil)).Elem()
+}
+
+func (i *keyVaultKeyReferenceResponsePtrType) ToKeyVaultKeyReferenceResponsePtrOutput() KeyVaultKeyReferenceResponsePtrOutput {
+	return i.ToKeyVaultKeyReferenceResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *keyVaultKeyReferenceResponsePtrType) ToKeyVaultKeyReferenceResponsePtrOutputWithContext(ctx context.Context) KeyVaultKeyReferenceResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultKeyReferenceResponsePtrOutput)
+}
+
+type KeyVaultKeyReferenceResponseOutput struct{ *pulumi.OutputState }
+
+func (KeyVaultKeyReferenceResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyVaultKeyReferenceResponse)(nil)).Elem()
+}
+
+func (o KeyVaultKeyReferenceResponseOutput) ToKeyVaultKeyReferenceResponseOutput() KeyVaultKeyReferenceResponseOutput {
+	return o
+}
+
+func (o KeyVaultKeyReferenceResponseOutput) ToKeyVaultKeyReferenceResponseOutputWithContext(ctx context.Context) KeyVaultKeyReferenceResponseOutput {
+	return o
+}
+
+func (o KeyVaultKeyReferenceResponseOutput) ToKeyVaultKeyReferenceResponsePtrOutput() KeyVaultKeyReferenceResponsePtrOutput {
+	return o.ToKeyVaultKeyReferenceResponsePtrOutputWithContext(context.Background())
+}
+
+func (o KeyVaultKeyReferenceResponseOutput) ToKeyVaultKeyReferenceResponsePtrOutputWithContext(ctx context.Context) KeyVaultKeyReferenceResponsePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeyVaultKeyReferenceResponse) *KeyVaultKeyReferenceResponse {
+		return &v
+	}).(KeyVaultKeyReferenceResponsePtrOutput)
+}
+
+func (o KeyVaultKeyReferenceResponseOutput) KeyUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v KeyVaultKeyReferenceResponse) string { return v.KeyUrl }).(pulumi.StringOutput)
+}
+
+func (o KeyVaultKeyReferenceResponseOutput) SourceVault() KeyVaultKeyReferenceResponseSourceVaultOutput {
+	return o.ApplyT(func(v KeyVaultKeyReferenceResponse) KeyVaultKeyReferenceResponseSourceVault { return v.SourceVault }).(KeyVaultKeyReferenceResponseSourceVaultOutput)
+}
+
+type KeyVaultKeyReferenceResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (KeyVaultKeyReferenceResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KeyVaultKeyReferenceResponse)(nil)).Elem()
+}
+
+func (o KeyVaultKeyReferenceResponsePtrOutput) ToKeyVaultKeyReferenceResponsePtrOutput() KeyVaultKeyReferenceResponsePtrOutput {
+	return o
+}
+
+func (o KeyVaultKeyReferenceResponsePtrOutput) ToKeyVaultKeyReferenceResponsePtrOutputWithContext(ctx context.Context) KeyVaultKeyReferenceResponsePtrOutput {
+	return o
+}
+
+func (o KeyVaultKeyReferenceResponsePtrOutput) Elem() KeyVaultKeyReferenceResponseOutput {
+	return o.ApplyT(func(v *KeyVaultKeyReferenceResponse) KeyVaultKeyReferenceResponse {
+		if v != nil {
+			return *v
+		}
+		var ret KeyVaultKeyReferenceResponse
+		return ret
+	}).(KeyVaultKeyReferenceResponseOutput)
+}
+
+func (o KeyVaultKeyReferenceResponsePtrOutput) KeyUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KeyVaultKeyReferenceResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.KeyUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o KeyVaultKeyReferenceResponsePtrOutput) SourceVault() KeyVaultKeyReferenceResponseSourceVaultPtrOutput {
+	return o.ApplyT(func(v *KeyVaultKeyReferenceResponse) *KeyVaultKeyReferenceResponseSourceVault {
+		if v == nil {
+			return nil
+		}
+		return &v.SourceVault
+	}).(KeyVaultKeyReferenceResponseSourceVaultPtrOutput)
+}
+
+type KeyVaultKeyReferenceResponseSourceVault struct {
+	Id *string `pulumi:"id"`
+}
+
+
+
+
+
+type KeyVaultKeyReferenceResponseSourceVaultInput interface {
+	pulumi.Input
+
+	ToKeyVaultKeyReferenceResponseSourceVaultOutput() KeyVaultKeyReferenceResponseSourceVaultOutput
+	ToKeyVaultKeyReferenceResponseSourceVaultOutputWithContext(context.Context) KeyVaultKeyReferenceResponseSourceVaultOutput
+}
+
+type KeyVaultKeyReferenceResponseSourceVaultArgs struct {
+	Id pulumi.StringPtrInput `pulumi:"id"`
+}
+
+func (KeyVaultKeyReferenceResponseSourceVaultArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyVaultKeyReferenceResponseSourceVault)(nil)).Elem()
+}
+
+func (i KeyVaultKeyReferenceResponseSourceVaultArgs) ToKeyVaultKeyReferenceResponseSourceVaultOutput() KeyVaultKeyReferenceResponseSourceVaultOutput {
+	return i.ToKeyVaultKeyReferenceResponseSourceVaultOutputWithContext(context.Background())
+}
+
+func (i KeyVaultKeyReferenceResponseSourceVaultArgs) ToKeyVaultKeyReferenceResponseSourceVaultOutputWithContext(ctx context.Context) KeyVaultKeyReferenceResponseSourceVaultOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultKeyReferenceResponseSourceVaultOutput)
+}
+
+func (i KeyVaultKeyReferenceResponseSourceVaultArgs) ToKeyVaultKeyReferenceResponseSourceVaultPtrOutput() KeyVaultKeyReferenceResponseSourceVaultPtrOutput {
+	return i.ToKeyVaultKeyReferenceResponseSourceVaultPtrOutputWithContext(context.Background())
+}
+
+func (i KeyVaultKeyReferenceResponseSourceVaultArgs) ToKeyVaultKeyReferenceResponseSourceVaultPtrOutputWithContext(ctx context.Context) KeyVaultKeyReferenceResponseSourceVaultPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultKeyReferenceResponseSourceVaultOutput).ToKeyVaultKeyReferenceResponseSourceVaultPtrOutputWithContext(ctx)
+}
+
+
+
+
+
+
+
+
+
+type KeyVaultKeyReferenceResponseSourceVaultPtrInput interface {
+	pulumi.Input
+
+	ToKeyVaultKeyReferenceResponseSourceVaultPtrOutput() KeyVaultKeyReferenceResponseSourceVaultPtrOutput
+	ToKeyVaultKeyReferenceResponseSourceVaultPtrOutputWithContext(context.Context) KeyVaultKeyReferenceResponseSourceVaultPtrOutput
+}
+
+type keyVaultKeyReferenceResponseSourceVaultPtrType KeyVaultKeyReferenceResponseSourceVaultArgs
+
+func KeyVaultKeyReferenceResponseSourceVaultPtr(v *KeyVaultKeyReferenceResponseSourceVaultArgs) KeyVaultKeyReferenceResponseSourceVaultPtrInput {
+	return (*keyVaultKeyReferenceResponseSourceVaultPtrType)(v)
+}
+
+func (*keyVaultKeyReferenceResponseSourceVaultPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KeyVaultKeyReferenceResponseSourceVault)(nil)).Elem()
+}
+
+func (i *keyVaultKeyReferenceResponseSourceVaultPtrType) ToKeyVaultKeyReferenceResponseSourceVaultPtrOutput() KeyVaultKeyReferenceResponseSourceVaultPtrOutput {
+	return i.ToKeyVaultKeyReferenceResponseSourceVaultPtrOutputWithContext(context.Background())
+}
+
+func (i *keyVaultKeyReferenceResponseSourceVaultPtrType) ToKeyVaultKeyReferenceResponseSourceVaultPtrOutputWithContext(ctx context.Context) KeyVaultKeyReferenceResponseSourceVaultPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultKeyReferenceResponseSourceVaultPtrOutput)
+}
+
+type KeyVaultKeyReferenceResponseSourceVaultOutput struct{ *pulumi.OutputState }
+
+func (KeyVaultKeyReferenceResponseSourceVaultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyVaultKeyReferenceResponseSourceVault)(nil)).Elem()
+}
+
+func (o KeyVaultKeyReferenceResponseSourceVaultOutput) ToKeyVaultKeyReferenceResponseSourceVaultOutput() KeyVaultKeyReferenceResponseSourceVaultOutput {
+	return o
+}
+
+func (o KeyVaultKeyReferenceResponseSourceVaultOutput) ToKeyVaultKeyReferenceResponseSourceVaultOutputWithContext(ctx context.Context) KeyVaultKeyReferenceResponseSourceVaultOutput {
+	return o
+}
+
+func (o KeyVaultKeyReferenceResponseSourceVaultOutput) ToKeyVaultKeyReferenceResponseSourceVaultPtrOutput() KeyVaultKeyReferenceResponseSourceVaultPtrOutput {
+	return o.ToKeyVaultKeyReferenceResponseSourceVaultPtrOutputWithContext(context.Background())
+}
+
+func (o KeyVaultKeyReferenceResponseSourceVaultOutput) ToKeyVaultKeyReferenceResponseSourceVaultPtrOutputWithContext(ctx context.Context) KeyVaultKeyReferenceResponseSourceVaultPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeyVaultKeyReferenceResponseSourceVault) *KeyVaultKeyReferenceResponseSourceVault {
+		return &v
+	}).(KeyVaultKeyReferenceResponseSourceVaultPtrOutput)
+}
+
+func (o KeyVaultKeyReferenceResponseSourceVaultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KeyVaultKeyReferenceResponseSourceVault) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+type KeyVaultKeyReferenceResponseSourceVaultPtrOutput struct{ *pulumi.OutputState }
+
+func (KeyVaultKeyReferenceResponseSourceVaultPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KeyVaultKeyReferenceResponseSourceVault)(nil)).Elem()
+}
+
+func (o KeyVaultKeyReferenceResponseSourceVaultPtrOutput) ToKeyVaultKeyReferenceResponseSourceVaultPtrOutput() KeyVaultKeyReferenceResponseSourceVaultPtrOutput {
+	return o
+}
+
+func (o KeyVaultKeyReferenceResponseSourceVaultPtrOutput) ToKeyVaultKeyReferenceResponseSourceVaultPtrOutputWithContext(ctx context.Context) KeyVaultKeyReferenceResponseSourceVaultPtrOutput {
+	return o
+}
+
+func (o KeyVaultKeyReferenceResponseSourceVaultPtrOutput) Elem() KeyVaultKeyReferenceResponseSourceVaultOutput {
+	return o.ApplyT(func(v *KeyVaultKeyReferenceResponseSourceVault) KeyVaultKeyReferenceResponseSourceVault {
+		if v != nil {
+			return *v
+		}
+		var ret KeyVaultKeyReferenceResponseSourceVault
+		return ret
+	}).(KeyVaultKeyReferenceResponseSourceVaultOutput)
+}
+
+func (o KeyVaultKeyReferenceResponseSourceVaultPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KeyVaultKeyReferenceResponseSourceVault) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+type KeyVaultKeyReferenceSourceVault struct {
+	Id *string `pulumi:"id"`
+}
+
+
+
+
+
+type KeyVaultKeyReferenceSourceVaultInput interface {
+	pulumi.Input
+
+	ToKeyVaultKeyReferenceSourceVaultOutput() KeyVaultKeyReferenceSourceVaultOutput
+	ToKeyVaultKeyReferenceSourceVaultOutputWithContext(context.Context) KeyVaultKeyReferenceSourceVaultOutput
+}
+
+type KeyVaultKeyReferenceSourceVaultArgs struct {
+	Id pulumi.StringPtrInput `pulumi:"id"`
+}
+
+func (KeyVaultKeyReferenceSourceVaultArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyVaultKeyReferenceSourceVault)(nil)).Elem()
+}
+
+func (i KeyVaultKeyReferenceSourceVaultArgs) ToKeyVaultKeyReferenceSourceVaultOutput() KeyVaultKeyReferenceSourceVaultOutput {
+	return i.ToKeyVaultKeyReferenceSourceVaultOutputWithContext(context.Background())
+}
+
+func (i KeyVaultKeyReferenceSourceVaultArgs) ToKeyVaultKeyReferenceSourceVaultOutputWithContext(ctx context.Context) KeyVaultKeyReferenceSourceVaultOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultKeyReferenceSourceVaultOutput)
+}
+
+func (i KeyVaultKeyReferenceSourceVaultArgs) ToKeyVaultKeyReferenceSourceVaultPtrOutput() KeyVaultKeyReferenceSourceVaultPtrOutput {
+	return i.ToKeyVaultKeyReferenceSourceVaultPtrOutputWithContext(context.Background())
+}
+
+func (i KeyVaultKeyReferenceSourceVaultArgs) ToKeyVaultKeyReferenceSourceVaultPtrOutputWithContext(ctx context.Context) KeyVaultKeyReferenceSourceVaultPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultKeyReferenceSourceVaultOutput).ToKeyVaultKeyReferenceSourceVaultPtrOutputWithContext(ctx)
+}
+
+
+
+
+
+
+
+
+
+type KeyVaultKeyReferenceSourceVaultPtrInput interface {
+	pulumi.Input
+
+	ToKeyVaultKeyReferenceSourceVaultPtrOutput() KeyVaultKeyReferenceSourceVaultPtrOutput
+	ToKeyVaultKeyReferenceSourceVaultPtrOutputWithContext(context.Context) KeyVaultKeyReferenceSourceVaultPtrOutput
+}
+
+type keyVaultKeyReferenceSourceVaultPtrType KeyVaultKeyReferenceSourceVaultArgs
+
+func KeyVaultKeyReferenceSourceVaultPtr(v *KeyVaultKeyReferenceSourceVaultArgs) KeyVaultKeyReferenceSourceVaultPtrInput {
+	return (*keyVaultKeyReferenceSourceVaultPtrType)(v)
+}
+
+func (*keyVaultKeyReferenceSourceVaultPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KeyVaultKeyReferenceSourceVault)(nil)).Elem()
+}
+
+func (i *keyVaultKeyReferenceSourceVaultPtrType) ToKeyVaultKeyReferenceSourceVaultPtrOutput() KeyVaultKeyReferenceSourceVaultPtrOutput {
+	return i.ToKeyVaultKeyReferenceSourceVaultPtrOutputWithContext(context.Background())
+}
+
+func (i *keyVaultKeyReferenceSourceVaultPtrType) ToKeyVaultKeyReferenceSourceVaultPtrOutputWithContext(ctx context.Context) KeyVaultKeyReferenceSourceVaultPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultKeyReferenceSourceVaultPtrOutput)
+}
+
+type KeyVaultKeyReferenceSourceVaultOutput struct{ *pulumi.OutputState }
+
+func (KeyVaultKeyReferenceSourceVaultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyVaultKeyReferenceSourceVault)(nil)).Elem()
+}
+
+func (o KeyVaultKeyReferenceSourceVaultOutput) ToKeyVaultKeyReferenceSourceVaultOutput() KeyVaultKeyReferenceSourceVaultOutput {
+	return o
+}
+
+func (o KeyVaultKeyReferenceSourceVaultOutput) ToKeyVaultKeyReferenceSourceVaultOutputWithContext(ctx context.Context) KeyVaultKeyReferenceSourceVaultOutput {
+	return o
+}
+
+func (o KeyVaultKeyReferenceSourceVaultOutput) ToKeyVaultKeyReferenceSourceVaultPtrOutput() KeyVaultKeyReferenceSourceVaultPtrOutput {
+	return o.ToKeyVaultKeyReferenceSourceVaultPtrOutputWithContext(context.Background())
+}
+
+func (o KeyVaultKeyReferenceSourceVaultOutput) ToKeyVaultKeyReferenceSourceVaultPtrOutputWithContext(ctx context.Context) KeyVaultKeyReferenceSourceVaultPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeyVaultKeyReferenceSourceVault) *KeyVaultKeyReferenceSourceVault {
+		return &v
+	}).(KeyVaultKeyReferenceSourceVaultPtrOutput)
+}
+
+func (o KeyVaultKeyReferenceSourceVaultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KeyVaultKeyReferenceSourceVault) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+type KeyVaultKeyReferenceSourceVaultPtrOutput struct{ *pulumi.OutputState }
+
+func (KeyVaultKeyReferenceSourceVaultPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KeyVaultKeyReferenceSourceVault)(nil)).Elem()
+}
+
+func (o KeyVaultKeyReferenceSourceVaultPtrOutput) ToKeyVaultKeyReferenceSourceVaultPtrOutput() KeyVaultKeyReferenceSourceVaultPtrOutput {
+	return o
+}
+
+func (o KeyVaultKeyReferenceSourceVaultPtrOutput) ToKeyVaultKeyReferenceSourceVaultPtrOutputWithContext(ctx context.Context) KeyVaultKeyReferenceSourceVaultPtrOutput {
+	return o
+}
+
+func (o KeyVaultKeyReferenceSourceVaultPtrOutput) Elem() KeyVaultKeyReferenceSourceVaultOutput {
+	return o.ApplyT(func(v *KeyVaultKeyReferenceSourceVault) KeyVaultKeyReferenceSourceVault {
+		if v != nil {
+			return *v
+		}
+		var ret KeyVaultKeyReferenceSourceVault
+		return ret
+	}).(KeyVaultKeyReferenceSourceVaultOutput)
+}
+
+func (o KeyVaultKeyReferenceSourceVaultPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KeyVaultKeyReferenceSourceVault) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+type NamespaceJunction struct {
+	NamespacePath *string `pulumi:"namespacePath"`
+	NfsExport     *string `pulumi:"nfsExport"`
+	TargetPath    *string `pulumi:"targetPath"`
+}
+
+
+
+
+
+type NamespaceJunctionInput interface {
+	pulumi.Input
+
+	ToNamespaceJunctionOutput() NamespaceJunctionOutput
+	ToNamespaceJunctionOutputWithContext(context.Context) NamespaceJunctionOutput
+}
+
+type NamespaceJunctionArgs struct {
+	NamespacePath pulumi.StringPtrInput `pulumi:"namespacePath"`
+	NfsExport     pulumi.StringPtrInput `pulumi:"nfsExport"`
+	TargetPath    pulumi.StringPtrInput `pulumi:"targetPath"`
+}
+
+func (NamespaceJunctionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NamespaceJunction)(nil)).Elem()
+}
+
+func (i NamespaceJunctionArgs) ToNamespaceJunctionOutput() NamespaceJunctionOutput {
+	return i.ToNamespaceJunctionOutputWithContext(context.Background())
+}
+
+func (i NamespaceJunctionArgs) ToNamespaceJunctionOutputWithContext(ctx context.Context) NamespaceJunctionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NamespaceJunctionOutput)
+}
+
+
+
+
+
+type NamespaceJunctionArrayInput interface {
+	pulumi.Input
+
+	ToNamespaceJunctionArrayOutput() NamespaceJunctionArrayOutput
+	ToNamespaceJunctionArrayOutputWithContext(context.Context) NamespaceJunctionArrayOutput
+}
+
+type NamespaceJunctionArray []NamespaceJunctionInput
+
+func (NamespaceJunctionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NamespaceJunction)(nil)).Elem()
+}
+
+func (i NamespaceJunctionArray) ToNamespaceJunctionArrayOutput() NamespaceJunctionArrayOutput {
+	return i.ToNamespaceJunctionArrayOutputWithContext(context.Background())
+}
+
+func (i NamespaceJunctionArray) ToNamespaceJunctionArrayOutputWithContext(ctx context.Context) NamespaceJunctionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NamespaceJunctionArrayOutput)
+}
+
+type NamespaceJunctionOutput struct{ *pulumi.OutputState }
+
+func (NamespaceJunctionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NamespaceJunction)(nil)).Elem()
+}
+
+func (o NamespaceJunctionOutput) ToNamespaceJunctionOutput() NamespaceJunctionOutput {
+	return o
+}
+
+func (o NamespaceJunctionOutput) ToNamespaceJunctionOutputWithContext(ctx context.Context) NamespaceJunctionOutput {
+	return o
+}
+
+func (o NamespaceJunctionOutput) NamespacePath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NamespaceJunction) *string { return v.NamespacePath }).(pulumi.StringPtrOutput)
+}
+
+func (o NamespaceJunctionOutput) NfsExport() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NamespaceJunction) *string { return v.NfsExport }).(pulumi.StringPtrOutput)
+}
+
+func (o NamespaceJunctionOutput) TargetPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NamespaceJunction) *string { return v.TargetPath }).(pulumi.StringPtrOutput)
+}
+
+type NamespaceJunctionArrayOutput struct{ *pulumi.OutputState }
+
+func (NamespaceJunctionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NamespaceJunction)(nil)).Elem()
+}
+
+func (o NamespaceJunctionArrayOutput) ToNamespaceJunctionArrayOutput() NamespaceJunctionArrayOutput {
+	return o
+}
+
+func (o NamespaceJunctionArrayOutput) ToNamespaceJunctionArrayOutputWithContext(ctx context.Context) NamespaceJunctionArrayOutput {
+	return o
+}
+
+func (o NamespaceJunctionArrayOutput) Index(i pulumi.IntInput) NamespaceJunctionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NamespaceJunction {
+		return vs[0].([]NamespaceJunction)[vs[1].(int)]
+	}).(NamespaceJunctionOutput)
+}
+
+type NamespaceJunctionResponse struct {
+	NamespacePath *string `pulumi:"namespacePath"`
+	NfsExport     *string `pulumi:"nfsExport"`
+	TargetPath    *string `pulumi:"targetPath"`
+}
+
+
+
+
+
+type NamespaceJunctionResponseInput interface {
+	pulumi.Input
+
+	ToNamespaceJunctionResponseOutput() NamespaceJunctionResponseOutput
+	ToNamespaceJunctionResponseOutputWithContext(context.Context) NamespaceJunctionResponseOutput
+}
+
+type NamespaceJunctionResponseArgs struct {
+	NamespacePath pulumi.StringPtrInput `pulumi:"namespacePath"`
+	NfsExport     pulumi.StringPtrInput `pulumi:"nfsExport"`
+	TargetPath    pulumi.StringPtrInput `pulumi:"targetPath"`
+}
+
+func (NamespaceJunctionResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NamespaceJunctionResponse)(nil)).Elem()
+}
+
+func (i NamespaceJunctionResponseArgs) ToNamespaceJunctionResponseOutput() NamespaceJunctionResponseOutput {
+	return i.ToNamespaceJunctionResponseOutputWithContext(context.Background())
+}
+
+func (i NamespaceJunctionResponseArgs) ToNamespaceJunctionResponseOutputWithContext(ctx context.Context) NamespaceJunctionResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NamespaceJunctionResponseOutput)
+}
+
+
+
+
+
+type NamespaceJunctionResponseArrayInput interface {
+	pulumi.Input
+
+	ToNamespaceJunctionResponseArrayOutput() NamespaceJunctionResponseArrayOutput
+	ToNamespaceJunctionResponseArrayOutputWithContext(context.Context) NamespaceJunctionResponseArrayOutput
+}
+
+type NamespaceJunctionResponseArray []NamespaceJunctionResponseInput
+
+func (NamespaceJunctionResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NamespaceJunctionResponse)(nil)).Elem()
+}
+
+func (i NamespaceJunctionResponseArray) ToNamespaceJunctionResponseArrayOutput() NamespaceJunctionResponseArrayOutput {
+	return i.ToNamespaceJunctionResponseArrayOutputWithContext(context.Background())
+}
+
+func (i NamespaceJunctionResponseArray) ToNamespaceJunctionResponseArrayOutputWithContext(ctx context.Context) NamespaceJunctionResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NamespaceJunctionResponseArrayOutput)
+}
+
+type NamespaceJunctionResponseOutput struct{ *pulumi.OutputState }
+
+func (NamespaceJunctionResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NamespaceJunctionResponse)(nil)).Elem()
+}
+
+func (o NamespaceJunctionResponseOutput) ToNamespaceJunctionResponseOutput() NamespaceJunctionResponseOutput {
+	return o
+}
+
+func (o NamespaceJunctionResponseOutput) ToNamespaceJunctionResponseOutputWithContext(ctx context.Context) NamespaceJunctionResponseOutput {
+	return o
+}
+
+func (o NamespaceJunctionResponseOutput) NamespacePath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NamespaceJunctionResponse) *string { return v.NamespacePath }).(pulumi.StringPtrOutput)
+}
+
+func (o NamespaceJunctionResponseOutput) NfsExport() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NamespaceJunctionResponse) *string { return v.NfsExport }).(pulumi.StringPtrOutput)
+}
+
+func (o NamespaceJunctionResponseOutput) TargetPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NamespaceJunctionResponse) *string { return v.TargetPath }).(pulumi.StringPtrOutput)
+}
+
+type NamespaceJunctionResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (NamespaceJunctionResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NamespaceJunctionResponse)(nil)).Elem()
+}
+
+func (o NamespaceJunctionResponseArrayOutput) ToNamespaceJunctionResponseArrayOutput() NamespaceJunctionResponseArrayOutput {
+	return o
+}
+
+func (o NamespaceJunctionResponseArrayOutput) ToNamespaceJunctionResponseArrayOutputWithContext(ctx context.Context) NamespaceJunctionResponseArrayOutput {
+	return o
+}
+
+func (o NamespaceJunctionResponseArrayOutput) Index(i pulumi.IntInput) NamespaceJunctionResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NamespaceJunctionResponse {
+		return vs[0].([]NamespaceJunctionResponse)[vs[1].(int)]
+	}).(NamespaceJunctionResponseOutput)
+}
+
+type Nfs3Target struct {
+	Target     *string `pulumi:"target"`
+	UsageModel *string `pulumi:"usageModel"`
+}
+
+
+
+
+
+type Nfs3TargetInput interface {
+	pulumi.Input
+
+	ToNfs3TargetOutput() Nfs3TargetOutput
+	ToNfs3TargetOutputWithContext(context.Context) Nfs3TargetOutput
+}
+
+type Nfs3TargetArgs struct {
+	Target     pulumi.StringPtrInput `pulumi:"target"`
+	UsageModel pulumi.StringPtrInput `pulumi:"usageModel"`
+}
+
+func (Nfs3TargetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*Nfs3Target)(nil)).Elem()
+}
+
+func (i Nfs3TargetArgs) ToNfs3TargetOutput() Nfs3TargetOutput {
+	return i.ToNfs3TargetOutputWithContext(context.Background())
+}
+
+func (i Nfs3TargetArgs) ToNfs3TargetOutputWithContext(ctx context.Context) Nfs3TargetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(Nfs3TargetOutput)
+}
+
+func (i Nfs3TargetArgs) ToNfs3TargetPtrOutput() Nfs3TargetPtrOutput {
+	return i.ToNfs3TargetPtrOutputWithContext(context.Background())
+}
+
+func (i Nfs3TargetArgs) ToNfs3TargetPtrOutputWithContext(ctx context.Context) Nfs3TargetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(Nfs3TargetOutput).ToNfs3TargetPtrOutputWithContext(ctx)
+}
+
+
+
+
+
+
+
+
+
+type Nfs3TargetPtrInput interface {
+	pulumi.Input
+
+	ToNfs3TargetPtrOutput() Nfs3TargetPtrOutput
+	ToNfs3TargetPtrOutputWithContext(context.Context) Nfs3TargetPtrOutput
+}
+
+type nfs3TargetPtrType Nfs3TargetArgs
+
+func Nfs3TargetPtr(v *Nfs3TargetArgs) Nfs3TargetPtrInput {
+	return (*nfs3TargetPtrType)(v)
+}
+
+func (*nfs3TargetPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Nfs3Target)(nil)).Elem()
+}
+
+func (i *nfs3TargetPtrType) ToNfs3TargetPtrOutput() Nfs3TargetPtrOutput {
+	return i.ToNfs3TargetPtrOutputWithContext(context.Background())
+}
+
+func (i *nfs3TargetPtrType) ToNfs3TargetPtrOutputWithContext(ctx context.Context) Nfs3TargetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(Nfs3TargetPtrOutput)
+}
+
+type Nfs3TargetOutput struct{ *pulumi.OutputState }
+
+func (Nfs3TargetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Nfs3Target)(nil)).Elem()
+}
+
+func (o Nfs3TargetOutput) ToNfs3TargetOutput() Nfs3TargetOutput {
+	return o
+}
+
+func (o Nfs3TargetOutput) ToNfs3TargetOutputWithContext(ctx context.Context) Nfs3TargetOutput {
+	return o
+}
+
+func (o Nfs3TargetOutput) ToNfs3TargetPtrOutput() Nfs3TargetPtrOutput {
+	return o.ToNfs3TargetPtrOutputWithContext(context.Background())
+}
+
+func (o Nfs3TargetOutput) ToNfs3TargetPtrOutputWithContext(ctx context.Context) Nfs3TargetPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Nfs3Target) *Nfs3Target {
+		return &v
+	}).(Nfs3TargetPtrOutput)
+}
+
+func (o Nfs3TargetOutput) Target() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Nfs3Target) *string { return v.Target }).(pulumi.StringPtrOutput)
+}
+
+func (o Nfs3TargetOutput) UsageModel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Nfs3Target) *string { return v.UsageModel }).(pulumi.StringPtrOutput)
+}
+
+type Nfs3TargetPtrOutput struct{ *pulumi.OutputState }
+
+func (Nfs3TargetPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Nfs3Target)(nil)).Elem()
+}
+
+func (o Nfs3TargetPtrOutput) ToNfs3TargetPtrOutput() Nfs3TargetPtrOutput {
+	return o
+}
+
+func (o Nfs3TargetPtrOutput) ToNfs3TargetPtrOutputWithContext(ctx context.Context) Nfs3TargetPtrOutput {
+	return o
+}
+
+func (o Nfs3TargetPtrOutput) Elem() Nfs3TargetOutput {
+	return o.ApplyT(func(v *Nfs3Target) Nfs3Target {
+		if v != nil {
+			return *v
+		}
+		var ret Nfs3Target
+		return ret
+	}).(Nfs3TargetOutput)
+}
+
+func (o Nfs3TargetPtrOutput) Target() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Nfs3Target) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Target
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o Nfs3TargetPtrOutput) UsageModel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Nfs3Target) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UsageModel
+	}).(pulumi.StringPtrOutput)
+}
+
+type Nfs3TargetResponse struct {
+	Target     *string `pulumi:"target"`
+	UsageModel *string `pulumi:"usageModel"`
+}
+
+
+
+
+
+type Nfs3TargetResponseInput interface {
+	pulumi.Input
+
+	ToNfs3TargetResponseOutput() Nfs3TargetResponseOutput
+	ToNfs3TargetResponseOutputWithContext(context.Context) Nfs3TargetResponseOutput
+}
+
+type Nfs3TargetResponseArgs struct {
+	Target     pulumi.StringPtrInput `pulumi:"target"`
+	UsageModel pulumi.StringPtrInput `pulumi:"usageModel"`
+}
+
+func (Nfs3TargetResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*Nfs3TargetResponse)(nil)).Elem()
+}
+
+func (i Nfs3TargetResponseArgs) ToNfs3TargetResponseOutput() Nfs3TargetResponseOutput {
+	return i.ToNfs3TargetResponseOutputWithContext(context.Background())
+}
+
+func (i Nfs3TargetResponseArgs) ToNfs3TargetResponseOutputWithContext(ctx context.Context) Nfs3TargetResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(Nfs3TargetResponseOutput)
+}
+
+func (i Nfs3TargetResponseArgs) ToNfs3TargetResponsePtrOutput() Nfs3TargetResponsePtrOutput {
+	return i.ToNfs3TargetResponsePtrOutputWithContext(context.Background())
+}
+
+func (i Nfs3TargetResponseArgs) ToNfs3TargetResponsePtrOutputWithContext(ctx context.Context) Nfs3TargetResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(Nfs3TargetResponseOutput).ToNfs3TargetResponsePtrOutputWithContext(ctx)
+}
+
+
+
+
+
+
+
+
+
+type Nfs3TargetResponsePtrInput interface {
+	pulumi.Input
+
+	ToNfs3TargetResponsePtrOutput() Nfs3TargetResponsePtrOutput
+	ToNfs3TargetResponsePtrOutputWithContext(context.Context) Nfs3TargetResponsePtrOutput
+}
+
+type nfs3TargetResponsePtrType Nfs3TargetResponseArgs
+
+func Nfs3TargetResponsePtr(v *Nfs3TargetResponseArgs) Nfs3TargetResponsePtrInput {
+	return (*nfs3TargetResponsePtrType)(v)
+}
+
+func (*nfs3TargetResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Nfs3TargetResponse)(nil)).Elem()
+}
+
+func (i *nfs3TargetResponsePtrType) ToNfs3TargetResponsePtrOutput() Nfs3TargetResponsePtrOutput {
+	return i.ToNfs3TargetResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *nfs3TargetResponsePtrType) ToNfs3TargetResponsePtrOutputWithContext(ctx context.Context) Nfs3TargetResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(Nfs3TargetResponsePtrOutput)
+}
+
+type Nfs3TargetResponseOutput struct{ *pulumi.OutputState }
+
+func (Nfs3TargetResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Nfs3TargetResponse)(nil)).Elem()
+}
+
+func (o Nfs3TargetResponseOutput) ToNfs3TargetResponseOutput() Nfs3TargetResponseOutput {
+	return o
+}
+
+func (o Nfs3TargetResponseOutput) ToNfs3TargetResponseOutputWithContext(ctx context.Context) Nfs3TargetResponseOutput {
+	return o
+}
+
+func (o Nfs3TargetResponseOutput) ToNfs3TargetResponsePtrOutput() Nfs3TargetResponsePtrOutput {
+	return o.ToNfs3TargetResponsePtrOutputWithContext(context.Background())
+}
+
+func (o Nfs3TargetResponseOutput) ToNfs3TargetResponsePtrOutputWithContext(ctx context.Context) Nfs3TargetResponsePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Nfs3TargetResponse) *Nfs3TargetResponse {
+		return &v
+	}).(Nfs3TargetResponsePtrOutput)
+}
+
+func (o Nfs3TargetResponseOutput) Target() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Nfs3TargetResponse) *string { return v.Target }).(pulumi.StringPtrOutput)
+}
+
+func (o Nfs3TargetResponseOutput) UsageModel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Nfs3TargetResponse) *string { return v.UsageModel }).(pulumi.StringPtrOutput)
+}
+
+type Nfs3TargetResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (Nfs3TargetResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Nfs3TargetResponse)(nil)).Elem()
+}
+
+func (o Nfs3TargetResponsePtrOutput) ToNfs3TargetResponsePtrOutput() Nfs3TargetResponsePtrOutput {
+	return o
+}
+
+func (o Nfs3TargetResponsePtrOutput) ToNfs3TargetResponsePtrOutputWithContext(ctx context.Context) Nfs3TargetResponsePtrOutput {
+	return o
+}
+
+func (o Nfs3TargetResponsePtrOutput) Elem() Nfs3TargetResponseOutput {
+	return o.ApplyT(func(v *Nfs3TargetResponse) Nfs3TargetResponse {
+		if v != nil {
+			return *v
+		}
+		var ret Nfs3TargetResponse
+		return ret
+	}).(Nfs3TargetResponseOutput)
+}
+
+func (o Nfs3TargetResponsePtrOutput) Target() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Nfs3TargetResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Target
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o Nfs3TargetResponsePtrOutput) UsageModel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Nfs3TargetResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UsageModel
+	}).(pulumi.StringPtrOutput)
+}
+
+type SystemDataResponse struct {
+	CreatedAt          *string `pulumi:"createdAt"`
+	CreatedBy          *string `pulumi:"createdBy"`
+	CreatedByType      *string `pulumi:"createdByType"`
+	LastModifiedAt     *string `pulumi:"lastModifiedAt"`
+	LastModifiedBy     *string `pulumi:"lastModifiedBy"`
+	LastModifiedByType *string `pulumi:"lastModifiedByType"`
+}
+
+
+
+
+
+type SystemDataResponseInput interface {
+	pulumi.Input
+
+	ToSystemDataResponseOutput() SystemDataResponseOutput
+	ToSystemDataResponseOutputWithContext(context.Context) SystemDataResponseOutput
+}
+
+type SystemDataResponseArgs struct {
+	CreatedAt          pulumi.StringPtrInput `pulumi:"createdAt"`
+	CreatedBy          pulumi.StringPtrInput `pulumi:"createdBy"`
+	CreatedByType      pulumi.StringPtrInput `pulumi:"createdByType"`
+	LastModifiedAt     pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
+	LastModifiedBy     pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
+	LastModifiedByType pulumi.StringPtrInput `pulumi:"lastModifiedByType"`
+}
+
+func (SystemDataResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SystemDataResponse)(nil)).Elem()
+}
+
+func (i SystemDataResponseArgs) ToSystemDataResponseOutput() SystemDataResponseOutput {
+	return i.ToSystemDataResponseOutputWithContext(context.Background())
+}
+
+func (i SystemDataResponseArgs) ToSystemDataResponseOutputWithContext(ctx context.Context) SystemDataResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponseOutput)
+}
+
+func (i SystemDataResponseArgs) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
+	return i.ToSystemDataResponsePtrOutputWithContext(context.Background())
+}
+
+func (i SystemDataResponseArgs) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponseOutput).ToSystemDataResponsePtrOutputWithContext(ctx)
+}
+
+
+
+
+
+
+
+
+
+type SystemDataResponsePtrInput interface {
+	pulumi.Input
+
+	ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput
+	ToSystemDataResponsePtrOutputWithContext(context.Context) SystemDataResponsePtrOutput
+}
+
+type systemDataResponsePtrType SystemDataResponseArgs
+
+func SystemDataResponsePtr(v *SystemDataResponseArgs) SystemDataResponsePtrInput {
+	return (*systemDataResponsePtrType)(v)
+}
+
+func (*systemDataResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SystemDataResponse)(nil)).Elem()
+}
+
+func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
+	return i.ToSystemDataResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponsePtrOutput)
+}
+
+type SystemDataResponseOutput struct{ *pulumi.OutputState }
+
+func (SystemDataResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SystemDataResponse)(nil)).Elem()
+}
+
+func (o SystemDataResponseOutput) ToSystemDataResponseOutput() SystemDataResponseOutput {
+	return o
+}
+
+func (o SystemDataResponseOutput) ToSystemDataResponseOutputWithContext(ctx context.Context) SystemDataResponseOutput {
+	return o
+}
+
+func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
+	return o.ToSystemDataResponsePtrOutputWithContext(context.Background())
+}
+
+func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SystemDataResponse) *SystemDataResponse {
+		return &v
+	}).(SystemDataResponsePtrOutput)
+}
+
+func (o SystemDataResponseOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
+}
+
+func (o SystemDataResponseOutput) CreatedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedBy }).(pulumi.StringPtrOutput)
+}
+
+func (o SystemDataResponseOutput) CreatedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedByType }).(pulumi.StringPtrOutput)
+}
+
+func (o SystemDataResponseOutput) LastModifiedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedAt }).(pulumi.StringPtrOutput)
+}
+
+func (o SystemDataResponseOutput) LastModifiedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedBy }).(pulumi.StringPtrOutput)
+}
+
+func (o SystemDataResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
+}
+
+type SystemDataResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (SystemDataResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SystemDataResponse)(nil)).Elem()
+}
+
+func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
+	return o
+}
+
+func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
+	return o
+}
+
+func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
+	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SystemDataResponse
+		return ret
+	}).(SystemDataResponseOutput)
+}
+
+func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CreatedAt
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CreatedBy
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CreatedByType
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LastModifiedAt
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LastModifiedBy
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LastModifiedByType
+	}).(pulumi.StringPtrOutput)
+}
+
+type UnknownTarget struct {
+	UnknownMap map[string]string `pulumi:"unknownMap"`
+}
+
+
+
+
+
+type UnknownTargetInput interface {
+	pulumi.Input
+
+	ToUnknownTargetOutput() UnknownTargetOutput
+	ToUnknownTargetOutputWithContext(context.Context) UnknownTargetOutput
+}
+
+type UnknownTargetArgs struct {
+	UnknownMap pulumi.StringMapInput `pulumi:"unknownMap"`
+}
+
+func (UnknownTargetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UnknownTarget)(nil)).Elem()
+}
+
+func (i UnknownTargetArgs) ToUnknownTargetOutput() UnknownTargetOutput {
+	return i.ToUnknownTargetOutputWithContext(context.Background())
+}
+
+func (i UnknownTargetArgs) ToUnknownTargetOutputWithContext(ctx context.Context) UnknownTargetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UnknownTargetOutput)
+}
+
+func (i UnknownTargetArgs) ToUnknownTargetPtrOutput() UnknownTargetPtrOutput {
+	return i.ToUnknownTargetPtrOutputWithContext(context.Background())
+}
+
+func (i UnknownTargetArgs) ToUnknownTargetPtrOutputWithContext(ctx context.Context) UnknownTargetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UnknownTargetOutput).ToUnknownTargetPtrOutputWithContext(ctx)
+}
+
+
+
+
+
+
+
+
+
+type UnknownTargetPtrInput interface {
+	pulumi.Input
+
+	ToUnknownTargetPtrOutput() UnknownTargetPtrOutput
+	ToUnknownTargetPtrOutputWithContext(context.Context) UnknownTargetPtrOutput
+}
+
+type unknownTargetPtrType UnknownTargetArgs
+
+func UnknownTargetPtr(v *UnknownTargetArgs) UnknownTargetPtrInput {
+	return (*unknownTargetPtrType)(v)
+}
+
+func (*unknownTargetPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UnknownTarget)(nil)).Elem()
+}
+
+func (i *unknownTargetPtrType) ToUnknownTargetPtrOutput() UnknownTargetPtrOutput {
+	return i.ToUnknownTargetPtrOutputWithContext(context.Background())
+}
+
+func (i *unknownTargetPtrType) ToUnknownTargetPtrOutputWithContext(ctx context.Context) UnknownTargetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UnknownTargetPtrOutput)
+}
+
+type UnknownTargetOutput struct{ *pulumi.OutputState }
+
+func (UnknownTargetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UnknownTarget)(nil)).Elem()
+}
+
+func (o UnknownTargetOutput) ToUnknownTargetOutput() UnknownTargetOutput {
+	return o
+}
+
+func (o UnknownTargetOutput) ToUnknownTargetOutputWithContext(ctx context.Context) UnknownTargetOutput {
+	return o
+}
+
+func (o UnknownTargetOutput) ToUnknownTargetPtrOutput() UnknownTargetPtrOutput {
+	return o.ToUnknownTargetPtrOutputWithContext(context.Background())
+}
+
+func (o UnknownTargetOutput) ToUnknownTargetPtrOutputWithContext(ctx context.Context) UnknownTargetPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UnknownTarget) *UnknownTarget {
+		return &v
+	}).(UnknownTargetPtrOutput)
+}
+
+func (o UnknownTargetOutput) UnknownMap() pulumi.StringMapOutput {
+	return o.ApplyT(func(v UnknownTarget) map[string]string { return v.UnknownMap }).(pulumi.StringMapOutput)
+}
+
+type UnknownTargetPtrOutput struct{ *pulumi.OutputState }
+
+func (UnknownTargetPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UnknownTarget)(nil)).Elem()
+}
+
+func (o UnknownTargetPtrOutput) ToUnknownTargetPtrOutput() UnknownTargetPtrOutput {
+	return o
+}
+
+func (o UnknownTargetPtrOutput) ToUnknownTargetPtrOutputWithContext(ctx context.Context) UnknownTargetPtrOutput {
+	return o
+}
+
+func (o UnknownTargetPtrOutput) Elem() UnknownTargetOutput {
+	return o.ApplyT(func(v *UnknownTarget) UnknownTarget {
+		if v != nil {
+			return *v
+		}
+		var ret UnknownTarget
+		return ret
+	}).(UnknownTargetOutput)
+}
+
+func (o UnknownTargetPtrOutput) UnknownMap() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *UnknownTarget) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.UnknownMap
+	}).(pulumi.StringMapOutput)
+}
+
+type UnknownTargetResponse struct {
+	UnknownMap map[string]string `pulumi:"unknownMap"`
+}
+
+
+
+
+
+type UnknownTargetResponseInput interface {
+	pulumi.Input
+
+	ToUnknownTargetResponseOutput() UnknownTargetResponseOutput
+	ToUnknownTargetResponseOutputWithContext(context.Context) UnknownTargetResponseOutput
+}
+
+type UnknownTargetResponseArgs struct {
+	UnknownMap pulumi.StringMapInput `pulumi:"unknownMap"`
+}
+
+func (UnknownTargetResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UnknownTargetResponse)(nil)).Elem()
+}
+
+func (i UnknownTargetResponseArgs) ToUnknownTargetResponseOutput() UnknownTargetResponseOutput {
+	return i.ToUnknownTargetResponseOutputWithContext(context.Background())
+}
+
+func (i UnknownTargetResponseArgs) ToUnknownTargetResponseOutputWithContext(ctx context.Context) UnknownTargetResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UnknownTargetResponseOutput)
+}
+
+func (i UnknownTargetResponseArgs) ToUnknownTargetResponsePtrOutput() UnknownTargetResponsePtrOutput {
+	return i.ToUnknownTargetResponsePtrOutputWithContext(context.Background())
+}
+
+func (i UnknownTargetResponseArgs) ToUnknownTargetResponsePtrOutputWithContext(ctx context.Context) UnknownTargetResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UnknownTargetResponseOutput).ToUnknownTargetResponsePtrOutputWithContext(ctx)
+}
+
+
+
+
+
+
+
+
+
+type UnknownTargetResponsePtrInput interface {
+	pulumi.Input
+
+	ToUnknownTargetResponsePtrOutput() UnknownTargetResponsePtrOutput
+	ToUnknownTargetResponsePtrOutputWithContext(context.Context) UnknownTargetResponsePtrOutput
+}
+
+type unknownTargetResponsePtrType UnknownTargetResponseArgs
+
+func UnknownTargetResponsePtr(v *UnknownTargetResponseArgs) UnknownTargetResponsePtrInput {
+	return (*unknownTargetResponsePtrType)(v)
+}
+
+func (*unknownTargetResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UnknownTargetResponse)(nil)).Elem()
+}
+
+func (i *unknownTargetResponsePtrType) ToUnknownTargetResponsePtrOutput() UnknownTargetResponsePtrOutput {
+	return i.ToUnknownTargetResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *unknownTargetResponsePtrType) ToUnknownTargetResponsePtrOutputWithContext(ctx context.Context) UnknownTargetResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UnknownTargetResponsePtrOutput)
+}
+
+type UnknownTargetResponseOutput struct{ *pulumi.OutputState }
+
+func (UnknownTargetResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UnknownTargetResponse)(nil)).Elem()
+}
+
+func (o UnknownTargetResponseOutput) ToUnknownTargetResponseOutput() UnknownTargetResponseOutput {
+	return o
+}
+
+func (o UnknownTargetResponseOutput) ToUnknownTargetResponseOutputWithContext(ctx context.Context) UnknownTargetResponseOutput {
+	return o
+}
+
+func (o UnknownTargetResponseOutput) ToUnknownTargetResponsePtrOutput() UnknownTargetResponsePtrOutput {
+	return o.ToUnknownTargetResponsePtrOutputWithContext(context.Background())
+}
+
+func (o UnknownTargetResponseOutput) ToUnknownTargetResponsePtrOutputWithContext(ctx context.Context) UnknownTargetResponsePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UnknownTargetResponse) *UnknownTargetResponse {
+		return &v
+	}).(UnknownTargetResponsePtrOutput)
+}
+
+func (o UnknownTargetResponseOutput) UnknownMap() pulumi.StringMapOutput {
+	return o.ApplyT(func(v UnknownTargetResponse) map[string]string { return v.UnknownMap }).(pulumi.StringMapOutput)
+}
+
+type UnknownTargetResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (UnknownTargetResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UnknownTargetResponse)(nil)).Elem()
+}
+
+func (o UnknownTargetResponsePtrOutput) ToUnknownTargetResponsePtrOutput() UnknownTargetResponsePtrOutput {
+	return o
+}
+
+func (o UnknownTargetResponsePtrOutput) ToUnknownTargetResponsePtrOutputWithContext(ctx context.Context) UnknownTargetResponsePtrOutput {
+	return o
+}
+
+func (o UnknownTargetResponsePtrOutput) Elem() UnknownTargetResponseOutput {
+	return o.ApplyT(func(v *UnknownTargetResponse) UnknownTargetResponse {
+		if v != nil {
+			return *v
+		}
+		var ret UnknownTargetResponse
+		return ret
+	}).(UnknownTargetResponseOutput)
+}
+
+func (o UnknownTargetResponsePtrOutput) UnknownMap() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *UnknownTargetResponse) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.UnknownMap
+	}).(pulumi.StringMapOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(CacheEncryptionSettingsOutput{})
+	pulumi.RegisterOutputType(CacheEncryptionSettingsPtrOutput{})
+	pulumi.RegisterOutputType(CacheEncryptionSettingsResponseOutput{})
+	pulumi.RegisterOutputType(CacheEncryptionSettingsResponsePtrOutput{})
+	pulumi.RegisterOutputType(CacheHealthResponseOutput{})
+	pulumi.RegisterOutputType(CacheHealthResponsePtrOutput{})
+	pulumi.RegisterOutputType(CacheIdentityOutput{})
+	pulumi.RegisterOutputType(CacheIdentityPtrOutput{})
+	pulumi.RegisterOutputType(CacheIdentityResponseOutput{})
+	pulumi.RegisterOutputType(CacheIdentityResponsePtrOutput{})
+	pulumi.RegisterOutputType(CacheNetworkSettingsOutput{})
+	pulumi.RegisterOutputType(CacheNetworkSettingsPtrOutput{})
+	pulumi.RegisterOutputType(CacheNetworkSettingsResponseOutput{})
+	pulumi.RegisterOutputType(CacheNetworkSettingsResponsePtrOutput{})
+	pulumi.RegisterOutputType(CacheResponseSkuOutput{})
+	pulumi.RegisterOutputType(CacheResponseSkuPtrOutput{})
+	pulumi.RegisterOutputType(CacheSecuritySettingsOutput{})
+	pulumi.RegisterOutputType(CacheSecuritySettingsPtrOutput{})
+	pulumi.RegisterOutputType(CacheSecuritySettingsResponseOutput{})
+	pulumi.RegisterOutputType(CacheSecuritySettingsResponsePtrOutput{})
+	pulumi.RegisterOutputType(CacheSkuOutput{})
+	pulumi.RegisterOutputType(CacheSkuPtrOutput{})
+	pulumi.RegisterOutputType(CacheUpgradeStatusResponseOutput{})
+	pulumi.RegisterOutputType(CacheUpgradeStatusResponsePtrOutput{})
+	pulumi.RegisterOutputType(ClfsTargetOutput{})
+	pulumi.RegisterOutputType(ClfsTargetPtrOutput{})
+	pulumi.RegisterOutputType(ClfsTargetResponseOutput{})
+	pulumi.RegisterOutputType(ClfsTargetResponsePtrOutput{})
+	pulumi.RegisterOutputType(KeyVaultKeyReferenceOutput{})
+	pulumi.RegisterOutputType(KeyVaultKeyReferencePtrOutput{})
+	pulumi.RegisterOutputType(KeyVaultKeyReferenceResponseOutput{})
+	pulumi.RegisterOutputType(KeyVaultKeyReferenceResponsePtrOutput{})
+	pulumi.RegisterOutputType(KeyVaultKeyReferenceResponseSourceVaultOutput{})
+	pulumi.RegisterOutputType(KeyVaultKeyReferenceResponseSourceVaultPtrOutput{})
+	pulumi.RegisterOutputType(KeyVaultKeyReferenceSourceVaultOutput{})
+	pulumi.RegisterOutputType(KeyVaultKeyReferenceSourceVaultPtrOutput{})
+	pulumi.RegisterOutputType(NamespaceJunctionOutput{})
+	pulumi.RegisterOutputType(NamespaceJunctionArrayOutput{})
+	pulumi.RegisterOutputType(NamespaceJunctionResponseOutput{})
+	pulumi.RegisterOutputType(NamespaceJunctionResponseArrayOutput{})
+	pulumi.RegisterOutputType(Nfs3TargetOutput{})
+	pulumi.RegisterOutputType(Nfs3TargetPtrOutput{})
+	pulumi.RegisterOutputType(Nfs3TargetResponseOutput{})
+	pulumi.RegisterOutputType(Nfs3TargetResponsePtrOutput{})
+	pulumi.RegisterOutputType(SystemDataResponseOutput{})
+	pulumi.RegisterOutputType(SystemDataResponsePtrOutput{})
+	pulumi.RegisterOutputType(UnknownTargetOutput{})
+	pulumi.RegisterOutputType(UnknownTargetPtrOutput{})
+	pulumi.RegisterOutputType(UnknownTargetResponseOutput{})
+	pulumi.RegisterOutputType(UnknownTargetResponsePtrOutput{})
+}

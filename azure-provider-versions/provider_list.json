@@ -44163,7 +44163,6 @@
           "Japan East",
           "Japan West",
           "Korea Central",
-          "Korea South",
           "North Central US",
           "North Europe",
           "Norway East",
@@ -44172,6 +44171,7 @@
           "South Central US",
           "South India",
           "Southeast Asia",
+          "Sweden Central",
           "Switzerland North",
           "UAE North",
           "UK South",
@@ -44217,7 +44217,6 @@
           "Japan East",
           "Japan West",
           "Korea Central",
-          "Korea South",
           "North Central US",
           "North Europe",
           "South Africa North",
@@ -44226,6 +44225,7 @@
           "South India",
           "Southeast Asia",
           "Norway East",
+          "Sweden Central",
           "Switzerland North",
           "UAE North",
           "UK South",
@@ -44251,7 +44251,7 @@
           "2020-07-01-privatepreview",
           "2020-07-01-preview"
         ],
-        "capabilities": "CrossResourceGroupResourceMove, CrossSubscriptionResourceMove, SystemAssignedResourceIdentity, SupportsTags, SupportsLocation",
+        "capabilities": "CrossResourceGroupResourceMove, CrossSubscriptionResourceMove, SupportsTags, SupportsLocation",
         "defaultApiVersion": null,
         "locationMappings": null,
         "locations": [
@@ -44262,9 +44262,9 @@
           "Germany West Central",
           "Central India",
           "Japan West",
-          "Korea South",
           "North Central US",
           "Norway East",
+          "Sweden Central",
           "UAE North",
           "UK West",
           "West Central US",
@@ -44290,168 +44290,7 @@
           "Central US EUAP"
         ],
         "properties": null,
-        "resourceType": "flexibleServers",
-        "zoneMappings": [
-          {
-            "location": "Australia East",
-            "zones": []
-          },
-          {
-            "location": "Brazil South",
-            "zones": []
-          },
-          {
-            "location": "Canada Central",
-            "zones": []
-          },
-          {
-            "location": "Central India",
-            "zones": []
-          },
-          {
-            "location": "Central US",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "Central US EUAP",
-            "zones": [
-              "1",
-              "2"
-            ]
-          },
-          {
-            "location": "East Asia",
-            "zones": []
-          },
-          {
-            "location": "East US",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "East US 2",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "East US 2 EUAP",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "France Central",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "Germany West Central",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "Japan East",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "Korea Central",
-            "zones": []
-          },
-          {
-            "location": "North Central US",
-            "zones": []
-          },
-          {
-            "location": "North Europe",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "Norway East",
-            "zones": []
-          },
-          {
-            "location": "South Africa North",
-            "zones": []
-          },
-          {
-            "location": "South Central US",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "Southeast Asia",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "Switzerland North",
-            "zones": []
-          },
-          {
-            "location": "UK South",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "West Europe",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "West US 2",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "West US 3",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          }
-        ]
+        "resourceType": "flexibleServers"
       },
       {
         "aliases": null,
@@ -44482,7 +44321,6 @@
           "Japan East",
           "Japan West",
           "Korea Central",
-          "Korea South",
           "North Central US",
           "North Europe",
           "South Africa North",
@@ -44491,6 +44329,7 @@
           "South India",
           "Southeast Asia",
           "Norway East",
+          "Sweden Central",
           "Switzerland North",
           "UAE North",
           "UK South",
@@ -44536,7 +44375,6 @@
           "Japan East",
           "Japan West",
           "Korea Central",
-          "Korea South",
           "North Central US",
           "North Europe",
           "South Africa North",
@@ -44545,6 +44383,7 @@
           "South India",
           "Southeast Asia",
           "Norway East",
+          "Sweden Central",
           "Switzerland North",
           "UAE North",
           "UK South",
@@ -44581,9 +44420,9 @@
           "Germany West Central",
           "Central India",
           "Japan West",
-          "Korea South",
           "North Central US",
           "Norway East",
+          "Sweden Central",
           "UAE North",
           "UK West",
           "West Central US",
@@ -44637,10 +44476,10 @@
           "Japan East",
           "Japan West",
           "Korea Central",
-          "Korea South",
           "North Central US",
           "North Europe",
           "Norway East",
+          "Sweden Central",
           "South Africa North",
           "South Central US",
           "Southeast Asia",
@@ -44663,10 +44502,6 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
-          "2021-05-01-preview",
-          "2021-05-01",
-          "2020-07-01-privatepreview",
-          "2020-07-01-preview",
           "2017-12-01-preview",
           "2017-12-01"
         ],
@@ -44692,7 +44527,6 @@
           "Japan East",
           "Japan West",
           "Korea Central",
-          "Korea South",
           "North Central US",
           "North Europe",
           "Norway East",
@@ -44701,6 +44535,7 @@
           "South Central US",
           "South India",
           "Southeast Asia",
+          "Sweden Central",
           "Switzerland North",
           "UAE North",
           "UK South",
@@ -44749,7 +44584,6 @@
           "Japan East",
           "Japan West",
           "Korea Central",
-          "Korea South",
           "North Central US",
           "Norway East",
           "North Europe",
@@ -44794,9 +44628,9 @@
           "Germany West Central",
           "Central India",
           "Japan West",
-          "Korea South",
           "North Central US",
           "Norway East",
+          "Sweden Central",
           "UAE North",
           "UK West",
           "West Central US",
@@ -44853,7 +44687,6 @@
           "Japan East",
           "Japan West",
           "Korea Central",
-          "Korea South",
           "North Central US",
           "North Europe",
           "Norway East",
@@ -44862,6 +44695,7 @@
           "South Central US",
           "South India",
           "Southeast Asia",
+          "Sweden Central",
           "Switzerland North",
           "UAE North",
           "UK South",
@@ -44907,7 +44741,6 @@
           "Japan East",
           "Japan West",
           "Korea Central",
-          "Korea South",
           "North Central US",
           "North Europe",
           "South Africa North",
@@ -44916,6 +44749,7 @@
           "South India",
           "Southeast Asia",
           "Norway East",
+          "Sweden Central",
           "Switzerland North",
           "UAE North",
           "UK South",
@@ -44961,7 +44795,6 @@
           "Japan East",
           "Japan West",
           "Korea Central",
-          "Korea South",
           "North Central US",
           "North Europe",
           "South Africa North",
@@ -44970,6 +44803,7 @@
           "South India",
           "Southeast Asia",
           "Norway East",
+          "Sweden Central",
           "Switzerland North",
           "UAE North",
           "UK South",
@@ -45015,7 +44849,6 @@
           "Japan East",
           "Japan West",
           "Korea Central",
-          "Korea South",
           "North Central US",
           "North Europe",
           "South Africa North",
@@ -45024,6 +44857,7 @@
           "South India",
           "Southeast Asia",
           "Norway East",
+          "Sweden Central",
           "Switzerland North",
           "UAE North",
           "UK South",
@@ -45069,7 +44903,6 @@
           "Japan East",
           "Japan West",
           "Korea Central",
-          "Korea South",
           "North Central US",
           "North Europe",
           "South Africa North",
@@ -45078,6 +44911,7 @@
           "South India",
           "Southeast Asia",
           "Norway East",
+          "Sweden Central",
           "Switzerland North",
           "UAE North",
           "UK South",
@@ -45124,7 +44958,6 @@
           "Japan East",
           "Japan West",
           "Korea Central",
-          "Korea South",
           "North Central US",
           "North Europe",
           "South Africa North",
@@ -45133,6 +44966,7 @@
           "South India",
           "Southeast Asia",
           "Norway East",
+          "Sweden Central",
           "Switzerland North",
           "UAE North",
           "UK South",
@@ -45179,7 +45013,6 @@
           "Japan East",
           "Japan West",
           "Korea Central",
-          "Korea South",
           "North Central US",
           "North Europe",
           "South Africa North",
@@ -45188,6 +45021,7 @@
           "South India",
           "Southeast Asia",
           "Norway East",
+          "Sweden Central",
           "Switzerland North",
           "UAE North",
           "UK South",
@@ -45234,7 +45068,6 @@
           "Japan East",
           "Japan West",
           "Korea Central",
-          "Korea South",
           "North Central US",
           "North Europe",
           "South Africa North",
@@ -45243,6 +45076,7 @@
           "South India",
           "Southeast Asia",
           "Norway East",
+          "Sweden Central",
           "Switzerland North",
           "UAE North",
           "UK South",
@@ -45289,7 +45123,6 @@
           "Japan East",
           "Japan West",
           "Korea Central",
-          "Korea South",
           "North Central US",
           "North Europe",
           "South Africa North",
@@ -45298,6 +45131,7 @@
           "South India",
           "Southeast Asia",
           "Norway East",
+          "Sweden Central",
           "Switzerland North",
           "UAE North",
           "UK South",
@@ -45343,7 +45177,6 @@
           "Japan East",
           "Japan West",
           "Korea Central",
-          "Korea South",
           "North Central US",
           "North Europe",
           "South Africa North",
@@ -45353,6 +45186,7 @@
           "Southeast Asia",
           "UAE North",
           "Norway East",
+          "Sweden Central",
           "Switzerland North",
           "UK South",
           "UK West",
@@ -45396,7 +45230,6 @@
           "Japan East",
           "Japan West",
           "Korea Central",
-          "Korea South",
           "North Central US",
           "North Europe",
           "South Africa North",
@@ -45405,6 +45238,7 @@
           "South India",
           "Southeast Asia",
           "Norway East",
+          "Sweden Central",
           "Switzerland North",
           "UAE North",
           "UK South",
@@ -45449,7 +45283,6 @@
           "Japan East",
           "Japan West",
           "Korea Central",
-          "Korea South",
           "North Central US",
           "North Europe",
           "South Africa North",
@@ -45458,6 +45291,7 @@
           "South India",
           "Southeast Asia",
           "Norway East",
+          "Sweden Central",
           "Switzerland North",
           "UAE North",
           "UK South",
@@ -45504,7 +45338,6 @@
           "Japan East",
           "Japan West",
           "Korea Central",
-          "Korea South",
           "North Central US",
           "North Europe",
           "South Africa North",
@@ -45513,6 +45346,7 @@
           "South India",
           "Southeast Asia",
           "Norway East",
+          "Sweden Central",
           "Switzerland North",
           "UAE North",
           "UK South",
@@ -45559,7 +45393,6 @@
           "Japan East",
           "Japan West",
           "Korea Central",
-          "Korea South",
           "North Central US",
           "North Europe",
           "South Africa North",
@@ -45568,6 +45401,7 @@
           "South India",
           "Southeast Asia",
           "Norway East",
+          "Sweden Central",
           "Switzerland North",
           "UAE North",
           "UK South",
@@ -45614,7 +45448,6 @@
           "Japan East",
           "Japan West",
           "Korea Central",
-          "Korea South",
           "North Central US",
           "North Europe",
           "South Africa North",
@@ -45623,6 +45456,7 @@
           "South India",
           "Southeast Asia",
           "Norway East",
+          "Sweden Central",
           "Switzerland North",
           "UAE North",
           "UK South",
@@ -45669,7 +45503,6 @@
           "Japan East",
           "Japan West",
           "Korea Central",
-          "Korea South",
           "North Central US",
           "North Europe",
           "South Africa North",
@@ -45678,6 +45511,7 @@
           "South India",
           "Southeast Asia",
           "Norway East",
+          "Sweden Central",
           "Switzerland North",
           "UAE North",
           "UK South",
@@ -45724,7 +45558,6 @@
           "Japan East",
           "Japan West",
           "Korea Central",
-          "Korea South",
           "North Central US",
           "North Europe",
           "South Africa North",
@@ -45733,6 +45566,7 @@
           "South India",
           "Southeast Asia",
           "Norway East",
+          "Sweden Central",
           "Switzerland North",
           "UAE North",
           "UK South",
@@ -45779,7 +45613,6 @@
           "Japan East",
           "Japan West",
           "Korea Central",
-          "Korea South",
           "North Central US",
           "North Europe",
           "South Africa North",
@@ -45788,6 +45621,7 @@
           "South India",
           "Southeast Asia",
           "Norway East",
+          "Sweden Central",
           "Switzerland North",
           "UAE North",
           "UK South",
@@ -45834,7 +45668,6 @@
           "Japan East",
           "Japan West",
           "Korea Central",
-          "Korea South",
           "North Central US",
           "North Europe",
           "South Africa North",
@@ -45843,6 +45676,7 @@
           "South India",
           "Southeast Asia",
           "Norway East",
+          "Sweden Central",
           "Switzerland North",
           "UAE North",
           "UK South",
@@ -45889,7 +45723,6 @@
           "Japan East",
           "Japan West",
           "Korea Central",
-          "Korea South",
           "North Central US",
           "North Europe",
           "South Africa North",
@@ -45898,6 +45731,7 @@
           "South India",
           "Southeast Asia",
           "Norway East",
+          "Sweden Central",
           "Switzerland North",
           "UAE North",
           "UK South",
@@ -45944,7 +45778,6 @@
           "Japan East",
           "Japan West",
           "Korea Central",
-          "Korea South",
           "North Central US",
           "North Europe",
           "South Africa North",
@@ -45953,6 +45786,7 @@
           "South India",
           "Southeast Asia",
           "Norway East",
+          "Sweden Central",
           "Switzerland North",
           "UAE North",
           "UK South",
@@ -45999,7 +45833,6 @@
           "Japan East",
           "Japan West",
           "Korea Central",
-          "Korea South",
           "North Central US",
           "North Europe",
           "South Africa North",
@@ -46008,6 +45841,7 @@
           "South India",
           "Southeast Asia",
           "Norway East",
+          "Sweden Central",
           "Switzerland North",
           "UAE North",
           "UK South",
@@ -46054,7 +45888,6 @@
           "Japan East",
           "Japan West",
           "Korea Central",
-          "Korea South",
           "North Central US",
           "North Europe",
           "South Africa North",
@@ -46063,6 +45896,7 @@
           "South India",
           "Southeast Asia",
           "Norway East",
+          "Sweden Central",
           "Switzerland North",
           "UAE North",
           "UK South",
@@ -46109,7 +45943,6 @@
           "Japan East",
           "Japan West",
           "Korea Central",
-          "Korea South",
           "North Central US",
           "North Europe",
           "South Africa North",
@@ -46118,6 +45951,7 @@
           "South India",
           "Southeast Asia",
           "Norway East",
+          "Sweden Central",
           "Switzerland North",
           "UAE North",
           "UK South",
@@ -46164,7 +45998,6 @@
           "Japan East",
           "Japan West",
           "Korea Central",
-          "Korea South",
           "North Central US",
           "North Europe",
           "South Africa North",
@@ -46173,6 +46006,7 @@
           "South India",
           "Southeast Asia",
           "Norway East",
+          "Sweden Central",
           "Switzerland North",
           "UAE North",
           "UK South",
@@ -46219,7 +46053,6 @@
           "Japan East",
           "Japan West",
           "Korea Central",
-          "Korea South",
           "North Central US",
           "North Europe",
           "South Africa North",
@@ -46228,6 +46061,7 @@
           "South India",
           "Southeast Asia",
           "Norway East",
+          "Sweden Central",
           "Switzerland North",
           "UAE North",
           "UK South",
@@ -46274,7 +46108,6 @@
           "Japan East",
           "Japan West",
           "Korea Central",
-          "Korea South",
           "North Central US",
           "North Europe",
           "South Africa North",
@@ -46283,6 +46116,7 @@
           "South India",
           "Southeast Asia",
           "Norway East",
+          "Sweden Central",
           "Switzerland North",
           "UAE North",
           "UK South",
@@ -46329,7 +46163,6 @@
           "Japan East",
           "Japan West",
           "Korea Central",
-          "Korea South",
           "North Central US",
           "North Europe",
           "South Africa North",
@@ -46338,6 +46171,7 @@
           "South India",
           "Southeast Asia",
           "Norway East",
+          "Sweden Central",
           "Switzerland North",
           "UAE North",
           "UK South",

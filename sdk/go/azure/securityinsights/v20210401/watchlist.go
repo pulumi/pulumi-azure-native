@@ -1,0 +1,211 @@
+
+
+
+package v20210401
+
+import (
+	"context"
+	"reflect"
+
+	"github.com/pkg/errors"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+type Watchlist struct {
+	pulumi.CustomResourceState
+
+	ContentType         pulumi.StringPtrOutput             `pulumi:"contentType"`
+	Created             pulumi.StringPtrOutput             `pulumi:"created"`
+	CreatedBy           WatchlistUserInfoResponsePtrOutput `pulumi:"createdBy"`
+	DefaultDuration     pulumi.StringPtrOutput             `pulumi:"defaultDuration"`
+	Description         pulumi.StringPtrOutput             `pulumi:"description"`
+	DisplayName         pulumi.StringOutput                `pulumi:"displayName"`
+	Etag                pulumi.StringPtrOutput             `pulumi:"etag"`
+	IsDeleted           pulumi.BoolPtrOutput               `pulumi:"isDeleted"`
+	ItemsSearchKey      pulumi.StringOutput                `pulumi:"itemsSearchKey"`
+	Labels              pulumi.StringArrayOutput           `pulumi:"labels"`
+	Name                pulumi.StringOutput                `pulumi:"name"`
+	NumberOfLinesToSkip pulumi.IntPtrOutput                `pulumi:"numberOfLinesToSkip"`
+	Provider            pulumi.StringOutput                `pulumi:"provider"`
+	RawContent          pulumi.StringPtrOutput             `pulumi:"rawContent"`
+	Source              pulumi.StringOutput                `pulumi:"source"`
+	SystemData          SystemDataResponseOutput           `pulumi:"systemData"`
+	TenantId            pulumi.StringPtrOutput             `pulumi:"tenantId"`
+	Type                pulumi.StringOutput                `pulumi:"type"`
+	Updated             pulumi.StringPtrOutput             `pulumi:"updated"`
+	UpdatedBy           WatchlistUserInfoResponsePtrOutput `pulumi:"updatedBy"`
+	UploadStatus        pulumi.StringPtrOutput             `pulumi:"uploadStatus"`
+	WatchlistAlias      pulumi.StringPtrOutput             `pulumi:"watchlistAlias"`
+	WatchlistId         pulumi.StringPtrOutput             `pulumi:"watchlistId"`
+	WatchlistType       pulumi.StringPtrOutput             `pulumi:"watchlistType"`
+}
+
+
+func NewWatchlist(ctx *pulumi.Context,
+	name string, args *WatchlistArgs, opts ...pulumi.ResourceOption) (*Watchlist, error) {
+	if args == nil {
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.DisplayName == nil {
+		return nil, errors.New("invalid value for required argument 'DisplayName'")
+	}
+	if args.ItemsSearchKey == nil {
+		return nil, errors.New("invalid value for required argument 'ItemsSearchKey'")
+	}
+	if args.OperationalInsightsResourceProvider == nil {
+		return nil, errors.New("invalid value for required argument 'OperationalInsightsResourceProvider'")
+	}
+	if args.Provider == nil {
+		return nil, errors.New("invalid value for required argument 'Provider'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.Source == nil {
+		return nil, errors.New("invalid value for required argument 'Source'")
+	}
+	if args.WorkspaceName == nil {
+		return nil, errors.New("invalid value for required argument 'WorkspaceName'")
+	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-native:securityinsights:Watchlist"),
+		},
+		{
+			Type: pulumi.String("azure-native:securityinsights/v20190101preview:Watchlist"),
+		},
+		{
+			Type: pulumi.String("azure-native:securityinsights/v20210301preview:Watchlist"),
+		},
+		{
+			Type: pulumi.String("azure-native:securityinsights/v20210901preview:Watchlist"),
+		},
+	})
+	opts = append(opts, aliases)
+	var resource Watchlist
+	err := ctx.RegisterResource("azure-native:securityinsights/v20210401:Watchlist", name, args, &resource, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return &resource, nil
+}
+
+
+
+func GetWatchlist(ctx *pulumi.Context,
+	name string, id pulumi.IDInput, state *WatchlistState, opts ...pulumi.ResourceOption) (*Watchlist, error) {
+	var resource Watchlist
+	err := ctx.ReadResource("azure-native:securityinsights/v20210401:Watchlist", name, id, state, &resource, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return &resource, nil
+}
+
+
+type watchlistState struct {
+}
+
+type WatchlistState struct {
+}
+
+func (WatchlistState) ElementType() reflect.Type {
+	return reflect.TypeOf((*watchlistState)(nil)).Elem()
+}
+
+type watchlistArgs struct {
+	ContentType                         *string            `pulumi:"contentType"`
+	Created                             *string            `pulumi:"created"`
+	CreatedBy                           *WatchlistUserInfo `pulumi:"createdBy"`
+	DefaultDuration                     *string            `pulumi:"defaultDuration"`
+	Description                         *string            `pulumi:"description"`
+	DisplayName                         string             `pulumi:"displayName"`
+	Etag                                *string            `pulumi:"etag"`
+	IsDeleted                           *bool              `pulumi:"isDeleted"`
+	ItemsSearchKey                      string             `pulumi:"itemsSearchKey"`
+	Labels                              []string           `pulumi:"labels"`
+	NumberOfLinesToSkip                 *int               `pulumi:"numberOfLinesToSkip"`
+	OperationalInsightsResourceProvider string             `pulumi:"operationalInsightsResourceProvider"`
+	Provider                            string             `pulumi:"provider"`
+	RawContent                          *string            `pulumi:"rawContent"`
+	ResourceGroupName                   string             `pulumi:"resourceGroupName"`
+	Source                              string             `pulumi:"source"`
+	TenantId                            *string            `pulumi:"tenantId"`
+	Updated                             *string            `pulumi:"updated"`
+	UpdatedBy                           *WatchlistUserInfo `pulumi:"updatedBy"`
+	UploadStatus                        *string            `pulumi:"uploadStatus"`
+	WatchlistAlias                      *string            `pulumi:"watchlistAlias"`
+	WatchlistId                         *string            `pulumi:"watchlistId"`
+	WatchlistType                       *string            `pulumi:"watchlistType"`
+	WorkspaceName                       string             `pulumi:"workspaceName"`
+}
+
+
+type WatchlistArgs struct {
+	ContentType                         pulumi.StringPtrInput
+	Created                             pulumi.StringPtrInput
+	CreatedBy                           WatchlistUserInfoPtrInput
+	DefaultDuration                     pulumi.StringPtrInput
+	Description                         pulumi.StringPtrInput
+	DisplayName                         pulumi.StringInput
+	Etag                                pulumi.StringPtrInput
+	IsDeleted                           pulumi.BoolPtrInput
+	ItemsSearchKey                      pulumi.StringInput
+	Labels                              pulumi.StringArrayInput
+	NumberOfLinesToSkip                 pulumi.IntPtrInput
+	OperationalInsightsResourceProvider pulumi.StringInput
+	Provider                            pulumi.StringInput
+	RawContent                          pulumi.StringPtrInput
+	ResourceGroupName                   pulumi.StringInput
+	Source                              pulumi.StringInput
+	TenantId                            pulumi.StringPtrInput
+	Updated                             pulumi.StringPtrInput
+	UpdatedBy                           WatchlistUserInfoPtrInput
+	UploadStatus                        pulumi.StringPtrInput
+	WatchlistAlias                      pulumi.StringPtrInput
+	WatchlistId                         pulumi.StringPtrInput
+	WatchlistType                       pulumi.StringPtrInput
+	WorkspaceName                       pulumi.StringInput
+}
+
+func (WatchlistArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*watchlistArgs)(nil)).Elem()
+}
+
+type WatchlistInput interface {
+	pulumi.Input
+
+	ToWatchlistOutput() WatchlistOutput
+	ToWatchlistOutputWithContext(ctx context.Context) WatchlistOutput
+}
+
+func (*Watchlist) ElementType() reflect.Type {
+	return reflect.TypeOf((**Watchlist)(nil)).Elem()
+}
+
+func (i *Watchlist) ToWatchlistOutput() WatchlistOutput {
+	return i.ToWatchlistOutputWithContext(context.Background())
+}
+
+func (i *Watchlist) ToWatchlistOutputWithContext(ctx context.Context) WatchlistOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WatchlistOutput)
+}
+
+type WatchlistOutput struct{ *pulumi.OutputState }
+
+func (WatchlistOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Watchlist)(nil)).Elem()
+}
+
+func (o WatchlistOutput) ToWatchlistOutput() WatchlistOutput {
+	return o
+}
+
+func (o WatchlistOutput) ToWatchlistOutputWithContext(ctx context.Context) WatchlistOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(WatchlistOutput{})
+}

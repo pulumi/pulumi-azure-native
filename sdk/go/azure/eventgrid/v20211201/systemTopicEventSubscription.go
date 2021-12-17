@@ -1,0 +1,173 @@
+
+
+
+package v20211201
+
+import (
+	"context"
+	"reflect"
+
+	"github.com/pkg/errors"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+type SystemTopicEventSubscription struct {
+	pulumi.CustomResourceState
+
+	DeadLetterDestination          StorageBlobDeadLetterDestinationResponsePtrOutput `pulumi:"deadLetterDestination"`
+	DeadLetterWithResourceIdentity DeadLetterWithResourceIdentityResponsePtrOutput   `pulumi:"deadLetterWithResourceIdentity"`
+	DeliveryWithResourceIdentity   DeliveryWithResourceIdentityResponsePtrOutput     `pulumi:"deliveryWithResourceIdentity"`
+	Destination                    pulumi.AnyOutput                                  `pulumi:"destination"`
+	EventDeliverySchema            pulumi.StringPtrOutput                            `pulumi:"eventDeliverySchema"`
+	ExpirationTimeUtc              pulumi.StringPtrOutput                            `pulumi:"expirationTimeUtc"`
+	Filter                         EventSubscriptionFilterResponsePtrOutput          `pulumi:"filter"`
+	Labels                         pulumi.StringArrayOutput                          `pulumi:"labels"`
+	Name                           pulumi.StringOutput                               `pulumi:"name"`
+	ProvisioningState              pulumi.StringOutput                               `pulumi:"provisioningState"`
+	RetryPolicy                    RetryPolicyResponsePtrOutput                      `pulumi:"retryPolicy"`
+	SystemData                     SystemDataResponseOutput                          `pulumi:"systemData"`
+	Topic                          pulumi.StringOutput                               `pulumi:"topic"`
+	Type                           pulumi.StringOutput                               `pulumi:"type"`
+}
+
+
+func NewSystemTopicEventSubscription(ctx *pulumi.Context,
+	name string, args *SystemTopicEventSubscriptionArgs, opts ...pulumi.ResourceOption) (*SystemTopicEventSubscription, error) {
+	if args == nil {
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.SystemTopicName == nil {
+		return nil, errors.New("invalid value for required argument 'SystemTopicName'")
+	}
+	if isZero(args.EventDeliverySchema) {
+		args.EventDeliverySchema = pulumi.StringPtr("EventGridSchema")
+	}
+	filterApplier := func(v EventSubscriptionFilter) *EventSubscriptionFilter { return v.Defaults() }
+	if args.Filter != nil {
+		args.Filter = args.Filter.ToEventSubscriptionFilterPtrOutput().Elem().ApplyT(filterApplier).(EventSubscriptionFilterPtrOutput)
+	}
+	retryPolicyApplier := func(v RetryPolicy) *RetryPolicy { return v.Defaults() }
+	if args.RetryPolicy != nil {
+		args.RetryPolicy = args.RetryPolicy.ToRetryPolicyPtrOutput().Elem().ApplyT(retryPolicyApplier).(RetryPolicyPtrOutput)
+	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-native:eventgrid:SystemTopicEventSubscription"),
+		},
+		{
+			Type: pulumi.String("azure-native:eventgrid/v20200401preview:SystemTopicEventSubscription"),
+		},
+		{
+			Type: pulumi.String("azure-native:eventgrid/v20201015preview:SystemTopicEventSubscription"),
+		},
+		{
+			Type: pulumi.String("azure-native:eventgrid/v20210601preview:SystemTopicEventSubscription"),
+		},
+	})
+	opts = append(opts, aliases)
+	var resource SystemTopicEventSubscription
+	err := ctx.RegisterResource("azure-native:eventgrid/v20211201:SystemTopicEventSubscription", name, args, &resource, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return &resource, nil
+}
+
+
+
+func GetSystemTopicEventSubscription(ctx *pulumi.Context,
+	name string, id pulumi.IDInput, state *SystemTopicEventSubscriptionState, opts ...pulumi.ResourceOption) (*SystemTopicEventSubscription, error) {
+	var resource SystemTopicEventSubscription
+	err := ctx.ReadResource("azure-native:eventgrid/v20211201:SystemTopicEventSubscription", name, id, state, &resource, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return &resource, nil
+}
+
+
+type systemTopicEventSubscriptionState struct {
+}
+
+type SystemTopicEventSubscriptionState struct {
+}
+
+func (SystemTopicEventSubscriptionState) ElementType() reflect.Type {
+	return reflect.TypeOf((*systemTopicEventSubscriptionState)(nil)).Elem()
+}
+
+type systemTopicEventSubscriptionArgs struct {
+	DeadLetterDestination          *StorageBlobDeadLetterDestination `pulumi:"deadLetterDestination"`
+	DeadLetterWithResourceIdentity *DeadLetterWithResourceIdentity   `pulumi:"deadLetterWithResourceIdentity"`
+	DeliveryWithResourceIdentity   *DeliveryWithResourceIdentity     `pulumi:"deliveryWithResourceIdentity"`
+	Destination                    interface{}                       `pulumi:"destination"`
+	EventDeliverySchema            *string                           `pulumi:"eventDeliverySchema"`
+	EventSubscriptionName          *string                           `pulumi:"eventSubscriptionName"`
+	ExpirationTimeUtc              *string                           `pulumi:"expirationTimeUtc"`
+	Filter                         *EventSubscriptionFilter          `pulumi:"filter"`
+	Labels                         []string                          `pulumi:"labels"`
+	ResourceGroupName              string                            `pulumi:"resourceGroupName"`
+	RetryPolicy                    *RetryPolicy                      `pulumi:"retryPolicy"`
+	SystemTopicName                string                            `pulumi:"systemTopicName"`
+}
+
+
+type SystemTopicEventSubscriptionArgs struct {
+	DeadLetterDestination          StorageBlobDeadLetterDestinationPtrInput
+	DeadLetterWithResourceIdentity DeadLetterWithResourceIdentityPtrInput
+	DeliveryWithResourceIdentity   DeliveryWithResourceIdentityPtrInput
+	Destination                    pulumi.Input
+	EventDeliverySchema            pulumi.StringPtrInput
+	EventSubscriptionName          pulumi.StringPtrInput
+	ExpirationTimeUtc              pulumi.StringPtrInput
+	Filter                         EventSubscriptionFilterPtrInput
+	Labels                         pulumi.StringArrayInput
+	ResourceGroupName              pulumi.StringInput
+	RetryPolicy                    RetryPolicyPtrInput
+	SystemTopicName                pulumi.StringInput
+}
+
+func (SystemTopicEventSubscriptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*systemTopicEventSubscriptionArgs)(nil)).Elem()
+}
+
+type SystemTopicEventSubscriptionInput interface {
+	pulumi.Input
+
+	ToSystemTopicEventSubscriptionOutput() SystemTopicEventSubscriptionOutput
+	ToSystemTopicEventSubscriptionOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionOutput
+}
+
+func (*SystemTopicEventSubscription) ElementType() reflect.Type {
+	return reflect.TypeOf((**SystemTopicEventSubscription)(nil)).Elem()
+}
+
+func (i *SystemTopicEventSubscription) ToSystemTopicEventSubscriptionOutput() SystemTopicEventSubscriptionOutput {
+	return i.ToSystemTopicEventSubscriptionOutputWithContext(context.Background())
+}
+
+func (i *SystemTopicEventSubscription) ToSystemTopicEventSubscriptionOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SystemTopicEventSubscriptionOutput)
+}
+
+type SystemTopicEventSubscriptionOutput struct{ *pulumi.OutputState }
+
+func (SystemTopicEventSubscriptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SystemTopicEventSubscription)(nil)).Elem()
+}
+
+func (o SystemTopicEventSubscriptionOutput) ToSystemTopicEventSubscriptionOutput() SystemTopicEventSubscriptionOutput {
+	return o
+}
+
+func (o SystemTopicEventSubscriptionOutput) ToSystemTopicEventSubscriptionOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(SystemTopicEventSubscriptionOutput{})
+}

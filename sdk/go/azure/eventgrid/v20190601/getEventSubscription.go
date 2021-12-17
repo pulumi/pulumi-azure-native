@@ -1,0 +1,48 @@
+
+
+
+package v20190601
+
+import (
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+func LookupEventSubscription(ctx *pulumi.Context, args *LookupEventSubscriptionArgs, opts ...pulumi.InvokeOption) (*LookupEventSubscriptionResult, error) {
+	var rv LookupEventSubscriptionResult
+	err := ctx.Invoke("azure-native:eventgrid/v20190601:getEventSubscription", args, &rv, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return rv.Defaults(), nil
+}
+
+type LookupEventSubscriptionArgs struct {
+	EventSubscriptionName string `pulumi:"eventSubscriptionName"`
+	Scope                 string `pulumi:"scope"`
+}
+
+
+type LookupEventSubscriptionResult struct {
+	DeadLetterDestination *StorageBlobDeadLetterDestinationResponse `pulumi:"deadLetterDestination"`
+	Destination           interface{}                               `pulumi:"destination"`
+	ExpirationTimeUtc     *string                                   `pulumi:"expirationTimeUtc"`
+	Filter                *EventSubscriptionFilterResponse          `pulumi:"filter"`
+	Id                    string                                    `pulumi:"id"`
+	Labels                []string                                  `pulumi:"labels"`
+	Name                  string                                    `pulumi:"name"`
+	ProvisioningState     string                                    `pulumi:"provisioningState"`
+	RetryPolicy           *RetryPolicyResponse                      `pulumi:"retryPolicy"`
+	Topic                 string                                    `pulumi:"topic"`
+	Type                  string                                    `pulumi:"type"`
+}
+
+
+func (val *LookupEventSubscriptionResult) Defaults() *LookupEventSubscriptionResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Filter = tmp.Filter.Defaults()
+
+	return &tmp
+}

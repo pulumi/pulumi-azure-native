@@ -1,0 +1,73 @@
+
+
+
+package v20190601
+
+import (
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+func LookupStorageAccount(ctx *pulumi.Context, args *LookupStorageAccountArgs, opts ...pulumi.InvokeOption) (*LookupStorageAccountResult, error) {
+	var rv LookupStorageAccountResult
+	err := ctx.Invoke("azure-native:storage/v20190601:getStorageAccount", args, &rv, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return rv.Defaults(), nil
+}
+
+type LookupStorageAccountArgs struct {
+	AccountName       string  `pulumi:"accountName"`
+	Expand            *string `pulumi:"expand"`
+	ResourceGroupName string  `pulumi:"resourceGroupName"`
+}
+
+
+type LookupStorageAccountResult struct {
+	AccessTier                            string                                         `pulumi:"accessTier"`
+	AllowBlobPublicAccess                 *bool                                          `pulumi:"allowBlobPublicAccess"`
+	AllowSharedKeyAccess                  *bool                                          `pulumi:"allowSharedKeyAccess"`
+	AzureFilesIdentityBasedAuthentication *AzureFilesIdentityBasedAuthenticationResponse `pulumi:"azureFilesIdentityBasedAuthentication"`
+	BlobRestoreStatus                     BlobRestoreStatusResponse                      `pulumi:"blobRestoreStatus"`
+	CreationTime                          string                                         `pulumi:"creationTime"`
+	CustomDomain                          CustomDomainResponse                           `pulumi:"customDomain"`
+	EnableHttpsTrafficOnly                *bool                                          `pulumi:"enableHttpsTrafficOnly"`
+	Encryption                            EncryptionResponse                             `pulumi:"encryption"`
+	FailoverInProgress                    bool                                           `pulumi:"failoverInProgress"`
+	GeoReplicationStats                   GeoReplicationStatsResponse                    `pulumi:"geoReplicationStats"`
+	Id                                    string                                         `pulumi:"id"`
+	Identity                              *IdentityResponse                              `pulumi:"identity"`
+	IsHnsEnabled                          *bool                                          `pulumi:"isHnsEnabled"`
+	Kind                                  string                                         `pulumi:"kind"`
+	LargeFileSharesState                  *string                                        `pulumi:"largeFileSharesState"`
+	LastGeoFailoverTime                   string                                         `pulumi:"lastGeoFailoverTime"`
+	Location                              string                                         `pulumi:"location"`
+	MinimumTlsVersion                     *string                                        `pulumi:"minimumTlsVersion"`
+	Name                                  string                                         `pulumi:"name"`
+	NetworkRuleSet                        NetworkRuleSetResponse                         `pulumi:"networkRuleSet"`
+	PrimaryEndpoints                      EndpointsResponse                              `pulumi:"primaryEndpoints"`
+	PrimaryLocation                       string                                         `pulumi:"primaryLocation"`
+	PrivateEndpointConnections            []PrivateEndpointConnectionResponse            `pulumi:"privateEndpointConnections"`
+	ProvisioningState                     string                                         `pulumi:"provisioningState"`
+	RoutingPreference                     *RoutingPreferenceResponse                     `pulumi:"routingPreference"`
+	SecondaryEndpoints                    EndpointsResponse                              `pulumi:"secondaryEndpoints"`
+	SecondaryLocation                     string                                         `pulumi:"secondaryLocation"`
+	Sku                                   SkuResponse                                    `pulumi:"sku"`
+	StatusOfPrimary                       string                                         `pulumi:"statusOfPrimary"`
+	StatusOfSecondary                     string                                         `pulumi:"statusOfSecondary"`
+	Tags                                  map[string]string                              `pulumi:"tags"`
+	Type                                  string                                         `pulumi:"type"`
+}
+
+
+func (val *LookupStorageAccountResult) Defaults() *LookupStorageAccountResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Encryption = *tmp.Encryption.Defaults()
+
+	tmp.NetworkRuleSet = *tmp.NetworkRuleSet.Defaults()
+
+	return &tmp
+}

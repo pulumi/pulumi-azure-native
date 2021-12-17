@@ -1,0 +1,190 @@
+
+
+
+package v20191101preview
+
+import (
+	"context"
+	"reflect"
+
+	"github.com/pkg/errors"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+type Service struct {
+	pulumi.CustomResourceState
+
+	CorrelationScheme            ServiceCorrelationDescriptionResponseArrayOutput     `pulumi:"correlationScheme"`
+	DefaultMoveCost              pulumi.StringPtrOutput                               `pulumi:"defaultMoveCost"`
+	Etag                         pulumi.StringOutput                                  `pulumi:"etag"`
+	Location                     pulumi.StringPtrOutput                               `pulumi:"location"`
+	Name                         pulumi.StringOutput                                  `pulumi:"name"`
+	PartitionDescription         pulumi.AnyOutput                                     `pulumi:"partitionDescription"`
+	PlacementConstraints         pulumi.StringPtrOutput                               `pulumi:"placementConstraints"`
+	ProvisioningState            pulumi.StringOutput                                  `pulumi:"provisioningState"`
+	ServiceDnsName               pulumi.StringPtrOutput                               `pulumi:"serviceDnsName"`
+	ServiceKind                  pulumi.StringOutput                                  `pulumi:"serviceKind"`
+	ServiceLoadMetrics           ServiceLoadMetricDescriptionResponseArrayOutput      `pulumi:"serviceLoadMetrics"`
+	ServicePackageActivationMode pulumi.StringPtrOutput                               `pulumi:"servicePackageActivationMode"`
+	ServicePlacementPolicies     ServicePlacementPolicyDescriptionResponseArrayOutput `pulumi:"servicePlacementPolicies"`
+	ServiceTypeName              pulumi.StringPtrOutput                               `pulumi:"serviceTypeName"`
+	Tags                         pulumi.StringMapOutput                               `pulumi:"tags"`
+	Type                         pulumi.StringOutput                                  `pulumi:"type"`
+}
+
+
+func NewService(ctx *pulumi.Context,
+	name string, args *ServiceArgs, opts ...pulumi.ResourceOption) (*Service, error) {
+	if args == nil {
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ApplicationName == nil {
+		return nil, errors.New("invalid value for required argument 'ApplicationName'")
+	}
+	if args.ClusterName == nil {
+		return nil, errors.New("invalid value for required argument 'ClusterName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.ServiceKind == nil {
+		return nil, errors.New("invalid value for required argument 'ServiceKind'")
+	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-native:servicefabric:Service"),
+		},
+		{
+			Type: pulumi.String("azure-native:servicefabric/v20170701preview:Service"),
+		},
+		{
+			Type: pulumi.String("azure-native:servicefabric/v20190301:Service"),
+		},
+		{
+			Type: pulumi.String("azure-native:servicefabric/v20190301preview:Service"),
+		},
+		{
+			Type: pulumi.String("azure-native:servicefabric/v20190601preview:Service"),
+		},
+		{
+			Type: pulumi.String("azure-native:servicefabric/v20200301:Service"),
+		},
+		{
+			Type: pulumi.String("azure-native:servicefabric/v20201201preview:Service"),
+		},
+		{
+			Type: pulumi.String("azure-native:servicefabric/v20210601:Service"),
+		},
+	})
+	opts = append(opts, aliases)
+	var resource Service
+	err := ctx.RegisterResource("azure-native:servicefabric/v20191101preview:Service", name, args, &resource, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return &resource, nil
+}
+
+
+
+func GetService(ctx *pulumi.Context,
+	name string, id pulumi.IDInput, state *ServiceState, opts ...pulumi.ResourceOption) (*Service, error) {
+	var resource Service
+	err := ctx.ReadResource("azure-native:servicefabric/v20191101preview:Service", name, id, state, &resource, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return &resource, nil
+}
+
+
+type serviceState struct {
+}
+
+type ServiceState struct {
+}
+
+func (ServiceState) ElementType() reflect.Type {
+	return reflect.TypeOf((*serviceState)(nil)).Elem()
+}
+
+type serviceArgs struct {
+	ApplicationName              string                              `pulumi:"applicationName"`
+	ClusterName                  string                              `pulumi:"clusterName"`
+	CorrelationScheme            []ServiceCorrelationDescription     `pulumi:"correlationScheme"`
+	DefaultMoveCost              *string                             `pulumi:"defaultMoveCost"`
+	Location                     *string                             `pulumi:"location"`
+	PartitionDescription         interface{}                         `pulumi:"partitionDescription"`
+	PlacementConstraints         *string                             `pulumi:"placementConstraints"`
+	ResourceGroupName            string                              `pulumi:"resourceGroupName"`
+	ServiceDnsName               *string                             `pulumi:"serviceDnsName"`
+	ServiceKind                  string                              `pulumi:"serviceKind"`
+	ServiceLoadMetrics           []ServiceLoadMetricDescription      `pulumi:"serviceLoadMetrics"`
+	ServiceName                  *string                             `pulumi:"serviceName"`
+	ServicePackageActivationMode *string                             `pulumi:"servicePackageActivationMode"`
+	ServicePlacementPolicies     []ServicePlacementPolicyDescription `pulumi:"servicePlacementPolicies"`
+	ServiceTypeName              *string                             `pulumi:"serviceTypeName"`
+	Tags                         map[string]string                   `pulumi:"tags"`
+}
+
+
+type ServiceArgs struct {
+	ApplicationName              pulumi.StringInput
+	ClusterName                  pulumi.StringInput
+	CorrelationScheme            ServiceCorrelationDescriptionArrayInput
+	DefaultMoveCost              pulumi.StringPtrInput
+	Location                     pulumi.StringPtrInput
+	PartitionDescription         pulumi.Input
+	PlacementConstraints         pulumi.StringPtrInput
+	ResourceGroupName            pulumi.StringInput
+	ServiceDnsName               pulumi.StringPtrInput
+	ServiceKind                  pulumi.StringInput
+	ServiceLoadMetrics           ServiceLoadMetricDescriptionArrayInput
+	ServiceName                  pulumi.StringPtrInput
+	ServicePackageActivationMode pulumi.StringPtrInput
+	ServicePlacementPolicies     ServicePlacementPolicyDescriptionArrayInput
+	ServiceTypeName              pulumi.StringPtrInput
+	Tags                         pulumi.StringMapInput
+}
+
+func (ServiceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*serviceArgs)(nil)).Elem()
+}
+
+type ServiceInput interface {
+	pulumi.Input
+
+	ToServiceOutput() ServiceOutput
+	ToServiceOutputWithContext(ctx context.Context) ServiceOutput
+}
+
+func (*Service) ElementType() reflect.Type {
+	return reflect.TypeOf((**Service)(nil)).Elem()
+}
+
+func (i *Service) ToServiceOutput() ServiceOutput {
+	return i.ToServiceOutputWithContext(context.Background())
+}
+
+func (i *Service) ToServiceOutputWithContext(ctx context.Context) ServiceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceOutput)
+}
+
+type ServiceOutput struct{ *pulumi.OutputState }
+
+func (ServiceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Service)(nil)).Elem()
+}
+
+func (o ServiceOutput) ToServiceOutput() ServiceOutput {
+	return o
+}
+
+func (o ServiceOutput) ToServiceOutputWithContext(ctx context.Context) ServiceOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ServiceOutput{})
+}

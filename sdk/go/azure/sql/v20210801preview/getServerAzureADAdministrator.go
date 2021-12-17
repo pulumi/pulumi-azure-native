@@ -1,0 +1,35 @@
+
+
+
+package v20210801preview
+
+import (
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+func LookupServerAzureADAdministrator(ctx *pulumi.Context, args *LookupServerAzureADAdministratorArgs, opts ...pulumi.InvokeOption) (*LookupServerAzureADAdministratorResult, error) {
+	var rv LookupServerAzureADAdministratorResult
+	err := ctx.Invoke("azure-native:sql/v20210801preview:getServerAzureADAdministrator", args, &rv, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return &rv, nil
+}
+
+type LookupServerAzureADAdministratorArgs struct {
+	AdministratorName string `pulumi:"administratorName"`
+	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ServerName        string `pulumi:"serverName"`
+}
+
+
+type LookupServerAzureADAdministratorResult struct {
+	AdministratorType         string  `pulumi:"administratorType"`
+	AzureADOnlyAuthentication bool    `pulumi:"azureADOnlyAuthentication"`
+	Id                        string  `pulumi:"id"`
+	Login                     string  `pulumi:"login"`
+	Name                      string  `pulumi:"name"`
+	Sid                       string  `pulumi:"sid"`
+	TenantId                  *string `pulumi:"tenantId"`
+	Type                      string  `pulumi:"type"`
+}

@@ -1,0 +1,150 @@
+
+
+
+package v20210801preview
+
+import (
+	"fmt"
+
+	"github.com/blang/semver"
+	"github.com/pulumi/pulumi-azure-native/sdk/go/azure"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+type module struct {
+	version semver.Version
+}
+
+func (m *module) Version() semver.Version {
+	return m.version
+}
+
+func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
+	switch typ {
+	case "azure-native:sql/v20210801preview:BackupShortTermRetentionPolicy":
+		r = &BackupShortTermRetentionPolicy{}
+	case "azure-native:sql/v20210801preview:Database":
+		r = &Database{}
+	case "azure-native:sql/v20210801preview:DatabaseAdvisor":
+		r = &DatabaseAdvisor{}
+	case "azure-native:sql/v20210801preview:DatabaseBlobAuditingPolicy":
+		r = &DatabaseBlobAuditingPolicy{}
+	case "azure-native:sql/v20210801preview:DatabaseSecurityAlertPolicy":
+		r = &DatabaseSecurityAlertPolicy{}
+	case "azure-native:sql/v20210801preview:DatabaseVulnerabilityAssessment":
+		r = &DatabaseVulnerabilityAssessment{}
+	case "azure-native:sql/v20210801preview:DatabaseVulnerabilityAssessmentRuleBaseline":
+		r = &DatabaseVulnerabilityAssessmentRuleBaseline{}
+	case "azure-native:sql/v20210801preview:DistributedAvailabilityGroup":
+		r = &DistributedAvailabilityGroup{}
+	case "azure-native:sql/v20210801preview:ElasticPool":
+		r = &ElasticPool{}
+	case "azure-native:sql/v20210801preview:EncryptionProtector":
+		r = &EncryptionProtector{}
+	case "azure-native:sql/v20210801preview:ExtendedDatabaseBlobAuditingPolicy":
+		r = &ExtendedDatabaseBlobAuditingPolicy{}
+	case "azure-native:sql/v20210801preview:ExtendedServerBlobAuditingPolicy":
+		r = &ExtendedServerBlobAuditingPolicy{}
+	case "azure-native:sql/v20210801preview:FailoverGroup":
+		r = &FailoverGroup{}
+	case "azure-native:sql/v20210801preview:FirewallRule":
+		r = &FirewallRule{}
+	case "azure-native:sql/v20210801preview:IPv6FirewallRule":
+		r = &IPv6FirewallRule{}
+	case "azure-native:sql/v20210801preview:InstanceFailoverGroup":
+		r = &InstanceFailoverGroup{}
+	case "azure-native:sql/v20210801preview:InstancePool":
+		r = &InstancePool{}
+	case "azure-native:sql/v20210801preview:Job":
+		r = &Job{}
+	case "azure-native:sql/v20210801preview:JobAgent":
+		r = &JobAgent{}
+	case "azure-native:sql/v20210801preview:JobCredential":
+		r = &JobCredential{}
+	case "azure-native:sql/v20210801preview:JobStep":
+		r = &JobStep{}
+	case "azure-native:sql/v20210801preview:JobTargetGroup":
+		r = &JobTargetGroup{}
+	case "azure-native:sql/v20210801preview:LongTermRetentionPolicy":
+		r = &LongTermRetentionPolicy{}
+	case "azure-native:sql/v20210801preview:ManagedDatabase":
+		r = &ManagedDatabase{}
+	case "azure-native:sql/v20210801preview:ManagedDatabaseSensitivityLabel":
+		r = &ManagedDatabaseSensitivityLabel{}
+	case "azure-native:sql/v20210801preview:ManagedDatabaseVulnerabilityAssessment":
+		r = &ManagedDatabaseVulnerabilityAssessment{}
+	case "azure-native:sql/v20210801preview:ManagedDatabaseVulnerabilityAssessmentRuleBaseline":
+		r = &ManagedDatabaseVulnerabilityAssessmentRuleBaseline{}
+	case "azure-native:sql/v20210801preview:ManagedInstance":
+		r = &ManagedInstance{}
+	case "azure-native:sql/v20210801preview:ManagedInstanceAdministrator":
+		r = &ManagedInstanceAdministrator{}
+	case "azure-native:sql/v20210801preview:ManagedInstanceAzureADOnlyAuthentication":
+		r = &ManagedInstanceAzureADOnlyAuthentication{}
+	case "azure-native:sql/v20210801preview:ManagedInstanceKey":
+		r = &ManagedInstanceKey{}
+	case "azure-native:sql/v20210801preview:ManagedInstancePrivateEndpointConnection":
+		r = &ManagedInstancePrivateEndpointConnection{}
+	case "azure-native:sql/v20210801preview:ManagedInstanceVulnerabilityAssessment":
+		r = &ManagedInstanceVulnerabilityAssessment{}
+	case "azure-native:sql/v20210801preview:OutboundFirewallRule":
+		r = &OutboundFirewallRule{}
+	case "azure-native:sql/v20210801preview:PrivateEndpointConnection":
+		r = &PrivateEndpointConnection{}
+	case "azure-native:sql/v20210801preview:SensitivityLabel":
+		r = &SensitivityLabel{}
+	case "azure-native:sql/v20210801preview:Server":
+		r = &Server{}
+	case "azure-native:sql/v20210801preview:ServerAdvisor":
+		r = &ServerAdvisor{}
+	case "azure-native:sql/v20210801preview:ServerAzureADAdministrator":
+		r = &ServerAzureADAdministrator{}
+	case "azure-native:sql/v20210801preview:ServerAzureADOnlyAuthentication":
+		r = &ServerAzureADOnlyAuthentication{}
+	case "azure-native:sql/v20210801preview:ServerBlobAuditingPolicy":
+		r = &ServerBlobAuditingPolicy{}
+	case "azure-native:sql/v20210801preview:ServerDnsAlias":
+		r = &ServerDnsAlias{}
+	case "azure-native:sql/v20210801preview:ServerKey":
+		r = &ServerKey{}
+	case "azure-native:sql/v20210801preview:ServerSecurityAlertPolicy":
+		r = &ServerSecurityAlertPolicy{}
+	case "azure-native:sql/v20210801preview:ServerTrustCertificate":
+		r = &ServerTrustCertificate{}
+	case "azure-native:sql/v20210801preview:ServerTrustGroup":
+		r = &ServerTrustGroup{}
+	case "azure-native:sql/v20210801preview:ServerVulnerabilityAssessment":
+		r = &ServerVulnerabilityAssessment{}
+	case "azure-native:sql/v20210801preview:SyncAgent":
+		r = &SyncAgent{}
+	case "azure-native:sql/v20210801preview:SyncGroup":
+		r = &SyncGroup{}
+	case "azure-native:sql/v20210801preview:SyncMember":
+		r = &SyncMember{}
+	case "azure-native:sql/v20210801preview:TransparentDataEncryption":
+		r = &TransparentDataEncryption{}
+	case "azure-native:sql/v20210801preview:VirtualNetworkRule":
+		r = &VirtualNetworkRule{}
+	case "azure-native:sql/v20210801preview:WorkloadClassifier":
+		r = &WorkloadClassifier{}
+	case "azure-native:sql/v20210801preview:WorkloadGroup":
+		r = &WorkloadGroup{}
+	default:
+		return nil, fmt.Errorf("unknown resource type: %s", typ)
+	}
+
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
+	return
+}
+
+func init() {
+	version, err := azure.PkgVersion()
+	if err != nil {
+		fmt.Printf("failed to determine package version. defaulting to v1: %v\n", err)
+	}
+	pulumi.RegisterResourceModule(
+		"azure-native",
+		"sql/v20210801preview",
+		&module{version},
+	)
+}
