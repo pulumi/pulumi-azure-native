@@ -3,7 +3,17 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 
-(None)
+#### New resources:
+
+- `datamigration.SqlMigrationService`
+- `sql.IPv6FirewallRule`
+
+#### New functions:
+
+- `datamigration.getSqlMigrationService`
+- `datamigration.listSqlMigrationServiceAuthKeys`
+- `datamigration.listSqlMigrationServiceMonitoringData`
+- `sql.getIPv6FirewallRule`
 
 ---
 
