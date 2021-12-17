@@ -34,11 +34,10 @@ func NewGuestConfigurationHCRPAssignment(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	propertiesApplier := func(v GuestConfigurationAssignmentProperties) *GuestConfigurationAssignmentProperties {
-		return v.Defaults()
-	}
 	if args.Properties != nil {
-		args.Properties = args.Properties.ToGuestConfigurationAssignmentPropertiesPtrOutput().Elem().ApplyT(propertiesApplier).(GuestConfigurationAssignmentPropertiesPtrOutput)
+		args.Properties = args.Properties.ToGuestConfigurationAssignmentPropertiesPtrOutput().ApplyT(func(v *GuestConfigurationAssignmentProperties) *GuestConfigurationAssignmentProperties {
+			return v.Defaults()
+		}).(GuestConfigurationAssignmentPropertiesPtrOutput)
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

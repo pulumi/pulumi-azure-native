@@ -122,60 +122,6 @@ type AssignmentPrincipalResponse struct {
 	PrincipalType     string            `pulumi:"principalType"`
 }
 
-
-
-
-
-type AssignmentPrincipalResponseInput interface {
-	pulumi.Input
-
-	ToAssignmentPrincipalResponseOutput() AssignmentPrincipalResponseOutput
-	ToAssignmentPrincipalResponseOutputWithContext(context.Context) AssignmentPrincipalResponseOutput
-}
-
-type AssignmentPrincipalResponseArgs struct {
-	PrincipalId       pulumi.StringInput    `pulumi:"principalId"`
-	PrincipalMetadata pulumi.StringMapInput `pulumi:"principalMetadata"`
-	PrincipalType     pulumi.StringInput    `pulumi:"principalType"`
-}
-
-func (AssignmentPrincipalResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AssignmentPrincipalResponse)(nil)).Elem()
-}
-
-func (i AssignmentPrincipalResponseArgs) ToAssignmentPrincipalResponseOutput() AssignmentPrincipalResponseOutput {
-	return i.ToAssignmentPrincipalResponseOutputWithContext(context.Background())
-}
-
-func (i AssignmentPrincipalResponseArgs) ToAssignmentPrincipalResponseOutputWithContext(ctx context.Context) AssignmentPrincipalResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AssignmentPrincipalResponseOutput)
-}
-
-
-
-
-
-type AssignmentPrincipalResponseArrayInput interface {
-	pulumi.Input
-
-	ToAssignmentPrincipalResponseArrayOutput() AssignmentPrincipalResponseArrayOutput
-	ToAssignmentPrincipalResponseArrayOutputWithContext(context.Context) AssignmentPrincipalResponseArrayOutput
-}
-
-type AssignmentPrincipalResponseArray []AssignmentPrincipalResponseInput
-
-func (AssignmentPrincipalResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AssignmentPrincipalResponse)(nil)).Elem()
-}
-
-func (i AssignmentPrincipalResponseArray) ToAssignmentPrincipalResponseArrayOutput() AssignmentPrincipalResponseArrayOutput {
-	return i.ToAssignmentPrincipalResponseArrayOutputWithContext(context.Background())
-}
-
-func (i AssignmentPrincipalResponseArray) ToAssignmentPrincipalResponseArrayOutputWithContext(ctx context.Context) AssignmentPrincipalResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AssignmentPrincipalResponseArrayOutput)
-}
-
 type AssignmentPrincipalResponseOutput struct{ *pulumi.OutputState }
 
 func (AssignmentPrincipalResponseOutput) ElementType() reflect.Type {
@@ -255,47 +201,6 @@ func (i ConnectorMappingAvailabilityArgs) ToConnectorMappingAvailabilityOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorMappingAvailabilityOutput)
 }
 
-func (i ConnectorMappingAvailabilityArgs) ToConnectorMappingAvailabilityPtrOutput() ConnectorMappingAvailabilityPtrOutput {
-	return i.ToConnectorMappingAvailabilityPtrOutputWithContext(context.Background())
-}
-
-func (i ConnectorMappingAvailabilityArgs) ToConnectorMappingAvailabilityPtrOutputWithContext(ctx context.Context) ConnectorMappingAvailabilityPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectorMappingAvailabilityOutput).ToConnectorMappingAvailabilityPtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type ConnectorMappingAvailabilityPtrInput interface {
-	pulumi.Input
-
-	ToConnectorMappingAvailabilityPtrOutput() ConnectorMappingAvailabilityPtrOutput
-	ToConnectorMappingAvailabilityPtrOutputWithContext(context.Context) ConnectorMappingAvailabilityPtrOutput
-}
-
-type connectorMappingAvailabilityPtrType ConnectorMappingAvailabilityArgs
-
-func ConnectorMappingAvailabilityPtr(v *ConnectorMappingAvailabilityArgs) ConnectorMappingAvailabilityPtrInput {
-	return (*connectorMappingAvailabilityPtrType)(v)
-}
-
-func (*connectorMappingAvailabilityPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConnectorMappingAvailability)(nil)).Elem()
-}
-
-func (i *connectorMappingAvailabilityPtrType) ToConnectorMappingAvailabilityPtrOutput() ConnectorMappingAvailabilityPtrOutput {
-	return i.ToConnectorMappingAvailabilityPtrOutputWithContext(context.Background())
-}
-
-func (i *connectorMappingAvailabilityPtrType) ToConnectorMappingAvailabilityPtrOutputWithContext(ctx context.Context) ConnectorMappingAvailabilityPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectorMappingAvailabilityPtrOutput)
-}
-
 type ConnectorMappingAvailabilityOutput struct{ *pulumi.OutputState }
 
 func (ConnectorMappingAvailabilityOutput) ElementType() reflect.Type {
@@ -310,16 +215,6 @@ func (o ConnectorMappingAvailabilityOutput) ToConnectorMappingAvailabilityOutput
 	return o
 }
 
-func (o ConnectorMappingAvailabilityOutput) ToConnectorMappingAvailabilityPtrOutput() ConnectorMappingAvailabilityPtrOutput {
-	return o.ToConnectorMappingAvailabilityPtrOutputWithContext(context.Background())
-}
-
-func (o ConnectorMappingAvailabilityOutput) ToConnectorMappingAvailabilityPtrOutputWithContext(ctx context.Context) ConnectorMappingAvailabilityPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectorMappingAvailability) *ConnectorMappingAvailability {
-		return &v
-	}).(ConnectorMappingAvailabilityPtrOutput)
-}
-
 func (o ConnectorMappingAvailabilityOutput) Frequency() FrequencyTypesPtrOutput {
 	return o.ApplyT(func(v ConnectorMappingAvailability) *FrequencyTypes { return v.Frequency }).(FrequencyTypesPtrOutput)
 }
@@ -328,120 +223,9 @@ func (o ConnectorMappingAvailabilityOutput) Interval() pulumi.IntOutput {
 	return o.ApplyT(func(v ConnectorMappingAvailability) int { return v.Interval }).(pulumi.IntOutput)
 }
 
-type ConnectorMappingAvailabilityPtrOutput struct{ *pulumi.OutputState }
-
-func (ConnectorMappingAvailabilityPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConnectorMappingAvailability)(nil)).Elem()
-}
-
-func (o ConnectorMappingAvailabilityPtrOutput) ToConnectorMappingAvailabilityPtrOutput() ConnectorMappingAvailabilityPtrOutput {
-	return o
-}
-
-func (o ConnectorMappingAvailabilityPtrOutput) ToConnectorMappingAvailabilityPtrOutputWithContext(ctx context.Context) ConnectorMappingAvailabilityPtrOutput {
-	return o
-}
-
-func (o ConnectorMappingAvailabilityPtrOutput) Elem() ConnectorMappingAvailabilityOutput {
-	return o.ApplyT(func(v *ConnectorMappingAvailability) ConnectorMappingAvailability {
-		if v != nil {
-			return *v
-		}
-		var ret ConnectorMappingAvailability
-		return ret
-	}).(ConnectorMappingAvailabilityOutput)
-}
-
-func (o ConnectorMappingAvailabilityPtrOutput) Frequency() FrequencyTypesPtrOutput {
-	return o.ApplyT(func(v *ConnectorMappingAvailability) *FrequencyTypes {
-		if v == nil {
-			return nil
-		}
-		return v.Frequency
-	}).(FrequencyTypesPtrOutput)
-}
-
-func (o ConnectorMappingAvailabilityPtrOutput) Interval() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ConnectorMappingAvailability) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.Interval
-	}).(pulumi.IntPtrOutput)
-}
-
 type ConnectorMappingAvailabilityResponse struct {
 	Frequency *string `pulumi:"frequency"`
 	Interval  int     `pulumi:"interval"`
-}
-
-
-
-
-
-type ConnectorMappingAvailabilityResponseInput interface {
-	pulumi.Input
-
-	ToConnectorMappingAvailabilityResponseOutput() ConnectorMappingAvailabilityResponseOutput
-	ToConnectorMappingAvailabilityResponseOutputWithContext(context.Context) ConnectorMappingAvailabilityResponseOutput
-}
-
-type ConnectorMappingAvailabilityResponseArgs struct {
-	Frequency pulumi.StringPtrInput `pulumi:"frequency"`
-	Interval  pulumi.IntInput       `pulumi:"interval"`
-}
-
-func (ConnectorMappingAvailabilityResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectorMappingAvailabilityResponse)(nil)).Elem()
-}
-
-func (i ConnectorMappingAvailabilityResponseArgs) ToConnectorMappingAvailabilityResponseOutput() ConnectorMappingAvailabilityResponseOutput {
-	return i.ToConnectorMappingAvailabilityResponseOutputWithContext(context.Background())
-}
-
-func (i ConnectorMappingAvailabilityResponseArgs) ToConnectorMappingAvailabilityResponseOutputWithContext(ctx context.Context) ConnectorMappingAvailabilityResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectorMappingAvailabilityResponseOutput)
-}
-
-func (i ConnectorMappingAvailabilityResponseArgs) ToConnectorMappingAvailabilityResponsePtrOutput() ConnectorMappingAvailabilityResponsePtrOutput {
-	return i.ToConnectorMappingAvailabilityResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ConnectorMappingAvailabilityResponseArgs) ToConnectorMappingAvailabilityResponsePtrOutputWithContext(ctx context.Context) ConnectorMappingAvailabilityResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectorMappingAvailabilityResponseOutput).ToConnectorMappingAvailabilityResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type ConnectorMappingAvailabilityResponsePtrInput interface {
-	pulumi.Input
-
-	ToConnectorMappingAvailabilityResponsePtrOutput() ConnectorMappingAvailabilityResponsePtrOutput
-	ToConnectorMappingAvailabilityResponsePtrOutputWithContext(context.Context) ConnectorMappingAvailabilityResponsePtrOutput
-}
-
-type connectorMappingAvailabilityResponsePtrType ConnectorMappingAvailabilityResponseArgs
-
-func ConnectorMappingAvailabilityResponsePtr(v *ConnectorMappingAvailabilityResponseArgs) ConnectorMappingAvailabilityResponsePtrInput {
-	return (*connectorMappingAvailabilityResponsePtrType)(v)
-}
-
-func (*connectorMappingAvailabilityResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConnectorMappingAvailabilityResponse)(nil)).Elem()
-}
-
-func (i *connectorMappingAvailabilityResponsePtrType) ToConnectorMappingAvailabilityResponsePtrOutput() ConnectorMappingAvailabilityResponsePtrOutput {
-	return i.ToConnectorMappingAvailabilityResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *connectorMappingAvailabilityResponsePtrType) ToConnectorMappingAvailabilityResponsePtrOutputWithContext(ctx context.Context) ConnectorMappingAvailabilityResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectorMappingAvailabilityResponsePtrOutput)
 }
 
 type ConnectorMappingAvailabilityResponseOutput struct{ *pulumi.OutputState }
@@ -458,64 +242,12 @@ func (o ConnectorMappingAvailabilityResponseOutput) ToConnectorMappingAvailabili
 	return o
 }
 
-func (o ConnectorMappingAvailabilityResponseOutput) ToConnectorMappingAvailabilityResponsePtrOutput() ConnectorMappingAvailabilityResponsePtrOutput {
-	return o.ToConnectorMappingAvailabilityResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ConnectorMappingAvailabilityResponseOutput) ToConnectorMappingAvailabilityResponsePtrOutputWithContext(ctx context.Context) ConnectorMappingAvailabilityResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectorMappingAvailabilityResponse) *ConnectorMappingAvailabilityResponse {
-		return &v
-	}).(ConnectorMappingAvailabilityResponsePtrOutput)
-}
-
 func (o ConnectorMappingAvailabilityResponseOutput) Frequency() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectorMappingAvailabilityResponse) *string { return v.Frequency }).(pulumi.StringPtrOutput)
 }
 
 func (o ConnectorMappingAvailabilityResponseOutput) Interval() pulumi.IntOutput {
 	return o.ApplyT(func(v ConnectorMappingAvailabilityResponse) int { return v.Interval }).(pulumi.IntOutput)
-}
-
-type ConnectorMappingAvailabilityResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (ConnectorMappingAvailabilityResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConnectorMappingAvailabilityResponse)(nil)).Elem()
-}
-
-func (o ConnectorMappingAvailabilityResponsePtrOutput) ToConnectorMappingAvailabilityResponsePtrOutput() ConnectorMappingAvailabilityResponsePtrOutput {
-	return o
-}
-
-func (o ConnectorMappingAvailabilityResponsePtrOutput) ToConnectorMappingAvailabilityResponsePtrOutputWithContext(ctx context.Context) ConnectorMappingAvailabilityResponsePtrOutput {
-	return o
-}
-
-func (o ConnectorMappingAvailabilityResponsePtrOutput) Elem() ConnectorMappingAvailabilityResponseOutput {
-	return o.ApplyT(func(v *ConnectorMappingAvailabilityResponse) ConnectorMappingAvailabilityResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ConnectorMappingAvailabilityResponse
-		return ret
-	}).(ConnectorMappingAvailabilityResponseOutput)
-}
-
-func (o ConnectorMappingAvailabilityResponsePtrOutput) Frequency() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ConnectorMappingAvailabilityResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Frequency
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ConnectorMappingAvailabilityResponsePtrOutput) Interval() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ConnectorMappingAvailabilityResponse) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.Interval
-	}).(pulumi.IntPtrOutput)
 }
 
 type ConnectorMappingCompleteOperation struct {
@@ -551,47 +283,6 @@ func (i ConnectorMappingCompleteOperationArgs) ToConnectorMappingCompleteOperati
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorMappingCompleteOperationOutput)
 }
 
-func (i ConnectorMappingCompleteOperationArgs) ToConnectorMappingCompleteOperationPtrOutput() ConnectorMappingCompleteOperationPtrOutput {
-	return i.ToConnectorMappingCompleteOperationPtrOutputWithContext(context.Background())
-}
-
-func (i ConnectorMappingCompleteOperationArgs) ToConnectorMappingCompleteOperationPtrOutputWithContext(ctx context.Context) ConnectorMappingCompleteOperationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectorMappingCompleteOperationOutput).ToConnectorMappingCompleteOperationPtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type ConnectorMappingCompleteOperationPtrInput interface {
-	pulumi.Input
-
-	ToConnectorMappingCompleteOperationPtrOutput() ConnectorMappingCompleteOperationPtrOutput
-	ToConnectorMappingCompleteOperationPtrOutputWithContext(context.Context) ConnectorMappingCompleteOperationPtrOutput
-}
-
-type connectorMappingCompleteOperationPtrType ConnectorMappingCompleteOperationArgs
-
-func ConnectorMappingCompleteOperationPtr(v *ConnectorMappingCompleteOperationArgs) ConnectorMappingCompleteOperationPtrInput {
-	return (*connectorMappingCompleteOperationPtrType)(v)
-}
-
-func (*connectorMappingCompleteOperationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConnectorMappingCompleteOperation)(nil)).Elem()
-}
-
-func (i *connectorMappingCompleteOperationPtrType) ToConnectorMappingCompleteOperationPtrOutput() ConnectorMappingCompleteOperationPtrOutput {
-	return i.ToConnectorMappingCompleteOperationPtrOutputWithContext(context.Background())
-}
-
-func (i *connectorMappingCompleteOperationPtrType) ToConnectorMappingCompleteOperationPtrOutputWithContext(ctx context.Context) ConnectorMappingCompleteOperationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectorMappingCompleteOperationPtrOutput)
-}
-
 type ConnectorMappingCompleteOperationOutput struct{ *pulumi.OutputState }
 
 func (ConnectorMappingCompleteOperationOutput) ElementType() reflect.Type {
@@ -606,16 +297,6 @@ func (o ConnectorMappingCompleteOperationOutput) ToConnectorMappingCompleteOpera
 	return o
 }
 
-func (o ConnectorMappingCompleteOperationOutput) ToConnectorMappingCompleteOperationPtrOutput() ConnectorMappingCompleteOperationPtrOutput {
-	return o.ToConnectorMappingCompleteOperationPtrOutputWithContext(context.Background())
-}
-
-func (o ConnectorMappingCompleteOperationOutput) ToConnectorMappingCompleteOperationPtrOutputWithContext(ctx context.Context) ConnectorMappingCompleteOperationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectorMappingCompleteOperation) *ConnectorMappingCompleteOperation {
-		return &v
-	}).(ConnectorMappingCompleteOperationPtrOutput)
-}
-
 func (o ConnectorMappingCompleteOperationOutput) CompletionOperationType() CompletionOperationTypesPtrOutput {
 	return o.ApplyT(func(v ConnectorMappingCompleteOperation) *CompletionOperationTypes { return v.CompletionOperationType }).(CompletionOperationTypesPtrOutput)
 }
@@ -624,120 +305,9 @@ func (o ConnectorMappingCompleteOperationOutput) DestinationFolder() pulumi.Stri
 	return o.ApplyT(func(v ConnectorMappingCompleteOperation) *string { return v.DestinationFolder }).(pulumi.StringPtrOutput)
 }
 
-type ConnectorMappingCompleteOperationPtrOutput struct{ *pulumi.OutputState }
-
-func (ConnectorMappingCompleteOperationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConnectorMappingCompleteOperation)(nil)).Elem()
-}
-
-func (o ConnectorMappingCompleteOperationPtrOutput) ToConnectorMappingCompleteOperationPtrOutput() ConnectorMappingCompleteOperationPtrOutput {
-	return o
-}
-
-func (o ConnectorMappingCompleteOperationPtrOutput) ToConnectorMappingCompleteOperationPtrOutputWithContext(ctx context.Context) ConnectorMappingCompleteOperationPtrOutput {
-	return o
-}
-
-func (o ConnectorMappingCompleteOperationPtrOutput) Elem() ConnectorMappingCompleteOperationOutput {
-	return o.ApplyT(func(v *ConnectorMappingCompleteOperation) ConnectorMappingCompleteOperation {
-		if v != nil {
-			return *v
-		}
-		var ret ConnectorMappingCompleteOperation
-		return ret
-	}).(ConnectorMappingCompleteOperationOutput)
-}
-
-func (o ConnectorMappingCompleteOperationPtrOutput) CompletionOperationType() CompletionOperationTypesPtrOutput {
-	return o.ApplyT(func(v *ConnectorMappingCompleteOperation) *CompletionOperationTypes {
-		if v == nil {
-			return nil
-		}
-		return v.CompletionOperationType
-	}).(CompletionOperationTypesPtrOutput)
-}
-
-func (o ConnectorMappingCompleteOperationPtrOutput) DestinationFolder() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ConnectorMappingCompleteOperation) *string {
-		if v == nil {
-			return nil
-		}
-		return v.DestinationFolder
-	}).(pulumi.StringPtrOutput)
-}
-
 type ConnectorMappingCompleteOperationResponse struct {
 	CompletionOperationType *string `pulumi:"completionOperationType"`
 	DestinationFolder       *string `pulumi:"destinationFolder"`
-}
-
-
-
-
-
-type ConnectorMappingCompleteOperationResponseInput interface {
-	pulumi.Input
-
-	ToConnectorMappingCompleteOperationResponseOutput() ConnectorMappingCompleteOperationResponseOutput
-	ToConnectorMappingCompleteOperationResponseOutputWithContext(context.Context) ConnectorMappingCompleteOperationResponseOutput
-}
-
-type ConnectorMappingCompleteOperationResponseArgs struct {
-	CompletionOperationType pulumi.StringPtrInput `pulumi:"completionOperationType"`
-	DestinationFolder       pulumi.StringPtrInput `pulumi:"destinationFolder"`
-}
-
-func (ConnectorMappingCompleteOperationResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectorMappingCompleteOperationResponse)(nil)).Elem()
-}
-
-func (i ConnectorMappingCompleteOperationResponseArgs) ToConnectorMappingCompleteOperationResponseOutput() ConnectorMappingCompleteOperationResponseOutput {
-	return i.ToConnectorMappingCompleteOperationResponseOutputWithContext(context.Background())
-}
-
-func (i ConnectorMappingCompleteOperationResponseArgs) ToConnectorMappingCompleteOperationResponseOutputWithContext(ctx context.Context) ConnectorMappingCompleteOperationResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectorMappingCompleteOperationResponseOutput)
-}
-
-func (i ConnectorMappingCompleteOperationResponseArgs) ToConnectorMappingCompleteOperationResponsePtrOutput() ConnectorMappingCompleteOperationResponsePtrOutput {
-	return i.ToConnectorMappingCompleteOperationResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ConnectorMappingCompleteOperationResponseArgs) ToConnectorMappingCompleteOperationResponsePtrOutputWithContext(ctx context.Context) ConnectorMappingCompleteOperationResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectorMappingCompleteOperationResponseOutput).ToConnectorMappingCompleteOperationResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type ConnectorMappingCompleteOperationResponsePtrInput interface {
-	pulumi.Input
-
-	ToConnectorMappingCompleteOperationResponsePtrOutput() ConnectorMappingCompleteOperationResponsePtrOutput
-	ToConnectorMappingCompleteOperationResponsePtrOutputWithContext(context.Context) ConnectorMappingCompleteOperationResponsePtrOutput
-}
-
-type connectorMappingCompleteOperationResponsePtrType ConnectorMappingCompleteOperationResponseArgs
-
-func ConnectorMappingCompleteOperationResponsePtr(v *ConnectorMappingCompleteOperationResponseArgs) ConnectorMappingCompleteOperationResponsePtrInput {
-	return (*connectorMappingCompleteOperationResponsePtrType)(v)
-}
-
-func (*connectorMappingCompleteOperationResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConnectorMappingCompleteOperationResponse)(nil)).Elem()
-}
-
-func (i *connectorMappingCompleteOperationResponsePtrType) ToConnectorMappingCompleteOperationResponsePtrOutput() ConnectorMappingCompleteOperationResponsePtrOutput {
-	return i.ToConnectorMappingCompleteOperationResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *connectorMappingCompleteOperationResponsePtrType) ToConnectorMappingCompleteOperationResponsePtrOutputWithContext(ctx context.Context) ConnectorMappingCompleteOperationResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectorMappingCompleteOperationResponsePtrOutput)
 }
 
 type ConnectorMappingCompleteOperationResponseOutput struct{ *pulumi.OutputState }
@@ -754,64 +324,12 @@ func (o ConnectorMappingCompleteOperationResponseOutput) ToConnectorMappingCompl
 	return o
 }
 
-func (o ConnectorMappingCompleteOperationResponseOutput) ToConnectorMappingCompleteOperationResponsePtrOutput() ConnectorMappingCompleteOperationResponsePtrOutput {
-	return o.ToConnectorMappingCompleteOperationResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ConnectorMappingCompleteOperationResponseOutput) ToConnectorMappingCompleteOperationResponsePtrOutputWithContext(ctx context.Context) ConnectorMappingCompleteOperationResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectorMappingCompleteOperationResponse) *ConnectorMappingCompleteOperationResponse {
-		return &v
-	}).(ConnectorMappingCompleteOperationResponsePtrOutput)
-}
-
 func (o ConnectorMappingCompleteOperationResponseOutput) CompletionOperationType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectorMappingCompleteOperationResponse) *string { return v.CompletionOperationType }).(pulumi.StringPtrOutput)
 }
 
 func (o ConnectorMappingCompleteOperationResponseOutput) DestinationFolder() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectorMappingCompleteOperationResponse) *string { return v.DestinationFolder }).(pulumi.StringPtrOutput)
-}
-
-type ConnectorMappingCompleteOperationResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (ConnectorMappingCompleteOperationResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConnectorMappingCompleteOperationResponse)(nil)).Elem()
-}
-
-func (o ConnectorMappingCompleteOperationResponsePtrOutput) ToConnectorMappingCompleteOperationResponsePtrOutput() ConnectorMappingCompleteOperationResponsePtrOutput {
-	return o
-}
-
-func (o ConnectorMappingCompleteOperationResponsePtrOutput) ToConnectorMappingCompleteOperationResponsePtrOutputWithContext(ctx context.Context) ConnectorMappingCompleteOperationResponsePtrOutput {
-	return o
-}
-
-func (o ConnectorMappingCompleteOperationResponsePtrOutput) Elem() ConnectorMappingCompleteOperationResponseOutput {
-	return o.ApplyT(func(v *ConnectorMappingCompleteOperationResponse) ConnectorMappingCompleteOperationResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ConnectorMappingCompleteOperationResponse
-		return ret
-	}).(ConnectorMappingCompleteOperationResponseOutput)
-}
-
-func (o ConnectorMappingCompleteOperationResponsePtrOutput) CompletionOperationType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ConnectorMappingCompleteOperationResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CompletionOperationType
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ConnectorMappingCompleteOperationResponsePtrOutput) DestinationFolder() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ConnectorMappingCompleteOperationResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.DestinationFolder
-	}).(pulumi.StringPtrOutput)
 }
 
 type ConnectorMappingErrorManagement struct {
@@ -847,47 +365,6 @@ func (i ConnectorMappingErrorManagementArgs) ToConnectorMappingErrorManagementOu
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorMappingErrorManagementOutput)
 }
 
-func (i ConnectorMappingErrorManagementArgs) ToConnectorMappingErrorManagementPtrOutput() ConnectorMappingErrorManagementPtrOutput {
-	return i.ToConnectorMappingErrorManagementPtrOutputWithContext(context.Background())
-}
-
-func (i ConnectorMappingErrorManagementArgs) ToConnectorMappingErrorManagementPtrOutputWithContext(ctx context.Context) ConnectorMappingErrorManagementPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectorMappingErrorManagementOutput).ToConnectorMappingErrorManagementPtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type ConnectorMappingErrorManagementPtrInput interface {
-	pulumi.Input
-
-	ToConnectorMappingErrorManagementPtrOutput() ConnectorMappingErrorManagementPtrOutput
-	ToConnectorMappingErrorManagementPtrOutputWithContext(context.Context) ConnectorMappingErrorManagementPtrOutput
-}
-
-type connectorMappingErrorManagementPtrType ConnectorMappingErrorManagementArgs
-
-func ConnectorMappingErrorManagementPtr(v *ConnectorMappingErrorManagementArgs) ConnectorMappingErrorManagementPtrInput {
-	return (*connectorMappingErrorManagementPtrType)(v)
-}
-
-func (*connectorMappingErrorManagementPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConnectorMappingErrorManagement)(nil)).Elem()
-}
-
-func (i *connectorMappingErrorManagementPtrType) ToConnectorMappingErrorManagementPtrOutput() ConnectorMappingErrorManagementPtrOutput {
-	return i.ToConnectorMappingErrorManagementPtrOutputWithContext(context.Background())
-}
-
-func (i *connectorMappingErrorManagementPtrType) ToConnectorMappingErrorManagementPtrOutputWithContext(ctx context.Context) ConnectorMappingErrorManagementPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectorMappingErrorManagementPtrOutput)
-}
-
 type ConnectorMappingErrorManagementOutput struct{ *pulumi.OutputState }
 
 func (ConnectorMappingErrorManagementOutput) ElementType() reflect.Type {
@@ -902,16 +379,6 @@ func (o ConnectorMappingErrorManagementOutput) ToConnectorMappingErrorManagement
 	return o
 }
 
-func (o ConnectorMappingErrorManagementOutput) ToConnectorMappingErrorManagementPtrOutput() ConnectorMappingErrorManagementPtrOutput {
-	return o.ToConnectorMappingErrorManagementPtrOutputWithContext(context.Background())
-}
-
-func (o ConnectorMappingErrorManagementOutput) ToConnectorMappingErrorManagementPtrOutputWithContext(ctx context.Context) ConnectorMappingErrorManagementPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectorMappingErrorManagement) *ConnectorMappingErrorManagement {
-		return &v
-	}).(ConnectorMappingErrorManagementPtrOutput)
-}
-
 func (o ConnectorMappingErrorManagementOutput) ErrorLimit() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ConnectorMappingErrorManagement) *int { return v.ErrorLimit }).(pulumi.IntPtrOutput)
 }
@@ -920,120 +387,9 @@ func (o ConnectorMappingErrorManagementOutput) ErrorManagementType() ErrorManage
 	return o.ApplyT(func(v ConnectorMappingErrorManagement) ErrorManagementTypes { return v.ErrorManagementType }).(ErrorManagementTypesOutput)
 }
 
-type ConnectorMappingErrorManagementPtrOutput struct{ *pulumi.OutputState }
-
-func (ConnectorMappingErrorManagementPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConnectorMappingErrorManagement)(nil)).Elem()
-}
-
-func (o ConnectorMappingErrorManagementPtrOutput) ToConnectorMappingErrorManagementPtrOutput() ConnectorMappingErrorManagementPtrOutput {
-	return o
-}
-
-func (o ConnectorMappingErrorManagementPtrOutput) ToConnectorMappingErrorManagementPtrOutputWithContext(ctx context.Context) ConnectorMappingErrorManagementPtrOutput {
-	return o
-}
-
-func (o ConnectorMappingErrorManagementPtrOutput) Elem() ConnectorMappingErrorManagementOutput {
-	return o.ApplyT(func(v *ConnectorMappingErrorManagement) ConnectorMappingErrorManagement {
-		if v != nil {
-			return *v
-		}
-		var ret ConnectorMappingErrorManagement
-		return ret
-	}).(ConnectorMappingErrorManagementOutput)
-}
-
-func (o ConnectorMappingErrorManagementPtrOutput) ErrorLimit() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ConnectorMappingErrorManagement) *int {
-		if v == nil {
-			return nil
-		}
-		return v.ErrorLimit
-	}).(pulumi.IntPtrOutput)
-}
-
-func (o ConnectorMappingErrorManagementPtrOutput) ErrorManagementType() ErrorManagementTypesPtrOutput {
-	return o.ApplyT(func(v *ConnectorMappingErrorManagement) *ErrorManagementTypes {
-		if v == nil {
-			return nil
-		}
-		return &v.ErrorManagementType
-	}).(ErrorManagementTypesPtrOutput)
-}
-
 type ConnectorMappingErrorManagementResponse struct {
 	ErrorLimit          *int   `pulumi:"errorLimit"`
 	ErrorManagementType string `pulumi:"errorManagementType"`
-}
-
-
-
-
-
-type ConnectorMappingErrorManagementResponseInput interface {
-	pulumi.Input
-
-	ToConnectorMappingErrorManagementResponseOutput() ConnectorMappingErrorManagementResponseOutput
-	ToConnectorMappingErrorManagementResponseOutputWithContext(context.Context) ConnectorMappingErrorManagementResponseOutput
-}
-
-type ConnectorMappingErrorManagementResponseArgs struct {
-	ErrorLimit          pulumi.IntPtrInput `pulumi:"errorLimit"`
-	ErrorManagementType pulumi.StringInput `pulumi:"errorManagementType"`
-}
-
-func (ConnectorMappingErrorManagementResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectorMappingErrorManagementResponse)(nil)).Elem()
-}
-
-func (i ConnectorMappingErrorManagementResponseArgs) ToConnectorMappingErrorManagementResponseOutput() ConnectorMappingErrorManagementResponseOutput {
-	return i.ToConnectorMappingErrorManagementResponseOutputWithContext(context.Background())
-}
-
-func (i ConnectorMappingErrorManagementResponseArgs) ToConnectorMappingErrorManagementResponseOutputWithContext(ctx context.Context) ConnectorMappingErrorManagementResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectorMappingErrorManagementResponseOutput)
-}
-
-func (i ConnectorMappingErrorManagementResponseArgs) ToConnectorMappingErrorManagementResponsePtrOutput() ConnectorMappingErrorManagementResponsePtrOutput {
-	return i.ToConnectorMappingErrorManagementResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ConnectorMappingErrorManagementResponseArgs) ToConnectorMappingErrorManagementResponsePtrOutputWithContext(ctx context.Context) ConnectorMappingErrorManagementResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectorMappingErrorManagementResponseOutput).ToConnectorMappingErrorManagementResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type ConnectorMappingErrorManagementResponsePtrInput interface {
-	pulumi.Input
-
-	ToConnectorMappingErrorManagementResponsePtrOutput() ConnectorMappingErrorManagementResponsePtrOutput
-	ToConnectorMappingErrorManagementResponsePtrOutputWithContext(context.Context) ConnectorMappingErrorManagementResponsePtrOutput
-}
-
-type connectorMappingErrorManagementResponsePtrType ConnectorMappingErrorManagementResponseArgs
-
-func ConnectorMappingErrorManagementResponsePtr(v *ConnectorMappingErrorManagementResponseArgs) ConnectorMappingErrorManagementResponsePtrInput {
-	return (*connectorMappingErrorManagementResponsePtrType)(v)
-}
-
-func (*connectorMappingErrorManagementResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConnectorMappingErrorManagementResponse)(nil)).Elem()
-}
-
-func (i *connectorMappingErrorManagementResponsePtrType) ToConnectorMappingErrorManagementResponsePtrOutput() ConnectorMappingErrorManagementResponsePtrOutput {
-	return i.ToConnectorMappingErrorManagementResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *connectorMappingErrorManagementResponsePtrType) ToConnectorMappingErrorManagementResponsePtrOutputWithContext(ctx context.Context) ConnectorMappingErrorManagementResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectorMappingErrorManagementResponsePtrOutput)
 }
 
 type ConnectorMappingErrorManagementResponseOutput struct{ *pulumi.OutputState }
@@ -1050,64 +406,12 @@ func (o ConnectorMappingErrorManagementResponseOutput) ToConnectorMappingErrorMa
 	return o
 }
 
-func (o ConnectorMappingErrorManagementResponseOutput) ToConnectorMappingErrorManagementResponsePtrOutput() ConnectorMappingErrorManagementResponsePtrOutput {
-	return o.ToConnectorMappingErrorManagementResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ConnectorMappingErrorManagementResponseOutput) ToConnectorMappingErrorManagementResponsePtrOutputWithContext(ctx context.Context) ConnectorMappingErrorManagementResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectorMappingErrorManagementResponse) *ConnectorMappingErrorManagementResponse {
-		return &v
-	}).(ConnectorMappingErrorManagementResponsePtrOutput)
-}
-
 func (o ConnectorMappingErrorManagementResponseOutput) ErrorLimit() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ConnectorMappingErrorManagementResponse) *int { return v.ErrorLimit }).(pulumi.IntPtrOutput)
 }
 
 func (o ConnectorMappingErrorManagementResponseOutput) ErrorManagementType() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectorMappingErrorManagementResponse) string { return v.ErrorManagementType }).(pulumi.StringOutput)
-}
-
-type ConnectorMappingErrorManagementResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (ConnectorMappingErrorManagementResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConnectorMappingErrorManagementResponse)(nil)).Elem()
-}
-
-func (o ConnectorMappingErrorManagementResponsePtrOutput) ToConnectorMappingErrorManagementResponsePtrOutput() ConnectorMappingErrorManagementResponsePtrOutput {
-	return o
-}
-
-func (o ConnectorMappingErrorManagementResponsePtrOutput) ToConnectorMappingErrorManagementResponsePtrOutputWithContext(ctx context.Context) ConnectorMappingErrorManagementResponsePtrOutput {
-	return o
-}
-
-func (o ConnectorMappingErrorManagementResponsePtrOutput) Elem() ConnectorMappingErrorManagementResponseOutput {
-	return o.ApplyT(func(v *ConnectorMappingErrorManagementResponse) ConnectorMappingErrorManagementResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ConnectorMappingErrorManagementResponse
-		return ret
-	}).(ConnectorMappingErrorManagementResponseOutput)
-}
-
-func (o ConnectorMappingErrorManagementResponsePtrOutput) ErrorLimit() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ConnectorMappingErrorManagementResponse) *int {
-		if v == nil {
-			return nil
-		}
-		return v.ErrorLimit
-	}).(pulumi.IntPtrOutput)
-}
-
-func (o ConnectorMappingErrorManagementResponsePtrOutput) ErrorManagementType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ConnectorMappingErrorManagementResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.ErrorManagementType
-	}).(pulumi.StringPtrOutput)
 }
 
 type ConnectorMappingFormat struct {
@@ -1151,47 +455,6 @@ func (i ConnectorMappingFormatArgs) ToConnectorMappingFormatOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorMappingFormatOutput)
 }
 
-func (i ConnectorMappingFormatArgs) ToConnectorMappingFormatPtrOutput() ConnectorMappingFormatPtrOutput {
-	return i.ToConnectorMappingFormatPtrOutputWithContext(context.Background())
-}
-
-func (i ConnectorMappingFormatArgs) ToConnectorMappingFormatPtrOutputWithContext(ctx context.Context) ConnectorMappingFormatPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectorMappingFormatOutput).ToConnectorMappingFormatPtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type ConnectorMappingFormatPtrInput interface {
-	pulumi.Input
-
-	ToConnectorMappingFormatPtrOutput() ConnectorMappingFormatPtrOutput
-	ToConnectorMappingFormatPtrOutputWithContext(context.Context) ConnectorMappingFormatPtrOutput
-}
-
-type connectorMappingFormatPtrType ConnectorMappingFormatArgs
-
-func ConnectorMappingFormatPtr(v *ConnectorMappingFormatArgs) ConnectorMappingFormatPtrInput {
-	return (*connectorMappingFormatPtrType)(v)
-}
-
-func (*connectorMappingFormatPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConnectorMappingFormat)(nil)).Elem()
-}
-
-func (i *connectorMappingFormatPtrType) ToConnectorMappingFormatPtrOutput() ConnectorMappingFormatPtrOutput {
-	return i.ToConnectorMappingFormatPtrOutputWithContext(context.Background())
-}
-
-func (i *connectorMappingFormatPtrType) ToConnectorMappingFormatPtrOutputWithContext(ctx context.Context) ConnectorMappingFormatPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectorMappingFormatPtrOutput)
-}
-
 type ConnectorMappingFormatOutput struct{ *pulumi.OutputState }
 
 func (ConnectorMappingFormatOutput) ElementType() reflect.Type {
@@ -1204,16 +467,6 @@ func (o ConnectorMappingFormatOutput) ToConnectorMappingFormatOutput() Connector
 
 func (o ConnectorMappingFormatOutput) ToConnectorMappingFormatOutputWithContext(ctx context.Context) ConnectorMappingFormatOutput {
 	return o
-}
-
-func (o ConnectorMappingFormatOutput) ToConnectorMappingFormatPtrOutput() ConnectorMappingFormatPtrOutput {
-	return o.ToConnectorMappingFormatPtrOutputWithContext(context.Background())
-}
-
-func (o ConnectorMappingFormatOutput) ToConnectorMappingFormatPtrOutputWithContext(ctx context.Context) ConnectorMappingFormatPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectorMappingFormat) *ConnectorMappingFormat {
-		return &v
-	}).(ConnectorMappingFormatPtrOutput)
 }
 
 func (o ConnectorMappingFormatOutput) AcceptLanguage() pulumi.StringPtrOutput {
@@ -1240,84 +493,6 @@ func (o ConnectorMappingFormatOutput) QuoteEscapeCharacter() pulumi.StringPtrOut
 	return o.ApplyT(func(v ConnectorMappingFormat) *string { return v.QuoteEscapeCharacter }).(pulumi.StringPtrOutput)
 }
 
-type ConnectorMappingFormatPtrOutput struct{ *pulumi.OutputState }
-
-func (ConnectorMappingFormatPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConnectorMappingFormat)(nil)).Elem()
-}
-
-func (o ConnectorMappingFormatPtrOutput) ToConnectorMappingFormatPtrOutput() ConnectorMappingFormatPtrOutput {
-	return o
-}
-
-func (o ConnectorMappingFormatPtrOutput) ToConnectorMappingFormatPtrOutputWithContext(ctx context.Context) ConnectorMappingFormatPtrOutput {
-	return o
-}
-
-func (o ConnectorMappingFormatPtrOutput) Elem() ConnectorMappingFormatOutput {
-	return o.ApplyT(func(v *ConnectorMappingFormat) ConnectorMappingFormat {
-		if v != nil {
-			return *v
-		}
-		var ret ConnectorMappingFormat
-		return ret
-	}).(ConnectorMappingFormatOutput)
-}
-
-func (o ConnectorMappingFormatPtrOutput) AcceptLanguage() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ConnectorMappingFormat) *string {
-		if v == nil {
-			return nil
-		}
-		return v.AcceptLanguage
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ConnectorMappingFormatPtrOutput) ArraySeparator() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ConnectorMappingFormat) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ArraySeparator
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ConnectorMappingFormatPtrOutput) ColumnDelimiter() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ConnectorMappingFormat) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ColumnDelimiter
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ConnectorMappingFormatPtrOutput) FormatType() FormatTypesPtrOutput {
-	return o.ApplyT(func(v *ConnectorMappingFormat) *FormatTypes {
-		if v == nil {
-			return nil
-		}
-		return &v.FormatType
-	}).(FormatTypesPtrOutput)
-}
-
-func (o ConnectorMappingFormatPtrOutput) QuoteCharacter() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ConnectorMappingFormat) *string {
-		if v == nil {
-			return nil
-		}
-		return v.QuoteCharacter
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ConnectorMappingFormatPtrOutput) QuoteEscapeCharacter() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ConnectorMappingFormat) *string {
-		if v == nil {
-			return nil
-		}
-		return v.QuoteEscapeCharacter
-	}).(pulumi.StringPtrOutput)
-}
-
 type ConnectorMappingFormatResponse struct {
 	AcceptLanguage       *string `pulumi:"acceptLanguage"`
 	ArraySeparator       *string `pulumi:"arraySeparator"`
@@ -1325,79 +500,6 @@ type ConnectorMappingFormatResponse struct {
 	FormatType           string  `pulumi:"formatType"`
 	QuoteCharacter       *string `pulumi:"quoteCharacter"`
 	QuoteEscapeCharacter *string `pulumi:"quoteEscapeCharacter"`
-}
-
-
-
-
-
-type ConnectorMappingFormatResponseInput interface {
-	pulumi.Input
-
-	ToConnectorMappingFormatResponseOutput() ConnectorMappingFormatResponseOutput
-	ToConnectorMappingFormatResponseOutputWithContext(context.Context) ConnectorMappingFormatResponseOutput
-}
-
-type ConnectorMappingFormatResponseArgs struct {
-	AcceptLanguage       pulumi.StringPtrInput `pulumi:"acceptLanguage"`
-	ArraySeparator       pulumi.StringPtrInput `pulumi:"arraySeparator"`
-	ColumnDelimiter      pulumi.StringPtrInput `pulumi:"columnDelimiter"`
-	FormatType           pulumi.StringInput    `pulumi:"formatType"`
-	QuoteCharacter       pulumi.StringPtrInput `pulumi:"quoteCharacter"`
-	QuoteEscapeCharacter pulumi.StringPtrInput `pulumi:"quoteEscapeCharacter"`
-}
-
-func (ConnectorMappingFormatResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectorMappingFormatResponse)(nil)).Elem()
-}
-
-func (i ConnectorMappingFormatResponseArgs) ToConnectorMappingFormatResponseOutput() ConnectorMappingFormatResponseOutput {
-	return i.ToConnectorMappingFormatResponseOutputWithContext(context.Background())
-}
-
-func (i ConnectorMappingFormatResponseArgs) ToConnectorMappingFormatResponseOutputWithContext(ctx context.Context) ConnectorMappingFormatResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectorMappingFormatResponseOutput)
-}
-
-func (i ConnectorMappingFormatResponseArgs) ToConnectorMappingFormatResponsePtrOutput() ConnectorMappingFormatResponsePtrOutput {
-	return i.ToConnectorMappingFormatResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ConnectorMappingFormatResponseArgs) ToConnectorMappingFormatResponsePtrOutputWithContext(ctx context.Context) ConnectorMappingFormatResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectorMappingFormatResponseOutput).ToConnectorMappingFormatResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type ConnectorMappingFormatResponsePtrInput interface {
-	pulumi.Input
-
-	ToConnectorMappingFormatResponsePtrOutput() ConnectorMappingFormatResponsePtrOutput
-	ToConnectorMappingFormatResponsePtrOutputWithContext(context.Context) ConnectorMappingFormatResponsePtrOutput
-}
-
-type connectorMappingFormatResponsePtrType ConnectorMappingFormatResponseArgs
-
-func ConnectorMappingFormatResponsePtr(v *ConnectorMappingFormatResponseArgs) ConnectorMappingFormatResponsePtrInput {
-	return (*connectorMappingFormatResponsePtrType)(v)
-}
-
-func (*connectorMappingFormatResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConnectorMappingFormatResponse)(nil)).Elem()
-}
-
-func (i *connectorMappingFormatResponsePtrType) ToConnectorMappingFormatResponsePtrOutput() ConnectorMappingFormatResponsePtrOutput {
-	return i.ToConnectorMappingFormatResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *connectorMappingFormatResponsePtrType) ToConnectorMappingFormatResponsePtrOutputWithContext(ctx context.Context) ConnectorMappingFormatResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectorMappingFormatResponsePtrOutput)
 }
 
 type ConnectorMappingFormatResponseOutput struct{ *pulumi.OutputState }
@@ -1412,16 +514,6 @@ func (o ConnectorMappingFormatResponseOutput) ToConnectorMappingFormatResponseOu
 
 func (o ConnectorMappingFormatResponseOutput) ToConnectorMappingFormatResponseOutputWithContext(ctx context.Context) ConnectorMappingFormatResponseOutput {
 	return o
-}
-
-func (o ConnectorMappingFormatResponseOutput) ToConnectorMappingFormatResponsePtrOutput() ConnectorMappingFormatResponsePtrOutput {
-	return o.ToConnectorMappingFormatResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ConnectorMappingFormatResponseOutput) ToConnectorMappingFormatResponsePtrOutputWithContext(ctx context.Context) ConnectorMappingFormatResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectorMappingFormatResponse) *ConnectorMappingFormatResponse {
-		return &v
-	}).(ConnectorMappingFormatResponsePtrOutput)
 }
 
 func (o ConnectorMappingFormatResponseOutput) AcceptLanguage() pulumi.StringPtrOutput {
@@ -1446,84 +538,6 @@ func (o ConnectorMappingFormatResponseOutput) QuoteCharacter() pulumi.StringPtrO
 
 func (o ConnectorMappingFormatResponseOutput) QuoteEscapeCharacter() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectorMappingFormatResponse) *string { return v.QuoteEscapeCharacter }).(pulumi.StringPtrOutput)
-}
-
-type ConnectorMappingFormatResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (ConnectorMappingFormatResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConnectorMappingFormatResponse)(nil)).Elem()
-}
-
-func (o ConnectorMappingFormatResponsePtrOutput) ToConnectorMappingFormatResponsePtrOutput() ConnectorMappingFormatResponsePtrOutput {
-	return o
-}
-
-func (o ConnectorMappingFormatResponsePtrOutput) ToConnectorMappingFormatResponsePtrOutputWithContext(ctx context.Context) ConnectorMappingFormatResponsePtrOutput {
-	return o
-}
-
-func (o ConnectorMappingFormatResponsePtrOutput) Elem() ConnectorMappingFormatResponseOutput {
-	return o.ApplyT(func(v *ConnectorMappingFormatResponse) ConnectorMappingFormatResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ConnectorMappingFormatResponse
-		return ret
-	}).(ConnectorMappingFormatResponseOutput)
-}
-
-func (o ConnectorMappingFormatResponsePtrOutput) AcceptLanguage() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ConnectorMappingFormatResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.AcceptLanguage
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ConnectorMappingFormatResponsePtrOutput) ArraySeparator() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ConnectorMappingFormatResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ArraySeparator
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ConnectorMappingFormatResponsePtrOutput) ColumnDelimiter() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ConnectorMappingFormatResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ColumnDelimiter
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ConnectorMappingFormatResponsePtrOutput) FormatType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ConnectorMappingFormatResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.FormatType
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ConnectorMappingFormatResponsePtrOutput) QuoteCharacter() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ConnectorMappingFormatResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.QuoteCharacter
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ConnectorMappingFormatResponsePtrOutput) QuoteEscapeCharacter() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ConnectorMappingFormatResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.QuoteEscapeCharacter
-	}).(pulumi.StringPtrOutput)
 }
 
 type ConnectorMappingProperties struct {
@@ -1571,47 +585,6 @@ func (i ConnectorMappingPropertiesArgs) ToConnectorMappingPropertiesOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorMappingPropertiesOutput)
 }
 
-func (i ConnectorMappingPropertiesArgs) ToConnectorMappingPropertiesPtrOutput() ConnectorMappingPropertiesPtrOutput {
-	return i.ToConnectorMappingPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i ConnectorMappingPropertiesArgs) ToConnectorMappingPropertiesPtrOutputWithContext(ctx context.Context) ConnectorMappingPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectorMappingPropertiesOutput).ToConnectorMappingPropertiesPtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type ConnectorMappingPropertiesPtrInput interface {
-	pulumi.Input
-
-	ToConnectorMappingPropertiesPtrOutput() ConnectorMappingPropertiesPtrOutput
-	ToConnectorMappingPropertiesPtrOutputWithContext(context.Context) ConnectorMappingPropertiesPtrOutput
-}
-
-type connectorMappingPropertiesPtrType ConnectorMappingPropertiesArgs
-
-func ConnectorMappingPropertiesPtr(v *ConnectorMappingPropertiesArgs) ConnectorMappingPropertiesPtrInput {
-	return (*connectorMappingPropertiesPtrType)(v)
-}
-
-func (*connectorMappingPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConnectorMappingProperties)(nil)).Elem()
-}
-
-func (i *connectorMappingPropertiesPtrType) ToConnectorMappingPropertiesPtrOutput() ConnectorMappingPropertiesPtrOutput {
-	return i.ToConnectorMappingPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *connectorMappingPropertiesPtrType) ToConnectorMappingPropertiesPtrOutputWithContext(ctx context.Context) ConnectorMappingPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectorMappingPropertiesPtrOutput)
-}
-
 type ConnectorMappingPropertiesOutput struct{ *pulumi.OutputState }
 
 func (ConnectorMappingPropertiesOutput) ElementType() reflect.Type {
@@ -1624,16 +597,6 @@ func (o ConnectorMappingPropertiesOutput) ToConnectorMappingPropertiesOutput() C
 
 func (o ConnectorMappingPropertiesOutput) ToConnectorMappingPropertiesOutputWithContext(ctx context.Context) ConnectorMappingPropertiesOutput {
 	return o
-}
-
-func (o ConnectorMappingPropertiesOutput) ToConnectorMappingPropertiesPtrOutput() ConnectorMappingPropertiesPtrOutput {
-	return o.ToConnectorMappingPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o ConnectorMappingPropertiesOutput) ToConnectorMappingPropertiesPtrOutputWithContext(ctx context.Context) ConnectorMappingPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectorMappingProperties) *ConnectorMappingProperties {
-		return &v
-	}).(ConnectorMappingPropertiesPtrOutput)
 }
 
 func (o ConnectorMappingPropertiesOutput) Availability() ConnectorMappingAvailabilityOutput {
@@ -1668,102 +631,6 @@ func (o ConnectorMappingPropertiesOutput) Structure() ConnectorMappingStructureA
 	return o.ApplyT(func(v ConnectorMappingProperties) []ConnectorMappingStructure { return v.Structure }).(ConnectorMappingStructureArrayOutput)
 }
 
-type ConnectorMappingPropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (ConnectorMappingPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConnectorMappingProperties)(nil)).Elem()
-}
-
-func (o ConnectorMappingPropertiesPtrOutput) ToConnectorMappingPropertiesPtrOutput() ConnectorMappingPropertiesPtrOutput {
-	return o
-}
-
-func (o ConnectorMappingPropertiesPtrOutput) ToConnectorMappingPropertiesPtrOutputWithContext(ctx context.Context) ConnectorMappingPropertiesPtrOutput {
-	return o
-}
-
-func (o ConnectorMappingPropertiesPtrOutput) Elem() ConnectorMappingPropertiesOutput {
-	return o.ApplyT(func(v *ConnectorMappingProperties) ConnectorMappingProperties {
-		if v != nil {
-			return *v
-		}
-		var ret ConnectorMappingProperties
-		return ret
-	}).(ConnectorMappingPropertiesOutput)
-}
-
-func (o ConnectorMappingPropertiesPtrOutput) Availability() ConnectorMappingAvailabilityPtrOutput {
-	return o.ApplyT(func(v *ConnectorMappingProperties) *ConnectorMappingAvailability {
-		if v == nil {
-			return nil
-		}
-		return &v.Availability
-	}).(ConnectorMappingAvailabilityPtrOutput)
-}
-
-func (o ConnectorMappingPropertiesPtrOutput) CompleteOperation() ConnectorMappingCompleteOperationPtrOutput {
-	return o.ApplyT(func(v *ConnectorMappingProperties) *ConnectorMappingCompleteOperation {
-		if v == nil {
-			return nil
-		}
-		return &v.CompleteOperation
-	}).(ConnectorMappingCompleteOperationPtrOutput)
-}
-
-func (o ConnectorMappingPropertiesPtrOutput) ErrorManagement() ConnectorMappingErrorManagementPtrOutput {
-	return o.ApplyT(func(v *ConnectorMappingProperties) *ConnectorMappingErrorManagement {
-		if v == nil {
-			return nil
-		}
-		return &v.ErrorManagement
-	}).(ConnectorMappingErrorManagementPtrOutput)
-}
-
-func (o ConnectorMappingPropertiesPtrOutput) FileFilter() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ConnectorMappingProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.FileFilter
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ConnectorMappingPropertiesPtrOutput) FolderPath() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ConnectorMappingProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.FolderPath
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ConnectorMappingPropertiesPtrOutput) Format() ConnectorMappingFormatPtrOutput {
-	return o.ApplyT(func(v *ConnectorMappingProperties) *ConnectorMappingFormat {
-		if v == nil {
-			return nil
-		}
-		return &v.Format
-	}).(ConnectorMappingFormatPtrOutput)
-}
-
-func (o ConnectorMappingPropertiesPtrOutput) HasHeader() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *ConnectorMappingProperties) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.HasHeader
-	}).(pulumi.BoolPtrOutput)
-}
-
-func (o ConnectorMappingPropertiesPtrOutput) Structure() ConnectorMappingStructureArrayOutput {
-	return o.ApplyT(func(v *ConnectorMappingProperties) []ConnectorMappingStructure {
-		if v == nil {
-			return nil
-		}
-		return v.Structure
-	}).(ConnectorMappingStructureArrayOutput)
-}
-
 type ConnectorMappingPropertiesResponse struct {
 	Availability      ConnectorMappingAvailabilityResponse      `pulumi:"availability"`
 	CompleteOperation ConnectorMappingCompleteOperationResponse `pulumi:"completeOperation"`
@@ -1773,81 +640,6 @@ type ConnectorMappingPropertiesResponse struct {
 	Format            ConnectorMappingFormatResponse            `pulumi:"format"`
 	HasHeader         *bool                                     `pulumi:"hasHeader"`
 	Structure         []ConnectorMappingStructureResponse       `pulumi:"structure"`
-}
-
-
-
-
-
-type ConnectorMappingPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToConnectorMappingPropertiesResponseOutput() ConnectorMappingPropertiesResponseOutput
-	ToConnectorMappingPropertiesResponseOutputWithContext(context.Context) ConnectorMappingPropertiesResponseOutput
-}
-
-type ConnectorMappingPropertiesResponseArgs struct {
-	Availability      ConnectorMappingAvailabilityResponseInput      `pulumi:"availability"`
-	CompleteOperation ConnectorMappingCompleteOperationResponseInput `pulumi:"completeOperation"`
-	ErrorManagement   ConnectorMappingErrorManagementResponseInput   `pulumi:"errorManagement"`
-	FileFilter        pulumi.StringPtrInput                          `pulumi:"fileFilter"`
-	FolderPath        pulumi.StringPtrInput                          `pulumi:"folderPath"`
-	Format            ConnectorMappingFormatResponseInput            `pulumi:"format"`
-	HasHeader         pulumi.BoolPtrInput                            `pulumi:"hasHeader"`
-	Structure         ConnectorMappingStructureResponseArrayInput    `pulumi:"structure"`
-}
-
-func (ConnectorMappingPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectorMappingPropertiesResponse)(nil)).Elem()
-}
-
-func (i ConnectorMappingPropertiesResponseArgs) ToConnectorMappingPropertiesResponseOutput() ConnectorMappingPropertiesResponseOutput {
-	return i.ToConnectorMappingPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i ConnectorMappingPropertiesResponseArgs) ToConnectorMappingPropertiesResponseOutputWithContext(ctx context.Context) ConnectorMappingPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectorMappingPropertiesResponseOutput)
-}
-
-func (i ConnectorMappingPropertiesResponseArgs) ToConnectorMappingPropertiesResponsePtrOutput() ConnectorMappingPropertiesResponsePtrOutput {
-	return i.ToConnectorMappingPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ConnectorMappingPropertiesResponseArgs) ToConnectorMappingPropertiesResponsePtrOutputWithContext(ctx context.Context) ConnectorMappingPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectorMappingPropertiesResponseOutput).ToConnectorMappingPropertiesResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type ConnectorMappingPropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToConnectorMappingPropertiesResponsePtrOutput() ConnectorMappingPropertiesResponsePtrOutput
-	ToConnectorMappingPropertiesResponsePtrOutputWithContext(context.Context) ConnectorMappingPropertiesResponsePtrOutput
-}
-
-type connectorMappingPropertiesResponsePtrType ConnectorMappingPropertiesResponseArgs
-
-func ConnectorMappingPropertiesResponsePtr(v *ConnectorMappingPropertiesResponseArgs) ConnectorMappingPropertiesResponsePtrInput {
-	return (*connectorMappingPropertiesResponsePtrType)(v)
-}
-
-func (*connectorMappingPropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConnectorMappingPropertiesResponse)(nil)).Elem()
-}
-
-func (i *connectorMappingPropertiesResponsePtrType) ToConnectorMappingPropertiesResponsePtrOutput() ConnectorMappingPropertiesResponsePtrOutput {
-	return i.ToConnectorMappingPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *connectorMappingPropertiesResponsePtrType) ToConnectorMappingPropertiesResponsePtrOutputWithContext(ctx context.Context) ConnectorMappingPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectorMappingPropertiesResponsePtrOutput)
 }
 
 type ConnectorMappingPropertiesResponseOutput struct{ *pulumi.OutputState }
@@ -1862,16 +654,6 @@ func (o ConnectorMappingPropertiesResponseOutput) ToConnectorMappingPropertiesRe
 
 func (o ConnectorMappingPropertiesResponseOutput) ToConnectorMappingPropertiesResponseOutputWithContext(ctx context.Context) ConnectorMappingPropertiesResponseOutput {
 	return o
-}
-
-func (o ConnectorMappingPropertiesResponseOutput) ToConnectorMappingPropertiesResponsePtrOutput() ConnectorMappingPropertiesResponsePtrOutput {
-	return o.ToConnectorMappingPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ConnectorMappingPropertiesResponseOutput) ToConnectorMappingPropertiesResponsePtrOutputWithContext(ctx context.Context) ConnectorMappingPropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectorMappingPropertiesResponse) *ConnectorMappingPropertiesResponse {
-		return &v
-	}).(ConnectorMappingPropertiesResponsePtrOutput)
 }
 
 func (o ConnectorMappingPropertiesResponseOutput) Availability() ConnectorMappingAvailabilityResponseOutput {
@@ -1908,102 +690,6 @@ func (o ConnectorMappingPropertiesResponseOutput) HasHeader() pulumi.BoolPtrOutp
 
 func (o ConnectorMappingPropertiesResponseOutput) Structure() ConnectorMappingStructureResponseArrayOutput {
 	return o.ApplyT(func(v ConnectorMappingPropertiesResponse) []ConnectorMappingStructureResponse { return v.Structure }).(ConnectorMappingStructureResponseArrayOutput)
-}
-
-type ConnectorMappingPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (ConnectorMappingPropertiesResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConnectorMappingPropertiesResponse)(nil)).Elem()
-}
-
-func (o ConnectorMappingPropertiesResponsePtrOutput) ToConnectorMappingPropertiesResponsePtrOutput() ConnectorMappingPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o ConnectorMappingPropertiesResponsePtrOutput) ToConnectorMappingPropertiesResponsePtrOutputWithContext(ctx context.Context) ConnectorMappingPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o ConnectorMappingPropertiesResponsePtrOutput) Elem() ConnectorMappingPropertiesResponseOutput {
-	return o.ApplyT(func(v *ConnectorMappingPropertiesResponse) ConnectorMappingPropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ConnectorMappingPropertiesResponse
-		return ret
-	}).(ConnectorMappingPropertiesResponseOutput)
-}
-
-func (o ConnectorMappingPropertiesResponsePtrOutput) Availability() ConnectorMappingAvailabilityResponsePtrOutput {
-	return o.ApplyT(func(v *ConnectorMappingPropertiesResponse) *ConnectorMappingAvailabilityResponse {
-		if v == nil {
-			return nil
-		}
-		return &v.Availability
-	}).(ConnectorMappingAvailabilityResponsePtrOutput)
-}
-
-func (o ConnectorMappingPropertiesResponsePtrOutput) CompleteOperation() ConnectorMappingCompleteOperationResponsePtrOutput {
-	return o.ApplyT(func(v *ConnectorMappingPropertiesResponse) *ConnectorMappingCompleteOperationResponse {
-		if v == nil {
-			return nil
-		}
-		return &v.CompleteOperation
-	}).(ConnectorMappingCompleteOperationResponsePtrOutput)
-}
-
-func (o ConnectorMappingPropertiesResponsePtrOutput) ErrorManagement() ConnectorMappingErrorManagementResponsePtrOutput {
-	return o.ApplyT(func(v *ConnectorMappingPropertiesResponse) *ConnectorMappingErrorManagementResponse {
-		if v == nil {
-			return nil
-		}
-		return &v.ErrorManagement
-	}).(ConnectorMappingErrorManagementResponsePtrOutput)
-}
-
-func (o ConnectorMappingPropertiesResponsePtrOutput) FileFilter() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ConnectorMappingPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.FileFilter
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ConnectorMappingPropertiesResponsePtrOutput) FolderPath() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ConnectorMappingPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.FolderPath
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ConnectorMappingPropertiesResponsePtrOutput) Format() ConnectorMappingFormatResponsePtrOutput {
-	return o.ApplyT(func(v *ConnectorMappingPropertiesResponse) *ConnectorMappingFormatResponse {
-		if v == nil {
-			return nil
-		}
-		return &v.Format
-	}).(ConnectorMappingFormatResponsePtrOutput)
-}
-
-func (o ConnectorMappingPropertiesResponsePtrOutput) HasHeader() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *ConnectorMappingPropertiesResponse) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.HasHeader
-	}).(pulumi.BoolPtrOutput)
-}
-
-func (o ConnectorMappingPropertiesResponsePtrOutput) Structure() ConnectorMappingStructureResponseArrayOutput {
-	return o.ApplyT(func(v *ConnectorMappingPropertiesResponse) []ConnectorMappingStructureResponse {
-		if v == nil {
-			return nil
-		}
-		return v.Structure
-	}).(ConnectorMappingStructureResponseArrayOutput)
 }
 
 type ConnectorMappingStructure struct {
@@ -2125,61 +811,6 @@ type ConnectorMappingStructureResponse struct {
 	PropertyName          string  `pulumi:"propertyName"`
 }
 
-
-
-
-
-type ConnectorMappingStructureResponseInput interface {
-	pulumi.Input
-
-	ToConnectorMappingStructureResponseOutput() ConnectorMappingStructureResponseOutput
-	ToConnectorMappingStructureResponseOutputWithContext(context.Context) ConnectorMappingStructureResponseOutput
-}
-
-type ConnectorMappingStructureResponseArgs struct {
-	ColumnName            pulumi.StringInput    `pulumi:"columnName"`
-	CustomFormatSpecifier pulumi.StringPtrInput `pulumi:"customFormatSpecifier"`
-	IsEncrypted           pulumi.BoolPtrInput   `pulumi:"isEncrypted"`
-	PropertyName          pulumi.StringInput    `pulumi:"propertyName"`
-}
-
-func (ConnectorMappingStructureResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectorMappingStructureResponse)(nil)).Elem()
-}
-
-func (i ConnectorMappingStructureResponseArgs) ToConnectorMappingStructureResponseOutput() ConnectorMappingStructureResponseOutput {
-	return i.ToConnectorMappingStructureResponseOutputWithContext(context.Background())
-}
-
-func (i ConnectorMappingStructureResponseArgs) ToConnectorMappingStructureResponseOutputWithContext(ctx context.Context) ConnectorMappingStructureResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectorMappingStructureResponseOutput)
-}
-
-
-
-
-
-type ConnectorMappingStructureResponseArrayInput interface {
-	pulumi.Input
-
-	ToConnectorMappingStructureResponseArrayOutput() ConnectorMappingStructureResponseArrayOutput
-	ToConnectorMappingStructureResponseArrayOutputWithContext(context.Context) ConnectorMappingStructureResponseArrayOutput
-}
-
-type ConnectorMappingStructureResponseArray []ConnectorMappingStructureResponseInput
-
-func (ConnectorMappingStructureResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ConnectorMappingStructureResponse)(nil)).Elem()
-}
-
-func (i ConnectorMappingStructureResponseArray) ToConnectorMappingStructureResponseArrayOutput() ConnectorMappingStructureResponseArrayOutput {
-	return i.ToConnectorMappingStructureResponseArrayOutputWithContext(context.Background())
-}
-
-func (i ConnectorMappingStructureResponseArray) ToConnectorMappingStructureResponseArrayOutputWithContext(ctx context.Context) ConnectorMappingStructureResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectorMappingStructureResponseArrayOutput)
-}
-
 type ConnectorMappingStructureResponseOutput struct{ *pulumi.OutputState }
 
 func (ConnectorMappingStructureResponseOutput) ElementType() reflect.Type {
@@ -2237,63 +868,6 @@ type DataSourcePrecedenceResponse struct {
 	Name                  string `pulumi:"name"`
 	Precedence            *int   `pulumi:"precedence"`
 	Status                string `pulumi:"status"`
-}
-
-
-
-
-
-type DataSourcePrecedenceResponseInput interface {
-	pulumi.Input
-
-	ToDataSourcePrecedenceResponseOutput() DataSourcePrecedenceResponseOutput
-	ToDataSourcePrecedenceResponseOutputWithContext(context.Context) DataSourcePrecedenceResponseOutput
-}
-
-type DataSourcePrecedenceResponseArgs struct {
-	DataSourceReferenceId pulumi.StringInput `pulumi:"dataSourceReferenceId"`
-	DataSourceType        pulumi.StringInput `pulumi:"dataSourceType"`
-	Id                    pulumi.IntInput    `pulumi:"id"`
-	Name                  pulumi.StringInput `pulumi:"name"`
-	Precedence            pulumi.IntPtrInput `pulumi:"precedence"`
-	Status                pulumi.StringInput `pulumi:"status"`
-}
-
-func (DataSourcePrecedenceResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataSourcePrecedenceResponse)(nil)).Elem()
-}
-
-func (i DataSourcePrecedenceResponseArgs) ToDataSourcePrecedenceResponseOutput() DataSourcePrecedenceResponseOutput {
-	return i.ToDataSourcePrecedenceResponseOutputWithContext(context.Background())
-}
-
-func (i DataSourcePrecedenceResponseArgs) ToDataSourcePrecedenceResponseOutputWithContext(ctx context.Context) DataSourcePrecedenceResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataSourcePrecedenceResponseOutput)
-}
-
-
-
-
-
-type DataSourcePrecedenceResponseArrayInput interface {
-	pulumi.Input
-
-	ToDataSourcePrecedenceResponseArrayOutput() DataSourcePrecedenceResponseArrayOutput
-	ToDataSourcePrecedenceResponseArrayOutputWithContext(context.Context) DataSourcePrecedenceResponseArrayOutput
-}
-
-type DataSourcePrecedenceResponseArray []DataSourcePrecedenceResponseInput
-
-func (DataSourcePrecedenceResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DataSourcePrecedenceResponse)(nil)).Elem()
-}
-
-func (i DataSourcePrecedenceResponseArray) ToDataSourcePrecedenceResponseArrayOutput() DataSourcePrecedenceResponseArrayOutput {
-	return i.ToDataSourcePrecedenceResponseArrayOutputWithContext(context.Background())
-}
-
-func (i DataSourcePrecedenceResponseArray) ToDataSourcePrecedenceResponseArrayOutputWithContext(ctx context.Context) DataSourcePrecedenceResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataSourcePrecedenceResponseArrayOutput)
 }
 
 type DataSourcePrecedenceResponseOutput struct{ *pulumi.OutputState }
@@ -2523,76 +1097,6 @@ type HubBillingInfoFormatResponse struct {
 	SkuName  *string `pulumi:"skuName"`
 }
 
-
-
-
-
-type HubBillingInfoFormatResponseInput interface {
-	pulumi.Input
-
-	ToHubBillingInfoFormatResponseOutput() HubBillingInfoFormatResponseOutput
-	ToHubBillingInfoFormatResponseOutputWithContext(context.Context) HubBillingInfoFormatResponseOutput
-}
-
-type HubBillingInfoFormatResponseArgs struct {
-	MaxUnits pulumi.IntPtrInput    `pulumi:"maxUnits"`
-	MinUnits pulumi.IntPtrInput    `pulumi:"minUnits"`
-	SkuName  pulumi.StringPtrInput `pulumi:"skuName"`
-}
-
-func (HubBillingInfoFormatResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*HubBillingInfoFormatResponse)(nil)).Elem()
-}
-
-func (i HubBillingInfoFormatResponseArgs) ToHubBillingInfoFormatResponseOutput() HubBillingInfoFormatResponseOutput {
-	return i.ToHubBillingInfoFormatResponseOutputWithContext(context.Background())
-}
-
-func (i HubBillingInfoFormatResponseArgs) ToHubBillingInfoFormatResponseOutputWithContext(ctx context.Context) HubBillingInfoFormatResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HubBillingInfoFormatResponseOutput)
-}
-
-func (i HubBillingInfoFormatResponseArgs) ToHubBillingInfoFormatResponsePtrOutput() HubBillingInfoFormatResponsePtrOutput {
-	return i.ToHubBillingInfoFormatResponsePtrOutputWithContext(context.Background())
-}
-
-func (i HubBillingInfoFormatResponseArgs) ToHubBillingInfoFormatResponsePtrOutputWithContext(ctx context.Context) HubBillingInfoFormatResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HubBillingInfoFormatResponseOutput).ToHubBillingInfoFormatResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type HubBillingInfoFormatResponsePtrInput interface {
-	pulumi.Input
-
-	ToHubBillingInfoFormatResponsePtrOutput() HubBillingInfoFormatResponsePtrOutput
-	ToHubBillingInfoFormatResponsePtrOutputWithContext(context.Context) HubBillingInfoFormatResponsePtrOutput
-}
-
-type hubBillingInfoFormatResponsePtrType HubBillingInfoFormatResponseArgs
-
-func HubBillingInfoFormatResponsePtr(v *HubBillingInfoFormatResponseArgs) HubBillingInfoFormatResponsePtrInput {
-	return (*hubBillingInfoFormatResponsePtrType)(v)
-}
-
-func (*hubBillingInfoFormatResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**HubBillingInfoFormatResponse)(nil)).Elem()
-}
-
-func (i *hubBillingInfoFormatResponsePtrType) ToHubBillingInfoFormatResponsePtrOutput() HubBillingInfoFormatResponsePtrOutput {
-	return i.ToHubBillingInfoFormatResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *hubBillingInfoFormatResponsePtrType) ToHubBillingInfoFormatResponsePtrOutputWithContext(ctx context.Context) HubBillingInfoFormatResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HubBillingInfoFormatResponsePtrOutput)
-}
-
 type HubBillingInfoFormatResponseOutput struct{ *pulumi.OutputState }
 
 func (HubBillingInfoFormatResponseOutput) ElementType() reflect.Type {
@@ -2605,16 +1109,6 @@ func (o HubBillingInfoFormatResponseOutput) ToHubBillingInfoFormatResponseOutput
 
 func (o HubBillingInfoFormatResponseOutput) ToHubBillingInfoFormatResponseOutputWithContext(ctx context.Context) HubBillingInfoFormatResponseOutput {
 	return o
-}
-
-func (o HubBillingInfoFormatResponseOutput) ToHubBillingInfoFormatResponsePtrOutput() HubBillingInfoFormatResponsePtrOutput {
-	return o.ToHubBillingInfoFormatResponsePtrOutputWithContext(context.Background())
-}
-
-func (o HubBillingInfoFormatResponseOutput) ToHubBillingInfoFormatResponsePtrOutputWithContext(ctx context.Context) HubBillingInfoFormatResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v HubBillingInfoFormatResponse) *HubBillingInfoFormatResponse {
-		return &v
-	}).(HubBillingInfoFormatResponsePtrOutput)
 }
 
 func (o HubBillingInfoFormatResponseOutput) MaxUnits() pulumi.IntPtrOutput {
@@ -2785,59 +1279,6 @@ type KpiAliasResponse struct {
 	Expression string `pulumi:"expression"`
 }
 
-
-
-
-
-type KpiAliasResponseInput interface {
-	pulumi.Input
-
-	ToKpiAliasResponseOutput() KpiAliasResponseOutput
-	ToKpiAliasResponseOutputWithContext(context.Context) KpiAliasResponseOutput
-}
-
-type KpiAliasResponseArgs struct {
-	AliasName  pulumi.StringInput `pulumi:"aliasName"`
-	Expression pulumi.StringInput `pulumi:"expression"`
-}
-
-func (KpiAliasResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*KpiAliasResponse)(nil)).Elem()
-}
-
-func (i KpiAliasResponseArgs) ToKpiAliasResponseOutput() KpiAliasResponseOutput {
-	return i.ToKpiAliasResponseOutputWithContext(context.Background())
-}
-
-func (i KpiAliasResponseArgs) ToKpiAliasResponseOutputWithContext(ctx context.Context) KpiAliasResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KpiAliasResponseOutput)
-}
-
-
-
-
-
-type KpiAliasResponseArrayInput interface {
-	pulumi.Input
-
-	ToKpiAliasResponseArrayOutput() KpiAliasResponseArrayOutput
-	ToKpiAliasResponseArrayOutputWithContext(context.Context) KpiAliasResponseArrayOutput
-}
-
-type KpiAliasResponseArray []KpiAliasResponseInput
-
-func (KpiAliasResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]KpiAliasResponse)(nil)).Elem()
-}
-
-func (i KpiAliasResponseArray) ToKpiAliasResponseArrayOutput() KpiAliasResponseArrayOutput {
-	return i.ToKpiAliasResponseArrayOutputWithContext(context.Background())
-}
-
-func (i KpiAliasResponseArray) ToKpiAliasResponseArrayOutputWithContext(ctx context.Context) KpiAliasResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KpiAliasResponseArrayOutput)
-}
-
 type KpiAliasResponseOutput struct{ *pulumi.OutputState }
 
 func (KpiAliasResponseOutput) ElementType() reflect.Type {
@@ -2985,59 +1426,6 @@ type KpiExtractResponse struct {
 	ExtractName string `pulumi:"extractName"`
 }
 
-
-
-
-
-type KpiExtractResponseInput interface {
-	pulumi.Input
-
-	ToKpiExtractResponseOutput() KpiExtractResponseOutput
-	ToKpiExtractResponseOutputWithContext(context.Context) KpiExtractResponseOutput
-}
-
-type KpiExtractResponseArgs struct {
-	Expression  pulumi.StringInput `pulumi:"expression"`
-	ExtractName pulumi.StringInput `pulumi:"extractName"`
-}
-
-func (KpiExtractResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*KpiExtractResponse)(nil)).Elem()
-}
-
-func (i KpiExtractResponseArgs) ToKpiExtractResponseOutput() KpiExtractResponseOutput {
-	return i.ToKpiExtractResponseOutputWithContext(context.Background())
-}
-
-func (i KpiExtractResponseArgs) ToKpiExtractResponseOutputWithContext(ctx context.Context) KpiExtractResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KpiExtractResponseOutput)
-}
-
-
-
-
-
-type KpiExtractResponseArrayInput interface {
-	pulumi.Input
-
-	ToKpiExtractResponseArrayOutput() KpiExtractResponseArrayOutput
-	ToKpiExtractResponseArrayOutputWithContext(context.Context) KpiExtractResponseArrayOutput
-}
-
-type KpiExtractResponseArray []KpiExtractResponseInput
-
-func (KpiExtractResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]KpiExtractResponse)(nil)).Elem()
-}
-
-func (i KpiExtractResponseArray) ToKpiExtractResponseArrayOutput() KpiExtractResponseArrayOutput {
-	return i.ToKpiExtractResponseArrayOutputWithContext(context.Background())
-}
-
-func (i KpiExtractResponseArray) ToKpiExtractResponseArrayOutputWithContext(ctx context.Context) KpiExtractResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KpiExtractResponseArrayOutput)
-}
-
 type KpiExtractResponseOutput struct{ *pulumi.OutputState }
 
 func (KpiExtractResponseOutput) ElementType() reflect.Type {
@@ -3084,60 +1472,6 @@ type KpiGroupByMetadataResponse struct {
 	DisplayName map[string]string `pulumi:"displayName"`
 	FieldName   *string           `pulumi:"fieldName"`
 	FieldType   *string           `pulumi:"fieldType"`
-}
-
-
-
-
-
-type KpiGroupByMetadataResponseInput interface {
-	pulumi.Input
-
-	ToKpiGroupByMetadataResponseOutput() KpiGroupByMetadataResponseOutput
-	ToKpiGroupByMetadataResponseOutputWithContext(context.Context) KpiGroupByMetadataResponseOutput
-}
-
-type KpiGroupByMetadataResponseArgs struct {
-	DisplayName pulumi.StringMapInput `pulumi:"displayName"`
-	FieldName   pulumi.StringPtrInput `pulumi:"fieldName"`
-	FieldType   pulumi.StringPtrInput `pulumi:"fieldType"`
-}
-
-func (KpiGroupByMetadataResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*KpiGroupByMetadataResponse)(nil)).Elem()
-}
-
-func (i KpiGroupByMetadataResponseArgs) ToKpiGroupByMetadataResponseOutput() KpiGroupByMetadataResponseOutput {
-	return i.ToKpiGroupByMetadataResponseOutputWithContext(context.Background())
-}
-
-func (i KpiGroupByMetadataResponseArgs) ToKpiGroupByMetadataResponseOutputWithContext(ctx context.Context) KpiGroupByMetadataResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KpiGroupByMetadataResponseOutput)
-}
-
-
-
-
-
-type KpiGroupByMetadataResponseArrayInput interface {
-	pulumi.Input
-
-	ToKpiGroupByMetadataResponseArrayOutput() KpiGroupByMetadataResponseArrayOutput
-	ToKpiGroupByMetadataResponseArrayOutputWithContext(context.Context) KpiGroupByMetadataResponseArrayOutput
-}
-
-type KpiGroupByMetadataResponseArray []KpiGroupByMetadataResponseInput
-
-func (KpiGroupByMetadataResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]KpiGroupByMetadataResponse)(nil)).Elem()
-}
-
-func (i KpiGroupByMetadataResponseArray) ToKpiGroupByMetadataResponseArrayOutput() KpiGroupByMetadataResponseArrayOutput {
-	return i.ToKpiGroupByMetadataResponseArrayOutputWithContext(context.Background())
-}
-
-func (i KpiGroupByMetadataResponseArray) ToKpiGroupByMetadataResponseArrayOutputWithContext(ctx context.Context) KpiGroupByMetadataResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KpiGroupByMetadataResponseArrayOutput)
 }
 
 type KpiGroupByMetadataResponseOutput struct{ *pulumi.OutputState }
@@ -3188,58 +1522,6 @@ func (o KpiGroupByMetadataResponseArrayOutput) Index(i pulumi.IntInput) KpiGroup
 
 type KpiParticipantProfilesMetadataResponse struct {
 	TypeName string `pulumi:"typeName"`
-}
-
-
-
-
-
-type KpiParticipantProfilesMetadataResponseInput interface {
-	pulumi.Input
-
-	ToKpiParticipantProfilesMetadataResponseOutput() KpiParticipantProfilesMetadataResponseOutput
-	ToKpiParticipantProfilesMetadataResponseOutputWithContext(context.Context) KpiParticipantProfilesMetadataResponseOutput
-}
-
-type KpiParticipantProfilesMetadataResponseArgs struct {
-	TypeName pulumi.StringInput `pulumi:"typeName"`
-}
-
-func (KpiParticipantProfilesMetadataResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*KpiParticipantProfilesMetadataResponse)(nil)).Elem()
-}
-
-func (i KpiParticipantProfilesMetadataResponseArgs) ToKpiParticipantProfilesMetadataResponseOutput() KpiParticipantProfilesMetadataResponseOutput {
-	return i.ToKpiParticipantProfilesMetadataResponseOutputWithContext(context.Background())
-}
-
-func (i KpiParticipantProfilesMetadataResponseArgs) ToKpiParticipantProfilesMetadataResponseOutputWithContext(ctx context.Context) KpiParticipantProfilesMetadataResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KpiParticipantProfilesMetadataResponseOutput)
-}
-
-
-
-
-
-type KpiParticipantProfilesMetadataResponseArrayInput interface {
-	pulumi.Input
-
-	ToKpiParticipantProfilesMetadataResponseArrayOutput() KpiParticipantProfilesMetadataResponseArrayOutput
-	ToKpiParticipantProfilesMetadataResponseArrayOutputWithContext(context.Context) KpiParticipantProfilesMetadataResponseArrayOutput
-}
-
-type KpiParticipantProfilesMetadataResponseArray []KpiParticipantProfilesMetadataResponseInput
-
-func (KpiParticipantProfilesMetadataResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]KpiParticipantProfilesMetadataResponse)(nil)).Elem()
-}
-
-func (i KpiParticipantProfilesMetadataResponseArray) ToKpiParticipantProfilesMetadataResponseArrayOutput() KpiParticipantProfilesMetadataResponseArrayOutput {
-	return i.ToKpiParticipantProfilesMetadataResponseArrayOutputWithContext(context.Background())
-}
-
-func (i KpiParticipantProfilesMetadataResponseArray) ToKpiParticipantProfilesMetadataResponseArrayOutputWithContext(ctx context.Context) KpiParticipantProfilesMetadataResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KpiParticipantProfilesMetadataResponseArrayOutput)
 }
 
 type KpiParticipantProfilesMetadataResponseOutput struct{ *pulumi.OutputState }
@@ -3449,76 +1731,6 @@ type KpiThresholdsResponse struct {
 	UpperLimit    float64 `pulumi:"upperLimit"`
 }
 
-
-
-
-
-type KpiThresholdsResponseInput interface {
-	pulumi.Input
-
-	ToKpiThresholdsResponseOutput() KpiThresholdsResponseOutput
-	ToKpiThresholdsResponseOutputWithContext(context.Context) KpiThresholdsResponseOutput
-}
-
-type KpiThresholdsResponseArgs struct {
-	IncreasingKpi pulumi.BoolInput    `pulumi:"increasingKpi"`
-	LowerLimit    pulumi.Float64Input `pulumi:"lowerLimit"`
-	UpperLimit    pulumi.Float64Input `pulumi:"upperLimit"`
-}
-
-func (KpiThresholdsResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*KpiThresholdsResponse)(nil)).Elem()
-}
-
-func (i KpiThresholdsResponseArgs) ToKpiThresholdsResponseOutput() KpiThresholdsResponseOutput {
-	return i.ToKpiThresholdsResponseOutputWithContext(context.Background())
-}
-
-func (i KpiThresholdsResponseArgs) ToKpiThresholdsResponseOutputWithContext(ctx context.Context) KpiThresholdsResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KpiThresholdsResponseOutput)
-}
-
-func (i KpiThresholdsResponseArgs) ToKpiThresholdsResponsePtrOutput() KpiThresholdsResponsePtrOutput {
-	return i.ToKpiThresholdsResponsePtrOutputWithContext(context.Background())
-}
-
-func (i KpiThresholdsResponseArgs) ToKpiThresholdsResponsePtrOutputWithContext(ctx context.Context) KpiThresholdsResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KpiThresholdsResponseOutput).ToKpiThresholdsResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type KpiThresholdsResponsePtrInput interface {
-	pulumi.Input
-
-	ToKpiThresholdsResponsePtrOutput() KpiThresholdsResponsePtrOutput
-	ToKpiThresholdsResponsePtrOutputWithContext(context.Context) KpiThresholdsResponsePtrOutput
-}
-
-type kpiThresholdsResponsePtrType KpiThresholdsResponseArgs
-
-func KpiThresholdsResponsePtr(v *KpiThresholdsResponseArgs) KpiThresholdsResponsePtrInput {
-	return (*kpiThresholdsResponsePtrType)(v)
-}
-
-func (*kpiThresholdsResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**KpiThresholdsResponse)(nil)).Elem()
-}
-
-func (i *kpiThresholdsResponsePtrType) ToKpiThresholdsResponsePtrOutput() KpiThresholdsResponsePtrOutput {
-	return i.ToKpiThresholdsResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *kpiThresholdsResponsePtrType) ToKpiThresholdsResponsePtrOutputWithContext(ctx context.Context) KpiThresholdsResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KpiThresholdsResponsePtrOutput)
-}
-
 type KpiThresholdsResponseOutput struct{ *pulumi.OutputState }
 
 func (KpiThresholdsResponseOutput) ElementType() reflect.Type {
@@ -3531,16 +1743,6 @@ func (o KpiThresholdsResponseOutput) ToKpiThresholdsResponseOutput() KpiThreshol
 
 func (o KpiThresholdsResponseOutput) ToKpiThresholdsResponseOutputWithContext(ctx context.Context) KpiThresholdsResponseOutput {
 	return o
-}
-
-func (o KpiThresholdsResponseOutput) ToKpiThresholdsResponsePtrOutput() KpiThresholdsResponsePtrOutput {
-	return o.ToKpiThresholdsResponsePtrOutputWithContext(context.Background())
-}
-
-func (o KpiThresholdsResponseOutput) ToKpiThresholdsResponsePtrOutputWithContext(ctx context.Context) KpiThresholdsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v KpiThresholdsResponse) *KpiThresholdsResponse {
-		return &v
-	}).(KpiThresholdsResponsePtrOutput)
 }
 
 func (o KpiThresholdsResponseOutput) IncreasingKpi() pulumi.BoolOutput {
@@ -3711,59 +1913,6 @@ type ParticipantPropertyReferenceResponse struct {
 	ProfilePropertyName     string `pulumi:"profilePropertyName"`
 }
 
-
-
-
-
-type ParticipantPropertyReferenceResponseInput interface {
-	pulumi.Input
-
-	ToParticipantPropertyReferenceResponseOutput() ParticipantPropertyReferenceResponseOutput
-	ToParticipantPropertyReferenceResponseOutputWithContext(context.Context) ParticipantPropertyReferenceResponseOutput
-}
-
-type ParticipantPropertyReferenceResponseArgs struct {
-	InteractionPropertyName pulumi.StringInput `pulumi:"interactionPropertyName"`
-	ProfilePropertyName     pulumi.StringInput `pulumi:"profilePropertyName"`
-}
-
-func (ParticipantPropertyReferenceResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ParticipantPropertyReferenceResponse)(nil)).Elem()
-}
-
-func (i ParticipantPropertyReferenceResponseArgs) ToParticipantPropertyReferenceResponseOutput() ParticipantPropertyReferenceResponseOutput {
-	return i.ToParticipantPropertyReferenceResponseOutputWithContext(context.Background())
-}
-
-func (i ParticipantPropertyReferenceResponseArgs) ToParticipantPropertyReferenceResponseOutputWithContext(ctx context.Context) ParticipantPropertyReferenceResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ParticipantPropertyReferenceResponseOutput)
-}
-
-
-
-
-
-type ParticipantPropertyReferenceResponseArrayInput interface {
-	pulumi.Input
-
-	ToParticipantPropertyReferenceResponseArrayOutput() ParticipantPropertyReferenceResponseArrayOutput
-	ToParticipantPropertyReferenceResponseArrayOutputWithContext(context.Context) ParticipantPropertyReferenceResponseArrayOutput
-}
-
-type ParticipantPropertyReferenceResponseArray []ParticipantPropertyReferenceResponseInput
-
-func (ParticipantPropertyReferenceResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ParticipantPropertyReferenceResponse)(nil)).Elem()
-}
-
-func (i ParticipantPropertyReferenceResponseArray) ToParticipantPropertyReferenceResponseArrayOutput() ParticipantPropertyReferenceResponseArrayOutput {
-	return i.ToParticipantPropertyReferenceResponseArrayOutputWithContext(context.Background())
-}
-
-func (i ParticipantPropertyReferenceResponseArray) ToParticipantPropertyReferenceResponseArrayOutputWithContext(ctx context.Context) ParticipantPropertyReferenceResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ParticipantPropertyReferenceResponseArrayOutput)
-}
-
 type ParticipantPropertyReferenceResponseOutput struct{ *pulumi.OutputState }
 
 func (ParticipantPropertyReferenceResponseOutput) ElementType() reflect.Type {
@@ -3909,59 +2058,6 @@ func (o ProfileEnumValidValuesFormatArrayOutput) Index(i pulumi.IntInput) Profil
 type ProfileEnumValidValuesFormatResponse struct {
 	LocalizedValueNames map[string]string `pulumi:"localizedValueNames"`
 	Value               *int              `pulumi:"value"`
-}
-
-
-
-
-
-type ProfileEnumValidValuesFormatResponseInput interface {
-	pulumi.Input
-
-	ToProfileEnumValidValuesFormatResponseOutput() ProfileEnumValidValuesFormatResponseOutput
-	ToProfileEnumValidValuesFormatResponseOutputWithContext(context.Context) ProfileEnumValidValuesFormatResponseOutput
-}
-
-type ProfileEnumValidValuesFormatResponseArgs struct {
-	LocalizedValueNames pulumi.StringMapInput `pulumi:"localizedValueNames"`
-	Value               pulumi.IntPtrInput    `pulumi:"value"`
-}
-
-func (ProfileEnumValidValuesFormatResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProfileEnumValidValuesFormatResponse)(nil)).Elem()
-}
-
-func (i ProfileEnumValidValuesFormatResponseArgs) ToProfileEnumValidValuesFormatResponseOutput() ProfileEnumValidValuesFormatResponseOutput {
-	return i.ToProfileEnumValidValuesFormatResponseOutputWithContext(context.Background())
-}
-
-func (i ProfileEnumValidValuesFormatResponseArgs) ToProfileEnumValidValuesFormatResponseOutputWithContext(ctx context.Context) ProfileEnumValidValuesFormatResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProfileEnumValidValuesFormatResponseOutput)
-}
-
-
-
-
-
-type ProfileEnumValidValuesFormatResponseArrayInput interface {
-	pulumi.Input
-
-	ToProfileEnumValidValuesFormatResponseArrayOutput() ProfileEnumValidValuesFormatResponseArrayOutput
-	ToProfileEnumValidValuesFormatResponseArrayOutputWithContext(context.Context) ProfileEnumValidValuesFormatResponseArrayOutput
-}
-
-type ProfileEnumValidValuesFormatResponseArray []ProfileEnumValidValuesFormatResponseInput
-
-func (ProfileEnumValidValuesFormatResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ProfileEnumValidValuesFormatResponse)(nil)).Elem()
-}
-
-func (i ProfileEnumValidValuesFormatResponseArray) ToProfileEnumValidValuesFormatResponseArrayOutput() ProfileEnumValidValuesFormatResponseArrayOutput {
-	return i.ToProfileEnumValidValuesFormatResponseArrayOutputWithContext(context.Background())
-}
-
-func (i ProfileEnumValidValuesFormatResponseArray) ToProfileEnumValidValuesFormatResponseArrayOutputWithContext(ctx context.Context) ProfileEnumValidValuesFormatResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProfileEnumValidValuesFormatResponseArrayOutput)
 }
 
 type ProfileEnumValidValuesFormatResponseOutput struct{ *pulumi.OutputState }
@@ -4203,73 +2299,6 @@ type PropertyDefinitionResponse struct {
 	SchemaItemPropLink        *string                                `pulumi:"schemaItemPropLink"`
 }
 
-
-
-
-
-type PropertyDefinitionResponseInput interface {
-	pulumi.Input
-
-	ToPropertyDefinitionResponseOutput() PropertyDefinitionResponseOutput
-	ToPropertyDefinitionResponseOutputWithContext(context.Context) PropertyDefinitionResponseOutput
-}
-
-type PropertyDefinitionResponseArgs struct {
-	ArrayValueSeparator       pulumi.StringPtrInput                          `pulumi:"arrayValueSeparator"`
-	DataSourcePrecedenceRules DataSourcePrecedenceResponseArrayInput         `pulumi:"dataSourcePrecedenceRules"`
-	EnumValidValues           ProfileEnumValidValuesFormatResponseArrayInput `pulumi:"enumValidValues"`
-	FieldName                 pulumi.StringInput                             `pulumi:"fieldName"`
-	FieldType                 pulumi.StringInput                             `pulumi:"fieldType"`
-	IsArray                   pulumi.BoolPtrInput                            `pulumi:"isArray"`
-	IsAvailableInGraph        pulumi.BoolPtrInput                            `pulumi:"isAvailableInGraph"`
-	IsEnum                    pulumi.BoolPtrInput                            `pulumi:"isEnum"`
-	IsFlagEnum                pulumi.BoolPtrInput                            `pulumi:"isFlagEnum"`
-	IsImage                   pulumi.BoolPtrInput                            `pulumi:"isImage"`
-	IsLocalizedString         pulumi.BoolPtrInput                            `pulumi:"isLocalizedString"`
-	IsName                    pulumi.BoolPtrInput                            `pulumi:"isName"`
-	IsRequired                pulumi.BoolPtrInput                            `pulumi:"isRequired"`
-	MaxLength                 pulumi.IntPtrInput                             `pulumi:"maxLength"`
-	PropertyId                pulumi.StringPtrInput                          `pulumi:"propertyId"`
-	SchemaItemPropLink        pulumi.StringPtrInput                          `pulumi:"schemaItemPropLink"`
-}
-
-func (PropertyDefinitionResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PropertyDefinitionResponse)(nil)).Elem()
-}
-
-func (i PropertyDefinitionResponseArgs) ToPropertyDefinitionResponseOutput() PropertyDefinitionResponseOutput {
-	return i.ToPropertyDefinitionResponseOutputWithContext(context.Background())
-}
-
-func (i PropertyDefinitionResponseArgs) ToPropertyDefinitionResponseOutputWithContext(ctx context.Context) PropertyDefinitionResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PropertyDefinitionResponseOutput)
-}
-
-
-
-
-
-type PropertyDefinitionResponseArrayInput interface {
-	pulumi.Input
-
-	ToPropertyDefinitionResponseArrayOutput() PropertyDefinitionResponseArrayOutput
-	ToPropertyDefinitionResponseArrayOutputWithContext(context.Context) PropertyDefinitionResponseArrayOutput
-}
-
-type PropertyDefinitionResponseArray []PropertyDefinitionResponseInput
-
-func (PropertyDefinitionResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PropertyDefinitionResponse)(nil)).Elem()
-}
-
-func (i PropertyDefinitionResponseArray) ToPropertyDefinitionResponseArrayOutput() PropertyDefinitionResponseArrayOutput {
-	return i.ToPropertyDefinitionResponseArrayOutputWithContext(context.Background())
-}
-
-func (i PropertyDefinitionResponseArray) ToPropertyDefinitionResponseArrayOutputWithContext(ctx context.Context) PropertyDefinitionResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PropertyDefinitionResponseArrayOutput)
-}
-
 type PropertyDefinitionResponseOutput struct{ *pulumi.OutputState }
 
 func (PropertyDefinitionResponseOutput) ElementType() reflect.Type {
@@ -4480,60 +2509,6 @@ type RelationshipLinkFieldMappingResponse struct {
 	RelationshipFieldName string  `pulumi:"relationshipFieldName"`
 }
 
-
-
-
-
-type RelationshipLinkFieldMappingResponseInput interface {
-	pulumi.Input
-
-	ToRelationshipLinkFieldMappingResponseOutput() RelationshipLinkFieldMappingResponseOutput
-	ToRelationshipLinkFieldMappingResponseOutputWithContext(context.Context) RelationshipLinkFieldMappingResponseOutput
-}
-
-type RelationshipLinkFieldMappingResponseArgs struct {
-	InteractionFieldName  pulumi.StringInput    `pulumi:"interactionFieldName"`
-	LinkType              pulumi.StringPtrInput `pulumi:"linkType"`
-	RelationshipFieldName pulumi.StringInput    `pulumi:"relationshipFieldName"`
-}
-
-func (RelationshipLinkFieldMappingResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RelationshipLinkFieldMappingResponse)(nil)).Elem()
-}
-
-func (i RelationshipLinkFieldMappingResponseArgs) ToRelationshipLinkFieldMappingResponseOutput() RelationshipLinkFieldMappingResponseOutput {
-	return i.ToRelationshipLinkFieldMappingResponseOutputWithContext(context.Background())
-}
-
-func (i RelationshipLinkFieldMappingResponseArgs) ToRelationshipLinkFieldMappingResponseOutputWithContext(ctx context.Context) RelationshipLinkFieldMappingResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RelationshipLinkFieldMappingResponseOutput)
-}
-
-
-
-
-
-type RelationshipLinkFieldMappingResponseArrayInput interface {
-	pulumi.Input
-
-	ToRelationshipLinkFieldMappingResponseArrayOutput() RelationshipLinkFieldMappingResponseArrayOutput
-	ToRelationshipLinkFieldMappingResponseArrayOutputWithContext(context.Context) RelationshipLinkFieldMappingResponseArrayOutput
-}
-
-type RelationshipLinkFieldMappingResponseArray []RelationshipLinkFieldMappingResponseInput
-
-func (RelationshipLinkFieldMappingResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]RelationshipLinkFieldMappingResponse)(nil)).Elem()
-}
-
-func (i RelationshipLinkFieldMappingResponseArray) ToRelationshipLinkFieldMappingResponseArrayOutput() RelationshipLinkFieldMappingResponseArrayOutput {
-	return i.ToRelationshipLinkFieldMappingResponseArrayOutputWithContext(context.Background())
-}
-
-func (i RelationshipLinkFieldMappingResponseArray) ToRelationshipLinkFieldMappingResponseArrayOutputWithContext(ctx context.Context) RelationshipLinkFieldMappingResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RelationshipLinkFieldMappingResponseArrayOutput)
-}
-
 type RelationshipLinkFieldMappingResponseOutput struct{ *pulumi.OutputState }
 
 func (RelationshipLinkFieldMappingResponseOutput) ElementType() reflect.Type {
@@ -4685,59 +2660,6 @@ type RelationshipTypeFieldMappingResponse struct {
 	RelatedProfileKeyProperty string `pulumi:"relatedProfileKeyProperty"`
 }
 
-
-
-
-
-type RelationshipTypeFieldMappingResponseInput interface {
-	pulumi.Input
-
-	ToRelationshipTypeFieldMappingResponseOutput() RelationshipTypeFieldMappingResponseOutput
-	ToRelationshipTypeFieldMappingResponseOutputWithContext(context.Context) RelationshipTypeFieldMappingResponseOutput
-}
-
-type RelationshipTypeFieldMappingResponseArgs struct {
-	ProfileFieldName          pulumi.StringInput `pulumi:"profileFieldName"`
-	RelatedProfileKeyProperty pulumi.StringInput `pulumi:"relatedProfileKeyProperty"`
-}
-
-func (RelationshipTypeFieldMappingResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RelationshipTypeFieldMappingResponse)(nil)).Elem()
-}
-
-func (i RelationshipTypeFieldMappingResponseArgs) ToRelationshipTypeFieldMappingResponseOutput() RelationshipTypeFieldMappingResponseOutput {
-	return i.ToRelationshipTypeFieldMappingResponseOutputWithContext(context.Background())
-}
-
-func (i RelationshipTypeFieldMappingResponseArgs) ToRelationshipTypeFieldMappingResponseOutputWithContext(ctx context.Context) RelationshipTypeFieldMappingResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RelationshipTypeFieldMappingResponseOutput)
-}
-
-
-
-
-
-type RelationshipTypeFieldMappingResponseArrayInput interface {
-	pulumi.Input
-
-	ToRelationshipTypeFieldMappingResponseArrayOutput() RelationshipTypeFieldMappingResponseArrayOutput
-	ToRelationshipTypeFieldMappingResponseArrayOutputWithContext(context.Context) RelationshipTypeFieldMappingResponseArrayOutput
-}
-
-type RelationshipTypeFieldMappingResponseArray []RelationshipTypeFieldMappingResponseInput
-
-func (RelationshipTypeFieldMappingResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]RelationshipTypeFieldMappingResponse)(nil)).Elem()
-}
-
-func (i RelationshipTypeFieldMappingResponseArray) ToRelationshipTypeFieldMappingResponseArrayOutput() RelationshipTypeFieldMappingResponseArrayOutput {
-	return i.ToRelationshipTypeFieldMappingResponseArrayOutputWithContext(context.Background())
-}
-
-func (i RelationshipTypeFieldMappingResponseArray) ToRelationshipTypeFieldMappingResponseArrayOutputWithContext(ctx context.Context) RelationshipTypeFieldMappingResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RelationshipTypeFieldMappingResponseArrayOutput)
-}
-
 type RelationshipTypeFieldMappingResponseOutput struct{ *pulumi.OutputState }
 
 func (RelationshipTypeFieldMappingResponseOutput) ElementType() reflect.Type {
@@ -4876,58 +2798,6 @@ func (o RelationshipTypeMappingArrayOutput) Index(i pulumi.IntInput) Relationshi
 
 type RelationshipTypeMappingResponse struct {
 	FieldMappings []RelationshipTypeFieldMappingResponse `pulumi:"fieldMappings"`
-}
-
-
-
-
-
-type RelationshipTypeMappingResponseInput interface {
-	pulumi.Input
-
-	ToRelationshipTypeMappingResponseOutput() RelationshipTypeMappingResponseOutput
-	ToRelationshipTypeMappingResponseOutputWithContext(context.Context) RelationshipTypeMappingResponseOutput
-}
-
-type RelationshipTypeMappingResponseArgs struct {
-	FieldMappings RelationshipTypeFieldMappingResponseArrayInput `pulumi:"fieldMappings"`
-}
-
-func (RelationshipTypeMappingResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RelationshipTypeMappingResponse)(nil)).Elem()
-}
-
-func (i RelationshipTypeMappingResponseArgs) ToRelationshipTypeMappingResponseOutput() RelationshipTypeMappingResponseOutput {
-	return i.ToRelationshipTypeMappingResponseOutputWithContext(context.Background())
-}
-
-func (i RelationshipTypeMappingResponseArgs) ToRelationshipTypeMappingResponseOutputWithContext(ctx context.Context) RelationshipTypeMappingResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RelationshipTypeMappingResponseOutput)
-}
-
-
-
-
-
-type RelationshipTypeMappingResponseArrayInput interface {
-	pulumi.Input
-
-	ToRelationshipTypeMappingResponseArrayOutput() RelationshipTypeMappingResponseArrayOutput
-	ToRelationshipTypeMappingResponseArrayOutputWithContext(context.Context) RelationshipTypeMappingResponseArrayOutput
-}
-
-type RelationshipTypeMappingResponseArray []RelationshipTypeMappingResponseInput
-
-func (RelationshipTypeMappingResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]RelationshipTypeMappingResponse)(nil)).Elem()
-}
-
-func (i RelationshipTypeMappingResponseArray) ToRelationshipTypeMappingResponseArrayOutput() RelationshipTypeMappingResponseArrayOutput {
-	return i.ToRelationshipTypeMappingResponseArrayOutputWithContext(context.Background())
-}
-
-func (i RelationshipTypeMappingResponseArray) ToRelationshipTypeMappingResponseArrayOutputWithContext(ctx context.Context) RelationshipTypeMappingResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RelationshipTypeMappingResponseArrayOutput)
 }
 
 type RelationshipTypeMappingResponseOutput struct{ *pulumi.OutputState }
@@ -5121,75 +2991,6 @@ type ResourceSetDescriptionResponse struct {
 	Exceptions []string `pulumi:"exceptions"`
 }
 
-
-
-
-
-type ResourceSetDescriptionResponseInput interface {
-	pulumi.Input
-
-	ToResourceSetDescriptionResponseOutput() ResourceSetDescriptionResponseOutput
-	ToResourceSetDescriptionResponseOutputWithContext(context.Context) ResourceSetDescriptionResponseOutput
-}
-
-type ResourceSetDescriptionResponseArgs struct {
-	Elements   pulumi.StringArrayInput `pulumi:"elements"`
-	Exceptions pulumi.StringArrayInput `pulumi:"exceptions"`
-}
-
-func (ResourceSetDescriptionResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResourceSetDescriptionResponse)(nil)).Elem()
-}
-
-func (i ResourceSetDescriptionResponseArgs) ToResourceSetDescriptionResponseOutput() ResourceSetDescriptionResponseOutput {
-	return i.ToResourceSetDescriptionResponseOutputWithContext(context.Background())
-}
-
-func (i ResourceSetDescriptionResponseArgs) ToResourceSetDescriptionResponseOutputWithContext(ctx context.Context) ResourceSetDescriptionResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ResourceSetDescriptionResponseOutput)
-}
-
-func (i ResourceSetDescriptionResponseArgs) ToResourceSetDescriptionResponsePtrOutput() ResourceSetDescriptionResponsePtrOutput {
-	return i.ToResourceSetDescriptionResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ResourceSetDescriptionResponseArgs) ToResourceSetDescriptionResponsePtrOutputWithContext(ctx context.Context) ResourceSetDescriptionResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ResourceSetDescriptionResponseOutput).ToResourceSetDescriptionResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type ResourceSetDescriptionResponsePtrInput interface {
-	pulumi.Input
-
-	ToResourceSetDescriptionResponsePtrOutput() ResourceSetDescriptionResponsePtrOutput
-	ToResourceSetDescriptionResponsePtrOutputWithContext(context.Context) ResourceSetDescriptionResponsePtrOutput
-}
-
-type resourceSetDescriptionResponsePtrType ResourceSetDescriptionResponseArgs
-
-func ResourceSetDescriptionResponsePtr(v *ResourceSetDescriptionResponseArgs) ResourceSetDescriptionResponsePtrInput {
-	return (*resourceSetDescriptionResponsePtrType)(v)
-}
-
-func (*resourceSetDescriptionResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ResourceSetDescriptionResponse)(nil)).Elem()
-}
-
-func (i *resourceSetDescriptionResponsePtrType) ToResourceSetDescriptionResponsePtrOutput() ResourceSetDescriptionResponsePtrOutput {
-	return i.ToResourceSetDescriptionResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *resourceSetDescriptionResponsePtrType) ToResourceSetDescriptionResponsePtrOutputWithContext(ctx context.Context) ResourceSetDescriptionResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ResourceSetDescriptionResponsePtrOutput)
-}
-
 type ResourceSetDescriptionResponseOutput struct{ *pulumi.OutputState }
 
 func (ResourceSetDescriptionResponseOutput) ElementType() reflect.Type {
@@ -5202,16 +3003,6 @@ func (o ResourceSetDescriptionResponseOutput) ToResourceSetDescriptionResponseOu
 
 func (o ResourceSetDescriptionResponseOutput) ToResourceSetDescriptionResponseOutputWithContext(ctx context.Context) ResourceSetDescriptionResponseOutput {
 	return o
-}
-
-func (o ResourceSetDescriptionResponseOutput) ToResourceSetDescriptionResponsePtrOutput() ResourceSetDescriptionResponsePtrOutput {
-	return o.ToResourceSetDescriptionResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ResourceSetDescriptionResponseOutput) ToResourceSetDescriptionResponsePtrOutputWithContext(ctx context.Context) ResourceSetDescriptionResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceSetDescriptionResponse) *ResourceSetDescriptionResponse {
-		return &v
-	}).(ResourceSetDescriptionResponsePtrOutput)
 }
 
 func (o ResourceSetDescriptionResponseOutput) Elements() pulumi.StringArrayOutput {
@@ -5383,61 +3174,6 @@ type StrongIdResponse struct {
 	StrongIdName     string            `pulumi:"strongIdName"`
 }
 
-
-
-
-
-type StrongIdResponseInput interface {
-	pulumi.Input
-
-	ToStrongIdResponseOutput() StrongIdResponseOutput
-	ToStrongIdResponseOutputWithContext(context.Context) StrongIdResponseOutput
-}
-
-type StrongIdResponseArgs struct {
-	Description      pulumi.StringMapInput   `pulumi:"description"`
-	DisplayName      pulumi.StringMapInput   `pulumi:"displayName"`
-	KeyPropertyNames pulumi.StringArrayInput `pulumi:"keyPropertyNames"`
-	StrongIdName     pulumi.StringInput      `pulumi:"strongIdName"`
-}
-
-func (StrongIdResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*StrongIdResponse)(nil)).Elem()
-}
-
-func (i StrongIdResponseArgs) ToStrongIdResponseOutput() StrongIdResponseOutput {
-	return i.ToStrongIdResponseOutputWithContext(context.Background())
-}
-
-func (i StrongIdResponseArgs) ToStrongIdResponseOutputWithContext(ctx context.Context) StrongIdResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StrongIdResponseOutput)
-}
-
-
-
-
-
-type StrongIdResponseArrayInput interface {
-	pulumi.Input
-
-	ToStrongIdResponseArrayOutput() StrongIdResponseArrayOutput
-	ToStrongIdResponseArrayOutputWithContext(context.Context) StrongIdResponseArrayOutput
-}
-
-type StrongIdResponseArray []StrongIdResponseInput
-
-func (StrongIdResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]StrongIdResponse)(nil)).Elem()
-}
-
-func (i StrongIdResponseArray) ToStrongIdResponseArrayOutput() StrongIdResponseArrayOutput {
-	return i.ToStrongIdResponseArrayOutputWithContext(context.Background())
-}
-
-func (i StrongIdResponseArray) ToStrongIdResponseArrayOutputWithContext(ctx context.Context) StrongIdResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StrongIdResponseArrayOutput)
-}
-
 type StrongIdResponseOutput struct{ *pulumi.OutputState }
 
 func (StrongIdResponseOutput) ElementType() reflect.Type {
@@ -5607,61 +3343,6 @@ type TypePropertiesMappingResponse struct {
 	ProfileTypePropertyName     string  `pulumi:"profileTypePropertyName"`
 }
 
-
-
-
-
-type TypePropertiesMappingResponseInput interface {
-	pulumi.Input
-
-	ToTypePropertiesMappingResponseOutput() TypePropertiesMappingResponseOutput
-	ToTypePropertiesMappingResponseOutputWithContext(context.Context) TypePropertiesMappingResponseOutput
-}
-
-type TypePropertiesMappingResponseArgs struct {
-	InteractionTypePropertyName pulumi.StringInput    `pulumi:"interactionTypePropertyName"`
-	IsProfileTypeId             pulumi.BoolPtrInput   `pulumi:"isProfileTypeId"`
-	LinkType                    pulumi.StringPtrInput `pulumi:"linkType"`
-	ProfileTypePropertyName     pulumi.StringInput    `pulumi:"profileTypePropertyName"`
-}
-
-func (TypePropertiesMappingResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TypePropertiesMappingResponse)(nil)).Elem()
-}
-
-func (i TypePropertiesMappingResponseArgs) ToTypePropertiesMappingResponseOutput() TypePropertiesMappingResponseOutput {
-	return i.ToTypePropertiesMappingResponseOutputWithContext(context.Background())
-}
-
-func (i TypePropertiesMappingResponseArgs) ToTypePropertiesMappingResponseOutputWithContext(ctx context.Context) TypePropertiesMappingResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TypePropertiesMappingResponseOutput)
-}
-
-
-
-
-
-type TypePropertiesMappingResponseArrayInput interface {
-	pulumi.Input
-
-	ToTypePropertiesMappingResponseArrayOutput() TypePropertiesMappingResponseArrayOutput
-	ToTypePropertiesMappingResponseArrayOutputWithContext(context.Context) TypePropertiesMappingResponseArrayOutput
-}
-
-type TypePropertiesMappingResponseArray []TypePropertiesMappingResponseInput
-
-func (TypePropertiesMappingResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TypePropertiesMappingResponse)(nil)).Elem()
-}
-
-func (i TypePropertiesMappingResponseArray) ToTypePropertiesMappingResponseArrayOutput() TypePropertiesMappingResponseArrayOutput {
-	return i.ToTypePropertiesMappingResponseArrayOutputWithContext(context.Background())
-}
-
-func (i TypePropertiesMappingResponseArray) ToTypePropertiesMappingResponseArrayOutputWithContext(ctx context.Context) TypePropertiesMappingResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TypePropertiesMappingResponseArrayOutput)
-}
-
 type TypePropertiesMappingResponseOutput struct{ *pulumi.OutputState }
 
 func (TypePropertiesMappingResponseOutput) ElementType() reflect.Type {
@@ -5718,25 +3399,15 @@ func init() {
 	pulumi.RegisterOutputType(AssignmentPrincipalResponseOutput{})
 	pulumi.RegisterOutputType(AssignmentPrincipalResponseArrayOutput{})
 	pulumi.RegisterOutputType(ConnectorMappingAvailabilityOutput{})
-	pulumi.RegisterOutputType(ConnectorMappingAvailabilityPtrOutput{})
 	pulumi.RegisterOutputType(ConnectorMappingAvailabilityResponseOutput{})
-	pulumi.RegisterOutputType(ConnectorMappingAvailabilityResponsePtrOutput{})
 	pulumi.RegisterOutputType(ConnectorMappingCompleteOperationOutput{})
-	pulumi.RegisterOutputType(ConnectorMappingCompleteOperationPtrOutput{})
 	pulumi.RegisterOutputType(ConnectorMappingCompleteOperationResponseOutput{})
-	pulumi.RegisterOutputType(ConnectorMappingCompleteOperationResponsePtrOutput{})
 	pulumi.RegisterOutputType(ConnectorMappingErrorManagementOutput{})
-	pulumi.RegisterOutputType(ConnectorMappingErrorManagementPtrOutput{})
 	pulumi.RegisterOutputType(ConnectorMappingErrorManagementResponseOutput{})
-	pulumi.RegisterOutputType(ConnectorMappingErrorManagementResponsePtrOutput{})
 	pulumi.RegisterOutputType(ConnectorMappingFormatOutput{})
-	pulumi.RegisterOutputType(ConnectorMappingFormatPtrOutput{})
 	pulumi.RegisterOutputType(ConnectorMappingFormatResponseOutput{})
-	pulumi.RegisterOutputType(ConnectorMappingFormatResponsePtrOutput{})
 	pulumi.RegisterOutputType(ConnectorMappingPropertiesOutput{})
-	pulumi.RegisterOutputType(ConnectorMappingPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ConnectorMappingPropertiesResponseOutput{})
-	pulumi.RegisterOutputType(ConnectorMappingPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(ConnectorMappingStructureOutput{})
 	pulumi.RegisterOutputType(ConnectorMappingStructureArrayOutput{})
 	pulumi.RegisterOutputType(ConnectorMappingStructureResponseOutput{})

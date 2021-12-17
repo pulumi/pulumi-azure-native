@@ -147,74 +147,6 @@ type AdditionalFeaturesServerConfigurationsResponse struct {
 	IsRServicesEnabled *bool `pulumi:"isRServicesEnabled"`
 }
 
-
-
-
-
-type AdditionalFeaturesServerConfigurationsResponseInput interface {
-	pulumi.Input
-
-	ToAdditionalFeaturesServerConfigurationsResponseOutput() AdditionalFeaturesServerConfigurationsResponseOutput
-	ToAdditionalFeaturesServerConfigurationsResponseOutputWithContext(context.Context) AdditionalFeaturesServerConfigurationsResponseOutput
-}
-
-type AdditionalFeaturesServerConfigurationsResponseArgs struct {
-	IsRServicesEnabled pulumi.BoolPtrInput `pulumi:"isRServicesEnabled"`
-}
-
-func (AdditionalFeaturesServerConfigurationsResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AdditionalFeaturesServerConfigurationsResponse)(nil)).Elem()
-}
-
-func (i AdditionalFeaturesServerConfigurationsResponseArgs) ToAdditionalFeaturesServerConfigurationsResponseOutput() AdditionalFeaturesServerConfigurationsResponseOutput {
-	return i.ToAdditionalFeaturesServerConfigurationsResponseOutputWithContext(context.Background())
-}
-
-func (i AdditionalFeaturesServerConfigurationsResponseArgs) ToAdditionalFeaturesServerConfigurationsResponseOutputWithContext(ctx context.Context) AdditionalFeaturesServerConfigurationsResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AdditionalFeaturesServerConfigurationsResponseOutput)
-}
-
-func (i AdditionalFeaturesServerConfigurationsResponseArgs) ToAdditionalFeaturesServerConfigurationsResponsePtrOutput() AdditionalFeaturesServerConfigurationsResponsePtrOutput {
-	return i.ToAdditionalFeaturesServerConfigurationsResponsePtrOutputWithContext(context.Background())
-}
-
-func (i AdditionalFeaturesServerConfigurationsResponseArgs) ToAdditionalFeaturesServerConfigurationsResponsePtrOutputWithContext(ctx context.Context) AdditionalFeaturesServerConfigurationsResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AdditionalFeaturesServerConfigurationsResponseOutput).ToAdditionalFeaturesServerConfigurationsResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type AdditionalFeaturesServerConfigurationsResponsePtrInput interface {
-	pulumi.Input
-
-	ToAdditionalFeaturesServerConfigurationsResponsePtrOutput() AdditionalFeaturesServerConfigurationsResponsePtrOutput
-	ToAdditionalFeaturesServerConfigurationsResponsePtrOutputWithContext(context.Context) AdditionalFeaturesServerConfigurationsResponsePtrOutput
-}
-
-type additionalFeaturesServerConfigurationsResponsePtrType AdditionalFeaturesServerConfigurationsResponseArgs
-
-func AdditionalFeaturesServerConfigurationsResponsePtr(v *AdditionalFeaturesServerConfigurationsResponseArgs) AdditionalFeaturesServerConfigurationsResponsePtrInput {
-	return (*additionalFeaturesServerConfigurationsResponsePtrType)(v)
-}
-
-func (*additionalFeaturesServerConfigurationsResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AdditionalFeaturesServerConfigurationsResponse)(nil)).Elem()
-}
-
-func (i *additionalFeaturesServerConfigurationsResponsePtrType) ToAdditionalFeaturesServerConfigurationsResponsePtrOutput() AdditionalFeaturesServerConfigurationsResponsePtrOutput {
-	return i.ToAdditionalFeaturesServerConfigurationsResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *additionalFeaturesServerConfigurationsResponsePtrType) ToAdditionalFeaturesServerConfigurationsResponsePtrOutputWithContext(ctx context.Context) AdditionalFeaturesServerConfigurationsResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AdditionalFeaturesServerConfigurationsResponsePtrOutput)
-}
-
 type AdditionalFeaturesServerConfigurationsResponseOutput struct{ *pulumi.OutputState }
 
 func (AdditionalFeaturesServerConfigurationsResponseOutput) ElementType() reflect.Type {
@@ -227,16 +159,6 @@ func (o AdditionalFeaturesServerConfigurationsResponseOutput) ToAdditionalFeatur
 
 func (o AdditionalFeaturesServerConfigurationsResponseOutput) ToAdditionalFeaturesServerConfigurationsResponseOutputWithContext(ctx context.Context) AdditionalFeaturesServerConfigurationsResponseOutput {
 	return o
-}
-
-func (o AdditionalFeaturesServerConfigurationsResponseOutput) ToAdditionalFeaturesServerConfigurationsResponsePtrOutput() AdditionalFeaturesServerConfigurationsResponsePtrOutput {
-	return o.ToAdditionalFeaturesServerConfigurationsResponsePtrOutputWithContext(context.Background())
-}
-
-func (o AdditionalFeaturesServerConfigurationsResponseOutput) ToAdditionalFeaturesServerConfigurationsResponsePtrOutputWithContext(ctx context.Context) AdditionalFeaturesServerConfigurationsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AdditionalFeaturesServerConfigurationsResponse) *AdditionalFeaturesServerConfigurationsResponse {
-		return &v
-	}).(AdditionalFeaturesServerConfigurationsResponsePtrOutput)
 }
 
 func (o AdditionalFeaturesServerConfigurationsResponseOutput) IsRServicesEnabled() pulumi.BoolPtrOutput {
@@ -587,83 +509,6 @@ type AutoBackupSettingsResponse struct {
 	StorageAccountUrl     *string `pulumi:"storageAccountUrl"`
 }
 
-
-
-
-
-type AutoBackupSettingsResponseInput interface {
-	pulumi.Input
-
-	ToAutoBackupSettingsResponseOutput() AutoBackupSettingsResponseOutput
-	ToAutoBackupSettingsResponseOutputWithContext(context.Context) AutoBackupSettingsResponseOutput
-}
-
-type AutoBackupSettingsResponseArgs struct {
-	BackupScheduleType    pulumi.StringPtrInput `pulumi:"backupScheduleType"`
-	BackupSystemDbs       pulumi.BoolPtrInput   `pulumi:"backupSystemDbs"`
-	Enable                pulumi.BoolPtrInput   `pulumi:"enable"`
-	EnableEncryption      pulumi.BoolPtrInput   `pulumi:"enableEncryption"`
-	FullBackupFrequency   pulumi.StringPtrInput `pulumi:"fullBackupFrequency"`
-	FullBackupStartTime   pulumi.IntPtrInput    `pulumi:"fullBackupStartTime"`
-	FullBackupWindowHours pulumi.IntPtrInput    `pulumi:"fullBackupWindowHours"`
-	LogBackupFrequency    pulumi.IntPtrInput    `pulumi:"logBackupFrequency"`
-	RetentionPeriod       pulumi.IntPtrInput    `pulumi:"retentionPeriod"`
-	StorageAccountUrl     pulumi.StringPtrInput `pulumi:"storageAccountUrl"`
-}
-
-func (AutoBackupSettingsResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AutoBackupSettingsResponse)(nil)).Elem()
-}
-
-func (i AutoBackupSettingsResponseArgs) ToAutoBackupSettingsResponseOutput() AutoBackupSettingsResponseOutput {
-	return i.ToAutoBackupSettingsResponseOutputWithContext(context.Background())
-}
-
-func (i AutoBackupSettingsResponseArgs) ToAutoBackupSettingsResponseOutputWithContext(ctx context.Context) AutoBackupSettingsResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AutoBackupSettingsResponseOutput)
-}
-
-func (i AutoBackupSettingsResponseArgs) ToAutoBackupSettingsResponsePtrOutput() AutoBackupSettingsResponsePtrOutput {
-	return i.ToAutoBackupSettingsResponsePtrOutputWithContext(context.Background())
-}
-
-func (i AutoBackupSettingsResponseArgs) ToAutoBackupSettingsResponsePtrOutputWithContext(ctx context.Context) AutoBackupSettingsResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AutoBackupSettingsResponseOutput).ToAutoBackupSettingsResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type AutoBackupSettingsResponsePtrInput interface {
-	pulumi.Input
-
-	ToAutoBackupSettingsResponsePtrOutput() AutoBackupSettingsResponsePtrOutput
-	ToAutoBackupSettingsResponsePtrOutputWithContext(context.Context) AutoBackupSettingsResponsePtrOutput
-}
-
-type autoBackupSettingsResponsePtrType AutoBackupSettingsResponseArgs
-
-func AutoBackupSettingsResponsePtr(v *AutoBackupSettingsResponseArgs) AutoBackupSettingsResponsePtrInput {
-	return (*autoBackupSettingsResponsePtrType)(v)
-}
-
-func (*autoBackupSettingsResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AutoBackupSettingsResponse)(nil)).Elem()
-}
-
-func (i *autoBackupSettingsResponsePtrType) ToAutoBackupSettingsResponsePtrOutput() AutoBackupSettingsResponsePtrOutput {
-	return i.ToAutoBackupSettingsResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *autoBackupSettingsResponsePtrType) ToAutoBackupSettingsResponsePtrOutputWithContext(ctx context.Context) AutoBackupSettingsResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AutoBackupSettingsResponsePtrOutput)
-}
-
 type AutoBackupSettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (AutoBackupSettingsResponseOutput) ElementType() reflect.Type {
@@ -676,16 +521,6 @@ func (o AutoBackupSettingsResponseOutput) ToAutoBackupSettingsResponseOutput() A
 
 func (o AutoBackupSettingsResponseOutput) ToAutoBackupSettingsResponseOutputWithContext(ctx context.Context) AutoBackupSettingsResponseOutput {
 	return o
-}
-
-func (o AutoBackupSettingsResponseOutput) ToAutoBackupSettingsResponsePtrOutput() AutoBackupSettingsResponsePtrOutput {
-	return o.ToAutoBackupSettingsResponsePtrOutputWithContext(context.Background())
-}
-
-func (o AutoBackupSettingsResponseOutput) ToAutoBackupSettingsResponsePtrOutputWithContext(ctx context.Context) AutoBackupSettingsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AutoBackupSettingsResponse) *AutoBackupSettingsResponse {
-		return &v
-	}).(AutoBackupSettingsResponsePtrOutput)
 }
 
 func (o AutoBackupSettingsResponseOutput) BackupScheduleType() pulumi.StringPtrOutput {
@@ -1027,77 +862,6 @@ type AutoPatchingSettingsResponse struct {
 	MaintenanceWindowStartingHour *int    `pulumi:"maintenanceWindowStartingHour"`
 }
 
-
-
-
-
-type AutoPatchingSettingsResponseInput interface {
-	pulumi.Input
-
-	ToAutoPatchingSettingsResponseOutput() AutoPatchingSettingsResponseOutput
-	ToAutoPatchingSettingsResponseOutputWithContext(context.Context) AutoPatchingSettingsResponseOutput
-}
-
-type AutoPatchingSettingsResponseArgs struct {
-	DayOfWeek                     pulumi.StringPtrInput `pulumi:"dayOfWeek"`
-	Enable                        pulumi.BoolPtrInput   `pulumi:"enable"`
-	MaintenanceWindowDuration     pulumi.IntPtrInput    `pulumi:"maintenanceWindowDuration"`
-	MaintenanceWindowStartingHour pulumi.IntPtrInput    `pulumi:"maintenanceWindowStartingHour"`
-}
-
-func (AutoPatchingSettingsResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AutoPatchingSettingsResponse)(nil)).Elem()
-}
-
-func (i AutoPatchingSettingsResponseArgs) ToAutoPatchingSettingsResponseOutput() AutoPatchingSettingsResponseOutput {
-	return i.ToAutoPatchingSettingsResponseOutputWithContext(context.Background())
-}
-
-func (i AutoPatchingSettingsResponseArgs) ToAutoPatchingSettingsResponseOutputWithContext(ctx context.Context) AutoPatchingSettingsResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AutoPatchingSettingsResponseOutput)
-}
-
-func (i AutoPatchingSettingsResponseArgs) ToAutoPatchingSettingsResponsePtrOutput() AutoPatchingSettingsResponsePtrOutput {
-	return i.ToAutoPatchingSettingsResponsePtrOutputWithContext(context.Background())
-}
-
-func (i AutoPatchingSettingsResponseArgs) ToAutoPatchingSettingsResponsePtrOutputWithContext(ctx context.Context) AutoPatchingSettingsResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AutoPatchingSettingsResponseOutput).ToAutoPatchingSettingsResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type AutoPatchingSettingsResponsePtrInput interface {
-	pulumi.Input
-
-	ToAutoPatchingSettingsResponsePtrOutput() AutoPatchingSettingsResponsePtrOutput
-	ToAutoPatchingSettingsResponsePtrOutputWithContext(context.Context) AutoPatchingSettingsResponsePtrOutput
-}
-
-type autoPatchingSettingsResponsePtrType AutoPatchingSettingsResponseArgs
-
-func AutoPatchingSettingsResponsePtr(v *AutoPatchingSettingsResponseArgs) AutoPatchingSettingsResponsePtrInput {
-	return (*autoPatchingSettingsResponsePtrType)(v)
-}
-
-func (*autoPatchingSettingsResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AutoPatchingSettingsResponse)(nil)).Elem()
-}
-
-func (i *autoPatchingSettingsResponsePtrType) ToAutoPatchingSettingsResponsePtrOutput() AutoPatchingSettingsResponsePtrOutput {
-	return i.ToAutoPatchingSettingsResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *autoPatchingSettingsResponsePtrType) ToAutoPatchingSettingsResponsePtrOutputWithContext(ctx context.Context) AutoPatchingSettingsResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AutoPatchingSettingsResponsePtrOutput)
-}
-
 type AutoPatchingSettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (AutoPatchingSettingsResponseOutput) ElementType() reflect.Type {
@@ -1110,16 +874,6 @@ func (o AutoPatchingSettingsResponseOutput) ToAutoPatchingSettingsResponseOutput
 
 func (o AutoPatchingSettingsResponseOutput) ToAutoPatchingSettingsResponseOutputWithContext(ctx context.Context) AutoPatchingSettingsResponseOutput {
 	return o
-}
-
-func (o AutoPatchingSettingsResponseOutput) ToAutoPatchingSettingsResponsePtrOutput() AutoPatchingSettingsResponsePtrOutput {
-	return o.ToAutoPatchingSettingsResponsePtrOutputWithContext(context.Background())
-}
-
-func (o AutoPatchingSettingsResponseOutput) ToAutoPatchingSettingsResponsePtrOutputWithContext(ctx context.Context) AutoPatchingSettingsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AutoPatchingSettingsResponse) *AutoPatchingSettingsResponse {
-		return &v
-	}).(AutoPatchingSettingsResponsePtrOutput)
 }
 
 func (o AutoPatchingSettingsResponseOutput) DayOfWeek() pulumi.StringPtrOutput {
@@ -1398,77 +1152,6 @@ type KeyVaultCredentialSettingsResponse struct {
 	ServicePrincipalName *string `pulumi:"servicePrincipalName"`
 }
 
-
-
-
-
-type KeyVaultCredentialSettingsResponseInput interface {
-	pulumi.Input
-
-	ToKeyVaultCredentialSettingsResponseOutput() KeyVaultCredentialSettingsResponseOutput
-	ToKeyVaultCredentialSettingsResponseOutputWithContext(context.Context) KeyVaultCredentialSettingsResponseOutput
-}
-
-type KeyVaultCredentialSettingsResponseArgs struct {
-	AzureKeyVaultUrl     pulumi.StringPtrInput `pulumi:"azureKeyVaultUrl"`
-	CredentialName       pulumi.StringPtrInput `pulumi:"credentialName"`
-	Enable               pulumi.BoolPtrInput   `pulumi:"enable"`
-	ServicePrincipalName pulumi.StringPtrInput `pulumi:"servicePrincipalName"`
-}
-
-func (KeyVaultCredentialSettingsResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*KeyVaultCredentialSettingsResponse)(nil)).Elem()
-}
-
-func (i KeyVaultCredentialSettingsResponseArgs) ToKeyVaultCredentialSettingsResponseOutput() KeyVaultCredentialSettingsResponseOutput {
-	return i.ToKeyVaultCredentialSettingsResponseOutputWithContext(context.Background())
-}
-
-func (i KeyVaultCredentialSettingsResponseArgs) ToKeyVaultCredentialSettingsResponseOutputWithContext(ctx context.Context) KeyVaultCredentialSettingsResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultCredentialSettingsResponseOutput)
-}
-
-func (i KeyVaultCredentialSettingsResponseArgs) ToKeyVaultCredentialSettingsResponsePtrOutput() KeyVaultCredentialSettingsResponsePtrOutput {
-	return i.ToKeyVaultCredentialSettingsResponsePtrOutputWithContext(context.Background())
-}
-
-func (i KeyVaultCredentialSettingsResponseArgs) ToKeyVaultCredentialSettingsResponsePtrOutputWithContext(ctx context.Context) KeyVaultCredentialSettingsResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultCredentialSettingsResponseOutput).ToKeyVaultCredentialSettingsResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type KeyVaultCredentialSettingsResponsePtrInput interface {
-	pulumi.Input
-
-	ToKeyVaultCredentialSettingsResponsePtrOutput() KeyVaultCredentialSettingsResponsePtrOutput
-	ToKeyVaultCredentialSettingsResponsePtrOutputWithContext(context.Context) KeyVaultCredentialSettingsResponsePtrOutput
-}
-
-type keyVaultCredentialSettingsResponsePtrType KeyVaultCredentialSettingsResponseArgs
-
-func KeyVaultCredentialSettingsResponsePtr(v *KeyVaultCredentialSettingsResponseArgs) KeyVaultCredentialSettingsResponsePtrInput {
-	return (*keyVaultCredentialSettingsResponsePtrType)(v)
-}
-
-func (*keyVaultCredentialSettingsResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**KeyVaultCredentialSettingsResponse)(nil)).Elem()
-}
-
-func (i *keyVaultCredentialSettingsResponsePtrType) ToKeyVaultCredentialSettingsResponsePtrOutput() KeyVaultCredentialSettingsResponsePtrOutput {
-	return i.ToKeyVaultCredentialSettingsResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *keyVaultCredentialSettingsResponsePtrType) ToKeyVaultCredentialSettingsResponsePtrOutputWithContext(ctx context.Context) KeyVaultCredentialSettingsResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultCredentialSettingsResponsePtrOutput)
-}
-
 type KeyVaultCredentialSettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (KeyVaultCredentialSettingsResponseOutput) ElementType() reflect.Type {
@@ -1481,16 +1164,6 @@ func (o KeyVaultCredentialSettingsResponseOutput) ToKeyVaultCredentialSettingsRe
 
 func (o KeyVaultCredentialSettingsResponseOutput) ToKeyVaultCredentialSettingsResponseOutputWithContext(ctx context.Context) KeyVaultCredentialSettingsResponseOutput {
 	return o
-}
-
-func (o KeyVaultCredentialSettingsResponseOutput) ToKeyVaultCredentialSettingsResponsePtrOutput() KeyVaultCredentialSettingsResponsePtrOutput {
-	return o.ToKeyVaultCredentialSettingsResponsePtrOutputWithContext(context.Background())
-}
-
-func (o KeyVaultCredentialSettingsResponseOutput) ToKeyVaultCredentialSettingsResponsePtrOutputWithContext(ctx context.Context) KeyVaultCredentialSettingsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeyVaultCredentialSettingsResponse) *KeyVaultCredentialSettingsResponse {
-		return &v
-	}).(KeyVaultCredentialSettingsResponsePtrOutput)
 }
 
 func (o KeyVaultCredentialSettingsResponseOutput) AzureKeyVaultUrl() pulumi.StringPtrOutput {
@@ -1693,62 +1366,6 @@ type LoadBalancerConfigurationResponse struct {
 	ProbePort                  *int                      `pulumi:"probePort"`
 	PublicIpAddressResourceId  *string                   `pulumi:"publicIpAddressResourceId"`
 	SqlVirtualMachineInstances []string                  `pulumi:"sqlVirtualMachineInstances"`
-}
-
-
-
-
-
-type LoadBalancerConfigurationResponseInput interface {
-	pulumi.Input
-
-	ToLoadBalancerConfigurationResponseOutput() LoadBalancerConfigurationResponseOutput
-	ToLoadBalancerConfigurationResponseOutputWithContext(context.Context) LoadBalancerConfigurationResponseOutput
-}
-
-type LoadBalancerConfigurationResponseArgs struct {
-	LoadBalancerResourceId     pulumi.StringPtrInput            `pulumi:"loadBalancerResourceId"`
-	PrivateIpAddress           PrivateIPAddressResponsePtrInput `pulumi:"privateIpAddress"`
-	ProbePort                  pulumi.IntPtrInput               `pulumi:"probePort"`
-	PublicIpAddressResourceId  pulumi.StringPtrInput            `pulumi:"publicIpAddressResourceId"`
-	SqlVirtualMachineInstances pulumi.StringArrayInput          `pulumi:"sqlVirtualMachineInstances"`
-}
-
-func (LoadBalancerConfigurationResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*LoadBalancerConfigurationResponse)(nil)).Elem()
-}
-
-func (i LoadBalancerConfigurationResponseArgs) ToLoadBalancerConfigurationResponseOutput() LoadBalancerConfigurationResponseOutput {
-	return i.ToLoadBalancerConfigurationResponseOutputWithContext(context.Background())
-}
-
-func (i LoadBalancerConfigurationResponseArgs) ToLoadBalancerConfigurationResponseOutputWithContext(ctx context.Context) LoadBalancerConfigurationResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerConfigurationResponseOutput)
-}
-
-
-
-
-
-type LoadBalancerConfigurationResponseArrayInput interface {
-	pulumi.Input
-
-	ToLoadBalancerConfigurationResponseArrayOutput() LoadBalancerConfigurationResponseArrayOutput
-	ToLoadBalancerConfigurationResponseArrayOutputWithContext(context.Context) LoadBalancerConfigurationResponseArrayOutput
-}
-
-type LoadBalancerConfigurationResponseArray []LoadBalancerConfigurationResponseInput
-
-func (LoadBalancerConfigurationResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]LoadBalancerConfigurationResponse)(nil)).Elem()
-}
-
-func (i LoadBalancerConfigurationResponseArray) ToLoadBalancerConfigurationResponseArrayOutput() LoadBalancerConfigurationResponseArrayOutput {
-	return i.ToLoadBalancerConfigurationResponseArrayOutputWithContext(context.Background())
-}
-
-func (i LoadBalancerConfigurationResponseArray) ToLoadBalancerConfigurationResponseArrayOutputWithContext(ctx context.Context) LoadBalancerConfigurationResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerConfigurationResponseArrayOutput)
 }
 
 type LoadBalancerConfigurationResponseOutput struct{ *pulumi.OutputState }
@@ -1958,75 +1575,6 @@ type PrivateIPAddressResponse struct {
 	SubnetResourceId *string `pulumi:"subnetResourceId"`
 }
 
-
-
-
-
-type PrivateIPAddressResponseInput interface {
-	pulumi.Input
-
-	ToPrivateIPAddressResponseOutput() PrivateIPAddressResponseOutput
-	ToPrivateIPAddressResponseOutputWithContext(context.Context) PrivateIPAddressResponseOutput
-}
-
-type PrivateIPAddressResponseArgs struct {
-	IpAddress        pulumi.StringPtrInput `pulumi:"ipAddress"`
-	SubnetResourceId pulumi.StringPtrInput `pulumi:"subnetResourceId"`
-}
-
-func (PrivateIPAddressResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateIPAddressResponse)(nil)).Elem()
-}
-
-func (i PrivateIPAddressResponseArgs) ToPrivateIPAddressResponseOutput() PrivateIPAddressResponseOutput {
-	return i.ToPrivateIPAddressResponseOutputWithContext(context.Background())
-}
-
-func (i PrivateIPAddressResponseArgs) ToPrivateIPAddressResponseOutputWithContext(ctx context.Context) PrivateIPAddressResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PrivateIPAddressResponseOutput)
-}
-
-func (i PrivateIPAddressResponseArgs) ToPrivateIPAddressResponsePtrOutput() PrivateIPAddressResponsePtrOutput {
-	return i.ToPrivateIPAddressResponsePtrOutputWithContext(context.Background())
-}
-
-func (i PrivateIPAddressResponseArgs) ToPrivateIPAddressResponsePtrOutputWithContext(ctx context.Context) PrivateIPAddressResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PrivateIPAddressResponseOutput).ToPrivateIPAddressResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type PrivateIPAddressResponsePtrInput interface {
-	pulumi.Input
-
-	ToPrivateIPAddressResponsePtrOutput() PrivateIPAddressResponsePtrOutput
-	ToPrivateIPAddressResponsePtrOutputWithContext(context.Context) PrivateIPAddressResponsePtrOutput
-}
-
-type privateIPAddressResponsePtrType PrivateIPAddressResponseArgs
-
-func PrivateIPAddressResponsePtr(v *PrivateIPAddressResponseArgs) PrivateIPAddressResponsePtrInput {
-	return (*privateIPAddressResponsePtrType)(v)
-}
-
-func (*privateIPAddressResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PrivateIPAddressResponse)(nil)).Elem()
-}
-
-func (i *privateIPAddressResponsePtrType) ToPrivateIPAddressResponsePtrOutput() PrivateIPAddressResponsePtrOutput {
-	return i.ToPrivateIPAddressResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *privateIPAddressResponsePtrType) ToPrivateIPAddressResponsePtrOutputWithContext(ctx context.Context) PrivateIPAddressResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PrivateIPAddressResponsePtrOutput)
-}
-
 type PrivateIPAddressResponseOutput struct{ *pulumi.OutputState }
 
 func (PrivateIPAddressResponseOutput) ElementType() reflect.Type {
@@ -2039,16 +1587,6 @@ func (o PrivateIPAddressResponseOutput) ToPrivateIPAddressResponseOutput() Priva
 
 func (o PrivateIPAddressResponseOutput) ToPrivateIPAddressResponseOutputWithContext(ctx context.Context) PrivateIPAddressResponseOutput {
 	return o
-}
-
-func (o PrivateIPAddressResponseOutput) ToPrivateIPAddressResponsePtrOutput() PrivateIPAddressResponsePtrOutput {
-	return o.ToPrivateIPAddressResponsePtrOutputWithContext(context.Background())
-}
-
-func (o PrivateIPAddressResponseOutput) ToPrivateIPAddressResponsePtrOutputWithContext(ctx context.Context) PrivateIPAddressResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateIPAddressResponse) *PrivateIPAddressResponse {
-		return &v
-	}).(PrivateIPAddressResponsePtrOutput)
 }
 
 func (o PrivateIPAddressResponseOutput) IpAddress() pulumi.StringPtrOutput {
@@ -2240,76 +1778,6 @@ type ResourceIdentityResponse struct {
 	Type        *string `pulumi:"type"`
 }
 
-
-
-
-
-type ResourceIdentityResponseInput interface {
-	pulumi.Input
-
-	ToResourceIdentityResponseOutput() ResourceIdentityResponseOutput
-	ToResourceIdentityResponseOutputWithContext(context.Context) ResourceIdentityResponseOutput
-}
-
-type ResourceIdentityResponseArgs struct {
-	PrincipalId pulumi.StringInput    `pulumi:"principalId"`
-	TenantId    pulumi.StringInput    `pulumi:"tenantId"`
-	Type        pulumi.StringPtrInput `pulumi:"type"`
-}
-
-func (ResourceIdentityResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResourceIdentityResponse)(nil)).Elem()
-}
-
-func (i ResourceIdentityResponseArgs) ToResourceIdentityResponseOutput() ResourceIdentityResponseOutput {
-	return i.ToResourceIdentityResponseOutputWithContext(context.Background())
-}
-
-func (i ResourceIdentityResponseArgs) ToResourceIdentityResponseOutputWithContext(ctx context.Context) ResourceIdentityResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ResourceIdentityResponseOutput)
-}
-
-func (i ResourceIdentityResponseArgs) ToResourceIdentityResponsePtrOutput() ResourceIdentityResponsePtrOutput {
-	return i.ToResourceIdentityResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ResourceIdentityResponseArgs) ToResourceIdentityResponsePtrOutputWithContext(ctx context.Context) ResourceIdentityResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ResourceIdentityResponseOutput).ToResourceIdentityResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type ResourceIdentityResponsePtrInput interface {
-	pulumi.Input
-
-	ToResourceIdentityResponsePtrOutput() ResourceIdentityResponsePtrOutput
-	ToResourceIdentityResponsePtrOutputWithContext(context.Context) ResourceIdentityResponsePtrOutput
-}
-
-type resourceIdentityResponsePtrType ResourceIdentityResponseArgs
-
-func ResourceIdentityResponsePtr(v *ResourceIdentityResponseArgs) ResourceIdentityResponsePtrInput {
-	return (*resourceIdentityResponsePtrType)(v)
-}
-
-func (*resourceIdentityResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ResourceIdentityResponse)(nil)).Elem()
-}
-
-func (i *resourceIdentityResponsePtrType) ToResourceIdentityResponsePtrOutput() ResourceIdentityResponsePtrOutput {
-	return i.ToResourceIdentityResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *resourceIdentityResponsePtrType) ToResourceIdentityResponsePtrOutputWithContext(ctx context.Context) ResourceIdentityResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ResourceIdentityResponsePtrOutput)
-}
-
 type ResourceIdentityResponseOutput struct{ *pulumi.OutputState }
 
 func (ResourceIdentityResponseOutput) ElementType() reflect.Type {
@@ -2322,16 +1790,6 @@ func (o ResourceIdentityResponseOutput) ToResourceIdentityResponseOutput() Resou
 
 func (o ResourceIdentityResponseOutput) ToResourceIdentityResponseOutputWithContext(ctx context.Context) ResourceIdentityResponseOutput {
 	return o
-}
-
-func (o ResourceIdentityResponseOutput) ToResourceIdentityResponsePtrOutput() ResourceIdentityResponsePtrOutput {
-	return o.ToResourceIdentityResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ResourceIdentityResponseOutput) ToResourceIdentityResponsePtrOutputWithContext(ctx context.Context) ResourceIdentityResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceIdentityResponse) *ResourceIdentityResponse {
-		return &v
-	}).(ResourceIdentityResponsePtrOutput)
 }
 
 func (o ResourceIdentityResponseOutput) PrincipalId() pulumi.StringOutput {
@@ -2550,75 +2008,6 @@ type SQLStorageSettingsResponse struct {
 	Luns            []int   `pulumi:"luns"`
 }
 
-
-
-
-
-type SQLStorageSettingsResponseInput interface {
-	pulumi.Input
-
-	ToSQLStorageSettingsResponseOutput() SQLStorageSettingsResponseOutput
-	ToSQLStorageSettingsResponseOutputWithContext(context.Context) SQLStorageSettingsResponseOutput
-}
-
-type SQLStorageSettingsResponseArgs struct {
-	DefaultFilePath pulumi.StringPtrInput `pulumi:"defaultFilePath"`
-	Luns            pulumi.IntArrayInput  `pulumi:"luns"`
-}
-
-func (SQLStorageSettingsResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SQLStorageSettingsResponse)(nil)).Elem()
-}
-
-func (i SQLStorageSettingsResponseArgs) ToSQLStorageSettingsResponseOutput() SQLStorageSettingsResponseOutput {
-	return i.ToSQLStorageSettingsResponseOutputWithContext(context.Background())
-}
-
-func (i SQLStorageSettingsResponseArgs) ToSQLStorageSettingsResponseOutputWithContext(ctx context.Context) SQLStorageSettingsResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SQLStorageSettingsResponseOutput)
-}
-
-func (i SQLStorageSettingsResponseArgs) ToSQLStorageSettingsResponsePtrOutput() SQLStorageSettingsResponsePtrOutput {
-	return i.ToSQLStorageSettingsResponsePtrOutputWithContext(context.Background())
-}
-
-func (i SQLStorageSettingsResponseArgs) ToSQLStorageSettingsResponsePtrOutputWithContext(ctx context.Context) SQLStorageSettingsResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SQLStorageSettingsResponseOutput).ToSQLStorageSettingsResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type SQLStorageSettingsResponsePtrInput interface {
-	pulumi.Input
-
-	ToSQLStorageSettingsResponsePtrOutput() SQLStorageSettingsResponsePtrOutput
-	ToSQLStorageSettingsResponsePtrOutputWithContext(context.Context) SQLStorageSettingsResponsePtrOutput
-}
-
-type sqlstorageSettingsResponsePtrType SQLStorageSettingsResponseArgs
-
-func SQLStorageSettingsResponsePtr(v *SQLStorageSettingsResponseArgs) SQLStorageSettingsResponsePtrInput {
-	return (*sqlstorageSettingsResponsePtrType)(v)
-}
-
-func (*sqlstorageSettingsResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SQLStorageSettingsResponse)(nil)).Elem()
-}
-
-func (i *sqlstorageSettingsResponsePtrType) ToSQLStorageSettingsResponsePtrOutput() SQLStorageSettingsResponsePtrOutput {
-	return i.ToSQLStorageSettingsResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *sqlstorageSettingsResponsePtrType) ToSQLStorageSettingsResponsePtrOutputWithContext(ctx context.Context) SQLStorageSettingsResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SQLStorageSettingsResponsePtrOutput)
-}
-
 type SQLStorageSettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (SQLStorageSettingsResponseOutput) ElementType() reflect.Type {
@@ -2631,16 +2020,6 @@ func (o SQLStorageSettingsResponseOutput) ToSQLStorageSettingsResponseOutput() S
 
 func (o SQLStorageSettingsResponseOutput) ToSQLStorageSettingsResponseOutputWithContext(ctx context.Context) SQLStorageSettingsResponseOutput {
 	return o
-}
-
-func (o SQLStorageSettingsResponseOutput) ToSQLStorageSettingsResponsePtrOutput() SQLStorageSettingsResponsePtrOutput {
-	return o.ToSQLStorageSettingsResponsePtrOutputWithContext(context.Background())
-}
-
-func (o SQLStorageSettingsResponseOutput) ToSQLStorageSettingsResponsePtrOutputWithContext(ctx context.Context) SQLStorageSettingsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SQLStorageSettingsResponse) *SQLStorageSettingsResponse {
-		return &v
-	}).(SQLStorageSettingsResponsePtrOutput)
 }
 
 func (o SQLStorageSettingsResponseOutput) DefaultFilePath() pulumi.StringPtrOutput {
@@ -2886,77 +2265,6 @@ type ServerConfigurationsManagementSettingsResponse struct {
 	SqlWorkloadTypeUpdateSettings          *SqlWorkloadTypeUpdateSettingsResponse          `pulumi:"sqlWorkloadTypeUpdateSettings"`
 }
 
-
-
-
-
-type ServerConfigurationsManagementSettingsResponseInput interface {
-	pulumi.Input
-
-	ToServerConfigurationsManagementSettingsResponseOutput() ServerConfigurationsManagementSettingsResponseOutput
-	ToServerConfigurationsManagementSettingsResponseOutputWithContext(context.Context) ServerConfigurationsManagementSettingsResponseOutput
-}
-
-type ServerConfigurationsManagementSettingsResponseArgs struct {
-	AdditionalFeaturesServerConfigurations AdditionalFeaturesServerConfigurationsResponsePtrInput `pulumi:"additionalFeaturesServerConfigurations"`
-	SqlConnectivityUpdateSettings          SqlConnectivityUpdateSettingsResponsePtrInput          `pulumi:"sqlConnectivityUpdateSettings"`
-	SqlStorageUpdateSettings               SqlStorageUpdateSettingsResponsePtrInput               `pulumi:"sqlStorageUpdateSettings"`
-	SqlWorkloadTypeUpdateSettings          SqlWorkloadTypeUpdateSettingsResponsePtrInput          `pulumi:"sqlWorkloadTypeUpdateSettings"`
-}
-
-func (ServerConfigurationsManagementSettingsResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServerConfigurationsManagementSettingsResponse)(nil)).Elem()
-}
-
-func (i ServerConfigurationsManagementSettingsResponseArgs) ToServerConfigurationsManagementSettingsResponseOutput() ServerConfigurationsManagementSettingsResponseOutput {
-	return i.ToServerConfigurationsManagementSettingsResponseOutputWithContext(context.Background())
-}
-
-func (i ServerConfigurationsManagementSettingsResponseArgs) ToServerConfigurationsManagementSettingsResponseOutputWithContext(ctx context.Context) ServerConfigurationsManagementSettingsResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServerConfigurationsManagementSettingsResponseOutput)
-}
-
-func (i ServerConfigurationsManagementSettingsResponseArgs) ToServerConfigurationsManagementSettingsResponsePtrOutput() ServerConfigurationsManagementSettingsResponsePtrOutput {
-	return i.ToServerConfigurationsManagementSettingsResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ServerConfigurationsManagementSettingsResponseArgs) ToServerConfigurationsManagementSettingsResponsePtrOutputWithContext(ctx context.Context) ServerConfigurationsManagementSettingsResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServerConfigurationsManagementSettingsResponseOutput).ToServerConfigurationsManagementSettingsResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type ServerConfigurationsManagementSettingsResponsePtrInput interface {
-	pulumi.Input
-
-	ToServerConfigurationsManagementSettingsResponsePtrOutput() ServerConfigurationsManagementSettingsResponsePtrOutput
-	ToServerConfigurationsManagementSettingsResponsePtrOutputWithContext(context.Context) ServerConfigurationsManagementSettingsResponsePtrOutput
-}
-
-type serverConfigurationsManagementSettingsResponsePtrType ServerConfigurationsManagementSettingsResponseArgs
-
-func ServerConfigurationsManagementSettingsResponsePtr(v *ServerConfigurationsManagementSettingsResponseArgs) ServerConfigurationsManagementSettingsResponsePtrInput {
-	return (*serverConfigurationsManagementSettingsResponsePtrType)(v)
-}
-
-func (*serverConfigurationsManagementSettingsResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ServerConfigurationsManagementSettingsResponse)(nil)).Elem()
-}
-
-func (i *serverConfigurationsManagementSettingsResponsePtrType) ToServerConfigurationsManagementSettingsResponsePtrOutput() ServerConfigurationsManagementSettingsResponsePtrOutput {
-	return i.ToServerConfigurationsManagementSettingsResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *serverConfigurationsManagementSettingsResponsePtrType) ToServerConfigurationsManagementSettingsResponsePtrOutputWithContext(ctx context.Context) ServerConfigurationsManagementSettingsResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServerConfigurationsManagementSettingsResponsePtrOutput)
-}
-
 type ServerConfigurationsManagementSettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (ServerConfigurationsManagementSettingsResponseOutput) ElementType() reflect.Type {
@@ -2969,16 +2277,6 @@ func (o ServerConfigurationsManagementSettingsResponseOutput) ToServerConfigurat
 
 func (o ServerConfigurationsManagementSettingsResponseOutput) ToServerConfigurationsManagementSettingsResponseOutputWithContext(ctx context.Context) ServerConfigurationsManagementSettingsResponseOutput {
 	return o
-}
-
-func (o ServerConfigurationsManagementSettingsResponseOutput) ToServerConfigurationsManagementSettingsResponsePtrOutput() ServerConfigurationsManagementSettingsResponsePtrOutput {
-	return o.ToServerConfigurationsManagementSettingsResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ServerConfigurationsManagementSettingsResponseOutput) ToServerConfigurationsManagementSettingsResponsePtrOutputWithContext(ctx context.Context) ServerConfigurationsManagementSettingsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServerConfigurationsManagementSettingsResponse) *ServerConfigurationsManagementSettingsResponse {
-		return &v
-	}).(ServerConfigurationsManagementSettingsResponsePtrOutput)
 }
 
 func (o ServerConfigurationsManagementSettingsResponseOutput) AdditionalFeaturesServerConfigurations() AdditionalFeaturesServerConfigurationsResponsePtrOutput {
@@ -3248,75 +2546,6 @@ type SqlConnectivityUpdateSettingsResponse struct {
 	Port             *int    `pulumi:"port"`
 }
 
-
-
-
-
-type SqlConnectivityUpdateSettingsResponseInput interface {
-	pulumi.Input
-
-	ToSqlConnectivityUpdateSettingsResponseOutput() SqlConnectivityUpdateSettingsResponseOutput
-	ToSqlConnectivityUpdateSettingsResponseOutputWithContext(context.Context) SqlConnectivityUpdateSettingsResponseOutput
-}
-
-type SqlConnectivityUpdateSettingsResponseArgs struct {
-	ConnectivityType pulumi.StringPtrInput `pulumi:"connectivityType"`
-	Port             pulumi.IntPtrInput    `pulumi:"port"`
-}
-
-func (SqlConnectivityUpdateSettingsResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SqlConnectivityUpdateSettingsResponse)(nil)).Elem()
-}
-
-func (i SqlConnectivityUpdateSettingsResponseArgs) ToSqlConnectivityUpdateSettingsResponseOutput() SqlConnectivityUpdateSettingsResponseOutput {
-	return i.ToSqlConnectivityUpdateSettingsResponseOutputWithContext(context.Background())
-}
-
-func (i SqlConnectivityUpdateSettingsResponseArgs) ToSqlConnectivityUpdateSettingsResponseOutputWithContext(ctx context.Context) SqlConnectivityUpdateSettingsResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SqlConnectivityUpdateSettingsResponseOutput)
-}
-
-func (i SqlConnectivityUpdateSettingsResponseArgs) ToSqlConnectivityUpdateSettingsResponsePtrOutput() SqlConnectivityUpdateSettingsResponsePtrOutput {
-	return i.ToSqlConnectivityUpdateSettingsResponsePtrOutputWithContext(context.Background())
-}
-
-func (i SqlConnectivityUpdateSettingsResponseArgs) ToSqlConnectivityUpdateSettingsResponsePtrOutputWithContext(ctx context.Context) SqlConnectivityUpdateSettingsResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SqlConnectivityUpdateSettingsResponseOutput).ToSqlConnectivityUpdateSettingsResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type SqlConnectivityUpdateSettingsResponsePtrInput interface {
-	pulumi.Input
-
-	ToSqlConnectivityUpdateSettingsResponsePtrOutput() SqlConnectivityUpdateSettingsResponsePtrOutput
-	ToSqlConnectivityUpdateSettingsResponsePtrOutputWithContext(context.Context) SqlConnectivityUpdateSettingsResponsePtrOutput
-}
-
-type sqlConnectivityUpdateSettingsResponsePtrType SqlConnectivityUpdateSettingsResponseArgs
-
-func SqlConnectivityUpdateSettingsResponsePtr(v *SqlConnectivityUpdateSettingsResponseArgs) SqlConnectivityUpdateSettingsResponsePtrInput {
-	return (*sqlConnectivityUpdateSettingsResponsePtrType)(v)
-}
-
-func (*sqlConnectivityUpdateSettingsResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SqlConnectivityUpdateSettingsResponse)(nil)).Elem()
-}
-
-func (i *sqlConnectivityUpdateSettingsResponsePtrType) ToSqlConnectivityUpdateSettingsResponsePtrOutput() SqlConnectivityUpdateSettingsResponsePtrOutput {
-	return i.ToSqlConnectivityUpdateSettingsResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *sqlConnectivityUpdateSettingsResponsePtrType) ToSqlConnectivityUpdateSettingsResponsePtrOutputWithContext(ctx context.Context) SqlConnectivityUpdateSettingsResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SqlConnectivityUpdateSettingsResponsePtrOutput)
-}
-
 type SqlConnectivityUpdateSettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (SqlConnectivityUpdateSettingsResponseOutput) ElementType() reflect.Type {
@@ -3329,16 +2558,6 @@ func (o SqlConnectivityUpdateSettingsResponseOutput) ToSqlConnectivityUpdateSett
 
 func (o SqlConnectivityUpdateSettingsResponseOutput) ToSqlConnectivityUpdateSettingsResponseOutputWithContext(ctx context.Context) SqlConnectivityUpdateSettingsResponseOutput {
 	return o
-}
-
-func (o SqlConnectivityUpdateSettingsResponseOutput) ToSqlConnectivityUpdateSettingsResponsePtrOutput() SqlConnectivityUpdateSettingsResponsePtrOutput {
-	return o.ToSqlConnectivityUpdateSettingsResponsePtrOutputWithContext(context.Background())
-}
-
-func (o SqlConnectivityUpdateSettingsResponseOutput) ToSqlConnectivityUpdateSettingsResponsePtrOutputWithContext(ctx context.Context) SqlConnectivityUpdateSettingsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SqlConnectivityUpdateSettingsResponse) *SqlConnectivityUpdateSettingsResponse {
-		return &v
-	}).(SqlConnectivityUpdateSettingsResponsePtrOutput)
 }
 
 func (o SqlConnectivityUpdateSettingsResponseOutput) ConnectivityType() pulumi.StringPtrOutput {
@@ -3560,76 +2779,6 @@ type SqlStorageUpdateSettingsResponse struct {
 	StartingDeviceId      *int    `pulumi:"startingDeviceId"`
 }
 
-
-
-
-
-type SqlStorageUpdateSettingsResponseInput interface {
-	pulumi.Input
-
-	ToSqlStorageUpdateSettingsResponseOutput() SqlStorageUpdateSettingsResponseOutput
-	ToSqlStorageUpdateSettingsResponseOutputWithContext(context.Context) SqlStorageUpdateSettingsResponseOutput
-}
-
-type SqlStorageUpdateSettingsResponseArgs struct {
-	DiskConfigurationType pulumi.StringPtrInput `pulumi:"diskConfigurationType"`
-	DiskCount             pulumi.IntPtrInput    `pulumi:"diskCount"`
-	StartingDeviceId      pulumi.IntPtrInput    `pulumi:"startingDeviceId"`
-}
-
-func (SqlStorageUpdateSettingsResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SqlStorageUpdateSettingsResponse)(nil)).Elem()
-}
-
-func (i SqlStorageUpdateSettingsResponseArgs) ToSqlStorageUpdateSettingsResponseOutput() SqlStorageUpdateSettingsResponseOutput {
-	return i.ToSqlStorageUpdateSettingsResponseOutputWithContext(context.Background())
-}
-
-func (i SqlStorageUpdateSettingsResponseArgs) ToSqlStorageUpdateSettingsResponseOutputWithContext(ctx context.Context) SqlStorageUpdateSettingsResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SqlStorageUpdateSettingsResponseOutput)
-}
-
-func (i SqlStorageUpdateSettingsResponseArgs) ToSqlStorageUpdateSettingsResponsePtrOutput() SqlStorageUpdateSettingsResponsePtrOutput {
-	return i.ToSqlStorageUpdateSettingsResponsePtrOutputWithContext(context.Background())
-}
-
-func (i SqlStorageUpdateSettingsResponseArgs) ToSqlStorageUpdateSettingsResponsePtrOutputWithContext(ctx context.Context) SqlStorageUpdateSettingsResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SqlStorageUpdateSettingsResponseOutput).ToSqlStorageUpdateSettingsResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type SqlStorageUpdateSettingsResponsePtrInput interface {
-	pulumi.Input
-
-	ToSqlStorageUpdateSettingsResponsePtrOutput() SqlStorageUpdateSettingsResponsePtrOutput
-	ToSqlStorageUpdateSettingsResponsePtrOutputWithContext(context.Context) SqlStorageUpdateSettingsResponsePtrOutput
-}
-
-type sqlStorageUpdateSettingsResponsePtrType SqlStorageUpdateSettingsResponseArgs
-
-func SqlStorageUpdateSettingsResponsePtr(v *SqlStorageUpdateSettingsResponseArgs) SqlStorageUpdateSettingsResponsePtrInput {
-	return (*sqlStorageUpdateSettingsResponsePtrType)(v)
-}
-
-func (*sqlStorageUpdateSettingsResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SqlStorageUpdateSettingsResponse)(nil)).Elem()
-}
-
-func (i *sqlStorageUpdateSettingsResponsePtrType) ToSqlStorageUpdateSettingsResponsePtrOutput() SqlStorageUpdateSettingsResponsePtrOutput {
-	return i.ToSqlStorageUpdateSettingsResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *sqlStorageUpdateSettingsResponsePtrType) ToSqlStorageUpdateSettingsResponsePtrOutputWithContext(ctx context.Context) SqlStorageUpdateSettingsResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SqlStorageUpdateSettingsResponsePtrOutput)
-}
-
 type SqlStorageUpdateSettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (SqlStorageUpdateSettingsResponseOutput) ElementType() reflect.Type {
@@ -3642,16 +2791,6 @@ func (o SqlStorageUpdateSettingsResponseOutput) ToSqlStorageUpdateSettingsRespon
 
 func (o SqlStorageUpdateSettingsResponseOutput) ToSqlStorageUpdateSettingsResponseOutputWithContext(ctx context.Context) SqlStorageUpdateSettingsResponseOutput {
 	return o
-}
-
-func (o SqlStorageUpdateSettingsResponseOutput) ToSqlStorageUpdateSettingsResponsePtrOutput() SqlStorageUpdateSettingsResponsePtrOutput {
-	return o.ToSqlStorageUpdateSettingsResponsePtrOutputWithContext(context.Background())
-}
-
-func (o SqlStorageUpdateSettingsResponseOutput) ToSqlStorageUpdateSettingsResponsePtrOutputWithContext(ctx context.Context) SqlStorageUpdateSettingsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SqlStorageUpdateSettingsResponse) *SqlStorageUpdateSettingsResponse {
-		return &v
-	}).(SqlStorageUpdateSettingsResponsePtrOutput)
 }
 
 func (o SqlStorageUpdateSettingsResponseOutput) DiskConfigurationType() pulumi.StringPtrOutput {
@@ -3854,74 +2993,6 @@ type SqlWorkloadTypeUpdateSettingsResponse struct {
 	SqlWorkloadType *string `pulumi:"sqlWorkloadType"`
 }
 
-
-
-
-
-type SqlWorkloadTypeUpdateSettingsResponseInput interface {
-	pulumi.Input
-
-	ToSqlWorkloadTypeUpdateSettingsResponseOutput() SqlWorkloadTypeUpdateSettingsResponseOutput
-	ToSqlWorkloadTypeUpdateSettingsResponseOutputWithContext(context.Context) SqlWorkloadTypeUpdateSettingsResponseOutput
-}
-
-type SqlWorkloadTypeUpdateSettingsResponseArgs struct {
-	SqlWorkloadType pulumi.StringPtrInput `pulumi:"sqlWorkloadType"`
-}
-
-func (SqlWorkloadTypeUpdateSettingsResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SqlWorkloadTypeUpdateSettingsResponse)(nil)).Elem()
-}
-
-func (i SqlWorkloadTypeUpdateSettingsResponseArgs) ToSqlWorkloadTypeUpdateSettingsResponseOutput() SqlWorkloadTypeUpdateSettingsResponseOutput {
-	return i.ToSqlWorkloadTypeUpdateSettingsResponseOutputWithContext(context.Background())
-}
-
-func (i SqlWorkloadTypeUpdateSettingsResponseArgs) ToSqlWorkloadTypeUpdateSettingsResponseOutputWithContext(ctx context.Context) SqlWorkloadTypeUpdateSettingsResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SqlWorkloadTypeUpdateSettingsResponseOutput)
-}
-
-func (i SqlWorkloadTypeUpdateSettingsResponseArgs) ToSqlWorkloadTypeUpdateSettingsResponsePtrOutput() SqlWorkloadTypeUpdateSettingsResponsePtrOutput {
-	return i.ToSqlWorkloadTypeUpdateSettingsResponsePtrOutputWithContext(context.Background())
-}
-
-func (i SqlWorkloadTypeUpdateSettingsResponseArgs) ToSqlWorkloadTypeUpdateSettingsResponsePtrOutputWithContext(ctx context.Context) SqlWorkloadTypeUpdateSettingsResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SqlWorkloadTypeUpdateSettingsResponseOutput).ToSqlWorkloadTypeUpdateSettingsResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type SqlWorkloadTypeUpdateSettingsResponsePtrInput interface {
-	pulumi.Input
-
-	ToSqlWorkloadTypeUpdateSettingsResponsePtrOutput() SqlWorkloadTypeUpdateSettingsResponsePtrOutput
-	ToSqlWorkloadTypeUpdateSettingsResponsePtrOutputWithContext(context.Context) SqlWorkloadTypeUpdateSettingsResponsePtrOutput
-}
-
-type sqlWorkloadTypeUpdateSettingsResponsePtrType SqlWorkloadTypeUpdateSettingsResponseArgs
-
-func SqlWorkloadTypeUpdateSettingsResponsePtr(v *SqlWorkloadTypeUpdateSettingsResponseArgs) SqlWorkloadTypeUpdateSettingsResponsePtrInput {
-	return (*sqlWorkloadTypeUpdateSettingsResponsePtrType)(v)
-}
-
-func (*sqlWorkloadTypeUpdateSettingsResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SqlWorkloadTypeUpdateSettingsResponse)(nil)).Elem()
-}
-
-func (i *sqlWorkloadTypeUpdateSettingsResponsePtrType) ToSqlWorkloadTypeUpdateSettingsResponsePtrOutput() SqlWorkloadTypeUpdateSettingsResponsePtrOutput {
-	return i.ToSqlWorkloadTypeUpdateSettingsResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *sqlWorkloadTypeUpdateSettingsResponsePtrType) ToSqlWorkloadTypeUpdateSettingsResponsePtrOutputWithContext(ctx context.Context) SqlWorkloadTypeUpdateSettingsResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SqlWorkloadTypeUpdateSettingsResponsePtrOutput)
-}
-
 type SqlWorkloadTypeUpdateSettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (SqlWorkloadTypeUpdateSettingsResponseOutput) ElementType() reflect.Type {
@@ -3934,16 +3005,6 @@ func (o SqlWorkloadTypeUpdateSettingsResponseOutput) ToSqlWorkloadTypeUpdateSett
 
 func (o SqlWorkloadTypeUpdateSettingsResponseOutput) ToSqlWorkloadTypeUpdateSettingsResponseOutputWithContext(ctx context.Context) SqlWorkloadTypeUpdateSettingsResponseOutput {
 	return o
-}
-
-func (o SqlWorkloadTypeUpdateSettingsResponseOutput) ToSqlWorkloadTypeUpdateSettingsResponsePtrOutput() SqlWorkloadTypeUpdateSettingsResponsePtrOutput {
-	return o.ToSqlWorkloadTypeUpdateSettingsResponsePtrOutputWithContext(context.Background())
-}
-
-func (o SqlWorkloadTypeUpdateSettingsResponseOutput) ToSqlWorkloadTypeUpdateSettingsResponsePtrOutputWithContext(ctx context.Context) SqlWorkloadTypeUpdateSettingsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SqlWorkloadTypeUpdateSettingsResponse) *SqlWorkloadTypeUpdateSettingsResponse {
-		return &v
-	}).(SqlWorkloadTypeUpdateSettingsResponsePtrOutput)
 }
 
 func (o SqlWorkloadTypeUpdateSettingsResponseOutput) SqlWorkloadType() pulumi.StringPtrOutput {
@@ -4184,78 +3245,6 @@ type StorageConfigurationSettingsResponse struct {
 	StorageWorkloadType   *string                     `pulumi:"storageWorkloadType"`
 }
 
-
-
-
-
-type StorageConfigurationSettingsResponseInput interface {
-	pulumi.Input
-
-	ToStorageConfigurationSettingsResponseOutput() StorageConfigurationSettingsResponseOutput
-	ToStorageConfigurationSettingsResponseOutputWithContext(context.Context) StorageConfigurationSettingsResponseOutput
-}
-
-type StorageConfigurationSettingsResponseArgs struct {
-	DiskConfigurationType pulumi.StringPtrInput              `pulumi:"diskConfigurationType"`
-	SqlDataSettings       SQLStorageSettingsResponsePtrInput `pulumi:"sqlDataSettings"`
-	SqlLogSettings        SQLStorageSettingsResponsePtrInput `pulumi:"sqlLogSettings"`
-	SqlTempDbSettings     SQLStorageSettingsResponsePtrInput `pulumi:"sqlTempDbSettings"`
-	StorageWorkloadType   pulumi.StringPtrInput              `pulumi:"storageWorkloadType"`
-}
-
-func (StorageConfigurationSettingsResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*StorageConfigurationSettingsResponse)(nil)).Elem()
-}
-
-func (i StorageConfigurationSettingsResponseArgs) ToStorageConfigurationSettingsResponseOutput() StorageConfigurationSettingsResponseOutput {
-	return i.ToStorageConfigurationSettingsResponseOutputWithContext(context.Background())
-}
-
-func (i StorageConfigurationSettingsResponseArgs) ToStorageConfigurationSettingsResponseOutputWithContext(ctx context.Context) StorageConfigurationSettingsResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StorageConfigurationSettingsResponseOutput)
-}
-
-func (i StorageConfigurationSettingsResponseArgs) ToStorageConfigurationSettingsResponsePtrOutput() StorageConfigurationSettingsResponsePtrOutput {
-	return i.ToStorageConfigurationSettingsResponsePtrOutputWithContext(context.Background())
-}
-
-func (i StorageConfigurationSettingsResponseArgs) ToStorageConfigurationSettingsResponsePtrOutputWithContext(ctx context.Context) StorageConfigurationSettingsResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StorageConfigurationSettingsResponseOutput).ToStorageConfigurationSettingsResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type StorageConfigurationSettingsResponsePtrInput interface {
-	pulumi.Input
-
-	ToStorageConfigurationSettingsResponsePtrOutput() StorageConfigurationSettingsResponsePtrOutput
-	ToStorageConfigurationSettingsResponsePtrOutputWithContext(context.Context) StorageConfigurationSettingsResponsePtrOutput
-}
-
-type storageConfigurationSettingsResponsePtrType StorageConfigurationSettingsResponseArgs
-
-func StorageConfigurationSettingsResponsePtr(v *StorageConfigurationSettingsResponseArgs) StorageConfigurationSettingsResponsePtrInput {
-	return (*storageConfigurationSettingsResponsePtrType)(v)
-}
-
-func (*storageConfigurationSettingsResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**StorageConfigurationSettingsResponse)(nil)).Elem()
-}
-
-func (i *storageConfigurationSettingsResponsePtrType) ToStorageConfigurationSettingsResponsePtrOutput() StorageConfigurationSettingsResponsePtrOutput {
-	return i.ToStorageConfigurationSettingsResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *storageConfigurationSettingsResponsePtrType) ToStorageConfigurationSettingsResponsePtrOutputWithContext(ctx context.Context) StorageConfigurationSettingsResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StorageConfigurationSettingsResponsePtrOutput)
-}
-
 type StorageConfigurationSettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (StorageConfigurationSettingsResponseOutput) ElementType() reflect.Type {
@@ -4268,16 +3257,6 @@ func (o StorageConfigurationSettingsResponseOutput) ToStorageConfigurationSettin
 
 func (o StorageConfigurationSettingsResponseOutput) ToStorageConfigurationSettingsResponseOutputWithContext(ctx context.Context) StorageConfigurationSettingsResponseOutput {
 	return o
-}
-
-func (o StorageConfigurationSettingsResponseOutput) ToStorageConfigurationSettingsResponsePtrOutput() StorageConfigurationSettingsResponsePtrOutput {
-	return o.ToStorageConfigurationSettingsResponsePtrOutputWithContext(context.Background())
-}
-
-func (o StorageConfigurationSettingsResponseOutput) ToStorageConfigurationSettingsResponsePtrOutputWithContext(ctx context.Context) StorageConfigurationSettingsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v StorageConfigurationSettingsResponse) *StorageConfigurationSettingsResponse {
-		return &v
-	}).(StorageConfigurationSettingsResponsePtrOutput)
 }
 
 func (o StorageConfigurationSettingsResponseOutput) DiskConfigurationType() pulumi.StringPtrOutput {
@@ -4538,76 +3517,6 @@ type WsfcDomainCredentialsResponse struct {
 	SqlServiceAccountPassword       *string `pulumi:"sqlServiceAccountPassword"`
 }
 
-
-
-
-
-type WsfcDomainCredentialsResponseInput interface {
-	pulumi.Input
-
-	ToWsfcDomainCredentialsResponseOutput() WsfcDomainCredentialsResponseOutput
-	ToWsfcDomainCredentialsResponseOutputWithContext(context.Context) WsfcDomainCredentialsResponseOutput
-}
-
-type WsfcDomainCredentialsResponseArgs struct {
-	ClusterBootstrapAccountPassword pulumi.StringPtrInput `pulumi:"clusterBootstrapAccountPassword"`
-	ClusterOperatorAccountPassword  pulumi.StringPtrInput `pulumi:"clusterOperatorAccountPassword"`
-	SqlServiceAccountPassword       pulumi.StringPtrInput `pulumi:"sqlServiceAccountPassword"`
-}
-
-func (WsfcDomainCredentialsResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WsfcDomainCredentialsResponse)(nil)).Elem()
-}
-
-func (i WsfcDomainCredentialsResponseArgs) ToWsfcDomainCredentialsResponseOutput() WsfcDomainCredentialsResponseOutput {
-	return i.ToWsfcDomainCredentialsResponseOutputWithContext(context.Background())
-}
-
-func (i WsfcDomainCredentialsResponseArgs) ToWsfcDomainCredentialsResponseOutputWithContext(ctx context.Context) WsfcDomainCredentialsResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WsfcDomainCredentialsResponseOutput)
-}
-
-func (i WsfcDomainCredentialsResponseArgs) ToWsfcDomainCredentialsResponsePtrOutput() WsfcDomainCredentialsResponsePtrOutput {
-	return i.ToWsfcDomainCredentialsResponsePtrOutputWithContext(context.Background())
-}
-
-func (i WsfcDomainCredentialsResponseArgs) ToWsfcDomainCredentialsResponsePtrOutputWithContext(ctx context.Context) WsfcDomainCredentialsResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WsfcDomainCredentialsResponseOutput).ToWsfcDomainCredentialsResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type WsfcDomainCredentialsResponsePtrInput interface {
-	pulumi.Input
-
-	ToWsfcDomainCredentialsResponsePtrOutput() WsfcDomainCredentialsResponsePtrOutput
-	ToWsfcDomainCredentialsResponsePtrOutputWithContext(context.Context) WsfcDomainCredentialsResponsePtrOutput
-}
-
-type wsfcDomainCredentialsResponsePtrType WsfcDomainCredentialsResponseArgs
-
-func WsfcDomainCredentialsResponsePtr(v *WsfcDomainCredentialsResponseArgs) WsfcDomainCredentialsResponsePtrInput {
-	return (*wsfcDomainCredentialsResponsePtrType)(v)
-}
-
-func (*wsfcDomainCredentialsResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**WsfcDomainCredentialsResponse)(nil)).Elem()
-}
-
-func (i *wsfcDomainCredentialsResponsePtrType) ToWsfcDomainCredentialsResponsePtrOutput() WsfcDomainCredentialsResponsePtrOutput {
-	return i.ToWsfcDomainCredentialsResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *wsfcDomainCredentialsResponsePtrType) ToWsfcDomainCredentialsResponsePtrOutputWithContext(ctx context.Context) WsfcDomainCredentialsResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WsfcDomainCredentialsResponsePtrOutput)
-}
-
 type WsfcDomainCredentialsResponseOutput struct{ *pulumi.OutputState }
 
 func (WsfcDomainCredentialsResponseOutput) ElementType() reflect.Type {
@@ -4620,16 +3529,6 @@ func (o WsfcDomainCredentialsResponseOutput) ToWsfcDomainCredentialsResponseOutp
 
 func (o WsfcDomainCredentialsResponseOutput) ToWsfcDomainCredentialsResponseOutputWithContext(ctx context.Context) WsfcDomainCredentialsResponseOutput {
 	return o
-}
-
-func (o WsfcDomainCredentialsResponseOutput) ToWsfcDomainCredentialsResponsePtrOutput() WsfcDomainCredentialsResponsePtrOutput {
-	return o.ToWsfcDomainCredentialsResponsePtrOutputWithContext(context.Background())
-}
-
-func (o WsfcDomainCredentialsResponseOutput) ToWsfcDomainCredentialsResponsePtrOutputWithContext(ctx context.Context) WsfcDomainCredentialsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WsfcDomainCredentialsResponse) *WsfcDomainCredentialsResponse {
-		return &v
-	}).(WsfcDomainCredentialsResponsePtrOutput)
 }
 
 func (o WsfcDomainCredentialsResponseOutput) ClusterBootstrapAccountPassword() pulumi.StringPtrOutput {
@@ -4943,80 +3842,6 @@ type WsfcDomainProfileResponse struct {
 	StorageAccountUrl       *string `pulumi:"storageAccountUrl"`
 }
 
-
-
-
-
-type WsfcDomainProfileResponseInput interface {
-	pulumi.Input
-
-	ToWsfcDomainProfileResponseOutput() WsfcDomainProfileResponseOutput
-	ToWsfcDomainProfileResponseOutputWithContext(context.Context) WsfcDomainProfileResponseOutput
-}
-
-type WsfcDomainProfileResponseArgs struct {
-	ClusterBootstrapAccount pulumi.StringPtrInput `pulumi:"clusterBootstrapAccount"`
-	ClusterOperatorAccount  pulumi.StringPtrInput `pulumi:"clusterOperatorAccount"`
-	DomainFqdn              pulumi.StringPtrInput `pulumi:"domainFqdn"`
-	FileShareWitnessPath    pulumi.StringPtrInput `pulumi:"fileShareWitnessPath"`
-	OuPath                  pulumi.StringPtrInput `pulumi:"ouPath"`
-	SqlServiceAccount       pulumi.StringPtrInput `pulumi:"sqlServiceAccount"`
-	StorageAccountUrl       pulumi.StringPtrInput `pulumi:"storageAccountUrl"`
-}
-
-func (WsfcDomainProfileResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WsfcDomainProfileResponse)(nil)).Elem()
-}
-
-func (i WsfcDomainProfileResponseArgs) ToWsfcDomainProfileResponseOutput() WsfcDomainProfileResponseOutput {
-	return i.ToWsfcDomainProfileResponseOutputWithContext(context.Background())
-}
-
-func (i WsfcDomainProfileResponseArgs) ToWsfcDomainProfileResponseOutputWithContext(ctx context.Context) WsfcDomainProfileResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WsfcDomainProfileResponseOutput)
-}
-
-func (i WsfcDomainProfileResponseArgs) ToWsfcDomainProfileResponsePtrOutput() WsfcDomainProfileResponsePtrOutput {
-	return i.ToWsfcDomainProfileResponsePtrOutputWithContext(context.Background())
-}
-
-func (i WsfcDomainProfileResponseArgs) ToWsfcDomainProfileResponsePtrOutputWithContext(ctx context.Context) WsfcDomainProfileResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WsfcDomainProfileResponseOutput).ToWsfcDomainProfileResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type WsfcDomainProfileResponsePtrInput interface {
-	pulumi.Input
-
-	ToWsfcDomainProfileResponsePtrOutput() WsfcDomainProfileResponsePtrOutput
-	ToWsfcDomainProfileResponsePtrOutputWithContext(context.Context) WsfcDomainProfileResponsePtrOutput
-}
-
-type wsfcDomainProfileResponsePtrType WsfcDomainProfileResponseArgs
-
-func WsfcDomainProfileResponsePtr(v *WsfcDomainProfileResponseArgs) WsfcDomainProfileResponsePtrInput {
-	return (*wsfcDomainProfileResponsePtrType)(v)
-}
-
-func (*wsfcDomainProfileResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**WsfcDomainProfileResponse)(nil)).Elem()
-}
-
-func (i *wsfcDomainProfileResponsePtrType) ToWsfcDomainProfileResponsePtrOutput() WsfcDomainProfileResponsePtrOutput {
-	return i.ToWsfcDomainProfileResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *wsfcDomainProfileResponsePtrType) ToWsfcDomainProfileResponsePtrOutputWithContext(ctx context.Context) WsfcDomainProfileResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WsfcDomainProfileResponsePtrOutput)
-}
-
 type WsfcDomainProfileResponseOutput struct{ *pulumi.OutputState }
 
 func (WsfcDomainProfileResponseOutput) ElementType() reflect.Type {
@@ -5029,16 +3854,6 @@ func (o WsfcDomainProfileResponseOutput) ToWsfcDomainProfileResponseOutput() Wsf
 
 func (o WsfcDomainProfileResponseOutput) ToWsfcDomainProfileResponseOutputWithContext(ctx context.Context) WsfcDomainProfileResponseOutput {
 	return o
-}
-
-func (o WsfcDomainProfileResponseOutput) ToWsfcDomainProfileResponsePtrOutput() WsfcDomainProfileResponsePtrOutput {
-	return o.ToWsfcDomainProfileResponsePtrOutputWithContext(context.Background())
-}
-
-func (o WsfcDomainProfileResponseOutput) ToWsfcDomainProfileResponsePtrOutputWithContext(ctx context.Context) WsfcDomainProfileResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WsfcDomainProfileResponse) *WsfcDomainProfileResponse {
-		return &v
-	}).(WsfcDomainProfileResponsePtrOutput)
 }
 
 func (o WsfcDomainProfileResponseOutput) ClusterBootstrapAccount() pulumi.StringPtrOutput {

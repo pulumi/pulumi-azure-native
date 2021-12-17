@@ -37,9 +37,8 @@ func NewContainerApp(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	configurationApplier := func(v Configuration) *Configuration { return v.Defaults() }
 	if args.Configuration != nil {
-		args.Configuration = args.Configuration.ToConfigurationPtrOutput().Elem().ApplyT(configurationApplier).(ConfigurationPtrOutput)
+		args.Configuration = args.Configuration.ToConfigurationPtrOutput().ApplyT(func(v *Configuration) *Configuration { return v.Defaults() }).(ConfigurationPtrOutput)
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

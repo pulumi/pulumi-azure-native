@@ -115,59 +115,6 @@ type HealthAlertActionResponse struct {
 	WebHookProperties map[string]string `pulumi:"webHookProperties"`
 }
 
-
-
-
-
-type HealthAlertActionResponseInput interface {
-	pulumi.Input
-
-	ToHealthAlertActionResponseOutput() HealthAlertActionResponseOutput
-	ToHealthAlertActionResponseOutputWithContext(context.Context) HealthAlertActionResponseOutput
-}
-
-type HealthAlertActionResponseArgs struct {
-	ActionGroupId     pulumi.StringPtrInput `pulumi:"actionGroupId"`
-	WebHookProperties pulumi.StringMapInput `pulumi:"webHookProperties"`
-}
-
-func (HealthAlertActionResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*HealthAlertActionResponse)(nil)).Elem()
-}
-
-func (i HealthAlertActionResponseArgs) ToHealthAlertActionResponseOutput() HealthAlertActionResponseOutput {
-	return i.ToHealthAlertActionResponseOutputWithContext(context.Background())
-}
-
-func (i HealthAlertActionResponseArgs) ToHealthAlertActionResponseOutputWithContext(ctx context.Context) HealthAlertActionResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HealthAlertActionResponseOutput)
-}
-
-
-
-
-
-type HealthAlertActionResponseArrayInput interface {
-	pulumi.Input
-
-	ToHealthAlertActionResponseArrayOutput() HealthAlertActionResponseArrayOutput
-	ToHealthAlertActionResponseArrayOutputWithContext(context.Context) HealthAlertActionResponseArrayOutput
-}
-
-type HealthAlertActionResponseArray []HealthAlertActionResponseInput
-
-func (HealthAlertActionResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]HealthAlertActionResponse)(nil)).Elem()
-}
-
-func (i HealthAlertActionResponseArray) ToHealthAlertActionResponseArrayOutput() HealthAlertActionResponseArrayOutput {
-	return i.ToHealthAlertActionResponseArrayOutputWithContext(context.Background())
-}
-
-func (i HealthAlertActionResponseArray) ToHealthAlertActionResponseArrayOutputWithContext(ctx context.Context) HealthAlertActionResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HealthAlertActionResponseArrayOutput)
-}
-
 type HealthAlertActionResponseOutput struct{ *pulumi.OutputState }
 
 func (HealthAlertActionResponseOutput) ElementType() reflect.Type {
@@ -241,47 +188,6 @@ func (i HealthAlertCriteriaArgs) ToHealthAlertCriteriaOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(HealthAlertCriteriaOutput)
 }
 
-func (i HealthAlertCriteriaArgs) ToHealthAlertCriteriaPtrOutput() HealthAlertCriteriaPtrOutput {
-	return i.ToHealthAlertCriteriaPtrOutputWithContext(context.Background())
-}
-
-func (i HealthAlertCriteriaArgs) ToHealthAlertCriteriaPtrOutputWithContext(ctx context.Context) HealthAlertCriteriaPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HealthAlertCriteriaOutput).ToHealthAlertCriteriaPtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type HealthAlertCriteriaPtrInput interface {
-	pulumi.Input
-
-	ToHealthAlertCriteriaPtrOutput() HealthAlertCriteriaPtrOutput
-	ToHealthAlertCriteriaPtrOutputWithContext(context.Context) HealthAlertCriteriaPtrOutput
-}
-
-type healthAlertCriteriaPtrType HealthAlertCriteriaArgs
-
-func HealthAlertCriteriaPtr(v *HealthAlertCriteriaArgs) HealthAlertCriteriaPtrInput {
-	return (*healthAlertCriteriaPtrType)(v)
-}
-
-func (*healthAlertCriteriaPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**HealthAlertCriteria)(nil)).Elem()
-}
-
-func (i *healthAlertCriteriaPtrType) ToHealthAlertCriteriaPtrOutput() HealthAlertCriteriaPtrOutput {
-	return i.ToHealthAlertCriteriaPtrOutputWithContext(context.Background())
-}
-
-func (i *healthAlertCriteriaPtrType) ToHealthAlertCriteriaPtrOutputWithContext(ctx context.Context) HealthAlertCriteriaPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HealthAlertCriteriaPtrOutput)
-}
-
 type HealthAlertCriteriaOutput struct{ *pulumi.OutputState }
 
 func (HealthAlertCriteriaOutput) ElementType() reflect.Type {
@@ -296,123 +202,12 @@ func (o HealthAlertCriteriaOutput) ToHealthAlertCriteriaOutputWithContext(ctx co
 	return o
 }
 
-func (o HealthAlertCriteriaOutput) ToHealthAlertCriteriaPtrOutput() HealthAlertCriteriaPtrOutput {
-	return o.ToHealthAlertCriteriaPtrOutputWithContext(context.Background())
-}
-
-func (o HealthAlertCriteriaOutput) ToHealthAlertCriteriaPtrOutputWithContext(ctx context.Context) HealthAlertCriteriaPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v HealthAlertCriteria) *HealthAlertCriteria {
-		return &v
-	}).(HealthAlertCriteriaPtrOutput)
-}
-
 func (o HealthAlertCriteriaOutput) AllOf() VmGuestHealthAlertCriterionArrayOutput {
 	return o.ApplyT(func(v HealthAlertCriteria) []VmGuestHealthAlertCriterion { return v.AllOf }).(VmGuestHealthAlertCriterionArrayOutput)
 }
 
-type HealthAlertCriteriaPtrOutput struct{ *pulumi.OutputState }
-
-func (HealthAlertCriteriaPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**HealthAlertCriteria)(nil)).Elem()
-}
-
-func (o HealthAlertCriteriaPtrOutput) ToHealthAlertCriteriaPtrOutput() HealthAlertCriteriaPtrOutput {
-	return o
-}
-
-func (o HealthAlertCriteriaPtrOutput) ToHealthAlertCriteriaPtrOutputWithContext(ctx context.Context) HealthAlertCriteriaPtrOutput {
-	return o
-}
-
-func (o HealthAlertCriteriaPtrOutput) Elem() HealthAlertCriteriaOutput {
-	return o.ApplyT(func(v *HealthAlertCriteria) HealthAlertCriteria {
-		if v != nil {
-			return *v
-		}
-		var ret HealthAlertCriteria
-		return ret
-	}).(HealthAlertCriteriaOutput)
-}
-
-func (o HealthAlertCriteriaPtrOutput) AllOf() VmGuestHealthAlertCriterionArrayOutput {
-	return o.ApplyT(func(v *HealthAlertCriteria) []VmGuestHealthAlertCriterion {
-		if v == nil {
-			return nil
-		}
-		return v.AllOf
-	}).(VmGuestHealthAlertCriterionArrayOutput)
-}
-
 type HealthAlertCriteriaResponse struct {
 	AllOf []VmGuestHealthAlertCriterionResponse `pulumi:"allOf"`
-}
-
-
-
-
-
-type HealthAlertCriteriaResponseInput interface {
-	pulumi.Input
-
-	ToHealthAlertCriteriaResponseOutput() HealthAlertCriteriaResponseOutput
-	ToHealthAlertCriteriaResponseOutputWithContext(context.Context) HealthAlertCriteriaResponseOutput
-}
-
-type HealthAlertCriteriaResponseArgs struct {
-	AllOf VmGuestHealthAlertCriterionResponseArrayInput `pulumi:"allOf"`
-}
-
-func (HealthAlertCriteriaResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*HealthAlertCriteriaResponse)(nil)).Elem()
-}
-
-func (i HealthAlertCriteriaResponseArgs) ToHealthAlertCriteriaResponseOutput() HealthAlertCriteriaResponseOutput {
-	return i.ToHealthAlertCriteriaResponseOutputWithContext(context.Background())
-}
-
-func (i HealthAlertCriteriaResponseArgs) ToHealthAlertCriteriaResponseOutputWithContext(ctx context.Context) HealthAlertCriteriaResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HealthAlertCriteriaResponseOutput)
-}
-
-func (i HealthAlertCriteriaResponseArgs) ToHealthAlertCriteriaResponsePtrOutput() HealthAlertCriteriaResponsePtrOutput {
-	return i.ToHealthAlertCriteriaResponsePtrOutputWithContext(context.Background())
-}
-
-func (i HealthAlertCriteriaResponseArgs) ToHealthAlertCriteriaResponsePtrOutputWithContext(ctx context.Context) HealthAlertCriteriaResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HealthAlertCriteriaResponseOutput).ToHealthAlertCriteriaResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type HealthAlertCriteriaResponsePtrInput interface {
-	pulumi.Input
-
-	ToHealthAlertCriteriaResponsePtrOutput() HealthAlertCriteriaResponsePtrOutput
-	ToHealthAlertCriteriaResponsePtrOutputWithContext(context.Context) HealthAlertCriteriaResponsePtrOutput
-}
-
-type healthAlertCriteriaResponsePtrType HealthAlertCriteriaResponseArgs
-
-func HealthAlertCriteriaResponsePtr(v *HealthAlertCriteriaResponseArgs) HealthAlertCriteriaResponsePtrInput {
-	return (*healthAlertCriteriaResponsePtrType)(v)
-}
-
-func (*healthAlertCriteriaResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**HealthAlertCriteriaResponse)(nil)).Elem()
-}
-
-func (i *healthAlertCriteriaResponsePtrType) ToHealthAlertCriteriaResponsePtrOutput() HealthAlertCriteriaResponsePtrOutput {
-	return i.ToHealthAlertCriteriaResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *healthAlertCriteriaResponsePtrType) ToHealthAlertCriteriaResponsePtrOutputWithContext(ctx context.Context) HealthAlertCriteriaResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HealthAlertCriteriaResponsePtrOutput)
 }
 
 type HealthAlertCriteriaResponseOutput struct{ *pulumi.OutputState }
@@ -429,51 +224,8 @@ func (o HealthAlertCriteriaResponseOutput) ToHealthAlertCriteriaResponseOutputWi
 	return o
 }
 
-func (o HealthAlertCriteriaResponseOutput) ToHealthAlertCriteriaResponsePtrOutput() HealthAlertCriteriaResponsePtrOutput {
-	return o.ToHealthAlertCriteriaResponsePtrOutputWithContext(context.Background())
-}
-
-func (o HealthAlertCriteriaResponseOutput) ToHealthAlertCriteriaResponsePtrOutputWithContext(ctx context.Context) HealthAlertCriteriaResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v HealthAlertCriteriaResponse) *HealthAlertCriteriaResponse {
-		return &v
-	}).(HealthAlertCriteriaResponsePtrOutput)
-}
-
 func (o HealthAlertCriteriaResponseOutput) AllOf() VmGuestHealthAlertCriterionResponseArrayOutput {
 	return o.ApplyT(func(v HealthAlertCriteriaResponse) []VmGuestHealthAlertCriterionResponse { return v.AllOf }).(VmGuestHealthAlertCriterionResponseArrayOutput)
-}
-
-type HealthAlertCriteriaResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (HealthAlertCriteriaResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**HealthAlertCriteriaResponse)(nil)).Elem()
-}
-
-func (o HealthAlertCriteriaResponsePtrOutput) ToHealthAlertCriteriaResponsePtrOutput() HealthAlertCriteriaResponsePtrOutput {
-	return o
-}
-
-func (o HealthAlertCriteriaResponsePtrOutput) ToHealthAlertCriteriaResponsePtrOutputWithContext(ctx context.Context) HealthAlertCriteriaResponsePtrOutput {
-	return o
-}
-
-func (o HealthAlertCriteriaResponsePtrOutput) Elem() HealthAlertCriteriaResponseOutput {
-	return o.ApplyT(func(v *HealthAlertCriteriaResponse) HealthAlertCriteriaResponse {
-		if v != nil {
-			return *v
-		}
-		var ret HealthAlertCriteriaResponse
-		return ret
-	}).(HealthAlertCriteriaResponseOutput)
-}
-
-func (o HealthAlertCriteriaResponsePtrOutput) AllOf() VmGuestHealthAlertCriterionResponseArrayOutput {
-	return o.ApplyT(func(v *HealthAlertCriteriaResponse) []VmGuestHealthAlertCriterionResponse {
-		if v == nil {
-			return nil
-		}
-		return v.AllOf
-	}).(VmGuestHealthAlertCriterionResponseArrayOutput)
 }
 
 type HealthState struct {
@@ -579,59 +331,6 @@ func (o HealthStateArrayOutput) Index(i pulumi.IntInput) HealthStateOutput {
 type HealthStateResponse struct {
 	HealthStateName string  `pulumi:"healthStateName"`
 	Severity        float64 `pulumi:"severity"`
-}
-
-
-
-
-
-type HealthStateResponseInput interface {
-	pulumi.Input
-
-	ToHealthStateResponseOutput() HealthStateResponseOutput
-	ToHealthStateResponseOutputWithContext(context.Context) HealthStateResponseOutput
-}
-
-type HealthStateResponseArgs struct {
-	HealthStateName pulumi.StringInput  `pulumi:"healthStateName"`
-	Severity        pulumi.Float64Input `pulumi:"severity"`
-}
-
-func (HealthStateResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*HealthStateResponse)(nil)).Elem()
-}
-
-func (i HealthStateResponseArgs) ToHealthStateResponseOutput() HealthStateResponseOutput {
-	return i.ToHealthStateResponseOutputWithContext(context.Background())
-}
-
-func (i HealthStateResponseArgs) ToHealthStateResponseOutputWithContext(ctx context.Context) HealthStateResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HealthStateResponseOutput)
-}
-
-
-
-
-
-type HealthStateResponseArrayInput interface {
-	pulumi.Input
-
-	ToHealthStateResponseArrayOutput() HealthStateResponseArrayOutput
-	ToHealthStateResponseArrayOutputWithContext(context.Context) HealthStateResponseArrayOutput
-}
-
-type HealthStateResponseArray []HealthStateResponseInput
-
-func (HealthStateResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]HealthStateResponse)(nil)).Elem()
-}
-
-func (i HealthStateResponseArray) ToHealthStateResponseArrayOutput() HealthStateResponseArrayOutput {
-	return i.ToHealthStateResponseArrayOutputWithContext(context.Background())
-}
-
-func (i HealthStateResponseArray) ToHealthStateResponseArrayOutputWithContext(ctx context.Context) HealthStateResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HealthStateResponseArrayOutput)
 }
 
 type HealthStateResponseOutput struct{ *pulumi.OutputState }
@@ -795,61 +494,6 @@ type VmGuestHealthAlertCriterionResponse struct {
 	Namespace    string                `pulumi:"namespace"`
 }
 
-
-
-
-
-type VmGuestHealthAlertCriterionResponseInput interface {
-	pulumi.Input
-
-	ToVmGuestHealthAlertCriterionResponseOutput() VmGuestHealthAlertCriterionResponseOutput
-	ToVmGuestHealthAlertCriterionResponseOutputWithContext(context.Context) VmGuestHealthAlertCriterionResponseOutput
-}
-
-type VmGuestHealthAlertCriterionResponseArgs struct {
-	HealthStates HealthStateResponseArrayInput `pulumi:"healthStates"`
-	MonitorNames pulumi.StringArrayInput       `pulumi:"monitorNames"`
-	MonitorTypes pulumi.StringArrayInput       `pulumi:"monitorTypes"`
-	Namespace    pulumi.StringInput            `pulumi:"namespace"`
-}
-
-func (VmGuestHealthAlertCriterionResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*VmGuestHealthAlertCriterionResponse)(nil)).Elem()
-}
-
-func (i VmGuestHealthAlertCriterionResponseArgs) ToVmGuestHealthAlertCriterionResponseOutput() VmGuestHealthAlertCriterionResponseOutput {
-	return i.ToVmGuestHealthAlertCriterionResponseOutputWithContext(context.Background())
-}
-
-func (i VmGuestHealthAlertCriterionResponseArgs) ToVmGuestHealthAlertCriterionResponseOutputWithContext(ctx context.Context) VmGuestHealthAlertCriterionResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VmGuestHealthAlertCriterionResponseOutput)
-}
-
-
-
-
-
-type VmGuestHealthAlertCriterionResponseArrayInput interface {
-	pulumi.Input
-
-	ToVmGuestHealthAlertCriterionResponseArrayOutput() VmGuestHealthAlertCriterionResponseArrayOutput
-	ToVmGuestHealthAlertCriterionResponseArrayOutputWithContext(context.Context) VmGuestHealthAlertCriterionResponseArrayOutput
-}
-
-type VmGuestHealthAlertCriterionResponseArray []VmGuestHealthAlertCriterionResponseInput
-
-func (VmGuestHealthAlertCriterionResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]VmGuestHealthAlertCriterionResponse)(nil)).Elem()
-}
-
-func (i VmGuestHealthAlertCriterionResponseArray) ToVmGuestHealthAlertCriterionResponseArrayOutput() VmGuestHealthAlertCriterionResponseArrayOutput {
-	return i.ToVmGuestHealthAlertCriterionResponseArrayOutputWithContext(context.Background())
-}
-
-func (i VmGuestHealthAlertCriterionResponseArray) ToVmGuestHealthAlertCriterionResponseArrayOutputWithContext(ctx context.Context) VmGuestHealthAlertCriterionResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VmGuestHealthAlertCriterionResponseArrayOutput)
-}
-
 type VmGuestHealthAlertCriterionResponseOutput struct{ *pulumi.OutputState }
 
 func (VmGuestHealthAlertCriterionResponseOutput) ElementType() reflect.Type {
@@ -906,9 +550,7 @@ func init() {
 	pulumi.RegisterOutputType(HealthAlertActionResponseOutput{})
 	pulumi.RegisterOutputType(HealthAlertActionResponseArrayOutput{})
 	pulumi.RegisterOutputType(HealthAlertCriteriaOutput{})
-	pulumi.RegisterOutputType(HealthAlertCriteriaPtrOutput{})
 	pulumi.RegisterOutputType(HealthAlertCriteriaResponseOutput{})
-	pulumi.RegisterOutputType(HealthAlertCriteriaResponsePtrOutput{})
 	pulumi.RegisterOutputType(HealthStateOutput{})
 	pulumi.RegisterOutputType(HealthStateArrayOutput{})
 	pulumi.RegisterOutputType(HealthStateResponseOutput{})

@@ -15,75 +15,6 @@ type EnvironmentStateDetailsResponse struct {
 	Message *string `pulumi:"message"`
 }
 
-
-
-
-
-type EnvironmentStateDetailsResponseInput interface {
-	pulumi.Input
-
-	ToEnvironmentStateDetailsResponseOutput() EnvironmentStateDetailsResponseOutput
-	ToEnvironmentStateDetailsResponseOutputWithContext(context.Context) EnvironmentStateDetailsResponseOutput
-}
-
-type EnvironmentStateDetailsResponseArgs struct {
-	Code    pulumi.StringPtrInput `pulumi:"code"`
-	Message pulumi.StringPtrInput `pulumi:"message"`
-}
-
-func (EnvironmentStateDetailsResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*EnvironmentStateDetailsResponse)(nil)).Elem()
-}
-
-func (i EnvironmentStateDetailsResponseArgs) ToEnvironmentStateDetailsResponseOutput() EnvironmentStateDetailsResponseOutput {
-	return i.ToEnvironmentStateDetailsResponseOutputWithContext(context.Background())
-}
-
-func (i EnvironmentStateDetailsResponseArgs) ToEnvironmentStateDetailsResponseOutputWithContext(ctx context.Context) EnvironmentStateDetailsResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentStateDetailsResponseOutput)
-}
-
-func (i EnvironmentStateDetailsResponseArgs) ToEnvironmentStateDetailsResponsePtrOutput() EnvironmentStateDetailsResponsePtrOutput {
-	return i.ToEnvironmentStateDetailsResponsePtrOutputWithContext(context.Background())
-}
-
-func (i EnvironmentStateDetailsResponseArgs) ToEnvironmentStateDetailsResponsePtrOutputWithContext(ctx context.Context) EnvironmentStateDetailsResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentStateDetailsResponseOutput).ToEnvironmentStateDetailsResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type EnvironmentStateDetailsResponsePtrInput interface {
-	pulumi.Input
-
-	ToEnvironmentStateDetailsResponsePtrOutput() EnvironmentStateDetailsResponsePtrOutput
-	ToEnvironmentStateDetailsResponsePtrOutputWithContext(context.Context) EnvironmentStateDetailsResponsePtrOutput
-}
-
-type environmentStateDetailsResponsePtrType EnvironmentStateDetailsResponseArgs
-
-func EnvironmentStateDetailsResponsePtr(v *EnvironmentStateDetailsResponseArgs) EnvironmentStateDetailsResponsePtrInput {
-	return (*environmentStateDetailsResponsePtrType)(v)
-}
-
-func (*environmentStateDetailsResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**EnvironmentStateDetailsResponse)(nil)).Elem()
-}
-
-func (i *environmentStateDetailsResponsePtrType) ToEnvironmentStateDetailsResponsePtrOutput() EnvironmentStateDetailsResponsePtrOutput {
-	return i.ToEnvironmentStateDetailsResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *environmentStateDetailsResponsePtrType) ToEnvironmentStateDetailsResponsePtrOutputWithContext(ctx context.Context) EnvironmentStateDetailsResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentStateDetailsResponsePtrOutput)
-}
-
 type EnvironmentStateDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (EnvironmentStateDetailsResponseOutput) ElementType() reflect.Type {
@@ -98,16 +29,6 @@ func (o EnvironmentStateDetailsResponseOutput) ToEnvironmentStateDetailsResponse
 	return o
 }
 
-func (o EnvironmentStateDetailsResponseOutput) ToEnvironmentStateDetailsResponsePtrOutput() EnvironmentStateDetailsResponsePtrOutput {
-	return o.ToEnvironmentStateDetailsResponsePtrOutputWithContext(context.Background())
-}
-
-func (o EnvironmentStateDetailsResponseOutput) ToEnvironmentStateDetailsResponsePtrOutputWithContext(ctx context.Context) EnvironmentStateDetailsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v EnvironmentStateDetailsResponse) *EnvironmentStateDetailsResponse {
-		return &v
-	}).(EnvironmentStateDetailsResponsePtrOutput)
-}
-
 func (o EnvironmentStateDetailsResponseOutput) Code() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EnvironmentStateDetailsResponse) *string { return v.Code }).(pulumi.StringPtrOutput)
 }
@@ -116,120 +37,9 @@ func (o EnvironmentStateDetailsResponseOutput) Message() pulumi.StringPtrOutput 
 	return o.ApplyT(func(v EnvironmentStateDetailsResponse) *string { return v.Message }).(pulumi.StringPtrOutput)
 }
 
-type EnvironmentStateDetailsResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (EnvironmentStateDetailsResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**EnvironmentStateDetailsResponse)(nil)).Elem()
-}
-
-func (o EnvironmentStateDetailsResponsePtrOutput) ToEnvironmentStateDetailsResponsePtrOutput() EnvironmentStateDetailsResponsePtrOutput {
-	return o
-}
-
-func (o EnvironmentStateDetailsResponsePtrOutput) ToEnvironmentStateDetailsResponsePtrOutputWithContext(ctx context.Context) EnvironmentStateDetailsResponsePtrOutput {
-	return o
-}
-
-func (o EnvironmentStateDetailsResponsePtrOutput) Elem() EnvironmentStateDetailsResponseOutput {
-	return o.ApplyT(func(v *EnvironmentStateDetailsResponse) EnvironmentStateDetailsResponse {
-		if v != nil {
-			return *v
-		}
-		var ret EnvironmentStateDetailsResponse
-		return ret
-	}).(EnvironmentStateDetailsResponseOutput)
-}
-
-func (o EnvironmentStateDetailsResponsePtrOutput) Code() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *EnvironmentStateDetailsResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Code
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o EnvironmentStateDetailsResponsePtrOutput) Message() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *EnvironmentStateDetailsResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Message
-	}).(pulumi.StringPtrOutput)
-}
-
 type EnvironmentStatusResponse struct {
 	Ingress     IngressEnvironmentStatusResponse     `pulumi:"ingress"`
 	WarmStorage WarmStorageEnvironmentStatusResponse `pulumi:"warmStorage"`
-}
-
-
-
-
-
-type EnvironmentStatusResponseInput interface {
-	pulumi.Input
-
-	ToEnvironmentStatusResponseOutput() EnvironmentStatusResponseOutput
-	ToEnvironmentStatusResponseOutputWithContext(context.Context) EnvironmentStatusResponseOutput
-}
-
-type EnvironmentStatusResponseArgs struct {
-	Ingress     IngressEnvironmentStatusResponseInput     `pulumi:"ingress"`
-	WarmStorage WarmStorageEnvironmentStatusResponseInput `pulumi:"warmStorage"`
-}
-
-func (EnvironmentStatusResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*EnvironmentStatusResponse)(nil)).Elem()
-}
-
-func (i EnvironmentStatusResponseArgs) ToEnvironmentStatusResponseOutput() EnvironmentStatusResponseOutput {
-	return i.ToEnvironmentStatusResponseOutputWithContext(context.Background())
-}
-
-func (i EnvironmentStatusResponseArgs) ToEnvironmentStatusResponseOutputWithContext(ctx context.Context) EnvironmentStatusResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentStatusResponseOutput)
-}
-
-func (i EnvironmentStatusResponseArgs) ToEnvironmentStatusResponsePtrOutput() EnvironmentStatusResponsePtrOutput {
-	return i.ToEnvironmentStatusResponsePtrOutputWithContext(context.Background())
-}
-
-func (i EnvironmentStatusResponseArgs) ToEnvironmentStatusResponsePtrOutputWithContext(ctx context.Context) EnvironmentStatusResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentStatusResponseOutput).ToEnvironmentStatusResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type EnvironmentStatusResponsePtrInput interface {
-	pulumi.Input
-
-	ToEnvironmentStatusResponsePtrOutput() EnvironmentStatusResponsePtrOutput
-	ToEnvironmentStatusResponsePtrOutputWithContext(context.Context) EnvironmentStatusResponsePtrOutput
-}
-
-type environmentStatusResponsePtrType EnvironmentStatusResponseArgs
-
-func EnvironmentStatusResponsePtr(v *EnvironmentStatusResponseArgs) EnvironmentStatusResponsePtrInput {
-	return (*environmentStatusResponsePtrType)(v)
-}
-
-func (*environmentStatusResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**EnvironmentStatusResponse)(nil)).Elem()
-}
-
-func (i *environmentStatusResponsePtrType) ToEnvironmentStatusResponsePtrOutput() EnvironmentStatusResponsePtrOutput {
-	return i.ToEnvironmentStatusResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *environmentStatusResponsePtrType) ToEnvironmentStatusResponsePtrOutputWithContext(ctx context.Context) EnvironmentStatusResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentStatusResponsePtrOutput)
 }
 
 type EnvironmentStatusResponseOutput struct{ *pulumi.OutputState }
@@ -246,16 +56,6 @@ func (o EnvironmentStatusResponseOutput) ToEnvironmentStatusResponseOutputWithCo
 	return o
 }
 
-func (o EnvironmentStatusResponseOutput) ToEnvironmentStatusResponsePtrOutput() EnvironmentStatusResponsePtrOutput {
-	return o.ToEnvironmentStatusResponsePtrOutputWithContext(context.Background())
-}
-
-func (o EnvironmentStatusResponseOutput) ToEnvironmentStatusResponsePtrOutputWithContext(ctx context.Context) EnvironmentStatusResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v EnvironmentStatusResponse) *EnvironmentStatusResponse {
-		return &v
-	}).(EnvironmentStatusResponsePtrOutput)
-}
-
 func (o EnvironmentStatusResponseOutput) Ingress() IngressEnvironmentStatusResponseOutput {
 	return o.ApplyT(func(v EnvironmentStatusResponse) IngressEnvironmentStatusResponse { return v.Ingress }).(IngressEnvironmentStatusResponseOutput)
 }
@@ -264,120 +64,9 @@ func (o EnvironmentStatusResponseOutput) WarmStorage() WarmStorageEnvironmentSta
 	return o.ApplyT(func(v EnvironmentStatusResponse) WarmStorageEnvironmentStatusResponse { return v.WarmStorage }).(WarmStorageEnvironmentStatusResponseOutput)
 }
 
-type EnvironmentStatusResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (EnvironmentStatusResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**EnvironmentStatusResponse)(nil)).Elem()
-}
-
-func (o EnvironmentStatusResponsePtrOutput) ToEnvironmentStatusResponsePtrOutput() EnvironmentStatusResponsePtrOutput {
-	return o
-}
-
-func (o EnvironmentStatusResponsePtrOutput) ToEnvironmentStatusResponsePtrOutputWithContext(ctx context.Context) EnvironmentStatusResponsePtrOutput {
-	return o
-}
-
-func (o EnvironmentStatusResponsePtrOutput) Elem() EnvironmentStatusResponseOutput {
-	return o.ApplyT(func(v *EnvironmentStatusResponse) EnvironmentStatusResponse {
-		if v != nil {
-			return *v
-		}
-		var ret EnvironmentStatusResponse
-		return ret
-	}).(EnvironmentStatusResponseOutput)
-}
-
-func (o EnvironmentStatusResponsePtrOutput) Ingress() IngressEnvironmentStatusResponsePtrOutput {
-	return o.ApplyT(func(v *EnvironmentStatusResponse) *IngressEnvironmentStatusResponse {
-		if v == nil {
-			return nil
-		}
-		return &v.Ingress
-	}).(IngressEnvironmentStatusResponsePtrOutput)
-}
-
-func (o EnvironmentStatusResponsePtrOutput) WarmStorage() WarmStorageEnvironmentStatusResponsePtrOutput {
-	return o.ApplyT(func(v *EnvironmentStatusResponse) *WarmStorageEnvironmentStatusResponse {
-		if v == nil {
-			return nil
-		}
-		return &v.WarmStorage
-	}).(WarmStorageEnvironmentStatusResponsePtrOutput)
-}
-
 type IngressEnvironmentStatusResponse struct {
 	State        *string                         `pulumi:"state"`
 	StateDetails EnvironmentStateDetailsResponse `pulumi:"stateDetails"`
-}
-
-
-
-
-
-type IngressEnvironmentStatusResponseInput interface {
-	pulumi.Input
-
-	ToIngressEnvironmentStatusResponseOutput() IngressEnvironmentStatusResponseOutput
-	ToIngressEnvironmentStatusResponseOutputWithContext(context.Context) IngressEnvironmentStatusResponseOutput
-}
-
-type IngressEnvironmentStatusResponseArgs struct {
-	State        pulumi.StringPtrInput                `pulumi:"state"`
-	StateDetails EnvironmentStateDetailsResponseInput `pulumi:"stateDetails"`
-}
-
-func (IngressEnvironmentStatusResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*IngressEnvironmentStatusResponse)(nil)).Elem()
-}
-
-func (i IngressEnvironmentStatusResponseArgs) ToIngressEnvironmentStatusResponseOutput() IngressEnvironmentStatusResponseOutput {
-	return i.ToIngressEnvironmentStatusResponseOutputWithContext(context.Background())
-}
-
-func (i IngressEnvironmentStatusResponseArgs) ToIngressEnvironmentStatusResponseOutputWithContext(ctx context.Context) IngressEnvironmentStatusResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IngressEnvironmentStatusResponseOutput)
-}
-
-func (i IngressEnvironmentStatusResponseArgs) ToIngressEnvironmentStatusResponsePtrOutput() IngressEnvironmentStatusResponsePtrOutput {
-	return i.ToIngressEnvironmentStatusResponsePtrOutputWithContext(context.Background())
-}
-
-func (i IngressEnvironmentStatusResponseArgs) ToIngressEnvironmentStatusResponsePtrOutputWithContext(ctx context.Context) IngressEnvironmentStatusResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IngressEnvironmentStatusResponseOutput).ToIngressEnvironmentStatusResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type IngressEnvironmentStatusResponsePtrInput interface {
-	pulumi.Input
-
-	ToIngressEnvironmentStatusResponsePtrOutput() IngressEnvironmentStatusResponsePtrOutput
-	ToIngressEnvironmentStatusResponsePtrOutputWithContext(context.Context) IngressEnvironmentStatusResponsePtrOutput
-}
-
-type ingressEnvironmentStatusResponsePtrType IngressEnvironmentStatusResponseArgs
-
-func IngressEnvironmentStatusResponsePtr(v *IngressEnvironmentStatusResponseArgs) IngressEnvironmentStatusResponsePtrInput {
-	return (*ingressEnvironmentStatusResponsePtrType)(v)
-}
-
-func (*ingressEnvironmentStatusResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**IngressEnvironmentStatusResponse)(nil)).Elem()
-}
-
-func (i *ingressEnvironmentStatusResponsePtrType) ToIngressEnvironmentStatusResponsePtrOutput() IngressEnvironmentStatusResponsePtrOutput {
-	return i.ToIngressEnvironmentStatusResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *ingressEnvironmentStatusResponsePtrType) ToIngressEnvironmentStatusResponsePtrOutputWithContext(ctx context.Context) IngressEnvironmentStatusResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IngressEnvironmentStatusResponsePtrOutput)
 }
 
 type IngressEnvironmentStatusResponseOutput struct{ *pulumi.OutputState }
@@ -394,64 +83,12 @@ func (o IngressEnvironmentStatusResponseOutput) ToIngressEnvironmentStatusRespon
 	return o
 }
 
-func (o IngressEnvironmentStatusResponseOutput) ToIngressEnvironmentStatusResponsePtrOutput() IngressEnvironmentStatusResponsePtrOutput {
-	return o.ToIngressEnvironmentStatusResponsePtrOutputWithContext(context.Background())
-}
-
-func (o IngressEnvironmentStatusResponseOutput) ToIngressEnvironmentStatusResponsePtrOutputWithContext(ctx context.Context) IngressEnvironmentStatusResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v IngressEnvironmentStatusResponse) *IngressEnvironmentStatusResponse {
-		return &v
-	}).(IngressEnvironmentStatusResponsePtrOutput)
-}
-
 func (o IngressEnvironmentStatusResponseOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IngressEnvironmentStatusResponse) *string { return v.State }).(pulumi.StringPtrOutput)
 }
 
 func (o IngressEnvironmentStatusResponseOutput) StateDetails() EnvironmentStateDetailsResponseOutput {
 	return o.ApplyT(func(v IngressEnvironmentStatusResponse) EnvironmentStateDetailsResponse { return v.StateDetails }).(EnvironmentStateDetailsResponseOutput)
-}
-
-type IngressEnvironmentStatusResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (IngressEnvironmentStatusResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**IngressEnvironmentStatusResponse)(nil)).Elem()
-}
-
-func (o IngressEnvironmentStatusResponsePtrOutput) ToIngressEnvironmentStatusResponsePtrOutput() IngressEnvironmentStatusResponsePtrOutput {
-	return o
-}
-
-func (o IngressEnvironmentStatusResponsePtrOutput) ToIngressEnvironmentStatusResponsePtrOutputWithContext(ctx context.Context) IngressEnvironmentStatusResponsePtrOutput {
-	return o
-}
-
-func (o IngressEnvironmentStatusResponsePtrOutput) Elem() IngressEnvironmentStatusResponseOutput {
-	return o.ApplyT(func(v *IngressEnvironmentStatusResponse) IngressEnvironmentStatusResponse {
-		if v != nil {
-			return *v
-		}
-		var ret IngressEnvironmentStatusResponse
-		return ret
-	}).(IngressEnvironmentStatusResponseOutput)
-}
-
-func (o IngressEnvironmentStatusResponsePtrOutput) State() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *IngressEnvironmentStatusResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.State
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o IngressEnvironmentStatusResponsePtrOutput) StateDetails() EnvironmentStateDetailsResponsePtrOutput {
-	return o.ApplyT(func(v *IngressEnvironmentStatusResponse) *EnvironmentStateDetailsResponse {
-		if v == nil {
-			return nil
-		}
-		return &v.StateDetails
-	}).(EnvironmentStateDetailsResponsePtrOutput)
 }
 
 type LocalTimestamp struct {
@@ -768,47 +405,6 @@ func (i LongTermStorageConfigurationInputArgs) ToLongTermStorageConfigurationInp
 	return pulumi.ToOutputWithContext(ctx, i).(LongTermStorageConfigurationInputOutput)
 }
 
-func (i LongTermStorageConfigurationInputArgs) ToLongTermStorageConfigurationInputPtrOutput() LongTermStorageConfigurationInputPtrOutput {
-	return i.ToLongTermStorageConfigurationInputPtrOutputWithContext(context.Background())
-}
-
-func (i LongTermStorageConfigurationInputArgs) ToLongTermStorageConfigurationInputPtrOutputWithContext(ctx context.Context) LongTermStorageConfigurationInputPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LongTermStorageConfigurationInputOutput).ToLongTermStorageConfigurationInputPtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type LongTermStorageConfigurationInputPtrInput interface {
-	pulumi.Input
-
-	ToLongTermStorageConfigurationInputPtrOutput() LongTermStorageConfigurationInputPtrOutput
-	ToLongTermStorageConfigurationInputPtrOutputWithContext(context.Context) LongTermStorageConfigurationInputPtrOutput
-}
-
-type longTermStorageConfigurationInputPtrType LongTermStorageConfigurationInputArgs
-
-func LongTermStorageConfigurationInputPtr(v *LongTermStorageConfigurationInputArgs) LongTermStorageConfigurationInputPtrInput {
-	return (*longTermStorageConfigurationInputPtrType)(v)
-}
-
-func (*longTermStorageConfigurationInputPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**LongTermStorageConfigurationInput)(nil)).Elem()
-}
-
-func (i *longTermStorageConfigurationInputPtrType) ToLongTermStorageConfigurationInputPtrOutput() LongTermStorageConfigurationInputPtrOutput {
-	return i.ToLongTermStorageConfigurationInputPtrOutputWithContext(context.Background())
-}
-
-func (i *longTermStorageConfigurationInputPtrType) ToLongTermStorageConfigurationInputPtrOutputWithContext(ctx context.Context) LongTermStorageConfigurationInputPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LongTermStorageConfigurationInputPtrOutput)
-}
-
 type LongTermStorageConfigurationInputOutput struct{ *pulumi.OutputState }
 
 func (LongTermStorageConfigurationInputOutput) ElementType() reflect.Type {
@@ -823,16 +419,6 @@ func (o LongTermStorageConfigurationInputOutput) ToLongTermStorageConfigurationI
 	return o
 }
 
-func (o LongTermStorageConfigurationInputOutput) ToLongTermStorageConfigurationInputPtrOutput() LongTermStorageConfigurationInputPtrOutput {
-	return o.ToLongTermStorageConfigurationInputPtrOutputWithContext(context.Background())
-}
-
-func (o LongTermStorageConfigurationInputOutput) ToLongTermStorageConfigurationInputPtrOutputWithContext(ctx context.Context) LongTermStorageConfigurationInputPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LongTermStorageConfigurationInput) *LongTermStorageConfigurationInput {
-		return &v
-	}).(LongTermStorageConfigurationInputPtrOutput)
-}
-
 func (o LongTermStorageConfigurationInputOutput) AccountName() pulumi.StringOutput {
 	return o.ApplyT(func(v LongTermStorageConfigurationInput) string { return v.AccountName }).(pulumi.StringOutput)
 }
@@ -841,118 +427,8 @@ func (o LongTermStorageConfigurationInputOutput) ManagementKey() pulumi.StringOu
 	return o.ApplyT(func(v LongTermStorageConfigurationInput) string { return v.ManagementKey }).(pulumi.StringOutput)
 }
 
-type LongTermStorageConfigurationInputPtrOutput struct{ *pulumi.OutputState }
-
-func (LongTermStorageConfigurationInputPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**LongTermStorageConfigurationInput)(nil)).Elem()
-}
-
-func (o LongTermStorageConfigurationInputPtrOutput) ToLongTermStorageConfigurationInputPtrOutput() LongTermStorageConfigurationInputPtrOutput {
-	return o
-}
-
-func (o LongTermStorageConfigurationInputPtrOutput) ToLongTermStorageConfigurationInputPtrOutputWithContext(ctx context.Context) LongTermStorageConfigurationInputPtrOutput {
-	return o
-}
-
-func (o LongTermStorageConfigurationInputPtrOutput) Elem() LongTermStorageConfigurationInputOutput {
-	return o.ApplyT(func(v *LongTermStorageConfigurationInput) LongTermStorageConfigurationInput {
-		if v != nil {
-			return *v
-		}
-		var ret LongTermStorageConfigurationInput
-		return ret
-	}).(LongTermStorageConfigurationInputOutput)
-}
-
-func (o LongTermStorageConfigurationInputPtrOutput) AccountName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LongTermStorageConfigurationInput) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.AccountName
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o LongTermStorageConfigurationInputPtrOutput) ManagementKey() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LongTermStorageConfigurationInput) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.ManagementKey
-	}).(pulumi.StringPtrOutput)
-}
-
 type LongTermStorageConfigurationOutputResponse struct {
 	AccountName string `pulumi:"accountName"`
-}
-
-
-
-
-
-type LongTermStorageConfigurationOutputResponseInput interface {
-	pulumi.Input
-
-	ToLongTermStorageConfigurationOutputResponseOutput() LongTermStorageConfigurationOutputResponseOutput
-	ToLongTermStorageConfigurationOutputResponseOutputWithContext(context.Context) LongTermStorageConfigurationOutputResponseOutput
-}
-
-type LongTermStorageConfigurationOutputResponseArgs struct {
-	AccountName pulumi.StringInput `pulumi:"accountName"`
-}
-
-func (LongTermStorageConfigurationOutputResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*LongTermStorageConfigurationOutputResponse)(nil)).Elem()
-}
-
-func (i LongTermStorageConfigurationOutputResponseArgs) ToLongTermStorageConfigurationOutputResponseOutput() LongTermStorageConfigurationOutputResponseOutput {
-	return i.ToLongTermStorageConfigurationOutputResponseOutputWithContext(context.Background())
-}
-
-func (i LongTermStorageConfigurationOutputResponseArgs) ToLongTermStorageConfigurationOutputResponseOutputWithContext(ctx context.Context) LongTermStorageConfigurationOutputResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LongTermStorageConfigurationOutputResponseOutput)
-}
-
-func (i LongTermStorageConfigurationOutputResponseArgs) ToLongTermStorageConfigurationOutputResponsePtrOutput() LongTermStorageConfigurationOutputResponsePtrOutput {
-	return i.ToLongTermStorageConfigurationOutputResponsePtrOutputWithContext(context.Background())
-}
-
-func (i LongTermStorageConfigurationOutputResponseArgs) ToLongTermStorageConfigurationOutputResponsePtrOutputWithContext(ctx context.Context) LongTermStorageConfigurationOutputResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LongTermStorageConfigurationOutputResponseOutput).ToLongTermStorageConfigurationOutputResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type LongTermStorageConfigurationOutputResponsePtrInput interface {
-	pulumi.Input
-
-	ToLongTermStorageConfigurationOutputResponsePtrOutput() LongTermStorageConfigurationOutputResponsePtrOutput
-	ToLongTermStorageConfigurationOutputResponsePtrOutputWithContext(context.Context) LongTermStorageConfigurationOutputResponsePtrOutput
-}
-
-type longTermStorageConfigurationOutputResponsePtrType LongTermStorageConfigurationOutputResponseArgs
-
-func LongTermStorageConfigurationOutputResponsePtr(v *LongTermStorageConfigurationOutputResponseArgs) LongTermStorageConfigurationOutputResponsePtrInput {
-	return (*longTermStorageConfigurationOutputResponsePtrType)(v)
-}
-
-func (*longTermStorageConfigurationOutputResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**LongTermStorageConfigurationOutputResponse)(nil)).Elem()
-}
-
-func (i *longTermStorageConfigurationOutputResponsePtrType) ToLongTermStorageConfigurationOutputResponsePtrOutput() LongTermStorageConfigurationOutputResponsePtrOutput {
-	return i.ToLongTermStorageConfigurationOutputResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *longTermStorageConfigurationOutputResponsePtrType) ToLongTermStorageConfigurationOutputResponsePtrOutputWithContext(ctx context.Context) LongTermStorageConfigurationOutputResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LongTermStorageConfigurationOutputResponsePtrOutput)
 }
 
 type LongTermStorageConfigurationOutputResponseOutput struct{ *pulumi.OutputState }
@@ -969,51 +445,8 @@ func (o LongTermStorageConfigurationOutputResponseOutput) ToLongTermStorageConfi
 	return o
 }
 
-func (o LongTermStorageConfigurationOutputResponseOutput) ToLongTermStorageConfigurationOutputResponsePtrOutput() LongTermStorageConfigurationOutputResponsePtrOutput {
-	return o.ToLongTermStorageConfigurationOutputResponsePtrOutputWithContext(context.Background())
-}
-
-func (o LongTermStorageConfigurationOutputResponseOutput) ToLongTermStorageConfigurationOutputResponsePtrOutputWithContext(ctx context.Context) LongTermStorageConfigurationOutputResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LongTermStorageConfigurationOutputResponse) *LongTermStorageConfigurationOutputResponse {
-		return &v
-	}).(LongTermStorageConfigurationOutputResponsePtrOutput)
-}
-
 func (o LongTermStorageConfigurationOutputResponseOutput) AccountName() pulumi.StringOutput {
 	return o.ApplyT(func(v LongTermStorageConfigurationOutputResponse) string { return v.AccountName }).(pulumi.StringOutput)
-}
-
-type LongTermStorageConfigurationOutputResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (LongTermStorageConfigurationOutputResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**LongTermStorageConfigurationOutputResponse)(nil)).Elem()
-}
-
-func (o LongTermStorageConfigurationOutputResponsePtrOutput) ToLongTermStorageConfigurationOutputResponsePtrOutput() LongTermStorageConfigurationOutputResponsePtrOutput {
-	return o
-}
-
-func (o LongTermStorageConfigurationOutputResponsePtrOutput) ToLongTermStorageConfigurationOutputResponsePtrOutputWithContext(ctx context.Context) LongTermStorageConfigurationOutputResponsePtrOutput {
-	return o
-}
-
-func (o LongTermStorageConfigurationOutputResponsePtrOutput) Elem() LongTermStorageConfigurationOutputResponseOutput {
-	return o.ApplyT(func(v *LongTermStorageConfigurationOutputResponse) LongTermStorageConfigurationOutputResponse {
-		if v != nil {
-			return *v
-		}
-		var ret LongTermStorageConfigurationOutputResponse
-		return ret
-	}).(LongTermStorageConfigurationOutputResponseOutput)
-}
-
-func (o LongTermStorageConfigurationOutputResponsePtrOutput) AccountName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LongTermStorageConfigurationOutputResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.AccountName
-	}).(pulumi.StringPtrOutput)
 }
 
 type ReferenceDataSetKeyProperty struct {
@@ -1121,59 +554,6 @@ type ReferenceDataSetKeyPropertyResponse struct {
 	Type *string `pulumi:"type"`
 }
 
-
-
-
-
-type ReferenceDataSetKeyPropertyResponseInput interface {
-	pulumi.Input
-
-	ToReferenceDataSetKeyPropertyResponseOutput() ReferenceDataSetKeyPropertyResponseOutput
-	ToReferenceDataSetKeyPropertyResponseOutputWithContext(context.Context) ReferenceDataSetKeyPropertyResponseOutput
-}
-
-type ReferenceDataSetKeyPropertyResponseArgs struct {
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	Type pulumi.StringPtrInput `pulumi:"type"`
-}
-
-func (ReferenceDataSetKeyPropertyResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReferenceDataSetKeyPropertyResponse)(nil)).Elem()
-}
-
-func (i ReferenceDataSetKeyPropertyResponseArgs) ToReferenceDataSetKeyPropertyResponseOutput() ReferenceDataSetKeyPropertyResponseOutput {
-	return i.ToReferenceDataSetKeyPropertyResponseOutputWithContext(context.Background())
-}
-
-func (i ReferenceDataSetKeyPropertyResponseArgs) ToReferenceDataSetKeyPropertyResponseOutputWithContext(ctx context.Context) ReferenceDataSetKeyPropertyResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ReferenceDataSetKeyPropertyResponseOutput)
-}
-
-
-
-
-
-type ReferenceDataSetKeyPropertyResponseArrayInput interface {
-	pulumi.Input
-
-	ToReferenceDataSetKeyPropertyResponseArrayOutput() ReferenceDataSetKeyPropertyResponseArrayOutput
-	ToReferenceDataSetKeyPropertyResponseArrayOutputWithContext(context.Context) ReferenceDataSetKeyPropertyResponseArrayOutput
-}
-
-type ReferenceDataSetKeyPropertyResponseArray []ReferenceDataSetKeyPropertyResponseInput
-
-func (ReferenceDataSetKeyPropertyResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ReferenceDataSetKeyPropertyResponse)(nil)).Elem()
-}
-
-func (i ReferenceDataSetKeyPropertyResponseArray) ToReferenceDataSetKeyPropertyResponseArrayOutput() ReferenceDataSetKeyPropertyResponseArrayOutput {
-	return i.ToReferenceDataSetKeyPropertyResponseArrayOutputWithContext(context.Background())
-}
-
-func (i ReferenceDataSetKeyPropertyResponseArray) ToReferenceDataSetKeyPropertyResponseArrayOutputWithContext(ctx context.Context) ReferenceDataSetKeyPropertyResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ReferenceDataSetKeyPropertyResponseArrayOutput)
-}
-
 type ReferenceDataSetKeyPropertyResponseOutput struct{ *pulumi.OutputState }
 
 func (ReferenceDataSetKeyPropertyResponseOutput) ElementType() reflect.Type {
@@ -1249,47 +629,6 @@ func (i SkuArgs) ToSkuOutputWithContext(ctx context.Context) SkuOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SkuOutput)
 }
 
-func (i SkuArgs) ToSkuPtrOutput() SkuPtrOutput {
-	return i.ToSkuPtrOutputWithContext(context.Background())
-}
-
-func (i SkuArgs) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SkuOutput).ToSkuPtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type SkuPtrInput interface {
-	pulumi.Input
-
-	ToSkuPtrOutput() SkuPtrOutput
-	ToSkuPtrOutputWithContext(context.Context) SkuPtrOutput
-}
-
-type skuPtrType SkuArgs
-
-func SkuPtr(v *SkuArgs) SkuPtrInput {
-	return (*skuPtrType)(v)
-}
-
-func (*skuPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**Sku)(nil)).Elem()
-}
-
-func (i *skuPtrType) ToSkuPtrOutput() SkuPtrOutput {
-	return i.ToSkuPtrOutputWithContext(context.Background())
-}
-
-func (i *skuPtrType) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SkuPtrOutput)
-}
-
 type SkuOutput struct{ *pulumi.OutputState }
 
 func (SkuOutput) ElementType() reflect.Type {
@@ -1304,16 +643,6 @@ func (o SkuOutput) ToSkuOutputWithContext(ctx context.Context) SkuOutput {
 	return o
 }
 
-func (o SkuOutput) ToSkuPtrOutput() SkuPtrOutput {
-	return o.ToSkuPtrOutputWithContext(context.Background())
-}
-
-func (o SkuOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Sku) *Sku {
-		return &v
-	}).(SkuPtrOutput)
-}
-
 func (o SkuOutput) Capacity() pulumi.IntOutput {
 	return o.ApplyT(func(v Sku) int { return v.Capacity }).(pulumi.IntOutput)
 }
@@ -1322,120 +651,9 @@ func (o SkuOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v Sku) string { return v.Name }).(pulumi.StringOutput)
 }
 
-type SkuPtrOutput struct{ *pulumi.OutputState }
-
-func (SkuPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Sku)(nil)).Elem()
-}
-
-func (o SkuPtrOutput) ToSkuPtrOutput() SkuPtrOutput {
-	return o
-}
-
-func (o SkuPtrOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
-	return o
-}
-
-func (o SkuPtrOutput) Elem() SkuOutput {
-	return o.ApplyT(func(v *Sku) Sku {
-		if v != nil {
-			return *v
-		}
-		var ret Sku
-		return ret
-	}).(SkuOutput)
-}
-
-func (o SkuPtrOutput) Capacity() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *Sku) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.Capacity
-	}).(pulumi.IntPtrOutput)
-}
-
-func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Sku) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
 type SkuResponse struct {
 	Capacity int    `pulumi:"capacity"`
 	Name     string `pulumi:"name"`
-}
-
-
-
-
-
-type SkuResponseInput interface {
-	pulumi.Input
-
-	ToSkuResponseOutput() SkuResponseOutput
-	ToSkuResponseOutputWithContext(context.Context) SkuResponseOutput
-}
-
-type SkuResponseArgs struct {
-	Capacity pulumi.IntInput    `pulumi:"capacity"`
-	Name     pulumi.StringInput `pulumi:"name"`
-}
-
-func (SkuResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SkuResponse)(nil)).Elem()
-}
-
-func (i SkuResponseArgs) ToSkuResponseOutput() SkuResponseOutput {
-	return i.ToSkuResponseOutputWithContext(context.Background())
-}
-
-func (i SkuResponseArgs) ToSkuResponseOutputWithContext(ctx context.Context) SkuResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SkuResponseOutput)
-}
-
-func (i SkuResponseArgs) ToSkuResponsePtrOutput() SkuResponsePtrOutput {
-	return i.ToSkuResponsePtrOutputWithContext(context.Background())
-}
-
-func (i SkuResponseArgs) ToSkuResponsePtrOutputWithContext(ctx context.Context) SkuResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SkuResponseOutput).ToSkuResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type SkuResponsePtrInput interface {
-	pulumi.Input
-
-	ToSkuResponsePtrOutput() SkuResponsePtrOutput
-	ToSkuResponsePtrOutputWithContext(context.Context) SkuResponsePtrOutput
-}
-
-type skuResponsePtrType SkuResponseArgs
-
-func SkuResponsePtr(v *SkuResponseArgs) SkuResponsePtrInput {
-	return (*skuResponsePtrType)(v)
-}
-
-func (*skuResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SkuResponse)(nil)).Elem()
-}
-
-func (i *skuResponsePtrType) ToSkuResponsePtrOutput() SkuResponsePtrOutput {
-	return i.ToSkuResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *skuResponsePtrType) ToSkuResponsePtrOutputWithContext(ctx context.Context) SkuResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SkuResponsePtrOutput)
 }
 
 type SkuResponseOutput struct{ *pulumi.OutputState }
@@ -1452,64 +670,12 @@ func (o SkuResponseOutput) ToSkuResponseOutputWithContext(ctx context.Context) S
 	return o
 }
 
-func (o SkuResponseOutput) ToSkuResponsePtrOutput() SkuResponsePtrOutput {
-	return o.ToSkuResponsePtrOutputWithContext(context.Background())
-}
-
-func (o SkuResponseOutput) ToSkuResponsePtrOutputWithContext(ctx context.Context) SkuResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SkuResponse) *SkuResponse {
-		return &v
-	}).(SkuResponsePtrOutput)
-}
-
 func (o SkuResponseOutput) Capacity() pulumi.IntOutput {
 	return o.ApplyT(func(v SkuResponse) int { return v.Capacity }).(pulumi.IntOutput)
 }
 
 func (o SkuResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v SkuResponse) string { return v.Name }).(pulumi.StringOutput)
-}
-
-type SkuResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (SkuResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SkuResponse)(nil)).Elem()
-}
-
-func (o SkuResponsePtrOutput) ToSkuResponsePtrOutput() SkuResponsePtrOutput {
-	return o
-}
-
-func (o SkuResponsePtrOutput) ToSkuResponsePtrOutputWithContext(ctx context.Context) SkuResponsePtrOutput {
-	return o
-}
-
-func (o SkuResponsePtrOutput) Elem() SkuResponseOutput {
-	return o.ApplyT(func(v *SkuResponse) SkuResponse {
-		if v != nil {
-			return *v
-		}
-		var ret SkuResponse
-		return ret
-	}).(SkuResponseOutput)
-}
-
-func (o SkuResponsePtrOutput) Capacity() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *SkuResponse) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.Capacity
-	}).(pulumi.IntPtrOutput)
-}
-
-func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SkuResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Name
-	}).(pulumi.StringPtrOutput)
 }
 
 type TimeSeriesIdProperty struct {
@@ -1617,59 +783,6 @@ type TimeSeriesIdPropertyResponse struct {
 	Type *string `pulumi:"type"`
 }
 
-
-
-
-
-type TimeSeriesIdPropertyResponseInput interface {
-	pulumi.Input
-
-	ToTimeSeriesIdPropertyResponseOutput() TimeSeriesIdPropertyResponseOutput
-	ToTimeSeriesIdPropertyResponseOutputWithContext(context.Context) TimeSeriesIdPropertyResponseOutput
-}
-
-type TimeSeriesIdPropertyResponseArgs struct {
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	Type pulumi.StringPtrInput `pulumi:"type"`
-}
-
-func (TimeSeriesIdPropertyResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TimeSeriesIdPropertyResponse)(nil)).Elem()
-}
-
-func (i TimeSeriesIdPropertyResponseArgs) ToTimeSeriesIdPropertyResponseOutput() TimeSeriesIdPropertyResponseOutput {
-	return i.ToTimeSeriesIdPropertyResponseOutputWithContext(context.Background())
-}
-
-func (i TimeSeriesIdPropertyResponseArgs) ToTimeSeriesIdPropertyResponseOutputWithContext(ctx context.Context) TimeSeriesIdPropertyResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TimeSeriesIdPropertyResponseOutput)
-}
-
-
-
-
-
-type TimeSeriesIdPropertyResponseArrayInput interface {
-	pulumi.Input
-
-	ToTimeSeriesIdPropertyResponseArrayOutput() TimeSeriesIdPropertyResponseArrayOutput
-	ToTimeSeriesIdPropertyResponseArrayOutputWithContext(context.Context) TimeSeriesIdPropertyResponseArrayOutput
-}
-
-type TimeSeriesIdPropertyResponseArray []TimeSeriesIdPropertyResponseInput
-
-func (TimeSeriesIdPropertyResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TimeSeriesIdPropertyResponse)(nil)).Elem()
-}
-
-func (i TimeSeriesIdPropertyResponseArray) ToTimeSeriesIdPropertyResponseArrayOutput() TimeSeriesIdPropertyResponseArrayOutput {
-	return i.ToTimeSeriesIdPropertyResponseArrayOutputWithContext(context.Background())
-}
-
-func (i TimeSeriesIdPropertyResponseArray) ToTimeSeriesIdPropertyResponseArrayOutputWithContext(ctx context.Context) TimeSeriesIdPropertyResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TimeSeriesIdPropertyResponseArrayOutput)
-}
-
 type TimeSeriesIdPropertyResponseOutput struct{ *pulumi.OutputState }
 
 func (TimeSeriesIdPropertyResponseOutput) ElementType() reflect.Type {
@@ -1718,76 +831,6 @@ type WarmStorageEnvironmentStatusResponse struct {
 	State        *string `pulumi:"state"`
 }
 
-
-
-
-
-type WarmStorageEnvironmentStatusResponseInput interface {
-	pulumi.Input
-
-	ToWarmStorageEnvironmentStatusResponseOutput() WarmStorageEnvironmentStatusResponseOutput
-	ToWarmStorageEnvironmentStatusResponseOutputWithContext(context.Context) WarmStorageEnvironmentStatusResponseOutput
-}
-
-type WarmStorageEnvironmentStatusResponseArgs struct {
-	CurrentCount pulumi.IntPtrInput    `pulumi:"currentCount"`
-	MaxCount     pulumi.IntPtrInput    `pulumi:"maxCount"`
-	State        pulumi.StringPtrInput `pulumi:"state"`
-}
-
-func (WarmStorageEnvironmentStatusResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WarmStorageEnvironmentStatusResponse)(nil)).Elem()
-}
-
-func (i WarmStorageEnvironmentStatusResponseArgs) ToWarmStorageEnvironmentStatusResponseOutput() WarmStorageEnvironmentStatusResponseOutput {
-	return i.ToWarmStorageEnvironmentStatusResponseOutputWithContext(context.Background())
-}
-
-func (i WarmStorageEnvironmentStatusResponseArgs) ToWarmStorageEnvironmentStatusResponseOutputWithContext(ctx context.Context) WarmStorageEnvironmentStatusResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WarmStorageEnvironmentStatusResponseOutput)
-}
-
-func (i WarmStorageEnvironmentStatusResponseArgs) ToWarmStorageEnvironmentStatusResponsePtrOutput() WarmStorageEnvironmentStatusResponsePtrOutput {
-	return i.ToWarmStorageEnvironmentStatusResponsePtrOutputWithContext(context.Background())
-}
-
-func (i WarmStorageEnvironmentStatusResponseArgs) ToWarmStorageEnvironmentStatusResponsePtrOutputWithContext(ctx context.Context) WarmStorageEnvironmentStatusResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WarmStorageEnvironmentStatusResponseOutput).ToWarmStorageEnvironmentStatusResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type WarmStorageEnvironmentStatusResponsePtrInput interface {
-	pulumi.Input
-
-	ToWarmStorageEnvironmentStatusResponsePtrOutput() WarmStorageEnvironmentStatusResponsePtrOutput
-	ToWarmStorageEnvironmentStatusResponsePtrOutputWithContext(context.Context) WarmStorageEnvironmentStatusResponsePtrOutput
-}
-
-type warmStorageEnvironmentStatusResponsePtrType WarmStorageEnvironmentStatusResponseArgs
-
-func WarmStorageEnvironmentStatusResponsePtr(v *WarmStorageEnvironmentStatusResponseArgs) WarmStorageEnvironmentStatusResponsePtrInput {
-	return (*warmStorageEnvironmentStatusResponsePtrType)(v)
-}
-
-func (*warmStorageEnvironmentStatusResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**WarmStorageEnvironmentStatusResponse)(nil)).Elem()
-}
-
-func (i *warmStorageEnvironmentStatusResponsePtrType) ToWarmStorageEnvironmentStatusResponsePtrOutput() WarmStorageEnvironmentStatusResponsePtrOutput {
-	return i.ToWarmStorageEnvironmentStatusResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *warmStorageEnvironmentStatusResponsePtrType) ToWarmStorageEnvironmentStatusResponsePtrOutputWithContext(ctx context.Context) WarmStorageEnvironmentStatusResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WarmStorageEnvironmentStatusResponsePtrOutput)
-}
-
 type WarmStorageEnvironmentStatusResponseOutput struct{ *pulumi.OutputState }
 
 func (WarmStorageEnvironmentStatusResponseOutput) ElementType() reflect.Type {
@@ -1802,16 +845,6 @@ func (o WarmStorageEnvironmentStatusResponseOutput) ToWarmStorageEnvironmentStat
 	return o
 }
 
-func (o WarmStorageEnvironmentStatusResponseOutput) ToWarmStorageEnvironmentStatusResponsePtrOutput() WarmStorageEnvironmentStatusResponsePtrOutput {
-	return o.ToWarmStorageEnvironmentStatusResponsePtrOutputWithContext(context.Background())
-}
-
-func (o WarmStorageEnvironmentStatusResponseOutput) ToWarmStorageEnvironmentStatusResponsePtrOutputWithContext(ctx context.Context) WarmStorageEnvironmentStatusResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WarmStorageEnvironmentStatusResponse) *WarmStorageEnvironmentStatusResponse {
-		return &v
-	}).(WarmStorageEnvironmentStatusResponsePtrOutput)
-}
-
 func (o WarmStorageEnvironmentStatusResponseOutput) CurrentCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v WarmStorageEnvironmentStatusResponse) *int { return v.CurrentCount }).(pulumi.IntPtrOutput)
 }
@@ -1822,57 +855,6 @@ func (o WarmStorageEnvironmentStatusResponseOutput) MaxCount() pulumi.IntPtrOutp
 
 func (o WarmStorageEnvironmentStatusResponseOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WarmStorageEnvironmentStatusResponse) *string { return v.State }).(pulumi.StringPtrOutput)
-}
-
-type WarmStorageEnvironmentStatusResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (WarmStorageEnvironmentStatusResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**WarmStorageEnvironmentStatusResponse)(nil)).Elem()
-}
-
-func (o WarmStorageEnvironmentStatusResponsePtrOutput) ToWarmStorageEnvironmentStatusResponsePtrOutput() WarmStorageEnvironmentStatusResponsePtrOutput {
-	return o
-}
-
-func (o WarmStorageEnvironmentStatusResponsePtrOutput) ToWarmStorageEnvironmentStatusResponsePtrOutputWithContext(ctx context.Context) WarmStorageEnvironmentStatusResponsePtrOutput {
-	return o
-}
-
-func (o WarmStorageEnvironmentStatusResponsePtrOutput) Elem() WarmStorageEnvironmentStatusResponseOutput {
-	return o.ApplyT(func(v *WarmStorageEnvironmentStatusResponse) WarmStorageEnvironmentStatusResponse {
-		if v != nil {
-			return *v
-		}
-		var ret WarmStorageEnvironmentStatusResponse
-		return ret
-	}).(WarmStorageEnvironmentStatusResponseOutput)
-}
-
-func (o WarmStorageEnvironmentStatusResponsePtrOutput) CurrentCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *WarmStorageEnvironmentStatusResponse) *int {
-		if v == nil {
-			return nil
-		}
-		return v.CurrentCount
-	}).(pulumi.IntPtrOutput)
-}
-
-func (o WarmStorageEnvironmentStatusResponsePtrOutput) MaxCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *WarmStorageEnvironmentStatusResponse) *int {
-		if v == nil {
-			return nil
-		}
-		return v.MaxCount
-	}).(pulumi.IntPtrOutput)
-}
-
-func (o WarmStorageEnvironmentStatusResponsePtrOutput) State() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WarmStorageEnvironmentStatusResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.State
-	}).(pulumi.StringPtrOutput)
 }
 
 type WarmStoreConfigurationProperties struct {
@@ -2012,74 +994,6 @@ type WarmStoreConfigurationPropertiesResponse struct {
 	DataRetention string `pulumi:"dataRetention"`
 }
 
-
-
-
-
-type WarmStoreConfigurationPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToWarmStoreConfigurationPropertiesResponseOutput() WarmStoreConfigurationPropertiesResponseOutput
-	ToWarmStoreConfigurationPropertiesResponseOutputWithContext(context.Context) WarmStoreConfigurationPropertiesResponseOutput
-}
-
-type WarmStoreConfigurationPropertiesResponseArgs struct {
-	DataRetention pulumi.StringInput `pulumi:"dataRetention"`
-}
-
-func (WarmStoreConfigurationPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WarmStoreConfigurationPropertiesResponse)(nil)).Elem()
-}
-
-func (i WarmStoreConfigurationPropertiesResponseArgs) ToWarmStoreConfigurationPropertiesResponseOutput() WarmStoreConfigurationPropertiesResponseOutput {
-	return i.ToWarmStoreConfigurationPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i WarmStoreConfigurationPropertiesResponseArgs) ToWarmStoreConfigurationPropertiesResponseOutputWithContext(ctx context.Context) WarmStoreConfigurationPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WarmStoreConfigurationPropertiesResponseOutput)
-}
-
-func (i WarmStoreConfigurationPropertiesResponseArgs) ToWarmStoreConfigurationPropertiesResponsePtrOutput() WarmStoreConfigurationPropertiesResponsePtrOutput {
-	return i.ToWarmStoreConfigurationPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i WarmStoreConfigurationPropertiesResponseArgs) ToWarmStoreConfigurationPropertiesResponsePtrOutputWithContext(ctx context.Context) WarmStoreConfigurationPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WarmStoreConfigurationPropertiesResponseOutput).ToWarmStoreConfigurationPropertiesResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type WarmStoreConfigurationPropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToWarmStoreConfigurationPropertiesResponsePtrOutput() WarmStoreConfigurationPropertiesResponsePtrOutput
-	ToWarmStoreConfigurationPropertiesResponsePtrOutputWithContext(context.Context) WarmStoreConfigurationPropertiesResponsePtrOutput
-}
-
-type warmStoreConfigurationPropertiesResponsePtrType WarmStoreConfigurationPropertiesResponseArgs
-
-func WarmStoreConfigurationPropertiesResponsePtr(v *WarmStoreConfigurationPropertiesResponseArgs) WarmStoreConfigurationPropertiesResponsePtrInput {
-	return (*warmStoreConfigurationPropertiesResponsePtrType)(v)
-}
-
-func (*warmStoreConfigurationPropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**WarmStoreConfigurationPropertiesResponse)(nil)).Elem()
-}
-
-func (i *warmStoreConfigurationPropertiesResponsePtrType) ToWarmStoreConfigurationPropertiesResponsePtrOutput() WarmStoreConfigurationPropertiesResponsePtrOutput {
-	return i.ToWarmStoreConfigurationPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *warmStoreConfigurationPropertiesResponsePtrType) ToWarmStoreConfigurationPropertiesResponsePtrOutputWithContext(ctx context.Context) WarmStoreConfigurationPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WarmStoreConfigurationPropertiesResponsePtrOutput)
-}
-
 type WarmStoreConfigurationPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (WarmStoreConfigurationPropertiesResponseOutput) ElementType() reflect.Type {
@@ -2092,16 +1006,6 @@ func (o WarmStoreConfigurationPropertiesResponseOutput) ToWarmStoreConfiguration
 
 func (o WarmStoreConfigurationPropertiesResponseOutput) ToWarmStoreConfigurationPropertiesResponseOutputWithContext(ctx context.Context) WarmStoreConfigurationPropertiesResponseOutput {
 	return o
-}
-
-func (o WarmStoreConfigurationPropertiesResponseOutput) ToWarmStoreConfigurationPropertiesResponsePtrOutput() WarmStoreConfigurationPropertiesResponsePtrOutput {
-	return o.ToWarmStoreConfigurationPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o WarmStoreConfigurationPropertiesResponseOutput) ToWarmStoreConfigurationPropertiesResponsePtrOutputWithContext(ctx context.Context) WarmStoreConfigurationPropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WarmStoreConfigurationPropertiesResponse) *WarmStoreConfigurationPropertiesResponse {
-		return &v
-	}).(WarmStoreConfigurationPropertiesResponsePtrOutput)
 }
 
 func (o WarmStoreConfigurationPropertiesResponseOutput) DataRetention() pulumi.StringOutput {
@@ -2143,33 +1047,25 @@ func (o WarmStoreConfigurationPropertiesResponsePtrOutput) DataRetention() pulum
 
 func init() {
 	pulumi.RegisterOutputType(EnvironmentStateDetailsResponseOutput{})
-	pulumi.RegisterOutputType(EnvironmentStateDetailsResponsePtrOutput{})
 	pulumi.RegisterOutputType(EnvironmentStatusResponseOutput{})
-	pulumi.RegisterOutputType(EnvironmentStatusResponsePtrOutput{})
 	pulumi.RegisterOutputType(IngressEnvironmentStatusResponseOutput{})
-	pulumi.RegisterOutputType(IngressEnvironmentStatusResponsePtrOutput{})
 	pulumi.RegisterOutputType(LocalTimestampOutput{})
 	pulumi.RegisterOutputType(LocalTimestampPtrOutput{})
 	pulumi.RegisterOutputType(LocalTimestampTimeZoneOffsetOutput{})
 	pulumi.RegisterOutputType(LocalTimestampTimeZoneOffsetPtrOutput{})
 	pulumi.RegisterOutputType(LongTermStorageConfigurationInputOutput{})
-	pulumi.RegisterOutputType(LongTermStorageConfigurationInputPtrOutput{})
 	pulumi.RegisterOutputType(LongTermStorageConfigurationOutputResponseOutput{})
-	pulumi.RegisterOutputType(LongTermStorageConfigurationOutputResponsePtrOutput{})
 	pulumi.RegisterOutputType(ReferenceDataSetKeyPropertyOutput{})
 	pulumi.RegisterOutputType(ReferenceDataSetKeyPropertyArrayOutput{})
 	pulumi.RegisterOutputType(ReferenceDataSetKeyPropertyResponseOutput{})
 	pulumi.RegisterOutputType(ReferenceDataSetKeyPropertyResponseArrayOutput{})
 	pulumi.RegisterOutputType(SkuOutput{})
-	pulumi.RegisterOutputType(SkuPtrOutput{})
 	pulumi.RegisterOutputType(SkuResponseOutput{})
-	pulumi.RegisterOutputType(SkuResponsePtrOutput{})
 	pulumi.RegisterOutputType(TimeSeriesIdPropertyOutput{})
 	pulumi.RegisterOutputType(TimeSeriesIdPropertyArrayOutput{})
 	pulumi.RegisterOutputType(TimeSeriesIdPropertyResponseOutput{})
 	pulumi.RegisterOutputType(TimeSeriesIdPropertyResponseArrayOutput{})
 	pulumi.RegisterOutputType(WarmStorageEnvironmentStatusResponseOutput{})
-	pulumi.RegisterOutputType(WarmStorageEnvironmentStatusResponsePtrOutput{})
 	pulumi.RegisterOutputType(WarmStoreConfigurationPropertiesOutput{})
 	pulumi.RegisterOutputType(WarmStoreConfigurationPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(WarmStoreConfigurationPropertiesResponseOutput{})

@@ -36,9 +36,8 @@ func NewDeployment(ctx *pulumi.Context,
 	if args.ServiceName == nil {
 		return nil, errors.New("invalid value for required argument 'ServiceName'")
 	}
-	propertiesApplier := func(v DeploymentResourceProperties) *DeploymentResourceProperties { return v.Defaults() }
 	if args.Properties != nil {
-		args.Properties = args.Properties.ToDeploymentResourcePropertiesPtrOutput().Elem().ApplyT(propertiesApplier).(DeploymentResourcePropertiesPtrOutput)
+		args.Properties = args.Properties.ToDeploymentResourcePropertiesPtrOutput().ApplyT(func(v *DeploymentResourceProperties) *DeploymentResourceProperties { return v.Defaults() }).(DeploymentResourcePropertiesPtrOutput)
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

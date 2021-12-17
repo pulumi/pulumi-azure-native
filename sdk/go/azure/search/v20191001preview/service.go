@@ -43,9 +43,8 @@ func NewService(ctx *pulumi.Context,
 	if isZero(args.HostingMode) {
 		args.HostingMode = HostingMode("default")
 	}
-	networkRuleSetApplier := func(v NetworkRuleSet) *NetworkRuleSet { return v.Defaults() }
 	if args.NetworkRuleSet != nil {
-		args.NetworkRuleSet = args.NetworkRuleSet.ToNetworkRuleSetPtrOutput().Elem().ApplyT(networkRuleSetApplier).(NetworkRuleSetPtrOutput)
+		args.NetworkRuleSet = args.NetworkRuleSet.ToNetworkRuleSetPtrOutput().ApplyT(func(v *NetworkRuleSet) *NetworkRuleSet { return v.Defaults() }).(NetworkRuleSetPtrOutput)
 	}
 	if isZero(args.PartitionCount) {
 		args.PartitionCount = pulumi.IntPtr(1)

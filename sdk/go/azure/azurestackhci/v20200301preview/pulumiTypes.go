@@ -22,66 +22,6 @@ type ClusterNodeResponse struct {
 	SerialNumber string  `pulumi:"serialNumber"`
 }
 
-
-
-
-
-type ClusterNodeResponseInput interface {
-	pulumi.Input
-
-	ToClusterNodeResponseOutput() ClusterNodeResponseOutput
-	ToClusterNodeResponseOutputWithContext(context.Context) ClusterNodeResponseOutput
-}
-
-type ClusterNodeResponseArgs struct {
-	CoreCount    pulumi.Float64Input `pulumi:"coreCount"`
-	Id           pulumi.Float64Input `pulumi:"id"`
-	Manufacturer pulumi.StringInput  `pulumi:"manufacturer"`
-	MemoryInGiB  pulumi.Float64Input `pulumi:"memoryInGiB"`
-	Model        pulumi.StringInput  `pulumi:"model"`
-	Name         pulumi.StringInput  `pulumi:"name"`
-	OsName       pulumi.StringInput  `pulumi:"osName"`
-	OsVersion    pulumi.StringInput  `pulumi:"osVersion"`
-	SerialNumber pulumi.StringInput  `pulumi:"serialNumber"`
-}
-
-func (ClusterNodeResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterNodeResponse)(nil)).Elem()
-}
-
-func (i ClusterNodeResponseArgs) ToClusterNodeResponseOutput() ClusterNodeResponseOutput {
-	return i.ToClusterNodeResponseOutputWithContext(context.Background())
-}
-
-func (i ClusterNodeResponseArgs) ToClusterNodeResponseOutputWithContext(ctx context.Context) ClusterNodeResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterNodeResponseOutput)
-}
-
-
-
-
-
-type ClusterNodeResponseArrayInput interface {
-	pulumi.Input
-
-	ToClusterNodeResponseArrayOutput() ClusterNodeResponseArrayOutput
-	ToClusterNodeResponseArrayOutputWithContext(context.Context) ClusterNodeResponseArrayOutput
-}
-
-type ClusterNodeResponseArray []ClusterNodeResponseInput
-
-func (ClusterNodeResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ClusterNodeResponse)(nil)).Elem()
-}
-
-func (i ClusterNodeResponseArray) ToClusterNodeResponseArrayOutput() ClusterNodeResponseArrayOutput {
-	return i.ToClusterNodeResponseArrayOutputWithContext(context.Background())
-}
-
-func (i ClusterNodeResponseArray) ToClusterNodeResponseArrayOutputWithContext(ctx context.Context) ClusterNodeResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterNodeResponseArrayOutput)
-}
-
 type ClusterNodeResponseOutput struct{ *pulumi.OutputState }
 
 func (ClusterNodeResponseOutput) ElementType() reflect.Type {
@@ -160,78 +100,6 @@ type ClusterReportedPropertiesResponse struct {
 	Nodes          []ClusterNodeResponse `pulumi:"nodes"`
 }
 
-
-
-
-
-type ClusterReportedPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToClusterReportedPropertiesResponseOutput() ClusterReportedPropertiesResponseOutput
-	ToClusterReportedPropertiesResponseOutputWithContext(context.Context) ClusterReportedPropertiesResponseOutput
-}
-
-type ClusterReportedPropertiesResponseArgs struct {
-	ClusterId      pulumi.StringInput            `pulumi:"clusterId"`
-	ClusterName    pulumi.StringInput            `pulumi:"clusterName"`
-	ClusterVersion pulumi.StringInput            `pulumi:"clusterVersion"`
-	LastUpdated    pulumi.StringInput            `pulumi:"lastUpdated"`
-	Nodes          ClusterNodeResponseArrayInput `pulumi:"nodes"`
-}
-
-func (ClusterReportedPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterReportedPropertiesResponse)(nil)).Elem()
-}
-
-func (i ClusterReportedPropertiesResponseArgs) ToClusterReportedPropertiesResponseOutput() ClusterReportedPropertiesResponseOutput {
-	return i.ToClusterReportedPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i ClusterReportedPropertiesResponseArgs) ToClusterReportedPropertiesResponseOutputWithContext(ctx context.Context) ClusterReportedPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterReportedPropertiesResponseOutput)
-}
-
-func (i ClusterReportedPropertiesResponseArgs) ToClusterReportedPropertiesResponsePtrOutput() ClusterReportedPropertiesResponsePtrOutput {
-	return i.ToClusterReportedPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ClusterReportedPropertiesResponseArgs) ToClusterReportedPropertiesResponsePtrOutputWithContext(ctx context.Context) ClusterReportedPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterReportedPropertiesResponseOutput).ToClusterReportedPropertiesResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type ClusterReportedPropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToClusterReportedPropertiesResponsePtrOutput() ClusterReportedPropertiesResponsePtrOutput
-	ToClusterReportedPropertiesResponsePtrOutputWithContext(context.Context) ClusterReportedPropertiesResponsePtrOutput
-}
-
-type clusterReportedPropertiesResponsePtrType ClusterReportedPropertiesResponseArgs
-
-func ClusterReportedPropertiesResponsePtr(v *ClusterReportedPropertiesResponseArgs) ClusterReportedPropertiesResponsePtrInput {
-	return (*clusterReportedPropertiesResponsePtrType)(v)
-}
-
-func (*clusterReportedPropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ClusterReportedPropertiesResponse)(nil)).Elem()
-}
-
-func (i *clusterReportedPropertiesResponsePtrType) ToClusterReportedPropertiesResponsePtrOutput() ClusterReportedPropertiesResponsePtrOutput {
-	return i.ToClusterReportedPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *clusterReportedPropertiesResponsePtrType) ToClusterReportedPropertiesResponsePtrOutputWithContext(ctx context.Context) ClusterReportedPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterReportedPropertiesResponsePtrOutput)
-}
-
 type ClusterReportedPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (ClusterReportedPropertiesResponseOutput) ElementType() reflect.Type {
@@ -244,16 +112,6 @@ func (o ClusterReportedPropertiesResponseOutput) ToClusterReportedPropertiesResp
 
 func (o ClusterReportedPropertiesResponseOutput) ToClusterReportedPropertiesResponseOutputWithContext(ctx context.Context) ClusterReportedPropertiesResponseOutput {
 	return o
-}
-
-func (o ClusterReportedPropertiesResponseOutput) ToClusterReportedPropertiesResponsePtrOutput() ClusterReportedPropertiesResponsePtrOutput {
-	return o.ToClusterReportedPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ClusterReportedPropertiesResponseOutput) ToClusterReportedPropertiesResponsePtrOutputWithContext(ctx context.Context) ClusterReportedPropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterReportedPropertiesResponse) *ClusterReportedPropertiesResponse {
-		return &v
-	}).(ClusterReportedPropertiesResponsePtrOutput)
 }
 
 func (o ClusterReportedPropertiesResponseOutput) ClusterId() pulumi.StringOutput {

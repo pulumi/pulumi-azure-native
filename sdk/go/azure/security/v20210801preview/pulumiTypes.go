@@ -147,74 +147,6 @@ type AssignedComponentItemResponse struct {
 	Key *string `pulumi:"key"`
 }
 
-
-
-
-
-type AssignedComponentItemResponseInput interface {
-	pulumi.Input
-
-	ToAssignedComponentItemResponseOutput() AssignedComponentItemResponseOutput
-	ToAssignedComponentItemResponseOutputWithContext(context.Context) AssignedComponentItemResponseOutput
-}
-
-type AssignedComponentItemResponseArgs struct {
-	Key pulumi.StringPtrInput `pulumi:"key"`
-}
-
-func (AssignedComponentItemResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AssignedComponentItemResponse)(nil)).Elem()
-}
-
-func (i AssignedComponentItemResponseArgs) ToAssignedComponentItemResponseOutput() AssignedComponentItemResponseOutput {
-	return i.ToAssignedComponentItemResponseOutputWithContext(context.Background())
-}
-
-func (i AssignedComponentItemResponseArgs) ToAssignedComponentItemResponseOutputWithContext(ctx context.Context) AssignedComponentItemResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AssignedComponentItemResponseOutput)
-}
-
-func (i AssignedComponentItemResponseArgs) ToAssignedComponentItemResponsePtrOutput() AssignedComponentItemResponsePtrOutput {
-	return i.ToAssignedComponentItemResponsePtrOutputWithContext(context.Background())
-}
-
-func (i AssignedComponentItemResponseArgs) ToAssignedComponentItemResponsePtrOutputWithContext(ctx context.Context) AssignedComponentItemResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AssignedComponentItemResponseOutput).ToAssignedComponentItemResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type AssignedComponentItemResponsePtrInput interface {
-	pulumi.Input
-
-	ToAssignedComponentItemResponsePtrOutput() AssignedComponentItemResponsePtrOutput
-	ToAssignedComponentItemResponsePtrOutputWithContext(context.Context) AssignedComponentItemResponsePtrOutput
-}
-
-type assignedComponentItemResponsePtrType AssignedComponentItemResponseArgs
-
-func AssignedComponentItemResponsePtr(v *AssignedComponentItemResponseArgs) AssignedComponentItemResponsePtrInput {
-	return (*assignedComponentItemResponsePtrType)(v)
-}
-
-func (*assignedComponentItemResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AssignedComponentItemResponse)(nil)).Elem()
-}
-
-func (i *assignedComponentItemResponsePtrType) ToAssignedComponentItemResponsePtrOutput() AssignedComponentItemResponsePtrOutput {
-	return i.ToAssignedComponentItemResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *assignedComponentItemResponsePtrType) ToAssignedComponentItemResponsePtrOutputWithContext(ctx context.Context) AssignedComponentItemResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AssignedComponentItemResponsePtrOutput)
-}
-
 type AssignedComponentItemResponseOutput struct{ *pulumi.OutputState }
 
 func (AssignedComponentItemResponseOutput) ElementType() reflect.Type {
@@ -227,16 +159,6 @@ func (o AssignedComponentItemResponseOutput) ToAssignedComponentItemResponseOutp
 
 func (o AssignedComponentItemResponseOutput) ToAssignedComponentItemResponseOutputWithContext(ctx context.Context) AssignedComponentItemResponseOutput {
 	return o
-}
-
-func (o AssignedComponentItemResponseOutput) ToAssignedComponentItemResponsePtrOutput() AssignedComponentItemResponsePtrOutput {
-	return o.ToAssignedComponentItemResponsePtrOutputWithContext(context.Background())
-}
-
-func (o AssignedComponentItemResponseOutput) ToAssignedComponentItemResponsePtrOutputWithContext(ctx context.Context) AssignedComponentItemResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AssignedComponentItemResponse) *AssignedComponentItemResponse {
-		return &v
-	}).(AssignedComponentItemResponsePtrOutput)
 }
 
 func (o AssignedComponentItemResponseOutput) Key() pulumi.StringPtrOutput {
@@ -413,74 +335,6 @@ type AssignedStandardItemResponse struct {
 	Id *string `pulumi:"id"`
 }
 
-
-
-
-
-type AssignedStandardItemResponseInput interface {
-	pulumi.Input
-
-	ToAssignedStandardItemResponseOutput() AssignedStandardItemResponseOutput
-	ToAssignedStandardItemResponseOutputWithContext(context.Context) AssignedStandardItemResponseOutput
-}
-
-type AssignedStandardItemResponseArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
-}
-
-func (AssignedStandardItemResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AssignedStandardItemResponse)(nil)).Elem()
-}
-
-func (i AssignedStandardItemResponseArgs) ToAssignedStandardItemResponseOutput() AssignedStandardItemResponseOutput {
-	return i.ToAssignedStandardItemResponseOutputWithContext(context.Background())
-}
-
-func (i AssignedStandardItemResponseArgs) ToAssignedStandardItemResponseOutputWithContext(ctx context.Context) AssignedStandardItemResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AssignedStandardItemResponseOutput)
-}
-
-func (i AssignedStandardItemResponseArgs) ToAssignedStandardItemResponsePtrOutput() AssignedStandardItemResponsePtrOutput {
-	return i.ToAssignedStandardItemResponsePtrOutputWithContext(context.Background())
-}
-
-func (i AssignedStandardItemResponseArgs) ToAssignedStandardItemResponsePtrOutputWithContext(ctx context.Context) AssignedStandardItemResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AssignedStandardItemResponseOutput).ToAssignedStandardItemResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type AssignedStandardItemResponsePtrInput interface {
-	pulumi.Input
-
-	ToAssignedStandardItemResponsePtrOutput() AssignedStandardItemResponsePtrOutput
-	ToAssignedStandardItemResponsePtrOutputWithContext(context.Context) AssignedStandardItemResponsePtrOutput
-}
-
-type assignedStandardItemResponsePtrType AssignedStandardItemResponseArgs
-
-func AssignedStandardItemResponsePtr(v *AssignedStandardItemResponseArgs) AssignedStandardItemResponsePtrInput {
-	return (*assignedStandardItemResponsePtrType)(v)
-}
-
-func (*assignedStandardItemResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AssignedStandardItemResponse)(nil)).Elem()
-}
-
-func (i *assignedStandardItemResponsePtrType) ToAssignedStandardItemResponsePtrOutput() AssignedStandardItemResponsePtrOutput {
-	return i.ToAssignedStandardItemResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *assignedStandardItemResponsePtrType) ToAssignedStandardItemResponsePtrOutputWithContext(ctx context.Context) AssignedStandardItemResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AssignedStandardItemResponsePtrOutput)
-}
-
 type AssignedStandardItemResponseOutput struct{ *pulumi.OutputState }
 
 func (AssignedStandardItemResponseOutput) ElementType() reflect.Type {
@@ -493,16 +347,6 @@ func (o AssignedStandardItemResponseOutput) ToAssignedStandardItemResponseOutput
 
 func (o AssignedStandardItemResponseOutput) ToAssignedStandardItemResponseOutputWithContext(ctx context.Context) AssignedStandardItemResponseOutput {
 	return o
-}
-
-func (o AssignedStandardItemResponseOutput) ToAssignedStandardItemResponsePtrOutput() AssignedStandardItemResponsePtrOutput {
-	return o.ToAssignedStandardItemResponsePtrOutputWithContext(context.Background())
-}
-
-func (o AssignedStandardItemResponseOutput) ToAssignedStandardItemResponsePtrOutputWithContext(ctx context.Context) AssignedStandardItemResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AssignedStandardItemResponse) *AssignedStandardItemResponse {
-		return &v
-	}).(AssignedStandardItemResponsePtrOutput)
 }
 
 func (o AssignedStandardItemResponseOutput) Id() pulumi.StringPtrOutput {
@@ -679,74 +523,6 @@ type AssignmentPropertiesResponseAdditionalData struct {
 	ExemptionCategory *string `pulumi:"exemptionCategory"`
 }
 
-
-
-
-
-type AssignmentPropertiesResponseAdditionalDataInput interface {
-	pulumi.Input
-
-	ToAssignmentPropertiesResponseAdditionalDataOutput() AssignmentPropertiesResponseAdditionalDataOutput
-	ToAssignmentPropertiesResponseAdditionalDataOutputWithContext(context.Context) AssignmentPropertiesResponseAdditionalDataOutput
-}
-
-type AssignmentPropertiesResponseAdditionalDataArgs struct {
-	ExemptionCategory pulumi.StringPtrInput `pulumi:"exemptionCategory"`
-}
-
-func (AssignmentPropertiesResponseAdditionalDataArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AssignmentPropertiesResponseAdditionalData)(nil)).Elem()
-}
-
-func (i AssignmentPropertiesResponseAdditionalDataArgs) ToAssignmentPropertiesResponseAdditionalDataOutput() AssignmentPropertiesResponseAdditionalDataOutput {
-	return i.ToAssignmentPropertiesResponseAdditionalDataOutputWithContext(context.Background())
-}
-
-func (i AssignmentPropertiesResponseAdditionalDataArgs) ToAssignmentPropertiesResponseAdditionalDataOutputWithContext(ctx context.Context) AssignmentPropertiesResponseAdditionalDataOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AssignmentPropertiesResponseAdditionalDataOutput)
-}
-
-func (i AssignmentPropertiesResponseAdditionalDataArgs) ToAssignmentPropertiesResponseAdditionalDataPtrOutput() AssignmentPropertiesResponseAdditionalDataPtrOutput {
-	return i.ToAssignmentPropertiesResponseAdditionalDataPtrOutputWithContext(context.Background())
-}
-
-func (i AssignmentPropertiesResponseAdditionalDataArgs) ToAssignmentPropertiesResponseAdditionalDataPtrOutputWithContext(ctx context.Context) AssignmentPropertiesResponseAdditionalDataPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AssignmentPropertiesResponseAdditionalDataOutput).ToAssignmentPropertiesResponseAdditionalDataPtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type AssignmentPropertiesResponseAdditionalDataPtrInput interface {
-	pulumi.Input
-
-	ToAssignmentPropertiesResponseAdditionalDataPtrOutput() AssignmentPropertiesResponseAdditionalDataPtrOutput
-	ToAssignmentPropertiesResponseAdditionalDataPtrOutputWithContext(context.Context) AssignmentPropertiesResponseAdditionalDataPtrOutput
-}
-
-type assignmentPropertiesResponseAdditionalDataPtrType AssignmentPropertiesResponseAdditionalDataArgs
-
-func AssignmentPropertiesResponseAdditionalDataPtr(v *AssignmentPropertiesResponseAdditionalDataArgs) AssignmentPropertiesResponseAdditionalDataPtrInput {
-	return (*assignmentPropertiesResponseAdditionalDataPtrType)(v)
-}
-
-func (*assignmentPropertiesResponseAdditionalDataPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AssignmentPropertiesResponseAdditionalData)(nil)).Elem()
-}
-
-func (i *assignmentPropertiesResponseAdditionalDataPtrType) ToAssignmentPropertiesResponseAdditionalDataPtrOutput() AssignmentPropertiesResponseAdditionalDataPtrOutput {
-	return i.ToAssignmentPropertiesResponseAdditionalDataPtrOutputWithContext(context.Background())
-}
-
-func (i *assignmentPropertiesResponseAdditionalDataPtrType) ToAssignmentPropertiesResponseAdditionalDataPtrOutputWithContext(ctx context.Context) AssignmentPropertiesResponseAdditionalDataPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AssignmentPropertiesResponseAdditionalDataPtrOutput)
-}
-
 type AssignmentPropertiesResponseAdditionalDataOutput struct{ *pulumi.OutputState }
 
 func (AssignmentPropertiesResponseAdditionalDataOutput) ElementType() reflect.Type {
@@ -759,16 +535,6 @@ func (o AssignmentPropertiesResponseAdditionalDataOutput) ToAssignmentProperties
 
 func (o AssignmentPropertiesResponseAdditionalDataOutput) ToAssignmentPropertiesResponseAdditionalDataOutputWithContext(ctx context.Context) AssignmentPropertiesResponseAdditionalDataOutput {
 	return o
-}
-
-func (o AssignmentPropertiesResponseAdditionalDataOutput) ToAssignmentPropertiesResponseAdditionalDataPtrOutput() AssignmentPropertiesResponseAdditionalDataPtrOutput {
-	return o.ToAssignmentPropertiesResponseAdditionalDataPtrOutputWithContext(context.Background())
-}
-
-func (o AssignmentPropertiesResponseAdditionalDataOutput) ToAssignmentPropertiesResponseAdditionalDataPtrOutputWithContext(ctx context.Context) AssignmentPropertiesResponseAdditionalDataPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AssignmentPropertiesResponseAdditionalData) *AssignmentPropertiesResponseAdditionalData {
-		return &v
-	}).(AssignmentPropertiesResponseAdditionalDataPtrOutput)
 }
 
 func (o AssignmentPropertiesResponseAdditionalDataOutput) ExemptionCategory() pulumi.StringPtrOutput {
@@ -906,58 +672,6 @@ type StandardComponentPropertiesResponse struct {
 	Key *string `pulumi:"key"`
 }
 
-
-
-
-
-type StandardComponentPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToStandardComponentPropertiesResponseOutput() StandardComponentPropertiesResponseOutput
-	ToStandardComponentPropertiesResponseOutputWithContext(context.Context) StandardComponentPropertiesResponseOutput
-}
-
-type StandardComponentPropertiesResponseArgs struct {
-	Key pulumi.StringPtrInput `pulumi:"key"`
-}
-
-func (StandardComponentPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*StandardComponentPropertiesResponse)(nil)).Elem()
-}
-
-func (i StandardComponentPropertiesResponseArgs) ToStandardComponentPropertiesResponseOutput() StandardComponentPropertiesResponseOutput {
-	return i.ToStandardComponentPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i StandardComponentPropertiesResponseArgs) ToStandardComponentPropertiesResponseOutputWithContext(ctx context.Context) StandardComponentPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StandardComponentPropertiesResponseOutput)
-}
-
-
-
-
-
-type StandardComponentPropertiesResponseArrayInput interface {
-	pulumi.Input
-
-	ToStandardComponentPropertiesResponseArrayOutput() StandardComponentPropertiesResponseArrayOutput
-	ToStandardComponentPropertiesResponseArrayOutputWithContext(context.Context) StandardComponentPropertiesResponseArrayOutput
-}
-
-type StandardComponentPropertiesResponseArray []StandardComponentPropertiesResponseInput
-
-func (StandardComponentPropertiesResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]StandardComponentPropertiesResponse)(nil)).Elem()
-}
-
-func (i StandardComponentPropertiesResponseArray) ToStandardComponentPropertiesResponseArrayOutput() StandardComponentPropertiesResponseArrayOutput {
-	return i.ToStandardComponentPropertiesResponseArrayOutputWithContext(context.Background())
-}
-
-func (i StandardComponentPropertiesResponseArray) ToStandardComponentPropertiesResponseArrayOutputWithContext(ctx context.Context) StandardComponentPropertiesResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StandardComponentPropertiesResponseArrayOutput)
-}
-
 type StandardComponentPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (StandardComponentPropertiesResponseOutput) ElementType() reflect.Type {
@@ -1005,79 +719,6 @@ type SystemDataResponse struct {
 	LastModifiedByType *string `pulumi:"lastModifiedByType"`
 }
 
-
-
-
-
-type SystemDataResponseInput interface {
-	pulumi.Input
-
-	ToSystemDataResponseOutput() SystemDataResponseOutput
-	ToSystemDataResponseOutputWithContext(context.Context) SystemDataResponseOutput
-}
-
-type SystemDataResponseArgs struct {
-	CreatedAt          pulumi.StringPtrInput `pulumi:"createdAt"`
-	CreatedBy          pulumi.StringPtrInput `pulumi:"createdBy"`
-	CreatedByType      pulumi.StringPtrInput `pulumi:"createdByType"`
-	LastModifiedAt     pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
-	LastModifiedBy     pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
-	LastModifiedByType pulumi.StringPtrInput `pulumi:"lastModifiedByType"`
-}
-
-func (SystemDataResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SystemDataResponse)(nil)).Elem()
-}
-
-func (i SystemDataResponseArgs) ToSystemDataResponseOutput() SystemDataResponseOutput {
-	return i.ToSystemDataResponseOutputWithContext(context.Background())
-}
-
-func (i SystemDataResponseArgs) ToSystemDataResponseOutputWithContext(ctx context.Context) SystemDataResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponseOutput)
-}
-
-func (i SystemDataResponseArgs) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
-	return i.ToSystemDataResponsePtrOutputWithContext(context.Background())
-}
-
-func (i SystemDataResponseArgs) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponseOutput).ToSystemDataResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type SystemDataResponsePtrInput interface {
-	pulumi.Input
-
-	ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput
-	ToSystemDataResponsePtrOutputWithContext(context.Context) SystemDataResponsePtrOutput
-}
-
-type systemDataResponsePtrType SystemDataResponseArgs
-
-func SystemDataResponsePtr(v *SystemDataResponseArgs) SystemDataResponsePtrInput {
-	return (*systemDataResponsePtrType)(v)
-}
-
-func (*systemDataResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SystemDataResponse)(nil)).Elem()
-}
-
-func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
-	return i.ToSystemDataResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponsePtrOutput)
-}
-
 type SystemDataResponseOutput struct{ *pulumi.OutputState }
 
 func (SystemDataResponseOutput) ElementType() reflect.Type {
@@ -1090,16 +731,6 @@ func (o SystemDataResponseOutput) ToSystemDataResponseOutput() SystemDataRespons
 
 func (o SystemDataResponseOutput) ToSystemDataResponseOutputWithContext(ctx context.Context) SystemDataResponseOutput {
 	return o
-}
-
-func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
-	return o.ToSystemDataResponsePtrOutputWithContext(context.Background())
-}
-
-func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SystemDataResponse) *SystemDataResponse {
-		return &v
-	}).(SystemDataResponsePtrOutput)
 }
 
 func (o SystemDataResponseOutput) CreatedAt() pulumi.StringPtrOutput {
@@ -1126,84 +757,6 @@ func (o SystemDataResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
 }
 
-type SystemDataResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (SystemDataResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SystemDataResponse)(nil)).Elem()
-}
-
-func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
-	return o
-}
-
-func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return o
-}
-
-func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
-	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse {
-		if v != nil {
-			return *v
-		}
-		var ret SystemDataResponse
-		return ret
-	}).(SystemDataResponseOutput)
-}
-
-func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SystemDataResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CreatedAt
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SystemDataResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CreatedBy
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SystemDataResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CreatedByType
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SystemDataResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.LastModifiedAt
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SystemDataResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.LastModifiedBy
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SystemDataResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.LastModifiedByType
-	}).(pulumi.StringPtrOutput)
-}
-
 func init() {
 	pulumi.RegisterOutputType(AssignedComponentItemOutput{})
 	pulumi.RegisterOutputType(AssignedComponentItemPtrOutput{})
@@ -1222,5 +775,4 @@ func init() {
 	pulumi.RegisterOutputType(StandardComponentPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(StandardComponentPropertiesResponseArrayOutput{})
 	pulumi.RegisterOutputType(SystemDataResponseOutput{})
-	pulumi.RegisterOutputType(SystemDataResponsePtrOutput{})
 }

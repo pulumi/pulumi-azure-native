@@ -46,13 +46,11 @@ func NewProject(ctx *pulumi.Context,
 	if args.TargetPlatform == nil {
 		return nil, errors.New("invalid value for required argument 'TargetPlatform'")
 	}
-	sourceConnectionInfoApplier := func(v SqlConnectionInfo) *SqlConnectionInfo { return v.Defaults() }
 	if args.SourceConnectionInfo != nil {
-		args.SourceConnectionInfo = args.SourceConnectionInfo.ToSqlConnectionInfoPtrOutput().Elem().ApplyT(sourceConnectionInfoApplier).(SqlConnectionInfoPtrOutput)
+		args.SourceConnectionInfo = args.SourceConnectionInfo.ToSqlConnectionInfoPtrOutput().ApplyT(func(v *SqlConnectionInfo) *SqlConnectionInfo { return v.Defaults() }).(SqlConnectionInfoPtrOutput)
 	}
-	targetConnectionInfoApplier := func(v SqlConnectionInfo) *SqlConnectionInfo { return v.Defaults() }
 	if args.TargetConnectionInfo != nil {
-		args.TargetConnectionInfo = args.TargetConnectionInfo.ToSqlConnectionInfoPtrOutput().Elem().ApplyT(targetConnectionInfoApplier).(SqlConnectionInfoPtrOutput)
+		args.TargetConnectionInfo = args.TargetConnectionInfo.ToSqlConnectionInfoPtrOutput().ApplyT(func(v *SqlConnectionInfo) *SqlConnectionInfo { return v.Defaults() }).(SqlConnectionInfoPtrOutput)
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

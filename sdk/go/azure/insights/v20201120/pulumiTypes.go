@@ -136,62 +136,6 @@ type WorkbookTemplateGalleryResponse struct {
 	Type         *string `pulumi:"type"`
 }
 
-
-
-
-
-type WorkbookTemplateGalleryResponseInput interface {
-	pulumi.Input
-
-	ToWorkbookTemplateGalleryResponseOutput() WorkbookTemplateGalleryResponseOutput
-	ToWorkbookTemplateGalleryResponseOutputWithContext(context.Context) WorkbookTemplateGalleryResponseOutput
-}
-
-type WorkbookTemplateGalleryResponseArgs struct {
-	Category     pulumi.StringPtrInput `pulumi:"category"`
-	Name         pulumi.StringPtrInput `pulumi:"name"`
-	Order        pulumi.IntPtrInput    `pulumi:"order"`
-	ResourceType pulumi.StringPtrInput `pulumi:"resourceType"`
-	Type         pulumi.StringPtrInput `pulumi:"type"`
-}
-
-func (WorkbookTemplateGalleryResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkbookTemplateGalleryResponse)(nil)).Elem()
-}
-
-func (i WorkbookTemplateGalleryResponseArgs) ToWorkbookTemplateGalleryResponseOutput() WorkbookTemplateGalleryResponseOutput {
-	return i.ToWorkbookTemplateGalleryResponseOutputWithContext(context.Background())
-}
-
-func (i WorkbookTemplateGalleryResponseArgs) ToWorkbookTemplateGalleryResponseOutputWithContext(ctx context.Context) WorkbookTemplateGalleryResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WorkbookTemplateGalleryResponseOutput)
-}
-
-
-
-
-
-type WorkbookTemplateGalleryResponseArrayInput interface {
-	pulumi.Input
-
-	ToWorkbookTemplateGalleryResponseArrayOutput() WorkbookTemplateGalleryResponseArrayOutput
-	ToWorkbookTemplateGalleryResponseArrayOutputWithContext(context.Context) WorkbookTemplateGalleryResponseArrayOutput
-}
-
-type WorkbookTemplateGalleryResponseArray []WorkbookTemplateGalleryResponseInput
-
-func (WorkbookTemplateGalleryResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]WorkbookTemplateGalleryResponse)(nil)).Elem()
-}
-
-func (i WorkbookTemplateGalleryResponseArray) ToWorkbookTemplateGalleryResponseArrayOutput() WorkbookTemplateGalleryResponseArrayOutput {
-	return i.ToWorkbookTemplateGalleryResponseArrayOutputWithContext(context.Background())
-}
-
-func (i WorkbookTemplateGalleryResponseArray) ToWorkbookTemplateGalleryResponseArrayOutputWithContext(ctx context.Context) WorkbookTemplateGalleryResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WorkbookTemplateGalleryResponseArrayOutput)
-}
-
 type WorkbookTemplateGalleryResponseOutput struct{ *pulumi.OutputState }
 
 func (WorkbookTemplateGalleryResponseOutput) ElementType() reflect.Type {
@@ -351,59 +295,6 @@ type WorkbookTemplateLocalizedGalleryResponse struct {
 	TemplateData interface{}                       `pulumi:"templateData"`
 }
 
-
-
-
-
-type WorkbookTemplateLocalizedGalleryResponseInput interface {
-	pulumi.Input
-
-	ToWorkbookTemplateLocalizedGalleryResponseOutput() WorkbookTemplateLocalizedGalleryResponseOutput
-	ToWorkbookTemplateLocalizedGalleryResponseOutputWithContext(context.Context) WorkbookTemplateLocalizedGalleryResponseOutput
-}
-
-type WorkbookTemplateLocalizedGalleryResponseArgs struct {
-	Galleries    WorkbookTemplateGalleryResponseArrayInput `pulumi:"galleries"`
-	TemplateData pulumi.Input                              `pulumi:"templateData"`
-}
-
-func (WorkbookTemplateLocalizedGalleryResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkbookTemplateLocalizedGalleryResponse)(nil)).Elem()
-}
-
-func (i WorkbookTemplateLocalizedGalleryResponseArgs) ToWorkbookTemplateLocalizedGalleryResponseOutput() WorkbookTemplateLocalizedGalleryResponseOutput {
-	return i.ToWorkbookTemplateLocalizedGalleryResponseOutputWithContext(context.Background())
-}
-
-func (i WorkbookTemplateLocalizedGalleryResponseArgs) ToWorkbookTemplateLocalizedGalleryResponseOutputWithContext(ctx context.Context) WorkbookTemplateLocalizedGalleryResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WorkbookTemplateLocalizedGalleryResponseOutput)
-}
-
-
-
-
-
-type WorkbookTemplateLocalizedGalleryResponseArrayInput interface {
-	pulumi.Input
-
-	ToWorkbookTemplateLocalizedGalleryResponseArrayOutput() WorkbookTemplateLocalizedGalleryResponseArrayOutput
-	ToWorkbookTemplateLocalizedGalleryResponseArrayOutputWithContext(context.Context) WorkbookTemplateLocalizedGalleryResponseArrayOutput
-}
-
-type WorkbookTemplateLocalizedGalleryResponseArray []WorkbookTemplateLocalizedGalleryResponseInput
-
-func (WorkbookTemplateLocalizedGalleryResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]WorkbookTemplateLocalizedGalleryResponse)(nil)).Elem()
-}
-
-func (i WorkbookTemplateLocalizedGalleryResponseArray) ToWorkbookTemplateLocalizedGalleryResponseArrayOutput() WorkbookTemplateLocalizedGalleryResponseArrayOutput {
-	return i.ToWorkbookTemplateLocalizedGalleryResponseArrayOutputWithContext(context.Background())
-}
-
-func (i WorkbookTemplateLocalizedGalleryResponseArray) ToWorkbookTemplateLocalizedGalleryResponseArrayOutputWithContext(ctx context.Context) WorkbookTemplateLocalizedGalleryResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WorkbookTemplateLocalizedGalleryResponseArrayOutput)
-}
-
 type WorkbookTemplateLocalizedGalleryResponseOutput struct{ *pulumi.OutputState }
 
 func (WorkbookTemplateLocalizedGalleryResponseOutput) ElementType() reflect.Type {
@@ -449,7 +340,7 @@ func (o WorkbookTemplateLocalizedGalleryResponseArrayOutput) Index(i pulumi.IntI
 type WorkbookTemplateLocalizedGalleryArrayMap map[string]WorkbookTemplateLocalizedGalleryArrayInput
 
 func (WorkbookTemplateLocalizedGalleryArrayMap) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkbookTemplateLocalizedGalleryArray)(nil)).Elem()
+	return reflect.TypeOf((*map[string][]WorkbookTemplateLocalizedGallery)(nil)).Elem()
 }
 
 func (i WorkbookTemplateLocalizedGalleryArrayMap) ToWorkbookTemplateLocalizedGalleryArrayMapOutput() WorkbookTemplateLocalizedGalleryArrayMapOutput {
@@ -458,26 +349,6 @@ func (i WorkbookTemplateLocalizedGalleryArrayMap) ToWorkbookTemplateLocalizedGal
 
 func (i WorkbookTemplateLocalizedGalleryArrayMap) ToWorkbookTemplateLocalizedGalleryArrayMapOutputWithContext(ctx context.Context) WorkbookTemplateLocalizedGalleryArrayMapOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(WorkbookTemplateLocalizedGalleryArrayMapOutput)
-}
-
-type WorkbookTemplateLocalizedGalleryArrayMapOutput struct{ *pulumi.OutputState }
-
-func (WorkbookTemplateLocalizedGalleryArrayMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]WorkbookTemplateLocalizedGalleryArray)(nil)).Elem()
-}
-
-func (o WorkbookTemplateLocalizedGalleryArrayMapOutput) ToWorkbookTemplateLocalizedGalleryArrayMapOutput() WorkbookTemplateLocalizedGalleryArrayMapOutput {
-	return o
-}
-
-func (o WorkbookTemplateLocalizedGalleryArrayMapOutput) ToWorkbookTemplateLocalizedGalleryArrayMapOutputWithContext(ctx context.Context) WorkbookTemplateLocalizedGalleryArrayMapOutput {
-	return o
-}
-
-func (o WorkbookTemplateLocalizedGalleryArrayMapOutput) MapIndex(k pulumi.StringInput) WorkbookTemplateLocalizedGalleryArrayOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) WorkbookTemplateLocalizedGalleryArray {
-		return vs[0].(map[string]WorkbookTemplateLocalizedGalleryArray)[vs[1].(string)]
-	}).(WorkbookTemplateLocalizedGalleryArrayOutput)
 }
 
 
@@ -491,24 +362,30 @@ type WorkbookTemplateLocalizedGalleryArrayMapInput interface {
 	ToWorkbookTemplateLocalizedGalleryArrayMapOutputWithContext(context.Context) WorkbookTemplateLocalizedGalleryArrayMapOutput
 }
 
-type WorkbookTemplateLocalizedGalleryResponseArrayMap map[string]WorkbookTemplateLocalizedGalleryResponseArrayInput
+type WorkbookTemplateLocalizedGalleryArrayMapOutput struct{ *pulumi.OutputState }
 
-func (WorkbookTemplateLocalizedGalleryResponseArrayMap) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkbookTemplateLocalizedGalleryResponseArray)(nil)).Elem()
+func (WorkbookTemplateLocalizedGalleryArrayMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string][]WorkbookTemplateLocalizedGallery)(nil)).Elem()
 }
 
-func (i WorkbookTemplateLocalizedGalleryResponseArrayMap) ToWorkbookTemplateLocalizedGalleryResponseArrayMapOutput() WorkbookTemplateLocalizedGalleryResponseArrayMapOutput {
-	return i.ToWorkbookTemplateLocalizedGalleryResponseArrayMapOutputWithContext(context.Background())
+func (o WorkbookTemplateLocalizedGalleryArrayMapOutput) ToWorkbookTemplateLocalizedGalleryArrayMapOutput() WorkbookTemplateLocalizedGalleryArrayMapOutput {
+	return o
 }
 
-func (i WorkbookTemplateLocalizedGalleryResponseArrayMap) ToWorkbookTemplateLocalizedGalleryResponseArrayMapOutputWithContext(ctx context.Context) WorkbookTemplateLocalizedGalleryResponseArrayMapOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WorkbookTemplateLocalizedGalleryResponseArrayMapOutput)
+func (o WorkbookTemplateLocalizedGalleryArrayMapOutput) ToWorkbookTemplateLocalizedGalleryArrayMapOutputWithContext(ctx context.Context) WorkbookTemplateLocalizedGalleryArrayMapOutput {
+	return o
+}
+
+func (o WorkbookTemplateLocalizedGalleryArrayMapOutput) MapIndex(k pulumi.StringInput) WorkbookTemplateLocalizedGalleryArrayOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) []WorkbookTemplateLocalizedGallery {
+		return vs[0].(map[string][]WorkbookTemplateLocalizedGallery)[vs[1].(string)]
+	}).(WorkbookTemplateLocalizedGalleryArrayOutput)
 }
 
 type WorkbookTemplateLocalizedGalleryResponseArrayMapOutput struct{ *pulumi.OutputState }
 
 func (WorkbookTemplateLocalizedGalleryResponseArrayMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]WorkbookTemplateLocalizedGalleryResponseArray)(nil)).Elem()
+	return reflect.TypeOf((*map[string][]WorkbookTemplateLocalizedGalleryResponse)(nil)).Elem()
 }
 
 func (o WorkbookTemplateLocalizedGalleryResponseArrayMapOutput) ToWorkbookTemplateLocalizedGalleryResponseArrayMapOutput() WorkbookTemplateLocalizedGalleryResponseArrayMapOutput {
@@ -520,20 +397,9 @@ func (o WorkbookTemplateLocalizedGalleryResponseArrayMapOutput) ToWorkbookTempla
 }
 
 func (o WorkbookTemplateLocalizedGalleryResponseArrayMapOutput) MapIndex(k pulumi.StringInput) WorkbookTemplateLocalizedGalleryResponseArrayOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) WorkbookTemplateLocalizedGalleryResponseArray {
-		return vs[0].(map[string]WorkbookTemplateLocalizedGalleryResponseArray)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) []WorkbookTemplateLocalizedGalleryResponse {
+		return vs[0].(map[string][]WorkbookTemplateLocalizedGalleryResponse)[vs[1].(string)]
 	}).(WorkbookTemplateLocalizedGalleryResponseArrayOutput)
-}
-
-
-
-
-
-type WorkbookTemplateLocalizedGalleryResponseArrayMapInput interface {
-	pulumi.Input
-
-	ToWorkbookTemplateLocalizedGalleryResponseArrayMapOutput() WorkbookTemplateLocalizedGalleryResponseArrayMapOutput
-	ToWorkbookTemplateLocalizedGalleryResponseArrayMapOutputWithContext(context.Context) WorkbookTemplateLocalizedGalleryResponseArrayMapOutput
 }
 
 func init() {

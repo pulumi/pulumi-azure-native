@@ -179,76 +179,6 @@ type RegistrationInfoResponse struct {
 	Token          *string `pulumi:"token"`
 }
 
-
-
-
-
-type RegistrationInfoResponseInput interface {
-	pulumi.Input
-
-	ToRegistrationInfoResponseOutput() RegistrationInfoResponseOutput
-	ToRegistrationInfoResponseOutputWithContext(context.Context) RegistrationInfoResponseOutput
-}
-
-type RegistrationInfoResponseArgs struct {
-	ExpirationTime pulumi.StringPtrInput `pulumi:"expirationTime"`
-	ResetToken     pulumi.BoolPtrInput   `pulumi:"resetToken"`
-	Token          pulumi.StringPtrInput `pulumi:"token"`
-}
-
-func (RegistrationInfoResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RegistrationInfoResponse)(nil)).Elem()
-}
-
-func (i RegistrationInfoResponseArgs) ToRegistrationInfoResponseOutput() RegistrationInfoResponseOutput {
-	return i.ToRegistrationInfoResponseOutputWithContext(context.Background())
-}
-
-func (i RegistrationInfoResponseArgs) ToRegistrationInfoResponseOutputWithContext(ctx context.Context) RegistrationInfoResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RegistrationInfoResponseOutput)
-}
-
-func (i RegistrationInfoResponseArgs) ToRegistrationInfoResponsePtrOutput() RegistrationInfoResponsePtrOutput {
-	return i.ToRegistrationInfoResponsePtrOutputWithContext(context.Background())
-}
-
-func (i RegistrationInfoResponseArgs) ToRegistrationInfoResponsePtrOutputWithContext(ctx context.Context) RegistrationInfoResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RegistrationInfoResponseOutput).ToRegistrationInfoResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type RegistrationInfoResponsePtrInput interface {
-	pulumi.Input
-
-	ToRegistrationInfoResponsePtrOutput() RegistrationInfoResponsePtrOutput
-	ToRegistrationInfoResponsePtrOutputWithContext(context.Context) RegistrationInfoResponsePtrOutput
-}
-
-type registrationInfoResponsePtrType RegistrationInfoResponseArgs
-
-func RegistrationInfoResponsePtr(v *RegistrationInfoResponseArgs) RegistrationInfoResponsePtrInput {
-	return (*registrationInfoResponsePtrType)(v)
-}
-
-func (*registrationInfoResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**RegistrationInfoResponse)(nil)).Elem()
-}
-
-func (i *registrationInfoResponsePtrType) ToRegistrationInfoResponsePtrOutput() RegistrationInfoResponsePtrOutput {
-	return i.ToRegistrationInfoResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *registrationInfoResponsePtrType) ToRegistrationInfoResponsePtrOutputWithContext(ctx context.Context) RegistrationInfoResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RegistrationInfoResponsePtrOutput)
-}
-
 type RegistrationInfoResponseOutput struct{ *pulumi.OutputState }
 
 func (RegistrationInfoResponseOutput) ElementType() reflect.Type {
@@ -261,16 +191,6 @@ func (o RegistrationInfoResponseOutput) ToRegistrationInfoResponseOutput() Regis
 
 func (o RegistrationInfoResponseOutput) ToRegistrationInfoResponseOutputWithContext(ctx context.Context) RegistrationInfoResponseOutput {
 	return o
-}
-
-func (o RegistrationInfoResponseOutput) ToRegistrationInfoResponsePtrOutput() RegistrationInfoResponsePtrOutput {
-	return o.ToRegistrationInfoResponsePtrOutputWithContext(context.Background())
-}
-
-func (o RegistrationInfoResponseOutput) ToRegistrationInfoResponsePtrOutputWithContext(ctx context.Context) RegistrationInfoResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RegistrationInfoResponse) *RegistrationInfoResponse {
-		return &v
-	}).(RegistrationInfoResponsePtrOutput)
 }
 
 func (o RegistrationInfoResponseOutput) ExpirationTime() pulumi.StringPtrOutput {

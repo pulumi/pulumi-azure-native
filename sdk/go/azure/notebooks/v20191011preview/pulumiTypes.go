@@ -227,79 +227,6 @@ type NotebookResourceSystemDataResponse struct {
 	LastModifiedByType *string `pulumi:"lastModifiedByType"`
 }
 
-
-
-
-
-type NotebookResourceSystemDataResponseInput interface {
-	pulumi.Input
-
-	ToNotebookResourceSystemDataResponseOutput() NotebookResourceSystemDataResponseOutput
-	ToNotebookResourceSystemDataResponseOutputWithContext(context.Context) NotebookResourceSystemDataResponseOutput
-}
-
-type NotebookResourceSystemDataResponseArgs struct {
-	CreatedAt          pulumi.StringPtrInput `pulumi:"createdAt"`
-	CreatedBy          pulumi.StringPtrInput `pulumi:"createdBy"`
-	CreatedByType      pulumi.StringPtrInput `pulumi:"createdByType"`
-	LastModifiedAt     pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
-	LastModifiedBy     pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
-	LastModifiedByType pulumi.StringPtrInput `pulumi:"lastModifiedByType"`
-}
-
-func (NotebookResourceSystemDataResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*NotebookResourceSystemDataResponse)(nil)).Elem()
-}
-
-func (i NotebookResourceSystemDataResponseArgs) ToNotebookResourceSystemDataResponseOutput() NotebookResourceSystemDataResponseOutput {
-	return i.ToNotebookResourceSystemDataResponseOutputWithContext(context.Background())
-}
-
-func (i NotebookResourceSystemDataResponseArgs) ToNotebookResourceSystemDataResponseOutputWithContext(ctx context.Context) NotebookResourceSystemDataResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NotebookResourceSystemDataResponseOutput)
-}
-
-func (i NotebookResourceSystemDataResponseArgs) ToNotebookResourceSystemDataResponsePtrOutput() NotebookResourceSystemDataResponsePtrOutput {
-	return i.ToNotebookResourceSystemDataResponsePtrOutputWithContext(context.Background())
-}
-
-func (i NotebookResourceSystemDataResponseArgs) ToNotebookResourceSystemDataResponsePtrOutputWithContext(ctx context.Context) NotebookResourceSystemDataResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NotebookResourceSystemDataResponseOutput).ToNotebookResourceSystemDataResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type NotebookResourceSystemDataResponsePtrInput interface {
-	pulumi.Input
-
-	ToNotebookResourceSystemDataResponsePtrOutput() NotebookResourceSystemDataResponsePtrOutput
-	ToNotebookResourceSystemDataResponsePtrOutputWithContext(context.Context) NotebookResourceSystemDataResponsePtrOutput
-}
-
-type notebookResourceSystemDataResponsePtrType NotebookResourceSystemDataResponseArgs
-
-func NotebookResourceSystemDataResponsePtr(v *NotebookResourceSystemDataResponseArgs) NotebookResourceSystemDataResponsePtrInput {
-	return (*notebookResourceSystemDataResponsePtrType)(v)
-}
-
-func (*notebookResourceSystemDataResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**NotebookResourceSystemDataResponse)(nil)).Elem()
-}
-
-func (i *notebookResourceSystemDataResponsePtrType) ToNotebookResourceSystemDataResponsePtrOutput() NotebookResourceSystemDataResponsePtrOutput {
-	return i.ToNotebookResourceSystemDataResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *notebookResourceSystemDataResponsePtrType) ToNotebookResourceSystemDataResponsePtrOutputWithContext(ctx context.Context) NotebookResourceSystemDataResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NotebookResourceSystemDataResponsePtrOutput)
-}
-
 type NotebookResourceSystemDataResponseOutput struct{ *pulumi.OutputState }
 
 func (NotebookResourceSystemDataResponseOutput) ElementType() reflect.Type {
@@ -312,16 +239,6 @@ func (o NotebookResourceSystemDataResponseOutput) ToNotebookResourceSystemDataRe
 
 func (o NotebookResourceSystemDataResponseOutput) ToNotebookResourceSystemDataResponseOutputWithContext(ctx context.Context) NotebookResourceSystemDataResponseOutput {
 	return o
-}
-
-func (o NotebookResourceSystemDataResponseOutput) ToNotebookResourceSystemDataResponsePtrOutput() NotebookResourceSystemDataResponsePtrOutput {
-	return o.ToNotebookResourceSystemDataResponsePtrOutputWithContext(context.Background())
-}
-
-func (o NotebookResourceSystemDataResponseOutput) ToNotebookResourceSystemDataResponsePtrOutputWithContext(ctx context.Context) NotebookResourceSystemDataResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v NotebookResourceSystemDataResponse) *NotebookResourceSystemDataResponse {
-		return &v
-	}).(NotebookResourceSystemDataResponsePtrOutput)
 }
 
 func (o NotebookResourceSystemDataResponseOutput) CreatedAt() pulumi.StringPtrOutput {

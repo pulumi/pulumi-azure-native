@@ -36,9 +36,8 @@ func NewEventSubscription(ctx *pulumi.Context,
 	if args.Scope == nil {
 		return nil, errors.New("invalid value for required argument 'Scope'")
 	}
-	filterApplier := func(v EventSubscriptionFilter) *EventSubscriptionFilter { return v.Defaults() }
 	if args.Filter != nil {
-		args.Filter = args.Filter.ToEventSubscriptionFilterPtrOutput().Elem().ApplyT(filterApplier).(EventSubscriptionFilterPtrOutput)
+		args.Filter = args.Filter.ToEventSubscriptionFilterPtrOutput().ApplyT(func(v *EventSubscriptionFilter) *EventSubscriptionFilter { return v.Defaults() }).(EventSubscriptionFilterPtrOutput)
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

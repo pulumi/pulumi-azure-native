@@ -108,58 +108,6 @@ type ARecordResponse struct {
 	Ipv4Address *string `pulumi:"ipv4Address"`
 }
 
-
-
-
-
-type ARecordResponseInput interface {
-	pulumi.Input
-
-	ToARecordResponseOutput() ARecordResponseOutput
-	ToARecordResponseOutputWithContext(context.Context) ARecordResponseOutput
-}
-
-type ARecordResponseArgs struct {
-	Ipv4Address pulumi.StringPtrInput `pulumi:"ipv4Address"`
-}
-
-func (ARecordResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ARecordResponse)(nil)).Elem()
-}
-
-func (i ARecordResponseArgs) ToARecordResponseOutput() ARecordResponseOutput {
-	return i.ToARecordResponseOutputWithContext(context.Background())
-}
-
-func (i ARecordResponseArgs) ToARecordResponseOutputWithContext(ctx context.Context) ARecordResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ARecordResponseOutput)
-}
-
-
-
-
-
-type ARecordResponseArrayInput interface {
-	pulumi.Input
-
-	ToARecordResponseArrayOutput() ARecordResponseArrayOutput
-	ToARecordResponseArrayOutputWithContext(context.Context) ARecordResponseArrayOutput
-}
-
-type ARecordResponseArray []ARecordResponseInput
-
-func (ARecordResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ARecordResponse)(nil)).Elem()
-}
-
-func (i ARecordResponseArray) ToARecordResponseArrayOutput() ARecordResponseArrayOutput {
-	return i.ToARecordResponseArrayOutputWithContext(context.Background())
-}
-
-func (i ARecordResponseArray) ToARecordResponseArrayOutputWithContext(ctx context.Context) ARecordResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ARecordResponseArrayOutput)
-}
-
 type ARecordResponseOutput struct{ *pulumi.OutputState }
 
 func (ARecordResponseOutput) ElementType() reflect.Type {
@@ -294,58 +242,6 @@ func (o AaaaRecordArrayOutput) Index(i pulumi.IntInput) AaaaRecordOutput {
 
 type AaaaRecordResponse struct {
 	Ipv6Address *string `pulumi:"ipv6Address"`
-}
-
-
-
-
-
-type AaaaRecordResponseInput interface {
-	pulumi.Input
-
-	ToAaaaRecordResponseOutput() AaaaRecordResponseOutput
-	ToAaaaRecordResponseOutputWithContext(context.Context) AaaaRecordResponseOutput
-}
-
-type AaaaRecordResponseArgs struct {
-	Ipv6Address pulumi.StringPtrInput `pulumi:"ipv6Address"`
-}
-
-func (AaaaRecordResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AaaaRecordResponse)(nil)).Elem()
-}
-
-func (i AaaaRecordResponseArgs) ToAaaaRecordResponseOutput() AaaaRecordResponseOutput {
-	return i.ToAaaaRecordResponseOutputWithContext(context.Background())
-}
-
-func (i AaaaRecordResponseArgs) ToAaaaRecordResponseOutputWithContext(ctx context.Context) AaaaRecordResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AaaaRecordResponseOutput)
-}
-
-
-
-
-
-type AaaaRecordResponseArrayInput interface {
-	pulumi.Input
-
-	ToAaaaRecordResponseArrayOutput() AaaaRecordResponseArrayOutput
-	ToAaaaRecordResponseArrayOutputWithContext(context.Context) AaaaRecordResponseArrayOutput
-}
-
-type AaaaRecordResponseArray []AaaaRecordResponseInput
-
-func (AaaaRecordResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AaaaRecordResponse)(nil)).Elem()
-}
-
-func (i AaaaRecordResponseArray) ToAaaaRecordResponseArrayOutput() AaaaRecordResponseArrayOutput {
-	return i.ToAaaaRecordResponseArrayOutputWithContext(context.Background())
-}
-
-func (i AaaaRecordResponseArray) ToAaaaRecordResponseArrayOutputWithContext(ctx context.Context) AaaaRecordResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AaaaRecordResponseArrayOutput)
 }
 
 type AaaaRecordResponseOutput struct{ *pulumi.OutputState }
@@ -523,74 +419,6 @@ type CnameRecordResponse struct {
 	Cname *string `pulumi:"cname"`
 }
 
-
-
-
-
-type CnameRecordResponseInput interface {
-	pulumi.Input
-
-	ToCnameRecordResponseOutput() CnameRecordResponseOutput
-	ToCnameRecordResponseOutputWithContext(context.Context) CnameRecordResponseOutput
-}
-
-type CnameRecordResponseArgs struct {
-	Cname pulumi.StringPtrInput `pulumi:"cname"`
-}
-
-func (CnameRecordResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CnameRecordResponse)(nil)).Elem()
-}
-
-func (i CnameRecordResponseArgs) ToCnameRecordResponseOutput() CnameRecordResponseOutput {
-	return i.ToCnameRecordResponseOutputWithContext(context.Background())
-}
-
-func (i CnameRecordResponseArgs) ToCnameRecordResponseOutputWithContext(ctx context.Context) CnameRecordResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CnameRecordResponseOutput)
-}
-
-func (i CnameRecordResponseArgs) ToCnameRecordResponsePtrOutput() CnameRecordResponsePtrOutput {
-	return i.ToCnameRecordResponsePtrOutputWithContext(context.Background())
-}
-
-func (i CnameRecordResponseArgs) ToCnameRecordResponsePtrOutputWithContext(ctx context.Context) CnameRecordResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CnameRecordResponseOutput).ToCnameRecordResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type CnameRecordResponsePtrInput interface {
-	pulumi.Input
-
-	ToCnameRecordResponsePtrOutput() CnameRecordResponsePtrOutput
-	ToCnameRecordResponsePtrOutputWithContext(context.Context) CnameRecordResponsePtrOutput
-}
-
-type cnameRecordResponsePtrType CnameRecordResponseArgs
-
-func CnameRecordResponsePtr(v *CnameRecordResponseArgs) CnameRecordResponsePtrInput {
-	return (*cnameRecordResponsePtrType)(v)
-}
-
-func (*cnameRecordResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**CnameRecordResponse)(nil)).Elem()
-}
-
-func (i *cnameRecordResponsePtrType) ToCnameRecordResponsePtrOutput() CnameRecordResponsePtrOutput {
-	return i.ToCnameRecordResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *cnameRecordResponsePtrType) ToCnameRecordResponsePtrOutputWithContext(ctx context.Context) CnameRecordResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CnameRecordResponsePtrOutput)
-}
-
 type CnameRecordResponseOutput struct{ *pulumi.OutputState }
 
 func (CnameRecordResponseOutput) ElementType() reflect.Type {
@@ -603,16 +431,6 @@ func (o CnameRecordResponseOutput) ToCnameRecordResponseOutput() CnameRecordResp
 
 func (o CnameRecordResponseOutput) ToCnameRecordResponseOutputWithContext(ctx context.Context) CnameRecordResponseOutput {
 	return o
-}
-
-func (o CnameRecordResponseOutput) ToCnameRecordResponsePtrOutput() CnameRecordResponsePtrOutput {
-	return o.ToCnameRecordResponsePtrOutputWithContext(context.Background())
-}
-
-func (o CnameRecordResponseOutput) ToCnameRecordResponsePtrOutputWithContext(ctx context.Context) CnameRecordResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CnameRecordResponse) *CnameRecordResponse {
-		return &v
-	}).(CnameRecordResponsePtrOutput)
 }
 
 func (o CnameRecordResponseOutput) Cname() pulumi.StringPtrOutput {
@@ -757,59 +575,6 @@ type MxRecordResponse struct {
 	Preference *int    `pulumi:"preference"`
 }
 
-
-
-
-
-type MxRecordResponseInput interface {
-	pulumi.Input
-
-	ToMxRecordResponseOutput() MxRecordResponseOutput
-	ToMxRecordResponseOutputWithContext(context.Context) MxRecordResponseOutput
-}
-
-type MxRecordResponseArgs struct {
-	Exchange   pulumi.StringPtrInput `pulumi:"exchange"`
-	Preference pulumi.IntPtrInput    `pulumi:"preference"`
-}
-
-func (MxRecordResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MxRecordResponse)(nil)).Elem()
-}
-
-func (i MxRecordResponseArgs) ToMxRecordResponseOutput() MxRecordResponseOutput {
-	return i.ToMxRecordResponseOutputWithContext(context.Background())
-}
-
-func (i MxRecordResponseArgs) ToMxRecordResponseOutputWithContext(ctx context.Context) MxRecordResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MxRecordResponseOutput)
-}
-
-
-
-
-
-type MxRecordResponseArrayInput interface {
-	pulumi.Input
-
-	ToMxRecordResponseArrayOutput() MxRecordResponseArrayOutput
-	ToMxRecordResponseArrayOutputWithContext(context.Context) MxRecordResponseArrayOutput
-}
-
-type MxRecordResponseArray []MxRecordResponseInput
-
-func (MxRecordResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]MxRecordResponse)(nil)).Elem()
-}
-
-func (i MxRecordResponseArray) ToMxRecordResponseArrayOutput() MxRecordResponseArrayOutput {
-	return i.ToMxRecordResponseArrayOutputWithContext(context.Background())
-}
-
-func (i MxRecordResponseArray) ToMxRecordResponseArrayOutputWithContext(ctx context.Context) MxRecordResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MxRecordResponseArrayOutput)
-}
-
 type MxRecordResponseOutput struct{ *pulumi.OutputState }
 
 func (MxRecordResponseOutput) ElementType() reflect.Type {
@@ -948,58 +713,6 @@ func (o PtrRecordArrayOutput) Index(i pulumi.IntInput) PtrRecordOutput {
 
 type PtrRecordResponse struct {
 	Ptrdname *string `pulumi:"ptrdname"`
-}
-
-
-
-
-
-type PtrRecordResponseInput interface {
-	pulumi.Input
-
-	ToPtrRecordResponseOutput() PtrRecordResponseOutput
-	ToPtrRecordResponseOutputWithContext(context.Context) PtrRecordResponseOutput
-}
-
-type PtrRecordResponseArgs struct {
-	Ptrdname pulumi.StringPtrInput `pulumi:"ptrdname"`
-}
-
-func (PtrRecordResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PtrRecordResponse)(nil)).Elem()
-}
-
-func (i PtrRecordResponseArgs) ToPtrRecordResponseOutput() PtrRecordResponseOutput {
-	return i.ToPtrRecordResponseOutputWithContext(context.Background())
-}
-
-func (i PtrRecordResponseArgs) ToPtrRecordResponseOutputWithContext(ctx context.Context) PtrRecordResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PtrRecordResponseOutput)
-}
-
-
-
-
-
-type PtrRecordResponseArrayInput interface {
-	pulumi.Input
-
-	ToPtrRecordResponseArrayOutput() PtrRecordResponseArrayOutput
-	ToPtrRecordResponseArrayOutputWithContext(context.Context) PtrRecordResponseArrayOutput
-}
-
-type PtrRecordResponseArray []PtrRecordResponseInput
-
-func (PtrRecordResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PtrRecordResponse)(nil)).Elem()
-}
-
-func (i PtrRecordResponseArray) ToPtrRecordResponseArrayOutput() PtrRecordResponseArrayOutput {
-	return i.ToPtrRecordResponseArrayOutputWithContext(context.Background())
-}
-
-func (i PtrRecordResponseArray) ToPtrRecordResponseArrayOutputWithContext(ctx context.Context) PtrRecordResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PtrRecordResponseArrayOutput)
 }
 
 type PtrRecordResponseOutput struct{ *pulumi.OutputState }
@@ -1273,80 +986,6 @@ type SoaRecordResponse struct {
 	SerialNumber *float64 `pulumi:"serialNumber"`
 }
 
-
-
-
-
-type SoaRecordResponseInput interface {
-	pulumi.Input
-
-	ToSoaRecordResponseOutput() SoaRecordResponseOutput
-	ToSoaRecordResponseOutputWithContext(context.Context) SoaRecordResponseOutput
-}
-
-type SoaRecordResponseArgs struct {
-	Email        pulumi.StringPtrInput  `pulumi:"email"`
-	ExpireTime   pulumi.Float64PtrInput `pulumi:"expireTime"`
-	Host         pulumi.StringPtrInput  `pulumi:"host"`
-	MinimumTtl   pulumi.Float64PtrInput `pulumi:"minimumTtl"`
-	RefreshTime  pulumi.Float64PtrInput `pulumi:"refreshTime"`
-	RetryTime    pulumi.Float64PtrInput `pulumi:"retryTime"`
-	SerialNumber pulumi.Float64PtrInput `pulumi:"serialNumber"`
-}
-
-func (SoaRecordResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SoaRecordResponse)(nil)).Elem()
-}
-
-func (i SoaRecordResponseArgs) ToSoaRecordResponseOutput() SoaRecordResponseOutput {
-	return i.ToSoaRecordResponseOutputWithContext(context.Background())
-}
-
-func (i SoaRecordResponseArgs) ToSoaRecordResponseOutputWithContext(ctx context.Context) SoaRecordResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SoaRecordResponseOutput)
-}
-
-func (i SoaRecordResponseArgs) ToSoaRecordResponsePtrOutput() SoaRecordResponsePtrOutput {
-	return i.ToSoaRecordResponsePtrOutputWithContext(context.Background())
-}
-
-func (i SoaRecordResponseArgs) ToSoaRecordResponsePtrOutputWithContext(ctx context.Context) SoaRecordResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SoaRecordResponseOutput).ToSoaRecordResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type SoaRecordResponsePtrInput interface {
-	pulumi.Input
-
-	ToSoaRecordResponsePtrOutput() SoaRecordResponsePtrOutput
-	ToSoaRecordResponsePtrOutputWithContext(context.Context) SoaRecordResponsePtrOutput
-}
-
-type soaRecordResponsePtrType SoaRecordResponseArgs
-
-func SoaRecordResponsePtr(v *SoaRecordResponseArgs) SoaRecordResponsePtrInput {
-	return (*soaRecordResponsePtrType)(v)
-}
-
-func (*soaRecordResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SoaRecordResponse)(nil)).Elem()
-}
-
-func (i *soaRecordResponsePtrType) ToSoaRecordResponsePtrOutput() SoaRecordResponsePtrOutput {
-	return i.ToSoaRecordResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *soaRecordResponsePtrType) ToSoaRecordResponsePtrOutputWithContext(ctx context.Context) SoaRecordResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SoaRecordResponsePtrOutput)
-}
-
 type SoaRecordResponseOutput struct{ *pulumi.OutputState }
 
 func (SoaRecordResponseOutput) ElementType() reflect.Type {
@@ -1359,16 +998,6 @@ func (o SoaRecordResponseOutput) ToSoaRecordResponseOutput() SoaRecordResponseOu
 
 func (o SoaRecordResponseOutput) ToSoaRecordResponseOutputWithContext(ctx context.Context) SoaRecordResponseOutput {
 	return o
-}
-
-func (o SoaRecordResponseOutput) ToSoaRecordResponsePtrOutput() SoaRecordResponsePtrOutput {
-	return o.ToSoaRecordResponsePtrOutputWithContext(context.Background())
-}
-
-func (o SoaRecordResponseOutput) ToSoaRecordResponsePtrOutputWithContext(ctx context.Context) SoaRecordResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SoaRecordResponse) *SoaRecordResponse {
-		return &v
-	}).(SoaRecordResponsePtrOutput)
 }
 
 func (o SoaRecordResponseOutput) Email() pulumi.StringPtrOutput {
@@ -1605,61 +1234,6 @@ type SrvRecordResponse struct {
 	Weight   *int    `pulumi:"weight"`
 }
 
-
-
-
-
-type SrvRecordResponseInput interface {
-	pulumi.Input
-
-	ToSrvRecordResponseOutput() SrvRecordResponseOutput
-	ToSrvRecordResponseOutputWithContext(context.Context) SrvRecordResponseOutput
-}
-
-type SrvRecordResponseArgs struct {
-	Port     pulumi.IntPtrInput    `pulumi:"port"`
-	Priority pulumi.IntPtrInput    `pulumi:"priority"`
-	Target   pulumi.StringPtrInput `pulumi:"target"`
-	Weight   pulumi.IntPtrInput    `pulumi:"weight"`
-}
-
-func (SrvRecordResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SrvRecordResponse)(nil)).Elem()
-}
-
-func (i SrvRecordResponseArgs) ToSrvRecordResponseOutput() SrvRecordResponseOutput {
-	return i.ToSrvRecordResponseOutputWithContext(context.Background())
-}
-
-func (i SrvRecordResponseArgs) ToSrvRecordResponseOutputWithContext(ctx context.Context) SrvRecordResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SrvRecordResponseOutput)
-}
-
-
-
-
-
-type SrvRecordResponseArrayInput interface {
-	pulumi.Input
-
-	ToSrvRecordResponseArrayOutput() SrvRecordResponseArrayOutput
-	ToSrvRecordResponseArrayOutputWithContext(context.Context) SrvRecordResponseArrayOutput
-}
-
-type SrvRecordResponseArray []SrvRecordResponseInput
-
-func (SrvRecordResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SrvRecordResponse)(nil)).Elem()
-}
-
-func (i SrvRecordResponseArray) ToSrvRecordResponseArrayOutput() SrvRecordResponseArrayOutput {
-	return i.ToSrvRecordResponseArrayOutputWithContext(context.Background())
-}
-
-func (i SrvRecordResponseArray) ToSrvRecordResponseArrayOutputWithContext(ctx context.Context) SrvRecordResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SrvRecordResponseArrayOutput)
-}
-
 type SrvRecordResponseOutput struct{ *pulumi.OutputState }
 
 func (SrvRecordResponseOutput) ElementType() reflect.Type {
@@ -1847,74 +1421,6 @@ type SubResourceResponse struct {
 	Id *string `pulumi:"id"`
 }
 
-
-
-
-
-type SubResourceResponseInput interface {
-	pulumi.Input
-
-	ToSubResourceResponseOutput() SubResourceResponseOutput
-	ToSubResourceResponseOutputWithContext(context.Context) SubResourceResponseOutput
-}
-
-type SubResourceResponseArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
-}
-
-func (SubResourceResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SubResourceResponse)(nil)).Elem()
-}
-
-func (i SubResourceResponseArgs) ToSubResourceResponseOutput() SubResourceResponseOutput {
-	return i.ToSubResourceResponseOutputWithContext(context.Background())
-}
-
-func (i SubResourceResponseArgs) ToSubResourceResponseOutputWithContext(ctx context.Context) SubResourceResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SubResourceResponseOutput)
-}
-
-func (i SubResourceResponseArgs) ToSubResourceResponsePtrOutput() SubResourceResponsePtrOutput {
-	return i.ToSubResourceResponsePtrOutputWithContext(context.Background())
-}
-
-func (i SubResourceResponseArgs) ToSubResourceResponsePtrOutputWithContext(ctx context.Context) SubResourceResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SubResourceResponseOutput).ToSubResourceResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type SubResourceResponsePtrInput interface {
-	pulumi.Input
-
-	ToSubResourceResponsePtrOutput() SubResourceResponsePtrOutput
-	ToSubResourceResponsePtrOutputWithContext(context.Context) SubResourceResponsePtrOutput
-}
-
-type subResourceResponsePtrType SubResourceResponseArgs
-
-func SubResourceResponsePtr(v *SubResourceResponseArgs) SubResourceResponsePtrInput {
-	return (*subResourceResponsePtrType)(v)
-}
-
-func (*subResourceResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SubResourceResponse)(nil)).Elem()
-}
-
-func (i *subResourceResponsePtrType) ToSubResourceResponsePtrOutput() SubResourceResponsePtrOutput {
-	return i.ToSubResourceResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *subResourceResponsePtrType) ToSubResourceResponsePtrOutputWithContext(ctx context.Context) SubResourceResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SubResourceResponsePtrOutput)
-}
-
 type SubResourceResponseOutput struct{ *pulumi.OutputState }
 
 func (SubResourceResponseOutput) ElementType() reflect.Type {
@@ -1927,16 +1433,6 @@ func (o SubResourceResponseOutput) ToSubResourceResponseOutput() SubResourceResp
 
 func (o SubResourceResponseOutput) ToSubResourceResponseOutputWithContext(ctx context.Context) SubResourceResponseOutput {
 	return o
-}
-
-func (o SubResourceResponseOutput) ToSubResourceResponsePtrOutput() SubResourceResponsePtrOutput {
-	return o.ToSubResourceResponsePtrOutputWithContext(context.Background())
-}
-
-func (o SubResourceResponseOutput) ToSubResourceResponsePtrOutputWithContext(ctx context.Context) SubResourceResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SubResourceResponse) *SubResourceResponse {
-		return &v
-	}).(SubResourceResponsePtrOutput)
 }
 
 func (o SubResourceResponseOutput) Id() pulumi.StringPtrOutput {
@@ -2072,58 +1568,6 @@ func (o TxtRecordArrayOutput) Index(i pulumi.IntInput) TxtRecordOutput {
 
 type TxtRecordResponse struct {
 	Value []string `pulumi:"value"`
-}
-
-
-
-
-
-type TxtRecordResponseInput interface {
-	pulumi.Input
-
-	ToTxtRecordResponseOutput() TxtRecordResponseOutput
-	ToTxtRecordResponseOutputWithContext(context.Context) TxtRecordResponseOutput
-}
-
-type TxtRecordResponseArgs struct {
-	Value pulumi.StringArrayInput `pulumi:"value"`
-}
-
-func (TxtRecordResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TxtRecordResponse)(nil)).Elem()
-}
-
-func (i TxtRecordResponseArgs) ToTxtRecordResponseOutput() TxtRecordResponseOutput {
-	return i.ToTxtRecordResponseOutputWithContext(context.Background())
-}
-
-func (i TxtRecordResponseArgs) ToTxtRecordResponseOutputWithContext(ctx context.Context) TxtRecordResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TxtRecordResponseOutput)
-}
-
-
-
-
-
-type TxtRecordResponseArrayInput interface {
-	pulumi.Input
-
-	ToTxtRecordResponseArrayOutput() TxtRecordResponseArrayOutput
-	ToTxtRecordResponseArrayOutputWithContext(context.Context) TxtRecordResponseArrayOutput
-}
-
-type TxtRecordResponseArray []TxtRecordResponseInput
-
-func (TxtRecordResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TxtRecordResponse)(nil)).Elem()
-}
-
-func (i TxtRecordResponseArray) ToTxtRecordResponseArrayOutput() TxtRecordResponseArrayOutput {
-	return i.ToTxtRecordResponseArrayOutputWithContext(context.Background())
-}
-
-func (i TxtRecordResponseArray) ToTxtRecordResponseArrayOutputWithContext(ctx context.Context) TxtRecordResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TxtRecordResponseArrayOutput)
 }
 
 type TxtRecordResponseOutput struct{ *pulumi.OutputState }

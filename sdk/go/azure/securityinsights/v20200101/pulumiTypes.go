@@ -147,74 +147,6 @@ type AlertsDataTypeOfDataConnectorResponse struct {
 	Alerts *DataConnectorDataTypeCommonResponse `pulumi:"alerts"`
 }
 
-
-
-
-
-type AlertsDataTypeOfDataConnectorResponseInput interface {
-	pulumi.Input
-
-	ToAlertsDataTypeOfDataConnectorResponseOutput() AlertsDataTypeOfDataConnectorResponseOutput
-	ToAlertsDataTypeOfDataConnectorResponseOutputWithContext(context.Context) AlertsDataTypeOfDataConnectorResponseOutput
-}
-
-type AlertsDataTypeOfDataConnectorResponseArgs struct {
-	Alerts DataConnectorDataTypeCommonResponsePtrInput `pulumi:"alerts"`
-}
-
-func (AlertsDataTypeOfDataConnectorResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AlertsDataTypeOfDataConnectorResponse)(nil)).Elem()
-}
-
-func (i AlertsDataTypeOfDataConnectorResponseArgs) ToAlertsDataTypeOfDataConnectorResponseOutput() AlertsDataTypeOfDataConnectorResponseOutput {
-	return i.ToAlertsDataTypeOfDataConnectorResponseOutputWithContext(context.Background())
-}
-
-func (i AlertsDataTypeOfDataConnectorResponseArgs) ToAlertsDataTypeOfDataConnectorResponseOutputWithContext(ctx context.Context) AlertsDataTypeOfDataConnectorResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AlertsDataTypeOfDataConnectorResponseOutput)
-}
-
-func (i AlertsDataTypeOfDataConnectorResponseArgs) ToAlertsDataTypeOfDataConnectorResponsePtrOutput() AlertsDataTypeOfDataConnectorResponsePtrOutput {
-	return i.ToAlertsDataTypeOfDataConnectorResponsePtrOutputWithContext(context.Background())
-}
-
-func (i AlertsDataTypeOfDataConnectorResponseArgs) ToAlertsDataTypeOfDataConnectorResponsePtrOutputWithContext(ctx context.Context) AlertsDataTypeOfDataConnectorResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AlertsDataTypeOfDataConnectorResponseOutput).ToAlertsDataTypeOfDataConnectorResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type AlertsDataTypeOfDataConnectorResponsePtrInput interface {
-	pulumi.Input
-
-	ToAlertsDataTypeOfDataConnectorResponsePtrOutput() AlertsDataTypeOfDataConnectorResponsePtrOutput
-	ToAlertsDataTypeOfDataConnectorResponsePtrOutputWithContext(context.Context) AlertsDataTypeOfDataConnectorResponsePtrOutput
-}
-
-type alertsDataTypeOfDataConnectorResponsePtrType AlertsDataTypeOfDataConnectorResponseArgs
-
-func AlertsDataTypeOfDataConnectorResponsePtr(v *AlertsDataTypeOfDataConnectorResponseArgs) AlertsDataTypeOfDataConnectorResponsePtrInput {
-	return (*alertsDataTypeOfDataConnectorResponsePtrType)(v)
-}
-
-func (*alertsDataTypeOfDataConnectorResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AlertsDataTypeOfDataConnectorResponse)(nil)).Elem()
-}
-
-func (i *alertsDataTypeOfDataConnectorResponsePtrType) ToAlertsDataTypeOfDataConnectorResponsePtrOutput() AlertsDataTypeOfDataConnectorResponsePtrOutput {
-	return i.ToAlertsDataTypeOfDataConnectorResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *alertsDataTypeOfDataConnectorResponsePtrType) ToAlertsDataTypeOfDataConnectorResponsePtrOutputWithContext(ctx context.Context) AlertsDataTypeOfDataConnectorResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AlertsDataTypeOfDataConnectorResponsePtrOutput)
-}
-
 type AlertsDataTypeOfDataConnectorResponseOutput struct{ *pulumi.OutputState }
 
 func (AlertsDataTypeOfDataConnectorResponseOutput) ElementType() reflect.Type {
@@ -227,16 +159,6 @@ func (o AlertsDataTypeOfDataConnectorResponseOutput) ToAlertsDataTypeOfDataConne
 
 func (o AlertsDataTypeOfDataConnectorResponseOutput) ToAlertsDataTypeOfDataConnectorResponseOutputWithContext(ctx context.Context) AlertsDataTypeOfDataConnectorResponseOutput {
 	return o
-}
-
-func (o AlertsDataTypeOfDataConnectorResponseOutput) ToAlertsDataTypeOfDataConnectorResponsePtrOutput() AlertsDataTypeOfDataConnectorResponsePtrOutput {
-	return o.ToAlertsDataTypeOfDataConnectorResponsePtrOutputWithContext(context.Background())
-}
-
-func (o AlertsDataTypeOfDataConnectorResponseOutput) ToAlertsDataTypeOfDataConnectorResponsePtrOutputWithContext(ctx context.Context) AlertsDataTypeOfDataConnectorResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlertsDataTypeOfDataConnectorResponse) *AlertsDataTypeOfDataConnectorResponse {
-		return &v
-	}).(AlertsDataTypeOfDataConnectorResponsePtrOutput)
 }
 
 func (o AlertsDataTypeOfDataConnectorResponseOutput) Alerts() DataConnectorDataTypeCommonResponsePtrOutput {
@@ -546,74 +468,6 @@ type AwsCloudTrailDataConnectorDataTypesResponse struct {
 	Logs *AwsCloudTrailDataConnectorDataTypesResponseLogs `pulumi:"logs"`
 }
 
-
-
-
-
-type AwsCloudTrailDataConnectorDataTypesResponseInput interface {
-	pulumi.Input
-
-	ToAwsCloudTrailDataConnectorDataTypesResponseOutput() AwsCloudTrailDataConnectorDataTypesResponseOutput
-	ToAwsCloudTrailDataConnectorDataTypesResponseOutputWithContext(context.Context) AwsCloudTrailDataConnectorDataTypesResponseOutput
-}
-
-type AwsCloudTrailDataConnectorDataTypesResponseArgs struct {
-	Logs AwsCloudTrailDataConnectorDataTypesResponseLogsPtrInput `pulumi:"logs"`
-}
-
-func (AwsCloudTrailDataConnectorDataTypesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AwsCloudTrailDataConnectorDataTypesResponse)(nil)).Elem()
-}
-
-func (i AwsCloudTrailDataConnectorDataTypesResponseArgs) ToAwsCloudTrailDataConnectorDataTypesResponseOutput() AwsCloudTrailDataConnectorDataTypesResponseOutput {
-	return i.ToAwsCloudTrailDataConnectorDataTypesResponseOutputWithContext(context.Background())
-}
-
-func (i AwsCloudTrailDataConnectorDataTypesResponseArgs) ToAwsCloudTrailDataConnectorDataTypesResponseOutputWithContext(ctx context.Context) AwsCloudTrailDataConnectorDataTypesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AwsCloudTrailDataConnectorDataTypesResponseOutput)
-}
-
-func (i AwsCloudTrailDataConnectorDataTypesResponseArgs) ToAwsCloudTrailDataConnectorDataTypesResponsePtrOutput() AwsCloudTrailDataConnectorDataTypesResponsePtrOutput {
-	return i.ToAwsCloudTrailDataConnectorDataTypesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i AwsCloudTrailDataConnectorDataTypesResponseArgs) ToAwsCloudTrailDataConnectorDataTypesResponsePtrOutputWithContext(ctx context.Context) AwsCloudTrailDataConnectorDataTypesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AwsCloudTrailDataConnectorDataTypesResponseOutput).ToAwsCloudTrailDataConnectorDataTypesResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type AwsCloudTrailDataConnectorDataTypesResponsePtrInput interface {
-	pulumi.Input
-
-	ToAwsCloudTrailDataConnectorDataTypesResponsePtrOutput() AwsCloudTrailDataConnectorDataTypesResponsePtrOutput
-	ToAwsCloudTrailDataConnectorDataTypesResponsePtrOutputWithContext(context.Context) AwsCloudTrailDataConnectorDataTypesResponsePtrOutput
-}
-
-type awsCloudTrailDataConnectorDataTypesResponsePtrType AwsCloudTrailDataConnectorDataTypesResponseArgs
-
-func AwsCloudTrailDataConnectorDataTypesResponsePtr(v *AwsCloudTrailDataConnectorDataTypesResponseArgs) AwsCloudTrailDataConnectorDataTypesResponsePtrInput {
-	return (*awsCloudTrailDataConnectorDataTypesResponsePtrType)(v)
-}
-
-func (*awsCloudTrailDataConnectorDataTypesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AwsCloudTrailDataConnectorDataTypesResponse)(nil)).Elem()
-}
-
-func (i *awsCloudTrailDataConnectorDataTypesResponsePtrType) ToAwsCloudTrailDataConnectorDataTypesResponsePtrOutput() AwsCloudTrailDataConnectorDataTypesResponsePtrOutput {
-	return i.ToAwsCloudTrailDataConnectorDataTypesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *awsCloudTrailDataConnectorDataTypesResponsePtrType) ToAwsCloudTrailDataConnectorDataTypesResponsePtrOutputWithContext(ctx context.Context) AwsCloudTrailDataConnectorDataTypesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AwsCloudTrailDataConnectorDataTypesResponsePtrOutput)
-}
-
 type AwsCloudTrailDataConnectorDataTypesResponseOutput struct{ *pulumi.OutputState }
 
 func (AwsCloudTrailDataConnectorDataTypesResponseOutput) ElementType() reflect.Type {
@@ -626,16 +480,6 @@ func (o AwsCloudTrailDataConnectorDataTypesResponseOutput) ToAwsCloudTrailDataCo
 
 func (o AwsCloudTrailDataConnectorDataTypesResponseOutput) ToAwsCloudTrailDataConnectorDataTypesResponseOutputWithContext(ctx context.Context) AwsCloudTrailDataConnectorDataTypesResponseOutput {
 	return o
-}
-
-func (o AwsCloudTrailDataConnectorDataTypesResponseOutput) ToAwsCloudTrailDataConnectorDataTypesResponsePtrOutput() AwsCloudTrailDataConnectorDataTypesResponsePtrOutput {
-	return o.ToAwsCloudTrailDataConnectorDataTypesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o AwsCloudTrailDataConnectorDataTypesResponseOutput) ToAwsCloudTrailDataConnectorDataTypesResponsePtrOutputWithContext(ctx context.Context) AwsCloudTrailDataConnectorDataTypesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AwsCloudTrailDataConnectorDataTypesResponse) *AwsCloudTrailDataConnectorDataTypesResponse {
-		return &v
-	}).(AwsCloudTrailDataConnectorDataTypesResponsePtrOutput)
 }
 
 func (o AwsCloudTrailDataConnectorDataTypesResponseOutput) Logs() AwsCloudTrailDataConnectorDataTypesResponseLogsPtrOutput {
@@ -681,74 +525,6 @@ type AwsCloudTrailDataConnectorDataTypesResponseLogs struct {
 	State *string `pulumi:"state"`
 }
 
-
-
-
-
-type AwsCloudTrailDataConnectorDataTypesResponseLogsInput interface {
-	pulumi.Input
-
-	ToAwsCloudTrailDataConnectorDataTypesResponseLogsOutput() AwsCloudTrailDataConnectorDataTypesResponseLogsOutput
-	ToAwsCloudTrailDataConnectorDataTypesResponseLogsOutputWithContext(context.Context) AwsCloudTrailDataConnectorDataTypesResponseLogsOutput
-}
-
-type AwsCloudTrailDataConnectorDataTypesResponseLogsArgs struct {
-	State pulumi.StringPtrInput `pulumi:"state"`
-}
-
-func (AwsCloudTrailDataConnectorDataTypesResponseLogsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AwsCloudTrailDataConnectorDataTypesResponseLogs)(nil)).Elem()
-}
-
-func (i AwsCloudTrailDataConnectorDataTypesResponseLogsArgs) ToAwsCloudTrailDataConnectorDataTypesResponseLogsOutput() AwsCloudTrailDataConnectorDataTypesResponseLogsOutput {
-	return i.ToAwsCloudTrailDataConnectorDataTypesResponseLogsOutputWithContext(context.Background())
-}
-
-func (i AwsCloudTrailDataConnectorDataTypesResponseLogsArgs) ToAwsCloudTrailDataConnectorDataTypesResponseLogsOutputWithContext(ctx context.Context) AwsCloudTrailDataConnectorDataTypesResponseLogsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AwsCloudTrailDataConnectorDataTypesResponseLogsOutput)
-}
-
-func (i AwsCloudTrailDataConnectorDataTypesResponseLogsArgs) ToAwsCloudTrailDataConnectorDataTypesResponseLogsPtrOutput() AwsCloudTrailDataConnectorDataTypesResponseLogsPtrOutput {
-	return i.ToAwsCloudTrailDataConnectorDataTypesResponseLogsPtrOutputWithContext(context.Background())
-}
-
-func (i AwsCloudTrailDataConnectorDataTypesResponseLogsArgs) ToAwsCloudTrailDataConnectorDataTypesResponseLogsPtrOutputWithContext(ctx context.Context) AwsCloudTrailDataConnectorDataTypesResponseLogsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AwsCloudTrailDataConnectorDataTypesResponseLogsOutput).ToAwsCloudTrailDataConnectorDataTypesResponseLogsPtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type AwsCloudTrailDataConnectorDataTypesResponseLogsPtrInput interface {
-	pulumi.Input
-
-	ToAwsCloudTrailDataConnectorDataTypesResponseLogsPtrOutput() AwsCloudTrailDataConnectorDataTypesResponseLogsPtrOutput
-	ToAwsCloudTrailDataConnectorDataTypesResponseLogsPtrOutputWithContext(context.Context) AwsCloudTrailDataConnectorDataTypesResponseLogsPtrOutput
-}
-
-type awsCloudTrailDataConnectorDataTypesResponseLogsPtrType AwsCloudTrailDataConnectorDataTypesResponseLogsArgs
-
-func AwsCloudTrailDataConnectorDataTypesResponseLogsPtr(v *AwsCloudTrailDataConnectorDataTypesResponseLogsArgs) AwsCloudTrailDataConnectorDataTypesResponseLogsPtrInput {
-	return (*awsCloudTrailDataConnectorDataTypesResponseLogsPtrType)(v)
-}
-
-func (*awsCloudTrailDataConnectorDataTypesResponseLogsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AwsCloudTrailDataConnectorDataTypesResponseLogs)(nil)).Elem()
-}
-
-func (i *awsCloudTrailDataConnectorDataTypesResponseLogsPtrType) ToAwsCloudTrailDataConnectorDataTypesResponseLogsPtrOutput() AwsCloudTrailDataConnectorDataTypesResponseLogsPtrOutput {
-	return i.ToAwsCloudTrailDataConnectorDataTypesResponseLogsPtrOutputWithContext(context.Background())
-}
-
-func (i *awsCloudTrailDataConnectorDataTypesResponseLogsPtrType) ToAwsCloudTrailDataConnectorDataTypesResponseLogsPtrOutputWithContext(ctx context.Context) AwsCloudTrailDataConnectorDataTypesResponseLogsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AwsCloudTrailDataConnectorDataTypesResponseLogsPtrOutput)
-}
-
 type AwsCloudTrailDataConnectorDataTypesResponseLogsOutput struct{ *pulumi.OutputState }
 
 func (AwsCloudTrailDataConnectorDataTypesResponseLogsOutput) ElementType() reflect.Type {
@@ -761,16 +537,6 @@ func (o AwsCloudTrailDataConnectorDataTypesResponseLogsOutput) ToAwsCloudTrailDa
 
 func (o AwsCloudTrailDataConnectorDataTypesResponseLogsOutput) ToAwsCloudTrailDataConnectorDataTypesResponseLogsOutputWithContext(ctx context.Context) AwsCloudTrailDataConnectorDataTypesResponseLogsOutput {
 	return o
-}
-
-func (o AwsCloudTrailDataConnectorDataTypesResponseLogsOutput) ToAwsCloudTrailDataConnectorDataTypesResponseLogsPtrOutput() AwsCloudTrailDataConnectorDataTypesResponseLogsPtrOutput {
-	return o.ToAwsCloudTrailDataConnectorDataTypesResponseLogsPtrOutputWithContext(context.Background())
-}
-
-func (o AwsCloudTrailDataConnectorDataTypesResponseLogsOutput) ToAwsCloudTrailDataConnectorDataTypesResponseLogsPtrOutputWithContext(ctx context.Context) AwsCloudTrailDataConnectorDataTypesResponseLogsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AwsCloudTrailDataConnectorDataTypesResponseLogs) *AwsCloudTrailDataConnectorDataTypesResponseLogs {
-		return &v
-	}).(AwsCloudTrailDataConnectorDataTypesResponseLogsPtrOutput)
 }
 
 func (o AwsCloudTrailDataConnectorDataTypesResponseLogsOutput) State() pulumi.StringPtrOutput {
@@ -947,74 +713,6 @@ type DataConnectorDataTypeCommonResponse struct {
 	State *string `pulumi:"state"`
 }
 
-
-
-
-
-type DataConnectorDataTypeCommonResponseInput interface {
-	pulumi.Input
-
-	ToDataConnectorDataTypeCommonResponseOutput() DataConnectorDataTypeCommonResponseOutput
-	ToDataConnectorDataTypeCommonResponseOutputWithContext(context.Context) DataConnectorDataTypeCommonResponseOutput
-}
-
-type DataConnectorDataTypeCommonResponseArgs struct {
-	State pulumi.StringPtrInput `pulumi:"state"`
-}
-
-func (DataConnectorDataTypeCommonResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataConnectorDataTypeCommonResponse)(nil)).Elem()
-}
-
-func (i DataConnectorDataTypeCommonResponseArgs) ToDataConnectorDataTypeCommonResponseOutput() DataConnectorDataTypeCommonResponseOutput {
-	return i.ToDataConnectorDataTypeCommonResponseOutputWithContext(context.Background())
-}
-
-func (i DataConnectorDataTypeCommonResponseArgs) ToDataConnectorDataTypeCommonResponseOutputWithContext(ctx context.Context) DataConnectorDataTypeCommonResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataConnectorDataTypeCommonResponseOutput)
-}
-
-func (i DataConnectorDataTypeCommonResponseArgs) ToDataConnectorDataTypeCommonResponsePtrOutput() DataConnectorDataTypeCommonResponsePtrOutput {
-	return i.ToDataConnectorDataTypeCommonResponsePtrOutputWithContext(context.Background())
-}
-
-func (i DataConnectorDataTypeCommonResponseArgs) ToDataConnectorDataTypeCommonResponsePtrOutputWithContext(ctx context.Context) DataConnectorDataTypeCommonResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataConnectorDataTypeCommonResponseOutput).ToDataConnectorDataTypeCommonResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type DataConnectorDataTypeCommonResponsePtrInput interface {
-	pulumi.Input
-
-	ToDataConnectorDataTypeCommonResponsePtrOutput() DataConnectorDataTypeCommonResponsePtrOutput
-	ToDataConnectorDataTypeCommonResponsePtrOutputWithContext(context.Context) DataConnectorDataTypeCommonResponsePtrOutput
-}
-
-type dataConnectorDataTypeCommonResponsePtrType DataConnectorDataTypeCommonResponseArgs
-
-func DataConnectorDataTypeCommonResponsePtr(v *DataConnectorDataTypeCommonResponseArgs) DataConnectorDataTypeCommonResponsePtrInput {
-	return (*dataConnectorDataTypeCommonResponsePtrType)(v)
-}
-
-func (*dataConnectorDataTypeCommonResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DataConnectorDataTypeCommonResponse)(nil)).Elem()
-}
-
-func (i *dataConnectorDataTypeCommonResponsePtrType) ToDataConnectorDataTypeCommonResponsePtrOutput() DataConnectorDataTypeCommonResponsePtrOutput {
-	return i.ToDataConnectorDataTypeCommonResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *dataConnectorDataTypeCommonResponsePtrType) ToDataConnectorDataTypeCommonResponsePtrOutputWithContext(ctx context.Context) DataConnectorDataTypeCommonResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataConnectorDataTypeCommonResponsePtrOutput)
-}
-
 type DataConnectorDataTypeCommonResponseOutput struct{ *pulumi.OutputState }
 
 func (DataConnectorDataTypeCommonResponseOutput) ElementType() reflect.Type {
@@ -1027,16 +725,6 @@ func (o DataConnectorDataTypeCommonResponseOutput) ToDataConnectorDataTypeCommon
 
 func (o DataConnectorDataTypeCommonResponseOutput) ToDataConnectorDataTypeCommonResponseOutputWithContext(ctx context.Context) DataConnectorDataTypeCommonResponseOutput {
 	return o
-}
-
-func (o DataConnectorDataTypeCommonResponseOutput) ToDataConnectorDataTypeCommonResponsePtrOutput() DataConnectorDataTypeCommonResponsePtrOutput {
-	return o.ToDataConnectorDataTypeCommonResponsePtrOutputWithContext(context.Background())
-}
-
-func (o DataConnectorDataTypeCommonResponseOutput) ToDataConnectorDataTypeCommonResponsePtrOutputWithContext(ctx context.Context) DataConnectorDataTypeCommonResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataConnectorDataTypeCommonResponse) *DataConnectorDataTypeCommonResponse {
-		return &v
-	}).(DataConnectorDataTypeCommonResponsePtrOutput)
 }
 
 func (o DataConnectorDataTypeCommonResponseOutput) State() pulumi.StringPtrOutput {
@@ -1084,78 +772,6 @@ type IncidentAdditionalDataResponse struct {
 	Tactics           []string `pulumi:"tactics"`
 }
 
-
-
-
-
-type IncidentAdditionalDataResponseInput interface {
-	pulumi.Input
-
-	ToIncidentAdditionalDataResponseOutput() IncidentAdditionalDataResponseOutput
-	ToIncidentAdditionalDataResponseOutputWithContext(context.Context) IncidentAdditionalDataResponseOutput
-}
-
-type IncidentAdditionalDataResponseArgs struct {
-	AlertProductNames pulumi.StringArrayInput `pulumi:"alertProductNames"`
-	AlertsCount       pulumi.IntInput         `pulumi:"alertsCount"`
-	BookmarksCount    pulumi.IntInput         `pulumi:"bookmarksCount"`
-	CommentsCount     pulumi.IntInput         `pulumi:"commentsCount"`
-	Tactics           pulumi.StringArrayInput `pulumi:"tactics"`
-}
-
-func (IncidentAdditionalDataResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*IncidentAdditionalDataResponse)(nil)).Elem()
-}
-
-func (i IncidentAdditionalDataResponseArgs) ToIncidentAdditionalDataResponseOutput() IncidentAdditionalDataResponseOutput {
-	return i.ToIncidentAdditionalDataResponseOutputWithContext(context.Background())
-}
-
-func (i IncidentAdditionalDataResponseArgs) ToIncidentAdditionalDataResponseOutputWithContext(ctx context.Context) IncidentAdditionalDataResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IncidentAdditionalDataResponseOutput)
-}
-
-func (i IncidentAdditionalDataResponseArgs) ToIncidentAdditionalDataResponsePtrOutput() IncidentAdditionalDataResponsePtrOutput {
-	return i.ToIncidentAdditionalDataResponsePtrOutputWithContext(context.Background())
-}
-
-func (i IncidentAdditionalDataResponseArgs) ToIncidentAdditionalDataResponsePtrOutputWithContext(ctx context.Context) IncidentAdditionalDataResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IncidentAdditionalDataResponseOutput).ToIncidentAdditionalDataResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type IncidentAdditionalDataResponsePtrInput interface {
-	pulumi.Input
-
-	ToIncidentAdditionalDataResponsePtrOutput() IncidentAdditionalDataResponsePtrOutput
-	ToIncidentAdditionalDataResponsePtrOutputWithContext(context.Context) IncidentAdditionalDataResponsePtrOutput
-}
-
-type incidentAdditionalDataResponsePtrType IncidentAdditionalDataResponseArgs
-
-func IncidentAdditionalDataResponsePtr(v *IncidentAdditionalDataResponseArgs) IncidentAdditionalDataResponsePtrInput {
-	return (*incidentAdditionalDataResponsePtrType)(v)
-}
-
-func (*incidentAdditionalDataResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**IncidentAdditionalDataResponse)(nil)).Elem()
-}
-
-func (i *incidentAdditionalDataResponsePtrType) ToIncidentAdditionalDataResponsePtrOutput() IncidentAdditionalDataResponsePtrOutput {
-	return i.ToIncidentAdditionalDataResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *incidentAdditionalDataResponsePtrType) ToIncidentAdditionalDataResponsePtrOutputWithContext(ctx context.Context) IncidentAdditionalDataResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IncidentAdditionalDataResponsePtrOutput)
-}
-
 type IncidentAdditionalDataResponseOutput struct{ *pulumi.OutputState }
 
 func (IncidentAdditionalDataResponseOutput) ElementType() reflect.Type {
@@ -1168,16 +784,6 @@ func (o IncidentAdditionalDataResponseOutput) ToIncidentAdditionalDataResponseOu
 
 func (o IncidentAdditionalDataResponseOutput) ToIncidentAdditionalDataResponseOutputWithContext(ctx context.Context) IncidentAdditionalDataResponseOutput {
 	return o
-}
-
-func (o IncidentAdditionalDataResponseOutput) ToIncidentAdditionalDataResponsePtrOutput() IncidentAdditionalDataResponsePtrOutput {
-	return o.ToIncidentAdditionalDataResponsePtrOutputWithContext(context.Background())
-}
-
-func (o IncidentAdditionalDataResponseOutput) ToIncidentAdditionalDataResponsePtrOutputWithContext(ctx context.Context) IncidentAdditionalDataResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v IncidentAdditionalDataResponse) *IncidentAdditionalDataResponse {
-		return &v
-	}).(IncidentAdditionalDataResponsePtrOutput)
 }
 
 func (o IncidentAdditionalDataResponseOutput) AlertProductNames() pulumi.StringArrayOutput {
@@ -1198,75 +804,6 @@ func (o IncidentAdditionalDataResponseOutput) CommentsCount() pulumi.IntOutput {
 
 func (o IncidentAdditionalDataResponseOutput) Tactics() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v IncidentAdditionalDataResponse) []string { return v.Tactics }).(pulumi.StringArrayOutput)
-}
-
-type IncidentAdditionalDataResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (IncidentAdditionalDataResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**IncidentAdditionalDataResponse)(nil)).Elem()
-}
-
-func (o IncidentAdditionalDataResponsePtrOutput) ToIncidentAdditionalDataResponsePtrOutput() IncidentAdditionalDataResponsePtrOutput {
-	return o
-}
-
-func (o IncidentAdditionalDataResponsePtrOutput) ToIncidentAdditionalDataResponsePtrOutputWithContext(ctx context.Context) IncidentAdditionalDataResponsePtrOutput {
-	return o
-}
-
-func (o IncidentAdditionalDataResponsePtrOutput) Elem() IncidentAdditionalDataResponseOutput {
-	return o.ApplyT(func(v *IncidentAdditionalDataResponse) IncidentAdditionalDataResponse {
-		if v != nil {
-			return *v
-		}
-		var ret IncidentAdditionalDataResponse
-		return ret
-	}).(IncidentAdditionalDataResponseOutput)
-}
-
-func (o IncidentAdditionalDataResponsePtrOutput) AlertProductNames() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *IncidentAdditionalDataResponse) []string {
-		if v == nil {
-			return nil
-		}
-		return v.AlertProductNames
-	}).(pulumi.StringArrayOutput)
-}
-
-func (o IncidentAdditionalDataResponsePtrOutput) AlertsCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *IncidentAdditionalDataResponse) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.AlertsCount
-	}).(pulumi.IntPtrOutput)
-}
-
-func (o IncidentAdditionalDataResponsePtrOutput) BookmarksCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *IncidentAdditionalDataResponse) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.BookmarksCount
-	}).(pulumi.IntPtrOutput)
-}
-
-func (o IncidentAdditionalDataResponsePtrOutput) CommentsCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *IncidentAdditionalDataResponse) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.CommentsCount
-	}).(pulumi.IntPtrOutput)
-}
-
-func (o IncidentAdditionalDataResponsePtrOutput) Tactics() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *IncidentAdditionalDataResponse) []string {
-		if v == nil {
-			return nil
-		}
-		return v.Tactics
-	}).(pulumi.StringArrayOutput)
 }
 
 type IncidentInfo struct {
@@ -1454,77 +991,6 @@ type IncidentInfoResponse struct {
 	Title        *string `pulumi:"title"`
 }
 
-
-
-
-
-type IncidentInfoResponseInput interface {
-	pulumi.Input
-
-	ToIncidentInfoResponseOutput() IncidentInfoResponseOutput
-	ToIncidentInfoResponseOutputWithContext(context.Context) IncidentInfoResponseOutput
-}
-
-type IncidentInfoResponseArgs struct {
-	IncidentId   pulumi.StringPtrInput `pulumi:"incidentId"`
-	RelationName pulumi.StringPtrInput `pulumi:"relationName"`
-	Severity     pulumi.StringPtrInput `pulumi:"severity"`
-	Title        pulumi.StringPtrInput `pulumi:"title"`
-}
-
-func (IncidentInfoResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*IncidentInfoResponse)(nil)).Elem()
-}
-
-func (i IncidentInfoResponseArgs) ToIncidentInfoResponseOutput() IncidentInfoResponseOutput {
-	return i.ToIncidentInfoResponseOutputWithContext(context.Background())
-}
-
-func (i IncidentInfoResponseArgs) ToIncidentInfoResponseOutputWithContext(ctx context.Context) IncidentInfoResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IncidentInfoResponseOutput)
-}
-
-func (i IncidentInfoResponseArgs) ToIncidentInfoResponsePtrOutput() IncidentInfoResponsePtrOutput {
-	return i.ToIncidentInfoResponsePtrOutputWithContext(context.Background())
-}
-
-func (i IncidentInfoResponseArgs) ToIncidentInfoResponsePtrOutputWithContext(ctx context.Context) IncidentInfoResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IncidentInfoResponseOutput).ToIncidentInfoResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type IncidentInfoResponsePtrInput interface {
-	pulumi.Input
-
-	ToIncidentInfoResponsePtrOutput() IncidentInfoResponsePtrOutput
-	ToIncidentInfoResponsePtrOutputWithContext(context.Context) IncidentInfoResponsePtrOutput
-}
-
-type incidentInfoResponsePtrType IncidentInfoResponseArgs
-
-func IncidentInfoResponsePtr(v *IncidentInfoResponseArgs) IncidentInfoResponsePtrInput {
-	return (*incidentInfoResponsePtrType)(v)
-}
-
-func (*incidentInfoResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**IncidentInfoResponse)(nil)).Elem()
-}
-
-func (i *incidentInfoResponsePtrType) ToIncidentInfoResponsePtrOutput() IncidentInfoResponsePtrOutput {
-	return i.ToIncidentInfoResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *incidentInfoResponsePtrType) ToIncidentInfoResponsePtrOutputWithContext(ctx context.Context) IncidentInfoResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IncidentInfoResponsePtrOutput)
-}
-
 type IncidentInfoResponseOutput struct{ *pulumi.OutputState }
 
 func (IncidentInfoResponseOutput) ElementType() reflect.Type {
@@ -1537,16 +1003,6 @@ func (o IncidentInfoResponseOutput) ToIncidentInfoResponseOutput() IncidentInfoR
 
 func (o IncidentInfoResponseOutput) ToIncidentInfoResponseOutputWithContext(ctx context.Context) IncidentInfoResponseOutput {
 	return o
-}
-
-func (o IncidentInfoResponseOutput) ToIncidentInfoResponsePtrOutput() IncidentInfoResponsePtrOutput {
-	return o.ToIncidentInfoResponsePtrOutputWithContext(context.Background())
-}
-
-func (o IncidentInfoResponseOutput) ToIncidentInfoResponsePtrOutputWithContext(ctx context.Context) IncidentInfoResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v IncidentInfoResponse) *IncidentInfoResponse {
-		return &v
-	}).(IncidentInfoResponsePtrOutput)
 }
 
 func (o IncidentInfoResponseOutput) IncidentId() pulumi.StringPtrOutput {
@@ -1722,59 +1178,6 @@ func (o IncidentLabelArrayOutput) Index(i pulumi.IntInput) IncidentLabelOutput {
 type IncidentLabelResponse struct {
 	LabelName string `pulumi:"labelName"`
 	LabelType string `pulumi:"labelType"`
-}
-
-
-
-
-
-type IncidentLabelResponseInput interface {
-	pulumi.Input
-
-	ToIncidentLabelResponseOutput() IncidentLabelResponseOutput
-	ToIncidentLabelResponseOutputWithContext(context.Context) IncidentLabelResponseOutput
-}
-
-type IncidentLabelResponseArgs struct {
-	LabelName pulumi.StringInput `pulumi:"labelName"`
-	LabelType pulumi.StringInput `pulumi:"labelType"`
-}
-
-func (IncidentLabelResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*IncidentLabelResponse)(nil)).Elem()
-}
-
-func (i IncidentLabelResponseArgs) ToIncidentLabelResponseOutput() IncidentLabelResponseOutput {
-	return i.ToIncidentLabelResponseOutputWithContext(context.Background())
-}
-
-func (i IncidentLabelResponseArgs) ToIncidentLabelResponseOutputWithContext(ctx context.Context) IncidentLabelResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IncidentLabelResponseOutput)
-}
-
-
-
-
-
-type IncidentLabelResponseArrayInput interface {
-	pulumi.Input
-
-	ToIncidentLabelResponseArrayOutput() IncidentLabelResponseArrayOutput
-	ToIncidentLabelResponseArrayOutputWithContext(context.Context) IncidentLabelResponseArrayOutput
-}
-
-type IncidentLabelResponseArray []IncidentLabelResponseInput
-
-func (IncidentLabelResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]IncidentLabelResponse)(nil)).Elem()
-}
-
-func (i IncidentLabelResponseArray) ToIncidentLabelResponseArrayOutput() IncidentLabelResponseArrayOutput {
-	return i.ToIncidentLabelResponseArrayOutputWithContext(context.Background())
-}
-
-func (i IncidentLabelResponseArray) ToIncidentLabelResponseArrayOutputWithContext(ctx context.Context) IncidentLabelResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IncidentLabelResponseArrayOutput)
 }
 
 type IncidentLabelResponseOutput struct{ *pulumi.OutputState }
@@ -2004,77 +1407,6 @@ type IncidentOwnerInfoResponse struct {
 	UserPrincipalName *string `pulumi:"userPrincipalName"`
 }
 
-
-
-
-
-type IncidentOwnerInfoResponseInput interface {
-	pulumi.Input
-
-	ToIncidentOwnerInfoResponseOutput() IncidentOwnerInfoResponseOutput
-	ToIncidentOwnerInfoResponseOutputWithContext(context.Context) IncidentOwnerInfoResponseOutput
-}
-
-type IncidentOwnerInfoResponseArgs struct {
-	AssignedTo        pulumi.StringPtrInput `pulumi:"assignedTo"`
-	Email             pulumi.StringPtrInput `pulumi:"email"`
-	ObjectId          pulumi.StringPtrInput `pulumi:"objectId"`
-	UserPrincipalName pulumi.StringPtrInput `pulumi:"userPrincipalName"`
-}
-
-func (IncidentOwnerInfoResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*IncidentOwnerInfoResponse)(nil)).Elem()
-}
-
-func (i IncidentOwnerInfoResponseArgs) ToIncidentOwnerInfoResponseOutput() IncidentOwnerInfoResponseOutput {
-	return i.ToIncidentOwnerInfoResponseOutputWithContext(context.Background())
-}
-
-func (i IncidentOwnerInfoResponseArgs) ToIncidentOwnerInfoResponseOutputWithContext(ctx context.Context) IncidentOwnerInfoResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IncidentOwnerInfoResponseOutput)
-}
-
-func (i IncidentOwnerInfoResponseArgs) ToIncidentOwnerInfoResponsePtrOutput() IncidentOwnerInfoResponsePtrOutput {
-	return i.ToIncidentOwnerInfoResponsePtrOutputWithContext(context.Background())
-}
-
-func (i IncidentOwnerInfoResponseArgs) ToIncidentOwnerInfoResponsePtrOutputWithContext(ctx context.Context) IncidentOwnerInfoResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IncidentOwnerInfoResponseOutput).ToIncidentOwnerInfoResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type IncidentOwnerInfoResponsePtrInput interface {
-	pulumi.Input
-
-	ToIncidentOwnerInfoResponsePtrOutput() IncidentOwnerInfoResponsePtrOutput
-	ToIncidentOwnerInfoResponsePtrOutputWithContext(context.Context) IncidentOwnerInfoResponsePtrOutput
-}
-
-type incidentOwnerInfoResponsePtrType IncidentOwnerInfoResponseArgs
-
-func IncidentOwnerInfoResponsePtr(v *IncidentOwnerInfoResponseArgs) IncidentOwnerInfoResponsePtrInput {
-	return (*incidentOwnerInfoResponsePtrType)(v)
-}
-
-func (*incidentOwnerInfoResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**IncidentOwnerInfoResponse)(nil)).Elem()
-}
-
-func (i *incidentOwnerInfoResponsePtrType) ToIncidentOwnerInfoResponsePtrOutput() IncidentOwnerInfoResponsePtrOutput {
-	return i.ToIncidentOwnerInfoResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *incidentOwnerInfoResponsePtrType) ToIncidentOwnerInfoResponsePtrOutputWithContext(ctx context.Context) IncidentOwnerInfoResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IncidentOwnerInfoResponsePtrOutput)
-}
-
 type IncidentOwnerInfoResponseOutput struct{ *pulumi.OutputState }
 
 func (IncidentOwnerInfoResponseOutput) ElementType() reflect.Type {
@@ -2087,16 +1419,6 @@ func (o IncidentOwnerInfoResponseOutput) ToIncidentOwnerInfoResponseOutput() Inc
 
 func (o IncidentOwnerInfoResponseOutput) ToIncidentOwnerInfoResponseOutputWithContext(ctx context.Context) IncidentOwnerInfoResponseOutput {
 	return o
-}
-
-func (o IncidentOwnerInfoResponseOutput) ToIncidentOwnerInfoResponsePtrOutput() IncidentOwnerInfoResponsePtrOutput {
-	return o.ToIncidentOwnerInfoResponsePtrOutputWithContext(context.Background())
-}
-
-func (o IncidentOwnerInfoResponseOutput) ToIncidentOwnerInfoResponsePtrOutputWithContext(ctx context.Context) IncidentOwnerInfoResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v IncidentOwnerInfoResponse) *IncidentOwnerInfoResponse {
-		return &v
-	}).(IncidentOwnerInfoResponsePtrOutput)
 }
 
 func (o IncidentOwnerInfoResponseOutput) AssignedTo() pulumi.StringPtrOutput {
@@ -2328,75 +1650,6 @@ type MCASDataConnectorDataTypesResponse struct {
 	DiscoveryLogs *DataConnectorDataTypeCommonResponse `pulumi:"discoveryLogs"`
 }
 
-
-
-
-
-type MCASDataConnectorDataTypesResponseInput interface {
-	pulumi.Input
-
-	ToMCASDataConnectorDataTypesResponseOutput() MCASDataConnectorDataTypesResponseOutput
-	ToMCASDataConnectorDataTypesResponseOutputWithContext(context.Context) MCASDataConnectorDataTypesResponseOutput
-}
-
-type MCASDataConnectorDataTypesResponseArgs struct {
-	Alerts        DataConnectorDataTypeCommonResponsePtrInput `pulumi:"alerts"`
-	DiscoveryLogs DataConnectorDataTypeCommonResponsePtrInput `pulumi:"discoveryLogs"`
-}
-
-func (MCASDataConnectorDataTypesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MCASDataConnectorDataTypesResponse)(nil)).Elem()
-}
-
-func (i MCASDataConnectorDataTypesResponseArgs) ToMCASDataConnectorDataTypesResponseOutput() MCASDataConnectorDataTypesResponseOutput {
-	return i.ToMCASDataConnectorDataTypesResponseOutputWithContext(context.Background())
-}
-
-func (i MCASDataConnectorDataTypesResponseArgs) ToMCASDataConnectorDataTypesResponseOutputWithContext(ctx context.Context) MCASDataConnectorDataTypesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MCASDataConnectorDataTypesResponseOutput)
-}
-
-func (i MCASDataConnectorDataTypesResponseArgs) ToMCASDataConnectorDataTypesResponsePtrOutput() MCASDataConnectorDataTypesResponsePtrOutput {
-	return i.ToMCASDataConnectorDataTypesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i MCASDataConnectorDataTypesResponseArgs) ToMCASDataConnectorDataTypesResponsePtrOutputWithContext(ctx context.Context) MCASDataConnectorDataTypesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MCASDataConnectorDataTypesResponseOutput).ToMCASDataConnectorDataTypesResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type MCASDataConnectorDataTypesResponsePtrInput interface {
-	pulumi.Input
-
-	ToMCASDataConnectorDataTypesResponsePtrOutput() MCASDataConnectorDataTypesResponsePtrOutput
-	ToMCASDataConnectorDataTypesResponsePtrOutputWithContext(context.Context) MCASDataConnectorDataTypesResponsePtrOutput
-}
-
-type mcasdataConnectorDataTypesResponsePtrType MCASDataConnectorDataTypesResponseArgs
-
-func MCASDataConnectorDataTypesResponsePtr(v *MCASDataConnectorDataTypesResponseArgs) MCASDataConnectorDataTypesResponsePtrInput {
-	return (*mcasdataConnectorDataTypesResponsePtrType)(v)
-}
-
-func (*mcasdataConnectorDataTypesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**MCASDataConnectorDataTypesResponse)(nil)).Elem()
-}
-
-func (i *mcasdataConnectorDataTypesResponsePtrType) ToMCASDataConnectorDataTypesResponsePtrOutput() MCASDataConnectorDataTypesResponsePtrOutput {
-	return i.ToMCASDataConnectorDataTypesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *mcasdataConnectorDataTypesResponsePtrType) ToMCASDataConnectorDataTypesResponsePtrOutputWithContext(ctx context.Context) MCASDataConnectorDataTypesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MCASDataConnectorDataTypesResponsePtrOutput)
-}
-
 type MCASDataConnectorDataTypesResponseOutput struct{ *pulumi.OutputState }
 
 func (MCASDataConnectorDataTypesResponseOutput) ElementType() reflect.Type {
@@ -2409,16 +1662,6 @@ func (o MCASDataConnectorDataTypesResponseOutput) ToMCASDataConnectorDataTypesRe
 
 func (o MCASDataConnectorDataTypesResponseOutput) ToMCASDataConnectorDataTypesResponseOutputWithContext(ctx context.Context) MCASDataConnectorDataTypesResponseOutput {
 	return o
-}
-
-func (o MCASDataConnectorDataTypesResponseOutput) ToMCASDataConnectorDataTypesResponsePtrOutput() MCASDataConnectorDataTypesResponsePtrOutput {
-	return o.ToMCASDataConnectorDataTypesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o MCASDataConnectorDataTypesResponseOutput) ToMCASDataConnectorDataTypesResponsePtrOutputWithContext(ctx context.Context) MCASDataConnectorDataTypesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MCASDataConnectorDataTypesResponse) *MCASDataConnectorDataTypesResponse {
-		return &v
-	}).(MCASDataConnectorDataTypesResponsePtrOutput)
 }
 
 func (o MCASDataConnectorDataTypesResponseOutput) Alerts() DataConnectorDataTypeCommonResponsePtrOutput {
@@ -2775,76 +2018,6 @@ type OfficeDataConnectorDataTypesResponse struct {
 	Teams      *OfficeDataConnectorDataTypesResponseTeams      `pulumi:"teams"`
 }
 
-
-
-
-
-type OfficeDataConnectorDataTypesResponseInput interface {
-	pulumi.Input
-
-	ToOfficeDataConnectorDataTypesResponseOutput() OfficeDataConnectorDataTypesResponseOutput
-	ToOfficeDataConnectorDataTypesResponseOutputWithContext(context.Context) OfficeDataConnectorDataTypesResponseOutput
-}
-
-type OfficeDataConnectorDataTypesResponseArgs struct {
-	Exchange   OfficeDataConnectorDataTypesResponseExchangePtrInput   `pulumi:"exchange"`
-	SharePoint OfficeDataConnectorDataTypesResponseSharePointPtrInput `pulumi:"sharePoint"`
-	Teams      OfficeDataConnectorDataTypesResponseTeamsPtrInput      `pulumi:"teams"`
-}
-
-func (OfficeDataConnectorDataTypesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*OfficeDataConnectorDataTypesResponse)(nil)).Elem()
-}
-
-func (i OfficeDataConnectorDataTypesResponseArgs) ToOfficeDataConnectorDataTypesResponseOutput() OfficeDataConnectorDataTypesResponseOutput {
-	return i.ToOfficeDataConnectorDataTypesResponseOutputWithContext(context.Background())
-}
-
-func (i OfficeDataConnectorDataTypesResponseArgs) ToOfficeDataConnectorDataTypesResponseOutputWithContext(ctx context.Context) OfficeDataConnectorDataTypesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OfficeDataConnectorDataTypesResponseOutput)
-}
-
-func (i OfficeDataConnectorDataTypesResponseArgs) ToOfficeDataConnectorDataTypesResponsePtrOutput() OfficeDataConnectorDataTypesResponsePtrOutput {
-	return i.ToOfficeDataConnectorDataTypesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i OfficeDataConnectorDataTypesResponseArgs) ToOfficeDataConnectorDataTypesResponsePtrOutputWithContext(ctx context.Context) OfficeDataConnectorDataTypesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OfficeDataConnectorDataTypesResponseOutput).ToOfficeDataConnectorDataTypesResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type OfficeDataConnectorDataTypesResponsePtrInput interface {
-	pulumi.Input
-
-	ToOfficeDataConnectorDataTypesResponsePtrOutput() OfficeDataConnectorDataTypesResponsePtrOutput
-	ToOfficeDataConnectorDataTypesResponsePtrOutputWithContext(context.Context) OfficeDataConnectorDataTypesResponsePtrOutput
-}
-
-type officeDataConnectorDataTypesResponsePtrType OfficeDataConnectorDataTypesResponseArgs
-
-func OfficeDataConnectorDataTypesResponsePtr(v *OfficeDataConnectorDataTypesResponseArgs) OfficeDataConnectorDataTypesResponsePtrInput {
-	return (*officeDataConnectorDataTypesResponsePtrType)(v)
-}
-
-func (*officeDataConnectorDataTypesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**OfficeDataConnectorDataTypesResponse)(nil)).Elem()
-}
-
-func (i *officeDataConnectorDataTypesResponsePtrType) ToOfficeDataConnectorDataTypesResponsePtrOutput() OfficeDataConnectorDataTypesResponsePtrOutput {
-	return i.ToOfficeDataConnectorDataTypesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *officeDataConnectorDataTypesResponsePtrType) ToOfficeDataConnectorDataTypesResponsePtrOutputWithContext(ctx context.Context) OfficeDataConnectorDataTypesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OfficeDataConnectorDataTypesResponsePtrOutput)
-}
-
 type OfficeDataConnectorDataTypesResponseOutput struct{ *pulumi.OutputState }
 
 func (OfficeDataConnectorDataTypesResponseOutput) ElementType() reflect.Type {
@@ -2857,16 +2030,6 @@ func (o OfficeDataConnectorDataTypesResponseOutput) ToOfficeDataConnectorDataTyp
 
 func (o OfficeDataConnectorDataTypesResponseOutput) ToOfficeDataConnectorDataTypesResponseOutputWithContext(ctx context.Context) OfficeDataConnectorDataTypesResponseOutput {
 	return o
-}
-
-func (o OfficeDataConnectorDataTypesResponseOutput) ToOfficeDataConnectorDataTypesResponsePtrOutput() OfficeDataConnectorDataTypesResponsePtrOutput {
-	return o.ToOfficeDataConnectorDataTypesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o OfficeDataConnectorDataTypesResponseOutput) ToOfficeDataConnectorDataTypesResponsePtrOutputWithContext(ctx context.Context) OfficeDataConnectorDataTypesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v OfficeDataConnectorDataTypesResponse) *OfficeDataConnectorDataTypesResponse {
-		return &v
-	}).(OfficeDataConnectorDataTypesResponsePtrOutput)
 }
 
 func (o OfficeDataConnectorDataTypesResponseOutput) Exchange() OfficeDataConnectorDataTypesResponseExchangePtrOutput {
@@ -2942,74 +2105,6 @@ type OfficeDataConnectorDataTypesResponseExchange struct {
 	State *string `pulumi:"state"`
 }
 
-
-
-
-
-type OfficeDataConnectorDataTypesResponseExchangeInput interface {
-	pulumi.Input
-
-	ToOfficeDataConnectorDataTypesResponseExchangeOutput() OfficeDataConnectorDataTypesResponseExchangeOutput
-	ToOfficeDataConnectorDataTypesResponseExchangeOutputWithContext(context.Context) OfficeDataConnectorDataTypesResponseExchangeOutput
-}
-
-type OfficeDataConnectorDataTypesResponseExchangeArgs struct {
-	State pulumi.StringPtrInput `pulumi:"state"`
-}
-
-func (OfficeDataConnectorDataTypesResponseExchangeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*OfficeDataConnectorDataTypesResponseExchange)(nil)).Elem()
-}
-
-func (i OfficeDataConnectorDataTypesResponseExchangeArgs) ToOfficeDataConnectorDataTypesResponseExchangeOutput() OfficeDataConnectorDataTypesResponseExchangeOutput {
-	return i.ToOfficeDataConnectorDataTypesResponseExchangeOutputWithContext(context.Background())
-}
-
-func (i OfficeDataConnectorDataTypesResponseExchangeArgs) ToOfficeDataConnectorDataTypesResponseExchangeOutputWithContext(ctx context.Context) OfficeDataConnectorDataTypesResponseExchangeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OfficeDataConnectorDataTypesResponseExchangeOutput)
-}
-
-func (i OfficeDataConnectorDataTypesResponseExchangeArgs) ToOfficeDataConnectorDataTypesResponseExchangePtrOutput() OfficeDataConnectorDataTypesResponseExchangePtrOutput {
-	return i.ToOfficeDataConnectorDataTypesResponseExchangePtrOutputWithContext(context.Background())
-}
-
-func (i OfficeDataConnectorDataTypesResponseExchangeArgs) ToOfficeDataConnectorDataTypesResponseExchangePtrOutputWithContext(ctx context.Context) OfficeDataConnectorDataTypesResponseExchangePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OfficeDataConnectorDataTypesResponseExchangeOutput).ToOfficeDataConnectorDataTypesResponseExchangePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type OfficeDataConnectorDataTypesResponseExchangePtrInput interface {
-	pulumi.Input
-
-	ToOfficeDataConnectorDataTypesResponseExchangePtrOutput() OfficeDataConnectorDataTypesResponseExchangePtrOutput
-	ToOfficeDataConnectorDataTypesResponseExchangePtrOutputWithContext(context.Context) OfficeDataConnectorDataTypesResponseExchangePtrOutput
-}
-
-type officeDataConnectorDataTypesResponseExchangePtrType OfficeDataConnectorDataTypesResponseExchangeArgs
-
-func OfficeDataConnectorDataTypesResponseExchangePtr(v *OfficeDataConnectorDataTypesResponseExchangeArgs) OfficeDataConnectorDataTypesResponseExchangePtrInput {
-	return (*officeDataConnectorDataTypesResponseExchangePtrType)(v)
-}
-
-func (*officeDataConnectorDataTypesResponseExchangePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**OfficeDataConnectorDataTypesResponseExchange)(nil)).Elem()
-}
-
-func (i *officeDataConnectorDataTypesResponseExchangePtrType) ToOfficeDataConnectorDataTypesResponseExchangePtrOutput() OfficeDataConnectorDataTypesResponseExchangePtrOutput {
-	return i.ToOfficeDataConnectorDataTypesResponseExchangePtrOutputWithContext(context.Background())
-}
-
-func (i *officeDataConnectorDataTypesResponseExchangePtrType) ToOfficeDataConnectorDataTypesResponseExchangePtrOutputWithContext(ctx context.Context) OfficeDataConnectorDataTypesResponseExchangePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OfficeDataConnectorDataTypesResponseExchangePtrOutput)
-}
-
 type OfficeDataConnectorDataTypesResponseExchangeOutput struct{ *pulumi.OutputState }
 
 func (OfficeDataConnectorDataTypesResponseExchangeOutput) ElementType() reflect.Type {
@@ -3022,16 +2117,6 @@ func (o OfficeDataConnectorDataTypesResponseExchangeOutput) ToOfficeDataConnecto
 
 func (o OfficeDataConnectorDataTypesResponseExchangeOutput) ToOfficeDataConnectorDataTypesResponseExchangeOutputWithContext(ctx context.Context) OfficeDataConnectorDataTypesResponseExchangeOutput {
 	return o
-}
-
-func (o OfficeDataConnectorDataTypesResponseExchangeOutput) ToOfficeDataConnectorDataTypesResponseExchangePtrOutput() OfficeDataConnectorDataTypesResponseExchangePtrOutput {
-	return o.ToOfficeDataConnectorDataTypesResponseExchangePtrOutputWithContext(context.Background())
-}
-
-func (o OfficeDataConnectorDataTypesResponseExchangeOutput) ToOfficeDataConnectorDataTypesResponseExchangePtrOutputWithContext(ctx context.Context) OfficeDataConnectorDataTypesResponseExchangePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v OfficeDataConnectorDataTypesResponseExchange) *OfficeDataConnectorDataTypesResponseExchange {
-		return &v
-	}).(OfficeDataConnectorDataTypesResponseExchangePtrOutput)
 }
 
 func (o OfficeDataConnectorDataTypesResponseExchangeOutput) State() pulumi.StringPtrOutput {
@@ -3075,74 +2160,6 @@ type OfficeDataConnectorDataTypesResponseSharePoint struct {
 	State *string `pulumi:"state"`
 }
 
-
-
-
-
-type OfficeDataConnectorDataTypesResponseSharePointInput interface {
-	pulumi.Input
-
-	ToOfficeDataConnectorDataTypesResponseSharePointOutput() OfficeDataConnectorDataTypesResponseSharePointOutput
-	ToOfficeDataConnectorDataTypesResponseSharePointOutputWithContext(context.Context) OfficeDataConnectorDataTypesResponseSharePointOutput
-}
-
-type OfficeDataConnectorDataTypesResponseSharePointArgs struct {
-	State pulumi.StringPtrInput `pulumi:"state"`
-}
-
-func (OfficeDataConnectorDataTypesResponseSharePointArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*OfficeDataConnectorDataTypesResponseSharePoint)(nil)).Elem()
-}
-
-func (i OfficeDataConnectorDataTypesResponseSharePointArgs) ToOfficeDataConnectorDataTypesResponseSharePointOutput() OfficeDataConnectorDataTypesResponseSharePointOutput {
-	return i.ToOfficeDataConnectorDataTypesResponseSharePointOutputWithContext(context.Background())
-}
-
-func (i OfficeDataConnectorDataTypesResponseSharePointArgs) ToOfficeDataConnectorDataTypesResponseSharePointOutputWithContext(ctx context.Context) OfficeDataConnectorDataTypesResponseSharePointOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OfficeDataConnectorDataTypesResponseSharePointOutput)
-}
-
-func (i OfficeDataConnectorDataTypesResponseSharePointArgs) ToOfficeDataConnectorDataTypesResponseSharePointPtrOutput() OfficeDataConnectorDataTypesResponseSharePointPtrOutput {
-	return i.ToOfficeDataConnectorDataTypesResponseSharePointPtrOutputWithContext(context.Background())
-}
-
-func (i OfficeDataConnectorDataTypesResponseSharePointArgs) ToOfficeDataConnectorDataTypesResponseSharePointPtrOutputWithContext(ctx context.Context) OfficeDataConnectorDataTypesResponseSharePointPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OfficeDataConnectorDataTypesResponseSharePointOutput).ToOfficeDataConnectorDataTypesResponseSharePointPtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type OfficeDataConnectorDataTypesResponseSharePointPtrInput interface {
-	pulumi.Input
-
-	ToOfficeDataConnectorDataTypesResponseSharePointPtrOutput() OfficeDataConnectorDataTypesResponseSharePointPtrOutput
-	ToOfficeDataConnectorDataTypesResponseSharePointPtrOutputWithContext(context.Context) OfficeDataConnectorDataTypesResponseSharePointPtrOutput
-}
-
-type officeDataConnectorDataTypesResponseSharePointPtrType OfficeDataConnectorDataTypesResponseSharePointArgs
-
-func OfficeDataConnectorDataTypesResponseSharePointPtr(v *OfficeDataConnectorDataTypesResponseSharePointArgs) OfficeDataConnectorDataTypesResponseSharePointPtrInput {
-	return (*officeDataConnectorDataTypesResponseSharePointPtrType)(v)
-}
-
-func (*officeDataConnectorDataTypesResponseSharePointPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**OfficeDataConnectorDataTypesResponseSharePoint)(nil)).Elem()
-}
-
-func (i *officeDataConnectorDataTypesResponseSharePointPtrType) ToOfficeDataConnectorDataTypesResponseSharePointPtrOutput() OfficeDataConnectorDataTypesResponseSharePointPtrOutput {
-	return i.ToOfficeDataConnectorDataTypesResponseSharePointPtrOutputWithContext(context.Background())
-}
-
-func (i *officeDataConnectorDataTypesResponseSharePointPtrType) ToOfficeDataConnectorDataTypesResponseSharePointPtrOutputWithContext(ctx context.Context) OfficeDataConnectorDataTypesResponseSharePointPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OfficeDataConnectorDataTypesResponseSharePointPtrOutput)
-}
-
 type OfficeDataConnectorDataTypesResponseSharePointOutput struct{ *pulumi.OutputState }
 
 func (OfficeDataConnectorDataTypesResponseSharePointOutput) ElementType() reflect.Type {
@@ -3155,16 +2172,6 @@ func (o OfficeDataConnectorDataTypesResponseSharePointOutput) ToOfficeDataConnec
 
 func (o OfficeDataConnectorDataTypesResponseSharePointOutput) ToOfficeDataConnectorDataTypesResponseSharePointOutputWithContext(ctx context.Context) OfficeDataConnectorDataTypesResponseSharePointOutput {
 	return o
-}
-
-func (o OfficeDataConnectorDataTypesResponseSharePointOutput) ToOfficeDataConnectorDataTypesResponseSharePointPtrOutput() OfficeDataConnectorDataTypesResponseSharePointPtrOutput {
-	return o.ToOfficeDataConnectorDataTypesResponseSharePointPtrOutputWithContext(context.Background())
-}
-
-func (o OfficeDataConnectorDataTypesResponseSharePointOutput) ToOfficeDataConnectorDataTypesResponseSharePointPtrOutputWithContext(ctx context.Context) OfficeDataConnectorDataTypesResponseSharePointPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v OfficeDataConnectorDataTypesResponseSharePoint) *OfficeDataConnectorDataTypesResponseSharePoint {
-		return &v
-	}).(OfficeDataConnectorDataTypesResponseSharePointPtrOutput)
 }
 
 func (o OfficeDataConnectorDataTypesResponseSharePointOutput) State() pulumi.StringPtrOutput {
@@ -3208,74 +2215,6 @@ type OfficeDataConnectorDataTypesResponseTeams struct {
 	State *string `pulumi:"state"`
 }
 
-
-
-
-
-type OfficeDataConnectorDataTypesResponseTeamsInput interface {
-	pulumi.Input
-
-	ToOfficeDataConnectorDataTypesResponseTeamsOutput() OfficeDataConnectorDataTypesResponseTeamsOutput
-	ToOfficeDataConnectorDataTypesResponseTeamsOutputWithContext(context.Context) OfficeDataConnectorDataTypesResponseTeamsOutput
-}
-
-type OfficeDataConnectorDataTypesResponseTeamsArgs struct {
-	State pulumi.StringPtrInput `pulumi:"state"`
-}
-
-func (OfficeDataConnectorDataTypesResponseTeamsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*OfficeDataConnectorDataTypesResponseTeams)(nil)).Elem()
-}
-
-func (i OfficeDataConnectorDataTypesResponseTeamsArgs) ToOfficeDataConnectorDataTypesResponseTeamsOutput() OfficeDataConnectorDataTypesResponseTeamsOutput {
-	return i.ToOfficeDataConnectorDataTypesResponseTeamsOutputWithContext(context.Background())
-}
-
-func (i OfficeDataConnectorDataTypesResponseTeamsArgs) ToOfficeDataConnectorDataTypesResponseTeamsOutputWithContext(ctx context.Context) OfficeDataConnectorDataTypesResponseTeamsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OfficeDataConnectorDataTypesResponseTeamsOutput)
-}
-
-func (i OfficeDataConnectorDataTypesResponseTeamsArgs) ToOfficeDataConnectorDataTypesResponseTeamsPtrOutput() OfficeDataConnectorDataTypesResponseTeamsPtrOutput {
-	return i.ToOfficeDataConnectorDataTypesResponseTeamsPtrOutputWithContext(context.Background())
-}
-
-func (i OfficeDataConnectorDataTypesResponseTeamsArgs) ToOfficeDataConnectorDataTypesResponseTeamsPtrOutputWithContext(ctx context.Context) OfficeDataConnectorDataTypesResponseTeamsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OfficeDataConnectorDataTypesResponseTeamsOutput).ToOfficeDataConnectorDataTypesResponseTeamsPtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type OfficeDataConnectorDataTypesResponseTeamsPtrInput interface {
-	pulumi.Input
-
-	ToOfficeDataConnectorDataTypesResponseTeamsPtrOutput() OfficeDataConnectorDataTypesResponseTeamsPtrOutput
-	ToOfficeDataConnectorDataTypesResponseTeamsPtrOutputWithContext(context.Context) OfficeDataConnectorDataTypesResponseTeamsPtrOutput
-}
-
-type officeDataConnectorDataTypesResponseTeamsPtrType OfficeDataConnectorDataTypesResponseTeamsArgs
-
-func OfficeDataConnectorDataTypesResponseTeamsPtr(v *OfficeDataConnectorDataTypesResponseTeamsArgs) OfficeDataConnectorDataTypesResponseTeamsPtrInput {
-	return (*officeDataConnectorDataTypesResponseTeamsPtrType)(v)
-}
-
-func (*officeDataConnectorDataTypesResponseTeamsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**OfficeDataConnectorDataTypesResponseTeams)(nil)).Elem()
-}
-
-func (i *officeDataConnectorDataTypesResponseTeamsPtrType) ToOfficeDataConnectorDataTypesResponseTeamsPtrOutput() OfficeDataConnectorDataTypesResponseTeamsPtrOutput {
-	return i.ToOfficeDataConnectorDataTypesResponseTeamsPtrOutputWithContext(context.Background())
-}
-
-func (i *officeDataConnectorDataTypesResponseTeamsPtrType) ToOfficeDataConnectorDataTypesResponseTeamsPtrOutputWithContext(ctx context.Context) OfficeDataConnectorDataTypesResponseTeamsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OfficeDataConnectorDataTypesResponseTeamsPtrOutput)
-}
-
 type OfficeDataConnectorDataTypesResponseTeamsOutput struct{ *pulumi.OutputState }
 
 func (OfficeDataConnectorDataTypesResponseTeamsOutput) ElementType() reflect.Type {
@@ -3288,16 +2227,6 @@ func (o OfficeDataConnectorDataTypesResponseTeamsOutput) ToOfficeDataConnectorDa
 
 func (o OfficeDataConnectorDataTypesResponseTeamsOutput) ToOfficeDataConnectorDataTypesResponseTeamsOutputWithContext(ctx context.Context) OfficeDataConnectorDataTypesResponseTeamsOutput {
 	return o
-}
-
-func (o OfficeDataConnectorDataTypesResponseTeamsOutput) ToOfficeDataConnectorDataTypesResponseTeamsPtrOutput() OfficeDataConnectorDataTypesResponseTeamsPtrOutput {
-	return o.ToOfficeDataConnectorDataTypesResponseTeamsPtrOutputWithContext(context.Background())
-}
-
-func (o OfficeDataConnectorDataTypesResponseTeamsOutput) ToOfficeDataConnectorDataTypesResponseTeamsPtrOutputWithContext(ctx context.Context) OfficeDataConnectorDataTypesResponseTeamsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v OfficeDataConnectorDataTypesResponseTeams) *OfficeDataConnectorDataTypesResponseTeams {
-		return &v
-	}).(OfficeDataConnectorDataTypesResponseTeamsPtrOutput)
 }
 
 func (o OfficeDataConnectorDataTypesResponseTeamsOutput) State() pulumi.StringPtrOutput {
@@ -3873,74 +2802,6 @@ type TIDataConnectorDataTypesResponse struct {
 	Indicators *TIDataConnectorDataTypesResponseIndicators `pulumi:"indicators"`
 }
 
-
-
-
-
-type TIDataConnectorDataTypesResponseInput interface {
-	pulumi.Input
-
-	ToTIDataConnectorDataTypesResponseOutput() TIDataConnectorDataTypesResponseOutput
-	ToTIDataConnectorDataTypesResponseOutputWithContext(context.Context) TIDataConnectorDataTypesResponseOutput
-}
-
-type TIDataConnectorDataTypesResponseArgs struct {
-	Indicators TIDataConnectorDataTypesResponseIndicatorsPtrInput `pulumi:"indicators"`
-}
-
-func (TIDataConnectorDataTypesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TIDataConnectorDataTypesResponse)(nil)).Elem()
-}
-
-func (i TIDataConnectorDataTypesResponseArgs) ToTIDataConnectorDataTypesResponseOutput() TIDataConnectorDataTypesResponseOutput {
-	return i.ToTIDataConnectorDataTypesResponseOutputWithContext(context.Background())
-}
-
-func (i TIDataConnectorDataTypesResponseArgs) ToTIDataConnectorDataTypesResponseOutputWithContext(ctx context.Context) TIDataConnectorDataTypesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TIDataConnectorDataTypesResponseOutput)
-}
-
-func (i TIDataConnectorDataTypesResponseArgs) ToTIDataConnectorDataTypesResponsePtrOutput() TIDataConnectorDataTypesResponsePtrOutput {
-	return i.ToTIDataConnectorDataTypesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i TIDataConnectorDataTypesResponseArgs) ToTIDataConnectorDataTypesResponsePtrOutputWithContext(ctx context.Context) TIDataConnectorDataTypesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TIDataConnectorDataTypesResponseOutput).ToTIDataConnectorDataTypesResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type TIDataConnectorDataTypesResponsePtrInput interface {
-	pulumi.Input
-
-	ToTIDataConnectorDataTypesResponsePtrOutput() TIDataConnectorDataTypesResponsePtrOutput
-	ToTIDataConnectorDataTypesResponsePtrOutputWithContext(context.Context) TIDataConnectorDataTypesResponsePtrOutput
-}
-
-type tidataConnectorDataTypesResponsePtrType TIDataConnectorDataTypesResponseArgs
-
-func TIDataConnectorDataTypesResponsePtr(v *TIDataConnectorDataTypesResponseArgs) TIDataConnectorDataTypesResponsePtrInput {
-	return (*tidataConnectorDataTypesResponsePtrType)(v)
-}
-
-func (*tidataConnectorDataTypesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**TIDataConnectorDataTypesResponse)(nil)).Elem()
-}
-
-func (i *tidataConnectorDataTypesResponsePtrType) ToTIDataConnectorDataTypesResponsePtrOutput() TIDataConnectorDataTypesResponsePtrOutput {
-	return i.ToTIDataConnectorDataTypesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *tidataConnectorDataTypesResponsePtrType) ToTIDataConnectorDataTypesResponsePtrOutputWithContext(ctx context.Context) TIDataConnectorDataTypesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TIDataConnectorDataTypesResponsePtrOutput)
-}
-
 type TIDataConnectorDataTypesResponseOutput struct{ *pulumi.OutputState }
 
 func (TIDataConnectorDataTypesResponseOutput) ElementType() reflect.Type {
@@ -3953,16 +2814,6 @@ func (o TIDataConnectorDataTypesResponseOutput) ToTIDataConnectorDataTypesRespon
 
 func (o TIDataConnectorDataTypesResponseOutput) ToTIDataConnectorDataTypesResponseOutputWithContext(ctx context.Context) TIDataConnectorDataTypesResponseOutput {
 	return o
-}
-
-func (o TIDataConnectorDataTypesResponseOutput) ToTIDataConnectorDataTypesResponsePtrOutput() TIDataConnectorDataTypesResponsePtrOutput {
-	return o.ToTIDataConnectorDataTypesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o TIDataConnectorDataTypesResponseOutput) ToTIDataConnectorDataTypesResponsePtrOutputWithContext(ctx context.Context) TIDataConnectorDataTypesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TIDataConnectorDataTypesResponse) *TIDataConnectorDataTypesResponse {
-		return &v
-	}).(TIDataConnectorDataTypesResponsePtrOutput)
 }
 
 func (o TIDataConnectorDataTypesResponseOutput) Indicators() TIDataConnectorDataTypesResponseIndicatorsPtrOutput {
@@ -4008,74 +2859,6 @@ type TIDataConnectorDataTypesResponseIndicators struct {
 	State *string `pulumi:"state"`
 }
 
-
-
-
-
-type TIDataConnectorDataTypesResponseIndicatorsInput interface {
-	pulumi.Input
-
-	ToTIDataConnectorDataTypesResponseIndicatorsOutput() TIDataConnectorDataTypesResponseIndicatorsOutput
-	ToTIDataConnectorDataTypesResponseIndicatorsOutputWithContext(context.Context) TIDataConnectorDataTypesResponseIndicatorsOutput
-}
-
-type TIDataConnectorDataTypesResponseIndicatorsArgs struct {
-	State pulumi.StringPtrInput `pulumi:"state"`
-}
-
-func (TIDataConnectorDataTypesResponseIndicatorsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TIDataConnectorDataTypesResponseIndicators)(nil)).Elem()
-}
-
-func (i TIDataConnectorDataTypesResponseIndicatorsArgs) ToTIDataConnectorDataTypesResponseIndicatorsOutput() TIDataConnectorDataTypesResponseIndicatorsOutput {
-	return i.ToTIDataConnectorDataTypesResponseIndicatorsOutputWithContext(context.Background())
-}
-
-func (i TIDataConnectorDataTypesResponseIndicatorsArgs) ToTIDataConnectorDataTypesResponseIndicatorsOutputWithContext(ctx context.Context) TIDataConnectorDataTypesResponseIndicatorsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TIDataConnectorDataTypesResponseIndicatorsOutput)
-}
-
-func (i TIDataConnectorDataTypesResponseIndicatorsArgs) ToTIDataConnectorDataTypesResponseIndicatorsPtrOutput() TIDataConnectorDataTypesResponseIndicatorsPtrOutput {
-	return i.ToTIDataConnectorDataTypesResponseIndicatorsPtrOutputWithContext(context.Background())
-}
-
-func (i TIDataConnectorDataTypesResponseIndicatorsArgs) ToTIDataConnectorDataTypesResponseIndicatorsPtrOutputWithContext(ctx context.Context) TIDataConnectorDataTypesResponseIndicatorsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TIDataConnectorDataTypesResponseIndicatorsOutput).ToTIDataConnectorDataTypesResponseIndicatorsPtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type TIDataConnectorDataTypesResponseIndicatorsPtrInput interface {
-	pulumi.Input
-
-	ToTIDataConnectorDataTypesResponseIndicatorsPtrOutput() TIDataConnectorDataTypesResponseIndicatorsPtrOutput
-	ToTIDataConnectorDataTypesResponseIndicatorsPtrOutputWithContext(context.Context) TIDataConnectorDataTypesResponseIndicatorsPtrOutput
-}
-
-type tidataConnectorDataTypesResponseIndicatorsPtrType TIDataConnectorDataTypesResponseIndicatorsArgs
-
-func TIDataConnectorDataTypesResponseIndicatorsPtr(v *TIDataConnectorDataTypesResponseIndicatorsArgs) TIDataConnectorDataTypesResponseIndicatorsPtrInput {
-	return (*tidataConnectorDataTypesResponseIndicatorsPtrType)(v)
-}
-
-func (*tidataConnectorDataTypesResponseIndicatorsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**TIDataConnectorDataTypesResponseIndicators)(nil)).Elem()
-}
-
-func (i *tidataConnectorDataTypesResponseIndicatorsPtrType) ToTIDataConnectorDataTypesResponseIndicatorsPtrOutput() TIDataConnectorDataTypesResponseIndicatorsPtrOutput {
-	return i.ToTIDataConnectorDataTypesResponseIndicatorsPtrOutputWithContext(context.Background())
-}
-
-func (i *tidataConnectorDataTypesResponseIndicatorsPtrType) ToTIDataConnectorDataTypesResponseIndicatorsPtrOutputWithContext(ctx context.Context) TIDataConnectorDataTypesResponseIndicatorsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TIDataConnectorDataTypesResponseIndicatorsPtrOutput)
-}
-
 type TIDataConnectorDataTypesResponseIndicatorsOutput struct{ *pulumi.OutputState }
 
 func (TIDataConnectorDataTypesResponseIndicatorsOutput) ElementType() reflect.Type {
@@ -4088,16 +2871,6 @@ func (o TIDataConnectorDataTypesResponseIndicatorsOutput) ToTIDataConnectorDataT
 
 func (o TIDataConnectorDataTypesResponseIndicatorsOutput) ToTIDataConnectorDataTypesResponseIndicatorsOutputWithContext(ctx context.Context) TIDataConnectorDataTypesResponseIndicatorsOutput {
 	return o
-}
-
-func (o TIDataConnectorDataTypesResponseIndicatorsOutput) ToTIDataConnectorDataTypesResponseIndicatorsPtrOutput() TIDataConnectorDataTypesResponseIndicatorsPtrOutput {
-	return o.ToTIDataConnectorDataTypesResponseIndicatorsPtrOutputWithContext(context.Background())
-}
-
-func (o TIDataConnectorDataTypesResponseIndicatorsOutput) ToTIDataConnectorDataTypesResponseIndicatorsPtrOutputWithContext(ctx context.Context) TIDataConnectorDataTypesResponseIndicatorsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TIDataConnectorDataTypesResponseIndicators) *TIDataConnectorDataTypesResponseIndicators {
-		return &v
-	}).(TIDataConnectorDataTypesResponseIndicatorsPtrOutput)
 }
 
 func (o TIDataConnectorDataTypesResponseIndicatorsOutput) State() pulumi.StringPtrOutput {
@@ -4276,76 +3049,6 @@ type UserInfoResponse struct {
 	ObjectId string `pulumi:"objectId"`
 }
 
-
-
-
-
-type UserInfoResponseInput interface {
-	pulumi.Input
-
-	ToUserInfoResponseOutput() UserInfoResponseOutput
-	ToUserInfoResponseOutputWithContext(context.Context) UserInfoResponseOutput
-}
-
-type UserInfoResponseArgs struct {
-	Email    pulumi.StringInput `pulumi:"email"`
-	Name     pulumi.StringInput `pulumi:"name"`
-	ObjectId pulumi.StringInput `pulumi:"objectId"`
-}
-
-func (UserInfoResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserInfoResponse)(nil)).Elem()
-}
-
-func (i UserInfoResponseArgs) ToUserInfoResponseOutput() UserInfoResponseOutput {
-	return i.ToUserInfoResponseOutputWithContext(context.Background())
-}
-
-func (i UserInfoResponseArgs) ToUserInfoResponseOutputWithContext(ctx context.Context) UserInfoResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UserInfoResponseOutput)
-}
-
-func (i UserInfoResponseArgs) ToUserInfoResponsePtrOutput() UserInfoResponsePtrOutput {
-	return i.ToUserInfoResponsePtrOutputWithContext(context.Background())
-}
-
-func (i UserInfoResponseArgs) ToUserInfoResponsePtrOutputWithContext(ctx context.Context) UserInfoResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UserInfoResponseOutput).ToUserInfoResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type UserInfoResponsePtrInput interface {
-	pulumi.Input
-
-	ToUserInfoResponsePtrOutput() UserInfoResponsePtrOutput
-	ToUserInfoResponsePtrOutputWithContext(context.Context) UserInfoResponsePtrOutput
-}
-
-type userInfoResponsePtrType UserInfoResponseArgs
-
-func UserInfoResponsePtr(v *UserInfoResponseArgs) UserInfoResponsePtrInput {
-	return (*userInfoResponsePtrType)(v)
-}
-
-func (*userInfoResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**UserInfoResponse)(nil)).Elem()
-}
-
-func (i *userInfoResponsePtrType) ToUserInfoResponsePtrOutput() UserInfoResponsePtrOutput {
-	return i.ToUserInfoResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *userInfoResponsePtrType) ToUserInfoResponsePtrOutputWithContext(ctx context.Context) UserInfoResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UserInfoResponsePtrOutput)
-}
-
 type UserInfoResponseOutput struct{ *pulumi.OutputState }
 
 func (UserInfoResponseOutput) ElementType() reflect.Type {
@@ -4358,16 +3061,6 @@ func (o UserInfoResponseOutput) ToUserInfoResponseOutput() UserInfoResponseOutpu
 
 func (o UserInfoResponseOutput) ToUserInfoResponseOutputWithContext(ctx context.Context) UserInfoResponseOutput {
 	return o
-}
-
-func (o UserInfoResponseOutput) ToUserInfoResponsePtrOutput() UserInfoResponsePtrOutput {
-	return o.ToUserInfoResponsePtrOutputWithContext(context.Background())
-}
-
-func (o UserInfoResponseOutput) ToUserInfoResponsePtrOutputWithContext(ctx context.Context) UserInfoResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserInfoResponse) *UserInfoResponse {
-		return &v
-	}).(UserInfoResponsePtrOutput)
 }
 
 func (o UserInfoResponseOutput) Email() pulumi.StringOutput {
@@ -4451,7 +3144,6 @@ func init() {
 	pulumi.RegisterOutputType(DataConnectorDataTypeCommonResponseOutput{})
 	pulumi.RegisterOutputType(DataConnectorDataTypeCommonResponsePtrOutput{})
 	pulumi.RegisterOutputType(IncidentAdditionalDataResponseOutput{})
-	pulumi.RegisterOutputType(IncidentAdditionalDataResponsePtrOutput{})
 	pulumi.RegisterOutputType(IncidentInfoOutput{})
 	pulumi.RegisterOutputType(IncidentInfoPtrOutput{})
 	pulumi.RegisterOutputType(IncidentInfoResponseOutput{})

@@ -115,59 +115,6 @@ type ActionGroupResponse struct {
 	WebhookProperties map[string]string `pulumi:"webhookProperties"`
 }
 
-
-
-
-
-type ActionGroupResponseInput interface {
-	pulumi.Input
-
-	ToActionGroupResponseOutput() ActionGroupResponseOutput
-	ToActionGroupResponseOutputWithContext(context.Context) ActionGroupResponseOutput
-}
-
-type ActionGroupResponseArgs struct {
-	ActionGroupId     pulumi.StringInput    `pulumi:"actionGroupId"`
-	WebhookProperties pulumi.StringMapInput `pulumi:"webhookProperties"`
-}
-
-func (ActionGroupResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ActionGroupResponse)(nil)).Elem()
-}
-
-func (i ActionGroupResponseArgs) ToActionGroupResponseOutput() ActionGroupResponseOutput {
-	return i.ToActionGroupResponseOutputWithContext(context.Background())
-}
-
-func (i ActionGroupResponseArgs) ToActionGroupResponseOutputWithContext(ctx context.Context) ActionGroupResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActionGroupResponseOutput)
-}
-
-
-
-
-
-type ActionGroupResponseArrayInput interface {
-	pulumi.Input
-
-	ToActionGroupResponseArrayOutput() ActionGroupResponseArrayOutput
-	ToActionGroupResponseArrayOutputWithContext(context.Context) ActionGroupResponseArrayOutput
-}
-
-type ActionGroupResponseArray []ActionGroupResponseInput
-
-func (ActionGroupResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ActionGroupResponse)(nil)).Elem()
-}
-
-func (i ActionGroupResponseArray) ToActionGroupResponseArrayOutput() ActionGroupResponseArrayOutput {
-	return i.ToActionGroupResponseArrayOutputWithContext(context.Background())
-}
-
-func (i ActionGroupResponseArray) ToActionGroupResponseArrayOutputWithContext(ctx context.Context) ActionGroupResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActionGroupResponseArrayOutput)
-}
-
 type ActionGroupResponseOutput struct{ *pulumi.OutputState }
 
 func (ActionGroupResponseOutput) ElementType() reflect.Type {
@@ -241,47 +188,6 @@ func (i ActionListArgs) ToActionListOutputWithContext(ctx context.Context) Actio
 	return pulumi.ToOutputWithContext(ctx, i).(ActionListOutput)
 }
 
-func (i ActionListArgs) ToActionListPtrOutput() ActionListPtrOutput {
-	return i.ToActionListPtrOutputWithContext(context.Background())
-}
-
-func (i ActionListArgs) ToActionListPtrOutputWithContext(ctx context.Context) ActionListPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActionListOutput).ToActionListPtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type ActionListPtrInput interface {
-	pulumi.Input
-
-	ToActionListPtrOutput() ActionListPtrOutput
-	ToActionListPtrOutputWithContext(context.Context) ActionListPtrOutput
-}
-
-type actionListPtrType ActionListArgs
-
-func ActionListPtr(v *ActionListArgs) ActionListPtrInput {
-	return (*actionListPtrType)(v)
-}
-
-func (*actionListPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ActionList)(nil)).Elem()
-}
-
-func (i *actionListPtrType) ToActionListPtrOutput() ActionListPtrOutput {
-	return i.ToActionListPtrOutputWithContext(context.Background())
-}
-
-func (i *actionListPtrType) ToActionListPtrOutputWithContext(ctx context.Context) ActionListPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActionListPtrOutput)
-}
-
 type ActionListOutput struct{ *pulumi.OutputState }
 
 func (ActionListOutput) ElementType() reflect.Type {
@@ -296,123 +202,12 @@ func (o ActionListOutput) ToActionListOutputWithContext(ctx context.Context) Act
 	return o
 }
 
-func (o ActionListOutput) ToActionListPtrOutput() ActionListPtrOutput {
-	return o.ToActionListPtrOutputWithContext(context.Background())
-}
-
-func (o ActionListOutput) ToActionListPtrOutputWithContext(ctx context.Context) ActionListPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActionList) *ActionList {
-		return &v
-	}).(ActionListPtrOutput)
-}
-
 func (o ActionListOutput) ActionGroups() ActionGroupArrayOutput {
 	return o.ApplyT(func(v ActionList) []ActionGroup { return v.ActionGroups }).(ActionGroupArrayOutput)
 }
 
-type ActionListPtrOutput struct{ *pulumi.OutputState }
-
-func (ActionListPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ActionList)(nil)).Elem()
-}
-
-func (o ActionListPtrOutput) ToActionListPtrOutput() ActionListPtrOutput {
-	return o
-}
-
-func (o ActionListPtrOutput) ToActionListPtrOutputWithContext(ctx context.Context) ActionListPtrOutput {
-	return o
-}
-
-func (o ActionListPtrOutput) Elem() ActionListOutput {
-	return o.ApplyT(func(v *ActionList) ActionList {
-		if v != nil {
-			return *v
-		}
-		var ret ActionList
-		return ret
-	}).(ActionListOutput)
-}
-
-func (o ActionListPtrOutput) ActionGroups() ActionGroupArrayOutput {
-	return o.ApplyT(func(v *ActionList) []ActionGroup {
-		if v == nil {
-			return nil
-		}
-		return v.ActionGroups
-	}).(ActionGroupArrayOutput)
-}
-
 type ActionListResponse struct {
 	ActionGroups []ActionGroupResponse `pulumi:"actionGroups"`
-}
-
-
-
-
-
-type ActionListResponseInput interface {
-	pulumi.Input
-
-	ToActionListResponseOutput() ActionListResponseOutput
-	ToActionListResponseOutputWithContext(context.Context) ActionListResponseOutput
-}
-
-type ActionListResponseArgs struct {
-	ActionGroups ActionGroupResponseArrayInput `pulumi:"actionGroups"`
-}
-
-func (ActionListResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ActionListResponse)(nil)).Elem()
-}
-
-func (i ActionListResponseArgs) ToActionListResponseOutput() ActionListResponseOutput {
-	return i.ToActionListResponseOutputWithContext(context.Background())
-}
-
-func (i ActionListResponseArgs) ToActionListResponseOutputWithContext(ctx context.Context) ActionListResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActionListResponseOutput)
-}
-
-func (i ActionListResponseArgs) ToActionListResponsePtrOutput() ActionListResponsePtrOutput {
-	return i.ToActionListResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ActionListResponseArgs) ToActionListResponsePtrOutputWithContext(ctx context.Context) ActionListResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActionListResponseOutput).ToActionListResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type ActionListResponsePtrInput interface {
-	pulumi.Input
-
-	ToActionListResponsePtrOutput() ActionListResponsePtrOutput
-	ToActionListResponsePtrOutputWithContext(context.Context) ActionListResponsePtrOutput
-}
-
-type actionListResponsePtrType ActionListResponseArgs
-
-func ActionListResponsePtr(v *ActionListResponseArgs) ActionListResponsePtrInput {
-	return (*actionListResponsePtrType)(v)
-}
-
-func (*actionListResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ActionListResponse)(nil)).Elem()
-}
-
-func (i *actionListResponsePtrType) ToActionListResponsePtrOutput() ActionListResponsePtrOutput {
-	return i.ToActionListResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *actionListResponsePtrType) ToActionListResponsePtrOutputWithContext(ctx context.Context) ActionListResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActionListResponsePtrOutput)
 }
 
 type ActionListResponseOutput struct{ *pulumi.OutputState }
@@ -429,51 +224,8 @@ func (o ActionListResponseOutput) ToActionListResponseOutputWithContext(ctx cont
 	return o
 }
 
-func (o ActionListResponseOutput) ToActionListResponsePtrOutput() ActionListResponsePtrOutput {
-	return o.ToActionListResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ActionListResponseOutput) ToActionListResponsePtrOutputWithContext(ctx context.Context) ActionListResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActionListResponse) *ActionListResponse {
-		return &v
-	}).(ActionListResponsePtrOutput)
-}
-
 func (o ActionListResponseOutput) ActionGroups() ActionGroupResponseArrayOutput {
 	return o.ApplyT(func(v ActionListResponse) []ActionGroupResponse { return v.ActionGroups }).(ActionGroupResponseArrayOutput)
-}
-
-type ActionListResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (ActionListResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ActionListResponse)(nil)).Elem()
-}
-
-func (o ActionListResponsePtrOutput) ToActionListResponsePtrOutput() ActionListResponsePtrOutput {
-	return o
-}
-
-func (o ActionListResponsePtrOutput) ToActionListResponsePtrOutputWithContext(ctx context.Context) ActionListResponsePtrOutput {
-	return o
-}
-
-func (o ActionListResponsePtrOutput) Elem() ActionListResponseOutput {
-	return o.ApplyT(func(v *ActionListResponse) ActionListResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ActionListResponse
-		return ret
-	}).(ActionListResponseOutput)
-}
-
-func (o ActionListResponsePtrOutput) ActionGroups() ActionGroupResponseArrayOutput {
-	return o.ApplyT(func(v *ActionListResponse) []ActionGroupResponse {
-		if v == nil {
-			return nil
-		}
-		return v.ActionGroups
-	}).(ActionGroupResponseArrayOutput)
 }
 
 type AlertRuleAllOfCondition struct {
@@ -507,47 +259,6 @@ func (i AlertRuleAllOfConditionArgs) ToAlertRuleAllOfConditionOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleAllOfConditionOutput)
 }
 
-func (i AlertRuleAllOfConditionArgs) ToAlertRuleAllOfConditionPtrOutput() AlertRuleAllOfConditionPtrOutput {
-	return i.ToAlertRuleAllOfConditionPtrOutputWithContext(context.Background())
-}
-
-func (i AlertRuleAllOfConditionArgs) ToAlertRuleAllOfConditionPtrOutputWithContext(ctx context.Context) AlertRuleAllOfConditionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleAllOfConditionOutput).ToAlertRuleAllOfConditionPtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type AlertRuleAllOfConditionPtrInput interface {
-	pulumi.Input
-
-	ToAlertRuleAllOfConditionPtrOutput() AlertRuleAllOfConditionPtrOutput
-	ToAlertRuleAllOfConditionPtrOutputWithContext(context.Context) AlertRuleAllOfConditionPtrOutput
-}
-
-type alertRuleAllOfConditionPtrType AlertRuleAllOfConditionArgs
-
-func AlertRuleAllOfConditionPtr(v *AlertRuleAllOfConditionArgs) AlertRuleAllOfConditionPtrInput {
-	return (*alertRuleAllOfConditionPtrType)(v)
-}
-
-func (*alertRuleAllOfConditionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AlertRuleAllOfCondition)(nil)).Elem()
-}
-
-func (i *alertRuleAllOfConditionPtrType) ToAlertRuleAllOfConditionPtrOutput() AlertRuleAllOfConditionPtrOutput {
-	return i.ToAlertRuleAllOfConditionPtrOutputWithContext(context.Background())
-}
-
-func (i *alertRuleAllOfConditionPtrType) ToAlertRuleAllOfConditionPtrOutputWithContext(ctx context.Context) AlertRuleAllOfConditionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleAllOfConditionPtrOutput)
-}
-
 type AlertRuleAllOfConditionOutput struct{ *pulumi.OutputState }
 
 func (AlertRuleAllOfConditionOutput) ElementType() reflect.Type {
@@ -562,123 +273,12 @@ func (o AlertRuleAllOfConditionOutput) ToAlertRuleAllOfConditionOutputWithContex
 	return o
 }
 
-func (o AlertRuleAllOfConditionOutput) ToAlertRuleAllOfConditionPtrOutput() AlertRuleAllOfConditionPtrOutput {
-	return o.ToAlertRuleAllOfConditionPtrOutputWithContext(context.Background())
-}
-
-func (o AlertRuleAllOfConditionOutput) ToAlertRuleAllOfConditionPtrOutputWithContext(ctx context.Context) AlertRuleAllOfConditionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlertRuleAllOfCondition) *AlertRuleAllOfCondition {
-		return &v
-	}).(AlertRuleAllOfConditionPtrOutput)
-}
-
 func (o AlertRuleAllOfConditionOutput) AllOf() AlertRuleAnyOfOrLeafConditionArrayOutput {
 	return o.ApplyT(func(v AlertRuleAllOfCondition) []AlertRuleAnyOfOrLeafCondition { return v.AllOf }).(AlertRuleAnyOfOrLeafConditionArrayOutput)
 }
 
-type AlertRuleAllOfConditionPtrOutput struct{ *pulumi.OutputState }
-
-func (AlertRuleAllOfConditionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AlertRuleAllOfCondition)(nil)).Elem()
-}
-
-func (o AlertRuleAllOfConditionPtrOutput) ToAlertRuleAllOfConditionPtrOutput() AlertRuleAllOfConditionPtrOutput {
-	return o
-}
-
-func (o AlertRuleAllOfConditionPtrOutput) ToAlertRuleAllOfConditionPtrOutputWithContext(ctx context.Context) AlertRuleAllOfConditionPtrOutput {
-	return o
-}
-
-func (o AlertRuleAllOfConditionPtrOutput) Elem() AlertRuleAllOfConditionOutput {
-	return o.ApplyT(func(v *AlertRuleAllOfCondition) AlertRuleAllOfCondition {
-		if v != nil {
-			return *v
-		}
-		var ret AlertRuleAllOfCondition
-		return ret
-	}).(AlertRuleAllOfConditionOutput)
-}
-
-func (o AlertRuleAllOfConditionPtrOutput) AllOf() AlertRuleAnyOfOrLeafConditionArrayOutput {
-	return o.ApplyT(func(v *AlertRuleAllOfCondition) []AlertRuleAnyOfOrLeafCondition {
-		if v == nil {
-			return nil
-		}
-		return v.AllOf
-	}).(AlertRuleAnyOfOrLeafConditionArrayOutput)
-}
-
 type AlertRuleAllOfConditionResponse struct {
 	AllOf []AlertRuleAnyOfOrLeafConditionResponse `pulumi:"allOf"`
-}
-
-
-
-
-
-type AlertRuleAllOfConditionResponseInput interface {
-	pulumi.Input
-
-	ToAlertRuleAllOfConditionResponseOutput() AlertRuleAllOfConditionResponseOutput
-	ToAlertRuleAllOfConditionResponseOutputWithContext(context.Context) AlertRuleAllOfConditionResponseOutput
-}
-
-type AlertRuleAllOfConditionResponseArgs struct {
-	AllOf AlertRuleAnyOfOrLeafConditionResponseArrayInput `pulumi:"allOf"`
-}
-
-func (AlertRuleAllOfConditionResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AlertRuleAllOfConditionResponse)(nil)).Elem()
-}
-
-func (i AlertRuleAllOfConditionResponseArgs) ToAlertRuleAllOfConditionResponseOutput() AlertRuleAllOfConditionResponseOutput {
-	return i.ToAlertRuleAllOfConditionResponseOutputWithContext(context.Background())
-}
-
-func (i AlertRuleAllOfConditionResponseArgs) ToAlertRuleAllOfConditionResponseOutputWithContext(ctx context.Context) AlertRuleAllOfConditionResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleAllOfConditionResponseOutput)
-}
-
-func (i AlertRuleAllOfConditionResponseArgs) ToAlertRuleAllOfConditionResponsePtrOutput() AlertRuleAllOfConditionResponsePtrOutput {
-	return i.ToAlertRuleAllOfConditionResponsePtrOutputWithContext(context.Background())
-}
-
-func (i AlertRuleAllOfConditionResponseArgs) ToAlertRuleAllOfConditionResponsePtrOutputWithContext(ctx context.Context) AlertRuleAllOfConditionResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleAllOfConditionResponseOutput).ToAlertRuleAllOfConditionResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type AlertRuleAllOfConditionResponsePtrInput interface {
-	pulumi.Input
-
-	ToAlertRuleAllOfConditionResponsePtrOutput() AlertRuleAllOfConditionResponsePtrOutput
-	ToAlertRuleAllOfConditionResponsePtrOutputWithContext(context.Context) AlertRuleAllOfConditionResponsePtrOutput
-}
-
-type alertRuleAllOfConditionResponsePtrType AlertRuleAllOfConditionResponseArgs
-
-func AlertRuleAllOfConditionResponsePtr(v *AlertRuleAllOfConditionResponseArgs) AlertRuleAllOfConditionResponsePtrInput {
-	return (*alertRuleAllOfConditionResponsePtrType)(v)
-}
-
-func (*alertRuleAllOfConditionResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AlertRuleAllOfConditionResponse)(nil)).Elem()
-}
-
-func (i *alertRuleAllOfConditionResponsePtrType) ToAlertRuleAllOfConditionResponsePtrOutput() AlertRuleAllOfConditionResponsePtrOutput {
-	return i.ToAlertRuleAllOfConditionResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *alertRuleAllOfConditionResponsePtrType) ToAlertRuleAllOfConditionResponsePtrOutputWithContext(ctx context.Context) AlertRuleAllOfConditionResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleAllOfConditionResponsePtrOutput)
 }
 
 type AlertRuleAllOfConditionResponseOutput struct{ *pulumi.OutputState }
@@ -695,51 +295,8 @@ func (o AlertRuleAllOfConditionResponseOutput) ToAlertRuleAllOfConditionResponse
 	return o
 }
 
-func (o AlertRuleAllOfConditionResponseOutput) ToAlertRuleAllOfConditionResponsePtrOutput() AlertRuleAllOfConditionResponsePtrOutput {
-	return o.ToAlertRuleAllOfConditionResponsePtrOutputWithContext(context.Background())
-}
-
-func (o AlertRuleAllOfConditionResponseOutput) ToAlertRuleAllOfConditionResponsePtrOutputWithContext(ctx context.Context) AlertRuleAllOfConditionResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlertRuleAllOfConditionResponse) *AlertRuleAllOfConditionResponse {
-		return &v
-	}).(AlertRuleAllOfConditionResponsePtrOutput)
-}
-
 func (o AlertRuleAllOfConditionResponseOutput) AllOf() AlertRuleAnyOfOrLeafConditionResponseArrayOutput {
 	return o.ApplyT(func(v AlertRuleAllOfConditionResponse) []AlertRuleAnyOfOrLeafConditionResponse { return v.AllOf }).(AlertRuleAnyOfOrLeafConditionResponseArrayOutput)
-}
-
-type AlertRuleAllOfConditionResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (AlertRuleAllOfConditionResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AlertRuleAllOfConditionResponse)(nil)).Elem()
-}
-
-func (o AlertRuleAllOfConditionResponsePtrOutput) ToAlertRuleAllOfConditionResponsePtrOutput() AlertRuleAllOfConditionResponsePtrOutput {
-	return o
-}
-
-func (o AlertRuleAllOfConditionResponsePtrOutput) ToAlertRuleAllOfConditionResponsePtrOutputWithContext(ctx context.Context) AlertRuleAllOfConditionResponsePtrOutput {
-	return o
-}
-
-func (o AlertRuleAllOfConditionResponsePtrOutput) Elem() AlertRuleAllOfConditionResponseOutput {
-	return o.ApplyT(func(v *AlertRuleAllOfConditionResponse) AlertRuleAllOfConditionResponse {
-		if v != nil {
-			return *v
-		}
-		var ret AlertRuleAllOfConditionResponse
-		return ret
-	}).(AlertRuleAllOfConditionResponseOutput)
-}
-
-func (o AlertRuleAllOfConditionResponsePtrOutput) AllOf() AlertRuleAnyOfOrLeafConditionResponseArrayOutput {
-	return o.ApplyT(func(v *AlertRuleAllOfConditionResponse) []AlertRuleAnyOfOrLeafConditionResponse {
-		if v == nil {
-			return nil
-		}
-		return v.AllOf
-	}).(AlertRuleAnyOfOrLeafConditionResponseArrayOutput)
 }
 
 type AlertRuleAnyOfOrLeafCondition struct {
@@ -859,61 +416,6 @@ type AlertRuleAnyOfOrLeafConditionResponse struct {
 	ContainsAny []string                         `pulumi:"containsAny"`
 	Equals      *string                          `pulumi:"equals"`
 	Field       *string                          `pulumi:"field"`
-}
-
-
-
-
-
-type AlertRuleAnyOfOrLeafConditionResponseInput interface {
-	pulumi.Input
-
-	ToAlertRuleAnyOfOrLeafConditionResponseOutput() AlertRuleAnyOfOrLeafConditionResponseOutput
-	ToAlertRuleAnyOfOrLeafConditionResponseOutputWithContext(context.Context) AlertRuleAnyOfOrLeafConditionResponseOutput
-}
-
-type AlertRuleAnyOfOrLeafConditionResponseArgs struct {
-	AnyOf       AlertRuleLeafConditionResponseArrayInput `pulumi:"anyOf"`
-	ContainsAny pulumi.StringArrayInput                  `pulumi:"containsAny"`
-	Equals      pulumi.StringPtrInput                    `pulumi:"equals"`
-	Field       pulumi.StringPtrInput                    `pulumi:"field"`
-}
-
-func (AlertRuleAnyOfOrLeafConditionResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AlertRuleAnyOfOrLeafConditionResponse)(nil)).Elem()
-}
-
-func (i AlertRuleAnyOfOrLeafConditionResponseArgs) ToAlertRuleAnyOfOrLeafConditionResponseOutput() AlertRuleAnyOfOrLeafConditionResponseOutput {
-	return i.ToAlertRuleAnyOfOrLeafConditionResponseOutputWithContext(context.Background())
-}
-
-func (i AlertRuleAnyOfOrLeafConditionResponseArgs) ToAlertRuleAnyOfOrLeafConditionResponseOutputWithContext(ctx context.Context) AlertRuleAnyOfOrLeafConditionResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleAnyOfOrLeafConditionResponseOutput)
-}
-
-
-
-
-
-type AlertRuleAnyOfOrLeafConditionResponseArrayInput interface {
-	pulumi.Input
-
-	ToAlertRuleAnyOfOrLeafConditionResponseArrayOutput() AlertRuleAnyOfOrLeafConditionResponseArrayOutput
-	ToAlertRuleAnyOfOrLeafConditionResponseArrayOutputWithContext(context.Context) AlertRuleAnyOfOrLeafConditionResponseArrayOutput
-}
-
-type AlertRuleAnyOfOrLeafConditionResponseArray []AlertRuleAnyOfOrLeafConditionResponseInput
-
-func (AlertRuleAnyOfOrLeafConditionResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AlertRuleAnyOfOrLeafConditionResponse)(nil)).Elem()
-}
-
-func (i AlertRuleAnyOfOrLeafConditionResponseArray) ToAlertRuleAnyOfOrLeafConditionResponseArrayOutput() AlertRuleAnyOfOrLeafConditionResponseArrayOutput {
-	return i.ToAlertRuleAnyOfOrLeafConditionResponseArrayOutputWithContext(context.Background())
-}
-
-func (i AlertRuleAnyOfOrLeafConditionResponseArray) ToAlertRuleAnyOfOrLeafConditionResponseArrayOutputWithContext(ctx context.Context) AlertRuleAnyOfOrLeafConditionResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleAnyOfOrLeafConditionResponseArrayOutput)
 }
 
 type AlertRuleAnyOfOrLeafConditionResponseOutput struct{ *pulumi.OutputState }
@@ -1078,60 +580,6 @@ type AlertRuleLeafConditionResponse struct {
 	Field       *string  `pulumi:"field"`
 }
 
-
-
-
-
-type AlertRuleLeafConditionResponseInput interface {
-	pulumi.Input
-
-	ToAlertRuleLeafConditionResponseOutput() AlertRuleLeafConditionResponseOutput
-	ToAlertRuleLeafConditionResponseOutputWithContext(context.Context) AlertRuleLeafConditionResponseOutput
-}
-
-type AlertRuleLeafConditionResponseArgs struct {
-	ContainsAny pulumi.StringArrayInput `pulumi:"containsAny"`
-	Equals      pulumi.StringPtrInput   `pulumi:"equals"`
-	Field       pulumi.StringPtrInput   `pulumi:"field"`
-}
-
-func (AlertRuleLeafConditionResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AlertRuleLeafConditionResponse)(nil)).Elem()
-}
-
-func (i AlertRuleLeafConditionResponseArgs) ToAlertRuleLeafConditionResponseOutput() AlertRuleLeafConditionResponseOutput {
-	return i.ToAlertRuleLeafConditionResponseOutputWithContext(context.Background())
-}
-
-func (i AlertRuleLeafConditionResponseArgs) ToAlertRuleLeafConditionResponseOutputWithContext(ctx context.Context) AlertRuleLeafConditionResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleLeafConditionResponseOutput)
-}
-
-
-
-
-
-type AlertRuleLeafConditionResponseArrayInput interface {
-	pulumi.Input
-
-	ToAlertRuleLeafConditionResponseArrayOutput() AlertRuleLeafConditionResponseArrayOutput
-	ToAlertRuleLeafConditionResponseArrayOutputWithContext(context.Context) AlertRuleLeafConditionResponseArrayOutput
-}
-
-type AlertRuleLeafConditionResponseArray []AlertRuleLeafConditionResponseInput
-
-func (AlertRuleLeafConditionResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AlertRuleLeafConditionResponse)(nil)).Elem()
-}
-
-func (i AlertRuleLeafConditionResponseArray) ToAlertRuleLeafConditionResponseArrayOutput() AlertRuleLeafConditionResponseArrayOutput {
-	return i.ToAlertRuleLeafConditionResponseArrayOutputWithContext(context.Background())
-}
-
-func (i AlertRuleLeafConditionResponseArray) ToAlertRuleLeafConditionResponseArrayOutputWithContext(ctx context.Context) AlertRuleLeafConditionResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleLeafConditionResponseArrayOutput)
-}
-
 type AlertRuleLeafConditionResponseOutput struct{ *pulumi.OutputState }
 
 func (AlertRuleLeafConditionResponseOutput) ElementType() reflect.Type {
@@ -1184,13 +632,9 @@ func init() {
 	pulumi.RegisterOutputType(ActionGroupResponseOutput{})
 	pulumi.RegisterOutputType(ActionGroupResponseArrayOutput{})
 	pulumi.RegisterOutputType(ActionListOutput{})
-	pulumi.RegisterOutputType(ActionListPtrOutput{})
 	pulumi.RegisterOutputType(ActionListResponseOutput{})
-	pulumi.RegisterOutputType(ActionListResponsePtrOutput{})
 	pulumi.RegisterOutputType(AlertRuleAllOfConditionOutput{})
-	pulumi.RegisterOutputType(AlertRuleAllOfConditionPtrOutput{})
 	pulumi.RegisterOutputType(AlertRuleAllOfConditionResponseOutput{})
-	pulumi.RegisterOutputType(AlertRuleAllOfConditionResponsePtrOutput{})
 	pulumi.RegisterOutputType(AlertRuleAnyOfOrLeafConditionOutput{})
 	pulumi.RegisterOutputType(AlertRuleAnyOfOrLeafConditionArrayOutput{})
 	pulumi.RegisterOutputType(AlertRuleAnyOfOrLeafConditionResponseOutput{})

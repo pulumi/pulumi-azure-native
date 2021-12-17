@@ -48,13 +48,11 @@ func NewDomainService(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	domainSecuritySettingsApplier := func(v DomainSecuritySettings) *DomainSecuritySettings { return v.Defaults() }
 	if args.DomainSecuritySettings != nil {
-		args.DomainSecuritySettings = args.DomainSecuritySettings.ToDomainSecuritySettingsPtrOutput().Elem().ApplyT(domainSecuritySettingsApplier).(DomainSecuritySettingsPtrOutput)
+		args.DomainSecuritySettings = args.DomainSecuritySettings.ToDomainSecuritySettingsPtrOutput().ApplyT(func(v *DomainSecuritySettings) *DomainSecuritySettings { return v.Defaults() }).(DomainSecuritySettingsPtrOutput)
 	}
-	ldapsSettingsApplier := func(v LdapsSettings) *LdapsSettings { return v.Defaults() }
 	if args.LdapsSettings != nil {
-		args.LdapsSettings = args.LdapsSettings.ToLdapsSettingsPtrOutput().Elem().ApplyT(ldapsSettingsApplier).(LdapsSettingsPtrOutput)
+		args.LdapsSettings = args.LdapsSettings.ToLdapsSettingsPtrOutput().ApplyT(func(v *LdapsSettings) *LdapsSettings { return v.Defaults() }).(LdapsSettingsPtrOutput)
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

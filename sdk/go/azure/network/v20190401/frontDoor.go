@@ -41,9 +41,8 @@ func NewFrontDoor(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	backendPoolsSettingsApplier := func(v BackendPoolsSettings) *BackendPoolsSettings { return v.Defaults() }
 	if args.BackendPoolsSettings != nil {
-		args.BackendPoolsSettings = args.BackendPoolsSettings.ToBackendPoolsSettingsPtrOutput().Elem().ApplyT(backendPoolsSettingsApplier).(BackendPoolsSettingsPtrOutput)
+		args.BackendPoolsSettings = args.BackendPoolsSettings.ToBackendPoolsSettingsPtrOutput().ApplyT(func(v *BackendPoolsSettings) *BackendPoolsSettings { return v.Defaults() }).(BackendPoolsSettingsPtrOutput)
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

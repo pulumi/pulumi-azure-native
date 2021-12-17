@@ -15,109 +15,9 @@ type EventHubEventSubscriptionDestination struct {
 	ResourceId   *string `pulumi:"resourceId"`
 }
 
-
-
-
-
-type EventHubEventSubscriptionDestinationInput interface {
-	pulumi.Input
-
-	ToEventHubEventSubscriptionDestinationOutput() EventHubEventSubscriptionDestinationOutput
-	ToEventHubEventSubscriptionDestinationOutputWithContext(context.Context) EventHubEventSubscriptionDestinationOutput
-}
-
-type EventHubEventSubscriptionDestinationArgs struct {
-	EndpointType pulumi.StringInput    `pulumi:"endpointType"`
-	ResourceId   pulumi.StringPtrInput `pulumi:"resourceId"`
-}
-
-func (EventHubEventSubscriptionDestinationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*EventHubEventSubscriptionDestination)(nil)).Elem()
-}
-
-func (i EventHubEventSubscriptionDestinationArgs) ToEventHubEventSubscriptionDestinationOutput() EventHubEventSubscriptionDestinationOutput {
-	return i.ToEventHubEventSubscriptionDestinationOutputWithContext(context.Background())
-}
-
-func (i EventHubEventSubscriptionDestinationArgs) ToEventHubEventSubscriptionDestinationOutputWithContext(ctx context.Context) EventHubEventSubscriptionDestinationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EventHubEventSubscriptionDestinationOutput)
-}
-
-type EventHubEventSubscriptionDestinationOutput struct{ *pulumi.OutputState }
-
-func (EventHubEventSubscriptionDestinationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EventHubEventSubscriptionDestination)(nil)).Elem()
-}
-
-func (o EventHubEventSubscriptionDestinationOutput) ToEventHubEventSubscriptionDestinationOutput() EventHubEventSubscriptionDestinationOutput {
-	return o
-}
-
-func (o EventHubEventSubscriptionDestinationOutput) ToEventHubEventSubscriptionDestinationOutputWithContext(ctx context.Context) EventHubEventSubscriptionDestinationOutput {
-	return o
-}
-
-func (o EventHubEventSubscriptionDestinationOutput) EndpointType() pulumi.StringOutput {
-	return o.ApplyT(func(v EventHubEventSubscriptionDestination) string { return v.EndpointType }).(pulumi.StringOutput)
-}
-
-func (o EventHubEventSubscriptionDestinationOutput) ResourceId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EventHubEventSubscriptionDestination) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
-}
-
 type EventHubEventSubscriptionDestinationResponse struct {
 	EndpointType string  `pulumi:"endpointType"`
 	ResourceId   *string `pulumi:"resourceId"`
-}
-
-
-
-
-
-type EventHubEventSubscriptionDestinationResponseInput interface {
-	pulumi.Input
-
-	ToEventHubEventSubscriptionDestinationResponseOutput() EventHubEventSubscriptionDestinationResponseOutput
-	ToEventHubEventSubscriptionDestinationResponseOutputWithContext(context.Context) EventHubEventSubscriptionDestinationResponseOutput
-}
-
-type EventHubEventSubscriptionDestinationResponseArgs struct {
-	EndpointType pulumi.StringInput    `pulumi:"endpointType"`
-	ResourceId   pulumi.StringPtrInput `pulumi:"resourceId"`
-}
-
-func (EventHubEventSubscriptionDestinationResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*EventHubEventSubscriptionDestinationResponse)(nil)).Elem()
-}
-
-func (i EventHubEventSubscriptionDestinationResponseArgs) ToEventHubEventSubscriptionDestinationResponseOutput() EventHubEventSubscriptionDestinationResponseOutput {
-	return i.ToEventHubEventSubscriptionDestinationResponseOutputWithContext(context.Background())
-}
-
-func (i EventHubEventSubscriptionDestinationResponseArgs) ToEventHubEventSubscriptionDestinationResponseOutputWithContext(ctx context.Context) EventHubEventSubscriptionDestinationResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EventHubEventSubscriptionDestinationResponseOutput)
-}
-
-type EventHubEventSubscriptionDestinationResponseOutput struct{ *pulumi.OutputState }
-
-func (EventHubEventSubscriptionDestinationResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EventHubEventSubscriptionDestinationResponse)(nil)).Elem()
-}
-
-func (o EventHubEventSubscriptionDestinationResponseOutput) ToEventHubEventSubscriptionDestinationResponseOutput() EventHubEventSubscriptionDestinationResponseOutput {
-	return o
-}
-
-func (o EventHubEventSubscriptionDestinationResponseOutput) ToEventHubEventSubscriptionDestinationResponseOutputWithContext(ctx context.Context) EventHubEventSubscriptionDestinationResponseOutput {
-	return o
-}
-
-func (o EventHubEventSubscriptionDestinationResponseOutput) EndpointType() pulumi.StringOutput {
-	return o.ApplyT(func(v EventHubEventSubscriptionDestinationResponse) string { return v.EndpointType }).(pulumi.StringOutput)
-}
-
-func (o EventHubEventSubscriptionDestinationResponseOutput) ResourceId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EventHubEventSubscriptionDestinationResponse) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
 }
 
 type EventSubscriptionFilter struct {
@@ -331,77 +231,6 @@ func (val *EventSubscriptionFilterResponse) Defaults() *EventSubscriptionFilterR
 	return &tmp
 }
 
-
-
-
-
-type EventSubscriptionFilterResponseInput interface {
-	pulumi.Input
-
-	ToEventSubscriptionFilterResponseOutput() EventSubscriptionFilterResponseOutput
-	ToEventSubscriptionFilterResponseOutputWithContext(context.Context) EventSubscriptionFilterResponseOutput
-}
-
-type EventSubscriptionFilterResponseArgs struct {
-	IncludedEventTypes     pulumi.StringArrayInput `pulumi:"includedEventTypes"`
-	IsSubjectCaseSensitive pulumi.BoolPtrInput     `pulumi:"isSubjectCaseSensitive"`
-	SubjectBeginsWith      pulumi.StringPtrInput   `pulumi:"subjectBeginsWith"`
-	SubjectEndsWith        pulumi.StringPtrInput   `pulumi:"subjectEndsWith"`
-}
-
-func (EventSubscriptionFilterResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*EventSubscriptionFilterResponse)(nil)).Elem()
-}
-
-func (i EventSubscriptionFilterResponseArgs) ToEventSubscriptionFilterResponseOutput() EventSubscriptionFilterResponseOutput {
-	return i.ToEventSubscriptionFilterResponseOutputWithContext(context.Background())
-}
-
-func (i EventSubscriptionFilterResponseArgs) ToEventSubscriptionFilterResponseOutputWithContext(ctx context.Context) EventSubscriptionFilterResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionFilterResponseOutput)
-}
-
-func (i EventSubscriptionFilterResponseArgs) ToEventSubscriptionFilterResponsePtrOutput() EventSubscriptionFilterResponsePtrOutput {
-	return i.ToEventSubscriptionFilterResponsePtrOutputWithContext(context.Background())
-}
-
-func (i EventSubscriptionFilterResponseArgs) ToEventSubscriptionFilterResponsePtrOutputWithContext(ctx context.Context) EventSubscriptionFilterResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionFilterResponseOutput).ToEventSubscriptionFilterResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type EventSubscriptionFilterResponsePtrInput interface {
-	pulumi.Input
-
-	ToEventSubscriptionFilterResponsePtrOutput() EventSubscriptionFilterResponsePtrOutput
-	ToEventSubscriptionFilterResponsePtrOutputWithContext(context.Context) EventSubscriptionFilterResponsePtrOutput
-}
-
-type eventSubscriptionFilterResponsePtrType EventSubscriptionFilterResponseArgs
-
-func EventSubscriptionFilterResponsePtr(v *EventSubscriptionFilterResponseArgs) EventSubscriptionFilterResponsePtrInput {
-	return (*eventSubscriptionFilterResponsePtrType)(v)
-}
-
-func (*eventSubscriptionFilterResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**EventSubscriptionFilterResponse)(nil)).Elem()
-}
-
-func (i *eventSubscriptionFilterResponsePtrType) ToEventSubscriptionFilterResponsePtrOutput() EventSubscriptionFilterResponsePtrOutput {
-	return i.ToEventSubscriptionFilterResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *eventSubscriptionFilterResponsePtrType) ToEventSubscriptionFilterResponsePtrOutputWithContext(ctx context.Context) EventSubscriptionFilterResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionFilterResponsePtrOutput)
-}
-
 type EventSubscriptionFilterResponseOutput struct{ *pulumi.OutputState }
 
 func (EventSubscriptionFilterResponseOutput) ElementType() reflect.Type {
@@ -414,16 +243,6 @@ func (o EventSubscriptionFilterResponseOutput) ToEventSubscriptionFilterResponse
 
 func (o EventSubscriptionFilterResponseOutput) ToEventSubscriptionFilterResponseOutputWithContext(ctx context.Context) EventSubscriptionFilterResponseOutput {
 	return o
-}
-
-func (o EventSubscriptionFilterResponseOutput) ToEventSubscriptionFilterResponsePtrOutput() EventSubscriptionFilterResponsePtrOutput {
-	return o.ToEventSubscriptionFilterResponsePtrOutputWithContext(context.Background())
-}
-
-func (o EventSubscriptionFilterResponseOutput) ToEventSubscriptionFilterResponsePtrOutputWithContext(ctx context.Context) EventSubscriptionFilterResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventSubscriptionFilterResponse) *EventSubscriptionFilterResponse {
-		return &v
-	}).(EventSubscriptionFilterResponsePtrOutput)
 }
 
 func (o EventSubscriptionFilterResponseOutput) IncludedEventTypes() pulumi.StringArrayOutput {
@@ -507,109 +326,9 @@ type HybridConnectionEventSubscriptionDestination struct {
 	ResourceId   *string `pulumi:"resourceId"`
 }
 
-
-
-
-
-type HybridConnectionEventSubscriptionDestinationInput interface {
-	pulumi.Input
-
-	ToHybridConnectionEventSubscriptionDestinationOutput() HybridConnectionEventSubscriptionDestinationOutput
-	ToHybridConnectionEventSubscriptionDestinationOutputWithContext(context.Context) HybridConnectionEventSubscriptionDestinationOutput
-}
-
-type HybridConnectionEventSubscriptionDestinationArgs struct {
-	EndpointType pulumi.StringInput    `pulumi:"endpointType"`
-	ResourceId   pulumi.StringPtrInput `pulumi:"resourceId"`
-}
-
-func (HybridConnectionEventSubscriptionDestinationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*HybridConnectionEventSubscriptionDestination)(nil)).Elem()
-}
-
-func (i HybridConnectionEventSubscriptionDestinationArgs) ToHybridConnectionEventSubscriptionDestinationOutput() HybridConnectionEventSubscriptionDestinationOutput {
-	return i.ToHybridConnectionEventSubscriptionDestinationOutputWithContext(context.Background())
-}
-
-func (i HybridConnectionEventSubscriptionDestinationArgs) ToHybridConnectionEventSubscriptionDestinationOutputWithContext(ctx context.Context) HybridConnectionEventSubscriptionDestinationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HybridConnectionEventSubscriptionDestinationOutput)
-}
-
-type HybridConnectionEventSubscriptionDestinationOutput struct{ *pulumi.OutputState }
-
-func (HybridConnectionEventSubscriptionDestinationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*HybridConnectionEventSubscriptionDestination)(nil)).Elem()
-}
-
-func (o HybridConnectionEventSubscriptionDestinationOutput) ToHybridConnectionEventSubscriptionDestinationOutput() HybridConnectionEventSubscriptionDestinationOutput {
-	return o
-}
-
-func (o HybridConnectionEventSubscriptionDestinationOutput) ToHybridConnectionEventSubscriptionDestinationOutputWithContext(ctx context.Context) HybridConnectionEventSubscriptionDestinationOutput {
-	return o
-}
-
-func (o HybridConnectionEventSubscriptionDestinationOutput) EndpointType() pulumi.StringOutput {
-	return o.ApplyT(func(v HybridConnectionEventSubscriptionDestination) string { return v.EndpointType }).(pulumi.StringOutput)
-}
-
-func (o HybridConnectionEventSubscriptionDestinationOutput) ResourceId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v HybridConnectionEventSubscriptionDestination) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
-}
-
 type HybridConnectionEventSubscriptionDestinationResponse struct {
 	EndpointType string  `pulumi:"endpointType"`
 	ResourceId   *string `pulumi:"resourceId"`
-}
-
-
-
-
-
-type HybridConnectionEventSubscriptionDestinationResponseInput interface {
-	pulumi.Input
-
-	ToHybridConnectionEventSubscriptionDestinationResponseOutput() HybridConnectionEventSubscriptionDestinationResponseOutput
-	ToHybridConnectionEventSubscriptionDestinationResponseOutputWithContext(context.Context) HybridConnectionEventSubscriptionDestinationResponseOutput
-}
-
-type HybridConnectionEventSubscriptionDestinationResponseArgs struct {
-	EndpointType pulumi.StringInput    `pulumi:"endpointType"`
-	ResourceId   pulumi.StringPtrInput `pulumi:"resourceId"`
-}
-
-func (HybridConnectionEventSubscriptionDestinationResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*HybridConnectionEventSubscriptionDestinationResponse)(nil)).Elem()
-}
-
-func (i HybridConnectionEventSubscriptionDestinationResponseArgs) ToHybridConnectionEventSubscriptionDestinationResponseOutput() HybridConnectionEventSubscriptionDestinationResponseOutput {
-	return i.ToHybridConnectionEventSubscriptionDestinationResponseOutputWithContext(context.Background())
-}
-
-func (i HybridConnectionEventSubscriptionDestinationResponseArgs) ToHybridConnectionEventSubscriptionDestinationResponseOutputWithContext(ctx context.Context) HybridConnectionEventSubscriptionDestinationResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HybridConnectionEventSubscriptionDestinationResponseOutput)
-}
-
-type HybridConnectionEventSubscriptionDestinationResponseOutput struct{ *pulumi.OutputState }
-
-func (HybridConnectionEventSubscriptionDestinationResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*HybridConnectionEventSubscriptionDestinationResponse)(nil)).Elem()
-}
-
-func (o HybridConnectionEventSubscriptionDestinationResponseOutput) ToHybridConnectionEventSubscriptionDestinationResponseOutput() HybridConnectionEventSubscriptionDestinationResponseOutput {
-	return o
-}
-
-func (o HybridConnectionEventSubscriptionDestinationResponseOutput) ToHybridConnectionEventSubscriptionDestinationResponseOutputWithContext(ctx context.Context) HybridConnectionEventSubscriptionDestinationResponseOutput {
-	return o
-}
-
-func (o HybridConnectionEventSubscriptionDestinationResponseOutput) EndpointType() pulumi.StringOutput {
-	return o.ApplyT(func(v HybridConnectionEventSubscriptionDestinationResponse) string { return v.EndpointType }).(pulumi.StringOutput)
-}
-
-func (o HybridConnectionEventSubscriptionDestinationResponseOutput) ResourceId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v HybridConnectionEventSubscriptionDestinationResponse) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
 }
 
 type JsonField struct {
@@ -749,74 +468,6 @@ type JsonFieldResponse struct {
 	SourceField *string `pulumi:"sourceField"`
 }
 
-
-
-
-
-type JsonFieldResponseInput interface {
-	pulumi.Input
-
-	ToJsonFieldResponseOutput() JsonFieldResponseOutput
-	ToJsonFieldResponseOutputWithContext(context.Context) JsonFieldResponseOutput
-}
-
-type JsonFieldResponseArgs struct {
-	SourceField pulumi.StringPtrInput `pulumi:"sourceField"`
-}
-
-func (JsonFieldResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*JsonFieldResponse)(nil)).Elem()
-}
-
-func (i JsonFieldResponseArgs) ToJsonFieldResponseOutput() JsonFieldResponseOutput {
-	return i.ToJsonFieldResponseOutputWithContext(context.Background())
-}
-
-func (i JsonFieldResponseArgs) ToJsonFieldResponseOutputWithContext(ctx context.Context) JsonFieldResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(JsonFieldResponseOutput)
-}
-
-func (i JsonFieldResponseArgs) ToJsonFieldResponsePtrOutput() JsonFieldResponsePtrOutput {
-	return i.ToJsonFieldResponsePtrOutputWithContext(context.Background())
-}
-
-func (i JsonFieldResponseArgs) ToJsonFieldResponsePtrOutputWithContext(ctx context.Context) JsonFieldResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(JsonFieldResponseOutput).ToJsonFieldResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type JsonFieldResponsePtrInput interface {
-	pulumi.Input
-
-	ToJsonFieldResponsePtrOutput() JsonFieldResponsePtrOutput
-	ToJsonFieldResponsePtrOutputWithContext(context.Context) JsonFieldResponsePtrOutput
-}
-
-type jsonFieldResponsePtrType JsonFieldResponseArgs
-
-func JsonFieldResponsePtr(v *JsonFieldResponseArgs) JsonFieldResponsePtrInput {
-	return (*jsonFieldResponsePtrType)(v)
-}
-
-func (*jsonFieldResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**JsonFieldResponse)(nil)).Elem()
-}
-
-func (i *jsonFieldResponsePtrType) ToJsonFieldResponsePtrOutput() JsonFieldResponsePtrOutput {
-	return i.ToJsonFieldResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *jsonFieldResponsePtrType) ToJsonFieldResponsePtrOutputWithContext(ctx context.Context) JsonFieldResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(JsonFieldResponsePtrOutput)
-}
-
 type JsonFieldResponseOutput struct{ *pulumi.OutputState }
 
 func (JsonFieldResponseOutput) ElementType() reflect.Type {
@@ -829,16 +480,6 @@ func (o JsonFieldResponseOutput) ToJsonFieldResponseOutput() JsonFieldResponseOu
 
 func (o JsonFieldResponseOutput) ToJsonFieldResponseOutputWithContext(ctx context.Context) JsonFieldResponseOutput {
 	return o
-}
-
-func (o JsonFieldResponseOutput) ToJsonFieldResponsePtrOutput() JsonFieldResponsePtrOutput {
-	return o.ToJsonFieldResponsePtrOutputWithContext(context.Background())
-}
-
-func (o JsonFieldResponseOutput) ToJsonFieldResponsePtrOutputWithContext(ctx context.Context) JsonFieldResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v JsonFieldResponse) *JsonFieldResponse {
-		return &v
-	}).(JsonFieldResponsePtrOutput)
 }
 
 func (o JsonFieldResponseOutput) SourceField() pulumi.StringPtrOutput {
@@ -1031,75 +672,6 @@ type JsonFieldWithDefaultResponse struct {
 	SourceField  *string `pulumi:"sourceField"`
 }
 
-
-
-
-
-type JsonFieldWithDefaultResponseInput interface {
-	pulumi.Input
-
-	ToJsonFieldWithDefaultResponseOutput() JsonFieldWithDefaultResponseOutput
-	ToJsonFieldWithDefaultResponseOutputWithContext(context.Context) JsonFieldWithDefaultResponseOutput
-}
-
-type JsonFieldWithDefaultResponseArgs struct {
-	DefaultValue pulumi.StringPtrInput `pulumi:"defaultValue"`
-	SourceField  pulumi.StringPtrInput `pulumi:"sourceField"`
-}
-
-func (JsonFieldWithDefaultResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*JsonFieldWithDefaultResponse)(nil)).Elem()
-}
-
-func (i JsonFieldWithDefaultResponseArgs) ToJsonFieldWithDefaultResponseOutput() JsonFieldWithDefaultResponseOutput {
-	return i.ToJsonFieldWithDefaultResponseOutputWithContext(context.Background())
-}
-
-func (i JsonFieldWithDefaultResponseArgs) ToJsonFieldWithDefaultResponseOutputWithContext(ctx context.Context) JsonFieldWithDefaultResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(JsonFieldWithDefaultResponseOutput)
-}
-
-func (i JsonFieldWithDefaultResponseArgs) ToJsonFieldWithDefaultResponsePtrOutput() JsonFieldWithDefaultResponsePtrOutput {
-	return i.ToJsonFieldWithDefaultResponsePtrOutputWithContext(context.Background())
-}
-
-func (i JsonFieldWithDefaultResponseArgs) ToJsonFieldWithDefaultResponsePtrOutputWithContext(ctx context.Context) JsonFieldWithDefaultResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(JsonFieldWithDefaultResponseOutput).ToJsonFieldWithDefaultResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type JsonFieldWithDefaultResponsePtrInput interface {
-	pulumi.Input
-
-	ToJsonFieldWithDefaultResponsePtrOutput() JsonFieldWithDefaultResponsePtrOutput
-	ToJsonFieldWithDefaultResponsePtrOutputWithContext(context.Context) JsonFieldWithDefaultResponsePtrOutput
-}
-
-type jsonFieldWithDefaultResponsePtrType JsonFieldWithDefaultResponseArgs
-
-func JsonFieldWithDefaultResponsePtr(v *JsonFieldWithDefaultResponseArgs) JsonFieldWithDefaultResponsePtrInput {
-	return (*jsonFieldWithDefaultResponsePtrType)(v)
-}
-
-func (*jsonFieldWithDefaultResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**JsonFieldWithDefaultResponse)(nil)).Elem()
-}
-
-func (i *jsonFieldWithDefaultResponsePtrType) ToJsonFieldWithDefaultResponsePtrOutput() JsonFieldWithDefaultResponsePtrOutput {
-	return i.ToJsonFieldWithDefaultResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *jsonFieldWithDefaultResponsePtrType) ToJsonFieldWithDefaultResponsePtrOutputWithContext(ctx context.Context) JsonFieldWithDefaultResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(JsonFieldWithDefaultResponsePtrOutput)
-}
-
 type JsonFieldWithDefaultResponseOutput struct{ *pulumi.OutputState }
 
 func (JsonFieldWithDefaultResponseOutput) ElementType() reflect.Type {
@@ -1112,16 +684,6 @@ func (o JsonFieldWithDefaultResponseOutput) ToJsonFieldWithDefaultResponseOutput
 
 func (o JsonFieldWithDefaultResponseOutput) ToJsonFieldWithDefaultResponseOutputWithContext(ctx context.Context) JsonFieldWithDefaultResponseOutput {
 	return o
-}
-
-func (o JsonFieldWithDefaultResponseOutput) ToJsonFieldWithDefaultResponsePtrOutput() JsonFieldWithDefaultResponsePtrOutput {
-	return o.ToJsonFieldWithDefaultResponsePtrOutputWithContext(context.Background())
-}
-
-func (o JsonFieldWithDefaultResponseOutput) ToJsonFieldWithDefaultResponsePtrOutputWithContext(ctx context.Context) JsonFieldWithDefaultResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v JsonFieldWithDefaultResponse) *JsonFieldWithDefaultResponse {
-		return &v
-	}).(JsonFieldWithDefaultResponsePtrOutput)
 }
 
 func (o JsonFieldWithDefaultResponseOutput) DefaultValue() pulumi.StringPtrOutput {
@@ -1407,80 +969,6 @@ type JsonInputSchemaMappingResponse struct {
 	Topic                  *JsonFieldResponse            `pulumi:"topic"`
 }
 
-
-
-
-
-type JsonInputSchemaMappingResponseInput interface {
-	pulumi.Input
-
-	ToJsonInputSchemaMappingResponseOutput() JsonInputSchemaMappingResponseOutput
-	ToJsonInputSchemaMappingResponseOutputWithContext(context.Context) JsonInputSchemaMappingResponseOutput
-}
-
-type JsonInputSchemaMappingResponseArgs struct {
-	DataVersion            JsonFieldWithDefaultResponsePtrInput `pulumi:"dataVersion"`
-	EventTime              JsonFieldResponsePtrInput            `pulumi:"eventTime"`
-	EventType              JsonFieldWithDefaultResponsePtrInput `pulumi:"eventType"`
-	Id                     JsonFieldResponsePtrInput            `pulumi:"id"`
-	InputSchemaMappingType pulumi.StringPtrInput                `pulumi:"inputSchemaMappingType"`
-	Subject                JsonFieldWithDefaultResponsePtrInput `pulumi:"subject"`
-	Topic                  JsonFieldResponsePtrInput            `pulumi:"topic"`
-}
-
-func (JsonInputSchemaMappingResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*JsonInputSchemaMappingResponse)(nil)).Elem()
-}
-
-func (i JsonInputSchemaMappingResponseArgs) ToJsonInputSchemaMappingResponseOutput() JsonInputSchemaMappingResponseOutput {
-	return i.ToJsonInputSchemaMappingResponseOutputWithContext(context.Background())
-}
-
-func (i JsonInputSchemaMappingResponseArgs) ToJsonInputSchemaMappingResponseOutputWithContext(ctx context.Context) JsonInputSchemaMappingResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(JsonInputSchemaMappingResponseOutput)
-}
-
-func (i JsonInputSchemaMappingResponseArgs) ToJsonInputSchemaMappingResponsePtrOutput() JsonInputSchemaMappingResponsePtrOutput {
-	return i.ToJsonInputSchemaMappingResponsePtrOutputWithContext(context.Background())
-}
-
-func (i JsonInputSchemaMappingResponseArgs) ToJsonInputSchemaMappingResponsePtrOutputWithContext(ctx context.Context) JsonInputSchemaMappingResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(JsonInputSchemaMappingResponseOutput).ToJsonInputSchemaMappingResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type JsonInputSchemaMappingResponsePtrInput interface {
-	pulumi.Input
-
-	ToJsonInputSchemaMappingResponsePtrOutput() JsonInputSchemaMappingResponsePtrOutput
-	ToJsonInputSchemaMappingResponsePtrOutputWithContext(context.Context) JsonInputSchemaMappingResponsePtrOutput
-}
-
-type jsonInputSchemaMappingResponsePtrType JsonInputSchemaMappingResponseArgs
-
-func JsonInputSchemaMappingResponsePtr(v *JsonInputSchemaMappingResponseArgs) JsonInputSchemaMappingResponsePtrInput {
-	return (*jsonInputSchemaMappingResponsePtrType)(v)
-}
-
-func (*jsonInputSchemaMappingResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**JsonInputSchemaMappingResponse)(nil)).Elem()
-}
-
-func (i *jsonInputSchemaMappingResponsePtrType) ToJsonInputSchemaMappingResponsePtrOutput() JsonInputSchemaMappingResponsePtrOutput {
-	return i.ToJsonInputSchemaMappingResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *jsonInputSchemaMappingResponsePtrType) ToJsonInputSchemaMappingResponsePtrOutputWithContext(ctx context.Context) JsonInputSchemaMappingResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(JsonInputSchemaMappingResponsePtrOutput)
-}
-
 type JsonInputSchemaMappingResponseOutput struct{ *pulumi.OutputState }
 
 func (JsonInputSchemaMappingResponseOutput) ElementType() reflect.Type {
@@ -1493,16 +981,6 @@ func (o JsonInputSchemaMappingResponseOutput) ToJsonInputSchemaMappingResponseOu
 
 func (o JsonInputSchemaMappingResponseOutput) ToJsonInputSchemaMappingResponseOutputWithContext(ctx context.Context) JsonInputSchemaMappingResponseOutput {
 	return o
-}
-
-func (o JsonInputSchemaMappingResponseOutput) ToJsonInputSchemaMappingResponsePtrOutput() JsonInputSchemaMappingResponsePtrOutput {
-	return o.ToJsonInputSchemaMappingResponsePtrOutputWithContext(context.Background())
-}
-
-func (o JsonInputSchemaMappingResponseOutput) ToJsonInputSchemaMappingResponsePtrOutputWithContext(ctx context.Context) JsonInputSchemaMappingResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v JsonInputSchemaMappingResponse) *JsonInputSchemaMappingResponse {
-		return &v
-	}).(JsonInputSchemaMappingResponsePtrOutput)
 }
 
 func (o JsonInputSchemaMappingResponseOutput) DataVersion() JsonFieldWithDefaultResponsePtrOutput {
@@ -1773,75 +1251,6 @@ type RetryPolicyResponse struct {
 	MaxDeliveryAttempts      *int `pulumi:"maxDeliveryAttempts"`
 }
 
-
-
-
-
-type RetryPolicyResponseInput interface {
-	pulumi.Input
-
-	ToRetryPolicyResponseOutput() RetryPolicyResponseOutput
-	ToRetryPolicyResponseOutputWithContext(context.Context) RetryPolicyResponseOutput
-}
-
-type RetryPolicyResponseArgs struct {
-	EventTimeToLiveInMinutes pulumi.IntPtrInput `pulumi:"eventTimeToLiveInMinutes"`
-	MaxDeliveryAttempts      pulumi.IntPtrInput `pulumi:"maxDeliveryAttempts"`
-}
-
-func (RetryPolicyResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RetryPolicyResponse)(nil)).Elem()
-}
-
-func (i RetryPolicyResponseArgs) ToRetryPolicyResponseOutput() RetryPolicyResponseOutput {
-	return i.ToRetryPolicyResponseOutputWithContext(context.Background())
-}
-
-func (i RetryPolicyResponseArgs) ToRetryPolicyResponseOutputWithContext(ctx context.Context) RetryPolicyResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RetryPolicyResponseOutput)
-}
-
-func (i RetryPolicyResponseArgs) ToRetryPolicyResponsePtrOutput() RetryPolicyResponsePtrOutput {
-	return i.ToRetryPolicyResponsePtrOutputWithContext(context.Background())
-}
-
-func (i RetryPolicyResponseArgs) ToRetryPolicyResponsePtrOutputWithContext(ctx context.Context) RetryPolicyResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RetryPolicyResponseOutput).ToRetryPolicyResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type RetryPolicyResponsePtrInput interface {
-	pulumi.Input
-
-	ToRetryPolicyResponsePtrOutput() RetryPolicyResponsePtrOutput
-	ToRetryPolicyResponsePtrOutputWithContext(context.Context) RetryPolicyResponsePtrOutput
-}
-
-type retryPolicyResponsePtrType RetryPolicyResponseArgs
-
-func RetryPolicyResponsePtr(v *RetryPolicyResponseArgs) RetryPolicyResponsePtrInput {
-	return (*retryPolicyResponsePtrType)(v)
-}
-
-func (*retryPolicyResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**RetryPolicyResponse)(nil)).Elem()
-}
-
-func (i *retryPolicyResponsePtrType) ToRetryPolicyResponsePtrOutput() RetryPolicyResponsePtrOutput {
-	return i.ToRetryPolicyResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *retryPolicyResponsePtrType) ToRetryPolicyResponsePtrOutputWithContext(ctx context.Context) RetryPolicyResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RetryPolicyResponsePtrOutput)
-}
-
 type RetryPolicyResponseOutput struct{ *pulumi.OutputState }
 
 func (RetryPolicyResponseOutput) ElementType() reflect.Type {
@@ -1854,16 +1263,6 @@ func (o RetryPolicyResponseOutput) ToRetryPolicyResponseOutput() RetryPolicyResp
 
 func (o RetryPolicyResponseOutput) ToRetryPolicyResponseOutputWithContext(ctx context.Context) RetryPolicyResponseOutput {
 	return o
-}
-
-func (o RetryPolicyResponseOutput) ToRetryPolicyResponsePtrOutput() RetryPolicyResponsePtrOutput {
-	return o.ToRetryPolicyResponsePtrOutputWithContext(context.Background())
-}
-
-func (o RetryPolicyResponseOutput) ToRetryPolicyResponsePtrOutputWithContext(ctx context.Context) RetryPolicyResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RetryPolicyResponse) *RetryPolicyResponse {
-		return &v
-	}).(RetryPolicyResponsePtrOutput)
 }
 
 func (o RetryPolicyResponseOutput) EventTimeToLiveInMinutes() pulumi.IntPtrOutput {
@@ -2085,76 +1484,6 @@ type StorageBlobDeadLetterDestinationResponse struct {
 	ResourceId        *string `pulumi:"resourceId"`
 }
 
-
-
-
-
-type StorageBlobDeadLetterDestinationResponseInput interface {
-	pulumi.Input
-
-	ToStorageBlobDeadLetterDestinationResponseOutput() StorageBlobDeadLetterDestinationResponseOutput
-	ToStorageBlobDeadLetterDestinationResponseOutputWithContext(context.Context) StorageBlobDeadLetterDestinationResponseOutput
-}
-
-type StorageBlobDeadLetterDestinationResponseArgs struct {
-	BlobContainerName pulumi.StringPtrInput `pulumi:"blobContainerName"`
-	EndpointType      pulumi.StringInput    `pulumi:"endpointType"`
-	ResourceId        pulumi.StringPtrInput `pulumi:"resourceId"`
-}
-
-func (StorageBlobDeadLetterDestinationResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*StorageBlobDeadLetterDestinationResponse)(nil)).Elem()
-}
-
-func (i StorageBlobDeadLetterDestinationResponseArgs) ToStorageBlobDeadLetterDestinationResponseOutput() StorageBlobDeadLetterDestinationResponseOutput {
-	return i.ToStorageBlobDeadLetterDestinationResponseOutputWithContext(context.Background())
-}
-
-func (i StorageBlobDeadLetterDestinationResponseArgs) ToStorageBlobDeadLetterDestinationResponseOutputWithContext(ctx context.Context) StorageBlobDeadLetterDestinationResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StorageBlobDeadLetterDestinationResponseOutput)
-}
-
-func (i StorageBlobDeadLetterDestinationResponseArgs) ToStorageBlobDeadLetterDestinationResponsePtrOutput() StorageBlobDeadLetterDestinationResponsePtrOutput {
-	return i.ToStorageBlobDeadLetterDestinationResponsePtrOutputWithContext(context.Background())
-}
-
-func (i StorageBlobDeadLetterDestinationResponseArgs) ToStorageBlobDeadLetterDestinationResponsePtrOutputWithContext(ctx context.Context) StorageBlobDeadLetterDestinationResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StorageBlobDeadLetterDestinationResponseOutput).ToStorageBlobDeadLetterDestinationResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type StorageBlobDeadLetterDestinationResponsePtrInput interface {
-	pulumi.Input
-
-	ToStorageBlobDeadLetterDestinationResponsePtrOutput() StorageBlobDeadLetterDestinationResponsePtrOutput
-	ToStorageBlobDeadLetterDestinationResponsePtrOutputWithContext(context.Context) StorageBlobDeadLetterDestinationResponsePtrOutput
-}
-
-type storageBlobDeadLetterDestinationResponsePtrType StorageBlobDeadLetterDestinationResponseArgs
-
-func StorageBlobDeadLetterDestinationResponsePtr(v *StorageBlobDeadLetterDestinationResponseArgs) StorageBlobDeadLetterDestinationResponsePtrInput {
-	return (*storageBlobDeadLetterDestinationResponsePtrType)(v)
-}
-
-func (*storageBlobDeadLetterDestinationResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**StorageBlobDeadLetterDestinationResponse)(nil)).Elem()
-}
-
-func (i *storageBlobDeadLetterDestinationResponsePtrType) ToStorageBlobDeadLetterDestinationResponsePtrOutput() StorageBlobDeadLetterDestinationResponsePtrOutput {
-	return i.ToStorageBlobDeadLetterDestinationResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *storageBlobDeadLetterDestinationResponsePtrType) ToStorageBlobDeadLetterDestinationResponsePtrOutputWithContext(ctx context.Context) StorageBlobDeadLetterDestinationResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StorageBlobDeadLetterDestinationResponsePtrOutput)
-}
-
 type StorageBlobDeadLetterDestinationResponseOutput struct{ *pulumi.OutputState }
 
 func (StorageBlobDeadLetterDestinationResponseOutput) ElementType() reflect.Type {
@@ -2167,16 +1496,6 @@ func (o StorageBlobDeadLetterDestinationResponseOutput) ToStorageBlobDeadLetterD
 
 func (o StorageBlobDeadLetterDestinationResponseOutput) ToStorageBlobDeadLetterDestinationResponseOutputWithContext(ctx context.Context) StorageBlobDeadLetterDestinationResponseOutput {
 	return o
-}
-
-func (o StorageBlobDeadLetterDestinationResponseOutput) ToStorageBlobDeadLetterDestinationResponsePtrOutput() StorageBlobDeadLetterDestinationResponsePtrOutput {
-	return o.ToStorageBlobDeadLetterDestinationResponsePtrOutputWithContext(context.Background())
-}
-
-func (o StorageBlobDeadLetterDestinationResponseOutput) ToStorageBlobDeadLetterDestinationResponsePtrOutputWithContext(ctx context.Context) StorageBlobDeadLetterDestinationResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v StorageBlobDeadLetterDestinationResponse) *StorageBlobDeadLetterDestinationResponse {
-		return &v
-	}).(StorageBlobDeadLetterDestinationResponsePtrOutput)
 }
 
 func (o StorageBlobDeadLetterDestinationResponseOutput) BlobContainerName() pulumi.StringPtrOutput {
@@ -2248,175 +1567,15 @@ type StorageQueueEventSubscriptionDestination struct {
 	ResourceId   *string `pulumi:"resourceId"`
 }
 
-
-
-
-
-type StorageQueueEventSubscriptionDestinationInput interface {
-	pulumi.Input
-
-	ToStorageQueueEventSubscriptionDestinationOutput() StorageQueueEventSubscriptionDestinationOutput
-	ToStorageQueueEventSubscriptionDestinationOutputWithContext(context.Context) StorageQueueEventSubscriptionDestinationOutput
-}
-
-type StorageQueueEventSubscriptionDestinationArgs struct {
-	EndpointType pulumi.StringInput    `pulumi:"endpointType"`
-	QueueName    pulumi.StringPtrInput `pulumi:"queueName"`
-	ResourceId   pulumi.StringPtrInput `pulumi:"resourceId"`
-}
-
-func (StorageQueueEventSubscriptionDestinationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*StorageQueueEventSubscriptionDestination)(nil)).Elem()
-}
-
-func (i StorageQueueEventSubscriptionDestinationArgs) ToStorageQueueEventSubscriptionDestinationOutput() StorageQueueEventSubscriptionDestinationOutput {
-	return i.ToStorageQueueEventSubscriptionDestinationOutputWithContext(context.Background())
-}
-
-func (i StorageQueueEventSubscriptionDestinationArgs) ToStorageQueueEventSubscriptionDestinationOutputWithContext(ctx context.Context) StorageQueueEventSubscriptionDestinationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StorageQueueEventSubscriptionDestinationOutput)
-}
-
-type StorageQueueEventSubscriptionDestinationOutput struct{ *pulumi.OutputState }
-
-func (StorageQueueEventSubscriptionDestinationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StorageQueueEventSubscriptionDestination)(nil)).Elem()
-}
-
-func (o StorageQueueEventSubscriptionDestinationOutput) ToStorageQueueEventSubscriptionDestinationOutput() StorageQueueEventSubscriptionDestinationOutput {
-	return o
-}
-
-func (o StorageQueueEventSubscriptionDestinationOutput) ToStorageQueueEventSubscriptionDestinationOutputWithContext(ctx context.Context) StorageQueueEventSubscriptionDestinationOutput {
-	return o
-}
-
-func (o StorageQueueEventSubscriptionDestinationOutput) EndpointType() pulumi.StringOutput {
-	return o.ApplyT(func(v StorageQueueEventSubscriptionDestination) string { return v.EndpointType }).(pulumi.StringOutput)
-}
-
-func (o StorageQueueEventSubscriptionDestinationOutput) QueueName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StorageQueueEventSubscriptionDestination) *string { return v.QueueName }).(pulumi.StringPtrOutput)
-}
-
-func (o StorageQueueEventSubscriptionDestinationOutput) ResourceId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StorageQueueEventSubscriptionDestination) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
-}
-
 type StorageQueueEventSubscriptionDestinationResponse struct {
 	EndpointType string  `pulumi:"endpointType"`
 	QueueName    *string `pulumi:"queueName"`
 	ResourceId   *string `pulumi:"resourceId"`
 }
 
-
-
-
-
-type StorageQueueEventSubscriptionDestinationResponseInput interface {
-	pulumi.Input
-
-	ToStorageQueueEventSubscriptionDestinationResponseOutput() StorageQueueEventSubscriptionDestinationResponseOutput
-	ToStorageQueueEventSubscriptionDestinationResponseOutputWithContext(context.Context) StorageQueueEventSubscriptionDestinationResponseOutput
-}
-
-type StorageQueueEventSubscriptionDestinationResponseArgs struct {
-	EndpointType pulumi.StringInput    `pulumi:"endpointType"`
-	QueueName    pulumi.StringPtrInput `pulumi:"queueName"`
-	ResourceId   pulumi.StringPtrInput `pulumi:"resourceId"`
-}
-
-func (StorageQueueEventSubscriptionDestinationResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*StorageQueueEventSubscriptionDestinationResponse)(nil)).Elem()
-}
-
-func (i StorageQueueEventSubscriptionDestinationResponseArgs) ToStorageQueueEventSubscriptionDestinationResponseOutput() StorageQueueEventSubscriptionDestinationResponseOutput {
-	return i.ToStorageQueueEventSubscriptionDestinationResponseOutputWithContext(context.Background())
-}
-
-func (i StorageQueueEventSubscriptionDestinationResponseArgs) ToStorageQueueEventSubscriptionDestinationResponseOutputWithContext(ctx context.Context) StorageQueueEventSubscriptionDestinationResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StorageQueueEventSubscriptionDestinationResponseOutput)
-}
-
-type StorageQueueEventSubscriptionDestinationResponseOutput struct{ *pulumi.OutputState }
-
-func (StorageQueueEventSubscriptionDestinationResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StorageQueueEventSubscriptionDestinationResponse)(nil)).Elem()
-}
-
-func (o StorageQueueEventSubscriptionDestinationResponseOutput) ToStorageQueueEventSubscriptionDestinationResponseOutput() StorageQueueEventSubscriptionDestinationResponseOutput {
-	return o
-}
-
-func (o StorageQueueEventSubscriptionDestinationResponseOutput) ToStorageQueueEventSubscriptionDestinationResponseOutputWithContext(ctx context.Context) StorageQueueEventSubscriptionDestinationResponseOutput {
-	return o
-}
-
-func (o StorageQueueEventSubscriptionDestinationResponseOutput) EndpointType() pulumi.StringOutput {
-	return o.ApplyT(func(v StorageQueueEventSubscriptionDestinationResponse) string { return v.EndpointType }).(pulumi.StringOutput)
-}
-
-func (o StorageQueueEventSubscriptionDestinationResponseOutput) QueueName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StorageQueueEventSubscriptionDestinationResponse) *string { return v.QueueName }).(pulumi.StringPtrOutput)
-}
-
-func (o StorageQueueEventSubscriptionDestinationResponseOutput) ResourceId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StorageQueueEventSubscriptionDestinationResponse) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
-}
-
 type WebHookEventSubscriptionDestination struct {
 	EndpointType string  `pulumi:"endpointType"`
 	EndpointUrl  *string `pulumi:"endpointUrl"`
-}
-
-
-
-
-
-type WebHookEventSubscriptionDestinationInput interface {
-	pulumi.Input
-
-	ToWebHookEventSubscriptionDestinationOutput() WebHookEventSubscriptionDestinationOutput
-	ToWebHookEventSubscriptionDestinationOutputWithContext(context.Context) WebHookEventSubscriptionDestinationOutput
-}
-
-type WebHookEventSubscriptionDestinationArgs struct {
-	EndpointType pulumi.StringInput    `pulumi:"endpointType"`
-	EndpointUrl  pulumi.StringPtrInput `pulumi:"endpointUrl"`
-}
-
-func (WebHookEventSubscriptionDestinationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebHookEventSubscriptionDestination)(nil)).Elem()
-}
-
-func (i WebHookEventSubscriptionDestinationArgs) ToWebHookEventSubscriptionDestinationOutput() WebHookEventSubscriptionDestinationOutput {
-	return i.ToWebHookEventSubscriptionDestinationOutputWithContext(context.Background())
-}
-
-func (i WebHookEventSubscriptionDestinationArgs) ToWebHookEventSubscriptionDestinationOutputWithContext(ctx context.Context) WebHookEventSubscriptionDestinationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebHookEventSubscriptionDestinationOutput)
-}
-
-type WebHookEventSubscriptionDestinationOutput struct{ *pulumi.OutputState }
-
-func (WebHookEventSubscriptionDestinationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebHookEventSubscriptionDestination)(nil)).Elem()
-}
-
-func (o WebHookEventSubscriptionDestinationOutput) ToWebHookEventSubscriptionDestinationOutput() WebHookEventSubscriptionDestinationOutput {
-	return o
-}
-
-func (o WebHookEventSubscriptionDestinationOutput) ToWebHookEventSubscriptionDestinationOutputWithContext(ctx context.Context) WebHookEventSubscriptionDestinationOutput {
-	return o
-}
-
-func (o WebHookEventSubscriptionDestinationOutput) EndpointType() pulumi.StringOutput {
-	return o.ApplyT(func(v WebHookEventSubscriptionDestination) string { return v.EndpointType }).(pulumi.StringOutput)
-}
-
-func (o WebHookEventSubscriptionDestinationOutput) EndpointUrl() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WebHookEventSubscriptionDestination) *string { return v.EndpointUrl }).(pulumi.StringPtrOutput)
 }
 
 type WebHookEventSubscriptionDestinationResponse struct {
@@ -2425,70 +1584,11 @@ type WebHookEventSubscriptionDestinationResponse struct {
 	EndpointUrl     *string `pulumi:"endpointUrl"`
 }
 
-
-
-
-
-type WebHookEventSubscriptionDestinationResponseInput interface {
-	pulumi.Input
-
-	ToWebHookEventSubscriptionDestinationResponseOutput() WebHookEventSubscriptionDestinationResponseOutput
-	ToWebHookEventSubscriptionDestinationResponseOutputWithContext(context.Context) WebHookEventSubscriptionDestinationResponseOutput
-}
-
-type WebHookEventSubscriptionDestinationResponseArgs struct {
-	EndpointBaseUrl pulumi.StringInput    `pulumi:"endpointBaseUrl"`
-	EndpointType    pulumi.StringInput    `pulumi:"endpointType"`
-	EndpointUrl     pulumi.StringPtrInput `pulumi:"endpointUrl"`
-}
-
-func (WebHookEventSubscriptionDestinationResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebHookEventSubscriptionDestinationResponse)(nil)).Elem()
-}
-
-func (i WebHookEventSubscriptionDestinationResponseArgs) ToWebHookEventSubscriptionDestinationResponseOutput() WebHookEventSubscriptionDestinationResponseOutput {
-	return i.ToWebHookEventSubscriptionDestinationResponseOutputWithContext(context.Background())
-}
-
-func (i WebHookEventSubscriptionDestinationResponseArgs) ToWebHookEventSubscriptionDestinationResponseOutputWithContext(ctx context.Context) WebHookEventSubscriptionDestinationResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebHookEventSubscriptionDestinationResponseOutput)
-}
-
-type WebHookEventSubscriptionDestinationResponseOutput struct{ *pulumi.OutputState }
-
-func (WebHookEventSubscriptionDestinationResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebHookEventSubscriptionDestinationResponse)(nil)).Elem()
-}
-
-func (o WebHookEventSubscriptionDestinationResponseOutput) ToWebHookEventSubscriptionDestinationResponseOutput() WebHookEventSubscriptionDestinationResponseOutput {
-	return o
-}
-
-func (o WebHookEventSubscriptionDestinationResponseOutput) ToWebHookEventSubscriptionDestinationResponseOutputWithContext(ctx context.Context) WebHookEventSubscriptionDestinationResponseOutput {
-	return o
-}
-
-func (o WebHookEventSubscriptionDestinationResponseOutput) EndpointBaseUrl() pulumi.StringOutput {
-	return o.ApplyT(func(v WebHookEventSubscriptionDestinationResponse) string { return v.EndpointBaseUrl }).(pulumi.StringOutput)
-}
-
-func (o WebHookEventSubscriptionDestinationResponseOutput) EndpointType() pulumi.StringOutput {
-	return o.ApplyT(func(v WebHookEventSubscriptionDestinationResponse) string { return v.EndpointType }).(pulumi.StringOutput)
-}
-
-func (o WebHookEventSubscriptionDestinationResponseOutput) EndpointUrl() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WebHookEventSubscriptionDestinationResponse) *string { return v.EndpointUrl }).(pulumi.StringPtrOutput)
-}
-
 func init() {
-	pulumi.RegisterOutputType(EventHubEventSubscriptionDestinationOutput{})
-	pulumi.RegisterOutputType(EventHubEventSubscriptionDestinationResponseOutput{})
 	pulumi.RegisterOutputType(EventSubscriptionFilterOutput{})
 	pulumi.RegisterOutputType(EventSubscriptionFilterPtrOutput{})
 	pulumi.RegisterOutputType(EventSubscriptionFilterResponseOutput{})
 	pulumi.RegisterOutputType(EventSubscriptionFilterResponsePtrOutput{})
-	pulumi.RegisterOutputType(HybridConnectionEventSubscriptionDestinationOutput{})
-	pulumi.RegisterOutputType(HybridConnectionEventSubscriptionDestinationResponseOutput{})
 	pulumi.RegisterOutputType(JsonFieldOutput{})
 	pulumi.RegisterOutputType(JsonFieldPtrOutput{})
 	pulumi.RegisterOutputType(JsonFieldResponseOutput{})
@@ -2509,8 +1609,4 @@ func init() {
 	pulumi.RegisterOutputType(StorageBlobDeadLetterDestinationPtrOutput{})
 	pulumi.RegisterOutputType(StorageBlobDeadLetterDestinationResponseOutput{})
 	pulumi.RegisterOutputType(StorageBlobDeadLetterDestinationResponsePtrOutput{})
-	pulumi.RegisterOutputType(StorageQueueEventSubscriptionDestinationOutput{})
-	pulumi.RegisterOutputType(StorageQueueEventSubscriptionDestinationResponseOutput{})
-	pulumi.RegisterOutputType(WebHookEventSubscriptionDestinationOutput{})
-	pulumi.RegisterOutputType(WebHookEventSubscriptionDestinationResponseOutput{})
 }

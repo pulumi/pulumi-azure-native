@@ -15,75 +15,6 @@ type RedisAccessKeysResponse struct {
 	SecondaryKey string `pulumi:"secondaryKey"`
 }
 
-
-
-
-
-type RedisAccessKeysResponseInput interface {
-	pulumi.Input
-
-	ToRedisAccessKeysResponseOutput() RedisAccessKeysResponseOutput
-	ToRedisAccessKeysResponseOutputWithContext(context.Context) RedisAccessKeysResponseOutput
-}
-
-type RedisAccessKeysResponseArgs struct {
-	PrimaryKey   pulumi.StringInput `pulumi:"primaryKey"`
-	SecondaryKey pulumi.StringInput `pulumi:"secondaryKey"`
-}
-
-func (RedisAccessKeysResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RedisAccessKeysResponse)(nil)).Elem()
-}
-
-func (i RedisAccessKeysResponseArgs) ToRedisAccessKeysResponseOutput() RedisAccessKeysResponseOutput {
-	return i.ToRedisAccessKeysResponseOutputWithContext(context.Background())
-}
-
-func (i RedisAccessKeysResponseArgs) ToRedisAccessKeysResponseOutputWithContext(ctx context.Context) RedisAccessKeysResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RedisAccessKeysResponseOutput)
-}
-
-func (i RedisAccessKeysResponseArgs) ToRedisAccessKeysResponsePtrOutput() RedisAccessKeysResponsePtrOutput {
-	return i.ToRedisAccessKeysResponsePtrOutputWithContext(context.Background())
-}
-
-func (i RedisAccessKeysResponseArgs) ToRedisAccessKeysResponsePtrOutputWithContext(ctx context.Context) RedisAccessKeysResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RedisAccessKeysResponseOutput).ToRedisAccessKeysResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type RedisAccessKeysResponsePtrInput interface {
-	pulumi.Input
-
-	ToRedisAccessKeysResponsePtrOutput() RedisAccessKeysResponsePtrOutput
-	ToRedisAccessKeysResponsePtrOutputWithContext(context.Context) RedisAccessKeysResponsePtrOutput
-}
-
-type redisAccessKeysResponsePtrType RedisAccessKeysResponseArgs
-
-func RedisAccessKeysResponsePtr(v *RedisAccessKeysResponseArgs) RedisAccessKeysResponsePtrInput {
-	return (*redisAccessKeysResponsePtrType)(v)
-}
-
-func (*redisAccessKeysResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**RedisAccessKeysResponse)(nil)).Elem()
-}
-
-func (i *redisAccessKeysResponsePtrType) ToRedisAccessKeysResponsePtrOutput() RedisAccessKeysResponsePtrOutput {
-	return i.ToRedisAccessKeysResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *redisAccessKeysResponsePtrType) ToRedisAccessKeysResponsePtrOutputWithContext(ctx context.Context) RedisAccessKeysResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RedisAccessKeysResponsePtrOutput)
-}
-
 type RedisAccessKeysResponseOutput struct{ *pulumi.OutputState }
 
 func (RedisAccessKeysResponseOutput) ElementType() reflect.Type {
@@ -98,16 +29,6 @@ func (o RedisAccessKeysResponseOutput) ToRedisAccessKeysResponseOutputWithContex
 	return o
 }
 
-func (o RedisAccessKeysResponseOutput) ToRedisAccessKeysResponsePtrOutput() RedisAccessKeysResponsePtrOutput {
-	return o.ToRedisAccessKeysResponsePtrOutputWithContext(context.Background())
-}
-
-func (o RedisAccessKeysResponseOutput) ToRedisAccessKeysResponsePtrOutputWithContext(ctx context.Context) RedisAccessKeysResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RedisAccessKeysResponse) *RedisAccessKeysResponse {
-		return &v
-	}).(RedisAccessKeysResponsePtrOutput)
-}
-
 func (o RedisAccessKeysResponseOutput) PrimaryKey() pulumi.StringOutput {
 	return o.ApplyT(func(v RedisAccessKeysResponse) string { return v.PrimaryKey }).(pulumi.StringOutput)
 }
@@ -116,118 +37,8 @@ func (o RedisAccessKeysResponseOutput) SecondaryKey() pulumi.StringOutput {
 	return o.ApplyT(func(v RedisAccessKeysResponse) string { return v.SecondaryKey }).(pulumi.StringOutput)
 }
 
-type RedisAccessKeysResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (RedisAccessKeysResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**RedisAccessKeysResponse)(nil)).Elem()
-}
-
-func (o RedisAccessKeysResponsePtrOutput) ToRedisAccessKeysResponsePtrOutput() RedisAccessKeysResponsePtrOutput {
-	return o
-}
-
-func (o RedisAccessKeysResponsePtrOutput) ToRedisAccessKeysResponsePtrOutputWithContext(ctx context.Context) RedisAccessKeysResponsePtrOutput {
-	return o
-}
-
-func (o RedisAccessKeysResponsePtrOutput) Elem() RedisAccessKeysResponseOutput {
-	return o.ApplyT(func(v *RedisAccessKeysResponse) RedisAccessKeysResponse {
-		if v != nil {
-			return *v
-		}
-		var ret RedisAccessKeysResponse
-		return ret
-	}).(RedisAccessKeysResponseOutput)
-}
-
-func (o RedisAccessKeysResponsePtrOutput) PrimaryKey() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *RedisAccessKeysResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.PrimaryKey
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o RedisAccessKeysResponsePtrOutput) SecondaryKey() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *RedisAccessKeysResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.SecondaryKey
-	}).(pulumi.StringPtrOutput)
-}
-
 type RedisLinkedServerListResponse struct {
 	Value []RedisLinkedServerResponse `pulumi:"value"`
-}
-
-
-
-
-
-type RedisLinkedServerListResponseInput interface {
-	pulumi.Input
-
-	ToRedisLinkedServerListResponseOutput() RedisLinkedServerListResponseOutput
-	ToRedisLinkedServerListResponseOutputWithContext(context.Context) RedisLinkedServerListResponseOutput
-}
-
-type RedisLinkedServerListResponseArgs struct {
-	Value RedisLinkedServerResponseArrayInput `pulumi:"value"`
-}
-
-func (RedisLinkedServerListResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RedisLinkedServerListResponse)(nil)).Elem()
-}
-
-func (i RedisLinkedServerListResponseArgs) ToRedisLinkedServerListResponseOutput() RedisLinkedServerListResponseOutput {
-	return i.ToRedisLinkedServerListResponseOutputWithContext(context.Background())
-}
-
-func (i RedisLinkedServerListResponseArgs) ToRedisLinkedServerListResponseOutputWithContext(ctx context.Context) RedisLinkedServerListResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RedisLinkedServerListResponseOutput)
-}
-
-func (i RedisLinkedServerListResponseArgs) ToRedisLinkedServerListResponsePtrOutput() RedisLinkedServerListResponsePtrOutput {
-	return i.ToRedisLinkedServerListResponsePtrOutputWithContext(context.Background())
-}
-
-func (i RedisLinkedServerListResponseArgs) ToRedisLinkedServerListResponsePtrOutputWithContext(ctx context.Context) RedisLinkedServerListResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RedisLinkedServerListResponseOutput).ToRedisLinkedServerListResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type RedisLinkedServerListResponsePtrInput interface {
-	pulumi.Input
-
-	ToRedisLinkedServerListResponsePtrOutput() RedisLinkedServerListResponsePtrOutput
-	ToRedisLinkedServerListResponsePtrOutputWithContext(context.Context) RedisLinkedServerListResponsePtrOutput
-}
-
-type redisLinkedServerListResponsePtrType RedisLinkedServerListResponseArgs
-
-func RedisLinkedServerListResponsePtr(v *RedisLinkedServerListResponseArgs) RedisLinkedServerListResponsePtrInput {
-	return (*redisLinkedServerListResponsePtrType)(v)
-}
-
-func (*redisLinkedServerListResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**RedisLinkedServerListResponse)(nil)).Elem()
-}
-
-func (i *redisLinkedServerListResponsePtrType) ToRedisLinkedServerListResponsePtrOutput() RedisLinkedServerListResponsePtrOutput {
-	return i.ToRedisLinkedServerListResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *redisLinkedServerListResponsePtrType) ToRedisLinkedServerListResponsePtrOutputWithContext(ctx context.Context) RedisLinkedServerListResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RedisLinkedServerListResponsePtrOutput)
 }
 
 type RedisLinkedServerListResponseOutput struct{ *pulumi.OutputState }
@@ -244,107 +55,12 @@ func (o RedisLinkedServerListResponseOutput) ToRedisLinkedServerListResponseOutp
 	return o
 }
 
-func (o RedisLinkedServerListResponseOutput) ToRedisLinkedServerListResponsePtrOutput() RedisLinkedServerListResponsePtrOutput {
-	return o.ToRedisLinkedServerListResponsePtrOutputWithContext(context.Background())
-}
-
-func (o RedisLinkedServerListResponseOutput) ToRedisLinkedServerListResponsePtrOutputWithContext(ctx context.Context) RedisLinkedServerListResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RedisLinkedServerListResponse) *RedisLinkedServerListResponse {
-		return &v
-	}).(RedisLinkedServerListResponsePtrOutput)
-}
-
 func (o RedisLinkedServerListResponseOutput) Value() RedisLinkedServerResponseArrayOutput {
 	return o.ApplyT(func(v RedisLinkedServerListResponse) []RedisLinkedServerResponse { return v.Value }).(RedisLinkedServerResponseArrayOutput)
 }
 
-type RedisLinkedServerListResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (RedisLinkedServerListResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**RedisLinkedServerListResponse)(nil)).Elem()
-}
-
-func (o RedisLinkedServerListResponsePtrOutput) ToRedisLinkedServerListResponsePtrOutput() RedisLinkedServerListResponsePtrOutput {
-	return o
-}
-
-func (o RedisLinkedServerListResponsePtrOutput) ToRedisLinkedServerListResponsePtrOutputWithContext(ctx context.Context) RedisLinkedServerListResponsePtrOutput {
-	return o
-}
-
-func (o RedisLinkedServerListResponsePtrOutput) Elem() RedisLinkedServerListResponseOutput {
-	return o.ApplyT(func(v *RedisLinkedServerListResponse) RedisLinkedServerListResponse {
-		if v != nil {
-			return *v
-		}
-		var ret RedisLinkedServerListResponse
-		return ret
-	}).(RedisLinkedServerListResponseOutput)
-}
-
-func (o RedisLinkedServerListResponsePtrOutput) Value() RedisLinkedServerResponseArrayOutput {
-	return o.ApplyT(func(v *RedisLinkedServerListResponse) []RedisLinkedServerResponse {
-		if v == nil {
-			return nil
-		}
-		return v.Value
-	}).(RedisLinkedServerResponseArrayOutput)
-}
-
 type RedisLinkedServerResponse struct {
 	Id string `pulumi:"id"`
-}
-
-
-
-
-
-type RedisLinkedServerResponseInput interface {
-	pulumi.Input
-
-	ToRedisLinkedServerResponseOutput() RedisLinkedServerResponseOutput
-	ToRedisLinkedServerResponseOutputWithContext(context.Context) RedisLinkedServerResponseOutput
-}
-
-type RedisLinkedServerResponseArgs struct {
-	Id pulumi.StringInput `pulumi:"id"`
-}
-
-func (RedisLinkedServerResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RedisLinkedServerResponse)(nil)).Elem()
-}
-
-func (i RedisLinkedServerResponseArgs) ToRedisLinkedServerResponseOutput() RedisLinkedServerResponseOutput {
-	return i.ToRedisLinkedServerResponseOutputWithContext(context.Background())
-}
-
-func (i RedisLinkedServerResponseArgs) ToRedisLinkedServerResponseOutputWithContext(ctx context.Context) RedisLinkedServerResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RedisLinkedServerResponseOutput)
-}
-
-
-
-
-
-type RedisLinkedServerResponseArrayInput interface {
-	pulumi.Input
-
-	ToRedisLinkedServerResponseArrayOutput() RedisLinkedServerResponseArrayOutput
-	ToRedisLinkedServerResponseArrayOutputWithContext(context.Context) RedisLinkedServerResponseArrayOutput
-}
-
-type RedisLinkedServerResponseArray []RedisLinkedServerResponseInput
-
-func (RedisLinkedServerResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]RedisLinkedServerResponse)(nil)).Elem()
-}
-
-func (i RedisLinkedServerResponseArray) ToRedisLinkedServerResponseArrayOutput() RedisLinkedServerResponseArrayOutput {
-	return i.ToRedisLinkedServerResponseArrayOutputWithContext(context.Background())
-}
-
-func (i RedisLinkedServerResponseArray) ToRedisLinkedServerResponseArrayOutputWithContext(ctx context.Context) RedisLinkedServerResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RedisLinkedServerResponseArrayOutput)
 }
 
 type RedisLinkedServerResponseOutput struct{ *pulumi.OutputState }
@@ -497,60 +213,6 @@ type ScheduleEntryResponse struct {
 	StartHourUtc      int     `pulumi:"startHourUtc"`
 }
 
-
-
-
-
-type ScheduleEntryResponseInput interface {
-	pulumi.Input
-
-	ToScheduleEntryResponseOutput() ScheduleEntryResponseOutput
-	ToScheduleEntryResponseOutputWithContext(context.Context) ScheduleEntryResponseOutput
-}
-
-type ScheduleEntryResponseArgs struct {
-	DayOfWeek         pulumi.StringInput    `pulumi:"dayOfWeek"`
-	MaintenanceWindow pulumi.StringPtrInput `pulumi:"maintenanceWindow"`
-	StartHourUtc      pulumi.IntInput       `pulumi:"startHourUtc"`
-}
-
-func (ScheduleEntryResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ScheduleEntryResponse)(nil)).Elem()
-}
-
-func (i ScheduleEntryResponseArgs) ToScheduleEntryResponseOutput() ScheduleEntryResponseOutput {
-	return i.ToScheduleEntryResponseOutputWithContext(context.Background())
-}
-
-func (i ScheduleEntryResponseArgs) ToScheduleEntryResponseOutputWithContext(ctx context.Context) ScheduleEntryResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ScheduleEntryResponseOutput)
-}
-
-
-
-
-
-type ScheduleEntryResponseArrayInput interface {
-	pulumi.Input
-
-	ToScheduleEntryResponseArrayOutput() ScheduleEntryResponseArrayOutput
-	ToScheduleEntryResponseArrayOutputWithContext(context.Context) ScheduleEntryResponseArrayOutput
-}
-
-type ScheduleEntryResponseArray []ScheduleEntryResponseInput
-
-func (ScheduleEntryResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ScheduleEntryResponse)(nil)).Elem()
-}
-
-func (i ScheduleEntryResponseArray) ToScheduleEntryResponseArrayOutput() ScheduleEntryResponseArrayOutput {
-	return i.ToScheduleEntryResponseArrayOutputWithContext(context.Background())
-}
-
-func (i ScheduleEntryResponseArray) ToScheduleEntryResponseArrayOutputWithContext(ctx context.Context) ScheduleEntryResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ScheduleEntryResponseArrayOutput)
-}
-
 type ScheduleEntryResponseOutput struct{ *pulumi.OutputState }
 
 func (ScheduleEntryResponseOutput) ElementType() reflect.Type {
@@ -632,47 +294,6 @@ func (i SkuArgs) ToSkuOutputWithContext(ctx context.Context) SkuOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SkuOutput)
 }
 
-func (i SkuArgs) ToSkuPtrOutput() SkuPtrOutput {
-	return i.ToSkuPtrOutputWithContext(context.Background())
-}
-
-func (i SkuArgs) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SkuOutput).ToSkuPtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type SkuPtrInput interface {
-	pulumi.Input
-
-	ToSkuPtrOutput() SkuPtrOutput
-	ToSkuPtrOutputWithContext(context.Context) SkuPtrOutput
-}
-
-type skuPtrType SkuArgs
-
-func SkuPtr(v *SkuArgs) SkuPtrInput {
-	return (*skuPtrType)(v)
-}
-
-func (*skuPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**Sku)(nil)).Elem()
-}
-
-func (i *skuPtrType) ToSkuPtrOutput() SkuPtrOutput {
-	return i.ToSkuPtrOutputWithContext(context.Background())
-}
-
-func (i *skuPtrType) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SkuPtrOutput)
-}
-
 type SkuOutput struct{ *pulumi.OutputState }
 
 func (SkuOutput) ElementType() reflect.Type {
@@ -687,16 +308,6 @@ func (o SkuOutput) ToSkuOutputWithContext(ctx context.Context) SkuOutput {
 	return o
 }
 
-func (o SkuOutput) ToSkuPtrOutput() SkuPtrOutput {
-	return o.ToSkuPtrOutputWithContext(context.Background())
-}
-
-func (o SkuOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Sku) *Sku {
-		return &v
-	}).(SkuPtrOutput)
-}
-
 func (o SkuOutput) Capacity() pulumi.IntOutput {
 	return o.ApplyT(func(v Sku) int { return v.Capacity }).(pulumi.IntOutput)
 }
@@ -709,131 +320,10 @@ func (o SkuOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v Sku) string { return v.Name }).(pulumi.StringOutput)
 }
 
-type SkuPtrOutput struct{ *pulumi.OutputState }
-
-func (SkuPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Sku)(nil)).Elem()
-}
-
-func (o SkuPtrOutput) ToSkuPtrOutput() SkuPtrOutput {
-	return o
-}
-
-func (o SkuPtrOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
-	return o
-}
-
-func (o SkuPtrOutput) Elem() SkuOutput {
-	return o.ApplyT(func(v *Sku) Sku {
-		if v != nil {
-			return *v
-		}
-		var ret Sku
-		return ret
-	}).(SkuOutput)
-}
-
-func (o SkuPtrOutput) Capacity() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *Sku) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.Capacity
-	}).(pulumi.IntPtrOutput)
-}
-
-func (o SkuPtrOutput) Family() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Sku) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Family
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Sku) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
 type SkuResponse struct {
 	Capacity int    `pulumi:"capacity"`
 	Family   string `pulumi:"family"`
 	Name     string `pulumi:"name"`
-}
-
-
-
-
-
-type SkuResponseInput interface {
-	pulumi.Input
-
-	ToSkuResponseOutput() SkuResponseOutput
-	ToSkuResponseOutputWithContext(context.Context) SkuResponseOutput
-}
-
-type SkuResponseArgs struct {
-	Capacity pulumi.IntInput    `pulumi:"capacity"`
-	Family   pulumi.StringInput `pulumi:"family"`
-	Name     pulumi.StringInput `pulumi:"name"`
-}
-
-func (SkuResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SkuResponse)(nil)).Elem()
-}
-
-func (i SkuResponseArgs) ToSkuResponseOutput() SkuResponseOutput {
-	return i.ToSkuResponseOutputWithContext(context.Background())
-}
-
-func (i SkuResponseArgs) ToSkuResponseOutputWithContext(ctx context.Context) SkuResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SkuResponseOutput)
-}
-
-func (i SkuResponseArgs) ToSkuResponsePtrOutput() SkuResponsePtrOutput {
-	return i.ToSkuResponsePtrOutputWithContext(context.Background())
-}
-
-func (i SkuResponseArgs) ToSkuResponsePtrOutputWithContext(ctx context.Context) SkuResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SkuResponseOutput).ToSkuResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type SkuResponsePtrInput interface {
-	pulumi.Input
-
-	ToSkuResponsePtrOutput() SkuResponsePtrOutput
-	ToSkuResponsePtrOutputWithContext(context.Context) SkuResponsePtrOutput
-}
-
-type skuResponsePtrType SkuResponseArgs
-
-func SkuResponsePtr(v *SkuResponseArgs) SkuResponsePtrInput {
-	return (*skuResponsePtrType)(v)
-}
-
-func (*skuResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SkuResponse)(nil)).Elem()
-}
-
-func (i *skuResponsePtrType) ToSkuResponsePtrOutput() SkuResponsePtrOutput {
-	return i.ToSkuResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *skuResponsePtrType) ToSkuResponsePtrOutputWithContext(ctx context.Context) SkuResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SkuResponsePtrOutput)
 }
 
 type SkuResponseOutput struct{ *pulumi.OutputState }
@@ -848,16 +338,6 @@ func (o SkuResponseOutput) ToSkuResponseOutput() SkuResponseOutput {
 
 func (o SkuResponseOutput) ToSkuResponseOutputWithContext(ctx context.Context) SkuResponseOutput {
 	return o
-}
-
-func (o SkuResponseOutput) ToSkuResponsePtrOutput() SkuResponsePtrOutput {
-	return o.ToSkuResponsePtrOutputWithContext(context.Background())
-}
-
-func (o SkuResponseOutput) ToSkuResponsePtrOutputWithContext(ctx context.Context) SkuResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SkuResponse) *SkuResponse {
-		return &v
-	}).(SkuResponsePtrOutput)
 }
 
 func (o SkuResponseOutput) Capacity() pulumi.IntOutput {
@@ -925,9 +405,7 @@ func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 
 func init() {
 	pulumi.RegisterOutputType(RedisAccessKeysResponseOutput{})
-	pulumi.RegisterOutputType(RedisAccessKeysResponsePtrOutput{})
 	pulumi.RegisterOutputType(RedisLinkedServerListResponseOutput{})
-	pulumi.RegisterOutputType(RedisLinkedServerListResponsePtrOutput{})
 	pulumi.RegisterOutputType(RedisLinkedServerResponseOutput{})
 	pulumi.RegisterOutputType(RedisLinkedServerResponseArrayOutput{})
 	pulumi.RegisterOutputType(ScheduleEntryOutput{})
@@ -935,7 +413,6 @@ func init() {
 	pulumi.RegisterOutputType(ScheduleEntryResponseOutput{})
 	pulumi.RegisterOutputType(ScheduleEntryResponseArrayOutput{})
 	pulumi.RegisterOutputType(SkuOutput{})
-	pulumi.RegisterOutputType(SkuPtrOutput{})
 	pulumi.RegisterOutputType(SkuResponseOutput{})
 	pulumi.RegisterOutputType(SkuResponsePtrOutput{})
 }

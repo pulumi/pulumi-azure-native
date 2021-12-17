@@ -56,9 +56,8 @@ func NewBastionHost(ctx *pulumi.Context,
 	if isZero(args.EnableTunneling) {
 		args.EnableTunneling = pulumi.BoolPtr(false)
 	}
-	skuApplier := func(v Sku) *Sku { return v.Defaults() }
 	if args.Sku != nil {
-		args.Sku = args.Sku.ToSkuPtrOutput().Elem().ApplyT(skuApplier).(SkuPtrOutput)
+		args.Sku = args.Sku.ToSkuPtrOutput().ApplyT(func(v *Sku) *Sku { return v.Defaults() }).(SkuPtrOutput)
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

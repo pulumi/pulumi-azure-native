@@ -48,9 +48,8 @@ func NewNamespace(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	encryptionApplier := func(v Encryption) *Encryption { return v.Defaults() }
 	if args.Encryption != nil {
-		args.Encryption = args.Encryption.ToEncryptionPtrOutput().Elem().ApplyT(encryptionApplier).(EncryptionPtrOutput)
+		args.Encryption = args.Encryption.ToEncryptionPtrOutput().ApplyT(func(v *Encryption) *Encryption { return v.Defaults() }).(EncryptionPtrOutput)
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

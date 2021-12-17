@@ -41,9 +41,8 @@ func NewFormula(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	formulaContentApplier := func(v LabVirtualMachineCreationParameter) *LabVirtualMachineCreationParameter { return v.Defaults() }
 	if args.FormulaContent != nil {
-		args.FormulaContent = args.FormulaContent.ToLabVirtualMachineCreationParameterPtrOutput().Elem().ApplyT(formulaContentApplier).(LabVirtualMachineCreationParameterPtrOutput)
+		args.FormulaContent = args.FormulaContent.ToLabVirtualMachineCreationParameterPtrOutput().ApplyT(func(v *LabVirtualMachineCreationParameter) *LabVirtualMachineCreationParameter { return v.Defaults() }).(LabVirtualMachineCreationParameterPtrOutput)
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

@@ -163,75 +163,6 @@ type AzureSkuResponse struct {
 	Tier string `pulumi:"tier"`
 }
 
-
-
-
-
-type AzureSkuResponseInput interface {
-	pulumi.Input
-
-	ToAzureSkuResponseOutput() AzureSkuResponseOutput
-	ToAzureSkuResponseOutputWithContext(context.Context) AzureSkuResponseOutput
-}
-
-type AzureSkuResponseArgs struct {
-	Name pulumi.StringInput `pulumi:"name"`
-	Tier pulumi.StringInput `pulumi:"tier"`
-}
-
-func (AzureSkuResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AzureSkuResponse)(nil)).Elem()
-}
-
-func (i AzureSkuResponseArgs) ToAzureSkuResponseOutput() AzureSkuResponseOutput {
-	return i.ToAzureSkuResponseOutputWithContext(context.Background())
-}
-
-func (i AzureSkuResponseArgs) ToAzureSkuResponseOutputWithContext(ctx context.Context) AzureSkuResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AzureSkuResponseOutput)
-}
-
-func (i AzureSkuResponseArgs) ToAzureSkuResponsePtrOutput() AzureSkuResponsePtrOutput {
-	return i.ToAzureSkuResponsePtrOutputWithContext(context.Background())
-}
-
-func (i AzureSkuResponseArgs) ToAzureSkuResponsePtrOutputWithContext(ctx context.Context) AzureSkuResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AzureSkuResponseOutput).ToAzureSkuResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type AzureSkuResponsePtrInput interface {
-	pulumi.Input
-
-	ToAzureSkuResponsePtrOutput() AzureSkuResponsePtrOutput
-	ToAzureSkuResponsePtrOutputWithContext(context.Context) AzureSkuResponsePtrOutput
-}
-
-type azureSkuResponsePtrType AzureSkuResponseArgs
-
-func AzureSkuResponsePtr(v *AzureSkuResponseArgs) AzureSkuResponsePtrInput {
-	return (*azureSkuResponsePtrType)(v)
-}
-
-func (*azureSkuResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AzureSkuResponse)(nil)).Elem()
-}
-
-func (i *azureSkuResponsePtrType) ToAzureSkuResponsePtrOutput() AzureSkuResponsePtrOutput {
-	return i.ToAzureSkuResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *azureSkuResponsePtrType) ToAzureSkuResponsePtrOutputWithContext(ctx context.Context) AzureSkuResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AzureSkuResponsePtrOutput)
-}
-
 type AzureSkuResponseOutput struct{ *pulumi.OutputState }
 
 func (AzureSkuResponseOutput) ElementType() reflect.Type {
@@ -244,16 +175,6 @@ func (o AzureSkuResponseOutput) ToAzureSkuResponseOutput() AzureSkuResponseOutpu
 
 func (o AzureSkuResponseOutput) ToAzureSkuResponseOutputWithContext(ctx context.Context) AzureSkuResponseOutput {
 	return o
-}
-
-func (o AzureSkuResponseOutput) ToAzureSkuResponsePtrOutput() AzureSkuResponsePtrOutput {
-	return o.ToAzureSkuResponsePtrOutputWithContext(context.Background())
-}
-
-func (o AzureSkuResponseOutput) ToAzureSkuResponsePtrOutputWithContext(ctx context.Context) AzureSkuResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AzureSkuResponse) *AzureSkuResponse {
-		return &v
-	}).(AzureSkuResponsePtrOutput)
 }
 
 func (o AzureSkuResponseOutput) Name() pulumi.StringOutput {

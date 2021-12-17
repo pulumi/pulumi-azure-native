@@ -15,59 +15,6 @@ type PrivateLinkScopedResourceResponse struct {
 	ScopeId    *string `pulumi:"scopeId"`
 }
 
-
-
-
-
-type PrivateLinkScopedResourceResponseInput interface {
-	pulumi.Input
-
-	ToPrivateLinkScopedResourceResponseOutput() PrivateLinkScopedResourceResponseOutput
-	ToPrivateLinkScopedResourceResponseOutputWithContext(context.Context) PrivateLinkScopedResourceResponseOutput
-}
-
-type PrivateLinkScopedResourceResponseArgs struct {
-	ResourceId pulumi.StringPtrInput `pulumi:"resourceId"`
-	ScopeId    pulumi.StringPtrInput `pulumi:"scopeId"`
-}
-
-func (PrivateLinkScopedResourceResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateLinkScopedResourceResponse)(nil)).Elem()
-}
-
-func (i PrivateLinkScopedResourceResponseArgs) ToPrivateLinkScopedResourceResponseOutput() PrivateLinkScopedResourceResponseOutput {
-	return i.ToPrivateLinkScopedResourceResponseOutputWithContext(context.Background())
-}
-
-func (i PrivateLinkScopedResourceResponseArgs) ToPrivateLinkScopedResourceResponseOutputWithContext(ctx context.Context) PrivateLinkScopedResourceResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkScopedResourceResponseOutput)
-}
-
-
-
-
-
-type PrivateLinkScopedResourceResponseArrayInput interface {
-	pulumi.Input
-
-	ToPrivateLinkScopedResourceResponseArrayOutput() PrivateLinkScopedResourceResponseArrayOutput
-	ToPrivateLinkScopedResourceResponseArrayOutputWithContext(context.Context) PrivateLinkScopedResourceResponseArrayOutput
-}
-
-type PrivateLinkScopedResourceResponseArray []PrivateLinkScopedResourceResponseInput
-
-func (PrivateLinkScopedResourceResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PrivateLinkScopedResourceResponse)(nil)).Elem()
-}
-
-func (i PrivateLinkScopedResourceResponseArray) ToPrivateLinkScopedResourceResponseArrayOutput() PrivateLinkScopedResourceResponseArrayOutput {
-	return i.ToPrivateLinkScopedResourceResponseArrayOutputWithContext(context.Background())
-}
-
-func (i PrivateLinkScopedResourceResponseArray) ToPrivateLinkScopedResourceResponseArrayOutputWithContext(ctx context.Context) PrivateLinkScopedResourceResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkScopedResourceResponseArrayOutput)
-}
-
 type PrivateLinkScopedResourceResponseOutput struct{ *pulumi.OutputState }
 
 func (PrivateLinkScopedResourceResponseOutput) ElementType() reflect.Type {

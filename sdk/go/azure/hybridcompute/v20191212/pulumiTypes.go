@@ -17,61 +17,6 @@ type ErrorDetailResponse struct {
 	Target  *string               `pulumi:"target"`
 }
 
-
-
-
-
-type ErrorDetailResponseInput interface {
-	pulumi.Input
-
-	ToErrorDetailResponseOutput() ErrorDetailResponseOutput
-	ToErrorDetailResponseOutputWithContext(context.Context) ErrorDetailResponseOutput
-}
-
-type ErrorDetailResponseArgs struct {
-	Code    pulumi.StringInput            `pulumi:"code"`
-	Details ErrorDetailResponseArrayInput `pulumi:"details"`
-	Message pulumi.StringInput            `pulumi:"message"`
-	Target  pulumi.StringPtrInput         `pulumi:"target"`
-}
-
-func (ErrorDetailResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ErrorDetailResponse)(nil)).Elem()
-}
-
-func (i ErrorDetailResponseArgs) ToErrorDetailResponseOutput() ErrorDetailResponseOutput {
-	return i.ToErrorDetailResponseOutputWithContext(context.Background())
-}
-
-func (i ErrorDetailResponseArgs) ToErrorDetailResponseOutputWithContext(ctx context.Context) ErrorDetailResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ErrorDetailResponseOutput)
-}
-
-
-
-
-
-type ErrorDetailResponseArrayInput interface {
-	pulumi.Input
-
-	ToErrorDetailResponseArrayOutput() ErrorDetailResponseArrayOutput
-	ToErrorDetailResponseArrayOutputWithContext(context.Context) ErrorDetailResponseArrayOutput
-}
-
-type ErrorDetailResponseArray []ErrorDetailResponseInput
-
-func (ErrorDetailResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ErrorDetailResponse)(nil)).Elem()
-}
-
-func (i ErrorDetailResponseArray) ToErrorDetailResponseArrayOutput() ErrorDetailResponseArrayOutput {
-	return i.ToErrorDetailResponseArrayOutputWithContext(context.Background())
-}
-
-func (i ErrorDetailResponseArray) ToErrorDetailResponseArrayOutputWithContext(ctx context.Context) ErrorDetailResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ErrorDetailResponseArrayOutput)
-}
-
 type ErrorDetailResponseOutput struct{ *pulumi.OutputState }
 
 func (ErrorDetailResponseOutput) ElementType() reflect.Type {
@@ -307,77 +252,6 @@ type LocationDataResponse struct {
 	Name            string  `pulumi:"name"`
 }
 
-
-
-
-
-type LocationDataResponseInput interface {
-	pulumi.Input
-
-	ToLocationDataResponseOutput() LocationDataResponseOutput
-	ToLocationDataResponseOutputWithContext(context.Context) LocationDataResponseOutput
-}
-
-type LocationDataResponseArgs struct {
-	City            pulumi.StringPtrInput `pulumi:"city"`
-	CountryOrRegion pulumi.StringPtrInput `pulumi:"countryOrRegion"`
-	District        pulumi.StringPtrInput `pulumi:"district"`
-	Name            pulumi.StringInput    `pulumi:"name"`
-}
-
-func (LocationDataResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*LocationDataResponse)(nil)).Elem()
-}
-
-func (i LocationDataResponseArgs) ToLocationDataResponseOutput() LocationDataResponseOutput {
-	return i.ToLocationDataResponseOutputWithContext(context.Background())
-}
-
-func (i LocationDataResponseArgs) ToLocationDataResponseOutputWithContext(ctx context.Context) LocationDataResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LocationDataResponseOutput)
-}
-
-func (i LocationDataResponseArgs) ToLocationDataResponsePtrOutput() LocationDataResponsePtrOutput {
-	return i.ToLocationDataResponsePtrOutputWithContext(context.Background())
-}
-
-func (i LocationDataResponseArgs) ToLocationDataResponsePtrOutputWithContext(ctx context.Context) LocationDataResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LocationDataResponseOutput).ToLocationDataResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type LocationDataResponsePtrInput interface {
-	pulumi.Input
-
-	ToLocationDataResponsePtrOutput() LocationDataResponsePtrOutput
-	ToLocationDataResponsePtrOutputWithContext(context.Context) LocationDataResponsePtrOutput
-}
-
-type locationDataResponsePtrType LocationDataResponseArgs
-
-func LocationDataResponsePtr(v *LocationDataResponseArgs) LocationDataResponsePtrInput {
-	return (*locationDataResponsePtrType)(v)
-}
-
-func (*locationDataResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**LocationDataResponse)(nil)).Elem()
-}
-
-func (i *locationDataResponsePtrType) ToLocationDataResponsePtrOutput() LocationDataResponsePtrOutput {
-	return i.ToLocationDataResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *locationDataResponsePtrType) ToLocationDataResponsePtrOutputWithContext(ctx context.Context) LocationDataResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LocationDataResponsePtrOutput)
-}
-
 type LocationDataResponseOutput struct{ *pulumi.OutputState }
 
 func (LocationDataResponseOutput) ElementType() reflect.Type {
@@ -390,16 +264,6 @@ func (o LocationDataResponseOutput) ToLocationDataResponseOutput() LocationDataR
 
 func (o LocationDataResponseOutput) ToLocationDataResponseOutputWithContext(ctx context.Context) LocationDataResponseOutput {
 	return o
-}
-
-func (o LocationDataResponseOutput) ToLocationDataResponsePtrOutput() LocationDataResponsePtrOutput {
-	return o.ToLocationDataResponsePtrOutputWithContext(context.Background())
-}
-
-func (o LocationDataResponseOutput) ToLocationDataResponsePtrOutputWithContext(ctx context.Context) LocationDataResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LocationDataResponse) *LocationDataResponse {
-		return &v
-	}).(LocationDataResponsePtrOutput)
 }
 
 func (o LocationDataResponseOutput) City() pulumi.StringPtrOutput {
@@ -597,61 +461,6 @@ type MachineExtensionInstanceViewResponse struct {
 	TypeHandlerVersion *string                                     `pulumi:"typeHandlerVersion"`
 }
 
-
-
-
-
-type MachineExtensionInstanceViewResponseInput interface {
-	pulumi.Input
-
-	ToMachineExtensionInstanceViewResponseOutput() MachineExtensionInstanceViewResponseOutput
-	ToMachineExtensionInstanceViewResponseOutputWithContext(context.Context) MachineExtensionInstanceViewResponseOutput
-}
-
-type MachineExtensionInstanceViewResponseArgs struct {
-	Name               pulumi.StringPtrInput                              `pulumi:"name"`
-	Status             MachineExtensionInstanceViewResponseStatusPtrInput `pulumi:"status"`
-	Type               pulumi.StringPtrInput                              `pulumi:"type"`
-	TypeHandlerVersion pulumi.StringPtrInput                              `pulumi:"typeHandlerVersion"`
-}
-
-func (MachineExtensionInstanceViewResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MachineExtensionInstanceViewResponse)(nil)).Elem()
-}
-
-func (i MachineExtensionInstanceViewResponseArgs) ToMachineExtensionInstanceViewResponseOutput() MachineExtensionInstanceViewResponseOutput {
-	return i.ToMachineExtensionInstanceViewResponseOutputWithContext(context.Background())
-}
-
-func (i MachineExtensionInstanceViewResponseArgs) ToMachineExtensionInstanceViewResponseOutputWithContext(ctx context.Context) MachineExtensionInstanceViewResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MachineExtensionInstanceViewResponseOutput)
-}
-
-
-
-
-
-type MachineExtensionInstanceViewResponseArrayInput interface {
-	pulumi.Input
-
-	ToMachineExtensionInstanceViewResponseArrayOutput() MachineExtensionInstanceViewResponseArrayOutput
-	ToMachineExtensionInstanceViewResponseArrayOutputWithContext(context.Context) MachineExtensionInstanceViewResponseArrayOutput
-}
-
-type MachineExtensionInstanceViewResponseArray []MachineExtensionInstanceViewResponseInput
-
-func (MachineExtensionInstanceViewResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]MachineExtensionInstanceViewResponse)(nil)).Elem()
-}
-
-func (i MachineExtensionInstanceViewResponseArray) ToMachineExtensionInstanceViewResponseArrayOutput() MachineExtensionInstanceViewResponseArrayOutput {
-	return i.ToMachineExtensionInstanceViewResponseArrayOutputWithContext(context.Background())
-}
-
-func (i MachineExtensionInstanceViewResponseArray) ToMachineExtensionInstanceViewResponseArrayOutputWithContext(ctx context.Context) MachineExtensionInstanceViewResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MachineExtensionInstanceViewResponseArrayOutput)
-}
-
 type MachineExtensionInstanceViewResponseOutput struct{ *pulumi.OutputState }
 
 func (MachineExtensionInstanceViewResponseOutput) ElementType() reflect.Type {
@@ -712,78 +521,6 @@ type MachineExtensionInstanceViewResponseStatus struct {
 	Time          *string `pulumi:"time"`
 }
 
-
-
-
-
-type MachineExtensionInstanceViewResponseStatusInput interface {
-	pulumi.Input
-
-	ToMachineExtensionInstanceViewResponseStatusOutput() MachineExtensionInstanceViewResponseStatusOutput
-	ToMachineExtensionInstanceViewResponseStatusOutputWithContext(context.Context) MachineExtensionInstanceViewResponseStatusOutput
-}
-
-type MachineExtensionInstanceViewResponseStatusArgs struct {
-	Code          pulumi.StringPtrInput `pulumi:"code"`
-	DisplayStatus pulumi.StringPtrInput `pulumi:"displayStatus"`
-	Level         pulumi.StringPtrInput `pulumi:"level"`
-	Message       pulumi.StringPtrInput `pulumi:"message"`
-	Time          pulumi.StringPtrInput `pulumi:"time"`
-}
-
-func (MachineExtensionInstanceViewResponseStatusArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MachineExtensionInstanceViewResponseStatus)(nil)).Elem()
-}
-
-func (i MachineExtensionInstanceViewResponseStatusArgs) ToMachineExtensionInstanceViewResponseStatusOutput() MachineExtensionInstanceViewResponseStatusOutput {
-	return i.ToMachineExtensionInstanceViewResponseStatusOutputWithContext(context.Background())
-}
-
-func (i MachineExtensionInstanceViewResponseStatusArgs) ToMachineExtensionInstanceViewResponseStatusOutputWithContext(ctx context.Context) MachineExtensionInstanceViewResponseStatusOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MachineExtensionInstanceViewResponseStatusOutput)
-}
-
-func (i MachineExtensionInstanceViewResponseStatusArgs) ToMachineExtensionInstanceViewResponseStatusPtrOutput() MachineExtensionInstanceViewResponseStatusPtrOutput {
-	return i.ToMachineExtensionInstanceViewResponseStatusPtrOutputWithContext(context.Background())
-}
-
-func (i MachineExtensionInstanceViewResponseStatusArgs) ToMachineExtensionInstanceViewResponseStatusPtrOutputWithContext(ctx context.Context) MachineExtensionInstanceViewResponseStatusPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MachineExtensionInstanceViewResponseStatusOutput).ToMachineExtensionInstanceViewResponseStatusPtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type MachineExtensionInstanceViewResponseStatusPtrInput interface {
-	pulumi.Input
-
-	ToMachineExtensionInstanceViewResponseStatusPtrOutput() MachineExtensionInstanceViewResponseStatusPtrOutput
-	ToMachineExtensionInstanceViewResponseStatusPtrOutputWithContext(context.Context) MachineExtensionInstanceViewResponseStatusPtrOutput
-}
-
-type machineExtensionInstanceViewResponseStatusPtrType MachineExtensionInstanceViewResponseStatusArgs
-
-func MachineExtensionInstanceViewResponseStatusPtr(v *MachineExtensionInstanceViewResponseStatusArgs) MachineExtensionInstanceViewResponseStatusPtrInput {
-	return (*machineExtensionInstanceViewResponseStatusPtrType)(v)
-}
-
-func (*machineExtensionInstanceViewResponseStatusPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**MachineExtensionInstanceViewResponseStatus)(nil)).Elem()
-}
-
-func (i *machineExtensionInstanceViewResponseStatusPtrType) ToMachineExtensionInstanceViewResponseStatusPtrOutput() MachineExtensionInstanceViewResponseStatusPtrOutput {
-	return i.ToMachineExtensionInstanceViewResponseStatusPtrOutputWithContext(context.Background())
-}
-
-func (i *machineExtensionInstanceViewResponseStatusPtrType) ToMachineExtensionInstanceViewResponseStatusPtrOutputWithContext(ctx context.Context) MachineExtensionInstanceViewResponseStatusPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MachineExtensionInstanceViewResponseStatusPtrOutput)
-}
-
 type MachineExtensionInstanceViewResponseStatusOutput struct{ *pulumi.OutputState }
 
 func (MachineExtensionInstanceViewResponseStatusOutput) ElementType() reflect.Type {
@@ -796,16 +533,6 @@ func (o MachineExtensionInstanceViewResponseStatusOutput) ToMachineExtensionInst
 
 func (o MachineExtensionInstanceViewResponseStatusOutput) ToMachineExtensionInstanceViewResponseStatusOutputWithContext(ctx context.Context) MachineExtensionInstanceViewResponseStatusOutput {
 	return o
-}
-
-func (o MachineExtensionInstanceViewResponseStatusOutput) ToMachineExtensionInstanceViewResponseStatusPtrOutput() MachineExtensionInstanceViewResponseStatusPtrOutput {
-	return o.ToMachineExtensionInstanceViewResponseStatusPtrOutputWithContext(context.Background())
-}
-
-func (o MachineExtensionInstanceViewResponseStatusOutput) ToMachineExtensionInstanceViewResponseStatusPtrOutputWithContext(ctx context.Context) MachineExtensionInstanceViewResponseStatusPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MachineExtensionInstanceViewResponseStatus) *MachineExtensionInstanceViewResponseStatus {
-		return &v
-	}).(MachineExtensionInstanceViewResponseStatusPtrOutput)
 }
 
 func (o MachineExtensionInstanceViewResponseStatusOutput) Code() pulumi.StringPtrOutput {
@@ -1275,77 +1002,6 @@ type MachineExtensionPropertiesResponseInstanceView struct {
 	TypeHandlerVersion *string                                     `pulumi:"typeHandlerVersion"`
 }
 
-
-
-
-
-type MachineExtensionPropertiesResponseInstanceViewInput interface {
-	pulumi.Input
-
-	ToMachineExtensionPropertiesResponseInstanceViewOutput() MachineExtensionPropertiesResponseInstanceViewOutput
-	ToMachineExtensionPropertiesResponseInstanceViewOutputWithContext(context.Context) MachineExtensionPropertiesResponseInstanceViewOutput
-}
-
-type MachineExtensionPropertiesResponseInstanceViewArgs struct {
-	Name               pulumi.StringPtrInput                              `pulumi:"name"`
-	Status             MachineExtensionInstanceViewResponseStatusPtrInput `pulumi:"status"`
-	Type               pulumi.StringPtrInput                              `pulumi:"type"`
-	TypeHandlerVersion pulumi.StringPtrInput                              `pulumi:"typeHandlerVersion"`
-}
-
-func (MachineExtensionPropertiesResponseInstanceViewArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MachineExtensionPropertiesResponseInstanceView)(nil)).Elem()
-}
-
-func (i MachineExtensionPropertiesResponseInstanceViewArgs) ToMachineExtensionPropertiesResponseInstanceViewOutput() MachineExtensionPropertiesResponseInstanceViewOutput {
-	return i.ToMachineExtensionPropertiesResponseInstanceViewOutputWithContext(context.Background())
-}
-
-func (i MachineExtensionPropertiesResponseInstanceViewArgs) ToMachineExtensionPropertiesResponseInstanceViewOutputWithContext(ctx context.Context) MachineExtensionPropertiesResponseInstanceViewOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MachineExtensionPropertiesResponseInstanceViewOutput)
-}
-
-func (i MachineExtensionPropertiesResponseInstanceViewArgs) ToMachineExtensionPropertiesResponseInstanceViewPtrOutput() MachineExtensionPropertiesResponseInstanceViewPtrOutput {
-	return i.ToMachineExtensionPropertiesResponseInstanceViewPtrOutputWithContext(context.Background())
-}
-
-func (i MachineExtensionPropertiesResponseInstanceViewArgs) ToMachineExtensionPropertiesResponseInstanceViewPtrOutputWithContext(ctx context.Context) MachineExtensionPropertiesResponseInstanceViewPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MachineExtensionPropertiesResponseInstanceViewOutput).ToMachineExtensionPropertiesResponseInstanceViewPtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type MachineExtensionPropertiesResponseInstanceViewPtrInput interface {
-	pulumi.Input
-
-	ToMachineExtensionPropertiesResponseInstanceViewPtrOutput() MachineExtensionPropertiesResponseInstanceViewPtrOutput
-	ToMachineExtensionPropertiesResponseInstanceViewPtrOutputWithContext(context.Context) MachineExtensionPropertiesResponseInstanceViewPtrOutput
-}
-
-type machineExtensionPropertiesResponseInstanceViewPtrType MachineExtensionPropertiesResponseInstanceViewArgs
-
-func MachineExtensionPropertiesResponseInstanceViewPtr(v *MachineExtensionPropertiesResponseInstanceViewArgs) MachineExtensionPropertiesResponseInstanceViewPtrInput {
-	return (*machineExtensionPropertiesResponseInstanceViewPtrType)(v)
-}
-
-func (*machineExtensionPropertiesResponseInstanceViewPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**MachineExtensionPropertiesResponseInstanceView)(nil)).Elem()
-}
-
-func (i *machineExtensionPropertiesResponseInstanceViewPtrType) ToMachineExtensionPropertiesResponseInstanceViewPtrOutput() MachineExtensionPropertiesResponseInstanceViewPtrOutput {
-	return i.ToMachineExtensionPropertiesResponseInstanceViewPtrOutputWithContext(context.Background())
-}
-
-func (i *machineExtensionPropertiesResponseInstanceViewPtrType) ToMachineExtensionPropertiesResponseInstanceViewPtrOutputWithContext(ctx context.Context) MachineExtensionPropertiesResponseInstanceViewPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MachineExtensionPropertiesResponseInstanceViewPtrOutput)
-}
-
 type MachineExtensionPropertiesResponseInstanceViewOutput struct{ *pulumi.OutputState }
 
 func (MachineExtensionPropertiesResponseInstanceViewOutput) ElementType() reflect.Type {
@@ -1358,16 +1014,6 @@ func (o MachineExtensionPropertiesResponseInstanceViewOutput) ToMachineExtension
 
 func (o MachineExtensionPropertiesResponseInstanceViewOutput) ToMachineExtensionPropertiesResponseInstanceViewOutputWithContext(ctx context.Context) MachineExtensionPropertiesResponseInstanceViewOutput {
 	return o
-}
-
-func (o MachineExtensionPropertiesResponseInstanceViewOutput) ToMachineExtensionPropertiesResponseInstanceViewPtrOutput() MachineExtensionPropertiesResponseInstanceViewPtrOutput {
-	return o.ToMachineExtensionPropertiesResponseInstanceViewPtrOutputWithContext(context.Background())
-}
-
-func (o MachineExtensionPropertiesResponseInstanceViewOutput) ToMachineExtensionPropertiesResponseInstanceViewPtrOutputWithContext(ctx context.Context) MachineExtensionPropertiesResponseInstanceViewPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MachineExtensionPropertiesResponseInstanceView) *MachineExtensionPropertiesResponseInstanceView {
-		return &v
-	}).(MachineExtensionPropertiesResponseInstanceViewPtrOutput)
 }
 
 func (o MachineExtensionPropertiesResponseInstanceViewOutput) Name() pulumi.StringPtrOutput {
@@ -1585,74 +1231,6 @@ type MachinePropertiesResponseOsProfile struct {
 	ComputerName string `pulumi:"computerName"`
 }
 
-
-
-
-
-type MachinePropertiesResponseOsProfileInput interface {
-	pulumi.Input
-
-	ToMachinePropertiesResponseOsProfileOutput() MachinePropertiesResponseOsProfileOutput
-	ToMachinePropertiesResponseOsProfileOutputWithContext(context.Context) MachinePropertiesResponseOsProfileOutput
-}
-
-type MachinePropertiesResponseOsProfileArgs struct {
-	ComputerName pulumi.StringInput `pulumi:"computerName"`
-}
-
-func (MachinePropertiesResponseOsProfileArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MachinePropertiesResponseOsProfile)(nil)).Elem()
-}
-
-func (i MachinePropertiesResponseOsProfileArgs) ToMachinePropertiesResponseOsProfileOutput() MachinePropertiesResponseOsProfileOutput {
-	return i.ToMachinePropertiesResponseOsProfileOutputWithContext(context.Background())
-}
-
-func (i MachinePropertiesResponseOsProfileArgs) ToMachinePropertiesResponseOsProfileOutputWithContext(ctx context.Context) MachinePropertiesResponseOsProfileOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MachinePropertiesResponseOsProfileOutput)
-}
-
-func (i MachinePropertiesResponseOsProfileArgs) ToMachinePropertiesResponseOsProfilePtrOutput() MachinePropertiesResponseOsProfilePtrOutput {
-	return i.ToMachinePropertiesResponseOsProfilePtrOutputWithContext(context.Background())
-}
-
-func (i MachinePropertiesResponseOsProfileArgs) ToMachinePropertiesResponseOsProfilePtrOutputWithContext(ctx context.Context) MachinePropertiesResponseOsProfilePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MachinePropertiesResponseOsProfileOutput).ToMachinePropertiesResponseOsProfilePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type MachinePropertiesResponseOsProfilePtrInput interface {
-	pulumi.Input
-
-	ToMachinePropertiesResponseOsProfilePtrOutput() MachinePropertiesResponseOsProfilePtrOutput
-	ToMachinePropertiesResponseOsProfilePtrOutputWithContext(context.Context) MachinePropertiesResponseOsProfilePtrOutput
-}
-
-type machinePropertiesResponseOsProfilePtrType MachinePropertiesResponseOsProfileArgs
-
-func MachinePropertiesResponseOsProfilePtr(v *MachinePropertiesResponseOsProfileArgs) MachinePropertiesResponseOsProfilePtrInput {
-	return (*machinePropertiesResponseOsProfilePtrType)(v)
-}
-
-func (*machinePropertiesResponseOsProfilePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**MachinePropertiesResponseOsProfile)(nil)).Elem()
-}
-
-func (i *machinePropertiesResponseOsProfilePtrType) ToMachinePropertiesResponseOsProfilePtrOutput() MachinePropertiesResponseOsProfilePtrOutput {
-	return i.ToMachinePropertiesResponseOsProfilePtrOutputWithContext(context.Background())
-}
-
-func (i *machinePropertiesResponseOsProfilePtrType) ToMachinePropertiesResponseOsProfilePtrOutputWithContext(ctx context.Context) MachinePropertiesResponseOsProfilePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MachinePropertiesResponseOsProfilePtrOutput)
-}
-
 type MachinePropertiesResponseOsProfileOutput struct{ *pulumi.OutputState }
 
 func (MachinePropertiesResponseOsProfileOutput) ElementType() reflect.Type {
@@ -1665,16 +1243,6 @@ func (o MachinePropertiesResponseOsProfileOutput) ToMachinePropertiesResponseOsP
 
 func (o MachinePropertiesResponseOsProfileOutput) ToMachinePropertiesResponseOsProfileOutputWithContext(ctx context.Context) MachinePropertiesResponseOsProfileOutput {
 	return o
-}
-
-func (o MachinePropertiesResponseOsProfileOutput) ToMachinePropertiesResponseOsProfilePtrOutput() MachinePropertiesResponseOsProfilePtrOutput {
-	return o.ToMachinePropertiesResponseOsProfilePtrOutputWithContext(context.Background())
-}
-
-func (o MachinePropertiesResponseOsProfileOutput) ToMachinePropertiesResponseOsProfilePtrOutputWithContext(ctx context.Context) MachinePropertiesResponseOsProfilePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MachinePropertiesResponseOsProfile) *MachinePropertiesResponseOsProfile {
-		return &v
-	}).(MachinePropertiesResponseOsProfilePtrOutput)
 }
 
 func (o MachinePropertiesResponseOsProfileOutput) ComputerName() pulumi.StringOutput {
@@ -1720,76 +1288,6 @@ type MachineResponseIdentity struct {
 	Type        *string `pulumi:"type"`
 }
 
-
-
-
-
-type MachineResponseIdentityInput interface {
-	pulumi.Input
-
-	ToMachineResponseIdentityOutput() MachineResponseIdentityOutput
-	ToMachineResponseIdentityOutputWithContext(context.Context) MachineResponseIdentityOutput
-}
-
-type MachineResponseIdentityArgs struct {
-	PrincipalId pulumi.StringInput    `pulumi:"principalId"`
-	TenantId    pulumi.StringInput    `pulumi:"tenantId"`
-	Type        pulumi.StringPtrInput `pulumi:"type"`
-}
-
-func (MachineResponseIdentityArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MachineResponseIdentity)(nil)).Elem()
-}
-
-func (i MachineResponseIdentityArgs) ToMachineResponseIdentityOutput() MachineResponseIdentityOutput {
-	return i.ToMachineResponseIdentityOutputWithContext(context.Background())
-}
-
-func (i MachineResponseIdentityArgs) ToMachineResponseIdentityOutputWithContext(ctx context.Context) MachineResponseIdentityOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MachineResponseIdentityOutput)
-}
-
-func (i MachineResponseIdentityArgs) ToMachineResponseIdentityPtrOutput() MachineResponseIdentityPtrOutput {
-	return i.ToMachineResponseIdentityPtrOutputWithContext(context.Background())
-}
-
-func (i MachineResponseIdentityArgs) ToMachineResponseIdentityPtrOutputWithContext(ctx context.Context) MachineResponseIdentityPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MachineResponseIdentityOutput).ToMachineResponseIdentityPtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type MachineResponseIdentityPtrInput interface {
-	pulumi.Input
-
-	ToMachineResponseIdentityPtrOutput() MachineResponseIdentityPtrOutput
-	ToMachineResponseIdentityPtrOutputWithContext(context.Context) MachineResponseIdentityPtrOutput
-}
-
-type machineResponseIdentityPtrType MachineResponseIdentityArgs
-
-func MachineResponseIdentityPtr(v *MachineResponseIdentityArgs) MachineResponseIdentityPtrInput {
-	return (*machineResponseIdentityPtrType)(v)
-}
-
-func (*machineResponseIdentityPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**MachineResponseIdentity)(nil)).Elem()
-}
-
-func (i *machineResponseIdentityPtrType) ToMachineResponseIdentityPtrOutput() MachineResponseIdentityPtrOutput {
-	return i.ToMachineResponseIdentityPtrOutputWithContext(context.Background())
-}
-
-func (i *machineResponseIdentityPtrType) ToMachineResponseIdentityPtrOutputWithContext(ctx context.Context) MachineResponseIdentityPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MachineResponseIdentityPtrOutput)
-}
-
 type MachineResponseIdentityOutput struct{ *pulumi.OutputState }
 
 func (MachineResponseIdentityOutput) ElementType() reflect.Type {
@@ -1802,16 +1300,6 @@ func (o MachineResponseIdentityOutput) ToMachineResponseIdentityOutput() Machine
 
 func (o MachineResponseIdentityOutput) ToMachineResponseIdentityOutputWithContext(ctx context.Context) MachineResponseIdentityOutput {
 	return o
-}
-
-func (o MachineResponseIdentityOutput) ToMachineResponseIdentityPtrOutput() MachineResponseIdentityPtrOutput {
-	return o.ToMachineResponseIdentityPtrOutputWithContext(context.Background())
-}
-
-func (o MachineResponseIdentityOutput) ToMachineResponseIdentityPtrOutputWithContext(ctx context.Context) MachineResponseIdentityPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MachineResponseIdentity) *MachineResponseIdentity {
-		return &v
-	}).(MachineResponseIdentityPtrOutput)
 }
 
 func (o MachineResponseIdentityOutput) PrincipalId() pulumi.StringOutput {

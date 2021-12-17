@@ -45,9 +45,8 @@ func NewWorkspace(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	parametersApplier := func(v WorkspaceCustomParameters) *WorkspaceCustomParameters { return v.Defaults() }
 	if args.Parameters != nil {
-		args.Parameters = args.Parameters.ToWorkspaceCustomParametersPtrOutput().Elem().ApplyT(parametersApplier).(WorkspaceCustomParametersPtrOutput)
+		args.Parameters = args.Parameters.ToWorkspaceCustomParametersPtrOutput().ApplyT(func(v *WorkspaceCustomParameters) *WorkspaceCustomParameters { return v.Defaults() }).(WorkspaceCustomParametersPtrOutput)
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

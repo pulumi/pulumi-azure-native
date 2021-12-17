@@ -149,76 +149,6 @@ type AccountIdentityResponse struct {
 	Type        *string `pulumi:"type"`
 }
 
-
-
-
-
-type AccountIdentityResponseInput interface {
-	pulumi.Input
-
-	ToAccountIdentityResponseOutput() AccountIdentityResponseOutput
-	ToAccountIdentityResponseOutputWithContext(context.Context) AccountIdentityResponseOutput
-}
-
-type AccountIdentityResponseArgs struct {
-	PrincipalId pulumi.StringInput    `pulumi:"principalId"`
-	TenantId    pulumi.StringInput    `pulumi:"tenantId"`
-	Type        pulumi.StringPtrInput `pulumi:"type"`
-}
-
-func (AccountIdentityResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AccountIdentityResponse)(nil)).Elem()
-}
-
-func (i AccountIdentityResponseArgs) ToAccountIdentityResponseOutput() AccountIdentityResponseOutput {
-	return i.ToAccountIdentityResponseOutputWithContext(context.Background())
-}
-
-func (i AccountIdentityResponseArgs) ToAccountIdentityResponseOutputWithContext(ctx context.Context) AccountIdentityResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AccountIdentityResponseOutput)
-}
-
-func (i AccountIdentityResponseArgs) ToAccountIdentityResponsePtrOutput() AccountIdentityResponsePtrOutput {
-	return i.ToAccountIdentityResponsePtrOutputWithContext(context.Background())
-}
-
-func (i AccountIdentityResponseArgs) ToAccountIdentityResponsePtrOutputWithContext(ctx context.Context) AccountIdentityResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AccountIdentityResponseOutput).ToAccountIdentityResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type AccountIdentityResponsePtrInput interface {
-	pulumi.Input
-
-	ToAccountIdentityResponsePtrOutput() AccountIdentityResponsePtrOutput
-	ToAccountIdentityResponsePtrOutputWithContext(context.Context) AccountIdentityResponsePtrOutput
-}
-
-type accountIdentityResponsePtrType AccountIdentityResponseArgs
-
-func AccountIdentityResponsePtr(v *AccountIdentityResponseArgs) AccountIdentityResponsePtrInput {
-	return (*accountIdentityResponsePtrType)(v)
-}
-
-func (*accountIdentityResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AccountIdentityResponse)(nil)).Elem()
-}
-
-func (i *accountIdentityResponsePtrType) ToAccountIdentityResponsePtrOutput() AccountIdentityResponsePtrOutput {
-	return i.ToAccountIdentityResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *accountIdentityResponsePtrType) ToAccountIdentityResponsePtrOutputWithContext(ctx context.Context) AccountIdentityResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AccountIdentityResponsePtrOutput)
-}
-
 type AccountIdentityResponseOutput struct{ *pulumi.OutputState }
 
 func (AccountIdentityResponseOutput) ElementType() reflect.Type {
@@ -231,16 +161,6 @@ func (o AccountIdentityResponseOutput) ToAccountIdentityResponseOutput() Account
 
 func (o AccountIdentityResponseOutput) ToAccountIdentityResponseOutputWithContext(ctx context.Context) AccountIdentityResponseOutput {
 	return o
-}
-
-func (o AccountIdentityResponseOutput) ToAccountIdentityResponsePtrOutput() AccountIdentityResponsePtrOutput {
-	return o.ToAccountIdentityResponsePtrOutputWithContext(context.Background())
-}
-
-func (o AccountIdentityResponseOutput) ToAccountIdentityResponsePtrOutputWithContext(ctx context.Context) AccountIdentityResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccountIdentityResponse) *AccountIdentityResponse {
-		return &v
-	}).(AccountIdentityResponsePtrOutput)
 }
 
 func (o AccountIdentityResponseOutput) PrincipalId() pulumi.StringOutput {
@@ -310,74 +230,6 @@ type ConfigurationProfileAssignmentComplianceResponse struct {
 	UpdateStatus string `pulumi:"updateStatus"`
 }
 
-
-
-
-
-type ConfigurationProfileAssignmentComplianceResponseInput interface {
-	pulumi.Input
-
-	ToConfigurationProfileAssignmentComplianceResponseOutput() ConfigurationProfileAssignmentComplianceResponseOutput
-	ToConfigurationProfileAssignmentComplianceResponseOutputWithContext(context.Context) ConfigurationProfileAssignmentComplianceResponseOutput
-}
-
-type ConfigurationProfileAssignmentComplianceResponseArgs struct {
-	UpdateStatus pulumi.StringInput `pulumi:"updateStatus"`
-}
-
-func (ConfigurationProfileAssignmentComplianceResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConfigurationProfileAssignmentComplianceResponse)(nil)).Elem()
-}
-
-func (i ConfigurationProfileAssignmentComplianceResponseArgs) ToConfigurationProfileAssignmentComplianceResponseOutput() ConfigurationProfileAssignmentComplianceResponseOutput {
-	return i.ToConfigurationProfileAssignmentComplianceResponseOutputWithContext(context.Background())
-}
-
-func (i ConfigurationProfileAssignmentComplianceResponseArgs) ToConfigurationProfileAssignmentComplianceResponseOutputWithContext(ctx context.Context) ConfigurationProfileAssignmentComplianceResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationProfileAssignmentComplianceResponseOutput)
-}
-
-func (i ConfigurationProfileAssignmentComplianceResponseArgs) ToConfigurationProfileAssignmentComplianceResponsePtrOutput() ConfigurationProfileAssignmentComplianceResponsePtrOutput {
-	return i.ToConfigurationProfileAssignmentComplianceResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ConfigurationProfileAssignmentComplianceResponseArgs) ToConfigurationProfileAssignmentComplianceResponsePtrOutputWithContext(ctx context.Context) ConfigurationProfileAssignmentComplianceResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationProfileAssignmentComplianceResponseOutput).ToConfigurationProfileAssignmentComplianceResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type ConfigurationProfileAssignmentComplianceResponsePtrInput interface {
-	pulumi.Input
-
-	ToConfigurationProfileAssignmentComplianceResponsePtrOutput() ConfigurationProfileAssignmentComplianceResponsePtrOutput
-	ToConfigurationProfileAssignmentComplianceResponsePtrOutputWithContext(context.Context) ConfigurationProfileAssignmentComplianceResponsePtrOutput
-}
-
-type configurationProfileAssignmentComplianceResponsePtrType ConfigurationProfileAssignmentComplianceResponseArgs
-
-func ConfigurationProfileAssignmentComplianceResponsePtr(v *ConfigurationProfileAssignmentComplianceResponseArgs) ConfigurationProfileAssignmentComplianceResponsePtrInput {
-	return (*configurationProfileAssignmentComplianceResponsePtrType)(v)
-}
-
-func (*configurationProfileAssignmentComplianceResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConfigurationProfileAssignmentComplianceResponse)(nil)).Elem()
-}
-
-func (i *configurationProfileAssignmentComplianceResponsePtrType) ToConfigurationProfileAssignmentComplianceResponsePtrOutput() ConfigurationProfileAssignmentComplianceResponsePtrOutput {
-	return i.ToConfigurationProfileAssignmentComplianceResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *configurationProfileAssignmentComplianceResponsePtrType) ToConfigurationProfileAssignmentComplianceResponsePtrOutputWithContext(ctx context.Context) ConfigurationProfileAssignmentComplianceResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationProfileAssignmentComplianceResponsePtrOutput)
-}
-
 type ConfigurationProfileAssignmentComplianceResponseOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationProfileAssignmentComplianceResponseOutput) ElementType() reflect.Type {
@@ -390,16 +242,6 @@ func (o ConfigurationProfileAssignmentComplianceResponseOutput) ToConfigurationP
 
 func (o ConfigurationProfileAssignmentComplianceResponseOutput) ToConfigurationProfileAssignmentComplianceResponseOutputWithContext(ctx context.Context) ConfigurationProfileAssignmentComplianceResponseOutput {
 	return o
-}
-
-func (o ConfigurationProfileAssignmentComplianceResponseOutput) ToConfigurationProfileAssignmentComplianceResponsePtrOutput() ConfigurationProfileAssignmentComplianceResponsePtrOutput {
-	return o.ToConfigurationProfileAssignmentComplianceResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ConfigurationProfileAssignmentComplianceResponseOutput) ToConfigurationProfileAssignmentComplianceResponsePtrOutputWithContext(ctx context.Context) ConfigurationProfileAssignmentComplianceResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigurationProfileAssignmentComplianceResponse) *ConfigurationProfileAssignmentComplianceResponse {
-		return &v
-	}).(ConfigurationProfileAssignmentComplianceResponsePtrOutput)
 }
 
 func (o ConfigurationProfileAssignmentComplianceResponseOutput) UpdateStatus() pulumi.StringOutput {
@@ -626,79 +468,6 @@ type ConfigurationProfileAssignmentPropertiesResponse struct {
 	TargetId                         *string                                           `pulumi:"targetId"`
 }
 
-
-
-
-
-type ConfigurationProfileAssignmentPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToConfigurationProfileAssignmentPropertiesResponseOutput() ConfigurationProfileAssignmentPropertiesResponseOutput
-	ToConfigurationProfileAssignmentPropertiesResponseOutputWithContext(context.Context) ConfigurationProfileAssignmentPropertiesResponseOutput
-}
-
-type ConfigurationProfileAssignmentPropertiesResponseArgs struct {
-	AccountId                        pulumi.StringPtrInput                                    `pulumi:"accountId"`
-	Compliance                       ConfigurationProfileAssignmentComplianceResponsePtrInput `pulumi:"compliance"`
-	ConfigurationProfile             pulumi.StringPtrInput                                    `pulumi:"configurationProfile"`
-	ConfigurationProfilePreferenceId pulumi.StringPtrInput                                    `pulumi:"configurationProfilePreferenceId"`
-	ProvisioningState                pulumi.StringInput                                       `pulumi:"provisioningState"`
-	TargetId                         pulumi.StringPtrInput                                    `pulumi:"targetId"`
-}
-
-func (ConfigurationProfileAssignmentPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConfigurationProfileAssignmentPropertiesResponse)(nil)).Elem()
-}
-
-func (i ConfigurationProfileAssignmentPropertiesResponseArgs) ToConfigurationProfileAssignmentPropertiesResponseOutput() ConfigurationProfileAssignmentPropertiesResponseOutput {
-	return i.ToConfigurationProfileAssignmentPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i ConfigurationProfileAssignmentPropertiesResponseArgs) ToConfigurationProfileAssignmentPropertiesResponseOutputWithContext(ctx context.Context) ConfigurationProfileAssignmentPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationProfileAssignmentPropertiesResponseOutput)
-}
-
-func (i ConfigurationProfileAssignmentPropertiesResponseArgs) ToConfigurationProfileAssignmentPropertiesResponsePtrOutput() ConfigurationProfileAssignmentPropertiesResponsePtrOutput {
-	return i.ToConfigurationProfileAssignmentPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ConfigurationProfileAssignmentPropertiesResponseArgs) ToConfigurationProfileAssignmentPropertiesResponsePtrOutputWithContext(ctx context.Context) ConfigurationProfileAssignmentPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationProfileAssignmentPropertiesResponseOutput).ToConfigurationProfileAssignmentPropertiesResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type ConfigurationProfileAssignmentPropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToConfigurationProfileAssignmentPropertiesResponsePtrOutput() ConfigurationProfileAssignmentPropertiesResponsePtrOutput
-	ToConfigurationProfileAssignmentPropertiesResponsePtrOutputWithContext(context.Context) ConfigurationProfileAssignmentPropertiesResponsePtrOutput
-}
-
-type configurationProfileAssignmentPropertiesResponsePtrType ConfigurationProfileAssignmentPropertiesResponseArgs
-
-func ConfigurationProfileAssignmentPropertiesResponsePtr(v *ConfigurationProfileAssignmentPropertiesResponseArgs) ConfigurationProfileAssignmentPropertiesResponsePtrInput {
-	return (*configurationProfileAssignmentPropertiesResponsePtrType)(v)
-}
-
-func (*configurationProfileAssignmentPropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConfigurationProfileAssignmentPropertiesResponse)(nil)).Elem()
-}
-
-func (i *configurationProfileAssignmentPropertiesResponsePtrType) ToConfigurationProfileAssignmentPropertiesResponsePtrOutput() ConfigurationProfileAssignmentPropertiesResponsePtrOutput {
-	return i.ToConfigurationProfileAssignmentPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *configurationProfileAssignmentPropertiesResponsePtrType) ToConfigurationProfileAssignmentPropertiesResponsePtrOutputWithContext(ctx context.Context) ConfigurationProfileAssignmentPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationProfileAssignmentPropertiesResponsePtrOutput)
-}
-
 type ConfigurationProfileAssignmentPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationProfileAssignmentPropertiesResponseOutput) ElementType() reflect.Type {
@@ -711,16 +480,6 @@ func (o ConfigurationProfileAssignmentPropertiesResponseOutput) ToConfigurationP
 
 func (o ConfigurationProfileAssignmentPropertiesResponseOutput) ToConfigurationProfileAssignmentPropertiesResponseOutputWithContext(ctx context.Context) ConfigurationProfileAssignmentPropertiesResponseOutput {
 	return o
-}
-
-func (o ConfigurationProfileAssignmentPropertiesResponseOutput) ToConfigurationProfileAssignmentPropertiesResponsePtrOutput() ConfigurationProfileAssignmentPropertiesResponsePtrOutput {
-	return o.ToConfigurationProfileAssignmentPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ConfigurationProfileAssignmentPropertiesResponseOutput) ToConfigurationProfileAssignmentPropertiesResponsePtrOutputWithContext(ctx context.Context) ConfigurationProfileAssignmentPropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigurationProfileAssignmentPropertiesResponse) *ConfigurationProfileAssignmentPropertiesResponse {
-		return &v
-	}).(ConfigurationProfileAssignmentPropertiesResponsePtrOutput)
 }
 
 func (o ConfigurationProfileAssignmentPropertiesResponseOutput) AccountId() pulumi.StringPtrOutput {
@@ -749,84 +508,6 @@ func (o ConfigurationProfileAssignmentPropertiesResponseOutput) ProvisioningStat
 
 func (o ConfigurationProfileAssignmentPropertiesResponseOutput) TargetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConfigurationProfileAssignmentPropertiesResponse) *string { return v.TargetId }).(pulumi.StringPtrOutput)
-}
-
-type ConfigurationProfileAssignmentPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (ConfigurationProfileAssignmentPropertiesResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConfigurationProfileAssignmentPropertiesResponse)(nil)).Elem()
-}
-
-func (o ConfigurationProfileAssignmentPropertiesResponsePtrOutput) ToConfigurationProfileAssignmentPropertiesResponsePtrOutput() ConfigurationProfileAssignmentPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o ConfigurationProfileAssignmentPropertiesResponsePtrOutput) ToConfigurationProfileAssignmentPropertiesResponsePtrOutputWithContext(ctx context.Context) ConfigurationProfileAssignmentPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o ConfigurationProfileAssignmentPropertiesResponsePtrOutput) Elem() ConfigurationProfileAssignmentPropertiesResponseOutput {
-	return o.ApplyT(func(v *ConfigurationProfileAssignmentPropertiesResponse) ConfigurationProfileAssignmentPropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ConfigurationProfileAssignmentPropertiesResponse
-		return ret
-	}).(ConfigurationProfileAssignmentPropertiesResponseOutput)
-}
-
-func (o ConfigurationProfileAssignmentPropertiesResponsePtrOutput) AccountId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ConfigurationProfileAssignmentPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.AccountId
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ConfigurationProfileAssignmentPropertiesResponsePtrOutput) Compliance() ConfigurationProfileAssignmentComplianceResponsePtrOutput {
-	return o.ApplyT(func(v *ConfigurationProfileAssignmentPropertiesResponse) *ConfigurationProfileAssignmentComplianceResponse {
-		if v == nil {
-			return nil
-		}
-		return v.Compliance
-	}).(ConfigurationProfileAssignmentComplianceResponsePtrOutput)
-}
-
-func (o ConfigurationProfileAssignmentPropertiesResponsePtrOutput) ConfigurationProfile() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ConfigurationProfileAssignmentPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ConfigurationProfile
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ConfigurationProfileAssignmentPropertiesResponsePtrOutput) ConfigurationProfilePreferenceId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ConfigurationProfileAssignmentPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ConfigurationProfilePreferenceId
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ConfigurationProfileAssignmentPropertiesResponsePtrOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ConfigurationProfileAssignmentPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.ProvisioningState
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ConfigurationProfileAssignmentPropertiesResponsePtrOutput) TargetId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ConfigurationProfileAssignmentPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.TargetId
-	}).(pulumi.StringPtrOutput)
 }
 
 type ConfigurationProfilePreferenceAntiMalware struct {
@@ -1046,79 +727,6 @@ type ConfigurationProfilePreferenceAntiMalwareResponse struct {
 	ScanType                 *string     `pulumi:"scanType"`
 }
 
-
-
-
-
-type ConfigurationProfilePreferenceAntiMalwareResponseInput interface {
-	pulumi.Input
-
-	ToConfigurationProfilePreferenceAntiMalwareResponseOutput() ConfigurationProfilePreferenceAntiMalwareResponseOutput
-	ToConfigurationProfilePreferenceAntiMalwareResponseOutputWithContext(context.Context) ConfigurationProfilePreferenceAntiMalwareResponseOutput
-}
-
-type ConfigurationProfilePreferenceAntiMalwareResponseArgs struct {
-	EnableRealTimeProtection pulumi.StringPtrInput `pulumi:"enableRealTimeProtection"`
-	Exclusions               pulumi.Input          `pulumi:"exclusions"`
-	RunScheduledScan         pulumi.StringPtrInput `pulumi:"runScheduledScan"`
-	ScanDay                  pulumi.StringPtrInput `pulumi:"scanDay"`
-	ScanTimeInMinutes        pulumi.StringPtrInput `pulumi:"scanTimeInMinutes"`
-	ScanType                 pulumi.StringPtrInput `pulumi:"scanType"`
-}
-
-func (ConfigurationProfilePreferenceAntiMalwareResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConfigurationProfilePreferenceAntiMalwareResponse)(nil)).Elem()
-}
-
-func (i ConfigurationProfilePreferenceAntiMalwareResponseArgs) ToConfigurationProfilePreferenceAntiMalwareResponseOutput() ConfigurationProfilePreferenceAntiMalwareResponseOutput {
-	return i.ToConfigurationProfilePreferenceAntiMalwareResponseOutputWithContext(context.Background())
-}
-
-func (i ConfigurationProfilePreferenceAntiMalwareResponseArgs) ToConfigurationProfilePreferenceAntiMalwareResponseOutputWithContext(ctx context.Context) ConfigurationProfilePreferenceAntiMalwareResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationProfilePreferenceAntiMalwareResponseOutput)
-}
-
-func (i ConfigurationProfilePreferenceAntiMalwareResponseArgs) ToConfigurationProfilePreferenceAntiMalwareResponsePtrOutput() ConfigurationProfilePreferenceAntiMalwareResponsePtrOutput {
-	return i.ToConfigurationProfilePreferenceAntiMalwareResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ConfigurationProfilePreferenceAntiMalwareResponseArgs) ToConfigurationProfilePreferenceAntiMalwareResponsePtrOutputWithContext(ctx context.Context) ConfigurationProfilePreferenceAntiMalwareResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationProfilePreferenceAntiMalwareResponseOutput).ToConfigurationProfilePreferenceAntiMalwareResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type ConfigurationProfilePreferenceAntiMalwareResponsePtrInput interface {
-	pulumi.Input
-
-	ToConfigurationProfilePreferenceAntiMalwareResponsePtrOutput() ConfigurationProfilePreferenceAntiMalwareResponsePtrOutput
-	ToConfigurationProfilePreferenceAntiMalwareResponsePtrOutputWithContext(context.Context) ConfigurationProfilePreferenceAntiMalwareResponsePtrOutput
-}
-
-type configurationProfilePreferenceAntiMalwareResponsePtrType ConfigurationProfilePreferenceAntiMalwareResponseArgs
-
-func ConfigurationProfilePreferenceAntiMalwareResponsePtr(v *ConfigurationProfilePreferenceAntiMalwareResponseArgs) ConfigurationProfilePreferenceAntiMalwareResponsePtrInput {
-	return (*configurationProfilePreferenceAntiMalwareResponsePtrType)(v)
-}
-
-func (*configurationProfilePreferenceAntiMalwareResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConfigurationProfilePreferenceAntiMalwareResponse)(nil)).Elem()
-}
-
-func (i *configurationProfilePreferenceAntiMalwareResponsePtrType) ToConfigurationProfilePreferenceAntiMalwareResponsePtrOutput() ConfigurationProfilePreferenceAntiMalwareResponsePtrOutput {
-	return i.ToConfigurationProfilePreferenceAntiMalwareResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *configurationProfilePreferenceAntiMalwareResponsePtrType) ToConfigurationProfilePreferenceAntiMalwareResponsePtrOutputWithContext(ctx context.Context) ConfigurationProfilePreferenceAntiMalwareResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationProfilePreferenceAntiMalwareResponsePtrOutput)
-}
-
 type ConfigurationProfilePreferenceAntiMalwareResponseOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationProfilePreferenceAntiMalwareResponseOutput) ElementType() reflect.Type {
@@ -1131,16 +739,6 @@ func (o ConfigurationProfilePreferenceAntiMalwareResponseOutput) ToConfiguration
 
 func (o ConfigurationProfilePreferenceAntiMalwareResponseOutput) ToConfigurationProfilePreferenceAntiMalwareResponseOutputWithContext(ctx context.Context) ConfigurationProfilePreferenceAntiMalwareResponseOutput {
 	return o
-}
-
-func (o ConfigurationProfilePreferenceAntiMalwareResponseOutput) ToConfigurationProfilePreferenceAntiMalwareResponsePtrOutput() ConfigurationProfilePreferenceAntiMalwareResponsePtrOutput {
-	return o.ToConfigurationProfilePreferenceAntiMalwareResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ConfigurationProfilePreferenceAntiMalwareResponseOutput) ToConfigurationProfilePreferenceAntiMalwareResponsePtrOutputWithContext(ctx context.Context) ConfigurationProfilePreferenceAntiMalwareResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigurationProfilePreferenceAntiMalwareResponse) *ConfigurationProfilePreferenceAntiMalwareResponse {
-		return &v
-	}).(ConfigurationProfilePreferenceAntiMalwareResponsePtrOutput)
 }
 
 func (o ConfigurationProfilePreferenceAntiMalwareResponseOutput) EnableRealTimeProtection() pulumi.StringPtrOutput {
@@ -1402,75 +1000,6 @@ type ConfigurationProfilePreferencePropertiesResponse struct {
 	VmBackup    *ConfigurationProfilePreferenceVmBackupResponse    `pulumi:"vmBackup"`
 }
 
-
-
-
-
-type ConfigurationProfilePreferencePropertiesResponseInput interface {
-	pulumi.Input
-
-	ToConfigurationProfilePreferencePropertiesResponseOutput() ConfigurationProfilePreferencePropertiesResponseOutput
-	ToConfigurationProfilePreferencePropertiesResponseOutputWithContext(context.Context) ConfigurationProfilePreferencePropertiesResponseOutput
-}
-
-type ConfigurationProfilePreferencePropertiesResponseArgs struct {
-	AntiMalware ConfigurationProfilePreferenceAntiMalwareResponsePtrInput `pulumi:"antiMalware"`
-	VmBackup    ConfigurationProfilePreferenceVmBackupResponsePtrInput    `pulumi:"vmBackup"`
-}
-
-func (ConfigurationProfilePreferencePropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConfigurationProfilePreferencePropertiesResponse)(nil)).Elem()
-}
-
-func (i ConfigurationProfilePreferencePropertiesResponseArgs) ToConfigurationProfilePreferencePropertiesResponseOutput() ConfigurationProfilePreferencePropertiesResponseOutput {
-	return i.ToConfigurationProfilePreferencePropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i ConfigurationProfilePreferencePropertiesResponseArgs) ToConfigurationProfilePreferencePropertiesResponseOutputWithContext(ctx context.Context) ConfigurationProfilePreferencePropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationProfilePreferencePropertiesResponseOutput)
-}
-
-func (i ConfigurationProfilePreferencePropertiesResponseArgs) ToConfigurationProfilePreferencePropertiesResponsePtrOutput() ConfigurationProfilePreferencePropertiesResponsePtrOutput {
-	return i.ToConfigurationProfilePreferencePropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ConfigurationProfilePreferencePropertiesResponseArgs) ToConfigurationProfilePreferencePropertiesResponsePtrOutputWithContext(ctx context.Context) ConfigurationProfilePreferencePropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationProfilePreferencePropertiesResponseOutput).ToConfigurationProfilePreferencePropertiesResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type ConfigurationProfilePreferencePropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToConfigurationProfilePreferencePropertiesResponsePtrOutput() ConfigurationProfilePreferencePropertiesResponsePtrOutput
-	ToConfigurationProfilePreferencePropertiesResponsePtrOutputWithContext(context.Context) ConfigurationProfilePreferencePropertiesResponsePtrOutput
-}
-
-type configurationProfilePreferencePropertiesResponsePtrType ConfigurationProfilePreferencePropertiesResponseArgs
-
-func ConfigurationProfilePreferencePropertiesResponsePtr(v *ConfigurationProfilePreferencePropertiesResponseArgs) ConfigurationProfilePreferencePropertiesResponsePtrInput {
-	return (*configurationProfilePreferencePropertiesResponsePtrType)(v)
-}
-
-func (*configurationProfilePreferencePropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConfigurationProfilePreferencePropertiesResponse)(nil)).Elem()
-}
-
-func (i *configurationProfilePreferencePropertiesResponsePtrType) ToConfigurationProfilePreferencePropertiesResponsePtrOutput() ConfigurationProfilePreferencePropertiesResponsePtrOutput {
-	return i.ToConfigurationProfilePreferencePropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *configurationProfilePreferencePropertiesResponsePtrType) ToConfigurationProfilePreferencePropertiesResponsePtrOutputWithContext(ctx context.Context) ConfigurationProfilePreferencePropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationProfilePreferencePropertiesResponsePtrOutput)
-}
-
 type ConfigurationProfilePreferencePropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationProfilePreferencePropertiesResponseOutput) ElementType() reflect.Type {
@@ -1485,16 +1014,6 @@ func (o ConfigurationProfilePreferencePropertiesResponseOutput) ToConfigurationP
 	return o
 }
 
-func (o ConfigurationProfilePreferencePropertiesResponseOutput) ToConfigurationProfilePreferencePropertiesResponsePtrOutput() ConfigurationProfilePreferencePropertiesResponsePtrOutput {
-	return o.ToConfigurationProfilePreferencePropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ConfigurationProfilePreferencePropertiesResponseOutput) ToConfigurationProfilePreferencePropertiesResponsePtrOutputWithContext(ctx context.Context) ConfigurationProfilePreferencePropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigurationProfilePreferencePropertiesResponse) *ConfigurationProfilePreferencePropertiesResponse {
-		return &v
-	}).(ConfigurationProfilePreferencePropertiesResponsePtrOutput)
-}
-
 func (o ConfigurationProfilePreferencePropertiesResponseOutput) AntiMalware() ConfigurationProfilePreferenceAntiMalwareResponsePtrOutput {
 	return o.ApplyT(func(v ConfigurationProfilePreferencePropertiesResponse) *ConfigurationProfilePreferenceAntiMalwareResponse {
 		return v.AntiMalware
@@ -1503,48 +1022,6 @@ func (o ConfigurationProfilePreferencePropertiesResponseOutput) AntiMalware() Co
 
 func (o ConfigurationProfilePreferencePropertiesResponseOutput) VmBackup() ConfigurationProfilePreferenceVmBackupResponsePtrOutput {
 	return o.ApplyT(func(v ConfigurationProfilePreferencePropertiesResponse) *ConfigurationProfilePreferenceVmBackupResponse {
-		return v.VmBackup
-	}).(ConfigurationProfilePreferenceVmBackupResponsePtrOutput)
-}
-
-type ConfigurationProfilePreferencePropertiesResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (ConfigurationProfilePreferencePropertiesResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConfigurationProfilePreferencePropertiesResponse)(nil)).Elem()
-}
-
-func (o ConfigurationProfilePreferencePropertiesResponsePtrOutput) ToConfigurationProfilePreferencePropertiesResponsePtrOutput() ConfigurationProfilePreferencePropertiesResponsePtrOutput {
-	return o
-}
-
-func (o ConfigurationProfilePreferencePropertiesResponsePtrOutput) ToConfigurationProfilePreferencePropertiesResponsePtrOutputWithContext(ctx context.Context) ConfigurationProfilePreferencePropertiesResponsePtrOutput {
-	return o
-}
-
-func (o ConfigurationProfilePreferencePropertiesResponsePtrOutput) Elem() ConfigurationProfilePreferencePropertiesResponseOutput {
-	return o.ApplyT(func(v *ConfigurationProfilePreferencePropertiesResponse) ConfigurationProfilePreferencePropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ConfigurationProfilePreferencePropertiesResponse
-		return ret
-	}).(ConfigurationProfilePreferencePropertiesResponseOutput)
-}
-
-func (o ConfigurationProfilePreferencePropertiesResponsePtrOutput) AntiMalware() ConfigurationProfilePreferenceAntiMalwareResponsePtrOutput {
-	return o.ApplyT(func(v *ConfigurationProfilePreferencePropertiesResponse) *ConfigurationProfilePreferenceAntiMalwareResponse {
-		if v == nil {
-			return nil
-		}
-		return v.AntiMalware
-	}).(ConfigurationProfilePreferenceAntiMalwareResponsePtrOutput)
-}
-
-func (o ConfigurationProfilePreferencePropertiesResponsePtrOutput) VmBackup() ConfigurationProfilePreferenceVmBackupResponsePtrOutput {
-	return o.ApplyT(func(v *ConfigurationProfilePreferencePropertiesResponse) *ConfigurationProfilePreferenceVmBackupResponse {
-		if v == nil {
-			return nil
-		}
 		return v.VmBackup
 	}).(ConfigurationProfilePreferenceVmBackupResponsePtrOutput)
 }
@@ -1734,77 +1211,6 @@ type ConfigurationProfilePreferenceVmBackupResponse struct {
 	TimeZone                      *string `pulumi:"timeZone"`
 }
 
-
-
-
-
-type ConfigurationProfilePreferenceVmBackupResponseInput interface {
-	pulumi.Input
-
-	ToConfigurationProfilePreferenceVmBackupResponseOutput() ConfigurationProfilePreferenceVmBackupResponseOutput
-	ToConfigurationProfilePreferenceVmBackupResponseOutputWithContext(context.Context) ConfigurationProfilePreferenceVmBackupResponseOutput
-}
-
-type ConfigurationProfilePreferenceVmBackupResponseArgs struct {
-	InstantRpRetentionRangeInDays pulumi.IntPtrInput    `pulumi:"instantRpRetentionRangeInDays"`
-	RetentionPolicy               pulumi.StringPtrInput `pulumi:"retentionPolicy"`
-	SchedulePolicy                pulumi.StringPtrInput `pulumi:"schedulePolicy"`
-	TimeZone                      pulumi.StringPtrInput `pulumi:"timeZone"`
-}
-
-func (ConfigurationProfilePreferenceVmBackupResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConfigurationProfilePreferenceVmBackupResponse)(nil)).Elem()
-}
-
-func (i ConfigurationProfilePreferenceVmBackupResponseArgs) ToConfigurationProfilePreferenceVmBackupResponseOutput() ConfigurationProfilePreferenceVmBackupResponseOutput {
-	return i.ToConfigurationProfilePreferenceVmBackupResponseOutputWithContext(context.Background())
-}
-
-func (i ConfigurationProfilePreferenceVmBackupResponseArgs) ToConfigurationProfilePreferenceVmBackupResponseOutputWithContext(ctx context.Context) ConfigurationProfilePreferenceVmBackupResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationProfilePreferenceVmBackupResponseOutput)
-}
-
-func (i ConfigurationProfilePreferenceVmBackupResponseArgs) ToConfigurationProfilePreferenceVmBackupResponsePtrOutput() ConfigurationProfilePreferenceVmBackupResponsePtrOutput {
-	return i.ToConfigurationProfilePreferenceVmBackupResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ConfigurationProfilePreferenceVmBackupResponseArgs) ToConfigurationProfilePreferenceVmBackupResponsePtrOutputWithContext(ctx context.Context) ConfigurationProfilePreferenceVmBackupResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationProfilePreferenceVmBackupResponseOutput).ToConfigurationProfilePreferenceVmBackupResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type ConfigurationProfilePreferenceVmBackupResponsePtrInput interface {
-	pulumi.Input
-
-	ToConfigurationProfilePreferenceVmBackupResponsePtrOutput() ConfigurationProfilePreferenceVmBackupResponsePtrOutput
-	ToConfigurationProfilePreferenceVmBackupResponsePtrOutputWithContext(context.Context) ConfigurationProfilePreferenceVmBackupResponsePtrOutput
-}
-
-type configurationProfilePreferenceVmBackupResponsePtrType ConfigurationProfilePreferenceVmBackupResponseArgs
-
-func ConfigurationProfilePreferenceVmBackupResponsePtr(v *ConfigurationProfilePreferenceVmBackupResponseArgs) ConfigurationProfilePreferenceVmBackupResponsePtrInput {
-	return (*configurationProfilePreferenceVmBackupResponsePtrType)(v)
-}
-
-func (*configurationProfilePreferenceVmBackupResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConfigurationProfilePreferenceVmBackupResponse)(nil)).Elem()
-}
-
-func (i *configurationProfilePreferenceVmBackupResponsePtrType) ToConfigurationProfilePreferenceVmBackupResponsePtrOutput() ConfigurationProfilePreferenceVmBackupResponsePtrOutput {
-	return i.ToConfigurationProfilePreferenceVmBackupResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *configurationProfilePreferenceVmBackupResponsePtrType) ToConfigurationProfilePreferenceVmBackupResponsePtrOutputWithContext(ctx context.Context) ConfigurationProfilePreferenceVmBackupResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationProfilePreferenceVmBackupResponsePtrOutput)
-}
-
 type ConfigurationProfilePreferenceVmBackupResponseOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationProfilePreferenceVmBackupResponseOutput) ElementType() reflect.Type {
@@ -1817,16 +1223,6 @@ func (o ConfigurationProfilePreferenceVmBackupResponseOutput) ToConfigurationPro
 
 func (o ConfigurationProfilePreferenceVmBackupResponseOutput) ToConfigurationProfilePreferenceVmBackupResponseOutputWithContext(ctx context.Context) ConfigurationProfilePreferenceVmBackupResponseOutput {
 	return o
-}
-
-func (o ConfigurationProfilePreferenceVmBackupResponseOutput) ToConfigurationProfilePreferenceVmBackupResponsePtrOutput() ConfigurationProfilePreferenceVmBackupResponsePtrOutput {
-	return o.ToConfigurationProfilePreferenceVmBackupResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ConfigurationProfilePreferenceVmBackupResponseOutput) ToConfigurationProfilePreferenceVmBackupResponsePtrOutputWithContext(ctx context.Context) ConfigurationProfilePreferenceVmBackupResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigurationProfilePreferenceVmBackupResponse) *ConfigurationProfilePreferenceVmBackupResponse {
-		return &v
-	}).(ConfigurationProfilePreferenceVmBackupResponsePtrOutput)
 }
 
 func (o ConfigurationProfilePreferenceVmBackupResponseOutput) InstantRpRetentionRangeInDays() pulumi.IntPtrOutput {
@@ -1915,7 +1311,6 @@ func init() {
 	pulumi.RegisterOutputType(ConfigurationProfileAssignmentPropertiesOutput{})
 	pulumi.RegisterOutputType(ConfigurationProfileAssignmentPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ConfigurationProfileAssignmentPropertiesResponseOutput{})
-	pulumi.RegisterOutputType(ConfigurationProfileAssignmentPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(ConfigurationProfilePreferenceAntiMalwareOutput{})
 	pulumi.RegisterOutputType(ConfigurationProfilePreferenceAntiMalwarePtrOutput{})
 	pulumi.RegisterOutputType(ConfigurationProfilePreferenceAntiMalwareResponseOutput{})
@@ -1923,7 +1318,6 @@ func init() {
 	pulumi.RegisterOutputType(ConfigurationProfilePreferencePropertiesOutput{})
 	pulumi.RegisterOutputType(ConfigurationProfilePreferencePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ConfigurationProfilePreferencePropertiesResponseOutput{})
-	pulumi.RegisterOutputType(ConfigurationProfilePreferencePropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(ConfigurationProfilePreferenceVmBackupOutput{})
 	pulumi.RegisterOutputType(ConfigurationProfilePreferenceVmBackupPtrOutput{})
 	pulumi.RegisterOutputType(ConfigurationProfilePreferenceVmBackupResponseOutput{})

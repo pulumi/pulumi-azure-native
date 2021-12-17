@@ -190,66 +190,6 @@ func (val *ActiveDirectoryResponse) Defaults() *ActiveDirectoryResponse {
 	return &tmp
 }
 
-
-
-
-
-type ActiveDirectoryResponseInput interface {
-	pulumi.Input
-
-	ToActiveDirectoryResponseOutput() ActiveDirectoryResponseOutput
-	ToActiveDirectoryResponseOutputWithContext(context.Context) ActiveDirectoryResponseOutput
-}
-
-type ActiveDirectoryResponseArgs struct {
-	ActiveDirectoryId  pulumi.StringPtrInput `pulumi:"activeDirectoryId"`
-	Dns                pulumi.StringPtrInput `pulumi:"dns"`
-	Domain             pulumi.StringPtrInput `pulumi:"domain"`
-	OrganizationalUnit pulumi.StringPtrInput `pulumi:"organizationalUnit"`
-	Password           pulumi.StringPtrInput `pulumi:"password"`
-	Site               pulumi.StringPtrInput `pulumi:"site"`
-	SmbServerName      pulumi.StringPtrInput `pulumi:"smbServerName"`
-	Status             pulumi.StringPtrInput `pulumi:"status"`
-	Username           pulumi.StringPtrInput `pulumi:"username"`
-}
-
-func (ActiveDirectoryResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ActiveDirectoryResponse)(nil)).Elem()
-}
-
-func (i ActiveDirectoryResponseArgs) ToActiveDirectoryResponseOutput() ActiveDirectoryResponseOutput {
-	return i.ToActiveDirectoryResponseOutputWithContext(context.Background())
-}
-
-func (i ActiveDirectoryResponseArgs) ToActiveDirectoryResponseOutputWithContext(ctx context.Context) ActiveDirectoryResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActiveDirectoryResponseOutput)
-}
-
-
-
-
-
-type ActiveDirectoryResponseArrayInput interface {
-	pulumi.Input
-
-	ToActiveDirectoryResponseArrayOutput() ActiveDirectoryResponseArrayOutput
-	ToActiveDirectoryResponseArrayOutputWithContext(context.Context) ActiveDirectoryResponseArrayOutput
-}
-
-type ActiveDirectoryResponseArray []ActiveDirectoryResponseInput
-
-func (ActiveDirectoryResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ActiveDirectoryResponse)(nil)).Elem()
-}
-
-func (i ActiveDirectoryResponseArray) ToActiveDirectoryResponseArrayOutput() ActiveDirectoryResponseArrayOutput {
-	return i.ToActiveDirectoryResponseArrayOutputWithContext(context.Background())
-}
-
-func (i ActiveDirectoryResponseArray) ToActiveDirectoryResponseArrayOutputWithContext(ctx context.Context) ActiveDirectoryResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActiveDirectoryResponseArrayOutput)
-}
-
 type ActiveDirectoryResponseOutput struct{ *pulumi.OutputState }
 
 func (ActiveDirectoryResponseOutput) ElementType() reflect.Type {
@@ -460,64 +400,6 @@ type ExportPolicyRuleResponse struct {
 	UnixReadWrite  *bool   `pulumi:"unixReadWrite"`
 }
 
-
-
-
-
-type ExportPolicyRuleResponseInput interface {
-	pulumi.Input
-
-	ToExportPolicyRuleResponseOutput() ExportPolicyRuleResponseOutput
-	ToExportPolicyRuleResponseOutputWithContext(context.Context) ExportPolicyRuleResponseOutput
-}
-
-type ExportPolicyRuleResponseArgs struct {
-	AllowedClients pulumi.StringPtrInput `pulumi:"allowedClients"`
-	Cifs           pulumi.BoolPtrInput   `pulumi:"cifs"`
-	Nfsv3          pulumi.BoolPtrInput   `pulumi:"nfsv3"`
-	Nfsv41         pulumi.BoolPtrInput   `pulumi:"nfsv41"`
-	RuleIndex      pulumi.IntPtrInput    `pulumi:"ruleIndex"`
-	UnixReadOnly   pulumi.BoolPtrInput   `pulumi:"unixReadOnly"`
-	UnixReadWrite  pulumi.BoolPtrInput   `pulumi:"unixReadWrite"`
-}
-
-func (ExportPolicyRuleResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ExportPolicyRuleResponse)(nil)).Elem()
-}
-
-func (i ExportPolicyRuleResponseArgs) ToExportPolicyRuleResponseOutput() ExportPolicyRuleResponseOutput {
-	return i.ToExportPolicyRuleResponseOutputWithContext(context.Background())
-}
-
-func (i ExportPolicyRuleResponseArgs) ToExportPolicyRuleResponseOutputWithContext(ctx context.Context) ExportPolicyRuleResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ExportPolicyRuleResponseOutput)
-}
-
-
-
-
-
-type ExportPolicyRuleResponseArrayInput interface {
-	pulumi.Input
-
-	ToExportPolicyRuleResponseArrayOutput() ExportPolicyRuleResponseArrayOutput
-	ToExportPolicyRuleResponseArrayOutputWithContext(context.Context) ExportPolicyRuleResponseArrayOutput
-}
-
-type ExportPolicyRuleResponseArray []ExportPolicyRuleResponseInput
-
-func (ExportPolicyRuleResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ExportPolicyRuleResponse)(nil)).Elem()
-}
-
-func (i ExportPolicyRuleResponseArray) ToExportPolicyRuleResponseArrayOutput() ExportPolicyRuleResponseArrayOutput {
-	return i.ToExportPolicyRuleResponseArrayOutputWithContext(context.Background())
-}
-
-func (i ExportPolicyRuleResponseArray) ToExportPolicyRuleResponseArrayOutputWithContext(ctx context.Context) ExportPolicyRuleResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ExportPolicyRuleResponseArrayOutput)
-}
-
 type ExportPolicyRuleResponseOutput struct{ *pulumi.OutputState }
 
 func (ExportPolicyRuleResponseOutput) ElementType() reflect.Type {
@@ -590,66 +472,6 @@ type MountTargetPropertiesResponse struct {
 	SmbServerFqdn *string `pulumi:"smbServerFqdn"`
 	StartIp       *string `pulumi:"startIp"`
 	Subnet        *string `pulumi:"subnet"`
-}
-
-
-
-
-
-type MountTargetPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToMountTargetPropertiesResponseOutput() MountTargetPropertiesResponseOutput
-	ToMountTargetPropertiesResponseOutputWithContext(context.Context) MountTargetPropertiesResponseOutput
-}
-
-type MountTargetPropertiesResponseArgs struct {
-	EndIp         pulumi.StringPtrInput `pulumi:"endIp"`
-	FileSystemId  pulumi.StringInput    `pulumi:"fileSystemId"`
-	Gateway       pulumi.StringPtrInput `pulumi:"gateway"`
-	IpAddress     pulumi.StringInput    `pulumi:"ipAddress"`
-	MountTargetId pulumi.StringInput    `pulumi:"mountTargetId"`
-	Netmask       pulumi.StringPtrInput `pulumi:"netmask"`
-	SmbServerFqdn pulumi.StringPtrInput `pulumi:"smbServerFqdn"`
-	StartIp       pulumi.StringPtrInput `pulumi:"startIp"`
-	Subnet        pulumi.StringPtrInput `pulumi:"subnet"`
-}
-
-func (MountTargetPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MountTargetPropertiesResponse)(nil)).Elem()
-}
-
-func (i MountTargetPropertiesResponseArgs) ToMountTargetPropertiesResponseOutput() MountTargetPropertiesResponseOutput {
-	return i.ToMountTargetPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i MountTargetPropertiesResponseArgs) ToMountTargetPropertiesResponseOutputWithContext(ctx context.Context) MountTargetPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MountTargetPropertiesResponseOutput)
-}
-
-
-
-
-
-type MountTargetPropertiesResponseArrayInput interface {
-	pulumi.Input
-
-	ToMountTargetPropertiesResponseArrayOutput() MountTargetPropertiesResponseArrayOutput
-	ToMountTargetPropertiesResponseArrayOutputWithContext(context.Context) MountTargetPropertiesResponseArrayOutput
-}
-
-type MountTargetPropertiesResponseArray []MountTargetPropertiesResponseInput
-
-func (MountTargetPropertiesResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]MountTargetPropertiesResponse)(nil)).Elem()
-}
-
-func (i MountTargetPropertiesResponseArray) ToMountTargetPropertiesResponseArrayOutput() MountTargetPropertiesResponseArrayOutput {
-	return i.ToMountTargetPropertiesResponseArrayOutputWithContext(context.Background())
-}
-
-func (i MountTargetPropertiesResponseArray) ToMountTargetPropertiesResponseArrayOutputWithContext(ctx context.Context) MountTargetPropertiesResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MountTargetPropertiesResponseArrayOutput)
 }
 
 type MountTargetPropertiesResponseOutput struct{ *pulumi.OutputState }
@@ -923,78 +745,6 @@ type ReplicationObjectResponse struct {
 	ReplicationSchedule    string  `pulumi:"replicationSchedule"`
 }
 
-
-
-
-
-type ReplicationObjectResponseInput interface {
-	pulumi.Input
-
-	ToReplicationObjectResponseOutput() ReplicationObjectResponseOutput
-	ToReplicationObjectResponseOutputWithContext(context.Context) ReplicationObjectResponseOutput
-}
-
-type ReplicationObjectResponseArgs struct {
-	EndpointType           pulumi.StringPtrInput `pulumi:"endpointType"`
-	RemoteVolumeRegion     pulumi.StringPtrInput `pulumi:"remoteVolumeRegion"`
-	RemoteVolumeResourceId pulumi.StringInput    `pulumi:"remoteVolumeResourceId"`
-	ReplicationId          pulumi.StringPtrInput `pulumi:"replicationId"`
-	ReplicationSchedule    pulumi.StringInput    `pulumi:"replicationSchedule"`
-}
-
-func (ReplicationObjectResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReplicationObjectResponse)(nil)).Elem()
-}
-
-func (i ReplicationObjectResponseArgs) ToReplicationObjectResponseOutput() ReplicationObjectResponseOutput {
-	return i.ToReplicationObjectResponseOutputWithContext(context.Background())
-}
-
-func (i ReplicationObjectResponseArgs) ToReplicationObjectResponseOutputWithContext(ctx context.Context) ReplicationObjectResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ReplicationObjectResponseOutput)
-}
-
-func (i ReplicationObjectResponseArgs) ToReplicationObjectResponsePtrOutput() ReplicationObjectResponsePtrOutput {
-	return i.ToReplicationObjectResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ReplicationObjectResponseArgs) ToReplicationObjectResponsePtrOutputWithContext(ctx context.Context) ReplicationObjectResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ReplicationObjectResponseOutput).ToReplicationObjectResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type ReplicationObjectResponsePtrInput interface {
-	pulumi.Input
-
-	ToReplicationObjectResponsePtrOutput() ReplicationObjectResponsePtrOutput
-	ToReplicationObjectResponsePtrOutputWithContext(context.Context) ReplicationObjectResponsePtrOutput
-}
-
-type replicationObjectResponsePtrType ReplicationObjectResponseArgs
-
-func ReplicationObjectResponsePtr(v *ReplicationObjectResponseArgs) ReplicationObjectResponsePtrInput {
-	return (*replicationObjectResponsePtrType)(v)
-}
-
-func (*replicationObjectResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ReplicationObjectResponse)(nil)).Elem()
-}
-
-func (i *replicationObjectResponsePtrType) ToReplicationObjectResponsePtrOutput() ReplicationObjectResponsePtrOutput {
-	return i.ToReplicationObjectResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *replicationObjectResponsePtrType) ToReplicationObjectResponsePtrOutputWithContext(ctx context.Context) ReplicationObjectResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ReplicationObjectResponsePtrOutput)
-}
-
 type ReplicationObjectResponseOutput struct{ *pulumi.OutputState }
 
 func (ReplicationObjectResponseOutput) ElementType() reflect.Type {
@@ -1007,16 +757,6 @@ func (o ReplicationObjectResponseOutput) ToReplicationObjectResponseOutput() Rep
 
 func (o ReplicationObjectResponseOutput) ToReplicationObjectResponseOutputWithContext(ctx context.Context) ReplicationObjectResponseOutput {
 	return o
-}
-
-func (o ReplicationObjectResponseOutput) ToReplicationObjectResponsePtrOutput() ReplicationObjectResponsePtrOutput {
-	return o.ToReplicationObjectResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ReplicationObjectResponseOutput) ToReplicationObjectResponsePtrOutputWithContext(ctx context.Context) ReplicationObjectResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReplicationObjectResponse) *ReplicationObjectResponse {
-		return &v
-	}).(ReplicationObjectResponsePtrOutput)
 }
 
 func (o ReplicationObjectResponseOutput) EndpointType() pulumi.StringPtrOutput {
@@ -1378,74 +1118,6 @@ type VolumePropertiesResponseDataProtection struct {
 	Replication *ReplicationObjectResponse `pulumi:"replication"`
 }
 
-
-
-
-
-type VolumePropertiesResponseDataProtectionInput interface {
-	pulumi.Input
-
-	ToVolumePropertiesResponseDataProtectionOutput() VolumePropertiesResponseDataProtectionOutput
-	ToVolumePropertiesResponseDataProtectionOutputWithContext(context.Context) VolumePropertiesResponseDataProtectionOutput
-}
-
-type VolumePropertiesResponseDataProtectionArgs struct {
-	Replication ReplicationObjectResponsePtrInput `pulumi:"replication"`
-}
-
-func (VolumePropertiesResponseDataProtectionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*VolumePropertiesResponseDataProtection)(nil)).Elem()
-}
-
-func (i VolumePropertiesResponseDataProtectionArgs) ToVolumePropertiesResponseDataProtectionOutput() VolumePropertiesResponseDataProtectionOutput {
-	return i.ToVolumePropertiesResponseDataProtectionOutputWithContext(context.Background())
-}
-
-func (i VolumePropertiesResponseDataProtectionArgs) ToVolumePropertiesResponseDataProtectionOutputWithContext(ctx context.Context) VolumePropertiesResponseDataProtectionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VolumePropertiesResponseDataProtectionOutput)
-}
-
-func (i VolumePropertiesResponseDataProtectionArgs) ToVolumePropertiesResponseDataProtectionPtrOutput() VolumePropertiesResponseDataProtectionPtrOutput {
-	return i.ToVolumePropertiesResponseDataProtectionPtrOutputWithContext(context.Background())
-}
-
-func (i VolumePropertiesResponseDataProtectionArgs) ToVolumePropertiesResponseDataProtectionPtrOutputWithContext(ctx context.Context) VolumePropertiesResponseDataProtectionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VolumePropertiesResponseDataProtectionOutput).ToVolumePropertiesResponseDataProtectionPtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type VolumePropertiesResponseDataProtectionPtrInput interface {
-	pulumi.Input
-
-	ToVolumePropertiesResponseDataProtectionPtrOutput() VolumePropertiesResponseDataProtectionPtrOutput
-	ToVolumePropertiesResponseDataProtectionPtrOutputWithContext(context.Context) VolumePropertiesResponseDataProtectionPtrOutput
-}
-
-type volumePropertiesResponseDataProtectionPtrType VolumePropertiesResponseDataProtectionArgs
-
-func VolumePropertiesResponseDataProtectionPtr(v *VolumePropertiesResponseDataProtectionArgs) VolumePropertiesResponseDataProtectionPtrInput {
-	return (*volumePropertiesResponseDataProtectionPtrType)(v)
-}
-
-func (*volumePropertiesResponseDataProtectionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**VolumePropertiesResponseDataProtection)(nil)).Elem()
-}
-
-func (i *volumePropertiesResponseDataProtectionPtrType) ToVolumePropertiesResponseDataProtectionPtrOutput() VolumePropertiesResponseDataProtectionPtrOutput {
-	return i.ToVolumePropertiesResponseDataProtectionPtrOutputWithContext(context.Background())
-}
-
-func (i *volumePropertiesResponseDataProtectionPtrType) ToVolumePropertiesResponseDataProtectionPtrOutputWithContext(ctx context.Context) VolumePropertiesResponseDataProtectionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VolumePropertiesResponseDataProtectionPtrOutput)
-}
-
 type VolumePropertiesResponseDataProtectionOutput struct{ *pulumi.OutputState }
 
 func (VolumePropertiesResponseDataProtectionOutput) ElementType() reflect.Type {
@@ -1458,16 +1130,6 @@ func (o VolumePropertiesResponseDataProtectionOutput) ToVolumePropertiesResponse
 
 func (o VolumePropertiesResponseDataProtectionOutput) ToVolumePropertiesResponseDataProtectionOutputWithContext(ctx context.Context) VolumePropertiesResponseDataProtectionOutput {
 	return o
-}
-
-func (o VolumePropertiesResponseDataProtectionOutput) ToVolumePropertiesResponseDataProtectionPtrOutput() VolumePropertiesResponseDataProtectionPtrOutput {
-	return o.ToVolumePropertiesResponseDataProtectionPtrOutputWithContext(context.Background())
-}
-
-func (o VolumePropertiesResponseDataProtectionOutput) ToVolumePropertiesResponseDataProtectionPtrOutputWithContext(ctx context.Context) VolumePropertiesResponseDataProtectionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VolumePropertiesResponseDataProtection) *VolumePropertiesResponseDataProtection {
-		return &v
-	}).(VolumePropertiesResponseDataProtectionPtrOutput)
 }
 
 func (o VolumePropertiesResponseDataProtectionOutput) Replication() ReplicationObjectResponsePtrOutput {
@@ -1511,74 +1173,6 @@ type VolumePropertiesResponseExportPolicy struct {
 	Rules []ExportPolicyRuleResponse `pulumi:"rules"`
 }
 
-
-
-
-
-type VolumePropertiesResponseExportPolicyInput interface {
-	pulumi.Input
-
-	ToVolumePropertiesResponseExportPolicyOutput() VolumePropertiesResponseExportPolicyOutput
-	ToVolumePropertiesResponseExportPolicyOutputWithContext(context.Context) VolumePropertiesResponseExportPolicyOutput
-}
-
-type VolumePropertiesResponseExportPolicyArgs struct {
-	Rules ExportPolicyRuleResponseArrayInput `pulumi:"rules"`
-}
-
-func (VolumePropertiesResponseExportPolicyArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*VolumePropertiesResponseExportPolicy)(nil)).Elem()
-}
-
-func (i VolumePropertiesResponseExportPolicyArgs) ToVolumePropertiesResponseExportPolicyOutput() VolumePropertiesResponseExportPolicyOutput {
-	return i.ToVolumePropertiesResponseExportPolicyOutputWithContext(context.Background())
-}
-
-func (i VolumePropertiesResponseExportPolicyArgs) ToVolumePropertiesResponseExportPolicyOutputWithContext(ctx context.Context) VolumePropertiesResponseExportPolicyOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VolumePropertiesResponseExportPolicyOutput)
-}
-
-func (i VolumePropertiesResponseExportPolicyArgs) ToVolumePropertiesResponseExportPolicyPtrOutput() VolumePropertiesResponseExportPolicyPtrOutput {
-	return i.ToVolumePropertiesResponseExportPolicyPtrOutputWithContext(context.Background())
-}
-
-func (i VolumePropertiesResponseExportPolicyArgs) ToVolumePropertiesResponseExportPolicyPtrOutputWithContext(ctx context.Context) VolumePropertiesResponseExportPolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VolumePropertiesResponseExportPolicyOutput).ToVolumePropertiesResponseExportPolicyPtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type VolumePropertiesResponseExportPolicyPtrInput interface {
-	pulumi.Input
-
-	ToVolumePropertiesResponseExportPolicyPtrOutput() VolumePropertiesResponseExportPolicyPtrOutput
-	ToVolumePropertiesResponseExportPolicyPtrOutputWithContext(context.Context) VolumePropertiesResponseExportPolicyPtrOutput
-}
-
-type volumePropertiesResponseExportPolicyPtrType VolumePropertiesResponseExportPolicyArgs
-
-func VolumePropertiesResponseExportPolicyPtr(v *VolumePropertiesResponseExportPolicyArgs) VolumePropertiesResponseExportPolicyPtrInput {
-	return (*volumePropertiesResponseExportPolicyPtrType)(v)
-}
-
-func (*volumePropertiesResponseExportPolicyPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**VolumePropertiesResponseExportPolicy)(nil)).Elem()
-}
-
-func (i *volumePropertiesResponseExportPolicyPtrType) ToVolumePropertiesResponseExportPolicyPtrOutput() VolumePropertiesResponseExportPolicyPtrOutput {
-	return i.ToVolumePropertiesResponseExportPolicyPtrOutputWithContext(context.Background())
-}
-
-func (i *volumePropertiesResponseExportPolicyPtrType) ToVolumePropertiesResponseExportPolicyPtrOutputWithContext(ctx context.Context) VolumePropertiesResponseExportPolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VolumePropertiesResponseExportPolicyPtrOutput)
-}
-
 type VolumePropertiesResponseExportPolicyOutput struct{ *pulumi.OutputState }
 
 func (VolumePropertiesResponseExportPolicyOutput) ElementType() reflect.Type {
@@ -1591,16 +1185,6 @@ func (o VolumePropertiesResponseExportPolicyOutput) ToVolumePropertiesResponseEx
 
 func (o VolumePropertiesResponseExportPolicyOutput) ToVolumePropertiesResponseExportPolicyOutputWithContext(ctx context.Context) VolumePropertiesResponseExportPolicyOutput {
 	return o
-}
-
-func (o VolumePropertiesResponseExportPolicyOutput) ToVolumePropertiesResponseExportPolicyPtrOutput() VolumePropertiesResponseExportPolicyPtrOutput {
-	return o.ToVolumePropertiesResponseExportPolicyPtrOutputWithContext(context.Background())
-}
-
-func (o VolumePropertiesResponseExportPolicyOutput) ToVolumePropertiesResponseExportPolicyPtrOutputWithContext(ctx context.Context) VolumePropertiesResponseExportPolicyPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VolumePropertiesResponseExportPolicy) *VolumePropertiesResponseExportPolicy {
-		return &v
-	}).(VolumePropertiesResponseExportPolicyPtrOutput)
 }
 
 func (o VolumePropertiesResponseExportPolicyOutput) Rules() ExportPolicyRuleResponseArrayOutput {

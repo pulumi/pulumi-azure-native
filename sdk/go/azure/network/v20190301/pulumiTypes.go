@@ -283,74 +283,6 @@ type CustomRuleListResponse struct {
 	Rules []CustomRuleResponse `pulumi:"rules"`
 }
 
-
-
-
-
-type CustomRuleListResponseInput interface {
-	pulumi.Input
-
-	ToCustomRuleListResponseOutput() CustomRuleListResponseOutput
-	ToCustomRuleListResponseOutputWithContext(context.Context) CustomRuleListResponseOutput
-}
-
-type CustomRuleListResponseArgs struct {
-	Rules CustomRuleResponseArrayInput `pulumi:"rules"`
-}
-
-func (CustomRuleListResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CustomRuleListResponse)(nil)).Elem()
-}
-
-func (i CustomRuleListResponseArgs) ToCustomRuleListResponseOutput() CustomRuleListResponseOutput {
-	return i.ToCustomRuleListResponseOutputWithContext(context.Background())
-}
-
-func (i CustomRuleListResponseArgs) ToCustomRuleListResponseOutputWithContext(ctx context.Context) CustomRuleListResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CustomRuleListResponseOutput)
-}
-
-func (i CustomRuleListResponseArgs) ToCustomRuleListResponsePtrOutput() CustomRuleListResponsePtrOutput {
-	return i.ToCustomRuleListResponsePtrOutputWithContext(context.Background())
-}
-
-func (i CustomRuleListResponseArgs) ToCustomRuleListResponsePtrOutputWithContext(ctx context.Context) CustomRuleListResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CustomRuleListResponseOutput).ToCustomRuleListResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type CustomRuleListResponsePtrInput interface {
-	pulumi.Input
-
-	ToCustomRuleListResponsePtrOutput() CustomRuleListResponsePtrOutput
-	ToCustomRuleListResponsePtrOutputWithContext(context.Context) CustomRuleListResponsePtrOutput
-}
-
-type customRuleListResponsePtrType CustomRuleListResponseArgs
-
-func CustomRuleListResponsePtr(v *CustomRuleListResponseArgs) CustomRuleListResponsePtrInput {
-	return (*customRuleListResponsePtrType)(v)
-}
-
-func (*customRuleListResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**CustomRuleListResponse)(nil)).Elem()
-}
-
-func (i *customRuleListResponsePtrType) ToCustomRuleListResponsePtrOutput() CustomRuleListResponsePtrOutput {
-	return i.ToCustomRuleListResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *customRuleListResponsePtrType) ToCustomRuleListResponsePtrOutputWithContext(ctx context.Context) CustomRuleListResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CustomRuleListResponsePtrOutput)
-}
-
 type CustomRuleListResponseOutput struct{ *pulumi.OutputState }
 
 func (CustomRuleListResponseOutput) ElementType() reflect.Type {
@@ -363,16 +295,6 @@ func (o CustomRuleListResponseOutput) ToCustomRuleListResponseOutput() CustomRul
 
 func (o CustomRuleListResponseOutput) ToCustomRuleListResponseOutputWithContext(ctx context.Context) CustomRuleListResponseOutput {
 	return o
-}
-
-func (o CustomRuleListResponseOutput) ToCustomRuleListResponsePtrOutput() CustomRuleListResponsePtrOutput {
-	return o.ToCustomRuleListResponsePtrOutputWithContext(context.Background())
-}
-
-func (o CustomRuleListResponseOutput) ToCustomRuleListResponsePtrOutputWithContext(ctx context.Context) CustomRuleListResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CustomRuleListResponse) *CustomRuleListResponse {
-		return &v
-	}).(CustomRuleListResponsePtrOutput)
 }
 
 func (o CustomRuleListResponseOutput) Rules() CustomRuleResponseArrayOutput {
@@ -421,65 +343,6 @@ type CustomRuleResponse struct {
 	RateLimitDurationInMinutes *int                              `pulumi:"rateLimitDurationInMinutes"`
 	RateLimitThreshold         *int                              `pulumi:"rateLimitThreshold"`
 	RuleType                   string                            `pulumi:"ruleType"`
-}
-
-
-
-
-
-type CustomRuleResponseInput interface {
-	pulumi.Input
-
-	ToCustomRuleResponseOutput() CustomRuleResponseOutput
-	ToCustomRuleResponseOutputWithContext(context.Context) CustomRuleResponseOutput
-}
-
-type CustomRuleResponseArgs struct {
-	Action                     pulumi.StringInput                        `pulumi:"action"`
-	EnabledState               pulumi.StringPtrInput                     `pulumi:"enabledState"`
-	MatchConditions            FrontDoorMatchConditionResponseArrayInput `pulumi:"matchConditions"`
-	Name                       pulumi.StringPtrInput                     `pulumi:"name"`
-	Priority                   pulumi.IntInput                           `pulumi:"priority"`
-	RateLimitDurationInMinutes pulumi.IntPtrInput                        `pulumi:"rateLimitDurationInMinutes"`
-	RateLimitThreshold         pulumi.IntPtrInput                        `pulumi:"rateLimitThreshold"`
-	RuleType                   pulumi.StringInput                        `pulumi:"ruleType"`
-}
-
-func (CustomRuleResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CustomRuleResponse)(nil)).Elem()
-}
-
-func (i CustomRuleResponseArgs) ToCustomRuleResponseOutput() CustomRuleResponseOutput {
-	return i.ToCustomRuleResponseOutputWithContext(context.Background())
-}
-
-func (i CustomRuleResponseArgs) ToCustomRuleResponseOutputWithContext(ctx context.Context) CustomRuleResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CustomRuleResponseOutput)
-}
-
-
-
-
-
-type CustomRuleResponseArrayInput interface {
-	pulumi.Input
-
-	ToCustomRuleResponseArrayOutput() CustomRuleResponseArrayOutput
-	ToCustomRuleResponseArrayOutputWithContext(context.Context) CustomRuleResponseArrayOutput
-}
-
-type CustomRuleResponseArray []CustomRuleResponseInput
-
-func (CustomRuleResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]CustomRuleResponse)(nil)).Elem()
-}
-
-func (i CustomRuleResponseArray) ToCustomRuleResponseArrayOutput() CustomRuleResponseArrayOutput {
-	return i.ToCustomRuleResponseArrayOutputWithContext(context.Background())
-}
-
-func (i CustomRuleResponseArray) ToCustomRuleResponseArrayOutputWithContext(ctx context.Context) CustomRuleResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CustomRuleResponseArrayOutput)
 }
 
 type CustomRuleResponseOutput struct{ *pulumi.OutputState }
@@ -653,59 +516,6 @@ type FrontDoorManagedRuleGroupOverrideResponse struct {
 	Rules         []FrontDoorManagedRuleOverrideResponse `pulumi:"rules"`
 }
 
-
-
-
-
-type FrontDoorManagedRuleGroupOverrideResponseInput interface {
-	pulumi.Input
-
-	ToFrontDoorManagedRuleGroupOverrideResponseOutput() FrontDoorManagedRuleGroupOverrideResponseOutput
-	ToFrontDoorManagedRuleGroupOverrideResponseOutputWithContext(context.Context) FrontDoorManagedRuleGroupOverrideResponseOutput
-}
-
-type FrontDoorManagedRuleGroupOverrideResponseArgs struct {
-	RuleGroupName pulumi.StringInput                             `pulumi:"ruleGroupName"`
-	Rules         FrontDoorManagedRuleOverrideResponseArrayInput `pulumi:"rules"`
-}
-
-func (FrontDoorManagedRuleGroupOverrideResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*FrontDoorManagedRuleGroupOverrideResponse)(nil)).Elem()
-}
-
-func (i FrontDoorManagedRuleGroupOverrideResponseArgs) ToFrontDoorManagedRuleGroupOverrideResponseOutput() FrontDoorManagedRuleGroupOverrideResponseOutput {
-	return i.ToFrontDoorManagedRuleGroupOverrideResponseOutputWithContext(context.Background())
-}
-
-func (i FrontDoorManagedRuleGroupOverrideResponseArgs) ToFrontDoorManagedRuleGroupOverrideResponseOutputWithContext(ctx context.Context) FrontDoorManagedRuleGroupOverrideResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FrontDoorManagedRuleGroupOverrideResponseOutput)
-}
-
-
-
-
-
-type FrontDoorManagedRuleGroupOverrideResponseArrayInput interface {
-	pulumi.Input
-
-	ToFrontDoorManagedRuleGroupOverrideResponseArrayOutput() FrontDoorManagedRuleGroupOverrideResponseArrayOutput
-	ToFrontDoorManagedRuleGroupOverrideResponseArrayOutputWithContext(context.Context) FrontDoorManagedRuleGroupOverrideResponseArrayOutput
-}
-
-type FrontDoorManagedRuleGroupOverrideResponseArray []FrontDoorManagedRuleGroupOverrideResponseInput
-
-func (FrontDoorManagedRuleGroupOverrideResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]FrontDoorManagedRuleGroupOverrideResponse)(nil)).Elem()
-}
-
-func (i FrontDoorManagedRuleGroupOverrideResponseArray) ToFrontDoorManagedRuleGroupOverrideResponseArrayOutput() FrontDoorManagedRuleGroupOverrideResponseArrayOutput {
-	return i.ToFrontDoorManagedRuleGroupOverrideResponseArrayOutputWithContext(context.Background())
-}
-
-func (i FrontDoorManagedRuleGroupOverrideResponseArray) ToFrontDoorManagedRuleGroupOverrideResponseArrayOutputWithContext(ctx context.Context) FrontDoorManagedRuleGroupOverrideResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FrontDoorManagedRuleGroupOverrideResponseArrayOutput)
-}
-
 type FrontDoorManagedRuleGroupOverrideResponseOutput struct{ *pulumi.OutputState }
 
 func (FrontDoorManagedRuleGroupOverrideResponseOutput) ElementType() reflect.Type {
@@ -860,60 +670,6 @@ type FrontDoorManagedRuleOverrideResponse struct {
 	Action       *string `pulumi:"action"`
 	EnabledState *string `pulumi:"enabledState"`
 	RuleId       string  `pulumi:"ruleId"`
-}
-
-
-
-
-
-type FrontDoorManagedRuleOverrideResponseInput interface {
-	pulumi.Input
-
-	ToFrontDoorManagedRuleOverrideResponseOutput() FrontDoorManagedRuleOverrideResponseOutput
-	ToFrontDoorManagedRuleOverrideResponseOutputWithContext(context.Context) FrontDoorManagedRuleOverrideResponseOutput
-}
-
-type FrontDoorManagedRuleOverrideResponseArgs struct {
-	Action       pulumi.StringPtrInput `pulumi:"action"`
-	EnabledState pulumi.StringPtrInput `pulumi:"enabledState"`
-	RuleId       pulumi.StringInput    `pulumi:"ruleId"`
-}
-
-func (FrontDoorManagedRuleOverrideResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*FrontDoorManagedRuleOverrideResponse)(nil)).Elem()
-}
-
-func (i FrontDoorManagedRuleOverrideResponseArgs) ToFrontDoorManagedRuleOverrideResponseOutput() FrontDoorManagedRuleOverrideResponseOutput {
-	return i.ToFrontDoorManagedRuleOverrideResponseOutputWithContext(context.Background())
-}
-
-func (i FrontDoorManagedRuleOverrideResponseArgs) ToFrontDoorManagedRuleOverrideResponseOutputWithContext(ctx context.Context) FrontDoorManagedRuleOverrideResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FrontDoorManagedRuleOverrideResponseOutput)
-}
-
-
-
-
-
-type FrontDoorManagedRuleOverrideResponseArrayInput interface {
-	pulumi.Input
-
-	ToFrontDoorManagedRuleOverrideResponseArrayOutput() FrontDoorManagedRuleOverrideResponseArrayOutput
-	ToFrontDoorManagedRuleOverrideResponseArrayOutputWithContext(context.Context) FrontDoorManagedRuleOverrideResponseArrayOutput
-}
-
-type FrontDoorManagedRuleOverrideResponseArray []FrontDoorManagedRuleOverrideResponseInput
-
-func (FrontDoorManagedRuleOverrideResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]FrontDoorManagedRuleOverrideResponse)(nil)).Elem()
-}
-
-func (i FrontDoorManagedRuleOverrideResponseArray) ToFrontDoorManagedRuleOverrideResponseArrayOutput() FrontDoorManagedRuleOverrideResponseArrayOutput {
-	return i.ToFrontDoorManagedRuleOverrideResponseArrayOutputWithContext(context.Background())
-}
-
-func (i FrontDoorManagedRuleOverrideResponseArray) ToFrontDoorManagedRuleOverrideResponseArrayOutputWithContext(ctx context.Context) FrontDoorManagedRuleOverrideResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FrontDoorManagedRuleOverrideResponseArrayOutput)
 }
 
 type FrontDoorManagedRuleOverrideResponseOutput struct{ *pulumi.OutputState }
@@ -1072,60 +828,6 @@ type FrontDoorManagedRuleSetResponse struct {
 	RuleGroupOverrides []FrontDoorManagedRuleGroupOverrideResponse `pulumi:"ruleGroupOverrides"`
 	RuleSetType        string                                      `pulumi:"ruleSetType"`
 	RuleSetVersion     string                                      `pulumi:"ruleSetVersion"`
-}
-
-
-
-
-
-type FrontDoorManagedRuleSetResponseInput interface {
-	pulumi.Input
-
-	ToFrontDoorManagedRuleSetResponseOutput() FrontDoorManagedRuleSetResponseOutput
-	ToFrontDoorManagedRuleSetResponseOutputWithContext(context.Context) FrontDoorManagedRuleSetResponseOutput
-}
-
-type FrontDoorManagedRuleSetResponseArgs struct {
-	RuleGroupOverrides FrontDoorManagedRuleGroupOverrideResponseArrayInput `pulumi:"ruleGroupOverrides"`
-	RuleSetType        pulumi.StringInput                                  `pulumi:"ruleSetType"`
-	RuleSetVersion     pulumi.StringInput                                  `pulumi:"ruleSetVersion"`
-}
-
-func (FrontDoorManagedRuleSetResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*FrontDoorManagedRuleSetResponse)(nil)).Elem()
-}
-
-func (i FrontDoorManagedRuleSetResponseArgs) ToFrontDoorManagedRuleSetResponseOutput() FrontDoorManagedRuleSetResponseOutput {
-	return i.ToFrontDoorManagedRuleSetResponseOutputWithContext(context.Background())
-}
-
-func (i FrontDoorManagedRuleSetResponseArgs) ToFrontDoorManagedRuleSetResponseOutputWithContext(ctx context.Context) FrontDoorManagedRuleSetResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FrontDoorManagedRuleSetResponseOutput)
-}
-
-
-
-
-
-type FrontDoorManagedRuleSetResponseArrayInput interface {
-	pulumi.Input
-
-	ToFrontDoorManagedRuleSetResponseArrayOutput() FrontDoorManagedRuleSetResponseArrayOutput
-	ToFrontDoorManagedRuleSetResponseArrayOutputWithContext(context.Context) FrontDoorManagedRuleSetResponseArrayOutput
-}
-
-type FrontDoorManagedRuleSetResponseArray []FrontDoorManagedRuleSetResponseInput
-
-func (FrontDoorManagedRuleSetResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]FrontDoorManagedRuleSetResponse)(nil)).Elem()
-}
-
-func (i FrontDoorManagedRuleSetResponseArray) ToFrontDoorManagedRuleSetResponseArrayOutput() FrontDoorManagedRuleSetResponseArrayOutput {
-	return i.ToFrontDoorManagedRuleSetResponseArrayOutputWithContext(context.Background())
-}
-
-func (i FrontDoorManagedRuleSetResponseArray) ToFrontDoorManagedRuleSetResponseArrayOutputWithContext(ctx context.Context) FrontDoorManagedRuleSetResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FrontDoorManagedRuleSetResponseArrayOutput)
 }
 
 type FrontDoorManagedRuleSetResponseOutput struct{ *pulumi.OutputState }
@@ -1307,63 +1009,6 @@ type FrontDoorMatchConditionResponse struct {
 	Operator        string   `pulumi:"operator"`
 	Selector        *string  `pulumi:"selector"`
 	Transforms      []string `pulumi:"transforms"`
-}
-
-
-
-
-
-type FrontDoorMatchConditionResponseInput interface {
-	pulumi.Input
-
-	ToFrontDoorMatchConditionResponseOutput() FrontDoorMatchConditionResponseOutput
-	ToFrontDoorMatchConditionResponseOutputWithContext(context.Context) FrontDoorMatchConditionResponseOutput
-}
-
-type FrontDoorMatchConditionResponseArgs struct {
-	MatchValue      pulumi.StringArrayInput `pulumi:"matchValue"`
-	MatchVariable   pulumi.StringInput      `pulumi:"matchVariable"`
-	NegateCondition pulumi.BoolPtrInput     `pulumi:"negateCondition"`
-	Operator        pulumi.StringInput      `pulumi:"operator"`
-	Selector        pulumi.StringPtrInput   `pulumi:"selector"`
-	Transforms      pulumi.StringArrayInput `pulumi:"transforms"`
-}
-
-func (FrontDoorMatchConditionResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*FrontDoorMatchConditionResponse)(nil)).Elem()
-}
-
-func (i FrontDoorMatchConditionResponseArgs) ToFrontDoorMatchConditionResponseOutput() FrontDoorMatchConditionResponseOutput {
-	return i.ToFrontDoorMatchConditionResponseOutputWithContext(context.Background())
-}
-
-func (i FrontDoorMatchConditionResponseArgs) ToFrontDoorMatchConditionResponseOutputWithContext(ctx context.Context) FrontDoorMatchConditionResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FrontDoorMatchConditionResponseOutput)
-}
-
-
-
-
-
-type FrontDoorMatchConditionResponseArrayInput interface {
-	pulumi.Input
-
-	ToFrontDoorMatchConditionResponseArrayOutput() FrontDoorMatchConditionResponseArrayOutput
-	ToFrontDoorMatchConditionResponseArrayOutputWithContext(context.Context) FrontDoorMatchConditionResponseArrayOutput
-}
-
-type FrontDoorMatchConditionResponseArray []FrontDoorMatchConditionResponseInput
-
-func (FrontDoorMatchConditionResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]FrontDoorMatchConditionResponse)(nil)).Elem()
-}
-
-func (i FrontDoorMatchConditionResponseArray) ToFrontDoorMatchConditionResponseArrayOutput() FrontDoorMatchConditionResponseArrayOutput {
-	return i.ToFrontDoorMatchConditionResponseArrayOutputWithContext(context.Background())
-}
-
-func (i FrontDoorMatchConditionResponseArray) ToFrontDoorMatchConditionResponseArrayOutputWithContext(ctx context.Context) FrontDoorMatchConditionResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FrontDoorMatchConditionResponseArrayOutput)
 }
 
 type FrontDoorMatchConditionResponseOutput struct{ *pulumi.OutputState }
@@ -1625,78 +1270,6 @@ type FrontDoorPolicySettingsResponse struct {
 	RedirectUrl                   *string `pulumi:"redirectUrl"`
 }
 
-
-
-
-
-type FrontDoorPolicySettingsResponseInput interface {
-	pulumi.Input
-
-	ToFrontDoorPolicySettingsResponseOutput() FrontDoorPolicySettingsResponseOutput
-	ToFrontDoorPolicySettingsResponseOutputWithContext(context.Context) FrontDoorPolicySettingsResponseOutput
-}
-
-type FrontDoorPolicySettingsResponseArgs struct {
-	CustomBlockResponseBody       pulumi.StringPtrInput `pulumi:"customBlockResponseBody"`
-	CustomBlockResponseStatusCode pulumi.IntPtrInput    `pulumi:"customBlockResponseStatusCode"`
-	EnabledState                  pulumi.StringPtrInput `pulumi:"enabledState"`
-	Mode                          pulumi.StringPtrInput `pulumi:"mode"`
-	RedirectUrl                   pulumi.StringPtrInput `pulumi:"redirectUrl"`
-}
-
-func (FrontDoorPolicySettingsResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*FrontDoorPolicySettingsResponse)(nil)).Elem()
-}
-
-func (i FrontDoorPolicySettingsResponseArgs) ToFrontDoorPolicySettingsResponseOutput() FrontDoorPolicySettingsResponseOutput {
-	return i.ToFrontDoorPolicySettingsResponseOutputWithContext(context.Background())
-}
-
-func (i FrontDoorPolicySettingsResponseArgs) ToFrontDoorPolicySettingsResponseOutputWithContext(ctx context.Context) FrontDoorPolicySettingsResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FrontDoorPolicySettingsResponseOutput)
-}
-
-func (i FrontDoorPolicySettingsResponseArgs) ToFrontDoorPolicySettingsResponsePtrOutput() FrontDoorPolicySettingsResponsePtrOutput {
-	return i.ToFrontDoorPolicySettingsResponsePtrOutputWithContext(context.Background())
-}
-
-func (i FrontDoorPolicySettingsResponseArgs) ToFrontDoorPolicySettingsResponsePtrOutputWithContext(ctx context.Context) FrontDoorPolicySettingsResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FrontDoorPolicySettingsResponseOutput).ToFrontDoorPolicySettingsResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type FrontDoorPolicySettingsResponsePtrInput interface {
-	pulumi.Input
-
-	ToFrontDoorPolicySettingsResponsePtrOutput() FrontDoorPolicySettingsResponsePtrOutput
-	ToFrontDoorPolicySettingsResponsePtrOutputWithContext(context.Context) FrontDoorPolicySettingsResponsePtrOutput
-}
-
-type frontDoorPolicySettingsResponsePtrType FrontDoorPolicySettingsResponseArgs
-
-func FrontDoorPolicySettingsResponsePtr(v *FrontDoorPolicySettingsResponseArgs) FrontDoorPolicySettingsResponsePtrInput {
-	return (*frontDoorPolicySettingsResponsePtrType)(v)
-}
-
-func (*frontDoorPolicySettingsResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**FrontDoorPolicySettingsResponse)(nil)).Elem()
-}
-
-func (i *frontDoorPolicySettingsResponsePtrType) ToFrontDoorPolicySettingsResponsePtrOutput() FrontDoorPolicySettingsResponsePtrOutput {
-	return i.ToFrontDoorPolicySettingsResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *frontDoorPolicySettingsResponsePtrType) ToFrontDoorPolicySettingsResponsePtrOutputWithContext(ctx context.Context) FrontDoorPolicySettingsResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FrontDoorPolicySettingsResponsePtrOutput)
-}
-
 type FrontDoorPolicySettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (FrontDoorPolicySettingsResponseOutput) ElementType() reflect.Type {
@@ -1709,16 +1282,6 @@ func (o FrontDoorPolicySettingsResponseOutput) ToFrontDoorPolicySettingsResponse
 
 func (o FrontDoorPolicySettingsResponseOutput) ToFrontDoorPolicySettingsResponseOutputWithContext(ctx context.Context) FrontDoorPolicySettingsResponseOutput {
 	return o
-}
-
-func (o FrontDoorPolicySettingsResponseOutput) ToFrontDoorPolicySettingsResponsePtrOutput() FrontDoorPolicySettingsResponsePtrOutput {
-	return o.ToFrontDoorPolicySettingsResponsePtrOutputWithContext(context.Background())
-}
-
-func (o FrontDoorPolicySettingsResponseOutput) ToFrontDoorPolicySettingsResponsePtrOutputWithContext(ctx context.Context) FrontDoorPolicySettingsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v FrontDoorPolicySettingsResponse) *FrontDoorPolicySettingsResponse {
-		return &v
-	}).(FrontDoorPolicySettingsResponsePtrOutput)
 }
 
 func (o FrontDoorPolicySettingsResponseOutput) CustomBlockResponseBody() pulumi.StringPtrOutput {
@@ -1812,58 +1375,6 @@ func (o FrontDoorPolicySettingsResponsePtrOutput) RedirectUrl() pulumi.StringPtr
 
 type FrontendEndpointLinkResponse struct {
 	Id *string `pulumi:"id"`
-}
-
-
-
-
-
-type FrontendEndpointLinkResponseInput interface {
-	pulumi.Input
-
-	ToFrontendEndpointLinkResponseOutput() FrontendEndpointLinkResponseOutput
-	ToFrontendEndpointLinkResponseOutputWithContext(context.Context) FrontendEndpointLinkResponseOutput
-}
-
-type FrontendEndpointLinkResponseArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
-}
-
-func (FrontendEndpointLinkResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*FrontendEndpointLinkResponse)(nil)).Elem()
-}
-
-func (i FrontendEndpointLinkResponseArgs) ToFrontendEndpointLinkResponseOutput() FrontendEndpointLinkResponseOutput {
-	return i.ToFrontendEndpointLinkResponseOutputWithContext(context.Background())
-}
-
-func (i FrontendEndpointLinkResponseArgs) ToFrontendEndpointLinkResponseOutputWithContext(ctx context.Context) FrontendEndpointLinkResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FrontendEndpointLinkResponseOutput)
-}
-
-
-
-
-
-type FrontendEndpointLinkResponseArrayInput interface {
-	pulumi.Input
-
-	ToFrontendEndpointLinkResponseArrayOutput() FrontendEndpointLinkResponseArrayOutput
-	ToFrontendEndpointLinkResponseArrayOutputWithContext(context.Context) FrontendEndpointLinkResponseArrayOutput
-}
-
-type FrontendEndpointLinkResponseArray []FrontendEndpointLinkResponseInput
-
-func (FrontendEndpointLinkResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]FrontendEndpointLinkResponse)(nil)).Elem()
-}
-
-func (i FrontendEndpointLinkResponseArray) ToFrontendEndpointLinkResponseArrayOutput() FrontendEndpointLinkResponseArrayOutput {
-	return i.ToFrontendEndpointLinkResponseArrayOutputWithContext(context.Background())
-}
-
-func (i FrontendEndpointLinkResponseArray) ToFrontendEndpointLinkResponseArrayOutputWithContext(ctx context.Context) FrontendEndpointLinkResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FrontendEndpointLinkResponseArrayOutput)
 }
 
 type FrontendEndpointLinkResponseOutput struct{ *pulumi.OutputState }
@@ -2041,74 +1552,6 @@ type ManagedRuleSetListResponse struct {
 	ManagedRuleSets []FrontDoorManagedRuleSetResponse `pulumi:"managedRuleSets"`
 }
 
-
-
-
-
-type ManagedRuleSetListResponseInput interface {
-	pulumi.Input
-
-	ToManagedRuleSetListResponseOutput() ManagedRuleSetListResponseOutput
-	ToManagedRuleSetListResponseOutputWithContext(context.Context) ManagedRuleSetListResponseOutput
-}
-
-type ManagedRuleSetListResponseArgs struct {
-	ManagedRuleSets FrontDoorManagedRuleSetResponseArrayInput `pulumi:"managedRuleSets"`
-}
-
-func (ManagedRuleSetListResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagedRuleSetListResponse)(nil)).Elem()
-}
-
-func (i ManagedRuleSetListResponseArgs) ToManagedRuleSetListResponseOutput() ManagedRuleSetListResponseOutput {
-	return i.ToManagedRuleSetListResponseOutputWithContext(context.Background())
-}
-
-func (i ManagedRuleSetListResponseArgs) ToManagedRuleSetListResponseOutputWithContext(ctx context.Context) ManagedRuleSetListResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagedRuleSetListResponseOutput)
-}
-
-func (i ManagedRuleSetListResponseArgs) ToManagedRuleSetListResponsePtrOutput() ManagedRuleSetListResponsePtrOutput {
-	return i.ToManagedRuleSetListResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ManagedRuleSetListResponseArgs) ToManagedRuleSetListResponsePtrOutputWithContext(ctx context.Context) ManagedRuleSetListResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagedRuleSetListResponseOutput).ToManagedRuleSetListResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type ManagedRuleSetListResponsePtrInput interface {
-	pulumi.Input
-
-	ToManagedRuleSetListResponsePtrOutput() ManagedRuleSetListResponsePtrOutput
-	ToManagedRuleSetListResponsePtrOutputWithContext(context.Context) ManagedRuleSetListResponsePtrOutput
-}
-
-type managedRuleSetListResponsePtrType ManagedRuleSetListResponseArgs
-
-func ManagedRuleSetListResponsePtr(v *ManagedRuleSetListResponseArgs) ManagedRuleSetListResponsePtrInput {
-	return (*managedRuleSetListResponsePtrType)(v)
-}
-
-func (*managedRuleSetListResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ManagedRuleSetListResponse)(nil)).Elem()
-}
-
-func (i *managedRuleSetListResponsePtrType) ToManagedRuleSetListResponsePtrOutput() ManagedRuleSetListResponsePtrOutput {
-	return i.ToManagedRuleSetListResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *managedRuleSetListResponsePtrType) ToManagedRuleSetListResponsePtrOutputWithContext(ctx context.Context) ManagedRuleSetListResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagedRuleSetListResponsePtrOutput)
-}
-
 type ManagedRuleSetListResponseOutput struct{ *pulumi.OutputState }
 
 func (ManagedRuleSetListResponseOutput) ElementType() reflect.Type {
@@ -2121,16 +1564,6 @@ func (o ManagedRuleSetListResponseOutput) ToManagedRuleSetListResponseOutput() M
 
 func (o ManagedRuleSetListResponseOutput) ToManagedRuleSetListResponseOutputWithContext(ctx context.Context) ManagedRuleSetListResponseOutput {
 	return o
-}
-
-func (o ManagedRuleSetListResponseOutput) ToManagedRuleSetListResponsePtrOutput() ManagedRuleSetListResponsePtrOutput {
-	return o.ToManagedRuleSetListResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ManagedRuleSetListResponseOutput) ToManagedRuleSetListResponsePtrOutputWithContext(ctx context.Context) ManagedRuleSetListResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedRuleSetListResponse) *ManagedRuleSetListResponse {
-		return &v
-	}).(ManagedRuleSetListResponsePtrOutput)
 }
 
 func (o ManagedRuleSetListResponseOutput) ManagedRuleSets() FrontDoorManagedRuleSetResponseArrayOutput {

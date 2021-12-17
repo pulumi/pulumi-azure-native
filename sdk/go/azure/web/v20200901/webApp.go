@@ -82,9 +82,8 @@ func NewWebApp(ctx *pulumi.Context,
 	if isZero(args.ScmSiteAlsoStopped) {
 		args.ScmSiteAlsoStopped = pulumi.BoolPtr(false)
 	}
-	siteConfigApplier := func(v SiteConfig) *SiteConfig { return v.Defaults() }
 	if args.SiteConfig != nil {
-		args.SiteConfig = args.SiteConfig.ToSiteConfigPtrOutput().Elem().ApplyT(siteConfigApplier).(SiteConfigPtrOutput)
+		args.SiteConfig = args.SiteConfig.ToSiteConfigPtrOutput().ApplyT(func(v *SiteConfig) *SiteConfig { return v.Defaults() }).(SiteConfigPtrOutput)
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

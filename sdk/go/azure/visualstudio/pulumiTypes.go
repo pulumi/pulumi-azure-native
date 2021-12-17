@@ -211,78 +211,6 @@ type ExtensionResourcePlanResponse struct {
 	Version       *string `pulumi:"version"`
 }
 
-
-
-
-
-type ExtensionResourcePlanResponseInput interface {
-	pulumi.Input
-
-	ToExtensionResourcePlanResponseOutput() ExtensionResourcePlanResponseOutput
-	ToExtensionResourcePlanResponseOutputWithContext(context.Context) ExtensionResourcePlanResponseOutput
-}
-
-type ExtensionResourcePlanResponseArgs struct {
-	Name          pulumi.StringPtrInput `pulumi:"name"`
-	Product       pulumi.StringPtrInput `pulumi:"product"`
-	PromotionCode pulumi.StringPtrInput `pulumi:"promotionCode"`
-	Publisher     pulumi.StringPtrInput `pulumi:"publisher"`
-	Version       pulumi.StringPtrInput `pulumi:"version"`
-}
-
-func (ExtensionResourcePlanResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ExtensionResourcePlanResponse)(nil)).Elem()
-}
-
-func (i ExtensionResourcePlanResponseArgs) ToExtensionResourcePlanResponseOutput() ExtensionResourcePlanResponseOutput {
-	return i.ToExtensionResourcePlanResponseOutputWithContext(context.Background())
-}
-
-func (i ExtensionResourcePlanResponseArgs) ToExtensionResourcePlanResponseOutputWithContext(ctx context.Context) ExtensionResourcePlanResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ExtensionResourcePlanResponseOutput)
-}
-
-func (i ExtensionResourcePlanResponseArgs) ToExtensionResourcePlanResponsePtrOutput() ExtensionResourcePlanResponsePtrOutput {
-	return i.ToExtensionResourcePlanResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ExtensionResourcePlanResponseArgs) ToExtensionResourcePlanResponsePtrOutputWithContext(ctx context.Context) ExtensionResourcePlanResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ExtensionResourcePlanResponseOutput).ToExtensionResourcePlanResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type ExtensionResourcePlanResponsePtrInput interface {
-	pulumi.Input
-
-	ToExtensionResourcePlanResponsePtrOutput() ExtensionResourcePlanResponsePtrOutput
-	ToExtensionResourcePlanResponsePtrOutputWithContext(context.Context) ExtensionResourcePlanResponsePtrOutput
-}
-
-type extensionResourcePlanResponsePtrType ExtensionResourcePlanResponseArgs
-
-func ExtensionResourcePlanResponsePtr(v *ExtensionResourcePlanResponseArgs) ExtensionResourcePlanResponsePtrInput {
-	return (*extensionResourcePlanResponsePtrType)(v)
-}
-
-func (*extensionResourcePlanResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ExtensionResourcePlanResponse)(nil)).Elem()
-}
-
-func (i *extensionResourcePlanResponsePtrType) ToExtensionResourcePlanResponsePtrOutput() ExtensionResourcePlanResponsePtrOutput {
-	return i.ToExtensionResourcePlanResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *extensionResourcePlanResponsePtrType) ToExtensionResourcePlanResponsePtrOutputWithContext(ctx context.Context) ExtensionResourcePlanResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ExtensionResourcePlanResponsePtrOutput)
-}
-
 type ExtensionResourcePlanResponseOutput struct{ *pulumi.OutputState }
 
 func (ExtensionResourcePlanResponseOutput) ElementType() reflect.Type {
@@ -295,16 +223,6 @@ func (o ExtensionResourcePlanResponseOutput) ToExtensionResourcePlanResponseOutp
 
 func (o ExtensionResourcePlanResponseOutput) ToExtensionResourcePlanResponseOutputWithContext(ctx context.Context) ExtensionResourcePlanResponseOutput {
 	return o
-}
-
-func (o ExtensionResourcePlanResponseOutput) ToExtensionResourcePlanResponsePtrOutput() ExtensionResourcePlanResponsePtrOutput {
-	return o.ToExtensionResourcePlanResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ExtensionResourcePlanResponseOutput) ToExtensionResourcePlanResponsePtrOutputWithContext(ctx context.Context) ExtensionResourcePlanResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExtensionResourcePlanResponse) *ExtensionResourcePlanResponse {
-		return &v
-	}).(ExtensionResourcePlanResponsePtrOutput)
 }
 
 func (o ExtensionResourcePlanResponseOutput) Name() pulumi.StringPtrOutput {

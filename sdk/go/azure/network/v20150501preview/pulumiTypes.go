@@ -147,74 +147,6 @@ type AddressSpaceResponse struct {
 	AddressPrefixes []string `pulumi:"addressPrefixes"`
 }
 
-
-
-
-
-type AddressSpaceResponseInput interface {
-	pulumi.Input
-
-	ToAddressSpaceResponseOutput() AddressSpaceResponseOutput
-	ToAddressSpaceResponseOutputWithContext(context.Context) AddressSpaceResponseOutput
-}
-
-type AddressSpaceResponseArgs struct {
-	AddressPrefixes pulumi.StringArrayInput `pulumi:"addressPrefixes"`
-}
-
-func (AddressSpaceResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AddressSpaceResponse)(nil)).Elem()
-}
-
-func (i AddressSpaceResponseArgs) ToAddressSpaceResponseOutput() AddressSpaceResponseOutput {
-	return i.ToAddressSpaceResponseOutputWithContext(context.Background())
-}
-
-func (i AddressSpaceResponseArgs) ToAddressSpaceResponseOutputWithContext(ctx context.Context) AddressSpaceResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AddressSpaceResponseOutput)
-}
-
-func (i AddressSpaceResponseArgs) ToAddressSpaceResponsePtrOutput() AddressSpaceResponsePtrOutput {
-	return i.ToAddressSpaceResponsePtrOutputWithContext(context.Background())
-}
-
-func (i AddressSpaceResponseArgs) ToAddressSpaceResponsePtrOutputWithContext(ctx context.Context) AddressSpaceResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AddressSpaceResponseOutput).ToAddressSpaceResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type AddressSpaceResponsePtrInput interface {
-	pulumi.Input
-
-	ToAddressSpaceResponsePtrOutput() AddressSpaceResponsePtrOutput
-	ToAddressSpaceResponsePtrOutputWithContext(context.Context) AddressSpaceResponsePtrOutput
-}
-
-type addressSpaceResponsePtrType AddressSpaceResponseArgs
-
-func AddressSpaceResponsePtr(v *AddressSpaceResponseArgs) AddressSpaceResponsePtrInput {
-	return (*addressSpaceResponsePtrType)(v)
-}
-
-func (*addressSpaceResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AddressSpaceResponse)(nil)).Elem()
-}
-
-func (i *addressSpaceResponsePtrType) ToAddressSpaceResponsePtrOutput() AddressSpaceResponsePtrOutput {
-	return i.ToAddressSpaceResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *addressSpaceResponsePtrType) ToAddressSpaceResponsePtrOutputWithContext(ctx context.Context) AddressSpaceResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AddressSpaceResponsePtrOutput)
-}
-
 type AddressSpaceResponseOutput struct{ *pulumi.OutputState }
 
 func (AddressSpaceResponseOutput) ElementType() reflect.Type {
@@ -227,16 +159,6 @@ func (o AddressSpaceResponseOutput) ToAddressSpaceResponseOutput() AddressSpaceR
 
 func (o AddressSpaceResponseOutput) ToAddressSpaceResponseOutputWithContext(ctx context.Context) AddressSpaceResponseOutput {
 	return o
-}
-
-func (o AddressSpaceResponseOutput) ToAddressSpaceResponsePtrOutput() AddressSpaceResponsePtrOutput {
-	return o.ToAddressSpaceResponsePtrOutputWithContext(context.Background())
-}
-
-func (o AddressSpaceResponseOutput) ToAddressSpaceResponsePtrOutputWithContext(ctx context.Context) AddressSpaceResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AddressSpaceResponse) *AddressSpaceResponse {
-		return &v
-	}).(AddressSpaceResponsePtrOutput)
 }
 
 func (o AddressSpaceResponseOutput) AddressPrefixes() pulumi.StringArrayOutput {
@@ -511,63 +433,6 @@ type ApplicationGatewayBackendAddressPoolResponse struct {
 	ProvisioningState       *string                                    `pulumi:"provisioningState"`
 }
 
-
-
-
-
-type ApplicationGatewayBackendAddressPoolResponseInput interface {
-	pulumi.Input
-
-	ToApplicationGatewayBackendAddressPoolResponseOutput() ApplicationGatewayBackendAddressPoolResponseOutput
-	ToApplicationGatewayBackendAddressPoolResponseOutputWithContext(context.Context) ApplicationGatewayBackendAddressPoolResponseOutput
-}
-
-type ApplicationGatewayBackendAddressPoolResponseArgs struct {
-	BackendAddresses        ApplicationGatewayBackendAddressResponseArrayInput `pulumi:"backendAddresses"`
-	BackendIPConfigurations SubResourceResponseArrayInput                      `pulumi:"backendIPConfigurations"`
-	Etag                    pulumi.StringPtrInput                              `pulumi:"etag"`
-	Id                      pulumi.StringPtrInput                              `pulumi:"id"`
-	Name                    pulumi.StringPtrInput                              `pulumi:"name"`
-	ProvisioningState       pulumi.StringPtrInput                              `pulumi:"provisioningState"`
-}
-
-func (ApplicationGatewayBackendAddressPoolResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationGatewayBackendAddressPoolResponse)(nil)).Elem()
-}
-
-func (i ApplicationGatewayBackendAddressPoolResponseArgs) ToApplicationGatewayBackendAddressPoolResponseOutput() ApplicationGatewayBackendAddressPoolResponseOutput {
-	return i.ToApplicationGatewayBackendAddressPoolResponseOutputWithContext(context.Background())
-}
-
-func (i ApplicationGatewayBackendAddressPoolResponseArgs) ToApplicationGatewayBackendAddressPoolResponseOutputWithContext(ctx context.Context) ApplicationGatewayBackendAddressPoolResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationGatewayBackendAddressPoolResponseOutput)
-}
-
-
-
-
-
-type ApplicationGatewayBackendAddressPoolResponseArrayInput interface {
-	pulumi.Input
-
-	ToApplicationGatewayBackendAddressPoolResponseArrayOutput() ApplicationGatewayBackendAddressPoolResponseArrayOutput
-	ToApplicationGatewayBackendAddressPoolResponseArrayOutputWithContext(context.Context) ApplicationGatewayBackendAddressPoolResponseArrayOutput
-}
-
-type ApplicationGatewayBackendAddressPoolResponseArray []ApplicationGatewayBackendAddressPoolResponseInput
-
-func (ApplicationGatewayBackendAddressPoolResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ApplicationGatewayBackendAddressPoolResponse)(nil)).Elem()
-}
-
-func (i ApplicationGatewayBackendAddressPoolResponseArray) ToApplicationGatewayBackendAddressPoolResponseArrayOutput() ApplicationGatewayBackendAddressPoolResponseArrayOutput {
-	return i.ToApplicationGatewayBackendAddressPoolResponseArrayOutputWithContext(context.Background())
-}
-
-func (i ApplicationGatewayBackendAddressPoolResponseArray) ToApplicationGatewayBackendAddressPoolResponseArrayOutputWithContext(ctx context.Context) ApplicationGatewayBackendAddressPoolResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationGatewayBackendAddressPoolResponseArrayOutput)
-}
-
 type ApplicationGatewayBackendAddressPoolResponseOutput struct{ *pulumi.OutputState }
 
 func (ApplicationGatewayBackendAddressPoolResponseOutput) ElementType() reflect.Type {
@@ -633,59 +498,6 @@ func (o ApplicationGatewayBackendAddressPoolResponseArrayOutput) Index(i pulumi.
 type ApplicationGatewayBackendAddressResponse struct {
 	Fqdn      *string `pulumi:"fqdn"`
 	IpAddress *string `pulumi:"ipAddress"`
-}
-
-
-
-
-
-type ApplicationGatewayBackendAddressResponseInput interface {
-	pulumi.Input
-
-	ToApplicationGatewayBackendAddressResponseOutput() ApplicationGatewayBackendAddressResponseOutput
-	ToApplicationGatewayBackendAddressResponseOutputWithContext(context.Context) ApplicationGatewayBackendAddressResponseOutput
-}
-
-type ApplicationGatewayBackendAddressResponseArgs struct {
-	Fqdn      pulumi.StringPtrInput `pulumi:"fqdn"`
-	IpAddress pulumi.StringPtrInput `pulumi:"ipAddress"`
-}
-
-func (ApplicationGatewayBackendAddressResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationGatewayBackendAddressResponse)(nil)).Elem()
-}
-
-func (i ApplicationGatewayBackendAddressResponseArgs) ToApplicationGatewayBackendAddressResponseOutput() ApplicationGatewayBackendAddressResponseOutput {
-	return i.ToApplicationGatewayBackendAddressResponseOutputWithContext(context.Background())
-}
-
-func (i ApplicationGatewayBackendAddressResponseArgs) ToApplicationGatewayBackendAddressResponseOutputWithContext(ctx context.Context) ApplicationGatewayBackendAddressResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationGatewayBackendAddressResponseOutput)
-}
-
-
-
-
-
-type ApplicationGatewayBackendAddressResponseArrayInput interface {
-	pulumi.Input
-
-	ToApplicationGatewayBackendAddressResponseArrayOutput() ApplicationGatewayBackendAddressResponseArrayOutput
-	ToApplicationGatewayBackendAddressResponseArrayOutputWithContext(context.Context) ApplicationGatewayBackendAddressResponseArrayOutput
-}
-
-type ApplicationGatewayBackendAddressResponseArray []ApplicationGatewayBackendAddressResponseInput
-
-func (ApplicationGatewayBackendAddressResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ApplicationGatewayBackendAddressResponse)(nil)).Elem()
-}
-
-func (i ApplicationGatewayBackendAddressResponseArray) ToApplicationGatewayBackendAddressResponseArrayOutput() ApplicationGatewayBackendAddressResponseArrayOutput {
-	return i.ToApplicationGatewayBackendAddressResponseArrayOutputWithContext(context.Background())
-}
-
-func (i ApplicationGatewayBackendAddressResponseArray) ToApplicationGatewayBackendAddressResponseArrayOutputWithContext(ctx context.Context) ApplicationGatewayBackendAddressResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationGatewayBackendAddressResponseArrayOutput)
 }
 
 type ApplicationGatewayBackendAddressResponseOutput struct{ *pulumi.OutputState }
@@ -868,64 +680,6 @@ type ApplicationGatewayBackendHttpSettingsResponse struct {
 	Port                *int    `pulumi:"port"`
 	Protocol            *string `pulumi:"protocol"`
 	ProvisioningState   *string `pulumi:"provisioningState"`
-}
-
-
-
-
-
-type ApplicationGatewayBackendHttpSettingsResponseInput interface {
-	pulumi.Input
-
-	ToApplicationGatewayBackendHttpSettingsResponseOutput() ApplicationGatewayBackendHttpSettingsResponseOutput
-	ToApplicationGatewayBackendHttpSettingsResponseOutputWithContext(context.Context) ApplicationGatewayBackendHttpSettingsResponseOutput
-}
-
-type ApplicationGatewayBackendHttpSettingsResponseArgs struct {
-	CookieBasedAffinity pulumi.StringPtrInput `pulumi:"cookieBasedAffinity"`
-	Etag                pulumi.StringPtrInput `pulumi:"etag"`
-	Id                  pulumi.StringPtrInput `pulumi:"id"`
-	Name                pulumi.StringPtrInput `pulumi:"name"`
-	Port                pulumi.IntPtrInput    `pulumi:"port"`
-	Protocol            pulumi.StringPtrInput `pulumi:"protocol"`
-	ProvisioningState   pulumi.StringPtrInput `pulumi:"provisioningState"`
-}
-
-func (ApplicationGatewayBackendHttpSettingsResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationGatewayBackendHttpSettingsResponse)(nil)).Elem()
-}
-
-func (i ApplicationGatewayBackendHttpSettingsResponseArgs) ToApplicationGatewayBackendHttpSettingsResponseOutput() ApplicationGatewayBackendHttpSettingsResponseOutput {
-	return i.ToApplicationGatewayBackendHttpSettingsResponseOutputWithContext(context.Background())
-}
-
-func (i ApplicationGatewayBackendHttpSettingsResponseArgs) ToApplicationGatewayBackendHttpSettingsResponseOutputWithContext(ctx context.Context) ApplicationGatewayBackendHttpSettingsResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationGatewayBackendHttpSettingsResponseOutput)
-}
-
-
-
-
-
-type ApplicationGatewayBackendHttpSettingsResponseArrayInput interface {
-	pulumi.Input
-
-	ToApplicationGatewayBackendHttpSettingsResponseArrayOutput() ApplicationGatewayBackendHttpSettingsResponseArrayOutput
-	ToApplicationGatewayBackendHttpSettingsResponseArrayOutputWithContext(context.Context) ApplicationGatewayBackendHttpSettingsResponseArrayOutput
-}
-
-type ApplicationGatewayBackendHttpSettingsResponseArray []ApplicationGatewayBackendHttpSettingsResponseInput
-
-func (ApplicationGatewayBackendHttpSettingsResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ApplicationGatewayBackendHttpSettingsResponse)(nil)).Elem()
-}
-
-func (i ApplicationGatewayBackendHttpSettingsResponseArray) ToApplicationGatewayBackendHttpSettingsResponseArrayOutput() ApplicationGatewayBackendHttpSettingsResponseArrayOutput {
-	return i.ToApplicationGatewayBackendHttpSettingsResponseArrayOutputWithContext(context.Background())
-}
-
-func (i ApplicationGatewayBackendHttpSettingsResponseArray) ToApplicationGatewayBackendHttpSettingsResponseArrayOutputWithContext(ctx context.Context) ApplicationGatewayBackendHttpSettingsResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationGatewayBackendHttpSettingsResponseArrayOutput)
 }
 
 type ApplicationGatewayBackendHttpSettingsResponseOutput struct{ *pulumi.OutputState }
@@ -1137,65 +891,6 @@ type ApplicationGatewayFrontendIPConfigurationResponse struct {
 	Subnet                    *SubResourceResponse `pulumi:"subnet"`
 }
 
-
-
-
-
-type ApplicationGatewayFrontendIPConfigurationResponseInput interface {
-	pulumi.Input
-
-	ToApplicationGatewayFrontendIPConfigurationResponseOutput() ApplicationGatewayFrontendIPConfigurationResponseOutput
-	ToApplicationGatewayFrontendIPConfigurationResponseOutputWithContext(context.Context) ApplicationGatewayFrontendIPConfigurationResponseOutput
-}
-
-type ApplicationGatewayFrontendIPConfigurationResponseArgs struct {
-	Etag                      pulumi.StringPtrInput       `pulumi:"etag"`
-	Id                        pulumi.StringPtrInput       `pulumi:"id"`
-	Name                      pulumi.StringPtrInput       `pulumi:"name"`
-	PrivateIPAddress          pulumi.StringPtrInput       `pulumi:"privateIPAddress"`
-	PrivateIPAllocationMethod pulumi.StringPtrInput       `pulumi:"privateIPAllocationMethod"`
-	ProvisioningState         pulumi.StringPtrInput       `pulumi:"provisioningState"`
-	PublicIPAddress           SubResourceResponsePtrInput `pulumi:"publicIPAddress"`
-	Subnet                    SubResourceResponsePtrInput `pulumi:"subnet"`
-}
-
-func (ApplicationGatewayFrontendIPConfigurationResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationGatewayFrontendIPConfigurationResponse)(nil)).Elem()
-}
-
-func (i ApplicationGatewayFrontendIPConfigurationResponseArgs) ToApplicationGatewayFrontendIPConfigurationResponseOutput() ApplicationGatewayFrontendIPConfigurationResponseOutput {
-	return i.ToApplicationGatewayFrontendIPConfigurationResponseOutputWithContext(context.Background())
-}
-
-func (i ApplicationGatewayFrontendIPConfigurationResponseArgs) ToApplicationGatewayFrontendIPConfigurationResponseOutputWithContext(ctx context.Context) ApplicationGatewayFrontendIPConfigurationResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationGatewayFrontendIPConfigurationResponseOutput)
-}
-
-
-
-
-
-type ApplicationGatewayFrontendIPConfigurationResponseArrayInput interface {
-	pulumi.Input
-
-	ToApplicationGatewayFrontendIPConfigurationResponseArrayOutput() ApplicationGatewayFrontendIPConfigurationResponseArrayOutput
-	ToApplicationGatewayFrontendIPConfigurationResponseArrayOutputWithContext(context.Context) ApplicationGatewayFrontendIPConfigurationResponseArrayOutput
-}
-
-type ApplicationGatewayFrontendIPConfigurationResponseArray []ApplicationGatewayFrontendIPConfigurationResponseInput
-
-func (ApplicationGatewayFrontendIPConfigurationResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ApplicationGatewayFrontendIPConfigurationResponse)(nil)).Elem()
-}
-
-func (i ApplicationGatewayFrontendIPConfigurationResponseArray) ToApplicationGatewayFrontendIPConfigurationResponseArrayOutput() ApplicationGatewayFrontendIPConfigurationResponseArrayOutput {
-	return i.ToApplicationGatewayFrontendIPConfigurationResponseArrayOutputWithContext(context.Background())
-}
-
-func (i ApplicationGatewayFrontendIPConfigurationResponseArray) ToApplicationGatewayFrontendIPConfigurationResponseArrayOutputWithContext(ctx context.Context) ApplicationGatewayFrontendIPConfigurationResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationGatewayFrontendIPConfigurationResponseArrayOutput)
-}
-
 type ApplicationGatewayFrontendIPConfigurationResponseOutput struct{ *pulumi.OutputState }
 
 func (ApplicationGatewayFrontendIPConfigurationResponseOutput) ElementType() reflect.Type {
@@ -1388,62 +1083,6 @@ type ApplicationGatewayFrontendPortResponse struct {
 	Name              *string `pulumi:"name"`
 	Port              *int    `pulumi:"port"`
 	ProvisioningState *string `pulumi:"provisioningState"`
-}
-
-
-
-
-
-type ApplicationGatewayFrontendPortResponseInput interface {
-	pulumi.Input
-
-	ToApplicationGatewayFrontendPortResponseOutput() ApplicationGatewayFrontendPortResponseOutput
-	ToApplicationGatewayFrontendPortResponseOutputWithContext(context.Context) ApplicationGatewayFrontendPortResponseOutput
-}
-
-type ApplicationGatewayFrontendPortResponseArgs struct {
-	Etag              pulumi.StringPtrInput `pulumi:"etag"`
-	Id                pulumi.StringPtrInput `pulumi:"id"`
-	Name              pulumi.StringPtrInput `pulumi:"name"`
-	Port              pulumi.IntPtrInput    `pulumi:"port"`
-	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
-}
-
-func (ApplicationGatewayFrontendPortResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationGatewayFrontendPortResponse)(nil)).Elem()
-}
-
-func (i ApplicationGatewayFrontendPortResponseArgs) ToApplicationGatewayFrontendPortResponseOutput() ApplicationGatewayFrontendPortResponseOutput {
-	return i.ToApplicationGatewayFrontendPortResponseOutputWithContext(context.Background())
-}
-
-func (i ApplicationGatewayFrontendPortResponseArgs) ToApplicationGatewayFrontendPortResponseOutputWithContext(ctx context.Context) ApplicationGatewayFrontendPortResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationGatewayFrontendPortResponseOutput)
-}
-
-
-
-
-
-type ApplicationGatewayFrontendPortResponseArrayInput interface {
-	pulumi.Input
-
-	ToApplicationGatewayFrontendPortResponseArrayOutput() ApplicationGatewayFrontendPortResponseArrayOutput
-	ToApplicationGatewayFrontendPortResponseArrayOutputWithContext(context.Context) ApplicationGatewayFrontendPortResponseArrayOutput
-}
-
-type ApplicationGatewayFrontendPortResponseArray []ApplicationGatewayFrontendPortResponseInput
-
-func (ApplicationGatewayFrontendPortResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ApplicationGatewayFrontendPortResponse)(nil)).Elem()
-}
-
-func (i ApplicationGatewayFrontendPortResponseArray) ToApplicationGatewayFrontendPortResponseArrayOutput() ApplicationGatewayFrontendPortResponseArrayOutput {
-	return i.ToApplicationGatewayFrontendPortResponseArrayOutputWithContext(context.Background())
-}
-
-func (i ApplicationGatewayFrontendPortResponseArray) ToApplicationGatewayFrontendPortResponseArrayOutputWithContext(ctx context.Context) ApplicationGatewayFrontendPortResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationGatewayFrontendPortResponseArrayOutput)
 }
 
 type ApplicationGatewayFrontendPortResponseOutput struct{ *pulumi.OutputState }
@@ -1647,65 +1286,6 @@ type ApplicationGatewayHttpListenerResponse struct {
 	SslCertificate          *SubResourceResponse `pulumi:"sslCertificate"`
 }
 
-
-
-
-
-type ApplicationGatewayHttpListenerResponseInput interface {
-	pulumi.Input
-
-	ToApplicationGatewayHttpListenerResponseOutput() ApplicationGatewayHttpListenerResponseOutput
-	ToApplicationGatewayHttpListenerResponseOutputWithContext(context.Context) ApplicationGatewayHttpListenerResponseOutput
-}
-
-type ApplicationGatewayHttpListenerResponseArgs struct {
-	Etag                    pulumi.StringPtrInput       `pulumi:"etag"`
-	FrontendIPConfiguration SubResourceResponsePtrInput `pulumi:"frontendIPConfiguration"`
-	FrontendPort            SubResourceResponsePtrInput `pulumi:"frontendPort"`
-	Id                      pulumi.StringPtrInput       `pulumi:"id"`
-	Name                    pulumi.StringPtrInput       `pulumi:"name"`
-	Protocol                pulumi.StringPtrInput       `pulumi:"protocol"`
-	ProvisioningState       pulumi.StringPtrInput       `pulumi:"provisioningState"`
-	SslCertificate          SubResourceResponsePtrInput `pulumi:"sslCertificate"`
-}
-
-func (ApplicationGatewayHttpListenerResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationGatewayHttpListenerResponse)(nil)).Elem()
-}
-
-func (i ApplicationGatewayHttpListenerResponseArgs) ToApplicationGatewayHttpListenerResponseOutput() ApplicationGatewayHttpListenerResponseOutput {
-	return i.ToApplicationGatewayHttpListenerResponseOutputWithContext(context.Background())
-}
-
-func (i ApplicationGatewayHttpListenerResponseArgs) ToApplicationGatewayHttpListenerResponseOutputWithContext(ctx context.Context) ApplicationGatewayHttpListenerResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationGatewayHttpListenerResponseOutput)
-}
-
-
-
-
-
-type ApplicationGatewayHttpListenerResponseArrayInput interface {
-	pulumi.Input
-
-	ToApplicationGatewayHttpListenerResponseArrayOutput() ApplicationGatewayHttpListenerResponseArrayOutput
-	ToApplicationGatewayHttpListenerResponseArrayOutputWithContext(context.Context) ApplicationGatewayHttpListenerResponseArrayOutput
-}
-
-type ApplicationGatewayHttpListenerResponseArray []ApplicationGatewayHttpListenerResponseInput
-
-func (ApplicationGatewayHttpListenerResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ApplicationGatewayHttpListenerResponse)(nil)).Elem()
-}
-
-func (i ApplicationGatewayHttpListenerResponseArray) ToApplicationGatewayHttpListenerResponseArrayOutput() ApplicationGatewayHttpListenerResponseArrayOutput {
-	return i.ToApplicationGatewayHttpListenerResponseArrayOutputWithContext(context.Background())
-}
-
-func (i ApplicationGatewayHttpListenerResponseArray) ToApplicationGatewayHttpListenerResponseArrayOutputWithContext(ctx context.Context) ApplicationGatewayHttpListenerResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationGatewayHttpListenerResponseArrayOutput)
-}
-
 type ApplicationGatewayHttpListenerResponseOutput struct{ *pulumi.OutputState }
 
 func (ApplicationGatewayHttpListenerResponseOutput) ElementType() reflect.Type {
@@ -1896,62 +1476,6 @@ type ApplicationGatewayIPConfigurationResponse struct {
 	Name              *string              `pulumi:"name"`
 	ProvisioningState *string              `pulumi:"provisioningState"`
 	Subnet            *SubResourceResponse `pulumi:"subnet"`
-}
-
-
-
-
-
-type ApplicationGatewayIPConfigurationResponseInput interface {
-	pulumi.Input
-
-	ToApplicationGatewayIPConfigurationResponseOutput() ApplicationGatewayIPConfigurationResponseOutput
-	ToApplicationGatewayIPConfigurationResponseOutputWithContext(context.Context) ApplicationGatewayIPConfigurationResponseOutput
-}
-
-type ApplicationGatewayIPConfigurationResponseArgs struct {
-	Etag              pulumi.StringPtrInput       `pulumi:"etag"`
-	Id                pulumi.StringPtrInput       `pulumi:"id"`
-	Name              pulumi.StringPtrInput       `pulumi:"name"`
-	ProvisioningState pulumi.StringPtrInput       `pulumi:"provisioningState"`
-	Subnet            SubResourceResponsePtrInput `pulumi:"subnet"`
-}
-
-func (ApplicationGatewayIPConfigurationResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationGatewayIPConfigurationResponse)(nil)).Elem()
-}
-
-func (i ApplicationGatewayIPConfigurationResponseArgs) ToApplicationGatewayIPConfigurationResponseOutput() ApplicationGatewayIPConfigurationResponseOutput {
-	return i.ToApplicationGatewayIPConfigurationResponseOutputWithContext(context.Background())
-}
-
-func (i ApplicationGatewayIPConfigurationResponseArgs) ToApplicationGatewayIPConfigurationResponseOutputWithContext(ctx context.Context) ApplicationGatewayIPConfigurationResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationGatewayIPConfigurationResponseOutput)
-}
-
-
-
-
-
-type ApplicationGatewayIPConfigurationResponseArrayInput interface {
-	pulumi.Input
-
-	ToApplicationGatewayIPConfigurationResponseArrayOutput() ApplicationGatewayIPConfigurationResponseArrayOutput
-	ToApplicationGatewayIPConfigurationResponseArrayOutputWithContext(context.Context) ApplicationGatewayIPConfigurationResponseArrayOutput
-}
-
-type ApplicationGatewayIPConfigurationResponseArray []ApplicationGatewayIPConfigurationResponseInput
-
-func (ApplicationGatewayIPConfigurationResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ApplicationGatewayIPConfigurationResponse)(nil)).Elem()
-}
-
-func (i ApplicationGatewayIPConfigurationResponseArray) ToApplicationGatewayIPConfigurationResponseArrayOutput() ApplicationGatewayIPConfigurationResponseArrayOutput {
-	return i.ToApplicationGatewayIPConfigurationResponseArrayOutputWithContext(context.Background())
-}
-
-func (i ApplicationGatewayIPConfigurationResponseArray) ToApplicationGatewayIPConfigurationResponseArrayOutputWithContext(ctx context.Context) ApplicationGatewayIPConfigurationResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationGatewayIPConfigurationResponseArrayOutput)
 }
 
 type ApplicationGatewayIPConfigurationResponseOutput struct{ *pulumi.OutputState }
@@ -2153,65 +1677,6 @@ type ApplicationGatewayRequestRoutingRuleResponse struct {
 	Name                *string              `pulumi:"name"`
 	ProvisioningState   *string              `pulumi:"provisioningState"`
 	RuleType            *string              `pulumi:"ruleType"`
-}
-
-
-
-
-
-type ApplicationGatewayRequestRoutingRuleResponseInput interface {
-	pulumi.Input
-
-	ToApplicationGatewayRequestRoutingRuleResponseOutput() ApplicationGatewayRequestRoutingRuleResponseOutput
-	ToApplicationGatewayRequestRoutingRuleResponseOutputWithContext(context.Context) ApplicationGatewayRequestRoutingRuleResponseOutput
-}
-
-type ApplicationGatewayRequestRoutingRuleResponseArgs struct {
-	BackendAddressPool  SubResourceResponsePtrInput `pulumi:"backendAddressPool"`
-	BackendHttpSettings SubResourceResponsePtrInput `pulumi:"backendHttpSettings"`
-	Etag                pulumi.StringPtrInput       `pulumi:"etag"`
-	HttpListener        SubResourceResponsePtrInput `pulumi:"httpListener"`
-	Id                  pulumi.StringPtrInput       `pulumi:"id"`
-	Name                pulumi.StringPtrInput       `pulumi:"name"`
-	ProvisioningState   pulumi.StringPtrInput       `pulumi:"provisioningState"`
-	RuleType            pulumi.StringPtrInput       `pulumi:"ruleType"`
-}
-
-func (ApplicationGatewayRequestRoutingRuleResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationGatewayRequestRoutingRuleResponse)(nil)).Elem()
-}
-
-func (i ApplicationGatewayRequestRoutingRuleResponseArgs) ToApplicationGatewayRequestRoutingRuleResponseOutput() ApplicationGatewayRequestRoutingRuleResponseOutput {
-	return i.ToApplicationGatewayRequestRoutingRuleResponseOutputWithContext(context.Background())
-}
-
-func (i ApplicationGatewayRequestRoutingRuleResponseArgs) ToApplicationGatewayRequestRoutingRuleResponseOutputWithContext(ctx context.Context) ApplicationGatewayRequestRoutingRuleResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationGatewayRequestRoutingRuleResponseOutput)
-}
-
-
-
-
-
-type ApplicationGatewayRequestRoutingRuleResponseArrayInput interface {
-	pulumi.Input
-
-	ToApplicationGatewayRequestRoutingRuleResponseArrayOutput() ApplicationGatewayRequestRoutingRuleResponseArrayOutput
-	ToApplicationGatewayRequestRoutingRuleResponseArrayOutputWithContext(context.Context) ApplicationGatewayRequestRoutingRuleResponseArrayOutput
-}
-
-type ApplicationGatewayRequestRoutingRuleResponseArray []ApplicationGatewayRequestRoutingRuleResponseInput
-
-func (ApplicationGatewayRequestRoutingRuleResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ApplicationGatewayRequestRoutingRuleResponse)(nil)).Elem()
-}
-
-func (i ApplicationGatewayRequestRoutingRuleResponseArray) ToApplicationGatewayRequestRoutingRuleResponseArrayOutput() ApplicationGatewayRequestRoutingRuleResponseArrayOutput {
-	return i.ToApplicationGatewayRequestRoutingRuleResponseArrayOutputWithContext(context.Background())
-}
-
-func (i ApplicationGatewayRequestRoutingRuleResponseArray) ToApplicationGatewayRequestRoutingRuleResponseArrayOutputWithContext(ctx context.Context) ApplicationGatewayRequestRoutingRuleResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationGatewayRequestRoutingRuleResponseArrayOutput)
 }
 
 type ApplicationGatewayRequestRoutingRuleResponseOutput struct{ *pulumi.OutputState }
@@ -2451,76 +1916,6 @@ type ApplicationGatewaySkuResponse struct {
 	Tier     *string `pulumi:"tier"`
 }
 
-
-
-
-
-type ApplicationGatewaySkuResponseInput interface {
-	pulumi.Input
-
-	ToApplicationGatewaySkuResponseOutput() ApplicationGatewaySkuResponseOutput
-	ToApplicationGatewaySkuResponseOutputWithContext(context.Context) ApplicationGatewaySkuResponseOutput
-}
-
-type ApplicationGatewaySkuResponseArgs struct {
-	Capacity pulumi.IntPtrInput    `pulumi:"capacity"`
-	Name     pulumi.StringPtrInput `pulumi:"name"`
-	Tier     pulumi.StringPtrInput `pulumi:"tier"`
-}
-
-func (ApplicationGatewaySkuResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationGatewaySkuResponse)(nil)).Elem()
-}
-
-func (i ApplicationGatewaySkuResponseArgs) ToApplicationGatewaySkuResponseOutput() ApplicationGatewaySkuResponseOutput {
-	return i.ToApplicationGatewaySkuResponseOutputWithContext(context.Background())
-}
-
-func (i ApplicationGatewaySkuResponseArgs) ToApplicationGatewaySkuResponseOutputWithContext(ctx context.Context) ApplicationGatewaySkuResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationGatewaySkuResponseOutput)
-}
-
-func (i ApplicationGatewaySkuResponseArgs) ToApplicationGatewaySkuResponsePtrOutput() ApplicationGatewaySkuResponsePtrOutput {
-	return i.ToApplicationGatewaySkuResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ApplicationGatewaySkuResponseArgs) ToApplicationGatewaySkuResponsePtrOutputWithContext(ctx context.Context) ApplicationGatewaySkuResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationGatewaySkuResponseOutput).ToApplicationGatewaySkuResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type ApplicationGatewaySkuResponsePtrInput interface {
-	pulumi.Input
-
-	ToApplicationGatewaySkuResponsePtrOutput() ApplicationGatewaySkuResponsePtrOutput
-	ToApplicationGatewaySkuResponsePtrOutputWithContext(context.Context) ApplicationGatewaySkuResponsePtrOutput
-}
-
-type applicationGatewaySkuResponsePtrType ApplicationGatewaySkuResponseArgs
-
-func ApplicationGatewaySkuResponsePtr(v *ApplicationGatewaySkuResponseArgs) ApplicationGatewaySkuResponsePtrInput {
-	return (*applicationGatewaySkuResponsePtrType)(v)
-}
-
-func (*applicationGatewaySkuResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApplicationGatewaySkuResponse)(nil)).Elem()
-}
-
-func (i *applicationGatewaySkuResponsePtrType) ToApplicationGatewaySkuResponsePtrOutput() ApplicationGatewaySkuResponsePtrOutput {
-	return i.ToApplicationGatewaySkuResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *applicationGatewaySkuResponsePtrType) ToApplicationGatewaySkuResponsePtrOutputWithContext(ctx context.Context) ApplicationGatewaySkuResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationGatewaySkuResponsePtrOutput)
-}
-
 type ApplicationGatewaySkuResponseOutput struct{ *pulumi.OutputState }
 
 func (ApplicationGatewaySkuResponseOutput) ElementType() reflect.Type {
@@ -2533,16 +1928,6 @@ func (o ApplicationGatewaySkuResponseOutput) ToApplicationGatewaySkuResponseOutp
 
 func (o ApplicationGatewaySkuResponseOutput) ToApplicationGatewaySkuResponseOutputWithContext(ctx context.Context) ApplicationGatewaySkuResponseOutput {
 	return o
-}
-
-func (o ApplicationGatewaySkuResponseOutput) ToApplicationGatewaySkuResponsePtrOutput() ApplicationGatewaySkuResponsePtrOutput {
-	return o.ToApplicationGatewaySkuResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ApplicationGatewaySkuResponseOutput) ToApplicationGatewaySkuResponsePtrOutputWithContext(ctx context.Context) ApplicationGatewaySkuResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationGatewaySkuResponse) *ApplicationGatewaySkuResponse {
-		return &v
-	}).(ApplicationGatewaySkuResponsePtrOutput)
 }
 
 func (o ApplicationGatewaySkuResponseOutput) Capacity() pulumi.IntPtrOutput {
@@ -2748,64 +2133,6 @@ type ApplicationGatewaySslCertificateResponse struct {
 	PublicCertData    *string `pulumi:"publicCertData"`
 }
 
-
-
-
-
-type ApplicationGatewaySslCertificateResponseInput interface {
-	pulumi.Input
-
-	ToApplicationGatewaySslCertificateResponseOutput() ApplicationGatewaySslCertificateResponseOutput
-	ToApplicationGatewaySslCertificateResponseOutputWithContext(context.Context) ApplicationGatewaySslCertificateResponseOutput
-}
-
-type ApplicationGatewaySslCertificateResponseArgs struct {
-	Data              pulumi.StringPtrInput `pulumi:"data"`
-	Etag              pulumi.StringPtrInput `pulumi:"etag"`
-	Id                pulumi.StringPtrInput `pulumi:"id"`
-	Name              pulumi.StringPtrInput `pulumi:"name"`
-	Password          pulumi.StringPtrInput `pulumi:"password"`
-	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
-	PublicCertData    pulumi.StringPtrInput `pulumi:"publicCertData"`
-}
-
-func (ApplicationGatewaySslCertificateResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationGatewaySslCertificateResponse)(nil)).Elem()
-}
-
-func (i ApplicationGatewaySslCertificateResponseArgs) ToApplicationGatewaySslCertificateResponseOutput() ApplicationGatewaySslCertificateResponseOutput {
-	return i.ToApplicationGatewaySslCertificateResponseOutputWithContext(context.Background())
-}
-
-func (i ApplicationGatewaySslCertificateResponseArgs) ToApplicationGatewaySslCertificateResponseOutputWithContext(ctx context.Context) ApplicationGatewaySslCertificateResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationGatewaySslCertificateResponseOutput)
-}
-
-
-
-
-
-type ApplicationGatewaySslCertificateResponseArrayInput interface {
-	pulumi.Input
-
-	ToApplicationGatewaySslCertificateResponseArrayOutput() ApplicationGatewaySslCertificateResponseArrayOutput
-	ToApplicationGatewaySslCertificateResponseArrayOutputWithContext(context.Context) ApplicationGatewaySslCertificateResponseArrayOutput
-}
-
-type ApplicationGatewaySslCertificateResponseArray []ApplicationGatewaySslCertificateResponseInput
-
-func (ApplicationGatewaySslCertificateResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ApplicationGatewaySslCertificateResponse)(nil)).Elem()
-}
-
-func (i ApplicationGatewaySslCertificateResponseArray) ToApplicationGatewaySslCertificateResponseArrayOutput() ApplicationGatewaySslCertificateResponseArrayOutput {
-	return i.ToApplicationGatewaySslCertificateResponseArrayOutputWithContext(context.Background())
-}
-
-func (i ApplicationGatewaySslCertificateResponseArray) ToApplicationGatewaySslCertificateResponseArrayOutputWithContext(ctx context.Context) ApplicationGatewaySslCertificateResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationGatewaySslCertificateResponseArrayOutput)
-}
-
 type ApplicationGatewaySslCertificateResponseOutput struct{ *pulumi.OutputState }
 
 func (ApplicationGatewaySslCertificateResponseOutput) ElementType() reflect.Type {
@@ -3008,64 +2335,6 @@ type BackendAddressPoolResponse struct {
 	ProvisioningState       *string               `pulumi:"provisioningState"`
 }
 
-
-
-
-
-type BackendAddressPoolResponseInput interface {
-	pulumi.Input
-
-	ToBackendAddressPoolResponseOutput() BackendAddressPoolResponseOutput
-	ToBackendAddressPoolResponseOutputWithContext(context.Context) BackendAddressPoolResponseOutput
-}
-
-type BackendAddressPoolResponseArgs struct {
-	BackendIPConfigurations SubResourceResponseArrayInput `pulumi:"backendIPConfigurations"`
-	Etag                    pulumi.StringPtrInput         `pulumi:"etag"`
-	Id                      pulumi.StringPtrInput         `pulumi:"id"`
-	LoadBalancingRules      SubResourceResponseArrayInput `pulumi:"loadBalancingRules"`
-	Name                    pulumi.StringPtrInput         `pulumi:"name"`
-	OutboundNatRule         SubResourceResponsePtrInput   `pulumi:"outboundNatRule"`
-	ProvisioningState       pulumi.StringPtrInput         `pulumi:"provisioningState"`
-}
-
-func (BackendAddressPoolResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*BackendAddressPoolResponse)(nil)).Elem()
-}
-
-func (i BackendAddressPoolResponseArgs) ToBackendAddressPoolResponseOutput() BackendAddressPoolResponseOutput {
-	return i.ToBackendAddressPoolResponseOutputWithContext(context.Background())
-}
-
-func (i BackendAddressPoolResponseArgs) ToBackendAddressPoolResponseOutputWithContext(ctx context.Context) BackendAddressPoolResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BackendAddressPoolResponseOutput)
-}
-
-
-
-
-
-type BackendAddressPoolResponseArrayInput interface {
-	pulumi.Input
-
-	ToBackendAddressPoolResponseArrayOutput() BackendAddressPoolResponseArrayOutput
-	ToBackendAddressPoolResponseArrayOutputWithContext(context.Context) BackendAddressPoolResponseArrayOutput
-}
-
-type BackendAddressPoolResponseArray []BackendAddressPoolResponseInput
-
-func (BackendAddressPoolResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]BackendAddressPoolResponse)(nil)).Elem()
-}
-
-func (i BackendAddressPoolResponseArray) ToBackendAddressPoolResponseArrayOutput() BackendAddressPoolResponseArrayOutput {
-	return i.ToBackendAddressPoolResponseArrayOutputWithContext(context.Background())
-}
-
-func (i BackendAddressPoolResponseArray) ToBackendAddressPoolResponseArrayOutputWithContext(ctx context.Context) BackendAddressPoolResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BackendAddressPoolResponseArrayOutput)
-}
-
 type BackendAddressPoolResponseOutput struct{ *pulumi.OutputState }
 
 func (BackendAddressPoolResponseOutput) ElementType() reflect.Type {
@@ -3265,74 +2534,6 @@ type DhcpOptionsResponse struct {
 	DnsServers []string `pulumi:"dnsServers"`
 }
 
-
-
-
-
-type DhcpOptionsResponseInput interface {
-	pulumi.Input
-
-	ToDhcpOptionsResponseOutput() DhcpOptionsResponseOutput
-	ToDhcpOptionsResponseOutputWithContext(context.Context) DhcpOptionsResponseOutput
-}
-
-type DhcpOptionsResponseArgs struct {
-	DnsServers pulumi.StringArrayInput `pulumi:"dnsServers"`
-}
-
-func (DhcpOptionsResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DhcpOptionsResponse)(nil)).Elem()
-}
-
-func (i DhcpOptionsResponseArgs) ToDhcpOptionsResponseOutput() DhcpOptionsResponseOutput {
-	return i.ToDhcpOptionsResponseOutputWithContext(context.Background())
-}
-
-func (i DhcpOptionsResponseArgs) ToDhcpOptionsResponseOutputWithContext(ctx context.Context) DhcpOptionsResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DhcpOptionsResponseOutput)
-}
-
-func (i DhcpOptionsResponseArgs) ToDhcpOptionsResponsePtrOutput() DhcpOptionsResponsePtrOutput {
-	return i.ToDhcpOptionsResponsePtrOutputWithContext(context.Background())
-}
-
-func (i DhcpOptionsResponseArgs) ToDhcpOptionsResponsePtrOutputWithContext(ctx context.Context) DhcpOptionsResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DhcpOptionsResponseOutput).ToDhcpOptionsResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type DhcpOptionsResponsePtrInput interface {
-	pulumi.Input
-
-	ToDhcpOptionsResponsePtrOutput() DhcpOptionsResponsePtrOutput
-	ToDhcpOptionsResponsePtrOutputWithContext(context.Context) DhcpOptionsResponsePtrOutput
-}
-
-type dhcpOptionsResponsePtrType DhcpOptionsResponseArgs
-
-func DhcpOptionsResponsePtr(v *DhcpOptionsResponseArgs) DhcpOptionsResponsePtrInput {
-	return (*dhcpOptionsResponsePtrType)(v)
-}
-
-func (*dhcpOptionsResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DhcpOptionsResponse)(nil)).Elem()
-}
-
-func (i *dhcpOptionsResponsePtrType) ToDhcpOptionsResponsePtrOutput() DhcpOptionsResponsePtrOutput {
-	return i.ToDhcpOptionsResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *dhcpOptionsResponsePtrType) ToDhcpOptionsResponsePtrOutputWithContext(ctx context.Context) DhcpOptionsResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DhcpOptionsResponsePtrOutput)
-}
-
 type DhcpOptionsResponseOutput struct{ *pulumi.OutputState }
 
 func (DhcpOptionsResponseOutput) ElementType() reflect.Type {
@@ -3345,16 +2546,6 @@ func (o DhcpOptionsResponseOutput) ToDhcpOptionsResponseOutput() DhcpOptionsResp
 
 func (o DhcpOptionsResponseOutput) ToDhcpOptionsResponseOutputWithContext(ctx context.Context) DhcpOptionsResponseOutput {
 	return o
-}
-
-func (o DhcpOptionsResponseOutput) ToDhcpOptionsResponsePtrOutput() DhcpOptionsResponsePtrOutput {
-	return o.ToDhcpOptionsResponsePtrOutputWithContext(context.Background())
-}
-
-func (o DhcpOptionsResponseOutput) ToDhcpOptionsResponsePtrOutputWithContext(ctx context.Context) DhcpOptionsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DhcpOptionsResponse) *DhcpOptionsResponse {
-		return &v
-	}).(DhcpOptionsResponsePtrOutput)
 }
 
 func (o DhcpOptionsResponseOutput) DnsServers() pulumi.StringArrayOutput {
@@ -3525,63 +2716,6 @@ type ExpressRouteCircuitAuthorizationResponse struct {
 	Id                     *string `pulumi:"id"`
 	Name                   *string `pulumi:"name"`
 	ProvisioningState      *string `pulumi:"provisioningState"`
-}
-
-
-
-
-
-type ExpressRouteCircuitAuthorizationResponseInput interface {
-	pulumi.Input
-
-	ToExpressRouteCircuitAuthorizationResponseOutput() ExpressRouteCircuitAuthorizationResponseOutput
-	ToExpressRouteCircuitAuthorizationResponseOutputWithContext(context.Context) ExpressRouteCircuitAuthorizationResponseOutput
-}
-
-type ExpressRouteCircuitAuthorizationResponseArgs struct {
-	AuthorizationKey       pulumi.StringPtrInput `pulumi:"authorizationKey"`
-	AuthorizationUseStatus pulumi.StringPtrInput `pulumi:"authorizationUseStatus"`
-	Etag                   pulumi.StringPtrInput `pulumi:"etag"`
-	Id                     pulumi.StringPtrInput `pulumi:"id"`
-	Name                   pulumi.StringPtrInput `pulumi:"name"`
-	ProvisioningState      pulumi.StringPtrInput `pulumi:"provisioningState"`
-}
-
-func (ExpressRouteCircuitAuthorizationResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ExpressRouteCircuitAuthorizationResponse)(nil)).Elem()
-}
-
-func (i ExpressRouteCircuitAuthorizationResponseArgs) ToExpressRouteCircuitAuthorizationResponseOutput() ExpressRouteCircuitAuthorizationResponseOutput {
-	return i.ToExpressRouteCircuitAuthorizationResponseOutputWithContext(context.Background())
-}
-
-func (i ExpressRouteCircuitAuthorizationResponseArgs) ToExpressRouteCircuitAuthorizationResponseOutputWithContext(ctx context.Context) ExpressRouteCircuitAuthorizationResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ExpressRouteCircuitAuthorizationResponseOutput)
-}
-
-
-
-
-
-type ExpressRouteCircuitAuthorizationResponseArrayInput interface {
-	pulumi.Input
-
-	ToExpressRouteCircuitAuthorizationResponseArrayOutput() ExpressRouteCircuitAuthorizationResponseArrayOutput
-	ToExpressRouteCircuitAuthorizationResponseArrayOutputWithContext(context.Context) ExpressRouteCircuitAuthorizationResponseArrayOutput
-}
-
-type ExpressRouteCircuitAuthorizationResponseArray []ExpressRouteCircuitAuthorizationResponseInput
-
-func (ExpressRouteCircuitAuthorizationResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ExpressRouteCircuitAuthorizationResponse)(nil)).Elem()
-}
-
-func (i ExpressRouteCircuitAuthorizationResponseArray) ToExpressRouteCircuitAuthorizationResponseArrayOutput() ExpressRouteCircuitAuthorizationResponseArrayOutput {
-	return i.ToExpressRouteCircuitAuthorizationResponseArrayOutputWithContext(context.Background())
-}
-
-func (i ExpressRouteCircuitAuthorizationResponseArray) ToExpressRouteCircuitAuthorizationResponseArrayOutputWithContext(ctx context.Context) ExpressRouteCircuitAuthorizationResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ExpressRouteCircuitAuthorizationResponseArrayOutput)
 }
 
 type ExpressRouteCircuitAuthorizationResponseOutput struct{ *pulumi.OutputState }
@@ -4013,77 +3147,6 @@ type ExpressRouteCircuitPeeringConfigResponse struct {
 	RoutingRegistryName           *string  `pulumi:"routingRegistryName"`
 }
 
-
-
-
-
-type ExpressRouteCircuitPeeringConfigResponseInput interface {
-	pulumi.Input
-
-	ToExpressRouteCircuitPeeringConfigResponseOutput() ExpressRouteCircuitPeeringConfigResponseOutput
-	ToExpressRouteCircuitPeeringConfigResponseOutputWithContext(context.Context) ExpressRouteCircuitPeeringConfigResponseOutput
-}
-
-type ExpressRouteCircuitPeeringConfigResponseArgs struct {
-	AdvertisedPublicPrefixes      pulumi.StringArrayInput `pulumi:"advertisedPublicPrefixes"`
-	AdvertisedPublicPrefixesState pulumi.StringPtrInput   `pulumi:"advertisedPublicPrefixesState"`
-	CustomerASN                   pulumi.IntPtrInput      `pulumi:"customerASN"`
-	RoutingRegistryName           pulumi.StringPtrInput   `pulumi:"routingRegistryName"`
-}
-
-func (ExpressRouteCircuitPeeringConfigResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ExpressRouteCircuitPeeringConfigResponse)(nil)).Elem()
-}
-
-func (i ExpressRouteCircuitPeeringConfigResponseArgs) ToExpressRouteCircuitPeeringConfigResponseOutput() ExpressRouteCircuitPeeringConfigResponseOutput {
-	return i.ToExpressRouteCircuitPeeringConfigResponseOutputWithContext(context.Background())
-}
-
-func (i ExpressRouteCircuitPeeringConfigResponseArgs) ToExpressRouteCircuitPeeringConfigResponseOutputWithContext(ctx context.Context) ExpressRouteCircuitPeeringConfigResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ExpressRouteCircuitPeeringConfigResponseOutput)
-}
-
-func (i ExpressRouteCircuitPeeringConfigResponseArgs) ToExpressRouteCircuitPeeringConfigResponsePtrOutput() ExpressRouteCircuitPeeringConfigResponsePtrOutput {
-	return i.ToExpressRouteCircuitPeeringConfigResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ExpressRouteCircuitPeeringConfigResponseArgs) ToExpressRouteCircuitPeeringConfigResponsePtrOutputWithContext(ctx context.Context) ExpressRouteCircuitPeeringConfigResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ExpressRouteCircuitPeeringConfigResponseOutput).ToExpressRouteCircuitPeeringConfigResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type ExpressRouteCircuitPeeringConfigResponsePtrInput interface {
-	pulumi.Input
-
-	ToExpressRouteCircuitPeeringConfigResponsePtrOutput() ExpressRouteCircuitPeeringConfigResponsePtrOutput
-	ToExpressRouteCircuitPeeringConfigResponsePtrOutputWithContext(context.Context) ExpressRouteCircuitPeeringConfigResponsePtrOutput
-}
-
-type expressRouteCircuitPeeringConfigResponsePtrType ExpressRouteCircuitPeeringConfigResponseArgs
-
-func ExpressRouteCircuitPeeringConfigResponsePtr(v *ExpressRouteCircuitPeeringConfigResponseArgs) ExpressRouteCircuitPeeringConfigResponsePtrInput {
-	return (*expressRouteCircuitPeeringConfigResponsePtrType)(v)
-}
-
-func (*expressRouteCircuitPeeringConfigResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ExpressRouteCircuitPeeringConfigResponse)(nil)).Elem()
-}
-
-func (i *expressRouteCircuitPeeringConfigResponsePtrType) ToExpressRouteCircuitPeeringConfigResponsePtrOutput() ExpressRouteCircuitPeeringConfigResponsePtrOutput {
-	return i.ToExpressRouteCircuitPeeringConfigResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *expressRouteCircuitPeeringConfigResponsePtrType) ToExpressRouteCircuitPeeringConfigResponsePtrOutputWithContext(ctx context.Context) ExpressRouteCircuitPeeringConfigResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ExpressRouteCircuitPeeringConfigResponsePtrOutput)
-}
-
 type ExpressRouteCircuitPeeringConfigResponseOutput struct{ *pulumi.OutputState }
 
 func (ExpressRouteCircuitPeeringConfigResponseOutput) ElementType() reflect.Type {
@@ -4096,16 +3159,6 @@ func (o ExpressRouteCircuitPeeringConfigResponseOutput) ToExpressRouteCircuitPee
 
 func (o ExpressRouteCircuitPeeringConfigResponseOutput) ToExpressRouteCircuitPeeringConfigResponseOutputWithContext(ctx context.Context) ExpressRouteCircuitPeeringConfigResponseOutput {
 	return o
-}
-
-func (o ExpressRouteCircuitPeeringConfigResponseOutput) ToExpressRouteCircuitPeeringConfigResponsePtrOutput() ExpressRouteCircuitPeeringConfigResponsePtrOutput {
-	return o.ToExpressRouteCircuitPeeringConfigResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ExpressRouteCircuitPeeringConfigResponseOutput) ToExpressRouteCircuitPeeringConfigResponsePtrOutputWithContext(ctx context.Context) ExpressRouteCircuitPeeringConfigResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExpressRouteCircuitPeeringConfigResponse) *ExpressRouteCircuitPeeringConfigResponse {
-		return &v
-	}).(ExpressRouteCircuitPeeringConfigResponsePtrOutput)
 }
 
 func (o ExpressRouteCircuitPeeringConfigResponseOutput) AdvertisedPublicPrefixes() pulumi.StringArrayOutput {
@@ -4201,73 +3254,6 @@ type ExpressRouteCircuitPeeringResponse struct {
 	State                      *string                                   `pulumi:"state"`
 	Stats                      *ExpressRouteCircuitStatsResponse         `pulumi:"stats"`
 	VlanId                     *int                                      `pulumi:"vlanId"`
-}
-
-
-
-
-
-type ExpressRouteCircuitPeeringResponseInput interface {
-	pulumi.Input
-
-	ToExpressRouteCircuitPeeringResponseOutput() ExpressRouteCircuitPeeringResponseOutput
-	ToExpressRouteCircuitPeeringResponseOutputWithContext(context.Context) ExpressRouteCircuitPeeringResponseOutput
-}
-
-type ExpressRouteCircuitPeeringResponseArgs struct {
-	AzureASN                   pulumi.IntPtrInput                               `pulumi:"azureASN"`
-	Etag                       pulumi.StringPtrInput                            `pulumi:"etag"`
-	Id                         pulumi.StringPtrInput                            `pulumi:"id"`
-	MicrosoftPeeringConfig     ExpressRouteCircuitPeeringConfigResponsePtrInput `pulumi:"microsoftPeeringConfig"`
-	Name                       pulumi.StringPtrInput                            `pulumi:"name"`
-	PeerASN                    pulumi.IntPtrInput                               `pulumi:"peerASN"`
-	PeeringType                pulumi.StringPtrInput                            `pulumi:"peeringType"`
-	PrimaryAzurePort           pulumi.StringPtrInput                            `pulumi:"primaryAzurePort"`
-	PrimaryPeerAddressPrefix   pulumi.StringPtrInput                            `pulumi:"primaryPeerAddressPrefix"`
-	ProvisioningState          pulumi.StringPtrInput                            `pulumi:"provisioningState"`
-	SecondaryAzurePort         pulumi.StringPtrInput                            `pulumi:"secondaryAzurePort"`
-	SecondaryPeerAddressPrefix pulumi.StringPtrInput                            `pulumi:"secondaryPeerAddressPrefix"`
-	SharedKey                  pulumi.StringPtrInput                            `pulumi:"sharedKey"`
-	State                      pulumi.StringPtrInput                            `pulumi:"state"`
-	Stats                      ExpressRouteCircuitStatsResponsePtrInput         `pulumi:"stats"`
-	VlanId                     pulumi.IntPtrInput                               `pulumi:"vlanId"`
-}
-
-func (ExpressRouteCircuitPeeringResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ExpressRouteCircuitPeeringResponse)(nil)).Elem()
-}
-
-func (i ExpressRouteCircuitPeeringResponseArgs) ToExpressRouteCircuitPeeringResponseOutput() ExpressRouteCircuitPeeringResponseOutput {
-	return i.ToExpressRouteCircuitPeeringResponseOutputWithContext(context.Background())
-}
-
-func (i ExpressRouteCircuitPeeringResponseArgs) ToExpressRouteCircuitPeeringResponseOutputWithContext(ctx context.Context) ExpressRouteCircuitPeeringResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ExpressRouteCircuitPeeringResponseOutput)
-}
-
-
-
-
-
-type ExpressRouteCircuitPeeringResponseArrayInput interface {
-	pulumi.Input
-
-	ToExpressRouteCircuitPeeringResponseArrayOutput() ExpressRouteCircuitPeeringResponseArrayOutput
-	ToExpressRouteCircuitPeeringResponseArrayOutputWithContext(context.Context) ExpressRouteCircuitPeeringResponseArrayOutput
-}
-
-type ExpressRouteCircuitPeeringResponseArray []ExpressRouteCircuitPeeringResponseInput
-
-func (ExpressRouteCircuitPeeringResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ExpressRouteCircuitPeeringResponse)(nil)).Elem()
-}
-
-func (i ExpressRouteCircuitPeeringResponseArray) ToExpressRouteCircuitPeeringResponseArrayOutput() ExpressRouteCircuitPeeringResponseArrayOutput {
-	return i.ToExpressRouteCircuitPeeringResponseArrayOutputWithContext(context.Background())
-}
-
-func (i ExpressRouteCircuitPeeringResponseArray) ToExpressRouteCircuitPeeringResponseArrayOutputWithContext(ctx context.Context) ExpressRouteCircuitPeeringResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ExpressRouteCircuitPeeringResponseArrayOutput)
 }
 
 type ExpressRouteCircuitPeeringResponseOutput struct{ *pulumi.OutputState }
@@ -4539,76 +3525,6 @@ type ExpressRouteCircuitServiceProviderPropertiesResponse struct {
 	ServiceProviderName *string `pulumi:"serviceProviderName"`
 }
 
-
-
-
-
-type ExpressRouteCircuitServiceProviderPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToExpressRouteCircuitServiceProviderPropertiesResponseOutput() ExpressRouteCircuitServiceProviderPropertiesResponseOutput
-	ToExpressRouteCircuitServiceProviderPropertiesResponseOutputWithContext(context.Context) ExpressRouteCircuitServiceProviderPropertiesResponseOutput
-}
-
-type ExpressRouteCircuitServiceProviderPropertiesResponseArgs struct {
-	BandwidthInMbps     pulumi.IntPtrInput    `pulumi:"bandwidthInMbps"`
-	PeeringLocation     pulumi.StringPtrInput `pulumi:"peeringLocation"`
-	ServiceProviderName pulumi.StringPtrInput `pulumi:"serviceProviderName"`
-}
-
-func (ExpressRouteCircuitServiceProviderPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ExpressRouteCircuitServiceProviderPropertiesResponse)(nil)).Elem()
-}
-
-func (i ExpressRouteCircuitServiceProviderPropertiesResponseArgs) ToExpressRouteCircuitServiceProviderPropertiesResponseOutput() ExpressRouteCircuitServiceProviderPropertiesResponseOutput {
-	return i.ToExpressRouteCircuitServiceProviderPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i ExpressRouteCircuitServiceProviderPropertiesResponseArgs) ToExpressRouteCircuitServiceProviderPropertiesResponseOutputWithContext(ctx context.Context) ExpressRouteCircuitServiceProviderPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ExpressRouteCircuitServiceProviderPropertiesResponseOutput)
-}
-
-func (i ExpressRouteCircuitServiceProviderPropertiesResponseArgs) ToExpressRouteCircuitServiceProviderPropertiesResponsePtrOutput() ExpressRouteCircuitServiceProviderPropertiesResponsePtrOutput {
-	return i.ToExpressRouteCircuitServiceProviderPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ExpressRouteCircuitServiceProviderPropertiesResponseArgs) ToExpressRouteCircuitServiceProviderPropertiesResponsePtrOutputWithContext(ctx context.Context) ExpressRouteCircuitServiceProviderPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ExpressRouteCircuitServiceProviderPropertiesResponseOutput).ToExpressRouteCircuitServiceProviderPropertiesResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type ExpressRouteCircuitServiceProviderPropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToExpressRouteCircuitServiceProviderPropertiesResponsePtrOutput() ExpressRouteCircuitServiceProviderPropertiesResponsePtrOutput
-	ToExpressRouteCircuitServiceProviderPropertiesResponsePtrOutputWithContext(context.Context) ExpressRouteCircuitServiceProviderPropertiesResponsePtrOutput
-}
-
-type expressRouteCircuitServiceProviderPropertiesResponsePtrType ExpressRouteCircuitServiceProviderPropertiesResponseArgs
-
-func ExpressRouteCircuitServiceProviderPropertiesResponsePtr(v *ExpressRouteCircuitServiceProviderPropertiesResponseArgs) ExpressRouteCircuitServiceProviderPropertiesResponsePtrInput {
-	return (*expressRouteCircuitServiceProviderPropertiesResponsePtrType)(v)
-}
-
-func (*expressRouteCircuitServiceProviderPropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ExpressRouteCircuitServiceProviderPropertiesResponse)(nil)).Elem()
-}
-
-func (i *expressRouteCircuitServiceProviderPropertiesResponsePtrType) ToExpressRouteCircuitServiceProviderPropertiesResponsePtrOutput() ExpressRouteCircuitServiceProviderPropertiesResponsePtrOutput {
-	return i.ToExpressRouteCircuitServiceProviderPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *expressRouteCircuitServiceProviderPropertiesResponsePtrType) ToExpressRouteCircuitServiceProviderPropertiesResponsePtrOutputWithContext(ctx context.Context) ExpressRouteCircuitServiceProviderPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ExpressRouteCircuitServiceProviderPropertiesResponsePtrOutput)
-}
-
 type ExpressRouteCircuitServiceProviderPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (ExpressRouteCircuitServiceProviderPropertiesResponseOutput) ElementType() reflect.Type {
@@ -4621,16 +3537,6 @@ func (o ExpressRouteCircuitServiceProviderPropertiesResponseOutput) ToExpressRou
 
 func (o ExpressRouteCircuitServiceProviderPropertiesResponseOutput) ToExpressRouteCircuitServiceProviderPropertiesResponseOutputWithContext(ctx context.Context) ExpressRouteCircuitServiceProviderPropertiesResponseOutput {
 	return o
-}
-
-func (o ExpressRouteCircuitServiceProviderPropertiesResponseOutput) ToExpressRouteCircuitServiceProviderPropertiesResponsePtrOutput() ExpressRouteCircuitServiceProviderPropertiesResponsePtrOutput {
-	return o.ToExpressRouteCircuitServiceProviderPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ExpressRouteCircuitServiceProviderPropertiesResponseOutput) ToExpressRouteCircuitServiceProviderPropertiesResponsePtrOutputWithContext(ctx context.Context) ExpressRouteCircuitServiceProviderPropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExpressRouteCircuitServiceProviderPropertiesResponse) *ExpressRouteCircuitServiceProviderPropertiesResponse {
-		return &v
-	}).(ExpressRouteCircuitServiceProviderPropertiesResponsePtrOutput)
 }
 
 func (o ExpressRouteCircuitServiceProviderPropertiesResponseOutput) BandwidthInMbps() pulumi.IntPtrOutput {
@@ -4865,76 +3771,6 @@ type ExpressRouteCircuitSkuResponse struct {
 	Tier   *string `pulumi:"tier"`
 }
 
-
-
-
-
-type ExpressRouteCircuitSkuResponseInput interface {
-	pulumi.Input
-
-	ToExpressRouteCircuitSkuResponseOutput() ExpressRouteCircuitSkuResponseOutput
-	ToExpressRouteCircuitSkuResponseOutputWithContext(context.Context) ExpressRouteCircuitSkuResponseOutput
-}
-
-type ExpressRouteCircuitSkuResponseArgs struct {
-	Family pulumi.StringPtrInput `pulumi:"family"`
-	Name   pulumi.StringPtrInput `pulumi:"name"`
-	Tier   pulumi.StringPtrInput `pulumi:"tier"`
-}
-
-func (ExpressRouteCircuitSkuResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ExpressRouteCircuitSkuResponse)(nil)).Elem()
-}
-
-func (i ExpressRouteCircuitSkuResponseArgs) ToExpressRouteCircuitSkuResponseOutput() ExpressRouteCircuitSkuResponseOutput {
-	return i.ToExpressRouteCircuitSkuResponseOutputWithContext(context.Background())
-}
-
-func (i ExpressRouteCircuitSkuResponseArgs) ToExpressRouteCircuitSkuResponseOutputWithContext(ctx context.Context) ExpressRouteCircuitSkuResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ExpressRouteCircuitSkuResponseOutput)
-}
-
-func (i ExpressRouteCircuitSkuResponseArgs) ToExpressRouteCircuitSkuResponsePtrOutput() ExpressRouteCircuitSkuResponsePtrOutput {
-	return i.ToExpressRouteCircuitSkuResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ExpressRouteCircuitSkuResponseArgs) ToExpressRouteCircuitSkuResponsePtrOutputWithContext(ctx context.Context) ExpressRouteCircuitSkuResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ExpressRouteCircuitSkuResponseOutput).ToExpressRouteCircuitSkuResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type ExpressRouteCircuitSkuResponsePtrInput interface {
-	pulumi.Input
-
-	ToExpressRouteCircuitSkuResponsePtrOutput() ExpressRouteCircuitSkuResponsePtrOutput
-	ToExpressRouteCircuitSkuResponsePtrOutputWithContext(context.Context) ExpressRouteCircuitSkuResponsePtrOutput
-}
-
-type expressRouteCircuitSkuResponsePtrType ExpressRouteCircuitSkuResponseArgs
-
-func ExpressRouteCircuitSkuResponsePtr(v *ExpressRouteCircuitSkuResponseArgs) ExpressRouteCircuitSkuResponsePtrInput {
-	return (*expressRouteCircuitSkuResponsePtrType)(v)
-}
-
-func (*expressRouteCircuitSkuResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ExpressRouteCircuitSkuResponse)(nil)).Elem()
-}
-
-func (i *expressRouteCircuitSkuResponsePtrType) ToExpressRouteCircuitSkuResponsePtrOutput() ExpressRouteCircuitSkuResponsePtrOutput {
-	return i.ToExpressRouteCircuitSkuResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *expressRouteCircuitSkuResponsePtrType) ToExpressRouteCircuitSkuResponsePtrOutputWithContext(ctx context.Context) ExpressRouteCircuitSkuResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ExpressRouteCircuitSkuResponsePtrOutput)
-}
-
 type ExpressRouteCircuitSkuResponseOutput struct{ *pulumi.OutputState }
 
 func (ExpressRouteCircuitSkuResponseOutput) ElementType() reflect.Type {
@@ -4947,16 +3783,6 @@ func (o ExpressRouteCircuitSkuResponseOutput) ToExpressRouteCircuitSkuResponseOu
 
 func (o ExpressRouteCircuitSkuResponseOutput) ToExpressRouteCircuitSkuResponseOutputWithContext(ctx context.Context) ExpressRouteCircuitSkuResponseOutput {
 	return o
-}
-
-func (o ExpressRouteCircuitSkuResponseOutput) ToExpressRouteCircuitSkuResponsePtrOutput() ExpressRouteCircuitSkuResponsePtrOutput {
-	return o.ToExpressRouteCircuitSkuResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ExpressRouteCircuitSkuResponseOutput) ToExpressRouteCircuitSkuResponsePtrOutputWithContext(ctx context.Context) ExpressRouteCircuitSkuResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExpressRouteCircuitSkuResponse) *ExpressRouteCircuitSkuResponse {
-		return &v
-	}).(ExpressRouteCircuitSkuResponsePtrOutput)
 }
 
 func (o ExpressRouteCircuitSkuResponseOutput) Family() pulumi.StringPtrOutput {
@@ -5175,75 +4001,6 @@ type ExpressRouteCircuitStatsResponse struct {
 	BytesOut *int `pulumi:"bytesOut"`
 }
 
-
-
-
-
-type ExpressRouteCircuitStatsResponseInput interface {
-	pulumi.Input
-
-	ToExpressRouteCircuitStatsResponseOutput() ExpressRouteCircuitStatsResponseOutput
-	ToExpressRouteCircuitStatsResponseOutputWithContext(context.Context) ExpressRouteCircuitStatsResponseOutput
-}
-
-type ExpressRouteCircuitStatsResponseArgs struct {
-	BytesIn  pulumi.IntPtrInput `pulumi:"bytesIn"`
-	BytesOut pulumi.IntPtrInput `pulumi:"bytesOut"`
-}
-
-func (ExpressRouteCircuitStatsResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ExpressRouteCircuitStatsResponse)(nil)).Elem()
-}
-
-func (i ExpressRouteCircuitStatsResponseArgs) ToExpressRouteCircuitStatsResponseOutput() ExpressRouteCircuitStatsResponseOutput {
-	return i.ToExpressRouteCircuitStatsResponseOutputWithContext(context.Background())
-}
-
-func (i ExpressRouteCircuitStatsResponseArgs) ToExpressRouteCircuitStatsResponseOutputWithContext(ctx context.Context) ExpressRouteCircuitStatsResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ExpressRouteCircuitStatsResponseOutput)
-}
-
-func (i ExpressRouteCircuitStatsResponseArgs) ToExpressRouteCircuitStatsResponsePtrOutput() ExpressRouteCircuitStatsResponsePtrOutput {
-	return i.ToExpressRouteCircuitStatsResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ExpressRouteCircuitStatsResponseArgs) ToExpressRouteCircuitStatsResponsePtrOutputWithContext(ctx context.Context) ExpressRouteCircuitStatsResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ExpressRouteCircuitStatsResponseOutput).ToExpressRouteCircuitStatsResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type ExpressRouteCircuitStatsResponsePtrInput interface {
-	pulumi.Input
-
-	ToExpressRouteCircuitStatsResponsePtrOutput() ExpressRouteCircuitStatsResponsePtrOutput
-	ToExpressRouteCircuitStatsResponsePtrOutputWithContext(context.Context) ExpressRouteCircuitStatsResponsePtrOutput
-}
-
-type expressRouteCircuitStatsResponsePtrType ExpressRouteCircuitStatsResponseArgs
-
-func ExpressRouteCircuitStatsResponsePtr(v *ExpressRouteCircuitStatsResponseArgs) ExpressRouteCircuitStatsResponsePtrInput {
-	return (*expressRouteCircuitStatsResponsePtrType)(v)
-}
-
-func (*expressRouteCircuitStatsResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ExpressRouteCircuitStatsResponse)(nil)).Elem()
-}
-
-func (i *expressRouteCircuitStatsResponsePtrType) ToExpressRouteCircuitStatsResponsePtrOutput() ExpressRouteCircuitStatsResponsePtrOutput {
-	return i.ToExpressRouteCircuitStatsResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *expressRouteCircuitStatsResponsePtrType) ToExpressRouteCircuitStatsResponsePtrOutputWithContext(ctx context.Context) ExpressRouteCircuitStatsResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ExpressRouteCircuitStatsResponsePtrOutput)
-}
-
 type ExpressRouteCircuitStatsResponseOutput struct{ *pulumi.OutputState }
 
 func (ExpressRouteCircuitStatsResponseOutput) ElementType() reflect.Type {
@@ -5256,16 +4013,6 @@ func (o ExpressRouteCircuitStatsResponseOutput) ToExpressRouteCircuitStatsRespon
 
 func (o ExpressRouteCircuitStatsResponseOutput) ToExpressRouteCircuitStatsResponseOutputWithContext(ctx context.Context) ExpressRouteCircuitStatsResponseOutput {
 	return o
-}
-
-func (o ExpressRouteCircuitStatsResponseOutput) ToExpressRouteCircuitStatsResponsePtrOutput() ExpressRouteCircuitStatsResponsePtrOutput {
-	return o.ToExpressRouteCircuitStatsResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ExpressRouteCircuitStatsResponseOutput) ToExpressRouteCircuitStatsResponsePtrOutputWithContext(ctx context.Context) ExpressRouteCircuitStatsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExpressRouteCircuitStatsResponse) *ExpressRouteCircuitStatsResponse {
-		return &v
-	}).(ExpressRouteCircuitStatsResponsePtrOutput)
 }
 
 func (o ExpressRouteCircuitStatsResponseOutput) BytesIn() pulumi.IntPtrOutput {
@@ -5491,69 +4238,6 @@ type FrontendIpConfigurationResponse struct {
 	ProvisioningState         *string               `pulumi:"provisioningState"`
 	PublicIPAddress           *SubResourceResponse  `pulumi:"publicIPAddress"`
 	Subnet                    *SubResourceResponse  `pulumi:"subnet"`
-}
-
-
-
-
-
-type FrontendIpConfigurationResponseInput interface {
-	pulumi.Input
-
-	ToFrontendIpConfigurationResponseOutput() FrontendIpConfigurationResponseOutput
-	ToFrontendIpConfigurationResponseOutputWithContext(context.Context) FrontendIpConfigurationResponseOutput
-}
-
-type FrontendIpConfigurationResponseArgs struct {
-	Etag                      pulumi.StringPtrInput         `pulumi:"etag"`
-	Id                        pulumi.StringPtrInput         `pulumi:"id"`
-	InboundNatPools           SubResourceResponseArrayInput `pulumi:"inboundNatPools"`
-	InboundNatRules           SubResourceResponseArrayInput `pulumi:"inboundNatRules"`
-	LoadBalancingRules        SubResourceResponseArrayInput `pulumi:"loadBalancingRules"`
-	Name                      pulumi.StringPtrInput         `pulumi:"name"`
-	OutboundNatRules          SubResourceResponseArrayInput `pulumi:"outboundNatRules"`
-	PrivateIPAddress          pulumi.StringPtrInput         `pulumi:"privateIPAddress"`
-	PrivateIPAllocationMethod pulumi.StringPtrInput         `pulumi:"privateIPAllocationMethod"`
-	ProvisioningState         pulumi.StringPtrInput         `pulumi:"provisioningState"`
-	PublicIPAddress           SubResourceResponsePtrInput   `pulumi:"publicIPAddress"`
-	Subnet                    SubResourceResponsePtrInput   `pulumi:"subnet"`
-}
-
-func (FrontendIpConfigurationResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*FrontendIpConfigurationResponse)(nil)).Elem()
-}
-
-func (i FrontendIpConfigurationResponseArgs) ToFrontendIpConfigurationResponseOutput() FrontendIpConfigurationResponseOutput {
-	return i.ToFrontendIpConfigurationResponseOutputWithContext(context.Background())
-}
-
-func (i FrontendIpConfigurationResponseArgs) ToFrontendIpConfigurationResponseOutputWithContext(ctx context.Context) FrontendIpConfigurationResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FrontendIpConfigurationResponseOutput)
-}
-
-
-
-
-
-type FrontendIpConfigurationResponseArrayInput interface {
-	pulumi.Input
-
-	ToFrontendIpConfigurationResponseArrayOutput() FrontendIpConfigurationResponseArrayOutput
-	ToFrontendIpConfigurationResponseArrayOutputWithContext(context.Context) FrontendIpConfigurationResponseArrayOutput
-}
-
-type FrontendIpConfigurationResponseArray []FrontendIpConfigurationResponseInput
-
-func (FrontendIpConfigurationResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]FrontendIpConfigurationResponse)(nil)).Elem()
-}
-
-func (i FrontendIpConfigurationResponseArray) ToFrontendIpConfigurationResponseArrayOutput() FrontendIpConfigurationResponseArrayOutput {
-	return i.ToFrontendIpConfigurationResponseArrayOutputWithContext(context.Background())
-}
-
-func (i FrontendIpConfigurationResponseArray) ToFrontendIpConfigurationResponseArrayOutputWithContext(ctx context.Context) FrontendIpConfigurationResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FrontendIpConfigurationResponseArrayOutput)
 }
 
 type FrontendIpConfigurationResponseOutput struct{ *pulumi.OutputState }
@@ -5792,66 +4476,6 @@ type InboundNatPoolResponse struct {
 	ProvisioningState       *string              `pulumi:"provisioningState"`
 }
 
-
-
-
-
-type InboundNatPoolResponseInput interface {
-	pulumi.Input
-
-	ToInboundNatPoolResponseOutput() InboundNatPoolResponseOutput
-	ToInboundNatPoolResponseOutputWithContext(context.Context) InboundNatPoolResponseOutput
-}
-
-type InboundNatPoolResponseArgs struct {
-	BackendPort             pulumi.IntInput             `pulumi:"backendPort"`
-	Etag                    pulumi.StringPtrInput       `pulumi:"etag"`
-	FrontendIPConfiguration SubResourceResponsePtrInput `pulumi:"frontendIPConfiguration"`
-	FrontendPortRangeEnd    pulumi.IntInput             `pulumi:"frontendPortRangeEnd"`
-	FrontendPortRangeStart  pulumi.IntInput             `pulumi:"frontendPortRangeStart"`
-	Id                      pulumi.StringPtrInput       `pulumi:"id"`
-	Name                    pulumi.StringPtrInput       `pulumi:"name"`
-	Protocol                pulumi.StringInput          `pulumi:"protocol"`
-	ProvisioningState       pulumi.StringPtrInput       `pulumi:"provisioningState"`
-}
-
-func (InboundNatPoolResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*InboundNatPoolResponse)(nil)).Elem()
-}
-
-func (i InboundNatPoolResponseArgs) ToInboundNatPoolResponseOutput() InboundNatPoolResponseOutput {
-	return i.ToInboundNatPoolResponseOutputWithContext(context.Background())
-}
-
-func (i InboundNatPoolResponseArgs) ToInboundNatPoolResponseOutputWithContext(ctx context.Context) InboundNatPoolResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(InboundNatPoolResponseOutput)
-}
-
-
-
-
-
-type InboundNatPoolResponseArrayInput interface {
-	pulumi.Input
-
-	ToInboundNatPoolResponseArrayOutput() InboundNatPoolResponseArrayOutput
-	ToInboundNatPoolResponseArrayOutputWithContext(context.Context) InboundNatPoolResponseArrayOutput
-}
-
-type InboundNatPoolResponseArray []InboundNatPoolResponseInput
-
-func (InboundNatPoolResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]InboundNatPoolResponse)(nil)).Elem()
-}
-
-func (i InboundNatPoolResponseArray) ToInboundNatPoolResponseArrayOutput() InboundNatPoolResponseArrayOutput {
-	return i.ToInboundNatPoolResponseArrayOutputWithContext(context.Background())
-}
-
-func (i InboundNatPoolResponseArray) ToInboundNatPoolResponseArrayOutputWithContext(ctx context.Context) InboundNatPoolResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(InboundNatPoolResponseArrayOutput)
-}
-
 type InboundNatPoolResponseOutput struct{ *pulumi.OutputState }
 
 func (InboundNatPoolResponseOutput) ElementType() reflect.Type {
@@ -6088,68 +4712,6 @@ type InboundNatRuleResponse struct {
 	Name                    *string              `pulumi:"name"`
 	Protocol                string               `pulumi:"protocol"`
 	ProvisioningState       *string              `pulumi:"provisioningState"`
-}
-
-
-
-
-
-type InboundNatRuleResponseInput interface {
-	pulumi.Input
-
-	ToInboundNatRuleResponseOutput() InboundNatRuleResponseOutput
-	ToInboundNatRuleResponseOutputWithContext(context.Context) InboundNatRuleResponseOutput
-}
-
-type InboundNatRuleResponseArgs struct {
-	BackendIPConfiguration  SubResourceResponsePtrInput `pulumi:"backendIPConfiguration"`
-	BackendPort             pulumi.IntPtrInput          `pulumi:"backendPort"`
-	EnableFloatingIP        pulumi.BoolInput            `pulumi:"enableFloatingIP"`
-	Etag                    pulumi.StringPtrInput       `pulumi:"etag"`
-	FrontendIPConfiguration SubResourceResponsePtrInput `pulumi:"frontendIPConfiguration"`
-	FrontendPort            pulumi.IntInput             `pulumi:"frontendPort"`
-	Id                      pulumi.StringPtrInput       `pulumi:"id"`
-	IdleTimeoutInMinutes    pulumi.IntPtrInput          `pulumi:"idleTimeoutInMinutes"`
-	Name                    pulumi.StringPtrInput       `pulumi:"name"`
-	Protocol                pulumi.StringInput          `pulumi:"protocol"`
-	ProvisioningState       pulumi.StringPtrInput       `pulumi:"provisioningState"`
-}
-
-func (InboundNatRuleResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*InboundNatRuleResponse)(nil)).Elem()
-}
-
-func (i InboundNatRuleResponseArgs) ToInboundNatRuleResponseOutput() InboundNatRuleResponseOutput {
-	return i.ToInboundNatRuleResponseOutputWithContext(context.Background())
-}
-
-func (i InboundNatRuleResponseArgs) ToInboundNatRuleResponseOutputWithContext(ctx context.Context) InboundNatRuleResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(InboundNatRuleResponseOutput)
-}
-
-
-
-
-
-type InboundNatRuleResponseArrayInput interface {
-	pulumi.Input
-
-	ToInboundNatRuleResponseArrayOutput() InboundNatRuleResponseArrayOutput
-	ToInboundNatRuleResponseArrayOutputWithContext(context.Context) InboundNatRuleResponseArrayOutput
-}
-
-type InboundNatRuleResponseArray []InboundNatRuleResponseInput
-
-func (InboundNatRuleResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]InboundNatRuleResponse)(nil)).Elem()
-}
-
-func (i InboundNatRuleResponseArray) ToInboundNatRuleResponseArrayOutput() InboundNatRuleResponseArrayOutput {
-	return i.ToInboundNatRuleResponseArrayOutputWithContext(context.Background())
-}
-
-func (i InboundNatRuleResponseArray) ToInboundNatRuleResponseArrayOutputWithContext(ctx context.Context) InboundNatRuleResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(InboundNatRuleResponseArrayOutput)
 }
 
 type InboundNatRuleResponseOutput struct{ *pulumi.OutputState }
@@ -6410,70 +4972,6 @@ type LoadBalancingRuleResponse struct {
 	Probe                   *SubResourceResponse `pulumi:"probe"`
 	Protocol                string               `pulumi:"protocol"`
 	ProvisioningState       *string              `pulumi:"provisioningState"`
-}
-
-
-
-
-
-type LoadBalancingRuleResponseInput interface {
-	pulumi.Input
-
-	ToLoadBalancingRuleResponseOutput() LoadBalancingRuleResponseOutput
-	ToLoadBalancingRuleResponseOutputWithContext(context.Context) LoadBalancingRuleResponseOutput
-}
-
-type LoadBalancingRuleResponseArgs struct {
-	BackendAddressPool      SubResourceResponseInput    `pulumi:"backendAddressPool"`
-	BackendPort             pulumi.IntPtrInput          `pulumi:"backendPort"`
-	EnableFloatingIP        pulumi.BoolInput            `pulumi:"enableFloatingIP"`
-	Etag                    pulumi.StringPtrInput       `pulumi:"etag"`
-	FrontendIPConfiguration SubResourceResponsePtrInput `pulumi:"frontendIPConfiguration"`
-	FrontendPort            pulumi.IntInput             `pulumi:"frontendPort"`
-	Id                      pulumi.StringPtrInput       `pulumi:"id"`
-	IdleTimeoutInMinutes    pulumi.IntPtrInput          `pulumi:"idleTimeoutInMinutes"`
-	LoadDistribution        pulumi.StringPtrInput       `pulumi:"loadDistribution"`
-	Name                    pulumi.StringPtrInput       `pulumi:"name"`
-	Probe                   SubResourceResponsePtrInput `pulumi:"probe"`
-	Protocol                pulumi.StringInput          `pulumi:"protocol"`
-	ProvisioningState       pulumi.StringPtrInput       `pulumi:"provisioningState"`
-}
-
-func (LoadBalancingRuleResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*LoadBalancingRuleResponse)(nil)).Elem()
-}
-
-func (i LoadBalancingRuleResponseArgs) ToLoadBalancingRuleResponseOutput() LoadBalancingRuleResponseOutput {
-	return i.ToLoadBalancingRuleResponseOutputWithContext(context.Background())
-}
-
-func (i LoadBalancingRuleResponseArgs) ToLoadBalancingRuleResponseOutputWithContext(ctx context.Context) LoadBalancingRuleResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancingRuleResponseOutput)
-}
-
-
-
-
-
-type LoadBalancingRuleResponseArrayInput interface {
-	pulumi.Input
-
-	ToLoadBalancingRuleResponseArrayOutput() LoadBalancingRuleResponseArrayOutput
-	ToLoadBalancingRuleResponseArrayOutputWithContext(context.Context) LoadBalancingRuleResponseArrayOutput
-}
-
-type LoadBalancingRuleResponseArray []LoadBalancingRuleResponseInput
-
-func (LoadBalancingRuleResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]LoadBalancingRuleResponse)(nil)).Elem()
-}
-
-func (i LoadBalancingRuleResponseArray) ToLoadBalancingRuleResponseArrayOutput() LoadBalancingRuleResponseArrayOutput {
-	return i.ToLoadBalancingRuleResponseArrayOutputWithContext(context.Background())
-}
-
-func (i LoadBalancingRuleResponseArray) ToLoadBalancingRuleResponseArrayOutputWithContext(ctx context.Context) LoadBalancingRuleResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancingRuleResponseArrayOutput)
 }
 
 type LoadBalancingRuleResponseOutput struct{ *pulumi.OutputState }
@@ -6747,77 +5245,6 @@ type NetworkInterfaceDnsSettingsResponse struct {
 	InternalFqdn         *string  `pulumi:"internalFqdn"`
 }
 
-
-
-
-
-type NetworkInterfaceDnsSettingsResponseInput interface {
-	pulumi.Input
-
-	ToNetworkInterfaceDnsSettingsResponseOutput() NetworkInterfaceDnsSettingsResponseOutput
-	ToNetworkInterfaceDnsSettingsResponseOutputWithContext(context.Context) NetworkInterfaceDnsSettingsResponseOutput
-}
-
-type NetworkInterfaceDnsSettingsResponseArgs struct {
-	AppliedDnsServers    pulumi.StringArrayInput `pulumi:"appliedDnsServers"`
-	DnsServers           pulumi.StringArrayInput `pulumi:"dnsServers"`
-	InternalDnsNameLabel pulumi.StringPtrInput   `pulumi:"internalDnsNameLabel"`
-	InternalFqdn         pulumi.StringPtrInput   `pulumi:"internalFqdn"`
-}
-
-func (NetworkInterfaceDnsSettingsResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*NetworkInterfaceDnsSettingsResponse)(nil)).Elem()
-}
-
-func (i NetworkInterfaceDnsSettingsResponseArgs) ToNetworkInterfaceDnsSettingsResponseOutput() NetworkInterfaceDnsSettingsResponseOutput {
-	return i.ToNetworkInterfaceDnsSettingsResponseOutputWithContext(context.Background())
-}
-
-func (i NetworkInterfaceDnsSettingsResponseArgs) ToNetworkInterfaceDnsSettingsResponseOutputWithContext(ctx context.Context) NetworkInterfaceDnsSettingsResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NetworkInterfaceDnsSettingsResponseOutput)
-}
-
-func (i NetworkInterfaceDnsSettingsResponseArgs) ToNetworkInterfaceDnsSettingsResponsePtrOutput() NetworkInterfaceDnsSettingsResponsePtrOutput {
-	return i.ToNetworkInterfaceDnsSettingsResponsePtrOutputWithContext(context.Background())
-}
-
-func (i NetworkInterfaceDnsSettingsResponseArgs) ToNetworkInterfaceDnsSettingsResponsePtrOutputWithContext(ctx context.Context) NetworkInterfaceDnsSettingsResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NetworkInterfaceDnsSettingsResponseOutput).ToNetworkInterfaceDnsSettingsResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type NetworkInterfaceDnsSettingsResponsePtrInput interface {
-	pulumi.Input
-
-	ToNetworkInterfaceDnsSettingsResponsePtrOutput() NetworkInterfaceDnsSettingsResponsePtrOutput
-	ToNetworkInterfaceDnsSettingsResponsePtrOutputWithContext(context.Context) NetworkInterfaceDnsSettingsResponsePtrOutput
-}
-
-type networkInterfaceDnsSettingsResponsePtrType NetworkInterfaceDnsSettingsResponseArgs
-
-func NetworkInterfaceDnsSettingsResponsePtr(v *NetworkInterfaceDnsSettingsResponseArgs) NetworkInterfaceDnsSettingsResponsePtrInput {
-	return (*networkInterfaceDnsSettingsResponsePtrType)(v)
-}
-
-func (*networkInterfaceDnsSettingsResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**NetworkInterfaceDnsSettingsResponse)(nil)).Elem()
-}
-
-func (i *networkInterfaceDnsSettingsResponsePtrType) ToNetworkInterfaceDnsSettingsResponsePtrOutput() NetworkInterfaceDnsSettingsResponsePtrOutput {
-	return i.ToNetworkInterfaceDnsSettingsResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *networkInterfaceDnsSettingsResponsePtrType) ToNetworkInterfaceDnsSettingsResponsePtrOutputWithContext(ctx context.Context) NetworkInterfaceDnsSettingsResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NetworkInterfaceDnsSettingsResponsePtrOutput)
-}
-
 type NetworkInterfaceDnsSettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (NetworkInterfaceDnsSettingsResponseOutput) ElementType() reflect.Type {
@@ -6830,16 +5257,6 @@ func (o NetworkInterfaceDnsSettingsResponseOutput) ToNetworkInterfaceDnsSettings
 
 func (o NetworkInterfaceDnsSettingsResponseOutput) ToNetworkInterfaceDnsSettingsResponseOutputWithContext(ctx context.Context) NetworkInterfaceDnsSettingsResponseOutput {
 	return o
-}
-
-func (o NetworkInterfaceDnsSettingsResponseOutput) ToNetworkInterfaceDnsSettingsResponsePtrOutput() NetworkInterfaceDnsSettingsResponsePtrOutput {
-	return o.ToNetworkInterfaceDnsSettingsResponsePtrOutputWithContext(context.Background())
-}
-
-func (o NetworkInterfaceDnsSettingsResponseOutput) ToNetworkInterfaceDnsSettingsResponsePtrOutputWithContext(ctx context.Context) NetworkInterfaceDnsSettingsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkInterfaceDnsSettingsResponse) *NetworkInterfaceDnsSettingsResponse {
-		return &v
-	}).(NetworkInterfaceDnsSettingsResponsePtrOutput)
 }
 
 func (o NetworkInterfaceDnsSettingsResponseOutput) AppliedDnsServers() pulumi.StringArrayOutput {
@@ -7079,67 +5496,6 @@ type NetworkInterfaceIpConfigurationResponse struct {
 	Subnet                          *SubResourceResponse  `pulumi:"subnet"`
 }
 
-
-
-
-
-type NetworkInterfaceIpConfigurationResponseInput interface {
-	pulumi.Input
-
-	ToNetworkInterfaceIpConfigurationResponseOutput() NetworkInterfaceIpConfigurationResponseOutput
-	ToNetworkInterfaceIpConfigurationResponseOutputWithContext(context.Context) NetworkInterfaceIpConfigurationResponseOutput
-}
-
-type NetworkInterfaceIpConfigurationResponseArgs struct {
-	Etag                            pulumi.StringPtrInput         `pulumi:"etag"`
-	Id                              pulumi.StringPtrInput         `pulumi:"id"`
-	LoadBalancerBackendAddressPools SubResourceResponseArrayInput `pulumi:"loadBalancerBackendAddressPools"`
-	LoadBalancerInboundNatRules     SubResourceResponseArrayInput `pulumi:"loadBalancerInboundNatRules"`
-	Name                            pulumi.StringPtrInput         `pulumi:"name"`
-	PrivateIPAddress                pulumi.StringPtrInput         `pulumi:"privateIPAddress"`
-	PrivateIPAllocationMethod       pulumi.StringPtrInput         `pulumi:"privateIPAllocationMethod"`
-	ProvisioningState               pulumi.StringPtrInput         `pulumi:"provisioningState"`
-	PublicIPAddress                 SubResourceResponsePtrInput   `pulumi:"publicIPAddress"`
-	Subnet                          SubResourceResponsePtrInput   `pulumi:"subnet"`
-}
-
-func (NetworkInterfaceIpConfigurationResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*NetworkInterfaceIpConfigurationResponse)(nil)).Elem()
-}
-
-func (i NetworkInterfaceIpConfigurationResponseArgs) ToNetworkInterfaceIpConfigurationResponseOutput() NetworkInterfaceIpConfigurationResponseOutput {
-	return i.ToNetworkInterfaceIpConfigurationResponseOutputWithContext(context.Background())
-}
-
-func (i NetworkInterfaceIpConfigurationResponseArgs) ToNetworkInterfaceIpConfigurationResponseOutputWithContext(ctx context.Context) NetworkInterfaceIpConfigurationResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NetworkInterfaceIpConfigurationResponseOutput)
-}
-
-
-
-
-
-type NetworkInterfaceIpConfigurationResponseArrayInput interface {
-	pulumi.Input
-
-	ToNetworkInterfaceIpConfigurationResponseArrayOutput() NetworkInterfaceIpConfigurationResponseArrayOutput
-	ToNetworkInterfaceIpConfigurationResponseArrayOutputWithContext(context.Context) NetworkInterfaceIpConfigurationResponseArrayOutput
-}
-
-type NetworkInterfaceIpConfigurationResponseArray []NetworkInterfaceIpConfigurationResponseInput
-
-func (NetworkInterfaceIpConfigurationResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]NetworkInterfaceIpConfigurationResponse)(nil)).Elem()
-}
-
-func (i NetworkInterfaceIpConfigurationResponseArray) ToNetworkInterfaceIpConfigurationResponseArrayOutput() NetworkInterfaceIpConfigurationResponseArrayOutput {
-	return i.ToNetworkInterfaceIpConfigurationResponseArrayOutputWithContext(context.Background())
-}
-
-func (i NetworkInterfaceIpConfigurationResponseArray) ToNetworkInterfaceIpConfigurationResponseArrayOutputWithContext(ctx context.Context) NetworkInterfaceIpConfigurationResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NetworkInterfaceIpConfigurationResponseArrayOutput)
-}
-
 type NetworkInterfaceIpConfigurationResponseOutput struct{ *pulumi.OutputState }
 
 func (NetworkInterfaceIpConfigurationResponseOutput) ElementType() reflect.Type {
@@ -7356,64 +5712,6 @@ type OutboundNatRuleResponse struct {
 	Id                       *string               `pulumi:"id"`
 	Name                     *string               `pulumi:"name"`
 	ProvisioningState        *string               `pulumi:"provisioningState"`
-}
-
-
-
-
-
-type OutboundNatRuleResponseInput interface {
-	pulumi.Input
-
-	ToOutboundNatRuleResponseOutput() OutboundNatRuleResponseOutput
-	ToOutboundNatRuleResponseOutputWithContext(context.Context) OutboundNatRuleResponseOutput
-}
-
-type OutboundNatRuleResponseArgs struct {
-	AllocatedOutboundPorts   pulumi.IntInput               `pulumi:"allocatedOutboundPorts"`
-	BackendAddressPool       SubResourceResponseInput      `pulumi:"backendAddressPool"`
-	Etag                     pulumi.StringPtrInput         `pulumi:"etag"`
-	FrontendIPConfigurations SubResourceResponseArrayInput `pulumi:"frontendIPConfigurations"`
-	Id                       pulumi.StringPtrInput         `pulumi:"id"`
-	Name                     pulumi.StringPtrInput         `pulumi:"name"`
-	ProvisioningState        pulumi.StringPtrInput         `pulumi:"provisioningState"`
-}
-
-func (OutboundNatRuleResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*OutboundNatRuleResponse)(nil)).Elem()
-}
-
-func (i OutboundNatRuleResponseArgs) ToOutboundNatRuleResponseOutput() OutboundNatRuleResponseOutput {
-	return i.ToOutboundNatRuleResponseOutputWithContext(context.Background())
-}
-
-func (i OutboundNatRuleResponseArgs) ToOutboundNatRuleResponseOutputWithContext(ctx context.Context) OutboundNatRuleResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OutboundNatRuleResponseOutput)
-}
-
-
-
-
-
-type OutboundNatRuleResponseArrayInput interface {
-	pulumi.Input
-
-	ToOutboundNatRuleResponseArrayOutput() OutboundNatRuleResponseArrayOutput
-	ToOutboundNatRuleResponseArrayOutputWithContext(context.Context) OutboundNatRuleResponseArrayOutput
-}
-
-type OutboundNatRuleResponseArray []OutboundNatRuleResponseInput
-
-func (OutboundNatRuleResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]OutboundNatRuleResponse)(nil)).Elem()
-}
-
-func (i OutboundNatRuleResponseArray) ToOutboundNatRuleResponseArrayOutput() OutboundNatRuleResponseArrayOutput {
-	return i.ToOutboundNatRuleResponseArrayOutputWithContext(context.Background())
-}
-
-func (i OutboundNatRuleResponseArray) ToOutboundNatRuleResponseArrayOutputWithContext(ctx context.Context) OutboundNatRuleResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OutboundNatRuleResponseArrayOutput)
 }
 
 type OutboundNatRuleResponseOutput struct{ *pulumi.OutputState }
@@ -7637,67 +5935,6 @@ type ProbeResponse struct {
 	Protocol           string                `pulumi:"protocol"`
 	ProvisioningState  *string               `pulumi:"provisioningState"`
 	RequestPath        *string               `pulumi:"requestPath"`
-}
-
-
-
-
-
-type ProbeResponseInput interface {
-	pulumi.Input
-
-	ToProbeResponseOutput() ProbeResponseOutput
-	ToProbeResponseOutputWithContext(context.Context) ProbeResponseOutput
-}
-
-type ProbeResponseArgs struct {
-	Etag               pulumi.StringPtrInput         `pulumi:"etag"`
-	Id                 pulumi.StringPtrInput         `pulumi:"id"`
-	IntervalInSeconds  pulumi.IntPtrInput            `pulumi:"intervalInSeconds"`
-	LoadBalancingRules SubResourceResponseArrayInput `pulumi:"loadBalancingRules"`
-	Name               pulumi.StringPtrInput         `pulumi:"name"`
-	NumberOfProbes     pulumi.IntPtrInput            `pulumi:"numberOfProbes"`
-	Port               pulumi.IntInput               `pulumi:"port"`
-	Protocol           pulumi.StringInput            `pulumi:"protocol"`
-	ProvisioningState  pulumi.StringPtrInput         `pulumi:"provisioningState"`
-	RequestPath        pulumi.StringPtrInput         `pulumi:"requestPath"`
-}
-
-func (ProbeResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProbeResponse)(nil)).Elem()
-}
-
-func (i ProbeResponseArgs) ToProbeResponseOutput() ProbeResponseOutput {
-	return i.ToProbeResponseOutputWithContext(context.Background())
-}
-
-func (i ProbeResponseArgs) ToProbeResponseOutputWithContext(ctx context.Context) ProbeResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProbeResponseOutput)
-}
-
-
-
-
-
-type ProbeResponseArrayInput interface {
-	pulumi.Input
-
-	ToProbeResponseArrayOutput() ProbeResponseArrayOutput
-	ToProbeResponseArrayOutputWithContext(context.Context) ProbeResponseArrayOutput
-}
-
-type ProbeResponseArray []ProbeResponseInput
-
-func (ProbeResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ProbeResponse)(nil)).Elem()
-}
-
-func (i ProbeResponseArray) ToProbeResponseArrayOutput() ProbeResponseArrayOutput {
-	return i.ToProbeResponseArrayOutputWithContext(context.Background())
-}
-
-func (i ProbeResponseArray) ToProbeResponseArrayOutputWithContext(ctx context.Context) ProbeResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProbeResponseArrayOutput)
 }
 
 type ProbeResponseOutput struct{ *pulumi.OutputState }
@@ -7943,76 +6180,6 @@ type PublicIpAddressDnsSettingsResponse struct {
 	ReverseFqdn     *string `pulumi:"reverseFqdn"`
 }
 
-
-
-
-
-type PublicIpAddressDnsSettingsResponseInput interface {
-	pulumi.Input
-
-	ToPublicIpAddressDnsSettingsResponseOutput() PublicIpAddressDnsSettingsResponseOutput
-	ToPublicIpAddressDnsSettingsResponseOutputWithContext(context.Context) PublicIpAddressDnsSettingsResponseOutput
-}
-
-type PublicIpAddressDnsSettingsResponseArgs struct {
-	DomainNameLabel pulumi.StringPtrInput `pulumi:"domainNameLabel"`
-	Fqdn            pulumi.StringPtrInput `pulumi:"fqdn"`
-	ReverseFqdn     pulumi.StringPtrInput `pulumi:"reverseFqdn"`
-}
-
-func (PublicIpAddressDnsSettingsResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PublicIpAddressDnsSettingsResponse)(nil)).Elem()
-}
-
-func (i PublicIpAddressDnsSettingsResponseArgs) ToPublicIpAddressDnsSettingsResponseOutput() PublicIpAddressDnsSettingsResponseOutput {
-	return i.ToPublicIpAddressDnsSettingsResponseOutputWithContext(context.Background())
-}
-
-func (i PublicIpAddressDnsSettingsResponseArgs) ToPublicIpAddressDnsSettingsResponseOutputWithContext(ctx context.Context) PublicIpAddressDnsSettingsResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PublicIpAddressDnsSettingsResponseOutput)
-}
-
-func (i PublicIpAddressDnsSettingsResponseArgs) ToPublicIpAddressDnsSettingsResponsePtrOutput() PublicIpAddressDnsSettingsResponsePtrOutput {
-	return i.ToPublicIpAddressDnsSettingsResponsePtrOutputWithContext(context.Background())
-}
-
-func (i PublicIpAddressDnsSettingsResponseArgs) ToPublicIpAddressDnsSettingsResponsePtrOutputWithContext(ctx context.Context) PublicIpAddressDnsSettingsResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PublicIpAddressDnsSettingsResponseOutput).ToPublicIpAddressDnsSettingsResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type PublicIpAddressDnsSettingsResponsePtrInput interface {
-	pulumi.Input
-
-	ToPublicIpAddressDnsSettingsResponsePtrOutput() PublicIpAddressDnsSettingsResponsePtrOutput
-	ToPublicIpAddressDnsSettingsResponsePtrOutputWithContext(context.Context) PublicIpAddressDnsSettingsResponsePtrOutput
-}
-
-type publicIpAddressDnsSettingsResponsePtrType PublicIpAddressDnsSettingsResponseArgs
-
-func PublicIpAddressDnsSettingsResponsePtr(v *PublicIpAddressDnsSettingsResponseArgs) PublicIpAddressDnsSettingsResponsePtrInput {
-	return (*publicIpAddressDnsSettingsResponsePtrType)(v)
-}
-
-func (*publicIpAddressDnsSettingsResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PublicIpAddressDnsSettingsResponse)(nil)).Elem()
-}
-
-func (i *publicIpAddressDnsSettingsResponsePtrType) ToPublicIpAddressDnsSettingsResponsePtrOutput() PublicIpAddressDnsSettingsResponsePtrOutput {
-	return i.ToPublicIpAddressDnsSettingsResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *publicIpAddressDnsSettingsResponsePtrType) ToPublicIpAddressDnsSettingsResponsePtrOutputWithContext(ctx context.Context) PublicIpAddressDnsSettingsResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PublicIpAddressDnsSettingsResponsePtrOutput)
-}
-
 type PublicIpAddressDnsSettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (PublicIpAddressDnsSettingsResponseOutput) ElementType() reflect.Type {
@@ -8025,16 +6192,6 @@ func (o PublicIpAddressDnsSettingsResponseOutput) ToPublicIpAddressDnsSettingsRe
 
 func (o PublicIpAddressDnsSettingsResponseOutput) ToPublicIpAddressDnsSettingsResponseOutputWithContext(ctx context.Context) PublicIpAddressDnsSettingsResponseOutput {
 	return o
-}
-
-func (o PublicIpAddressDnsSettingsResponseOutput) ToPublicIpAddressDnsSettingsResponsePtrOutput() PublicIpAddressDnsSettingsResponsePtrOutput {
-	return o.ToPublicIpAddressDnsSettingsResponsePtrOutputWithContext(context.Background())
-}
-
-func (o PublicIpAddressDnsSettingsResponseOutput) ToPublicIpAddressDnsSettingsResponsePtrOutputWithContext(ctx context.Context) PublicIpAddressDnsSettingsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PublicIpAddressDnsSettingsResponse) *PublicIpAddressDnsSettingsResponse {
-		return &v
-	}).(PublicIpAddressDnsSettingsResponsePtrOutput)
 }
 
 func (o PublicIpAddressDnsSettingsResponseOutput) DomainNameLabel() pulumi.StringPtrOutput {
@@ -8238,64 +6395,6 @@ type RouteResponse struct {
 	NextHopIpAddress  *string `pulumi:"nextHopIpAddress"`
 	NextHopType       string  `pulumi:"nextHopType"`
 	ProvisioningState *string `pulumi:"provisioningState"`
-}
-
-
-
-
-
-type RouteResponseInput interface {
-	pulumi.Input
-
-	ToRouteResponseOutput() RouteResponseOutput
-	ToRouteResponseOutputWithContext(context.Context) RouteResponseOutput
-}
-
-type RouteResponseArgs struct {
-	AddressPrefix     pulumi.StringPtrInput `pulumi:"addressPrefix"`
-	Etag              pulumi.StringPtrInput `pulumi:"etag"`
-	Id                pulumi.StringPtrInput `pulumi:"id"`
-	Name              pulumi.StringPtrInput `pulumi:"name"`
-	NextHopIpAddress  pulumi.StringPtrInput `pulumi:"nextHopIpAddress"`
-	NextHopType       pulumi.StringInput    `pulumi:"nextHopType"`
-	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
-}
-
-func (RouteResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RouteResponse)(nil)).Elem()
-}
-
-func (i RouteResponseArgs) ToRouteResponseOutput() RouteResponseOutput {
-	return i.ToRouteResponseOutputWithContext(context.Background())
-}
-
-func (i RouteResponseArgs) ToRouteResponseOutputWithContext(ctx context.Context) RouteResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RouteResponseOutput)
-}
-
-
-
-
-
-type RouteResponseArrayInput interface {
-	pulumi.Input
-
-	ToRouteResponseArrayOutput() RouteResponseArrayOutput
-	ToRouteResponseArrayOutputWithContext(context.Context) RouteResponseArrayOutput
-}
-
-type RouteResponseArray []RouteResponseInput
-
-func (RouteResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]RouteResponse)(nil)).Elem()
-}
-
-func (i RouteResponseArray) ToRouteResponseArrayOutput() RouteResponseArrayOutput {
-	return i.ToRouteResponseArrayOutputWithContext(context.Background())
-}
-
-func (i RouteResponseArray) ToRouteResponseArrayOutputWithContext(ctx context.Context) RouteResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RouteResponseArrayOutput)
 }
 
 type RouteResponseOutput struct{ *pulumi.OutputState }
@@ -8540,70 +6639,6 @@ type SecurityRuleResponse struct {
 	ProvisioningState        *string `pulumi:"provisioningState"`
 	SourceAddressPrefix      string  `pulumi:"sourceAddressPrefix"`
 	SourcePortRange          *string `pulumi:"sourcePortRange"`
-}
-
-
-
-
-
-type SecurityRuleResponseInput interface {
-	pulumi.Input
-
-	ToSecurityRuleResponseOutput() SecurityRuleResponseOutput
-	ToSecurityRuleResponseOutputWithContext(context.Context) SecurityRuleResponseOutput
-}
-
-type SecurityRuleResponseArgs struct {
-	Access                   pulumi.StringInput    `pulumi:"access"`
-	Description              pulumi.StringPtrInput `pulumi:"description"`
-	DestinationAddressPrefix pulumi.StringInput    `pulumi:"destinationAddressPrefix"`
-	DestinationPortRange     pulumi.StringPtrInput `pulumi:"destinationPortRange"`
-	Direction                pulumi.StringInput    `pulumi:"direction"`
-	Etag                     pulumi.StringPtrInput `pulumi:"etag"`
-	Id                       pulumi.StringPtrInput `pulumi:"id"`
-	Name                     pulumi.StringPtrInput `pulumi:"name"`
-	Priority                 pulumi.IntPtrInput    `pulumi:"priority"`
-	Protocol                 pulumi.StringInput    `pulumi:"protocol"`
-	ProvisioningState        pulumi.StringPtrInput `pulumi:"provisioningState"`
-	SourceAddressPrefix      pulumi.StringInput    `pulumi:"sourceAddressPrefix"`
-	SourcePortRange          pulumi.StringPtrInput `pulumi:"sourcePortRange"`
-}
-
-func (SecurityRuleResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SecurityRuleResponse)(nil)).Elem()
-}
-
-func (i SecurityRuleResponseArgs) ToSecurityRuleResponseOutput() SecurityRuleResponseOutput {
-	return i.ToSecurityRuleResponseOutputWithContext(context.Background())
-}
-
-func (i SecurityRuleResponseArgs) ToSecurityRuleResponseOutputWithContext(ctx context.Context) SecurityRuleResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SecurityRuleResponseOutput)
-}
-
-
-
-
-
-type SecurityRuleResponseArrayInput interface {
-	pulumi.Input
-
-	ToSecurityRuleResponseArrayOutput() SecurityRuleResponseArrayOutput
-	ToSecurityRuleResponseArrayOutputWithContext(context.Context) SecurityRuleResponseArrayOutput
-}
-
-type SecurityRuleResponseArray []SecurityRuleResponseInput
-
-func (SecurityRuleResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SecurityRuleResponse)(nil)).Elem()
-}
-
-func (i SecurityRuleResponseArray) ToSecurityRuleResponseArrayOutput() SecurityRuleResponseArrayOutput {
-	return i.ToSecurityRuleResponseArrayOutputWithContext(context.Background())
-}
-
-func (i SecurityRuleResponseArray) ToSecurityRuleResponseArrayOutputWithContext(ctx context.Context) SecurityRuleResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SecurityRuleResponseArrayOutput)
 }
 
 type SecurityRuleResponseOutput struct{ *pulumi.OutputState }
@@ -8874,99 +6909,6 @@ type SubResourceResponse struct {
 	Id *string `pulumi:"id"`
 }
 
-
-
-
-
-type SubResourceResponseInput interface {
-	pulumi.Input
-
-	ToSubResourceResponseOutput() SubResourceResponseOutput
-	ToSubResourceResponseOutputWithContext(context.Context) SubResourceResponseOutput
-}
-
-type SubResourceResponseArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
-}
-
-func (SubResourceResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SubResourceResponse)(nil)).Elem()
-}
-
-func (i SubResourceResponseArgs) ToSubResourceResponseOutput() SubResourceResponseOutput {
-	return i.ToSubResourceResponseOutputWithContext(context.Background())
-}
-
-func (i SubResourceResponseArgs) ToSubResourceResponseOutputWithContext(ctx context.Context) SubResourceResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SubResourceResponseOutput)
-}
-
-func (i SubResourceResponseArgs) ToSubResourceResponsePtrOutput() SubResourceResponsePtrOutput {
-	return i.ToSubResourceResponsePtrOutputWithContext(context.Background())
-}
-
-func (i SubResourceResponseArgs) ToSubResourceResponsePtrOutputWithContext(ctx context.Context) SubResourceResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SubResourceResponseOutput).ToSubResourceResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type SubResourceResponsePtrInput interface {
-	pulumi.Input
-
-	ToSubResourceResponsePtrOutput() SubResourceResponsePtrOutput
-	ToSubResourceResponsePtrOutputWithContext(context.Context) SubResourceResponsePtrOutput
-}
-
-type subResourceResponsePtrType SubResourceResponseArgs
-
-func SubResourceResponsePtr(v *SubResourceResponseArgs) SubResourceResponsePtrInput {
-	return (*subResourceResponsePtrType)(v)
-}
-
-func (*subResourceResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SubResourceResponse)(nil)).Elem()
-}
-
-func (i *subResourceResponsePtrType) ToSubResourceResponsePtrOutput() SubResourceResponsePtrOutput {
-	return i.ToSubResourceResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *subResourceResponsePtrType) ToSubResourceResponsePtrOutputWithContext(ctx context.Context) SubResourceResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SubResourceResponsePtrOutput)
-}
-
-
-
-
-
-type SubResourceResponseArrayInput interface {
-	pulumi.Input
-
-	ToSubResourceResponseArrayOutput() SubResourceResponseArrayOutput
-	ToSubResourceResponseArrayOutputWithContext(context.Context) SubResourceResponseArrayOutput
-}
-
-type SubResourceResponseArray []SubResourceResponseInput
-
-func (SubResourceResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SubResourceResponse)(nil)).Elem()
-}
-
-func (i SubResourceResponseArray) ToSubResourceResponseArrayOutput() SubResourceResponseArrayOutput {
-	return i.ToSubResourceResponseArrayOutputWithContext(context.Background())
-}
-
-func (i SubResourceResponseArray) ToSubResourceResponseArrayOutputWithContext(ctx context.Context) SubResourceResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SubResourceResponseArrayOutput)
-}
-
 type SubResourceResponseOutput struct{ *pulumi.OutputState }
 
 func (SubResourceResponseOutput) ElementType() reflect.Type {
@@ -8979,16 +6921,6 @@ func (o SubResourceResponseOutput) ToSubResourceResponseOutput() SubResourceResp
 
 func (o SubResourceResponseOutput) ToSubResourceResponseOutputWithContext(ctx context.Context) SubResourceResponseOutput {
 	return o
-}
-
-func (o SubResourceResponseOutput) ToSubResourceResponsePtrOutput() SubResourceResponsePtrOutput {
-	return o.ToSubResourceResponsePtrOutputWithContext(context.Background())
-}
-
-func (o SubResourceResponseOutput) ToSubResourceResponsePtrOutputWithContext(ctx context.Context) SubResourceResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SubResourceResponse) *SubResourceResponse {
-		return &v
-	}).(SubResourceResponsePtrOutput)
 }
 
 func (o SubResourceResponseOutput) Id() pulumi.StringPtrOutput {
@@ -9193,65 +7125,6 @@ type SubnetResponse struct {
 	NetworkSecurityGroup *SubResourceResponse  `pulumi:"networkSecurityGroup"`
 	ProvisioningState    *string               `pulumi:"provisioningState"`
 	RouteTable           *SubResourceResponse  `pulumi:"routeTable"`
-}
-
-
-
-
-
-type SubnetResponseInput interface {
-	pulumi.Input
-
-	ToSubnetResponseOutput() SubnetResponseOutput
-	ToSubnetResponseOutputWithContext(context.Context) SubnetResponseOutput
-}
-
-type SubnetResponseArgs struct {
-	AddressPrefix        pulumi.StringInput            `pulumi:"addressPrefix"`
-	Etag                 pulumi.StringPtrInput         `pulumi:"etag"`
-	Id                   pulumi.StringPtrInput         `pulumi:"id"`
-	IpConfigurations     SubResourceResponseArrayInput `pulumi:"ipConfigurations"`
-	Name                 pulumi.StringPtrInput         `pulumi:"name"`
-	NetworkSecurityGroup SubResourceResponsePtrInput   `pulumi:"networkSecurityGroup"`
-	ProvisioningState    pulumi.StringPtrInput         `pulumi:"provisioningState"`
-	RouteTable           SubResourceResponsePtrInput   `pulumi:"routeTable"`
-}
-
-func (SubnetResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SubnetResponse)(nil)).Elem()
-}
-
-func (i SubnetResponseArgs) ToSubnetResponseOutput() SubnetResponseOutput {
-	return i.ToSubnetResponseOutputWithContext(context.Background())
-}
-
-func (i SubnetResponseArgs) ToSubnetResponseOutputWithContext(ctx context.Context) SubnetResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SubnetResponseOutput)
-}
-
-
-
-
-
-type SubnetResponseArrayInput interface {
-	pulumi.Input
-
-	ToSubnetResponseArrayOutput() SubnetResponseArrayOutput
-	ToSubnetResponseArrayOutputWithContext(context.Context) SubnetResponseArrayOutput
-}
-
-type SubnetResponseArray []SubnetResponseInput
-
-func (SubnetResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SubnetResponse)(nil)).Elem()
-}
-
-func (i SubnetResponseArray) ToSubnetResponseArrayOutput() SubnetResponseArrayOutput {
-	return i.ToSubnetResponseArrayOutputWithContext(context.Background())
-}
-
-func (i SubnetResponseArray) ToSubnetResponseArrayOutputWithContext(ctx context.Context) SubnetResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SubnetResponseArrayOutput)
 }
 
 type SubnetResponseOutput struct{ *pulumi.OutputState }

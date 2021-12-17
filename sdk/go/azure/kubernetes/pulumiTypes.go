@@ -53,47 +53,6 @@ func (i ConnectedClusterIdentityArgs) ToConnectedClusterIdentityOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectedClusterIdentityOutput)
 }
 
-func (i ConnectedClusterIdentityArgs) ToConnectedClusterIdentityPtrOutput() ConnectedClusterIdentityPtrOutput {
-	return i.ToConnectedClusterIdentityPtrOutputWithContext(context.Background())
-}
-
-func (i ConnectedClusterIdentityArgs) ToConnectedClusterIdentityPtrOutputWithContext(ctx context.Context) ConnectedClusterIdentityPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectedClusterIdentityOutput).ToConnectedClusterIdentityPtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type ConnectedClusterIdentityPtrInput interface {
-	pulumi.Input
-
-	ToConnectedClusterIdentityPtrOutput() ConnectedClusterIdentityPtrOutput
-	ToConnectedClusterIdentityPtrOutputWithContext(context.Context) ConnectedClusterIdentityPtrOutput
-}
-
-type connectedClusterIdentityPtrType ConnectedClusterIdentityArgs
-
-func ConnectedClusterIdentityPtr(v *ConnectedClusterIdentityArgs) ConnectedClusterIdentityPtrInput {
-	return (*connectedClusterIdentityPtrType)(v)
-}
-
-func (*connectedClusterIdentityPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConnectedClusterIdentity)(nil)).Elem()
-}
-
-func (i *connectedClusterIdentityPtrType) ToConnectedClusterIdentityPtrOutput() ConnectedClusterIdentityPtrOutput {
-	return i.ToConnectedClusterIdentityPtrOutputWithContext(context.Background())
-}
-
-func (i *connectedClusterIdentityPtrType) ToConnectedClusterIdentityPtrOutputWithContext(ctx context.Context) ConnectedClusterIdentityPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectedClusterIdentityPtrOutput)
-}
-
 type ConnectedClusterIdentityOutput struct{ *pulumi.OutputState }
 
 func (ConnectedClusterIdentityOutput) ElementType() reflect.Type {
@@ -108,51 +67,8 @@ func (o ConnectedClusterIdentityOutput) ToConnectedClusterIdentityOutputWithCont
 	return o
 }
 
-func (o ConnectedClusterIdentityOutput) ToConnectedClusterIdentityPtrOutput() ConnectedClusterIdentityPtrOutput {
-	return o.ToConnectedClusterIdentityPtrOutputWithContext(context.Background())
-}
-
-func (o ConnectedClusterIdentityOutput) ToConnectedClusterIdentityPtrOutputWithContext(ctx context.Context) ConnectedClusterIdentityPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectedClusterIdentity) *ConnectedClusterIdentity {
-		return &v
-	}).(ConnectedClusterIdentityPtrOutput)
-}
-
 func (o ConnectedClusterIdentityOutput) Type() ResourceIdentityTypeOutput {
 	return o.ApplyT(func(v ConnectedClusterIdentity) ResourceIdentityType { return v.Type }).(ResourceIdentityTypeOutput)
-}
-
-type ConnectedClusterIdentityPtrOutput struct{ *pulumi.OutputState }
-
-func (ConnectedClusterIdentityPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConnectedClusterIdentity)(nil)).Elem()
-}
-
-func (o ConnectedClusterIdentityPtrOutput) ToConnectedClusterIdentityPtrOutput() ConnectedClusterIdentityPtrOutput {
-	return o
-}
-
-func (o ConnectedClusterIdentityPtrOutput) ToConnectedClusterIdentityPtrOutputWithContext(ctx context.Context) ConnectedClusterIdentityPtrOutput {
-	return o
-}
-
-func (o ConnectedClusterIdentityPtrOutput) Elem() ConnectedClusterIdentityOutput {
-	return o.ApplyT(func(v *ConnectedClusterIdentity) ConnectedClusterIdentity {
-		if v != nil {
-			return *v
-		}
-		var ret ConnectedClusterIdentity
-		return ret
-	}).(ConnectedClusterIdentityOutput)
-}
-
-func (o ConnectedClusterIdentityPtrOutput) Type() ResourceIdentityTypePtrOutput {
-	return o.ApplyT(func(v *ConnectedClusterIdentity) *ResourceIdentityType {
-		if v == nil {
-			return nil
-		}
-		return &v.Type
-	}).(ResourceIdentityTypePtrOutput)
 }
 
 type ConnectedClusterIdentityResponse struct {
@@ -173,76 +89,6 @@ func (val *ConnectedClusterIdentityResponse) Defaults() *ConnectedClusterIdentit
 	return &tmp
 }
 
-
-
-
-
-type ConnectedClusterIdentityResponseInput interface {
-	pulumi.Input
-
-	ToConnectedClusterIdentityResponseOutput() ConnectedClusterIdentityResponseOutput
-	ToConnectedClusterIdentityResponseOutputWithContext(context.Context) ConnectedClusterIdentityResponseOutput
-}
-
-type ConnectedClusterIdentityResponseArgs struct {
-	PrincipalId pulumi.StringInput `pulumi:"principalId"`
-	TenantId    pulumi.StringInput `pulumi:"tenantId"`
-	Type        pulumi.StringInput `pulumi:"type"`
-}
-
-func (ConnectedClusterIdentityResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectedClusterIdentityResponse)(nil)).Elem()
-}
-
-func (i ConnectedClusterIdentityResponseArgs) ToConnectedClusterIdentityResponseOutput() ConnectedClusterIdentityResponseOutput {
-	return i.ToConnectedClusterIdentityResponseOutputWithContext(context.Background())
-}
-
-func (i ConnectedClusterIdentityResponseArgs) ToConnectedClusterIdentityResponseOutputWithContext(ctx context.Context) ConnectedClusterIdentityResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectedClusterIdentityResponseOutput)
-}
-
-func (i ConnectedClusterIdentityResponseArgs) ToConnectedClusterIdentityResponsePtrOutput() ConnectedClusterIdentityResponsePtrOutput {
-	return i.ToConnectedClusterIdentityResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ConnectedClusterIdentityResponseArgs) ToConnectedClusterIdentityResponsePtrOutputWithContext(ctx context.Context) ConnectedClusterIdentityResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectedClusterIdentityResponseOutput).ToConnectedClusterIdentityResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type ConnectedClusterIdentityResponsePtrInput interface {
-	pulumi.Input
-
-	ToConnectedClusterIdentityResponsePtrOutput() ConnectedClusterIdentityResponsePtrOutput
-	ToConnectedClusterIdentityResponsePtrOutputWithContext(context.Context) ConnectedClusterIdentityResponsePtrOutput
-}
-
-type connectedClusterIdentityResponsePtrType ConnectedClusterIdentityResponseArgs
-
-func ConnectedClusterIdentityResponsePtr(v *ConnectedClusterIdentityResponseArgs) ConnectedClusterIdentityResponsePtrInput {
-	return (*connectedClusterIdentityResponsePtrType)(v)
-}
-
-func (*connectedClusterIdentityResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConnectedClusterIdentityResponse)(nil)).Elem()
-}
-
-func (i *connectedClusterIdentityResponsePtrType) ToConnectedClusterIdentityResponsePtrOutput() ConnectedClusterIdentityResponsePtrOutput {
-	return i.ToConnectedClusterIdentityResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *connectedClusterIdentityResponsePtrType) ToConnectedClusterIdentityResponsePtrOutputWithContext(ctx context.Context) ConnectedClusterIdentityResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectedClusterIdentityResponsePtrOutput)
-}
-
 type ConnectedClusterIdentityResponseOutput struct{ *pulumi.OutputState }
 
 func (ConnectedClusterIdentityResponseOutput) ElementType() reflect.Type {
@@ -257,16 +103,6 @@ func (o ConnectedClusterIdentityResponseOutput) ToConnectedClusterIdentityRespon
 	return o
 }
 
-func (o ConnectedClusterIdentityResponseOutput) ToConnectedClusterIdentityResponsePtrOutput() ConnectedClusterIdentityResponsePtrOutput {
-	return o.ToConnectedClusterIdentityResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ConnectedClusterIdentityResponseOutput) ToConnectedClusterIdentityResponsePtrOutputWithContext(ctx context.Context) ConnectedClusterIdentityResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectedClusterIdentityResponse) *ConnectedClusterIdentityResponse {
-		return &v
-	}).(ConnectedClusterIdentityResponsePtrOutput)
-}
-
 func (o ConnectedClusterIdentityResponseOutput) PrincipalId() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectedClusterIdentityResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
 }
@@ -279,155 +115,9 @@ func (o ConnectedClusterIdentityResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectedClusterIdentityResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
-type ConnectedClusterIdentityResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (ConnectedClusterIdentityResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConnectedClusterIdentityResponse)(nil)).Elem()
-}
-
-func (o ConnectedClusterIdentityResponsePtrOutput) ToConnectedClusterIdentityResponsePtrOutput() ConnectedClusterIdentityResponsePtrOutput {
-	return o
-}
-
-func (o ConnectedClusterIdentityResponsePtrOutput) ToConnectedClusterIdentityResponsePtrOutputWithContext(ctx context.Context) ConnectedClusterIdentityResponsePtrOutput {
-	return o
-}
-
-func (o ConnectedClusterIdentityResponsePtrOutput) Elem() ConnectedClusterIdentityResponseOutput {
-	return o.ApplyT(func(v *ConnectedClusterIdentityResponse) ConnectedClusterIdentityResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ConnectedClusterIdentityResponse
-		return ret
-	}).(ConnectedClusterIdentityResponseOutput)
-}
-
-func (o ConnectedClusterIdentityResponsePtrOutput) PrincipalId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ConnectedClusterIdentityResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.PrincipalId
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ConnectedClusterIdentityResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ConnectedClusterIdentityResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.TenantId
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ConnectedClusterIdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ConnectedClusterIdentityResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Type
-	}).(pulumi.StringPtrOutput)
-}
-
 type CredentialResultResponse struct {
 	Name  string `pulumi:"name"`
 	Value string `pulumi:"value"`
-}
-
-
-
-
-
-type CredentialResultResponseInput interface {
-	pulumi.Input
-
-	ToCredentialResultResponseOutput() CredentialResultResponseOutput
-	ToCredentialResultResponseOutputWithContext(context.Context) CredentialResultResponseOutput
-}
-
-type CredentialResultResponseArgs struct {
-	Name  pulumi.StringInput `pulumi:"name"`
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (CredentialResultResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CredentialResultResponse)(nil)).Elem()
-}
-
-func (i CredentialResultResponseArgs) ToCredentialResultResponseOutput() CredentialResultResponseOutput {
-	return i.ToCredentialResultResponseOutputWithContext(context.Background())
-}
-
-func (i CredentialResultResponseArgs) ToCredentialResultResponseOutputWithContext(ctx context.Context) CredentialResultResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CredentialResultResponseOutput)
-}
-
-
-
-
-
-type CredentialResultResponseArrayInput interface {
-	pulumi.Input
-
-	ToCredentialResultResponseArrayOutput() CredentialResultResponseArrayOutput
-	ToCredentialResultResponseArrayOutputWithContext(context.Context) CredentialResultResponseArrayOutput
-}
-
-type CredentialResultResponseArray []CredentialResultResponseInput
-
-func (CredentialResultResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]CredentialResultResponse)(nil)).Elem()
-}
-
-func (i CredentialResultResponseArray) ToCredentialResultResponseArrayOutput() CredentialResultResponseArrayOutput {
-	return i.ToCredentialResultResponseArrayOutputWithContext(context.Background())
-}
-
-func (i CredentialResultResponseArray) ToCredentialResultResponseArrayOutputWithContext(ctx context.Context) CredentialResultResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CredentialResultResponseArrayOutput)
-}
-
-type CredentialResultResponseOutput struct{ *pulumi.OutputState }
-
-func (CredentialResultResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CredentialResultResponse)(nil)).Elem()
-}
-
-func (o CredentialResultResponseOutput) ToCredentialResultResponseOutput() CredentialResultResponseOutput {
-	return o
-}
-
-func (o CredentialResultResponseOutput) ToCredentialResultResponseOutputWithContext(ctx context.Context) CredentialResultResponseOutput {
-	return o
-}
-
-func (o CredentialResultResponseOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v CredentialResultResponse) string { return v.Name }).(pulumi.StringOutput)
-}
-
-func (o CredentialResultResponseOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v CredentialResultResponse) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type CredentialResultResponseArrayOutput struct{ *pulumi.OutputState }
-
-func (CredentialResultResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]CredentialResultResponse)(nil)).Elem()
-}
-
-func (o CredentialResultResponseArrayOutput) ToCredentialResultResponseArrayOutput() CredentialResultResponseArrayOutput {
-	return o
-}
-
-func (o CredentialResultResponseArrayOutput) ToCredentialResultResponseArrayOutputWithContext(ctx context.Context) CredentialResultResponseArrayOutput {
-	return o
-}
-
-func (o CredentialResultResponseArrayOutput) Index(i pulumi.IntInput) CredentialResultResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CredentialResultResponse {
-		return vs[0].([]CredentialResultResponse)[vs[1].(int)]
-	}).(CredentialResultResponseOutput)
 }
 
 type HybridConnectionConfigResponse struct {
@@ -437,66 +127,6 @@ type HybridConnectionConfigResponse struct {
 	Token                string  `pulumi:"token"`
 }
 
-
-
-
-
-type HybridConnectionConfigResponseInput interface {
-	pulumi.Input
-
-	ToHybridConnectionConfigResponseOutput() HybridConnectionConfigResponseOutput
-	ToHybridConnectionConfigResponseOutputWithContext(context.Context) HybridConnectionConfigResponseOutput
-}
-
-type HybridConnectionConfigResponseArgs struct {
-	ExpirationTime       pulumi.Float64Input `pulumi:"expirationTime"`
-	HybridConnectionName pulumi.StringInput  `pulumi:"hybridConnectionName"`
-	Relay                pulumi.StringInput  `pulumi:"relay"`
-	Token                pulumi.StringInput  `pulumi:"token"`
-}
-
-func (HybridConnectionConfigResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*HybridConnectionConfigResponse)(nil)).Elem()
-}
-
-func (i HybridConnectionConfigResponseArgs) ToHybridConnectionConfigResponseOutput() HybridConnectionConfigResponseOutput {
-	return i.ToHybridConnectionConfigResponseOutputWithContext(context.Background())
-}
-
-func (i HybridConnectionConfigResponseArgs) ToHybridConnectionConfigResponseOutputWithContext(ctx context.Context) HybridConnectionConfigResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HybridConnectionConfigResponseOutput)
-}
-
-type HybridConnectionConfigResponseOutput struct{ *pulumi.OutputState }
-
-func (HybridConnectionConfigResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*HybridConnectionConfigResponse)(nil)).Elem()
-}
-
-func (o HybridConnectionConfigResponseOutput) ToHybridConnectionConfigResponseOutput() HybridConnectionConfigResponseOutput {
-	return o
-}
-
-func (o HybridConnectionConfigResponseOutput) ToHybridConnectionConfigResponseOutputWithContext(ctx context.Context) HybridConnectionConfigResponseOutput {
-	return o
-}
-
-func (o HybridConnectionConfigResponseOutput) ExpirationTime() pulumi.Float64Output {
-	return o.ApplyT(func(v HybridConnectionConfigResponse) float64 { return v.ExpirationTime }).(pulumi.Float64Output)
-}
-
-func (o HybridConnectionConfigResponseOutput) HybridConnectionName() pulumi.StringOutput {
-	return o.ApplyT(func(v HybridConnectionConfigResponse) string { return v.HybridConnectionName }).(pulumi.StringOutput)
-}
-
-func (o HybridConnectionConfigResponseOutput) Relay() pulumi.StringOutput {
-	return o.ApplyT(func(v HybridConnectionConfigResponse) string { return v.Relay }).(pulumi.StringOutput)
-}
-
-func (o HybridConnectionConfigResponseOutput) Token() pulumi.StringOutput {
-	return o.ApplyT(func(v HybridConnectionConfigResponse) string { return v.Token }).(pulumi.StringOutput)
-}
-
 type SystemDataResponse struct {
 	CreatedAt          *string `pulumi:"createdAt"`
 	CreatedBy          *string `pulumi:"createdBy"`
@@ -504,79 +134,6 @@ type SystemDataResponse struct {
 	LastModifiedAt     *string `pulumi:"lastModifiedAt"`
 	LastModifiedBy     *string `pulumi:"lastModifiedBy"`
 	LastModifiedByType *string `pulumi:"lastModifiedByType"`
-}
-
-
-
-
-
-type SystemDataResponseInput interface {
-	pulumi.Input
-
-	ToSystemDataResponseOutput() SystemDataResponseOutput
-	ToSystemDataResponseOutputWithContext(context.Context) SystemDataResponseOutput
-}
-
-type SystemDataResponseArgs struct {
-	CreatedAt          pulumi.StringPtrInput `pulumi:"createdAt"`
-	CreatedBy          pulumi.StringPtrInput `pulumi:"createdBy"`
-	CreatedByType      pulumi.StringPtrInput `pulumi:"createdByType"`
-	LastModifiedAt     pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
-	LastModifiedBy     pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
-	LastModifiedByType pulumi.StringPtrInput `pulumi:"lastModifiedByType"`
-}
-
-func (SystemDataResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SystemDataResponse)(nil)).Elem()
-}
-
-func (i SystemDataResponseArgs) ToSystemDataResponseOutput() SystemDataResponseOutput {
-	return i.ToSystemDataResponseOutputWithContext(context.Background())
-}
-
-func (i SystemDataResponseArgs) ToSystemDataResponseOutputWithContext(ctx context.Context) SystemDataResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponseOutput)
-}
-
-func (i SystemDataResponseArgs) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
-	return i.ToSystemDataResponsePtrOutputWithContext(context.Background())
-}
-
-func (i SystemDataResponseArgs) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponseOutput).ToSystemDataResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type SystemDataResponsePtrInput interface {
-	pulumi.Input
-
-	ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput
-	ToSystemDataResponsePtrOutputWithContext(context.Context) SystemDataResponsePtrOutput
-}
-
-type systemDataResponsePtrType SystemDataResponseArgs
-
-func SystemDataResponsePtr(v *SystemDataResponseArgs) SystemDataResponsePtrInput {
-	return (*systemDataResponsePtrType)(v)
-}
-
-func (*systemDataResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SystemDataResponse)(nil)).Elem()
-}
-
-func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
-	return i.ToSystemDataResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponsePtrOutput)
 }
 
 type SystemDataResponseOutput struct{ *pulumi.OutputState }
@@ -591,16 +148,6 @@ func (o SystemDataResponseOutput) ToSystemDataResponseOutput() SystemDataRespons
 
 func (o SystemDataResponseOutput) ToSystemDataResponseOutputWithContext(ctx context.Context) SystemDataResponseOutput {
 	return o
-}
-
-func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
-	return o.ToSystemDataResponsePtrOutputWithContext(context.Background())
-}
-
-func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SystemDataResponse) *SystemDataResponse {
-		return &v
-	}).(SystemDataResponsePtrOutput)
 }
 
 func (o SystemDataResponseOutput) CreatedAt() pulumi.StringPtrOutput {
@@ -627,92 +174,8 @@ func (o SystemDataResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
 }
 
-type SystemDataResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (SystemDataResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SystemDataResponse)(nil)).Elem()
-}
-
-func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
-	return o
-}
-
-func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return o
-}
-
-func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
-	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse {
-		if v != nil {
-			return *v
-		}
-		var ret SystemDataResponse
-		return ret
-	}).(SystemDataResponseOutput)
-}
-
-func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SystemDataResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CreatedAt
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SystemDataResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CreatedBy
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SystemDataResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CreatedByType
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SystemDataResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.LastModifiedAt
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SystemDataResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.LastModifiedBy
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SystemDataResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.LastModifiedByType
-	}).(pulumi.StringPtrOutput)
-}
-
 func init() {
 	pulumi.RegisterOutputType(ConnectedClusterIdentityOutput{})
-	pulumi.RegisterOutputType(ConnectedClusterIdentityPtrOutput{})
 	pulumi.RegisterOutputType(ConnectedClusterIdentityResponseOutput{})
-	pulumi.RegisterOutputType(ConnectedClusterIdentityResponsePtrOutput{})
-	pulumi.RegisterOutputType(CredentialResultResponseOutput{})
-	pulumi.RegisterOutputType(CredentialResultResponseArrayOutput{})
-	pulumi.RegisterOutputType(HybridConnectionConfigResponseOutput{})
 	pulumi.RegisterOutputType(SystemDataResponseOutput{})
-	pulumi.RegisterOutputType(SystemDataResponsePtrOutput{})
 }

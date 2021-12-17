@@ -156,62 +156,6 @@ func (val *AdditionalRegionResponse) Defaults() *AdditionalRegionResponse {
 	return &tmp
 }
 
-
-
-
-
-type AdditionalRegionResponseInput interface {
-	pulumi.Input
-
-	ToAdditionalRegionResponseOutput() AdditionalRegionResponseOutput
-	ToAdditionalRegionResponseOutputWithContext(context.Context) AdditionalRegionResponseOutput
-}
-
-type AdditionalRegionResponseArgs struct {
-	Location         pulumi.StringInput                          `pulumi:"location"`
-	SkuType          pulumi.StringInput                          `pulumi:"skuType"`
-	SkuUnitCount     pulumi.IntPtrInput                          `pulumi:"skuUnitCount"`
-	StaticIPs        pulumi.StringArrayInput                     `pulumi:"staticIPs"`
-	Vpnconfiguration VirtualNetworkConfigurationResponsePtrInput `pulumi:"vpnconfiguration"`
-}
-
-func (AdditionalRegionResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AdditionalRegionResponse)(nil)).Elem()
-}
-
-func (i AdditionalRegionResponseArgs) ToAdditionalRegionResponseOutput() AdditionalRegionResponseOutput {
-	return i.ToAdditionalRegionResponseOutputWithContext(context.Background())
-}
-
-func (i AdditionalRegionResponseArgs) ToAdditionalRegionResponseOutputWithContext(ctx context.Context) AdditionalRegionResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AdditionalRegionResponseOutput)
-}
-
-
-
-
-
-type AdditionalRegionResponseArrayInput interface {
-	pulumi.Input
-
-	ToAdditionalRegionResponseArrayOutput() AdditionalRegionResponseArrayOutput
-	ToAdditionalRegionResponseArrayOutputWithContext(context.Context) AdditionalRegionResponseArrayOutput
-}
-
-type AdditionalRegionResponseArray []AdditionalRegionResponseInput
-
-func (AdditionalRegionResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AdditionalRegionResponse)(nil)).Elem()
-}
-
-func (i AdditionalRegionResponseArray) ToAdditionalRegionResponseArrayOutput() AdditionalRegionResponseArrayOutput {
-	return i.ToAdditionalRegionResponseArrayOutputWithContext(context.Background())
-}
-
-func (i AdditionalRegionResponseArray) ToAdditionalRegionResponseArrayOutputWithContext(ctx context.Context) AdditionalRegionResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AdditionalRegionResponseArrayOutput)
-}
-
 type AdditionalRegionResponseOutput struct{ *pulumi.OutputState }
 
 func (AdditionalRegionResponseOutput) ElementType() reflect.Type {
@@ -312,47 +256,6 @@ func (i ApiManagementServiceSkuPropertiesArgs) ToApiManagementServiceSkuProperti
 	return pulumi.ToOutputWithContext(ctx, i).(ApiManagementServiceSkuPropertiesOutput)
 }
 
-func (i ApiManagementServiceSkuPropertiesArgs) ToApiManagementServiceSkuPropertiesPtrOutput() ApiManagementServiceSkuPropertiesPtrOutput {
-	return i.ToApiManagementServiceSkuPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i ApiManagementServiceSkuPropertiesArgs) ToApiManagementServiceSkuPropertiesPtrOutputWithContext(ctx context.Context) ApiManagementServiceSkuPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApiManagementServiceSkuPropertiesOutput).ToApiManagementServiceSkuPropertiesPtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type ApiManagementServiceSkuPropertiesPtrInput interface {
-	pulumi.Input
-
-	ToApiManagementServiceSkuPropertiesPtrOutput() ApiManagementServiceSkuPropertiesPtrOutput
-	ToApiManagementServiceSkuPropertiesPtrOutputWithContext(context.Context) ApiManagementServiceSkuPropertiesPtrOutput
-}
-
-type apiManagementServiceSkuPropertiesPtrType ApiManagementServiceSkuPropertiesArgs
-
-func ApiManagementServiceSkuPropertiesPtr(v *ApiManagementServiceSkuPropertiesArgs) ApiManagementServiceSkuPropertiesPtrInput {
-	return (*apiManagementServiceSkuPropertiesPtrType)(v)
-}
-
-func (*apiManagementServiceSkuPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApiManagementServiceSkuProperties)(nil)).Elem()
-}
-
-func (i *apiManagementServiceSkuPropertiesPtrType) ToApiManagementServiceSkuPropertiesPtrOutput() ApiManagementServiceSkuPropertiesPtrOutput {
-	return i.ToApiManagementServiceSkuPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *apiManagementServiceSkuPropertiesPtrType) ToApiManagementServiceSkuPropertiesPtrOutputWithContext(ctx context.Context) ApiManagementServiceSkuPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApiManagementServiceSkuPropertiesPtrOutput)
-}
-
 type ApiManagementServiceSkuPropertiesOutput struct{ *pulumi.OutputState }
 
 func (ApiManagementServiceSkuPropertiesOutput) ElementType() reflect.Type {
@@ -367,64 +270,12 @@ func (o ApiManagementServiceSkuPropertiesOutput) ToApiManagementServiceSkuProper
 	return o
 }
 
-func (o ApiManagementServiceSkuPropertiesOutput) ToApiManagementServiceSkuPropertiesPtrOutput() ApiManagementServiceSkuPropertiesPtrOutput {
-	return o.ToApiManagementServiceSkuPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o ApiManagementServiceSkuPropertiesOutput) ToApiManagementServiceSkuPropertiesPtrOutputWithContext(ctx context.Context) ApiManagementServiceSkuPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiManagementServiceSkuProperties) *ApiManagementServiceSkuProperties {
-		return &v
-	}).(ApiManagementServiceSkuPropertiesPtrOutput)
-}
-
 func (o ApiManagementServiceSkuPropertiesOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ApiManagementServiceSkuProperties) *int { return v.Capacity }).(pulumi.IntPtrOutput)
 }
 
 func (o ApiManagementServiceSkuPropertiesOutput) Name() SkuTypeOutput {
 	return o.ApplyT(func(v ApiManagementServiceSkuProperties) SkuType { return v.Name }).(SkuTypeOutput)
-}
-
-type ApiManagementServiceSkuPropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (ApiManagementServiceSkuPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApiManagementServiceSkuProperties)(nil)).Elem()
-}
-
-func (o ApiManagementServiceSkuPropertiesPtrOutput) ToApiManagementServiceSkuPropertiesPtrOutput() ApiManagementServiceSkuPropertiesPtrOutput {
-	return o
-}
-
-func (o ApiManagementServiceSkuPropertiesPtrOutput) ToApiManagementServiceSkuPropertiesPtrOutputWithContext(ctx context.Context) ApiManagementServiceSkuPropertiesPtrOutput {
-	return o
-}
-
-func (o ApiManagementServiceSkuPropertiesPtrOutput) Elem() ApiManagementServiceSkuPropertiesOutput {
-	return o.ApplyT(func(v *ApiManagementServiceSkuProperties) ApiManagementServiceSkuProperties {
-		if v != nil {
-			return *v
-		}
-		var ret ApiManagementServiceSkuProperties
-		return ret
-	}).(ApiManagementServiceSkuPropertiesOutput)
-}
-
-func (o ApiManagementServiceSkuPropertiesPtrOutput) Capacity() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ApiManagementServiceSkuProperties) *int {
-		if v == nil {
-			return nil
-		}
-		return v.Capacity
-	}).(pulumi.IntPtrOutput)
-}
-
-func (o ApiManagementServiceSkuPropertiesPtrOutput) Name() SkuTypePtrOutput {
-	return o.ApplyT(func(v *ApiManagementServiceSkuProperties) *SkuType {
-		if v == nil {
-			return nil
-		}
-		return &v.Name
-	}).(SkuTypePtrOutput)
 }
 
 type ApiManagementServiceSkuPropertiesResponse struct {
@@ -445,75 +296,6 @@ func (val *ApiManagementServiceSkuPropertiesResponse) Defaults() *ApiManagementS
 	return &tmp
 }
 
-
-
-
-
-type ApiManagementServiceSkuPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToApiManagementServiceSkuPropertiesResponseOutput() ApiManagementServiceSkuPropertiesResponseOutput
-	ToApiManagementServiceSkuPropertiesResponseOutputWithContext(context.Context) ApiManagementServiceSkuPropertiesResponseOutput
-}
-
-type ApiManagementServiceSkuPropertiesResponseArgs struct {
-	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
-	Name     pulumi.StringInput `pulumi:"name"`
-}
-
-func (ApiManagementServiceSkuPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApiManagementServiceSkuPropertiesResponse)(nil)).Elem()
-}
-
-func (i ApiManagementServiceSkuPropertiesResponseArgs) ToApiManagementServiceSkuPropertiesResponseOutput() ApiManagementServiceSkuPropertiesResponseOutput {
-	return i.ToApiManagementServiceSkuPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i ApiManagementServiceSkuPropertiesResponseArgs) ToApiManagementServiceSkuPropertiesResponseOutputWithContext(ctx context.Context) ApiManagementServiceSkuPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApiManagementServiceSkuPropertiesResponseOutput)
-}
-
-func (i ApiManagementServiceSkuPropertiesResponseArgs) ToApiManagementServiceSkuPropertiesResponsePtrOutput() ApiManagementServiceSkuPropertiesResponsePtrOutput {
-	return i.ToApiManagementServiceSkuPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ApiManagementServiceSkuPropertiesResponseArgs) ToApiManagementServiceSkuPropertiesResponsePtrOutputWithContext(ctx context.Context) ApiManagementServiceSkuPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApiManagementServiceSkuPropertiesResponseOutput).ToApiManagementServiceSkuPropertiesResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type ApiManagementServiceSkuPropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToApiManagementServiceSkuPropertiesResponsePtrOutput() ApiManagementServiceSkuPropertiesResponsePtrOutput
-	ToApiManagementServiceSkuPropertiesResponsePtrOutputWithContext(context.Context) ApiManagementServiceSkuPropertiesResponsePtrOutput
-}
-
-type apiManagementServiceSkuPropertiesResponsePtrType ApiManagementServiceSkuPropertiesResponseArgs
-
-func ApiManagementServiceSkuPropertiesResponsePtr(v *ApiManagementServiceSkuPropertiesResponseArgs) ApiManagementServiceSkuPropertiesResponsePtrInput {
-	return (*apiManagementServiceSkuPropertiesResponsePtrType)(v)
-}
-
-func (*apiManagementServiceSkuPropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApiManagementServiceSkuPropertiesResponse)(nil)).Elem()
-}
-
-func (i *apiManagementServiceSkuPropertiesResponsePtrType) ToApiManagementServiceSkuPropertiesResponsePtrOutput() ApiManagementServiceSkuPropertiesResponsePtrOutput {
-	return i.ToApiManagementServiceSkuPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *apiManagementServiceSkuPropertiesResponsePtrType) ToApiManagementServiceSkuPropertiesResponsePtrOutputWithContext(ctx context.Context) ApiManagementServiceSkuPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApiManagementServiceSkuPropertiesResponsePtrOutput)
-}
-
 type ApiManagementServiceSkuPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (ApiManagementServiceSkuPropertiesResponseOutput) ElementType() reflect.Type {
@@ -528,64 +310,12 @@ func (o ApiManagementServiceSkuPropertiesResponseOutput) ToApiManagementServiceS
 	return o
 }
 
-func (o ApiManagementServiceSkuPropertiesResponseOutput) ToApiManagementServiceSkuPropertiesResponsePtrOutput() ApiManagementServiceSkuPropertiesResponsePtrOutput {
-	return o.ToApiManagementServiceSkuPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ApiManagementServiceSkuPropertiesResponseOutput) ToApiManagementServiceSkuPropertiesResponsePtrOutputWithContext(ctx context.Context) ApiManagementServiceSkuPropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiManagementServiceSkuPropertiesResponse) *ApiManagementServiceSkuPropertiesResponse {
-		return &v
-	}).(ApiManagementServiceSkuPropertiesResponsePtrOutput)
-}
-
 func (o ApiManagementServiceSkuPropertiesResponseOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ApiManagementServiceSkuPropertiesResponse) *int { return v.Capacity }).(pulumi.IntPtrOutput)
 }
 
 func (o ApiManagementServiceSkuPropertiesResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ApiManagementServiceSkuPropertiesResponse) string { return v.Name }).(pulumi.StringOutput)
-}
-
-type ApiManagementServiceSkuPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (ApiManagementServiceSkuPropertiesResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApiManagementServiceSkuPropertiesResponse)(nil)).Elem()
-}
-
-func (o ApiManagementServiceSkuPropertiesResponsePtrOutput) ToApiManagementServiceSkuPropertiesResponsePtrOutput() ApiManagementServiceSkuPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o ApiManagementServiceSkuPropertiesResponsePtrOutput) ToApiManagementServiceSkuPropertiesResponsePtrOutputWithContext(ctx context.Context) ApiManagementServiceSkuPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o ApiManagementServiceSkuPropertiesResponsePtrOutput) Elem() ApiManagementServiceSkuPropertiesResponseOutput {
-	return o.ApplyT(func(v *ApiManagementServiceSkuPropertiesResponse) ApiManagementServiceSkuPropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ApiManagementServiceSkuPropertiesResponse
-		return ret
-	}).(ApiManagementServiceSkuPropertiesResponseOutput)
-}
-
-func (o ApiManagementServiceSkuPropertiesResponsePtrOutput) Capacity() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ApiManagementServiceSkuPropertiesResponse) *int {
-		if v == nil {
-			return nil
-		}
-		return v.Capacity
-	}).(pulumi.IntPtrOutput)
-}
-
-func (o ApiManagementServiceSkuPropertiesResponsePtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ApiManagementServiceSkuPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Name
-	}).(pulumi.StringPtrOutput)
 }
 
 type CertificateInformation struct {
@@ -653,35 +383,6 @@ type CertificateInformationResponse struct {
 	Expiry     string `pulumi:"expiry"`
 	Subject    string `pulumi:"subject"`
 	Thumbprint string `pulumi:"thumbprint"`
-}
-
-
-
-
-
-type CertificateInformationResponseInput interface {
-	pulumi.Input
-
-	ToCertificateInformationResponseOutput() CertificateInformationResponseOutput
-	ToCertificateInformationResponseOutputWithContext(context.Context) CertificateInformationResponseOutput
-}
-
-type CertificateInformationResponseArgs struct {
-	Expiry     pulumi.StringInput `pulumi:"expiry"`
-	Subject    pulumi.StringInput `pulumi:"subject"`
-	Thumbprint pulumi.StringInput `pulumi:"thumbprint"`
-}
-
-func (CertificateInformationResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CertificateInformationResponse)(nil)).Elem()
-}
-
-func (i CertificateInformationResponseArgs) ToCertificateInformationResponseOutput() CertificateInformationResponseOutput {
-	return i.ToCertificateInformationResponseOutputWithContext(context.Background())
-}
-
-func (i CertificateInformationResponseArgs) ToCertificateInformationResponseOutputWithContext(ctx context.Context) CertificateInformationResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CertificateInformationResponseOutput)
 }
 
 type CertificateInformationResponseOutput struct{ *pulumi.OutputState }
@@ -820,60 +521,6 @@ type HostnameConfigurationResponse struct {
 	Certificate CertificateInformationResponse `pulumi:"certificate"`
 	Hostname    string                         `pulumi:"hostname"`
 	Type        string                         `pulumi:"type"`
-}
-
-
-
-
-
-type HostnameConfigurationResponseInput interface {
-	pulumi.Input
-
-	ToHostnameConfigurationResponseOutput() HostnameConfigurationResponseOutput
-	ToHostnameConfigurationResponseOutputWithContext(context.Context) HostnameConfigurationResponseOutput
-}
-
-type HostnameConfigurationResponseArgs struct {
-	Certificate CertificateInformationResponseInput `pulumi:"certificate"`
-	Hostname    pulumi.StringInput                  `pulumi:"hostname"`
-	Type        pulumi.StringInput                  `pulumi:"type"`
-}
-
-func (HostnameConfigurationResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*HostnameConfigurationResponse)(nil)).Elem()
-}
-
-func (i HostnameConfigurationResponseArgs) ToHostnameConfigurationResponseOutput() HostnameConfigurationResponseOutput {
-	return i.ToHostnameConfigurationResponseOutputWithContext(context.Background())
-}
-
-func (i HostnameConfigurationResponseArgs) ToHostnameConfigurationResponseOutputWithContext(ctx context.Context) HostnameConfigurationResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HostnameConfigurationResponseOutput)
-}
-
-
-
-
-
-type HostnameConfigurationResponseArrayInput interface {
-	pulumi.Input
-
-	ToHostnameConfigurationResponseArrayOutput() HostnameConfigurationResponseArrayOutput
-	ToHostnameConfigurationResponseArrayOutputWithContext(context.Context) HostnameConfigurationResponseArrayOutput
-}
-
-type HostnameConfigurationResponseArray []HostnameConfigurationResponseInput
-
-func (HostnameConfigurationResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]HostnameConfigurationResponse)(nil)).Elem()
-}
-
-func (i HostnameConfigurationResponseArray) ToHostnameConfigurationResponseArrayOutput() HostnameConfigurationResponseArrayOutput {
-	return i.ToHostnameConfigurationResponseArrayOutputWithContext(context.Background())
-}
-
-func (i HostnameConfigurationResponseArray) ToHostnameConfigurationResponseArrayOutputWithContext(ctx context.Context) HostnameConfigurationResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HostnameConfigurationResponseArrayOutput)
 }
 
 type HostnameConfigurationResponseOutput struct{ *pulumi.OutputState }
@@ -1077,77 +724,6 @@ type VirtualNetworkConfigurationResponse struct {
 	Vnetid           string  `pulumi:"vnetid"`
 }
 
-
-
-
-
-type VirtualNetworkConfigurationResponseInput interface {
-	pulumi.Input
-
-	ToVirtualNetworkConfigurationResponseOutput() VirtualNetworkConfigurationResponseOutput
-	ToVirtualNetworkConfigurationResponseOutputWithContext(context.Context) VirtualNetworkConfigurationResponseOutput
-}
-
-type VirtualNetworkConfigurationResponseArgs struct {
-	Location         pulumi.StringPtrInput `pulumi:"location"`
-	SubnetResourceId pulumi.StringPtrInput `pulumi:"subnetResourceId"`
-	Subnetname       pulumi.StringInput    `pulumi:"subnetname"`
-	Vnetid           pulumi.StringInput    `pulumi:"vnetid"`
-}
-
-func (VirtualNetworkConfigurationResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualNetworkConfigurationResponse)(nil)).Elem()
-}
-
-func (i VirtualNetworkConfigurationResponseArgs) ToVirtualNetworkConfigurationResponseOutput() VirtualNetworkConfigurationResponseOutput {
-	return i.ToVirtualNetworkConfigurationResponseOutputWithContext(context.Background())
-}
-
-func (i VirtualNetworkConfigurationResponseArgs) ToVirtualNetworkConfigurationResponseOutputWithContext(ctx context.Context) VirtualNetworkConfigurationResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkConfigurationResponseOutput)
-}
-
-func (i VirtualNetworkConfigurationResponseArgs) ToVirtualNetworkConfigurationResponsePtrOutput() VirtualNetworkConfigurationResponsePtrOutput {
-	return i.ToVirtualNetworkConfigurationResponsePtrOutputWithContext(context.Background())
-}
-
-func (i VirtualNetworkConfigurationResponseArgs) ToVirtualNetworkConfigurationResponsePtrOutputWithContext(ctx context.Context) VirtualNetworkConfigurationResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkConfigurationResponseOutput).ToVirtualNetworkConfigurationResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type VirtualNetworkConfigurationResponsePtrInput interface {
-	pulumi.Input
-
-	ToVirtualNetworkConfigurationResponsePtrOutput() VirtualNetworkConfigurationResponsePtrOutput
-	ToVirtualNetworkConfigurationResponsePtrOutputWithContext(context.Context) VirtualNetworkConfigurationResponsePtrOutput
-}
-
-type virtualNetworkConfigurationResponsePtrType VirtualNetworkConfigurationResponseArgs
-
-func VirtualNetworkConfigurationResponsePtr(v *VirtualNetworkConfigurationResponseArgs) VirtualNetworkConfigurationResponsePtrInput {
-	return (*virtualNetworkConfigurationResponsePtrType)(v)
-}
-
-func (*virtualNetworkConfigurationResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**VirtualNetworkConfigurationResponse)(nil)).Elem()
-}
-
-func (i *virtualNetworkConfigurationResponsePtrType) ToVirtualNetworkConfigurationResponsePtrOutput() VirtualNetworkConfigurationResponsePtrOutput {
-	return i.ToVirtualNetworkConfigurationResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *virtualNetworkConfigurationResponsePtrType) ToVirtualNetworkConfigurationResponsePtrOutputWithContext(ctx context.Context) VirtualNetworkConfigurationResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkConfigurationResponsePtrOutput)
-}
-
 type VirtualNetworkConfigurationResponseOutput struct{ *pulumi.OutputState }
 
 func (VirtualNetworkConfigurationResponseOutput) ElementType() reflect.Type {
@@ -1160,16 +736,6 @@ func (o VirtualNetworkConfigurationResponseOutput) ToVirtualNetworkConfiguration
 
 func (o VirtualNetworkConfigurationResponseOutput) ToVirtualNetworkConfigurationResponseOutputWithContext(ctx context.Context) VirtualNetworkConfigurationResponseOutput {
 	return o
-}
-
-func (o VirtualNetworkConfigurationResponseOutput) ToVirtualNetworkConfigurationResponsePtrOutput() VirtualNetworkConfigurationResponsePtrOutput {
-	return o.ToVirtualNetworkConfigurationResponsePtrOutputWithContext(context.Background())
-}
-
-func (o VirtualNetworkConfigurationResponseOutput) ToVirtualNetworkConfigurationResponsePtrOutputWithContext(ctx context.Context) VirtualNetworkConfigurationResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualNetworkConfigurationResponse) *VirtualNetworkConfigurationResponse {
-		return &v
-	}).(VirtualNetworkConfigurationResponsePtrOutput)
 }
 
 func (o VirtualNetworkConfigurationResponseOutput) Location() pulumi.StringPtrOutput {
@@ -1254,9 +820,7 @@ func init() {
 	pulumi.RegisterOutputType(AdditionalRegionResponseOutput{})
 	pulumi.RegisterOutputType(AdditionalRegionResponseArrayOutput{})
 	pulumi.RegisterOutputType(ApiManagementServiceSkuPropertiesOutput{})
-	pulumi.RegisterOutputType(ApiManagementServiceSkuPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ApiManagementServiceSkuPropertiesResponseOutput{})
-	pulumi.RegisterOutputType(ApiManagementServiceSkuPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(CertificateInformationOutput{})
 	pulumi.RegisterOutputType(CertificateInformationResponseOutput{})
 	pulumi.RegisterOutputType(HostnameConfigurationOutput{})

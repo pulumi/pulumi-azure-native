@@ -29,11 +29,10 @@ func NewSubscriptionFeatureRegistration(ctx *pulumi.Context,
 	if args.ProviderNamespace == nil {
 		return nil, errors.New("invalid value for required argument 'ProviderNamespace'")
 	}
-	propertiesApplier := func(v SubscriptionFeatureRegistrationProperties) *SubscriptionFeatureRegistrationProperties {
-		return v.Defaults()
-	}
 	if args.Properties != nil {
-		args.Properties = args.Properties.ToSubscriptionFeatureRegistrationPropertiesPtrOutput().Elem().ApplyT(propertiesApplier).(SubscriptionFeatureRegistrationPropertiesPtrOutput)
+		args.Properties = args.Properties.ToSubscriptionFeatureRegistrationPropertiesPtrOutput().ApplyT(func(v *SubscriptionFeatureRegistrationProperties) *SubscriptionFeatureRegistrationProperties {
+			return v.Defaults()
+		}).(SubscriptionFeatureRegistrationPropertiesPtrOutput)
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

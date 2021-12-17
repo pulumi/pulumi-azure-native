@@ -179,76 +179,6 @@ type AdmCredentialResponse struct {
 	ClientSecret *string `pulumi:"clientSecret"`
 }
 
-
-
-
-
-type AdmCredentialResponseInput interface {
-	pulumi.Input
-
-	ToAdmCredentialResponseOutput() AdmCredentialResponseOutput
-	ToAdmCredentialResponseOutputWithContext(context.Context) AdmCredentialResponseOutput
-}
-
-type AdmCredentialResponseArgs struct {
-	AuthTokenUrl pulumi.StringPtrInput `pulumi:"authTokenUrl"`
-	ClientId     pulumi.StringPtrInput `pulumi:"clientId"`
-	ClientSecret pulumi.StringPtrInput `pulumi:"clientSecret"`
-}
-
-func (AdmCredentialResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AdmCredentialResponse)(nil)).Elem()
-}
-
-func (i AdmCredentialResponseArgs) ToAdmCredentialResponseOutput() AdmCredentialResponseOutput {
-	return i.ToAdmCredentialResponseOutputWithContext(context.Background())
-}
-
-func (i AdmCredentialResponseArgs) ToAdmCredentialResponseOutputWithContext(ctx context.Context) AdmCredentialResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AdmCredentialResponseOutput)
-}
-
-func (i AdmCredentialResponseArgs) ToAdmCredentialResponsePtrOutput() AdmCredentialResponsePtrOutput {
-	return i.ToAdmCredentialResponsePtrOutputWithContext(context.Background())
-}
-
-func (i AdmCredentialResponseArgs) ToAdmCredentialResponsePtrOutputWithContext(ctx context.Context) AdmCredentialResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AdmCredentialResponseOutput).ToAdmCredentialResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type AdmCredentialResponsePtrInput interface {
-	pulumi.Input
-
-	ToAdmCredentialResponsePtrOutput() AdmCredentialResponsePtrOutput
-	ToAdmCredentialResponsePtrOutputWithContext(context.Context) AdmCredentialResponsePtrOutput
-}
-
-type admCredentialResponsePtrType AdmCredentialResponseArgs
-
-func AdmCredentialResponsePtr(v *AdmCredentialResponseArgs) AdmCredentialResponsePtrInput {
-	return (*admCredentialResponsePtrType)(v)
-}
-
-func (*admCredentialResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AdmCredentialResponse)(nil)).Elem()
-}
-
-func (i *admCredentialResponsePtrType) ToAdmCredentialResponsePtrOutput() AdmCredentialResponsePtrOutput {
-	return i.ToAdmCredentialResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *admCredentialResponsePtrType) ToAdmCredentialResponsePtrOutputWithContext(ctx context.Context) AdmCredentialResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AdmCredentialResponsePtrOutput)
-}
-
 type AdmCredentialResponseOutput struct{ *pulumi.OutputState }
 
 func (AdmCredentialResponseOutput) ElementType() reflect.Type {
@@ -261,16 +191,6 @@ func (o AdmCredentialResponseOutput) ToAdmCredentialResponseOutput() AdmCredenti
 
 func (o AdmCredentialResponseOutput) ToAdmCredentialResponseOutputWithContext(ctx context.Context) AdmCredentialResponseOutput {
 	return o
-}
-
-func (o AdmCredentialResponseOutput) ToAdmCredentialResponsePtrOutput() AdmCredentialResponsePtrOutput {
-	return o.ToAdmCredentialResponsePtrOutputWithContext(context.Background())
-}
-
-func (o AdmCredentialResponseOutput) ToAdmCredentialResponsePtrOutputWithContext(ctx context.Context) AdmCredentialResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AdmCredentialResponse) *AdmCredentialResponse {
-		return &v
-	}).(AdmCredentialResponsePtrOutput)
 }
 
 func (o AdmCredentialResponseOutput) AuthTokenUrl() pulumi.StringPtrOutput {
@@ -585,81 +505,6 @@ type ApnsCredentialResponse struct {
 	Token           *string `pulumi:"token"`
 }
 
-
-
-
-
-type ApnsCredentialResponseInput interface {
-	pulumi.Input
-
-	ToApnsCredentialResponseOutput() ApnsCredentialResponseOutput
-	ToApnsCredentialResponseOutputWithContext(context.Context) ApnsCredentialResponseOutput
-}
-
-type ApnsCredentialResponseArgs struct {
-	ApnsCertificate pulumi.StringPtrInput `pulumi:"apnsCertificate"`
-	AppId           pulumi.StringPtrInput `pulumi:"appId"`
-	AppName         pulumi.StringPtrInput `pulumi:"appName"`
-	CertificateKey  pulumi.StringPtrInput `pulumi:"certificateKey"`
-	Endpoint        pulumi.StringPtrInput `pulumi:"endpoint"`
-	KeyId           pulumi.StringPtrInput `pulumi:"keyId"`
-	Thumbprint      pulumi.StringPtrInput `pulumi:"thumbprint"`
-	Token           pulumi.StringPtrInput `pulumi:"token"`
-}
-
-func (ApnsCredentialResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApnsCredentialResponse)(nil)).Elem()
-}
-
-func (i ApnsCredentialResponseArgs) ToApnsCredentialResponseOutput() ApnsCredentialResponseOutput {
-	return i.ToApnsCredentialResponseOutputWithContext(context.Background())
-}
-
-func (i ApnsCredentialResponseArgs) ToApnsCredentialResponseOutputWithContext(ctx context.Context) ApnsCredentialResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApnsCredentialResponseOutput)
-}
-
-func (i ApnsCredentialResponseArgs) ToApnsCredentialResponsePtrOutput() ApnsCredentialResponsePtrOutput {
-	return i.ToApnsCredentialResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ApnsCredentialResponseArgs) ToApnsCredentialResponsePtrOutputWithContext(ctx context.Context) ApnsCredentialResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApnsCredentialResponseOutput).ToApnsCredentialResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type ApnsCredentialResponsePtrInput interface {
-	pulumi.Input
-
-	ToApnsCredentialResponsePtrOutput() ApnsCredentialResponsePtrOutput
-	ToApnsCredentialResponsePtrOutputWithContext(context.Context) ApnsCredentialResponsePtrOutput
-}
-
-type apnsCredentialResponsePtrType ApnsCredentialResponseArgs
-
-func ApnsCredentialResponsePtr(v *ApnsCredentialResponseArgs) ApnsCredentialResponsePtrInput {
-	return (*apnsCredentialResponsePtrType)(v)
-}
-
-func (*apnsCredentialResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApnsCredentialResponse)(nil)).Elem()
-}
-
-func (i *apnsCredentialResponsePtrType) ToApnsCredentialResponsePtrOutput() ApnsCredentialResponsePtrOutput {
-	return i.ToApnsCredentialResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *apnsCredentialResponsePtrType) ToApnsCredentialResponsePtrOutputWithContext(ctx context.Context) ApnsCredentialResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApnsCredentialResponsePtrOutput)
-}
-
 type ApnsCredentialResponseOutput struct{ *pulumi.OutputState }
 
 func (ApnsCredentialResponseOutput) ElementType() reflect.Type {
@@ -672,16 +517,6 @@ func (o ApnsCredentialResponseOutput) ToApnsCredentialResponseOutput() ApnsCrede
 
 func (o ApnsCredentialResponseOutput) ToApnsCredentialResponseOutputWithContext(ctx context.Context) ApnsCredentialResponseOutput {
 	return o
-}
-
-func (o ApnsCredentialResponseOutput) ToApnsCredentialResponsePtrOutput() ApnsCredentialResponsePtrOutput {
-	return o.ToApnsCredentialResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ApnsCredentialResponseOutput) ToApnsCredentialResponsePtrOutputWithContext(ctx context.Context) ApnsCredentialResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApnsCredentialResponse) *ApnsCredentialResponse {
-		return &v
-	}).(ApnsCredentialResponsePtrOutput)
 }
 
 func (o ApnsCredentialResponseOutput) ApnsCertificate() pulumi.StringPtrOutput {
@@ -981,76 +816,6 @@ type BaiduCredentialResponse struct {
 	BaiduSecretKey *string `pulumi:"baiduSecretKey"`
 }
 
-
-
-
-
-type BaiduCredentialResponseInput interface {
-	pulumi.Input
-
-	ToBaiduCredentialResponseOutput() BaiduCredentialResponseOutput
-	ToBaiduCredentialResponseOutputWithContext(context.Context) BaiduCredentialResponseOutput
-}
-
-type BaiduCredentialResponseArgs struct {
-	BaiduApiKey    pulumi.StringPtrInput `pulumi:"baiduApiKey"`
-	BaiduEndPoint  pulumi.StringPtrInput `pulumi:"baiduEndPoint"`
-	BaiduSecretKey pulumi.StringPtrInput `pulumi:"baiduSecretKey"`
-}
-
-func (BaiduCredentialResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*BaiduCredentialResponse)(nil)).Elem()
-}
-
-func (i BaiduCredentialResponseArgs) ToBaiduCredentialResponseOutput() BaiduCredentialResponseOutput {
-	return i.ToBaiduCredentialResponseOutputWithContext(context.Background())
-}
-
-func (i BaiduCredentialResponseArgs) ToBaiduCredentialResponseOutputWithContext(ctx context.Context) BaiduCredentialResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BaiduCredentialResponseOutput)
-}
-
-func (i BaiduCredentialResponseArgs) ToBaiduCredentialResponsePtrOutput() BaiduCredentialResponsePtrOutput {
-	return i.ToBaiduCredentialResponsePtrOutputWithContext(context.Background())
-}
-
-func (i BaiduCredentialResponseArgs) ToBaiduCredentialResponsePtrOutputWithContext(ctx context.Context) BaiduCredentialResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BaiduCredentialResponseOutput).ToBaiduCredentialResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type BaiduCredentialResponsePtrInput interface {
-	pulumi.Input
-
-	ToBaiduCredentialResponsePtrOutput() BaiduCredentialResponsePtrOutput
-	ToBaiduCredentialResponsePtrOutputWithContext(context.Context) BaiduCredentialResponsePtrOutput
-}
-
-type baiduCredentialResponsePtrType BaiduCredentialResponseArgs
-
-func BaiduCredentialResponsePtr(v *BaiduCredentialResponseArgs) BaiduCredentialResponsePtrInput {
-	return (*baiduCredentialResponsePtrType)(v)
-}
-
-func (*baiduCredentialResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**BaiduCredentialResponse)(nil)).Elem()
-}
-
-func (i *baiduCredentialResponsePtrType) ToBaiduCredentialResponsePtrOutput() BaiduCredentialResponsePtrOutput {
-	return i.ToBaiduCredentialResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *baiduCredentialResponsePtrType) ToBaiduCredentialResponsePtrOutputWithContext(ctx context.Context) BaiduCredentialResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BaiduCredentialResponsePtrOutput)
-}
-
 type BaiduCredentialResponseOutput struct{ *pulumi.OutputState }
 
 func (BaiduCredentialResponseOutput) ElementType() reflect.Type {
@@ -1063,16 +828,6 @@ func (o BaiduCredentialResponseOutput) ToBaiduCredentialResponseOutput() BaiduCr
 
 func (o BaiduCredentialResponseOutput) ToBaiduCredentialResponseOutputWithContext(ctx context.Context) BaiduCredentialResponseOutput {
 	return o
-}
-
-func (o BaiduCredentialResponseOutput) ToBaiduCredentialResponsePtrOutput() BaiduCredentialResponsePtrOutput {
-	return o.ToBaiduCredentialResponsePtrOutputWithContext(context.Background())
-}
-
-func (o BaiduCredentialResponseOutput) ToBaiduCredentialResponsePtrOutputWithContext(ctx context.Context) BaiduCredentialResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v BaiduCredentialResponse) *BaiduCredentialResponse {
-		return &v
-	}).(BaiduCredentialResponsePtrOutput)
 }
 
 func (o BaiduCredentialResponseOutput) BaiduApiKey() pulumi.StringPtrOutput {
@@ -1291,75 +1046,6 @@ type GcmCredentialResponse struct {
 	GoogleApiKey *string `pulumi:"googleApiKey"`
 }
 
-
-
-
-
-type GcmCredentialResponseInput interface {
-	pulumi.Input
-
-	ToGcmCredentialResponseOutput() GcmCredentialResponseOutput
-	ToGcmCredentialResponseOutputWithContext(context.Context) GcmCredentialResponseOutput
-}
-
-type GcmCredentialResponseArgs struct {
-	GcmEndpoint  pulumi.StringPtrInput `pulumi:"gcmEndpoint"`
-	GoogleApiKey pulumi.StringPtrInput `pulumi:"googleApiKey"`
-}
-
-func (GcmCredentialResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GcmCredentialResponse)(nil)).Elem()
-}
-
-func (i GcmCredentialResponseArgs) ToGcmCredentialResponseOutput() GcmCredentialResponseOutput {
-	return i.ToGcmCredentialResponseOutputWithContext(context.Background())
-}
-
-func (i GcmCredentialResponseArgs) ToGcmCredentialResponseOutputWithContext(ctx context.Context) GcmCredentialResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GcmCredentialResponseOutput)
-}
-
-func (i GcmCredentialResponseArgs) ToGcmCredentialResponsePtrOutput() GcmCredentialResponsePtrOutput {
-	return i.ToGcmCredentialResponsePtrOutputWithContext(context.Background())
-}
-
-func (i GcmCredentialResponseArgs) ToGcmCredentialResponsePtrOutputWithContext(ctx context.Context) GcmCredentialResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GcmCredentialResponseOutput).ToGcmCredentialResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type GcmCredentialResponsePtrInput interface {
-	pulumi.Input
-
-	ToGcmCredentialResponsePtrOutput() GcmCredentialResponsePtrOutput
-	ToGcmCredentialResponsePtrOutputWithContext(context.Context) GcmCredentialResponsePtrOutput
-}
-
-type gcmCredentialResponsePtrType GcmCredentialResponseArgs
-
-func GcmCredentialResponsePtr(v *GcmCredentialResponseArgs) GcmCredentialResponsePtrInput {
-	return (*gcmCredentialResponsePtrType)(v)
-}
-
-func (*gcmCredentialResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**GcmCredentialResponse)(nil)).Elem()
-}
-
-func (i *gcmCredentialResponsePtrType) ToGcmCredentialResponsePtrOutput() GcmCredentialResponsePtrOutput {
-	return i.ToGcmCredentialResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *gcmCredentialResponsePtrType) ToGcmCredentialResponsePtrOutputWithContext(ctx context.Context) GcmCredentialResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GcmCredentialResponsePtrOutput)
-}
-
 type GcmCredentialResponseOutput struct{ *pulumi.OutputState }
 
 func (GcmCredentialResponseOutput) ElementType() reflect.Type {
@@ -1372,16 +1058,6 @@ func (o GcmCredentialResponseOutput) ToGcmCredentialResponseOutput() GcmCredenti
 
 func (o GcmCredentialResponseOutput) ToGcmCredentialResponseOutputWithContext(ctx context.Context) GcmCredentialResponseOutput {
 	return o
-}
-
-func (o GcmCredentialResponseOutput) ToGcmCredentialResponsePtrOutput() GcmCredentialResponsePtrOutput {
-	return o.ToGcmCredentialResponsePtrOutputWithContext(context.Background())
-}
-
-func (o GcmCredentialResponseOutput) ToGcmCredentialResponsePtrOutputWithContext(ctx context.Context) GcmCredentialResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v GcmCredentialResponse) *GcmCredentialResponse {
-		return &v
-	}).(GcmCredentialResponsePtrOutput)
 }
 
 func (o GcmCredentialResponseOutput) GcmEndpoint() pulumi.StringPtrOutput {
@@ -1603,76 +1279,6 @@ type MpnsCredentialResponse struct {
 	Thumbprint      *string `pulumi:"thumbprint"`
 }
 
-
-
-
-
-type MpnsCredentialResponseInput interface {
-	pulumi.Input
-
-	ToMpnsCredentialResponseOutput() MpnsCredentialResponseOutput
-	ToMpnsCredentialResponseOutputWithContext(context.Context) MpnsCredentialResponseOutput
-}
-
-type MpnsCredentialResponseArgs struct {
-	CertificateKey  pulumi.StringPtrInput `pulumi:"certificateKey"`
-	MpnsCertificate pulumi.StringPtrInput `pulumi:"mpnsCertificate"`
-	Thumbprint      pulumi.StringPtrInput `pulumi:"thumbprint"`
-}
-
-func (MpnsCredentialResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MpnsCredentialResponse)(nil)).Elem()
-}
-
-func (i MpnsCredentialResponseArgs) ToMpnsCredentialResponseOutput() MpnsCredentialResponseOutput {
-	return i.ToMpnsCredentialResponseOutputWithContext(context.Background())
-}
-
-func (i MpnsCredentialResponseArgs) ToMpnsCredentialResponseOutputWithContext(ctx context.Context) MpnsCredentialResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MpnsCredentialResponseOutput)
-}
-
-func (i MpnsCredentialResponseArgs) ToMpnsCredentialResponsePtrOutput() MpnsCredentialResponsePtrOutput {
-	return i.ToMpnsCredentialResponsePtrOutputWithContext(context.Background())
-}
-
-func (i MpnsCredentialResponseArgs) ToMpnsCredentialResponsePtrOutputWithContext(ctx context.Context) MpnsCredentialResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MpnsCredentialResponseOutput).ToMpnsCredentialResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type MpnsCredentialResponsePtrInput interface {
-	pulumi.Input
-
-	ToMpnsCredentialResponsePtrOutput() MpnsCredentialResponsePtrOutput
-	ToMpnsCredentialResponsePtrOutputWithContext(context.Context) MpnsCredentialResponsePtrOutput
-}
-
-type mpnsCredentialResponsePtrType MpnsCredentialResponseArgs
-
-func MpnsCredentialResponsePtr(v *MpnsCredentialResponseArgs) MpnsCredentialResponsePtrInput {
-	return (*mpnsCredentialResponsePtrType)(v)
-}
-
-func (*mpnsCredentialResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**MpnsCredentialResponse)(nil)).Elem()
-}
-
-func (i *mpnsCredentialResponsePtrType) ToMpnsCredentialResponsePtrOutput() MpnsCredentialResponsePtrOutput {
-	return i.ToMpnsCredentialResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *mpnsCredentialResponsePtrType) ToMpnsCredentialResponsePtrOutputWithContext(ctx context.Context) MpnsCredentialResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MpnsCredentialResponsePtrOutput)
-}
-
 type MpnsCredentialResponseOutput struct{ *pulumi.OutputState }
 
 func (MpnsCredentialResponseOutput) ElementType() reflect.Type {
@@ -1685,16 +1291,6 @@ func (o MpnsCredentialResponseOutput) ToMpnsCredentialResponseOutput() MpnsCrede
 
 func (o MpnsCredentialResponseOutput) ToMpnsCredentialResponseOutputWithContext(ctx context.Context) MpnsCredentialResponseOutput {
 	return o
-}
-
-func (o MpnsCredentialResponseOutput) ToMpnsCredentialResponsePtrOutput() MpnsCredentialResponsePtrOutput {
-	return o.ToMpnsCredentialResponsePtrOutputWithContext(context.Background())
-}
-
-func (o MpnsCredentialResponseOutput) ToMpnsCredentialResponsePtrOutputWithContext(ctx context.Context) MpnsCredentialResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MpnsCredentialResponse) *MpnsCredentialResponse {
-		return &v
-	}).(MpnsCredentialResponsePtrOutput)
 }
 
 func (o MpnsCredentialResponseOutput) CertificateKey() pulumi.StringPtrOutput {
@@ -1791,47 +1387,6 @@ func (i SharedAccessAuthorizationRulePropertiesArgs) ToSharedAccessAuthorization
 	return pulumi.ToOutputWithContext(ctx, i).(SharedAccessAuthorizationRulePropertiesOutput)
 }
 
-func (i SharedAccessAuthorizationRulePropertiesArgs) ToSharedAccessAuthorizationRulePropertiesPtrOutput() SharedAccessAuthorizationRulePropertiesPtrOutput {
-	return i.ToSharedAccessAuthorizationRulePropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i SharedAccessAuthorizationRulePropertiesArgs) ToSharedAccessAuthorizationRulePropertiesPtrOutputWithContext(ctx context.Context) SharedAccessAuthorizationRulePropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SharedAccessAuthorizationRulePropertiesOutput).ToSharedAccessAuthorizationRulePropertiesPtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type SharedAccessAuthorizationRulePropertiesPtrInput interface {
-	pulumi.Input
-
-	ToSharedAccessAuthorizationRulePropertiesPtrOutput() SharedAccessAuthorizationRulePropertiesPtrOutput
-	ToSharedAccessAuthorizationRulePropertiesPtrOutputWithContext(context.Context) SharedAccessAuthorizationRulePropertiesPtrOutput
-}
-
-type sharedAccessAuthorizationRulePropertiesPtrType SharedAccessAuthorizationRulePropertiesArgs
-
-func SharedAccessAuthorizationRulePropertiesPtr(v *SharedAccessAuthorizationRulePropertiesArgs) SharedAccessAuthorizationRulePropertiesPtrInput {
-	return (*sharedAccessAuthorizationRulePropertiesPtrType)(v)
-}
-
-func (*sharedAccessAuthorizationRulePropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SharedAccessAuthorizationRuleProperties)(nil)).Elem()
-}
-
-func (i *sharedAccessAuthorizationRulePropertiesPtrType) ToSharedAccessAuthorizationRulePropertiesPtrOutput() SharedAccessAuthorizationRulePropertiesPtrOutput {
-	return i.ToSharedAccessAuthorizationRulePropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *sharedAccessAuthorizationRulePropertiesPtrType) ToSharedAccessAuthorizationRulePropertiesPtrOutputWithContext(ctx context.Context) SharedAccessAuthorizationRulePropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SharedAccessAuthorizationRulePropertiesPtrOutput)
-}
-
 
 
 
@@ -1871,51 +1426,8 @@ func (o SharedAccessAuthorizationRulePropertiesOutput) ToSharedAccessAuthorizati
 	return o
 }
 
-func (o SharedAccessAuthorizationRulePropertiesOutput) ToSharedAccessAuthorizationRulePropertiesPtrOutput() SharedAccessAuthorizationRulePropertiesPtrOutput {
-	return o.ToSharedAccessAuthorizationRulePropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o SharedAccessAuthorizationRulePropertiesOutput) ToSharedAccessAuthorizationRulePropertiesPtrOutputWithContext(ctx context.Context) SharedAccessAuthorizationRulePropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SharedAccessAuthorizationRuleProperties) *SharedAccessAuthorizationRuleProperties {
-		return &v
-	}).(SharedAccessAuthorizationRulePropertiesPtrOutput)
-}
-
 func (o SharedAccessAuthorizationRulePropertiesOutput) Rights() AccessRightsArrayOutput {
 	return o.ApplyT(func(v SharedAccessAuthorizationRuleProperties) []AccessRights { return v.Rights }).(AccessRightsArrayOutput)
-}
-
-type SharedAccessAuthorizationRulePropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (SharedAccessAuthorizationRulePropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SharedAccessAuthorizationRuleProperties)(nil)).Elem()
-}
-
-func (o SharedAccessAuthorizationRulePropertiesPtrOutput) ToSharedAccessAuthorizationRulePropertiesPtrOutput() SharedAccessAuthorizationRulePropertiesPtrOutput {
-	return o
-}
-
-func (o SharedAccessAuthorizationRulePropertiesPtrOutput) ToSharedAccessAuthorizationRulePropertiesPtrOutputWithContext(ctx context.Context) SharedAccessAuthorizationRulePropertiesPtrOutput {
-	return o
-}
-
-func (o SharedAccessAuthorizationRulePropertiesPtrOutput) Elem() SharedAccessAuthorizationRulePropertiesOutput {
-	return o.ApplyT(func(v *SharedAccessAuthorizationRuleProperties) SharedAccessAuthorizationRuleProperties {
-		if v != nil {
-			return *v
-		}
-		var ret SharedAccessAuthorizationRuleProperties
-		return ret
-	}).(SharedAccessAuthorizationRulePropertiesOutput)
-}
-
-func (o SharedAccessAuthorizationRulePropertiesPtrOutput) Rights() AccessRightsArrayOutput {
-	return o.ApplyT(func(v *SharedAccessAuthorizationRuleProperties) []AccessRights {
-		if v == nil {
-			return nil
-		}
-		return v.Rights
-	}).(AccessRightsArrayOutput)
 }
 
 type SharedAccessAuthorizationRulePropertiesArrayOutput struct{ *pulumi.OutputState }
@@ -1948,66 +1460,6 @@ type SharedAccessAuthorizationRulePropertiesResponse struct {
 	Revision     int      `pulumi:"revision"`
 	Rights       []string `pulumi:"rights"`
 	SecondaryKey string   `pulumi:"secondaryKey"`
-}
-
-
-
-
-
-type SharedAccessAuthorizationRulePropertiesResponseInput interface {
-	pulumi.Input
-
-	ToSharedAccessAuthorizationRulePropertiesResponseOutput() SharedAccessAuthorizationRulePropertiesResponseOutput
-	ToSharedAccessAuthorizationRulePropertiesResponseOutputWithContext(context.Context) SharedAccessAuthorizationRulePropertiesResponseOutput
-}
-
-type SharedAccessAuthorizationRulePropertiesResponseArgs struct {
-	ClaimType    pulumi.StringInput      `pulumi:"claimType"`
-	ClaimValue   pulumi.StringInput      `pulumi:"claimValue"`
-	CreatedTime  pulumi.StringInput      `pulumi:"createdTime"`
-	KeyName      pulumi.StringInput      `pulumi:"keyName"`
-	ModifiedTime pulumi.StringInput      `pulumi:"modifiedTime"`
-	PrimaryKey   pulumi.StringInput      `pulumi:"primaryKey"`
-	Revision     pulumi.IntInput         `pulumi:"revision"`
-	Rights       pulumi.StringArrayInput `pulumi:"rights"`
-	SecondaryKey pulumi.StringInput      `pulumi:"secondaryKey"`
-}
-
-func (SharedAccessAuthorizationRulePropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SharedAccessAuthorizationRulePropertiesResponse)(nil)).Elem()
-}
-
-func (i SharedAccessAuthorizationRulePropertiesResponseArgs) ToSharedAccessAuthorizationRulePropertiesResponseOutput() SharedAccessAuthorizationRulePropertiesResponseOutput {
-	return i.ToSharedAccessAuthorizationRulePropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i SharedAccessAuthorizationRulePropertiesResponseArgs) ToSharedAccessAuthorizationRulePropertiesResponseOutputWithContext(ctx context.Context) SharedAccessAuthorizationRulePropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SharedAccessAuthorizationRulePropertiesResponseOutput)
-}
-
-
-
-
-
-type SharedAccessAuthorizationRulePropertiesResponseArrayInput interface {
-	pulumi.Input
-
-	ToSharedAccessAuthorizationRulePropertiesResponseArrayOutput() SharedAccessAuthorizationRulePropertiesResponseArrayOutput
-	ToSharedAccessAuthorizationRulePropertiesResponseArrayOutputWithContext(context.Context) SharedAccessAuthorizationRulePropertiesResponseArrayOutput
-}
-
-type SharedAccessAuthorizationRulePropertiesResponseArray []SharedAccessAuthorizationRulePropertiesResponseInput
-
-func (SharedAccessAuthorizationRulePropertiesResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SharedAccessAuthorizationRulePropertiesResponse)(nil)).Elem()
-}
-
-func (i SharedAccessAuthorizationRulePropertiesResponseArray) ToSharedAccessAuthorizationRulePropertiesResponseArrayOutput() SharedAccessAuthorizationRulePropertiesResponseArrayOutput {
-	return i.ToSharedAccessAuthorizationRulePropertiesResponseArrayOutputWithContext(context.Background())
-}
-
-func (i SharedAccessAuthorizationRulePropertiesResponseArray) ToSharedAccessAuthorizationRulePropertiesResponseArrayOutputWithContext(ctx context.Context) SharedAccessAuthorizationRulePropertiesResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SharedAccessAuthorizationRulePropertiesResponseArrayOutput)
 }
 
 type SharedAccessAuthorizationRulePropertiesResponseOutput struct{ *pulumi.OutputState }
@@ -2281,78 +1733,6 @@ type SkuResponse struct {
 	Tier     *string `pulumi:"tier"`
 }
 
-
-
-
-
-type SkuResponseInput interface {
-	pulumi.Input
-
-	ToSkuResponseOutput() SkuResponseOutput
-	ToSkuResponseOutputWithContext(context.Context) SkuResponseOutput
-}
-
-type SkuResponseArgs struct {
-	Capacity pulumi.IntPtrInput    `pulumi:"capacity"`
-	Family   pulumi.StringPtrInput `pulumi:"family"`
-	Name     pulumi.StringInput    `pulumi:"name"`
-	Size     pulumi.StringPtrInput `pulumi:"size"`
-	Tier     pulumi.StringPtrInput `pulumi:"tier"`
-}
-
-func (SkuResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SkuResponse)(nil)).Elem()
-}
-
-func (i SkuResponseArgs) ToSkuResponseOutput() SkuResponseOutput {
-	return i.ToSkuResponseOutputWithContext(context.Background())
-}
-
-func (i SkuResponseArgs) ToSkuResponseOutputWithContext(ctx context.Context) SkuResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SkuResponseOutput)
-}
-
-func (i SkuResponseArgs) ToSkuResponsePtrOutput() SkuResponsePtrOutput {
-	return i.ToSkuResponsePtrOutputWithContext(context.Background())
-}
-
-func (i SkuResponseArgs) ToSkuResponsePtrOutputWithContext(ctx context.Context) SkuResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SkuResponseOutput).ToSkuResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type SkuResponsePtrInput interface {
-	pulumi.Input
-
-	ToSkuResponsePtrOutput() SkuResponsePtrOutput
-	ToSkuResponsePtrOutputWithContext(context.Context) SkuResponsePtrOutput
-}
-
-type skuResponsePtrType SkuResponseArgs
-
-func SkuResponsePtr(v *SkuResponseArgs) SkuResponsePtrInput {
-	return (*skuResponsePtrType)(v)
-}
-
-func (*skuResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SkuResponse)(nil)).Elem()
-}
-
-func (i *skuResponsePtrType) ToSkuResponsePtrOutput() SkuResponsePtrOutput {
-	return i.ToSkuResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *skuResponsePtrType) ToSkuResponsePtrOutputWithContext(ctx context.Context) SkuResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SkuResponsePtrOutput)
-}
-
 type SkuResponseOutput struct{ *pulumi.OutputState }
 
 func (SkuResponseOutput) ElementType() reflect.Type {
@@ -2365,16 +1745,6 @@ func (o SkuResponseOutput) ToSkuResponseOutput() SkuResponseOutput {
 
 func (o SkuResponseOutput) ToSkuResponseOutputWithContext(ctx context.Context) SkuResponseOutput {
 	return o
-}
-
-func (o SkuResponseOutput) ToSkuResponsePtrOutput() SkuResponsePtrOutput {
-	return o.ToSkuResponsePtrOutputWithContext(context.Background())
-}
-
-func (o SkuResponseOutput) ToSkuResponsePtrOutputWithContext(ctx context.Context) SkuResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SkuResponse) *SkuResponse {
-		return &v
-	}).(SkuResponsePtrOutput)
 }
 
 func (o SkuResponseOutput) Capacity() pulumi.IntPtrOutput {
@@ -2635,76 +2005,6 @@ type WnsCredentialResponse struct {
 	WindowsLiveEndpoint *string `pulumi:"windowsLiveEndpoint"`
 }
 
-
-
-
-
-type WnsCredentialResponseInput interface {
-	pulumi.Input
-
-	ToWnsCredentialResponseOutput() WnsCredentialResponseOutput
-	ToWnsCredentialResponseOutputWithContext(context.Context) WnsCredentialResponseOutput
-}
-
-type WnsCredentialResponseArgs struct {
-	PackageSid          pulumi.StringPtrInput `pulumi:"packageSid"`
-	SecretKey           pulumi.StringPtrInput `pulumi:"secretKey"`
-	WindowsLiveEndpoint pulumi.StringPtrInput `pulumi:"windowsLiveEndpoint"`
-}
-
-func (WnsCredentialResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WnsCredentialResponse)(nil)).Elem()
-}
-
-func (i WnsCredentialResponseArgs) ToWnsCredentialResponseOutput() WnsCredentialResponseOutput {
-	return i.ToWnsCredentialResponseOutputWithContext(context.Background())
-}
-
-func (i WnsCredentialResponseArgs) ToWnsCredentialResponseOutputWithContext(ctx context.Context) WnsCredentialResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WnsCredentialResponseOutput)
-}
-
-func (i WnsCredentialResponseArgs) ToWnsCredentialResponsePtrOutput() WnsCredentialResponsePtrOutput {
-	return i.ToWnsCredentialResponsePtrOutputWithContext(context.Background())
-}
-
-func (i WnsCredentialResponseArgs) ToWnsCredentialResponsePtrOutputWithContext(ctx context.Context) WnsCredentialResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WnsCredentialResponseOutput).ToWnsCredentialResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type WnsCredentialResponsePtrInput interface {
-	pulumi.Input
-
-	ToWnsCredentialResponsePtrOutput() WnsCredentialResponsePtrOutput
-	ToWnsCredentialResponsePtrOutputWithContext(context.Context) WnsCredentialResponsePtrOutput
-}
-
-type wnsCredentialResponsePtrType WnsCredentialResponseArgs
-
-func WnsCredentialResponsePtr(v *WnsCredentialResponseArgs) WnsCredentialResponsePtrInput {
-	return (*wnsCredentialResponsePtrType)(v)
-}
-
-func (*wnsCredentialResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**WnsCredentialResponse)(nil)).Elem()
-}
-
-func (i *wnsCredentialResponsePtrType) ToWnsCredentialResponsePtrOutput() WnsCredentialResponsePtrOutput {
-	return i.ToWnsCredentialResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *wnsCredentialResponsePtrType) ToWnsCredentialResponsePtrOutputWithContext(ctx context.Context) WnsCredentialResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WnsCredentialResponsePtrOutput)
-}
-
 type WnsCredentialResponseOutput struct{ *pulumi.OutputState }
 
 func (WnsCredentialResponseOutput) ElementType() reflect.Type {
@@ -2717,16 +2017,6 @@ func (o WnsCredentialResponseOutput) ToWnsCredentialResponseOutput() WnsCredenti
 
 func (o WnsCredentialResponseOutput) ToWnsCredentialResponseOutputWithContext(ctx context.Context) WnsCredentialResponseOutput {
 	return o
-}
-
-func (o WnsCredentialResponseOutput) ToWnsCredentialResponsePtrOutput() WnsCredentialResponsePtrOutput {
-	return o.ToWnsCredentialResponsePtrOutputWithContext(context.Background())
-}
-
-func (o WnsCredentialResponseOutput) ToWnsCredentialResponsePtrOutputWithContext(ctx context.Context) WnsCredentialResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WnsCredentialResponse) *WnsCredentialResponse {
-		return &v
-	}).(WnsCredentialResponsePtrOutput)
 }
 
 func (o WnsCredentialResponseOutput) PackageSid() pulumi.StringPtrOutput {
@@ -2814,7 +2104,6 @@ func init() {
 	pulumi.RegisterOutputType(MpnsCredentialResponseOutput{})
 	pulumi.RegisterOutputType(MpnsCredentialResponsePtrOutput{})
 	pulumi.RegisterOutputType(SharedAccessAuthorizationRulePropertiesOutput{})
-	pulumi.RegisterOutputType(SharedAccessAuthorizationRulePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(SharedAccessAuthorizationRulePropertiesArrayOutput{})
 	pulumi.RegisterOutputType(SharedAccessAuthorizationRulePropertiesResponseOutput{})
 	pulumi.RegisterOutputType(SharedAccessAuthorizationRulePropertiesResponseArrayOutput{})

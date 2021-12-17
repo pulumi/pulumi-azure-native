@@ -37,9 +37,8 @@ func NewPostgresInstance(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	skuApplier := func(v PostgresInstanceSku) *PostgresInstanceSku { return v.Defaults() }
 	if args.Sku != nil {
-		args.Sku = args.Sku.ToPostgresInstanceSkuPtrOutput().Elem().ApplyT(skuApplier).(PostgresInstanceSkuPtrOutput)
+		args.Sku = args.Sku.ToPostgresInstanceSkuPtrOutput().ApplyT(func(v *PostgresInstanceSku) *PostgresInstanceSku { return v.Defaults() }).(PostgresInstanceSkuPtrOutput)
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

@@ -34,8 +34,7 @@ func NewWebService(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	propertiesApplier := func(v WebServicePropertiesForGraph) *WebServicePropertiesForGraph { return v.Defaults() }
-	args.Properties = args.Properties.ToWebServicePropertiesForGraphOutput().ApplyT(propertiesApplier).(WebServicePropertiesForGraphPtrOutput).Elem()
+	args.Properties = args.Properties.ToWebServicePropertiesForGraphOutput().ApplyT(func(v WebServicePropertiesForGraph) WebServicePropertiesForGraph { return *v.Defaults() }).(WebServicePropertiesForGraphOutput)
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-native:machinelearning:WebService"),

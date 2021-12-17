@@ -147,74 +147,6 @@ type CloudServiceExtensionProfileResponse struct {
 	Extensions []ExtensionResponse `pulumi:"extensions"`
 }
 
-
-
-
-
-type CloudServiceExtensionProfileResponseInput interface {
-	pulumi.Input
-
-	ToCloudServiceExtensionProfileResponseOutput() CloudServiceExtensionProfileResponseOutput
-	ToCloudServiceExtensionProfileResponseOutputWithContext(context.Context) CloudServiceExtensionProfileResponseOutput
-}
-
-type CloudServiceExtensionProfileResponseArgs struct {
-	Extensions ExtensionResponseArrayInput `pulumi:"extensions"`
-}
-
-func (CloudServiceExtensionProfileResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CloudServiceExtensionProfileResponse)(nil)).Elem()
-}
-
-func (i CloudServiceExtensionProfileResponseArgs) ToCloudServiceExtensionProfileResponseOutput() CloudServiceExtensionProfileResponseOutput {
-	return i.ToCloudServiceExtensionProfileResponseOutputWithContext(context.Background())
-}
-
-func (i CloudServiceExtensionProfileResponseArgs) ToCloudServiceExtensionProfileResponseOutputWithContext(ctx context.Context) CloudServiceExtensionProfileResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CloudServiceExtensionProfileResponseOutput)
-}
-
-func (i CloudServiceExtensionProfileResponseArgs) ToCloudServiceExtensionProfileResponsePtrOutput() CloudServiceExtensionProfileResponsePtrOutput {
-	return i.ToCloudServiceExtensionProfileResponsePtrOutputWithContext(context.Background())
-}
-
-func (i CloudServiceExtensionProfileResponseArgs) ToCloudServiceExtensionProfileResponsePtrOutputWithContext(ctx context.Context) CloudServiceExtensionProfileResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CloudServiceExtensionProfileResponseOutput).ToCloudServiceExtensionProfileResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type CloudServiceExtensionProfileResponsePtrInput interface {
-	pulumi.Input
-
-	ToCloudServiceExtensionProfileResponsePtrOutput() CloudServiceExtensionProfileResponsePtrOutput
-	ToCloudServiceExtensionProfileResponsePtrOutputWithContext(context.Context) CloudServiceExtensionProfileResponsePtrOutput
-}
-
-type cloudServiceExtensionProfileResponsePtrType CloudServiceExtensionProfileResponseArgs
-
-func CloudServiceExtensionProfileResponsePtr(v *CloudServiceExtensionProfileResponseArgs) CloudServiceExtensionProfileResponsePtrInput {
-	return (*cloudServiceExtensionProfileResponsePtrType)(v)
-}
-
-func (*cloudServiceExtensionProfileResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**CloudServiceExtensionProfileResponse)(nil)).Elem()
-}
-
-func (i *cloudServiceExtensionProfileResponsePtrType) ToCloudServiceExtensionProfileResponsePtrOutput() CloudServiceExtensionProfileResponsePtrOutput {
-	return i.ToCloudServiceExtensionProfileResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *cloudServiceExtensionProfileResponsePtrType) ToCloudServiceExtensionProfileResponsePtrOutputWithContext(ctx context.Context) CloudServiceExtensionProfileResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CloudServiceExtensionProfileResponsePtrOutput)
-}
-
 type CloudServiceExtensionProfileResponseOutput struct{ *pulumi.OutputState }
 
 func (CloudServiceExtensionProfileResponseOutput) ElementType() reflect.Type {
@@ -227,16 +159,6 @@ func (o CloudServiceExtensionProfileResponseOutput) ToCloudServiceExtensionProfi
 
 func (o CloudServiceExtensionProfileResponseOutput) ToCloudServiceExtensionProfileResponseOutputWithContext(ctx context.Context) CloudServiceExtensionProfileResponseOutput {
 	return o
-}
-
-func (o CloudServiceExtensionProfileResponseOutput) ToCloudServiceExtensionProfileResponsePtrOutput() CloudServiceExtensionProfileResponsePtrOutput {
-	return o.ToCloudServiceExtensionProfileResponsePtrOutputWithContext(context.Background())
-}
-
-func (o CloudServiceExtensionProfileResponseOutput) ToCloudServiceExtensionProfileResponsePtrOutputWithContext(ctx context.Context) CloudServiceExtensionProfileResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CloudServiceExtensionProfileResponse) *CloudServiceExtensionProfileResponse {
-		return &v
-	}).(CloudServiceExtensionProfileResponsePtrOutput)
 }
 
 func (o CloudServiceExtensionProfileResponseOutput) Extensions() ExtensionResponseArrayOutput {
@@ -544,83 +466,6 @@ type CloudServiceExtensionPropertiesResponse struct {
 	TypeHandlerVersion            *string                                      `pulumi:"typeHandlerVersion"`
 }
 
-
-
-
-
-type CloudServiceExtensionPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToCloudServiceExtensionPropertiesResponseOutput() CloudServiceExtensionPropertiesResponseOutput
-	ToCloudServiceExtensionPropertiesResponseOutputWithContext(context.Context) CloudServiceExtensionPropertiesResponseOutput
-}
-
-type CloudServiceExtensionPropertiesResponseArgs struct {
-	AutoUpgradeMinorVersion       pulumi.BoolPtrInput                                 `pulumi:"autoUpgradeMinorVersion"`
-	ForceUpdateTag                pulumi.StringPtrInput                               `pulumi:"forceUpdateTag"`
-	ProtectedSettings             pulumi.StringPtrInput                               `pulumi:"protectedSettings"`
-	ProtectedSettingsFromKeyVault CloudServiceVaultAndSecretReferenceResponsePtrInput `pulumi:"protectedSettingsFromKeyVault"`
-	ProvisioningState             pulumi.StringInput                                  `pulumi:"provisioningState"`
-	Publisher                     pulumi.StringPtrInput                               `pulumi:"publisher"`
-	RolesAppliedTo                pulumi.StringArrayInput                             `pulumi:"rolesAppliedTo"`
-	Settings                      pulumi.StringPtrInput                               `pulumi:"settings"`
-	Type                          pulumi.StringPtrInput                               `pulumi:"type"`
-	TypeHandlerVersion            pulumi.StringPtrInput                               `pulumi:"typeHandlerVersion"`
-}
-
-func (CloudServiceExtensionPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CloudServiceExtensionPropertiesResponse)(nil)).Elem()
-}
-
-func (i CloudServiceExtensionPropertiesResponseArgs) ToCloudServiceExtensionPropertiesResponseOutput() CloudServiceExtensionPropertiesResponseOutput {
-	return i.ToCloudServiceExtensionPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i CloudServiceExtensionPropertiesResponseArgs) ToCloudServiceExtensionPropertiesResponseOutputWithContext(ctx context.Context) CloudServiceExtensionPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CloudServiceExtensionPropertiesResponseOutput)
-}
-
-func (i CloudServiceExtensionPropertiesResponseArgs) ToCloudServiceExtensionPropertiesResponsePtrOutput() CloudServiceExtensionPropertiesResponsePtrOutput {
-	return i.ToCloudServiceExtensionPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i CloudServiceExtensionPropertiesResponseArgs) ToCloudServiceExtensionPropertiesResponsePtrOutputWithContext(ctx context.Context) CloudServiceExtensionPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CloudServiceExtensionPropertiesResponseOutput).ToCloudServiceExtensionPropertiesResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type CloudServiceExtensionPropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToCloudServiceExtensionPropertiesResponsePtrOutput() CloudServiceExtensionPropertiesResponsePtrOutput
-	ToCloudServiceExtensionPropertiesResponsePtrOutputWithContext(context.Context) CloudServiceExtensionPropertiesResponsePtrOutput
-}
-
-type cloudServiceExtensionPropertiesResponsePtrType CloudServiceExtensionPropertiesResponseArgs
-
-func CloudServiceExtensionPropertiesResponsePtr(v *CloudServiceExtensionPropertiesResponseArgs) CloudServiceExtensionPropertiesResponsePtrInput {
-	return (*cloudServiceExtensionPropertiesResponsePtrType)(v)
-}
-
-func (*cloudServiceExtensionPropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**CloudServiceExtensionPropertiesResponse)(nil)).Elem()
-}
-
-func (i *cloudServiceExtensionPropertiesResponsePtrType) ToCloudServiceExtensionPropertiesResponsePtrOutput() CloudServiceExtensionPropertiesResponsePtrOutput {
-	return i.ToCloudServiceExtensionPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *cloudServiceExtensionPropertiesResponsePtrType) ToCloudServiceExtensionPropertiesResponsePtrOutputWithContext(ctx context.Context) CloudServiceExtensionPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CloudServiceExtensionPropertiesResponsePtrOutput)
-}
-
 type CloudServiceExtensionPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (CloudServiceExtensionPropertiesResponseOutput) ElementType() reflect.Type {
@@ -633,16 +478,6 @@ func (o CloudServiceExtensionPropertiesResponseOutput) ToCloudServiceExtensionPr
 
 func (o CloudServiceExtensionPropertiesResponseOutput) ToCloudServiceExtensionPropertiesResponseOutputWithContext(ctx context.Context) CloudServiceExtensionPropertiesResponseOutput {
 	return o
-}
-
-func (o CloudServiceExtensionPropertiesResponseOutput) ToCloudServiceExtensionPropertiesResponsePtrOutput() CloudServiceExtensionPropertiesResponsePtrOutput {
-	return o.ToCloudServiceExtensionPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o CloudServiceExtensionPropertiesResponseOutput) ToCloudServiceExtensionPropertiesResponsePtrOutputWithContext(ctx context.Context) CloudServiceExtensionPropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CloudServiceExtensionPropertiesResponse) *CloudServiceExtensionPropertiesResponse {
-		return &v
-	}).(CloudServiceExtensionPropertiesResponsePtrOutput)
 }
 
 func (o CloudServiceExtensionPropertiesResponseOutput) AutoUpgradeMinorVersion() pulumi.BoolPtrOutput {
@@ -954,75 +789,6 @@ type CloudServiceNetworkProfileResponse struct {
 	SwappableCloudService      *SubResourceResponse                `pulumi:"swappableCloudService"`
 }
 
-
-
-
-
-type CloudServiceNetworkProfileResponseInput interface {
-	pulumi.Input
-
-	ToCloudServiceNetworkProfileResponseOutput() CloudServiceNetworkProfileResponseOutput
-	ToCloudServiceNetworkProfileResponseOutputWithContext(context.Context) CloudServiceNetworkProfileResponseOutput
-}
-
-type CloudServiceNetworkProfileResponseArgs struct {
-	LoadBalancerConfigurations LoadBalancerConfigurationResponseArrayInput `pulumi:"loadBalancerConfigurations"`
-	SwappableCloudService      SubResourceResponsePtrInput                 `pulumi:"swappableCloudService"`
-}
-
-func (CloudServiceNetworkProfileResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CloudServiceNetworkProfileResponse)(nil)).Elem()
-}
-
-func (i CloudServiceNetworkProfileResponseArgs) ToCloudServiceNetworkProfileResponseOutput() CloudServiceNetworkProfileResponseOutput {
-	return i.ToCloudServiceNetworkProfileResponseOutputWithContext(context.Background())
-}
-
-func (i CloudServiceNetworkProfileResponseArgs) ToCloudServiceNetworkProfileResponseOutputWithContext(ctx context.Context) CloudServiceNetworkProfileResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CloudServiceNetworkProfileResponseOutput)
-}
-
-func (i CloudServiceNetworkProfileResponseArgs) ToCloudServiceNetworkProfileResponsePtrOutput() CloudServiceNetworkProfileResponsePtrOutput {
-	return i.ToCloudServiceNetworkProfileResponsePtrOutputWithContext(context.Background())
-}
-
-func (i CloudServiceNetworkProfileResponseArgs) ToCloudServiceNetworkProfileResponsePtrOutputWithContext(ctx context.Context) CloudServiceNetworkProfileResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CloudServiceNetworkProfileResponseOutput).ToCloudServiceNetworkProfileResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type CloudServiceNetworkProfileResponsePtrInput interface {
-	pulumi.Input
-
-	ToCloudServiceNetworkProfileResponsePtrOutput() CloudServiceNetworkProfileResponsePtrOutput
-	ToCloudServiceNetworkProfileResponsePtrOutputWithContext(context.Context) CloudServiceNetworkProfileResponsePtrOutput
-}
-
-type cloudServiceNetworkProfileResponsePtrType CloudServiceNetworkProfileResponseArgs
-
-func CloudServiceNetworkProfileResponsePtr(v *CloudServiceNetworkProfileResponseArgs) CloudServiceNetworkProfileResponsePtrInput {
-	return (*cloudServiceNetworkProfileResponsePtrType)(v)
-}
-
-func (*cloudServiceNetworkProfileResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**CloudServiceNetworkProfileResponse)(nil)).Elem()
-}
-
-func (i *cloudServiceNetworkProfileResponsePtrType) ToCloudServiceNetworkProfileResponsePtrOutput() CloudServiceNetworkProfileResponsePtrOutput {
-	return i.ToCloudServiceNetworkProfileResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *cloudServiceNetworkProfileResponsePtrType) ToCloudServiceNetworkProfileResponsePtrOutputWithContext(ctx context.Context) CloudServiceNetworkProfileResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CloudServiceNetworkProfileResponsePtrOutput)
-}
-
 type CloudServiceNetworkProfileResponseOutput struct{ *pulumi.OutputState }
 
 func (CloudServiceNetworkProfileResponseOutput) ElementType() reflect.Type {
@@ -1035,16 +801,6 @@ func (o CloudServiceNetworkProfileResponseOutput) ToCloudServiceNetworkProfileRe
 
 func (o CloudServiceNetworkProfileResponseOutput) ToCloudServiceNetworkProfileResponseOutputWithContext(ctx context.Context) CloudServiceNetworkProfileResponseOutput {
 	return o
-}
-
-func (o CloudServiceNetworkProfileResponseOutput) ToCloudServiceNetworkProfileResponsePtrOutput() CloudServiceNetworkProfileResponsePtrOutput {
-	return o.ToCloudServiceNetworkProfileResponsePtrOutputWithContext(context.Background())
-}
-
-func (o CloudServiceNetworkProfileResponseOutput) ToCloudServiceNetworkProfileResponsePtrOutputWithContext(ctx context.Context) CloudServiceNetworkProfileResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CloudServiceNetworkProfileResponse) *CloudServiceNetworkProfileResponse {
-		return &v
-	}).(CloudServiceNetworkProfileResponsePtrOutput)
 }
 
 func (o CloudServiceNetworkProfileResponseOutput) LoadBalancerConfigurations() LoadBalancerConfigurationResponseArrayOutput {
@@ -1236,74 +992,6 @@ type CloudServiceOsProfileResponse struct {
 	Secrets []CloudServiceVaultSecretGroupResponse `pulumi:"secrets"`
 }
 
-
-
-
-
-type CloudServiceOsProfileResponseInput interface {
-	pulumi.Input
-
-	ToCloudServiceOsProfileResponseOutput() CloudServiceOsProfileResponseOutput
-	ToCloudServiceOsProfileResponseOutputWithContext(context.Context) CloudServiceOsProfileResponseOutput
-}
-
-type CloudServiceOsProfileResponseArgs struct {
-	Secrets CloudServiceVaultSecretGroupResponseArrayInput `pulumi:"secrets"`
-}
-
-func (CloudServiceOsProfileResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CloudServiceOsProfileResponse)(nil)).Elem()
-}
-
-func (i CloudServiceOsProfileResponseArgs) ToCloudServiceOsProfileResponseOutput() CloudServiceOsProfileResponseOutput {
-	return i.ToCloudServiceOsProfileResponseOutputWithContext(context.Background())
-}
-
-func (i CloudServiceOsProfileResponseArgs) ToCloudServiceOsProfileResponseOutputWithContext(ctx context.Context) CloudServiceOsProfileResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CloudServiceOsProfileResponseOutput)
-}
-
-func (i CloudServiceOsProfileResponseArgs) ToCloudServiceOsProfileResponsePtrOutput() CloudServiceOsProfileResponsePtrOutput {
-	return i.ToCloudServiceOsProfileResponsePtrOutputWithContext(context.Background())
-}
-
-func (i CloudServiceOsProfileResponseArgs) ToCloudServiceOsProfileResponsePtrOutputWithContext(ctx context.Context) CloudServiceOsProfileResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CloudServiceOsProfileResponseOutput).ToCloudServiceOsProfileResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type CloudServiceOsProfileResponsePtrInput interface {
-	pulumi.Input
-
-	ToCloudServiceOsProfileResponsePtrOutput() CloudServiceOsProfileResponsePtrOutput
-	ToCloudServiceOsProfileResponsePtrOutputWithContext(context.Context) CloudServiceOsProfileResponsePtrOutput
-}
-
-type cloudServiceOsProfileResponsePtrType CloudServiceOsProfileResponseArgs
-
-func CloudServiceOsProfileResponsePtr(v *CloudServiceOsProfileResponseArgs) CloudServiceOsProfileResponsePtrInput {
-	return (*cloudServiceOsProfileResponsePtrType)(v)
-}
-
-func (*cloudServiceOsProfileResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**CloudServiceOsProfileResponse)(nil)).Elem()
-}
-
-func (i *cloudServiceOsProfileResponsePtrType) ToCloudServiceOsProfileResponsePtrOutput() CloudServiceOsProfileResponsePtrOutput {
-	return i.ToCloudServiceOsProfileResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *cloudServiceOsProfileResponsePtrType) ToCloudServiceOsProfileResponsePtrOutputWithContext(ctx context.Context) CloudServiceOsProfileResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CloudServiceOsProfileResponsePtrOutput)
-}
-
 type CloudServiceOsProfileResponseOutput struct{ *pulumi.OutputState }
 
 func (CloudServiceOsProfileResponseOutput) ElementType() reflect.Type {
@@ -1316,16 +1004,6 @@ func (o CloudServiceOsProfileResponseOutput) ToCloudServiceOsProfileResponseOutp
 
 func (o CloudServiceOsProfileResponseOutput) ToCloudServiceOsProfileResponseOutputWithContext(ctx context.Context) CloudServiceOsProfileResponseOutput {
 	return o
-}
-
-func (o CloudServiceOsProfileResponseOutput) ToCloudServiceOsProfileResponsePtrOutput() CloudServiceOsProfileResponsePtrOutput {
-	return o.ToCloudServiceOsProfileResponsePtrOutputWithContext(context.Background())
-}
-
-func (o CloudServiceOsProfileResponseOutput) ToCloudServiceOsProfileResponsePtrOutputWithContext(ctx context.Context) CloudServiceOsProfileResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CloudServiceOsProfileResponse) *CloudServiceOsProfileResponse {
-		return &v
-	}).(CloudServiceOsProfileResponsePtrOutput)
 }
 
 func (o CloudServiceOsProfileResponseOutput) Secrets() CloudServiceVaultSecretGroupResponseArrayOutput {
@@ -1632,84 +1310,6 @@ type CloudServicePropertiesResponse struct {
 	UpgradeMode       *string                               `pulumi:"upgradeMode"`
 }
 
-
-
-
-
-type CloudServicePropertiesResponseInput interface {
-	pulumi.Input
-
-	ToCloudServicePropertiesResponseOutput() CloudServicePropertiesResponseOutput
-	ToCloudServicePropertiesResponseOutputWithContext(context.Context) CloudServicePropertiesResponseOutput
-}
-
-type CloudServicePropertiesResponseArgs struct {
-	Configuration     pulumi.StringPtrInput                        `pulumi:"configuration"`
-	ConfigurationUrl  pulumi.StringPtrInput                        `pulumi:"configurationUrl"`
-	ExtensionProfile  CloudServiceExtensionProfileResponsePtrInput `pulumi:"extensionProfile"`
-	NetworkProfile    CloudServiceNetworkProfileResponsePtrInput   `pulumi:"networkProfile"`
-	OsProfile         CloudServiceOsProfileResponsePtrInput        `pulumi:"osProfile"`
-	PackageUrl        pulumi.StringPtrInput                        `pulumi:"packageUrl"`
-	ProvisioningState pulumi.StringInput                           `pulumi:"provisioningState"`
-	RoleProfile       CloudServiceRoleProfileResponsePtrInput      `pulumi:"roleProfile"`
-	StartCloudService pulumi.BoolPtrInput                          `pulumi:"startCloudService"`
-	UniqueId          pulumi.StringInput                           `pulumi:"uniqueId"`
-	UpgradeMode       pulumi.StringPtrInput                        `pulumi:"upgradeMode"`
-}
-
-func (CloudServicePropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CloudServicePropertiesResponse)(nil)).Elem()
-}
-
-func (i CloudServicePropertiesResponseArgs) ToCloudServicePropertiesResponseOutput() CloudServicePropertiesResponseOutput {
-	return i.ToCloudServicePropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i CloudServicePropertiesResponseArgs) ToCloudServicePropertiesResponseOutputWithContext(ctx context.Context) CloudServicePropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CloudServicePropertiesResponseOutput)
-}
-
-func (i CloudServicePropertiesResponseArgs) ToCloudServicePropertiesResponsePtrOutput() CloudServicePropertiesResponsePtrOutput {
-	return i.ToCloudServicePropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i CloudServicePropertiesResponseArgs) ToCloudServicePropertiesResponsePtrOutputWithContext(ctx context.Context) CloudServicePropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CloudServicePropertiesResponseOutput).ToCloudServicePropertiesResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type CloudServicePropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToCloudServicePropertiesResponsePtrOutput() CloudServicePropertiesResponsePtrOutput
-	ToCloudServicePropertiesResponsePtrOutputWithContext(context.Context) CloudServicePropertiesResponsePtrOutput
-}
-
-type cloudServicePropertiesResponsePtrType CloudServicePropertiesResponseArgs
-
-func CloudServicePropertiesResponsePtr(v *CloudServicePropertiesResponseArgs) CloudServicePropertiesResponsePtrInput {
-	return (*cloudServicePropertiesResponsePtrType)(v)
-}
-
-func (*cloudServicePropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**CloudServicePropertiesResponse)(nil)).Elem()
-}
-
-func (i *cloudServicePropertiesResponsePtrType) ToCloudServicePropertiesResponsePtrOutput() CloudServicePropertiesResponsePtrOutput {
-	return i.ToCloudServicePropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *cloudServicePropertiesResponsePtrType) ToCloudServicePropertiesResponsePtrOutputWithContext(ctx context.Context) CloudServicePropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CloudServicePropertiesResponsePtrOutput)
-}
-
 type CloudServicePropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (CloudServicePropertiesResponseOutput) ElementType() reflect.Type {
@@ -1722,16 +1322,6 @@ func (o CloudServicePropertiesResponseOutput) ToCloudServicePropertiesResponseOu
 
 func (o CloudServicePropertiesResponseOutput) ToCloudServicePropertiesResponseOutputWithContext(ctx context.Context) CloudServicePropertiesResponseOutput {
 	return o
-}
-
-func (o CloudServicePropertiesResponseOutput) ToCloudServicePropertiesResponsePtrOutput() CloudServicePropertiesResponsePtrOutput {
-	return o.ToCloudServicePropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o CloudServicePropertiesResponseOutput) ToCloudServicePropertiesResponsePtrOutputWithContext(ctx context.Context) CloudServicePropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CloudServicePropertiesResponse) *CloudServicePropertiesResponse {
-		return &v
-	}).(CloudServicePropertiesResponsePtrOutput)
 }
 
 func (o CloudServicePropertiesResponseOutput) Configuration() pulumi.StringPtrOutput {
@@ -1778,129 +1368,6 @@ func (o CloudServicePropertiesResponseOutput) UniqueId() pulumi.StringOutput {
 
 func (o CloudServicePropertiesResponseOutput) UpgradeMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CloudServicePropertiesResponse) *string { return v.UpgradeMode }).(pulumi.StringPtrOutput)
-}
-
-type CloudServicePropertiesResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (CloudServicePropertiesResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**CloudServicePropertiesResponse)(nil)).Elem()
-}
-
-func (o CloudServicePropertiesResponsePtrOutput) ToCloudServicePropertiesResponsePtrOutput() CloudServicePropertiesResponsePtrOutput {
-	return o
-}
-
-func (o CloudServicePropertiesResponsePtrOutput) ToCloudServicePropertiesResponsePtrOutputWithContext(ctx context.Context) CloudServicePropertiesResponsePtrOutput {
-	return o
-}
-
-func (o CloudServicePropertiesResponsePtrOutput) Elem() CloudServicePropertiesResponseOutput {
-	return o.ApplyT(func(v *CloudServicePropertiesResponse) CloudServicePropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret CloudServicePropertiesResponse
-		return ret
-	}).(CloudServicePropertiesResponseOutput)
-}
-
-func (o CloudServicePropertiesResponsePtrOutput) Configuration() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CloudServicePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Configuration
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o CloudServicePropertiesResponsePtrOutput) ConfigurationUrl() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CloudServicePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ConfigurationUrl
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o CloudServicePropertiesResponsePtrOutput) ExtensionProfile() CloudServiceExtensionProfileResponsePtrOutput {
-	return o.ApplyT(func(v *CloudServicePropertiesResponse) *CloudServiceExtensionProfileResponse {
-		if v == nil {
-			return nil
-		}
-		return v.ExtensionProfile
-	}).(CloudServiceExtensionProfileResponsePtrOutput)
-}
-
-func (o CloudServicePropertiesResponsePtrOutput) NetworkProfile() CloudServiceNetworkProfileResponsePtrOutput {
-	return o.ApplyT(func(v *CloudServicePropertiesResponse) *CloudServiceNetworkProfileResponse {
-		if v == nil {
-			return nil
-		}
-		return v.NetworkProfile
-	}).(CloudServiceNetworkProfileResponsePtrOutput)
-}
-
-func (o CloudServicePropertiesResponsePtrOutput) OsProfile() CloudServiceOsProfileResponsePtrOutput {
-	return o.ApplyT(func(v *CloudServicePropertiesResponse) *CloudServiceOsProfileResponse {
-		if v == nil {
-			return nil
-		}
-		return v.OsProfile
-	}).(CloudServiceOsProfileResponsePtrOutput)
-}
-
-func (o CloudServicePropertiesResponsePtrOutput) PackageUrl() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CloudServicePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.PackageUrl
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o CloudServicePropertiesResponsePtrOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CloudServicePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.ProvisioningState
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o CloudServicePropertiesResponsePtrOutput) RoleProfile() CloudServiceRoleProfileResponsePtrOutput {
-	return o.ApplyT(func(v *CloudServicePropertiesResponse) *CloudServiceRoleProfileResponse {
-		if v == nil {
-			return nil
-		}
-		return v.RoleProfile
-	}).(CloudServiceRoleProfileResponsePtrOutput)
-}
-
-func (o CloudServicePropertiesResponsePtrOutput) StartCloudService() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *CloudServicePropertiesResponse) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.StartCloudService
-	}).(pulumi.BoolPtrOutput)
-}
-
-func (o CloudServicePropertiesResponsePtrOutput) UniqueId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CloudServicePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.UniqueId
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o CloudServicePropertiesResponsePtrOutput) UpgradeMode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CloudServicePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.UpgradeMode
-	}).(pulumi.StringPtrOutput)
 }
 
 type CloudServiceRoleProfile struct {
@@ -2141,59 +1608,6 @@ type CloudServiceRoleProfilePropertiesResponse struct {
 	Sku  *CloudServiceRoleSkuResponse `pulumi:"sku"`
 }
 
-
-
-
-
-type CloudServiceRoleProfilePropertiesResponseInput interface {
-	pulumi.Input
-
-	ToCloudServiceRoleProfilePropertiesResponseOutput() CloudServiceRoleProfilePropertiesResponseOutput
-	ToCloudServiceRoleProfilePropertiesResponseOutputWithContext(context.Context) CloudServiceRoleProfilePropertiesResponseOutput
-}
-
-type CloudServiceRoleProfilePropertiesResponseArgs struct {
-	Name pulumi.StringPtrInput               `pulumi:"name"`
-	Sku  CloudServiceRoleSkuResponsePtrInput `pulumi:"sku"`
-}
-
-func (CloudServiceRoleProfilePropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CloudServiceRoleProfilePropertiesResponse)(nil)).Elem()
-}
-
-func (i CloudServiceRoleProfilePropertiesResponseArgs) ToCloudServiceRoleProfilePropertiesResponseOutput() CloudServiceRoleProfilePropertiesResponseOutput {
-	return i.ToCloudServiceRoleProfilePropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i CloudServiceRoleProfilePropertiesResponseArgs) ToCloudServiceRoleProfilePropertiesResponseOutputWithContext(ctx context.Context) CloudServiceRoleProfilePropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CloudServiceRoleProfilePropertiesResponseOutput)
-}
-
-
-
-
-
-type CloudServiceRoleProfilePropertiesResponseArrayInput interface {
-	pulumi.Input
-
-	ToCloudServiceRoleProfilePropertiesResponseArrayOutput() CloudServiceRoleProfilePropertiesResponseArrayOutput
-	ToCloudServiceRoleProfilePropertiesResponseArrayOutputWithContext(context.Context) CloudServiceRoleProfilePropertiesResponseArrayOutput
-}
-
-type CloudServiceRoleProfilePropertiesResponseArray []CloudServiceRoleProfilePropertiesResponseInput
-
-func (CloudServiceRoleProfilePropertiesResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]CloudServiceRoleProfilePropertiesResponse)(nil)).Elem()
-}
-
-func (i CloudServiceRoleProfilePropertiesResponseArray) ToCloudServiceRoleProfilePropertiesResponseArrayOutput() CloudServiceRoleProfilePropertiesResponseArrayOutput {
-	return i.ToCloudServiceRoleProfilePropertiesResponseArrayOutputWithContext(context.Background())
-}
-
-func (i CloudServiceRoleProfilePropertiesResponseArray) ToCloudServiceRoleProfilePropertiesResponseArrayOutputWithContext(ctx context.Context) CloudServiceRoleProfilePropertiesResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CloudServiceRoleProfilePropertiesResponseArrayOutput)
-}
-
 type CloudServiceRoleProfilePropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (CloudServiceRoleProfilePropertiesResponseOutput) ElementType() reflect.Type {
@@ -2240,74 +1654,6 @@ type CloudServiceRoleProfileResponse struct {
 	Roles []CloudServiceRoleProfilePropertiesResponse `pulumi:"roles"`
 }
 
-
-
-
-
-type CloudServiceRoleProfileResponseInput interface {
-	pulumi.Input
-
-	ToCloudServiceRoleProfileResponseOutput() CloudServiceRoleProfileResponseOutput
-	ToCloudServiceRoleProfileResponseOutputWithContext(context.Context) CloudServiceRoleProfileResponseOutput
-}
-
-type CloudServiceRoleProfileResponseArgs struct {
-	Roles CloudServiceRoleProfilePropertiesResponseArrayInput `pulumi:"roles"`
-}
-
-func (CloudServiceRoleProfileResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CloudServiceRoleProfileResponse)(nil)).Elem()
-}
-
-func (i CloudServiceRoleProfileResponseArgs) ToCloudServiceRoleProfileResponseOutput() CloudServiceRoleProfileResponseOutput {
-	return i.ToCloudServiceRoleProfileResponseOutputWithContext(context.Background())
-}
-
-func (i CloudServiceRoleProfileResponseArgs) ToCloudServiceRoleProfileResponseOutputWithContext(ctx context.Context) CloudServiceRoleProfileResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CloudServiceRoleProfileResponseOutput)
-}
-
-func (i CloudServiceRoleProfileResponseArgs) ToCloudServiceRoleProfileResponsePtrOutput() CloudServiceRoleProfileResponsePtrOutput {
-	return i.ToCloudServiceRoleProfileResponsePtrOutputWithContext(context.Background())
-}
-
-func (i CloudServiceRoleProfileResponseArgs) ToCloudServiceRoleProfileResponsePtrOutputWithContext(ctx context.Context) CloudServiceRoleProfileResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CloudServiceRoleProfileResponseOutput).ToCloudServiceRoleProfileResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type CloudServiceRoleProfileResponsePtrInput interface {
-	pulumi.Input
-
-	ToCloudServiceRoleProfileResponsePtrOutput() CloudServiceRoleProfileResponsePtrOutput
-	ToCloudServiceRoleProfileResponsePtrOutputWithContext(context.Context) CloudServiceRoleProfileResponsePtrOutput
-}
-
-type cloudServiceRoleProfileResponsePtrType CloudServiceRoleProfileResponseArgs
-
-func CloudServiceRoleProfileResponsePtr(v *CloudServiceRoleProfileResponseArgs) CloudServiceRoleProfileResponsePtrInput {
-	return (*cloudServiceRoleProfileResponsePtrType)(v)
-}
-
-func (*cloudServiceRoleProfileResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**CloudServiceRoleProfileResponse)(nil)).Elem()
-}
-
-func (i *cloudServiceRoleProfileResponsePtrType) ToCloudServiceRoleProfileResponsePtrOutput() CloudServiceRoleProfileResponsePtrOutput {
-	return i.ToCloudServiceRoleProfileResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *cloudServiceRoleProfileResponsePtrType) ToCloudServiceRoleProfileResponsePtrOutputWithContext(ctx context.Context) CloudServiceRoleProfileResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CloudServiceRoleProfileResponsePtrOutput)
-}
-
 type CloudServiceRoleProfileResponseOutput struct{ *pulumi.OutputState }
 
 func (CloudServiceRoleProfileResponseOutput) ElementType() reflect.Type {
@@ -2320,16 +1666,6 @@ func (o CloudServiceRoleProfileResponseOutput) ToCloudServiceRoleProfileResponse
 
 func (o CloudServiceRoleProfileResponseOutput) ToCloudServiceRoleProfileResponseOutputWithContext(ctx context.Context) CloudServiceRoleProfileResponseOutput {
 	return o
-}
-
-func (o CloudServiceRoleProfileResponseOutput) ToCloudServiceRoleProfileResponsePtrOutput() CloudServiceRoleProfileResponsePtrOutput {
-	return o.ToCloudServiceRoleProfileResponsePtrOutputWithContext(context.Background())
-}
-
-func (o CloudServiceRoleProfileResponseOutput) ToCloudServiceRoleProfileResponsePtrOutputWithContext(ctx context.Context) CloudServiceRoleProfileResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CloudServiceRoleProfileResponse) *CloudServiceRoleProfileResponse {
-		return &v
-	}).(CloudServiceRoleProfileResponsePtrOutput)
 }
 
 func (o CloudServiceRoleProfileResponseOutput) Roles() CloudServiceRoleProfilePropertiesResponseArrayOutput {
@@ -2538,76 +1874,6 @@ type CloudServiceRoleSkuResponse struct {
 	Tier     *string  `pulumi:"tier"`
 }
 
-
-
-
-
-type CloudServiceRoleSkuResponseInput interface {
-	pulumi.Input
-
-	ToCloudServiceRoleSkuResponseOutput() CloudServiceRoleSkuResponseOutput
-	ToCloudServiceRoleSkuResponseOutputWithContext(context.Context) CloudServiceRoleSkuResponseOutput
-}
-
-type CloudServiceRoleSkuResponseArgs struct {
-	Capacity pulumi.Float64PtrInput `pulumi:"capacity"`
-	Name     pulumi.StringPtrInput  `pulumi:"name"`
-	Tier     pulumi.StringPtrInput  `pulumi:"tier"`
-}
-
-func (CloudServiceRoleSkuResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CloudServiceRoleSkuResponse)(nil)).Elem()
-}
-
-func (i CloudServiceRoleSkuResponseArgs) ToCloudServiceRoleSkuResponseOutput() CloudServiceRoleSkuResponseOutput {
-	return i.ToCloudServiceRoleSkuResponseOutputWithContext(context.Background())
-}
-
-func (i CloudServiceRoleSkuResponseArgs) ToCloudServiceRoleSkuResponseOutputWithContext(ctx context.Context) CloudServiceRoleSkuResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CloudServiceRoleSkuResponseOutput)
-}
-
-func (i CloudServiceRoleSkuResponseArgs) ToCloudServiceRoleSkuResponsePtrOutput() CloudServiceRoleSkuResponsePtrOutput {
-	return i.ToCloudServiceRoleSkuResponsePtrOutputWithContext(context.Background())
-}
-
-func (i CloudServiceRoleSkuResponseArgs) ToCloudServiceRoleSkuResponsePtrOutputWithContext(ctx context.Context) CloudServiceRoleSkuResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CloudServiceRoleSkuResponseOutput).ToCloudServiceRoleSkuResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type CloudServiceRoleSkuResponsePtrInput interface {
-	pulumi.Input
-
-	ToCloudServiceRoleSkuResponsePtrOutput() CloudServiceRoleSkuResponsePtrOutput
-	ToCloudServiceRoleSkuResponsePtrOutputWithContext(context.Context) CloudServiceRoleSkuResponsePtrOutput
-}
-
-type cloudServiceRoleSkuResponsePtrType CloudServiceRoleSkuResponseArgs
-
-func CloudServiceRoleSkuResponsePtr(v *CloudServiceRoleSkuResponseArgs) CloudServiceRoleSkuResponsePtrInput {
-	return (*cloudServiceRoleSkuResponsePtrType)(v)
-}
-
-func (*cloudServiceRoleSkuResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**CloudServiceRoleSkuResponse)(nil)).Elem()
-}
-
-func (i *cloudServiceRoleSkuResponsePtrType) ToCloudServiceRoleSkuResponsePtrOutput() CloudServiceRoleSkuResponsePtrOutput {
-	return i.ToCloudServiceRoleSkuResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *cloudServiceRoleSkuResponsePtrType) ToCloudServiceRoleSkuResponsePtrOutputWithContext(ctx context.Context) CloudServiceRoleSkuResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CloudServiceRoleSkuResponsePtrOutput)
-}
-
 type CloudServiceRoleSkuResponseOutput struct{ *pulumi.OutputState }
 
 func (CloudServiceRoleSkuResponseOutput) ElementType() reflect.Type {
@@ -2620,16 +1886,6 @@ func (o CloudServiceRoleSkuResponseOutput) ToCloudServiceRoleSkuResponseOutput()
 
 func (o CloudServiceRoleSkuResponseOutput) ToCloudServiceRoleSkuResponseOutputWithContext(ctx context.Context) CloudServiceRoleSkuResponseOutput {
 	return o
-}
-
-func (o CloudServiceRoleSkuResponseOutput) ToCloudServiceRoleSkuResponsePtrOutput() CloudServiceRoleSkuResponsePtrOutput {
-	return o.ToCloudServiceRoleSkuResponsePtrOutputWithContext(context.Background())
-}
-
-func (o CloudServiceRoleSkuResponseOutput) ToCloudServiceRoleSkuResponsePtrOutputWithContext(ctx context.Context) CloudServiceRoleSkuResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CloudServiceRoleSkuResponse) *CloudServiceRoleSkuResponse {
-		return &v
-	}).(CloudServiceRoleSkuResponsePtrOutput)
 }
 
 func (o CloudServiceRoleSkuResponseOutput) Capacity() pulumi.Float64PtrOutput {
@@ -2848,75 +2104,6 @@ type CloudServiceVaultAndSecretReferenceResponse struct {
 	SourceVault *SubResourceResponse `pulumi:"sourceVault"`
 }
 
-
-
-
-
-type CloudServiceVaultAndSecretReferenceResponseInput interface {
-	pulumi.Input
-
-	ToCloudServiceVaultAndSecretReferenceResponseOutput() CloudServiceVaultAndSecretReferenceResponseOutput
-	ToCloudServiceVaultAndSecretReferenceResponseOutputWithContext(context.Context) CloudServiceVaultAndSecretReferenceResponseOutput
-}
-
-type CloudServiceVaultAndSecretReferenceResponseArgs struct {
-	SecretUrl   pulumi.StringPtrInput       `pulumi:"secretUrl"`
-	SourceVault SubResourceResponsePtrInput `pulumi:"sourceVault"`
-}
-
-func (CloudServiceVaultAndSecretReferenceResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CloudServiceVaultAndSecretReferenceResponse)(nil)).Elem()
-}
-
-func (i CloudServiceVaultAndSecretReferenceResponseArgs) ToCloudServiceVaultAndSecretReferenceResponseOutput() CloudServiceVaultAndSecretReferenceResponseOutput {
-	return i.ToCloudServiceVaultAndSecretReferenceResponseOutputWithContext(context.Background())
-}
-
-func (i CloudServiceVaultAndSecretReferenceResponseArgs) ToCloudServiceVaultAndSecretReferenceResponseOutputWithContext(ctx context.Context) CloudServiceVaultAndSecretReferenceResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CloudServiceVaultAndSecretReferenceResponseOutput)
-}
-
-func (i CloudServiceVaultAndSecretReferenceResponseArgs) ToCloudServiceVaultAndSecretReferenceResponsePtrOutput() CloudServiceVaultAndSecretReferenceResponsePtrOutput {
-	return i.ToCloudServiceVaultAndSecretReferenceResponsePtrOutputWithContext(context.Background())
-}
-
-func (i CloudServiceVaultAndSecretReferenceResponseArgs) ToCloudServiceVaultAndSecretReferenceResponsePtrOutputWithContext(ctx context.Context) CloudServiceVaultAndSecretReferenceResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CloudServiceVaultAndSecretReferenceResponseOutput).ToCloudServiceVaultAndSecretReferenceResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type CloudServiceVaultAndSecretReferenceResponsePtrInput interface {
-	pulumi.Input
-
-	ToCloudServiceVaultAndSecretReferenceResponsePtrOutput() CloudServiceVaultAndSecretReferenceResponsePtrOutput
-	ToCloudServiceVaultAndSecretReferenceResponsePtrOutputWithContext(context.Context) CloudServiceVaultAndSecretReferenceResponsePtrOutput
-}
-
-type cloudServiceVaultAndSecretReferenceResponsePtrType CloudServiceVaultAndSecretReferenceResponseArgs
-
-func CloudServiceVaultAndSecretReferenceResponsePtr(v *CloudServiceVaultAndSecretReferenceResponseArgs) CloudServiceVaultAndSecretReferenceResponsePtrInput {
-	return (*cloudServiceVaultAndSecretReferenceResponsePtrType)(v)
-}
-
-func (*cloudServiceVaultAndSecretReferenceResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**CloudServiceVaultAndSecretReferenceResponse)(nil)).Elem()
-}
-
-func (i *cloudServiceVaultAndSecretReferenceResponsePtrType) ToCloudServiceVaultAndSecretReferenceResponsePtrOutput() CloudServiceVaultAndSecretReferenceResponsePtrOutput {
-	return i.ToCloudServiceVaultAndSecretReferenceResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *cloudServiceVaultAndSecretReferenceResponsePtrType) ToCloudServiceVaultAndSecretReferenceResponsePtrOutputWithContext(ctx context.Context) CloudServiceVaultAndSecretReferenceResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CloudServiceVaultAndSecretReferenceResponsePtrOutput)
-}
-
 type CloudServiceVaultAndSecretReferenceResponseOutput struct{ *pulumi.OutputState }
 
 func (CloudServiceVaultAndSecretReferenceResponseOutput) ElementType() reflect.Type {
@@ -2929,16 +2116,6 @@ func (o CloudServiceVaultAndSecretReferenceResponseOutput) ToCloudServiceVaultAn
 
 func (o CloudServiceVaultAndSecretReferenceResponseOutput) ToCloudServiceVaultAndSecretReferenceResponseOutputWithContext(ctx context.Context) CloudServiceVaultAndSecretReferenceResponseOutput {
 	return o
-}
-
-func (o CloudServiceVaultAndSecretReferenceResponseOutput) ToCloudServiceVaultAndSecretReferenceResponsePtrOutput() CloudServiceVaultAndSecretReferenceResponsePtrOutput {
-	return o.ToCloudServiceVaultAndSecretReferenceResponsePtrOutputWithContext(context.Background())
-}
-
-func (o CloudServiceVaultAndSecretReferenceResponseOutput) ToCloudServiceVaultAndSecretReferenceResponsePtrOutputWithContext(ctx context.Context) CloudServiceVaultAndSecretReferenceResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CloudServiceVaultAndSecretReferenceResponse) *CloudServiceVaultAndSecretReferenceResponse {
-		return &v
-	}).(CloudServiceVaultAndSecretReferenceResponsePtrOutput)
 }
 
 func (o CloudServiceVaultAndSecretReferenceResponseOutput) SecretUrl() pulumi.StringPtrOutput {
@@ -3089,58 +2266,6 @@ type CloudServiceVaultCertificateResponse struct {
 	CertificateUrl *string `pulumi:"certificateUrl"`
 }
 
-
-
-
-
-type CloudServiceVaultCertificateResponseInput interface {
-	pulumi.Input
-
-	ToCloudServiceVaultCertificateResponseOutput() CloudServiceVaultCertificateResponseOutput
-	ToCloudServiceVaultCertificateResponseOutputWithContext(context.Context) CloudServiceVaultCertificateResponseOutput
-}
-
-type CloudServiceVaultCertificateResponseArgs struct {
-	CertificateUrl pulumi.StringPtrInput `pulumi:"certificateUrl"`
-}
-
-func (CloudServiceVaultCertificateResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CloudServiceVaultCertificateResponse)(nil)).Elem()
-}
-
-func (i CloudServiceVaultCertificateResponseArgs) ToCloudServiceVaultCertificateResponseOutput() CloudServiceVaultCertificateResponseOutput {
-	return i.ToCloudServiceVaultCertificateResponseOutputWithContext(context.Background())
-}
-
-func (i CloudServiceVaultCertificateResponseArgs) ToCloudServiceVaultCertificateResponseOutputWithContext(ctx context.Context) CloudServiceVaultCertificateResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CloudServiceVaultCertificateResponseOutput)
-}
-
-
-
-
-
-type CloudServiceVaultCertificateResponseArrayInput interface {
-	pulumi.Input
-
-	ToCloudServiceVaultCertificateResponseArrayOutput() CloudServiceVaultCertificateResponseArrayOutput
-	ToCloudServiceVaultCertificateResponseArrayOutputWithContext(context.Context) CloudServiceVaultCertificateResponseArrayOutput
-}
-
-type CloudServiceVaultCertificateResponseArray []CloudServiceVaultCertificateResponseInput
-
-func (CloudServiceVaultCertificateResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]CloudServiceVaultCertificateResponse)(nil)).Elem()
-}
-
-func (i CloudServiceVaultCertificateResponseArray) ToCloudServiceVaultCertificateResponseArrayOutput() CloudServiceVaultCertificateResponseArrayOutput {
-	return i.ToCloudServiceVaultCertificateResponseArrayOutputWithContext(context.Background())
-}
-
-func (i CloudServiceVaultCertificateResponseArray) ToCloudServiceVaultCertificateResponseArrayOutputWithContext(ctx context.Context) CloudServiceVaultCertificateResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CloudServiceVaultCertificateResponseArrayOutput)
-}
-
 type CloudServiceVaultCertificateResponseOutput struct{ *pulumi.OutputState }
 
 func (CloudServiceVaultCertificateResponseOutput) ElementType() reflect.Type {
@@ -3282,59 +2407,6 @@ func (o CloudServiceVaultSecretGroupArrayOutput) Index(i pulumi.IntInput) CloudS
 type CloudServiceVaultSecretGroupResponse struct {
 	SourceVault       *SubResourceResponse                   `pulumi:"sourceVault"`
 	VaultCertificates []CloudServiceVaultCertificateResponse `pulumi:"vaultCertificates"`
-}
-
-
-
-
-
-type CloudServiceVaultSecretGroupResponseInput interface {
-	pulumi.Input
-
-	ToCloudServiceVaultSecretGroupResponseOutput() CloudServiceVaultSecretGroupResponseOutput
-	ToCloudServiceVaultSecretGroupResponseOutputWithContext(context.Context) CloudServiceVaultSecretGroupResponseOutput
-}
-
-type CloudServiceVaultSecretGroupResponseArgs struct {
-	SourceVault       SubResourceResponsePtrInput                    `pulumi:"sourceVault"`
-	VaultCertificates CloudServiceVaultCertificateResponseArrayInput `pulumi:"vaultCertificates"`
-}
-
-func (CloudServiceVaultSecretGroupResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CloudServiceVaultSecretGroupResponse)(nil)).Elem()
-}
-
-func (i CloudServiceVaultSecretGroupResponseArgs) ToCloudServiceVaultSecretGroupResponseOutput() CloudServiceVaultSecretGroupResponseOutput {
-	return i.ToCloudServiceVaultSecretGroupResponseOutputWithContext(context.Background())
-}
-
-func (i CloudServiceVaultSecretGroupResponseArgs) ToCloudServiceVaultSecretGroupResponseOutputWithContext(ctx context.Context) CloudServiceVaultSecretGroupResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CloudServiceVaultSecretGroupResponseOutput)
-}
-
-
-
-
-
-type CloudServiceVaultSecretGroupResponseArrayInput interface {
-	pulumi.Input
-
-	ToCloudServiceVaultSecretGroupResponseArrayOutput() CloudServiceVaultSecretGroupResponseArrayOutput
-	ToCloudServiceVaultSecretGroupResponseArrayOutputWithContext(context.Context) CloudServiceVaultSecretGroupResponseArrayOutput
-}
-
-type CloudServiceVaultSecretGroupResponseArray []CloudServiceVaultSecretGroupResponseInput
-
-func (CloudServiceVaultSecretGroupResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]CloudServiceVaultSecretGroupResponse)(nil)).Elem()
-}
-
-func (i CloudServiceVaultSecretGroupResponseArray) ToCloudServiceVaultSecretGroupResponseArrayOutput() CloudServiceVaultSecretGroupResponseArrayOutput {
-	return i.ToCloudServiceVaultSecretGroupResponseArrayOutputWithContext(context.Background())
-}
-
-func (i CloudServiceVaultSecretGroupResponseArray) ToCloudServiceVaultSecretGroupResponseArrayOutputWithContext(ctx context.Context) CloudServiceVaultSecretGroupResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CloudServiceVaultSecretGroupResponseArrayOutput)
 }
 
 type CloudServiceVaultSecretGroupResponseOutput struct{ *pulumi.OutputState }
@@ -3484,59 +2556,6 @@ func (o ExtensionArrayOutput) Index(i pulumi.IntInput) ExtensionOutput {
 type ExtensionResponse struct {
 	Name       *string                                  `pulumi:"name"`
 	Properties *CloudServiceExtensionPropertiesResponse `pulumi:"properties"`
-}
-
-
-
-
-
-type ExtensionResponseInput interface {
-	pulumi.Input
-
-	ToExtensionResponseOutput() ExtensionResponseOutput
-	ToExtensionResponseOutputWithContext(context.Context) ExtensionResponseOutput
-}
-
-type ExtensionResponseArgs struct {
-	Name       pulumi.StringPtrInput                           `pulumi:"name"`
-	Properties CloudServiceExtensionPropertiesResponsePtrInput `pulumi:"properties"`
-}
-
-func (ExtensionResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ExtensionResponse)(nil)).Elem()
-}
-
-func (i ExtensionResponseArgs) ToExtensionResponseOutput() ExtensionResponseOutput {
-	return i.ToExtensionResponseOutputWithContext(context.Background())
-}
-
-func (i ExtensionResponseArgs) ToExtensionResponseOutputWithContext(ctx context.Context) ExtensionResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ExtensionResponseOutput)
-}
-
-
-
-
-
-type ExtensionResponseArrayInput interface {
-	pulumi.Input
-
-	ToExtensionResponseArrayOutput() ExtensionResponseArrayOutput
-	ToExtensionResponseArrayOutputWithContext(context.Context) ExtensionResponseArrayOutput
-}
-
-type ExtensionResponseArray []ExtensionResponseInput
-
-func (ExtensionResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ExtensionResponse)(nil)).Elem()
-}
-
-func (i ExtensionResponseArray) ToExtensionResponseArrayOutput() ExtensionResponseArrayOutput {
-	return i.ToExtensionResponseArrayOutputWithContext(context.Background())
-}
-
-func (i ExtensionResponseArray) ToExtensionResponseArrayOutputWithContext(ctx context.Context) ExtensionResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ExtensionResponseArrayOutput)
 }
 
 type ExtensionResponseOutput struct{ *pulumi.OutputState }
@@ -3820,74 +2839,6 @@ type LoadBalancerConfigurationPropertiesResponse struct {
 	FrontendIPConfigurations []LoadBalancerFrontendIPConfigurationResponse `pulumi:"frontendIPConfigurations"`
 }
 
-
-
-
-
-type LoadBalancerConfigurationPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToLoadBalancerConfigurationPropertiesResponseOutput() LoadBalancerConfigurationPropertiesResponseOutput
-	ToLoadBalancerConfigurationPropertiesResponseOutputWithContext(context.Context) LoadBalancerConfigurationPropertiesResponseOutput
-}
-
-type LoadBalancerConfigurationPropertiesResponseArgs struct {
-	FrontendIPConfigurations LoadBalancerFrontendIPConfigurationResponseArrayInput `pulumi:"frontendIPConfigurations"`
-}
-
-func (LoadBalancerConfigurationPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*LoadBalancerConfigurationPropertiesResponse)(nil)).Elem()
-}
-
-func (i LoadBalancerConfigurationPropertiesResponseArgs) ToLoadBalancerConfigurationPropertiesResponseOutput() LoadBalancerConfigurationPropertiesResponseOutput {
-	return i.ToLoadBalancerConfigurationPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i LoadBalancerConfigurationPropertiesResponseArgs) ToLoadBalancerConfigurationPropertiesResponseOutputWithContext(ctx context.Context) LoadBalancerConfigurationPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerConfigurationPropertiesResponseOutput)
-}
-
-func (i LoadBalancerConfigurationPropertiesResponseArgs) ToLoadBalancerConfigurationPropertiesResponsePtrOutput() LoadBalancerConfigurationPropertiesResponsePtrOutput {
-	return i.ToLoadBalancerConfigurationPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i LoadBalancerConfigurationPropertiesResponseArgs) ToLoadBalancerConfigurationPropertiesResponsePtrOutputWithContext(ctx context.Context) LoadBalancerConfigurationPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerConfigurationPropertiesResponseOutput).ToLoadBalancerConfigurationPropertiesResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type LoadBalancerConfigurationPropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToLoadBalancerConfigurationPropertiesResponsePtrOutput() LoadBalancerConfigurationPropertiesResponsePtrOutput
-	ToLoadBalancerConfigurationPropertiesResponsePtrOutputWithContext(context.Context) LoadBalancerConfigurationPropertiesResponsePtrOutput
-}
-
-type loadBalancerConfigurationPropertiesResponsePtrType LoadBalancerConfigurationPropertiesResponseArgs
-
-func LoadBalancerConfigurationPropertiesResponsePtr(v *LoadBalancerConfigurationPropertiesResponseArgs) LoadBalancerConfigurationPropertiesResponsePtrInput {
-	return (*loadBalancerConfigurationPropertiesResponsePtrType)(v)
-}
-
-func (*loadBalancerConfigurationPropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**LoadBalancerConfigurationPropertiesResponse)(nil)).Elem()
-}
-
-func (i *loadBalancerConfigurationPropertiesResponsePtrType) ToLoadBalancerConfigurationPropertiesResponsePtrOutput() LoadBalancerConfigurationPropertiesResponsePtrOutput {
-	return i.ToLoadBalancerConfigurationPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *loadBalancerConfigurationPropertiesResponsePtrType) ToLoadBalancerConfigurationPropertiesResponsePtrOutputWithContext(ctx context.Context) LoadBalancerConfigurationPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerConfigurationPropertiesResponsePtrOutput)
-}
-
 type LoadBalancerConfigurationPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (LoadBalancerConfigurationPropertiesResponseOutput) ElementType() reflect.Type {
@@ -3900,16 +2851,6 @@ func (o LoadBalancerConfigurationPropertiesResponseOutput) ToLoadBalancerConfigu
 
 func (o LoadBalancerConfigurationPropertiesResponseOutput) ToLoadBalancerConfigurationPropertiesResponseOutputWithContext(ctx context.Context) LoadBalancerConfigurationPropertiesResponseOutput {
 	return o
-}
-
-func (o LoadBalancerConfigurationPropertiesResponseOutput) ToLoadBalancerConfigurationPropertiesResponsePtrOutput() LoadBalancerConfigurationPropertiesResponsePtrOutput {
-	return o.ToLoadBalancerConfigurationPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o LoadBalancerConfigurationPropertiesResponseOutput) ToLoadBalancerConfigurationPropertiesResponsePtrOutputWithContext(ctx context.Context) LoadBalancerConfigurationPropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LoadBalancerConfigurationPropertiesResponse) *LoadBalancerConfigurationPropertiesResponse {
-		return &v
-	}).(LoadBalancerConfigurationPropertiesResponsePtrOutput)
 }
 
 func (o LoadBalancerConfigurationPropertiesResponseOutput) FrontendIPConfigurations() LoadBalancerFrontendIPConfigurationResponseArrayOutput {
@@ -3954,59 +2895,6 @@ func (o LoadBalancerConfigurationPropertiesResponsePtrOutput) FrontendIPConfigur
 type LoadBalancerConfigurationResponse struct {
 	Name       *string                                      `pulumi:"name"`
 	Properties *LoadBalancerConfigurationPropertiesResponse `pulumi:"properties"`
-}
-
-
-
-
-
-type LoadBalancerConfigurationResponseInput interface {
-	pulumi.Input
-
-	ToLoadBalancerConfigurationResponseOutput() LoadBalancerConfigurationResponseOutput
-	ToLoadBalancerConfigurationResponseOutputWithContext(context.Context) LoadBalancerConfigurationResponseOutput
-}
-
-type LoadBalancerConfigurationResponseArgs struct {
-	Name       pulumi.StringPtrInput                               `pulumi:"name"`
-	Properties LoadBalancerConfigurationPropertiesResponsePtrInput `pulumi:"properties"`
-}
-
-func (LoadBalancerConfigurationResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*LoadBalancerConfigurationResponse)(nil)).Elem()
-}
-
-func (i LoadBalancerConfigurationResponseArgs) ToLoadBalancerConfigurationResponseOutput() LoadBalancerConfigurationResponseOutput {
-	return i.ToLoadBalancerConfigurationResponseOutputWithContext(context.Background())
-}
-
-func (i LoadBalancerConfigurationResponseArgs) ToLoadBalancerConfigurationResponseOutputWithContext(ctx context.Context) LoadBalancerConfigurationResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerConfigurationResponseOutput)
-}
-
-
-
-
-
-type LoadBalancerConfigurationResponseArrayInput interface {
-	pulumi.Input
-
-	ToLoadBalancerConfigurationResponseArrayOutput() LoadBalancerConfigurationResponseArrayOutput
-	ToLoadBalancerConfigurationResponseArrayOutputWithContext(context.Context) LoadBalancerConfigurationResponseArrayOutput
-}
-
-type LoadBalancerConfigurationResponseArray []LoadBalancerConfigurationResponseInput
-
-func (LoadBalancerConfigurationResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]LoadBalancerConfigurationResponse)(nil)).Elem()
-}
-
-func (i LoadBalancerConfigurationResponseArray) ToLoadBalancerConfigurationResponseArrayOutput() LoadBalancerConfigurationResponseArrayOutput {
-	return i.ToLoadBalancerConfigurationResponseArrayOutputWithContext(context.Background())
-}
-
-func (i LoadBalancerConfigurationResponseArray) ToLoadBalancerConfigurationResponseArrayOutputWithContext(ctx context.Context) LoadBalancerConfigurationResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerConfigurationResponseArrayOutput)
 }
 
 type LoadBalancerConfigurationResponseOutput struct{ *pulumi.OutputState }
@@ -4324,76 +3212,6 @@ type LoadBalancerFrontendIPConfigurationPropertiesResponse struct {
 	Subnet           *SubResourceResponse `pulumi:"subnet"`
 }
 
-
-
-
-
-type LoadBalancerFrontendIPConfigurationPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToLoadBalancerFrontendIPConfigurationPropertiesResponseOutput() LoadBalancerFrontendIPConfigurationPropertiesResponseOutput
-	ToLoadBalancerFrontendIPConfigurationPropertiesResponseOutputWithContext(context.Context) LoadBalancerFrontendIPConfigurationPropertiesResponseOutput
-}
-
-type LoadBalancerFrontendIPConfigurationPropertiesResponseArgs struct {
-	PrivateIPAddress pulumi.StringPtrInput       `pulumi:"privateIPAddress"`
-	PublicIPAddress  SubResourceResponsePtrInput `pulumi:"publicIPAddress"`
-	Subnet           SubResourceResponsePtrInput `pulumi:"subnet"`
-}
-
-func (LoadBalancerFrontendIPConfigurationPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*LoadBalancerFrontendIPConfigurationPropertiesResponse)(nil)).Elem()
-}
-
-func (i LoadBalancerFrontendIPConfigurationPropertiesResponseArgs) ToLoadBalancerFrontendIPConfigurationPropertiesResponseOutput() LoadBalancerFrontendIPConfigurationPropertiesResponseOutput {
-	return i.ToLoadBalancerFrontendIPConfigurationPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i LoadBalancerFrontendIPConfigurationPropertiesResponseArgs) ToLoadBalancerFrontendIPConfigurationPropertiesResponseOutputWithContext(ctx context.Context) LoadBalancerFrontendIPConfigurationPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerFrontendIPConfigurationPropertiesResponseOutput)
-}
-
-func (i LoadBalancerFrontendIPConfigurationPropertiesResponseArgs) ToLoadBalancerFrontendIPConfigurationPropertiesResponsePtrOutput() LoadBalancerFrontendIPConfigurationPropertiesResponsePtrOutput {
-	return i.ToLoadBalancerFrontendIPConfigurationPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i LoadBalancerFrontendIPConfigurationPropertiesResponseArgs) ToLoadBalancerFrontendIPConfigurationPropertiesResponsePtrOutputWithContext(ctx context.Context) LoadBalancerFrontendIPConfigurationPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerFrontendIPConfigurationPropertiesResponseOutput).ToLoadBalancerFrontendIPConfigurationPropertiesResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type LoadBalancerFrontendIPConfigurationPropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToLoadBalancerFrontendIPConfigurationPropertiesResponsePtrOutput() LoadBalancerFrontendIPConfigurationPropertiesResponsePtrOutput
-	ToLoadBalancerFrontendIPConfigurationPropertiesResponsePtrOutputWithContext(context.Context) LoadBalancerFrontendIPConfigurationPropertiesResponsePtrOutput
-}
-
-type loadBalancerFrontendIPConfigurationPropertiesResponsePtrType LoadBalancerFrontendIPConfigurationPropertiesResponseArgs
-
-func LoadBalancerFrontendIPConfigurationPropertiesResponsePtr(v *LoadBalancerFrontendIPConfigurationPropertiesResponseArgs) LoadBalancerFrontendIPConfigurationPropertiesResponsePtrInput {
-	return (*loadBalancerFrontendIPConfigurationPropertiesResponsePtrType)(v)
-}
-
-func (*loadBalancerFrontendIPConfigurationPropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**LoadBalancerFrontendIPConfigurationPropertiesResponse)(nil)).Elem()
-}
-
-func (i *loadBalancerFrontendIPConfigurationPropertiesResponsePtrType) ToLoadBalancerFrontendIPConfigurationPropertiesResponsePtrOutput() LoadBalancerFrontendIPConfigurationPropertiesResponsePtrOutput {
-	return i.ToLoadBalancerFrontendIPConfigurationPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *loadBalancerFrontendIPConfigurationPropertiesResponsePtrType) ToLoadBalancerFrontendIPConfigurationPropertiesResponsePtrOutputWithContext(ctx context.Context) LoadBalancerFrontendIPConfigurationPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerFrontendIPConfigurationPropertiesResponsePtrOutput)
-}
-
 type LoadBalancerFrontendIPConfigurationPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (LoadBalancerFrontendIPConfigurationPropertiesResponseOutput) ElementType() reflect.Type {
@@ -4406,16 +3224,6 @@ func (o LoadBalancerFrontendIPConfigurationPropertiesResponseOutput) ToLoadBalan
 
 func (o LoadBalancerFrontendIPConfigurationPropertiesResponseOutput) ToLoadBalancerFrontendIPConfigurationPropertiesResponseOutputWithContext(ctx context.Context) LoadBalancerFrontendIPConfigurationPropertiesResponseOutput {
 	return o
-}
-
-func (o LoadBalancerFrontendIPConfigurationPropertiesResponseOutput) ToLoadBalancerFrontendIPConfigurationPropertiesResponsePtrOutput() LoadBalancerFrontendIPConfigurationPropertiesResponsePtrOutput {
-	return o.ToLoadBalancerFrontendIPConfigurationPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o LoadBalancerFrontendIPConfigurationPropertiesResponseOutput) ToLoadBalancerFrontendIPConfigurationPropertiesResponsePtrOutputWithContext(ctx context.Context) LoadBalancerFrontendIPConfigurationPropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LoadBalancerFrontendIPConfigurationPropertiesResponse) *LoadBalancerFrontendIPConfigurationPropertiesResponse {
-		return &v
-	}).(LoadBalancerFrontendIPConfigurationPropertiesResponsePtrOutput)
 }
 
 func (o LoadBalancerFrontendIPConfigurationPropertiesResponseOutput) PrivateIPAddress() pulumi.StringPtrOutput {
@@ -4486,59 +3294,6 @@ func (o LoadBalancerFrontendIPConfigurationPropertiesResponsePtrOutput) Subnet()
 type LoadBalancerFrontendIPConfigurationResponse struct {
 	Name       *string                                                `pulumi:"name"`
 	Properties *LoadBalancerFrontendIPConfigurationPropertiesResponse `pulumi:"properties"`
-}
-
-
-
-
-
-type LoadBalancerFrontendIPConfigurationResponseInput interface {
-	pulumi.Input
-
-	ToLoadBalancerFrontendIPConfigurationResponseOutput() LoadBalancerFrontendIPConfigurationResponseOutput
-	ToLoadBalancerFrontendIPConfigurationResponseOutputWithContext(context.Context) LoadBalancerFrontendIPConfigurationResponseOutput
-}
-
-type LoadBalancerFrontendIPConfigurationResponseArgs struct {
-	Name       pulumi.StringPtrInput                                         `pulumi:"name"`
-	Properties LoadBalancerFrontendIPConfigurationPropertiesResponsePtrInput `pulumi:"properties"`
-}
-
-func (LoadBalancerFrontendIPConfigurationResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*LoadBalancerFrontendIPConfigurationResponse)(nil)).Elem()
-}
-
-func (i LoadBalancerFrontendIPConfigurationResponseArgs) ToLoadBalancerFrontendIPConfigurationResponseOutput() LoadBalancerFrontendIPConfigurationResponseOutput {
-	return i.ToLoadBalancerFrontendIPConfigurationResponseOutputWithContext(context.Background())
-}
-
-func (i LoadBalancerFrontendIPConfigurationResponseArgs) ToLoadBalancerFrontendIPConfigurationResponseOutputWithContext(ctx context.Context) LoadBalancerFrontendIPConfigurationResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerFrontendIPConfigurationResponseOutput)
-}
-
-
-
-
-
-type LoadBalancerFrontendIPConfigurationResponseArrayInput interface {
-	pulumi.Input
-
-	ToLoadBalancerFrontendIPConfigurationResponseArrayOutput() LoadBalancerFrontendIPConfigurationResponseArrayOutput
-	ToLoadBalancerFrontendIPConfigurationResponseArrayOutputWithContext(context.Context) LoadBalancerFrontendIPConfigurationResponseArrayOutput
-}
-
-type LoadBalancerFrontendIPConfigurationResponseArray []LoadBalancerFrontendIPConfigurationResponseInput
-
-func (LoadBalancerFrontendIPConfigurationResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]LoadBalancerFrontendIPConfigurationResponse)(nil)).Elem()
-}
-
-func (i LoadBalancerFrontendIPConfigurationResponseArray) ToLoadBalancerFrontendIPConfigurationResponseArrayOutput() LoadBalancerFrontendIPConfigurationResponseArrayOutput {
-	return i.ToLoadBalancerFrontendIPConfigurationResponseArrayOutputWithContext(context.Background())
-}
-
-func (i LoadBalancerFrontendIPConfigurationResponseArray) ToLoadBalancerFrontendIPConfigurationResponseArrayOutputWithContext(ctx context.Context) LoadBalancerFrontendIPConfigurationResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerFrontendIPConfigurationResponseArrayOutput)
 }
 
 type LoadBalancerFrontendIPConfigurationResponseOutput struct{ *pulumi.OutputState }
@@ -4722,74 +3477,6 @@ type SubResourceResponse struct {
 	Id *string `pulumi:"id"`
 }
 
-
-
-
-
-type SubResourceResponseInput interface {
-	pulumi.Input
-
-	ToSubResourceResponseOutput() SubResourceResponseOutput
-	ToSubResourceResponseOutputWithContext(context.Context) SubResourceResponseOutput
-}
-
-type SubResourceResponseArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
-}
-
-func (SubResourceResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SubResourceResponse)(nil)).Elem()
-}
-
-func (i SubResourceResponseArgs) ToSubResourceResponseOutput() SubResourceResponseOutput {
-	return i.ToSubResourceResponseOutputWithContext(context.Background())
-}
-
-func (i SubResourceResponseArgs) ToSubResourceResponseOutputWithContext(ctx context.Context) SubResourceResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SubResourceResponseOutput)
-}
-
-func (i SubResourceResponseArgs) ToSubResourceResponsePtrOutput() SubResourceResponsePtrOutput {
-	return i.ToSubResourceResponsePtrOutputWithContext(context.Background())
-}
-
-func (i SubResourceResponseArgs) ToSubResourceResponsePtrOutputWithContext(ctx context.Context) SubResourceResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SubResourceResponseOutput).ToSubResourceResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type SubResourceResponsePtrInput interface {
-	pulumi.Input
-
-	ToSubResourceResponsePtrOutput() SubResourceResponsePtrOutput
-	ToSubResourceResponsePtrOutputWithContext(context.Context) SubResourceResponsePtrOutput
-}
-
-type subResourceResponsePtrType SubResourceResponseArgs
-
-func SubResourceResponsePtr(v *SubResourceResponseArgs) SubResourceResponsePtrInput {
-	return (*subResourceResponsePtrType)(v)
-}
-
-func (*subResourceResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SubResourceResponse)(nil)).Elem()
-}
-
-func (i *subResourceResponsePtrType) ToSubResourceResponsePtrOutput() SubResourceResponsePtrOutput {
-	return i.ToSubResourceResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *subResourceResponsePtrType) ToSubResourceResponsePtrOutputWithContext(ctx context.Context) SubResourceResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SubResourceResponsePtrOutput)
-}
-
 type SubResourceResponseOutput struct{ *pulumi.OutputState }
 
 func (SubResourceResponseOutput) ElementType() reflect.Type {
@@ -4802,16 +3489,6 @@ func (o SubResourceResponseOutput) ToSubResourceResponseOutput() SubResourceResp
 
 func (o SubResourceResponseOutput) ToSubResourceResponseOutputWithContext(ctx context.Context) SubResourceResponseOutput {
 	return o
-}
-
-func (o SubResourceResponseOutput) ToSubResourceResponsePtrOutput() SubResourceResponsePtrOutput {
-	return o.ToSubResourceResponsePtrOutputWithContext(context.Background())
-}
-
-func (o SubResourceResponseOutput) ToSubResourceResponsePtrOutputWithContext(ctx context.Context) SubResourceResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SubResourceResponse) *SubResourceResponse {
-		return &v
-	}).(SubResourceResponsePtrOutput)
 }
 
 func (o SubResourceResponseOutput) Id() pulumi.StringPtrOutput {
@@ -4871,7 +3548,6 @@ func init() {
 	pulumi.RegisterOutputType(CloudServicePropertiesOutput{})
 	pulumi.RegisterOutputType(CloudServicePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(CloudServicePropertiesResponseOutput{})
-	pulumi.RegisterOutputType(CloudServicePropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(CloudServiceRoleProfileOutput{})
 	pulumi.RegisterOutputType(CloudServiceRoleProfilePtrOutput{})
 	pulumi.RegisterOutputType(CloudServiceRoleProfilePropertiesOutput{})

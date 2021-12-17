@@ -14,74 +14,6 @@ type AzureADMetricsPropertiesFormatResponse struct {
 	ProvisioningState string `pulumi:"provisioningState"`
 }
 
-
-
-
-
-type AzureADMetricsPropertiesFormatResponseInput interface {
-	pulumi.Input
-
-	ToAzureADMetricsPropertiesFormatResponseOutput() AzureADMetricsPropertiesFormatResponseOutput
-	ToAzureADMetricsPropertiesFormatResponseOutputWithContext(context.Context) AzureADMetricsPropertiesFormatResponseOutput
-}
-
-type AzureADMetricsPropertiesFormatResponseArgs struct {
-	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
-}
-
-func (AzureADMetricsPropertiesFormatResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AzureADMetricsPropertiesFormatResponse)(nil)).Elem()
-}
-
-func (i AzureADMetricsPropertiesFormatResponseArgs) ToAzureADMetricsPropertiesFormatResponseOutput() AzureADMetricsPropertiesFormatResponseOutput {
-	return i.ToAzureADMetricsPropertiesFormatResponseOutputWithContext(context.Background())
-}
-
-func (i AzureADMetricsPropertiesFormatResponseArgs) ToAzureADMetricsPropertiesFormatResponseOutputWithContext(ctx context.Context) AzureADMetricsPropertiesFormatResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AzureADMetricsPropertiesFormatResponseOutput)
-}
-
-func (i AzureADMetricsPropertiesFormatResponseArgs) ToAzureADMetricsPropertiesFormatResponsePtrOutput() AzureADMetricsPropertiesFormatResponsePtrOutput {
-	return i.ToAzureADMetricsPropertiesFormatResponsePtrOutputWithContext(context.Background())
-}
-
-func (i AzureADMetricsPropertiesFormatResponseArgs) ToAzureADMetricsPropertiesFormatResponsePtrOutputWithContext(ctx context.Context) AzureADMetricsPropertiesFormatResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AzureADMetricsPropertiesFormatResponseOutput).ToAzureADMetricsPropertiesFormatResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type AzureADMetricsPropertiesFormatResponsePtrInput interface {
-	pulumi.Input
-
-	ToAzureADMetricsPropertiesFormatResponsePtrOutput() AzureADMetricsPropertiesFormatResponsePtrOutput
-	ToAzureADMetricsPropertiesFormatResponsePtrOutputWithContext(context.Context) AzureADMetricsPropertiesFormatResponsePtrOutput
-}
-
-type azureADMetricsPropertiesFormatResponsePtrType AzureADMetricsPropertiesFormatResponseArgs
-
-func AzureADMetricsPropertiesFormatResponsePtr(v *AzureADMetricsPropertiesFormatResponseArgs) AzureADMetricsPropertiesFormatResponsePtrInput {
-	return (*azureADMetricsPropertiesFormatResponsePtrType)(v)
-}
-
-func (*azureADMetricsPropertiesFormatResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AzureADMetricsPropertiesFormatResponse)(nil)).Elem()
-}
-
-func (i *azureADMetricsPropertiesFormatResponsePtrType) ToAzureADMetricsPropertiesFormatResponsePtrOutput() AzureADMetricsPropertiesFormatResponsePtrOutput {
-	return i.ToAzureADMetricsPropertiesFormatResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *azureADMetricsPropertiesFormatResponsePtrType) ToAzureADMetricsPropertiesFormatResponsePtrOutputWithContext(ctx context.Context) AzureADMetricsPropertiesFormatResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AzureADMetricsPropertiesFormatResponsePtrOutput)
-}
-
 type AzureADMetricsPropertiesFormatResponseOutput struct{ *pulumi.OutputState }
 
 func (AzureADMetricsPropertiesFormatResponseOutput) ElementType() reflect.Type {
@@ -96,51 +28,8 @@ func (o AzureADMetricsPropertiesFormatResponseOutput) ToAzureADMetricsProperties
 	return o
 }
 
-func (o AzureADMetricsPropertiesFormatResponseOutput) ToAzureADMetricsPropertiesFormatResponsePtrOutput() AzureADMetricsPropertiesFormatResponsePtrOutput {
-	return o.ToAzureADMetricsPropertiesFormatResponsePtrOutputWithContext(context.Background())
-}
-
-func (o AzureADMetricsPropertiesFormatResponseOutput) ToAzureADMetricsPropertiesFormatResponsePtrOutputWithContext(ctx context.Context) AzureADMetricsPropertiesFormatResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AzureADMetricsPropertiesFormatResponse) *AzureADMetricsPropertiesFormatResponse {
-		return &v
-	}).(AzureADMetricsPropertiesFormatResponsePtrOutput)
-}
-
 func (o AzureADMetricsPropertiesFormatResponseOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureADMetricsPropertiesFormatResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
-}
-
-type AzureADMetricsPropertiesFormatResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (AzureADMetricsPropertiesFormatResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AzureADMetricsPropertiesFormatResponse)(nil)).Elem()
-}
-
-func (o AzureADMetricsPropertiesFormatResponsePtrOutput) ToAzureADMetricsPropertiesFormatResponsePtrOutput() AzureADMetricsPropertiesFormatResponsePtrOutput {
-	return o
-}
-
-func (o AzureADMetricsPropertiesFormatResponsePtrOutput) ToAzureADMetricsPropertiesFormatResponsePtrOutputWithContext(ctx context.Context) AzureADMetricsPropertiesFormatResponsePtrOutput {
-	return o
-}
-
-func (o AzureADMetricsPropertiesFormatResponsePtrOutput) Elem() AzureADMetricsPropertiesFormatResponseOutput {
-	return o.ApplyT(func(v *AzureADMetricsPropertiesFormatResponse) AzureADMetricsPropertiesFormatResponse {
-		if v != nil {
-			return *v
-		}
-		var ret AzureADMetricsPropertiesFormatResponse
-		return ret
-	}).(AzureADMetricsPropertiesFormatResponseOutput)
-}
-
-func (o AzureADMetricsPropertiesFormatResponsePtrOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AzureADMetricsPropertiesFormatResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.ProvisioningState
-	}).(pulumi.StringPtrOutput)
 }
 
 type LogSettings struct {
@@ -253,60 +142,6 @@ type LogSettingsResponse struct {
 	Category        *string                  `pulumi:"category"`
 	Enabled         bool                     `pulumi:"enabled"`
 	RetentionPolicy *RetentionPolicyResponse `pulumi:"retentionPolicy"`
-}
-
-
-
-
-
-type LogSettingsResponseInput interface {
-	pulumi.Input
-
-	ToLogSettingsResponseOutput() LogSettingsResponseOutput
-	ToLogSettingsResponseOutputWithContext(context.Context) LogSettingsResponseOutput
-}
-
-type LogSettingsResponseArgs struct {
-	Category        pulumi.StringPtrInput           `pulumi:"category"`
-	Enabled         pulumi.BoolInput                `pulumi:"enabled"`
-	RetentionPolicy RetentionPolicyResponsePtrInput `pulumi:"retentionPolicy"`
-}
-
-func (LogSettingsResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*LogSettingsResponse)(nil)).Elem()
-}
-
-func (i LogSettingsResponseArgs) ToLogSettingsResponseOutput() LogSettingsResponseOutput {
-	return i.ToLogSettingsResponseOutputWithContext(context.Background())
-}
-
-func (i LogSettingsResponseArgs) ToLogSettingsResponseOutputWithContext(ctx context.Context) LogSettingsResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LogSettingsResponseOutput)
-}
-
-
-
-
-
-type LogSettingsResponseArrayInput interface {
-	pulumi.Input
-
-	ToLogSettingsResponseArrayOutput() LogSettingsResponseArrayOutput
-	ToLogSettingsResponseArrayOutputWithContext(context.Context) LogSettingsResponseArrayOutput
-}
-
-type LogSettingsResponseArray []LogSettingsResponseInput
-
-func (LogSettingsResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]LogSettingsResponse)(nil)).Elem()
-}
-
-func (i LogSettingsResponseArray) ToLogSettingsResponseArrayOutput() LogSettingsResponseArrayOutput {
-	return i.ToLogSettingsResponseArrayOutputWithContext(context.Background())
-}
-
-func (i LogSettingsResponseArray) ToLogSettingsResponseArrayOutputWithContext(ctx context.Context) LogSettingsResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LogSettingsResponseArrayOutput)
 }
 
 type LogSettingsResponseOutput struct{ *pulumi.OutputState }
@@ -492,74 +327,6 @@ type PrivateEndpointResponse struct {
 	Id *string `pulumi:"id"`
 }
 
-
-
-
-
-type PrivateEndpointResponseInput interface {
-	pulumi.Input
-
-	ToPrivateEndpointResponseOutput() PrivateEndpointResponseOutput
-	ToPrivateEndpointResponseOutputWithContext(context.Context) PrivateEndpointResponseOutput
-}
-
-type PrivateEndpointResponseArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
-}
-
-func (PrivateEndpointResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateEndpointResponse)(nil)).Elem()
-}
-
-func (i PrivateEndpointResponseArgs) ToPrivateEndpointResponseOutput() PrivateEndpointResponseOutput {
-	return i.ToPrivateEndpointResponseOutputWithContext(context.Background())
-}
-
-func (i PrivateEndpointResponseArgs) ToPrivateEndpointResponseOutputWithContext(ctx context.Context) PrivateEndpointResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointResponseOutput)
-}
-
-func (i PrivateEndpointResponseArgs) ToPrivateEndpointResponsePtrOutput() PrivateEndpointResponsePtrOutput {
-	return i.ToPrivateEndpointResponsePtrOutputWithContext(context.Background())
-}
-
-func (i PrivateEndpointResponseArgs) ToPrivateEndpointResponsePtrOutputWithContext(ctx context.Context) PrivateEndpointResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointResponseOutput).ToPrivateEndpointResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type PrivateEndpointResponsePtrInput interface {
-	pulumi.Input
-
-	ToPrivateEndpointResponsePtrOutput() PrivateEndpointResponsePtrOutput
-	ToPrivateEndpointResponsePtrOutputWithContext(context.Context) PrivateEndpointResponsePtrOutput
-}
-
-type privateEndpointResponsePtrType PrivateEndpointResponseArgs
-
-func PrivateEndpointResponsePtr(v *PrivateEndpointResponseArgs) PrivateEndpointResponsePtrInput {
-	return (*privateEndpointResponsePtrType)(v)
-}
-
-func (*privateEndpointResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PrivateEndpointResponse)(nil)).Elem()
-}
-
-func (i *privateEndpointResponsePtrType) ToPrivateEndpointResponsePtrOutput() PrivateEndpointResponsePtrOutput {
-	return i.ToPrivateEndpointResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *privateEndpointResponsePtrType) ToPrivateEndpointResponsePtrOutputWithContext(ctx context.Context) PrivateEndpointResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointResponsePtrOutput)
-}
-
 type PrivateEndpointResponseOutput struct{ *pulumi.OutputState }
 
 func (PrivateEndpointResponseOutput) ElementType() reflect.Type {
@@ -572,16 +339,6 @@ func (o PrivateEndpointResponseOutput) ToPrivateEndpointResponseOutput() Private
 
 func (o PrivateEndpointResponseOutput) ToPrivateEndpointResponseOutputWithContext(ctx context.Context) PrivateEndpointResponseOutput {
 	return o
-}
-
-func (o PrivateEndpointResponseOutput) ToPrivateEndpointResponsePtrOutput() PrivateEndpointResponsePtrOutput {
-	return o.ToPrivateEndpointResponsePtrOutputWithContext(context.Background())
-}
-
-func (o PrivateEndpointResponseOutput) ToPrivateEndpointResponsePtrOutputWithContext(ctx context.Context) PrivateEndpointResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateEndpointResponse) *PrivateEndpointResponse {
-		return &v
-	}).(PrivateEndpointResponsePtrOutput)
 }
 
 func (o PrivateEndpointResponseOutput) Id() pulumi.StringPtrOutput {
@@ -790,76 +547,6 @@ type PrivateLinkServiceConnectionStateResponse struct {
 	Status          *string `pulumi:"status"`
 }
 
-
-
-
-
-type PrivateLinkServiceConnectionStateResponseInput interface {
-	pulumi.Input
-
-	ToPrivateLinkServiceConnectionStateResponseOutput() PrivateLinkServiceConnectionStateResponseOutput
-	ToPrivateLinkServiceConnectionStateResponseOutputWithContext(context.Context) PrivateLinkServiceConnectionStateResponseOutput
-}
-
-type PrivateLinkServiceConnectionStateResponseArgs struct {
-	ActionsRequired pulumi.StringPtrInput `pulumi:"actionsRequired"`
-	Description     pulumi.StringPtrInput `pulumi:"description"`
-	Status          pulumi.StringPtrInput `pulumi:"status"`
-}
-
-func (PrivateLinkServiceConnectionStateResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateLinkServiceConnectionStateResponse)(nil)).Elem()
-}
-
-func (i PrivateLinkServiceConnectionStateResponseArgs) ToPrivateLinkServiceConnectionStateResponseOutput() PrivateLinkServiceConnectionStateResponseOutput {
-	return i.ToPrivateLinkServiceConnectionStateResponseOutputWithContext(context.Background())
-}
-
-func (i PrivateLinkServiceConnectionStateResponseArgs) ToPrivateLinkServiceConnectionStateResponseOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStateResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServiceConnectionStateResponseOutput)
-}
-
-func (i PrivateLinkServiceConnectionStateResponseArgs) ToPrivateLinkServiceConnectionStateResponsePtrOutput() PrivateLinkServiceConnectionStateResponsePtrOutput {
-	return i.ToPrivateLinkServiceConnectionStateResponsePtrOutputWithContext(context.Background())
-}
-
-func (i PrivateLinkServiceConnectionStateResponseArgs) ToPrivateLinkServiceConnectionStateResponsePtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStateResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServiceConnectionStateResponseOutput).ToPrivateLinkServiceConnectionStateResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type PrivateLinkServiceConnectionStateResponsePtrInput interface {
-	pulumi.Input
-
-	ToPrivateLinkServiceConnectionStateResponsePtrOutput() PrivateLinkServiceConnectionStateResponsePtrOutput
-	ToPrivateLinkServiceConnectionStateResponsePtrOutputWithContext(context.Context) PrivateLinkServiceConnectionStateResponsePtrOutput
-}
-
-type privateLinkServiceConnectionStateResponsePtrType PrivateLinkServiceConnectionStateResponseArgs
-
-func PrivateLinkServiceConnectionStateResponsePtr(v *PrivateLinkServiceConnectionStateResponseArgs) PrivateLinkServiceConnectionStateResponsePtrInput {
-	return (*privateLinkServiceConnectionStateResponsePtrType)(v)
-}
-
-func (*privateLinkServiceConnectionStateResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PrivateLinkServiceConnectionStateResponse)(nil)).Elem()
-}
-
-func (i *privateLinkServiceConnectionStateResponsePtrType) ToPrivateLinkServiceConnectionStateResponsePtrOutput() PrivateLinkServiceConnectionStateResponsePtrOutput {
-	return i.ToPrivateLinkServiceConnectionStateResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *privateLinkServiceConnectionStateResponsePtrType) ToPrivateLinkServiceConnectionStateResponsePtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStateResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServiceConnectionStateResponsePtrOutput)
-}
-
 type PrivateLinkServiceConnectionStateResponseOutput struct{ *pulumi.OutputState }
 
 func (PrivateLinkServiceConnectionStateResponseOutput) ElementType() reflect.Type {
@@ -872,16 +559,6 @@ func (o PrivateLinkServiceConnectionStateResponseOutput) ToPrivateLinkServiceCon
 
 func (o PrivateLinkServiceConnectionStateResponseOutput) ToPrivateLinkServiceConnectionStateResponseOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStateResponseOutput {
 	return o
-}
-
-func (o PrivateLinkServiceConnectionStateResponseOutput) ToPrivateLinkServiceConnectionStateResponsePtrOutput() PrivateLinkServiceConnectionStateResponsePtrOutput {
-	return o.ToPrivateLinkServiceConnectionStateResponsePtrOutputWithContext(context.Background())
-}
-
-func (o PrivateLinkServiceConnectionStateResponseOutput) ToPrivateLinkServiceConnectionStateResponsePtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStateResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateLinkServiceConnectionStateResponse) *PrivateLinkServiceConnectionStateResponse {
-		return &v
-	}).(PrivateLinkServiceConnectionStateResponsePtrOutput)
 }
 
 func (o PrivateLinkServiceConnectionStateResponseOutput) ActionsRequired() pulumi.StringPtrOutput {
@@ -1100,75 +777,6 @@ type RetentionPolicyResponse struct {
 	Enabled bool `pulumi:"enabled"`
 }
 
-
-
-
-
-type RetentionPolicyResponseInput interface {
-	pulumi.Input
-
-	ToRetentionPolicyResponseOutput() RetentionPolicyResponseOutput
-	ToRetentionPolicyResponseOutputWithContext(context.Context) RetentionPolicyResponseOutput
-}
-
-type RetentionPolicyResponseArgs struct {
-	Days    pulumi.IntInput  `pulumi:"days"`
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
-}
-
-func (RetentionPolicyResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RetentionPolicyResponse)(nil)).Elem()
-}
-
-func (i RetentionPolicyResponseArgs) ToRetentionPolicyResponseOutput() RetentionPolicyResponseOutput {
-	return i.ToRetentionPolicyResponseOutputWithContext(context.Background())
-}
-
-func (i RetentionPolicyResponseArgs) ToRetentionPolicyResponseOutputWithContext(ctx context.Context) RetentionPolicyResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RetentionPolicyResponseOutput)
-}
-
-func (i RetentionPolicyResponseArgs) ToRetentionPolicyResponsePtrOutput() RetentionPolicyResponsePtrOutput {
-	return i.ToRetentionPolicyResponsePtrOutputWithContext(context.Background())
-}
-
-func (i RetentionPolicyResponseArgs) ToRetentionPolicyResponsePtrOutputWithContext(ctx context.Context) RetentionPolicyResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RetentionPolicyResponseOutput).ToRetentionPolicyResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type RetentionPolicyResponsePtrInput interface {
-	pulumi.Input
-
-	ToRetentionPolicyResponsePtrOutput() RetentionPolicyResponsePtrOutput
-	ToRetentionPolicyResponsePtrOutputWithContext(context.Context) RetentionPolicyResponsePtrOutput
-}
-
-type retentionPolicyResponsePtrType RetentionPolicyResponseArgs
-
-func RetentionPolicyResponsePtr(v *RetentionPolicyResponseArgs) RetentionPolicyResponsePtrInput {
-	return (*retentionPolicyResponsePtrType)(v)
-}
-
-func (*retentionPolicyResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**RetentionPolicyResponse)(nil)).Elem()
-}
-
-func (i *retentionPolicyResponsePtrType) ToRetentionPolicyResponsePtrOutput() RetentionPolicyResponsePtrOutput {
-	return i.ToRetentionPolicyResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *retentionPolicyResponsePtrType) ToRetentionPolicyResponsePtrOutputWithContext(ctx context.Context) RetentionPolicyResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RetentionPolicyResponsePtrOutput)
-}
-
 type RetentionPolicyResponseOutput struct{ *pulumi.OutputState }
 
 func (RetentionPolicyResponseOutput) ElementType() reflect.Type {
@@ -1181,16 +789,6 @@ func (o RetentionPolicyResponseOutput) ToRetentionPolicyResponseOutput() Retenti
 
 func (o RetentionPolicyResponseOutput) ToRetentionPolicyResponseOutputWithContext(ctx context.Context) RetentionPolicyResponseOutput {
 	return o
-}
-
-func (o RetentionPolicyResponseOutput) ToRetentionPolicyResponsePtrOutput() RetentionPolicyResponsePtrOutput {
-	return o.ToRetentionPolicyResponsePtrOutputWithContext(context.Background())
-}
-
-func (o RetentionPolicyResponseOutput) ToRetentionPolicyResponsePtrOutputWithContext(ctx context.Context) RetentionPolicyResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RetentionPolicyResponse) *RetentionPolicyResponse {
-		return &v
-	}).(RetentionPolicyResponsePtrOutput)
 }
 
 func (o RetentionPolicyResponseOutput) Days() pulumi.IntOutput {
@@ -1378,7 +976,6 @@ func (o TagsResourcePtrOutput) Tags() pulumi.StringMapOutput {
 
 func init() {
 	pulumi.RegisterOutputType(AzureADMetricsPropertiesFormatResponseOutput{})
-	pulumi.RegisterOutputType(AzureADMetricsPropertiesFormatResponsePtrOutput{})
 	pulumi.RegisterOutputType(LogSettingsOutput{})
 	pulumi.RegisterOutputType(LogSettingsArrayOutput{})
 	pulumi.RegisterOutputType(LogSettingsResponseOutput{})

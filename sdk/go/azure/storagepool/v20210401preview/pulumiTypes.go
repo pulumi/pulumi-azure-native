@@ -115,59 +115,6 @@ type AclResponse struct {
 	MappedLuns   []string `pulumi:"mappedLuns"`
 }
 
-
-
-
-
-type AclResponseInput interface {
-	pulumi.Input
-
-	ToAclResponseOutput() AclResponseOutput
-	ToAclResponseOutputWithContext(context.Context) AclResponseOutput
-}
-
-type AclResponseArgs struct {
-	InitiatorIqn pulumi.StringInput      `pulumi:"initiatorIqn"`
-	MappedLuns   pulumi.StringArrayInput `pulumi:"mappedLuns"`
-}
-
-func (AclResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AclResponse)(nil)).Elem()
-}
-
-func (i AclResponseArgs) ToAclResponseOutput() AclResponseOutput {
-	return i.ToAclResponseOutputWithContext(context.Background())
-}
-
-func (i AclResponseArgs) ToAclResponseOutputWithContext(ctx context.Context) AclResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AclResponseOutput)
-}
-
-
-
-
-
-type AclResponseArrayInput interface {
-	pulumi.Input
-
-	ToAclResponseArrayOutput() AclResponseArrayOutput
-	ToAclResponseArrayOutputWithContext(context.Context) AclResponseArrayOutput
-}
-
-type AclResponseArray []AclResponseInput
-
-func (AclResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AclResponse)(nil)).Elem()
-}
-
-func (i AclResponseArray) ToAclResponseArrayOutput() AclResponseArrayOutput {
-	return i.ToAclResponseArrayOutputWithContext(context.Background())
-}
-
-func (i AclResponseArray) ToAclResponseArrayOutputWithContext(ctx context.Context) AclResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AclResponseArrayOutput)
-}
-
 type AclResponseOutput struct{ *pulumi.OutputState }
 
 func (AclResponseOutput) ElementType() reflect.Type {
@@ -306,58 +253,6 @@ func (o DiskArrayOutput) Index(i pulumi.IntInput) DiskOutput {
 
 type DiskResponse struct {
 	Id string `pulumi:"id"`
-}
-
-
-
-
-
-type DiskResponseInput interface {
-	pulumi.Input
-
-	ToDiskResponseOutput() DiskResponseOutput
-	ToDiskResponseOutputWithContext(context.Context) DiskResponseOutput
-}
-
-type DiskResponseArgs struct {
-	Id pulumi.StringInput `pulumi:"id"`
-}
-
-func (DiskResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DiskResponse)(nil)).Elem()
-}
-
-func (i DiskResponseArgs) ToDiskResponseOutput() DiskResponseOutput {
-	return i.ToDiskResponseOutputWithContext(context.Background())
-}
-
-func (i DiskResponseArgs) ToDiskResponseOutputWithContext(ctx context.Context) DiskResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DiskResponseOutput)
-}
-
-
-
-
-
-type DiskResponseArrayInput interface {
-	pulumi.Input
-
-	ToDiskResponseArrayOutput() DiskResponseArrayOutput
-	ToDiskResponseArrayOutputWithContext(context.Context) DiskResponseArrayOutput
-}
-
-type DiskResponseArray []DiskResponseInput
-
-func (DiskResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DiskResponse)(nil)).Elem()
-}
-
-func (i DiskResponseArray) ToDiskResponseArrayOutput() DiskResponseArrayOutput {
-	return i.ToDiskResponseArrayOutputWithContext(context.Background())
-}
-
-func (i DiskResponseArray) ToDiskResponseArrayOutputWithContext(ctx context.Context) DiskResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DiskResponseArrayOutput)
 }
 
 type DiskResponseOutput struct{ *pulumi.OutputState }
@@ -504,60 +399,6 @@ type IscsiLunResponse struct {
 	Name                       string `pulumi:"name"`
 }
 
-
-
-
-
-type IscsiLunResponseInput interface {
-	pulumi.Input
-
-	ToIscsiLunResponseOutput() IscsiLunResponseOutput
-	ToIscsiLunResponseOutputWithContext(context.Context) IscsiLunResponseOutput
-}
-
-type IscsiLunResponseArgs struct {
-	Lun                        pulumi.IntInput    `pulumi:"lun"`
-	ManagedDiskAzureResourceId pulumi.StringInput `pulumi:"managedDiskAzureResourceId"`
-	Name                       pulumi.StringInput `pulumi:"name"`
-}
-
-func (IscsiLunResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*IscsiLunResponse)(nil)).Elem()
-}
-
-func (i IscsiLunResponseArgs) ToIscsiLunResponseOutput() IscsiLunResponseOutput {
-	return i.ToIscsiLunResponseOutputWithContext(context.Background())
-}
-
-func (i IscsiLunResponseArgs) ToIscsiLunResponseOutputWithContext(ctx context.Context) IscsiLunResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IscsiLunResponseOutput)
-}
-
-
-
-
-
-type IscsiLunResponseArrayInput interface {
-	pulumi.Input
-
-	ToIscsiLunResponseArrayOutput() IscsiLunResponseArrayOutput
-	ToIscsiLunResponseArrayOutputWithContext(context.Context) IscsiLunResponseArrayOutput
-}
-
-type IscsiLunResponseArray []IscsiLunResponseInput
-
-func (IscsiLunResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]IscsiLunResponse)(nil)).Elem()
-}
-
-func (i IscsiLunResponseArray) ToIscsiLunResponseArrayOutput() IscsiLunResponseArrayOutput {
-	return i.ToIscsiLunResponseArrayOutputWithContext(context.Background())
-}
-
-func (i IscsiLunResponseArray) ToIscsiLunResponseArrayOutputWithContext(ctx context.Context) IscsiLunResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IscsiLunResponseArrayOutput)
-}
-
 type IscsiLunResponseOutput struct{ *pulumi.OutputState }
 
 func (IscsiLunResponseOutput) ElementType() reflect.Type {
@@ -637,47 +478,6 @@ func (i SkuArgs) ToSkuOutputWithContext(ctx context.Context) SkuOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SkuOutput)
 }
 
-func (i SkuArgs) ToSkuPtrOutput() SkuPtrOutput {
-	return i.ToSkuPtrOutputWithContext(context.Background())
-}
-
-func (i SkuArgs) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SkuOutput).ToSkuPtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type SkuPtrInput interface {
-	pulumi.Input
-
-	ToSkuPtrOutput() SkuPtrOutput
-	ToSkuPtrOutputWithContext(context.Context) SkuPtrOutput
-}
-
-type skuPtrType SkuArgs
-
-func SkuPtr(v *SkuArgs) SkuPtrInput {
-	return (*skuPtrType)(v)
-}
-
-func (*skuPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**Sku)(nil)).Elem()
-}
-
-func (i *skuPtrType) ToSkuPtrOutput() SkuPtrOutput {
-	return i.ToSkuPtrOutputWithContext(context.Background())
-}
-
-func (i *skuPtrType) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SkuPtrOutput)
-}
-
 type SkuOutput struct{ *pulumi.OutputState }
 
 func (SkuOutput) ElementType() reflect.Type {
@@ -692,64 +492,12 @@ func (o SkuOutput) ToSkuOutputWithContext(ctx context.Context) SkuOutput {
 	return o
 }
 
-func (o SkuOutput) ToSkuPtrOutput() SkuPtrOutput {
-	return o.ToSkuPtrOutputWithContext(context.Background())
-}
-
-func (o SkuOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Sku) *Sku {
-		return &v
-	}).(SkuPtrOutput)
-}
-
 func (o SkuOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v Sku) string { return v.Name }).(pulumi.StringOutput)
 }
 
 func (o SkuOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Sku) *string { return v.Tier }).(pulumi.StringPtrOutput)
-}
-
-type SkuPtrOutput struct{ *pulumi.OutputState }
-
-func (SkuPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Sku)(nil)).Elem()
-}
-
-func (o SkuPtrOutput) ToSkuPtrOutput() SkuPtrOutput {
-	return o
-}
-
-func (o SkuPtrOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
-	return o
-}
-
-func (o SkuPtrOutput) Elem() SkuOutput {
-	return o.ApplyT(func(v *Sku) Sku {
-		if v != nil {
-			return *v
-		}
-		var ret Sku
-		return ret
-	}).(SkuOutput)
-}
-
-func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Sku) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SkuPtrOutput) Tier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Sku) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Tier
-	}).(pulumi.StringPtrOutput)
 }
 
 type SystemMetadataResponse struct {
@@ -759,79 +507,6 @@ type SystemMetadataResponse struct {
 	LastModifiedAt     *string `pulumi:"lastModifiedAt"`
 	LastModifiedBy     *string `pulumi:"lastModifiedBy"`
 	LastModifiedByType *string `pulumi:"lastModifiedByType"`
-}
-
-
-
-
-
-type SystemMetadataResponseInput interface {
-	pulumi.Input
-
-	ToSystemMetadataResponseOutput() SystemMetadataResponseOutput
-	ToSystemMetadataResponseOutputWithContext(context.Context) SystemMetadataResponseOutput
-}
-
-type SystemMetadataResponseArgs struct {
-	CreatedAt          pulumi.StringPtrInput `pulumi:"createdAt"`
-	CreatedBy          pulumi.StringPtrInput `pulumi:"createdBy"`
-	CreatedByType      pulumi.StringPtrInput `pulumi:"createdByType"`
-	LastModifiedAt     pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
-	LastModifiedBy     pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
-	LastModifiedByType pulumi.StringPtrInput `pulumi:"lastModifiedByType"`
-}
-
-func (SystemMetadataResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SystemMetadataResponse)(nil)).Elem()
-}
-
-func (i SystemMetadataResponseArgs) ToSystemMetadataResponseOutput() SystemMetadataResponseOutput {
-	return i.ToSystemMetadataResponseOutputWithContext(context.Background())
-}
-
-func (i SystemMetadataResponseArgs) ToSystemMetadataResponseOutputWithContext(ctx context.Context) SystemMetadataResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SystemMetadataResponseOutput)
-}
-
-func (i SystemMetadataResponseArgs) ToSystemMetadataResponsePtrOutput() SystemMetadataResponsePtrOutput {
-	return i.ToSystemMetadataResponsePtrOutputWithContext(context.Background())
-}
-
-func (i SystemMetadataResponseArgs) ToSystemMetadataResponsePtrOutputWithContext(ctx context.Context) SystemMetadataResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SystemMetadataResponseOutput).ToSystemMetadataResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type SystemMetadataResponsePtrInput interface {
-	pulumi.Input
-
-	ToSystemMetadataResponsePtrOutput() SystemMetadataResponsePtrOutput
-	ToSystemMetadataResponsePtrOutputWithContext(context.Context) SystemMetadataResponsePtrOutput
-}
-
-type systemMetadataResponsePtrType SystemMetadataResponseArgs
-
-func SystemMetadataResponsePtr(v *SystemMetadataResponseArgs) SystemMetadataResponsePtrInput {
-	return (*systemMetadataResponsePtrType)(v)
-}
-
-func (*systemMetadataResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SystemMetadataResponse)(nil)).Elem()
-}
-
-func (i *systemMetadataResponsePtrType) ToSystemMetadataResponsePtrOutput() SystemMetadataResponsePtrOutput {
-	return i.ToSystemMetadataResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *systemMetadataResponsePtrType) ToSystemMetadataResponsePtrOutputWithContext(ctx context.Context) SystemMetadataResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SystemMetadataResponsePtrOutput)
 }
 
 type SystemMetadataResponseOutput struct{ *pulumi.OutputState }
@@ -846,16 +521,6 @@ func (o SystemMetadataResponseOutput) ToSystemMetadataResponseOutput() SystemMet
 
 func (o SystemMetadataResponseOutput) ToSystemMetadataResponseOutputWithContext(ctx context.Context) SystemMetadataResponseOutput {
 	return o
-}
-
-func (o SystemMetadataResponseOutput) ToSystemMetadataResponsePtrOutput() SystemMetadataResponsePtrOutput {
-	return o.ToSystemMetadataResponsePtrOutputWithContext(context.Background())
-}
-
-func (o SystemMetadataResponseOutput) ToSystemMetadataResponsePtrOutputWithContext(ctx context.Context) SystemMetadataResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SystemMetadataResponse) *SystemMetadataResponse {
-		return &v
-	}).(SystemMetadataResponsePtrOutput)
 }
 
 func (o SystemMetadataResponseOutput) CreatedAt() pulumi.StringPtrOutput {
@@ -882,84 +547,6 @@ func (o SystemMetadataResponseOutput) LastModifiedByType() pulumi.StringPtrOutpu
 	return o.ApplyT(func(v SystemMetadataResponse) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
 }
 
-type SystemMetadataResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (SystemMetadataResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SystemMetadataResponse)(nil)).Elem()
-}
-
-func (o SystemMetadataResponsePtrOutput) ToSystemMetadataResponsePtrOutput() SystemMetadataResponsePtrOutput {
-	return o
-}
-
-func (o SystemMetadataResponsePtrOutput) ToSystemMetadataResponsePtrOutputWithContext(ctx context.Context) SystemMetadataResponsePtrOutput {
-	return o
-}
-
-func (o SystemMetadataResponsePtrOutput) Elem() SystemMetadataResponseOutput {
-	return o.ApplyT(func(v *SystemMetadataResponse) SystemMetadataResponse {
-		if v != nil {
-			return *v
-		}
-		var ret SystemMetadataResponse
-		return ret
-	}).(SystemMetadataResponseOutput)
-}
-
-func (o SystemMetadataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SystemMetadataResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CreatedAt
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SystemMetadataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SystemMetadataResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CreatedBy
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SystemMetadataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SystemMetadataResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CreatedByType
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SystemMetadataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SystemMetadataResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.LastModifiedAt
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SystemMetadataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SystemMetadataResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.LastModifiedBy
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SystemMetadataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SystemMetadataResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.LastModifiedByType
-	}).(pulumi.StringPtrOutput)
-}
-
 func init() {
 	pulumi.RegisterOutputType(AclOutput{})
 	pulumi.RegisterOutputType(AclArrayOutput{})
@@ -974,7 +561,5 @@ func init() {
 	pulumi.RegisterOutputType(IscsiLunResponseOutput{})
 	pulumi.RegisterOutputType(IscsiLunResponseArrayOutput{})
 	pulumi.RegisterOutputType(SkuOutput{})
-	pulumi.RegisterOutputType(SkuPtrOutput{})
 	pulumi.RegisterOutputType(SystemMetadataResponseOutput{})
-	pulumi.RegisterOutputType(SystemMetadataResponsePtrOutput{})
 }

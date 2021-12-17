@@ -43,9 +43,8 @@ func NewEventSubscription(ctx *pulumi.Context,
 	if isZero(args.EventDeliverySchema) {
 		args.EventDeliverySchema = pulumi.StringPtr("EventGridSchema")
 	}
-	filterApplier := func(v EventSubscriptionFilter) *EventSubscriptionFilter { return v.Defaults() }
 	if args.Filter != nil {
-		args.Filter = args.Filter.ToEventSubscriptionFilterPtrOutput().Elem().ApplyT(filterApplier).(EventSubscriptionFilterPtrOutput)
+		args.Filter = args.Filter.ToEventSubscriptionFilterPtrOutput().ApplyT(func(v *EventSubscriptionFilter) *EventSubscriptionFilter { return v.Defaults() }).(EventSubscriptionFilterPtrOutput)
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

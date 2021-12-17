@@ -125,63 +125,6 @@ type AllowlistCustomAlertRuleResponse struct {
 	ValueType       string   `pulumi:"valueType"`
 }
 
-
-
-
-
-type AllowlistCustomAlertRuleResponseInput interface {
-	pulumi.Input
-
-	ToAllowlistCustomAlertRuleResponseOutput() AllowlistCustomAlertRuleResponseOutput
-	ToAllowlistCustomAlertRuleResponseOutputWithContext(context.Context) AllowlistCustomAlertRuleResponseOutput
-}
-
-type AllowlistCustomAlertRuleResponseArgs struct {
-	AllowlistValues pulumi.StringArrayInput `pulumi:"allowlistValues"`
-	Description     pulumi.StringInput      `pulumi:"description"`
-	DisplayName     pulumi.StringInput      `pulumi:"displayName"`
-	IsEnabled       pulumi.BoolInput        `pulumi:"isEnabled"`
-	RuleType        pulumi.StringInput      `pulumi:"ruleType"`
-	ValueType       pulumi.StringInput      `pulumi:"valueType"`
-}
-
-func (AllowlistCustomAlertRuleResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AllowlistCustomAlertRuleResponse)(nil)).Elem()
-}
-
-func (i AllowlistCustomAlertRuleResponseArgs) ToAllowlistCustomAlertRuleResponseOutput() AllowlistCustomAlertRuleResponseOutput {
-	return i.ToAllowlistCustomAlertRuleResponseOutputWithContext(context.Background())
-}
-
-func (i AllowlistCustomAlertRuleResponseArgs) ToAllowlistCustomAlertRuleResponseOutputWithContext(ctx context.Context) AllowlistCustomAlertRuleResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AllowlistCustomAlertRuleResponseOutput)
-}
-
-
-
-
-
-type AllowlistCustomAlertRuleResponseArrayInput interface {
-	pulumi.Input
-
-	ToAllowlistCustomAlertRuleResponseArrayOutput() AllowlistCustomAlertRuleResponseArrayOutput
-	ToAllowlistCustomAlertRuleResponseArrayOutputWithContext(context.Context) AllowlistCustomAlertRuleResponseArrayOutput
-}
-
-type AllowlistCustomAlertRuleResponseArray []AllowlistCustomAlertRuleResponseInput
-
-func (AllowlistCustomAlertRuleResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AllowlistCustomAlertRuleResponse)(nil)).Elem()
-}
-
-func (i AllowlistCustomAlertRuleResponseArray) ToAllowlistCustomAlertRuleResponseArrayOutput() AllowlistCustomAlertRuleResponseArrayOutput {
-	return i.ToAllowlistCustomAlertRuleResponseArrayOutputWithContext(context.Background())
-}
-
-func (i AllowlistCustomAlertRuleResponseArray) ToAllowlistCustomAlertRuleResponseArrayOutputWithContext(ctx context.Context) AllowlistCustomAlertRuleResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AllowlistCustomAlertRuleResponseArrayOutput)
-}
-
 type AllowlistCustomAlertRuleResponseOutput struct{ *pulumi.OutputState }
 
 func (AllowlistCustomAlertRuleResponseOutput) ElementType() reflect.Type {
@@ -353,63 +296,6 @@ type DenylistCustomAlertRuleResponse struct {
 	IsEnabled      bool     `pulumi:"isEnabled"`
 	RuleType       string   `pulumi:"ruleType"`
 	ValueType      string   `pulumi:"valueType"`
-}
-
-
-
-
-
-type DenylistCustomAlertRuleResponseInput interface {
-	pulumi.Input
-
-	ToDenylistCustomAlertRuleResponseOutput() DenylistCustomAlertRuleResponseOutput
-	ToDenylistCustomAlertRuleResponseOutputWithContext(context.Context) DenylistCustomAlertRuleResponseOutput
-}
-
-type DenylistCustomAlertRuleResponseArgs struct {
-	DenylistValues pulumi.StringArrayInput `pulumi:"denylistValues"`
-	Description    pulumi.StringInput      `pulumi:"description"`
-	DisplayName    pulumi.StringInput      `pulumi:"displayName"`
-	IsEnabled      pulumi.BoolInput        `pulumi:"isEnabled"`
-	RuleType       pulumi.StringInput      `pulumi:"ruleType"`
-	ValueType      pulumi.StringInput      `pulumi:"valueType"`
-}
-
-func (DenylistCustomAlertRuleResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DenylistCustomAlertRuleResponse)(nil)).Elem()
-}
-
-func (i DenylistCustomAlertRuleResponseArgs) ToDenylistCustomAlertRuleResponseOutput() DenylistCustomAlertRuleResponseOutput {
-	return i.ToDenylistCustomAlertRuleResponseOutputWithContext(context.Background())
-}
-
-func (i DenylistCustomAlertRuleResponseArgs) ToDenylistCustomAlertRuleResponseOutputWithContext(ctx context.Context) DenylistCustomAlertRuleResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DenylistCustomAlertRuleResponseOutput)
-}
-
-
-
-
-
-type DenylistCustomAlertRuleResponseArrayInput interface {
-	pulumi.Input
-
-	ToDenylistCustomAlertRuleResponseArrayOutput() DenylistCustomAlertRuleResponseArrayOutput
-	ToDenylistCustomAlertRuleResponseArrayOutputWithContext(context.Context) DenylistCustomAlertRuleResponseArrayOutput
-}
-
-type DenylistCustomAlertRuleResponseArray []DenylistCustomAlertRuleResponseInput
-
-func (DenylistCustomAlertRuleResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DenylistCustomAlertRuleResponse)(nil)).Elem()
-}
-
-func (i DenylistCustomAlertRuleResponseArray) ToDenylistCustomAlertRuleResponseArrayOutput() DenylistCustomAlertRuleResponseArrayOutput {
-	return i.ToDenylistCustomAlertRuleResponseArrayOutputWithContext(context.Background())
-}
-
-func (i DenylistCustomAlertRuleResponseArray) ToDenylistCustomAlertRuleResponseArrayOutputWithContext(ctx context.Context) DenylistCustomAlertRuleResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DenylistCustomAlertRuleResponseArrayOutput)
 }
 
 type DenylistCustomAlertRuleResponseOutput struct{ *pulumi.OutputState }
@@ -600,60 +486,6 @@ func (val *RecommendationConfigurationPropertiesResponse) Defaults() *Recommenda
 	return &tmp
 }
 
-
-
-
-
-type RecommendationConfigurationPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToRecommendationConfigurationPropertiesResponseOutput() RecommendationConfigurationPropertiesResponseOutput
-	ToRecommendationConfigurationPropertiesResponseOutputWithContext(context.Context) RecommendationConfigurationPropertiesResponseOutput
-}
-
-type RecommendationConfigurationPropertiesResponseArgs struct {
-	Name               pulumi.StringInput `pulumi:"name"`
-	RecommendationType pulumi.StringInput `pulumi:"recommendationType"`
-	Status             pulumi.StringInput `pulumi:"status"`
-}
-
-func (RecommendationConfigurationPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RecommendationConfigurationPropertiesResponse)(nil)).Elem()
-}
-
-func (i RecommendationConfigurationPropertiesResponseArgs) ToRecommendationConfigurationPropertiesResponseOutput() RecommendationConfigurationPropertiesResponseOutput {
-	return i.ToRecommendationConfigurationPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i RecommendationConfigurationPropertiesResponseArgs) ToRecommendationConfigurationPropertiesResponseOutputWithContext(ctx context.Context) RecommendationConfigurationPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RecommendationConfigurationPropertiesResponseOutput)
-}
-
-
-
-
-
-type RecommendationConfigurationPropertiesResponseArrayInput interface {
-	pulumi.Input
-
-	ToRecommendationConfigurationPropertiesResponseArrayOutput() RecommendationConfigurationPropertiesResponseArrayOutput
-	ToRecommendationConfigurationPropertiesResponseArrayOutputWithContext(context.Context) RecommendationConfigurationPropertiesResponseArrayOutput
-}
-
-type RecommendationConfigurationPropertiesResponseArray []RecommendationConfigurationPropertiesResponseInput
-
-func (RecommendationConfigurationPropertiesResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]RecommendationConfigurationPropertiesResponse)(nil)).Elem()
-}
-
-func (i RecommendationConfigurationPropertiesResponseArray) ToRecommendationConfigurationPropertiesResponseArrayOutput() RecommendationConfigurationPropertiesResponseArrayOutput {
-	return i.ToRecommendationConfigurationPropertiesResponseArrayOutputWithContext(context.Background())
-}
-
-func (i RecommendationConfigurationPropertiesResponseArray) ToRecommendationConfigurationPropertiesResponseArrayOutputWithContext(ctx context.Context) RecommendationConfigurationPropertiesResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RecommendationConfigurationPropertiesResponseArrayOutput)
-}
-
 type RecommendationConfigurationPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (RecommendationConfigurationPropertiesResponseOutput) ElementType() reflect.Type {
@@ -819,63 +651,6 @@ type ThresholdCustomAlertRuleResponse struct {
 	MaxThreshold int    `pulumi:"maxThreshold"`
 	MinThreshold int    `pulumi:"minThreshold"`
 	RuleType     string `pulumi:"ruleType"`
-}
-
-
-
-
-
-type ThresholdCustomAlertRuleResponseInput interface {
-	pulumi.Input
-
-	ToThresholdCustomAlertRuleResponseOutput() ThresholdCustomAlertRuleResponseOutput
-	ToThresholdCustomAlertRuleResponseOutputWithContext(context.Context) ThresholdCustomAlertRuleResponseOutput
-}
-
-type ThresholdCustomAlertRuleResponseArgs struct {
-	Description  pulumi.StringInput `pulumi:"description"`
-	DisplayName  pulumi.StringInput `pulumi:"displayName"`
-	IsEnabled    pulumi.BoolInput   `pulumi:"isEnabled"`
-	MaxThreshold pulumi.IntInput    `pulumi:"maxThreshold"`
-	MinThreshold pulumi.IntInput    `pulumi:"minThreshold"`
-	RuleType     pulumi.StringInput `pulumi:"ruleType"`
-}
-
-func (ThresholdCustomAlertRuleResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ThresholdCustomAlertRuleResponse)(nil)).Elem()
-}
-
-func (i ThresholdCustomAlertRuleResponseArgs) ToThresholdCustomAlertRuleResponseOutput() ThresholdCustomAlertRuleResponseOutput {
-	return i.ToThresholdCustomAlertRuleResponseOutputWithContext(context.Background())
-}
-
-func (i ThresholdCustomAlertRuleResponseArgs) ToThresholdCustomAlertRuleResponseOutputWithContext(ctx context.Context) ThresholdCustomAlertRuleResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ThresholdCustomAlertRuleResponseOutput)
-}
-
-
-
-
-
-type ThresholdCustomAlertRuleResponseArrayInput interface {
-	pulumi.Input
-
-	ToThresholdCustomAlertRuleResponseArrayOutput() ThresholdCustomAlertRuleResponseArrayOutput
-	ToThresholdCustomAlertRuleResponseArrayOutputWithContext(context.Context) ThresholdCustomAlertRuleResponseArrayOutput
-}
-
-type ThresholdCustomAlertRuleResponseArray []ThresholdCustomAlertRuleResponseInput
-
-func (ThresholdCustomAlertRuleResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ThresholdCustomAlertRuleResponse)(nil)).Elem()
-}
-
-func (i ThresholdCustomAlertRuleResponseArray) ToThresholdCustomAlertRuleResponseArrayOutput() ThresholdCustomAlertRuleResponseArrayOutput {
-	return i.ToThresholdCustomAlertRuleResponseArrayOutputWithContext(context.Background())
-}
-
-func (i ThresholdCustomAlertRuleResponseArray) ToThresholdCustomAlertRuleResponseArrayOutputWithContext(ctx context.Context) ThresholdCustomAlertRuleResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ThresholdCustomAlertRuleResponseArrayOutput)
 }
 
 type ThresholdCustomAlertRuleResponseOutput struct{ *pulumi.OutputState }
@@ -1062,64 +837,6 @@ type TimeWindowCustomAlertRuleResponse struct {
 	MinThreshold   int    `pulumi:"minThreshold"`
 	RuleType       string `pulumi:"ruleType"`
 	TimeWindowSize string `pulumi:"timeWindowSize"`
-}
-
-
-
-
-
-type TimeWindowCustomAlertRuleResponseInput interface {
-	pulumi.Input
-
-	ToTimeWindowCustomAlertRuleResponseOutput() TimeWindowCustomAlertRuleResponseOutput
-	ToTimeWindowCustomAlertRuleResponseOutputWithContext(context.Context) TimeWindowCustomAlertRuleResponseOutput
-}
-
-type TimeWindowCustomAlertRuleResponseArgs struct {
-	Description    pulumi.StringInput `pulumi:"description"`
-	DisplayName    pulumi.StringInput `pulumi:"displayName"`
-	IsEnabled      pulumi.BoolInput   `pulumi:"isEnabled"`
-	MaxThreshold   pulumi.IntInput    `pulumi:"maxThreshold"`
-	MinThreshold   pulumi.IntInput    `pulumi:"minThreshold"`
-	RuleType       pulumi.StringInput `pulumi:"ruleType"`
-	TimeWindowSize pulumi.StringInput `pulumi:"timeWindowSize"`
-}
-
-func (TimeWindowCustomAlertRuleResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TimeWindowCustomAlertRuleResponse)(nil)).Elem()
-}
-
-func (i TimeWindowCustomAlertRuleResponseArgs) ToTimeWindowCustomAlertRuleResponseOutput() TimeWindowCustomAlertRuleResponseOutput {
-	return i.ToTimeWindowCustomAlertRuleResponseOutputWithContext(context.Background())
-}
-
-func (i TimeWindowCustomAlertRuleResponseArgs) ToTimeWindowCustomAlertRuleResponseOutputWithContext(ctx context.Context) TimeWindowCustomAlertRuleResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TimeWindowCustomAlertRuleResponseOutput)
-}
-
-
-
-
-
-type TimeWindowCustomAlertRuleResponseArrayInput interface {
-	pulumi.Input
-
-	ToTimeWindowCustomAlertRuleResponseArrayOutput() TimeWindowCustomAlertRuleResponseArrayOutput
-	ToTimeWindowCustomAlertRuleResponseArrayOutputWithContext(context.Context) TimeWindowCustomAlertRuleResponseArrayOutput
-}
-
-type TimeWindowCustomAlertRuleResponseArray []TimeWindowCustomAlertRuleResponseInput
-
-func (TimeWindowCustomAlertRuleResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TimeWindowCustomAlertRuleResponse)(nil)).Elem()
-}
-
-func (i TimeWindowCustomAlertRuleResponseArray) ToTimeWindowCustomAlertRuleResponseArrayOutput() TimeWindowCustomAlertRuleResponseArrayOutput {
-	return i.ToTimeWindowCustomAlertRuleResponseArrayOutputWithContext(context.Background())
-}
-
-func (i TimeWindowCustomAlertRuleResponseArray) ToTimeWindowCustomAlertRuleResponseArrayOutputWithContext(ctx context.Context) TimeWindowCustomAlertRuleResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TimeWindowCustomAlertRuleResponseArrayOutput)
 }
 
 type TimeWindowCustomAlertRuleResponseOutput struct{ *pulumi.OutputState }
@@ -1337,75 +1054,6 @@ type UserDefinedResourcesPropertiesResponse struct {
 	QuerySubscriptions []string `pulumi:"querySubscriptions"`
 }
 
-
-
-
-
-type UserDefinedResourcesPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToUserDefinedResourcesPropertiesResponseOutput() UserDefinedResourcesPropertiesResponseOutput
-	ToUserDefinedResourcesPropertiesResponseOutputWithContext(context.Context) UserDefinedResourcesPropertiesResponseOutput
-}
-
-type UserDefinedResourcesPropertiesResponseArgs struct {
-	Query              pulumi.StringInput      `pulumi:"query"`
-	QuerySubscriptions pulumi.StringArrayInput `pulumi:"querySubscriptions"`
-}
-
-func (UserDefinedResourcesPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserDefinedResourcesPropertiesResponse)(nil)).Elem()
-}
-
-func (i UserDefinedResourcesPropertiesResponseArgs) ToUserDefinedResourcesPropertiesResponseOutput() UserDefinedResourcesPropertiesResponseOutput {
-	return i.ToUserDefinedResourcesPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i UserDefinedResourcesPropertiesResponseArgs) ToUserDefinedResourcesPropertiesResponseOutputWithContext(ctx context.Context) UserDefinedResourcesPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UserDefinedResourcesPropertiesResponseOutput)
-}
-
-func (i UserDefinedResourcesPropertiesResponseArgs) ToUserDefinedResourcesPropertiesResponsePtrOutput() UserDefinedResourcesPropertiesResponsePtrOutput {
-	return i.ToUserDefinedResourcesPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i UserDefinedResourcesPropertiesResponseArgs) ToUserDefinedResourcesPropertiesResponsePtrOutputWithContext(ctx context.Context) UserDefinedResourcesPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UserDefinedResourcesPropertiesResponseOutput).ToUserDefinedResourcesPropertiesResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type UserDefinedResourcesPropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToUserDefinedResourcesPropertiesResponsePtrOutput() UserDefinedResourcesPropertiesResponsePtrOutput
-	ToUserDefinedResourcesPropertiesResponsePtrOutputWithContext(context.Context) UserDefinedResourcesPropertiesResponsePtrOutput
-}
-
-type userDefinedResourcesPropertiesResponsePtrType UserDefinedResourcesPropertiesResponseArgs
-
-func UserDefinedResourcesPropertiesResponsePtr(v *UserDefinedResourcesPropertiesResponseArgs) UserDefinedResourcesPropertiesResponsePtrInput {
-	return (*userDefinedResourcesPropertiesResponsePtrType)(v)
-}
-
-func (*userDefinedResourcesPropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**UserDefinedResourcesPropertiesResponse)(nil)).Elem()
-}
-
-func (i *userDefinedResourcesPropertiesResponsePtrType) ToUserDefinedResourcesPropertiesResponsePtrOutput() UserDefinedResourcesPropertiesResponsePtrOutput {
-	return i.ToUserDefinedResourcesPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *userDefinedResourcesPropertiesResponsePtrType) ToUserDefinedResourcesPropertiesResponsePtrOutputWithContext(ctx context.Context) UserDefinedResourcesPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UserDefinedResourcesPropertiesResponsePtrOutput)
-}
-
 type UserDefinedResourcesPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (UserDefinedResourcesPropertiesResponseOutput) ElementType() reflect.Type {
@@ -1418,16 +1066,6 @@ func (o UserDefinedResourcesPropertiesResponseOutput) ToUserDefinedResourcesProp
 
 func (o UserDefinedResourcesPropertiesResponseOutput) ToUserDefinedResourcesPropertiesResponseOutputWithContext(ctx context.Context) UserDefinedResourcesPropertiesResponseOutput {
 	return o
-}
-
-func (o UserDefinedResourcesPropertiesResponseOutput) ToUserDefinedResourcesPropertiesResponsePtrOutput() UserDefinedResourcesPropertiesResponsePtrOutput {
-	return o.ToUserDefinedResourcesPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o UserDefinedResourcesPropertiesResponseOutput) ToUserDefinedResourcesPropertiesResponsePtrOutputWithContext(ctx context.Context) UserDefinedResourcesPropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserDefinedResourcesPropertiesResponse) *UserDefinedResourcesPropertiesResponse {
-		return &v
-	}).(UserDefinedResourcesPropertiesResponsePtrOutput)
 }
 
 func (o UserDefinedResourcesPropertiesResponseOutput) Query() pulumi.StringOutput {

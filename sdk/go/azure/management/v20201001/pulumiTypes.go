@@ -280,74 +280,6 @@ type DescendantParentGroupInfoResponse struct {
 	Id *string `pulumi:"id"`
 }
 
-
-
-
-
-type DescendantParentGroupInfoResponseInput interface {
-	pulumi.Input
-
-	ToDescendantParentGroupInfoResponseOutput() DescendantParentGroupInfoResponseOutput
-	ToDescendantParentGroupInfoResponseOutputWithContext(context.Context) DescendantParentGroupInfoResponseOutput
-}
-
-type DescendantParentGroupInfoResponseArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
-}
-
-func (DescendantParentGroupInfoResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DescendantParentGroupInfoResponse)(nil)).Elem()
-}
-
-func (i DescendantParentGroupInfoResponseArgs) ToDescendantParentGroupInfoResponseOutput() DescendantParentGroupInfoResponseOutput {
-	return i.ToDescendantParentGroupInfoResponseOutputWithContext(context.Background())
-}
-
-func (i DescendantParentGroupInfoResponseArgs) ToDescendantParentGroupInfoResponseOutputWithContext(ctx context.Context) DescendantParentGroupInfoResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DescendantParentGroupInfoResponseOutput)
-}
-
-func (i DescendantParentGroupInfoResponseArgs) ToDescendantParentGroupInfoResponsePtrOutput() DescendantParentGroupInfoResponsePtrOutput {
-	return i.ToDescendantParentGroupInfoResponsePtrOutputWithContext(context.Background())
-}
-
-func (i DescendantParentGroupInfoResponseArgs) ToDescendantParentGroupInfoResponsePtrOutputWithContext(ctx context.Context) DescendantParentGroupInfoResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DescendantParentGroupInfoResponseOutput).ToDescendantParentGroupInfoResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type DescendantParentGroupInfoResponsePtrInput interface {
-	pulumi.Input
-
-	ToDescendantParentGroupInfoResponsePtrOutput() DescendantParentGroupInfoResponsePtrOutput
-	ToDescendantParentGroupInfoResponsePtrOutputWithContext(context.Context) DescendantParentGroupInfoResponsePtrOutput
-}
-
-type descendantParentGroupInfoResponsePtrType DescendantParentGroupInfoResponseArgs
-
-func DescendantParentGroupInfoResponsePtr(v *DescendantParentGroupInfoResponseArgs) DescendantParentGroupInfoResponsePtrInput {
-	return (*descendantParentGroupInfoResponsePtrType)(v)
-}
-
-func (*descendantParentGroupInfoResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DescendantParentGroupInfoResponse)(nil)).Elem()
-}
-
-func (i *descendantParentGroupInfoResponsePtrType) ToDescendantParentGroupInfoResponsePtrOutput() DescendantParentGroupInfoResponsePtrOutput {
-	return i.ToDescendantParentGroupInfoResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *descendantParentGroupInfoResponsePtrType) ToDescendantParentGroupInfoResponsePtrOutputWithContext(ctx context.Context) DescendantParentGroupInfoResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DescendantParentGroupInfoResponsePtrOutput)
-}
-
 type DescendantParentGroupInfoResponseOutput struct{ *pulumi.OutputState }
 
 func (DescendantParentGroupInfoResponseOutput) ElementType() reflect.Type {
@@ -360,16 +292,6 @@ func (o DescendantParentGroupInfoResponseOutput) ToDescendantParentGroupInfoResp
 
 func (o DescendantParentGroupInfoResponseOutput) ToDescendantParentGroupInfoResponseOutputWithContext(ctx context.Context) DescendantParentGroupInfoResponseOutput {
 	return o
-}
-
-func (o DescendantParentGroupInfoResponseOutput) ToDescendantParentGroupInfoResponsePtrOutput() DescendantParentGroupInfoResponsePtrOutput {
-	return o.ToDescendantParentGroupInfoResponsePtrOutputWithContext(context.Background())
-}
-
-func (o DescendantParentGroupInfoResponseOutput) ToDescendantParentGroupInfoResponsePtrOutputWithContext(ctx context.Context) DescendantParentGroupInfoResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DescendantParentGroupInfoResponse) *DescendantParentGroupInfoResponse {
-		return &v
-	}).(DescendantParentGroupInfoResponsePtrOutput)
 }
 
 func (o DescendantParentGroupInfoResponseOutput) Id() pulumi.StringPtrOutput {
@@ -425,287 +347,8 @@ type EntityInfoResponse struct {
 	Type                   string                         `pulumi:"type"`
 }
 
-
-
-
-
-type EntityInfoResponseInput interface {
-	pulumi.Input
-
-	ToEntityInfoResponseOutput() EntityInfoResponseOutput
-	ToEntityInfoResponseOutputWithContext(context.Context) EntityInfoResponseOutput
-}
-
-type EntityInfoResponseArgs struct {
-	DisplayName            pulumi.StringPtrInput                 `pulumi:"displayName"`
-	Id                     pulumi.StringInput                    `pulumi:"id"`
-	InheritedPermissions   pulumi.StringPtrInput                 `pulumi:"inheritedPermissions"`
-	Name                   pulumi.StringInput                    `pulumi:"name"`
-	NumberOfChildGroups    pulumi.IntPtrInput                    `pulumi:"numberOfChildGroups"`
-	NumberOfChildren       pulumi.IntPtrInput                    `pulumi:"numberOfChildren"`
-	NumberOfDescendants    pulumi.IntPtrInput                    `pulumi:"numberOfDescendants"`
-	Parent                 EntityParentGroupInfoResponsePtrInput `pulumi:"parent"`
-	ParentDisplayNameChain pulumi.StringArrayInput               `pulumi:"parentDisplayNameChain"`
-	ParentNameChain        pulumi.StringArrayInput               `pulumi:"parentNameChain"`
-	Permissions            pulumi.StringPtrInput                 `pulumi:"permissions"`
-	TenantId               pulumi.StringPtrInput                 `pulumi:"tenantId"`
-	Type                   pulumi.StringInput                    `pulumi:"type"`
-}
-
-func (EntityInfoResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*EntityInfoResponse)(nil)).Elem()
-}
-
-func (i EntityInfoResponseArgs) ToEntityInfoResponseOutput() EntityInfoResponseOutput {
-	return i.ToEntityInfoResponseOutputWithContext(context.Background())
-}
-
-func (i EntityInfoResponseArgs) ToEntityInfoResponseOutputWithContext(ctx context.Context) EntityInfoResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EntityInfoResponseOutput)
-}
-
-
-
-
-
-type EntityInfoResponseArrayInput interface {
-	pulumi.Input
-
-	ToEntityInfoResponseArrayOutput() EntityInfoResponseArrayOutput
-	ToEntityInfoResponseArrayOutputWithContext(context.Context) EntityInfoResponseArrayOutput
-}
-
-type EntityInfoResponseArray []EntityInfoResponseInput
-
-func (EntityInfoResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]EntityInfoResponse)(nil)).Elem()
-}
-
-func (i EntityInfoResponseArray) ToEntityInfoResponseArrayOutput() EntityInfoResponseArrayOutput {
-	return i.ToEntityInfoResponseArrayOutputWithContext(context.Background())
-}
-
-func (i EntityInfoResponseArray) ToEntityInfoResponseArrayOutputWithContext(ctx context.Context) EntityInfoResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EntityInfoResponseArrayOutput)
-}
-
-type EntityInfoResponseOutput struct{ *pulumi.OutputState }
-
-func (EntityInfoResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EntityInfoResponse)(nil)).Elem()
-}
-
-func (o EntityInfoResponseOutput) ToEntityInfoResponseOutput() EntityInfoResponseOutput {
-	return o
-}
-
-func (o EntityInfoResponseOutput) ToEntityInfoResponseOutputWithContext(ctx context.Context) EntityInfoResponseOutput {
-	return o
-}
-
-func (o EntityInfoResponseOutput) DisplayName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EntityInfoResponse) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
-}
-
-func (o EntityInfoResponseOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v EntityInfoResponse) string { return v.Id }).(pulumi.StringOutput)
-}
-
-func (o EntityInfoResponseOutput) InheritedPermissions() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EntityInfoResponse) *string { return v.InheritedPermissions }).(pulumi.StringPtrOutput)
-}
-
-func (o EntityInfoResponseOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v EntityInfoResponse) string { return v.Name }).(pulumi.StringOutput)
-}
-
-func (o EntityInfoResponseOutput) NumberOfChildGroups() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v EntityInfoResponse) *int { return v.NumberOfChildGroups }).(pulumi.IntPtrOutput)
-}
-
-func (o EntityInfoResponseOutput) NumberOfChildren() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v EntityInfoResponse) *int { return v.NumberOfChildren }).(pulumi.IntPtrOutput)
-}
-
-func (o EntityInfoResponseOutput) NumberOfDescendants() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v EntityInfoResponse) *int { return v.NumberOfDescendants }).(pulumi.IntPtrOutput)
-}
-
-func (o EntityInfoResponseOutput) Parent() EntityParentGroupInfoResponsePtrOutput {
-	return o.ApplyT(func(v EntityInfoResponse) *EntityParentGroupInfoResponse { return v.Parent }).(EntityParentGroupInfoResponsePtrOutput)
-}
-
-func (o EntityInfoResponseOutput) ParentDisplayNameChain() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v EntityInfoResponse) []string { return v.ParentDisplayNameChain }).(pulumi.StringArrayOutput)
-}
-
-func (o EntityInfoResponseOutput) ParentNameChain() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v EntityInfoResponse) []string { return v.ParentNameChain }).(pulumi.StringArrayOutput)
-}
-
-func (o EntityInfoResponseOutput) Permissions() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EntityInfoResponse) *string { return v.Permissions }).(pulumi.StringPtrOutput)
-}
-
-func (o EntityInfoResponseOutput) TenantId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EntityInfoResponse) *string { return v.TenantId }).(pulumi.StringPtrOutput)
-}
-
-func (o EntityInfoResponseOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v EntityInfoResponse) string { return v.Type }).(pulumi.StringOutput)
-}
-
-type EntityInfoResponseArrayOutput struct{ *pulumi.OutputState }
-
-func (EntityInfoResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]EntityInfoResponse)(nil)).Elem()
-}
-
-func (o EntityInfoResponseArrayOutput) ToEntityInfoResponseArrayOutput() EntityInfoResponseArrayOutput {
-	return o
-}
-
-func (o EntityInfoResponseArrayOutput) ToEntityInfoResponseArrayOutputWithContext(ctx context.Context) EntityInfoResponseArrayOutput {
-	return o
-}
-
-func (o EntityInfoResponseArrayOutput) Index(i pulumi.IntInput) EntityInfoResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EntityInfoResponse {
-		return vs[0].([]EntityInfoResponse)[vs[1].(int)]
-	}).(EntityInfoResponseOutput)
-}
-
 type EntityParentGroupInfoResponse struct {
 	Id *string `pulumi:"id"`
-}
-
-
-
-
-
-type EntityParentGroupInfoResponseInput interface {
-	pulumi.Input
-
-	ToEntityParentGroupInfoResponseOutput() EntityParentGroupInfoResponseOutput
-	ToEntityParentGroupInfoResponseOutputWithContext(context.Context) EntityParentGroupInfoResponseOutput
-}
-
-type EntityParentGroupInfoResponseArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
-}
-
-func (EntityParentGroupInfoResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*EntityParentGroupInfoResponse)(nil)).Elem()
-}
-
-func (i EntityParentGroupInfoResponseArgs) ToEntityParentGroupInfoResponseOutput() EntityParentGroupInfoResponseOutput {
-	return i.ToEntityParentGroupInfoResponseOutputWithContext(context.Background())
-}
-
-func (i EntityParentGroupInfoResponseArgs) ToEntityParentGroupInfoResponseOutputWithContext(ctx context.Context) EntityParentGroupInfoResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EntityParentGroupInfoResponseOutput)
-}
-
-func (i EntityParentGroupInfoResponseArgs) ToEntityParentGroupInfoResponsePtrOutput() EntityParentGroupInfoResponsePtrOutput {
-	return i.ToEntityParentGroupInfoResponsePtrOutputWithContext(context.Background())
-}
-
-func (i EntityParentGroupInfoResponseArgs) ToEntityParentGroupInfoResponsePtrOutputWithContext(ctx context.Context) EntityParentGroupInfoResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EntityParentGroupInfoResponseOutput).ToEntityParentGroupInfoResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type EntityParentGroupInfoResponsePtrInput interface {
-	pulumi.Input
-
-	ToEntityParentGroupInfoResponsePtrOutput() EntityParentGroupInfoResponsePtrOutput
-	ToEntityParentGroupInfoResponsePtrOutputWithContext(context.Context) EntityParentGroupInfoResponsePtrOutput
-}
-
-type entityParentGroupInfoResponsePtrType EntityParentGroupInfoResponseArgs
-
-func EntityParentGroupInfoResponsePtr(v *EntityParentGroupInfoResponseArgs) EntityParentGroupInfoResponsePtrInput {
-	return (*entityParentGroupInfoResponsePtrType)(v)
-}
-
-func (*entityParentGroupInfoResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**EntityParentGroupInfoResponse)(nil)).Elem()
-}
-
-func (i *entityParentGroupInfoResponsePtrType) ToEntityParentGroupInfoResponsePtrOutput() EntityParentGroupInfoResponsePtrOutput {
-	return i.ToEntityParentGroupInfoResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *entityParentGroupInfoResponsePtrType) ToEntityParentGroupInfoResponsePtrOutputWithContext(ctx context.Context) EntityParentGroupInfoResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EntityParentGroupInfoResponsePtrOutput)
-}
-
-type EntityParentGroupInfoResponseOutput struct{ *pulumi.OutputState }
-
-func (EntityParentGroupInfoResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EntityParentGroupInfoResponse)(nil)).Elem()
-}
-
-func (o EntityParentGroupInfoResponseOutput) ToEntityParentGroupInfoResponseOutput() EntityParentGroupInfoResponseOutput {
-	return o
-}
-
-func (o EntityParentGroupInfoResponseOutput) ToEntityParentGroupInfoResponseOutputWithContext(ctx context.Context) EntityParentGroupInfoResponseOutput {
-	return o
-}
-
-func (o EntityParentGroupInfoResponseOutput) ToEntityParentGroupInfoResponsePtrOutput() EntityParentGroupInfoResponsePtrOutput {
-	return o.ToEntityParentGroupInfoResponsePtrOutputWithContext(context.Background())
-}
-
-func (o EntityParentGroupInfoResponseOutput) ToEntityParentGroupInfoResponsePtrOutputWithContext(ctx context.Context) EntityParentGroupInfoResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v EntityParentGroupInfoResponse) *EntityParentGroupInfoResponse {
-		return &v
-	}).(EntityParentGroupInfoResponsePtrOutput)
-}
-
-func (o EntityParentGroupInfoResponseOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EntityParentGroupInfoResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
-}
-
-type EntityParentGroupInfoResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (EntityParentGroupInfoResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**EntityParentGroupInfoResponse)(nil)).Elem()
-}
-
-func (o EntityParentGroupInfoResponsePtrOutput) ToEntityParentGroupInfoResponsePtrOutput() EntityParentGroupInfoResponsePtrOutput {
-	return o
-}
-
-func (o EntityParentGroupInfoResponsePtrOutput) ToEntityParentGroupInfoResponsePtrOutputWithContext(ctx context.Context) EntityParentGroupInfoResponsePtrOutput {
-	return o
-}
-
-func (o EntityParentGroupInfoResponsePtrOutput) Elem() EntityParentGroupInfoResponseOutput {
-	return o.ApplyT(func(v *EntityParentGroupInfoResponse) EntityParentGroupInfoResponse {
-		if v != nil {
-			return *v
-		}
-		var ret EntityParentGroupInfoResponse
-		return ret
-	}).(EntityParentGroupInfoResponseOutput)
-}
-
-func (o EntityParentGroupInfoResponsePtrOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *EntityParentGroupInfoResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Id
-	}).(pulumi.StringPtrOutput)
 }
 
 type ManagementGroupChildInfoResponse struct {
@@ -714,62 +357,6 @@ type ManagementGroupChildInfoResponse struct {
 	Id          *string                            `pulumi:"id"`
 	Name        *string                            `pulumi:"name"`
 	Type        *string                            `pulumi:"type"`
-}
-
-
-
-
-
-type ManagementGroupChildInfoResponseInput interface {
-	pulumi.Input
-
-	ToManagementGroupChildInfoResponseOutput() ManagementGroupChildInfoResponseOutput
-	ToManagementGroupChildInfoResponseOutputWithContext(context.Context) ManagementGroupChildInfoResponseOutput
-}
-
-type ManagementGroupChildInfoResponseArgs struct {
-	Children    ManagementGroupChildInfoResponseArrayInput `pulumi:"children"`
-	DisplayName pulumi.StringPtrInput                      `pulumi:"displayName"`
-	Id          pulumi.StringPtrInput                      `pulumi:"id"`
-	Name        pulumi.StringPtrInput                      `pulumi:"name"`
-	Type        pulumi.StringPtrInput                      `pulumi:"type"`
-}
-
-func (ManagementGroupChildInfoResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagementGroupChildInfoResponse)(nil)).Elem()
-}
-
-func (i ManagementGroupChildInfoResponseArgs) ToManagementGroupChildInfoResponseOutput() ManagementGroupChildInfoResponseOutput {
-	return i.ToManagementGroupChildInfoResponseOutputWithContext(context.Background())
-}
-
-func (i ManagementGroupChildInfoResponseArgs) ToManagementGroupChildInfoResponseOutputWithContext(ctx context.Context) ManagementGroupChildInfoResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagementGroupChildInfoResponseOutput)
-}
-
-
-
-
-
-type ManagementGroupChildInfoResponseArrayInput interface {
-	pulumi.Input
-
-	ToManagementGroupChildInfoResponseArrayOutput() ManagementGroupChildInfoResponseArrayOutput
-	ToManagementGroupChildInfoResponseArrayOutputWithContext(context.Context) ManagementGroupChildInfoResponseArrayOutput
-}
-
-type ManagementGroupChildInfoResponseArray []ManagementGroupChildInfoResponseInput
-
-func (ManagementGroupChildInfoResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ManagementGroupChildInfoResponse)(nil)).Elem()
-}
-
-func (i ManagementGroupChildInfoResponseArray) ToManagementGroupChildInfoResponseArrayOutput() ManagementGroupChildInfoResponseArrayOutput {
-	return i.ToManagementGroupChildInfoResponseArrayOutputWithContext(context.Background())
-}
-
-func (i ManagementGroupChildInfoResponseArray) ToManagementGroupChildInfoResponseArrayOutputWithContext(ctx context.Context) ManagementGroupChildInfoResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagementGroupChildInfoResponseArrayOutput)
 }
 
 type ManagementGroupChildInfoResponseOutput struct{ *pulumi.OutputState }
@@ -835,79 +422,6 @@ type ManagementGroupDetailsResponse struct {
 	Version                  *float64                             `pulumi:"version"`
 }
 
-
-
-
-
-type ManagementGroupDetailsResponseInput interface {
-	pulumi.Input
-
-	ToManagementGroupDetailsResponseOutput() ManagementGroupDetailsResponseOutput
-	ToManagementGroupDetailsResponseOutputWithContext(context.Context) ManagementGroupDetailsResponseOutput
-}
-
-type ManagementGroupDetailsResponseArgs struct {
-	ManagementGroupAncestors pulumi.StringArrayInput                      `pulumi:"managementGroupAncestors"`
-	Parent                   ParentGroupInfoResponsePtrInput              `pulumi:"parent"`
-	Path                     ManagementGroupPathElementResponseArrayInput `pulumi:"path"`
-	UpdatedBy                pulumi.StringPtrInput                        `pulumi:"updatedBy"`
-	UpdatedTime              pulumi.StringPtrInput                        `pulumi:"updatedTime"`
-	Version                  pulumi.Float64PtrInput                       `pulumi:"version"`
-}
-
-func (ManagementGroupDetailsResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagementGroupDetailsResponse)(nil)).Elem()
-}
-
-func (i ManagementGroupDetailsResponseArgs) ToManagementGroupDetailsResponseOutput() ManagementGroupDetailsResponseOutput {
-	return i.ToManagementGroupDetailsResponseOutputWithContext(context.Background())
-}
-
-func (i ManagementGroupDetailsResponseArgs) ToManagementGroupDetailsResponseOutputWithContext(ctx context.Context) ManagementGroupDetailsResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagementGroupDetailsResponseOutput)
-}
-
-func (i ManagementGroupDetailsResponseArgs) ToManagementGroupDetailsResponsePtrOutput() ManagementGroupDetailsResponsePtrOutput {
-	return i.ToManagementGroupDetailsResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ManagementGroupDetailsResponseArgs) ToManagementGroupDetailsResponsePtrOutputWithContext(ctx context.Context) ManagementGroupDetailsResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagementGroupDetailsResponseOutput).ToManagementGroupDetailsResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type ManagementGroupDetailsResponsePtrInput interface {
-	pulumi.Input
-
-	ToManagementGroupDetailsResponsePtrOutput() ManagementGroupDetailsResponsePtrOutput
-	ToManagementGroupDetailsResponsePtrOutputWithContext(context.Context) ManagementGroupDetailsResponsePtrOutput
-}
-
-type managementGroupDetailsResponsePtrType ManagementGroupDetailsResponseArgs
-
-func ManagementGroupDetailsResponsePtr(v *ManagementGroupDetailsResponseArgs) ManagementGroupDetailsResponsePtrInput {
-	return (*managementGroupDetailsResponsePtrType)(v)
-}
-
-func (*managementGroupDetailsResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ManagementGroupDetailsResponse)(nil)).Elem()
-}
-
-func (i *managementGroupDetailsResponsePtrType) ToManagementGroupDetailsResponsePtrOutput() ManagementGroupDetailsResponsePtrOutput {
-	return i.ToManagementGroupDetailsResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *managementGroupDetailsResponsePtrType) ToManagementGroupDetailsResponsePtrOutputWithContext(ctx context.Context) ManagementGroupDetailsResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagementGroupDetailsResponsePtrOutput)
-}
-
 type ManagementGroupDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (ManagementGroupDetailsResponseOutput) ElementType() reflect.Type {
@@ -920,16 +434,6 @@ func (o ManagementGroupDetailsResponseOutput) ToManagementGroupDetailsResponseOu
 
 func (o ManagementGroupDetailsResponseOutput) ToManagementGroupDetailsResponseOutputWithContext(ctx context.Context) ManagementGroupDetailsResponseOutput {
 	return o
-}
-
-func (o ManagementGroupDetailsResponseOutput) ToManagementGroupDetailsResponsePtrOutput() ManagementGroupDetailsResponsePtrOutput {
-	return o.ToManagementGroupDetailsResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ManagementGroupDetailsResponseOutput) ToManagementGroupDetailsResponsePtrOutputWithContext(ctx context.Context) ManagementGroupDetailsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagementGroupDetailsResponse) *ManagementGroupDetailsResponse {
-		return &v
-	}).(ManagementGroupDetailsResponsePtrOutput)
 }
 
 func (o ManagementGroupDetailsResponseOutput) ManagementGroupAncestors() pulumi.StringArrayOutput {
@@ -1039,59 +543,6 @@ type ManagementGroupPathElementResponse struct {
 	Name        *string `pulumi:"name"`
 }
 
-
-
-
-
-type ManagementGroupPathElementResponseInput interface {
-	pulumi.Input
-
-	ToManagementGroupPathElementResponseOutput() ManagementGroupPathElementResponseOutput
-	ToManagementGroupPathElementResponseOutputWithContext(context.Context) ManagementGroupPathElementResponseOutput
-}
-
-type ManagementGroupPathElementResponseArgs struct {
-	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
-	Name        pulumi.StringPtrInput `pulumi:"name"`
-}
-
-func (ManagementGroupPathElementResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagementGroupPathElementResponse)(nil)).Elem()
-}
-
-func (i ManagementGroupPathElementResponseArgs) ToManagementGroupPathElementResponseOutput() ManagementGroupPathElementResponseOutput {
-	return i.ToManagementGroupPathElementResponseOutputWithContext(context.Background())
-}
-
-func (i ManagementGroupPathElementResponseArgs) ToManagementGroupPathElementResponseOutputWithContext(ctx context.Context) ManagementGroupPathElementResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagementGroupPathElementResponseOutput)
-}
-
-
-
-
-
-type ManagementGroupPathElementResponseArrayInput interface {
-	pulumi.Input
-
-	ToManagementGroupPathElementResponseArrayOutput() ManagementGroupPathElementResponseArrayOutput
-	ToManagementGroupPathElementResponseArrayOutputWithContext(context.Context) ManagementGroupPathElementResponseArrayOutput
-}
-
-type ManagementGroupPathElementResponseArray []ManagementGroupPathElementResponseInput
-
-func (ManagementGroupPathElementResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ManagementGroupPathElementResponse)(nil)).Elem()
-}
-
-func (i ManagementGroupPathElementResponseArray) ToManagementGroupPathElementResponseArrayOutput() ManagementGroupPathElementResponseArrayOutput {
-	return i.ToManagementGroupPathElementResponseArrayOutputWithContext(context.Background())
-}
-
-func (i ManagementGroupPathElementResponseArray) ToManagementGroupPathElementResponseArrayOutputWithContext(ctx context.Context) ManagementGroupPathElementResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagementGroupPathElementResponseArrayOutput)
-}
-
 type ManagementGroupPathElementResponseOutput struct{ *pulumi.OutputState }
 
 func (ManagementGroupPathElementResponseOutput) ElementType() reflect.Type {
@@ -1140,76 +591,6 @@ type ParentGroupInfoResponse struct {
 	Name        *string `pulumi:"name"`
 }
 
-
-
-
-
-type ParentGroupInfoResponseInput interface {
-	pulumi.Input
-
-	ToParentGroupInfoResponseOutput() ParentGroupInfoResponseOutput
-	ToParentGroupInfoResponseOutputWithContext(context.Context) ParentGroupInfoResponseOutput
-}
-
-type ParentGroupInfoResponseArgs struct {
-	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
-	Id          pulumi.StringPtrInput `pulumi:"id"`
-	Name        pulumi.StringPtrInput `pulumi:"name"`
-}
-
-func (ParentGroupInfoResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ParentGroupInfoResponse)(nil)).Elem()
-}
-
-func (i ParentGroupInfoResponseArgs) ToParentGroupInfoResponseOutput() ParentGroupInfoResponseOutput {
-	return i.ToParentGroupInfoResponseOutputWithContext(context.Background())
-}
-
-func (i ParentGroupInfoResponseArgs) ToParentGroupInfoResponseOutputWithContext(ctx context.Context) ParentGroupInfoResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ParentGroupInfoResponseOutput)
-}
-
-func (i ParentGroupInfoResponseArgs) ToParentGroupInfoResponsePtrOutput() ParentGroupInfoResponsePtrOutput {
-	return i.ToParentGroupInfoResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ParentGroupInfoResponseArgs) ToParentGroupInfoResponsePtrOutputWithContext(ctx context.Context) ParentGroupInfoResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ParentGroupInfoResponseOutput).ToParentGroupInfoResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type ParentGroupInfoResponsePtrInput interface {
-	pulumi.Input
-
-	ToParentGroupInfoResponsePtrOutput() ParentGroupInfoResponsePtrOutput
-	ToParentGroupInfoResponsePtrOutputWithContext(context.Context) ParentGroupInfoResponsePtrOutput
-}
-
-type parentGroupInfoResponsePtrType ParentGroupInfoResponseArgs
-
-func ParentGroupInfoResponsePtr(v *ParentGroupInfoResponseArgs) ParentGroupInfoResponsePtrInput {
-	return (*parentGroupInfoResponsePtrType)(v)
-}
-
-func (*parentGroupInfoResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ParentGroupInfoResponse)(nil)).Elem()
-}
-
-func (i *parentGroupInfoResponsePtrType) ToParentGroupInfoResponsePtrOutput() ParentGroupInfoResponsePtrOutput {
-	return i.ToParentGroupInfoResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *parentGroupInfoResponsePtrType) ToParentGroupInfoResponsePtrOutputWithContext(ctx context.Context) ParentGroupInfoResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ParentGroupInfoResponsePtrOutput)
-}
-
 type ParentGroupInfoResponseOutput struct{ *pulumi.OutputState }
 
 func (ParentGroupInfoResponseOutput) ElementType() reflect.Type {
@@ -1222,16 +603,6 @@ func (o ParentGroupInfoResponseOutput) ToParentGroupInfoResponseOutput() ParentG
 
 func (o ParentGroupInfoResponseOutput) ToParentGroupInfoResponseOutputWithContext(ctx context.Context) ParentGroupInfoResponseOutput {
 	return o
-}
-
-func (o ParentGroupInfoResponseOutput) ToParentGroupInfoResponsePtrOutput() ParentGroupInfoResponsePtrOutput {
-	return o.ToParentGroupInfoResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ParentGroupInfoResponseOutput) ToParentGroupInfoResponsePtrOutputWithContext(ctx context.Context) ParentGroupInfoResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ParentGroupInfoResponse) *ParentGroupInfoResponse {
-		return &v
-	}).(ParentGroupInfoResponsePtrOutput)
 }
 
 func (o ParentGroupInfoResponseOutput) DisplayName() pulumi.StringPtrOutput {
@@ -1304,10 +675,6 @@ func init() {
 	pulumi.RegisterOutputType(CreateParentGroupInfoPtrOutput{})
 	pulumi.RegisterOutputType(DescendantParentGroupInfoResponseOutput{})
 	pulumi.RegisterOutputType(DescendantParentGroupInfoResponsePtrOutput{})
-	pulumi.RegisterOutputType(EntityInfoResponseOutput{})
-	pulumi.RegisterOutputType(EntityInfoResponseArrayOutput{})
-	pulumi.RegisterOutputType(EntityParentGroupInfoResponseOutput{})
-	pulumi.RegisterOutputType(EntityParentGroupInfoResponsePtrOutput{})
 	pulumi.RegisterOutputType(ManagementGroupChildInfoResponseOutput{})
 	pulumi.RegisterOutputType(ManagementGroupChildInfoResponseArrayOutput{})
 	pulumi.RegisterOutputType(ManagementGroupDetailsResponseOutput{})

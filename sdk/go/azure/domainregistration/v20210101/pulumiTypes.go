@@ -265,47 +265,6 @@ func (i ContactArgs) ToContactOutputWithContext(ctx context.Context) ContactOutp
 	return pulumi.ToOutputWithContext(ctx, i).(ContactOutput)
 }
 
-func (i ContactArgs) ToContactPtrOutput() ContactPtrOutput {
-	return i.ToContactPtrOutputWithContext(context.Background())
-}
-
-func (i ContactArgs) ToContactPtrOutputWithContext(ctx context.Context) ContactPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ContactOutput).ToContactPtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type ContactPtrInput interface {
-	pulumi.Input
-
-	ToContactPtrOutput() ContactPtrOutput
-	ToContactPtrOutputWithContext(context.Context) ContactPtrOutput
-}
-
-type contactPtrType ContactArgs
-
-func ContactPtr(v *ContactArgs) ContactPtrInput {
-	return (*contactPtrType)(v)
-}
-
-func (*contactPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**Contact)(nil)).Elem()
-}
-
-func (i *contactPtrType) ToContactPtrOutput() ContactPtrOutput {
-	return i.ToContactPtrOutputWithContext(context.Background())
-}
-
-func (i *contactPtrType) ToContactPtrOutputWithContext(ctx context.Context) ContactPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ContactPtrOutput)
-}
-
 type ContactOutput struct{ *pulumi.OutputState }
 
 func (ContactOutput) ElementType() reflect.Type {
@@ -318,16 +277,6 @@ func (o ContactOutput) ToContactOutput() ContactOutput {
 
 func (o ContactOutput) ToContactOutputWithContext(ctx context.Context) ContactOutput {
 	return o
-}
-
-func (o ContactOutput) ToContactPtrOutput() ContactPtrOutput {
-	return o.ToContactPtrOutputWithContext(context.Background())
-}
-
-func (o ContactOutput) ToContactPtrOutputWithContext(ctx context.Context) ContactPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Contact) *Contact {
-		return &v
-	}).(ContactPtrOutput)
 }
 
 func (o ContactOutput) AddressMailing() AddressPtrOutput {
@@ -366,111 +315,6 @@ func (o ContactOutput) Phone() pulumi.StringOutput {
 	return o.ApplyT(func(v Contact) string { return v.Phone }).(pulumi.StringOutput)
 }
 
-type ContactPtrOutput struct{ *pulumi.OutputState }
-
-func (ContactPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Contact)(nil)).Elem()
-}
-
-func (o ContactPtrOutput) ToContactPtrOutput() ContactPtrOutput {
-	return o
-}
-
-func (o ContactPtrOutput) ToContactPtrOutputWithContext(ctx context.Context) ContactPtrOutput {
-	return o
-}
-
-func (o ContactPtrOutput) Elem() ContactOutput {
-	return o.ApplyT(func(v *Contact) Contact {
-		if v != nil {
-			return *v
-		}
-		var ret Contact
-		return ret
-	}).(ContactOutput)
-}
-
-func (o ContactPtrOutput) AddressMailing() AddressPtrOutput {
-	return o.ApplyT(func(v *Contact) *Address {
-		if v == nil {
-			return nil
-		}
-		return v.AddressMailing
-	}).(AddressPtrOutput)
-}
-
-func (o ContactPtrOutput) Email() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Contact) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Email
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ContactPtrOutput) Fax() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Contact) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Fax
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ContactPtrOutput) JobTitle() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Contact) *string {
-		if v == nil {
-			return nil
-		}
-		return v.JobTitle
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ContactPtrOutput) NameFirst() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Contact) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.NameFirst
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ContactPtrOutput) NameLast() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Contact) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.NameLast
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ContactPtrOutput) NameMiddle() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Contact) *string {
-		if v == nil {
-			return nil
-		}
-		return v.NameMiddle
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ContactPtrOutput) Organization() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Contact) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Organization
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ContactPtrOutput) Phone() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Contact) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Phone
-	}).(pulumi.StringPtrOutput)
-}
-
 type DomainPurchaseConsent struct {
 	AgreedAt      *string  `pulumi:"agreedAt"`
 	AgreedBy      *string  `pulumi:"agreedBy"`
@@ -506,47 +350,6 @@ func (i DomainPurchaseConsentArgs) ToDomainPurchaseConsentOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(DomainPurchaseConsentOutput)
 }
 
-func (i DomainPurchaseConsentArgs) ToDomainPurchaseConsentPtrOutput() DomainPurchaseConsentPtrOutput {
-	return i.ToDomainPurchaseConsentPtrOutputWithContext(context.Background())
-}
-
-func (i DomainPurchaseConsentArgs) ToDomainPurchaseConsentPtrOutputWithContext(ctx context.Context) DomainPurchaseConsentPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DomainPurchaseConsentOutput).ToDomainPurchaseConsentPtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type DomainPurchaseConsentPtrInput interface {
-	pulumi.Input
-
-	ToDomainPurchaseConsentPtrOutput() DomainPurchaseConsentPtrOutput
-	ToDomainPurchaseConsentPtrOutputWithContext(context.Context) DomainPurchaseConsentPtrOutput
-}
-
-type domainPurchaseConsentPtrType DomainPurchaseConsentArgs
-
-func DomainPurchaseConsentPtr(v *DomainPurchaseConsentArgs) DomainPurchaseConsentPtrInput {
-	return (*domainPurchaseConsentPtrType)(v)
-}
-
-func (*domainPurchaseConsentPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DomainPurchaseConsent)(nil)).Elem()
-}
-
-func (i *domainPurchaseConsentPtrType) ToDomainPurchaseConsentPtrOutput() DomainPurchaseConsentPtrOutput {
-	return i.ToDomainPurchaseConsentPtrOutputWithContext(context.Background())
-}
-
-func (i *domainPurchaseConsentPtrType) ToDomainPurchaseConsentPtrOutputWithContext(ctx context.Context) DomainPurchaseConsentPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DomainPurchaseConsentPtrOutput)
-}
-
 type DomainPurchaseConsentOutput struct{ *pulumi.OutputState }
 
 func (DomainPurchaseConsentOutput) ElementType() reflect.Type {
@@ -561,16 +364,6 @@ func (o DomainPurchaseConsentOutput) ToDomainPurchaseConsentOutputWithContext(ct
 	return o
 }
 
-func (o DomainPurchaseConsentOutput) ToDomainPurchaseConsentPtrOutput() DomainPurchaseConsentPtrOutput {
-	return o.ToDomainPurchaseConsentPtrOutputWithContext(context.Background())
-}
-
-func (o DomainPurchaseConsentOutput) ToDomainPurchaseConsentPtrOutputWithContext(ctx context.Context) DomainPurchaseConsentPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainPurchaseConsent) *DomainPurchaseConsent {
-		return &v
-	}).(DomainPurchaseConsentPtrOutput)
-}
-
 func (o DomainPurchaseConsentOutput) AgreedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainPurchaseConsent) *string { return v.AgreedAt }).(pulumi.StringPtrOutput)
 }
@@ -583,57 +376,6 @@ func (o DomainPurchaseConsentOutput) AgreementKeys() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DomainPurchaseConsent) []string { return v.AgreementKeys }).(pulumi.StringArrayOutput)
 }
 
-type DomainPurchaseConsentPtrOutput struct{ *pulumi.OutputState }
-
-func (DomainPurchaseConsentPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DomainPurchaseConsent)(nil)).Elem()
-}
-
-func (o DomainPurchaseConsentPtrOutput) ToDomainPurchaseConsentPtrOutput() DomainPurchaseConsentPtrOutput {
-	return o
-}
-
-func (o DomainPurchaseConsentPtrOutput) ToDomainPurchaseConsentPtrOutputWithContext(ctx context.Context) DomainPurchaseConsentPtrOutput {
-	return o
-}
-
-func (o DomainPurchaseConsentPtrOutput) Elem() DomainPurchaseConsentOutput {
-	return o.ApplyT(func(v *DomainPurchaseConsent) DomainPurchaseConsent {
-		if v != nil {
-			return *v
-		}
-		var ret DomainPurchaseConsent
-		return ret
-	}).(DomainPurchaseConsentOutput)
-}
-
-func (o DomainPurchaseConsentPtrOutput) AgreedAt() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DomainPurchaseConsent) *string {
-		if v == nil {
-			return nil
-		}
-		return v.AgreedAt
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o DomainPurchaseConsentPtrOutput) AgreedBy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DomainPurchaseConsent) *string {
-		if v == nil {
-			return nil
-		}
-		return v.AgreedBy
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o DomainPurchaseConsentPtrOutput) AgreementKeys() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *DomainPurchaseConsent) []string {
-		if v == nil {
-			return nil
-		}
-		return v.AgreementKeys
-	}).(pulumi.StringArrayOutput)
-}
-
 type HostNameResponse struct {
 	AzureResourceName           *string  `pulumi:"azureResourceName"`
 	AzureResourceType           *string  `pulumi:"azureResourceType"`
@@ -641,63 +383,6 @@ type HostNameResponse struct {
 	HostNameType                *string  `pulumi:"hostNameType"`
 	Name                        *string  `pulumi:"name"`
 	SiteNames                   []string `pulumi:"siteNames"`
-}
-
-
-
-
-
-type HostNameResponseInput interface {
-	pulumi.Input
-
-	ToHostNameResponseOutput() HostNameResponseOutput
-	ToHostNameResponseOutputWithContext(context.Context) HostNameResponseOutput
-}
-
-type HostNameResponseArgs struct {
-	AzureResourceName           pulumi.StringPtrInput   `pulumi:"azureResourceName"`
-	AzureResourceType           pulumi.StringPtrInput   `pulumi:"azureResourceType"`
-	CustomHostNameDnsRecordType pulumi.StringPtrInput   `pulumi:"customHostNameDnsRecordType"`
-	HostNameType                pulumi.StringPtrInput   `pulumi:"hostNameType"`
-	Name                        pulumi.StringPtrInput   `pulumi:"name"`
-	SiteNames                   pulumi.StringArrayInput `pulumi:"siteNames"`
-}
-
-func (HostNameResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*HostNameResponse)(nil)).Elem()
-}
-
-func (i HostNameResponseArgs) ToHostNameResponseOutput() HostNameResponseOutput {
-	return i.ToHostNameResponseOutputWithContext(context.Background())
-}
-
-func (i HostNameResponseArgs) ToHostNameResponseOutputWithContext(ctx context.Context) HostNameResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HostNameResponseOutput)
-}
-
-
-
-
-
-type HostNameResponseArrayInput interface {
-	pulumi.Input
-
-	ToHostNameResponseArrayOutput() HostNameResponseArrayOutput
-	ToHostNameResponseArrayOutputWithContext(context.Context) HostNameResponseArrayOutput
-}
-
-type HostNameResponseArray []HostNameResponseInput
-
-func (HostNameResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]HostNameResponse)(nil)).Elem()
-}
-
-func (i HostNameResponseArray) ToHostNameResponseArrayOutput() HostNameResponseArrayOutput {
-	return i.ToHostNameResponseArrayOutputWithContext(context.Background())
-}
-
-func (i HostNameResponseArray) ToHostNameResponseArrayOutputWithContext(ctx context.Context) HostNameResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HostNameResponseArrayOutput)
 }
 
 type HostNameResponseOutput struct{ *pulumi.OutputState }
@@ -762,96 +447,6 @@ type NameIdentifierResponse struct {
 	Name *string `pulumi:"name"`
 }
 
-
-
-
-
-type NameIdentifierResponseInput interface {
-	pulumi.Input
-
-	ToNameIdentifierResponseOutput() NameIdentifierResponseOutput
-	ToNameIdentifierResponseOutputWithContext(context.Context) NameIdentifierResponseOutput
-}
-
-type NameIdentifierResponseArgs struct {
-	Name pulumi.StringPtrInput `pulumi:"name"`
-}
-
-func (NameIdentifierResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*NameIdentifierResponse)(nil)).Elem()
-}
-
-func (i NameIdentifierResponseArgs) ToNameIdentifierResponseOutput() NameIdentifierResponseOutput {
-	return i.ToNameIdentifierResponseOutputWithContext(context.Background())
-}
-
-func (i NameIdentifierResponseArgs) ToNameIdentifierResponseOutputWithContext(ctx context.Context) NameIdentifierResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NameIdentifierResponseOutput)
-}
-
-
-
-
-
-type NameIdentifierResponseArrayInput interface {
-	pulumi.Input
-
-	ToNameIdentifierResponseArrayOutput() NameIdentifierResponseArrayOutput
-	ToNameIdentifierResponseArrayOutputWithContext(context.Context) NameIdentifierResponseArrayOutput
-}
-
-type NameIdentifierResponseArray []NameIdentifierResponseInput
-
-func (NameIdentifierResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]NameIdentifierResponse)(nil)).Elem()
-}
-
-func (i NameIdentifierResponseArray) ToNameIdentifierResponseArrayOutput() NameIdentifierResponseArrayOutput {
-	return i.ToNameIdentifierResponseArrayOutputWithContext(context.Background())
-}
-
-func (i NameIdentifierResponseArray) ToNameIdentifierResponseArrayOutputWithContext(ctx context.Context) NameIdentifierResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NameIdentifierResponseArrayOutput)
-}
-
-type NameIdentifierResponseOutput struct{ *pulumi.OutputState }
-
-func (NameIdentifierResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NameIdentifierResponse)(nil)).Elem()
-}
-
-func (o NameIdentifierResponseOutput) ToNameIdentifierResponseOutput() NameIdentifierResponseOutput {
-	return o
-}
-
-func (o NameIdentifierResponseOutput) ToNameIdentifierResponseOutputWithContext(ctx context.Context) NameIdentifierResponseOutput {
-	return o
-}
-
-func (o NameIdentifierResponseOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v NameIdentifierResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
-}
-
-type NameIdentifierResponseArrayOutput struct{ *pulumi.OutputState }
-
-func (NameIdentifierResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]NameIdentifierResponse)(nil)).Elem()
-}
-
-func (o NameIdentifierResponseArrayOutput) ToNameIdentifierResponseArrayOutput() NameIdentifierResponseArrayOutput {
-	return o
-}
-
-func (o NameIdentifierResponseArrayOutput) ToNameIdentifierResponseArrayOutputWithContext(ctx context.Context) NameIdentifierResponseArrayOutput {
-	return o
-}
-
-func (o NameIdentifierResponseArrayOutput) Index(i pulumi.IntInput) NameIdentifierResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NameIdentifierResponse {
-		return vs[0].([]NameIdentifierResponse)[vs[1].(int)]
-	}).(NameIdentifierResponseOutput)
-}
-
 type TldLegalAgreementResponse struct {
 	AgreementKey string  `pulumi:"agreementKey"`
 	Content      string  `pulumi:"content"`
@@ -859,122 +454,11 @@ type TldLegalAgreementResponse struct {
 	Url          *string `pulumi:"url"`
 }
 
-
-
-
-
-type TldLegalAgreementResponseInput interface {
-	pulumi.Input
-
-	ToTldLegalAgreementResponseOutput() TldLegalAgreementResponseOutput
-	ToTldLegalAgreementResponseOutputWithContext(context.Context) TldLegalAgreementResponseOutput
-}
-
-type TldLegalAgreementResponseArgs struct {
-	AgreementKey pulumi.StringInput    `pulumi:"agreementKey"`
-	Content      pulumi.StringInput    `pulumi:"content"`
-	Title        pulumi.StringInput    `pulumi:"title"`
-	Url          pulumi.StringPtrInput `pulumi:"url"`
-}
-
-func (TldLegalAgreementResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TldLegalAgreementResponse)(nil)).Elem()
-}
-
-func (i TldLegalAgreementResponseArgs) ToTldLegalAgreementResponseOutput() TldLegalAgreementResponseOutput {
-	return i.ToTldLegalAgreementResponseOutputWithContext(context.Background())
-}
-
-func (i TldLegalAgreementResponseArgs) ToTldLegalAgreementResponseOutputWithContext(ctx context.Context) TldLegalAgreementResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TldLegalAgreementResponseOutput)
-}
-
-
-
-
-
-type TldLegalAgreementResponseArrayInput interface {
-	pulumi.Input
-
-	ToTldLegalAgreementResponseArrayOutput() TldLegalAgreementResponseArrayOutput
-	ToTldLegalAgreementResponseArrayOutputWithContext(context.Context) TldLegalAgreementResponseArrayOutput
-}
-
-type TldLegalAgreementResponseArray []TldLegalAgreementResponseInput
-
-func (TldLegalAgreementResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TldLegalAgreementResponse)(nil)).Elem()
-}
-
-func (i TldLegalAgreementResponseArray) ToTldLegalAgreementResponseArrayOutput() TldLegalAgreementResponseArrayOutput {
-	return i.ToTldLegalAgreementResponseArrayOutputWithContext(context.Background())
-}
-
-func (i TldLegalAgreementResponseArray) ToTldLegalAgreementResponseArrayOutputWithContext(ctx context.Context) TldLegalAgreementResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TldLegalAgreementResponseArrayOutput)
-}
-
-type TldLegalAgreementResponseOutput struct{ *pulumi.OutputState }
-
-func (TldLegalAgreementResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TldLegalAgreementResponse)(nil)).Elem()
-}
-
-func (o TldLegalAgreementResponseOutput) ToTldLegalAgreementResponseOutput() TldLegalAgreementResponseOutput {
-	return o
-}
-
-func (o TldLegalAgreementResponseOutput) ToTldLegalAgreementResponseOutputWithContext(ctx context.Context) TldLegalAgreementResponseOutput {
-	return o
-}
-
-func (o TldLegalAgreementResponseOutput) AgreementKey() pulumi.StringOutput {
-	return o.ApplyT(func(v TldLegalAgreementResponse) string { return v.AgreementKey }).(pulumi.StringOutput)
-}
-
-func (o TldLegalAgreementResponseOutput) Content() pulumi.StringOutput {
-	return o.ApplyT(func(v TldLegalAgreementResponse) string { return v.Content }).(pulumi.StringOutput)
-}
-
-func (o TldLegalAgreementResponseOutput) Title() pulumi.StringOutput {
-	return o.ApplyT(func(v TldLegalAgreementResponse) string { return v.Title }).(pulumi.StringOutput)
-}
-
-func (o TldLegalAgreementResponseOutput) Url() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TldLegalAgreementResponse) *string { return v.Url }).(pulumi.StringPtrOutput)
-}
-
-type TldLegalAgreementResponseArrayOutput struct{ *pulumi.OutputState }
-
-func (TldLegalAgreementResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TldLegalAgreementResponse)(nil)).Elem()
-}
-
-func (o TldLegalAgreementResponseArrayOutput) ToTldLegalAgreementResponseArrayOutput() TldLegalAgreementResponseArrayOutput {
-	return o
-}
-
-func (o TldLegalAgreementResponseArrayOutput) ToTldLegalAgreementResponseArrayOutputWithContext(ctx context.Context) TldLegalAgreementResponseArrayOutput {
-	return o
-}
-
-func (o TldLegalAgreementResponseArrayOutput) Index(i pulumi.IntInput) TldLegalAgreementResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TldLegalAgreementResponse {
-		return vs[0].([]TldLegalAgreementResponse)[vs[1].(int)]
-	}).(TldLegalAgreementResponseOutput)
-}
-
 func init() {
 	pulumi.RegisterOutputType(AddressOutput{})
 	pulumi.RegisterOutputType(AddressPtrOutput{})
 	pulumi.RegisterOutputType(ContactOutput{})
-	pulumi.RegisterOutputType(ContactPtrOutput{})
 	pulumi.RegisterOutputType(DomainPurchaseConsentOutput{})
-	pulumi.RegisterOutputType(DomainPurchaseConsentPtrOutput{})
 	pulumi.RegisterOutputType(HostNameResponseOutput{})
 	pulumi.RegisterOutputType(HostNameResponseArrayOutput{})
-	pulumi.RegisterOutputType(NameIdentifierResponseOutput{})
-	pulumi.RegisterOutputType(NameIdentifierResponseArrayOutput{})
-	pulumi.RegisterOutputType(TldLegalAgreementResponseOutput{})
-	pulumi.RegisterOutputType(TldLegalAgreementResponseArrayOutput{})
 }

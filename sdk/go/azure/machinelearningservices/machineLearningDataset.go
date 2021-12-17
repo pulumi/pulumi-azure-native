@@ -45,8 +45,7 @@ func NewMachineLearningDataset(ctx *pulumi.Context,
 	if args.WorkspaceName == nil {
 		return nil, errors.New("invalid value for required argument 'WorkspaceName'")
 	}
-	parametersApplier := func(v DatasetCreateRequestParameters) *DatasetCreateRequestParameters { return v.Defaults() }
-	args.Parameters = args.Parameters.ToDatasetCreateRequestParametersOutput().ApplyT(parametersApplier).(DatasetCreateRequestParametersPtrOutput).Elem()
+	args.Parameters = args.Parameters.ToDatasetCreateRequestParametersOutput().ApplyT(func(v DatasetCreateRequestParameters) DatasetCreateRequestParameters { return *v.Defaults() }).(DatasetCreateRequestParametersOutput)
 	if isZero(args.SkipValidation) {
 		args.SkipValidation = pulumi.BoolPtr(false)
 	}

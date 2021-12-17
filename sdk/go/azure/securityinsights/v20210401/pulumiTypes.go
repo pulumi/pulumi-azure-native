@@ -17,77 +17,6 @@ type ClientInfoResponse struct {
 	UserPrincipalName *string `pulumi:"userPrincipalName"`
 }
 
-
-
-
-
-type ClientInfoResponseInput interface {
-	pulumi.Input
-
-	ToClientInfoResponseOutput() ClientInfoResponseOutput
-	ToClientInfoResponseOutputWithContext(context.Context) ClientInfoResponseOutput
-}
-
-type ClientInfoResponseArgs struct {
-	Email             pulumi.StringPtrInput `pulumi:"email"`
-	Name              pulumi.StringPtrInput `pulumi:"name"`
-	ObjectId          pulumi.StringPtrInput `pulumi:"objectId"`
-	UserPrincipalName pulumi.StringPtrInput `pulumi:"userPrincipalName"`
-}
-
-func (ClientInfoResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClientInfoResponse)(nil)).Elem()
-}
-
-func (i ClientInfoResponseArgs) ToClientInfoResponseOutput() ClientInfoResponseOutput {
-	return i.ToClientInfoResponseOutputWithContext(context.Background())
-}
-
-func (i ClientInfoResponseArgs) ToClientInfoResponseOutputWithContext(ctx context.Context) ClientInfoResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClientInfoResponseOutput)
-}
-
-func (i ClientInfoResponseArgs) ToClientInfoResponsePtrOutput() ClientInfoResponsePtrOutput {
-	return i.ToClientInfoResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ClientInfoResponseArgs) ToClientInfoResponsePtrOutputWithContext(ctx context.Context) ClientInfoResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClientInfoResponseOutput).ToClientInfoResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type ClientInfoResponsePtrInput interface {
-	pulumi.Input
-
-	ToClientInfoResponsePtrOutput() ClientInfoResponsePtrOutput
-	ToClientInfoResponsePtrOutputWithContext(context.Context) ClientInfoResponsePtrOutput
-}
-
-type clientInfoResponsePtrType ClientInfoResponseArgs
-
-func ClientInfoResponsePtr(v *ClientInfoResponseArgs) ClientInfoResponsePtrInput {
-	return (*clientInfoResponsePtrType)(v)
-}
-
-func (*clientInfoResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ClientInfoResponse)(nil)).Elem()
-}
-
-func (i *clientInfoResponsePtrType) ToClientInfoResponsePtrOutput() ClientInfoResponsePtrOutput {
-	return i.ToClientInfoResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *clientInfoResponsePtrType) ToClientInfoResponsePtrOutputWithContext(ctx context.Context) ClientInfoResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClientInfoResponsePtrOutput)
-}
-
 type ClientInfoResponseOutput struct{ *pulumi.OutputState }
 
 func (ClientInfoResponseOutput) ElementType() reflect.Type {
@@ -100,16 +29,6 @@ func (o ClientInfoResponseOutput) ToClientInfoResponseOutput() ClientInfoRespons
 
 func (o ClientInfoResponseOutput) ToClientInfoResponseOutputWithContext(ctx context.Context) ClientInfoResponseOutput {
 	return o
-}
-
-func (o ClientInfoResponseOutput) ToClientInfoResponsePtrOutput() ClientInfoResponsePtrOutput {
-	return o.ToClientInfoResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ClientInfoResponseOutput) ToClientInfoResponsePtrOutputWithContext(ctx context.Context) ClientInfoResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClientInfoResponse) *ClientInfoResponse {
-		return &v
-	}).(ClientInfoResponsePtrOutput)
 }
 
 func (o ClientInfoResponseOutput) Email() pulumi.StringPtrOutput {
@@ -128,144 +47,12 @@ func (o ClientInfoResponseOutput) UserPrincipalName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClientInfoResponse) *string { return v.UserPrincipalName }).(pulumi.StringPtrOutput)
 }
 
-type ClientInfoResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (ClientInfoResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ClientInfoResponse)(nil)).Elem()
-}
-
-func (o ClientInfoResponsePtrOutput) ToClientInfoResponsePtrOutput() ClientInfoResponsePtrOutput {
-	return o
-}
-
-func (o ClientInfoResponsePtrOutput) ToClientInfoResponsePtrOutputWithContext(ctx context.Context) ClientInfoResponsePtrOutput {
-	return o
-}
-
-func (o ClientInfoResponsePtrOutput) Elem() ClientInfoResponseOutput {
-	return o.ApplyT(func(v *ClientInfoResponse) ClientInfoResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ClientInfoResponse
-		return ret
-	}).(ClientInfoResponseOutput)
-}
-
-func (o ClientInfoResponsePtrOutput) Email() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ClientInfoResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Email
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ClientInfoResponsePtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ClientInfoResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ClientInfoResponsePtrOutput) ObjectId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ClientInfoResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ObjectId
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ClientInfoResponsePtrOutput) UserPrincipalName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ClientInfoResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.UserPrincipalName
-	}).(pulumi.StringPtrOutput)
-}
-
 type IncidentAdditionalDataResponse struct {
 	AlertProductNames []string `pulumi:"alertProductNames"`
 	AlertsCount       int      `pulumi:"alertsCount"`
 	BookmarksCount    int      `pulumi:"bookmarksCount"`
 	CommentsCount     int      `pulumi:"commentsCount"`
 	Tactics           []string `pulumi:"tactics"`
-}
-
-
-
-
-
-type IncidentAdditionalDataResponseInput interface {
-	pulumi.Input
-
-	ToIncidentAdditionalDataResponseOutput() IncidentAdditionalDataResponseOutput
-	ToIncidentAdditionalDataResponseOutputWithContext(context.Context) IncidentAdditionalDataResponseOutput
-}
-
-type IncidentAdditionalDataResponseArgs struct {
-	AlertProductNames pulumi.StringArrayInput `pulumi:"alertProductNames"`
-	AlertsCount       pulumi.IntInput         `pulumi:"alertsCount"`
-	BookmarksCount    pulumi.IntInput         `pulumi:"bookmarksCount"`
-	CommentsCount     pulumi.IntInput         `pulumi:"commentsCount"`
-	Tactics           pulumi.StringArrayInput `pulumi:"tactics"`
-}
-
-func (IncidentAdditionalDataResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*IncidentAdditionalDataResponse)(nil)).Elem()
-}
-
-func (i IncidentAdditionalDataResponseArgs) ToIncidentAdditionalDataResponseOutput() IncidentAdditionalDataResponseOutput {
-	return i.ToIncidentAdditionalDataResponseOutputWithContext(context.Background())
-}
-
-func (i IncidentAdditionalDataResponseArgs) ToIncidentAdditionalDataResponseOutputWithContext(ctx context.Context) IncidentAdditionalDataResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IncidentAdditionalDataResponseOutput)
-}
-
-func (i IncidentAdditionalDataResponseArgs) ToIncidentAdditionalDataResponsePtrOutput() IncidentAdditionalDataResponsePtrOutput {
-	return i.ToIncidentAdditionalDataResponsePtrOutputWithContext(context.Background())
-}
-
-func (i IncidentAdditionalDataResponseArgs) ToIncidentAdditionalDataResponsePtrOutputWithContext(ctx context.Context) IncidentAdditionalDataResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IncidentAdditionalDataResponseOutput).ToIncidentAdditionalDataResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type IncidentAdditionalDataResponsePtrInput interface {
-	pulumi.Input
-
-	ToIncidentAdditionalDataResponsePtrOutput() IncidentAdditionalDataResponsePtrOutput
-	ToIncidentAdditionalDataResponsePtrOutputWithContext(context.Context) IncidentAdditionalDataResponsePtrOutput
-}
-
-type incidentAdditionalDataResponsePtrType IncidentAdditionalDataResponseArgs
-
-func IncidentAdditionalDataResponsePtr(v *IncidentAdditionalDataResponseArgs) IncidentAdditionalDataResponsePtrInput {
-	return (*incidentAdditionalDataResponsePtrType)(v)
-}
-
-func (*incidentAdditionalDataResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**IncidentAdditionalDataResponse)(nil)).Elem()
-}
-
-func (i *incidentAdditionalDataResponsePtrType) ToIncidentAdditionalDataResponsePtrOutput() IncidentAdditionalDataResponsePtrOutput {
-	return i.ToIncidentAdditionalDataResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *incidentAdditionalDataResponsePtrType) ToIncidentAdditionalDataResponsePtrOutputWithContext(ctx context.Context) IncidentAdditionalDataResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IncidentAdditionalDataResponsePtrOutput)
 }
 
 type IncidentAdditionalDataResponseOutput struct{ *pulumi.OutputState }
@@ -280,16 +67,6 @@ func (o IncidentAdditionalDataResponseOutput) ToIncidentAdditionalDataResponseOu
 
 func (o IncidentAdditionalDataResponseOutput) ToIncidentAdditionalDataResponseOutputWithContext(ctx context.Context) IncidentAdditionalDataResponseOutput {
 	return o
-}
-
-func (o IncidentAdditionalDataResponseOutput) ToIncidentAdditionalDataResponsePtrOutput() IncidentAdditionalDataResponsePtrOutput {
-	return o.ToIncidentAdditionalDataResponsePtrOutputWithContext(context.Background())
-}
-
-func (o IncidentAdditionalDataResponseOutput) ToIncidentAdditionalDataResponsePtrOutputWithContext(ctx context.Context) IncidentAdditionalDataResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v IncidentAdditionalDataResponse) *IncidentAdditionalDataResponse {
-		return &v
-	}).(IncidentAdditionalDataResponsePtrOutput)
 }
 
 func (o IncidentAdditionalDataResponseOutput) AlertProductNames() pulumi.StringArrayOutput {
@@ -310,75 +87,6 @@ func (o IncidentAdditionalDataResponseOutput) CommentsCount() pulumi.IntOutput {
 
 func (o IncidentAdditionalDataResponseOutput) Tactics() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v IncidentAdditionalDataResponse) []string { return v.Tactics }).(pulumi.StringArrayOutput)
-}
-
-type IncidentAdditionalDataResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (IncidentAdditionalDataResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**IncidentAdditionalDataResponse)(nil)).Elem()
-}
-
-func (o IncidentAdditionalDataResponsePtrOutput) ToIncidentAdditionalDataResponsePtrOutput() IncidentAdditionalDataResponsePtrOutput {
-	return o
-}
-
-func (o IncidentAdditionalDataResponsePtrOutput) ToIncidentAdditionalDataResponsePtrOutputWithContext(ctx context.Context) IncidentAdditionalDataResponsePtrOutput {
-	return o
-}
-
-func (o IncidentAdditionalDataResponsePtrOutput) Elem() IncidentAdditionalDataResponseOutput {
-	return o.ApplyT(func(v *IncidentAdditionalDataResponse) IncidentAdditionalDataResponse {
-		if v != nil {
-			return *v
-		}
-		var ret IncidentAdditionalDataResponse
-		return ret
-	}).(IncidentAdditionalDataResponseOutput)
-}
-
-func (o IncidentAdditionalDataResponsePtrOutput) AlertProductNames() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *IncidentAdditionalDataResponse) []string {
-		if v == nil {
-			return nil
-		}
-		return v.AlertProductNames
-	}).(pulumi.StringArrayOutput)
-}
-
-func (o IncidentAdditionalDataResponsePtrOutput) AlertsCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *IncidentAdditionalDataResponse) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.AlertsCount
-	}).(pulumi.IntPtrOutput)
-}
-
-func (o IncidentAdditionalDataResponsePtrOutput) BookmarksCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *IncidentAdditionalDataResponse) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.BookmarksCount
-	}).(pulumi.IntPtrOutput)
-}
-
-func (o IncidentAdditionalDataResponsePtrOutput) CommentsCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *IncidentAdditionalDataResponse) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.CommentsCount
-	}).(pulumi.IntPtrOutput)
-}
-
-func (o IncidentAdditionalDataResponsePtrOutput) Tactics() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *IncidentAdditionalDataResponse) []string {
-		if v == nil {
-			return nil
-		}
-		return v.Tactics
-	}).(pulumi.StringArrayOutput)
 }
 
 type IncidentLabel struct {
@@ -478,59 +186,6 @@ func (o IncidentLabelArrayOutput) Index(i pulumi.IntInput) IncidentLabelOutput {
 type IncidentLabelResponse struct {
 	LabelName string `pulumi:"labelName"`
 	LabelType string `pulumi:"labelType"`
-}
-
-
-
-
-
-type IncidentLabelResponseInput interface {
-	pulumi.Input
-
-	ToIncidentLabelResponseOutput() IncidentLabelResponseOutput
-	ToIncidentLabelResponseOutputWithContext(context.Context) IncidentLabelResponseOutput
-}
-
-type IncidentLabelResponseArgs struct {
-	LabelName pulumi.StringInput `pulumi:"labelName"`
-	LabelType pulumi.StringInput `pulumi:"labelType"`
-}
-
-func (IncidentLabelResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*IncidentLabelResponse)(nil)).Elem()
-}
-
-func (i IncidentLabelResponseArgs) ToIncidentLabelResponseOutput() IncidentLabelResponseOutput {
-	return i.ToIncidentLabelResponseOutputWithContext(context.Background())
-}
-
-func (i IncidentLabelResponseArgs) ToIncidentLabelResponseOutputWithContext(ctx context.Context) IncidentLabelResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IncidentLabelResponseOutput)
-}
-
-
-
-
-
-type IncidentLabelResponseArrayInput interface {
-	pulumi.Input
-
-	ToIncidentLabelResponseArrayOutput() IncidentLabelResponseArrayOutput
-	ToIncidentLabelResponseArrayOutputWithContext(context.Context) IncidentLabelResponseArrayOutput
-}
-
-type IncidentLabelResponseArray []IncidentLabelResponseInput
-
-func (IncidentLabelResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]IncidentLabelResponse)(nil)).Elem()
-}
-
-func (i IncidentLabelResponseArray) ToIncidentLabelResponseArrayOutput() IncidentLabelResponseArrayOutput {
-	return i.ToIncidentLabelResponseArrayOutputWithContext(context.Background())
-}
-
-func (i IncidentLabelResponseArray) ToIncidentLabelResponseArrayOutputWithContext(ctx context.Context) IncidentLabelResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IncidentLabelResponseArrayOutput)
 }
 
 type IncidentLabelResponseOutput struct{ *pulumi.OutputState }
@@ -760,77 +415,6 @@ type IncidentOwnerInfoResponse struct {
 	UserPrincipalName *string `pulumi:"userPrincipalName"`
 }
 
-
-
-
-
-type IncidentOwnerInfoResponseInput interface {
-	pulumi.Input
-
-	ToIncidentOwnerInfoResponseOutput() IncidentOwnerInfoResponseOutput
-	ToIncidentOwnerInfoResponseOutputWithContext(context.Context) IncidentOwnerInfoResponseOutput
-}
-
-type IncidentOwnerInfoResponseArgs struct {
-	AssignedTo        pulumi.StringPtrInput `pulumi:"assignedTo"`
-	Email             pulumi.StringPtrInput `pulumi:"email"`
-	ObjectId          pulumi.StringPtrInput `pulumi:"objectId"`
-	UserPrincipalName pulumi.StringPtrInput `pulumi:"userPrincipalName"`
-}
-
-func (IncidentOwnerInfoResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*IncidentOwnerInfoResponse)(nil)).Elem()
-}
-
-func (i IncidentOwnerInfoResponseArgs) ToIncidentOwnerInfoResponseOutput() IncidentOwnerInfoResponseOutput {
-	return i.ToIncidentOwnerInfoResponseOutputWithContext(context.Background())
-}
-
-func (i IncidentOwnerInfoResponseArgs) ToIncidentOwnerInfoResponseOutputWithContext(ctx context.Context) IncidentOwnerInfoResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IncidentOwnerInfoResponseOutput)
-}
-
-func (i IncidentOwnerInfoResponseArgs) ToIncidentOwnerInfoResponsePtrOutput() IncidentOwnerInfoResponsePtrOutput {
-	return i.ToIncidentOwnerInfoResponsePtrOutputWithContext(context.Background())
-}
-
-func (i IncidentOwnerInfoResponseArgs) ToIncidentOwnerInfoResponsePtrOutputWithContext(ctx context.Context) IncidentOwnerInfoResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IncidentOwnerInfoResponseOutput).ToIncidentOwnerInfoResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type IncidentOwnerInfoResponsePtrInput interface {
-	pulumi.Input
-
-	ToIncidentOwnerInfoResponsePtrOutput() IncidentOwnerInfoResponsePtrOutput
-	ToIncidentOwnerInfoResponsePtrOutputWithContext(context.Context) IncidentOwnerInfoResponsePtrOutput
-}
-
-type incidentOwnerInfoResponsePtrType IncidentOwnerInfoResponseArgs
-
-func IncidentOwnerInfoResponsePtr(v *IncidentOwnerInfoResponseArgs) IncidentOwnerInfoResponsePtrInput {
-	return (*incidentOwnerInfoResponsePtrType)(v)
-}
-
-func (*incidentOwnerInfoResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**IncidentOwnerInfoResponse)(nil)).Elem()
-}
-
-func (i *incidentOwnerInfoResponsePtrType) ToIncidentOwnerInfoResponsePtrOutput() IncidentOwnerInfoResponsePtrOutput {
-	return i.ToIncidentOwnerInfoResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *incidentOwnerInfoResponsePtrType) ToIncidentOwnerInfoResponsePtrOutputWithContext(ctx context.Context) IncidentOwnerInfoResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IncidentOwnerInfoResponsePtrOutput)
-}
-
 type IncidentOwnerInfoResponseOutput struct{ *pulumi.OutputState }
 
 func (IncidentOwnerInfoResponseOutput) ElementType() reflect.Type {
@@ -843,16 +427,6 @@ func (o IncidentOwnerInfoResponseOutput) ToIncidentOwnerInfoResponseOutput() Inc
 
 func (o IncidentOwnerInfoResponseOutput) ToIncidentOwnerInfoResponseOutputWithContext(ctx context.Context) IncidentOwnerInfoResponseOutput {
 	return o
-}
-
-func (o IncidentOwnerInfoResponseOutput) ToIncidentOwnerInfoResponsePtrOutput() IncidentOwnerInfoResponsePtrOutput {
-	return o.ToIncidentOwnerInfoResponsePtrOutputWithContext(context.Background())
-}
-
-func (o IncidentOwnerInfoResponseOutput) ToIncidentOwnerInfoResponsePtrOutputWithContext(ctx context.Context) IncidentOwnerInfoResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v IncidentOwnerInfoResponse) *IncidentOwnerInfoResponse {
-		return &v
-	}).(IncidentOwnerInfoResponsePtrOutput)
 }
 
 func (o IncidentOwnerInfoResponseOutput) AssignedTo() pulumi.StringPtrOutput {
@@ -940,79 +514,6 @@ type SystemDataResponse struct {
 	LastModifiedByType *string `pulumi:"lastModifiedByType"`
 }
 
-
-
-
-
-type SystemDataResponseInput interface {
-	pulumi.Input
-
-	ToSystemDataResponseOutput() SystemDataResponseOutput
-	ToSystemDataResponseOutputWithContext(context.Context) SystemDataResponseOutput
-}
-
-type SystemDataResponseArgs struct {
-	CreatedAt          pulumi.StringPtrInput `pulumi:"createdAt"`
-	CreatedBy          pulumi.StringPtrInput `pulumi:"createdBy"`
-	CreatedByType      pulumi.StringPtrInput `pulumi:"createdByType"`
-	LastModifiedAt     pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
-	LastModifiedBy     pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
-	LastModifiedByType pulumi.StringPtrInput `pulumi:"lastModifiedByType"`
-}
-
-func (SystemDataResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SystemDataResponse)(nil)).Elem()
-}
-
-func (i SystemDataResponseArgs) ToSystemDataResponseOutput() SystemDataResponseOutput {
-	return i.ToSystemDataResponseOutputWithContext(context.Background())
-}
-
-func (i SystemDataResponseArgs) ToSystemDataResponseOutputWithContext(ctx context.Context) SystemDataResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponseOutput)
-}
-
-func (i SystemDataResponseArgs) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
-	return i.ToSystemDataResponsePtrOutputWithContext(context.Background())
-}
-
-func (i SystemDataResponseArgs) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponseOutput).ToSystemDataResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type SystemDataResponsePtrInput interface {
-	pulumi.Input
-
-	ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput
-	ToSystemDataResponsePtrOutputWithContext(context.Context) SystemDataResponsePtrOutput
-}
-
-type systemDataResponsePtrType SystemDataResponseArgs
-
-func SystemDataResponsePtr(v *SystemDataResponseArgs) SystemDataResponsePtrInput {
-	return (*systemDataResponsePtrType)(v)
-}
-
-func (*systemDataResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SystemDataResponse)(nil)).Elem()
-}
-
-func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
-	return i.ToSystemDataResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponsePtrOutput)
-}
-
 type SystemDataResponseOutput struct{ *pulumi.OutputState }
 
 func (SystemDataResponseOutput) ElementType() reflect.Type {
@@ -1025,16 +526,6 @@ func (o SystemDataResponseOutput) ToSystemDataResponseOutput() SystemDataRespons
 
 func (o SystemDataResponseOutput) ToSystemDataResponseOutputWithContext(ctx context.Context) SystemDataResponseOutput {
 	return o
-}
-
-func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
-	return o.ToSystemDataResponsePtrOutputWithContext(context.Background())
-}
-
-func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SystemDataResponse) *SystemDataResponse {
-		return &v
-	}).(SystemDataResponsePtrOutput)
 }
 
 func (o SystemDataResponseOutput) CreatedAt() pulumi.StringPtrOutput {
@@ -1059,84 +550,6 @@ func (o SystemDataResponseOutput) LastModifiedBy() pulumi.StringPtrOutput {
 
 func (o SystemDataResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
-}
-
-type SystemDataResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (SystemDataResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SystemDataResponse)(nil)).Elem()
-}
-
-func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
-	return o
-}
-
-func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return o
-}
-
-func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
-	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse {
-		if v != nil {
-			return *v
-		}
-		var ret SystemDataResponse
-		return ret
-	}).(SystemDataResponseOutput)
-}
-
-func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SystemDataResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CreatedAt
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SystemDataResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CreatedBy
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SystemDataResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CreatedByType
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SystemDataResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.LastModifiedAt
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SystemDataResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.LastModifiedBy
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SystemDataResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.LastModifiedByType
-	}).(pulumi.StringPtrOutput)
 }
 
 type ThreatIntelligenceExternalReference struct {
@@ -1804,76 +1217,6 @@ type WatchlistUserInfoResponse struct {
 	ObjectId *string `pulumi:"objectId"`
 }
 
-
-
-
-
-type WatchlistUserInfoResponseInput interface {
-	pulumi.Input
-
-	ToWatchlistUserInfoResponseOutput() WatchlistUserInfoResponseOutput
-	ToWatchlistUserInfoResponseOutputWithContext(context.Context) WatchlistUserInfoResponseOutput
-}
-
-type WatchlistUserInfoResponseArgs struct {
-	Email    pulumi.StringInput    `pulumi:"email"`
-	Name     pulumi.StringInput    `pulumi:"name"`
-	ObjectId pulumi.StringPtrInput `pulumi:"objectId"`
-}
-
-func (WatchlistUserInfoResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WatchlistUserInfoResponse)(nil)).Elem()
-}
-
-func (i WatchlistUserInfoResponseArgs) ToWatchlistUserInfoResponseOutput() WatchlistUserInfoResponseOutput {
-	return i.ToWatchlistUserInfoResponseOutputWithContext(context.Background())
-}
-
-func (i WatchlistUserInfoResponseArgs) ToWatchlistUserInfoResponseOutputWithContext(ctx context.Context) WatchlistUserInfoResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WatchlistUserInfoResponseOutput)
-}
-
-func (i WatchlistUserInfoResponseArgs) ToWatchlistUserInfoResponsePtrOutput() WatchlistUserInfoResponsePtrOutput {
-	return i.ToWatchlistUserInfoResponsePtrOutputWithContext(context.Background())
-}
-
-func (i WatchlistUserInfoResponseArgs) ToWatchlistUserInfoResponsePtrOutputWithContext(ctx context.Context) WatchlistUserInfoResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WatchlistUserInfoResponseOutput).ToWatchlistUserInfoResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type WatchlistUserInfoResponsePtrInput interface {
-	pulumi.Input
-
-	ToWatchlistUserInfoResponsePtrOutput() WatchlistUserInfoResponsePtrOutput
-	ToWatchlistUserInfoResponsePtrOutputWithContext(context.Context) WatchlistUserInfoResponsePtrOutput
-}
-
-type watchlistUserInfoResponsePtrType WatchlistUserInfoResponseArgs
-
-func WatchlistUserInfoResponsePtr(v *WatchlistUserInfoResponseArgs) WatchlistUserInfoResponsePtrInput {
-	return (*watchlistUserInfoResponsePtrType)(v)
-}
-
-func (*watchlistUserInfoResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**WatchlistUserInfoResponse)(nil)).Elem()
-}
-
-func (i *watchlistUserInfoResponsePtrType) ToWatchlistUserInfoResponsePtrOutput() WatchlistUserInfoResponsePtrOutput {
-	return i.ToWatchlistUserInfoResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *watchlistUserInfoResponsePtrType) ToWatchlistUserInfoResponsePtrOutputWithContext(ctx context.Context) WatchlistUserInfoResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WatchlistUserInfoResponsePtrOutput)
-}
-
 type WatchlistUserInfoResponseOutput struct{ *pulumi.OutputState }
 
 func (WatchlistUserInfoResponseOutput) ElementType() reflect.Type {
@@ -1886,16 +1229,6 @@ func (o WatchlistUserInfoResponseOutput) ToWatchlistUserInfoResponseOutput() Wat
 
 func (o WatchlistUserInfoResponseOutput) ToWatchlistUserInfoResponseOutputWithContext(ctx context.Context) WatchlistUserInfoResponseOutput {
 	return o
-}
-
-func (o WatchlistUserInfoResponseOutput) ToWatchlistUserInfoResponsePtrOutput() WatchlistUserInfoResponsePtrOutput {
-	return o.ToWatchlistUserInfoResponsePtrOutputWithContext(context.Background())
-}
-
-func (o WatchlistUserInfoResponseOutput) ToWatchlistUserInfoResponsePtrOutputWithContext(ctx context.Context) WatchlistUserInfoResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WatchlistUserInfoResponse) *WatchlistUserInfoResponse {
-		return &v
-	}).(WatchlistUserInfoResponsePtrOutput)
 }
 
 func (o WatchlistUserInfoResponseOutput) Email() pulumi.StringOutput {
@@ -1963,9 +1296,7 @@ func (o WatchlistUserInfoResponsePtrOutput) ObjectId() pulumi.StringPtrOutput {
 
 func init() {
 	pulumi.RegisterOutputType(ClientInfoResponseOutput{})
-	pulumi.RegisterOutputType(ClientInfoResponsePtrOutput{})
 	pulumi.RegisterOutputType(IncidentAdditionalDataResponseOutput{})
-	pulumi.RegisterOutputType(IncidentAdditionalDataResponsePtrOutput{})
 	pulumi.RegisterOutputType(IncidentLabelOutput{})
 	pulumi.RegisterOutputType(IncidentLabelArrayOutput{})
 	pulumi.RegisterOutputType(IncidentLabelResponseOutput{})
@@ -1975,7 +1306,6 @@ func init() {
 	pulumi.RegisterOutputType(IncidentOwnerInfoResponseOutput{})
 	pulumi.RegisterOutputType(IncidentOwnerInfoResponsePtrOutput{})
 	pulumi.RegisterOutputType(SystemDataResponseOutput{})
-	pulumi.RegisterOutputType(SystemDataResponsePtrOutput{})
 	pulumi.RegisterOutputType(ThreatIntelligenceExternalReferenceOutput{})
 	pulumi.RegisterOutputType(ThreatIntelligenceExternalReferenceArrayOutput{})
 	pulumi.RegisterOutputType(ThreatIntelligenceGranularMarkingModelOutput{})

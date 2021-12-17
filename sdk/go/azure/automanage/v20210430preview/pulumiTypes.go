@@ -180,77 +180,6 @@ type ConfigurationProfileAssignmentPropertiesResponse struct {
 	TargetId             *string                `pulumi:"targetId"`
 }
 
-
-
-
-
-type ConfigurationProfileAssignmentPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToConfigurationProfileAssignmentPropertiesResponseOutput() ConfigurationProfileAssignmentPropertiesResponseOutput
-	ToConfigurationProfileAssignmentPropertiesResponseOutputWithContext(context.Context) ConfigurationProfileAssignmentPropertiesResponseOutput
-}
-
-type ConfigurationProfileAssignmentPropertiesResponseArgs struct {
-	ConfigurationProfile pulumi.StringPtrInput `pulumi:"configurationProfile"`
-	ProfileOverrides     pulumi.MapInput       `pulumi:"profileOverrides"`
-	Status               pulumi.StringInput    `pulumi:"status"`
-	TargetId             pulumi.StringPtrInput `pulumi:"targetId"`
-}
-
-func (ConfigurationProfileAssignmentPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConfigurationProfileAssignmentPropertiesResponse)(nil)).Elem()
-}
-
-func (i ConfigurationProfileAssignmentPropertiesResponseArgs) ToConfigurationProfileAssignmentPropertiesResponseOutput() ConfigurationProfileAssignmentPropertiesResponseOutput {
-	return i.ToConfigurationProfileAssignmentPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i ConfigurationProfileAssignmentPropertiesResponseArgs) ToConfigurationProfileAssignmentPropertiesResponseOutputWithContext(ctx context.Context) ConfigurationProfileAssignmentPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationProfileAssignmentPropertiesResponseOutput)
-}
-
-func (i ConfigurationProfileAssignmentPropertiesResponseArgs) ToConfigurationProfileAssignmentPropertiesResponsePtrOutput() ConfigurationProfileAssignmentPropertiesResponsePtrOutput {
-	return i.ToConfigurationProfileAssignmentPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ConfigurationProfileAssignmentPropertiesResponseArgs) ToConfigurationProfileAssignmentPropertiesResponsePtrOutputWithContext(ctx context.Context) ConfigurationProfileAssignmentPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationProfileAssignmentPropertiesResponseOutput).ToConfigurationProfileAssignmentPropertiesResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type ConfigurationProfileAssignmentPropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToConfigurationProfileAssignmentPropertiesResponsePtrOutput() ConfigurationProfileAssignmentPropertiesResponsePtrOutput
-	ToConfigurationProfileAssignmentPropertiesResponsePtrOutputWithContext(context.Context) ConfigurationProfileAssignmentPropertiesResponsePtrOutput
-}
-
-type configurationProfileAssignmentPropertiesResponsePtrType ConfigurationProfileAssignmentPropertiesResponseArgs
-
-func ConfigurationProfileAssignmentPropertiesResponsePtr(v *ConfigurationProfileAssignmentPropertiesResponseArgs) ConfigurationProfileAssignmentPropertiesResponsePtrInput {
-	return (*configurationProfileAssignmentPropertiesResponsePtrType)(v)
-}
-
-func (*configurationProfileAssignmentPropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConfigurationProfileAssignmentPropertiesResponse)(nil)).Elem()
-}
-
-func (i *configurationProfileAssignmentPropertiesResponsePtrType) ToConfigurationProfileAssignmentPropertiesResponsePtrOutput() ConfigurationProfileAssignmentPropertiesResponsePtrOutput {
-	return i.ToConfigurationProfileAssignmentPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *configurationProfileAssignmentPropertiesResponsePtrType) ToConfigurationProfileAssignmentPropertiesResponsePtrOutputWithContext(ctx context.Context) ConfigurationProfileAssignmentPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationProfileAssignmentPropertiesResponsePtrOutput)
-}
-
 type ConfigurationProfileAssignmentPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationProfileAssignmentPropertiesResponseOutput) ElementType() reflect.Type {
@@ -263,16 +192,6 @@ func (o ConfigurationProfileAssignmentPropertiesResponseOutput) ToConfigurationP
 
 func (o ConfigurationProfileAssignmentPropertiesResponseOutput) ToConfigurationProfileAssignmentPropertiesResponseOutputWithContext(ctx context.Context) ConfigurationProfileAssignmentPropertiesResponseOutput {
 	return o
-}
-
-func (o ConfigurationProfileAssignmentPropertiesResponseOutput) ToConfigurationProfileAssignmentPropertiesResponsePtrOutput() ConfigurationProfileAssignmentPropertiesResponsePtrOutput {
-	return o.ToConfigurationProfileAssignmentPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ConfigurationProfileAssignmentPropertiesResponseOutput) ToConfigurationProfileAssignmentPropertiesResponsePtrOutputWithContext(ctx context.Context) ConfigurationProfileAssignmentPropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigurationProfileAssignmentPropertiesResponse) *ConfigurationProfileAssignmentPropertiesResponse {
-		return &v
-	}).(ConfigurationProfileAssignmentPropertiesResponsePtrOutput)
 }
 
 func (o ConfigurationProfileAssignmentPropertiesResponseOutput) ConfigurationProfile() pulumi.StringPtrOutput {
@@ -291,66 +210,6 @@ func (o ConfigurationProfileAssignmentPropertiesResponseOutput) Status() pulumi.
 
 func (o ConfigurationProfileAssignmentPropertiesResponseOutput) TargetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConfigurationProfileAssignmentPropertiesResponse) *string { return v.TargetId }).(pulumi.StringPtrOutput)
-}
-
-type ConfigurationProfileAssignmentPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (ConfigurationProfileAssignmentPropertiesResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConfigurationProfileAssignmentPropertiesResponse)(nil)).Elem()
-}
-
-func (o ConfigurationProfileAssignmentPropertiesResponsePtrOutput) ToConfigurationProfileAssignmentPropertiesResponsePtrOutput() ConfigurationProfileAssignmentPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o ConfigurationProfileAssignmentPropertiesResponsePtrOutput) ToConfigurationProfileAssignmentPropertiesResponsePtrOutputWithContext(ctx context.Context) ConfigurationProfileAssignmentPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o ConfigurationProfileAssignmentPropertiesResponsePtrOutput) Elem() ConfigurationProfileAssignmentPropertiesResponseOutput {
-	return o.ApplyT(func(v *ConfigurationProfileAssignmentPropertiesResponse) ConfigurationProfileAssignmentPropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ConfigurationProfileAssignmentPropertiesResponse
-		return ret
-	}).(ConfigurationProfileAssignmentPropertiesResponseOutput)
-}
-
-func (o ConfigurationProfileAssignmentPropertiesResponsePtrOutput) ConfigurationProfile() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ConfigurationProfileAssignmentPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ConfigurationProfile
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ConfigurationProfileAssignmentPropertiesResponsePtrOutput) ProfileOverrides() pulumi.MapOutput {
-	return o.ApplyT(func(v *ConfigurationProfileAssignmentPropertiesResponse) map[string]interface{} {
-		if v == nil {
-			return nil
-		}
-		return v.ProfileOverrides
-	}).(pulumi.MapOutput)
-}
-
-func (o ConfigurationProfileAssignmentPropertiesResponsePtrOutput) Status() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ConfigurationProfileAssignmentPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Status
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ConfigurationProfileAssignmentPropertiesResponsePtrOutput) TargetId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ConfigurationProfileAssignmentPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.TargetId
-	}).(pulumi.StringPtrOutput)
 }
 
 type ConfigurationProfileProperties struct {
@@ -506,75 +365,6 @@ type ConfigurationProfilePropertiesResponse struct {
 	Overrides     []interface{} `pulumi:"overrides"`
 }
 
-
-
-
-
-type ConfigurationProfilePropertiesResponseInput interface {
-	pulumi.Input
-
-	ToConfigurationProfilePropertiesResponseOutput() ConfigurationProfilePropertiesResponseOutput
-	ToConfigurationProfilePropertiesResponseOutputWithContext(context.Context) ConfigurationProfilePropertiesResponseOutput
-}
-
-type ConfigurationProfilePropertiesResponseArgs struct {
-	Configuration pulumi.Input      `pulumi:"configuration"`
-	Overrides     pulumi.ArrayInput `pulumi:"overrides"`
-}
-
-func (ConfigurationProfilePropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConfigurationProfilePropertiesResponse)(nil)).Elem()
-}
-
-func (i ConfigurationProfilePropertiesResponseArgs) ToConfigurationProfilePropertiesResponseOutput() ConfigurationProfilePropertiesResponseOutput {
-	return i.ToConfigurationProfilePropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i ConfigurationProfilePropertiesResponseArgs) ToConfigurationProfilePropertiesResponseOutputWithContext(ctx context.Context) ConfigurationProfilePropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationProfilePropertiesResponseOutput)
-}
-
-func (i ConfigurationProfilePropertiesResponseArgs) ToConfigurationProfilePropertiesResponsePtrOutput() ConfigurationProfilePropertiesResponsePtrOutput {
-	return i.ToConfigurationProfilePropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ConfigurationProfilePropertiesResponseArgs) ToConfigurationProfilePropertiesResponsePtrOutputWithContext(ctx context.Context) ConfigurationProfilePropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationProfilePropertiesResponseOutput).ToConfigurationProfilePropertiesResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type ConfigurationProfilePropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToConfigurationProfilePropertiesResponsePtrOutput() ConfigurationProfilePropertiesResponsePtrOutput
-	ToConfigurationProfilePropertiesResponsePtrOutputWithContext(context.Context) ConfigurationProfilePropertiesResponsePtrOutput
-}
-
-type configurationProfilePropertiesResponsePtrType ConfigurationProfilePropertiesResponseArgs
-
-func ConfigurationProfilePropertiesResponsePtr(v *ConfigurationProfilePropertiesResponseArgs) ConfigurationProfilePropertiesResponsePtrInput {
-	return (*configurationProfilePropertiesResponsePtrType)(v)
-}
-
-func (*configurationProfilePropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConfigurationProfilePropertiesResponse)(nil)).Elem()
-}
-
-func (i *configurationProfilePropertiesResponsePtrType) ToConfigurationProfilePropertiesResponsePtrOutput() ConfigurationProfilePropertiesResponsePtrOutput {
-	return i.ToConfigurationProfilePropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *configurationProfilePropertiesResponsePtrType) ToConfigurationProfilePropertiesResponsePtrOutputWithContext(ctx context.Context) ConfigurationProfilePropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationProfilePropertiesResponsePtrOutput)
-}
-
 type ConfigurationProfilePropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationProfilePropertiesResponseOutput) ElementType() reflect.Type {
@@ -589,64 +379,12 @@ func (o ConfigurationProfilePropertiesResponseOutput) ToConfigurationProfileProp
 	return o
 }
 
-func (o ConfigurationProfilePropertiesResponseOutput) ToConfigurationProfilePropertiesResponsePtrOutput() ConfigurationProfilePropertiesResponsePtrOutput {
-	return o.ToConfigurationProfilePropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ConfigurationProfilePropertiesResponseOutput) ToConfigurationProfilePropertiesResponsePtrOutputWithContext(ctx context.Context) ConfigurationProfilePropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigurationProfilePropertiesResponse) *ConfigurationProfilePropertiesResponse {
-		return &v
-	}).(ConfigurationProfilePropertiesResponsePtrOutput)
-}
-
 func (o ConfigurationProfilePropertiesResponseOutput) Configuration() pulumi.AnyOutput {
 	return o.ApplyT(func(v ConfigurationProfilePropertiesResponse) interface{} { return v.Configuration }).(pulumi.AnyOutput)
 }
 
 func (o ConfigurationProfilePropertiesResponseOutput) Overrides() pulumi.ArrayOutput {
 	return o.ApplyT(func(v ConfigurationProfilePropertiesResponse) []interface{} { return v.Overrides }).(pulumi.ArrayOutput)
-}
-
-type ConfigurationProfilePropertiesResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (ConfigurationProfilePropertiesResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConfigurationProfilePropertiesResponse)(nil)).Elem()
-}
-
-func (o ConfigurationProfilePropertiesResponsePtrOutput) ToConfigurationProfilePropertiesResponsePtrOutput() ConfigurationProfilePropertiesResponsePtrOutput {
-	return o
-}
-
-func (o ConfigurationProfilePropertiesResponsePtrOutput) ToConfigurationProfilePropertiesResponsePtrOutputWithContext(ctx context.Context) ConfigurationProfilePropertiesResponsePtrOutput {
-	return o
-}
-
-func (o ConfigurationProfilePropertiesResponsePtrOutput) Elem() ConfigurationProfilePropertiesResponseOutput {
-	return o.ApplyT(func(v *ConfigurationProfilePropertiesResponse) ConfigurationProfilePropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ConfigurationProfilePropertiesResponse
-		return ret
-	}).(ConfigurationProfilePropertiesResponseOutput)
-}
-
-func (o ConfigurationProfilePropertiesResponsePtrOutput) Configuration() pulumi.AnyOutput {
-	return o.ApplyT(func(v *ConfigurationProfilePropertiesResponse) interface{} {
-		if v == nil {
-			return nil
-		}
-		return v.Configuration
-	}).(pulumi.AnyOutput)
-}
-
-func (o ConfigurationProfilePropertiesResponsePtrOutput) Overrides() pulumi.ArrayOutput {
-	return o.ApplyT(func(v *ConfigurationProfilePropertiesResponse) []interface{} {
-		if v == nil {
-			return nil
-		}
-		return v.Overrides
-	}).(pulumi.ArrayOutput)
 }
 
 type SystemDataResponse struct {
@@ -656,79 +394,6 @@ type SystemDataResponse struct {
 	LastModifiedAt     *string `pulumi:"lastModifiedAt"`
 	LastModifiedBy     *string `pulumi:"lastModifiedBy"`
 	LastModifiedByType *string `pulumi:"lastModifiedByType"`
-}
-
-
-
-
-
-type SystemDataResponseInput interface {
-	pulumi.Input
-
-	ToSystemDataResponseOutput() SystemDataResponseOutput
-	ToSystemDataResponseOutputWithContext(context.Context) SystemDataResponseOutput
-}
-
-type SystemDataResponseArgs struct {
-	CreatedAt          pulumi.StringPtrInput `pulumi:"createdAt"`
-	CreatedBy          pulumi.StringPtrInput `pulumi:"createdBy"`
-	CreatedByType      pulumi.StringPtrInput `pulumi:"createdByType"`
-	LastModifiedAt     pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
-	LastModifiedBy     pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
-	LastModifiedByType pulumi.StringPtrInput `pulumi:"lastModifiedByType"`
-}
-
-func (SystemDataResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SystemDataResponse)(nil)).Elem()
-}
-
-func (i SystemDataResponseArgs) ToSystemDataResponseOutput() SystemDataResponseOutput {
-	return i.ToSystemDataResponseOutputWithContext(context.Background())
-}
-
-func (i SystemDataResponseArgs) ToSystemDataResponseOutputWithContext(ctx context.Context) SystemDataResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponseOutput)
-}
-
-func (i SystemDataResponseArgs) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
-	return i.ToSystemDataResponsePtrOutputWithContext(context.Background())
-}
-
-func (i SystemDataResponseArgs) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponseOutput).ToSystemDataResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type SystemDataResponsePtrInput interface {
-	pulumi.Input
-
-	ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput
-	ToSystemDataResponsePtrOutputWithContext(context.Context) SystemDataResponsePtrOutput
-}
-
-type systemDataResponsePtrType SystemDataResponseArgs
-
-func SystemDataResponsePtr(v *SystemDataResponseArgs) SystemDataResponsePtrInput {
-	return (*systemDataResponsePtrType)(v)
-}
-
-func (*systemDataResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SystemDataResponse)(nil)).Elem()
-}
-
-func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
-	return i.ToSystemDataResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponsePtrOutput)
 }
 
 type SystemDataResponseOutput struct{ *pulumi.OutputState }
@@ -743,16 +408,6 @@ func (o SystemDataResponseOutput) ToSystemDataResponseOutput() SystemDataRespons
 
 func (o SystemDataResponseOutput) ToSystemDataResponseOutputWithContext(ctx context.Context) SystemDataResponseOutput {
 	return o
-}
-
-func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
-	return o.ToSystemDataResponsePtrOutputWithContext(context.Background())
-}
-
-func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SystemDataResponse) *SystemDataResponse {
-		return &v
-	}).(SystemDataResponsePtrOutput)
 }
 
 func (o SystemDataResponseOutput) CreatedAt() pulumi.StringPtrOutput {
@@ -779,93 +434,12 @@ func (o SystemDataResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
 }
 
-type SystemDataResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (SystemDataResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SystemDataResponse)(nil)).Elem()
-}
-
-func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
-	return o
-}
-
-func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return o
-}
-
-func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
-	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse {
-		if v != nil {
-			return *v
-		}
-		var ret SystemDataResponse
-		return ret
-	}).(SystemDataResponseOutput)
-}
-
-func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SystemDataResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CreatedAt
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SystemDataResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CreatedBy
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SystemDataResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CreatedByType
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SystemDataResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.LastModifiedAt
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SystemDataResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.LastModifiedBy
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SystemDataResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.LastModifiedByType
-	}).(pulumi.StringPtrOutput)
-}
-
 func init() {
 	pulumi.RegisterOutputType(ConfigurationProfileAssignmentPropertiesOutput{})
 	pulumi.RegisterOutputType(ConfigurationProfileAssignmentPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ConfigurationProfileAssignmentPropertiesResponseOutput{})
-	pulumi.RegisterOutputType(ConfigurationProfileAssignmentPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(ConfigurationProfilePropertiesOutput{})
 	pulumi.RegisterOutputType(ConfigurationProfilePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ConfigurationProfilePropertiesResponseOutput{})
-	pulumi.RegisterOutputType(ConfigurationProfilePropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(SystemDataResponseOutput{})
-	pulumi.RegisterOutputType(SystemDataResponsePtrOutput{})
 }

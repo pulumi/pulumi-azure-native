@@ -48,8 +48,7 @@ func NewContainerService(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	masterProfileApplier := func(v ContainerServiceMasterProfile) *ContainerServiceMasterProfile { return v.Defaults() }
-	args.MasterProfile = args.MasterProfile.ToContainerServiceMasterProfileOutput().ApplyT(masterProfileApplier).(ContainerServiceMasterProfilePtrOutput).Elem()
+	args.MasterProfile = args.MasterProfile.ToContainerServiceMasterProfileOutput().ApplyT(func(v ContainerServiceMasterProfile) ContainerServiceMasterProfile { return *v.Defaults() }).(ContainerServiceMasterProfileOutput)
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-native:containerservice/v20151101preview:ContainerService"),

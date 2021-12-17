@@ -20,64 +20,6 @@ type ApplicationPackageResponse struct {
 	Version            string `pulumi:"version"`
 }
 
-
-
-
-
-type ApplicationPackageResponseInput interface {
-	pulumi.Input
-
-	ToApplicationPackageResponseOutput() ApplicationPackageResponseOutput
-	ToApplicationPackageResponseOutputWithContext(context.Context) ApplicationPackageResponseOutput
-}
-
-type ApplicationPackageResponseArgs struct {
-	Format             pulumi.StringInput `pulumi:"format"`
-	Id                 pulumi.StringInput `pulumi:"id"`
-	LastActivationTime pulumi.StringInput `pulumi:"lastActivationTime"`
-	State              pulumi.StringInput `pulumi:"state"`
-	StorageUrl         pulumi.StringInput `pulumi:"storageUrl"`
-	StorageUrlExpiry   pulumi.StringInput `pulumi:"storageUrlExpiry"`
-	Version            pulumi.StringInput `pulumi:"version"`
-}
-
-func (ApplicationPackageResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationPackageResponse)(nil)).Elem()
-}
-
-func (i ApplicationPackageResponseArgs) ToApplicationPackageResponseOutput() ApplicationPackageResponseOutput {
-	return i.ToApplicationPackageResponseOutputWithContext(context.Background())
-}
-
-func (i ApplicationPackageResponseArgs) ToApplicationPackageResponseOutputWithContext(ctx context.Context) ApplicationPackageResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationPackageResponseOutput)
-}
-
-
-
-
-
-type ApplicationPackageResponseArrayInput interface {
-	pulumi.Input
-
-	ToApplicationPackageResponseArrayOutput() ApplicationPackageResponseArrayOutput
-	ToApplicationPackageResponseArrayOutputWithContext(context.Context) ApplicationPackageResponseArrayOutput
-}
-
-type ApplicationPackageResponseArray []ApplicationPackageResponseInput
-
-func (ApplicationPackageResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ApplicationPackageResponse)(nil)).Elem()
-}
-
-func (i ApplicationPackageResponseArray) ToApplicationPackageResponseArrayOutput() ApplicationPackageResponseArrayOutput {
-	return i.ToApplicationPackageResponseArrayOutputWithContext(context.Background())
-}
-
-func (i ApplicationPackageResponseArray) ToApplicationPackageResponseArrayOutputWithContext(ctx context.Context) ApplicationPackageResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationPackageResponseArrayOutput)
-}
-
 type ApplicationPackageResponseOutput struct{ *pulumi.OutputState }
 
 func (ApplicationPackageResponseOutput) ElementType() reflect.Type {
@@ -278,75 +220,6 @@ type AutoStoragePropertiesResponse struct {
 	StorageAccountId string `pulumi:"storageAccountId"`
 }
 
-
-
-
-
-type AutoStoragePropertiesResponseInput interface {
-	pulumi.Input
-
-	ToAutoStoragePropertiesResponseOutput() AutoStoragePropertiesResponseOutput
-	ToAutoStoragePropertiesResponseOutputWithContext(context.Context) AutoStoragePropertiesResponseOutput
-}
-
-type AutoStoragePropertiesResponseArgs struct {
-	LastKeySync      pulumi.StringInput `pulumi:"lastKeySync"`
-	StorageAccountId pulumi.StringInput `pulumi:"storageAccountId"`
-}
-
-func (AutoStoragePropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AutoStoragePropertiesResponse)(nil)).Elem()
-}
-
-func (i AutoStoragePropertiesResponseArgs) ToAutoStoragePropertiesResponseOutput() AutoStoragePropertiesResponseOutput {
-	return i.ToAutoStoragePropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i AutoStoragePropertiesResponseArgs) ToAutoStoragePropertiesResponseOutputWithContext(ctx context.Context) AutoStoragePropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AutoStoragePropertiesResponseOutput)
-}
-
-func (i AutoStoragePropertiesResponseArgs) ToAutoStoragePropertiesResponsePtrOutput() AutoStoragePropertiesResponsePtrOutput {
-	return i.ToAutoStoragePropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i AutoStoragePropertiesResponseArgs) ToAutoStoragePropertiesResponsePtrOutputWithContext(ctx context.Context) AutoStoragePropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AutoStoragePropertiesResponseOutput).ToAutoStoragePropertiesResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type AutoStoragePropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToAutoStoragePropertiesResponsePtrOutput() AutoStoragePropertiesResponsePtrOutput
-	ToAutoStoragePropertiesResponsePtrOutputWithContext(context.Context) AutoStoragePropertiesResponsePtrOutput
-}
-
-type autoStoragePropertiesResponsePtrType AutoStoragePropertiesResponseArgs
-
-func AutoStoragePropertiesResponsePtr(v *AutoStoragePropertiesResponseArgs) AutoStoragePropertiesResponsePtrInput {
-	return (*autoStoragePropertiesResponsePtrType)(v)
-}
-
-func (*autoStoragePropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AutoStoragePropertiesResponse)(nil)).Elem()
-}
-
-func (i *autoStoragePropertiesResponsePtrType) ToAutoStoragePropertiesResponsePtrOutput() AutoStoragePropertiesResponsePtrOutput {
-	return i.ToAutoStoragePropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *autoStoragePropertiesResponsePtrType) ToAutoStoragePropertiesResponsePtrOutputWithContext(ctx context.Context) AutoStoragePropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AutoStoragePropertiesResponsePtrOutput)
-}
-
 type AutoStoragePropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (AutoStoragePropertiesResponseOutput) ElementType() reflect.Type {
@@ -361,64 +234,12 @@ func (o AutoStoragePropertiesResponseOutput) ToAutoStoragePropertiesResponseOutp
 	return o
 }
 
-func (o AutoStoragePropertiesResponseOutput) ToAutoStoragePropertiesResponsePtrOutput() AutoStoragePropertiesResponsePtrOutput {
-	return o.ToAutoStoragePropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o AutoStoragePropertiesResponseOutput) ToAutoStoragePropertiesResponsePtrOutputWithContext(ctx context.Context) AutoStoragePropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AutoStoragePropertiesResponse) *AutoStoragePropertiesResponse {
-		return &v
-	}).(AutoStoragePropertiesResponsePtrOutput)
-}
-
 func (o AutoStoragePropertiesResponseOutput) LastKeySync() pulumi.StringOutput {
 	return o.ApplyT(func(v AutoStoragePropertiesResponse) string { return v.LastKeySync }).(pulumi.StringOutput)
 }
 
 func (o AutoStoragePropertiesResponseOutput) StorageAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v AutoStoragePropertiesResponse) string { return v.StorageAccountId }).(pulumi.StringOutput)
-}
-
-type AutoStoragePropertiesResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (AutoStoragePropertiesResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AutoStoragePropertiesResponse)(nil)).Elem()
-}
-
-func (o AutoStoragePropertiesResponsePtrOutput) ToAutoStoragePropertiesResponsePtrOutput() AutoStoragePropertiesResponsePtrOutput {
-	return o
-}
-
-func (o AutoStoragePropertiesResponsePtrOutput) ToAutoStoragePropertiesResponsePtrOutputWithContext(ctx context.Context) AutoStoragePropertiesResponsePtrOutput {
-	return o
-}
-
-func (o AutoStoragePropertiesResponsePtrOutput) Elem() AutoStoragePropertiesResponseOutput {
-	return o.ApplyT(func(v *AutoStoragePropertiesResponse) AutoStoragePropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret AutoStoragePropertiesResponse
-		return ret
-	}).(AutoStoragePropertiesResponseOutput)
-}
-
-func (o AutoStoragePropertiesResponsePtrOutput) LastKeySync() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AutoStoragePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.LastKeySync
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o AutoStoragePropertiesResponsePtrOutput) StorageAccountId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AutoStoragePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.StorageAccountId
-	}).(pulumi.StringPtrOutput)
 }
 
 type KeyVaultReference struct {
@@ -574,75 +395,6 @@ type KeyVaultReferenceResponse struct {
 	Url string `pulumi:"url"`
 }
 
-
-
-
-
-type KeyVaultReferenceResponseInput interface {
-	pulumi.Input
-
-	ToKeyVaultReferenceResponseOutput() KeyVaultReferenceResponseOutput
-	ToKeyVaultReferenceResponseOutputWithContext(context.Context) KeyVaultReferenceResponseOutput
-}
-
-type KeyVaultReferenceResponseArgs struct {
-	Id  pulumi.StringInput `pulumi:"id"`
-	Url pulumi.StringInput `pulumi:"url"`
-}
-
-func (KeyVaultReferenceResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*KeyVaultReferenceResponse)(nil)).Elem()
-}
-
-func (i KeyVaultReferenceResponseArgs) ToKeyVaultReferenceResponseOutput() KeyVaultReferenceResponseOutput {
-	return i.ToKeyVaultReferenceResponseOutputWithContext(context.Background())
-}
-
-func (i KeyVaultReferenceResponseArgs) ToKeyVaultReferenceResponseOutputWithContext(ctx context.Context) KeyVaultReferenceResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultReferenceResponseOutput)
-}
-
-func (i KeyVaultReferenceResponseArgs) ToKeyVaultReferenceResponsePtrOutput() KeyVaultReferenceResponsePtrOutput {
-	return i.ToKeyVaultReferenceResponsePtrOutputWithContext(context.Background())
-}
-
-func (i KeyVaultReferenceResponseArgs) ToKeyVaultReferenceResponsePtrOutputWithContext(ctx context.Context) KeyVaultReferenceResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultReferenceResponseOutput).ToKeyVaultReferenceResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type KeyVaultReferenceResponsePtrInput interface {
-	pulumi.Input
-
-	ToKeyVaultReferenceResponsePtrOutput() KeyVaultReferenceResponsePtrOutput
-	ToKeyVaultReferenceResponsePtrOutputWithContext(context.Context) KeyVaultReferenceResponsePtrOutput
-}
-
-type keyVaultReferenceResponsePtrType KeyVaultReferenceResponseArgs
-
-func KeyVaultReferenceResponsePtr(v *KeyVaultReferenceResponseArgs) KeyVaultReferenceResponsePtrInput {
-	return (*keyVaultReferenceResponsePtrType)(v)
-}
-
-func (*keyVaultReferenceResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**KeyVaultReferenceResponse)(nil)).Elem()
-}
-
-func (i *keyVaultReferenceResponsePtrType) ToKeyVaultReferenceResponsePtrOutput() KeyVaultReferenceResponsePtrOutput {
-	return i.ToKeyVaultReferenceResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *keyVaultReferenceResponsePtrType) ToKeyVaultReferenceResponsePtrOutputWithContext(ctx context.Context) KeyVaultReferenceResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultReferenceResponsePtrOutput)
-}
-
 type KeyVaultReferenceResponseOutput struct{ *pulumi.OutputState }
 
 func (KeyVaultReferenceResponseOutput) ElementType() reflect.Type {
@@ -657,16 +409,6 @@ func (o KeyVaultReferenceResponseOutput) ToKeyVaultReferenceResponseOutputWithCo
 	return o
 }
 
-func (o KeyVaultReferenceResponseOutput) ToKeyVaultReferenceResponsePtrOutput() KeyVaultReferenceResponsePtrOutput {
-	return o.ToKeyVaultReferenceResponsePtrOutputWithContext(context.Background())
-}
-
-func (o KeyVaultReferenceResponseOutput) ToKeyVaultReferenceResponsePtrOutputWithContext(ctx context.Context) KeyVaultReferenceResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeyVaultReferenceResponse) *KeyVaultReferenceResponse {
-		return &v
-	}).(KeyVaultReferenceResponsePtrOutput)
-}
-
 func (o KeyVaultReferenceResponseOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v KeyVaultReferenceResponse) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -675,57 +417,13 @@ func (o KeyVaultReferenceResponseOutput) Url() pulumi.StringOutput {
 	return o.ApplyT(func(v KeyVaultReferenceResponse) string { return v.Url }).(pulumi.StringOutput)
 }
 
-type KeyVaultReferenceResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (KeyVaultReferenceResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**KeyVaultReferenceResponse)(nil)).Elem()
-}
-
-func (o KeyVaultReferenceResponsePtrOutput) ToKeyVaultReferenceResponsePtrOutput() KeyVaultReferenceResponsePtrOutput {
-	return o
-}
-
-func (o KeyVaultReferenceResponsePtrOutput) ToKeyVaultReferenceResponsePtrOutputWithContext(ctx context.Context) KeyVaultReferenceResponsePtrOutput {
-	return o
-}
-
-func (o KeyVaultReferenceResponsePtrOutput) Elem() KeyVaultReferenceResponseOutput {
-	return o.ApplyT(func(v *KeyVaultReferenceResponse) KeyVaultReferenceResponse {
-		if v != nil {
-			return *v
-		}
-		var ret KeyVaultReferenceResponse
-		return ret
-	}).(KeyVaultReferenceResponseOutput)
-}
-
-func (o KeyVaultReferenceResponsePtrOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *KeyVaultReferenceResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Id
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o KeyVaultReferenceResponsePtrOutput) Url() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *KeyVaultReferenceResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Url
-	}).(pulumi.StringPtrOutput)
-}
-
 func init() {
 	pulumi.RegisterOutputType(ApplicationPackageResponseOutput{})
 	pulumi.RegisterOutputType(ApplicationPackageResponseArrayOutput{})
 	pulumi.RegisterOutputType(AutoStorageBasePropertiesOutput{})
 	pulumi.RegisterOutputType(AutoStorageBasePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(AutoStoragePropertiesResponseOutput{})
-	pulumi.RegisterOutputType(AutoStoragePropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(KeyVaultReferenceOutput{})
 	pulumi.RegisterOutputType(KeyVaultReferencePtrOutput{})
 	pulumi.RegisterOutputType(KeyVaultReferenceResponseOutput{})
-	pulumi.RegisterOutputType(KeyVaultReferenceResponsePtrOutput{})
 }

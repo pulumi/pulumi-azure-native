@@ -129,61 +129,6 @@ type AuthorizationResponse struct {
 	RoleDefinitionId           string   `pulumi:"roleDefinitionId"`
 }
 
-
-
-
-
-type AuthorizationResponseInput interface {
-	pulumi.Input
-
-	ToAuthorizationResponseOutput() AuthorizationResponseOutput
-	ToAuthorizationResponseOutputWithContext(context.Context) AuthorizationResponseOutput
-}
-
-type AuthorizationResponseArgs struct {
-	DelegatedRoleDefinitionIds pulumi.StringArrayInput `pulumi:"delegatedRoleDefinitionIds"`
-	PrincipalId                pulumi.StringInput      `pulumi:"principalId"`
-	PrincipalIdDisplayName     pulumi.StringPtrInput   `pulumi:"principalIdDisplayName"`
-	RoleDefinitionId           pulumi.StringInput      `pulumi:"roleDefinitionId"`
-}
-
-func (AuthorizationResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AuthorizationResponse)(nil)).Elem()
-}
-
-func (i AuthorizationResponseArgs) ToAuthorizationResponseOutput() AuthorizationResponseOutput {
-	return i.ToAuthorizationResponseOutputWithContext(context.Background())
-}
-
-func (i AuthorizationResponseArgs) ToAuthorizationResponseOutputWithContext(ctx context.Context) AuthorizationResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AuthorizationResponseOutput)
-}
-
-
-
-
-
-type AuthorizationResponseArrayInput interface {
-	pulumi.Input
-
-	ToAuthorizationResponseArrayOutput() AuthorizationResponseArrayOutput
-	ToAuthorizationResponseArrayOutputWithContext(context.Context) AuthorizationResponseArrayOutput
-}
-
-type AuthorizationResponseArray []AuthorizationResponseInput
-
-func (AuthorizationResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AuthorizationResponse)(nil)).Elem()
-}
-
-func (i AuthorizationResponseArray) ToAuthorizationResponseArrayOutput() AuthorizationResponseArrayOutput {
-	return i.ToAuthorizationResponseArrayOutputWithContext(context.Background())
-}
-
-func (i AuthorizationResponseArray) ToAuthorizationResponseArrayOutputWithContext(ctx context.Context) AuthorizationResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AuthorizationResponseArrayOutput)
-}
-
 type AuthorizationResponseOutput struct{ *pulumi.OutputState }
 
 func (AuthorizationResponseOutput) ElementType() reflect.Type {
@@ -419,77 +364,6 @@ type PlanResponse struct {
 	Version   string `pulumi:"version"`
 }
 
-
-
-
-
-type PlanResponseInput interface {
-	pulumi.Input
-
-	ToPlanResponseOutput() PlanResponseOutput
-	ToPlanResponseOutputWithContext(context.Context) PlanResponseOutput
-}
-
-type PlanResponseArgs struct {
-	Name      pulumi.StringInput `pulumi:"name"`
-	Product   pulumi.StringInput `pulumi:"product"`
-	Publisher pulumi.StringInput `pulumi:"publisher"`
-	Version   pulumi.StringInput `pulumi:"version"`
-}
-
-func (PlanResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PlanResponse)(nil)).Elem()
-}
-
-func (i PlanResponseArgs) ToPlanResponseOutput() PlanResponseOutput {
-	return i.ToPlanResponseOutputWithContext(context.Background())
-}
-
-func (i PlanResponseArgs) ToPlanResponseOutputWithContext(ctx context.Context) PlanResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PlanResponseOutput)
-}
-
-func (i PlanResponseArgs) ToPlanResponsePtrOutput() PlanResponsePtrOutput {
-	return i.ToPlanResponsePtrOutputWithContext(context.Background())
-}
-
-func (i PlanResponseArgs) ToPlanResponsePtrOutputWithContext(ctx context.Context) PlanResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PlanResponseOutput).ToPlanResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type PlanResponsePtrInput interface {
-	pulumi.Input
-
-	ToPlanResponsePtrOutput() PlanResponsePtrOutput
-	ToPlanResponsePtrOutputWithContext(context.Context) PlanResponsePtrOutput
-}
-
-type planResponsePtrType PlanResponseArgs
-
-func PlanResponsePtr(v *PlanResponseArgs) PlanResponsePtrInput {
-	return (*planResponsePtrType)(v)
-}
-
-func (*planResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PlanResponse)(nil)).Elem()
-}
-
-func (i *planResponsePtrType) ToPlanResponsePtrOutput() PlanResponsePtrOutput {
-	return i.ToPlanResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *planResponsePtrType) ToPlanResponsePtrOutputWithContext(ctx context.Context) PlanResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PlanResponsePtrOutput)
-}
-
 type PlanResponseOutput struct{ *pulumi.OutputState }
 
 func (PlanResponseOutput) ElementType() reflect.Type {
@@ -502,16 +376,6 @@ func (o PlanResponseOutput) ToPlanResponseOutput() PlanResponseOutput {
 
 func (o PlanResponseOutput) ToPlanResponseOutputWithContext(ctx context.Context) PlanResponseOutput {
 	return o
-}
-
-func (o PlanResponseOutput) ToPlanResponsePtrOutput() PlanResponsePtrOutput {
-	return o.ToPlanResponsePtrOutputWithContext(context.Background())
-}
-
-func (o PlanResponseOutput) ToPlanResponsePtrOutputWithContext(ctx context.Context) PlanResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PlanResponse) *PlanResponse {
-		return &v
-	}).(PlanResponsePtrOutput)
 }
 
 func (o PlanResponseOutput) Name() pulumi.StringOutput {
@@ -729,76 +593,6 @@ type RegistrationAssignmentPropertiesResponse struct {
 	RegistrationDefinitionId string                                                         `pulumi:"registrationDefinitionId"`
 }
 
-
-
-
-
-type RegistrationAssignmentPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToRegistrationAssignmentPropertiesResponseOutput() RegistrationAssignmentPropertiesResponseOutput
-	ToRegistrationAssignmentPropertiesResponseOutputWithContext(context.Context) RegistrationAssignmentPropertiesResponseOutput
-}
-
-type RegistrationAssignmentPropertiesResponseArgs struct {
-	ProvisioningState        pulumi.StringInput                                                  `pulumi:"provisioningState"`
-	RegistrationDefinition   RegistrationAssignmentPropertiesResponseRegistrationDefinitionInput `pulumi:"registrationDefinition"`
-	RegistrationDefinitionId pulumi.StringInput                                                  `pulumi:"registrationDefinitionId"`
-}
-
-func (RegistrationAssignmentPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RegistrationAssignmentPropertiesResponse)(nil)).Elem()
-}
-
-func (i RegistrationAssignmentPropertiesResponseArgs) ToRegistrationAssignmentPropertiesResponseOutput() RegistrationAssignmentPropertiesResponseOutput {
-	return i.ToRegistrationAssignmentPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i RegistrationAssignmentPropertiesResponseArgs) ToRegistrationAssignmentPropertiesResponseOutputWithContext(ctx context.Context) RegistrationAssignmentPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RegistrationAssignmentPropertiesResponseOutput)
-}
-
-func (i RegistrationAssignmentPropertiesResponseArgs) ToRegistrationAssignmentPropertiesResponsePtrOutput() RegistrationAssignmentPropertiesResponsePtrOutput {
-	return i.ToRegistrationAssignmentPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i RegistrationAssignmentPropertiesResponseArgs) ToRegistrationAssignmentPropertiesResponsePtrOutputWithContext(ctx context.Context) RegistrationAssignmentPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RegistrationAssignmentPropertiesResponseOutput).ToRegistrationAssignmentPropertiesResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type RegistrationAssignmentPropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToRegistrationAssignmentPropertiesResponsePtrOutput() RegistrationAssignmentPropertiesResponsePtrOutput
-	ToRegistrationAssignmentPropertiesResponsePtrOutputWithContext(context.Context) RegistrationAssignmentPropertiesResponsePtrOutput
-}
-
-type registrationAssignmentPropertiesResponsePtrType RegistrationAssignmentPropertiesResponseArgs
-
-func RegistrationAssignmentPropertiesResponsePtr(v *RegistrationAssignmentPropertiesResponseArgs) RegistrationAssignmentPropertiesResponsePtrInput {
-	return (*registrationAssignmentPropertiesResponsePtrType)(v)
-}
-
-func (*registrationAssignmentPropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**RegistrationAssignmentPropertiesResponse)(nil)).Elem()
-}
-
-func (i *registrationAssignmentPropertiesResponsePtrType) ToRegistrationAssignmentPropertiesResponsePtrOutput() RegistrationAssignmentPropertiesResponsePtrOutput {
-	return i.ToRegistrationAssignmentPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *registrationAssignmentPropertiesResponsePtrType) ToRegistrationAssignmentPropertiesResponsePtrOutputWithContext(ctx context.Context) RegistrationAssignmentPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RegistrationAssignmentPropertiesResponsePtrOutput)
-}
-
 type RegistrationAssignmentPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (RegistrationAssignmentPropertiesResponseOutput) ElementType() reflect.Type {
@@ -811,16 +605,6 @@ func (o RegistrationAssignmentPropertiesResponseOutput) ToRegistrationAssignment
 
 func (o RegistrationAssignmentPropertiesResponseOutput) ToRegistrationAssignmentPropertiesResponseOutputWithContext(ctx context.Context) RegistrationAssignmentPropertiesResponseOutput {
 	return o
-}
-
-func (o RegistrationAssignmentPropertiesResponseOutput) ToRegistrationAssignmentPropertiesResponsePtrOutput() RegistrationAssignmentPropertiesResponsePtrOutput {
-	return o.ToRegistrationAssignmentPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o RegistrationAssignmentPropertiesResponseOutput) ToRegistrationAssignmentPropertiesResponsePtrOutputWithContext(ctx context.Context) RegistrationAssignmentPropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RegistrationAssignmentPropertiesResponse) *RegistrationAssignmentPropertiesResponse {
-		return &v
-	}).(RegistrationAssignmentPropertiesResponsePtrOutput)
 }
 
 func (o RegistrationAssignmentPropertiesResponseOutput) ProvisioningState() pulumi.StringOutput {
@@ -837,57 +621,6 @@ func (o RegistrationAssignmentPropertiesResponseOutput) RegistrationDefinitionId
 	return o.ApplyT(func(v RegistrationAssignmentPropertiesResponse) string { return v.RegistrationDefinitionId }).(pulumi.StringOutput)
 }
 
-type RegistrationAssignmentPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (RegistrationAssignmentPropertiesResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**RegistrationAssignmentPropertiesResponse)(nil)).Elem()
-}
-
-func (o RegistrationAssignmentPropertiesResponsePtrOutput) ToRegistrationAssignmentPropertiesResponsePtrOutput() RegistrationAssignmentPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o RegistrationAssignmentPropertiesResponsePtrOutput) ToRegistrationAssignmentPropertiesResponsePtrOutputWithContext(ctx context.Context) RegistrationAssignmentPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o RegistrationAssignmentPropertiesResponsePtrOutput) Elem() RegistrationAssignmentPropertiesResponseOutput {
-	return o.ApplyT(func(v *RegistrationAssignmentPropertiesResponse) RegistrationAssignmentPropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret RegistrationAssignmentPropertiesResponse
-		return ret
-	}).(RegistrationAssignmentPropertiesResponseOutput)
-}
-
-func (o RegistrationAssignmentPropertiesResponsePtrOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *RegistrationAssignmentPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.ProvisioningState
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o RegistrationAssignmentPropertiesResponsePtrOutput) RegistrationDefinition() RegistrationAssignmentPropertiesResponseRegistrationDefinitionPtrOutput {
-	return o.ApplyT(func(v *RegistrationAssignmentPropertiesResponse) *RegistrationAssignmentPropertiesResponseRegistrationDefinition {
-		if v == nil {
-			return nil
-		}
-		return &v.RegistrationDefinition
-	}).(RegistrationAssignmentPropertiesResponseRegistrationDefinitionPtrOutput)
-}
-
-func (o RegistrationAssignmentPropertiesResponsePtrOutput) RegistrationDefinitionId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *RegistrationAssignmentPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.RegistrationDefinitionId
-	}).(pulumi.StringPtrOutput)
-}
-
 type RegistrationAssignmentPropertiesResponseProperties struct {
 	Authorizations             []AuthorizationResponse `pulumi:"authorizations"`
 	Description                *string                 `pulumi:"description"`
@@ -897,81 +630,6 @@ type RegistrationAssignmentPropertiesResponseProperties struct {
 	ManageeTenantName          *string                 `pulumi:"manageeTenantName"`
 	ProvisioningState          *string                 `pulumi:"provisioningState"`
 	RegistrationDefinitionName *string                 `pulumi:"registrationDefinitionName"`
-}
-
-
-
-
-
-type RegistrationAssignmentPropertiesResponsePropertiesInput interface {
-	pulumi.Input
-
-	ToRegistrationAssignmentPropertiesResponsePropertiesOutput() RegistrationAssignmentPropertiesResponsePropertiesOutput
-	ToRegistrationAssignmentPropertiesResponsePropertiesOutputWithContext(context.Context) RegistrationAssignmentPropertiesResponsePropertiesOutput
-}
-
-type RegistrationAssignmentPropertiesResponsePropertiesArgs struct {
-	Authorizations             AuthorizationResponseArrayInput `pulumi:"authorizations"`
-	Description                pulumi.StringPtrInput           `pulumi:"description"`
-	ManagedByTenantId          pulumi.StringPtrInput           `pulumi:"managedByTenantId"`
-	ManagedByTenantName        pulumi.StringPtrInput           `pulumi:"managedByTenantName"`
-	ManageeTenantId            pulumi.StringPtrInput           `pulumi:"manageeTenantId"`
-	ManageeTenantName          pulumi.StringPtrInput           `pulumi:"manageeTenantName"`
-	ProvisioningState          pulumi.StringPtrInput           `pulumi:"provisioningState"`
-	RegistrationDefinitionName pulumi.StringPtrInput           `pulumi:"registrationDefinitionName"`
-}
-
-func (RegistrationAssignmentPropertiesResponsePropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RegistrationAssignmentPropertiesResponseProperties)(nil)).Elem()
-}
-
-func (i RegistrationAssignmentPropertiesResponsePropertiesArgs) ToRegistrationAssignmentPropertiesResponsePropertiesOutput() RegistrationAssignmentPropertiesResponsePropertiesOutput {
-	return i.ToRegistrationAssignmentPropertiesResponsePropertiesOutputWithContext(context.Background())
-}
-
-func (i RegistrationAssignmentPropertiesResponsePropertiesArgs) ToRegistrationAssignmentPropertiesResponsePropertiesOutputWithContext(ctx context.Context) RegistrationAssignmentPropertiesResponsePropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RegistrationAssignmentPropertiesResponsePropertiesOutput)
-}
-
-func (i RegistrationAssignmentPropertiesResponsePropertiesArgs) ToRegistrationAssignmentPropertiesResponsePropertiesPtrOutput() RegistrationAssignmentPropertiesResponsePropertiesPtrOutput {
-	return i.ToRegistrationAssignmentPropertiesResponsePropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i RegistrationAssignmentPropertiesResponsePropertiesArgs) ToRegistrationAssignmentPropertiesResponsePropertiesPtrOutputWithContext(ctx context.Context) RegistrationAssignmentPropertiesResponsePropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RegistrationAssignmentPropertiesResponsePropertiesOutput).ToRegistrationAssignmentPropertiesResponsePropertiesPtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type RegistrationAssignmentPropertiesResponsePropertiesPtrInput interface {
-	pulumi.Input
-
-	ToRegistrationAssignmentPropertiesResponsePropertiesPtrOutput() RegistrationAssignmentPropertiesResponsePropertiesPtrOutput
-	ToRegistrationAssignmentPropertiesResponsePropertiesPtrOutputWithContext(context.Context) RegistrationAssignmentPropertiesResponsePropertiesPtrOutput
-}
-
-type registrationAssignmentPropertiesResponsePropertiesPtrType RegistrationAssignmentPropertiesResponsePropertiesArgs
-
-func RegistrationAssignmentPropertiesResponsePropertiesPtr(v *RegistrationAssignmentPropertiesResponsePropertiesArgs) RegistrationAssignmentPropertiesResponsePropertiesPtrInput {
-	return (*registrationAssignmentPropertiesResponsePropertiesPtrType)(v)
-}
-
-func (*registrationAssignmentPropertiesResponsePropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**RegistrationAssignmentPropertiesResponseProperties)(nil)).Elem()
-}
-
-func (i *registrationAssignmentPropertiesResponsePropertiesPtrType) ToRegistrationAssignmentPropertiesResponsePropertiesPtrOutput() RegistrationAssignmentPropertiesResponsePropertiesPtrOutput {
-	return i.ToRegistrationAssignmentPropertiesResponsePropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *registrationAssignmentPropertiesResponsePropertiesPtrType) ToRegistrationAssignmentPropertiesResponsePropertiesPtrOutputWithContext(ctx context.Context) RegistrationAssignmentPropertiesResponsePropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RegistrationAssignmentPropertiesResponsePropertiesPtrOutput)
 }
 
 type RegistrationAssignmentPropertiesResponsePropertiesOutput struct{ *pulumi.OutputState }
@@ -986,16 +644,6 @@ func (o RegistrationAssignmentPropertiesResponsePropertiesOutput) ToRegistration
 
 func (o RegistrationAssignmentPropertiesResponsePropertiesOutput) ToRegistrationAssignmentPropertiesResponsePropertiesOutputWithContext(ctx context.Context) RegistrationAssignmentPropertiesResponsePropertiesOutput {
 	return o
-}
-
-func (o RegistrationAssignmentPropertiesResponsePropertiesOutput) ToRegistrationAssignmentPropertiesResponsePropertiesPtrOutput() RegistrationAssignmentPropertiesResponsePropertiesPtrOutput {
-	return o.ToRegistrationAssignmentPropertiesResponsePropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o RegistrationAssignmentPropertiesResponsePropertiesOutput) ToRegistrationAssignmentPropertiesResponsePropertiesPtrOutputWithContext(ctx context.Context) RegistrationAssignmentPropertiesResponsePropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RegistrationAssignmentPropertiesResponseProperties) *RegistrationAssignmentPropertiesResponseProperties {
-		return &v
-	}).(RegistrationAssignmentPropertiesResponsePropertiesPtrOutput)
 }
 
 func (o RegistrationAssignmentPropertiesResponsePropertiesOutput) Authorizations() AuthorizationResponseArrayOutput {
@@ -1138,78 +786,6 @@ type RegistrationAssignmentPropertiesResponseRegistrationDefinition struct {
 	Type       string                                              `pulumi:"type"`
 }
 
-
-
-
-
-type RegistrationAssignmentPropertiesResponseRegistrationDefinitionInput interface {
-	pulumi.Input
-
-	ToRegistrationAssignmentPropertiesResponseRegistrationDefinitionOutput() RegistrationAssignmentPropertiesResponseRegistrationDefinitionOutput
-	ToRegistrationAssignmentPropertiesResponseRegistrationDefinitionOutputWithContext(context.Context) RegistrationAssignmentPropertiesResponseRegistrationDefinitionOutput
-}
-
-type RegistrationAssignmentPropertiesResponseRegistrationDefinitionArgs struct {
-	Id         pulumi.StringInput                                         `pulumi:"id"`
-	Name       pulumi.StringInput                                         `pulumi:"name"`
-	Plan       PlanResponsePtrInput                                       `pulumi:"plan"`
-	Properties RegistrationAssignmentPropertiesResponsePropertiesPtrInput `pulumi:"properties"`
-	Type       pulumi.StringInput                                         `pulumi:"type"`
-}
-
-func (RegistrationAssignmentPropertiesResponseRegistrationDefinitionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RegistrationAssignmentPropertiesResponseRegistrationDefinition)(nil)).Elem()
-}
-
-func (i RegistrationAssignmentPropertiesResponseRegistrationDefinitionArgs) ToRegistrationAssignmentPropertiesResponseRegistrationDefinitionOutput() RegistrationAssignmentPropertiesResponseRegistrationDefinitionOutput {
-	return i.ToRegistrationAssignmentPropertiesResponseRegistrationDefinitionOutputWithContext(context.Background())
-}
-
-func (i RegistrationAssignmentPropertiesResponseRegistrationDefinitionArgs) ToRegistrationAssignmentPropertiesResponseRegistrationDefinitionOutputWithContext(ctx context.Context) RegistrationAssignmentPropertiesResponseRegistrationDefinitionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RegistrationAssignmentPropertiesResponseRegistrationDefinitionOutput)
-}
-
-func (i RegistrationAssignmentPropertiesResponseRegistrationDefinitionArgs) ToRegistrationAssignmentPropertiesResponseRegistrationDefinitionPtrOutput() RegistrationAssignmentPropertiesResponseRegistrationDefinitionPtrOutput {
-	return i.ToRegistrationAssignmentPropertiesResponseRegistrationDefinitionPtrOutputWithContext(context.Background())
-}
-
-func (i RegistrationAssignmentPropertiesResponseRegistrationDefinitionArgs) ToRegistrationAssignmentPropertiesResponseRegistrationDefinitionPtrOutputWithContext(ctx context.Context) RegistrationAssignmentPropertiesResponseRegistrationDefinitionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RegistrationAssignmentPropertiesResponseRegistrationDefinitionOutput).ToRegistrationAssignmentPropertiesResponseRegistrationDefinitionPtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type RegistrationAssignmentPropertiesResponseRegistrationDefinitionPtrInput interface {
-	pulumi.Input
-
-	ToRegistrationAssignmentPropertiesResponseRegistrationDefinitionPtrOutput() RegistrationAssignmentPropertiesResponseRegistrationDefinitionPtrOutput
-	ToRegistrationAssignmentPropertiesResponseRegistrationDefinitionPtrOutputWithContext(context.Context) RegistrationAssignmentPropertiesResponseRegistrationDefinitionPtrOutput
-}
-
-type registrationAssignmentPropertiesResponseRegistrationDefinitionPtrType RegistrationAssignmentPropertiesResponseRegistrationDefinitionArgs
-
-func RegistrationAssignmentPropertiesResponseRegistrationDefinitionPtr(v *RegistrationAssignmentPropertiesResponseRegistrationDefinitionArgs) RegistrationAssignmentPropertiesResponseRegistrationDefinitionPtrInput {
-	return (*registrationAssignmentPropertiesResponseRegistrationDefinitionPtrType)(v)
-}
-
-func (*registrationAssignmentPropertiesResponseRegistrationDefinitionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**RegistrationAssignmentPropertiesResponseRegistrationDefinition)(nil)).Elem()
-}
-
-func (i *registrationAssignmentPropertiesResponseRegistrationDefinitionPtrType) ToRegistrationAssignmentPropertiesResponseRegistrationDefinitionPtrOutput() RegistrationAssignmentPropertiesResponseRegistrationDefinitionPtrOutput {
-	return i.ToRegistrationAssignmentPropertiesResponseRegistrationDefinitionPtrOutputWithContext(context.Background())
-}
-
-func (i *registrationAssignmentPropertiesResponseRegistrationDefinitionPtrType) ToRegistrationAssignmentPropertiesResponseRegistrationDefinitionPtrOutputWithContext(ctx context.Context) RegistrationAssignmentPropertiesResponseRegistrationDefinitionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RegistrationAssignmentPropertiesResponseRegistrationDefinitionPtrOutput)
-}
-
 type RegistrationAssignmentPropertiesResponseRegistrationDefinitionOutput struct{ *pulumi.OutputState }
 
 func (RegistrationAssignmentPropertiesResponseRegistrationDefinitionOutput) ElementType() reflect.Type {
@@ -1222,16 +798,6 @@ func (o RegistrationAssignmentPropertiesResponseRegistrationDefinitionOutput) To
 
 func (o RegistrationAssignmentPropertiesResponseRegistrationDefinitionOutput) ToRegistrationAssignmentPropertiesResponseRegistrationDefinitionOutputWithContext(ctx context.Context) RegistrationAssignmentPropertiesResponseRegistrationDefinitionOutput {
 	return o
-}
-
-func (o RegistrationAssignmentPropertiesResponseRegistrationDefinitionOutput) ToRegistrationAssignmentPropertiesResponseRegistrationDefinitionPtrOutput() RegistrationAssignmentPropertiesResponseRegistrationDefinitionPtrOutput {
-	return o.ToRegistrationAssignmentPropertiesResponseRegistrationDefinitionPtrOutputWithContext(context.Background())
-}
-
-func (o RegistrationAssignmentPropertiesResponseRegistrationDefinitionOutput) ToRegistrationAssignmentPropertiesResponseRegistrationDefinitionPtrOutputWithContext(ctx context.Context) RegistrationAssignmentPropertiesResponseRegistrationDefinitionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RegistrationAssignmentPropertiesResponseRegistrationDefinition) *RegistrationAssignmentPropertiesResponseRegistrationDefinition {
-		return &v
-	}).(RegistrationAssignmentPropertiesResponseRegistrationDefinitionPtrOutput)
 }
 
 func (o RegistrationAssignmentPropertiesResponseRegistrationDefinitionOutput) Id() pulumi.StringOutput {
@@ -1254,75 +820,6 @@ func (o RegistrationAssignmentPropertiesResponseRegistrationDefinitionOutput) Pr
 
 func (o RegistrationAssignmentPropertiesResponseRegistrationDefinitionOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v RegistrationAssignmentPropertiesResponseRegistrationDefinition) string { return v.Type }).(pulumi.StringOutput)
-}
-
-type RegistrationAssignmentPropertiesResponseRegistrationDefinitionPtrOutput struct{ *pulumi.OutputState }
-
-func (RegistrationAssignmentPropertiesResponseRegistrationDefinitionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**RegistrationAssignmentPropertiesResponseRegistrationDefinition)(nil)).Elem()
-}
-
-func (o RegistrationAssignmentPropertiesResponseRegistrationDefinitionPtrOutput) ToRegistrationAssignmentPropertiesResponseRegistrationDefinitionPtrOutput() RegistrationAssignmentPropertiesResponseRegistrationDefinitionPtrOutput {
-	return o
-}
-
-func (o RegistrationAssignmentPropertiesResponseRegistrationDefinitionPtrOutput) ToRegistrationAssignmentPropertiesResponseRegistrationDefinitionPtrOutputWithContext(ctx context.Context) RegistrationAssignmentPropertiesResponseRegistrationDefinitionPtrOutput {
-	return o
-}
-
-func (o RegistrationAssignmentPropertiesResponseRegistrationDefinitionPtrOutput) Elem() RegistrationAssignmentPropertiesResponseRegistrationDefinitionOutput {
-	return o.ApplyT(func(v *RegistrationAssignmentPropertiesResponseRegistrationDefinition) RegistrationAssignmentPropertiesResponseRegistrationDefinition {
-		if v != nil {
-			return *v
-		}
-		var ret RegistrationAssignmentPropertiesResponseRegistrationDefinition
-		return ret
-	}).(RegistrationAssignmentPropertiesResponseRegistrationDefinitionOutput)
-}
-
-func (o RegistrationAssignmentPropertiesResponseRegistrationDefinitionPtrOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *RegistrationAssignmentPropertiesResponseRegistrationDefinition) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Id
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o RegistrationAssignmentPropertiesResponseRegistrationDefinitionPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *RegistrationAssignmentPropertiesResponseRegistrationDefinition) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o RegistrationAssignmentPropertiesResponseRegistrationDefinitionPtrOutput) Plan() PlanResponsePtrOutput {
-	return o.ApplyT(func(v *RegistrationAssignmentPropertiesResponseRegistrationDefinition) *PlanResponse {
-		if v == nil {
-			return nil
-		}
-		return v.Plan
-	}).(PlanResponsePtrOutput)
-}
-
-func (o RegistrationAssignmentPropertiesResponseRegistrationDefinitionPtrOutput) Properties() RegistrationAssignmentPropertiesResponsePropertiesPtrOutput {
-	return o.ApplyT(func(v *RegistrationAssignmentPropertiesResponseRegistrationDefinition) *RegistrationAssignmentPropertiesResponseProperties {
-		if v == nil {
-			return nil
-		}
-		return v.Properties
-	}).(RegistrationAssignmentPropertiesResponsePropertiesPtrOutput)
-}
-
-func (o RegistrationAssignmentPropertiesResponseRegistrationDefinitionPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *RegistrationAssignmentPropertiesResponseRegistrationDefinition) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Type
-	}).(pulumi.StringPtrOutput)
 }
 
 type RegistrationDefinitionProperties struct {
@@ -1512,79 +1009,6 @@ type RegistrationDefinitionPropertiesResponse struct {
 	RegistrationDefinitionName *string                 `pulumi:"registrationDefinitionName"`
 }
 
-
-
-
-
-type RegistrationDefinitionPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToRegistrationDefinitionPropertiesResponseOutput() RegistrationDefinitionPropertiesResponseOutput
-	ToRegistrationDefinitionPropertiesResponseOutputWithContext(context.Context) RegistrationDefinitionPropertiesResponseOutput
-}
-
-type RegistrationDefinitionPropertiesResponseArgs struct {
-	Authorizations             AuthorizationResponseArrayInput `pulumi:"authorizations"`
-	Description                pulumi.StringPtrInput           `pulumi:"description"`
-	ManagedByTenantId          pulumi.StringInput              `pulumi:"managedByTenantId"`
-	ManagedByTenantName        pulumi.StringInput              `pulumi:"managedByTenantName"`
-	ProvisioningState          pulumi.StringInput              `pulumi:"provisioningState"`
-	RegistrationDefinitionName pulumi.StringPtrInput           `pulumi:"registrationDefinitionName"`
-}
-
-func (RegistrationDefinitionPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RegistrationDefinitionPropertiesResponse)(nil)).Elem()
-}
-
-func (i RegistrationDefinitionPropertiesResponseArgs) ToRegistrationDefinitionPropertiesResponseOutput() RegistrationDefinitionPropertiesResponseOutput {
-	return i.ToRegistrationDefinitionPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i RegistrationDefinitionPropertiesResponseArgs) ToRegistrationDefinitionPropertiesResponseOutputWithContext(ctx context.Context) RegistrationDefinitionPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RegistrationDefinitionPropertiesResponseOutput)
-}
-
-func (i RegistrationDefinitionPropertiesResponseArgs) ToRegistrationDefinitionPropertiesResponsePtrOutput() RegistrationDefinitionPropertiesResponsePtrOutput {
-	return i.ToRegistrationDefinitionPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i RegistrationDefinitionPropertiesResponseArgs) ToRegistrationDefinitionPropertiesResponsePtrOutputWithContext(ctx context.Context) RegistrationDefinitionPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RegistrationDefinitionPropertiesResponseOutput).ToRegistrationDefinitionPropertiesResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type RegistrationDefinitionPropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToRegistrationDefinitionPropertiesResponsePtrOutput() RegistrationDefinitionPropertiesResponsePtrOutput
-	ToRegistrationDefinitionPropertiesResponsePtrOutputWithContext(context.Context) RegistrationDefinitionPropertiesResponsePtrOutput
-}
-
-type registrationDefinitionPropertiesResponsePtrType RegistrationDefinitionPropertiesResponseArgs
-
-func RegistrationDefinitionPropertiesResponsePtr(v *RegistrationDefinitionPropertiesResponseArgs) RegistrationDefinitionPropertiesResponsePtrInput {
-	return (*registrationDefinitionPropertiesResponsePtrType)(v)
-}
-
-func (*registrationDefinitionPropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**RegistrationDefinitionPropertiesResponse)(nil)).Elem()
-}
-
-func (i *registrationDefinitionPropertiesResponsePtrType) ToRegistrationDefinitionPropertiesResponsePtrOutput() RegistrationDefinitionPropertiesResponsePtrOutput {
-	return i.ToRegistrationDefinitionPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *registrationDefinitionPropertiesResponsePtrType) ToRegistrationDefinitionPropertiesResponsePtrOutputWithContext(ctx context.Context) RegistrationDefinitionPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RegistrationDefinitionPropertiesResponsePtrOutput)
-}
-
 type RegistrationDefinitionPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (RegistrationDefinitionPropertiesResponseOutput) ElementType() reflect.Type {
@@ -1597,16 +1021,6 @@ func (o RegistrationDefinitionPropertiesResponseOutput) ToRegistrationDefinition
 
 func (o RegistrationDefinitionPropertiesResponseOutput) ToRegistrationDefinitionPropertiesResponseOutputWithContext(ctx context.Context) RegistrationDefinitionPropertiesResponseOutput {
 	return o
-}
-
-func (o RegistrationDefinitionPropertiesResponseOutput) ToRegistrationDefinitionPropertiesResponsePtrOutput() RegistrationDefinitionPropertiesResponsePtrOutput {
-	return o.ToRegistrationDefinitionPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o RegistrationDefinitionPropertiesResponseOutput) ToRegistrationDefinitionPropertiesResponsePtrOutputWithContext(ctx context.Context) RegistrationDefinitionPropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RegistrationDefinitionPropertiesResponse) *RegistrationDefinitionPropertiesResponse {
-		return &v
-	}).(RegistrationDefinitionPropertiesResponsePtrOutput)
 }
 
 func (o RegistrationDefinitionPropertiesResponseOutput) Authorizations() AuthorizationResponseArrayOutput {
@@ -1633,84 +1047,6 @@ func (o RegistrationDefinitionPropertiesResponseOutput) RegistrationDefinitionNa
 	return o.ApplyT(func(v RegistrationDefinitionPropertiesResponse) *string { return v.RegistrationDefinitionName }).(pulumi.StringPtrOutput)
 }
 
-type RegistrationDefinitionPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (RegistrationDefinitionPropertiesResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**RegistrationDefinitionPropertiesResponse)(nil)).Elem()
-}
-
-func (o RegistrationDefinitionPropertiesResponsePtrOutput) ToRegistrationDefinitionPropertiesResponsePtrOutput() RegistrationDefinitionPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o RegistrationDefinitionPropertiesResponsePtrOutput) ToRegistrationDefinitionPropertiesResponsePtrOutputWithContext(ctx context.Context) RegistrationDefinitionPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o RegistrationDefinitionPropertiesResponsePtrOutput) Elem() RegistrationDefinitionPropertiesResponseOutput {
-	return o.ApplyT(func(v *RegistrationDefinitionPropertiesResponse) RegistrationDefinitionPropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret RegistrationDefinitionPropertiesResponse
-		return ret
-	}).(RegistrationDefinitionPropertiesResponseOutput)
-}
-
-func (o RegistrationDefinitionPropertiesResponsePtrOutput) Authorizations() AuthorizationResponseArrayOutput {
-	return o.ApplyT(func(v *RegistrationDefinitionPropertiesResponse) []AuthorizationResponse {
-		if v == nil {
-			return nil
-		}
-		return v.Authorizations
-	}).(AuthorizationResponseArrayOutput)
-}
-
-func (o RegistrationDefinitionPropertiesResponsePtrOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *RegistrationDefinitionPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Description
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o RegistrationDefinitionPropertiesResponsePtrOutput) ManagedByTenantId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *RegistrationDefinitionPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.ManagedByTenantId
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o RegistrationDefinitionPropertiesResponsePtrOutput) ManagedByTenantName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *RegistrationDefinitionPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.ManagedByTenantName
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o RegistrationDefinitionPropertiesResponsePtrOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *RegistrationDefinitionPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.ProvisioningState
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o RegistrationDefinitionPropertiesResponsePtrOutput) RegistrationDefinitionName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *RegistrationDefinitionPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.RegistrationDefinitionName
-	}).(pulumi.StringPtrOutput)
-}
-
 func init() {
 	pulumi.RegisterOutputType(AuthorizationOutput{})
 	pulumi.RegisterOutputType(AuthorizationArrayOutput{})
@@ -1723,13 +1059,10 @@ func init() {
 	pulumi.RegisterOutputType(RegistrationAssignmentPropertiesOutput{})
 	pulumi.RegisterOutputType(RegistrationAssignmentPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(RegistrationAssignmentPropertiesResponseOutput{})
-	pulumi.RegisterOutputType(RegistrationAssignmentPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(RegistrationAssignmentPropertiesResponsePropertiesOutput{})
 	pulumi.RegisterOutputType(RegistrationAssignmentPropertiesResponsePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(RegistrationAssignmentPropertiesResponseRegistrationDefinitionOutput{})
-	pulumi.RegisterOutputType(RegistrationAssignmentPropertiesResponseRegistrationDefinitionPtrOutput{})
 	pulumi.RegisterOutputType(RegistrationDefinitionPropertiesOutput{})
 	pulumi.RegisterOutputType(RegistrationDefinitionPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(RegistrationDefinitionPropertiesResponseOutput{})
-	pulumi.RegisterOutputType(RegistrationDefinitionPropertiesResponsePtrOutput{})
 }

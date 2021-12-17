@@ -20,64 +20,6 @@ type ApplicationPackageResponse struct {
 	Version            *string `pulumi:"version"`
 }
 
-
-
-
-
-type ApplicationPackageResponseInput interface {
-	pulumi.Input
-
-	ToApplicationPackageResponseOutput() ApplicationPackageResponseOutput
-	ToApplicationPackageResponseOutputWithContext(context.Context) ApplicationPackageResponseOutput
-}
-
-type ApplicationPackageResponseArgs struct {
-	Format             pulumi.StringPtrInput `pulumi:"format"`
-	Id                 pulumi.StringPtrInput `pulumi:"id"`
-	LastActivationTime pulumi.StringPtrInput `pulumi:"lastActivationTime"`
-	State              pulumi.StringPtrInput `pulumi:"state"`
-	StorageUrl         pulumi.StringPtrInput `pulumi:"storageUrl"`
-	StorageUrlExpiry   pulumi.StringPtrInput `pulumi:"storageUrlExpiry"`
-	Version            pulumi.StringPtrInput `pulumi:"version"`
-}
-
-func (ApplicationPackageResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationPackageResponse)(nil)).Elem()
-}
-
-func (i ApplicationPackageResponseArgs) ToApplicationPackageResponseOutput() ApplicationPackageResponseOutput {
-	return i.ToApplicationPackageResponseOutputWithContext(context.Background())
-}
-
-func (i ApplicationPackageResponseArgs) ToApplicationPackageResponseOutputWithContext(ctx context.Context) ApplicationPackageResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationPackageResponseOutput)
-}
-
-
-
-
-
-type ApplicationPackageResponseArrayInput interface {
-	pulumi.Input
-
-	ToApplicationPackageResponseArrayOutput() ApplicationPackageResponseArrayOutput
-	ToApplicationPackageResponseArrayOutputWithContext(context.Context) ApplicationPackageResponseArrayOutput
-}
-
-type ApplicationPackageResponseArray []ApplicationPackageResponseInput
-
-func (ApplicationPackageResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ApplicationPackageResponse)(nil)).Elem()
-}
-
-func (i ApplicationPackageResponseArray) ToApplicationPackageResponseArrayOutput() ApplicationPackageResponseArrayOutput {
-	return i.ToApplicationPackageResponseArrayOutputWithContext(context.Background())
-}
-
-func (i ApplicationPackageResponseArray) ToApplicationPackageResponseArrayOutputWithContext(ctx context.Context) ApplicationPackageResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationPackageResponseArrayOutput)
-}
-
 type ApplicationPackageResponseOutput struct{ *pulumi.OutputState }
 
 func (ApplicationPackageResponseOutput) ElementType() reflect.Type {
@@ -278,75 +220,6 @@ type AutoStoragePropertiesResponse struct {
 	StorageAccountId string `pulumi:"storageAccountId"`
 }
 
-
-
-
-
-type AutoStoragePropertiesResponseInput interface {
-	pulumi.Input
-
-	ToAutoStoragePropertiesResponseOutput() AutoStoragePropertiesResponseOutput
-	ToAutoStoragePropertiesResponseOutputWithContext(context.Context) AutoStoragePropertiesResponseOutput
-}
-
-type AutoStoragePropertiesResponseArgs struct {
-	LastKeySync      pulumi.StringInput `pulumi:"lastKeySync"`
-	StorageAccountId pulumi.StringInput `pulumi:"storageAccountId"`
-}
-
-func (AutoStoragePropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AutoStoragePropertiesResponse)(nil)).Elem()
-}
-
-func (i AutoStoragePropertiesResponseArgs) ToAutoStoragePropertiesResponseOutput() AutoStoragePropertiesResponseOutput {
-	return i.ToAutoStoragePropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i AutoStoragePropertiesResponseArgs) ToAutoStoragePropertiesResponseOutputWithContext(ctx context.Context) AutoStoragePropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AutoStoragePropertiesResponseOutput)
-}
-
-func (i AutoStoragePropertiesResponseArgs) ToAutoStoragePropertiesResponsePtrOutput() AutoStoragePropertiesResponsePtrOutput {
-	return i.ToAutoStoragePropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i AutoStoragePropertiesResponseArgs) ToAutoStoragePropertiesResponsePtrOutputWithContext(ctx context.Context) AutoStoragePropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AutoStoragePropertiesResponseOutput).ToAutoStoragePropertiesResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type AutoStoragePropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToAutoStoragePropertiesResponsePtrOutput() AutoStoragePropertiesResponsePtrOutput
-	ToAutoStoragePropertiesResponsePtrOutputWithContext(context.Context) AutoStoragePropertiesResponsePtrOutput
-}
-
-type autoStoragePropertiesResponsePtrType AutoStoragePropertiesResponseArgs
-
-func AutoStoragePropertiesResponsePtr(v *AutoStoragePropertiesResponseArgs) AutoStoragePropertiesResponsePtrInput {
-	return (*autoStoragePropertiesResponsePtrType)(v)
-}
-
-func (*autoStoragePropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AutoStoragePropertiesResponse)(nil)).Elem()
-}
-
-func (i *autoStoragePropertiesResponsePtrType) ToAutoStoragePropertiesResponsePtrOutput() AutoStoragePropertiesResponsePtrOutput {
-	return i.ToAutoStoragePropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *autoStoragePropertiesResponsePtrType) ToAutoStoragePropertiesResponsePtrOutputWithContext(ctx context.Context) AutoStoragePropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AutoStoragePropertiesResponsePtrOutput)
-}
-
 type AutoStoragePropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (AutoStoragePropertiesResponseOutput) ElementType() reflect.Type {
@@ -359,16 +232,6 @@ func (o AutoStoragePropertiesResponseOutput) ToAutoStoragePropertiesResponseOutp
 
 func (o AutoStoragePropertiesResponseOutput) ToAutoStoragePropertiesResponseOutputWithContext(ctx context.Context) AutoStoragePropertiesResponseOutput {
 	return o
-}
-
-func (o AutoStoragePropertiesResponseOutput) ToAutoStoragePropertiesResponsePtrOutput() AutoStoragePropertiesResponsePtrOutput {
-	return o.ToAutoStoragePropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o AutoStoragePropertiesResponseOutput) ToAutoStoragePropertiesResponsePtrOutputWithContext(ctx context.Context) AutoStoragePropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AutoStoragePropertiesResponse) *AutoStoragePropertiesResponse {
-		return &v
-	}).(AutoStoragePropertiesResponsePtrOutput)
 }
 
 func (o AutoStoragePropertiesResponseOutput) LastKeySync() pulumi.StringOutput {

@@ -17,131 +17,11 @@ type DatabaseProjectSummaryResponse struct {
 	RefreshSummaryState      *string           `pulumi:"refreshSummaryState"`
 }
 
-
-
-
-
-type DatabaseProjectSummaryResponseInput interface {
-	pulumi.Input
-
-	ToDatabaseProjectSummaryResponseOutput() DatabaseProjectSummaryResponseOutput
-	ToDatabaseProjectSummaryResponseOutputWithContext(context.Context) DatabaseProjectSummaryResponseOutput
-}
-
-type DatabaseProjectSummaryResponseArgs struct {
-	ExtendedSummary          pulumi.StringMapInput `pulumi:"extendedSummary"`
-	InstanceType             pulumi.StringInput    `pulumi:"instanceType"`
-	LastSummaryRefreshedTime pulumi.StringPtrInput `pulumi:"lastSummaryRefreshedTime"`
-	RefreshSummaryState      pulumi.StringPtrInput `pulumi:"refreshSummaryState"`
-}
-
-func (DatabaseProjectSummaryResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatabaseProjectSummaryResponse)(nil)).Elem()
-}
-
-func (i DatabaseProjectSummaryResponseArgs) ToDatabaseProjectSummaryResponseOutput() DatabaseProjectSummaryResponseOutput {
-	return i.ToDatabaseProjectSummaryResponseOutputWithContext(context.Background())
-}
-
-func (i DatabaseProjectSummaryResponseArgs) ToDatabaseProjectSummaryResponseOutputWithContext(ctx context.Context) DatabaseProjectSummaryResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DatabaseProjectSummaryResponseOutput)
-}
-
-type DatabaseProjectSummaryResponseOutput struct{ *pulumi.OutputState }
-
-func (DatabaseProjectSummaryResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatabaseProjectSummaryResponse)(nil)).Elem()
-}
-
-func (o DatabaseProjectSummaryResponseOutput) ToDatabaseProjectSummaryResponseOutput() DatabaseProjectSummaryResponseOutput {
-	return o
-}
-
-func (o DatabaseProjectSummaryResponseOutput) ToDatabaseProjectSummaryResponseOutputWithContext(ctx context.Context) DatabaseProjectSummaryResponseOutput {
-	return o
-}
-
-func (o DatabaseProjectSummaryResponseOutput) ExtendedSummary() pulumi.StringMapOutput {
-	return o.ApplyT(func(v DatabaseProjectSummaryResponse) map[string]string { return v.ExtendedSummary }).(pulumi.StringMapOutput)
-}
-
-func (o DatabaseProjectSummaryResponseOutput) InstanceType() pulumi.StringOutput {
-	return o.ApplyT(func(v DatabaseProjectSummaryResponse) string { return v.InstanceType }).(pulumi.StringOutput)
-}
-
-func (o DatabaseProjectSummaryResponseOutput) LastSummaryRefreshedTime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DatabaseProjectSummaryResponse) *string { return v.LastSummaryRefreshedTime }).(pulumi.StringPtrOutput)
-}
-
-func (o DatabaseProjectSummaryResponseOutput) RefreshSummaryState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DatabaseProjectSummaryResponse) *string { return v.RefreshSummaryState }).(pulumi.StringPtrOutput)
-}
-
 type DatabasesSolutionSummaryResponse struct {
 	DatabaseInstancesAssessedCount *int   `pulumi:"databaseInstancesAssessedCount"`
 	DatabasesAssessedCount         *int   `pulumi:"databasesAssessedCount"`
 	InstanceType                   string `pulumi:"instanceType"`
 	MigrationReadyCount            *int   `pulumi:"migrationReadyCount"`
-}
-
-
-
-
-
-type DatabasesSolutionSummaryResponseInput interface {
-	pulumi.Input
-
-	ToDatabasesSolutionSummaryResponseOutput() DatabasesSolutionSummaryResponseOutput
-	ToDatabasesSolutionSummaryResponseOutputWithContext(context.Context) DatabasesSolutionSummaryResponseOutput
-}
-
-type DatabasesSolutionSummaryResponseArgs struct {
-	DatabaseInstancesAssessedCount pulumi.IntPtrInput `pulumi:"databaseInstancesAssessedCount"`
-	DatabasesAssessedCount         pulumi.IntPtrInput `pulumi:"databasesAssessedCount"`
-	InstanceType                   pulumi.StringInput `pulumi:"instanceType"`
-	MigrationReadyCount            pulumi.IntPtrInput `pulumi:"migrationReadyCount"`
-}
-
-func (DatabasesSolutionSummaryResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatabasesSolutionSummaryResponse)(nil)).Elem()
-}
-
-func (i DatabasesSolutionSummaryResponseArgs) ToDatabasesSolutionSummaryResponseOutput() DatabasesSolutionSummaryResponseOutput {
-	return i.ToDatabasesSolutionSummaryResponseOutputWithContext(context.Background())
-}
-
-func (i DatabasesSolutionSummaryResponseArgs) ToDatabasesSolutionSummaryResponseOutputWithContext(ctx context.Context) DatabasesSolutionSummaryResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DatabasesSolutionSummaryResponseOutput)
-}
-
-type DatabasesSolutionSummaryResponseOutput struct{ *pulumi.OutputState }
-
-func (DatabasesSolutionSummaryResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatabasesSolutionSummaryResponse)(nil)).Elem()
-}
-
-func (o DatabasesSolutionSummaryResponseOutput) ToDatabasesSolutionSummaryResponseOutput() DatabasesSolutionSummaryResponseOutput {
-	return o
-}
-
-func (o DatabasesSolutionSummaryResponseOutput) ToDatabasesSolutionSummaryResponseOutputWithContext(ctx context.Context) DatabasesSolutionSummaryResponseOutput {
-	return o
-}
-
-func (o DatabasesSolutionSummaryResponseOutput) DatabaseInstancesAssessedCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v DatabasesSolutionSummaryResponse) *int { return v.DatabaseInstancesAssessedCount }).(pulumi.IntPtrOutput)
-}
-
-func (o DatabasesSolutionSummaryResponseOutput) DatabasesAssessedCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v DatabasesSolutionSummaryResponse) *int { return v.DatabasesAssessedCount }).(pulumi.IntPtrOutput)
-}
-
-func (o DatabasesSolutionSummaryResponseOutput) InstanceType() pulumi.StringOutput {
-	return o.ApplyT(func(v DatabasesSolutionSummaryResponse) string { return v.InstanceType }).(pulumi.StringOutput)
-}
-
-func (o DatabasesSolutionSummaryResponseOutput) MigrationReadyCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v DatabasesSolutionSummaryResponse) *int { return v.MigrationReadyCount }).(pulumi.IntPtrOutput)
 }
 
 type MigrateProjectProperties struct {
@@ -300,78 +180,6 @@ type MigrateProjectPropertiesResponse struct {
 	Summary                  map[string]interface{} `pulumi:"summary"`
 }
 
-
-
-
-
-type MigrateProjectPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToMigrateProjectPropertiesResponseOutput() MigrateProjectPropertiesResponseOutput
-	ToMigrateProjectPropertiesResponseOutputWithContext(context.Context) MigrateProjectPropertiesResponseOutput
-}
-
-type MigrateProjectPropertiesResponseArgs struct {
-	LastSummaryRefreshedTime pulumi.StringInput      `pulumi:"lastSummaryRefreshedTime"`
-	ProvisioningState        pulumi.StringPtrInput   `pulumi:"provisioningState"`
-	RefreshSummaryState      pulumi.StringInput      `pulumi:"refreshSummaryState"`
-	RegisteredTools          pulumi.StringArrayInput `pulumi:"registeredTools"`
-	Summary                  pulumi.MapInput         `pulumi:"summary"`
-}
-
-func (MigrateProjectPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MigrateProjectPropertiesResponse)(nil)).Elem()
-}
-
-func (i MigrateProjectPropertiesResponseArgs) ToMigrateProjectPropertiesResponseOutput() MigrateProjectPropertiesResponseOutput {
-	return i.ToMigrateProjectPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i MigrateProjectPropertiesResponseArgs) ToMigrateProjectPropertiesResponseOutputWithContext(ctx context.Context) MigrateProjectPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MigrateProjectPropertiesResponseOutput)
-}
-
-func (i MigrateProjectPropertiesResponseArgs) ToMigrateProjectPropertiesResponsePtrOutput() MigrateProjectPropertiesResponsePtrOutput {
-	return i.ToMigrateProjectPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i MigrateProjectPropertiesResponseArgs) ToMigrateProjectPropertiesResponsePtrOutputWithContext(ctx context.Context) MigrateProjectPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MigrateProjectPropertiesResponseOutput).ToMigrateProjectPropertiesResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type MigrateProjectPropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToMigrateProjectPropertiesResponsePtrOutput() MigrateProjectPropertiesResponsePtrOutput
-	ToMigrateProjectPropertiesResponsePtrOutputWithContext(context.Context) MigrateProjectPropertiesResponsePtrOutput
-}
-
-type migrateProjectPropertiesResponsePtrType MigrateProjectPropertiesResponseArgs
-
-func MigrateProjectPropertiesResponsePtr(v *MigrateProjectPropertiesResponseArgs) MigrateProjectPropertiesResponsePtrInput {
-	return (*migrateProjectPropertiesResponsePtrType)(v)
-}
-
-func (*migrateProjectPropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**MigrateProjectPropertiesResponse)(nil)).Elem()
-}
-
-func (i *migrateProjectPropertiesResponsePtrType) ToMigrateProjectPropertiesResponsePtrOutput() MigrateProjectPropertiesResponsePtrOutput {
-	return i.ToMigrateProjectPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *migrateProjectPropertiesResponsePtrType) ToMigrateProjectPropertiesResponsePtrOutputWithContext(ctx context.Context) MigrateProjectPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MigrateProjectPropertiesResponsePtrOutput)
-}
-
 type MigrateProjectPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (MigrateProjectPropertiesResponseOutput) ElementType() reflect.Type {
@@ -384,16 +192,6 @@ func (o MigrateProjectPropertiesResponseOutput) ToMigrateProjectPropertiesRespon
 
 func (o MigrateProjectPropertiesResponseOutput) ToMigrateProjectPropertiesResponseOutputWithContext(ctx context.Context) MigrateProjectPropertiesResponseOutput {
 	return o
-}
-
-func (o MigrateProjectPropertiesResponseOutput) ToMigrateProjectPropertiesResponsePtrOutput() MigrateProjectPropertiesResponsePtrOutput {
-	return o.ToMigrateProjectPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o MigrateProjectPropertiesResponseOutput) ToMigrateProjectPropertiesResponsePtrOutputWithContext(ctx context.Context) MigrateProjectPropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MigrateProjectPropertiesResponse) *MigrateProjectPropertiesResponse {
-		return &v
-	}).(MigrateProjectPropertiesResponsePtrOutput)
 }
 
 func (o MigrateProjectPropertiesResponseOutput) LastSummaryRefreshedTime() pulumi.StringOutput {
@@ -416,145 +214,8 @@ func (o MigrateProjectPropertiesResponseOutput) Summary() pulumi.MapOutput {
 	return o.ApplyT(func(v MigrateProjectPropertiesResponse) map[string]interface{} { return v.Summary }).(pulumi.MapOutput)
 }
 
-type MigrateProjectPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (MigrateProjectPropertiesResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**MigrateProjectPropertiesResponse)(nil)).Elem()
-}
-
-func (o MigrateProjectPropertiesResponsePtrOutput) ToMigrateProjectPropertiesResponsePtrOutput() MigrateProjectPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o MigrateProjectPropertiesResponsePtrOutput) ToMigrateProjectPropertiesResponsePtrOutputWithContext(ctx context.Context) MigrateProjectPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o MigrateProjectPropertiesResponsePtrOutput) Elem() MigrateProjectPropertiesResponseOutput {
-	return o.ApplyT(func(v *MigrateProjectPropertiesResponse) MigrateProjectPropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret MigrateProjectPropertiesResponse
-		return ret
-	}).(MigrateProjectPropertiesResponseOutput)
-}
-
-func (o MigrateProjectPropertiesResponsePtrOutput) LastSummaryRefreshedTime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *MigrateProjectPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.LastSummaryRefreshedTime
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o MigrateProjectPropertiesResponsePtrOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *MigrateProjectPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ProvisioningState
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o MigrateProjectPropertiesResponsePtrOutput) RefreshSummaryState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *MigrateProjectPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.RefreshSummaryState
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o MigrateProjectPropertiesResponsePtrOutput) RegisteredTools() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *MigrateProjectPropertiesResponse) []string {
-		if v == nil {
-			return nil
-		}
-		return v.RegisteredTools
-	}).(pulumi.StringArrayOutput)
-}
-
-func (o MigrateProjectPropertiesResponsePtrOutput) Summary() pulumi.MapOutput {
-	return o.ApplyT(func(v *MigrateProjectPropertiesResponse) map[string]interface{} {
-		if v == nil {
-			return nil
-		}
-		return v.Summary
-	}).(pulumi.MapOutput)
-}
-
 type MigrateProjectResponseTags struct {
 	AdditionalProperties *string `pulumi:"additionalProperties"`
-}
-
-
-
-
-
-type MigrateProjectResponseTagsInput interface {
-	pulumi.Input
-
-	ToMigrateProjectResponseTagsOutput() MigrateProjectResponseTagsOutput
-	ToMigrateProjectResponseTagsOutputWithContext(context.Context) MigrateProjectResponseTagsOutput
-}
-
-type MigrateProjectResponseTagsArgs struct {
-	AdditionalProperties pulumi.StringPtrInput `pulumi:"additionalProperties"`
-}
-
-func (MigrateProjectResponseTagsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MigrateProjectResponseTags)(nil)).Elem()
-}
-
-func (i MigrateProjectResponseTagsArgs) ToMigrateProjectResponseTagsOutput() MigrateProjectResponseTagsOutput {
-	return i.ToMigrateProjectResponseTagsOutputWithContext(context.Background())
-}
-
-func (i MigrateProjectResponseTagsArgs) ToMigrateProjectResponseTagsOutputWithContext(ctx context.Context) MigrateProjectResponseTagsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MigrateProjectResponseTagsOutput)
-}
-
-func (i MigrateProjectResponseTagsArgs) ToMigrateProjectResponseTagsPtrOutput() MigrateProjectResponseTagsPtrOutput {
-	return i.ToMigrateProjectResponseTagsPtrOutputWithContext(context.Background())
-}
-
-func (i MigrateProjectResponseTagsArgs) ToMigrateProjectResponseTagsPtrOutputWithContext(ctx context.Context) MigrateProjectResponseTagsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MigrateProjectResponseTagsOutput).ToMigrateProjectResponseTagsPtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type MigrateProjectResponseTagsPtrInput interface {
-	pulumi.Input
-
-	ToMigrateProjectResponseTagsPtrOutput() MigrateProjectResponseTagsPtrOutput
-	ToMigrateProjectResponseTagsPtrOutputWithContext(context.Context) MigrateProjectResponseTagsPtrOutput
-}
-
-type migrateProjectResponseTagsPtrType MigrateProjectResponseTagsArgs
-
-func MigrateProjectResponseTagsPtr(v *MigrateProjectResponseTagsArgs) MigrateProjectResponseTagsPtrInput {
-	return (*migrateProjectResponseTagsPtrType)(v)
-}
-
-func (*migrateProjectResponseTagsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**MigrateProjectResponseTags)(nil)).Elem()
-}
-
-func (i *migrateProjectResponseTagsPtrType) ToMigrateProjectResponseTagsPtrOutput() MigrateProjectResponseTagsPtrOutput {
-	return i.ToMigrateProjectResponseTagsPtrOutputWithContext(context.Background())
-}
-
-func (i *migrateProjectResponseTagsPtrType) ToMigrateProjectResponseTagsPtrOutputWithContext(ctx context.Context) MigrateProjectResponseTagsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MigrateProjectResponseTagsPtrOutput)
 }
 
 type MigrateProjectResponseTagsOutput struct{ *pulumi.OutputState }
@@ -569,16 +230,6 @@ func (o MigrateProjectResponseTagsOutput) ToMigrateProjectResponseTagsOutput() M
 
 func (o MigrateProjectResponseTagsOutput) ToMigrateProjectResponseTagsOutputWithContext(ctx context.Context) MigrateProjectResponseTagsOutput {
 	return o
-}
-
-func (o MigrateProjectResponseTagsOutput) ToMigrateProjectResponseTagsPtrOutput() MigrateProjectResponseTagsPtrOutput {
-	return o.ToMigrateProjectResponseTagsPtrOutputWithContext(context.Background())
-}
-
-func (o MigrateProjectResponseTagsOutput) ToMigrateProjectResponseTagsPtrOutputWithContext(ctx context.Context) MigrateProjectResponseTagsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MigrateProjectResponseTags) *MigrateProjectResponseTags {
-		return &v
-	}).(MigrateProjectResponseTagsPtrOutput)
 }
 
 func (o MigrateProjectResponseTagsOutput) AdditionalProperties() pulumi.StringPtrOutput {
@@ -763,91 +414,6 @@ type ServersProjectSummaryResponse struct {
 	TestMigratedCount        *int              `pulumi:"testMigratedCount"`
 }
 
-
-
-
-
-type ServersProjectSummaryResponseInput interface {
-	pulumi.Input
-
-	ToServersProjectSummaryResponseOutput() ServersProjectSummaryResponseOutput
-	ToServersProjectSummaryResponseOutputWithContext(context.Context) ServersProjectSummaryResponseOutput
-}
-
-type ServersProjectSummaryResponseArgs struct {
-	AssessedCount            pulumi.IntPtrInput    `pulumi:"assessedCount"`
-	DiscoveredCount          pulumi.IntPtrInput    `pulumi:"discoveredCount"`
-	ExtendedSummary          pulumi.StringMapInput `pulumi:"extendedSummary"`
-	InstanceType             pulumi.StringInput    `pulumi:"instanceType"`
-	LastSummaryRefreshedTime pulumi.StringPtrInput `pulumi:"lastSummaryRefreshedTime"`
-	MigratedCount            pulumi.IntPtrInput    `pulumi:"migratedCount"`
-	RefreshSummaryState      pulumi.StringPtrInput `pulumi:"refreshSummaryState"`
-	ReplicatingCount         pulumi.IntPtrInput    `pulumi:"replicatingCount"`
-	TestMigratedCount        pulumi.IntPtrInput    `pulumi:"testMigratedCount"`
-}
-
-func (ServersProjectSummaryResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServersProjectSummaryResponse)(nil)).Elem()
-}
-
-func (i ServersProjectSummaryResponseArgs) ToServersProjectSummaryResponseOutput() ServersProjectSummaryResponseOutput {
-	return i.ToServersProjectSummaryResponseOutputWithContext(context.Background())
-}
-
-func (i ServersProjectSummaryResponseArgs) ToServersProjectSummaryResponseOutputWithContext(ctx context.Context) ServersProjectSummaryResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServersProjectSummaryResponseOutput)
-}
-
-type ServersProjectSummaryResponseOutput struct{ *pulumi.OutputState }
-
-func (ServersProjectSummaryResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServersProjectSummaryResponse)(nil)).Elem()
-}
-
-func (o ServersProjectSummaryResponseOutput) ToServersProjectSummaryResponseOutput() ServersProjectSummaryResponseOutput {
-	return o
-}
-
-func (o ServersProjectSummaryResponseOutput) ToServersProjectSummaryResponseOutputWithContext(ctx context.Context) ServersProjectSummaryResponseOutput {
-	return o
-}
-
-func (o ServersProjectSummaryResponseOutput) AssessedCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ServersProjectSummaryResponse) *int { return v.AssessedCount }).(pulumi.IntPtrOutput)
-}
-
-func (o ServersProjectSummaryResponseOutput) DiscoveredCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ServersProjectSummaryResponse) *int { return v.DiscoveredCount }).(pulumi.IntPtrOutput)
-}
-
-func (o ServersProjectSummaryResponseOutput) ExtendedSummary() pulumi.StringMapOutput {
-	return o.ApplyT(func(v ServersProjectSummaryResponse) map[string]string { return v.ExtendedSummary }).(pulumi.StringMapOutput)
-}
-
-func (o ServersProjectSummaryResponseOutput) InstanceType() pulumi.StringOutput {
-	return o.ApplyT(func(v ServersProjectSummaryResponse) string { return v.InstanceType }).(pulumi.StringOutput)
-}
-
-func (o ServersProjectSummaryResponseOutput) LastSummaryRefreshedTime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ServersProjectSummaryResponse) *string { return v.LastSummaryRefreshedTime }).(pulumi.StringPtrOutput)
-}
-
-func (o ServersProjectSummaryResponseOutput) MigratedCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ServersProjectSummaryResponse) *int { return v.MigratedCount }).(pulumi.IntPtrOutput)
-}
-
-func (o ServersProjectSummaryResponseOutput) RefreshSummaryState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ServersProjectSummaryResponse) *string { return v.RefreshSummaryState }).(pulumi.StringPtrOutput)
-}
-
-func (o ServersProjectSummaryResponseOutput) ReplicatingCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ServersProjectSummaryResponse) *int { return v.ReplicatingCount }).(pulumi.IntPtrOutput)
-}
-
-func (o ServersProjectSummaryResponseOutput) TestMigratedCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ServersProjectSummaryResponse) *int { return v.TestMigratedCount }).(pulumi.IntPtrOutput)
-}
-
 type ServersSolutionSummaryResponse struct {
 	AssessedCount     *int   `pulumi:"assessedCount"`
 	DiscoveredCount   *int   `pulumi:"discoveredCount"`
@@ -855,76 +421,6 @@ type ServersSolutionSummaryResponse struct {
 	MigratedCount     *int   `pulumi:"migratedCount"`
 	ReplicatingCount  *int   `pulumi:"replicatingCount"`
 	TestMigratedCount *int   `pulumi:"testMigratedCount"`
-}
-
-
-
-
-
-type ServersSolutionSummaryResponseInput interface {
-	pulumi.Input
-
-	ToServersSolutionSummaryResponseOutput() ServersSolutionSummaryResponseOutput
-	ToServersSolutionSummaryResponseOutputWithContext(context.Context) ServersSolutionSummaryResponseOutput
-}
-
-type ServersSolutionSummaryResponseArgs struct {
-	AssessedCount     pulumi.IntPtrInput `pulumi:"assessedCount"`
-	DiscoveredCount   pulumi.IntPtrInput `pulumi:"discoveredCount"`
-	InstanceType      pulumi.StringInput `pulumi:"instanceType"`
-	MigratedCount     pulumi.IntPtrInput `pulumi:"migratedCount"`
-	ReplicatingCount  pulumi.IntPtrInput `pulumi:"replicatingCount"`
-	TestMigratedCount pulumi.IntPtrInput `pulumi:"testMigratedCount"`
-}
-
-func (ServersSolutionSummaryResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServersSolutionSummaryResponse)(nil)).Elem()
-}
-
-func (i ServersSolutionSummaryResponseArgs) ToServersSolutionSummaryResponseOutput() ServersSolutionSummaryResponseOutput {
-	return i.ToServersSolutionSummaryResponseOutputWithContext(context.Background())
-}
-
-func (i ServersSolutionSummaryResponseArgs) ToServersSolutionSummaryResponseOutputWithContext(ctx context.Context) ServersSolutionSummaryResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServersSolutionSummaryResponseOutput)
-}
-
-type ServersSolutionSummaryResponseOutput struct{ *pulumi.OutputState }
-
-func (ServersSolutionSummaryResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServersSolutionSummaryResponse)(nil)).Elem()
-}
-
-func (o ServersSolutionSummaryResponseOutput) ToServersSolutionSummaryResponseOutput() ServersSolutionSummaryResponseOutput {
-	return o
-}
-
-func (o ServersSolutionSummaryResponseOutput) ToServersSolutionSummaryResponseOutputWithContext(ctx context.Context) ServersSolutionSummaryResponseOutput {
-	return o
-}
-
-func (o ServersSolutionSummaryResponseOutput) AssessedCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ServersSolutionSummaryResponse) *int { return v.AssessedCount }).(pulumi.IntPtrOutput)
-}
-
-func (o ServersSolutionSummaryResponseOutput) DiscoveredCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ServersSolutionSummaryResponse) *int { return v.DiscoveredCount }).(pulumi.IntPtrOutput)
-}
-
-func (o ServersSolutionSummaryResponseOutput) InstanceType() pulumi.StringOutput {
-	return o.ApplyT(func(v ServersSolutionSummaryResponse) string { return v.InstanceType }).(pulumi.StringOutput)
-}
-
-func (o ServersSolutionSummaryResponseOutput) MigratedCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ServersSolutionSummaryResponse) *int { return v.MigratedCount }).(pulumi.IntPtrOutput)
-}
-
-func (o ServersSolutionSummaryResponseOutput) ReplicatingCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ServersSolutionSummaryResponse) *int { return v.ReplicatingCount }).(pulumi.IntPtrOutput)
-}
-
-func (o ServersSolutionSummaryResponseOutput) TestMigratedCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ServersSolutionSummaryResponse) *int { return v.TestMigratedCount }).(pulumi.IntPtrOutput)
 }
 
 type SolutionDetails struct {
@@ -1096,76 +592,6 @@ type SolutionDetailsResponse struct {
 	GroupCount      *int              `pulumi:"groupCount"`
 }
 
-
-
-
-
-type SolutionDetailsResponseInput interface {
-	pulumi.Input
-
-	ToSolutionDetailsResponseOutput() SolutionDetailsResponseOutput
-	ToSolutionDetailsResponseOutputWithContext(context.Context) SolutionDetailsResponseOutput
-}
-
-type SolutionDetailsResponseArgs struct {
-	AssessmentCount pulumi.IntPtrInput    `pulumi:"assessmentCount"`
-	ExtendedDetails pulumi.StringMapInput `pulumi:"extendedDetails"`
-	GroupCount      pulumi.IntPtrInput    `pulumi:"groupCount"`
-}
-
-func (SolutionDetailsResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SolutionDetailsResponse)(nil)).Elem()
-}
-
-func (i SolutionDetailsResponseArgs) ToSolutionDetailsResponseOutput() SolutionDetailsResponseOutput {
-	return i.ToSolutionDetailsResponseOutputWithContext(context.Background())
-}
-
-func (i SolutionDetailsResponseArgs) ToSolutionDetailsResponseOutputWithContext(ctx context.Context) SolutionDetailsResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SolutionDetailsResponseOutput)
-}
-
-func (i SolutionDetailsResponseArgs) ToSolutionDetailsResponsePtrOutput() SolutionDetailsResponsePtrOutput {
-	return i.ToSolutionDetailsResponsePtrOutputWithContext(context.Background())
-}
-
-func (i SolutionDetailsResponseArgs) ToSolutionDetailsResponsePtrOutputWithContext(ctx context.Context) SolutionDetailsResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SolutionDetailsResponseOutput).ToSolutionDetailsResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type SolutionDetailsResponsePtrInput interface {
-	pulumi.Input
-
-	ToSolutionDetailsResponsePtrOutput() SolutionDetailsResponsePtrOutput
-	ToSolutionDetailsResponsePtrOutputWithContext(context.Context) SolutionDetailsResponsePtrOutput
-}
-
-type solutionDetailsResponsePtrType SolutionDetailsResponseArgs
-
-func SolutionDetailsResponsePtr(v *SolutionDetailsResponseArgs) SolutionDetailsResponsePtrInput {
-	return (*solutionDetailsResponsePtrType)(v)
-}
-
-func (*solutionDetailsResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SolutionDetailsResponse)(nil)).Elem()
-}
-
-func (i *solutionDetailsResponsePtrType) ToSolutionDetailsResponsePtrOutput() SolutionDetailsResponsePtrOutput {
-	return i.ToSolutionDetailsResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *solutionDetailsResponsePtrType) ToSolutionDetailsResponsePtrOutputWithContext(ctx context.Context) SolutionDetailsResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SolutionDetailsResponsePtrOutput)
-}
-
 type SolutionDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (SolutionDetailsResponseOutput) ElementType() reflect.Type {
@@ -1178,16 +604,6 @@ func (o SolutionDetailsResponseOutput) ToSolutionDetailsResponseOutput() Solutio
 
 func (o SolutionDetailsResponseOutput) ToSolutionDetailsResponseOutputWithContext(ctx context.Context) SolutionDetailsResponseOutput {
 	return o
-}
-
-func (o SolutionDetailsResponseOutput) ToSolutionDetailsResponsePtrOutput() SolutionDetailsResponsePtrOutput {
-	return o.ToSolutionDetailsResponsePtrOutputWithContext(context.Background())
-}
-
-func (o SolutionDetailsResponseOutput) ToSolutionDetailsResponsePtrOutputWithContext(ctx context.Context) SolutionDetailsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SolutionDetailsResponse) *SolutionDetailsResponse {
-		return &v
-	}).(SolutionDetailsResponsePtrOutput)
 }
 
 func (o SolutionDetailsResponseOutput) AssessmentCount() pulumi.IntPtrOutput {
@@ -1471,80 +887,6 @@ type SolutionPropertiesResponse struct {
 	Tool         *string                  `pulumi:"tool"`
 }
 
-
-
-
-
-type SolutionPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToSolutionPropertiesResponseOutput() SolutionPropertiesResponseOutput
-	ToSolutionPropertiesResponseOutputWithContext(context.Context) SolutionPropertiesResponseOutput
-}
-
-type SolutionPropertiesResponseArgs struct {
-	CleanupState pulumi.StringPtrInput           `pulumi:"cleanupState"`
-	Details      SolutionDetailsResponsePtrInput `pulumi:"details"`
-	Goal         pulumi.StringPtrInput           `pulumi:"goal"`
-	Purpose      pulumi.StringPtrInput           `pulumi:"purpose"`
-	Status       pulumi.StringPtrInput           `pulumi:"status"`
-	Summary      pulumi.Input                    `pulumi:"summary"`
-	Tool         pulumi.StringPtrInput           `pulumi:"tool"`
-}
-
-func (SolutionPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SolutionPropertiesResponse)(nil)).Elem()
-}
-
-func (i SolutionPropertiesResponseArgs) ToSolutionPropertiesResponseOutput() SolutionPropertiesResponseOutput {
-	return i.ToSolutionPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i SolutionPropertiesResponseArgs) ToSolutionPropertiesResponseOutputWithContext(ctx context.Context) SolutionPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SolutionPropertiesResponseOutput)
-}
-
-func (i SolutionPropertiesResponseArgs) ToSolutionPropertiesResponsePtrOutput() SolutionPropertiesResponsePtrOutput {
-	return i.ToSolutionPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i SolutionPropertiesResponseArgs) ToSolutionPropertiesResponsePtrOutputWithContext(ctx context.Context) SolutionPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SolutionPropertiesResponseOutput).ToSolutionPropertiesResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type SolutionPropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToSolutionPropertiesResponsePtrOutput() SolutionPropertiesResponsePtrOutput
-	ToSolutionPropertiesResponsePtrOutputWithContext(context.Context) SolutionPropertiesResponsePtrOutput
-}
-
-type solutionPropertiesResponsePtrType SolutionPropertiesResponseArgs
-
-func SolutionPropertiesResponsePtr(v *SolutionPropertiesResponseArgs) SolutionPropertiesResponsePtrInput {
-	return (*solutionPropertiesResponsePtrType)(v)
-}
-
-func (*solutionPropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SolutionPropertiesResponse)(nil)).Elem()
-}
-
-func (i *solutionPropertiesResponsePtrType) ToSolutionPropertiesResponsePtrOutput() SolutionPropertiesResponsePtrOutput {
-	return i.ToSolutionPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *solutionPropertiesResponsePtrType) ToSolutionPropertiesResponsePtrOutputWithContext(ctx context.Context) SolutionPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SolutionPropertiesResponsePtrOutput)
-}
-
 type SolutionPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (SolutionPropertiesResponseOutput) ElementType() reflect.Type {
@@ -1557,16 +899,6 @@ func (o SolutionPropertiesResponseOutput) ToSolutionPropertiesResponseOutput() S
 
 func (o SolutionPropertiesResponseOutput) ToSolutionPropertiesResponseOutputWithContext(ctx context.Context) SolutionPropertiesResponseOutput {
 	return o
-}
-
-func (o SolutionPropertiesResponseOutput) ToSolutionPropertiesResponsePtrOutput() SolutionPropertiesResponsePtrOutput {
-	return o.ToSolutionPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o SolutionPropertiesResponseOutput) ToSolutionPropertiesResponsePtrOutputWithContext(ctx context.Context) SolutionPropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SolutionPropertiesResponse) *SolutionPropertiesResponse {
-		return &v
-	}).(SolutionPropertiesResponsePtrOutput)
 }
 
 func (o SolutionPropertiesResponseOutput) CleanupState() pulumi.StringPtrOutput {
@@ -1597,106 +929,14 @@ func (o SolutionPropertiesResponseOutput) Tool() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SolutionPropertiesResponse) *string { return v.Tool }).(pulumi.StringPtrOutput)
 }
 
-type SolutionPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (SolutionPropertiesResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SolutionPropertiesResponse)(nil)).Elem()
-}
-
-func (o SolutionPropertiesResponsePtrOutput) ToSolutionPropertiesResponsePtrOutput() SolutionPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o SolutionPropertiesResponsePtrOutput) ToSolutionPropertiesResponsePtrOutputWithContext(ctx context.Context) SolutionPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o SolutionPropertiesResponsePtrOutput) Elem() SolutionPropertiesResponseOutput {
-	return o.ApplyT(func(v *SolutionPropertiesResponse) SolutionPropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret SolutionPropertiesResponse
-		return ret
-	}).(SolutionPropertiesResponseOutput)
-}
-
-func (o SolutionPropertiesResponsePtrOutput) CleanupState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SolutionPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CleanupState
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SolutionPropertiesResponsePtrOutput) Details() SolutionDetailsResponsePtrOutput {
-	return o.ApplyT(func(v *SolutionPropertiesResponse) *SolutionDetailsResponse {
-		if v == nil {
-			return nil
-		}
-		return v.Details
-	}).(SolutionDetailsResponsePtrOutput)
-}
-
-func (o SolutionPropertiesResponsePtrOutput) Goal() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SolutionPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Goal
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SolutionPropertiesResponsePtrOutput) Purpose() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SolutionPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Purpose
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SolutionPropertiesResponsePtrOutput) Status() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SolutionPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Status
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SolutionPropertiesResponsePtrOutput) Summary() pulumi.AnyOutput {
-	return o.ApplyT(func(v *SolutionPropertiesResponse) interface{} {
-		if v == nil {
-			return nil
-		}
-		return v.Summary
-	}).(pulumi.AnyOutput)
-}
-
-func (o SolutionPropertiesResponsePtrOutput) Tool() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SolutionPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Tool
-	}).(pulumi.StringPtrOutput)
-}
-
 func init() {
-	pulumi.RegisterOutputType(DatabaseProjectSummaryResponseOutput{})
-	pulumi.RegisterOutputType(DatabasesSolutionSummaryResponseOutput{})
 	pulumi.RegisterOutputType(MigrateProjectPropertiesOutput{})
 	pulumi.RegisterOutputType(MigrateProjectPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(MigrateProjectPropertiesResponseOutput{})
-	pulumi.RegisterOutputType(MigrateProjectPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(MigrateProjectResponseTagsOutput{})
 	pulumi.RegisterOutputType(MigrateProjectResponseTagsPtrOutput{})
 	pulumi.RegisterOutputType(MigrateProjectTagsOutput{})
 	pulumi.RegisterOutputType(MigrateProjectTagsPtrOutput{})
-	pulumi.RegisterOutputType(ServersProjectSummaryResponseOutput{})
-	pulumi.RegisterOutputType(ServersSolutionSummaryResponseOutput{})
 	pulumi.RegisterOutputType(SolutionDetailsOutput{})
 	pulumi.RegisterOutputType(SolutionDetailsPtrOutput{})
 	pulumi.RegisterOutputType(SolutionDetailsResponseOutput{})
@@ -1704,5 +944,4 @@ func init() {
 	pulumi.RegisterOutputType(SolutionPropertiesOutput{})
 	pulumi.RegisterOutputType(SolutionPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(SolutionPropertiesResponseOutput{})
-	pulumi.RegisterOutputType(SolutionPropertiesResponsePtrOutput{})
 }

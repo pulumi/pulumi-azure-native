@@ -55,9 +55,8 @@ func NewJob(ctx *pulumi.Context,
 	if isZero(args.DeliveryType) {
 		args.DeliveryType = pulumi.StringPtr("NonScheduled")
 	}
-	identityApplier := func(v ResourceIdentity) *ResourceIdentity { return v.Defaults() }
 	if args.Identity != nil {
-		args.Identity = args.Identity.ToResourceIdentityPtrOutput().Elem().ApplyT(identityApplier).(ResourceIdentityPtrOutput)
+		args.Identity = args.Identity.ToResourceIdentityPtrOutput().ApplyT(func(v *ResourceIdentity) *ResourceIdentity { return v.Defaults() }).(ResourceIdentityPtrOutput)
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

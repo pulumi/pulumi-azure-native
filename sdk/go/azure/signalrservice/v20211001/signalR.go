@@ -61,9 +61,8 @@ func NewSignalR(ctx *pulumi.Context,
 	if isZero(args.PublicNetworkAccess) {
 		args.PublicNetworkAccess = pulumi.StringPtr("Enabled")
 	}
-	tlsApplier := func(v SignalRTlsSettings) *SignalRTlsSettings { return v.Defaults() }
 	if args.Tls != nil {
-		args.Tls = args.Tls.ToSignalRTlsSettingsPtrOutput().Elem().ApplyT(tlsApplier).(SignalRTlsSettingsPtrOutput)
+		args.Tls = args.Tls.ToSignalRTlsSettingsPtrOutput().ApplyT(func(v *SignalRTlsSettings) *SignalRTlsSettings { return v.Defaults() }).(SignalRTlsSettingsPtrOutput)
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

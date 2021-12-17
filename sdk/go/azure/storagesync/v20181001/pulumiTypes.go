@@ -21,81 +21,6 @@ type ServerEndpointHealthResponse struct {
 	UploadStatus              *SyncSessionStatusResponse  `pulumi:"uploadStatus"`
 }
 
-
-
-
-
-type ServerEndpointHealthResponseInput interface {
-	pulumi.Input
-
-	ToServerEndpointHealthResponseOutput() ServerEndpointHealthResponseOutput
-	ToServerEndpointHealthResponseOutputWithContext(context.Context) ServerEndpointHealthResponseOutput
-}
-
-type ServerEndpointHealthResponseArgs struct {
-	CombinedHealth            pulumi.StringPtrInput              `pulumi:"combinedHealth"`
-	CurrentProgress           SyncProgressStatusResponsePtrInput `pulumi:"currentProgress"`
-	DownloadHealth            pulumi.StringPtrInput              `pulumi:"downloadHealth"`
-	DownloadStatus            SyncSessionStatusResponsePtrInput  `pulumi:"downloadStatus"`
-	LastUpdatedTimestamp      pulumi.StringPtrInput              `pulumi:"lastUpdatedTimestamp"`
-	OfflineDataTransferStatus pulumi.StringPtrInput              `pulumi:"offlineDataTransferStatus"`
-	UploadHealth              pulumi.StringPtrInput              `pulumi:"uploadHealth"`
-	UploadStatus              SyncSessionStatusResponsePtrInput  `pulumi:"uploadStatus"`
-}
-
-func (ServerEndpointHealthResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServerEndpointHealthResponse)(nil)).Elem()
-}
-
-func (i ServerEndpointHealthResponseArgs) ToServerEndpointHealthResponseOutput() ServerEndpointHealthResponseOutput {
-	return i.ToServerEndpointHealthResponseOutputWithContext(context.Background())
-}
-
-func (i ServerEndpointHealthResponseArgs) ToServerEndpointHealthResponseOutputWithContext(ctx context.Context) ServerEndpointHealthResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServerEndpointHealthResponseOutput)
-}
-
-func (i ServerEndpointHealthResponseArgs) ToServerEndpointHealthResponsePtrOutput() ServerEndpointHealthResponsePtrOutput {
-	return i.ToServerEndpointHealthResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ServerEndpointHealthResponseArgs) ToServerEndpointHealthResponsePtrOutputWithContext(ctx context.Context) ServerEndpointHealthResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServerEndpointHealthResponseOutput).ToServerEndpointHealthResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type ServerEndpointHealthResponsePtrInput interface {
-	pulumi.Input
-
-	ToServerEndpointHealthResponsePtrOutput() ServerEndpointHealthResponsePtrOutput
-	ToServerEndpointHealthResponsePtrOutputWithContext(context.Context) ServerEndpointHealthResponsePtrOutput
-}
-
-type serverEndpointHealthResponsePtrType ServerEndpointHealthResponseArgs
-
-func ServerEndpointHealthResponsePtr(v *ServerEndpointHealthResponseArgs) ServerEndpointHealthResponsePtrInput {
-	return (*serverEndpointHealthResponsePtrType)(v)
-}
-
-func (*serverEndpointHealthResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ServerEndpointHealthResponse)(nil)).Elem()
-}
-
-func (i *serverEndpointHealthResponsePtrType) ToServerEndpointHealthResponsePtrOutput() ServerEndpointHealthResponsePtrOutput {
-	return i.ToServerEndpointHealthResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *serverEndpointHealthResponsePtrType) ToServerEndpointHealthResponsePtrOutputWithContext(ctx context.Context) ServerEndpointHealthResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServerEndpointHealthResponsePtrOutput)
-}
-
 type ServerEndpointHealthResponseOutput struct{ *pulumi.OutputState }
 
 func (ServerEndpointHealthResponseOutput) ElementType() reflect.Type {
@@ -108,16 +33,6 @@ func (o ServerEndpointHealthResponseOutput) ToServerEndpointHealthResponseOutput
 
 func (o ServerEndpointHealthResponseOutput) ToServerEndpointHealthResponseOutputWithContext(ctx context.Context) ServerEndpointHealthResponseOutput {
 	return o
-}
-
-func (o ServerEndpointHealthResponseOutput) ToServerEndpointHealthResponsePtrOutput() ServerEndpointHealthResponsePtrOutput {
-	return o.ToServerEndpointHealthResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ServerEndpointHealthResponseOutput) ToServerEndpointHealthResponsePtrOutputWithContext(ctx context.Context) ServerEndpointHealthResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServerEndpointHealthResponse) *ServerEndpointHealthResponse {
-		return &v
-	}).(ServerEndpointHealthResponsePtrOutput)
 }
 
 func (o ServerEndpointHealthResponseOutput) CombinedHealth() pulumi.StringPtrOutput {
@@ -258,80 +173,6 @@ type SyncProgressStatusResponse struct {
 	TotalItemCount    *int    `pulumi:"totalItemCount"`
 }
 
-
-
-
-
-type SyncProgressStatusResponseInput interface {
-	pulumi.Input
-
-	ToSyncProgressStatusResponseOutput() SyncProgressStatusResponseOutput
-	ToSyncProgressStatusResponseOutputWithContext(context.Context) SyncProgressStatusResponseOutput
-}
-
-type SyncProgressStatusResponseArgs struct {
-	AppliedBytes      pulumi.IntPtrInput    `pulumi:"appliedBytes"`
-	AppliedItemCount  pulumi.IntPtrInput    `pulumi:"appliedItemCount"`
-	PerItemErrorCount pulumi.IntPtrInput    `pulumi:"perItemErrorCount"`
-	ProgressTimestamp pulumi.StringPtrInput `pulumi:"progressTimestamp"`
-	SyncDirection     pulumi.StringPtrInput `pulumi:"syncDirection"`
-	TotalBytes        pulumi.IntPtrInput    `pulumi:"totalBytes"`
-	TotalItemCount    pulumi.IntPtrInput    `pulumi:"totalItemCount"`
-}
-
-func (SyncProgressStatusResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SyncProgressStatusResponse)(nil)).Elem()
-}
-
-func (i SyncProgressStatusResponseArgs) ToSyncProgressStatusResponseOutput() SyncProgressStatusResponseOutput {
-	return i.ToSyncProgressStatusResponseOutputWithContext(context.Background())
-}
-
-func (i SyncProgressStatusResponseArgs) ToSyncProgressStatusResponseOutputWithContext(ctx context.Context) SyncProgressStatusResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SyncProgressStatusResponseOutput)
-}
-
-func (i SyncProgressStatusResponseArgs) ToSyncProgressStatusResponsePtrOutput() SyncProgressStatusResponsePtrOutput {
-	return i.ToSyncProgressStatusResponsePtrOutputWithContext(context.Background())
-}
-
-func (i SyncProgressStatusResponseArgs) ToSyncProgressStatusResponsePtrOutputWithContext(ctx context.Context) SyncProgressStatusResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SyncProgressStatusResponseOutput).ToSyncProgressStatusResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type SyncProgressStatusResponsePtrInput interface {
-	pulumi.Input
-
-	ToSyncProgressStatusResponsePtrOutput() SyncProgressStatusResponsePtrOutput
-	ToSyncProgressStatusResponsePtrOutputWithContext(context.Context) SyncProgressStatusResponsePtrOutput
-}
-
-type syncProgressStatusResponsePtrType SyncProgressStatusResponseArgs
-
-func SyncProgressStatusResponsePtr(v *SyncProgressStatusResponseArgs) SyncProgressStatusResponsePtrInput {
-	return (*syncProgressStatusResponsePtrType)(v)
-}
-
-func (*syncProgressStatusResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SyncProgressStatusResponse)(nil)).Elem()
-}
-
-func (i *syncProgressStatusResponsePtrType) ToSyncProgressStatusResponsePtrOutput() SyncProgressStatusResponsePtrOutput {
-	return i.ToSyncProgressStatusResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *syncProgressStatusResponsePtrType) ToSyncProgressStatusResponsePtrOutputWithContext(ctx context.Context) SyncProgressStatusResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SyncProgressStatusResponsePtrOutput)
-}
-
 type SyncProgressStatusResponseOutput struct{ *pulumi.OutputState }
 
 func (SyncProgressStatusResponseOutput) ElementType() reflect.Type {
@@ -344,16 +185,6 @@ func (o SyncProgressStatusResponseOutput) ToSyncProgressStatusResponseOutput() S
 
 func (o SyncProgressStatusResponseOutput) ToSyncProgressStatusResponseOutputWithContext(ctx context.Context) SyncProgressStatusResponseOutput {
 	return o
-}
-
-func (o SyncProgressStatusResponseOutput) ToSyncProgressStatusResponsePtrOutput() SyncProgressStatusResponsePtrOutput {
-	return o.ToSyncProgressStatusResponsePtrOutputWithContext(context.Background())
-}
-
-func (o SyncProgressStatusResponseOutput) ToSyncProgressStatusResponsePtrOutputWithContext(ctx context.Context) SyncProgressStatusResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SyncProgressStatusResponse) *SyncProgressStatusResponse {
-		return &v
-	}).(SyncProgressStatusResponsePtrOutput)
 }
 
 func (o SyncProgressStatusResponseOutput) AppliedBytes() pulumi.IntPtrOutput {
@@ -478,77 +309,6 @@ type SyncSessionStatusResponse struct {
 	LastSyncTimestamp         *string `pulumi:"lastSyncTimestamp"`
 }
 
-
-
-
-
-type SyncSessionStatusResponseInput interface {
-	pulumi.Input
-
-	ToSyncSessionStatusResponseOutput() SyncSessionStatusResponseOutput
-	ToSyncSessionStatusResponseOutputWithContext(context.Context) SyncSessionStatusResponseOutput
-}
-
-type SyncSessionStatusResponseArgs struct {
-	LastSyncPerItemErrorCount pulumi.IntPtrInput    `pulumi:"lastSyncPerItemErrorCount"`
-	LastSyncResult            pulumi.IntPtrInput    `pulumi:"lastSyncResult"`
-	LastSyncSuccessTimestamp  pulumi.StringPtrInput `pulumi:"lastSyncSuccessTimestamp"`
-	LastSyncTimestamp         pulumi.StringPtrInput `pulumi:"lastSyncTimestamp"`
-}
-
-func (SyncSessionStatusResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SyncSessionStatusResponse)(nil)).Elem()
-}
-
-func (i SyncSessionStatusResponseArgs) ToSyncSessionStatusResponseOutput() SyncSessionStatusResponseOutput {
-	return i.ToSyncSessionStatusResponseOutputWithContext(context.Background())
-}
-
-func (i SyncSessionStatusResponseArgs) ToSyncSessionStatusResponseOutputWithContext(ctx context.Context) SyncSessionStatusResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SyncSessionStatusResponseOutput)
-}
-
-func (i SyncSessionStatusResponseArgs) ToSyncSessionStatusResponsePtrOutput() SyncSessionStatusResponsePtrOutput {
-	return i.ToSyncSessionStatusResponsePtrOutputWithContext(context.Background())
-}
-
-func (i SyncSessionStatusResponseArgs) ToSyncSessionStatusResponsePtrOutputWithContext(ctx context.Context) SyncSessionStatusResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SyncSessionStatusResponseOutput).ToSyncSessionStatusResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type SyncSessionStatusResponsePtrInput interface {
-	pulumi.Input
-
-	ToSyncSessionStatusResponsePtrOutput() SyncSessionStatusResponsePtrOutput
-	ToSyncSessionStatusResponsePtrOutputWithContext(context.Context) SyncSessionStatusResponsePtrOutput
-}
-
-type syncSessionStatusResponsePtrType SyncSessionStatusResponseArgs
-
-func SyncSessionStatusResponsePtr(v *SyncSessionStatusResponseArgs) SyncSessionStatusResponsePtrInput {
-	return (*syncSessionStatusResponsePtrType)(v)
-}
-
-func (*syncSessionStatusResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SyncSessionStatusResponse)(nil)).Elem()
-}
-
-func (i *syncSessionStatusResponsePtrType) ToSyncSessionStatusResponsePtrOutput() SyncSessionStatusResponsePtrOutput {
-	return i.ToSyncSessionStatusResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *syncSessionStatusResponsePtrType) ToSyncSessionStatusResponsePtrOutputWithContext(ctx context.Context) SyncSessionStatusResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SyncSessionStatusResponsePtrOutput)
-}
-
 type SyncSessionStatusResponseOutput struct{ *pulumi.OutputState }
 
 func (SyncSessionStatusResponseOutput) ElementType() reflect.Type {
@@ -561,16 +321,6 @@ func (o SyncSessionStatusResponseOutput) ToSyncSessionStatusResponseOutput() Syn
 
 func (o SyncSessionStatusResponseOutput) ToSyncSessionStatusResponseOutputWithContext(ctx context.Context) SyncSessionStatusResponseOutput {
 	return o
-}
-
-func (o SyncSessionStatusResponseOutput) ToSyncSessionStatusResponsePtrOutput() SyncSessionStatusResponsePtrOutput {
-	return o.ToSyncSessionStatusResponsePtrOutputWithContext(context.Background())
-}
-
-func (o SyncSessionStatusResponseOutput) ToSyncSessionStatusResponsePtrOutputWithContext(ctx context.Context) SyncSessionStatusResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SyncSessionStatusResponse) *SyncSessionStatusResponse {
-		return &v
-	}).(SyncSessionStatusResponsePtrOutput)
 }
 
 func (o SyncSessionStatusResponseOutput) LastSyncPerItemErrorCount() pulumi.IntPtrOutput {

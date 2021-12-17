@@ -46,9 +46,8 @@ func NewBackend(ctx *pulumi.Context,
 	if args.Url == nil {
 		return nil, errors.New("invalid value for required argument 'Url'")
 	}
-	tlsApplier := func(v BackendTlsProperties) *BackendTlsProperties { return v.Defaults() }
 	if args.Tls != nil {
-		args.Tls = args.Tls.ToBackendTlsPropertiesPtrOutput().Elem().ApplyT(tlsApplier).(BackendTlsPropertiesPtrOutput)
+		args.Tls = args.Tls.ToBackendTlsPropertiesPtrOutput().ApplyT(func(v *BackendTlsProperties) *BackendTlsProperties { return v.Defaults() }).(BackendTlsPropertiesPtrOutput)
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

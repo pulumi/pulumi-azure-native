@@ -312,76 +312,6 @@ type AdmCredentialPropertiesResponse struct {
 	ClientSecret *string `pulumi:"clientSecret"`
 }
 
-
-
-
-
-type AdmCredentialPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToAdmCredentialPropertiesResponseOutput() AdmCredentialPropertiesResponseOutput
-	ToAdmCredentialPropertiesResponseOutputWithContext(context.Context) AdmCredentialPropertiesResponseOutput
-}
-
-type AdmCredentialPropertiesResponseArgs struct {
-	AuthTokenUrl pulumi.StringPtrInput `pulumi:"authTokenUrl"`
-	ClientId     pulumi.StringPtrInput `pulumi:"clientId"`
-	ClientSecret pulumi.StringPtrInput `pulumi:"clientSecret"`
-}
-
-func (AdmCredentialPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AdmCredentialPropertiesResponse)(nil)).Elem()
-}
-
-func (i AdmCredentialPropertiesResponseArgs) ToAdmCredentialPropertiesResponseOutput() AdmCredentialPropertiesResponseOutput {
-	return i.ToAdmCredentialPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i AdmCredentialPropertiesResponseArgs) ToAdmCredentialPropertiesResponseOutputWithContext(ctx context.Context) AdmCredentialPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AdmCredentialPropertiesResponseOutput)
-}
-
-func (i AdmCredentialPropertiesResponseArgs) ToAdmCredentialPropertiesResponsePtrOutput() AdmCredentialPropertiesResponsePtrOutput {
-	return i.ToAdmCredentialPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i AdmCredentialPropertiesResponseArgs) ToAdmCredentialPropertiesResponsePtrOutputWithContext(ctx context.Context) AdmCredentialPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AdmCredentialPropertiesResponseOutput).ToAdmCredentialPropertiesResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type AdmCredentialPropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToAdmCredentialPropertiesResponsePtrOutput() AdmCredentialPropertiesResponsePtrOutput
-	ToAdmCredentialPropertiesResponsePtrOutputWithContext(context.Context) AdmCredentialPropertiesResponsePtrOutput
-}
-
-type admCredentialPropertiesResponsePtrType AdmCredentialPropertiesResponseArgs
-
-func AdmCredentialPropertiesResponsePtr(v *AdmCredentialPropertiesResponseArgs) AdmCredentialPropertiesResponsePtrInput {
-	return (*admCredentialPropertiesResponsePtrType)(v)
-}
-
-func (*admCredentialPropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AdmCredentialPropertiesResponse)(nil)).Elem()
-}
-
-func (i *admCredentialPropertiesResponsePtrType) ToAdmCredentialPropertiesResponsePtrOutput() AdmCredentialPropertiesResponsePtrOutput {
-	return i.ToAdmCredentialPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *admCredentialPropertiesResponsePtrType) ToAdmCredentialPropertiesResponsePtrOutputWithContext(ctx context.Context) AdmCredentialPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AdmCredentialPropertiesResponsePtrOutput)
-}
-
 type AdmCredentialPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (AdmCredentialPropertiesResponseOutput) ElementType() reflect.Type {
@@ -394,16 +324,6 @@ func (o AdmCredentialPropertiesResponseOutput) ToAdmCredentialPropertiesResponse
 
 func (o AdmCredentialPropertiesResponseOutput) ToAdmCredentialPropertiesResponseOutputWithContext(ctx context.Context) AdmCredentialPropertiesResponseOutput {
 	return o
-}
-
-func (o AdmCredentialPropertiesResponseOutput) ToAdmCredentialPropertiesResponsePtrOutput() AdmCredentialPropertiesResponsePtrOutput {
-	return o.ToAdmCredentialPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o AdmCredentialPropertiesResponseOutput) ToAdmCredentialPropertiesResponsePtrOutputWithContext(ctx context.Context) AdmCredentialPropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AdmCredentialPropertiesResponse) *AdmCredentialPropertiesResponse {
-		return &v
-	}).(AdmCredentialPropertiesResponsePtrOutput)
 }
 
 func (o AdmCredentialPropertiesResponseOutput) AuthTokenUrl() pulumi.StringPtrOutput {
@@ -473,74 +393,6 @@ type AdmCredentialResponse struct {
 	Properties *AdmCredentialPropertiesResponse `pulumi:"properties"`
 }
 
-
-
-
-
-type AdmCredentialResponseInput interface {
-	pulumi.Input
-
-	ToAdmCredentialResponseOutput() AdmCredentialResponseOutput
-	ToAdmCredentialResponseOutputWithContext(context.Context) AdmCredentialResponseOutput
-}
-
-type AdmCredentialResponseArgs struct {
-	Properties AdmCredentialPropertiesResponsePtrInput `pulumi:"properties"`
-}
-
-func (AdmCredentialResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AdmCredentialResponse)(nil)).Elem()
-}
-
-func (i AdmCredentialResponseArgs) ToAdmCredentialResponseOutput() AdmCredentialResponseOutput {
-	return i.ToAdmCredentialResponseOutputWithContext(context.Background())
-}
-
-func (i AdmCredentialResponseArgs) ToAdmCredentialResponseOutputWithContext(ctx context.Context) AdmCredentialResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AdmCredentialResponseOutput)
-}
-
-func (i AdmCredentialResponseArgs) ToAdmCredentialResponsePtrOutput() AdmCredentialResponsePtrOutput {
-	return i.ToAdmCredentialResponsePtrOutputWithContext(context.Background())
-}
-
-func (i AdmCredentialResponseArgs) ToAdmCredentialResponsePtrOutputWithContext(ctx context.Context) AdmCredentialResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AdmCredentialResponseOutput).ToAdmCredentialResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type AdmCredentialResponsePtrInput interface {
-	pulumi.Input
-
-	ToAdmCredentialResponsePtrOutput() AdmCredentialResponsePtrOutput
-	ToAdmCredentialResponsePtrOutputWithContext(context.Context) AdmCredentialResponsePtrOutput
-}
-
-type admCredentialResponsePtrType AdmCredentialResponseArgs
-
-func AdmCredentialResponsePtr(v *AdmCredentialResponseArgs) AdmCredentialResponsePtrInput {
-	return (*admCredentialResponsePtrType)(v)
-}
-
-func (*admCredentialResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AdmCredentialResponse)(nil)).Elem()
-}
-
-func (i *admCredentialResponsePtrType) ToAdmCredentialResponsePtrOutput() AdmCredentialResponsePtrOutput {
-	return i.ToAdmCredentialResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *admCredentialResponsePtrType) ToAdmCredentialResponsePtrOutputWithContext(ctx context.Context) AdmCredentialResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AdmCredentialResponsePtrOutput)
-}
-
 type AdmCredentialResponseOutput struct{ *pulumi.OutputState }
 
 func (AdmCredentialResponseOutput) ElementType() reflect.Type {
@@ -553,16 +405,6 @@ func (o AdmCredentialResponseOutput) ToAdmCredentialResponseOutput() AdmCredenti
 
 func (o AdmCredentialResponseOutput) ToAdmCredentialResponseOutputWithContext(ctx context.Context) AdmCredentialResponseOutput {
 	return o
-}
-
-func (o AdmCredentialResponseOutput) ToAdmCredentialResponsePtrOutput() AdmCredentialResponsePtrOutput {
-	return o.ToAdmCredentialResponsePtrOutputWithContext(context.Background())
-}
-
-func (o AdmCredentialResponseOutput) ToAdmCredentialResponsePtrOutputWithContext(ctx context.Context) AdmCredentialResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AdmCredentialResponse) *AdmCredentialResponse {
-		return &v
-	}).(AdmCredentialResponsePtrOutput)
 }
 
 func (o AdmCredentialResponseOutput) Properties() AdmCredentialPropertiesResponsePtrOutput {
@@ -920,77 +762,6 @@ type ApnsCredentialPropertiesResponse struct {
 	Thumbprint      *string `pulumi:"thumbprint"`
 }
 
-
-
-
-
-type ApnsCredentialPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToApnsCredentialPropertiesResponseOutput() ApnsCredentialPropertiesResponseOutput
-	ToApnsCredentialPropertiesResponseOutputWithContext(context.Context) ApnsCredentialPropertiesResponseOutput
-}
-
-type ApnsCredentialPropertiesResponseArgs struct {
-	ApnsCertificate pulumi.StringPtrInput `pulumi:"apnsCertificate"`
-	CertificateKey  pulumi.StringPtrInput `pulumi:"certificateKey"`
-	Endpoint        pulumi.StringPtrInput `pulumi:"endpoint"`
-	Thumbprint      pulumi.StringPtrInput `pulumi:"thumbprint"`
-}
-
-func (ApnsCredentialPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApnsCredentialPropertiesResponse)(nil)).Elem()
-}
-
-func (i ApnsCredentialPropertiesResponseArgs) ToApnsCredentialPropertiesResponseOutput() ApnsCredentialPropertiesResponseOutput {
-	return i.ToApnsCredentialPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i ApnsCredentialPropertiesResponseArgs) ToApnsCredentialPropertiesResponseOutputWithContext(ctx context.Context) ApnsCredentialPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApnsCredentialPropertiesResponseOutput)
-}
-
-func (i ApnsCredentialPropertiesResponseArgs) ToApnsCredentialPropertiesResponsePtrOutput() ApnsCredentialPropertiesResponsePtrOutput {
-	return i.ToApnsCredentialPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ApnsCredentialPropertiesResponseArgs) ToApnsCredentialPropertiesResponsePtrOutputWithContext(ctx context.Context) ApnsCredentialPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApnsCredentialPropertiesResponseOutput).ToApnsCredentialPropertiesResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type ApnsCredentialPropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToApnsCredentialPropertiesResponsePtrOutput() ApnsCredentialPropertiesResponsePtrOutput
-	ToApnsCredentialPropertiesResponsePtrOutputWithContext(context.Context) ApnsCredentialPropertiesResponsePtrOutput
-}
-
-type apnsCredentialPropertiesResponsePtrType ApnsCredentialPropertiesResponseArgs
-
-func ApnsCredentialPropertiesResponsePtr(v *ApnsCredentialPropertiesResponseArgs) ApnsCredentialPropertiesResponsePtrInput {
-	return (*apnsCredentialPropertiesResponsePtrType)(v)
-}
-
-func (*apnsCredentialPropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApnsCredentialPropertiesResponse)(nil)).Elem()
-}
-
-func (i *apnsCredentialPropertiesResponsePtrType) ToApnsCredentialPropertiesResponsePtrOutput() ApnsCredentialPropertiesResponsePtrOutput {
-	return i.ToApnsCredentialPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *apnsCredentialPropertiesResponsePtrType) ToApnsCredentialPropertiesResponsePtrOutputWithContext(ctx context.Context) ApnsCredentialPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApnsCredentialPropertiesResponsePtrOutput)
-}
-
 type ApnsCredentialPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (ApnsCredentialPropertiesResponseOutput) ElementType() reflect.Type {
@@ -1003,16 +774,6 @@ func (o ApnsCredentialPropertiesResponseOutput) ToApnsCredentialPropertiesRespon
 
 func (o ApnsCredentialPropertiesResponseOutput) ToApnsCredentialPropertiesResponseOutputWithContext(ctx context.Context) ApnsCredentialPropertiesResponseOutput {
 	return o
-}
-
-func (o ApnsCredentialPropertiesResponseOutput) ToApnsCredentialPropertiesResponsePtrOutput() ApnsCredentialPropertiesResponsePtrOutput {
-	return o.ToApnsCredentialPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ApnsCredentialPropertiesResponseOutput) ToApnsCredentialPropertiesResponsePtrOutputWithContext(ctx context.Context) ApnsCredentialPropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApnsCredentialPropertiesResponse) *ApnsCredentialPropertiesResponse {
-		return &v
-	}).(ApnsCredentialPropertiesResponsePtrOutput)
 }
 
 func (o ApnsCredentialPropertiesResponseOutput) ApnsCertificate() pulumi.StringPtrOutput {
@@ -1095,74 +856,6 @@ type ApnsCredentialResponse struct {
 	Properties *ApnsCredentialPropertiesResponse `pulumi:"properties"`
 }
 
-
-
-
-
-type ApnsCredentialResponseInput interface {
-	pulumi.Input
-
-	ToApnsCredentialResponseOutput() ApnsCredentialResponseOutput
-	ToApnsCredentialResponseOutputWithContext(context.Context) ApnsCredentialResponseOutput
-}
-
-type ApnsCredentialResponseArgs struct {
-	Properties ApnsCredentialPropertiesResponsePtrInput `pulumi:"properties"`
-}
-
-func (ApnsCredentialResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApnsCredentialResponse)(nil)).Elem()
-}
-
-func (i ApnsCredentialResponseArgs) ToApnsCredentialResponseOutput() ApnsCredentialResponseOutput {
-	return i.ToApnsCredentialResponseOutputWithContext(context.Background())
-}
-
-func (i ApnsCredentialResponseArgs) ToApnsCredentialResponseOutputWithContext(ctx context.Context) ApnsCredentialResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApnsCredentialResponseOutput)
-}
-
-func (i ApnsCredentialResponseArgs) ToApnsCredentialResponsePtrOutput() ApnsCredentialResponsePtrOutput {
-	return i.ToApnsCredentialResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ApnsCredentialResponseArgs) ToApnsCredentialResponsePtrOutputWithContext(ctx context.Context) ApnsCredentialResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApnsCredentialResponseOutput).ToApnsCredentialResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type ApnsCredentialResponsePtrInput interface {
-	pulumi.Input
-
-	ToApnsCredentialResponsePtrOutput() ApnsCredentialResponsePtrOutput
-	ToApnsCredentialResponsePtrOutputWithContext(context.Context) ApnsCredentialResponsePtrOutput
-}
-
-type apnsCredentialResponsePtrType ApnsCredentialResponseArgs
-
-func ApnsCredentialResponsePtr(v *ApnsCredentialResponseArgs) ApnsCredentialResponsePtrInput {
-	return (*apnsCredentialResponsePtrType)(v)
-}
-
-func (*apnsCredentialResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApnsCredentialResponse)(nil)).Elem()
-}
-
-func (i *apnsCredentialResponsePtrType) ToApnsCredentialResponsePtrOutput() ApnsCredentialResponsePtrOutput {
-	return i.ToApnsCredentialResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *apnsCredentialResponsePtrType) ToApnsCredentialResponsePtrOutputWithContext(ctx context.Context) ApnsCredentialResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApnsCredentialResponsePtrOutput)
-}
-
 type ApnsCredentialResponseOutput struct{ *pulumi.OutputState }
 
 func (ApnsCredentialResponseOutput) ElementType() reflect.Type {
@@ -1175,16 +868,6 @@ func (o ApnsCredentialResponseOutput) ToApnsCredentialResponseOutput() ApnsCrede
 
 func (o ApnsCredentialResponseOutput) ToApnsCredentialResponseOutputWithContext(ctx context.Context) ApnsCredentialResponseOutput {
 	return o
-}
-
-func (o ApnsCredentialResponseOutput) ToApnsCredentialResponsePtrOutput() ApnsCredentialResponsePtrOutput {
-	return o.ToApnsCredentialResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ApnsCredentialResponseOutput) ToApnsCredentialResponsePtrOutputWithContext(ctx context.Context) ApnsCredentialResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApnsCredentialResponse) *ApnsCredentialResponse {
-		return &v
-	}).(ApnsCredentialResponsePtrOutput)
 }
 
 func (o ApnsCredentialResponseOutput) Properties() ApnsCredentialPropertiesResponsePtrOutput {
@@ -1526,76 +1209,6 @@ type BaiduCredentialPropertiesResponse struct {
 	BaiduSecretKey *string `pulumi:"baiduSecretKey"`
 }
 
-
-
-
-
-type BaiduCredentialPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToBaiduCredentialPropertiesResponseOutput() BaiduCredentialPropertiesResponseOutput
-	ToBaiduCredentialPropertiesResponseOutputWithContext(context.Context) BaiduCredentialPropertiesResponseOutput
-}
-
-type BaiduCredentialPropertiesResponseArgs struct {
-	BaiduApiKey    pulumi.StringPtrInput `pulumi:"baiduApiKey"`
-	BaiduEndPoint  pulumi.StringPtrInput `pulumi:"baiduEndPoint"`
-	BaiduSecretKey pulumi.StringPtrInput `pulumi:"baiduSecretKey"`
-}
-
-func (BaiduCredentialPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*BaiduCredentialPropertiesResponse)(nil)).Elem()
-}
-
-func (i BaiduCredentialPropertiesResponseArgs) ToBaiduCredentialPropertiesResponseOutput() BaiduCredentialPropertiesResponseOutput {
-	return i.ToBaiduCredentialPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i BaiduCredentialPropertiesResponseArgs) ToBaiduCredentialPropertiesResponseOutputWithContext(ctx context.Context) BaiduCredentialPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BaiduCredentialPropertiesResponseOutput)
-}
-
-func (i BaiduCredentialPropertiesResponseArgs) ToBaiduCredentialPropertiesResponsePtrOutput() BaiduCredentialPropertiesResponsePtrOutput {
-	return i.ToBaiduCredentialPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i BaiduCredentialPropertiesResponseArgs) ToBaiduCredentialPropertiesResponsePtrOutputWithContext(ctx context.Context) BaiduCredentialPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BaiduCredentialPropertiesResponseOutput).ToBaiduCredentialPropertiesResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type BaiduCredentialPropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToBaiduCredentialPropertiesResponsePtrOutput() BaiduCredentialPropertiesResponsePtrOutput
-	ToBaiduCredentialPropertiesResponsePtrOutputWithContext(context.Context) BaiduCredentialPropertiesResponsePtrOutput
-}
-
-type baiduCredentialPropertiesResponsePtrType BaiduCredentialPropertiesResponseArgs
-
-func BaiduCredentialPropertiesResponsePtr(v *BaiduCredentialPropertiesResponseArgs) BaiduCredentialPropertiesResponsePtrInput {
-	return (*baiduCredentialPropertiesResponsePtrType)(v)
-}
-
-func (*baiduCredentialPropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**BaiduCredentialPropertiesResponse)(nil)).Elem()
-}
-
-func (i *baiduCredentialPropertiesResponsePtrType) ToBaiduCredentialPropertiesResponsePtrOutput() BaiduCredentialPropertiesResponsePtrOutput {
-	return i.ToBaiduCredentialPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *baiduCredentialPropertiesResponsePtrType) ToBaiduCredentialPropertiesResponsePtrOutputWithContext(ctx context.Context) BaiduCredentialPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BaiduCredentialPropertiesResponsePtrOutput)
-}
-
 type BaiduCredentialPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (BaiduCredentialPropertiesResponseOutput) ElementType() reflect.Type {
@@ -1608,16 +1221,6 @@ func (o BaiduCredentialPropertiesResponseOutput) ToBaiduCredentialPropertiesResp
 
 func (o BaiduCredentialPropertiesResponseOutput) ToBaiduCredentialPropertiesResponseOutputWithContext(ctx context.Context) BaiduCredentialPropertiesResponseOutput {
 	return o
-}
-
-func (o BaiduCredentialPropertiesResponseOutput) ToBaiduCredentialPropertiesResponsePtrOutput() BaiduCredentialPropertiesResponsePtrOutput {
-	return o.ToBaiduCredentialPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o BaiduCredentialPropertiesResponseOutput) ToBaiduCredentialPropertiesResponsePtrOutputWithContext(ctx context.Context) BaiduCredentialPropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v BaiduCredentialPropertiesResponse) *BaiduCredentialPropertiesResponse {
-		return &v
-	}).(BaiduCredentialPropertiesResponsePtrOutput)
 }
 
 func (o BaiduCredentialPropertiesResponseOutput) BaiduApiKey() pulumi.StringPtrOutput {
@@ -1687,74 +1290,6 @@ type BaiduCredentialResponse struct {
 	Properties *BaiduCredentialPropertiesResponse `pulumi:"properties"`
 }
 
-
-
-
-
-type BaiduCredentialResponseInput interface {
-	pulumi.Input
-
-	ToBaiduCredentialResponseOutput() BaiduCredentialResponseOutput
-	ToBaiduCredentialResponseOutputWithContext(context.Context) BaiduCredentialResponseOutput
-}
-
-type BaiduCredentialResponseArgs struct {
-	Properties BaiduCredentialPropertiesResponsePtrInput `pulumi:"properties"`
-}
-
-func (BaiduCredentialResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*BaiduCredentialResponse)(nil)).Elem()
-}
-
-func (i BaiduCredentialResponseArgs) ToBaiduCredentialResponseOutput() BaiduCredentialResponseOutput {
-	return i.ToBaiduCredentialResponseOutputWithContext(context.Background())
-}
-
-func (i BaiduCredentialResponseArgs) ToBaiduCredentialResponseOutputWithContext(ctx context.Context) BaiduCredentialResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BaiduCredentialResponseOutput)
-}
-
-func (i BaiduCredentialResponseArgs) ToBaiduCredentialResponsePtrOutput() BaiduCredentialResponsePtrOutput {
-	return i.ToBaiduCredentialResponsePtrOutputWithContext(context.Background())
-}
-
-func (i BaiduCredentialResponseArgs) ToBaiduCredentialResponsePtrOutputWithContext(ctx context.Context) BaiduCredentialResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BaiduCredentialResponseOutput).ToBaiduCredentialResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type BaiduCredentialResponsePtrInput interface {
-	pulumi.Input
-
-	ToBaiduCredentialResponsePtrOutput() BaiduCredentialResponsePtrOutput
-	ToBaiduCredentialResponsePtrOutputWithContext(context.Context) BaiduCredentialResponsePtrOutput
-}
-
-type baiduCredentialResponsePtrType BaiduCredentialResponseArgs
-
-func BaiduCredentialResponsePtr(v *BaiduCredentialResponseArgs) BaiduCredentialResponsePtrInput {
-	return (*baiduCredentialResponsePtrType)(v)
-}
-
-func (*baiduCredentialResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**BaiduCredentialResponse)(nil)).Elem()
-}
-
-func (i *baiduCredentialResponsePtrType) ToBaiduCredentialResponsePtrOutput() BaiduCredentialResponsePtrOutput {
-	return i.ToBaiduCredentialResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *baiduCredentialResponsePtrType) ToBaiduCredentialResponsePtrOutputWithContext(ctx context.Context) BaiduCredentialResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BaiduCredentialResponsePtrOutput)
-}
-
 type BaiduCredentialResponseOutput struct{ *pulumi.OutputState }
 
 func (BaiduCredentialResponseOutput) ElementType() reflect.Type {
@@ -1767,16 +1302,6 @@ func (o BaiduCredentialResponseOutput) ToBaiduCredentialResponseOutput() BaiduCr
 
 func (o BaiduCredentialResponseOutput) ToBaiduCredentialResponseOutputWithContext(ctx context.Context) BaiduCredentialResponseOutput {
 	return o
-}
-
-func (o BaiduCredentialResponseOutput) ToBaiduCredentialResponsePtrOutput() BaiduCredentialResponsePtrOutput {
-	return o.ToBaiduCredentialResponsePtrOutputWithContext(context.Background())
-}
-
-func (o BaiduCredentialResponseOutput) ToBaiduCredentialResponsePtrOutputWithContext(ctx context.Context) BaiduCredentialResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v BaiduCredentialResponse) *BaiduCredentialResponse {
-		return &v
-	}).(BaiduCredentialResponsePtrOutput)
 }
 
 func (o BaiduCredentialResponseOutput) Properties() BaiduCredentialPropertiesResponsePtrOutput {
@@ -2102,75 +1627,6 @@ type GcmCredentialPropertiesResponse struct {
 	GoogleApiKey *string `pulumi:"googleApiKey"`
 }
 
-
-
-
-
-type GcmCredentialPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToGcmCredentialPropertiesResponseOutput() GcmCredentialPropertiesResponseOutput
-	ToGcmCredentialPropertiesResponseOutputWithContext(context.Context) GcmCredentialPropertiesResponseOutput
-}
-
-type GcmCredentialPropertiesResponseArgs struct {
-	GcmEndpoint  pulumi.StringPtrInput `pulumi:"gcmEndpoint"`
-	GoogleApiKey pulumi.StringPtrInput `pulumi:"googleApiKey"`
-}
-
-func (GcmCredentialPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GcmCredentialPropertiesResponse)(nil)).Elem()
-}
-
-func (i GcmCredentialPropertiesResponseArgs) ToGcmCredentialPropertiesResponseOutput() GcmCredentialPropertiesResponseOutput {
-	return i.ToGcmCredentialPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i GcmCredentialPropertiesResponseArgs) ToGcmCredentialPropertiesResponseOutputWithContext(ctx context.Context) GcmCredentialPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GcmCredentialPropertiesResponseOutput)
-}
-
-func (i GcmCredentialPropertiesResponseArgs) ToGcmCredentialPropertiesResponsePtrOutput() GcmCredentialPropertiesResponsePtrOutput {
-	return i.ToGcmCredentialPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i GcmCredentialPropertiesResponseArgs) ToGcmCredentialPropertiesResponsePtrOutputWithContext(ctx context.Context) GcmCredentialPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GcmCredentialPropertiesResponseOutput).ToGcmCredentialPropertiesResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type GcmCredentialPropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToGcmCredentialPropertiesResponsePtrOutput() GcmCredentialPropertiesResponsePtrOutput
-	ToGcmCredentialPropertiesResponsePtrOutputWithContext(context.Context) GcmCredentialPropertiesResponsePtrOutput
-}
-
-type gcmCredentialPropertiesResponsePtrType GcmCredentialPropertiesResponseArgs
-
-func GcmCredentialPropertiesResponsePtr(v *GcmCredentialPropertiesResponseArgs) GcmCredentialPropertiesResponsePtrInput {
-	return (*gcmCredentialPropertiesResponsePtrType)(v)
-}
-
-func (*gcmCredentialPropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**GcmCredentialPropertiesResponse)(nil)).Elem()
-}
-
-func (i *gcmCredentialPropertiesResponsePtrType) ToGcmCredentialPropertiesResponsePtrOutput() GcmCredentialPropertiesResponsePtrOutput {
-	return i.ToGcmCredentialPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *gcmCredentialPropertiesResponsePtrType) ToGcmCredentialPropertiesResponsePtrOutputWithContext(ctx context.Context) GcmCredentialPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GcmCredentialPropertiesResponsePtrOutput)
-}
-
 type GcmCredentialPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (GcmCredentialPropertiesResponseOutput) ElementType() reflect.Type {
@@ -2183,16 +1639,6 @@ func (o GcmCredentialPropertiesResponseOutput) ToGcmCredentialPropertiesResponse
 
 func (o GcmCredentialPropertiesResponseOutput) ToGcmCredentialPropertiesResponseOutputWithContext(ctx context.Context) GcmCredentialPropertiesResponseOutput {
 	return o
-}
-
-func (o GcmCredentialPropertiesResponseOutput) ToGcmCredentialPropertiesResponsePtrOutput() GcmCredentialPropertiesResponsePtrOutput {
-	return o.ToGcmCredentialPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o GcmCredentialPropertiesResponseOutput) ToGcmCredentialPropertiesResponsePtrOutputWithContext(ctx context.Context) GcmCredentialPropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v GcmCredentialPropertiesResponse) *GcmCredentialPropertiesResponse {
-		return &v
-	}).(GcmCredentialPropertiesResponsePtrOutput)
 }
 
 func (o GcmCredentialPropertiesResponseOutput) GcmEndpoint() pulumi.StringPtrOutput {
@@ -2249,74 +1695,6 @@ type GcmCredentialResponse struct {
 	Properties *GcmCredentialPropertiesResponse `pulumi:"properties"`
 }
 
-
-
-
-
-type GcmCredentialResponseInput interface {
-	pulumi.Input
-
-	ToGcmCredentialResponseOutput() GcmCredentialResponseOutput
-	ToGcmCredentialResponseOutputWithContext(context.Context) GcmCredentialResponseOutput
-}
-
-type GcmCredentialResponseArgs struct {
-	Properties GcmCredentialPropertiesResponsePtrInput `pulumi:"properties"`
-}
-
-func (GcmCredentialResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GcmCredentialResponse)(nil)).Elem()
-}
-
-func (i GcmCredentialResponseArgs) ToGcmCredentialResponseOutput() GcmCredentialResponseOutput {
-	return i.ToGcmCredentialResponseOutputWithContext(context.Background())
-}
-
-func (i GcmCredentialResponseArgs) ToGcmCredentialResponseOutputWithContext(ctx context.Context) GcmCredentialResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GcmCredentialResponseOutput)
-}
-
-func (i GcmCredentialResponseArgs) ToGcmCredentialResponsePtrOutput() GcmCredentialResponsePtrOutput {
-	return i.ToGcmCredentialResponsePtrOutputWithContext(context.Background())
-}
-
-func (i GcmCredentialResponseArgs) ToGcmCredentialResponsePtrOutputWithContext(ctx context.Context) GcmCredentialResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GcmCredentialResponseOutput).ToGcmCredentialResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type GcmCredentialResponsePtrInput interface {
-	pulumi.Input
-
-	ToGcmCredentialResponsePtrOutput() GcmCredentialResponsePtrOutput
-	ToGcmCredentialResponsePtrOutputWithContext(context.Context) GcmCredentialResponsePtrOutput
-}
-
-type gcmCredentialResponsePtrType GcmCredentialResponseArgs
-
-func GcmCredentialResponsePtr(v *GcmCredentialResponseArgs) GcmCredentialResponsePtrInput {
-	return (*gcmCredentialResponsePtrType)(v)
-}
-
-func (*gcmCredentialResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**GcmCredentialResponse)(nil)).Elem()
-}
-
-func (i *gcmCredentialResponsePtrType) ToGcmCredentialResponsePtrOutput() GcmCredentialResponsePtrOutput {
-	return i.ToGcmCredentialResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *gcmCredentialResponsePtrType) ToGcmCredentialResponsePtrOutputWithContext(ctx context.Context) GcmCredentialResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GcmCredentialResponsePtrOutput)
-}
-
 type GcmCredentialResponseOutput struct{ *pulumi.OutputState }
 
 func (GcmCredentialResponseOutput) ElementType() reflect.Type {
@@ -2329,16 +1707,6 @@ func (o GcmCredentialResponseOutput) ToGcmCredentialResponseOutput() GcmCredenti
 
 func (o GcmCredentialResponseOutput) ToGcmCredentialResponseOutputWithContext(ctx context.Context) GcmCredentialResponseOutput {
 	return o
-}
-
-func (o GcmCredentialResponseOutput) ToGcmCredentialResponsePtrOutput() GcmCredentialResponsePtrOutput {
-	return o.ToGcmCredentialResponsePtrOutputWithContext(context.Background())
-}
-
-func (o GcmCredentialResponseOutput) ToGcmCredentialResponsePtrOutputWithContext(ctx context.Context) GcmCredentialResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v GcmCredentialResponse) *GcmCredentialResponse {
-		return &v
-	}).(GcmCredentialResponsePtrOutput)
 }
 
 func (o GcmCredentialResponseOutput) Properties() GcmCredentialPropertiesResponsePtrOutput {
@@ -2680,76 +2048,6 @@ type MpnsCredentialPropertiesResponse struct {
 	Thumbprint      *string `pulumi:"thumbprint"`
 }
 
-
-
-
-
-type MpnsCredentialPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToMpnsCredentialPropertiesResponseOutput() MpnsCredentialPropertiesResponseOutput
-	ToMpnsCredentialPropertiesResponseOutputWithContext(context.Context) MpnsCredentialPropertiesResponseOutput
-}
-
-type MpnsCredentialPropertiesResponseArgs struct {
-	CertificateKey  pulumi.StringPtrInput `pulumi:"certificateKey"`
-	MpnsCertificate pulumi.StringPtrInput `pulumi:"mpnsCertificate"`
-	Thumbprint      pulumi.StringPtrInput `pulumi:"thumbprint"`
-}
-
-func (MpnsCredentialPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MpnsCredentialPropertiesResponse)(nil)).Elem()
-}
-
-func (i MpnsCredentialPropertiesResponseArgs) ToMpnsCredentialPropertiesResponseOutput() MpnsCredentialPropertiesResponseOutput {
-	return i.ToMpnsCredentialPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i MpnsCredentialPropertiesResponseArgs) ToMpnsCredentialPropertiesResponseOutputWithContext(ctx context.Context) MpnsCredentialPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MpnsCredentialPropertiesResponseOutput)
-}
-
-func (i MpnsCredentialPropertiesResponseArgs) ToMpnsCredentialPropertiesResponsePtrOutput() MpnsCredentialPropertiesResponsePtrOutput {
-	return i.ToMpnsCredentialPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i MpnsCredentialPropertiesResponseArgs) ToMpnsCredentialPropertiesResponsePtrOutputWithContext(ctx context.Context) MpnsCredentialPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MpnsCredentialPropertiesResponseOutput).ToMpnsCredentialPropertiesResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type MpnsCredentialPropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToMpnsCredentialPropertiesResponsePtrOutput() MpnsCredentialPropertiesResponsePtrOutput
-	ToMpnsCredentialPropertiesResponsePtrOutputWithContext(context.Context) MpnsCredentialPropertiesResponsePtrOutput
-}
-
-type mpnsCredentialPropertiesResponsePtrType MpnsCredentialPropertiesResponseArgs
-
-func MpnsCredentialPropertiesResponsePtr(v *MpnsCredentialPropertiesResponseArgs) MpnsCredentialPropertiesResponsePtrInput {
-	return (*mpnsCredentialPropertiesResponsePtrType)(v)
-}
-
-func (*mpnsCredentialPropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**MpnsCredentialPropertiesResponse)(nil)).Elem()
-}
-
-func (i *mpnsCredentialPropertiesResponsePtrType) ToMpnsCredentialPropertiesResponsePtrOutput() MpnsCredentialPropertiesResponsePtrOutput {
-	return i.ToMpnsCredentialPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *mpnsCredentialPropertiesResponsePtrType) ToMpnsCredentialPropertiesResponsePtrOutputWithContext(ctx context.Context) MpnsCredentialPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MpnsCredentialPropertiesResponsePtrOutput)
-}
-
 type MpnsCredentialPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (MpnsCredentialPropertiesResponseOutput) ElementType() reflect.Type {
@@ -2762,16 +2060,6 @@ func (o MpnsCredentialPropertiesResponseOutput) ToMpnsCredentialPropertiesRespon
 
 func (o MpnsCredentialPropertiesResponseOutput) ToMpnsCredentialPropertiesResponseOutputWithContext(ctx context.Context) MpnsCredentialPropertiesResponseOutput {
 	return o
-}
-
-func (o MpnsCredentialPropertiesResponseOutput) ToMpnsCredentialPropertiesResponsePtrOutput() MpnsCredentialPropertiesResponsePtrOutput {
-	return o.ToMpnsCredentialPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o MpnsCredentialPropertiesResponseOutput) ToMpnsCredentialPropertiesResponsePtrOutputWithContext(ctx context.Context) MpnsCredentialPropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MpnsCredentialPropertiesResponse) *MpnsCredentialPropertiesResponse {
-		return &v
-	}).(MpnsCredentialPropertiesResponsePtrOutput)
 }
 
 func (o MpnsCredentialPropertiesResponseOutput) CertificateKey() pulumi.StringPtrOutput {
@@ -2841,74 +2129,6 @@ type MpnsCredentialResponse struct {
 	Properties *MpnsCredentialPropertiesResponse `pulumi:"properties"`
 }
 
-
-
-
-
-type MpnsCredentialResponseInput interface {
-	pulumi.Input
-
-	ToMpnsCredentialResponseOutput() MpnsCredentialResponseOutput
-	ToMpnsCredentialResponseOutputWithContext(context.Context) MpnsCredentialResponseOutput
-}
-
-type MpnsCredentialResponseArgs struct {
-	Properties MpnsCredentialPropertiesResponsePtrInput `pulumi:"properties"`
-}
-
-func (MpnsCredentialResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MpnsCredentialResponse)(nil)).Elem()
-}
-
-func (i MpnsCredentialResponseArgs) ToMpnsCredentialResponseOutput() MpnsCredentialResponseOutput {
-	return i.ToMpnsCredentialResponseOutputWithContext(context.Background())
-}
-
-func (i MpnsCredentialResponseArgs) ToMpnsCredentialResponseOutputWithContext(ctx context.Context) MpnsCredentialResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MpnsCredentialResponseOutput)
-}
-
-func (i MpnsCredentialResponseArgs) ToMpnsCredentialResponsePtrOutput() MpnsCredentialResponsePtrOutput {
-	return i.ToMpnsCredentialResponsePtrOutputWithContext(context.Background())
-}
-
-func (i MpnsCredentialResponseArgs) ToMpnsCredentialResponsePtrOutputWithContext(ctx context.Context) MpnsCredentialResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MpnsCredentialResponseOutput).ToMpnsCredentialResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type MpnsCredentialResponsePtrInput interface {
-	pulumi.Input
-
-	ToMpnsCredentialResponsePtrOutput() MpnsCredentialResponsePtrOutput
-	ToMpnsCredentialResponsePtrOutputWithContext(context.Context) MpnsCredentialResponsePtrOutput
-}
-
-type mpnsCredentialResponsePtrType MpnsCredentialResponseArgs
-
-func MpnsCredentialResponsePtr(v *MpnsCredentialResponseArgs) MpnsCredentialResponsePtrInput {
-	return (*mpnsCredentialResponsePtrType)(v)
-}
-
-func (*mpnsCredentialResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**MpnsCredentialResponse)(nil)).Elem()
-}
-
-func (i *mpnsCredentialResponsePtrType) ToMpnsCredentialResponsePtrOutput() MpnsCredentialResponsePtrOutput {
-	return i.ToMpnsCredentialResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *mpnsCredentialResponsePtrType) ToMpnsCredentialResponsePtrOutputWithContext(ctx context.Context) MpnsCredentialResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MpnsCredentialResponsePtrOutput)
-}
-
 type MpnsCredentialResponseOutput struct{ *pulumi.OutputState }
 
 func (MpnsCredentialResponseOutput) ElementType() reflect.Type {
@@ -2921,16 +2141,6 @@ func (o MpnsCredentialResponseOutput) ToMpnsCredentialResponseOutput() MpnsCrede
 
 func (o MpnsCredentialResponseOutput) ToMpnsCredentialResponseOutputWithContext(ctx context.Context) MpnsCredentialResponseOutput {
 	return o
-}
-
-func (o MpnsCredentialResponseOutput) ToMpnsCredentialResponsePtrOutput() MpnsCredentialResponsePtrOutput {
-	return o.ToMpnsCredentialResponsePtrOutputWithContext(context.Background())
-}
-
-func (o MpnsCredentialResponseOutput) ToMpnsCredentialResponsePtrOutputWithContext(ctx context.Context) MpnsCredentialResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MpnsCredentialResponse) *MpnsCredentialResponse {
-		return &v
-	}).(MpnsCredentialResponsePtrOutput)
 }
 
 func (o MpnsCredentialResponseOutput) Properties() MpnsCredentialPropertiesResponsePtrOutput {
@@ -3021,47 +2231,6 @@ func (i NamespacePropertiesArgs) ToNamespacePropertiesOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(NamespacePropertiesOutput)
 }
 
-func (i NamespacePropertiesArgs) ToNamespacePropertiesPtrOutput() NamespacePropertiesPtrOutput {
-	return i.ToNamespacePropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i NamespacePropertiesArgs) ToNamespacePropertiesPtrOutputWithContext(ctx context.Context) NamespacePropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NamespacePropertiesOutput).ToNamespacePropertiesPtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type NamespacePropertiesPtrInput interface {
-	pulumi.Input
-
-	ToNamespacePropertiesPtrOutput() NamespacePropertiesPtrOutput
-	ToNamespacePropertiesPtrOutputWithContext(context.Context) NamespacePropertiesPtrOutput
-}
-
-type namespacePropertiesPtrType NamespacePropertiesArgs
-
-func NamespacePropertiesPtr(v *NamespacePropertiesArgs) NamespacePropertiesPtrInput {
-	return (*namespacePropertiesPtrType)(v)
-}
-
-func (*namespacePropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**NamespaceProperties)(nil)).Elem()
-}
-
-func (i *namespacePropertiesPtrType) ToNamespacePropertiesPtrOutput() NamespacePropertiesPtrOutput {
-	return i.ToNamespacePropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *namespacePropertiesPtrType) ToNamespacePropertiesPtrOutputWithContext(ctx context.Context) NamespacePropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NamespacePropertiesPtrOutput)
-}
-
 type NamespacePropertiesOutput struct{ *pulumi.OutputState }
 
 func (NamespacePropertiesOutput) ElementType() reflect.Type {
@@ -3074,16 +2243,6 @@ func (o NamespacePropertiesOutput) ToNamespacePropertiesOutput() NamespaceProper
 
 func (o NamespacePropertiesOutput) ToNamespacePropertiesOutputWithContext(ctx context.Context) NamespacePropertiesOutput {
 	return o
-}
-
-func (o NamespacePropertiesOutput) ToNamespacePropertiesPtrOutput() NamespacePropertiesPtrOutput {
-	return o.ToNamespacePropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o NamespacePropertiesOutput) ToNamespacePropertiesPtrOutputWithContext(ctx context.Context) NamespacePropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v NamespaceProperties) *NamespaceProperties {
-		return &v
-	}).(NamespacePropertiesPtrOutput)
 }
 
 func (o NamespacePropertiesOutput) CreatedAt() pulumi.StringPtrOutput {
@@ -3130,129 +2289,6 @@ func (o NamespacePropertiesOutput) SubscriptionId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NamespaceProperties) *string { return v.SubscriptionId }).(pulumi.StringPtrOutput)
 }
 
-type NamespacePropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (NamespacePropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**NamespaceProperties)(nil)).Elem()
-}
-
-func (o NamespacePropertiesPtrOutput) ToNamespacePropertiesPtrOutput() NamespacePropertiesPtrOutput {
-	return o
-}
-
-func (o NamespacePropertiesPtrOutput) ToNamespacePropertiesPtrOutputWithContext(ctx context.Context) NamespacePropertiesPtrOutput {
-	return o
-}
-
-func (o NamespacePropertiesPtrOutput) Elem() NamespacePropertiesOutput {
-	return o.ApplyT(func(v *NamespaceProperties) NamespaceProperties {
-		if v != nil {
-			return *v
-		}
-		var ret NamespaceProperties
-		return ret
-	}).(NamespacePropertiesOutput)
-}
-
-func (o NamespacePropertiesPtrOutput) CreatedAt() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *NamespaceProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CreatedAt
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o NamespacePropertiesPtrOutput) Critical() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *NamespaceProperties) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.Critical
-	}).(pulumi.BoolPtrOutput)
-}
-
-func (o NamespacePropertiesPtrOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *NamespaceProperties) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.Enabled
-	}).(pulumi.BoolPtrOutput)
-}
-
-func (o NamespacePropertiesPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *NamespaceProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o NamespacePropertiesPtrOutput) NamespaceType() NamespaceTypePtrOutput {
-	return o.ApplyT(func(v *NamespaceProperties) *NamespaceType {
-		if v == nil {
-			return nil
-		}
-		return v.NamespaceType
-	}).(NamespaceTypePtrOutput)
-}
-
-func (o NamespacePropertiesPtrOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *NamespaceProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ProvisioningState
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o NamespacePropertiesPtrOutput) Region() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *NamespaceProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Region
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o NamespacePropertiesPtrOutput) ScaleUnit() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *NamespaceProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ScaleUnit
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o NamespacePropertiesPtrOutput) ServiceBusEndpoint() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *NamespaceProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ServiceBusEndpoint
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o NamespacePropertiesPtrOutput) Status() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *NamespaceProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Status
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o NamespacePropertiesPtrOutput) SubscriptionId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *NamespaceProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.SubscriptionId
-	}).(pulumi.StringPtrOutput)
-}
-
 type NamespacePropertiesResponse struct {
 	CreatedAt          *string `pulumi:"createdAt"`
 	Critical           *bool   `pulumi:"critical"`
@@ -3267,84 +2303,6 @@ type NamespacePropertiesResponse struct {
 	SubscriptionId     *string `pulumi:"subscriptionId"`
 }
 
-
-
-
-
-type NamespacePropertiesResponseInput interface {
-	pulumi.Input
-
-	ToNamespacePropertiesResponseOutput() NamespacePropertiesResponseOutput
-	ToNamespacePropertiesResponseOutputWithContext(context.Context) NamespacePropertiesResponseOutput
-}
-
-type NamespacePropertiesResponseArgs struct {
-	CreatedAt          pulumi.StringPtrInput `pulumi:"createdAt"`
-	Critical           pulumi.BoolPtrInput   `pulumi:"critical"`
-	Enabled            pulumi.BoolPtrInput   `pulumi:"enabled"`
-	Name               pulumi.StringPtrInput `pulumi:"name"`
-	NamespaceType      pulumi.StringPtrInput `pulumi:"namespaceType"`
-	ProvisioningState  pulumi.StringPtrInput `pulumi:"provisioningState"`
-	Region             pulumi.StringPtrInput `pulumi:"region"`
-	ScaleUnit          pulumi.StringPtrInput `pulumi:"scaleUnit"`
-	ServiceBusEndpoint pulumi.StringPtrInput `pulumi:"serviceBusEndpoint"`
-	Status             pulumi.StringPtrInput `pulumi:"status"`
-	SubscriptionId     pulumi.StringPtrInput `pulumi:"subscriptionId"`
-}
-
-func (NamespacePropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*NamespacePropertiesResponse)(nil)).Elem()
-}
-
-func (i NamespacePropertiesResponseArgs) ToNamespacePropertiesResponseOutput() NamespacePropertiesResponseOutput {
-	return i.ToNamespacePropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i NamespacePropertiesResponseArgs) ToNamespacePropertiesResponseOutputWithContext(ctx context.Context) NamespacePropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NamespacePropertiesResponseOutput)
-}
-
-func (i NamespacePropertiesResponseArgs) ToNamespacePropertiesResponsePtrOutput() NamespacePropertiesResponsePtrOutput {
-	return i.ToNamespacePropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i NamespacePropertiesResponseArgs) ToNamespacePropertiesResponsePtrOutputWithContext(ctx context.Context) NamespacePropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NamespacePropertiesResponseOutput).ToNamespacePropertiesResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type NamespacePropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToNamespacePropertiesResponsePtrOutput() NamespacePropertiesResponsePtrOutput
-	ToNamespacePropertiesResponsePtrOutputWithContext(context.Context) NamespacePropertiesResponsePtrOutput
-}
-
-type namespacePropertiesResponsePtrType NamespacePropertiesResponseArgs
-
-func NamespacePropertiesResponsePtr(v *NamespacePropertiesResponseArgs) NamespacePropertiesResponsePtrInput {
-	return (*namespacePropertiesResponsePtrType)(v)
-}
-
-func (*namespacePropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**NamespacePropertiesResponse)(nil)).Elem()
-}
-
-func (i *namespacePropertiesResponsePtrType) ToNamespacePropertiesResponsePtrOutput() NamespacePropertiesResponsePtrOutput {
-	return i.ToNamespacePropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *namespacePropertiesResponsePtrType) ToNamespacePropertiesResponsePtrOutputWithContext(ctx context.Context) NamespacePropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NamespacePropertiesResponsePtrOutput)
-}
-
 type NamespacePropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (NamespacePropertiesResponseOutput) ElementType() reflect.Type {
@@ -3357,16 +2315,6 @@ func (o NamespacePropertiesResponseOutput) ToNamespacePropertiesResponseOutput()
 
 func (o NamespacePropertiesResponseOutput) ToNamespacePropertiesResponseOutputWithContext(ctx context.Context) NamespacePropertiesResponseOutput {
 	return o
-}
-
-func (o NamespacePropertiesResponseOutput) ToNamespacePropertiesResponsePtrOutput() NamespacePropertiesResponsePtrOutput {
-	return o.ToNamespacePropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o NamespacePropertiesResponseOutput) ToNamespacePropertiesResponsePtrOutputWithContext(ctx context.Context) NamespacePropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v NamespacePropertiesResponse) *NamespacePropertiesResponse {
-		return &v
-	}).(NamespacePropertiesResponsePtrOutput)
 }
 
 func (o NamespacePropertiesResponseOutput) CreatedAt() pulumi.StringPtrOutput {
@@ -3411,129 +2359,6 @@ func (o NamespacePropertiesResponseOutput) Status() pulumi.StringPtrOutput {
 
 func (o NamespacePropertiesResponseOutput) SubscriptionId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NamespacePropertiesResponse) *string { return v.SubscriptionId }).(pulumi.StringPtrOutput)
-}
-
-type NamespacePropertiesResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (NamespacePropertiesResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**NamespacePropertiesResponse)(nil)).Elem()
-}
-
-func (o NamespacePropertiesResponsePtrOutput) ToNamespacePropertiesResponsePtrOutput() NamespacePropertiesResponsePtrOutput {
-	return o
-}
-
-func (o NamespacePropertiesResponsePtrOutput) ToNamespacePropertiesResponsePtrOutputWithContext(ctx context.Context) NamespacePropertiesResponsePtrOutput {
-	return o
-}
-
-func (o NamespacePropertiesResponsePtrOutput) Elem() NamespacePropertiesResponseOutput {
-	return o.ApplyT(func(v *NamespacePropertiesResponse) NamespacePropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret NamespacePropertiesResponse
-		return ret
-	}).(NamespacePropertiesResponseOutput)
-}
-
-func (o NamespacePropertiesResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *NamespacePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CreatedAt
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o NamespacePropertiesResponsePtrOutput) Critical() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *NamespacePropertiesResponse) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.Critical
-	}).(pulumi.BoolPtrOutput)
-}
-
-func (o NamespacePropertiesResponsePtrOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *NamespacePropertiesResponse) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.Enabled
-	}).(pulumi.BoolPtrOutput)
-}
-
-func (o NamespacePropertiesResponsePtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *NamespacePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o NamespacePropertiesResponsePtrOutput) NamespaceType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *NamespacePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.NamespaceType
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o NamespacePropertiesResponsePtrOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *NamespacePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ProvisioningState
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o NamespacePropertiesResponsePtrOutput) Region() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *NamespacePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Region
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o NamespacePropertiesResponsePtrOutput) ScaleUnit() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *NamespacePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ScaleUnit
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o NamespacePropertiesResponsePtrOutput) ServiceBusEndpoint() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *NamespacePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ServiceBusEndpoint
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o NamespacePropertiesResponsePtrOutput) Status() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *NamespacePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Status
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o NamespacePropertiesResponsePtrOutput) SubscriptionId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *NamespacePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.SubscriptionId
-	}).(pulumi.StringPtrOutput)
 }
 
 type NotificationHubProperties struct {
@@ -3583,47 +2408,6 @@ func (i NotificationHubPropertiesArgs) ToNotificationHubPropertiesOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(NotificationHubPropertiesOutput)
 }
 
-func (i NotificationHubPropertiesArgs) ToNotificationHubPropertiesPtrOutput() NotificationHubPropertiesPtrOutput {
-	return i.ToNotificationHubPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i NotificationHubPropertiesArgs) ToNotificationHubPropertiesPtrOutputWithContext(ctx context.Context) NotificationHubPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NotificationHubPropertiesOutput).ToNotificationHubPropertiesPtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type NotificationHubPropertiesPtrInput interface {
-	pulumi.Input
-
-	ToNotificationHubPropertiesPtrOutput() NotificationHubPropertiesPtrOutput
-	ToNotificationHubPropertiesPtrOutputWithContext(context.Context) NotificationHubPropertiesPtrOutput
-}
-
-type notificationHubPropertiesPtrType NotificationHubPropertiesArgs
-
-func NotificationHubPropertiesPtr(v *NotificationHubPropertiesArgs) NotificationHubPropertiesPtrInput {
-	return (*notificationHubPropertiesPtrType)(v)
-}
-
-func (*notificationHubPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**NotificationHubProperties)(nil)).Elem()
-}
-
-func (i *notificationHubPropertiesPtrType) ToNotificationHubPropertiesPtrOutput() NotificationHubPropertiesPtrOutput {
-	return i.ToNotificationHubPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *notificationHubPropertiesPtrType) ToNotificationHubPropertiesPtrOutputWithContext(ctx context.Context) NotificationHubPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NotificationHubPropertiesPtrOutput)
-}
-
 type NotificationHubPropertiesOutput struct{ *pulumi.OutputState }
 
 func (NotificationHubPropertiesOutput) ElementType() reflect.Type {
@@ -3636,16 +2420,6 @@ func (o NotificationHubPropertiesOutput) ToNotificationHubPropertiesOutput() Not
 
 func (o NotificationHubPropertiesOutput) ToNotificationHubPropertiesOutputWithContext(ctx context.Context) NotificationHubPropertiesOutput {
 	return o
-}
-
-func (o NotificationHubPropertiesOutput) ToNotificationHubPropertiesPtrOutput() NotificationHubPropertiesPtrOutput {
-	return o.ToNotificationHubPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o NotificationHubPropertiesOutput) ToNotificationHubPropertiesPtrOutputWithContext(ctx context.Context) NotificationHubPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v NotificationHubProperties) *NotificationHubProperties {
-		return &v
-	}).(NotificationHubPropertiesPtrOutput)
 }
 
 func (o NotificationHubPropertiesOutput) AdmCredential() AdmCredentialPtrOutput {
@@ -3686,111 +2460,6 @@ func (o NotificationHubPropertiesOutput) WnsCredential() WnsCredentialPtrOutput 
 	return o.ApplyT(func(v NotificationHubProperties) *WnsCredential { return v.WnsCredential }).(WnsCredentialPtrOutput)
 }
 
-type NotificationHubPropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (NotificationHubPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**NotificationHubProperties)(nil)).Elem()
-}
-
-func (o NotificationHubPropertiesPtrOutput) ToNotificationHubPropertiesPtrOutput() NotificationHubPropertiesPtrOutput {
-	return o
-}
-
-func (o NotificationHubPropertiesPtrOutput) ToNotificationHubPropertiesPtrOutputWithContext(ctx context.Context) NotificationHubPropertiesPtrOutput {
-	return o
-}
-
-func (o NotificationHubPropertiesPtrOutput) Elem() NotificationHubPropertiesOutput {
-	return o.ApplyT(func(v *NotificationHubProperties) NotificationHubProperties {
-		if v != nil {
-			return *v
-		}
-		var ret NotificationHubProperties
-		return ret
-	}).(NotificationHubPropertiesOutput)
-}
-
-func (o NotificationHubPropertiesPtrOutput) AdmCredential() AdmCredentialPtrOutput {
-	return o.ApplyT(func(v *NotificationHubProperties) *AdmCredential {
-		if v == nil {
-			return nil
-		}
-		return v.AdmCredential
-	}).(AdmCredentialPtrOutput)
-}
-
-func (o NotificationHubPropertiesPtrOutput) ApnsCredential() ApnsCredentialPtrOutput {
-	return o.ApplyT(func(v *NotificationHubProperties) *ApnsCredential {
-		if v == nil {
-			return nil
-		}
-		return v.ApnsCredential
-	}).(ApnsCredentialPtrOutput)
-}
-
-func (o NotificationHubPropertiesPtrOutput) AuthorizationRules() SharedAccessAuthorizationRulePropertiesArrayOutput {
-	return o.ApplyT(func(v *NotificationHubProperties) []SharedAccessAuthorizationRuleProperties {
-		if v == nil {
-			return nil
-		}
-		return v.AuthorizationRules
-	}).(SharedAccessAuthorizationRulePropertiesArrayOutput)
-}
-
-func (o NotificationHubPropertiesPtrOutput) BaiduCredential() BaiduCredentialPtrOutput {
-	return o.ApplyT(func(v *NotificationHubProperties) *BaiduCredential {
-		if v == nil {
-			return nil
-		}
-		return v.BaiduCredential
-	}).(BaiduCredentialPtrOutput)
-}
-
-func (o NotificationHubPropertiesPtrOutput) GcmCredential() GcmCredentialPtrOutput {
-	return o.ApplyT(func(v *NotificationHubProperties) *GcmCredential {
-		if v == nil {
-			return nil
-		}
-		return v.GcmCredential
-	}).(GcmCredentialPtrOutput)
-}
-
-func (o NotificationHubPropertiesPtrOutput) MpnsCredential() MpnsCredentialPtrOutput {
-	return o.ApplyT(func(v *NotificationHubProperties) *MpnsCredential {
-		if v == nil {
-			return nil
-		}
-		return v.MpnsCredential
-	}).(MpnsCredentialPtrOutput)
-}
-
-func (o NotificationHubPropertiesPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *NotificationHubProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o NotificationHubPropertiesPtrOutput) RegistrationTtl() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *NotificationHubProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.RegistrationTtl
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o NotificationHubPropertiesPtrOutput) WnsCredential() WnsCredentialPtrOutput {
-	return o.ApplyT(func(v *NotificationHubProperties) *WnsCredential {
-		if v == nil {
-			return nil
-		}
-		return v.WnsCredential
-	}).(WnsCredentialPtrOutput)
-}
-
 type NotificationHubPropertiesResponse struct {
 	AdmCredential      *AdmCredentialResponse                            `pulumi:"admCredential"`
 	ApnsCredential     *ApnsCredentialResponse                           `pulumi:"apnsCredential"`
@@ -3801,82 +2470,6 @@ type NotificationHubPropertiesResponse struct {
 	Name               *string                                           `pulumi:"name"`
 	RegistrationTtl    *string                                           `pulumi:"registrationTtl"`
 	WnsCredential      *WnsCredentialResponse                            `pulumi:"wnsCredential"`
-}
-
-
-
-
-
-type NotificationHubPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToNotificationHubPropertiesResponseOutput() NotificationHubPropertiesResponseOutput
-	ToNotificationHubPropertiesResponseOutputWithContext(context.Context) NotificationHubPropertiesResponseOutput
-}
-
-type NotificationHubPropertiesResponseArgs struct {
-	AdmCredential      AdmCredentialResponsePtrInput                             `pulumi:"admCredential"`
-	ApnsCredential     ApnsCredentialResponsePtrInput                            `pulumi:"apnsCredential"`
-	AuthorizationRules SharedAccessAuthorizationRulePropertiesResponseArrayInput `pulumi:"authorizationRules"`
-	BaiduCredential    BaiduCredentialResponsePtrInput                           `pulumi:"baiduCredential"`
-	GcmCredential      GcmCredentialResponsePtrInput                             `pulumi:"gcmCredential"`
-	MpnsCredential     MpnsCredentialResponsePtrInput                            `pulumi:"mpnsCredential"`
-	Name               pulumi.StringPtrInput                                     `pulumi:"name"`
-	RegistrationTtl    pulumi.StringPtrInput                                     `pulumi:"registrationTtl"`
-	WnsCredential      WnsCredentialResponsePtrInput                             `pulumi:"wnsCredential"`
-}
-
-func (NotificationHubPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*NotificationHubPropertiesResponse)(nil)).Elem()
-}
-
-func (i NotificationHubPropertiesResponseArgs) ToNotificationHubPropertiesResponseOutput() NotificationHubPropertiesResponseOutput {
-	return i.ToNotificationHubPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i NotificationHubPropertiesResponseArgs) ToNotificationHubPropertiesResponseOutputWithContext(ctx context.Context) NotificationHubPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NotificationHubPropertiesResponseOutput)
-}
-
-func (i NotificationHubPropertiesResponseArgs) ToNotificationHubPropertiesResponsePtrOutput() NotificationHubPropertiesResponsePtrOutput {
-	return i.ToNotificationHubPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i NotificationHubPropertiesResponseArgs) ToNotificationHubPropertiesResponsePtrOutputWithContext(ctx context.Context) NotificationHubPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NotificationHubPropertiesResponseOutput).ToNotificationHubPropertiesResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type NotificationHubPropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToNotificationHubPropertiesResponsePtrOutput() NotificationHubPropertiesResponsePtrOutput
-	ToNotificationHubPropertiesResponsePtrOutputWithContext(context.Context) NotificationHubPropertiesResponsePtrOutput
-}
-
-type notificationHubPropertiesResponsePtrType NotificationHubPropertiesResponseArgs
-
-func NotificationHubPropertiesResponsePtr(v *NotificationHubPropertiesResponseArgs) NotificationHubPropertiesResponsePtrInput {
-	return (*notificationHubPropertiesResponsePtrType)(v)
-}
-
-func (*notificationHubPropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**NotificationHubPropertiesResponse)(nil)).Elem()
-}
-
-func (i *notificationHubPropertiesResponsePtrType) ToNotificationHubPropertiesResponsePtrOutput() NotificationHubPropertiesResponsePtrOutput {
-	return i.ToNotificationHubPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *notificationHubPropertiesResponsePtrType) ToNotificationHubPropertiesResponsePtrOutputWithContext(ctx context.Context) NotificationHubPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NotificationHubPropertiesResponsePtrOutput)
 }
 
 type NotificationHubPropertiesResponseOutput struct{ *pulumi.OutputState }
@@ -3891,16 +2484,6 @@ func (o NotificationHubPropertiesResponseOutput) ToNotificationHubPropertiesResp
 
 func (o NotificationHubPropertiesResponseOutput) ToNotificationHubPropertiesResponseOutputWithContext(ctx context.Context) NotificationHubPropertiesResponseOutput {
 	return o
-}
-
-func (o NotificationHubPropertiesResponseOutput) ToNotificationHubPropertiesResponsePtrOutput() NotificationHubPropertiesResponsePtrOutput {
-	return o.ToNotificationHubPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o NotificationHubPropertiesResponseOutput) ToNotificationHubPropertiesResponsePtrOutputWithContext(ctx context.Context) NotificationHubPropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v NotificationHubPropertiesResponse) *NotificationHubPropertiesResponse {
-		return &v
-	}).(NotificationHubPropertiesResponsePtrOutput)
 }
 
 func (o NotificationHubPropertiesResponseOutput) AdmCredential() AdmCredentialResponsePtrOutput {
@@ -3939,111 +2522,6 @@ func (o NotificationHubPropertiesResponseOutput) RegistrationTtl() pulumi.String
 
 func (o NotificationHubPropertiesResponseOutput) WnsCredential() WnsCredentialResponsePtrOutput {
 	return o.ApplyT(func(v NotificationHubPropertiesResponse) *WnsCredentialResponse { return v.WnsCredential }).(WnsCredentialResponsePtrOutput)
-}
-
-type NotificationHubPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (NotificationHubPropertiesResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**NotificationHubPropertiesResponse)(nil)).Elem()
-}
-
-func (o NotificationHubPropertiesResponsePtrOutput) ToNotificationHubPropertiesResponsePtrOutput() NotificationHubPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o NotificationHubPropertiesResponsePtrOutput) ToNotificationHubPropertiesResponsePtrOutputWithContext(ctx context.Context) NotificationHubPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o NotificationHubPropertiesResponsePtrOutput) Elem() NotificationHubPropertiesResponseOutput {
-	return o.ApplyT(func(v *NotificationHubPropertiesResponse) NotificationHubPropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret NotificationHubPropertiesResponse
-		return ret
-	}).(NotificationHubPropertiesResponseOutput)
-}
-
-func (o NotificationHubPropertiesResponsePtrOutput) AdmCredential() AdmCredentialResponsePtrOutput {
-	return o.ApplyT(func(v *NotificationHubPropertiesResponse) *AdmCredentialResponse {
-		if v == nil {
-			return nil
-		}
-		return v.AdmCredential
-	}).(AdmCredentialResponsePtrOutput)
-}
-
-func (o NotificationHubPropertiesResponsePtrOutput) ApnsCredential() ApnsCredentialResponsePtrOutput {
-	return o.ApplyT(func(v *NotificationHubPropertiesResponse) *ApnsCredentialResponse {
-		if v == nil {
-			return nil
-		}
-		return v.ApnsCredential
-	}).(ApnsCredentialResponsePtrOutput)
-}
-
-func (o NotificationHubPropertiesResponsePtrOutput) AuthorizationRules() SharedAccessAuthorizationRulePropertiesResponseArrayOutput {
-	return o.ApplyT(func(v *NotificationHubPropertiesResponse) []SharedAccessAuthorizationRulePropertiesResponse {
-		if v == nil {
-			return nil
-		}
-		return v.AuthorizationRules
-	}).(SharedAccessAuthorizationRulePropertiesResponseArrayOutput)
-}
-
-func (o NotificationHubPropertiesResponsePtrOutput) BaiduCredential() BaiduCredentialResponsePtrOutput {
-	return o.ApplyT(func(v *NotificationHubPropertiesResponse) *BaiduCredentialResponse {
-		if v == nil {
-			return nil
-		}
-		return v.BaiduCredential
-	}).(BaiduCredentialResponsePtrOutput)
-}
-
-func (o NotificationHubPropertiesResponsePtrOutput) GcmCredential() GcmCredentialResponsePtrOutput {
-	return o.ApplyT(func(v *NotificationHubPropertiesResponse) *GcmCredentialResponse {
-		if v == nil {
-			return nil
-		}
-		return v.GcmCredential
-	}).(GcmCredentialResponsePtrOutput)
-}
-
-func (o NotificationHubPropertiesResponsePtrOutput) MpnsCredential() MpnsCredentialResponsePtrOutput {
-	return o.ApplyT(func(v *NotificationHubPropertiesResponse) *MpnsCredentialResponse {
-		if v == nil {
-			return nil
-		}
-		return v.MpnsCredential
-	}).(MpnsCredentialResponsePtrOutput)
-}
-
-func (o NotificationHubPropertiesResponsePtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *NotificationHubPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o NotificationHubPropertiesResponsePtrOutput) RegistrationTtl() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *NotificationHubPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.RegistrationTtl
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o NotificationHubPropertiesResponsePtrOutput) WnsCredential() WnsCredentialResponsePtrOutput {
-	return o.ApplyT(func(v *NotificationHubPropertiesResponse) *WnsCredentialResponse {
-		if v == nil {
-			return nil
-		}
-		return v.WnsCredential
-	}).(WnsCredentialResponsePtrOutput)
 }
 
 type SharedAccessAuthorizationRuleProperties struct {
@@ -4198,66 +2676,6 @@ type SharedAccessAuthorizationRulePropertiesResponse struct {
 	Revision     *int     `pulumi:"revision"`
 	Rights       []string `pulumi:"rights"`
 	SecondaryKey *string  `pulumi:"secondaryKey"`
-}
-
-
-
-
-
-type SharedAccessAuthorizationRulePropertiesResponseInput interface {
-	pulumi.Input
-
-	ToSharedAccessAuthorizationRulePropertiesResponseOutput() SharedAccessAuthorizationRulePropertiesResponseOutput
-	ToSharedAccessAuthorizationRulePropertiesResponseOutputWithContext(context.Context) SharedAccessAuthorizationRulePropertiesResponseOutput
-}
-
-type SharedAccessAuthorizationRulePropertiesResponseArgs struct {
-	ClaimType    pulumi.StringPtrInput   `pulumi:"claimType"`
-	ClaimValue   pulumi.StringPtrInput   `pulumi:"claimValue"`
-	CreatedTime  pulumi.StringPtrInput   `pulumi:"createdTime"`
-	KeyName      pulumi.StringPtrInput   `pulumi:"keyName"`
-	ModifiedTime pulumi.StringPtrInput   `pulumi:"modifiedTime"`
-	PrimaryKey   pulumi.StringPtrInput   `pulumi:"primaryKey"`
-	Revision     pulumi.IntPtrInput      `pulumi:"revision"`
-	Rights       pulumi.StringArrayInput `pulumi:"rights"`
-	SecondaryKey pulumi.StringPtrInput   `pulumi:"secondaryKey"`
-}
-
-func (SharedAccessAuthorizationRulePropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SharedAccessAuthorizationRulePropertiesResponse)(nil)).Elem()
-}
-
-func (i SharedAccessAuthorizationRulePropertiesResponseArgs) ToSharedAccessAuthorizationRulePropertiesResponseOutput() SharedAccessAuthorizationRulePropertiesResponseOutput {
-	return i.ToSharedAccessAuthorizationRulePropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i SharedAccessAuthorizationRulePropertiesResponseArgs) ToSharedAccessAuthorizationRulePropertiesResponseOutputWithContext(ctx context.Context) SharedAccessAuthorizationRulePropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SharedAccessAuthorizationRulePropertiesResponseOutput)
-}
-
-
-
-
-
-type SharedAccessAuthorizationRulePropertiesResponseArrayInput interface {
-	pulumi.Input
-
-	ToSharedAccessAuthorizationRulePropertiesResponseArrayOutput() SharedAccessAuthorizationRulePropertiesResponseArrayOutput
-	ToSharedAccessAuthorizationRulePropertiesResponseArrayOutputWithContext(context.Context) SharedAccessAuthorizationRulePropertiesResponseArrayOutput
-}
-
-type SharedAccessAuthorizationRulePropertiesResponseArray []SharedAccessAuthorizationRulePropertiesResponseInput
-
-func (SharedAccessAuthorizationRulePropertiesResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SharedAccessAuthorizationRulePropertiesResponse)(nil)).Elem()
-}
-
-func (i SharedAccessAuthorizationRulePropertiesResponseArray) ToSharedAccessAuthorizationRulePropertiesResponseArrayOutput() SharedAccessAuthorizationRulePropertiesResponseArrayOutput {
-	return i.ToSharedAccessAuthorizationRulePropertiesResponseArrayOutputWithContext(context.Background())
-}
-
-func (i SharedAccessAuthorizationRulePropertiesResponseArray) ToSharedAccessAuthorizationRulePropertiesResponseArrayOutputWithContext(ctx context.Context) SharedAccessAuthorizationRulePropertiesResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SharedAccessAuthorizationRulePropertiesResponseArrayOutput)
 }
 
 type SharedAccessAuthorizationRulePropertiesResponseOutput struct{ *pulumi.OutputState }
@@ -4632,76 +3050,6 @@ type WnsCredentialPropertiesResponse struct {
 	WindowsLiveEndpoint *string `pulumi:"windowsLiveEndpoint"`
 }
 
-
-
-
-
-type WnsCredentialPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToWnsCredentialPropertiesResponseOutput() WnsCredentialPropertiesResponseOutput
-	ToWnsCredentialPropertiesResponseOutputWithContext(context.Context) WnsCredentialPropertiesResponseOutput
-}
-
-type WnsCredentialPropertiesResponseArgs struct {
-	PackageSid          pulumi.StringPtrInput `pulumi:"packageSid"`
-	SecretKey           pulumi.StringPtrInput `pulumi:"secretKey"`
-	WindowsLiveEndpoint pulumi.StringPtrInput `pulumi:"windowsLiveEndpoint"`
-}
-
-func (WnsCredentialPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WnsCredentialPropertiesResponse)(nil)).Elem()
-}
-
-func (i WnsCredentialPropertiesResponseArgs) ToWnsCredentialPropertiesResponseOutput() WnsCredentialPropertiesResponseOutput {
-	return i.ToWnsCredentialPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i WnsCredentialPropertiesResponseArgs) ToWnsCredentialPropertiesResponseOutputWithContext(ctx context.Context) WnsCredentialPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WnsCredentialPropertiesResponseOutput)
-}
-
-func (i WnsCredentialPropertiesResponseArgs) ToWnsCredentialPropertiesResponsePtrOutput() WnsCredentialPropertiesResponsePtrOutput {
-	return i.ToWnsCredentialPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i WnsCredentialPropertiesResponseArgs) ToWnsCredentialPropertiesResponsePtrOutputWithContext(ctx context.Context) WnsCredentialPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WnsCredentialPropertiesResponseOutput).ToWnsCredentialPropertiesResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type WnsCredentialPropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToWnsCredentialPropertiesResponsePtrOutput() WnsCredentialPropertiesResponsePtrOutput
-	ToWnsCredentialPropertiesResponsePtrOutputWithContext(context.Context) WnsCredentialPropertiesResponsePtrOutput
-}
-
-type wnsCredentialPropertiesResponsePtrType WnsCredentialPropertiesResponseArgs
-
-func WnsCredentialPropertiesResponsePtr(v *WnsCredentialPropertiesResponseArgs) WnsCredentialPropertiesResponsePtrInput {
-	return (*wnsCredentialPropertiesResponsePtrType)(v)
-}
-
-func (*wnsCredentialPropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**WnsCredentialPropertiesResponse)(nil)).Elem()
-}
-
-func (i *wnsCredentialPropertiesResponsePtrType) ToWnsCredentialPropertiesResponsePtrOutput() WnsCredentialPropertiesResponsePtrOutput {
-	return i.ToWnsCredentialPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *wnsCredentialPropertiesResponsePtrType) ToWnsCredentialPropertiesResponsePtrOutputWithContext(ctx context.Context) WnsCredentialPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WnsCredentialPropertiesResponsePtrOutput)
-}
-
 type WnsCredentialPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (WnsCredentialPropertiesResponseOutput) ElementType() reflect.Type {
@@ -4714,16 +3062,6 @@ func (o WnsCredentialPropertiesResponseOutput) ToWnsCredentialPropertiesResponse
 
 func (o WnsCredentialPropertiesResponseOutput) ToWnsCredentialPropertiesResponseOutputWithContext(ctx context.Context) WnsCredentialPropertiesResponseOutput {
 	return o
-}
-
-func (o WnsCredentialPropertiesResponseOutput) ToWnsCredentialPropertiesResponsePtrOutput() WnsCredentialPropertiesResponsePtrOutput {
-	return o.ToWnsCredentialPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o WnsCredentialPropertiesResponseOutput) ToWnsCredentialPropertiesResponsePtrOutputWithContext(ctx context.Context) WnsCredentialPropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WnsCredentialPropertiesResponse) *WnsCredentialPropertiesResponse {
-		return &v
-	}).(WnsCredentialPropertiesResponsePtrOutput)
 }
 
 func (o WnsCredentialPropertiesResponseOutput) PackageSid() pulumi.StringPtrOutput {
@@ -4793,74 +3131,6 @@ type WnsCredentialResponse struct {
 	Properties *WnsCredentialPropertiesResponse `pulumi:"properties"`
 }
 
-
-
-
-
-type WnsCredentialResponseInput interface {
-	pulumi.Input
-
-	ToWnsCredentialResponseOutput() WnsCredentialResponseOutput
-	ToWnsCredentialResponseOutputWithContext(context.Context) WnsCredentialResponseOutput
-}
-
-type WnsCredentialResponseArgs struct {
-	Properties WnsCredentialPropertiesResponsePtrInput `pulumi:"properties"`
-}
-
-func (WnsCredentialResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WnsCredentialResponse)(nil)).Elem()
-}
-
-func (i WnsCredentialResponseArgs) ToWnsCredentialResponseOutput() WnsCredentialResponseOutput {
-	return i.ToWnsCredentialResponseOutputWithContext(context.Background())
-}
-
-func (i WnsCredentialResponseArgs) ToWnsCredentialResponseOutputWithContext(ctx context.Context) WnsCredentialResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WnsCredentialResponseOutput)
-}
-
-func (i WnsCredentialResponseArgs) ToWnsCredentialResponsePtrOutput() WnsCredentialResponsePtrOutput {
-	return i.ToWnsCredentialResponsePtrOutputWithContext(context.Background())
-}
-
-func (i WnsCredentialResponseArgs) ToWnsCredentialResponsePtrOutputWithContext(ctx context.Context) WnsCredentialResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WnsCredentialResponseOutput).ToWnsCredentialResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type WnsCredentialResponsePtrInput interface {
-	pulumi.Input
-
-	ToWnsCredentialResponsePtrOutput() WnsCredentialResponsePtrOutput
-	ToWnsCredentialResponsePtrOutputWithContext(context.Context) WnsCredentialResponsePtrOutput
-}
-
-type wnsCredentialResponsePtrType WnsCredentialResponseArgs
-
-func WnsCredentialResponsePtr(v *WnsCredentialResponseArgs) WnsCredentialResponsePtrInput {
-	return (*wnsCredentialResponsePtrType)(v)
-}
-
-func (*wnsCredentialResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**WnsCredentialResponse)(nil)).Elem()
-}
-
-func (i *wnsCredentialResponsePtrType) ToWnsCredentialResponsePtrOutput() WnsCredentialResponsePtrOutput {
-	return i.ToWnsCredentialResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *wnsCredentialResponsePtrType) ToWnsCredentialResponsePtrOutputWithContext(ctx context.Context) WnsCredentialResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WnsCredentialResponsePtrOutput)
-}
-
 type WnsCredentialResponseOutput struct{ *pulumi.OutputState }
 
 func (WnsCredentialResponseOutput) ElementType() reflect.Type {
@@ -4873,16 +3143,6 @@ func (o WnsCredentialResponseOutput) ToWnsCredentialResponseOutput() WnsCredenti
 
 func (o WnsCredentialResponseOutput) ToWnsCredentialResponseOutputWithContext(ctx context.Context) WnsCredentialResponseOutput {
 	return o
-}
-
-func (o WnsCredentialResponseOutput) ToWnsCredentialResponsePtrOutput() WnsCredentialResponsePtrOutput {
-	return o.ToWnsCredentialResponsePtrOutputWithContext(context.Background())
-}
-
-func (o WnsCredentialResponseOutput) ToWnsCredentialResponsePtrOutputWithContext(ctx context.Context) WnsCredentialResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WnsCredentialResponse) *WnsCredentialResponse {
-		return &v
-	}).(WnsCredentialResponsePtrOutput)
 }
 
 func (o WnsCredentialResponseOutput) Properties() WnsCredentialPropertiesResponsePtrOutput {
@@ -4964,13 +3224,9 @@ func init() {
 	pulumi.RegisterOutputType(MpnsCredentialResponseOutput{})
 	pulumi.RegisterOutputType(MpnsCredentialResponsePtrOutput{})
 	pulumi.RegisterOutputType(NamespacePropertiesOutput{})
-	pulumi.RegisterOutputType(NamespacePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(NamespacePropertiesResponseOutput{})
-	pulumi.RegisterOutputType(NamespacePropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(NotificationHubPropertiesOutput{})
-	pulumi.RegisterOutputType(NotificationHubPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(NotificationHubPropertiesResponseOutput{})
-	pulumi.RegisterOutputType(NotificationHubPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(SharedAccessAuthorizationRulePropertiesOutput{})
 	pulumi.RegisterOutputType(SharedAccessAuthorizationRulePropertiesArrayOutput{})
 	pulumi.RegisterOutputType(SharedAccessAuthorizationRulePropertiesResponseOutput{})

@@ -108,58 +108,6 @@ type ManagementLockOwnerResponse struct {
 	ApplicationId *string `pulumi:"applicationId"`
 }
 
-
-
-
-
-type ManagementLockOwnerResponseInput interface {
-	pulumi.Input
-
-	ToManagementLockOwnerResponseOutput() ManagementLockOwnerResponseOutput
-	ToManagementLockOwnerResponseOutputWithContext(context.Context) ManagementLockOwnerResponseOutput
-}
-
-type ManagementLockOwnerResponseArgs struct {
-	ApplicationId pulumi.StringPtrInput `pulumi:"applicationId"`
-}
-
-func (ManagementLockOwnerResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagementLockOwnerResponse)(nil)).Elem()
-}
-
-func (i ManagementLockOwnerResponseArgs) ToManagementLockOwnerResponseOutput() ManagementLockOwnerResponseOutput {
-	return i.ToManagementLockOwnerResponseOutputWithContext(context.Background())
-}
-
-func (i ManagementLockOwnerResponseArgs) ToManagementLockOwnerResponseOutputWithContext(ctx context.Context) ManagementLockOwnerResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagementLockOwnerResponseOutput)
-}
-
-
-
-
-
-type ManagementLockOwnerResponseArrayInput interface {
-	pulumi.Input
-
-	ToManagementLockOwnerResponseArrayOutput() ManagementLockOwnerResponseArrayOutput
-	ToManagementLockOwnerResponseArrayOutputWithContext(context.Context) ManagementLockOwnerResponseArrayOutput
-}
-
-type ManagementLockOwnerResponseArray []ManagementLockOwnerResponseInput
-
-func (ManagementLockOwnerResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ManagementLockOwnerResponse)(nil)).Elem()
-}
-
-func (i ManagementLockOwnerResponseArray) ToManagementLockOwnerResponseArrayOutput() ManagementLockOwnerResponseArrayOutput {
-	return i.ToManagementLockOwnerResponseArrayOutputWithContext(context.Background())
-}
-
-func (i ManagementLockOwnerResponseArray) ToManagementLockOwnerResponseArrayOutputWithContext(ctx context.Context) ManagementLockOwnerResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagementLockOwnerResponseArrayOutput)
-}
-
 type ManagementLockOwnerResponseOutput struct{ *pulumi.OutputState }
 
 func (ManagementLockOwnerResponseOutput) ElementType() reflect.Type {

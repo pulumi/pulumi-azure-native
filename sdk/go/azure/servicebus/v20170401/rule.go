@@ -41,17 +41,14 @@ func NewRule(ctx *pulumi.Context,
 	if args.TopicName == nil {
 		return nil, errors.New("invalid value for required argument 'TopicName'")
 	}
-	actionApplier := func(v Action) *Action { return v.Defaults() }
 	if args.Action != nil {
-		args.Action = args.Action.ToActionPtrOutput().Elem().ApplyT(actionApplier).(ActionPtrOutput)
+		args.Action = args.Action.ToActionPtrOutput().ApplyT(func(v *Action) *Action { return v.Defaults() }).(ActionPtrOutput)
 	}
-	correlationFilterApplier := func(v CorrelationFilter) *CorrelationFilter { return v.Defaults() }
 	if args.CorrelationFilter != nil {
-		args.CorrelationFilter = args.CorrelationFilter.ToCorrelationFilterPtrOutput().Elem().ApplyT(correlationFilterApplier).(CorrelationFilterPtrOutput)
+		args.CorrelationFilter = args.CorrelationFilter.ToCorrelationFilterPtrOutput().ApplyT(func(v *CorrelationFilter) *CorrelationFilter { return v.Defaults() }).(CorrelationFilterPtrOutput)
 	}
-	sqlFilterApplier := func(v SqlFilter) *SqlFilter { return v.Defaults() }
 	if args.SqlFilter != nil {
-		args.SqlFilter = args.SqlFilter.ToSqlFilterPtrOutput().Elem().ApplyT(sqlFilterApplier).(SqlFilterPtrOutput)
+		args.SqlFilter = args.SqlFilter.ToSqlFilterPtrOutput().ApplyT(func(v *SqlFilter) *SqlFilter { return v.Defaults() }).(SqlFilterPtrOutput)
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

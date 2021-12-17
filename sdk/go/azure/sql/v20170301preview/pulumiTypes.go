@@ -108,58 +108,6 @@ type DatabaseVulnerabilityAssessmentRuleBaselineItemResponse struct {
 	Result []string `pulumi:"result"`
 }
 
-
-
-
-
-type DatabaseVulnerabilityAssessmentRuleBaselineItemResponseInput interface {
-	pulumi.Input
-
-	ToDatabaseVulnerabilityAssessmentRuleBaselineItemResponseOutput() DatabaseVulnerabilityAssessmentRuleBaselineItemResponseOutput
-	ToDatabaseVulnerabilityAssessmentRuleBaselineItemResponseOutputWithContext(context.Context) DatabaseVulnerabilityAssessmentRuleBaselineItemResponseOutput
-}
-
-type DatabaseVulnerabilityAssessmentRuleBaselineItemResponseArgs struct {
-	Result pulumi.StringArrayInput `pulumi:"result"`
-}
-
-func (DatabaseVulnerabilityAssessmentRuleBaselineItemResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatabaseVulnerabilityAssessmentRuleBaselineItemResponse)(nil)).Elem()
-}
-
-func (i DatabaseVulnerabilityAssessmentRuleBaselineItemResponseArgs) ToDatabaseVulnerabilityAssessmentRuleBaselineItemResponseOutput() DatabaseVulnerabilityAssessmentRuleBaselineItemResponseOutput {
-	return i.ToDatabaseVulnerabilityAssessmentRuleBaselineItemResponseOutputWithContext(context.Background())
-}
-
-func (i DatabaseVulnerabilityAssessmentRuleBaselineItemResponseArgs) ToDatabaseVulnerabilityAssessmentRuleBaselineItemResponseOutputWithContext(ctx context.Context) DatabaseVulnerabilityAssessmentRuleBaselineItemResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DatabaseVulnerabilityAssessmentRuleBaselineItemResponseOutput)
-}
-
-
-
-
-
-type DatabaseVulnerabilityAssessmentRuleBaselineItemResponseArrayInput interface {
-	pulumi.Input
-
-	ToDatabaseVulnerabilityAssessmentRuleBaselineItemResponseArrayOutput() DatabaseVulnerabilityAssessmentRuleBaselineItemResponseArrayOutput
-	ToDatabaseVulnerabilityAssessmentRuleBaselineItemResponseArrayOutputWithContext(context.Context) DatabaseVulnerabilityAssessmentRuleBaselineItemResponseArrayOutput
-}
-
-type DatabaseVulnerabilityAssessmentRuleBaselineItemResponseArray []DatabaseVulnerabilityAssessmentRuleBaselineItemResponseInput
-
-func (DatabaseVulnerabilityAssessmentRuleBaselineItemResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DatabaseVulnerabilityAssessmentRuleBaselineItemResponse)(nil)).Elem()
-}
-
-func (i DatabaseVulnerabilityAssessmentRuleBaselineItemResponseArray) ToDatabaseVulnerabilityAssessmentRuleBaselineItemResponseArrayOutput() DatabaseVulnerabilityAssessmentRuleBaselineItemResponseArrayOutput {
-	return i.ToDatabaseVulnerabilityAssessmentRuleBaselineItemResponseArrayOutputWithContext(context.Background())
-}
-
-func (i DatabaseVulnerabilityAssessmentRuleBaselineItemResponseArray) ToDatabaseVulnerabilityAssessmentRuleBaselineItemResponseArrayOutputWithContext(ctx context.Context) DatabaseVulnerabilityAssessmentRuleBaselineItemResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DatabaseVulnerabilityAssessmentRuleBaselineItemResponseArrayOutput)
-}
-
 type DatabaseVulnerabilityAssessmentRuleBaselineItemResponseOutput struct{ *pulumi.OutputState }
 
 func (DatabaseVulnerabilityAssessmentRuleBaselineItemResponseOutput) ElementType() reflect.Type {
@@ -441,78 +389,6 @@ func (val *JobScheduleResponse) Defaults() *JobScheduleResponse {
 	return &tmp
 }
 
-
-
-
-
-type JobScheduleResponseInput interface {
-	pulumi.Input
-
-	ToJobScheduleResponseOutput() JobScheduleResponseOutput
-	ToJobScheduleResponseOutputWithContext(context.Context) JobScheduleResponseOutput
-}
-
-type JobScheduleResponseArgs struct {
-	Enabled   pulumi.BoolPtrInput   `pulumi:"enabled"`
-	EndTime   pulumi.StringPtrInput `pulumi:"endTime"`
-	Interval  pulumi.StringPtrInput `pulumi:"interval"`
-	StartTime pulumi.StringPtrInput `pulumi:"startTime"`
-	Type      pulumi.StringPtrInput `pulumi:"type"`
-}
-
-func (JobScheduleResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*JobScheduleResponse)(nil)).Elem()
-}
-
-func (i JobScheduleResponseArgs) ToJobScheduleResponseOutput() JobScheduleResponseOutput {
-	return i.ToJobScheduleResponseOutputWithContext(context.Background())
-}
-
-func (i JobScheduleResponseArgs) ToJobScheduleResponseOutputWithContext(ctx context.Context) JobScheduleResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(JobScheduleResponseOutput)
-}
-
-func (i JobScheduleResponseArgs) ToJobScheduleResponsePtrOutput() JobScheduleResponsePtrOutput {
-	return i.ToJobScheduleResponsePtrOutputWithContext(context.Background())
-}
-
-func (i JobScheduleResponseArgs) ToJobScheduleResponsePtrOutputWithContext(ctx context.Context) JobScheduleResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(JobScheduleResponseOutput).ToJobScheduleResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type JobScheduleResponsePtrInput interface {
-	pulumi.Input
-
-	ToJobScheduleResponsePtrOutput() JobScheduleResponsePtrOutput
-	ToJobScheduleResponsePtrOutputWithContext(context.Context) JobScheduleResponsePtrOutput
-}
-
-type jobScheduleResponsePtrType JobScheduleResponseArgs
-
-func JobScheduleResponsePtr(v *JobScheduleResponseArgs) JobScheduleResponsePtrInput {
-	return (*jobScheduleResponsePtrType)(v)
-}
-
-func (*jobScheduleResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**JobScheduleResponse)(nil)).Elem()
-}
-
-func (i *jobScheduleResponsePtrType) ToJobScheduleResponsePtrOutput() JobScheduleResponsePtrOutput {
-	return i.ToJobScheduleResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *jobScheduleResponsePtrType) ToJobScheduleResponsePtrOutputWithContext(ctx context.Context) JobScheduleResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(JobScheduleResponsePtrOutput)
-}
-
 type JobScheduleResponseOutput struct{ *pulumi.OutputState }
 
 func (JobScheduleResponseOutput) ElementType() reflect.Type {
@@ -525,16 +401,6 @@ func (o JobScheduleResponseOutput) ToJobScheduleResponseOutput() JobScheduleResp
 
 func (o JobScheduleResponseOutput) ToJobScheduleResponseOutputWithContext(ctx context.Context) JobScheduleResponseOutput {
 	return o
-}
-
-func (o JobScheduleResponseOutput) ToJobScheduleResponsePtrOutput() JobScheduleResponsePtrOutput {
-	return o.ToJobScheduleResponsePtrOutputWithContext(context.Background())
-}
-
-func (o JobScheduleResponseOutput) ToJobScheduleResponsePtrOutputWithContext(ctx context.Context) JobScheduleResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobScheduleResponse) *JobScheduleResponse {
-		return &v
-	}).(JobScheduleResponsePtrOutput)
 }
 
 func (o JobScheduleResponseOutput) Enabled() pulumi.BoolPtrOutput {
@@ -678,47 +544,6 @@ func (i JobStepActionArgs) ToJobStepActionOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(JobStepActionOutput)
 }
 
-func (i JobStepActionArgs) ToJobStepActionPtrOutput() JobStepActionPtrOutput {
-	return i.ToJobStepActionPtrOutputWithContext(context.Background())
-}
-
-func (i JobStepActionArgs) ToJobStepActionPtrOutputWithContext(ctx context.Context) JobStepActionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(JobStepActionOutput).ToJobStepActionPtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type JobStepActionPtrInput interface {
-	pulumi.Input
-
-	ToJobStepActionPtrOutput() JobStepActionPtrOutput
-	ToJobStepActionPtrOutputWithContext(context.Context) JobStepActionPtrOutput
-}
-
-type jobStepActionPtrType JobStepActionArgs
-
-func JobStepActionPtr(v *JobStepActionArgs) JobStepActionPtrInput {
-	return (*jobStepActionPtrType)(v)
-}
-
-func (*jobStepActionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**JobStepAction)(nil)).Elem()
-}
-
-func (i *jobStepActionPtrType) ToJobStepActionPtrOutput() JobStepActionPtrOutput {
-	return i.ToJobStepActionPtrOutputWithContext(context.Background())
-}
-
-func (i *jobStepActionPtrType) ToJobStepActionPtrOutputWithContext(ctx context.Context) JobStepActionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(JobStepActionPtrOutput)
-}
-
 type JobStepActionOutput struct{ *pulumi.OutputState }
 
 func (JobStepActionOutput) ElementType() reflect.Type {
@@ -733,16 +558,6 @@ func (o JobStepActionOutput) ToJobStepActionOutputWithContext(ctx context.Contex
 	return o
 }
 
-func (o JobStepActionOutput) ToJobStepActionPtrOutput() JobStepActionPtrOutput {
-	return o.ToJobStepActionPtrOutputWithContext(context.Background())
-}
-
-func (o JobStepActionOutput) ToJobStepActionPtrOutputWithContext(ctx context.Context) JobStepActionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobStepAction) *JobStepAction {
-		return &v
-	}).(JobStepActionPtrOutput)
-}
-
 func (o JobStepActionOutput) Source() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobStepAction) *string { return v.Source }).(pulumi.StringPtrOutput)
 }
@@ -753,57 +568,6 @@ func (o JobStepActionOutput) Type() pulumi.StringPtrOutput {
 
 func (o JobStepActionOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v JobStepAction) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type JobStepActionPtrOutput struct{ *pulumi.OutputState }
-
-func (JobStepActionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**JobStepAction)(nil)).Elem()
-}
-
-func (o JobStepActionPtrOutput) ToJobStepActionPtrOutput() JobStepActionPtrOutput {
-	return o
-}
-
-func (o JobStepActionPtrOutput) ToJobStepActionPtrOutputWithContext(ctx context.Context) JobStepActionPtrOutput {
-	return o
-}
-
-func (o JobStepActionPtrOutput) Elem() JobStepActionOutput {
-	return o.ApplyT(func(v *JobStepAction) JobStepAction {
-		if v != nil {
-			return *v
-		}
-		var ret JobStepAction
-		return ret
-	}).(JobStepActionOutput)
-}
-
-func (o JobStepActionPtrOutput) Source() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *JobStepAction) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Source
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o JobStepActionPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *JobStepAction) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Type
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o JobStepActionPtrOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *JobStepAction) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Value
-	}).(pulumi.StringPtrOutput)
 }
 
 type JobStepActionResponse struct {
@@ -829,76 +593,6 @@ func (val *JobStepActionResponse) Defaults() *JobStepActionResponse {
 	return &tmp
 }
 
-
-
-
-
-type JobStepActionResponseInput interface {
-	pulumi.Input
-
-	ToJobStepActionResponseOutput() JobStepActionResponseOutput
-	ToJobStepActionResponseOutputWithContext(context.Context) JobStepActionResponseOutput
-}
-
-type JobStepActionResponseArgs struct {
-	Source pulumi.StringPtrInput `pulumi:"source"`
-	Type   pulumi.StringPtrInput `pulumi:"type"`
-	Value  pulumi.StringInput    `pulumi:"value"`
-}
-
-func (JobStepActionResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*JobStepActionResponse)(nil)).Elem()
-}
-
-func (i JobStepActionResponseArgs) ToJobStepActionResponseOutput() JobStepActionResponseOutput {
-	return i.ToJobStepActionResponseOutputWithContext(context.Background())
-}
-
-func (i JobStepActionResponseArgs) ToJobStepActionResponseOutputWithContext(ctx context.Context) JobStepActionResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(JobStepActionResponseOutput)
-}
-
-func (i JobStepActionResponseArgs) ToJobStepActionResponsePtrOutput() JobStepActionResponsePtrOutput {
-	return i.ToJobStepActionResponsePtrOutputWithContext(context.Background())
-}
-
-func (i JobStepActionResponseArgs) ToJobStepActionResponsePtrOutputWithContext(ctx context.Context) JobStepActionResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(JobStepActionResponseOutput).ToJobStepActionResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type JobStepActionResponsePtrInput interface {
-	pulumi.Input
-
-	ToJobStepActionResponsePtrOutput() JobStepActionResponsePtrOutput
-	ToJobStepActionResponsePtrOutputWithContext(context.Context) JobStepActionResponsePtrOutput
-}
-
-type jobStepActionResponsePtrType JobStepActionResponseArgs
-
-func JobStepActionResponsePtr(v *JobStepActionResponseArgs) JobStepActionResponsePtrInput {
-	return (*jobStepActionResponsePtrType)(v)
-}
-
-func (*jobStepActionResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**JobStepActionResponse)(nil)).Elem()
-}
-
-func (i *jobStepActionResponsePtrType) ToJobStepActionResponsePtrOutput() JobStepActionResponsePtrOutput {
-	return i.ToJobStepActionResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *jobStepActionResponsePtrType) ToJobStepActionResponsePtrOutputWithContext(ctx context.Context) JobStepActionResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(JobStepActionResponsePtrOutput)
-}
-
 type JobStepActionResponseOutput struct{ *pulumi.OutputState }
 
 func (JobStepActionResponseOutput) ElementType() reflect.Type {
@@ -913,16 +607,6 @@ func (o JobStepActionResponseOutput) ToJobStepActionResponseOutputWithContext(ct
 	return o
 }
 
-func (o JobStepActionResponseOutput) ToJobStepActionResponsePtrOutput() JobStepActionResponsePtrOutput {
-	return o.ToJobStepActionResponsePtrOutputWithContext(context.Background())
-}
-
-func (o JobStepActionResponseOutput) ToJobStepActionResponsePtrOutputWithContext(ctx context.Context) JobStepActionResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobStepActionResponse) *JobStepActionResponse {
-		return &v
-	}).(JobStepActionResponsePtrOutput)
-}
-
 func (o JobStepActionResponseOutput) Source() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobStepActionResponse) *string { return v.Source }).(pulumi.StringPtrOutput)
 }
@@ -933,57 +617,6 @@ func (o JobStepActionResponseOutput) Type() pulumi.StringPtrOutput {
 
 func (o JobStepActionResponseOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v JobStepActionResponse) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type JobStepActionResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (JobStepActionResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**JobStepActionResponse)(nil)).Elem()
-}
-
-func (o JobStepActionResponsePtrOutput) ToJobStepActionResponsePtrOutput() JobStepActionResponsePtrOutput {
-	return o
-}
-
-func (o JobStepActionResponsePtrOutput) ToJobStepActionResponsePtrOutputWithContext(ctx context.Context) JobStepActionResponsePtrOutput {
-	return o
-}
-
-func (o JobStepActionResponsePtrOutput) Elem() JobStepActionResponseOutput {
-	return o.ApplyT(func(v *JobStepActionResponse) JobStepActionResponse {
-		if v != nil {
-			return *v
-		}
-		var ret JobStepActionResponse
-		return ret
-	}).(JobStepActionResponseOutput)
-}
-
-func (o JobStepActionResponsePtrOutput) Source() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *JobStepActionResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Source
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o JobStepActionResponsePtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *JobStepActionResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Type
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o JobStepActionResponsePtrOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *JobStepActionResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Value
-	}).(pulumi.StringPtrOutput)
 }
 
 type JobStepExecutionOptions struct {
@@ -1245,78 +878,6 @@ func (val *JobStepExecutionOptionsResponse) Defaults() *JobStepExecutionOptionsR
 	return &tmp
 }
 
-
-
-
-
-type JobStepExecutionOptionsResponseInput interface {
-	pulumi.Input
-
-	ToJobStepExecutionOptionsResponseOutput() JobStepExecutionOptionsResponseOutput
-	ToJobStepExecutionOptionsResponseOutputWithContext(context.Context) JobStepExecutionOptionsResponseOutput
-}
-
-type JobStepExecutionOptionsResponseArgs struct {
-	InitialRetryIntervalSeconds    pulumi.IntPtrInput     `pulumi:"initialRetryIntervalSeconds"`
-	MaximumRetryIntervalSeconds    pulumi.IntPtrInput     `pulumi:"maximumRetryIntervalSeconds"`
-	RetryAttempts                  pulumi.IntPtrInput     `pulumi:"retryAttempts"`
-	RetryIntervalBackoffMultiplier pulumi.Float64PtrInput `pulumi:"retryIntervalBackoffMultiplier"`
-	TimeoutSeconds                 pulumi.IntPtrInput     `pulumi:"timeoutSeconds"`
-}
-
-func (JobStepExecutionOptionsResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*JobStepExecutionOptionsResponse)(nil)).Elem()
-}
-
-func (i JobStepExecutionOptionsResponseArgs) ToJobStepExecutionOptionsResponseOutput() JobStepExecutionOptionsResponseOutput {
-	return i.ToJobStepExecutionOptionsResponseOutputWithContext(context.Background())
-}
-
-func (i JobStepExecutionOptionsResponseArgs) ToJobStepExecutionOptionsResponseOutputWithContext(ctx context.Context) JobStepExecutionOptionsResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(JobStepExecutionOptionsResponseOutput)
-}
-
-func (i JobStepExecutionOptionsResponseArgs) ToJobStepExecutionOptionsResponsePtrOutput() JobStepExecutionOptionsResponsePtrOutput {
-	return i.ToJobStepExecutionOptionsResponsePtrOutputWithContext(context.Background())
-}
-
-func (i JobStepExecutionOptionsResponseArgs) ToJobStepExecutionOptionsResponsePtrOutputWithContext(ctx context.Context) JobStepExecutionOptionsResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(JobStepExecutionOptionsResponseOutput).ToJobStepExecutionOptionsResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type JobStepExecutionOptionsResponsePtrInput interface {
-	pulumi.Input
-
-	ToJobStepExecutionOptionsResponsePtrOutput() JobStepExecutionOptionsResponsePtrOutput
-	ToJobStepExecutionOptionsResponsePtrOutputWithContext(context.Context) JobStepExecutionOptionsResponsePtrOutput
-}
-
-type jobStepExecutionOptionsResponsePtrType JobStepExecutionOptionsResponseArgs
-
-func JobStepExecutionOptionsResponsePtr(v *JobStepExecutionOptionsResponseArgs) JobStepExecutionOptionsResponsePtrInput {
-	return (*jobStepExecutionOptionsResponsePtrType)(v)
-}
-
-func (*jobStepExecutionOptionsResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**JobStepExecutionOptionsResponse)(nil)).Elem()
-}
-
-func (i *jobStepExecutionOptionsResponsePtrType) ToJobStepExecutionOptionsResponsePtrOutput() JobStepExecutionOptionsResponsePtrOutput {
-	return i.ToJobStepExecutionOptionsResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *jobStepExecutionOptionsResponsePtrType) ToJobStepExecutionOptionsResponsePtrOutputWithContext(ctx context.Context) JobStepExecutionOptionsResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(JobStepExecutionOptionsResponsePtrOutput)
-}
-
 type JobStepExecutionOptionsResponseOutput struct{ *pulumi.OutputState }
 
 func (JobStepExecutionOptionsResponseOutput) ElementType() reflect.Type {
@@ -1329,16 +890,6 @@ func (o JobStepExecutionOptionsResponseOutput) ToJobStepExecutionOptionsResponse
 
 func (o JobStepExecutionOptionsResponseOutput) ToJobStepExecutionOptionsResponseOutputWithContext(ctx context.Context) JobStepExecutionOptionsResponseOutput {
 	return o
-}
-
-func (o JobStepExecutionOptionsResponseOutput) ToJobStepExecutionOptionsResponsePtrOutput() JobStepExecutionOptionsResponsePtrOutput {
-	return o.ToJobStepExecutionOptionsResponsePtrOutputWithContext(context.Background())
-}
-
-func (o JobStepExecutionOptionsResponseOutput) ToJobStepExecutionOptionsResponsePtrOutputWithContext(ctx context.Context) JobStepExecutionOptionsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobStepExecutionOptionsResponse) *JobStepExecutionOptionsResponse {
-		return &v
-	}).(JobStepExecutionOptionsResponsePtrOutput)
 }
 
 func (o JobStepExecutionOptionsResponseOutput) InitialRetryIntervalSeconds() pulumi.IntPtrOutput {
@@ -1713,81 +1264,6 @@ func (val *JobStepOutputResponse) Defaults() *JobStepOutputResponse {
 	return &tmp
 }
 
-
-
-
-
-type JobStepOutputResponseInput interface {
-	pulumi.Input
-
-	ToJobStepOutputResponseOutput() JobStepOutputResponseOutput
-	ToJobStepOutputResponseOutputWithContext(context.Context) JobStepOutputResponseOutput
-}
-
-type JobStepOutputResponseArgs struct {
-	Credential        pulumi.StringInput    `pulumi:"credential"`
-	DatabaseName      pulumi.StringInput    `pulumi:"databaseName"`
-	ResourceGroupName pulumi.StringPtrInput `pulumi:"resourceGroupName"`
-	SchemaName        pulumi.StringPtrInput `pulumi:"schemaName"`
-	ServerName        pulumi.StringInput    `pulumi:"serverName"`
-	SubscriptionId    pulumi.StringPtrInput `pulumi:"subscriptionId"`
-	TableName         pulumi.StringInput    `pulumi:"tableName"`
-	Type              pulumi.StringPtrInput `pulumi:"type"`
-}
-
-func (JobStepOutputResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*JobStepOutputResponse)(nil)).Elem()
-}
-
-func (i JobStepOutputResponseArgs) ToJobStepOutputResponseOutput() JobStepOutputResponseOutput {
-	return i.ToJobStepOutputResponseOutputWithContext(context.Background())
-}
-
-func (i JobStepOutputResponseArgs) ToJobStepOutputResponseOutputWithContext(ctx context.Context) JobStepOutputResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(JobStepOutputResponseOutput)
-}
-
-func (i JobStepOutputResponseArgs) ToJobStepOutputResponsePtrOutput() JobStepOutputResponsePtrOutput {
-	return i.ToJobStepOutputResponsePtrOutputWithContext(context.Background())
-}
-
-func (i JobStepOutputResponseArgs) ToJobStepOutputResponsePtrOutputWithContext(ctx context.Context) JobStepOutputResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(JobStepOutputResponseOutput).ToJobStepOutputResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type JobStepOutputResponsePtrInput interface {
-	pulumi.Input
-
-	ToJobStepOutputResponsePtrOutput() JobStepOutputResponsePtrOutput
-	ToJobStepOutputResponsePtrOutputWithContext(context.Context) JobStepOutputResponsePtrOutput
-}
-
-type jobStepOutputResponsePtrType JobStepOutputResponseArgs
-
-func JobStepOutputResponsePtr(v *JobStepOutputResponseArgs) JobStepOutputResponsePtrInput {
-	return (*jobStepOutputResponsePtrType)(v)
-}
-
-func (*jobStepOutputResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**JobStepOutputResponse)(nil)).Elem()
-}
-
-func (i *jobStepOutputResponsePtrType) ToJobStepOutputResponsePtrOutput() JobStepOutputResponsePtrOutput {
-	return i.ToJobStepOutputResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *jobStepOutputResponsePtrType) ToJobStepOutputResponsePtrOutputWithContext(ctx context.Context) JobStepOutputResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(JobStepOutputResponsePtrOutput)
-}
-
 type JobStepOutputResponseOutput struct{ *pulumi.OutputState }
 
 func (JobStepOutputResponseOutput) ElementType() reflect.Type {
@@ -1800,16 +1276,6 @@ func (o JobStepOutputResponseOutput) ToJobStepOutputResponseOutput() JobStepOutp
 
 func (o JobStepOutputResponseOutput) ToJobStepOutputResponseOutputWithContext(ctx context.Context) JobStepOutputResponseOutput {
 	return o
-}
-
-func (o JobStepOutputResponseOutput) ToJobStepOutputResponsePtrOutput() JobStepOutputResponsePtrOutput {
-	return o.ToJobStepOutputResponsePtrOutputWithContext(context.Background())
-}
-
-func (o JobStepOutputResponseOutput) ToJobStepOutputResponsePtrOutputWithContext(ctx context.Context) JobStepOutputResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobStepOutputResponse) *JobStepOutputResponse {
-		return &v
-	}).(JobStepOutputResponsePtrOutput)
 }
 
 func (o JobStepOutputResponseOutput) Credential() pulumi.StringOutput {
@@ -2106,64 +1572,6 @@ func (val *JobTargetResponse) Defaults() *JobTargetResponse {
 	return &tmp
 }
 
-
-
-
-
-type JobTargetResponseInput interface {
-	pulumi.Input
-
-	ToJobTargetResponseOutput() JobTargetResponseOutput
-	ToJobTargetResponseOutputWithContext(context.Context) JobTargetResponseOutput
-}
-
-type JobTargetResponseArgs struct {
-	DatabaseName      pulumi.StringPtrInput `pulumi:"databaseName"`
-	ElasticPoolName   pulumi.StringPtrInput `pulumi:"elasticPoolName"`
-	MembershipType    pulumi.StringPtrInput `pulumi:"membershipType"`
-	RefreshCredential pulumi.StringPtrInput `pulumi:"refreshCredential"`
-	ServerName        pulumi.StringPtrInput `pulumi:"serverName"`
-	ShardMapName      pulumi.StringPtrInput `pulumi:"shardMapName"`
-	Type              pulumi.StringInput    `pulumi:"type"`
-}
-
-func (JobTargetResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*JobTargetResponse)(nil)).Elem()
-}
-
-func (i JobTargetResponseArgs) ToJobTargetResponseOutput() JobTargetResponseOutput {
-	return i.ToJobTargetResponseOutputWithContext(context.Background())
-}
-
-func (i JobTargetResponseArgs) ToJobTargetResponseOutputWithContext(ctx context.Context) JobTargetResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(JobTargetResponseOutput)
-}
-
-
-
-
-
-type JobTargetResponseArrayInput interface {
-	pulumi.Input
-
-	ToJobTargetResponseArrayOutput() JobTargetResponseArrayOutput
-	ToJobTargetResponseArrayOutputWithContext(context.Context) JobTargetResponseArrayOutput
-}
-
-type JobTargetResponseArray []JobTargetResponseInput
-
-func (JobTargetResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]JobTargetResponse)(nil)).Elem()
-}
-
-func (i JobTargetResponseArray) ToJobTargetResponseArrayOutput() JobTargetResponseArrayOutput {
-	return i.ToJobTargetResponseArrayOutputWithContext(context.Background())
-}
-
-func (i JobTargetResponseArray) ToJobTargetResponseArrayOutputWithContext(ctx context.Context) JobTargetResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(JobTargetResponseArrayOutput)
-}
-
 type JobTargetResponseOutput struct{ *pulumi.OutputState }
 
 func (JobTargetResponseOutput) ElementType() reflect.Type {
@@ -2427,78 +1835,6 @@ type SkuResponse struct {
 	Tier     *string `pulumi:"tier"`
 }
 
-
-
-
-
-type SkuResponseInput interface {
-	pulumi.Input
-
-	ToSkuResponseOutput() SkuResponseOutput
-	ToSkuResponseOutputWithContext(context.Context) SkuResponseOutput
-}
-
-type SkuResponseArgs struct {
-	Capacity pulumi.IntPtrInput    `pulumi:"capacity"`
-	Family   pulumi.StringPtrInput `pulumi:"family"`
-	Name     pulumi.StringInput    `pulumi:"name"`
-	Size     pulumi.StringPtrInput `pulumi:"size"`
-	Tier     pulumi.StringPtrInput `pulumi:"tier"`
-}
-
-func (SkuResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SkuResponse)(nil)).Elem()
-}
-
-func (i SkuResponseArgs) ToSkuResponseOutput() SkuResponseOutput {
-	return i.ToSkuResponseOutputWithContext(context.Background())
-}
-
-func (i SkuResponseArgs) ToSkuResponseOutputWithContext(ctx context.Context) SkuResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SkuResponseOutput)
-}
-
-func (i SkuResponseArgs) ToSkuResponsePtrOutput() SkuResponsePtrOutput {
-	return i.ToSkuResponsePtrOutputWithContext(context.Background())
-}
-
-func (i SkuResponseArgs) ToSkuResponsePtrOutputWithContext(ctx context.Context) SkuResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SkuResponseOutput).ToSkuResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type SkuResponsePtrInput interface {
-	pulumi.Input
-
-	ToSkuResponsePtrOutput() SkuResponsePtrOutput
-	ToSkuResponsePtrOutputWithContext(context.Context) SkuResponsePtrOutput
-}
-
-type skuResponsePtrType SkuResponseArgs
-
-func SkuResponsePtr(v *SkuResponseArgs) SkuResponsePtrInput {
-	return (*skuResponsePtrType)(v)
-}
-
-func (*skuResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SkuResponse)(nil)).Elem()
-}
-
-func (i *skuResponsePtrType) ToSkuResponsePtrOutput() SkuResponsePtrOutput {
-	return i.ToSkuResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *skuResponsePtrType) ToSkuResponsePtrOutputWithContext(ctx context.Context) SkuResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SkuResponsePtrOutput)
-}
-
 type SkuResponseOutput struct{ *pulumi.OutputState }
 
 func (SkuResponseOutput) ElementType() reflect.Type {
@@ -2511,16 +1847,6 @@ func (o SkuResponseOutput) ToSkuResponseOutput() SkuResponseOutput {
 
 func (o SkuResponseOutput) ToSkuResponseOutputWithContext(ctx context.Context) SkuResponseOutput {
 	return o
-}
-
-func (o SkuResponseOutput) ToSkuResponsePtrOutput() SkuResponsePtrOutput {
-	return o.ToSkuResponsePtrOutputWithContext(context.Background())
-}
-
-func (o SkuResponseOutput) ToSkuResponsePtrOutputWithContext(ctx context.Context) SkuResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SkuResponse) *SkuResponse {
-		return &v
-	}).(SkuResponsePtrOutput)
 }
 
 func (o SkuResponseOutput) Capacity() pulumi.IntPtrOutput {
@@ -2807,76 +2133,6 @@ func (val *VulnerabilityAssessmentRecurringScansPropertiesResponse) Defaults() *
 	return &tmp
 }
 
-
-
-
-
-type VulnerabilityAssessmentRecurringScansPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToVulnerabilityAssessmentRecurringScansPropertiesResponseOutput() VulnerabilityAssessmentRecurringScansPropertiesResponseOutput
-	ToVulnerabilityAssessmentRecurringScansPropertiesResponseOutputWithContext(context.Context) VulnerabilityAssessmentRecurringScansPropertiesResponseOutput
-}
-
-type VulnerabilityAssessmentRecurringScansPropertiesResponseArgs struct {
-	EmailSubscriptionAdmins pulumi.BoolPtrInput     `pulumi:"emailSubscriptionAdmins"`
-	Emails                  pulumi.StringArrayInput `pulumi:"emails"`
-	IsEnabled               pulumi.BoolPtrInput     `pulumi:"isEnabled"`
-}
-
-func (VulnerabilityAssessmentRecurringScansPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*VulnerabilityAssessmentRecurringScansPropertiesResponse)(nil)).Elem()
-}
-
-func (i VulnerabilityAssessmentRecurringScansPropertiesResponseArgs) ToVulnerabilityAssessmentRecurringScansPropertiesResponseOutput() VulnerabilityAssessmentRecurringScansPropertiesResponseOutput {
-	return i.ToVulnerabilityAssessmentRecurringScansPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i VulnerabilityAssessmentRecurringScansPropertiesResponseArgs) ToVulnerabilityAssessmentRecurringScansPropertiesResponseOutputWithContext(ctx context.Context) VulnerabilityAssessmentRecurringScansPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VulnerabilityAssessmentRecurringScansPropertiesResponseOutput)
-}
-
-func (i VulnerabilityAssessmentRecurringScansPropertiesResponseArgs) ToVulnerabilityAssessmentRecurringScansPropertiesResponsePtrOutput() VulnerabilityAssessmentRecurringScansPropertiesResponsePtrOutput {
-	return i.ToVulnerabilityAssessmentRecurringScansPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i VulnerabilityAssessmentRecurringScansPropertiesResponseArgs) ToVulnerabilityAssessmentRecurringScansPropertiesResponsePtrOutputWithContext(ctx context.Context) VulnerabilityAssessmentRecurringScansPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VulnerabilityAssessmentRecurringScansPropertiesResponseOutput).ToVulnerabilityAssessmentRecurringScansPropertiesResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type VulnerabilityAssessmentRecurringScansPropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToVulnerabilityAssessmentRecurringScansPropertiesResponsePtrOutput() VulnerabilityAssessmentRecurringScansPropertiesResponsePtrOutput
-	ToVulnerabilityAssessmentRecurringScansPropertiesResponsePtrOutputWithContext(context.Context) VulnerabilityAssessmentRecurringScansPropertiesResponsePtrOutput
-}
-
-type vulnerabilityAssessmentRecurringScansPropertiesResponsePtrType VulnerabilityAssessmentRecurringScansPropertiesResponseArgs
-
-func VulnerabilityAssessmentRecurringScansPropertiesResponsePtr(v *VulnerabilityAssessmentRecurringScansPropertiesResponseArgs) VulnerabilityAssessmentRecurringScansPropertiesResponsePtrInput {
-	return (*vulnerabilityAssessmentRecurringScansPropertiesResponsePtrType)(v)
-}
-
-func (*vulnerabilityAssessmentRecurringScansPropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**VulnerabilityAssessmentRecurringScansPropertiesResponse)(nil)).Elem()
-}
-
-func (i *vulnerabilityAssessmentRecurringScansPropertiesResponsePtrType) ToVulnerabilityAssessmentRecurringScansPropertiesResponsePtrOutput() VulnerabilityAssessmentRecurringScansPropertiesResponsePtrOutput {
-	return i.ToVulnerabilityAssessmentRecurringScansPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *vulnerabilityAssessmentRecurringScansPropertiesResponsePtrType) ToVulnerabilityAssessmentRecurringScansPropertiesResponsePtrOutputWithContext(ctx context.Context) VulnerabilityAssessmentRecurringScansPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VulnerabilityAssessmentRecurringScansPropertiesResponsePtrOutput)
-}
-
 type VulnerabilityAssessmentRecurringScansPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (VulnerabilityAssessmentRecurringScansPropertiesResponseOutput) ElementType() reflect.Type {
@@ -2889,16 +2145,6 @@ func (o VulnerabilityAssessmentRecurringScansPropertiesResponseOutput) ToVulnera
 
 func (o VulnerabilityAssessmentRecurringScansPropertiesResponseOutput) ToVulnerabilityAssessmentRecurringScansPropertiesResponseOutputWithContext(ctx context.Context) VulnerabilityAssessmentRecurringScansPropertiesResponseOutput {
 	return o
-}
-
-func (o VulnerabilityAssessmentRecurringScansPropertiesResponseOutput) ToVulnerabilityAssessmentRecurringScansPropertiesResponsePtrOutput() VulnerabilityAssessmentRecurringScansPropertiesResponsePtrOutput {
-	return o.ToVulnerabilityAssessmentRecurringScansPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o VulnerabilityAssessmentRecurringScansPropertiesResponseOutput) ToVulnerabilityAssessmentRecurringScansPropertiesResponsePtrOutputWithContext(ctx context.Context) VulnerabilityAssessmentRecurringScansPropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VulnerabilityAssessmentRecurringScansPropertiesResponse) *VulnerabilityAssessmentRecurringScansPropertiesResponse {
-		return &v
-	}).(VulnerabilityAssessmentRecurringScansPropertiesResponsePtrOutput)
 }
 
 func (o VulnerabilityAssessmentRecurringScansPropertiesResponseOutput) EmailSubscriptionAdmins() pulumi.BoolPtrOutput {
@@ -2976,9 +2222,7 @@ func init() {
 	pulumi.RegisterOutputType(JobScheduleResponseOutput{})
 	pulumi.RegisterOutputType(JobScheduleResponsePtrOutput{})
 	pulumi.RegisterOutputType(JobStepActionOutput{})
-	pulumi.RegisterOutputType(JobStepActionPtrOutput{})
 	pulumi.RegisterOutputType(JobStepActionResponseOutput{})
-	pulumi.RegisterOutputType(JobStepActionResponsePtrOutput{})
 	pulumi.RegisterOutputType(JobStepExecutionOptionsOutput{})
 	pulumi.RegisterOutputType(JobStepExecutionOptionsPtrOutput{})
 	pulumi.RegisterOutputType(JobStepExecutionOptionsResponseOutput{})

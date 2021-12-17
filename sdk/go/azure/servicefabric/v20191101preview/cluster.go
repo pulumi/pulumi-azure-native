@@ -61,9 +61,8 @@ func NewCluster(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	upgradeDescriptionApplier := func(v ClusterUpgradePolicy) *ClusterUpgradePolicy { return v.Defaults() }
 	if args.UpgradeDescription != nil {
-		args.UpgradeDescription = args.UpgradeDescription.ToClusterUpgradePolicyPtrOutput().Elem().ApplyT(upgradeDescriptionApplier).(ClusterUpgradePolicyPtrOutput)
+		args.UpgradeDescription = args.UpgradeDescription.ToClusterUpgradePolicyPtrOutput().ApplyT(func(v *ClusterUpgradePolicy) *ClusterUpgradePolicy { return v.Defaults() }).(ClusterUpgradePolicyPtrOutput)
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
