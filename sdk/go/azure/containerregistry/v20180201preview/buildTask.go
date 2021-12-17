@@ -49,8 +49,7 @@ func NewBuildTask(ctx *pulumi.Context,
 	if args.SourceRepository == nil {
 		return nil, errors.New("invalid value for required argument 'SourceRepository'")
 	}
-	sourceRepositoryApplier := func(v SourceRepositoryProperties) *SourceRepositoryProperties { return v.Defaults() }
-	args.SourceRepository = args.SourceRepository.ToSourceRepositoryPropertiesOutput().ApplyT(sourceRepositoryApplier).(SourceRepositoryPropertiesPtrOutput).Elem()
+	args.SourceRepository = args.SourceRepository.ToSourceRepositoryPropertiesOutput().ApplyT(func(v SourceRepositoryProperties) SourceRepositoryProperties { return *v.Defaults() }).(SourceRepositoryPropertiesOutput)
 	if isZero(args.Timeout) {
 		args.Timeout = pulumi.IntPtr(3600)
 	}

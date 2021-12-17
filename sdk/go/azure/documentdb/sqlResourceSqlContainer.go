@@ -41,8 +41,7 @@ func NewSqlResourceSqlContainer(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	resourceApplier := func(v SqlContainerResource) *SqlContainerResource { return v.Defaults() }
-	args.Resource = args.Resource.ToSqlContainerResourceOutput().ApplyT(resourceApplier).(SqlContainerResourcePtrOutput).Elem()
+	args.Resource = args.Resource.ToSqlContainerResourceOutput().ApplyT(func(v SqlContainerResource) SqlContainerResource { return *v.Defaults() }).(SqlContainerResourceOutput)
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-native:documentdb/v20150401:SqlResourceSqlContainer"),

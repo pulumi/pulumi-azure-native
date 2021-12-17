@@ -179,76 +179,6 @@ type SkuResponse struct {
 	Tier     string  `pulumi:"tier"`
 }
 
-
-
-
-
-type SkuResponseInput interface {
-	pulumi.Input
-
-	ToSkuResponseOutput() SkuResponseOutput
-	ToSkuResponseOutputWithContext(context.Context) SkuResponseOutput
-}
-
-type SkuResponseArgs struct {
-	Capacity pulumi.IntPtrInput    `pulumi:"capacity"`
-	Name     pulumi.StringPtrInput `pulumi:"name"`
-	Tier     pulumi.StringInput    `pulumi:"tier"`
-}
-
-func (SkuResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SkuResponse)(nil)).Elem()
-}
-
-func (i SkuResponseArgs) ToSkuResponseOutput() SkuResponseOutput {
-	return i.ToSkuResponseOutputWithContext(context.Background())
-}
-
-func (i SkuResponseArgs) ToSkuResponseOutputWithContext(ctx context.Context) SkuResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SkuResponseOutput)
-}
-
-func (i SkuResponseArgs) ToSkuResponsePtrOutput() SkuResponsePtrOutput {
-	return i.ToSkuResponsePtrOutputWithContext(context.Background())
-}
-
-func (i SkuResponseArgs) ToSkuResponsePtrOutputWithContext(ctx context.Context) SkuResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SkuResponseOutput).ToSkuResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type SkuResponsePtrInput interface {
-	pulumi.Input
-
-	ToSkuResponsePtrOutput() SkuResponsePtrOutput
-	ToSkuResponsePtrOutputWithContext(context.Context) SkuResponsePtrOutput
-}
-
-type skuResponsePtrType SkuResponseArgs
-
-func SkuResponsePtr(v *SkuResponseArgs) SkuResponsePtrInput {
-	return (*skuResponsePtrType)(v)
-}
-
-func (*skuResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SkuResponse)(nil)).Elem()
-}
-
-func (i *skuResponsePtrType) ToSkuResponsePtrOutput() SkuResponsePtrOutput {
-	return i.ToSkuResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *skuResponsePtrType) ToSkuResponsePtrOutputWithContext(ctx context.Context) SkuResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SkuResponsePtrOutput)
-}
-
 type SkuResponseOutput struct{ *pulumi.OutputState }
 
 func (SkuResponseOutput) ElementType() reflect.Type {
@@ -261,16 +191,6 @@ func (o SkuResponseOutput) ToSkuResponseOutput() SkuResponseOutput {
 
 func (o SkuResponseOutput) ToSkuResponseOutputWithContext(ctx context.Context) SkuResponseOutput {
 	return o
-}
-
-func (o SkuResponseOutput) ToSkuResponsePtrOutput() SkuResponsePtrOutput {
-	return o.ToSkuResponsePtrOutputWithContext(context.Background())
-}
-
-func (o SkuResponseOutput) ToSkuResponsePtrOutputWithContext(ctx context.Context) SkuResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SkuResponse) *SkuResponse {
-		return &v
-	}).(SkuResponsePtrOutput)
 }
 
 func (o SkuResponseOutput) Capacity() pulumi.IntPtrOutput {

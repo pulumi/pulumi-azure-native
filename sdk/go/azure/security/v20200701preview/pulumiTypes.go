@@ -14,74 +14,6 @@ type RuleResultsPropertiesResponse struct {
 	Results [][]string `pulumi:"results"`
 }
 
-
-
-
-
-type RuleResultsPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToRuleResultsPropertiesResponseOutput() RuleResultsPropertiesResponseOutput
-	ToRuleResultsPropertiesResponseOutputWithContext(context.Context) RuleResultsPropertiesResponseOutput
-}
-
-type RuleResultsPropertiesResponseArgs struct {
-	Results pulumi.StringArrayArrayInput `pulumi:"results"`
-}
-
-func (RuleResultsPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RuleResultsPropertiesResponse)(nil)).Elem()
-}
-
-func (i RuleResultsPropertiesResponseArgs) ToRuleResultsPropertiesResponseOutput() RuleResultsPropertiesResponseOutput {
-	return i.ToRuleResultsPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i RuleResultsPropertiesResponseArgs) ToRuleResultsPropertiesResponseOutputWithContext(ctx context.Context) RuleResultsPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RuleResultsPropertiesResponseOutput)
-}
-
-func (i RuleResultsPropertiesResponseArgs) ToRuleResultsPropertiesResponsePtrOutput() RuleResultsPropertiesResponsePtrOutput {
-	return i.ToRuleResultsPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i RuleResultsPropertiesResponseArgs) ToRuleResultsPropertiesResponsePtrOutputWithContext(ctx context.Context) RuleResultsPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RuleResultsPropertiesResponseOutput).ToRuleResultsPropertiesResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type RuleResultsPropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToRuleResultsPropertiesResponsePtrOutput() RuleResultsPropertiesResponsePtrOutput
-	ToRuleResultsPropertiesResponsePtrOutputWithContext(context.Context) RuleResultsPropertiesResponsePtrOutput
-}
-
-type ruleResultsPropertiesResponsePtrType RuleResultsPropertiesResponseArgs
-
-func RuleResultsPropertiesResponsePtr(v *RuleResultsPropertiesResponseArgs) RuleResultsPropertiesResponsePtrInput {
-	return (*ruleResultsPropertiesResponsePtrType)(v)
-}
-
-func (*ruleResultsPropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**RuleResultsPropertiesResponse)(nil)).Elem()
-}
-
-func (i *ruleResultsPropertiesResponsePtrType) ToRuleResultsPropertiesResponsePtrOutput() RuleResultsPropertiesResponsePtrOutput {
-	return i.ToRuleResultsPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *ruleResultsPropertiesResponsePtrType) ToRuleResultsPropertiesResponsePtrOutputWithContext(ctx context.Context) RuleResultsPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RuleResultsPropertiesResponsePtrOutput)
-}
-
 type RuleResultsPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (RuleResultsPropertiesResponseOutput) ElementType() reflect.Type {
@@ -96,54 +28,10 @@ func (o RuleResultsPropertiesResponseOutput) ToRuleResultsPropertiesResponseOutp
 	return o
 }
 
-func (o RuleResultsPropertiesResponseOutput) ToRuleResultsPropertiesResponsePtrOutput() RuleResultsPropertiesResponsePtrOutput {
-	return o.ToRuleResultsPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o RuleResultsPropertiesResponseOutput) ToRuleResultsPropertiesResponsePtrOutputWithContext(ctx context.Context) RuleResultsPropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleResultsPropertiesResponse) *RuleResultsPropertiesResponse {
-		return &v
-	}).(RuleResultsPropertiesResponsePtrOutput)
-}
-
 func (o RuleResultsPropertiesResponseOutput) Results() pulumi.StringArrayArrayOutput {
 	return o.ApplyT(func(v RuleResultsPropertiesResponse) [][]string { return v.Results }).(pulumi.StringArrayArrayOutput)
 }
 
-type RuleResultsPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (RuleResultsPropertiesResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**RuleResultsPropertiesResponse)(nil)).Elem()
-}
-
-func (o RuleResultsPropertiesResponsePtrOutput) ToRuleResultsPropertiesResponsePtrOutput() RuleResultsPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o RuleResultsPropertiesResponsePtrOutput) ToRuleResultsPropertiesResponsePtrOutputWithContext(ctx context.Context) RuleResultsPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o RuleResultsPropertiesResponsePtrOutput) Elem() RuleResultsPropertiesResponseOutput {
-	return o.ApplyT(func(v *RuleResultsPropertiesResponse) RuleResultsPropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret RuleResultsPropertiesResponse
-		return ret
-	}).(RuleResultsPropertiesResponseOutput)
-}
-
-func (o RuleResultsPropertiesResponsePtrOutput) Results() pulumi.StringArrayArrayOutput {
-	return o.ApplyT(func(v *RuleResultsPropertiesResponse) [][]string {
-		if v == nil {
-			return nil
-		}
-		return v.Results
-	}).(pulumi.StringArrayArrayOutput)
-}
-
 func init() {
 	pulumi.RegisterOutputType(RuleResultsPropertiesResponseOutput{})
-	pulumi.RegisterOutputType(RuleResultsPropertiesResponsePtrOutput{})
 }

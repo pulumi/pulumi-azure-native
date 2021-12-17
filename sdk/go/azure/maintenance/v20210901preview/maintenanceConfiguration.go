@@ -41,9 +41,8 @@ func NewMaintenanceConfiguration(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	installPatchesApplier := func(v InputPatchConfiguration) *InputPatchConfiguration { return v.Defaults() }
 	if args.InstallPatches != nil {
-		args.InstallPatches = args.InstallPatches.ToInputPatchConfigurationPtrOutput().Elem().ApplyT(installPatchesApplier).(InputPatchConfigurationPtrOutput)
+		args.InstallPatches = args.InstallPatches.ToInputPatchConfigurationPtrOutput().ApplyT(func(v *InputPatchConfiguration) *InputPatchConfiguration { return v.Defaults() }).(InputPatchConfigurationPtrOutput)
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

@@ -163,75 +163,6 @@ type ActiveDirectoryObjectResponse struct {
 	TenantId *string `pulumi:"tenantId"`
 }
 
-
-
-
-
-type ActiveDirectoryObjectResponseInput interface {
-	pulumi.Input
-
-	ToActiveDirectoryObjectResponseOutput() ActiveDirectoryObjectResponseOutput
-	ToActiveDirectoryObjectResponseOutputWithContext(context.Context) ActiveDirectoryObjectResponseOutput
-}
-
-type ActiveDirectoryObjectResponseArgs struct {
-	ObjectId pulumi.StringPtrInput `pulumi:"objectId"`
-	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
-}
-
-func (ActiveDirectoryObjectResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ActiveDirectoryObjectResponse)(nil)).Elem()
-}
-
-func (i ActiveDirectoryObjectResponseArgs) ToActiveDirectoryObjectResponseOutput() ActiveDirectoryObjectResponseOutput {
-	return i.ToActiveDirectoryObjectResponseOutputWithContext(context.Background())
-}
-
-func (i ActiveDirectoryObjectResponseArgs) ToActiveDirectoryObjectResponseOutputWithContext(ctx context.Context) ActiveDirectoryObjectResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActiveDirectoryObjectResponseOutput)
-}
-
-func (i ActiveDirectoryObjectResponseArgs) ToActiveDirectoryObjectResponsePtrOutput() ActiveDirectoryObjectResponsePtrOutput {
-	return i.ToActiveDirectoryObjectResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ActiveDirectoryObjectResponseArgs) ToActiveDirectoryObjectResponsePtrOutputWithContext(ctx context.Context) ActiveDirectoryObjectResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActiveDirectoryObjectResponseOutput).ToActiveDirectoryObjectResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type ActiveDirectoryObjectResponsePtrInput interface {
-	pulumi.Input
-
-	ToActiveDirectoryObjectResponsePtrOutput() ActiveDirectoryObjectResponsePtrOutput
-	ToActiveDirectoryObjectResponsePtrOutputWithContext(context.Context) ActiveDirectoryObjectResponsePtrOutput
-}
-
-type activeDirectoryObjectResponsePtrType ActiveDirectoryObjectResponseArgs
-
-func ActiveDirectoryObjectResponsePtr(v *ActiveDirectoryObjectResponseArgs) ActiveDirectoryObjectResponsePtrInput {
-	return (*activeDirectoryObjectResponsePtrType)(v)
-}
-
-func (*activeDirectoryObjectResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ActiveDirectoryObjectResponse)(nil)).Elem()
-}
-
-func (i *activeDirectoryObjectResponsePtrType) ToActiveDirectoryObjectResponsePtrOutput() ActiveDirectoryObjectResponsePtrOutput {
-	return i.ToActiveDirectoryObjectResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *activeDirectoryObjectResponsePtrType) ToActiveDirectoryObjectResponsePtrOutputWithContext(ctx context.Context) ActiveDirectoryObjectResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActiveDirectoryObjectResponsePtrOutput)
-}
-
 type ActiveDirectoryObjectResponseOutput struct{ *pulumi.OutputState }
 
 func (ActiveDirectoryObjectResponseOutput) ElementType() reflect.Type {
@@ -244,16 +175,6 @@ func (o ActiveDirectoryObjectResponseOutput) ToActiveDirectoryObjectResponseOutp
 
 func (o ActiveDirectoryObjectResponseOutput) ToActiveDirectoryObjectResponseOutputWithContext(ctx context.Context) ActiveDirectoryObjectResponseOutput {
 	return o
-}
-
-func (o ActiveDirectoryObjectResponseOutput) ToActiveDirectoryObjectResponsePtrOutput() ActiveDirectoryObjectResponsePtrOutput {
-	return o.ToActiveDirectoryObjectResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ActiveDirectoryObjectResponseOutput) ToActiveDirectoryObjectResponsePtrOutputWithContext(ctx context.Context) ActiveDirectoryObjectResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActiveDirectoryObjectResponse) *ActiveDirectoryObjectResponse {
-		return &v
-	}).(ActiveDirectoryObjectResponsePtrOutput)
 }
 
 func (o ActiveDirectoryObjectResponseOutput) ObjectId() pulumi.StringPtrOutput {
@@ -315,79 +236,6 @@ type SystemDataResponse struct {
 	LastModifiedByType *string `pulumi:"lastModifiedByType"`
 }
 
-
-
-
-
-type SystemDataResponseInput interface {
-	pulumi.Input
-
-	ToSystemDataResponseOutput() SystemDataResponseOutput
-	ToSystemDataResponseOutputWithContext(context.Context) SystemDataResponseOutput
-}
-
-type SystemDataResponseArgs struct {
-	CreatedAt          pulumi.StringPtrInput `pulumi:"createdAt"`
-	CreatedBy          pulumi.StringPtrInput `pulumi:"createdBy"`
-	CreatedByType      pulumi.StringPtrInput `pulumi:"createdByType"`
-	LastModifiedAt     pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
-	LastModifiedBy     pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
-	LastModifiedByType pulumi.StringPtrInput `pulumi:"lastModifiedByType"`
-}
-
-func (SystemDataResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SystemDataResponse)(nil)).Elem()
-}
-
-func (i SystemDataResponseArgs) ToSystemDataResponseOutput() SystemDataResponseOutput {
-	return i.ToSystemDataResponseOutputWithContext(context.Background())
-}
-
-func (i SystemDataResponseArgs) ToSystemDataResponseOutputWithContext(ctx context.Context) SystemDataResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponseOutput)
-}
-
-func (i SystemDataResponseArgs) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
-	return i.ToSystemDataResponsePtrOutputWithContext(context.Background())
-}
-
-func (i SystemDataResponseArgs) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponseOutput).ToSystemDataResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type SystemDataResponsePtrInput interface {
-	pulumi.Input
-
-	ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput
-	ToSystemDataResponsePtrOutputWithContext(context.Context) SystemDataResponsePtrOutput
-}
-
-type systemDataResponsePtrType SystemDataResponseArgs
-
-func SystemDataResponsePtr(v *SystemDataResponseArgs) SystemDataResponsePtrInput {
-	return (*systemDataResponsePtrType)(v)
-}
-
-func (*systemDataResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SystemDataResponse)(nil)).Elem()
-}
-
-func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
-	return i.ToSystemDataResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponsePtrOutput)
-}
-
 type SystemDataResponseOutput struct{ *pulumi.OutputState }
 
 func (SystemDataResponseOutput) ElementType() reflect.Type {
@@ -400,16 +248,6 @@ func (o SystemDataResponseOutput) ToSystemDataResponseOutput() SystemDataRespons
 
 func (o SystemDataResponseOutput) ToSystemDataResponseOutputWithContext(ctx context.Context) SystemDataResponseOutput {
 	return o
-}
-
-func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
-	return o.ToSystemDataResponsePtrOutputWithContext(context.Background())
-}
-
-func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SystemDataResponse) *SystemDataResponse {
-		return &v
-	}).(SystemDataResponsePtrOutput)
 }
 
 func (o SystemDataResponseOutput) CreatedAt() pulumi.StringPtrOutput {
@@ -434,84 +272,6 @@ func (o SystemDataResponseOutput) LastModifiedBy() pulumi.StringPtrOutput {
 
 func (o SystemDataResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
-}
-
-type SystemDataResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (SystemDataResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SystemDataResponse)(nil)).Elem()
-}
-
-func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
-	return o
-}
-
-func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return o
-}
-
-func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
-	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse {
-		if v != nil {
-			return *v
-		}
-		var ret SystemDataResponse
-		return ret
-	}).(SystemDataResponseOutput)
-}
-
-func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SystemDataResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CreatedAt
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SystemDataResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CreatedBy
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SystemDataResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CreatedByType
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SystemDataResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.LastModifiedAt
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SystemDataResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.LastModifiedBy
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SystemDataResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.LastModifiedByType
-	}).(pulumi.StringPtrOutput)
 }
 
 type TokenCertificate struct {
@@ -631,61 +391,6 @@ type TokenCertificateResponse struct {
 	Expiry                *string `pulumi:"expiry"`
 	Name                  *string `pulumi:"name"`
 	Thumbprint            *string `pulumi:"thumbprint"`
-}
-
-
-
-
-
-type TokenCertificateResponseInput interface {
-	pulumi.Input
-
-	ToTokenCertificateResponseOutput() TokenCertificateResponseOutput
-	ToTokenCertificateResponseOutputWithContext(context.Context) TokenCertificateResponseOutput
-}
-
-type TokenCertificateResponseArgs struct {
-	EncodedPemCertificate pulumi.StringPtrInput `pulumi:"encodedPemCertificate"`
-	Expiry                pulumi.StringPtrInput `pulumi:"expiry"`
-	Name                  pulumi.StringPtrInput `pulumi:"name"`
-	Thumbprint            pulumi.StringPtrInput `pulumi:"thumbprint"`
-}
-
-func (TokenCertificateResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TokenCertificateResponse)(nil)).Elem()
-}
-
-func (i TokenCertificateResponseArgs) ToTokenCertificateResponseOutput() TokenCertificateResponseOutput {
-	return i.ToTokenCertificateResponseOutputWithContext(context.Background())
-}
-
-func (i TokenCertificateResponseArgs) ToTokenCertificateResponseOutputWithContext(ctx context.Context) TokenCertificateResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TokenCertificateResponseOutput)
-}
-
-
-
-
-
-type TokenCertificateResponseArrayInput interface {
-	pulumi.Input
-
-	ToTokenCertificateResponseArrayOutput() TokenCertificateResponseArrayOutput
-	ToTokenCertificateResponseArrayOutputWithContext(context.Context) TokenCertificateResponseArrayOutput
-}
-
-type TokenCertificateResponseArray []TokenCertificateResponseInput
-
-func (TokenCertificateResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TokenCertificateResponse)(nil)).Elem()
-}
-
-func (i TokenCertificateResponseArray) ToTokenCertificateResponseArrayOutput() TokenCertificateResponseArrayOutput {
-	return i.ToTokenCertificateResponseArrayOutputWithContext(context.Background())
-}
-
-func (i TokenCertificateResponseArray) ToTokenCertificateResponseArrayOutputWithContext(ctx context.Context) TokenCertificateResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TokenCertificateResponseArrayOutput)
 }
 
 type TokenCertificateResponseOutput struct{ *pulumi.OutputState }
@@ -907,76 +612,6 @@ type TokenCredentialsPropertiesResponse struct {
 	Passwords             []TokenPasswordResponse        `pulumi:"passwords"`
 }
 
-
-
-
-
-type TokenCredentialsPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToTokenCredentialsPropertiesResponseOutput() TokenCredentialsPropertiesResponseOutput
-	ToTokenCredentialsPropertiesResponseOutputWithContext(context.Context) TokenCredentialsPropertiesResponseOutput
-}
-
-type TokenCredentialsPropertiesResponseArgs struct {
-	ActiveDirectoryObject ActiveDirectoryObjectResponsePtrInput `pulumi:"activeDirectoryObject"`
-	Certificates          TokenCertificateResponseArrayInput    `pulumi:"certificates"`
-	Passwords             TokenPasswordResponseArrayInput       `pulumi:"passwords"`
-}
-
-func (TokenCredentialsPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TokenCredentialsPropertiesResponse)(nil)).Elem()
-}
-
-func (i TokenCredentialsPropertiesResponseArgs) ToTokenCredentialsPropertiesResponseOutput() TokenCredentialsPropertiesResponseOutput {
-	return i.ToTokenCredentialsPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i TokenCredentialsPropertiesResponseArgs) ToTokenCredentialsPropertiesResponseOutputWithContext(ctx context.Context) TokenCredentialsPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TokenCredentialsPropertiesResponseOutput)
-}
-
-func (i TokenCredentialsPropertiesResponseArgs) ToTokenCredentialsPropertiesResponsePtrOutput() TokenCredentialsPropertiesResponsePtrOutput {
-	return i.ToTokenCredentialsPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i TokenCredentialsPropertiesResponseArgs) ToTokenCredentialsPropertiesResponsePtrOutputWithContext(ctx context.Context) TokenCredentialsPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TokenCredentialsPropertiesResponseOutput).ToTokenCredentialsPropertiesResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type TokenCredentialsPropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToTokenCredentialsPropertiesResponsePtrOutput() TokenCredentialsPropertiesResponsePtrOutput
-	ToTokenCredentialsPropertiesResponsePtrOutputWithContext(context.Context) TokenCredentialsPropertiesResponsePtrOutput
-}
-
-type tokenCredentialsPropertiesResponsePtrType TokenCredentialsPropertiesResponseArgs
-
-func TokenCredentialsPropertiesResponsePtr(v *TokenCredentialsPropertiesResponseArgs) TokenCredentialsPropertiesResponsePtrInput {
-	return (*tokenCredentialsPropertiesResponsePtrType)(v)
-}
-
-func (*tokenCredentialsPropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**TokenCredentialsPropertiesResponse)(nil)).Elem()
-}
-
-func (i *tokenCredentialsPropertiesResponsePtrType) ToTokenCredentialsPropertiesResponsePtrOutput() TokenCredentialsPropertiesResponsePtrOutput {
-	return i.ToTokenCredentialsPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *tokenCredentialsPropertiesResponsePtrType) ToTokenCredentialsPropertiesResponsePtrOutputWithContext(ctx context.Context) TokenCredentialsPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TokenCredentialsPropertiesResponsePtrOutput)
-}
-
 type TokenCredentialsPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (TokenCredentialsPropertiesResponseOutput) ElementType() reflect.Type {
@@ -989,16 +624,6 @@ func (o TokenCredentialsPropertiesResponseOutput) ToTokenCredentialsPropertiesRe
 
 func (o TokenCredentialsPropertiesResponseOutput) ToTokenCredentialsPropertiesResponseOutputWithContext(ctx context.Context) TokenCredentialsPropertiesResponseOutput {
 	return o
-}
-
-func (o TokenCredentialsPropertiesResponseOutput) ToTokenCredentialsPropertiesResponsePtrOutput() TokenCredentialsPropertiesResponsePtrOutput {
-	return o.ToTokenCredentialsPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o TokenCredentialsPropertiesResponseOutput) ToTokenCredentialsPropertiesResponsePtrOutputWithContext(ctx context.Context) TokenCredentialsPropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TokenCredentialsPropertiesResponse) *TokenCredentialsPropertiesResponse {
-		return &v
-	}).(TokenCredentialsPropertiesResponsePtrOutput)
 }
 
 func (o TokenCredentialsPropertiesResponseOutput) ActiveDirectoryObject() ActiveDirectoryObjectResponsePtrOutput {
@@ -1179,61 +804,6 @@ type TokenPasswordResponse struct {
 	Value        string  `pulumi:"value"`
 }
 
-
-
-
-
-type TokenPasswordResponseInput interface {
-	pulumi.Input
-
-	ToTokenPasswordResponseOutput() TokenPasswordResponseOutput
-	ToTokenPasswordResponseOutputWithContext(context.Context) TokenPasswordResponseOutput
-}
-
-type TokenPasswordResponseArgs struct {
-	CreationTime pulumi.StringPtrInput `pulumi:"creationTime"`
-	Expiry       pulumi.StringPtrInput `pulumi:"expiry"`
-	Name         pulumi.StringPtrInput `pulumi:"name"`
-	Value        pulumi.StringInput    `pulumi:"value"`
-}
-
-func (TokenPasswordResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TokenPasswordResponse)(nil)).Elem()
-}
-
-func (i TokenPasswordResponseArgs) ToTokenPasswordResponseOutput() TokenPasswordResponseOutput {
-	return i.ToTokenPasswordResponseOutputWithContext(context.Background())
-}
-
-func (i TokenPasswordResponseArgs) ToTokenPasswordResponseOutputWithContext(ctx context.Context) TokenPasswordResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TokenPasswordResponseOutput)
-}
-
-
-
-
-
-type TokenPasswordResponseArrayInput interface {
-	pulumi.Input
-
-	ToTokenPasswordResponseArrayOutput() TokenPasswordResponseArrayOutput
-	ToTokenPasswordResponseArrayOutputWithContext(context.Context) TokenPasswordResponseArrayOutput
-}
-
-type TokenPasswordResponseArray []TokenPasswordResponseInput
-
-func (TokenPasswordResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TokenPasswordResponse)(nil)).Elem()
-}
-
-func (i TokenPasswordResponseArray) ToTokenPasswordResponseArrayOutput() TokenPasswordResponseArrayOutput {
-	return i.ToTokenPasswordResponseArrayOutputWithContext(context.Background())
-}
-
-func (i TokenPasswordResponseArray) ToTokenPasswordResponseArrayOutputWithContext(ctx context.Context) TokenPasswordResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TokenPasswordResponseArrayOutput)
-}
-
 type TokenPasswordResponseOutput struct{ *pulumi.OutputState }
 
 func (TokenPasswordResponseOutput) ElementType() reflect.Type {
@@ -1290,7 +860,6 @@ func init() {
 	pulumi.RegisterOutputType(ActiveDirectoryObjectResponseOutput{})
 	pulumi.RegisterOutputType(ActiveDirectoryObjectResponsePtrOutput{})
 	pulumi.RegisterOutputType(SystemDataResponseOutput{})
-	pulumi.RegisterOutputType(SystemDataResponsePtrOutput{})
 	pulumi.RegisterOutputType(TokenCertificateOutput{})
 	pulumi.RegisterOutputType(TokenCertificateArrayOutput{})
 	pulumi.RegisterOutputType(TokenCertificateResponseOutput{})

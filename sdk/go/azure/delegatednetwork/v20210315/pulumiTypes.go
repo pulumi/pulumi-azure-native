@@ -147,74 +147,6 @@ type ControllerDetailsResponse struct {
 	Id *string `pulumi:"id"`
 }
 
-
-
-
-
-type ControllerDetailsResponseInput interface {
-	pulumi.Input
-
-	ToControllerDetailsResponseOutput() ControllerDetailsResponseOutput
-	ToControllerDetailsResponseOutputWithContext(context.Context) ControllerDetailsResponseOutput
-}
-
-type ControllerDetailsResponseArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
-}
-
-func (ControllerDetailsResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ControllerDetailsResponse)(nil)).Elem()
-}
-
-func (i ControllerDetailsResponseArgs) ToControllerDetailsResponseOutput() ControllerDetailsResponseOutput {
-	return i.ToControllerDetailsResponseOutputWithContext(context.Background())
-}
-
-func (i ControllerDetailsResponseArgs) ToControllerDetailsResponseOutputWithContext(ctx context.Context) ControllerDetailsResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ControllerDetailsResponseOutput)
-}
-
-func (i ControllerDetailsResponseArgs) ToControllerDetailsResponsePtrOutput() ControllerDetailsResponsePtrOutput {
-	return i.ToControllerDetailsResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ControllerDetailsResponseArgs) ToControllerDetailsResponsePtrOutputWithContext(ctx context.Context) ControllerDetailsResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ControllerDetailsResponseOutput).ToControllerDetailsResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type ControllerDetailsResponsePtrInput interface {
-	pulumi.Input
-
-	ToControllerDetailsResponsePtrOutput() ControllerDetailsResponsePtrOutput
-	ToControllerDetailsResponsePtrOutputWithContext(context.Context) ControllerDetailsResponsePtrOutput
-}
-
-type controllerDetailsResponsePtrType ControllerDetailsResponseArgs
-
-func ControllerDetailsResponsePtr(v *ControllerDetailsResponseArgs) ControllerDetailsResponsePtrInput {
-	return (*controllerDetailsResponsePtrType)(v)
-}
-
-func (*controllerDetailsResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ControllerDetailsResponse)(nil)).Elem()
-}
-
-func (i *controllerDetailsResponsePtrType) ToControllerDetailsResponsePtrOutput() ControllerDetailsResponsePtrOutput {
-	return i.ToControllerDetailsResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *controllerDetailsResponsePtrType) ToControllerDetailsResponsePtrOutputWithContext(ctx context.Context) ControllerDetailsResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ControllerDetailsResponsePtrOutput)
-}
-
 type ControllerDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (ControllerDetailsResponseOutput) ElementType() reflect.Type {
@@ -227,16 +159,6 @@ func (o ControllerDetailsResponseOutput) ToControllerDetailsResponseOutput() Con
 
 func (o ControllerDetailsResponseOutput) ToControllerDetailsResponseOutputWithContext(ctx context.Context) ControllerDetailsResponseOutput {
 	return o
-}
-
-func (o ControllerDetailsResponseOutput) ToControllerDetailsResponsePtrOutput() ControllerDetailsResponsePtrOutput {
-	return o.ToControllerDetailsResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ControllerDetailsResponseOutput) ToControllerDetailsResponsePtrOutputWithContext(ctx context.Context) ControllerDetailsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ControllerDetailsResponse) *ControllerDetailsResponse {
-		return &v
-	}).(ControllerDetailsResponsePtrOutput)
 }
 
 func (o ControllerDetailsResponseOutput) Id() pulumi.StringPtrOutput {
@@ -415,76 +337,6 @@ type OrchestratorIdentityResponse struct {
 	Type        *string `pulumi:"type"`
 }
 
-
-
-
-
-type OrchestratorIdentityResponseInput interface {
-	pulumi.Input
-
-	ToOrchestratorIdentityResponseOutput() OrchestratorIdentityResponseOutput
-	ToOrchestratorIdentityResponseOutputWithContext(context.Context) OrchestratorIdentityResponseOutput
-}
-
-type OrchestratorIdentityResponseArgs struct {
-	PrincipalId pulumi.StringInput    `pulumi:"principalId"`
-	TenantId    pulumi.StringInput    `pulumi:"tenantId"`
-	Type        pulumi.StringPtrInput `pulumi:"type"`
-}
-
-func (OrchestratorIdentityResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*OrchestratorIdentityResponse)(nil)).Elem()
-}
-
-func (i OrchestratorIdentityResponseArgs) ToOrchestratorIdentityResponseOutput() OrchestratorIdentityResponseOutput {
-	return i.ToOrchestratorIdentityResponseOutputWithContext(context.Background())
-}
-
-func (i OrchestratorIdentityResponseArgs) ToOrchestratorIdentityResponseOutputWithContext(ctx context.Context) OrchestratorIdentityResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OrchestratorIdentityResponseOutput)
-}
-
-func (i OrchestratorIdentityResponseArgs) ToOrchestratorIdentityResponsePtrOutput() OrchestratorIdentityResponsePtrOutput {
-	return i.ToOrchestratorIdentityResponsePtrOutputWithContext(context.Background())
-}
-
-func (i OrchestratorIdentityResponseArgs) ToOrchestratorIdentityResponsePtrOutputWithContext(ctx context.Context) OrchestratorIdentityResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OrchestratorIdentityResponseOutput).ToOrchestratorIdentityResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type OrchestratorIdentityResponsePtrInput interface {
-	pulumi.Input
-
-	ToOrchestratorIdentityResponsePtrOutput() OrchestratorIdentityResponsePtrOutput
-	ToOrchestratorIdentityResponsePtrOutputWithContext(context.Context) OrchestratorIdentityResponsePtrOutput
-}
-
-type orchestratorIdentityResponsePtrType OrchestratorIdentityResponseArgs
-
-func OrchestratorIdentityResponsePtr(v *OrchestratorIdentityResponseArgs) OrchestratorIdentityResponsePtrInput {
-	return (*orchestratorIdentityResponsePtrType)(v)
-}
-
-func (*orchestratorIdentityResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**OrchestratorIdentityResponse)(nil)).Elem()
-}
-
-func (i *orchestratorIdentityResponsePtrType) ToOrchestratorIdentityResponsePtrOutput() OrchestratorIdentityResponsePtrOutput {
-	return i.ToOrchestratorIdentityResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *orchestratorIdentityResponsePtrType) ToOrchestratorIdentityResponsePtrOutputWithContext(ctx context.Context) OrchestratorIdentityResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OrchestratorIdentityResponsePtrOutput)
-}
-
 type OrchestratorIdentityResponseOutput struct{ *pulumi.OutputState }
 
 func (OrchestratorIdentityResponseOutput) ElementType() reflect.Type {
@@ -497,16 +349,6 @@ func (o OrchestratorIdentityResponseOutput) ToOrchestratorIdentityResponseOutput
 
 func (o OrchestratorIdentityResponseOutput) ToOrchestratorIdentityResponseOutputWithContext(ctx context.Context) OrchestratorIdentityResponseOutput {
 	return o
-}
-
-func (o OrchestratorIdentityResponseOutput) ToOrchestratorIdentityResponsePtrOutput() OrchestratorIdentityResponsePtrOutput {
-	return o.ToOrchestratorIdentityResponsePtrOutputWithContext(context.Background())
-}
-
-func (o OrchestratorIdentityResponseOutput) ToOrchestratorIdentityResponsePtrOutputWithContext(ctx context.Context) OrchestratorIdentityResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v OrchestratorIdentityResponse) *OrchestratorIdentityResponse {
-		return &v
-	}).(OrchestratorIdentityResponsePtrOutput)
 }
 
 func (o OrchestratorIdentityResponseOutput) PrincipalId() pulumi.StringOutput {
@@ -709,74 +551,6 @@ type SubnetDetailsResponse struct {
 	Id *string `pulumi:"id"`
 }
 
-
-
-
-
-type SubnetDetailsResponseInput interface {
-	pulumi.Input
-
-	ToSubnetDetailsResponseOutput() SubnetDetailsResponseOutput
-	ToSubnetDetailsResponseOutputWithContext(context.Context) SubnetDetailsResponseOutput
-}
-
-type SubnetDetailsResponseArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
-}
-
-func (SubnetDetailsResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SubnetDetailsResponse)(nil)).Elem()
-}
-
-func (i SubnetDetailsResponseArgs) ToSubnetDetailsResponseOutput() SubnetDetailsResponseOutput {
-	return i.ToSubnetDetailsResponseOutputWithContext(context.Background())
-}
-
-func (i SubnetDetailsResponseArgs) ToSubnetDetailsResponseOutputWithContext(ctx context.Context) SubnetDetailsResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SubnetDetailsResponseOutput)
-}
-
-func (i SubnetDetailsResponseArgs) ToSubnetDetailsResponsePtrOutput() SubnetDetailsResponsePtrOutput {
-	return i.ToSubnetDetailsResponsePtrOutputWithContext(context.Background())
-}
-
-func (i SubnetDetailsResponseArgs) ToSubnetDetailsResponsePtrOutputWithContext(ctx context.Context) SubnetDetailsResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SubnetDetailsResponseOutput).ToSubnetDetailsResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type SubnetDetailsResponsePtrInput interface {
-	pulumi.Input
-
-	ToSubnetDetailsResponsePtrOutput() SubnetDetailsResponsePtrOutput
-	ToSubnetDetailsResponsePtrOutputWithContext(context.Context) SubnetDetailsResponsePtrOutput
-}
-
-type subnetDetailsResponsePtrType SubnetDetailsResponseArgs
-
-func SubnetDetailsResponsePtr(v *SubnetDetailsResponseArgs) SubnetDetailsResponsePtrInput {
-	return (*subnetDetailsResponsePtrType)(v)
-}
-
-func (*subnetDetailsResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SubnetDetailsResponse)(nil)).Elem()
-}
-
-func (i *subnetDetailsResponsePtrType) ToSubnetDetailsResponsePtrOutput() SubnetDetailsResponsePtrOutput {
-	return i.ToSubnetDetailsResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *subnetDetailsResponsePtrType) ToSubnetDetailsResponsePtrOutputWithContext(ctx context.Context) SubnetDetailsResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SubnetDetailsResponsePtrOutput)
-}
-
 type SubnetDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (SubnetDetailsResponseOutput) ElementType() reflect.Type {
@@ -789,16 +563,6 @@ func (o SubnetDetailsResponseOutput) ToSubnetDetailsResponseOutput() SubnetDetai
 
 func (o SubnetDetailsResponseOutput) ToSubnetDetailsResponseOutputWithContext(ctx context.Context) SubnetDetailsResponseOutput {
 	return o
-}
-
-func (o SubnetDetailsResponseOutput) ToSubnetDetailsResponsePtrOutput() SubnetDetailsResponsePtrOutput {
-	return o.ToSubnetDetailsResponsePtrOutputWithContext(context.Background())
-}
-
-func (o SubnetDetailsResponseOutput) ToSubnetDetailsResponsePtrOutputWithContext(ctx context.Context) SubnetDetailsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SubnetDetailsResponse) *SubnetDetailsResponse {
-		return &v
-	}).(SubnetDetailsResponsePtrOutput)
 }
 
 func (o SubnetDetailsResponseOutput) Id() pulumi.StringPtrOutput {

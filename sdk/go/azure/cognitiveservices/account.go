@@ -35,9 +35,8 @@ func NewAccount(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	propertiesApplier := func(v CognitiveServicesAccountProperties) *CognitiveServicesAccountProperties { return v.Defaults() }
 	if args.Properties != nil {
-		args.Properties = args.Properties.ToCognitiveServicesAccountPropertiesPtrOutput().Elem().ApplyT(propertiesApplier).(CognitiveServicesAccountPropertiesPtrOutput)
+		args.Properties = args.Properties.ToCognitiveServicesAccountPropertiesPtrOutput().ApplyT(func(v *CognitiveServicesAccountProperties) *CognitiveServicesAccountProperties { return v.Defaults() }).(CognitiveServicesAccountPropertiesPtrOutput)
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

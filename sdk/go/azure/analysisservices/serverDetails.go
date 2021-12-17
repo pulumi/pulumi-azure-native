@@ -53,8 +53,7 @@ func NewServerDetails(ctx *pulumi.Context,
 	if isZero(args.ServerMonitorMode) {
 		args.ServerMonitorMode = pulumi.IntPtr(1)
 	}
-	skuApplier := func(v ResourceSku) *ResourceSku { return v.Defaults() }
-	args.Sku = args.Sku.ToResourceSkuOutput().ApplyT(skuApplier).(ResourceSkuPtrOutput).Elem()
+	args.Sku = args.Sku.ToResourceSkuOutput().ApplyT(func(v ResourceSku) ResourceSku { return *v.Defaults() }).(ResourceSkuOutput)
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-native:analysisservices/v20160516:ServerDetails"),

@@ -38,9 +38,8 @@ func NewIotHubResource(ctx *pulumi.Context,
 	if args.Sku == nil {
 		return nil, errors.New("invalid value for required argument 'Sku'")
 	}
-	propertiesApplier := func(v IotHubProperties) *IotHubProperties { return v.Defaults() }
 	if args.Properties != nil {
-		args.Properties = args.Properties.ToIotHubPropertiesPtrOutput().Elem().ApplyT(propertiesApplier).(IotHubPropertiesPtrOutput)
+		args.Properties = args.Properties.ToIotHubPropertiesPtrOutput().ApplyT(func(v *IotHubProperties) *IotHubProperties { return v.Defaults() }).(IotHubPropertiesPtrOutput)
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

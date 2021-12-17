@@ -17,77 +17,6 @@ type ConnectorCollectionErrorInfoResponse struct {
 	ErrorStartTime    string `pulumi:"errorStartTime"`
 }
 
-
-
-
-
-type ConnectorCollectionErrorInfoResponseInput interface {
-	pulumi.Input
-
-	ToConnectorCollectionErrorInfoResponseOutput() ConnectorCollectionErrorInfoResponseOutput
-	ToConnectorCollectionErrorInfoResponseOutputWithContext(context.Context) ConnectorCollectionErrorInfoResponseOutput
-}
-
-type ConnectorCollectionErrorInfoResponseArgs struct {
-	ErrorCode         pulumi.StringInput `pulumi:"errorCode"`
-	ErrorInnerMessage pulumi.StringInput `pulumi:"errorInnerMessage"`
-	ErrorMessage      pulumi.StringInput `pulumi:"errorMessage"`
-	ErrorStartTime    pulumi.StringInput `pulumi:"errorStartTime"`
-}
-
-func (ConnectorCollectionErrorInfoResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectorCollectionErrorInfoResponse)(nil)).Elem()
-}
-
-func (i ConnectorCollectionErrorInfoResponseArgs) ToConnectorCollectionErrorInfoResponseOutput() ConnectorCollectionErrorInfoResponseOutput {
-	return i.ToConnectorCollectionErrorInfoResponseOutputWithContext(context.Background())
-}
-
-func (i ConnectorCollectionErrorInfoResponseArgs) ToConnectorCollectionErrorInfoResponseOutputWithContext(ctx context.Context) ConnectorCollectionErrorInfoResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectorCollectionErrorInfoResponseOutput)
-}
-
-func (i ConnectorCollectionErrorInfoResponseArgs) ToConnectorCollectionErrorInfoResponsePtrOutput() ConnectorCollectionErrorInfoResponsePtrOutput {
-	return i.ToConnectorCollectionErrorInfoResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ConnectorCollectionErrorInfoResponseArgs) ToConnectorCollectionErrorInfoResponsePtrOutputWithContext(ctx context.Context) ConnectorCollectionErrorInfoResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectorCollectionErrorInfoResponseOutput).ToConnectorCollectionErrorInfoResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type ConnectorCollectionErrorInfoResponsePtrInput interface {
-	pulumi.Input
-
-	ToConnectorCollectionErrorInfoResponsePtrOutput() ConnectorCollectionErrorInfoResponsePtrOutput
-	ToConnectorCollectionErrorInfoResponsePtrOutputWithContext(context.Context) ConnectorCollectionErrorInfoResponsePtrOutput
-}
-
-type connectorCollectionErrorInfoResponsePtrType ConnectorCollectionErrorInfoResponseArgs
-
-func ConnectorCollectionErrorInfoResponsePtr(v *ConnectorCollectionErrorInfoResponseArgs) ConnectorCollectionErrorInfoResponsePtrInput {
-	return (*connectorCollectionErrorInfoResponsePtrType)(v)
-}
-
-func (*connectorCollectionErrorInfoResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConnectorCollectionErrorInfoResponse)(nil)).Elem()
-}
-
-func (i *connectorCollectionErrorInfoResponsePtrType) ToConnectorCollectionErrorInfoResponsePtrOutput() ConnectorCollectionErrorInfoResponsePtrOutput {
-	return i.ToConnectorCollectionErrorInfoResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *connectorCollectionErrorInfoResponsePtrType) ToConnectorCollectionErrorInfoResponsePtrOutputWithContext(ctx context.Context) ConnectorCollectionErrorInfoResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectorCollectionErrorInfoResponsePtrOutput)
-}
-
 type ConnectorCollectionErrorInfoResponseOutput struct{ *pulumi.OutputState }
 
 func (ConnectorCollectionErrorInfoResponseOutput) ElementType() reflect.Type {
@@ -100,16 +29,6 @@ func (o ConnectorCollectionErrorInfoResponseOutput) ToConnectorCollectionErrorIn
 
 func (o ConnectorCollectionErrorInfoResponseOutput) ToConnectorCollectionErrorInfoResponseOutputWithContext(ctx context.Context) ConnectorCollectionErrorInfoResponseOutput {
 	return o
-}
-
-func (o ConnectorCollectionErrorInfoResponseOutput) ToConnectorCollectionErrorInfoResponsePtrOutput() ConnectorCollectionErrorInfoResponsePtrOutput {
-	return o.ToConnectorCollectionErrorInfoResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ConnectorCollectionErrorInfoResponseOutput) ToConnectorCollectionErrorInfoResponsePtrOutputWithContext(ctx context.Context) ConnectorCollectionErrorInfoResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectorCollectionErrorInfoResponse) *ConnectorCollectionErrorInfoResponse {
-		return &v
-	}).(ConnectorCollectionErrorInfoResponsePtrOutput)
 }
 
 func (o ConnectorCollectionErrorInfoResponseOutput) ErrorCode() pulumi.StringOutput {
@@ -195,77 +114,6 @@ type ConnectorCollectionInfoResponse struct {
 	SourceLastUpdated string                                `pulumi:"sourceLastUpdated"`
 }
 
-
-
-
-
-type ConnectorCollectionInfoResponseInput interface {
-	pulumi.Input
-
-	ToConnectorCollectionInfoResponseOutput() ConnectorCollectionInfoResponseOutput
-	ToConnectorCollectionInfoResponseOutputWithContext(context.Context) ConnectorCollectionInfoResponseOutput
-}
-
-type ConnectorCollectionInfoResponseArgs struct {
-	Error             ConnectorCollectionErrorInfoResponsePtrInput `pulumi:"error"`
-	LastChecked       pulumi.StringInput                           `pulumi:"lastChecked"`
-	LastUpdated       pulumi.StringInput                           `pulumi:"lastUpdated"`
-	SourceLastUpdated pulumi.StringInput                           `pulumi:"sourceLastUpdated"`
-}
-
-func (ConnectorCollectionInfoResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectorCollectionInfoResponse)(nil)).Elem()
-}
-
-func (i ConnectorCollectionInfoResponseArgs) ToConnectorCollectionInfoResponseOutput() ConnectorCollectionInfoResponseOutput {
-	return i.ToConnectorCollectionInfoResponseOutputWithContext(context.Background())
-}
-
-func (i ConnectorCollectionInfoResponseArgs) ToConnectorCollectionInfoResponseOutputWithContext(ctx context.Context) ConnectorCollectionInfoResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectorCollectionInfoResponseOutput)
-}
-
-func (i ConnectorCollectionInfoResponseArgs) ToConnectorCollectionInfoResponsePtrOutput() ConnectorCollectionInfoResponsePtrOutput {
-	return i.ToConnectorCollectionInfoResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ConnectorCollectionInfoResponseArgs) ToConnectorCollectionInfoResponsePtrOutputWithContext(ctx context.Context) ConnectorCollectionInfoResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectorCollectionInfoResponseOutput).ToConnectorCollectionInfoResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type ConnectorCollectionInfoResponsePtrInput interface {
-	pulumi.Input
-
-	ToConnectorCollectionInfoResponsePtrOutput() ConnectorCollectionInfoResponsePtrOutput
-	ToConnectorCollectionInfoResponsePtrOutputWithContext(context.Context) ConnectorCollectionInfoResponsePtrOutput
-}
-
-type connectorCollectionInfoResponsePtrType ConnectorCollectionInfoResponseArgs
-
-func ConnectorCollectionInfoResponsePtr(v *ConnectorCollectionInfoResponseArgs) ConnectorCollectionInfoResponsePtrInput {
-	return (*connectorCollectionInfoResponsePtrType)(v)
-}
-
-func (*connectorCollectionInfoResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConnectorCollectionInfoResponse)(nil)).Elem()
-}
-
-func (i *connectorCollectionInfoResponsePtrType) ToConnectorCollectionInfoResponsePtrOutput() ConnectorCollectionInfoResponsePtrOutput {
-	return i.ToConnectorCollectionInfoResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *connectorCollectionInfoResponsePtrType) ToConnectorCollectionInfoResponsePtrOutputWithContext(ctx context.Context) ConnectorCollectionInfoResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectorCollectionInfoResponsePtrOutput)
-}
-
 type ConnectorCollectionInfoResponseOutput struct{ *pulumi.OutputState }
 
 func (ConnectorCollectionInfoResponseOutput) ElementType() reflect.Type {
@@ -278,16 +126,6 @@ func (o ConnectorCollectionInfoResponseOutput) ToConnectorCollectionInfoResponse
 
 func (o ConnectorCollectionInfoResponseOutput) ToConnectorCollectionInfoResponseOutputWithContext(ctx context.Context) ConnectorCollectionInfoResponseOutput {
 	return o
-}
-
-func (o ConnectorCollectionInfoResponseOutput) ToConnectorCollectionInfoResponsePtrOutput() ConnectorCollectionInfoResponsePtrOutput {
-	return o.ToConnectorCollectionInfoResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ConnectorCollectionInfoResponseOutput) ToConnectorCollectionInfoResponsePtrOutputWithContext(ctx context.Context) ConnectorCollectionInfoResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectorCollectionInfoResponse) *ConnectorCollectionInfoResponse {
-		return &v
-	}).(ConnectorCollectionInfoResponsePtrOutput)
 }
 
 func (o ConnectorCollectionInfoResponseOutput) Error() ConnectorCollectionErrorInfoResponsePtrOutput {
@@ -306,69 +144,8 @@ func (o ConnectorCollectionInfoResponseOutput) SourceLastUpdated() pulumi.String
 	return o.ApplyT(func(v ConnectorCollectionInfoResponse) string { return v.SourceLastUpdated }).(pulumi.StringOutput)
 }
 
-type ConnectorCollectionInfoResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (ConnectorCollectionInfoResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConnectorCollectionInfoResponse)(nil)).Elem()
-}
-
-func (o ConnectorCollectionInfoResponsePtrOutput) ToConnectorCollectionInfoResponsePtrOutput() ConnectorCollectionInfoResponsePtrOutput {
-	return o
-}
-
-func (o ConnectorCollectionInfoResponsePtrOutput) ToConnectorCollectionInfoResponsePtrOutputWithContext(ctx context.Context) ConnectorCollectionInfoResponsePtrOutput {
-	return o
-}
-
-func (o ConnectorCollectionInfoResponsePtrOutput) Elem() ConnectorCollectionInfoResponseOutput {
-	return o.ApplyT(func(v *ConnectorCollectionInfoResponse) ConnectorCollectionInfoResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ConnectorCollectionInfoResponse
-		return ret
-	}).(ConnectorCollectionInfoResponseOutput)
-}
-
-func (o ConnectorCollectionInfoResponsePtrOutput) Error() ConnectorCollectionErrorInfoResponsePtrOutput {
-	return o.ApplyT(func(v *ConnectorCollectionInfoResponse) *ConnectorCollectionErrorInfoResponse {
-		if v == nil {
-			return nil
-		}
-		return v.Error
-	}).(ConnectorCollectionErrorInfoResponsePtrOutput)
-}
-
-func (o ConnectorCollectionInfoResponsePtrOutput) LastChecked() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ConnectorCollectionInfoResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.LastChecked
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ConnectorCollectionInfoResponsePtrOutput) LastUpdated() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ConnectorCollectionInfoResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.LastUpdated
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ConnectorCollectionInfoResponsePtrOutput) SourceLastUpdated() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ConnectorCollectionInfoResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.SourceLastUpdated
-	}).(pulumi.StringPtrOutput)
-}
-
 func init() {
 	pulumi.RegisterOutputType(ConnectorCollectionErrorInfoResponseOutput{})
 	pulumi.RegisterOutputType(ConnectorCollectionErrorInfoResponsePtrOutput{})
 	pulumi.RegisterOutputType(ConnectorCollectionInfoResponseOutput{})
-	pulumi.RegisterOutputType(ConnectorCollectionInfoResponsePtrOutput{})
 }

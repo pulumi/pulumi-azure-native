@@ -84,36 +84,6 @@ type CacheExpirationActionParametersResponse struct {
 	OdataType     string  `pulumi:"odataType"`
 }
 
-
-
-
-
-type CacheExpirationActionParametersResponseInput interface {
-	pulumi.Input
-
-	ToCacheExpirationActionParametersResponseOutput() CacheExpirationActionParametersResponseOutput
-	ToCacheExpirationActionParametersResponseOutputWithContext(context.Context) CacheExpirationActionParametersResponseOutput
-}
-
-type CacheExpirationActionParametersResponseArgs struct {
-	CacheBehavior pulumi.StringInput    `pulumi:"cacheBehavior"`
-	CacheDuration pulumi.StringPtrInput `pulumi:"cacheDuration"`
-	CacheType     pulumi.StringInput    `pulumi:"cacheType"`
-	OdataType     pulumi.StringInput    `pulumi:"odataType"`
-}
-
-func (CacheExpirationActionParametersResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CacheExpirationActionParametersResponse)(nil)).Elem()
-}
-
-func (i CacheExpirationActionParametersResponseArgs) ToCacheExpirationActionParametersResponseOutput() CacheExpirationActionParametersResponseOutput {
-	return i.ToCacheExpirationActionParametersResponseOutputWithContext(context.Background())
-}
-
-func (i CacheExpirationActionParametersResponseArgs) ToCacheExpirationActionParametersResponseOutputWithContext(ctx context.Context) CacheExpirationActionParametersResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CacheExpirationActionParametersResponseOutput)
-}
-
 type CacheExpirationActionParametersResponseOutput struct{ *pulumi.OutputState }
 
 func (CacheExpirationActionParametersResponseOutput) ElementType() reflect.Type {
@@ -261,61 +231,6 @@ type DeepCreatedOriginResponse struct {
 	HttpPort  *int   `pulumi:"httpPort"`
 	HttpsPort *int   `pulumi:"httpsPort"`
 	Name      string `pulumi:"name"`
-}
-
-
-
-
-
-type DeepCreatedOriginResponseInput interface {
-	pulumi.Input
-
-	ToDeepCreatedOriginResponseOutput() DeepCreatedOriginResponseOutput
-	ToDeepCreatedOriginResponseOutputWithContext(context.Context) DeepCreatedOriginResponseOutput
-}
-
-type DeepCreatedOriginResponseArgs struct {
-	HostName  pulumi.StringInput `pulumi:"hostName"`
-	HttpPort  pulumi.IntPtrInput `pulumi:"httpPort"`
-	HttpsPort pulumi.IntPtrInput `pulumi:"httpsPort"`
-	Name      pulumi.StringInput `pulumi:"name"`
-}
-
-func (DeepCreatedOriginResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeepCreatedOriginResponse)(nil)).Elem()
-}
-
-func (i DeepCreatedOriginResponseArgs) ToDeepCreatedOriginResponseOutput() DeepCreatedOriginResponseOutput {
-	return i.ToDeepCreatedOriginResponseOutputWithContext(context.Background())
-}
-
-func (i DeepCreatedOriginResponseArgs) ToDeepCreatedOriginResponseOutputWithContext(ctx context.Context) DeepCreatedOriginResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DeepCreatedOriginResponseOutput)
-}
-
-
-
-
-
-type DeepCreatedOriginResponseArrayInput interface {
-	pulumi.Input
-
-	ToDeepCreatedOriginResponseArrayOutput() DeepCreatedOriginResponseArrayOutput
-	ToDeepCreatedOriginResponseArrayOutputWithContext(context.Context) DeepCreatedOriginResponseArrayOutput
-}
-
-type DeepCreatedOriginResponseArray []DeepCreatedOriginResponseInput
-
-func (DeepCreatedOriginResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DeepCreatedOriginResponse)(nil)).Elem()
-}
-
-func (i DeepCreatedOriginResponseArray) ToDeepCreatedOriginResponseArrayOutput() DeepCreatedOriginResponseArrayOutput {
-	return i.ToDeepCreatedOriginResponseArrayOutputWithContext(context.Background())
-}
-
-func (i DeepCreatedOriginResponseArray) ToDeepCreatedOriginResponseArrayOutputWithContext(ctx context.Context) DeepCreatedOriginResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DeepCreatedOriginResponseArrayOutput)
 }
 
 type DeepCreatedOriginResponseOutput struct{ *pulumi.OutputState }
@@ -579,59 +494,6 @@ type DeliveryRuleCacheExpirationActionResponse struct {
 	Parameters CacheExpirationActionParametersResponse `pulumi:"parameters"`
 }
 
-
-
-
-
-type DeliveryRuleCacheExpirationActionResponseInput interface {
-	pulumi.Input
-
-	ToDeliveryRuleCacheExpirationActionResponseOutput() DeliveryRuleCacheExpirationActionResponseOutput
-	ToDeliveryRuleCacheExpirationActionResponseOutputWithContext(context.Context) DeliveryRuleCacheExpirationActionResponseOutput
-}
-
-type DeliveryRuleCacheExpirationActionResponseArgs struct {
-	Name       pulumi.StringInput                           `pulumi:"name"`
-	Parameters CacheExpirationActionParametersResponseInput `pulumi:"parameters"`
-}
-
-func (DeliveryRuleCacheExpirationActionResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeliveryRuleCacheExpirationActionResponse)(nil)).Elem()
-}
-
-func (i DeliveryRuleCacheExpirationActionResponseArgs) ToDeliveryRuleCacheExpirationActionResponseOutput() DeliveryRuleCacheExpirationActionResponseOutput {
-	return i.ToDeliveryRuleCacheExpirationActionResponseOutputWithContext(context.Background())
-}
-
-func (i DeliveryRuleCacheExpirationActionResponseArgs) ToDeliveryRuleCacheExpirationActionResponseOutputWithContext(ctx context.Context) DeliveryRuleCacheExpirationActionResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DeliveryRuleCacheExpirationActionResponseOutput)
-}
-
-
-
-
-
-type DeliveryRuleCacheExpirationActionResponseArrayInput interface {
-	pulumi.Input
-
-	ToDeliveryRuleCacheExpirationActionResponseArrayOutput() DeliveryRuleCacheExpirationActionResponseArrayOutput
-	ToDeliveryRuleCacheExpirationActionResponseArrayOutputWithContext(context.Context) DeliveryRuleCacheExpirationActionResponseArrayOutput
-}
-
-type DeliveryRuleCacheExpirationActionResponseArray []DeliveryRuleCacheExpirationActionResponseInput
-
-func (DeliveryRuleCacheExpirationActionResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DeliveryRuleCacheExpirationActionResponse)(nil)).Elem()
-}
-
-func (i DeliveryRuleCacheExpirationActionResponseArray) ToDeliveryRuleCacheExpirationActionResponseArrayOutput() DeliveryRuleCacheExpirationActionResponseArrayOutput {
-	return i.ToDeliveryRuleCacheExpirationActionResponseArrayOutputWithContext(context.Background())
-}
-
-func (i DeliveryRuleCacheExpirationActionResponseArray) ToDeliveryRuleCacheExpirationActionResponseArrayOutputWithContext(ctx context.Context) DeliveryRuleCacheExpirationActionResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DeliveryRuleCacheExpirationActionResponseArrayOutput)
-}
-
 type DeliveryRuleCacheExpirationActionResponseOutput struct{ *pulumi.OutputState }
 
 func (DeliveryRuleCacheExpirationActionResponseOutput) ElementType() reflect.Type {
@@ -680,60 +542,6 @@ type DeliveryRuleResponse struct {
 	Actions    []DeliveryRuleCacheExpirationActionResponse `pulumi:"actions"`
 	Conditions []interface{}                               `pulumi:"conditions"`
 	Order      int                                         `pulumi:"order"`
-}
-
-
-
-
-
-type DeliveryRuleResponseInput interface {
-	pulumi.Input
-
-	ToDeliveryRuleResponseOutput() DeliveryRuleResponseOutput
-	ToDeliveryRuleResponseOutputWithContext(context.Context) DeliveryRuleResponseOutput
-}
-
-type DeliveryRuleResponseArgs struct {
-	Actions    DeliveryRuleCacheExpirationActionResponseArrayInput `pulumi:"actions"`
-	Conditions pulumi.ArrayInput                                   `pulumi:"conditions"`
-	Order      pulumi.IntInput                                     `pulumi:"order"`
-}
-
-func (DeliveryRuleResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeliveryRuleResponse)(nil)).Elem()
-}
-
-func (i DeliveryRuleResponseArgs) ToDeliveryRuleResponseOutput() DeliveryRuleResponseOutput {
-	return i.ToDeliveryRuleResponseOutputWithContext(context.Background())
-}
-
-func (i DeliveryRuleResponseArgs) ToDeliveryRuleResponseOutputWithContext(ctx context.Context) DeliveryRuleResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DeliveryRuleResponseOutput)
-}
-
-
-
-
-
-type DeliveryRuleResponseArrayInput interface {
-	pulumi.Input
-
-	ToDeliveryRuleResponseArrayOutput() DeliveryRuleResponseArrayOutput
-	ToDeliveryRuleResponseArrayOutputWithContext(context.Context) DeliveryRuleResponseArrayOutput
-}
-
-type DeliveryRuleResponseArray []DeliveryRuleResponseInput
-
-func (DeliveryRuleResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DeliveryRuleResponse)(nil)).Elem()
-}
-
-func (i DeliveryRuleResponseArray) ToDeliveryRuleResponseArrayOutput() DeliveryRuleResponseArrayOutput {
-	return i.ToDeliveryRuleResponseArrayOutputWithContext(context.Background())
-}
-
-func (i DeliveryRuleResponseArray) ToDeliveryRuleResponseArrayOutputWithContext(ctx context.Context) DeliveryRuleResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DeliveryRuleResponseArrayOutput)
 }
 
 type DeliveryRuleResponseOutput struct{ *pulumi.OutputState }
@@ -787,111 +595,9 @@ type DeliveryRuleUrlFileExtensionCondition struct {
 	Parameters UrlFileExtensionConditionParameters `pulumi:"parameters"`
 }
 
-
-
-
-
-type DeliveryRuleUrlFileExtensionConditionInput interface {
-	pulumi.Input
-
-	ToDeliveryRuleUrlFileExtensionConditionOutput() DeliveryRuleUrlFileExtensionConditionOutput
-	ToDeliveryRuleUrlFileExtensionConditionOutputWithContext(context.Context) DeliveryRuleUrlFileExtensionConditionOutput
-}
-
-type DeliveryRuleUrlFileExtensionConditionArgs struct {
-	Name       pulumi.StringInput                       `pulumi:"name"`
-	Parameters UrlFileExtensionConditionParametersInput `pulumi:"parameters"`
-}
-
-func (DeliveryRuleUrlFileExtensionConditionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeliveryRuleUrlFileExtensionCondition)(nil)).Elem()
-}
-
-func (i DeliveryRuleUrlFileExtensionConditionArgs) ToDeliveryRuleUrlFileExtensionConditionOutput() DeliveryRuleUrlFileExtensionConditionOutput {
-	return i.ToDeliveryRuleUrlFileExtensionConditionOutputWithContext(context.Background())
-}
-
-func (i DeliveryRuleUrlFileExtensionConditionArgs) ToDeliveryRuleUrlFileExtensionConditionOutputWithContext(ctx context.Context) DeliveryRuleUrlFileExtensionConditionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DeliveryRuleUrlFileExtensionConditionOutput)
-}
-
-type DeliveryRuleUrlFileExtensionConditionOutput struct{ *pulumi.OutputState }
-
-func (DeliveryRuleUrlFileExtensionConditionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeliveryRuleUrlFileExtensionCondition)(nil)).Elem()
-}
-
-func (o DeliveryRuleUrlFileExtensionConditionOutput) ToDeliveryRuleUrlFileExtensionConditionOutput() DeliveryRuleUrlFileExtensionConditionOutput {
-	return o
-}
-
-func (o DeliveryRuleUrlFileExtensionConditionOutput) ToDeliveryRuleUrlFileExtensionConditionOutputWithContext(ctx context.Context) DeliveryRuleUrlFileExtensionConditionOutput {
-	return o
-}
-
-func (o DeliveryRuleUrlFileExtensionConditionOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v DeliveryRuleUrlFileExtensionCondition) string { return v.Name }).(pulumi.StringOutput)
-}
-
-func (o DeliveryRuleUrlFileExtensionConditionOutput) Parameters() UrlFileExtensionConditionParametersOutput {
-	return o.ApplyT(func(v DeliveryRuleUrlFileExtensionCondition) UrlFileExtensionConditionParameters { return v.Parameters }).(UrlFileExtensionConditionParametersOutput)
-}
-
 type DeliveryRuleUrlFileExtensionConditionResponse struct {
 	Name       string                                      `pulumi:"name"`
 	Parameters UrlFileExtensionConditionParametersResponse `pulumi:"parameters"`
-}
-
-
-
-
-
-type DeliveryRuleUrlFileExtensionConditionResponseInput interface {
-	pulumi.Input
-
-	ToDeliveryRuleUrlFileExtensionConditionResponseOutput() DeliveryRuleUrlFileExtensionConditionResponseOutput
-	ToDeliveryRuleUrlFileExtensionConditionResponseOutputWithContext(context.Context) DeliveryRuleUrlFileExtensionConditionResponseOutput
-}
-
-type DeliveryRuleUrlFileExtensionConditionResponseArgs struct {
-	Name       pulumi.StringInput                               `pulumi:"name"`
-	Parameters UrlFileExtensionConditionParametersResponseInput `pulumi:"parameters"`
-}
-
-func (DeliveryRuleUrlFileExtensionConditionResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeliveryRuleUrlFileExtensionConditionResponse)(nil)).Elem()
-}
-
-func (i DeliveryRuleUrlFileExtensionConditionResponseArgs) ToDeliveryRuleUrlFileExtensionConditionResponseOutput() DeliveryRuleUrlFileExtensionConditionResponseOutput {
-	return i.ToDeliveryRuleUrlFileExtensionConditionResponseOutputWithContext(context.Background())
-}
-
-func (i DeliveryRuleUrlFileExtensionConditionResponseArgs) ToDeliveryRuleUrlFileExtensionConditionResponseOutputWithContext(ctx context.Context) DeliveryRuleUrlFileExtensionConditionResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DeliveryRuleUrlFileExtensionConditionResponseOutput)
-}
-
-type DeliveryRuleUrlFileExtensionConditionResponseOutput struct{ *pulumi.OutputState }
-
-func (DeliveryRuleUrlFileExtensionConditionResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeliveryRuleUrlFileExtensionConditionResponse)(nil)).Elem()
-}
-
-func (o DeliveryRuleUrlFileExtensionConditionResponseOutput) ToDeliveryRuleUrlFileExtensionConditionResponseOutput() DeliveryRuleUrlFileExtensionConditionResponseOutput {
-	return o
-}
-
-func (o DeliveryRuleUrlFileExtensionConditionResponseOutput) ToDeliveryRuleUrlFileExtensionConditionResponseOutputWithContext(ctx context.Context) DeliveryRuleUrlFileExtensionConditionResponseOutput {
-	return o
-}
-
-func (o DeliveryRuleUrlFileExtensionConditionResponseOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v DeliveryRuleUrlFileExtensionConditionResponse) string { return v.Name }).(pulumi.StringOutput)
-}
-
-func (o DeliveryRuleUrlFileExtensionConditionResponseOutput) Parameters() UrlFileExtensionConditionParametersResponseOutput {
-	return o.ApplyT(func(v DeliveryRuleUrlFileExtensionConditionResponse) UrlFileExtensionConditionParametersResponse {
-		return v.Parameters
-	}).(UrlFileExtensionConditionParametersResponseOutput)
 }
 
 type DeliveryRuleUrlPathCondition struct {
@@ -899,109 +605,9 @@ type DeliveryRuleUrlPathCondition struct {
 	Parameters UrlPathConditionParameters `pulumi:"parameters"`
 }
 
-
-
-
-
-type DeliveryRuleUrlPathConditionInput interface {
-	pulumi.Input
-
-	ToDeliveryRuleUrlPathConditionOutput() DeliveryRuleUrlPathConditionOutput
-	ToDeliveryRuleUrlPathConditionOutputWithContext(context.Context) DeliveryRuleUrlPathConditionOutput
-}
-
-type DeliveryRuleUrlPathConditionArgs struct {
-	Name       pulumi.StringInput              `pulumi:"name"`
-	Parameters UrlPathConditionParametersInput `pulumi:"parameters"`
-}
-
-func (DeliveryRuleUrlPathConditionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeliveryRuleUrlPathCondition)(nil)).Elem()
-}
-
-func (i DeliveryRuleUrlPathConditionArgs) ToDeliveryRuleUrlPathConditionOutput() DeliveryRuleUrlPathConditionOutput {
-	return i.ToDeliveryRuleUrlPathConditionOutputWithContext(context.Background())
-}
-
-func (i DeliveryRuleUrlPathConditionArgs) ToDeliveryRuleUrlPathConditionOutputWithContext(ctx context.Context) DeliveryRuleUrlPathConditionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DeliveryRuleUrlPathConditionOutput)
-}
-
-type DeliveryRuleUrlPathConditionOutput struct{ *pulumi.OutputState }
-
-func (DeliveryRuleUrlPathConditionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeliveryRuleUrlPathCondition)(nil)).Elem()
-}
-
-func (o DeliveryRuleUrlPathConditionOutput) ToDeliveryRuleUrlPathConditionOutput() DeliveryRuleUrlPathConditionOutput {
-	return o
-}
-
-func (o DeliveryRuleUrlPathConditionOutput) ToDeliveryRuleUrlPathConditionOutputWithContext(ctx context.Context) DeliveryRuleUrlPathConditionOutput {
-	return o
-}
-
-func (o DeliveryRuleUrlPathConditionOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v DeliveryRuleUrlPathCondition) string { return v.Name }).(pulumi.StringOutput)
-}
-
-func (o DeliveryRuleUrlPathConditionOutput) Parameters() UrlPathConditionParametersOutput {
-	return o.ApplyT(func(v DeliveryRuleUrlPathCondition) UrlPathConditionParameters { return v.Parameters }).(UrlPathConditionParametersOutput)
-}
-
 type DeliveryRuleUrlPathConditionResponse struct {
 	Name       string                             `pulumi:"name"`
 	Parameters UrlPathConditionParametersResponse `pulumi:"parameters"`
-}
-
-
-
-
-
-type DeliveryRuleUrlPathConditionResponseInput interface {
-	pulumi.Input
-
-	ToDeliveryRuleUrlPathConditionResponseOutput() DeliveryRuleUrlPathConditionResponseOutput
-	ToDeliveryRuleUrlPathConditionResponseOutputWithContext(context.Context) DeliveryRuleUrlPathConditionResponseOutput
-}
-
-type DeliveryRuleUrlPathConditionResponseArgs struct {
-	Name       pulumi.StringInput                      `pulumi:"name"`
-	Parameters UrlPathConditionParametersResponseInput `pulumi:"parameters"`
-}
-
-func (DeliveryRuleUrlPathConditionResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeliveryRuleUrlPathConditionResponse)(nil)).Elem()
-}
-
-func (i DeliveryRuleUrlPathConditionResponseArgs) ToDeliveryRuleUrlPathConditionResponseOutput() DeliveryRuleUrlPathConditionResponseOutput {
-	return i.ToDeliveryRuleUrlPathConditionResponseOutputWithContext(context.Background())
-}
-
-func (i DeliveryRuleUrlPathConditionResponseArgs) ToDeliveryRuleUrlPathConditionResponseOutputWithContext(ctx context.Context) DeliveryRuleUrlPathConditionResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DeliveryRuleUrlPathConditionResponseOutput)
-}
-
-type DeliveryRuleUrlPathConditionResponseOutput struct{ *pulumi.OutputState }
-
-func (DeliveryRuleUrlPathConditionResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeliveryRuleUrlPathConditionResponse)(nil)).Elem()
-}
-
-func (o DeliveryRuleUrlPathConditionResponseOutput) ToDeliveryRuleUrlPathConditionResponseOutput() DeliveryRuleUrlPathConditionResponseOutput {
-	return o
-}
-
-func (o DeliveryRuleUrlPathConditionResponseOutput) ToDeliveryRuleUrlPathConditionResponseOutputWithContext(ctx context.Context) DeliveryRuleUrlPathConditionResponseOutput {
-	return o
-}
-
-func (o DeliveryRuleUrlPathConditionResponseOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v DeliveryRuleUrlPathConditionResponse) string { return v.Name }).(pulumi.StringOutput)
-}
-
-func (o DeliveryRuleUrlPathConditionResponseOutput) Parameters() UrlPathConditionParametersResponseOutput {
-	return o.ApplyT(func(v DeliveryRuleUrlPathConditionResponse) UrlPathConditionParametersResponse { return v.Parameters }).(UrlPathConditionParametersResponseOutput)
 }
 
 type EndpointPropertiesUpdateParametersDeliveryPolicy struct {
@@ -1157,75 +763,6 @@ type EndpointPropertiesUpdateParametersResponseDeliveryPolicy struct {
 	Rules       []DeliveryRuleResponse `pulumi:"rules"`
 }
 
-
-
-
-
-type EndpointPropertiesUpdateParametersResponseDeliveryPolicyInput interface {
-	pulumi.Input
-
-	ToEndpointPropertiesUpdateParametersResponseDeliveryPolicyOutput() EndpointPropertiesUpdateParametersResponseDeliveryPolicyOutput
-	ToEndpointPropertiesUpdateParametersResponseDeliveryPolicyOutputWithContext(context.Context) EndpointPropertiesUpdateParametersResponseDeliveryPolicyOutput
-}
-
-type EndpointPropertiesUpdateParametersResponseDeliveryPolicyArgs struct {
-	Description pulumi.StringPtrInput          `pulumi:"description"`
-	Rules       DeliveryRuleResponseArrayInput `pulumi:"rules"`
-}
-
-func (EndpointPropertiesUpdateParametersResponseDeliveryPolicyArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*EndpointPropertiesUpdateParametersResponseDeliveryPolicy)(nil)).Elem()
-}
-
-func (i EndpointPropertiesUpdateParametersResponseDeliveryPolicyArgs) ToEndpointPropertiesUpdateParametersResponseDeliveryPolicyOutput() EndpointPropertiesUpdateParametersResponseDeliveryPolicyOutput {
-	return i.ToEndpointPropertiesUpdateParametersResponseDeliveryPolicyOutputWithContext(context.Background())
-}
-
-func (i EndpointPropertiesUpdateParametersResponseDeliveryPolicyArgs) ToEndpointPropertiesUpdateParametersResponseDeliveryPolicyOutputWithContext(ctx context.Context) EndpointPropertiesUpdateParametersResponseDeliveryPolicyOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EndpointPropertiesUpdateParametersResponseDeliveryPolicyOutput)
-}
-
-func (i EndpointPropertiesUpdateParametersResponseDeliveryPolicyArgs) ToEndpointPropertiesUpdateParametersResponseDeliveryPolicyPtrOutput() EndpointPropertiesUpdateParametersResponseDeliveryPolicyPtrOutput {
-	return i.ToEndpointPropertiesUpdateParametersResponseDeliveryPolicyPtrOutputWithContext(context.Background())
-}
-
-func (i EndpointPropertiesUpdateParametersResponseDeliveryPolicyArgs) ToEndpointPropertiesUpdateParametersResponseDeliveryPolicyPtrOutputWithContext(ctx context.Context) EndpointPropertiesUpdateParametersResponseDeliveryPolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EndpointPropertiesUpdateParametersResponseDeliveryPolicyOutput).ToEndpointPropertiesUpdateParametersResponseDeliveryPolicyPtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type EndpointPropertiesUpdateParametersResponseDeliveryPolicyPtrInput interface {
-	pulumi.Input
-
-	ToEndpointPropertiesUpdateParametersResponseDeliveryPolicyPtrOutput() EndpointPropertiesUpdateParametersResponseDeliveryPolicyPtrOutput
-	ToEndpointPropertiesUpdateParametersResponseDeliveryPolicyPtrOutputWithContext(context.Context) EndpointPropertiesUpdateParametersResponseDeliveryPolicyPtrOutput
-}
-
-type endpointPropertiesUpdateParametersResponseDeliveryPolicyPtrType EndpointPropertiesUpdateParametersResponseDeliveryPolicyArgs
-
-func EndpointPropertiesUpdateParametersResponseDeliveryPolicyPtr(v *EndpointPropertiesUpdateParametersResponseDeliveryPolicyArgs) EndpointPropertiesUpdateParametersResponseDeliveryPolicyPtrInput {
-	return (*endpointPropertiesUpdateParametersResponseDeliveryPolicyPtrType)(v)
-}
-
-func (*endpointPropertiesUpdateParametersResponseDeliveryPolicyPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**EndpointPropertiesUpdateParametersResponseDeliveryPolicy)(nil)).Elem()
-}
-
-func (i *endpointPropertiesUpdateParametersResponseDeliveryPolicyPtrType) ToEndpointPropertiesUpdateParametersResponseDeliveryPolicyPtrOutput() EndpointPropertiesUpdateParametersResponseDeliveryPolicyPtrOutput {
-	return i.ToEndpointPropertiesUpdateParametersResponseDeliveryPolicyPtrOutputWithContext(context.Background())
-}
-
-func (i *endpointPropertiesUpdateParametersResponseDeliveryPolicyPtrType) ToEndpointPropertiesUpdateParametersResponseDeliveryPolicyPtrOutputWithContext(ctx context.Context) EndpointPropertiesUpdateParametersResponseDeliveryPolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EndpointPropertiesUpdateParametersResponseDeliveryPolicyPtrOutput)
-}
-
 type EndpointPropertiesUpdateParametersResponseDeliveryPolicyOutput struct{ *pulumi.OutputState }
 
 func (EndpointPropertiesUpdateParametersResponseDeliveryPolicyOutput) ElementType() reflect.Type {
@@ -1238,16 +775,6 @@ func (o EndpointPropertiesUpdateParametersResponseDeliveryPolicyOutput) ToEndpoi
 
 func (o EndpointPropertiesUpdateParametersResponseDeliveryPolicyOutput) ToEndpointPropertiesUpdateParametersResponseDeliveryPolicyOutputWithContext(ctx context.Context) EndpointPropertiesUpdateParametersResponseDeliveryPolicyOutput {
 	return o
-}
-
-func (o EndpointPropertiesUpdateParametersResponseDeliveryPolicyOutput) ToEndpointPropertiesUpdateParametersResponseDeliveryPolicyPtrOutput() EndpointPropertiesUpdateParametersResponseDeliveryPolicyPtrOutput {
-	return o.ToEndpointPropertiesUpdateParametersResponseDeliveryPolicyPtrOutputWithContext(context.Background())
-}
-
-func (o EndpointPropertiesUpdateParametersResponseDeliveryPolicyOutput) ToEndpointPropertiesUpdateParametersResponseDeliveryPolicyPtrOutputWithContext(ctx context.Context) EndpointPropertiesUpdateParametersResponseDeliveryPolicyPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointPropertiesUpdateParametersResponseDeliveryPolicy) *EndpointPropertiesUpdateParametersResponseDeliveryPolicy {
-		return &v
-	}).(EndpointPropertiesUpdateParametersResponseDeliveryPolicyPtrOutput)
 }
 
 func (o EndpointPropertiesUpdateParametersResponseDeliveryPolicyOutput) Description() pulumi.StringPtrOutput {
@@ -1414,60 +941,6 @@ type GeoFilterResponse struct {
 	RelativePath string   `pulumi:"relativePath"`
 }
 
-
-
-
-
-type GeoFilterResponseInput interface {
-	pulumi.Input
-
-	ToGeoFilterResponseOutput() GeoFilterResponseOutput
-	ToGeoFilterResponseOutputWithContext(context.Context) GeoFilterResponseOutput
-}
-
-type GeoFilterResponseArgs struct {
-	Action       pulumi.StringInput      `pulumi:"action"`
-	CountryCodes pulumi.StringArrayInput `pulumi:"countryCodes"`
-	RelativePath pulumi.StringInput      `pulumi:"relativePath"`
-}
-
-func (GeoFilterResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GeoFilterResponse)(nil)).Elem()
-}
-
-func (i GeoFilterResponseArgs) ToGeoFilterResponseOutput() GeoFilterResponseOutput {
-	return i.ToGeoFilterResponseOutputWithContext(context.Background())
-}
-
-func (i GeoFilterResponseArgs) ToGeoFilterResponseOutputWithContext(ctx context.Context) GeoFilterResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GeoFilterResponseOutput)
-}
-
-
-
-
-
-type GeoFilterResponseArrayInput interface {
-	pulumi.Input
-
-	ToGeoFilterResponseArrayOutput() GeoFilterResponseArrayOutput
-	ToGeoFilterResponseArrayOutputWithContext(context.Context) GeoFilterResponseArrayOutput
-}
-
-type GeoFilterResponseArray []GeoFilterResponseInput
-
-func (GeoFilterResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GeoFilterResponse)(nil)).Elem()
-}
-
-func (i GeoFilterResponseArray) ToGeoFilterResponseArrayOutput() GeoFilterResponseArrayOutput {
-	return i.ToGeoFilterResponseArrayOutputWithContext(context.Background())
-}
-
-func (i GeoFilterResponseArray) ToGeoFilterResponseArrayOutputWithContext(ctx context.Context) GeoFilterResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GeoFilterResponseArrayOutput)
-}
-
 type GeoFilterResponseOutput struct{ *pulumi.OutputState }
 
 func (GeoFilterResponseOutput) ElementType() reflect.Type {
@@ -1545,47 +1018,6 @@ func (i SkuArgs) ToSkuOutputWithContext(ctx context.Context) SkuOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SkuOutput)
 }
 
-func (i SkuArgs) ToSkuPtrOutput() SkuPtrOutput {
-	return i.ToSkuPtrOutputWithContext(context.Background())
-}
-
-func (i SkuArgs) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SkuOutput).ToSkuPtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type SkuPtrInput interface {
-	pulumi.Input
-
-	ToSkuPtrOutput() SkuPtrOutput
-	ToSkuPtrOutputWithContext(context.Context) SkuPtrOutput
-}
-
-type skuPtrType SkuArgs
-
-func SkuPtr(v *SkuArgs) SkuPtrInput {
-	return (*skuPtrType)(v)
-}
-
-func (*skuPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**Sku)(nil)).Elem()
-}
-
-func (i *skuPtrType) ToSkuPtrOutput() SkuPtrOutput {
-	return i.ToSkuPtrOutputWithContext(context.Background())
-}
-
-func (i *skuPtrType) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SkuPtrOutput)
-}
-
 type SkuOutput struct{ *pulumi.OutputState }
 
 func (SkuOutput) ElementType() reflect.Type {
@@ -1600,123 +1032,12 @@ func (o SkuOutput) ToSkuOutputWithContext(ctx context.Context) SkuOutput {
 	return o
 }
 
-func (o SkuOutput) ToSkuPtrOutput() SkuPtrOutput {
-	return o.ToSkuPtrOutputWithContext(context.Background())
-}
-
-func (o SkuOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Sku) *Sku {
-		return &v
-	}).(SkuPtrOutput)
-}
-
 func (o SkuOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Sku) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-type SkuPtrOutput struct{ *pulumi.OutputState }
-
-func (SkuPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Sku)(nil)).Elem()
-}
-
-func (o SkuPtrOutput) ToSkuPtrOutput() SkuPtrOutput {
-	return o
-}
-
-func (o SkuPtrOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
-	return o
-}
-
-func (o SkuPtrOutput) Elem() SkuOutput {
-	return o.ApplyT(func(v *Sku) Sku {
-		if v != nil {
-			return *v
-		}
-		var ret Sku
-		return ret
-	}).(SkuOutput)
-}
-
-func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Sku) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
 type SkuResponse struct {
 	Name *string `pulumi:"name"`
-}
-
-
-
-
-
-type SkuResponseInput interface {
-	pulumi.Input
-
-	ToSkuResponseOutput() SkuResponseOutput
-	ToSkuResponseOutputWithContext(context.Context) SkuResponseOutput
-}
-
-type SkuResponseArgs struct {
-	Name pulumi.StringPtrInput `pulumi:"name"`
-}
-
-func (SkuResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SkuResponse)(nil)).Elem()
-}
-
-func (i SkuResponseArgs) ToSkuResponseOutput() SkuResponseOutput {
-	return i.ToSkuResponseOutputWithContext(context.Background())
-}
-
-func (i SkuResponseArgs) ToSkuResponseOutputWithContext(ctx context.Context) SkuResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SkuResponseOutput)
-}
-
-func (i SkuResponseArgs) ToSkuResponsePtrOutput() SkuResponsePtrOutput {
-	return i.ToSkuResponsePtrOutputWithContext(context.Background())
-}
-
-func (i SkuResponseArgs) ToSkuResponsePtrOutputWithContext(ctx context.Context) SkuResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SkuResponseOutput).ToSkuResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type SkuResponsePtrInput interface {
-	pulumi.Input
-
-	ToSkuResponsePtrOutput() SkuResponsePtrOutput
-	ToSkuResponsePtrOutputWithContext(context.Context) SkuResponsePtrOutput
-}
-
-type skuResponsePtrType SkuResponseArgs
-
-func SkuResponsePtr(v *SkuResponseArgs) SkuResponsePtrInput {
-	return (*skuResponsePtrType)(v)
-}
-
-func (*skuResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SkuResponse)(nil)).Elem()
-}
-
-func (i *skuResponsePtrType) ToSkuResponsePtrOutput() SkuResponsePtrOutput {
-	return i.ToSkuResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *skuResponsePtrType) ToSkuResponsePtrOutputWithContext(ctx context.Context) SkuResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SkuResponsePtrOutput)
 }
 
 type SkuResponseOutput struct{ *pulumi.OutputState }
@@ -1733,51 +1054,8 @@ func (o SkuResponseOutput) ToSkuResponseOutputWithContext(ctx context.Context) S
 	return o
 }
 
-func (o SkuResponseOutput) ToSkuResponsePtrOutput() SkuResponsePtrOutput {
-	return o.ToSkuResponsePtrOutputWithContext(context.Background())
-}
-
-func (o SkuResponseOutput) ToSkuResponsePtrOutputWithContext(ctx context.Context) SkuResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SkuResponse) *SkuResponse {
-		return &v
-	}).(SkuResponsePtrOutput)
-}
-
 func (o SkuResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SkuResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
-}
-
-type SkuResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (SkuResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SkuResponse)(nil)).Elem()
-}
-
-func (o SkuResponsePtrOutput) ToSkuResponsePtrOutput() SkuResponsePtrOutput {
-	return o
-}
-
-func (o SkuResponsePtrOutput) ToSkuResponsePtrOutputWithContext(ctx context.Context) SkuResponsePtrOutput {
-	return o
-}
-
-func (o SkuResponsePtrOutput) Elem() SkuResponseOutput {
-	return o.ApplyT(func(v *SkuResponse) SkuResponse {
-		if v != nil {
-			return *v
-		}
-		var ret SkuResponse
-		return ret
-	}).(SkuResponseOutput)
-}
-
-func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SkuResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Name
-	}).(pulumi.StringPtrOutput)
 }
 
 type UrlFileExtensionConditionParameters struct {
@@ -1785,109 +1063,9 @@ type UrlFileExtensionConditionParameters struct {
 	OdataType  string   `pulumi:"odataType"`
 }
 
-
-
-
-
-type UrlFileExtensionConditionParametersInput interface {
-	pulumi.Input
-
-	ToUrlFileExtensionConditionParametersOutput() UrlFileExtensionConditionParametersOutput
-	ToUrlFileExtensionConditionParametersOutputWithContext(context.Context) UrlFileExtensionConditionParametersOutput
-}
-
-type UrlFileExtensionConditionParametersArgs struct {
-	Extensions pulumi.StringArrayInput `pulumi:"extensions"`
-	OdataType  pulumi.StringInput      `pulumi:"odataType"`
-}
-
-func (UrlFileExtensionConditionParametersArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*UrlFileExtensionConditionParameters)(nil)).Elem()
-}
-
-func (i UrlFileExtensionConditionParametersArgs) ToUrlFileExtensionConditionParametersOutput() UrlFileExtensionConditionParametersOutput {
-	return i.ToUrlFileExtensionConditionParametersOutputWithContext(context.Background())
-}
-
-func (i UrlFileExtensionConditionParametersArgs) ToUrlFileExtensionConditionParametersOutputWithContext(ctx context.Context) UrlFileExtensionConditionParametersOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UrlFileExtensionConditionParametersOutput)
-}
-
-type UrlFileExtensionConditionParametersOutput struct{ *pulumi.OutputState }
-
-func (UrlFileExtensionConditionParametersOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*UrlFileExtensionConditionParameters)(nil)).Elem()
-}
-
-func (o UrlFileExtensionConditionParametersOutput) ToUrlFileExtensionConditionParametersOutput() UrlFileExtensionConditionParametersOutput {
-	return o
-}
-
-func (o UrlFileExtensionConditionParametersOutput) ToUrlFileExtensionConditionParametersOutputWithContext(ctx context.Context) UrlFileExtensionConditionParametersOutput {
-	return o
-}
-
-func (o UrlFileExtensionConditionParametersOutput) Extensions() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v UrlFileExtensionConditionParameters) []string { return v.Extensions }).(pulumi.StringArrayOutput)
-}
-
-func (o UrlFileExtensionConditionParametersOutput) OdataType() pulumi.StringOutput {
-	return o.ApplyT(func(v UrlFileExtensionConditionParameters) string { return v.OdataType }).(pulumi.StringOutput)
-}
-
 type UrlFileExtensionConditionParametersResponse struct {
 	Extensions []string `pulumi:"extensions"`
 	OdataType  string   `pulumi:"odataType"`
-}
-
-
-
-
-
-type UrlFileExtensionConditionParametersResponseInput interface {
-	pulumi.Input
-
-	ToUrlFileExtensionConditionParametersResponseOutput() UrlFileExtensionConditionParametersResponseOutput
-	ToUrlFileExtensionConditionParametersResponseOutputWithContext(context.Context) UrlFileExtensionConditionParametersResponseOutput
-}
-
-type UrlFileExtensionConditionParametersResponseArgs struct {
-	Extensions pulumi.StringArrayInput `pulumi:"extensions"`
-	OdataType  pulumi.StringInput      `pulumi:"odataType"`
-}
-
-func (UrlFileExtensionConditionParametersResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*UrlFileExtensionConditionParametersResponse)(nil)).Elem()
-}
-
-func (i UrlFileExtensionConditionParametersResponseArgs) ToUrlFileExtensionConditionParametersResponseOutput() UrlFileExtensionConditionParametersResponseOutput {
-	return i.ToUrlFileExtensionConditionParametersResponseOutputWithContext(context.Background())
-}
-
-func (i UrlFileExtensionConditionParametersResponseArgs) ToUrlFileExtensionConditionParametersResponseOutputWithContext(ctx context.Context) UrlFileExtensionConditionParametersResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UrlFileExtensionConditionParametersResponseOutput)
-}
-
-type UrlFileExtensionConditionParametersResponseOutput struct{ *pulumi.OutputState }
-
-func (UrlFileExtensionConditionParametersResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*UrlFileExtensionConditionParametersResponse)(nil)).Elem()
-}
-
-func (o UrlFileExtensionConditionParametersResponseOutput) ToUrlFileExtensionConditionParametersResponseOutput() UrlFileExtensionConditionParametersResponseOutput {
-	return o
-}
-
-func (o UrlFileExtensionConditionParametersResponseOutput) ToUrlFileExtensionConditionParametersResponseOutputWithContext(ctx context.Context) UrlFileExtensionConditionParametersResponseOutput {
-	return o
-}
-
-func (o UrlFileExtensionConditionParametersResponseOutput) Extensions() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v UrlFileExtensionConditionParametersResponse) []string { return v.Extensions }).(pulumi.StringArrayOutput)
-}
-
-func (o UrlFileExtensionConditionParametersResponseOutput) OdataType() pulumi.StringOutput {
-	return o.ApplyT(func(v UrlFileExtensionConditionParametersResponse) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
 type UrlPathConditionParameters struct {
@@ -1896,120 +1074,10 @@ type UrlPathConditionParameters struct {
 	Path      string `pulumi:"path"`
 }
 
-
-
-
-
-type UrlPathConditionParametersInput interface {
-	pulumi.Input
-
-	ToUrlPathConditionParametersOutput() UrlPathConditionParametersOutput
-	ToUrlPathConditionParametersOutputWithContext(context.Context) UrlPathConditionParametersOutput
-}
-
-type UrlPathConditionParametersArgs struct {
-	MatchType pulumi.StringInput `pulumi:"matchType"`
-	OdataType pulumi.StringInput `pulumi:"odataType"`
-	Path      pulumi.StringInput `pulumi:"path"`
-}
-
-func (UrlPathConditionParametersArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*UrlPathConditionParameters)(nil)).Elem()
-}
-
-func (i UrlPathConditionParametersArgs) ToUrlPathConditionParametersOutput() UrlPathConditionParametersOutput {
-	return i.ToUrlPathConditionParametersOutputWithContext(context.Background())
-}
-
-func (i UrlPathConditionParametersArgs) ToUrlPathConditionParametersOutputWithContext(ctx context.Context) UrlPathConditionParametersOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UrlPathConditionParametersOutput)
-}
-
-type UrlPathConditionParametersOutput struct{ *pulumi.OutputState }
-
-func (UrlPathConditionParametersOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*UrlPathConditionParameters)(nil)).Elem()
-}
-
-func (o UrlPathConditionParametersOutput) ToUrlPathConditionParametersOutput() UrlPathConditionParametersOutput {
-	return o
-}
-
-func (o UrlPathConditionParametersOutput) ToUrlPathConditionParametersOutputWithContext(ctx context.Context) UrlPathConditionParametersOutput {
-	return o
-}
-
-func (o UrlPathConditionParametersOutput) MatchType() pulumi.StringOutput {
-	return o.ApplyT(func(v UrlPathConditionParameters) string { return v.MatchType }).(pulumi.StringOutput)
-}
-
-func (o UrlPathConditionParametersOutput) OdataType() pulumi.StringOutput {
-	return o.ApplyT(func(v UrlPathConditionParameters) string { return v.OdataType }).(pulumi.StringOutput)
-}
-
-func (o UrlPathConditionParametersOutput) Path() pulumi.StringOutput {
-	return o.ApplyT(func(v UrlPathConditionParameters) string { return v.Path }).(pulumi.StringOutput)
-}
-
 type UrlPathConditionParametersResponse struct {
 	MatchType string `pulumi:"matchType"`
 	OdataType string `pulumi:"odataType"`
 	Path      string `pulumi:"path"`
-}
-
-
-
-
-
-type UrlPathConditionParametersResponseInput interface {
-	pulumi.Input
-
-	ToUrlPathConditionParametersResponseOutput() UrlPathConditionParametersResponseOutput
-	ToUrlPathConditionParametersResponseOutputWithContext(context.Context) UrlPathConditionParametersResponseOutput
-}
-
-type UrlPathConditionParametersResponseArgs struct {
-	MatchType pulumi.StringInput `pulumi:"matchType"`
-	OdataType pulumi.StringInput `pulumi:"odataType"`
-	Path      pulumi.StringInput `pulumi:"path"`
-}
-
-func (UrlPathConditionParametersResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*UrlPathConditionParametersResponse)(nil)).Elem()
-}
-
-func (i UrlPathConditionParametersResponseArgs) ToUrlPathConditionParametersResponseOutput() UrlPathConditionParametersResponseOutput {
-	return i.ToUrlPathConditionParametersResponseOutputWithContext(context.Background())
-}
-
-func (i UrlPathConditionParametersResponseArgs) ToUrlPathConditionParametersResponseOutputWithContext(ctx context.Context) UrlPathConditionParametersResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UrlPathConditionParametersResponseOutput)
-}
-
-type UrlPathConditionParametersResponseOutput struct{ *pulumi.OutputState }
-
-func (UrlPathConditionParametersResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*UrlPathConditionParametersResponse)(nil)).Elem()
-}
-
-func (o UrlPathConditionParametersResponseOutput) ToUrlPathConditionParametersResponseOutput() UrlPathConditionParametersResponseOutput {
-	return o
-}
-
-func (o UrlPathConditionParametersResponseOutput) ToUrlPathConditionParametersResponseOutputWithContext(ctx context.Context) UrlPathConditionParametersResponseOutput {
-	return o
-}
-
-func (o UrlPathConditionParametersResponseOutput) MatchType() pulumi.StringOutput {
-	return o.ApplyT(func(v UrlPathConditionParametersResponse) string { return v.MatchType }).(pulumi.StringOutput)
-}
-
-func (o UrlPathConditionParametersResponseOutput) OdataType() pulumi.StringOutput {
-	return o.ApplyT(func(v UrlPathConditionParametersResponse) string { return v.OdataType }).(pulumi.StringOutput)
-}
-
-func (o UrlPathConditionParametersResponseOutput) Path() pulumi.StringOutput {
-	return o.ApplyT(func(v UrlPathConditionParametersResponse) string { return v.Path }).(pulumi.StringOutput)
 }
 
 func init() {
@@ -2027,10 +1095,6 @@ func init() {
 	pulumi.RegisterOutputType(DeliveryRuleCacheExpirationActionResponseArrayOutput{})
 	pulumi.RegisterOutputType(DeliveryRuleResponseOutput{})
 	pulumi.RegisterOutputType(DeliveryRuleResponseArrayOutput{})
-	pulumi.RegisterOutputType(DeliveryRuleUrlFileExtensionConditionOutput{})
-	pulumi.RegisterOutputType(DeliveryRuleUrlFileExtensionConditionResponseOutput{})
-	pulumi.RegisterOutputType(DeliveryRuleUrlPathConditionOutput{})
-	pulumi.RegisterOutputType(DeliveryRuleUrlPathConditionResponseOutput{})
 	pulumi.RegisterOutputType(EndpointPropertiesUpdateParametersDeliveryPolicyOutput{})
 	pulumi.RegisterOutputType(EndpointPropertiesUpdateParametersDeliveryPolicyPtrOutput{})
 	pulumi.RegisterOutputType(EndpointPropertiesUpdateParametersResponseDeliveryPolicyOutput{})
@@ -2040,11 +1104,5 @@ func init() {
 	pulumi.RegisterOutputType(GeoFilterResponseOutput{})
 	pulumi.RegisterOutputType(GeoFilterResponseArrayOutput{})
 	pulumi.RegisterOutputType(SkuOutput{})
-	pulumi.RegisterOutputType(SkuPtrOutput{})
 	pulumi.RegisterOutputType(SkuResponseOutput{})
-	pulumi.RegisterOutputType(SkuResponsePtrOutput{})
-	pulumi.RegisterOutputType(UrlFileExtensionConditionParametersOutput{})
-	pulumi.RegisterOutputType(UrlFileExtensionConditionParametersResponseOutput{})
-	pulumi.RegisterOutputType(UrlPathConditionParametersOutput{})
-	pulumi.RegisterOutputType(UrlPathConditionParametersResponseOutput{})
 }

@@ -18,78 +18,6 @@ type MessageCountDetailsResponse struct {
 	TransferMessageCount           float64 `pulumi:"transferMessageCount"`
 }
 
-
-
-
-
-type MessageCountDetailsResponseInput interface {
-	pulumi.Input
-
-	ToMessageCountDetailsResponseOutput() MessageCountDetailsResponseOutput
-	ToMessageCountDetailsResponseOutputWithContext(context.Context) MessageCountDetailsResponseOutput
-}
-
-type MessageCountDetailsResponseArgs struct {
-	ActiveMessageCount             pulumi.Float64Input `pulumi:"activeMessageCount"`
-	DeadLetterMessageCount         pulumi.Float64Input `pulumi:"deadLetterMessageCount"`
-	ScheduledMessageCount          pulumi.Float64Input `pulumi:"scheduledMessageCount"`
-	TransferDeadLetterMessageCount pulumi.Float64Input `pulumi:"transferDeadLetterMessageCount"`
-	TransferMessageCount           pulumi.Float64Input `pulumi:"transferMessageCount"`
-}
-
-func (MessageCountDetailsResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MessageCountDetailsResponse)(nil)).Elem()
-}
-
-func (i MessageCountDetailsResponseArgs) ToMessageCountDetailsResponseOutput() MessageCountDetailsResponseOutput {
-	return i.ToMessageCountDetailsResponseOutputWithContext(context.Background())
-}
-
-func (i MessageCountDetailsResponseArgs) ToMessageCountDetailsResponseOutputWithContext(ctx context.Context) MessageCountDetailsResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MessageCountDetailsResponseOutput)
-}
-
-func (i MessageCountDetailsResponseArgs) ToMessageCountDetailsResponsePtrOutput() MessageCountDetailsResponsePtrOutput {
-	return i.ToMessageCountDetailsResponsePtrOutputWithContext(context.Background())
-}
-
-func (i MessageCountDetailsResponseArgs) ToMessageCountDetailsResponsePtrOutputWithContext(ctx context.Context) MessageCountDetailsResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MessageCountDetailsResponseOutput).ToMessageCountDetailsResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type MessageCountDetailsResponsePtrInput interface {
-	pulumi.Input
-
-	ToMessageCountDetailsResponsePtrOutput() MessageCountDetailsResponsePtrOutput
-	ToMessageCountDetailsResponsePtrOutputWithContext(context.Context) MessageCountDetailsResponsePtrOutput
-}
-
-type messageCountDetailsResponsePtrType MessageCountDetailsResponseArgs
-
-func MessageCountDetailsResponsePtr(v *MessageCountDetailsResponseArgs) MessageCountDetailsResponsePtrInput {
-	return (*messageCountDetailsResponsePtrType)(v)
-}
-
-func (*messageCountDetailsResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**MessageCountDetailsResponse)(nil)).Elem()
-}
-
-func (i *messageCountDetailsResponsePtrType) ToMessageCountDetailsResponsePtrOutput() MessageCountDetailsResponsePtrOutput {
-	return i.ToMessageCountDetailsResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *messageCountDetailsResponsePtrType) ToMessageCountDetailsResponsePtrOutputWithContext(ctx context.Context) MessageCountDetailsResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MessageCountDetailsResponsePtrOutput)
-}
-
 type MessageCountDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (MessageCountDetailsResponseOutput) ElementType() reflect.Type {
@@ -102,16 +30,6 @@ func (o MessageCountDetailsResponseOutput) ToMessageCountDetailsResponseOutput()
 
 func (o MessageCountDetailsResponseOutput) ToMessageCountDetailsResponseOutputWithContext(ctx context.Context) MessageCountDetailsResponseOutput {
 	return o
-}
-
-func (o MessageCountDetailsResponseOutput) ToMessageCountDetailsResponsePtrOutput() MessageCountDetailsResponsePtrOutput {
-	return o.ToMessageCountDetailsResponsePtrOutputWithContext(context.Background())
-}
-
-func (o MessageCountDetailsResponseOutput) ToMessageCountDetailsResponsePtrOutputWithContext(ctx context.Context) MessageCountDetailsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MessageCountDetailsResponse) *MessageCountDetailsResponse {
-		return &v
-	}).(MessageCountDetailsResponsePtrOutput)
 }
 
 func (o MessageCountDetailsResponseOutput) ActiveMessageCount() pulumi.Float64Output {
@@ -132,75 +50,6 @@ func (o MessageCountDetailsResponseOutput) TransferDeadLetterMessageCount() pulu
 
 func (o MessageCountDetailsResponseOutput) TransferMessageCount() pulumi.Float64Output {
 	return o.ApplyT(func(v MessageCountDetailsResponse) float64 { return v.TransferMessageCount }).(pulumi.Float64Output)
-}
-
-type MessageCountDetailsResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (MessageCountDetailsResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**MessageCountDetailsResponse)(nil)).Elem()
-}
-
-func (o MessageCountDetailsResponsePtrOutput) ToMessageCountDetailsResponsePtrOutput() MessageCountDetailsResponsePtrOutput {
-	return o
-}
-
-func (o MessageCountDetailsResponsePtrOutput) ToMessageCountDetailsResponsePtrOutputWithContext(ctx context.Context) MessageCountDetailsResponsePtrOutput {
-	return o
-}
-
-func (o MessageCountDetailsResponsePtrOutput) Elem() MessageCountDetailsResponseOutput {
-	return o.ApplyT(func(v *MessageCountDetailsResponse) MessageCountDetailsResponse {
-		if v != nil {
-			return *v
-		}
-		var ret MessageCountDetailsResponse
-		return ret
-	}).(MessageCountDetailsResponseOutput)
-}
-
-func (o MessageCountDetailsResponsePtrOutput) ActiveMessageCount() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v *MessageCountDetailsResponse) *float64 {
-		if v == nil {
-			return nil
-		}
-		return &v.ActiveMessageCount
-	}).(pulumi.Float64PtrOutput)
-}
-
-func (o MessageCountDetailsResponsePtrOutput) DeadLetterMessageCount() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v *MessageCountDetailsResponse) *float64 {
-		if v == nil {
-			return nil
-		}
-		return &v.DeadLetterMessageCount
-	}).(pulumi.Float64PtrOutput)
-}
-
-func (o MessageCountDetailsResponsePtrOutput) ScheduledMessageCount() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v *MessageCountDetailsResponse) *float64 {
-		if v == nil {
-			return nil
-		}
-		return &v.ScheduledMessageCount
-	}).(pulumi.Float64PtrOutput)
-}
-
-func (o MessageCountDetailsResponsePtrOutput) TransferDeadLetterMessageCount() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v *MessageCountDetailsResponse) *float64 {
-		if v == nil {
-			return nil
-		}
-		return &v.TransferDeadLetterMessageCount
-	}).(pulumi.Float64PtrOutput)
-}
-
-func (o MessageCountDetailsResponsePtrOutput) TransferMessageCount() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v *MessageCountDetailsResponse) *float64 {
-		if v == nil {
-			return nil
-		}
-		return &v.TransferMessageCount
-	}).(pulumi.Float64PtrOutput)
 }
 
 type Sku struct {
@@ -372,76 +221,6 @@ type SkuResponse struct {
 	Tier     string  `pulumi:"tier"`
 }
 
-
-
-
-
-type SkuResponseInput interface {
-	pulumi.Input
-
-	ToSkuResponseOutput() SkuResponseOutput
-	ToSkuResponseOutputWithContext(context.Context) SkuResponseOutput
-}
-
-type SkuResponseArgs struct {
-	Capacity pulumi.IntPtrInput    `pulumi:"capacity"`
-	Name     pulumi.StringPtrInput `pulumi:"name"`
-	Tier     pulumi.StringInput    `pulumi:"tier"`
-}
-
-func (SkuResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SkuResponse)(nil)).Elem()
-}
-
-func (i SkuResponseArgs) ToSkuResponseOutput() SkuResponseOutput {
-	return i.ToSkuResponseOutputWithContext(context.Background())
-}
-
-func (i SkuResponseArgs) ToSkuResponseOutputWithContext(ctx context.Context) SkuResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SkuResponseOutput)
-}
-
-func (i SkuResponseArgs) ToSkuResponsePtrOutput() SkuResponsePtrOutput {
-	return i.ToSkuResponsePtrOutputWithContext(context.Background())
-}
-
-func (i SkuResponseArgs) ToSkuResponsePtrOutputWithContext(ctx context.Context) SkuResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SkuResponseOutput).ToSkuResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type SkuResponsePtrInput interface {
-	pulumi.Input
-
-	ToSkuResponsePtrOutput() SkuResponsePtrOutput
-	ToSkuResponsePtrOutputWithContext(context.Context) SkuResponsePtrOutput
-}
-
-type skuResponsePtrType SkuResponseArgs
-
-func SkuResponsePtr(v *SkuResponseArgs) SkuResponsePtrInput {
-	return (*skuResponsePtrType)(v)
-}
-
-func (*skuResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SkuResponse)(nil)).Elem()
-}
-
-func (i *skuResponsePtrType) ToSkuResponsePtrOutput() SkuResponsePtrOutput {
-	return i.ToSkuResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *skuResponsePtrType) ToSkuResponsePtrOutputWithContext(ctx context.Context) SkuResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SkuResponsePtrOutput)
-}
-
 type SkuResponseOutput struct{ *pulumi.OutputState }
 
 func (SkuResponseOutput) ElementType() reflect.Type {
@@ -454,16 +233,6 @@ func (o SkuResponseOutput) ToSkuResponseOutput() SkuResponseOutput {
 
 func (o SkuResponseOutput) ToSkuResponseOutputWithContext(ctx context.Context) SkuResponseOutput {
 	return o
-}
-
-func (o SkuResponseOutput) ToSkuResponsePtrOutput() SkuResponsePtrOutput {
-	return o.ToSkuResponsePtrOutputWithContext(context.Background())
-}
-
-func (o SkuResponseOutput) ToSkuResponsePtrOutputWithContext(ctx context.Context) SkuResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SkuResponse) *SkuResponse {
-		return &v
-	}).(SkuResponsePtrOutput)
 }
 
 func (o SkuResponseOutput) Capacity() pulumi.IntPtrOutput {
@@ -531,7 +300,6 @@ func (o SkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 
 func init() {
 	pulumi.RegisterOutputType(MessageCountDetailsResponseOutput{})
-	pulumi.RegisterOutputType(MessageCountDetailsResponsePtrOutput{})
 	pulumi.RegisterOutputType(SkuOutput{})
 	pulumi.RegisterOutputType(SkuPtrOutput{})
 	pulumi.RegisterOutputType(SkuResponseOutput{})

@@ -108,58 +108,6 @@ type DatabaseVulnerabilityAssessmentRuleBaselineItemResponse struct {
 	Result []string `pulumi:"result"`
 }
 
-
-
-
-
-type DatabaseVulnerabilityAssessmentRuleBaselineItemResponseInput interface {
-	pulumi.Input
-
-	ToDatabaseVulnerabilityAssessmentRuleBaselineItemResponseOutput() DatabaseVulnerabilityAssessmentRuleBaselineItemResponseOutput
-	ToDatabaseVulnerabilityAssessmentRuleBaselineItemResponseOutputWithContext(context.Context) DatabaseVulnerabilityAssessmentRuleBaselineItemResponseOutput
-}
-
-type DatabaseVulnerabilityAssessmentRuleBaselineItemResponseArgs struct {
-	Result pulumi.StringArrayInput `pulumi:"result"`
-}
-
-func (DatabaseVulnerabilityAssessmentRuleBaselineItemResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatabaseVulnerabilityAssessmentRuleBaselineItemResponse)(nil)).Elem()
-}
-
-func (i DatabaseVulnerabilityAssessmentRuleBaselineItemResponseArgs) ToDatabaseVulnerabilityAssessmentRuleBaselineItemResponseOutput() DatabaseVulnerabilityAssessmentRuleBaselineItemResponseOutput {
-	return i.ToDatabaseVulnerabilityAssessmentRuleBaselineItemResponseOutputWithContext(context.Background())
-}
-
-func (i DatabaseVulnerabilityAssessmentRuleBaselineItemResponseArgs) ToDatabaseVulnerabilityAssessmentRuleBaselineItemResponseOutputWithContext(ctx context.Context) DatabaseVulnerabilityAssessmentRuleBaselineItemResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DatabaseVulnerabilityAssessmentRuleBaselineItemResponseOutput)
-}
-
-
-
-
-
-type DatabaseVulnerabilityAssessmentRuleBaselineItemResponseArrayInput interface {
-	pulumi.Input
-
-	ToDatabaseVulnerabilityAssessmentRuleBaselineItemResponseArrayOutput() DatabaseVulnerabilityAssessmentRuleBaselineItemResponseArrayOutput
-	ToDatabaseVulnerabilityAssessmentRuleBaselineItemResponseArrayOutputWithContext(context.Context) DatabaseVulnerabilityAssessmentRuleBaselineItemResponseArrayOutput
-}
-
-type DatabaseVulnerabilityAssessmentRuleBaselineItemResponseArray []DatabaseVulnerabilityAssessmentRuleBaselineItemResponseInput
-
-func (DatabaseVulnerabilityAssessmentRuleBaselineItemResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DatabaseVulnerabilityAssessmentRuleBaselineItemResponse)(nil)).Elem()
-}
-
-func (i DatabaseVulnerabilityAssessmentRuleBaselineItemResponseArray) ToDatabaseVulnerabilityAssessmentRuleBaselineItemResponseArrayOutput() DatabaseVulnerabilityAssessmentRuleBaselineItemResponseArrayOutput {
-	return i.ToDatabaseVulnerabilityAssessmentRuleBaselineItemResponseArrayOutputWithContext(context.Background())
-}
-
-func (i DatabaseVulnerabilityAssessmentRuleBaselineItemResponseArray) ToDatabaseVulnerabilityAssessmentRuleBaselineItemResponseArrayOutputWithContext(ctx context.Context) DatabaseVulnerabilityAssessmentRuleBaselineItemResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DatabaseVulnerabilityAssessmentRuleBaselineItemResponseArrayOutput)
-}
-
 type DatabaseVulnerabilityAssessmentRuleBaselineItemResponseOutput struct{ *pulumi.OutputState }
 
 func (DatabaseVulnerabilityAssessmentRuleBaselineItemResponseOutput) ElementType() reflect.Type {
@@ -351,75 +299,6 @@ type ElasticPoolPerDatabaseSettingsResponse struct {
 	MinCapacity *float64 `pulumi:"minCapacity"`
 }
 
-
-
-
-
-type ElasticPoolPerDatabaseSettingsResponseInput interface {
-	pulumi.Input
-
-	ToElasticPoolPerDatabaseSettingsResponseOutput() ElasticPoolPerDatabaseSettingsResponseOutput
-	ToElasticPoolPerDatabaseSettingsResponseOutputWithContext(context.Context) ElasticPoolPerDatabaseSettingsResponseOutput
-}
-
-type ElasticPoolPerDatabaseSettingsResponseArgs struct {
-	MaxCapacity pulumi.Float64PtrInput `pulumi:"maxCapacity"`
-	MinCapacity pulumi.Float64PtrInput `pulumi:"minCapacity"`
-}
-
-func (ElasticPoolPerDatabaseSettingsResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ElasticPoolPerDatabaseSettingsResponse)(nil)).Elem()
-}
-
-func (i ElasticPoolPerDatabaseSettingsResponseArgs) ToElasticPoolPerDatabaseSettingsResponseOutput() ElasticPoolPerDatabaseSettingsResponseOutput {
-	return i.ToElasticPoolPerDatabaseSettingsResponseOutputWithContext(context.Background())
-}
-
-func (i ElasticPoolPerDatabaseSettingsResponseArgs) ToElasticPoolPerDatabaseSettingsResponseOutputWithContext(ctx context.Context) ElasticPoolPerDatabaseSettingsResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ElasticPoolPerDatabaseSettingsResponseOutput)
-}
-
-func (i ElasticPoolPerDatabaseSettingsResponseArgs) ToElasticPoolPerDatabaseSettingsResponsePtrOutput() ElasticPoolPerDatabaseSettingsResponsePtrOutput {
-	return i.ToElasticPoolPerDatabaseSettingsResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ElasticPoolPerDatabaseSettingsResponseArgs) ToElasticPoolPerDatabaseSettingsResponsePtrOutputWithContext(ctx context.Context) ElasticPoolPerDatabaseSettingsResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ElasticPoolPerDatabaseSettingsResponseOutput).ToElasticPoolPerDatabaseSettingsResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type ElasticPoolPerDatabaseSettingsResponsePtrInput interface {
-	pulumi.Input
-
-	ToElasticPoolPerDatabaseSettingsResponsePtrOutput() ElasticPoolPerDatabaseSettingsResponsePtrOutput
-	ToElasticPoolPerDatabaseSettingsResponsePtrOutputWithContext(context.Context) ElasticPoolPerDatabaseSettingsResponsePtrOutput
-}
-
-type elasticPoolPerDatabaseSettingsResponsePtrType ElasticPoolPerDatabaseSettingsResponseArgs
-
-func ElasticPoolPerDatabaseSettingsResponsePtr(v *ElasticPoolPerDatabaseSettingsResponseArgs) ElasticPoolPerDatabaseSettingsResponsePtrInput {
-	return (*elasticPoolPerDatabaseSettingsResponsePtrType)(v)
-}
-
-func (*elasticPoolPerDatabaseSettingsResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ElasticPoolPerDatabaseSettingsResponse)(nil)).Elem()
-}
-
-func (i *elasticPoolPerDatabaseSettingsResponsePtrType) ToElasticPoolPerDatabaseSettingsResponsePtrOutput() ElasticPoolPerDatabaseSettingsResponsePtrOutput {
-	return i.ToElasticPoolPerDatabaseSettingsResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *elasticPoolPerDatabaseSettingsResponsePtrType) ToElasticPoolPerDatabaseSettingsResponsePtrOutputWithContext(ctx context.Context) ElasticPoolPerDatabaseSettingsResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ElasticPoolPerDatabaseSettingsResponsePtrOutput)
-}
-
 type ElasticPoolPerDatabaseSettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (ElasticPoolPerDatabaseSettingsResponseOutput) ElementType() reflect.Type {
@@ -432,16 +311,6 @@ func (o ElasticPoolPerDatabaseSettingsResponseOutput) ToElasticPoolPerDatabaseSe
 
 func (o ElasticPoolPerDatabaseSettingsResponseOutput) ToElasticPoolPerDatabaseSettingsResponseOutputWithContext(ctx context.Context) ElasticPoolPerDatabaseSettingsResponseOutput {
 	return o
-}
-
-func (o ElasticPoolPerDatabaseSettingsResponseOutput) ToElasticPoolPerDatabaseSettingsResponsePtrOutput() ElasticPoolPerDatabaseSettingsResponsePtrOutput {
-	return o.ToElasticPoolPerDatabaseSettingsResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ElasticPoolPerDatabaseSettingsResponseOutput) ToElasticPoolPerDatabaseSettingsResponsePtrOutputWithContext(ctx context.Context) ElasticPoolPerDatabaseSettingsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ElasticPoolPerDatabaseSettingsResponse) *ElasticPoolPerDatabaseSettingsResponse {
-		return &v
-	}).(ElasticPoolPerDatabaseSettingsResponsePtrOutput)
 }
 
 func (o ElasticPoolPerDatabaseSettingsResponseOutput) MaxCapacity() pulumi.Float64PtrOutput {
@@ -631,74 +500,6 @@ type InstanceFailoverGroupReadOnlyEndpointResponse struct {
 	FailoverPolicy *string `pulumi:"failoverPolicy"`
 }
 
-
-
-
-
-type InstanceFailoverGroupReadOnlyEndpointResponseInput interface {
-	pulumi.Input
-
-	ToInstanceFailoverGroupReadOnlyEndpointResponseOutput() InstanceFailoverGroupReadOnlyEndpointResponseOutput
-	ToInstanceFailoverGroupReadOnlyEndpointResponseOutputWithContext(context.Context) InstanceFailoverGroupReadOnlyEndpointResponseOutput
-}
-
-type InstanceFailoverGroupReadOnlyEndpointResponseArgs struct {
-	FailoverPolicy pulumi.StringPtrInput `pulumi:"failoverPolicy"`
-}
-
-func (InstanceFailoverGroupReadOnlyEndpointResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*InstanceFailoverGroupReadOnlyEndpointResponse)(nil)).Elem()
-}
-
-func (i InstanceFailoverGroupReadOnlyEndpointResponseArgs) ToInstanceFailoverGroupReadOnlyEndpointResponseOutput() InstanceFailoverGroupReadOnlyEndpointResponseOutput {
-	return i.ToInstanceFailoverGroupReadOnlyEndpointResponseOutputWithContext(context.Background())
-}
-
-func (i InstanceFailoverGroupReadOnlyEndpointResponseArgs) ToInstanceFailoverGroupReadOnlyEndpointResponseOutputWithContext(ctx context.Context) InstanceFailoverGroupReadOnlyEndpointResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(InstanceFailoverGroupReadOnlyEndpointResponseOutput)
-}
-
-func (i InstanceFailoverGroupReadOnlyEndpointResponseArgs) ToInstanceFailoverGroupReadOnlyEndpointResponsePtrOutput() InstanceFailoverGroupReadOnlyEndpointResponsePtrOutput {
-	return i.ToInstanceFailoverGroupReadOnlyEndpointResponsePtrOutputWithContext(context.Background())
-}
-
-func (i InstanceFailoverGroupReadOnlyEndpointResponseArgs) ToInstanceFailoverGroupReadOnlyEndpointResponsePtrOutputWithContext(ctx context.Context) InstanceFailoverGroupReadOnlyEndpointResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(InstanceFailoverGroupReadOnlyEndpointResponseOutput).ToInstanceFailoverGroupReadOnlyEndpointResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type InstanceFailoverGroupReadOnlyEndpointResponsePtrInput interface {
-	pulumi.Input
-
-	ToInstanceFailoverGroupReadOnlyEndpointResponsePtrOutput() InstanceFailoverGroupReadOnlyEndpointResponsePtrOutput
-	ToInstanceFailoverGroupReadOnlyEndpointResponsePtrOutputWithContext(context.Context) InstanceFailoverGroupReadOnlyEndpointResponsePtrOutput
-}
-
-type instanceFailoverGroupReadOnlyEndpointResponsePtrType InstanceFailoverGroupReadOnlyEndpointResponseArgs
-
-func InstanceFailoverGroupReadOnlyEndpointResponsePtr(v *InstanceFailoverGroupReadOnlyEndpointResponseArgs) InstanceFailoverGroupReadOnlyEndpointResponsePtrInput {
-	return (*instanceFailoverGroupReadOnlyEndpointResponsePtrType)(v)
-}
-
-func (*instanceFailoverGroupReadOnlyEndpointResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**InstanceFailoverGroupReadOnlyEndpointResponse)(nil)).Elem()
-}
-
-func (i *instanceFailoverGroupReadOnlyEndpointResponsePtrType) ToInstanceFailoverGroupReadOnlyEndpointResponsePtrOutput() InstanceFailoverGroupReadOnlyEndpointResponsePtrOutput {
-	return i.ToInstanceFailoverGroupReadOnlyEndpointResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *instanceFailoverGroupReadOnlyEndpointResponsePtrType) ToInstanceFailoverGroupReadOnlyEndpointResponsePtrOutputWithContext(ctx context.Context) InstanceFailoverGroupReadOnlyEndpointResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(InstanceFailoverGroupReadOnlyEndpointResponsePtrOutput)
-}
-
 type InstanceFailoverGroupReadOnlyEndpointResponseOutput struct{ *pulumi.OutputState }
 
 func (InstanceFailoverGroupReadOnlyEndpointResponseOutput) ElementType() reflect.Type {
@@ -711,16 +512,6 @@ func (o InstanceFailoverGroupReadOnlyEndpointResponseOutput) ToInstanceFailoverG
 
 func (o InstanceFailoverGroupReadOnlyEndpointResponseOutput) ToInstanceFailoverGroupReadOnlyEndpointResponseOutputWithContext(ctx context.Context) InstanceFailoverGroupReadOnlyEndpointResponseOutput {
 	return o
-}
-
-func (o InstanceFailoverGroupReadOnlyEndpointResponseOutput) ToInstanceFailoverGroupReadOnlyEndpointResponsePtrOutput() InstanceFailoverGroupReadOnlyEndpointResponsePtrOutput {
-	return o.ToInstanceFailoverGroupReadOnlyEndpointResponsePtrOutputWithContext(context.Background())
-}
-
-func (o InstanceFailoverGroupReadOnlyEndpointResponseOutput) ToInstanceFailoverGroupReadOnlyEndpointResponsePtrOutputWithContext(ctx context.Context) InstanceFailoverGroupReadOnlyEndpointResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v InstanceFailoverGroupReadOnlyEndpointResponse) *InstanceFailoverGroupReadOnlyEndpointResponse {
-		return &v
-	}).(InstanceFailoverGroupReadOnlyEndpointResponsePtrOutput)
 }
 
 func (o InstanceFailoverGroupReadOnlyEndpointResponseOutput) FailoverPolicy() pulumi.StringPtrOutput {
@@ -793,47 +584,6 @@ func (i InstanceFailoverGroupReadWriteEndpointArgs) ToInstanceFailoverGroupReadW
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceFailoverGroupReadWriteEndpointOutput)
 }
 
-func (i InstanceFailoverGroupReadWriteEndpointArgs) ToInstanceFailoverGroupReadWriteEndpointPtrOutput() InstanceFailoverGroupReadWriteEndpointPtrOutput {
-	return i.ToInstanceFailoverGroupReadWriteEndpointPtrOutputWithContext(context.Background())
-}
-
-func (i InstanceFailoverGroupReadWriteEndpointArgs) ToInstanceFailoverGroupReadWriteEndpointPtrOutputWithContext(ctx context.Context) InstanceFailoverGroupReadWriteEndpointPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(InstanceFailoverGroupReadWriteEndpointOutput).ToInstanceFailoverGroupReadWriteEndpointPtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type InstanceFailoverGroupReadWriteEndpointPtrInput interface {
-	pulumi.Input
-
-	ToInstanceFailoverGroupReadWriteEndpointPtrOutput() InstanceFailoverGroupReadWriteEndpointPtrOutput
-	ToInstanceFailoverGroupReadWriteEndpointPtrOutputWithContext(context.Context) InstanceFailoverGroupReadWriteEndpointPtrOutput
-}
-
-type instanceFailoverGroupReadWriteEndpointPtrType InstanceFailoverGroupReadWriteEndpointArgs
-
-func InstanceFailoverGroupReadWriteEndpointPtr(v *InstanceFailoverGroupReadWriteEndpointArgs) InstanceFailoverGroupReadWriteEndpointPtrInput {
-	return (*instanceFailoverGroupReadWriteEndpointPtrType)(v)
-}
-
-func (*instanceFailoverGroupReadWriteEndpointPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**InstanceFailoverGroupReadWriteEndpoint)(nil)).Elem()
-}
-
-func (i *instanceFailoverGroupReadWriteEndpointPtrType) ToInstanceFailoverGroupReadWriteEndpointPtrOutput() InstanceFailoverGroupReadWriteEndpointPtrOutput {
-	return i.ToInstanceFailoverGroupReadWriteEndpointPtrOutputWithContext(context.Background())
-}
-
-func (i *instanceFailoverGroupReadWriteEndpointPtrType) ToInstanceFailoverGroupReadWriteEndpointPtrOutputWithContext(ctx context.Context) InstanceFailoverGroupReadWriteEndpointPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(InstanceFailoverGroupReadWriteEndpointPtrOutput)
-}
-
 type InstanceFailoverGroupReadWriteEndpointOutput struct{ *pulumi.OutputState }
 
 func (InstanceFailoverGroupReadWriteEndpointOutput) ElementType() reflect.Type {
@@ -848,16 +598,6 @@ func (o InstanceFailoverGroupReadWriteEndpointOutput) ToInstanceFailoverGroupRea
 	return o
 }
 
-func (o InstanceFailoverGroupReadWriteEndpointOutput) ToInstanceFailoverGroupReadWriteEndpointPtrOutput() InstanceFailoverGroupReadWriteEndpointPtrOutput {
-	return o.ToInstanceFailoverGroupReadWriteEndpointPtrOutputWithContext(context.Background())
-}
-
-func (o InstanceFailoverGroupReadWriteEndpointOutput) ToInstanceFailoverGroupReadWriteEndpointPtrOutputWithContext(ctx context.Context) InstanceFailoverGroupReadWriteEndpointPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v InstanceFailoverGroupReadWriteEndpoint) *InstanceFailoverGroupReadWriteEndpoint {
-		return &v
-	}).(InstanceFailoverGroupReadWriteEndpointPtrOutput)
-}
-
 func (o InstanceFailoverGroupReadWriteEndpointOutput) FailoverPolicy() pulumi.StringOutput {
 	return o.ApplyT(func(v InstanceFailoverGroupReadWriteEndpoint) string { return v.FailoverPolicy }).(pulumi.StringOutput)
 }
@@ -866,120 +606,9 @@ func (o InstanceFailoverGroupReadWriteEndpointOutput) FailoverWithDataLossGraceP
 	return o.ApplyT(func(v InstanceFailoverGroupReadWriteEndpoint) *int { return v.FailoverWithDataLossGracePeriodMinutes }).(pulumi.IntPtrOutput)
 }
 
-type InstanceFailoverGroupReadWriteEndpointPtrOutput struct{ *pulumi.OutputState }
-
-func (InstanceFailoverGroupReadWriteEndpointPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**InstanceFailoverGroupReadWriteEndpoint)(nil)).Elem()
-}
-
-func (o InstanceFailoverGroupReadWriteEndpointPtrOutput) ToInstanceFailoverGroupReadWriteEndpointPtrOutput() InstanceFailoverGroupReadWriteEndpointPtrOutput {
-	return o
-}
-
-func (o InstanceFailoverGroupReadWriteEndpointPtrOutput) ToInstanceFailoverGroupReadWriteEndpointPtrOutputWithContext(ctx context.Context) InstanceFailoverGroupReadWriteEndpointPtrOutput {
-	return o
-}
-
-func (o InstanceFailoverGroupReadWriteEndpointPtrOutput) Elem() InstanceFailoverGroupReadWriteEndpointOutput {
-	return o.ApplyT(func(v *InstanceFailoverGroupReadWriteEndpoint) InstanceFailoverGroupReadWriteEndpoint {
-		if v != nil {
-			return *v
-		}
-		var ret InstanceFailoverGroupReadWriteEndpoint
-		return ret
-	}).(InstanceFailoverGroupReadWriteEndpointOutput)
-}
-
-func (o InstanceFailoverGroupReadWriteEndpointPtrOutput) FailoverPolicy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *InstanceFailoverGroupReadWriteEndpoint) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.FailoverPolicy
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o InstanceFailoverGroupReadWriteEndpointPtrOutput) FailoverWithDataLossGracePeriodMinutes() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *InstanceFailoverGroupReadWriteEndpoint) *int {
-		if v == nil {
-			return nil
-		}
-		return v.FailoverWithDataLossGracePeriodMinutes
-	}).(pulumi.IntPtrOutput)
-}
-
 type InstanceFailoverGroupReadWriteEndpointResponse struct {
 	FailoverPolicy                         string `pulumi:"failoverPolicy"`
 	FailoverWithDataLossGracePeriodMinutes *int   `pulumi:"failoverWithDataLossGracePeriodMinutes"`
-}
-
-
-
-
-
-type InstanceFailoverGroupReadWriteEndpointResponseInput interface {
-	pulumi.Input
-
-	ToInstanceFailoverGroupReadWriteEndpointResponseOutput() InstanceFailoverGroupReadWriteEndpointResponseOutput
-	ToInstanceFailoverGroupReadWriteEndpointResponseOutputWithContext(context.Context) InstanceFailoverGroupReadWriteEndpointResponseOutput
-}
-
-type InstanceFailoverGroupReadWriteEndpointResponseArgs struct {
-	FailoverPolicy                         pulumi.StringInput `pulumi:"failoverPolicy"`
-	FailoverWithDataLossGracePeriodMinutes pulumi.IntPtrInput `pulumi:"failoverWithDataLossGracePeriodMinutes"`
-}
-
-func (InstanceFailoverGroupReadWriteEndpointResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*InstanceFailoverGroupReadWriteEndpointResponse)(nil)).Elem()
-}
-
-func (i InstanceFailoverGroupReadWriteEndpointResponseArgs) ToInstanceFailoverGroupReadWriteEndpointResponseOutput() InstanceFailoverGroupReadWriteEndpointResponseOutput {
-	return i.ToInstanceFailoverGroupReadWriteEndpointResponseOutputWithContext(context.Background())
-}
-
-func (i InstanceFailoverGroupReadWriteEndpointResponseArgs) ToInstanceFailoverGroupReadWriteEndpointResponseOutputWithContext(ctx context.Context) InstanceFailoverGroupReadWriteEndpointResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(InstanceFailoverGroupReadWriteEndpointResponseOutput)
-}
-
-func (i InstanceFailoverGroupReadWriteEndpointResponseArgs) ToInstanceFailoverGroupReadWriteEndpointResponsePtrOutput() InstanceFailoverGroupReadWriteEndpointResponsePtrOutput {
-	return i.ToInstanceFailoverGroupReadWriteEndpointResponsePtrOutputWithContext(context.Background())
-}
-
-func (i InstanceFailoverGroupReadWriteEndpointResponseArgs) ToInstanceFailoverGroupReadWriteEndpointResponsePtrOutputWithContext(ctx context.Context) InstanceFailoverGroupReadWriteEndpointResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(InstanceFailoverGroupReadWriteEndpointResponseOutput).ToInstanceFailoverGroupReadWriteEndpointResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type InstanceFailoverGroupReadWriteEndpointResponsePtrInput interface {
-	pulumi.Input
-
-	ToInstanceFailoverGroupReadWriteEndpointResponsePtrOutput() InstanceFailoverGroupReadWriteEndpointResponsePtrOutput
-	ToInstanceFailoverGroupReadWriteEndpointResponsePtrOutputWithContext(context.Context) InstanceFailoverGroupReadWriteEndpointResponsePtrOutput
-}
-
-type instanceFailoverGroupReadWriteEndpointResponsePtrType InstanceFailoverGroupReadWriteEndpointResponseArgs
-
-func InstanceFailoverGroupReadWriteEndpointResponsePtr(v *InstanceFailoverGroupReadWriteEndpointResponseArgs) InstanceFailoverGroupReadWriteEndpointResponsePtrInput {
-	return (*instanceFailoverGroupReadWriteEndpointResponsePtrType)(v)
-}
-
-func (*instanceFailoverGroupReadWriteEndpointResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**InstanceFailoverGroupReadWriteEndpointResponse)(nil)).Elem()
-}
-
-func (i *instanceFailoverGroupReadWriteEndpointResponsePtrType) ToInstanceFailoverGroupReadWriteEndpointResponsePtrOutput() InstanceFailoverGroupReadWriteEndpointResponsePtrOutput {
-	return i.ToInstanceFailoverGroupReadWriteEndpointResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *instanceFailoverGroupReadWriteEndpointResponsePtrType) ToInstanceFailoverGroupReadWriteEndpointResponsePtrOutputWithContext(ctx context.Context) InstanceFailoverGroupReadWriteEndpointResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(InstanceFailoverGroupReadWriteEndpointResponsePtrOutput)
 }
 
 type InstanceFailoverGroupReadWriteEndpointResponseOutput struct{ *pulumi.OutputState }
@@ -996,64 +625,12 @@ func (o InstanceFailoverGroupReadWriteEndpointResponseOutput) ToInstanceFailover
 	return o
 }
 
-func (o InstanceFailoverGroupReadWriteEndpointResponseOutput) ToInstanceFailoverGroupReadWriteEndpointResponsePtrOutput() InstanceFailoverGroupReadWriteEndpointResponsePtrOutput {
-	return o.ToInstanceFailoverGroupReadWriteEndpointResponsePtrOutputWithContext(context.Background())
-}
-
-func (o InstanceFailoverGroupReadWriteEndpointResponseOutput) ToInstanceFailoverGroupReadWriteEndpointResponsePtrOutputWithContext(ctx context.Context) InstanceFailoverGroupReadWriteEndpointResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v InstanceFailoverGroupReadWriteEndpointResponse) *InstanceFailoverGroupReadWriteEndpointResponse {
-		return &v
-	}).(InstanceFailoverGroupReadWriteEndpointResponsePtrOutput)
-}
-
 func (o InstanceFailoverGroupReadWriteEndpointResponseOutput) FailoverPolicy() pulumi.StringOutput {
 	return o.ApplyT(func(v InstanceFailoverGroupReadWriteEndpointResponse) string { return v.FailoverPolicy }).(pulumi.StringOutput)
 }
 
 func (o InstanceFailoverGroupReadWriteEndpointResponseOutput) FailoverWithDataLossGracePeriodMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v InstanceFailoverGroupReadWriteEndpointResponse) *int {
-		return v.FailoverWithDataLossGracePeriodMinutes
-	}).(pulumi.IntPtrOutput)
-}
-
-type InstanceFailoverGroupReadWriteEndpointResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (InstanceFailoverGroupReadWriteEndpointResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**InstanceFailoverGroupReadWriteEndpointResponse)(nil)).Elem()
-}
-
-func (o InstanceFailoverGroupReadWriteEndpointResponsePtrOutput) ToInstanceFailoverGroupReadWriteEndpointResponsePtrOutput() InstanceFailoverGroupReadWriteEndpointResponsePtrOutput {
-	return o
-}
-
-func (o InstanceFailoverGroupReadWriteEndpointResponsePtrOutput) ToInstanceFailoverGroupReadWriteEndpointResponsePtrOutputWithContext(ctx context.Context) InstanceFailoverGroupReadWriteEndpointResponsePtrOutput {
-	return o
-}
-
-func (o InstanceFailoverGroupReadWriteEndpointResponsePtrOutput) Elem() InstanceFailoverGroupReadWriteEndpointResponseOutput {
-	return o.ApplyT(func(v *InstanceFailoverGroupReadWriteEndpointResponse) InstanceFailoverGroupReadWriteEndpointResponse {
-		if v != nil {
-			return *v
-		}
-		var ret InstanceFailoverGroupReadWriteEndpointResponse
-		return ret
-	}).(InstanceFailoverGroupReadWriteEndpointResponseOutput)
-}
-
-func (o InstanceFailoverGroupReadWriteEndpointResponsePtrOutput) FailoverPolicy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *InstanceFailoverGroupReadWriteEndpointResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.FailoverPolicy
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o InstanceFailoverGroupReadWriteEndpointResponsePtrOutput) FailoverWithDataLossGracePeriodMinutes() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *InstanceFailoverGroupReadWriteEndpointResponse) *int {
-		if v == nil {
-			return nil
-		}
 		return v.FailoverWithDataLossGracePeriodMinutes
 	}).(pulumi.IntPtrOutput)
 }
@@ -1161,59 +738,6 @@ func (o ManagedInstancePairInfoArrayOutput) Index(i pulumi.IntInput) ManagedInst
 type ManagedInstancePairInfoResponse struct {
 	PartnerManagedInstanceId *string `pulumi:"partnerManagedInstanceId"`
 	PrimaryManagedInstanceId *string `pulumi:"primaryManagedInstanceId"`
-}
-
-
-
-
-
-type ManagedInstancePairInfoResponseInput interface {
-	pulumi.Input
-
-	ToManagedInstancePairInfoResponseOutput() ManagedInstancePairInfoResponseOutput
-	ToManagedInstancePairInfoResponseOutputWithContext(context.Context) ManagedInstancePairInfoResponseOutput
-}
-
-type ManagedInstancePairInfoResponseArgs struct {
-	PartnerManagedInstanceId pulumi.StringPtrInput `pulumi:"partnerManagedInstanceId"`
-	PrimaryManagedInstanceId pulumi.StringPtrInput `pulumi:"primaryManagedInstanceId"`
-}
-
-func (ManagedInstancePairInfoResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagedInstancePairInfoResponse)(nil)).Elem()
-}
-
-func (i ManagedInstancePairInfoResponseArgs) ToManagedInstancePairInfoResponseOutput() ManagedInstancePairInfoResponseOutput {
-	return i.ToManagedInstancePairInfoResponseOutputWithContext(context.Background())
-}
-
-func (i ManagedInstancePairInfoResponseArgs) ToManagedInstancePairInfoResponseOutputWithContext(ctx context.Context) ManagedInstancePairInfoResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagedInstancePairInfoResponseOutput)
-}
-
-
-
-
-
-type ManagedInstancePairInfoResponseArrayInput interface {
-	pulumi.Input
-
-	ToManagedInstancePairInfoResponseArrayOutput() ManagedInstancePairInfoResponseArrayOutput
-	ToManagedInstancePairInfoResponseArrayOutputWithContext(context.Context) ManagedInstancePairInfoResponseArrayOutput
-}
-
-type ManagedInstancePairInfoResponseArray []ManagedInstancePairInfoResponseInput
-
-func (ManagedInstancePairInfoResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ManagedInstancePairInfoResponse)(nil)).Elem()
-}
-
-func (i ManagedInstancePairInfoResponseArray) ToManagedInstancePairInfoResponseArrayOutput() ManagedInstancePairInfoResponseArrayOutput {
-	return i.ToManagedInstancePairInfoResponseArrayOutputWithContext(context.Background())
-}
-
-func (i ManagedInstancePairInfoResponseArray) ToManagedInstancePairInfoResponseArrayOutputWithContext(ctx context.Context) ManagedInstancePairInfoResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagedInstancePairInfoResponseArrayOutput)
 }
 
 type ManagedInstancePairInfoResponseOutput struct{ *pulumi.OutputState }
@@ -1355,59 +879,6 @@ func (o PartnerRegionInfoArrayOutput) Index(i pulumi.IntInput) PartnerRegionInfo
 type PartnerRegionInfoResponse struct {
 	Location        *string `pulumi:"location"`
 	ReplicationRole string  `pulumi:"replicationRole"`
-}
-
-
-
-
-
-type PartnerRegionInfoResponseInput interface {
-	pulumi.Input
-
-	ToPartnerRegionInfoResponseOutput() PartnerRegionInfoResponseOutput
-	ToPartnerRegionInfoResponseOutputWithContext(context.Context) PartnerRegionInfoResponseOutput
-}
-
-type PartnerRegionInfoResponseArgs struct {
-	Location        pulumi.StringPtrInput `pulumi:"location"`
-	ReplicationRole pulumi.StringInput    `pulumi:"replicationRole"`
-}
-
-func (PartnerRegionInfoResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PartnerRegionInfoResponse)(nil)).Elem()
-}
-
-func (i PartnerRegionInfoResponseArgs) ToPartnerRegionInfoResponseOutput() PartnerRegionInfoResponseOutput {
-	return i.ToPartnerRegionInfoResponseOutputWithContext(context.Background())
-}
-
-func (i PartnerRegionInfoResponseArgs) ToPartnerRegionInfoResponseOutputWithContext(ctx context.Context) PartnerRegionInfoResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PartnerRegionInfoResponseOutput)
-}
-
-
-
-
-
-type PartnerRegionInfoResponseArrayInput interface {
-	pulumi.Input
-
-	ToPartnerRegionInfoResponseArrayOutput() PartnerRegionInfoResponseArrayOutput
-	ToPartnerRegionInfoResponseArrayOutputWithContext(context.Context) PartnerRegionInfoResponseArrayOutput
-}
-
-type PartnerRegionInfoResponseArray []PartnerRegionInfoResponseInput
-
-func (PartnerRegionInfoResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PartnerRegionInfoResponse)(nil)).Elem()
-}
-
-func (i PartnerRegionInfoResponseArray) ToPartnerRegionInfoResponseArrayOutput() PartnerRegionInfoResponseArrayOutput {
-	return i.ToPartnerRegionInfoResponseArrayOutputWithContext(context.Background())
-}
-
-func (i PartnerRegionInfoResponseArray) ToPartnerRegionInfoResponseArrayOutputWithContext(ctx context.Context) PartnerRegionInfoResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PartnerRegionInfoResponseArrayOutput)
 }
 
 type PartnerRegionInfoResponseOutput struct{ *pulumi.OutputState }
@@ -1653,78 +1124,6 @@ type SkuResponse struct {
 	Tier     *string `pulumi:"tier"`
 }
 
-
-
-
-
-type SkuResponseInput interface {
-	pulumi.Input
-
-	ToSkuResponseOutput() SkuResponseOutput
-	ToSkuResponseOutputWithContext(context.Context) SkuResponseOutput
-}
-
-type SkuResponseArgs struct {
-	Capacity pulumi.IntPtrInput    `pulumi:"capacity"`
-	Family   pulumi.StringPtrInput `pulumi:"family"`
-	Name     pulumi.StringInput    `pulumi:"name"`
-	Size     pulumi.StringPtrInput `pulumi:"size"`
-	Tier     pulumi.StringPtrInput `pulumi:"tier"`
-}
-
-func (SkuResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SkuResponse)(nil)).Elem()
-}
-
-func (i SkuResponseArgs) ToSkuResponseOutput() SkuResponseOutput {
-	return i.ToSkuResponseOutputWithContext(context.Background())
-}
-
-func (i SkuResponseArgs) ToSkuResponseOutputWithContext(ctx context.Context) SkuResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SkuResponseOutput)
-}
-
-func (i SkuResponseArgs) ToSkuResponsePtrOutput() SkuResponsePtrOutput {
-	return i.ToSkuResponsePtrOutputWithContext(context.Background())
-}
-
-func (i SkuResponseArgs) ToSkuResponsePtrOutputWithContext(ctx context.Context) SkuResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SkuResponseOutput).ToSkuResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type SkuResponsePtrInput interface {
-	pulumi.Input
-
-	ToSkuResponsePtrOutput() SkuResponsePtrOutput
-	ToSkuResponsePtrOutputWithContext(context.Context) SkuResponsePtrOutput
-}
-
-type skuResponsePtrType SkuResponseArgs
-
-func SkuResponsePtr(v *SkuResponseArgs) SkuResponsePtrInput {
-	return (*skuResponsePtrType)(v)
-}
-
-func (*skuResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SkuResponse)(nil)).Elem()
-}
-
-func (i *skuResponsePtrType) ToSkuResponsePtrOutput() SkuResponsePtrOutput {
-	return i.ToSkuResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *skuResponsePtrType) ToSkuResponsePtrOutputWithContext(ctx context.Context) SkuResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SkuResponsePtrOutput)
-}
-
 type SkuResponseOutput struct{ *pulumi.OutputState }
 
 func (SkuResponseOutput) ElementType() reflect.Type {
@@ -1737,16 +1136,6 @@ func (o SkuResponseOutput) ToSkuResponseOutput() SkuResponseOutput {
 
 func (o SkuResponseOutput) ToSkuResponseOutputWithContext(ctx context.Context) SkuResponseOutput {
 	return o
-}
-
-func (o SkuResponseOutput) ToSkuResponsePtrOutput() SkuResponsePtrOutput {
-	return o.ToSkuResponsePtrOutputWithContext(context.Background())
-}
-
-func (o SkuResponseOutput) ToSkuResponsePtrOutputWithContext(ctx context.Context) SkuResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SkuResponse) *SkuResponse {
-		return &v
-	}).(SkuResponsePtrOutput)
 }
 
 func (o SkuResponseOutput) Capacity() pulumi.IntPtrOutput {
@@ -2033,76 +1422,6 @@ func (val *VulnerabilityAssessmentRecurringScansPropertiesResponse) Defaults() *
 	return &tmp
 }
 
-
-
-
-
-type VulnerabilityAssessmentRecurringScansPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToVulnerabilityAssessmentRecurringScansPropertiesResponseOutput() VulnerabilityAssessmentRecurringScansPropertiesResponseOutput
-	ToVulnerabilityAssessmentRecurringScansPropertiesResponseOutputWithContext(context.Context) VulnerabilityAssessmentRecurringScansPropertiesResponseOutput
-}
-
-type VulnerabilityAssessmentRecurringScansPropertiesResponseArgs struct {
-	EmailSubscriptionAdmins pulumi.BoolPtrInput     `pulumi:"emailSubscriptionAdmins"`
-	Emails                  pulumi.StringArrayInput `pulumi:"emails"`
-	IsEnabled               pulumi.BoolPtrInput     `pulumi:"isEnabled"`
-}
-
-func (VulnerabilityAssessmentRecurringScansPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*VulnerabilityAssessmentRecurringScansPropertiesResponse)(nil)).Elem()
-}
-
-func (i VulnerabilityAssessmentRecurringScansPropertiesResponseArgs) ToVulnerabilityAssessmentRecurringScansPropertiesResponseOutput() VulnerabilityAssessmentRecurringScansPropertiesResponseOutput {
-	return i.ToVulnerabilityAssessmentRecurringScansPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i VulnerabilityAssessmentRecurringScansPropertiesResponseArgs) ToVulnerabilityAssessmentRecurringScansPropertiesResponseOutputWithContext(ctx context.Context) VulnerabilityAssessmentRecurringScansPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VulnerabilityAssessmentRecurringScansPropertiesResponseOutput)
-}
-
-func (i VulnerabilityAssessmentRecurringScansPropertiesResponseArgs) ToVulnerabilityAssessmentRecurringScansPropertiesResponsePtrOutput() VulnerabilityAssessmentRecurringScansPropertiesResponsePtrOutput {
-	return i.ToVulnerabilityAssessmentRecurringScansPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i VulnerabilityAssessmentRecurringScansPropertiesResponseArgs) ToVulnerabilityAssessmentRecurringScansPropertiesResponsePtrOutputWithContext(ctx context.Context) VulnerabilityAssessmentRecurringScansPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VulnerabilityAssessmentRecurringScansPropertiesResponseOutput).ToVulnerabilityAssessmentRecurringScansPropertiesResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type VulnerabilityAssessmentRecurringScansPropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToVulnerabilityAssessmentRecurringScansPropertiesResponsePtrOutput() VulnerabilityAssessmentRecurringScansPropertiesResponsePtrOutput
-	ToVulnerabilityAssessmentRecurringScansPropertiesResponsePtrOutputWithContext(context.Context) VulnerabilityAssessmentRecurringScansPropertiesResponsePtrOutput
-}
-
-type vulnerabilityAssessmentRecurringScansPropertiesResponsePtrType VulnerabilityAssessmentRecurringScansPropertiesResponseArgs
-
-func VulnerabilityAssessmentRecurringScansPropertiesResponsePtr(v *VulnerabilityAssessmentRecurringScansPropertiesResponseArgs) VulnerabilityAssessmentRecurringScansPropertiesResponsePtrInput {
-	return (*vulnerabilityAssessmentRecurringScansPropertiesResponsePtrType)(v)
-}
-
-func (*vulnerabilityAssessmentRecurringScansPropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**VulnerabilityAssessmentRecurringScansPropertiesResponse)(nil)).Elem()
-}
-
-func (i *vulnerabilityAssessmentRecurringScansPropertiesResponsePtrType) ToVulnerabilityAssessmentRecurringScansPropertiesResponsePtrOutput() VulnerabilityAssessmentRecurringScansPropertiesResponsePtrOutput {
-	return i.ToVulnerabilityAssessmentRecurringScansPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *vulnerabilityAssessmentRecurringScansPropertiesResponsePtrType) ToVulnerabilityAssessmentRecurringScansPropertiesResponsePtrOutputWithContext(ctx context.Context) VulnerabilityAssessmentRecurringScansPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VulnerabilityAssessmentRecurringScansPropertiesResponsePtrOutput)
-}
-
 type VulnerabilityAssessmentRecurringScansPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (VulnerabilityAssessmentRecurringScansPropertiesResponseOutput) ElementType() reflect.Type {
@@ -2115,16 +1434,6 @@ func (o VulnerabilityAssessmentRecurringScansPropertiesResponseOutput) ToVulnera
 
 func (o VulnerabilityAssessmentRecurringScansPropertiesResponseOutput) ToVulnerabilityAssessmentRecurringScansPropertiesResponseOutputWithContext(ctx context.Context) VulnerabilityAssessmentRecurringScansPropertiesResponseOutput {
 	return o
-}
-
-func (o VulnerabilityAssessmentRecurringScansPropertiesResponseOutput) ToVulnerabilityAssessmentRecurringScansPropertiesResponsePtrOutput() VulnerabilityAssessmentRecurringScansPropertiesResponsePtrOutput {
-	return o.ToVulnerabilityAssessmentRecurringScansPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o VulnerabilityAssessmentRecurringScansPropertiesResponseOutput) ToVulnerabilityAssessmentRecurringScansPropertiesResponsePtrOutputWithContext(ctx context.Context) VulnerabilityAssessmentRecurringScansPropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VulnerabilityAssessmentRecurringScansPropertiesResponse) *VulnerabilityAssessmentRecurringScansPropertiesResponse {
-		return &v
-	}).(VulnerabilityAssessmentRecurringScansPropertiesResponsePtrOutput)
 }
 
 func (o VulnerabilityAssessmentRecurringScansPropertiesResponseOutput) EmailSubscriptionAdmins() pulumi.BoolPtrOutput {
@@ -2206,9 +1515,7 @@ func init() {
 	pulumi.RegisterOutputType(InstanceFailoverGroupReadOnlyEndpointResponseOutput{})
 	pulumi.RegisterOutputType(InstanceFailoverGroupReadOnlyEndpointResponsePtrOutput{})
 	pulumi.RegisterOutputType(InstanceFailoverGroupReadWriteEndpointOutput{})
-	pulumi.RegisterOutputType(InstanceFailoverGroupReadWriteEndpointPtrOutput{})
 	pulumi.RegisterOutputType(InstanceFailoverGroupReadWriteEndpointResponseOutput{})
-	pulumi.RegisterOutputType(InstanceFailoverGroupReadWriteEndpointResponsePtrOutput{})
 	pulumi.RegisterOutputType(ManagedInstancePairInfoOutput{})
 	pulumi.RegisterOutputType(ManagedInstancePairInfoArrayOutput{})
 	pulumi.RegisterOutputType(ManagedInstancePairInfoResponseOutput{})

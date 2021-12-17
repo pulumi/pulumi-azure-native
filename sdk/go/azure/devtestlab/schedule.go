@@ -44,9 +44,8 @@ func NewSchedule(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	notificationSettingsApplier := func(v NotificationSettings) *NotificationSettings { return v.Defaults() }
 	if args.NotificationSettings != nil {
-		args.NotificationSettings = args.NotificationSettings.ToNotificationSettingsPtrOutput().Elem().ApplyT(notificationSettingsApplier).(NotificationSettingsPtrOutput)
+		args.NotificationSettings = args.NotificationSettings.ToNotificationSettingsPtrOutput().ApplyT(func(v *NotificationSettings) *NotificationSettings { return v.Defaults() }).(NotificationSettingsPtrOutput)
 	}
 	if isZero(args.Status) {
 		args.Status = pulumi.StringPtr("Disabled")

@@ -32,9 +32,8 @@ func NewService(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	skuApplier := func(v Sku) *Sku { return v.Defaults() }
 	if args.Sku != nil {
-		args.Sku = args.Sku.ToSkuPtrOutput().Elem().ApplyT(skuApplier).(SkuPtrOutput)
+		args.Sku = args.Sku.ToSkuPtrOutput().ApplyT(func(v *Sku) *Sku { return v.Defaults() }).(SkuPtrOutput)
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

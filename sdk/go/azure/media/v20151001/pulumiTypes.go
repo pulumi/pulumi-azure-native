@@ -15,59 +15,6 @@ type ApiEndpointResponse struct {
 	MajorVersion *string `pulumi:"majorVersion"`
 }
 
-
-
-
-
-type ApiEndpointResponseInput interface {
-	pulumi.Input
-
-	ToApiEndpointResponseOutput() ApiEndpointResponseOutput
-	ToApiEndpointResponseOutputWithContext(context.Context) ApiEndpointResponseOutput
-}
-
-type ApiEndpointResponseArgs struct {
-	Endpoint     pulumi.StringPtrInput `pulumi:"endpoint"`
-	MajorVersion pulumi.StringPtrInput `pulumi:"majorVersion"`
-}
-
-func (ApiEndpointResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApiEndpointResponse)(nil)).Elem()
-}
-
-func (i ApiEndpointResponseArgs) ToApiEndpointResponseOutput() ApiEndpointResponseOutput {
-	return i.ToApiEndpointResponseOutputWithContext(context.Background())
-}
-
-func (i ApiEndpointResponseArgs) ToApiEndpointResponseOutputWithContext(ctx context.Context) ApiEndpointResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApiEndpointResponseOutput)
-}
-
-
-
-
-
-type ApiEndpointResponseArrayInput interface {
-	pulumi.Input
-
-	ToApiEndpointResponseArrayOutput() ApiEndpointResponseArrayOutput
-	ToApiEndpointResponseArrayOutputWithContext(context.Context) ApiEndpointResponseArrayOutput
-}
-
-type ApiEndpointResponseArray []ApiEndpointResponseInput
-
-func (ApiEndpointResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ApiEndpointResponse)(nil)).Elem()
-}
-
-func (i ApiEndpointResponseArray) ToApiEndpointResponseArrayOutput() ApiEndpointResponseArrayOutput {
-	return i.ToApiEndpointResponseArrayOutputWithContext(context.Background())
-}
-
-func (i ApiEndpointResponseArray) ToApiEndpointResponseArrayOutputWithContext(ctx context.Context) ApiEndpointResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApiEndpointResponseArrayOutput)
-}
-
 type ApiEndpointResponseOutput struct{ *pulumi.OutputState }
 
 func (ApiEndpointResponseOutput) ElementType() reflect.Type {
@@ -213,59 +160,6 @@ func (o StorageAccountArrayOutput) Index(i pulumi.IntInput) StorageAccountOutput
 type StorageAccountResponse struct {
 	Id        string `pulumi:"id"`
 	IsPrimary bool   `pulumi:"isPrimary"`
-}
-
-
-
-
-
-type StorageAccountResponseInput interface {
-	pulumi.Input
-
-	ToStorageAccountResponseOutput() StorageAccountResponseOutput
-	ToStorageAccountResponseOutputWithContext(context.Context) StorageAccountResponseOutput
-}
-
-type StorageAccountResponseArgs struct {
-	Id        pulumi.StringInput `pulumi:"id"`
-	IsPrimary pulumi.BoolInput   `pulumi:"isPrimary"`
-}
-
-func (StorageAccountResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*StorageAccountResponse)(nil)).Elem()
-}
-
-func (i StorageAccountResponseArgs) ToStorageAccountResponseOutput() StorageAccountResponseOutput {
-	return i.ToStorageAccountResponseOutputWithContext(context.Background())
-}
-
-func (i StorageAccountResponseArgs) ToStorageAccountResponseOutputWithContext(ctx context.Context) StorageAccountResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StorageAccountResponseOutput)
-}
-
-
-
-
-
-type StorageAccountResponseArrayInput interface {
-	pulumi.Input
-
-	ToStorageAccountResponseArrayOutput() StorageAccountResponseArrayOutput
-	ToStorageAccountResponseArrayOutputWithContext(context.Context) StorageAccountResponseArrayOutput
-}
-
-type StorageAccountResponseArray []StorageAccountResponseInput
-
-func (StorageAccountResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]StorageAccountResponse)(nil)).Elem()
-}
-
-func (i StorageAccountResponseArray) ToStorageAccountResponseArrayOutput() StorageAccountResponseArrayOutput {
-	return i.ToStorageAccountResponseArrayOutputWithContext(context.Background())
-}
-
-func (i StorageAccountResponseArray) ToStorageAccountResponseArrayOutputWithContext(ctx context.Context) StorageAccountResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StorageAccountResponseArrayOutput)
 }
 
 type StorageAccountResponseOutput struct{ *pulumi.OutputState }

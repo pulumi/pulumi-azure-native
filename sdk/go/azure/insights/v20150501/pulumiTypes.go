@@ -147,74 +147,6 @@ type ApplicationInsightsComponentAnalyticsItemPropertiesResponse struct {
 	FunctionAlias *string `pulumi:"functionAlias"`
 }
 
-
-
-
-
-type ApplicationInsightsComponentAnalyticsItemPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToApplicationInsightsComponentAnalyticsItemPropertiesResponseOutput() ApplicationInsightsComponentAnalyticsItemPropertiesResponseOutput
-	ToApplicationInsightsComponentAnalyticsItemPropertiesResponseOutputWithContext(context.Context) ApplicationInsightsComponentAnalyticsItemPropertiesResponseOutput
-}
-
-type ApplicationInsightsComponentAnalyticsItemPropertiesResponseArgs struct {
-	FunctionAlias pulumi.StringPtrInput `pulumi:"functionAlias"`
-}
-
-func (ApplicationInsightsComponentAnalyticsItemPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationInsightsComponentAnalyticsItemPropertiesResponse)(nil)).Elem()
-}
-
-func (i ApplicationInsightsComponentAnalyticsItemPropertiesResponseArgs) ToApplicationInsightsComponentAnalyticsItemPropertiesResponseOutput() ApplicationInsightsComponentAnalyticsItemPropertiesResponseOutput {
-	return i.ToApplicationInsightsComponentAnalyticsItemPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i ApplicationInsightsComponentAnalyticsItemPropertiesResponseArgs) ToApplicationInsightsComponentAnalyticsItemPropertiesResponseOutputWithContext(ctx context.Context) ApplicationInsightsComponentAnalyticsItemPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationInsightsComponentAnalyticsItemPropertiesResponseOutput)
-}
-
-func (i ApplicationInsightsComponentAnalyticsItemPropertiesResponseArgs) ToApplicationInsightsComponentAnalyticsItemPropertiesResponsePtrOutput() ApplicationInsightsComponentAnalyticsItemPropertiesResponsePtrOutput {
-	return i.ToApplicationInsightsComponentAnalyticsItemPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ApplicationInsightsComponentAnalyticsItemPropertiesResponseArgs) ToApplicationInsightsComponentAnalyticsItemPropertiesResponsePtrOutputWithContext(ctx context.Context) ApplicationInsightsComponentAnalyticsItemPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationInsightsComponentAnalyticsItemPropertiesResponseOutput).ToApplicationInsightsComponentAnalyticsItemPropertiesResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type ApplicationInsightsComponentAnalyticsItemPropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToApplicationInsightsComponentAnalyticsItemPropertiesResponsePtrOutput() ApplicationInsightsComponentAnalyticsItemPropertiesResponsePtrOutput
-	ToApplicationInsightsComponentAnalyticsItemPropertiesResponsePtrOutputWithContext(context.Context) ApplicationInsightsComponentAnalyticsItemPropertiesResponsePtrOutput
-}
-
-type applicationInsightsComponentAnalyticsItemPropertiesResponsePtrType ApplicationInsightsComponentAnalyticsItemPropertiesResponseArgs
-
-func ApplicationInsightsComponentAnalyticsItemPropertiesResponsePtr(v *ApplicationInsightsComponentAnalyticsItemPropertiesResponseArgs) ApplicationInsightsComponentAnalyticsItemPropertiesResponsePtrInput {
-	return (*applicationInsightsComponentAnalyticsItemPropertiesResponsePtrType)(v)
-}
-
-func (*applicationInsightsComponentAnalyticsItemPropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApplicationInsightsComponentAnalyticsItemPropertiesResponse)(nil)).Elem()
-}
-
-func (i *applicationInsightsComponentAnalyticsItemPropertiesResponsePtrType) ToApplicationInsightsComponentAnalyticsItemPropertiesResponsePtrOutput() ApplicationInsightsComponentAnalyticsItemPropertiesResponsePtrOutput {
-	return i.ToApplicationInsightsComponentAnalyticsItemPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *applicationInsightsComponentAnalyticsItemPropertiesResponsePtrType) ToApplicationInsightsComponentAnalyticsItemPropertiesResponsePtrOutputWithContext(ctx context.Context) ApplicationInsightsComponentAnalyticsItemPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationInsightsComponentAnalyticsItemPropertiesResponsePtrOutput)
-}
-
 type ApplicationInsightsComponentAnalyticsItemPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (ApplicationInsightsComponentAnalyticsItemPropertiesResponseOutput) ElementType() reflect.Type {
@@ -229,51 +161,8 @@ func (o ApplicationInsightsComponentAnalyticsItemPropertiesResponseOutput) ToApp
 	return o
 }
 
-func (o ApplicationInsightsComponentAnalyticsItemPropertiesResponseOutput) ToApplicationInsightsComponentAnalyticsItemPropertiesResponsePtrOutput() ApplicationInsightsComponentAnalyticsItemPropertiesResponsePtrOutput {
-	return o.ToApplicationInsightsComponentAnalyticsItemPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ApplicationInsightsComponentAnalyticsItemPropertiesResponseOutput) ToApplicationInsightsComponentAnalyticsItemPropertiesResponsePtrOutputWithContext(ctx context.Context) ApplicationInsightsComponentAnalyticsItemPropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationInsightsComponentAnalyticsItemPropertiesResponse) *ApplicationInsightsComponentAnalyticsItemPropertiesResponse {
-		return &v
-	}).(ApplicationInsightsComponentAnalyticsItemPropertiesResponsePtrOutput)
-}
-
 func (o ApplicationInsightsComponentAnalyticsItemPropertiesResponseOutput) FunctionAlias() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationInsightsComponentAnalyticsItemPropertiesResponse) *string { return v.FunctionAlias }).(pulumi.StringPtrOutput)
-}
-
-type ApplicationInsightsComponentAnalyticsItemPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (ApplicationInsightsComponentAnalyticsItemPropertiesResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApplicationInsightsComponentAnalyticsItemPropertiesResponse)(nil)).Elem()
-}
-
-func (o ApplicationInsightsComponentAnalyticsItemPropertiesResponsePtrOutput) ToApplicationInsightsComponentAnalyticsItemPropertiesResponsePtrOutput() ApplicationInsightsComponentAnalyticsItemPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o ApplicationInsightsComponentAnalyticsItemPropertiesResponsePtrOutput) ToApplicationInsightsComponentAnalyticsItemPropertiesResponsePtrOutputWithContext(ctx context.Context) ApplicationInsightsComponentAnalyticsItemPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o ApplicationInsightsComponentAnalyticsItemPropertiesResponsePtrOutput) Elem() ApplicationInsightsComponentAnalyticsItemPropertiesResponseOutput {
-	return o.ApplyT(func(v *ApplicationInsightsComponentAnalyticsItemPropertiesResponse) ApplicationInsightsComponentAnalyticsItemPropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ApplicationInsightsComponentAnalyticsItemPropertiesResponse
-		return ret
-	}).(ApplicationInsightsComponentAnalyticsItemPropertiesResponseOutput)
-}
-
-func (o ApplicationInsightsComponentAnalyticsItemPropertiesResponsePtrOutput) FunctionAlias() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ApplicationInsightsComponentAnalyticsItemPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.FunctionAlias
-	}).(pulumi.StringPtrOutput)
 }
 
 type ApplicationInsightsComponentDataVolumeCap struct {
@@ -463,79 +352,6 @@ type ApplicationInsightsComponentDataVolumeCapResponse struct {
 	WarningThreshold                     *int     `pulumi:"warningThreshold"`
 }
 
-
-
-
-
-type ApplicationInsightsComponentDataVolumeCapResponseInput interface {
-	pulumi.Input
-
-	ToApplicationInsightsComponentDataVolumeCapResponseOutput() ApplicationInsightsComponentDataVolumeCapResponseOutput
-	ToApplicationInsightsComponentDataVolumeCapResponseOutputWithContext(context.Context) ApplicationInsightsComponentDataVolumeCapResponseOutput
-}
-
-type ApplicationInsightsComponentDataVolumeCapResponseArgs struct {
-	Cap                                  pulumi.Float64PtrInput `pulumi:"cap"`
-	MaxHistoryCap                        pulumi.Float64Input    `pulumi:"maxHistoryCap"`
-	ResetTime                            pulumi.IntInput        `pulumi:"resetTime"`
-	StopSendNotificationWhenHitCap       pulumi.BoolPtrInput    `pulumi:"stopSendNotificationWhenHitCap"`
-	StopSendNotificationWhenHitThreshold pulumi.BoolPtrInput    `pulumi:"stopSendNotificationWhenHitThreshold"`
-	WarningThreshold                     pulumi.IntPtrInput     `pulumi:"warningThreshold"`
-}
-
-func (ApplicationInsightsComponentDataVolumeCapResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationInsightsComponentDataVolumeCapResponse)(nil)).Elem()
-}
-
-func (i ApplicationInsightsComponentDataVolumeCapResponseArgs) ToApplicationInsightsComponentDataVolumeCapResponseOutput() ApplicationInsightsComponentDataVolumeCapResponseOutput {
-	return i.ToApplicationInsightsComponentDataVolumeCapResponseOutputWithContext(context.Background())
-}
-
-func (i ApplicationInsightsComponentDataVolumeCapResponseArgs) ToApplicationInsightsComponentDataVolumeCapResponseOutputWithContext(ctx context.Context) ApplicationInsightsComponentDataVolumeCapResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationInsightsComponentDataVolumeCapResponseOutput)
-}
-
-func (i ApplicationInsightsComponentDataVolumeCapResponseArgs) ToApplicationInsightsComponentDataVolumeCapResponsePtrOutput() ApplicationInsightsComponentDataVolumeCapResponsePtrOutput {
-	return i.ToApplicationInsightsComponentDataVolumeCapResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ApplicationInsightsComponentDataVolumeCapResponseArgs) ToApplicationInsightsComponentDataVolumeCapResponsePtrOutputWithContext(ctx context.Context) ApplicationInsightsComponentDataVolumeCapResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationInsightsComponentDataVolumeCapResponseOutput).ToApplicationInsightsComponentDataVolumeCapResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type ApplicationInsightsComponentDataVolumeCapResponsePtrInput interface {
-	pulumi.Input
-
-	ToApplicationInsightsComponentDataVolumeCapResponsePtrOutput() ApplicationInsightsComponentDataVolumeCapResponsePtrOutput
-	ToApplicationInsightsComponentDataVolumeCapResponsePtrOutputWithContext(context.Context) ApplicationInsightsComponentDataVolumeCapResponsePtrOutput
-}
-
-type applicationInsightsComponentDataVolumeCapResponsePtrType ApplicationInsightsComponentDataVolumeCapResponseArgs
-
-func ApplicationInsightsComponentDataVolumeCapResponsePtr(v *ApplicationInsightsComponentDataVolumeCapResponseArgs) ApplicationInsightsComponentDataVolumeCapResponsePtrInput {
-	return (*applicationInsightsComponentDataVolumeCapResponsePtrType)(v)
-}
-
-func (*applicationInsightsComponentDataVolumeCapResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApplicationInsightsComponentDataVolumeCapResponse)(nil)).Elem()
-}
-
-func (i *applicationInsightsComponentDataVolumeCapResponsePtrType) ToApplicationInsightsComponentDataVolumeCapResponsePtrOutput() ApplicationInsightsComponentDataVolumeCapResponsePtrOutput {
-	return i.ToApplicationInsightsComponentDataVolumeCapResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *applicationInsightsComponentDataVolumeCapResponsePtrType) ToApplicationInsightsComponentDataVolumeCapResponsePtrOutputWithContext(ctx context.Context) ApplicationInsightsComponentDataVolumeCapResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationInsightsComponentDataVolumeCapResponsePtrOutput)
-}
-
 type ApplicationInsightsComponentDataVolumeCapResponseOutput struct{ *pulumi.OutputState }
 
 func (ApplicationInsightsComponentDataVolumeCapResponseOutput) ElementType() reflect.Type {
@@ -548,16 +364,6 @@ func (o ApplicationInsightsComponentDataVolumeCapResponseOutput) ToApplicationIn
 
 func (o ApplicationInsightsComponentDataVolumeCapResponseOutput) ToApplicationInsightsComponentDataVolumeCapResponseOutputWithContext(ctx context.Context) ApplicationInsightsComponentDataVolumeCapResponseOutput {
 	return o
-}
-
-func (o ApplicationInsightsComponentDataVolumeCapResponseOutput) ToApplicationInsightsComponentDataVolumeCapResponsePtrOutput() ApplicationInsightsComponentDataVolumeCapResponsePtrOutput {
-	return o.ToApplicationInsightsComponentDataVolumeCapResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ApplicationInsightsComponentDataVolumeCapResponseOutput) ToApplicationInsightsComponentDataVolumeCapResponsePtrOutputWithContext(ctx context.Context) ApplicationInsightsComponentDataVolumeCapResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationInsightsComponentDataVolumeCapResponse) *ApplicationInsightsComponentDataVolumeCapResponse {
-		return &v
-	}).(ApplicationInsightsComponentDataVolumeCapResponsePtrOutput)
 }
 
 func (o ApplicationInsightsComponentDataVolumeCapResponseOutput) Cap() pulumi.Float64PtrOutput {
@@ -677,81 +483,6 @@ type ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefi
 	SupportsEmailNotifications *bool   `pulumi:"supportsEmailNotifications"`
 }
 
-
-
-
-
-type ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsInput interface {
-	pulumi.Input
-
-	ToApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsOutput() ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsOutput
-	ToApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsOutputWithContext(context.Context) ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsOutput
-}
-
-type ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsArgs struct {
-	Description                pulumi.StringPtrInput `pulumi:"description"`
-	DisplayName                pulumi.StringPtrInput `pulumi:"displayName"`
-	HelpUrl                    pulumi.StringPtrInput `pulumi:"helpUrl"`
-	IsEnabledByDefault         pulumi.BoolPtrInput   `pulumi:"isEnabledByDefault"`
-	IsHidden                   pulumi.BoolPtrInput   `pulumi:"isHidden"`
-	IsInPreview                pulumi.BoolPtrInput   `pulumi:"isInPreview"`
-	Name                       pulumi.StringPtrInput `pulumi:"name"`
-	SupportsEmailNotifications pulumi.BoolPtrInput   `pulumi:"supportsEmailNotifications"`
-}
-
-func (ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitions)(nil)).Elem()
-}
-
-func (i ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsArgs) ToApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsOutput() ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsOutput {
-	return i.ToApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsOutputWithContext(context.Background())
-}
-
-func (i ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsArgs) ToApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsOutputWithContext(ctx context.Context) ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsOutput)
-}
-
-func (i ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsArgs) ToApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsPtrOutput() ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsPtrOutput {
-	return i.ToApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsPtrOutputWithContext(context.Background())
-}
-
-func (i ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsArgs) ToApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsPtrOutputWithContext(ctx context.Context) ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsOutput).ToApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsPtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsPtrInput interface {
-	pulumi.Input
-
-	ToApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsPtrOutput() ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsPtrOutput
-	ToApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsPtrOutputWithContext(context.Context) ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsPtrOutput
-}
-
-type applicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsPtrType ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsArgs
-
-func ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsPtr(v *ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsArgs) ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsPtrInput {
-	return (*applicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsPtrType)(v)
-}
-
-func (*applicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitions)(nil)).Elem()
-}
-
-func (i *applicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsPtrType) ToApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsPtrOutput() ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsPtrOutput {
-	return i.ToApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsPtrOutputWithContext(context.Background())
-}
-
-func (i *applicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsPtrType) ToApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsPtrOutputWithContext(ctx context.Context) ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsPtrOutput)
-}
-
 type ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsOutput struct{ *pulumi.OutputState }
 
 func (ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsOutput) ElementType() reflect.Type {
@@ -764,16 +495,6 @@ func (o ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleD
 
 func (o ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsOutput) ToApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsOutputWithContext(ctx context.Context) ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsOutput {
 	return o
-}
-
-func (o ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsOutput) ToApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsPtrOutput() ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsPtrOutput {
-	return o.ToApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsPtrOutputWithContext(context.Background())
-}
-
-func (o ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsOutput) ToApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsPtrOutputWithContext(ctx context.Context) ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitions) *ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitions {
-		return &v
-	}).(ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsPtrOutput)
 }
 
 func (o ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsOutput) Description() pulumi.StringPtrOutput {
@@ -1179,59 +900,6 @@ type PrivateLinkScopedResourceResponse struct {
 	ScopeId    *string `pulumi:"scopeId"`
 }
 
-
-
-
-
-type PrivateLinkScopedResourceResponseInput interface {
-	pulumi.Input
-
-	ToPrivateLinkScopedResourceResponseOutput() PrivateLinkScopedResourceResponseOutput
-	ToPrivateLinkScopedResourceResponseOutputWithContext(context.Context) PrivateLinkScopedResourceResponseOutput
-}
-
-type PrivateLinkScopedResourceResponseArgs struct {
-	ResourceId pulumi.StringPtrInput `pulumi:"resourceId"`
-	ScopeId    pulumi.StringPtrInput `pulumi:"scopeId"`
-}
-
-func (PrivateLinkScopedResourceResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateLinkScopedResourceResponse)(nil)).Elem()
-}
-
-func (i PrivateLinkScopedResourceResponseArgs) ToPrivateLinkScopedResourceResponseOutput() PrivateLinkScopedResourceResponseOutput {
-	return i.ToPrivateLinkScopedResourceResponseOutputWithContext(context.Background())
-}
-
-func (i PrivateLinkScopedResourceResponseArgs) ToPrivateLinkScopedResourceResponseOutputWithContext(ctx context.Context) PrivateLinkScopedResourceResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkScopedResourceResponseOutput)
-}
-
-
-
-
-
-type PrivateLinkScopedResourceResponseArrayInput interface {
-	pulumi.Input
-
-	ToPrivateLinkScopedResourceResponseArrayOutput() PrivateLinkScopedResourceResponseArrayOutput
-	ToPrivateLinkScopedResourceResponseArrayOutputWithContext(context.Context) PrivateLinkScopedResourceResponseArrayOutput
-}
-
-type PrivateLinkScopedResourceResponseArray []PrivateLinkScopedResourceResponseInput
-
-func (PrivateLinkScopedResourceResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PrivateLinkScopedResourceResponse)(nil)).Elem()
-}
-
-func (i PrivateLinkScopedResourceResponseArray) ToPrivateLinkScopedResourceResponseArrayOutput() PrivateLinkScopedResourceResponseArrayOutput {
-	return i.ToPrivateLinkScopedResourceResponseArrayOutputWithContext(context.Background())
-}
-
-func (i PrivateLinkScopedResourceResponseArray) ToPrivateLinkScopedResourceResponseArrayOutputWithContext(ctx context.Context) PrivateLinkScopedResourceResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkScopedResourceResponseArrayOutput)
-}
-
 type PrivateLinkScopedResourceResponseOutput struct{ *pulumi.OutputState }
 
 func (PrivateLinkScopedResourceResponseOutput) ElementType() reflect.Type {
@@ -1370,58 +1038,6 @@ func (o WebTestGeolocationArrayOutput) Index(i pulumi.IntInput) WebTestGeolocati
 
 type WebTestGeolocationResponse struct {
 	Location *string `pulumi:"location"`
-}
-
-
-
-
-
-type WebTestGeolocationResponseInput interface {
-	pulumi.Input
-
-	ToWebTestGeolocationResponseOutput() WebTestGeolocationResponseOutput
-	ToWebTestGeolocationResponseOutputWithContext(context.Context) WebTestGeolocationResponseOutput
-}
-
-type WebTestGeolocationResponseArgs struct {
-	Location pulumi.StringPtrInput `pulumi:"location"`
-}
-
-func (WebTestGeolocationResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebTestGeolocationResponse)(nil)).Elem()
-}
-
-func (i WebTestGeolocationResponseArgs) ToWebTestGeolocationResponseOutput() WebTestGeolocationResponseOutput {
-	return i.ToWebTestGeolocationResponseOutputWithContext(context.Background())
-}
-
-func (i WebTestGeolocationResponseArgs) ToWebTestGeolocationResponseOutputWithContext(ctx context.Context) WebTestGeolocationResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebTestGeolocationResponseOutput)
-}
-
-
-
-
-
-type WebTestGeolocationResponseArrayInput interface {
-	pulumi.Input
-
-	ToWebTestGeolocationResponseArrayOutput() WebTestGeolocationResponseArrayOutput
-	ToWebTestGeolocationResponseArrayOutputWithContext(context.Context) WebTestGeolocationResponseArrayOutput
-}
-
-type WebTestGeolocationResponseArray []WebTestGeolocationResponseInput
-
-func (WebTestGeolocationResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]WebTestGeolocationResponse)(nil)).Elem()
-}
-
-func (i WebTestGeolocationResponseArray) ToWebTestGeolocationResponseArrayOutput() WebTestGeolocationResponseArrayOutput {
-	return i.ToWebTestGeolocationResponseArrayOutputWithContext(context.Background())
-}
-
-func (i WebTestGeolocationResponseArray) ToWebTestGeolocationResponseArrayOutputWithContext(ctx context.Context) WebTestGeolocationResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebTestGeolocationResponseArrayOutput)
 }
 
 type WebTestGeolocationResponseOutput struct{ *pulumi.OutputState }
@@ -1599,74 +1215,6 @@ type WebTestPropertiesResponseConfiguration struct {
 	WebTest *string `pulumi:"webTest"`
 }
 
-
-
-
-
-type WebTestPropertiesResponseConfigurationInput interface {
-	pulumi.Input
-
-	ToWebTestPropertiesResponseConfigurationOutput() WebTestPropertiesResponseConfigurationOutput
-	ToWebTestPropertiesResponseConfigurationOutputWithContext(context.Context) WebTestPropertiesResponseConfigurationOutput
-}
-
-type WebTestPropertiesResponseConfigurationArgs struct {
-	WebTest pulumi.StringPtrInput `pulumi:"webTest"`
-}
-
-func (WebTestPropertiesResponseConfigurationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebTestPropertiesResponseConfiguration)(nil)).Elem()
-}
-
-func (i WebTestPropertiesResponseConfigurationArgs) ToWebTestPropertiesResponseConfigurationOutput() WebTestPropertiesResponseConfigurationOutput {
-	return i.ToWebTestPropertiesResponseConfigurationOutputWithContext(context.Background())
-}
-
-func (i WebTestPropertiesResponseConfigurationArgs) ToWebTestPropertiesResponseConfigurationOutputWithContext(ctx context.Context) WebTestPropertiesResponseConfigurationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebTestPropertiesResponseConfigurationOutput)
-}
-
-func (i WebTestPropertiesResponseConfigurationArgs) ToWebTestPropertiesResponseConfigurationPtrOutput() WebTestPropertiesResponseConfigurationPtrOutput {
-	return i.ToWebTestPropertiesResponseConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i WebTestPropertiesResponseConfigurationArgs) ToWebTestPropertiesResponseConfigurationPtrOutputWithContext(ctx context.Context) WebTestPropertiesResponseConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebTestPropertiesResponseConfigurationOutput).ToWebTestPropertiesResponseConfigurationPtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type WebTestPropertiesResponseConfigurationPtrInput interface {
-	pulumi.Input
-
-	ToWebTestPropertiesResponseConfigurationPtrOutput() WebTestPropertiesResponseConfigurationPtrOutput
-	ToWebTestPropertiesResponseConfigurationPtrOutputWithContext(context.Context) WebTestPropertiesResponseConfigurationPtrOutput
-}
-
-type webTestPropertiesResponseConfigurationPtrType WebTestPropertiesResponseConfigurationArgs
-
-func WebTestPropertiesResponseConfigurationPtr(v *WebTestPropertiesResponseConfigurationArgs) WebTestPropertiesResponseConfigurationPtrInput {
-	return (*webTestPropertiesResponseConfigurationPtrType)(v)
-}
-
-func (*webTestPropertiesResponseConfigurationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebTestPropertiesResponseConfiguration)(nil)).Elem()
-}
-
-func (i *webTestPropertiesResponseConfigurationPtrType) ToWebTestPropertiesResponseConfigurationPtrOutput() WebTestPropertiesResponseConfigurationPtrOutput {
-	return i.ToWebTestPropertiesResponseConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i *webTestPropertiesResponseConfigurationPtrType) ToWebTestPropertiesResponseConfigurationPtrOutputWithContext(ctx context.Context) WebTestPropertiesResponseConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebTestPropertiesResponseConfigurationPtrOutput)
-}
-
 type WebTestPropertiesResponseConfigurationOutput struct{ *pulumi.OutputState }
 
 func (WebTestPropertiesResponseConfigurationOutput) ElementType() reflect.Type {
@@ -1679,16 +1227,6 @@ func (o WebTestPropertiesResponseConfigurationOutput) ToWebTestPropertiesRespons
 
 func (o WebTestPropertiesResponseConfigurationOutput) ToWebTestPropertiesResponseConfigurationOutputWithContext(ctx context.Context) WebTestPropertiesResponseConfigurationOutput {
 	return o
-}
-
-func (o WebTestPropertiesResponseConfigurationOutput) ToWebTestPropertiesResponseConfigurationPtrOutput() WebTestPropertiesResponseConfigurationPtrOutput {
-	return o.ToWebTestPropertiesResponseConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (o WebTestPropertiesResponseConfigurationOutput) ToWebTestPropertiesResponseConfigurationPtrOutputWithContext(ctx context.Context) WebTestPropertiesResponseConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebTestPropertiesResponseConfiguration) *WebTestPropertiesResponseConfiguration {
-		return &v
-	}).(WebTestPropertiesResponseConfigurationPtrOutput)
 }
 
 func (o WebTestPropertiesResponseConfigurationOutput) WebTest() pulumi.StringPtrOutput {
@@ -1732,7 +1270,6 @@ func init() {
 	pulumi.RegisterOutputType(ApplicationInsightsComponentAnalyticsItemPropertiesOutput{})
 	pulumi.RegisterOutputType(ApplicationInsightsComponentAnalyticsItemPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationInsightsComponentAnalyticsItemPropertiesResponseOutput{})
-	pulumi.RegisterOutputType(ApplicationInsightsComponentAnalyticsItemPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(ApplicationInsightsComponentDataVolumeCapOutput{})
 	pulumi.RegisterOutputType(ApplicationInsightsComponentDataVolumeCapPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationInsightsComponentDataVolumeCapResponseOutput{})

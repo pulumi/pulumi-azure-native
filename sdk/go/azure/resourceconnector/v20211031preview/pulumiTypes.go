@@ -15,101 +15,6 @@ type ApplianceCredentialKubeconfigResponse struct {
 	Value string `pulumi:"value"`
 }
 
-
-
-
-
-type ApplianceCredentialKubeconfigResponseInput interface {
-	pulumi.Input
-
-	ToApplianceCredentialKubeconfigResponseOutput() ApplianceCredentialKubeconfigResponseOutput
-	ToApplianceCredentialKubeconfigResponseOutputWithContext(context.Context) ApplianceCredentialKubeconfigResponseOutput
-}
-
-type ApplianceCredentialKubeconfigResponseArgs struct {
-	Name  pulumi.StringInput `pulumi:"name"`
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (ApplianceCredentialKubeconfigResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplianceCredentialKubeconfigResponse)(nil)).Elem()
-}
-
-func (i ApplianceCredentialKubeconfigResponseArgs) ToApplianceCredentialKubeconfigResponseOutput() ApplianceCredentialKubeconfigResponseOutput {
-	return i.ToApplianceCredentialKubeconfigResponseOutputWithContext(context.Background())
-}
-
-func (i ApplianceCredentialKubeconfigResponseArgs) ToApplianceCredentialKubeconfigResponseOutputWithContext(ctx context.Context) ApplianceCredentialKubeconfigResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplianceCredentialKubeconfigResponseOutput)
-}
-
-
-
-
-
-type ApplianceCredentialKubeconfigResponseArrayInput interface {
-	pulumi.Input
-
-	ToApplianceCredentialKubeconfigResponseArrayOutput() ApplianceCredentialKubeconfigResponseArrayOutput
-	ToApplianceCredentialKubeconfigResponseArrayOutputWithContext(context.Context) ApplianceCredentialKubeconfigResponseArrayOutput
-}
-
-type ApplianceCredentialKubeconfigResponseArray []ApplianceCredentialKubeconfigResponseInput
-
-func (ApplianceCredentialKubeconfigResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ApplianceCredentialKubeconfigResponse)(nil)).Elem()
-}
-
-func (i ApplianceCredentialKubeconfigResponseArray) ToApplianceCredentialKubeconfigResponseArrayOutput() ApplianceCredentialKubeconfigResponseArrayOutput {
-	return i.ToApplianceCredentialKubeconfigResponseArrayOutputWithContext(context.Background())
-}
-
-func (i ApplianceCredentialKubeconfigResponseArray) ToApplianceCredentialKubeconfigResponseArrayOutputWithContext(ctx context.Context) ApplianceCredentialKubeconfigResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplianceCredentialKubeconfigResponseArrayOutput)
-}
-
-type ApplianceCredentialKubeconfigResponseOutput struct{ *pulumi.OutputState }
-
-func (ApplianceCredentialKubeconfigResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplianceCredentialKubeconfigResponse)(nil)).Elem()
-}
-
-func (o ApplianceCredentialKubeconfigResponseOutput) ToApplianceCredentialKubeconfigResponseOutput() ApplianceCredentialKubeconfigResponseOutput {
-	return o
-}
-
-func (o ApplianceCredentialKubeconfigResponseOutput) ToApplianceCredentialKubeconfigResponseOutputWithContext(ctx context.Context) ApplianceCredentialKubeconfigResponseOutput {
-	return o
-}
-
-func (o ApplianceCredentialKubeconfigResponseOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ApplianceCredentialKubeconfigResponse) string { return v.Name }).(pulumi.StringOutput)
-}
-
-func (o ApplianceCredentialKubeconfigResponseOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v ApplianceCredentialKubeconfigResponse) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type ApplianceCredentialKubeconfigResponseArrayOutput struct{ *pulumi.OutputState }
-
-func (ApplianceCredentialKubeconfigResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ApplianceCredentialKubeconfigResponse)(nil)).Elem()
-}
-
-func (o ApplianceCredentialKubeconfigResponseArrayOutput) ToApplianceCredentialKubeconfigResponseArrayOutput() ApplianceCredentialKubeconfigResponseArrayOutput {
-	return o
-}
-
-func (o ApplianceCredentialKubeconfigResponseArrayOutput) ToApplianceCredentialKubeconfigResponseArrayOutputWithContext(ctx context.Context) ApplianceCredentialKubeconfigResponseArrayOutput {
-	return o
-}
-
-func (o ApplianceCredentialKubeconfigResponseArrayOutput) Index(i pulumi.IntInput) ApplianceCredentialKubeconfigResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApplianceCredentialKubeconfigResponse {
-		return vs[0].([]ApplianceCredentialKubeconfigResponse)[vs[1].(int)]
-	}).(ApplianceCredentialKubeconfigResponseOutput)
-}
-
 type AppliancePropertiesInfrastructureConfig struct {
 	Provider *string `pulumi:"provider"`
 }
@@ -247,74 +152,6 @@ type AppliancePropertiesResponseInfrastructureConfig struct {
 	Provider *string `pulumi:"provider"`
 }
 
-
-
-
-
-type AppliancePropertiesResponseInfrastructureConfigInput interface {
-	pulumi.Input
-
-	ToAppliancePropertiesResponseInfrastructureConfigOutput() AppliancePropertiesResponseInfrastructureConfigOutput
-	ToAppliancePropertiesResponseInfrastructureConfigOutputWithContext(context.Context) AppliancePropertiesResponseInfrastructureConfigOutput
-}
-
-type AppliancePropertiesResponseInfrastructureConfigArgs struct {
-	Provider pulumi.StringPtrInput `pulumi:"provider"`
-}
-
-func (AppliancePropertiesResponseInfrastructureConfigArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppliancePropertiesResponseInfrastructureConfig)(nil)).Elem()
-}
-
-func (i AppliancePropertiesResponseInfrastructureConfigArgs) ToAppliancePropertiesResponseInfrastructureConfigOutput() AppliancePropertiesResponseInfrastructureConfigOutput {
-	return i.ToAppliancePropertiesResponseInfrastructureConfigOutputWithContext(context.Background())
-}
-
-func (i AppliancePropertiesResponseInfrastructureConfigArgs) ToAppliancePropertiesResponseInfrastructureConfigOutputWithContext(ctx context.Context) AppliancePropertiesResponseInfrastructureConfigOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AppliancePropertiesResponseInfrastructureConfigOutput)
-}
-
-func (i AppliancePropertiesResponseInfrastructureConfigArgs) ToAppliancePropertiesResponseInfrastructureConfigPtrOutput() AppliancePropertiesResponseInfrastructureConfigPtrOutput {
-	return i.ToAppliancePropertiesResponseInfrastructureConfigPtrOutputWithContext(context.Background())
-}
-
-func (i AppliancePropertiesResponseInfrastructureConfigArgs) ToAppliancePropertiesResponseInfrastructureConfigPtrOutputWithContext(ctx context.Context) AppliancePropertiesResponseInfrastructureConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AppliancePropertiesResponseInfrastructureConfigOutput).ToAppliancePropertiesResponseInfrastructureConfigPtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type AppliancePropertiesResponseInfrastructureConfigPtrInput interface {
-	pulumi.Input
-
-	ToAppliancePropertiesResponseInfrastructureConfigPtrOutput() AppliancePropertiesResponseInfrastructureConfigPtrOutput
-	ToAppliancePropertiesResponseInfrastructureConfigPtrOutputWithContext(context.Context) AppliancePropertiesResponseInfrastructureConfigPtrOutput
-}
-
-type appliancePropertiesResponseInfrastructureConfigPtrType AppliancePropertiesResponseInfrastructureConfigArgs
-
-func AppliancePropertiesResponseInfrastructureConfigPtr(v *AppliancePropertiesResponseInfrastructureConfigArgs) AppliancePropertiesResponseInfrastructureConfigPtrInput {
-	return (*appliancePropertiesResponseInfrastructureConfigPtrType)(v)
-}
-
-func (*appliancePropertiesResponseInfrastructureConfigPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AppliancePropertiesResponseInfrastructureConfig)(nil)).Elem()
-}
-
-func (i *appliancePropertiesResponseInfrastructureConfigPtrType) ToAppliancePropertiesResponseInfrastructureConfigPtrOutput() AppliancePropertiesResponseInfrastructureConfigPtrOutput {
-	return i.ToAppliancePropertiesResponseInfrastructureConfigPtrOutputWithContext(context.Background())
-}
-
-func (i *appliancePropertiesResponseInfrastructureConfigPtrType) ToAppliancePropertiesResponseInfrastructureConfigPtrOutputWithContext(ctx context.Context) AppliancePropertiesResponseInfrastructureConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AppliancePropertiesResponseInfrastructureConfigPtrOutput)
-}
-
 type AppliancePropertiesResponseInfrastructureConfigOutput struct{ *pulumi.OutputState }
 
 func (AppliancePropertiesResponseInfrastructureConfigOutput) ElementType() reflect.Type {
@@ -327,16 +164,6 @@ func (o AppliancePropertiesResponseInfrastructureConfigOutput) ToApplianceProper
 
 func (o AppliancePropertiesResponseInfrastructureConfigOutput) ToAppliancePropertiesResponseInfrastructureConfigOutputWithContext(ctx context.Context) AppliancePropertiesResponseInfrastructureConfigOutput {
 	return o
-}
-
-func (o AppliancePropertiesResponseInfrastructureConfigOutput) ToAppliancePropertiesResponseInfrastructureConfigPtrOutput() AppliancePropertiesResponseInfrastructureConfigPtrOutput {
-	return o.ToAppliancePropertiesResponseInfrastructureConfigPtrOutputWithContext(context.Background())
-}
-
-func (o AppliancePropertiesResponseInfrastructureConfigOutput) ToAppliancePropertiesResponseInfrastructureConfigPtrOutputWithContext(ctx context.Context) AppliancePropertiesResponseInfrastructureConfigPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AppliancePropertiesResponseInfrastructureConfig) *AppliancePropertiesResponseInfrastructureConfig {
-		return &v
-	}).(AppliancePropertiesResponseInfrastructureConfigPtrOutput)
 }
 
 func (o AppliancePropertiesResponseInfrastructureConfigOutput) Provider() pulumi.StringPtrOutput {
@@ -381,66 +208,6 @@ type HybridConnectionConfigResponse struct {
 	HybridConnectionName string  `pulumi:"hybridConnectionName"`
 	Relay                string  `pulumi:"relay"`
 	Token                string  `pulumi:"token"`
-}
-
-
-
-
-
-type HybridConnectionConfigResponseInput interface {
-	pulumi.Input
-
-	ToHybridConnectionConfigResponseOutput() HybridConnectionConfigResponseOutput
-	ToHybridConnectionConfigResponseOutputWithContext(context.Context) HybridConnectionConfigResponseOutput
-}
-
-type HybridConnectionConfigResponseArgs struct {
-	ExpirationTime       pulumi.Float64Input `pulumi:"expirationTime"`
-	HybridConnectionName pulumi.StringInput  `pulumi:"hybridConnectionName"`
-	Relay                pulumi.StringInput  `pulumi:"relay"`
-	Token                pulumi.StringInput  `pulumi:"token"`
-}
-
-func (HybridConnectionConfigResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*HybridConnectionConfigResponse)(nil)).Elem()
-}
-
-func (i HybridConnectionConfigResponseArgs) ToHybridConnectionConfigResponseOutput() HybridConnectionConfigResponseOutput {
-	return i.ToHybridConnectionConfigResponseOutputWithContext(context.Background())
-}
-
-func (i HybridConnectionConfigResponseArgs) ToHybridConnectionConfigResponseOutputWithContext(ctx context.Context) HybridConnectionConfigResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HybridConnectionConfigResponseOutput)
-}
-
-type HybridConnectionConfigResponseOutput struct{ *pulumi.OutputState }
-
-func (HybridConnectionConfigResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*HybridConnectionConfigResponse)(nil)).Elem()
-}
-
-func (o HybridConnectionConfigResponseOutput) ToHybridConnectionConfigResponseOutput() HybridConnectionConfigResponseOutput {
-	return o
-}
-
-func (o HybridConnectionConfigResponseOutput) ToHybridConnectionConfigResponseOutputWithContext(ctx context.Context) HybridConnectionConfigResponseOutput {
-	return o
-}
-
-func (o HybridConnectionConfigResponseOutput) ExpirationTime() pulumi.Float64Output {
-	return o.ApplyT(func(v HybridConnectionConfigResponse) float64 { return v.ExpirationTime }).(pulumi.Float64Output)
-}
-
-func (o HybridConnectionConfigResponseOutput) HybridConnectionName() pulumi.StringOutput {
-	return o.ApplyT(func(v HybridConnectionConfigResponse) string { return v.HybridConnectionName }).(pulumi.StringOutput)
-}
-
-func (o HybridConnectionConfigResponseOutput) Relay() pulumi.StringOutput {
-	return o.ApplyT(func(v HybridConnectionConfigResponse) string { return v.Relay }).(pulumi.StringOutput)
-}
-
-func (o HybridConnectionConfigResponseOutput) Token() pulumi.StringOutput {
-	return o.ApplyT(func(v HybridConnectionConfigResponse) string { return v.Token }).(pulumi.StringOutput)
 }
 
 type Identity struct {
@@ -582,76 +349,6 @@ type IdentityResponse struct {
 	Type        *string `pulumi:"type"`
 }
 
-
-
-
-
-type IdentityResponseInput interface {
-	pulumi.Input
-
-	ToIdentityResponseOutput() IdentityResponseOutput
-	ToIdentityResponseOutputWithContext(context.Context) IdentityResponseOutput
-}
-
-type IdentityResponseArgs struct {
-	PrincipalId pulumi.StringInput    `pulumi:"principalId"`
-	TenantId    pulumi.StringInput    `pulumi:"tenantId"`
-	Type        pulumi.StringPtrInput `pulumi:"type"`
-}
-
-func (IdentityResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*IdentityResponse)(nil)).Elem()
-}
-
-func (i IdentityResponseArgs) ToIdentityResponseOutput() IdentityResponseOutput {
-	return i.ToIdentityResponseOutputWithContext(context.Background())
-}
-
-func (i IdentityResponseArgs) ToIdentityResponseOutputWithContext(ctx context.Context) IdentityResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IdentityResponseOutput)
-}
-
-func (i IdentityResponseArgs) ToIdentityResponsePtrOutput() IdentityResponsePtrOutput {
-	return i.ToIdentityResponsePtrOutputWithContext(context.Background())
-}
-
-func (i IdentityResponseArgs) ToIdentityResponsePtrOutputWithContext(ctx context.Context) IdentityResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IdentityResponseOutput).ToIdentityResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type IdentityResponsePtrInput interface {
-	pulumi.Input
-
-	ToIdentityResponsePtrOutput() IdentityResponsePtrOutput
-	ToIdentityResponsePtrOutputWithContext(context.Context) IdentityResponsePtrOutput
-}
-
-type identityResponsePtrType IdentityResponseArgs
-
-func IdentityResponsePtr(v *IdentityResponseArgs) IdentityResponsePtrInput {
-	return (*identityResponsePtrType)(v)
-}
-
-func (*identityResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**IdentityResponse)(nil)).Elem()
-}
-
-func (i *identityResponsePtrType) ToIdentityResponsePtrOutput() IdentityResponsePtrOutput {
-	return i.ToIdentityResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *identityResponsePtrType) ToIdentityResponsePtrOutputWithContext(ctx context.Context) IdentityResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IdentityResponsePtrOutput)
-}
-
 type IdentityResponseOutput struct{ *pulumi.OutputState }
 
 func (IdentityResponseOutput) ElementType() reflect.Type {
@@ -664,16 +361,6 @@ func (o IdentityResponseOutput) ToIdentityResponseOutput() IdentityResponseOutpu
 
 func (o IdentityResponseOutput) ToIdentityResponseOutputWithContext(ctx context.Context) IdentityResponseOutput {
 	return o
-}
-
-func (o IdentityResponseOutput) ToIdentityResponsePtrOutput() IdentityResponsePtrOutput {
-	return o.ToIdentityResponsePtrOutputWithContext(context.Background())
-}
-
-func (o IdentityResponseOutput) ToIdentityResponsePtrOutputWithContext(ctx context.Context) IdentityResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v IdentityResponse) *IdentityResponse {
-		return &v
-	}).(IdentityResponsePtrOutput)
 }
 
 func (o IdentityResponseOutput) PrincipalId() pulumi.StringOutput {
@@ -748,79 +435,6 @@ type SystemDataResponse struct {
 	LastModifiedByType *string `pulumi:"lastModifiedByType"`
 }
 
-
-
-
-
-type SystemDataResponseInput interface {
-	pulumi.Input
-
-	ToSystemDataResponseOutput() SystemDataResponseOutput
-	ToSystemDataResponseOutputWithContext(context.Context) SystemDataResponseOutput
-}
-
-type SystemDataResponseArgs struct {
-	CreatedAt          pulumi.StringPtrInput `pulumi:"createdAt"`
-	CreatedBy          pulumi.StringPtrInput `pulumi:"createdBy"`
-	CreatedByType      pulumi.StringPtrInput `pulumi:"createdByType"`
-	LastModifiedAt     pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
-	LastModifiedBy     pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
-	LastModifiedByType pulumi.StringPtrInput `pulumi:"lastModifiedByType"`
-}
-
-func (SystemDataResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SystemDataResponse)(nil)).Elem()
-}
-
-func (i SystemDataResponseArgs) ToSystemDataResponseOutput() SystemDataResponseOutput {
-	return i.ToSystemDataResponseOutputWithContext(context.Background())
-}
-
-func (i SystemDataResponseArgs) ToSystemDataResponseOutputWithContext(ctx context.Context) SystemDataResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponseOutput)
-}
-
-func (i SystemDataResponseArgs) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
-	return i.ToSystemDataResponsePtrOutputWithContext(context.Background())
-}
-
-func (i SystemDataResponseArgs) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponseOutput).ToSystemDataResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type SystemDataResponsePtrInput interface {
-	pulumi.Input
-
-	ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput
-	ToSystemDataResponsePtrOutputWithContext(context.Context) SystemDataResponsePtrOutput
-}
-
-type systemDataResponsePtrType SystemDataResponseArgs
-
-func SystemDataResponsePtr(v *SystemDataResponseArgs) SystemDataResponsePtrInput {
-	return (*systemDataResponsePtrType)(v)
-}
-
-func (*systemDataResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SystemDataResponse)(nil)).Elem()
-}
-
-func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
-	return i.ToSystemDataResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponsePtrOutput)
-}
-
 type SystemDataResponseOutput struct{ *pulumi.OutputState }
 
 func (SystemDataResponseOutput) ElementType() reflect.Type {
@@ -833,16 +447,6 @@ func (o SystemDataResponseOutput) ToSystemDataResponseOutput() SystemDataRespons
 
 func (o SystemDataResponseOutput) ToSystemDataResponseOutputWithContext(ctx context.Context) SystemDataResponseOutput {
 	return o
-}
-
-func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
-	return o.ToSystemDataResponsePtrOutputWithContext(context.Background())
-}
-
-func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SystemDataResponse) *SystemDataResponse {
-		return &v
-	}).(SystemDataResponsePtrOutput)
 }
 
 func (o SystemDataResponseOutput) CreatedAt() pulumi.StringPtrOutput {
@@ -869,96 +473,14 @@ func (o SystemDataResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
 }
 
-type SystemDataResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (SystemDataResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SystemDataResponse)(nil)).Elem()
-}
-
-func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
-	return o
-}
-
-func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return o
-}
-
-func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
-	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse {
-		if v != nil {
-			return *v
-		}
-		var ret SystemDataResponse
-		return ret
-	}).(SystemDataResponseOutput)
-}
-
-func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SystemDataResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CreatedAt
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SystemDataResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CreatedBy
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SystemDataResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CreatedByType
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SystemDataResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.LastModifiedAt
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SystemDataResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.LastModifiedBy
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SystemDataResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.LastModifiedByType
-	}).(pulumi.StringPtrOutput)
-}
-
 func init() {
-	pulumi.RegisterOutputType(ApplianceCredentialKubeconfigResponseOutput{})
-	pulumi.RegisterOutputType(ApplianceCredentialKubeconfigResponseArrayOutput{})
 	pulumi.RegisterOutputType(AppliancePropertiesInfrastructureConfigOutput{})
 	pulumi.RegisterOutputType(AppliancePropertiesInfrastructureConfigPtrOutput{})
 	pulumi.RegisterOutputType(AppliancePropertiesResponseInfrastructureConfigOutput{})
 	pulumi.RegisterOutputType(AppliancePropertiesResponseInfrastructureConfigPtrOutput{})
-	pulumi.RegisterOutputType(HybridConnectionConfigResponseOutput{})
 	pulumi.RegisterOutputType(IdentityOutput{})
 	pulumi.RegisterOutputType(IdentityPtrOutput{})
 	pulumi.RegisterOutputType(IdentityResponseOutput{})
 	pulumi.RegisterOutputType(IdentityResponsePtrOutput{})
 	pulumi.RegisterOutputType(SystemDataResponseOutput{})
-	pulumi.RegisterOutputType(SystemDataResponsePtrOutput{})
 }

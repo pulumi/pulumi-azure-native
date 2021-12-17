@@ -17,61 +17,6 @@ type ErrorDetailResponse struct {
 	Target  *string               `pulumi:"target"`
 }
 
-
-
-
-
-type ErrorDetailResponseInput interface {
-	pulumi.Input
-
-	ToErrorDetailResponseOutput() ErrorDetailResponseOutput
-	ToErrorDetailResponseOutputWithContext(context.Context) ErrorDetailResponseOutput
-}
-
-type ErrorDetailResponseArgs struct {
-	Code    pulumi.StringInput            `pulumi:"code"`
-	Details ErrorDetailResponseArrayInput `pulumi:"details"`
-	Message pulumi.StringInput            `pulumi:"message"`
-	Target  pulumi.StringPtrInput         `pulumi:"target"`
-}
-
-func (ErrorDetailResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ErrorDetailResponse)(nil)).Elem()
-}
-
-func (i ErrorDetailResponseArgs) ToErrorDetailResponseOutput() ErrorDetailResponseOutput {
-	return i.ToErrorDetailResponseOutputWithContext(context.Background())
-}
-
-func (i ErrorDetailResponseArgs) ToErrorDetailResponseOutputWithContext(ctx context.Context) ErrorDetailResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ErrorDetailResponseOutput)
-}
-
-
-
-
-
-type ErrorDetailResponseArrayInput interface {
-	pulumi.Input
-
-	ToErrorDetailResponseArrayOutput() ErrorDetailResponseArrayOutput
-	ToErrorDetailResponseArrayOutputWithContext(context.Context) ErrorDetailResponseArrayOutput
-}
-
-type ErrorDetailResponseArray []ErrorDetailResponseInput
-
-func (ErrorDetailResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ErrorDetailResponse)(nil)).Elem()
-}
-
-func (i ErrorDetailResponseArray) ToErrorDetailResponseArrayOutput() ErrorDetailResponseArrayOutput {
-	return i.ToErrorDetailResponseArrayOutputWithContext(context.Background())
-}
-
-func (i ErrorDetailResponseArray) ToErrorDetailResponseArrayOutputWithContext(ctx context.Context) ErrorDetailResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ErrorDetailResponseArrayOutput)
-}
-
 type ErrorDetailResponseOutput struct{ *pulumi.OutputState }
 
 func (ErrorDetailResponseOutput) ElementType() reflect.Type {
@@ -126,74 +71,6 @@ type OSProfileResponse struct {
 	ComputerName string `pulumi:"computerName"`
 }
 
-
-
-
-
-type OSProfileResponseInput interface {
-	pulumi.Input
-
-	ToOSProfileResponseOutput() OSProfileResponseOutput
-	ToOSProfileResponseOutputWithContext(context.Context) OSProfileResponseOutput
-}
-
-type OSProfileResponseArgs struct {
-	ComputerName pulumi.StringInput `pulumi:"computerName"`
-}
-
-func (OSProfileResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*OSProfileResponse)(nil)).Elem()
-}
-
-func (i OSProfileResponseArgs) ToOSProfileResponseOutput() OSProfileResponseOutput {
-	return i.ToOSProfileResponseOutputWithContext(context.Background())
-}
-
-func (i OSProfileResponseArgs) ToOSProfileResponseOutputWithContext(ctx context.Context) OSProfileResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OSProfileResponseOutput)
-}
-
-func (i OSProfileResponseArgs) ToOSProfileResponsePtrOutput() OSProfileResponsePtrOutput {
-	return i.ToOSProfileResponsePtrOutputWithContext(context.Background())
-}
-
-func (i OSProfileResponseArgs) ToOSProfileResponsePtrOutputWithContext(ctx context.Context) OSProfileResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OSProfileResponseOutput).ToOSProfileResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type OSProfileResponsePtrInput interface {
-	pulumi.Input
-
-	ToOSProfileResponsePtrOutput() OSProfileResponsePtrOutput
-	ToOSProfileResponsePtrOutputWithContext(context.Context) OSProfileResponsePtrOutput
-}
-
-type osprofileResponsePtrType OSProfileResponseArgs
-
-func OSProfileResponsePtr(v *OSProfileResponseArgs) OSProfileResponsePtrInput {
-	return (*osprofileResponsePtrType)(v)
-}
-
-func (*osprofileResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**OSProfileResponse)(nil)).Elem()
-}
-
-func (i *osprofileResponsePtrType) ToOSProfileResponsePtrOutput() OSProfileResponsePtrOutput {
-	return i.ToOSProfileResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *osprofileResponsePtrType) ToOSProfileResponsePtrOutputWithContext(ctx context.Context) OSProfileResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OSProfileResponsePtrOutput)
-}
-
 type OSProfileResponseOutput struct{ *pulumi.OutputState }
 
 func (OSProfileResponseOutput) ElementType() reflect.Type {
@@ -208,56 +85,12 @@ func (o OSProfileResponseOutput) ToOSProfileResponseOutputWithContext(ctx contex
 	return o
 }
 
-func (o OSProfileResponseOutput) ToOSProfileResponsePtrOutput() OSProfileResponsePtrOutput {
-	return o.ToOSProfileResponsePtrOutputWithContext(context.Background())
-}
-
-func (o OSProfileResponseOutput) ToOSProfileResponsePtrOutputWithContext(ctx context.Context) OSProfileResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v OSProfileResponse) *OSProfileResponse {
-		return &v
-	}).(OSProfileResponsePtrOutput)
-}
-
 func (o OSProfileResponseOutput) ComputerName() pulumi.StringOutput {
 	return o.ApplyT(func(v OSProfileResponse) string { return v.ComputerName }).(pulumi.StringOutput)
-}
-
-type OSProfileResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (OSProfileResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**OSProfileResponse)(nil)).Elem()
-}
-
-func (o OSProfileResponsePtrOutput) ToOSProfileResponsePtrOutput() OSProfileResponsePtrOutput {
-	return o
-}
-
-func (o OSProfileResponsePtrOutput) ToOSProfileResponsePtrOutputWithContext(ctx context.Context) OSProfileResponsePtrOutput {
-	return o
-}
-
-func (o OSProfileResponsePtrOutput) Elem() OSProfileResponseOutput {
-	return o.ApplyT(func(v *OSProfileResponse) OSProfileResponse {
-		if v != nil {
-			return *v
-		}
-		var ret OSProfileResponse
-		return ret
-	}).(OSProfileResponseOutput)
-}
-
-func (o OSProfileResponsePtrOutput) ComputerName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *OSProfileResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.ComputerName
-	}).(pulumi.StringPtrOutput)
 }
 
 func init() {
 	pulumi.RegisterOutputType(ErrorDetailResponseOutput{})
 	pulumi.RegisterOutputType(ErrorDetailResponseArrayOutput{})
 	pulumi.RegisterOutputType(OSProfileResponseOutput{})
-	pulumi.RegisterOutputType(OSProfileResponsePtrOutput{})
 }

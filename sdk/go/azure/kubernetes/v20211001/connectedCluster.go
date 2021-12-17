@@ -50,8 +50,7 @@ func NewConnectedCluster(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	identityApplier := func(v ConnectedClusterIdentity) *ConnectedClusterIdentity { return v.Defaults() }
-	args.Identity = args.Identity.ToConnectedClusterIdentityOutput().ApplyT(identityApplier).(ConnectedClusterIdentityPtrOutput).Elem()
+	args.Identity = args.Identity.ToConnectedClusterIdentityOutput().ApplyT(func(v ConnectedClusterIdentity) ConnectedClusterIdentity { return *v.Defaults() }).(ConnectedClusterIdentityOutput)
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-native:kubernetes:ConnectedCluster"),

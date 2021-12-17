@@ -46,9 +46,8 @@ func NewWebAppBackupConfigurationSlot(ctx *pulumi.Context,
 	if args.StorageAccountUrl == nil {
 		return nil, errors.New("invalid value for required argument 'StorageAccountUrl'")
 	}
-	backupScheduleApplier := func(v BackupSchedule) *BackupSchedule { return v.Defaults() }
 	if args.BackupSchedule != nil {
-		args.BackupSchedule = args.BackupSchedule.ToBackupSchedulePtrOutput().Elem().ApplyT(backupScheduleApplier).(BackupSchedulePtrOutput)
+		args.BackupSchedule = args.BackupSchedule.ToBackupSchedulePtrOutput().ApplyT(func(v *BackupSchedule) *BackupSchedule { return v.Defaults() }).(BackupSchedulePtrOutput)
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

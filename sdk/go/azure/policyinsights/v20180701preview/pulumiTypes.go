@@ -18,116 +18,6 @@ type ErrorDefinitionResponse struct {
 	Target         string                    `pulumi:"target"`
 }
 
-
-
-
-
-type ErrorDefinitionResponseInput interface {
-	pulumi.Input
-
-	ToErrorDefinitionResponseOutput() ErrorDefinitionResponseOutput
-	ToErrorDefinitionResponseOutputWithContext(context.Context) ErrorDefinitionResponseOutput
-}
-
-type ErrorDefinitionResponseArgs struct {
-	AdditionalInfo TypedErrorInfoResponseArrayInput  `pulumi:"additionalInfo"`
-	Code           pulumi.StringInput                `pulumi:"code"`
-	Details        ErrorDefinitionResponseArrayInput `pulumi:"details"`
-	Message        pulumi.StringInput                `pulumi:"message"`
-	Target         pulumi.StringInput                `pulumi:"target"`
-}
-
-func (ErrorDefinitionResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ErrorDefinitionResponse)(nil)).Elem()
-}
-
-func (i ErrorDefinitionResponseArgs) ToErrorDefinitionResponseOutput() ErrorDefinitionResponseOutput {
-	return i.ToErrorDefinitionResponseOutputWithContext(context.Background())
-}
-
-func (i ErrorDefinitionResponseArgs) ToErrorDefinitionResponseOutputWithContext(ctx context.Context) ErrorDefinitionResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ErrorDefinitionResponseOutput)
-}
-
-
-
-
-
-type ErrorDefinitionResponseArrayInput interface {
-	pulumi.Input
-
-	ToErrorDefinitionResponseArrayOutput() ErrorDefinitionResponseArrayOutput
-	ToErrorDefinitionResponseArrayOutputWithContext(context.Context) ErrorDefinitionResponseArrayOutput
-}
-
-type ErrorDefinitionResponseArray []ErrorDefinitionResponseInput
-
-func (ErrorDefinitionResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ErrorDefinitionResponse)(nil)).Elem()
-}
-
-func (i ErrorDefinitionResponseArray) ToErrorDefinitionResponseArrayOutput() ErrorDefinitionResponseArrayOutput {
-	return i.ToErrorDefinitionResponseArrayOutputWithContext(context.Background())
-}
-
-func (i ErrorDefinitionResponseArray) ToErrorDefinitionResponseArrayOutputWithContext(ctx context.Context) ErrorDefinitionResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ErrorDefinitionResponseArrayOutput)
-}
-
-type ErrorDefinitionResponseOutput struct{ *pulumi.OutputState }
-
-func (ErrorDefinitionResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ErrorDefinitionResponse)(nil)).Elem()
-}
-
-func (o ErrorDefinitionResponseOutput) ToErrorDefinitionResponseOutput() ErrorDefinitionResponseOutput {
-	return o
-}
-
-func (o ErrorDefinitionResponseOutput) ToErrorDefinitionResponseOutputWithContext(ctx context.Context) ErrorDefinitionResponseOutput {
-	return o
-}
-
-func (o ErrorDefinitionResponseOutput) AdditionalInfo() TypedErrorInfoResponseArrayOutput {
-	return o.ApplyT(func(v ErrorDefinitionResponse) []TypedErrorInfoResponse { return v.AdditionalInfo }).(TypedErrorInfoResponseArrayOutput)
-}
-
-func (o ErrorDefinitionResponseOutput) Code() pulumi.StringOutput {
-	return o.ApplyT(func(v ErrorDefinitionResponse) string { return v.Code }).(pulumi.StringOutput)
-}
-
-func (o ErrorDefinitionResponseOutput) Details() ErrorDefinitionResponseArrayOutput {
-	return o.ApplyT(func(v ErrorDefinitionResponse) []ErrorDefinitionResponse { return v.Details }).(ErrorDefinitionResponseArrayOutput)
-}
-
-func (o ErrorDefinitionResponseOutput) Message() pulumi.StringOutput {
-	return o.ApplyT(func(v ErrorDefinitionResponse) string { return v.Message }).(pulumi.StringOutput)
-}
-
-func (o ErrorDefinitionResponseOutput) Target() pulumi.StringOutput {
-	return o.ApplyT(func(v ErrorDefinitionResponse) string { return v.Target }).(pulumi.StringOutput)
-}
-
-type ErrorDefinitionResponseArrayOutput struct{ *pulumi.OutputState }
-
-func (ErrorDefinitionResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ErrorDefinitionResponse)(nil)).Elem()
-}
-
-func (o ErrorDefinitionResponseArrayOutput) ToErrorDefinitionResponseArrayOutput() ErrorDefinitionResponseArrayOutput {
-	return o
-}
-
-func (o ErrorDefinitionResponseArrayOutput) ToErrorDefinitionResponseArrayOutputWithContext(ctx context.Context) ErrorDefinitionResponseArrayOutput {
-	return o
-}
-
-func (o ErrorDefinitionResponseArrayOutput) Index(i pulumi.IntInput) ErrorDefinitionResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ErrorDefinitionResponse {
-		return vs[0].([]ErrorDefinitionResponse)[vs[1].(int)]
-	}).(ErrorDefinitionResponseOutput)
-}
-
 type RemediationDeploymentResponse struct {
 	CreatedOn            string                  `pulumi:"createdOn"`
 	DeploymentId         string                  `pulumi:"deploymentId"`
@@ -136,126 +26,6 @@ type RemediationDeploymentResponse struct {
 	RemediatedResourceId string                  `pulumi:"remediatedResourceId"`
 	ResourceLocation     string                  `pulumi:"resourceLocation"`
 	Status               string                  `pulumi:"status"`
-}
-
-
-
-
-
-type RemediationDeploymentResponseInput interface {
-	pulumi.Input
-
-	ToRemediationDeploymentResponseOutput() RemediationDeploymentResponseOutput
-	ToRemediationDeploymentResponseOutputWithContext(context.Context) RemediationDeploymentResponseOutput
-}
-
-type RemediationDeploymentResponseArgs struct {
-	CreatedOn            pulumi.StringInput           `pulumi:"createdOn"`
-	DeploymentId         pulumi.StringInput           `pulumi:"deploymentId"`
-	Error                ErrorDefinitionResponseInput `pulumi:"error"`
-	LastUpdatedOn        pulumi.StringInput           `pulumi:"lastUpdatedOn"`
-	RemediatedResourceId pulumi.StringInput           `pulumi:"remediatedResourceId"`
-	ResourceLocation     pulumi.StringInput           `pulumi:"resourceLocation"`
-	Status               pulumi.StringInput           `pulumi:"status"`
-}
-
-func (RemediationDeploymentResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RemediationDeploymentResponse)(nil)).Elem()
-}
-
-func (i RemediationDeploymentResponseArgs) ToRemediationDeploymentResponseOutput() RemediationDeploymentResponseOutput {
-	return i.ToRemediationDeploymentResponseOutputWithContext(context.Background())
-}
-
-func (i RemediationDeploymentResponseArgs) ToRemediationDeploymentResponseOutputWithContext(ctx context.Context) RemediationDeploymentResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RemediationDeploymentResponseOutput)
-}
-
-
-
-
-
-type RemediationDeploymentResponseArrayInput interface {
-	pulumi.Input
-
-	ToRemediationDeploymentResponseArrayOutput() RemediationDeploymentResponseArrayOutput
-	ToRemediationDeploymentResponseArrayOutputWithContext(context.Context) RemediationDeploymentResponseArrayOutput
-}
-
-type RemediationDeploymentResponseArray []RemediationDeploymentResponseInput
-
-func (RemediationDeploymentResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]RemediationDeploymentResponse)(nil)).Elem()
-}
-
-func (i RemediationDeploymentResponseArray) ToRemediationDeploymentResponseArrayOutput() RemediationDeploymentResponseArrayOutput {
-	return i.ToRemediationDeploymentResponseArrayOutputWithContext(context.Background())
-}
-
-func (i RemediationDeploymentResponseArray) ToRemediationDeploymentResponseArrayOutputWithContext(ctx context.Context) RemediationDeploymentResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RemediationDeploymentResponseArrayOutput)
-}
-
-type RemediationDeploymentResponseOutput struct{ *pulumi.OutputState }
-
-func (RemediationDeploymentResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RemediationDeploymentResponse)(nil)).Elem()
-}
-
-func (o RemediationDeploymentResponseOutput) ToRemediationDeploymentResponseOutput() RemediationDeploymentResponseOutput {
-	return o
-}
-
-func (o RemediationDeploymentResponseOutput) ToRemediationDeploymentResponseOutputWithContext(ctx context.Context) RemediationDeploymentResponseOutput {
-	return o
-}
-
-func (o RemediationDeploymentResponseOutput) CreatedOn() pulumi.StringOutput {
-	return o.ApplyT(func(v RemediationDeploymentResponse) string { return v.CreatedOn }).(pulumi.StringOutput)
-}
-
-func (o RemediationDeploymentResponseOutput) DeploymentId() pulumi.StringOutput {
-	return o.ApplyT(func(v RemediationDeploymentResponse) string { return v.DeploymentId }).(pulumi.StringOutput)
-}
-
-func (o RemediationDeploymentResponseOutput) Error() ErrorDefinitionResponseOutput {
-	return o.ApplyT(func(v RemediationDeploymentResponse) ErrorDefinitionResponse { return v.Error }).(ErrorDefinitionResponseOutput)
-}
-
-func (o RemediationDeploymentResponseOutput) LastUpdatedOn() pulumi.StringOutput {
-	return o.ApplyT(func(v RemediationDeploymentResponse) string { return v.LastUpdatedOn }).(pulumi.StringOutput)
-}
-
-func (o RemediationDeploymentResponseOutput) RemediatedResourceId() pulumi.StringOutput {
-	return o.ApplyT(func(v RemediationDeploymentResponse) string { return v.RemediatedResourceId }).(pulumi.StringOutput)
-}
-
-func (o RemediationDeploymentResponseOutput) ResourceLocation() pulumi.StringOutput {
-	return o.ApplyT(func(v RemediationDeploymentResponse) string { return v.ResourceLocation }).(pulumi.StringOutput)
-}
-
-func (o RemediationDeploymentResponseOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func(v RemediationDeploymentResponse) string { return v.Status }).(pulumi.StringOutput)
-}
-
-type RemediationDeploymentResponseArrayOutput struct{ *pulumi.OutputState }
-
-func (RemediationDeploymentResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]RemediationDeploymentResponse)(nil)).Elem()
-}
-
-func (o RemediationDeploymentResponseArrayOutput) ToRemediationDeploymentResponseArrayOutput() RemediationDeploymentResponseArrayOutput {
-	return o
-}
-
-func (o RemediationDeploymentResponseArrayOutput) ToRemediationDeploymentResponseArrayOutputWithContext(ctx context.Context) RemediationDeploymentResponseArrayOutput {
-	return o
-}
-
-func (o RemediationDeploymentResponseArrayOutput) Index(i pulumi.IntInput) RemediationDeploymentResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RemediationDeploymentResponse {
-		return vs[0].([]RemediationDeploymentResponse)[vs[1].(int)]
-	}).(RemediationDeploymentResponseOutput)
 }
 
 type RemediationDeploymentSummary struct {
@@ -427,76 +197,6 @@ type RemediationDeploymentSummaryResponse struct {
 	TotalDeployments      *int `pulumi:"totalDeployments"`
 }
 
-
-
-
-
-type RemediationDeploymentSummaryResponseInput interface {
-	pulumi.Input
-
-	ToRemediationDeploymentSummaryResponseOutput() RemediationDeploymentSummaryResponseOutput
-	ToRemediationDeploymentSummaryResponseOutputWithContext(context.Context) RemediationDeploymentSummaryResponseOutput
-}
-
-type RemediationDeploymentSummaryResponseArgs struct {
-	FailedDeployments     pulumi.IntPtrInput `pulumi:"failedDeployments"`
-	SuccessfulDeployments pulumi.IntPtrInput `pulumi:"successfulDeployments"`
-	TotalDeployments      pulumi.IntPtrInput `pulumi:"totalDeployments"`
-}
-
-func (RemediationDeploymentSummaryResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RemediationDeploymentSummaryResponse)(nil)).Elem()
-}
-
-func (i RemediationDeploymentSummaryResponseArgs) ToRemediationDeploymentSummaryResponseOutput() RemediationDeploymentSummaryResponseOutput {
-	return i.ToRemediationDeploymentSummaryResponseOutputWithContext(context.Background())
-}
-
-func (i RemediationDeploymentSummaryResponseArgs) ToRemediationDeploymentSummaryResponseOutputWithContext(ctx context.Context) RemediationDeploymentSummaryResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RemediationDeploymentSummaryResponseOutput)
-}
-
-func (i RemediationDeploymentSummaryResponseArgs) ToRemediationDeploymentSummaryResponsePtrOutput() RemediationDeploymentSummaryResponsePtrOutput {
-	return i.ToRemediationDeploymentSummaryResponsePtrOutputWithContext(context.Background())
-}
-
-func (i RemediationDeploymentSummaryResponseArgs) ToRemediationDeploymentSummaryResponsePtrOutputWithContext(ctx context.Context) RemediationDeploymentSummaryResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RemediationDeploymentSummaryResponseOutput).ToRemediationDeploymentSummaryResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type RemediationDeploymentSummaryResponsePtrInput interface {
-	pulumi.Input
-
-	ToRemediationDeploymentSummaryResponsePtrOutput() RemediationDeploymentSummaryResponsePtrOutput
-	ToRemediationDeploymentSummaryResponsePtrOutputWithContext(context.Context) RemediationDeploymentSummaryResponsePtrOutput
-}
-
-type remediationDeploymentSummaryResponsePtrType RemediationDeploymentSummaryResponseArgs
-
-func RemediationDeploymentSummaryResponsePtr(v *RemediationDeploymentSummaryResponseArgs) RemediationDeploymentSummaryResponsePtrInput {
-	return (*remediationDeploymentSummaryResponsePtrType)(v)
-}
-
-func (*remediationDeploymentSummaryResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**RemediationDeploymentSummaryResponse)(nil)).Elem()
-}
-
-func (i *remediationDeploymentSummaryResponsePtrType) ToRemediationDeploymentSummaryResponsePtrOutput() RemediationDeploymentSummaryResponsePtrOutput {
-	return i.ToRemediationDeploymentSummaryResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *remediationDeploymentSummaryResponsePtrType) ToRemediationDeploymentSummaryResponsePtrOutputWithContext(ctx context.Context) RemediationDeploymentSummaryResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RemediationDeploymentSummaryResponsePtrOutput)
-}
-
 type RemediationDeploymentSummaryResponseOutput struct{ *pulumi.OutputState }
 
 func (RemediationDeploymentSummaryResponseOutput) ElementType() reflect.Type {
@@ -509,16 +209,6 @@ func (o RemediationDeploymentSummaryResponseOutput) ToRemediationDeploymentSumma
 
 func (o RemediationDeploymentSummaryResponseOutput) ToRemediationDeploymentSummaryResponseOutputWithContext(ctx context.Context) RemediationDeploymentSummaryResponseOutput {
 	return o
-}
-
-func (o RemediationDeploymentSummaryResponseOutput) ToRemediationDeploymentSummaryResponsePtrOutput() RemediationDeploymentSummaryResponsePtrOutput {
-	return o.ToRemediationDeploymentSummaryResponsePtrOutputWithContext(context.Background())
-}
-
-func (o RemediationDeploymentSummaryResponseOutput) ToRemediationDeploymentSummaryResponsePtrOutputWithContext(ctx context.Context) RemediationDeploymentSummaryResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RemediationDeploymentSummaryResponse) *RemediationDeploymentSummaryResponse {
-		return &v
-	}).(RemediationDeploymentSummaryResponsePtrOutput)
 }
 
 func (o RemediationDeploymentSummaryResponseOutput) FailedDeployments() pulumi.IntPtrOutput {
@@ -721,74 +411,6 @@ type RemediationFiltersResponse struct {
 	Locations []string `pulumi:"locations"`
 }
 
-
-
-
-
-type RemediationFiltersResponseInput interface {
-	pulumi.Input
-
-	ToRemediationFiltersResponseOutput() RemediationFiltersResponseOutput
-	ToRemediationFiltersResponseOutputWithContext(context.Context) RemediationFiltersResponseOutput
-}
-
-type RemediationFiltersResponseArgs struct {
-	Locations pulumi.StringArrayInput `pulumi:"locations"`
-}
-
-func (RemediationFiltersResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RemediationFiltersResponse)(nil)).Elem()
-}
-
-func (i RemediationFiltersResponseArgs) ToRemediationFiltersResponseOutput() RemediationFiltersResponseOutput {
-	return i.ToRemediationFiltersResponseOutputWithContext(context.Background())
-}
-
-func (i RemediationFiltersResponseArgs) ToRemediationFiltersResponseOutputWithContext(ctx context.Context) RemediationFiltersResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RemediationFiltersResponseOutput)
-}
-
-func (i RemediationFiltersResponseArgs) ToRemediationFiltersResponsePtrOutput() RemediationFiltersResponsePtrOutput {
-	return i.ToRemediationFiltersResponsePtrOutputWithContext(context.Background())
-}
-
-func (i RemediationFiltersResponseArgs) ToRemediationFiltersResponsePtrOutputWithContext(ctx context.Context) RemediationFiltersResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RemediationFiltersResponseOutput).ToRemediationFiltersResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type RemediationFiltersResponsePtrInput interface {
-	pulumi.Input
-
-	ToRemediationFiltersResponsePtrOutput() RemediationFiltersResponsePtrOutput
-	ToRemediationFiltersResponsePtrOutputWithContext(context.Context) RemediationFiltersResponsePtrOutput
-}
-
-type remediationFiltersResponsePtrType RemediationFiltersResponseArgs
-
-func RemediationFiltersResponsePtr(v *RemediationFiltersResponseArgs) RemediationFiltersResponsePtrInput {
-	return (*remediationFiltersResponsePtrType)(v)
-}
-
-func (*remediationFiltersResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**RemediationFiltersResponse)(nil)).Elem()
-}
-
-func (i *remediationFiltersResponsePtrType) ToRemediationFiltersResponsePtrOutput() RemediationFiltersResponsePtrOutput {
-	return i.ToRemediationFiltersResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *remediationFiltersResponsePtrType) ToRemediationFiltersResponsePtrOutputWithContext(ctx context.Context) RemediationFiltersResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RemediationFiltersResponsePtrOutput)
-}
-
 type RemediationFiltersResponseOutput struct{ *pulumi.OutputState }
 
 func (RemediationFiltersResponseOutput) ElementType() reflect.Type {
@@ -801,16 +423,6 @@ func (o RemediationFiltersResponseOutput) ToRemediationFiltersResponseOutput() R
 
 func (o RemediationFiltersResponseOutput) ToRemediationFiltersResponseOutputWithContext(ctx context.Context) RemediationFiltersResponseOutput {
 	return o
-}
-
-func (o RemediationFiltersResponseOutput) ToRemediationFiltersResponsePtrOutput() RemediationFiltersResponsePtrOutput {
-	return o.ToRemediationFiltersResponsePtrOutputWithContext(context.Background())
-}
-
-func (o RemediationFiltersResponseOutput) ToRemediationFiltersResponsePtrOutputWithContext(ctx context.Context) RemediationFiltersResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RemediationFiltersResponse) *RemediationFiltersResponse {
-		return &v
-	}).(RemediationFiltersResponsePtrOutput)
 }
 
 func (o RemediationFiltersResponseOutput) Locations() pulumi.StringArrayOutput {
@@ -855,106 +467,7 @@ type TypedErrorInfoResponse struct {
 	Type string      `pulumi:"type"`
 }
 
-
-
-
-
-type TypedErrorInfoResponseInput interface {
-	pulumi.Input
-
-	ToTypedErrorInfoResponseOutput() TypedErrorInfoResponseOutput
-	ToTypedErrorInfoResponseOutputWithContext(context.Context) TypedErrorInfoResponseOutput
-}
-
-type TypedErrorInfoResponseArgs struct {
-	Info pulumi.Input       `pulumi:"info"`
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (TypedErrorInfoResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TypedErrorInfoResponse)(nil)).Elem()
-}
-
-func (i TypedErrorInfoResponseArgs) ToTypedErrorInfoResponseOutput() TypedErrorInfoResponseOutput {
-	return i.ToTypedErrorInfoResponseOutputWithContext(context.Background())
-}
-
-func (i TypedErrorInfoResponseArgs) ToTypedErrorInfoResponseOutputWithContext(ctx context.Context) TypedErrorInfoResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TypedErrorInfoResponseOutput)
-}
-
-
-
-
-
-type TypedErrorInfoResponseArrayInput interface {
-	pulumi.Input
-
-	ToTypedErrorInfoResponseArrayOutput() TypedErrorInfoResponseArrayOutput
-	ToTypedErrorInfoResponseArrayOutputWithContext(context.Context) TypedErrorInfoResponseArrayOutput
-}
-
-type TypedErrorInfoResponseArray []TypedErrorInfoResponseInput
-
-func (TypedErrorInfoResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TypedErrorInfoResponse)(nil)).Elem()
-}
-
-func (i TypedErrorInfoResponseArray) ToTypedErrorInfoResponseArrayOutput() TypedErrorInfoResponseArrayOutput {
-	return i.ToTypedErrorInfoResponseArrayOutputWithContext(context.Background())
-}
-
-func (i TypedErrorInfoResponseArray) ToTypedErrorInfoResponseArrayOutputWithContext(ctx context.Context) TypedErrorInfoResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TypedErrorInfoResponseArrayOutput)
-}
-
-type TypedErrorInfoResponseOutput struct{ *pulumi.OutputState }
-
-func (TypedErrorInfoResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TypedErrorInfoResponse)(nil)).Elem()
-}
-
-func (o TypedErrorInfoResponseOutput) ToTypedErrorInfoResponseOutput() TypedErrorInfoResponseOutput {
-	return o
-}
-
-func (o TypedErrorInfoResponseOutput) ToTypedErrorInfoResponseOutputWithContext(ctx context.Context) TypedErrorInfoResponseOutput {
-	return o
-}
-
-func (o TypedErrorInfoResponseOutput) Info() pulumi.AnyOutput {
-	return o.ApplyT(func(v TypedErrorInfoResponse) interface{} { return v.Info }).(pulumi.AnyOutput)
-}
-
-func (o TypedErrorInfoResponseOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v TypedErrorInfoResponse) string { return v.Type }).(pulumi.StringOutput)
-}
-
-type TypedErrorInfoResponseArrayOutput struct{ *pulumi.OutputState }
-
-func (TypedErrorInfoResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TypedErrorInfoResponse)(nil)).Elem()
-}
-
-func (o TypedErrorInfoResponseArrayOutput) ToTypedErrorInfoResponseArrayOutput() TypedErrorInfoResponseArrayOutput {
-	return o
-}
-
-func (o TypedErrorInfoResponseArrayOutput) ToTypedErrorInfoResponseArrayOutputWithContext(ctx context.Context) TypedErrorInfoResponseArrayOutput {
-	return o
-}
-
-func (o TypedErrorInfoResponseArrayOutput) Index(i pulumi.IntInput) TypedErrorInfoResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TypedErrorInfoResponse {
-		return vs[0].([]TypedErrorInfoResponse)[vs[1].(int)]
-	}).(TypedErrorInfoResponseOutput)
-}
-
 func init() {
-	pulumi.RegisterOutputType(ErrorDefinitionResponseOutput{})
-	pulumi.RegisterOutputType(ErrorDefinitionResponseArrayOutput{})
-	pulumi.RegisterOutputType(RemediationDeploymentResponseOutput{})
-	pulumi.RegisterOutputType(RemediationDeploymentResponseArrayOutput{})
 	pulumi.RegisterOutputType(RemediationDeploymentSummaryOutput{})
 	pulumi.RegisterOutputType(RemediationDeploymentSummaryPtrOutput{})
 	pulumi.RegisterOutputType(RemediationDeploymentSummaryResponseOutput{})
@@ -963,6 +476,4 @@ func init() {
 	pulumi.RegisterOutputType(RemediationFiltersPtrOutput{})
 	pulumi.RegisterOutputType(RemediationFiltersResponseOutput{})
 	pulumi.RegisterOutputType(RemediationFiltersResponsePtrOutput{})
-	pulumi.RegisterOutputType(TypedErrorInfoResponseOutput{})
-	pulumi.RegisterOutputType(TypedErrorInfoResponseArrayOutput{})
 }

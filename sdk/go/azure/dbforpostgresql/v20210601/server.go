@@ -46,21 +46,17 @@ func NewServer(ctx *pulumi.Context,
 	if isZero(args.AvailabilityZone) {
 		args.AvailabilityZone = pulumi.StringPtr("")
 	}
-	backupApplier := func(v Backup) *Backup { return v.Defaults() }
 	if args.Backup != nil {
-		args.Backup = args.Backup.ToBackupPtrOutput().Elem().ApplyT(backupApplier).(BackupPtrOutput)
+		args.Backup = args.Backup.ToBackupPtrOutput().ApplyT(func(v *Backup) *Backup { return v.Defaults() }).(BackupPtrOutput)
 	}
-	highAvailabilityApplier := func(v HighAvailability) *HighAvailability { return v.Defaults() }
 	if args.HighAvailability != nil {
-		args.HighAvailability = args.HighAvailability.ToHighAvailabilityPtrOutput().Elem().ApplyT(highAvailabilityApplier).(HighAvailabilityPtrOutput)
+		args.HighAvailability = args.HighAvailability.ToHighAvailabilityPtrOutput().ApplyT(func(v *HighAvailability) *HighAvailability { return v.Defaults() }).(HighAvailabilityPtrOutput)
 	}
-	maintenanceWindowApplier := func(v MaintenanceWindow) *MaintenanceWindow { return v.Defaults() }
 	if args.MaintenanceWindow != nil {
-		args.MaintenanceWindow = args.MaintenanceWindow.ToMaintenanceWindowPtrOutput().Elem().ApplyT(maintenanceWindowApplier).(MaintenanceWindowPtrOutput)
+		args.MaintenanceWindow = args.MaintenanceWindow.ToMaintenanceWindowPtrOutput().ApplyT(func(v *MaintenanceWindow) *MaintenanceWindow { return v.Defaults() }).(MaintenanceWindowPtrOutput)
 	}
-	networkApplier := func(v Network) *Network { return v.Defaults() }
 	if args.Network != nil {
-		args.Network = args.Network.ToNetworkPtrOutput().Elem().ApplyT(networkApplier).(NetworkPtrOutput)
+		args.Network = args.Network.ToNetworkPtrOutput().ApplyT(func(v *Network) *Network { return v.Defaults() }).(NetworkPtrOutput)
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

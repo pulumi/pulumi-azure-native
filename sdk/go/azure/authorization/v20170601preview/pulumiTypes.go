@@ -115,59 +115,6 @@ type PolicyDefinitionReferenceResponse struct {
 	PolicyDefinitionId *string     `pulumi:"policyDefinitionId"`
 }
 
-
-
-
-
-type PolicyDefinitionReferenceResponseInput interface {
-	pulumi.Input
-
-	ToPolicyDefinitionReferenceResponseOutput() PolicyDefinitionReferenceResponseOutput
-	ToPolicyDefinitionReferenceResponseOutputWithContext(context.Context) PolicyDefinitionReferenceResponseOutput
-}
-
-type PolicyDefinitionReferenceResponseArgs struct {
-	Parameters         pulumi.Input          `pulumi:"parameters"`
-	PolicyDefinitionId pulumi.StringPtrInput `pulumi:"policyDefinitionId"`
-}
-
-func (PolicyDefinitionReferenceResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PolicyDefinitionReferenceResponse)(nil)).Elem()
-}
-
-func (i PolicyDefinitionReferenceResponseArgs) ToPolicyDefinitionReferenceResponseOutput() PolicyDefinitionReferenceResponseOutput {
-	return i.ToPolicyDefinitionReferenceResponseOutputWithContext(context.Background())
-}
-
-func (i PolicyDefinitionReferenceResponseArgs) ToPolicyDefinitionReferenceResponseOutputWithContext(ctx context.Context) PolicyDefinitionReferenceResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PolicyDefinitionReferenceResponseOutput)
-}
-
-
-
-
-
-type PolicyDefinitionReferenceResponseArrayInput interface {
-	pulumi.Input
-
-	ToPolicyDefinitionReferenceResponseArrayOutput() PolicyDefinitionReferenceResponseArrayOutput
-	ToPolicyDefinitionReferenceResponseArrayOutputWithContext(context.Context) PolicyDefinitionReferenceResponseArrayOutput
-}
-
-type PolicyDefinitionReferenceResponseArray []PolicyDefinitionReferenceResponseInput
-
-func (PolicyDefinitionReferenceResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PolicyDefinitionReferenceResponse)(nil)).Elem()
-}
-
-func (i PolicyDefinitionReferenceResponseArray) ToPolicyDefinitionReferenceResponseArrayOutput() PolicyDefinitionReferenceResponseArrayOutput {
-	return i.ToPolicyDefinitionReferenceResponseArrayOutputWithContext(context.Background())
-}
-
-func (i PolicyDefinitionReferenceResponseArray) ToPolicyDefinitionReferenceResponseArrayOutputWithContext(ctx context.Context) PolicyDefinitionReferenceResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PolicyDefinitionReferenceResponseArrayOutput)
-}
-
 type PolicyDefinitionReferenceResponseOutput struct{ *pulumi.OutputState }
 
 func (PolicyDefinitionReferenceResponseOutput) ElementType() reflect.Type {
@@ -363,75 +310,6 @@ type PolicySkuResponse struct {
 	Tier *string `pulumi:"tier"`
 }
 
-
-
-
-
-type PolicySkuResponseInput interface {
-	pulumi.Input
-
-	ToPolicySkuResponseOutput() PolicySkuResponseOutput
-	ToPolicySkuResponseOutputWithContext(context.Context) PolicySkuResponseOutput
-}
-
-type PolicySkuResponseArgs struct {
-	Name pulumi.StringInput    `pulumi:"name"`
-	Tier pulumi.StringPtrInput `pulumi:"tier"`
-}
-
-func (PolicySkuResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PolicySkuResponse)(nil)).Elem()
-}
-
-func (i PolicySkuResponseArgs) ToPolicySkuResponseOutput() PolicySkuResponseOutput {
-	return i.ToPolicySkuResponseOutputWithContext(context.Background())
-}
-
-func (i PolicySkuResponseArgs) ToPolicySkuResponseOutputWithContext(ctx context.Context) PolicySkuResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PolicySkuResponseOutput)
-}
-
-func (i PolicySkuResponseArgs) ToPolicySkuResponsePtrOutput() PolicySkuResponsePtrOutput {
-	return i.ToPolicySkuResponsePtrOutputWithContext(context.Background())
-}
-
-func (i PolicySkuResponseArgs) ToPolicySkuResponsePtrOutputWithContext(ctx context.Context) PolicySkuResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PolicySkuResponseOutput).ToPolicySkuResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type PolicySkuResponsePtrInput interface {
-	pulumi.Input
-
-	ToPolicySkuResponsePtrOutput() PolicySkuResponsePtrOutput
-	ToPolicySkuResponsePtrOutputWithContext(context.Context) PolicySkuResponsePtrOutput
-}
-
-type policySkuResponsePtrType PolicySkuResponseArgs
-
-func PolicySkuResponsePtr(v *PolicySkuResponseArgs) PolicySkuResponsePtrInput {
-	return (*policySkuResponsePtrType)(v)
-}
-
-func (*policySkuResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PolicySkuResponse)(nil)).Elem()
-}
-
-func (i *policySkuResponsePtrType) ToPolicySkuResponsePtrOutput() PolicySkuResponsePtrOutput {
-	return i.ToPolicySkuResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *policySkuResponsePtrType) ToPolicySkuResponsePtrOutputWithContext(ctx context.Context) PolicySkuResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PolicySkuResponsePtrOutput)
-}
-
 type PolicySkuResponseOutput struct{ *pulumi.OutputState }
 
 func (PolicySkuResponseOutput) ElementType() reflect.Type {
@@ -444,16 +322,6 @@ func (o PolicySkuResponseOutput) ToPolicySkuResponseOutput() PolicySkuResponseOu
 
 func (o PolicySkuResponseOutput) ToPolicySkuResponseOutputWithContext(ctx context.Context) PolicySkuResponseOutput {
 	return o
-}
-
-func (o PolicySkuResponseOutput) ToPolicySkuResponsePtrOutput() PolicySkuResponsePtrOutput {
-	return o.ToPolicySkuResponsePtrOutputWithContext(context.Background())
-}
-
-func (o PolicySkuResponseOutput) ToPolicySkuResponsePtrOutputWithContext(ctx context.Context) PolicySkuResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicySkuResponse) *PolicySkuResponse {
-		return &v
-	}).(PolicySkuResponsePtrOutput)
 }
 
 func (o PolicySkuResponseOutput) Name() pulumi.StringOutput {

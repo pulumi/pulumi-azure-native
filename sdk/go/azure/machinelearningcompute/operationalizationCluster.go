@@ -44,13 +44,11 @@ func NewOperationalizationCluster(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	containerServiceApplier := func(v AcsClusterProperties) *AcsClusterProperties { return v.Defaults() }
 	if args.ContainerService != nil {
-		args.ContainerService = args.ContainerService.ToAcsClusterPropertiesPtrOutput().Elem().ApplyT(containerServiceApplier).(AcsClusterPropertiesPtrOutput)
+		args.ContainerService = args.ContainerService.ToAcsClusterPropertiesPtrOutput().ApplyT(func(v *AcsClusterProperties) *AcsClusterProperties { return v.Defaults() }).(AcsClusterPropertiesPtrOutput)
 	}
-	globalServiceConfigurationApplier := func(v GlobalServiceConfiguration) *GlobalServiceConfiguration { return v.Defaults() }
 	if args.GlobalServiceConfiguration != nil {
-		args.GlobalServiceConfiguration = args.GlobalServiceConfiguration.ToGlobalServiceConfigurationPtrOutput().Elem().ApplyT(globalServiceConfigurationApplier).(GlobalServiceConfigurationPtrOutput)
+		args.GlobalServiceConfiguration = args.GlobalServiceConfiguration.ToGlobalServiceConfigurationPtrOutput().ApplyT(func(v *GlobalServiceConfiguration) *GlobalServiceConfiguration { return v.Defaults() }).(GlobalServiceConfigurationPtrOutput)
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

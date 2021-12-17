@@ -38,9 +38,8 @@ func NewDatastore(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	diskPoolVolumeApplier := func(v DiskPoolVolume) *DiskPoolVolume { return v.Defaults() }
 	if args.DiskPoolVolume != nil {
-		args.DiskPoolVolume = args.DiskPoolVolume.ToDiskPoolVolumePtrOutput().Elem().ApplyT(diskPoolVolumeApplier).(DiskPoolVolumePtrOutput)
+		args.DiskPoolVolume = args.DiskPoolVolume.ToDiskPoolVolumePtrOutput().ApplyT(func(v *DiskPoolVolume) *DiskPoolVolume { return v.Defaults() }).(DiskPoolVolumePtrOutput)
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

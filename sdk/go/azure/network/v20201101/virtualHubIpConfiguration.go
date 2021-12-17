@@ -37,9 +37,8 @@ func NewVirtualHubIpConfiguration(ctx *pulumi.Context,
 	if args.VirtualHubName == nil {
 		return nil, errors.New("invalid value for required argument 'VirtualHubName'")
 	}
-	subnetApplier := func(v SubnetType) *SubnetType { return v.Defaults() }
 	if args.Subnet != nil {
-		args.Subnet = args.Subnet.ToSubnetTypePtrOutput().Elem().ApplyT(subnetApplier).(SubnetTypePtrOutput)
+		args.Subnet = args.Subnet.ToSubnetTypePtrOutput().ApplyT(func(v *SubnetType) *SubnetType { return v.Defaults() }).(SubnetTypePtrOutput)
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

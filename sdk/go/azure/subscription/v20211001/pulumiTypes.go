@@ -410,84 +410,6 @@ type SubscriptionAliasResponsePropertiesResponse struct {
 	Workload             *string           `pulumi:"workload"`
 }
 
-
-
-
-
-type SubscriptionAliasResponsePropertiesResponseInput interface {
-	pulumi.Input
-
-	ToSubscriptionAliasResponsePropertiesResponseOutput() SubscriptionAliasResponsePropertiesResponseOutput
-	ToSubscriptionAliasResponsePropertiesResponseOutputWithContext(context.Context) SubscriptionAliasResponsePropertiesResponseOutput
-}
-
-type SubscriptionAliasResponsePropertiesResponseArgs struct {
-	AcceptOwnershipState pulumi.StringInput    `pulumi:"acceptOwnershipState"`
-	AcceptOwnershipUrl   pulumi.StringInput    `pulumi:"acceptOwnershipUrl"`
-	BillingScope         pulumi.StringPtrInput `pulumi:"billingScope"`
-	DisplayName          pulumi.StringPtrInput `pulumi:"displayName"`
-	ManagementGroupId    pulumi.StringPtrInput `pulumi:"managementGroupId"`
-	ProvisioningState    pulumi.StringPtrInput `pulumi:"provisioningState"`
-	ResellerId           pulumi.StringPtrInput `pulumi:"resellerId"`
-	SubscriptionId       pulumi.StringInput    `pulumi:"subscriptionId"`
-	SubscriptionOwnerId  pulumi.StringPtrInput `pulumi:"subscriptionOwnerId"`
-	Tags                 pulumi.StringMapInput `pulumi:"tags"`
-	Workload             pulumi.StringPtrInput `pulumi:"workload"`
-}
-
-func (SubscriptionAliasResponsePropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SubscriptionAliasResponsePropertiesResponse)(nil)).Elem()
-}
-
-func (i SubscriptionAliasResponsePropertiesResponseArgs) ToSubscriptionAliasResponsePropertiesResponseOutput() SubscriptionAliasResponsePropertiesResponseOutput {
-	return i.ToSubscriptionAliasResponsePropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i SubscriptionAliasResponsePropertiesResponseArgs) ToSubscriptionAliasResponsePropertiesResponseOutputWithContext(ctx context.Context) SubscriptionAliasResponsePropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionAliasResponsePropertiesResponseOutput)
-}
-
-func (i SubscriptionAliasResponsePropertiesResponseArgs) ToSubscriptionAliasResponsePropertiesResponsePtrOutput() SubscriptionAliasResponsePropertiesResponsePtrOutput {
-	return i.ToSubscriptionAliasResponsePropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i SubscriptionAliasResponsePropertiesResponseArgs) ToSubscriptionAliasResponsePropertiesResponsePtrOutputWithContext(ctx context.Context) SubscriptionAliasResponsePropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionAliasResponsePropertiesResponseOutput).ToSubscriptionAliasResponsePropertiesResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type SubscriptionAliasResponsePropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToSubscriptionAliasResponsePropertiesResponsePtrOutput() SubscriptionAliasResponsePropertiesResponsePtrOutput
-	ToSubscriptionAliasResponsePropertiesResponsePtrOutputWithContext(context.Context) SubscriptionAliasResponsePropertiesResponsePtrOutput
-}
-
-type subscriptionAliasResponsePropertiesResponsePtrType SubscriptionAliasResponsePropertiesResponseArgs
-
-func SubscriptionAliasResponsePropertiesResponsePtr(v *SubscriptionAliasResponsePropertiesResponseArgs) SubscriptionAliasResponsePropertiesResponsePtrInput {
-	return (*subscriptionAliasResponsePropertiesResponsePtrType)(v)
-}
-
-func (*subscriptionAliasResponsePropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SubscriptionAliasResponsePropertiesResponse)(nil)).Elem()
-}
-
-func (i *subscriptionAliasResponsePropertiesResponsePtrType) ToSubscriptionAliasResponsePropertiesResponsePtrOutput() SubscriptionAliasResponsePropertiesResponsePtrOutput {
-	return i.ToSubscriptionAliasResponsePropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *subscriptionAliasResponsePropertiesResponsePtrType) ToSubscriptionAliasResponsePropertiesResponsePtrOutputWithContext(ctx context.Context) SubscriptionAliasResponsePropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionAliasResponsePropertiesResponsePtrOutput)
-}
-
 type SubscriptionAliasResponsePropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (SubscriptionAliasResponsePropertiesResponseOutput) ElementType() reflect.Type {
@@ -500,16 +422,6 @@ func (o SubscriptionAliasResponsePropertiesResponseOutput) ToSubscriptionAliasRe
 
 func (o SubscriptionAliasResponsePropertiesResponseOutput) ToSubscriptionAliasResponsePropertiesResponseOutputWithContext(ctx context.Context) SubscriptionAliasResponsePropertiesResponseOutput {
 	return o
-}
-
-func (o SubscriptionAliasResponsePropertiesResponseOutput) ToSubscriptionAliasResponsePropertiesResponsePtrOutput() SubscriptionAliasResponsePropertiesResponsePtrOutput {
-	return o.ToSubscriptionAliasResponsePropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o SubscriptionAliasResponsePropertiesResponseOutput) ToSubscriptionAliasResponsePropertiesResponsePtrOutputWithContext(ctx context.Context) SubscriptionAliasResponsePropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SubscriptionAliasResponsePropertiesResponse) *SubscriptionAliasResponsePropertiesResponse {
-		return &v
-	}).(SubscriptionAliasResponsePropertiesResponsePtrOutput)
 }
 
 func (o SubscriptionAliasResponsePropertiesResponseOutput) AcceptOwnershipState() pulumi.StringOutput {
@@ -556,129 +468,6 @@ func (o SubscriptionAliasResponsePropertiesResponseOutput) Workload() pulumi.Str
 	return o.ApplyT(func(v SubscriptionAliasResponsePropertiesResponse) *string { return v.Workload }).(pulumi.StringPtrOutput)
 }
 
-type SubscriptionAliasResponsePropertiesResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (SubscriptionAliasResponsePropertiesResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SubscriptionAliasResponsePropertiesResponse)(nil)).Elem()
-}
-
-func (o SubscriptionAliasResponsePropertiesResponsePtrOutput) ToSubscriptionAliasResponsePropertiesResponsePtrOutput() SubscriptionAliasResponsePropertiesResponsePtrOutput {
-	return o
-}
-
-func (o SubscriptionAliasResponsePropertiesResponsePtrOutput) ToSubscriptionAliasResponsePropertiesResponsePtrOutputWithContext(ctx context.Context) SubscriptionAliasResponsePropertiesResponsePtrOutput {
-	return o
-}
-
-func (o SubscriptionAliasResponsePropertiesResponsePtrOutput) Elem() SubscriptionAliasResponsePropertiesResponseOutput {
-	return o.ApplyT(func(v *SubscriptionAliasResponsePropertiesResponse) SubscriptionAliasResponsePropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret SubscriptionAliasResponsePropertiesResponse
-		return ret
-	}).(SubscriptionAliasResponsePropertiesResponseOutput)
-}
-
-func (o SubscriptionAliasResponsePropertiesResponsePtrOutput) AcceptOwnershipState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SubscriptionAliasResponsePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.AcceptOwnershipState
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SubscriptionAliasResponsePropertiesResponsePtrOutput) AcceptOwnershipUrl() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SubscriptionAliasResponsePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.AcceptOwnershipUrl
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SubscriptionAliasResponsePropertiesResponsePtrOutput) BillingScope() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SubscriptionAliasResponsePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.BillingScope
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SubscriptionAliasResponsePropertiesResponsePtrOutput) DisplayName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SubscriptionAliasResponsePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.DisplayName
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SubscriptionAliasResponsePropertiesResponsePtrOutput) ManagementGroupId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SubscriptionAliasResponsePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ManagementGroupId
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SubscriptionAliasResponsePropertiesResponsePtrOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SubscriptionAliasResponsePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ProvisioningState
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SubscriptionAliasResponsePropertiesResponsePtrOutput) ResellerId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SubscriptionAliasResponsePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ResellerId
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SubscriptionAliasResponsePropertiesResponsePtrOutput) SubscriptionId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SubscriptionAliasResponsePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.SubscriptionId
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SubscriptionAliasResponsePropertiesResponsePtrOutput) SubscriptionOwnerId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SubscriptionAliasResponsePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.SubscriptionOwnerId
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SubscriptionAliasResponsePropertiesResponsePtrOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *SubscriptionAliasResponsePropertiesResponse) map[string]string {
-		if v == nil {
-			return nil
-		}
-		return v.Tags
-	}).(pulumi.StringMapOutput)
-}
-
-func (o SubscriptionAliasResponsePropertiesResponsePtrOutput) Workload() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SubscriptionAliasResponsePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Workload
-	}).(pulumi.StringPtrOutput)
-}
-
 type SystemDataResponse struct {
 	CreatedAt          *string `pulumi:"createdAt"`
 	CreatedBy          *string `pulumi:"createdBy"`
@@ -686,79 +475,6 @@ type SystemDataResponse struct {
 	LastModifiedAt     *string `pulumi:"lastModifiedAt"`
 	LastModifiedBy     *string `pulumi:"lastModifiedBy"`
 	LastModifiedByType *string `pulumi:"lastModifiedByType"`
-}
-
-
-
-
-
-type SystemDataResponseInput interface {
-	pulumi.Input
-
-	ToSystemDataResponseOutput() SystemDataResponseOutput
-	ToSystemDataResponseOutputWithContext(context.Context) SystemDataResponseOutput
-}
-
-type SystemDataResponseArgs struct {
-	CreatedAt          pulumi.StringPtrInput `pulumi:"createdAt"`
-	CreatedBy          pulumi.StringPtrInput `pulumi:"createdBy"`
-	CreatedByType      pulumi.StringPtrInput `pulumi:"createdByType"`
-	LastModifiedAt     pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
-	LastModifiedBy     pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
-	LastModifiedByType pulumi.StringPtrInput `pulumi:"lastModifiedByType"`
-}
-
-func (SystemDataResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SystemDataResponse)(nil)).Elem()
-}
-
-func (i SystemDataResponseArgs) ToSystemDataResponseOutput() SystemDataResponseOutput {
-	return i.ToSystemDataResponseOutputWithContext(context.Background())
-}
-
-func (i SystemDataResponseArgs) ToSystemDataResponseOutputWithContext(ctx context.Context) SystemDataResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponseOutput)
-}
-
-func (i SystemDataResponseArgs) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
-	return i.ToSystemDataResponsePtrOutputWithContext(context.Background())
-}
-
-func (i SystemDataResponseArgs) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponseOutput).ToSystemDataResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type SystemDataResponsePtrInput interface {
-	pulumi.Input
-
-	ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput
-	ToSystemDataResponsePtrOutputWithContext(context.Context) SystemDataResponsePtrOutput
-}
-
-type systemDataResponsePtrType SystemDataResponseArgs
-
-func SystemDataResponsePtr(v *SystemDataResponseArgs) SystemDataResponsePtrInput {
-	return (*systemDataResponsePtrType)(v)
-}
-
-func (*systemDataResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SystemDataResponse)(nil)).Elem()
-}
-
-func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
-	return i.ToSystemDataResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponsePtrOutput)
 }
 
 type SystemDataResponseOutput struct{ *pulumi.OutputState }
@@ -773,16 +489,6 @@ func (o SystemDataResponseOutput) ToSystemDataResponseOutput() SystemDataRespons
 
 func (o SystemDataResponseOutput) ToSystemDataResponseOutputWithContext(ctx context.Context) SystemDataResponseOutput {
 	return o
-}
-
-func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
-	return o.ToSystemDataResponsePtrOutputWithContext(context.Background())
-}
-
-func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SystemDataResponse) *SystemDataResponse {
-		return &v
-	}).(SystemDataResponsePtrOutput)
 }
 
 func (o SystemDataResponseOutput) CreatedAt() pulumi.StringPtrOutput {
@@ -809,91 +515,11 @@ func (o SystemDataResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
 }
 
-type SystemDataResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (SystemDataResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SystemDataResponse)(nil)).Elem()
-}
-
-func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
-	return o
-}
-
-func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return o
-}
-
-func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
-	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse {
-		if v != nil {
-			return *v
-		}
-		var ret SystemDataResponse
-		return ret
-	}).(SystemDataResponseOutput)
-}
-
-func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SystemDataResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CreatedAt
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SystemDataResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CreatedBy
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SystemDataResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CreatedByType
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SystemDataResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.LastModifiedAt
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SystemDataResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.LastModifiedBy
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SystemDataResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.LastModifiedByType
-	}).(pulumi.StringPtrOutput)
-}
-
 func init() {
 	pulumi.RegisterOutputType(PutAliasRequestAdditionalPropertiesOutput{})
 	pulumi.RegisterOutputType(PutAliasRequestAdditionalPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(PutAliasRequestPropertiesOutput{})
 	pulumi.RegisterOutputType(PutAliasRequestPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(SubscriptionAliasResponsePropertiesResponseOutput{})
-	pulumi.RegisterOutputType(SubscriptionAliasResponsePropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(SystemDataResponseOutput{})
-	pulumi.RegisterOutputType(SystemDataResponsePtrOutput{})
 }

@@ -60,8 +60,7 @@ func NewApiManagementService(ctx *pulumi.Context,
 	if args.Sku == nil {
 		return nil, errors.New("invalid value for required argument 'Sku'")
 	}
-	skuApplier := func(v ApiManagementServiceSkuProperties) *ApiManagementServiceSkuProperties { return v.Defaults() }
-	args.Sku = args.Sku.ToApiManagementServiceSkuPropertiesOutput().ApplyT(skuApplier).(ApiManagementServiceSkuPropertiesPtrOutput).Elem()
+	args.Sku = args.Sku.ToApiManagementServiceSkuPropertiesOutput().ApplyT(func(v ApiManagementServiceSkuProperties) ApiManagementServiceSkuProperties { return *v.Defaults() }).(ApiManagementServiceSkuPropertiesOutput)
 	if isZero(args.VirtualNetworkType) {
 		args.VirtualNetworkType = pulumi.StringPtr("None")
 	}

@@ -50,8 +50,7 @@ func NewDatabaseAccountGremlinGraph(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	resourceApplier := func(v GremlinGraphResource) *GremlinGraphResource { return v.Defaults() }
-	args.Resource = args.Resource.ToGremlinGraphResourceOutput().ApplyT(resourceApplier).(GremlinGraphResourcePtrOutput).Elem()
+	args.Resource = args.Resource.ToGremlinGraphResourceOutput().ApplyT(func(v GremlinGraphResource) GremlinGraphResource { return *v.Defaults() }).(GremlinGraphResourceOutput)
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-native:documentdb:DatabaseAccountGremlinGraph"),

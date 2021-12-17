@@ -19,63 +19,6 @@ type PrivateEndpointConnectionResponse struct {
 	Type                              string                                             `pulumi:"type"`
 }
 
-
-
-
-
-type PrivateEndpointConnectionResponseInput interface {
-	pulumi.Input
-
-	ToPrivateEndpointConnectionResponseOutput() PrivateEndpointConnectionResponseOutput
-	ToPrivateEndpointConnectionResponseOutputWithContext(context.Context) PrivateEndpointConnectionResponseOutput
-}
-
-type PrivateEndpointConnectionResponseArgs struct {
-	Id                                pulumi.StringInput                                        `pulumi:"id"`
-	Name                              pulumi.StringInput                                        `pulumi:"name"`
-	PrivateEndpoint                   PrivateEndpointPropertyResponsePtrInput                   `pulumi:"privateEndpoint"`
-	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStatePropertyResponsePtrInput `pulumi:"privateLinkServiceConnectionState"`
-	ProvisioningState                 pulumi.StringInput                                        `pulumi:"provisioningState"`
-	Type                              pulumi.StringInput                                        `pulumi:"type"`
-}
-
-func (PrivateEndpointConnectionResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateEndpointConnectionResponse)(nil)).Elem()
-}
-
-func (i PrivateEndpointConnectionResponseArgs) ToPrivateEndpointConnectionResponseOutput() PrivateEndpointConnectionResponseOutput {
-	return i.ToPrivateEndpointConnectionResponseOutputWithContext(context.Background())
-}
-
-func (i PrivateEndpointConnectionResponseArgs) ToPrivateEndpointConnectionResponseOutputWithContext(ctx context.Context) PrivateEndpointConnectionResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionResponseOutput)
-}
-
-
-
-
-
-type PrivateEndpointConnectionResponseArrayInput interface {
-	pulumi.Input
-
-	ToPrivateEndpointConnectionResponseArrayOutput() PrivateEndpointConnectionResponseArrayOutput
-	ToPrivateEndpointConnectionResponseArrayOutputWithContext(context.Context) PrivateEndpointConnectionResponseArrayOutput
-}
-
-type PrivateEndpointConnectionResponseArray []PrivateEndpointConnectionResponseInput
-
-func (PrivateEndpointConnectionResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PrivateEndpointConnectionResponse)(nil)).Elem()
-}
-
-func (i PrivateEndpointConnectionResponseArray) ToPrivateEndpointConnectionResponseArrayOutput() PrivateEndpointConnectionResponseArrayOutput {
-	return i.ToPrivateEndpointConnectionResponseArrayOutputWithContext(context.Background())
-}
-
-func (i PrivateEndpointConnectionResponseArray) ToPrivateEndpointConnectionResponseArrayOutputWithContext(ctx context.Context) PrivateEndpointConnectionResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionResponseArrayOutput)
-}
-
 type PrivateEndpointConnectionResponseOutput struct{ *pulumi.OutputState }
 
 func (PrivateEndpointConnectionResponseOutput) ElementType() reflect.Type {
@@ -273,74 +216,6 @@ type PrivateEndpointPropertyResponse struct {
 	Id *string `pulumi:"id"`
 }
 
-
-
-
-
-type PrivateEndpointPropertyResponseInput interface {
-	pulumi.Input
-
-	ToPrivateEndpointPropertyResponseOutput() PrivateEndpointPropertyResponseOutput
-	ToPrivateEndpointPropertyResponseOutputWithContext(context.Context) PrivateEndpointPropertyResponseOutput
-}
-
-type PrivateEndpointPropertyResponseArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
-}
-
-func (PrivateEndpointPropertyResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateEndpointPropertyResponse)(nil)).Elem()
-}
-
-func (i PrivateEndpointPropertyResponseArgs) ToPrivateEndpointPropertyResponseOutput() PrivateEndpointPropertyResponseOutput {
-	return i.ToPrivateEndpointPropertyResponseOutputWithContext(context.Background())
-}
-
-func (i PrivateEndpointPropertyResponseArgs) ToPrivateEndpointPropertyResponseOutputWithContext(ctx context.Context) PrivateEndpointPropertyResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointPropertyResponseOutput)
-}
-
-func (i PrivateEndpointPropertyResponseArgs) ToPrivateEndpointPropertyResponsePtrOutput() PrivateEndpointPropertyResponsePtrOutput {
-	return i.ToPrivateEndpointPropertyResponsePtrOutputWithContext(context.Background())
-}
-
-func (i PrivateEndpointPropertyResponseArgs) ToPrivateEndpointPropertyResponsePtrOutputWithContext(ctx context.Context) PrivateEndpointPropertyResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointPropertyResponseOutput).ToPrivateEndpointPropertyResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type PrivateEndpointPropertyResponsePtrInput interface {
-	pulumi.Input
-
-	ToPrivateEndpointPropertyResponsePtrOutput() PrivateEndpointPropertyResponsePtrOutput
-	ToPrivateEndpointPropertyResponsePtrOutputWithContext(context.Context) PrivateEndpointPropertyResponsePtrOutput
-}
-
-type privateEndpointPropertyResponsePtrType PrivateEndpointPropertyResponseArgs
-
-func PrivateEndpointPropertyResponsePtr(v *PrivateEndpointPropertyResponseArgs) PrivateEndpointPropertyResponsePtrInput {
-	return (*privateEndpointPropertyResponsePtrType)(v)
-}
-
-func (*privateEndpointPropertyResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PrivateEndpointPropertyResponse)(nil)).Elem()
-}
-
-func (i *privateEndpointPropertyResponsePtrType) ToPrivateEndpointPropertyResponsePtrOutput() PrivateEndpointPropertyResponsePtrOutput {
-	return i.ToPrivateEndpointPropertyResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *privateEndpointPropertyResponsePtrType) ToPrivateEndpointPropertyResponsePtrOutputWithContext(ctx context.Context) PrivateEndpointPropertyResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointPropertyResponsePtrOutput)
-}
-
 type PrivateEndpointPropertyResponseOutput struct{ *pulumi.OutputState }
 
 func (PrivateEndpointPropertyResponseOutput) ElementType() reflect.Type {
@@ -353,16 +228,6 @@ func (o PrivateEndpointPropertyResponseOutput) ToPrivateEndpointPropertyResponse
 
 func (o PrivateEndpointPropertyResponseOutput) ToPrivateEndpointPropertyResponseOutputWithContext(ctx context.Context) PrivateEndpointPropertyResponseOutput {
 	return o
-}
-
-func (o PrivateEndpointPropertyResponseOutput) ToPrivateEndpointPropertyResponsePtrOutput() PrivateEndpointPropertyResponsePtrOutput {
-	return o.ToPrivateEndpointPropertyResponsePtrOutputWithContext(context.Background())
-}
-
-func (o PrivateEndpointPropertyResponseOutput) ToPrivateEndpointPropertyResponsePtrOutputWithContext(ctx context.Context) PrivateEndpointPropertyResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateEndpointPropertyResponse) *PrivateEndpointPropertyResponse {
-		return &v
-	}).(PrivateEndpointPropertyResponsePtrOutput)
 }
 
 func (o PrivateEndpointPropertyResponseOutput) Id() pulumi.StringPtrOutput {
@@ -556,76 +421,6 @@ type PrivateLinkServiceConnectionStatePropertyResponse struct {
 	Status          string `pulumi:"status"`
 }
 
-
-
-
-
-type PrivateLinkServiceConnectionStatePropertyResponseInput interface {
-	pulumi.Input
-
-	ToPrivateLinkServiceConnectionStatePropertyResponseOutput() PrivateLinkServiceConnectionStatePropertyResponseOutput
-	ToPrivateLinkServiceConnectionStatePropertyResponseOutputWithContext(context.Context) PrivateLinkServiceConnectionStatePropertyResponseOutput
-}
-
-type PrivateLinkServiceConnectionStatePropertyResponseArgs struct {
-	ActionsRequired pulumi.StringInput `pulumi:"actionsRequired"`
-	Description     pulumi.StringInput `pulumi:"description"`
-	Status          pulumi.StringInput `pulumi:"status"`
-}
-
-func (PrivateLinkServiceConnectionStatePropertyResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateLinkServiceConnectionStatePropertyResponse)(nil)).Elem()
-}
-
-func (i PrivateLinkServiceConnectionStatePropertyResponseArgs) ToPrivateLinkServiceConnectionStatePropertyResponseOutput() PrivateLinkServiceConnectionStatePropertyResponseOutput {
-	return i.ToPrivateLinkServiceConnectionStatePropertyResponseOutputWithContext(context.Background())
-}
-
-func (i PrivateLinkServiceConnectionStatePropertyResponseArgs) ToPrivateLinkServiceConnectionStatePropertyResponseOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStatePropertyResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServiceConnectionStatePropertyResponseOutput)
-}
-
-func (i PrivateLinkServiceConnectionStatePropertyResponseArgs) ToPrivateLinkServiceConnectionStatePropertyResponsePtrOutput() PrivateLinkServiceConnectionStatePropertyResponsePtrOutput {
-	return i.ToPrivateLinkServiceConnectionStatePropertyResponsePtrOutputWithContext(context.Background())
-}
-
-func (i PrivateLinkServiceConnectionStatePropertyResponseArgs) ToPrivateLinkServiceConnectionStatePropertyResponsePtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStatePropertyResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServiceConnectionStatePropertyResponseOutput).ToPrivateLinkServiceConnectionStatePropertyResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type PrivateLinkServiceConnectionStatePropertyResponsePtrInput interface {
-	pulumi.Input
-
-	ToPrivateLinkServiceConnectionStatePropertyResponsePtrOutput() PrivateLinkServiceConnectionStatePropertyResponsePtrOutput
-	ToPrivateLinkServiceConnectionStatePropertyResponsePtrOutputWithContext(context.Context) PrivateLinkServiceConnectionStatePropertyResponsePtrOutput
-}
-
-type privateLinkServiceConnectionStatePropertyResponsePtrType PrivateLinkServiceConnectionStatePropertyResponseArgs
-
-func PrivateLinkServiceConnectionStatePropertyResponsePtr(v *PrivateLinkServiceConnectionStatePropertyResponseArgs) PrivateLinkServiceConnectionStatePropertyResponsePtrInput {
-	return (*privateLinkServiceConnectionStatePropertyResponsePtrType)(v)
-}
-
-func (*privateLinkServiceConnectionStatePropertyResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PrivateLinkServiceConnectionStatePropertyResponse)(nil)).Elem()
-}
-
-func (i *privateLinkServiceConnectionStatePropertyResponsePtrType) ToPrivateLinkServiceConnectionStatePropertyResponsePtrOutput() PrivateLinkServiceConnectionStatePropertyResponsePtrOutput {
-	return i.ToPrivateLinkServiceConnectionStatePropertyResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *privateLinkServiceConnectionStatePropertyResponsePtrType) ToPrivateLinkServiceConnectionStatePropertyResponsePtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStatePropertyResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServiceConnectionStatePropertyResponsePtrOutput)
-}
-
 type PrivateLinkServiceConnectionStatePropertyResponseOutput struct{ *pulumi.OutputState }
 
 func (PrivateLinkServiceConnectionStatePropertyResponseOutput) ElementType() reflect.Type {
@@ -638,16 +433,6 @@ func (o PrivateLinkServiceConnectionStatePropertyResponseOutput) ToPrivateLinkSe
 
 func (o PrivateLinkServiceConnectionStatePropertyResponseOutput) ToPrivateLinkServiceConnectionStatePropertyResponseOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStatePropertyResponseOutput {
 	return o
-}
-
-func (o PrivateLinkServiceConnectionStatePropertyResponseOutput) ToPrivateLinkServiceConnectionStatePropertyResponsePtrOutput() PrivateLinkServiceConnectionStatePropertyResponsePtrOutput {
-	return o.ToPrivateLinkServiceConnectionStatePropertyResponsePtrOutputWithContext(context.Background())
-}
-
-func (o PrivateLinkServiceConnectionStatePropertyResponseOutput) ToPrivateLinkServiceConnectionStatePropertyResponsePtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStatePropertyResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateLinkServiceConnectionStatePropertyResponse) *PrivateLinkServiceConnectionStatePropertyResponse {
-		return &v
-	}).(PrivateLinkServiceConnectionStatePropertyResponsePtrOutput)
 }
 
 func (o PrivateLinkServiceConnectionStatePropertyResponseOutput) ActionsRequired() pulumi.StringOutput {
@@ -839,62 +624,6 @@ type WorkbookTemplateGalleryResponse struct {
 	Type         *string `pulumi:"type"`
 }
 
-
-
-
-
-type WorkbookTemplateGalleryResponseInput interface {
-	pulumi.Input
-
-	ToWorkbookTemplateGalleryResponseOutput() WorkbookTemplateGalleryResponseOutput
-	ToWorkbookTemplateGalleryResponseOutputWithContext(context.Context) WorkbookTemplateGalleryResponseOutput
-}
-
-type WorkbookTemplateGalleryResponseArgs struct {
-	Category     pulumi.StringPtrInput `pulumi:"category"`
-	Name         pulumi.StringPtrInput `pulumi:"name"`
-	Order        pulumi.IntPtrInput    `pulumi:"order"`
-	ResourceType pulumi.StringPtrInput `pulumi:"resourceType"`
-	Type         pulumi.StringPtrInput `pulumi:"type"`
-}
-
-func (WorkbookTemplateGalleryResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkbookTemplateGalleryResponse)(nil)).Elem()
-}
-
-func (i WorkbookTemplateGalleryResponseArgs) ToWorkbookTemplateGalleryResponseOutput() WorkbookTemplateGalleryResponseOutput {
-	return i.ToWorkbookTemplateGalleryResponseOutputWithContext(context.Background())
-}
-
-func (i WorkbookTemplateGalleryResponseArgs) ToWorkbookTemplateGalleryResponseOutputWithContext(ctx context.Context) WorkbookTemplateGalleryResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WorkbookTemplateGalleryResponseOutput)
-}
-
-
-
-
-
-type WorkbookTemplateGalleryResponseArrayInput interface {
-	pulumi.Input
-
-	ToWorkbookTemplateGalleryResponseArrayOutput() WorkbookTemplateGalleryResponseArrayOutput
-	ToWorkbookTemplateGalleryResponseArrayOutputWithContext(context.Context) WorkbookTemplateGalleryResponseArrayOutput
-}
-
-type WorkbookTemplateGalleryResponseArray []WorkbookTemplateGalleryResponseInput
-
-func (WorkbookTemplateGalleryResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]WorkbookTemplateGalleryResponse)(nil)).Elem()
-}
-
-func (i WorkbookTemplateGalleryResponseArray) ToWorkbookTemplateGalleryResponseArrayOutput() WorkbookTemplateGalleryResponseArrayOutput {
-	return i.ToWorkbookTemplateGalleryResponseArrayOutputWithContext(context.Background())
-}
-
-func (i WorkbookTemplateGalleryResponseArray) ToWorkbookTemplateGalleryResponseArrayOutputWithContext(ctx context.Context) WorkbookTemplateGalleryResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WorkbookTemplateGalleryResponseArrayOutput)
-}
-
 type WorkbookTemplateGalleryResponseOutput struct{ *pulumi.OutputState }
 
 func (WorkbookTemplateGalleryResponseOutput) ElementType() reflect.Type {
@@ -1054,59 +783,6 @@ type WorkbookTemplateLocalizedGalleryResponse struct {
 	TemplateData interface{}                       `pulumi:"templateData"`
 }
 
-
-
-
-
-type WorkbookTemplateLocalizedGalleryResponseInput interface {
-	pulumi.Input
-
-	ToWorkbookTemplateLocalizedGalleryResponseOutput() WorkbookTemplateLocalizedGalleryResponseOutput
-	ToWorkbookTemplateLocalizedGalleryResponseOutputWithContext(context.Context) WorkbookTemplateLocalizedGalleryResponseOutput
-}
-
-type WorkbookTemplateLocalizedGalleryResponseArgs struct {
-	Galleries    WorkbookTemplateGalleryResponseArrayInput `pulumi:"galleries"`
-	TemplateData pulumi.Input                              `pulumi:"templateData"`
-}
-
-func (WorkbookTemplateLocalizedGalleryResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkbookTemplateLocalizedGalleryResponse)(nil)).Elem()
-}
-
-func (i WorkbookTemplateLocalizedGalleryResponseArgs) ToWorkbookTemplateLocalizedGalleryResponseOutput() WorkbookTemplateLocalizedGalleryResponseOutput {
-	return i.ToWorkbookTemplateLocalizedGalleryResponseOutputWithContext(context.Background())
-}
-
-func (i WorkbookTemplateLocalizedGalleryResponseArgs) ToWorkbookTemplateLocalizedGalleryResponseOutputWithContext(ctx context.Context) WorkbookTemplateLocalizedGalleryResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WorkbookTemplateLocalizedGalleryResponseOutput)
-}
-
-
-
-
-
-type WorkbookTemplateLocalizedGalleryResponseArrayInput interface {
-	pulumi.Input
-
-	ToWorkbookTemplateLocalizedGalleryResponseArrayOutput() WorkbookTemplateLocalizedGalleryResponseArrayOutput
-	ToWorkbookTemplateLocalizedGalleryResponseArrayOutputWithContext(context.Context) WorkbookTemplateLocalizedGalleryResponseArrayOutput
-}
-
-type WorkbookTemplateLocalizedGalleryResponseArray []WorkbookTemplateLocalizedGalleryResponseInput
-
-func (WorkbookTemplateLocalizedGalleryResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]WorkbookTemplateLocalizedGalleryResponse)(nil)).Elem()
-}
-
-func (i WorkbookTemplateLocalizedGalleryResponseArray) ToWorkbookTemplateLocalizedGalleryResponseArrayOutput() WorkbookTemplateLocalizedGalleryResponseArrayOutput {
-	return i.ToWorkbookTemplateLocalizedGalleryResponseArrayOutputWithContext(context.Background())
-}
-
-func (i WorkbookTemplateLocalizedGalleryResponseArray) ToWorkbookTemplateLocalizedGalleryResponseArrayOutputWithContext(ctx context.Context) WorkbookTemplateLocalizedGalleryResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WorkbookTemplateLocalizedGalleryResponseArrayOutput)
-}
-
 type WorkbookTemplateLocalizedGalleryResponseOutput struct{ *pulumi.OutputState }
 
 func (WorkbookTemplateLocalizedGalleryResponseOutput) ElementType() reflect.Type {
@@ -1152,7 +828,7 @@ func (o WorkbookTemplateLocalizedGalleryResponseArrayOutput) Index(i pulumi.IntI
 type WorkbookTemplateLocalizedGalleryArrayMap map[string]WorkbookTemplateLocalizedGalleryArrayInput
 
 func (WorkbookTemplateLocalizedGalleryArrayMap) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkbookTemplateLocalizedGalleryArray)(nil)).Elem()
+	return reflect.TypeOf((*map[string][]WorkbookTemplateLocalizedGallery)(nil)).Elem()
 }
 
 func (i WorkbookTemplateLocalizedGalleryArrayMap) ToWorkbookTemplateLocalizedGalleryArrayMapOutput() WorkbookTemplateLocalizedGalleryArrayMapOutput {
@@ -1161,26 +837,6 @@ func (i WorkbookTemplateLocalizedGalleryArrayMap) ToWorkbookTemplateLocalizedGal
 
 func (i WorkbookTemplateLocalizedGalleryArrayMap) ToWorkbookTemplateLocalizedGalleryArrayMapOutputWithContext(ctx context.Context) WorkbookTemplateLocalizedGalleryArrayMapOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(WorkbookTemplateLocalizedGalleryArrayMapOutput)
-}
-
-type WorkbookTemplateLocalizedGalleryArrayMapOutput struct{ *pulumi.OutputState }
-
-func (WorkbookTemplateLocalizedGalleryArrayMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]WorkbookTemplateLocalizedGalleryArray)(nil)).Elem()
-}
-
-func (o WorkbookTemplateLocalizedGalleryArrayMapOutput) ToWorkbookTemplateLocalizedGalleryArrayMapOutput() WorkbookTemplateLocalizedGalleryArrayMapOutput {
-	return o
-}
-
-func (o WorkbookTemplateLocalizedGalleryArrayMapOutput) ToWorkbookTemplateLocalizedGalleryArrayMapOutputWithContext(ctx context.Context) WorkbookTemplateLocalizedGalleryArrayMapOutput {
-	return o
-}
-
-func (o WorkbookTemplateLocalizedGalleryArrayMapOutput) MapIndex(k pulumi.StringInput) WorkbookTemplateLocalizedGalleryArrayOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) WorkbookTemplateLocalizedGalleryArray {
-		return vs[0].(map[string]WorkbookTemplateLocalizedGalleryArray)[vs[1].(string)]
-	}).(WorkbookTemplateLocalizedGalleryArrayOutput)
 }
 
 
@@ -1194,24 +850,30 @@ type WorkbookTemplateLocalizedGalleryArrayMapInput interface {
 	ToWorkbookTemplateLocalizedGalleryArrayMapOutputWithContext(context.Context) WorkbookTemplateLocalizedGalleryArrayMapOutput
 }
 
-type WorkbookTemplateLocalizedGalleryResponseArrayMap map[string]WorkbookTemplateLocalizedGalleryResponseArrayInput
+type WorkbookTemplateLocalizedGalleryArrayMapOutput struct{ *pulumi.OutputState }
 
-func (WorkbookTemplateLocalizedGalleryResponseArrayMap) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkbookTemplateLocalizedGalleryResponseArray)(nil)).Elem()
+func (WorkbookTemplateLocalizedGalleryArrayMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string][]WorkbookTemplateLocalizedGallery)(nil)).Elem()
 }
 
-func (i WorkbookTemplateLocalizedGalleryResponseArrayMap) ToWorkbookTemplateLocalizedGalleryResponseArrayMapOutput() WorkbookTemplateLocalizedGalleryResponseArrayMapOutput {
-	return i.ToWorkbookTemplateLocalizedGalleryResponseArrayMapOutputWithContext(context.Background())
+func (o WorkbookTemplateLocalizedGalleryArrayMapOutput) ToWorkbookTemplateLocalizedGalleryArrayMapOutput() WorkbookTemplateLocalizedGalleryArrayMapOutput {
+	return o
 }
 
-func (i WorkbookTemplateLocalizedGalleryResponseArrayMap) ToWorkbookTemplateLocalizedGalleryResponseArrayMapOutputWithContext(ctx context.Context) WorkbookTemplateLocalizedGalleryResponseArrayMapOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WorkbookTemplateLocalizedGalleryResponseArrayMapOutput)
+func (o WorkbookTemplateLocalizedGalleryArrayMapOutput) ToWorkbookTemplateLocalizedGalleryArrayMapOutputWithContext(ctx context.Context) WorkbookTemplateLocalizedGalleryArrayMapOutput {
+	return o
+}
+
+func (o WorkbookTemplateLocalizedGalleryArrayMapOutput) MapIndex(k pulumi.StringInput) WorkbookTemplateLocalizedGalleryArrayOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) []WorkbookTemplateLocalizedGallery {
+		return vs[0].(map[string][]WorkbookTemplateLocalizedGallery)[vs[1].(string)]
+	}).(WorkbookTemplateLocalizedGalleryArrayOutput)
 }
 
 type WorkbookTemplateLocalizedGalleryResponseArrayMapOutput struct{ *pulumi.OutputState }
 
 func (WorkbookTemplateLocalizedGalleryResponseArrayMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]WorkbookTemplateLocalizedGalleryResponseArray)(nil)).Elem()
+	return reflect.TypeOf((*map[string][]WorkbookTemplateLocalizedGalleryResponse)(nil)).Elem()
 }
 
 func (o WorkbookTemplateLocalizedGalleryResponseArrayMapOutput) ToWorkbookTemplateLocalizedGalleryResponseArrayMapOutput() WorkbookTemplateLocalizedGalleryResponseArrayMapOutput {
@@ -1223,20 +885,9 @@ func (o WorkbookTemplateLocalizedGalleryResponseArrayMapOutput) ToWorkbookTempla
 }
 
 func (o WorkbookTemplateLocalizedGalleryResponseArrayMapOutput) MapIndex(k pulumi.StringInput) WorkbookTemplateLocalizedGalleryResponseArrayOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) WorkbookTemplateLocalizedGalleryResponseArray {
-		return vs[0].(map[string]WorkbookTemplateLocalizedGalleryResponseArray)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) []WorkbookTemplateLocalizedGalleryResponse {
+		return vs[0].(map[string][]WorkbookTemplateLocalizedGalleryResponse)[vs[1].(string)]
 	}).(WorkbookTemplateLocalizedGalleryResponseArrayOutput)
-}
-
-
-
-
-
-type WorkbookTemplateLocalizedGalleryResponseArrayMapInput interface {
-	pulumi.Input
-
-	ToWorkbookTemplateLocalizedGalleryResponseArrayMapOutput() WorkbookTemplateLocalizedGalleryResponseArrayMapOutput
-	ToWorkbookTemplateLocalizedGalleryResponseArrayMapOutputWithContext(context.Context) WorkbookTemplateLocalizedGalleryResponseArrayMapOutput
 }
 
 func init() {

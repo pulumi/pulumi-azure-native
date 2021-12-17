@@ -119,63 +119,6 @@ type MachineReferenceWithHintsResponse struct {
 	Type            string `pulumi:"type"`
 }
 
-
-
-
-
-type MachineReferenceWithHintsResponseInput interface {
-	pulumi.Input
-
-	ToMachineReferenceWithHintsResponseOutput() MachineReferenceWithHintsResponseOutput
-	ToMachineReferenceWithHintsResponseOutputWithContext(context.Context) MachineReferenceWithHintsResponseOutput
-}
-
-type MachineReferenceWithHintsResponseArgs struct {
-	DisplayNameHint pulumi.StringInput `pulumi:"displayNameHint"`
-	Id              pulumi.StringInput `pulumi:"id"`
-	Kind            pulumi.StringInput `pulumi:"kind"`
-	Name            pulumi.StringInput `pulumi:"name"`
-	OsFamilyHint    pulumi.StringInput `pulumi:"osFamilyHint"`
-	Type            pulumi.StringInput `pulumi:"type"`
-}
-
-func (MachineReferenceWithHintsResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MachineReferenceWithHintsResponse)(nil)).Elem()
-}
-
-func (i MachineReferenceWithHintsResponseArgs) ToMachineReferenceWithHintsResponseOutput() MachineReferenceWithHintsResponseOutput {
-	return i.ToMachineReferenceWithHintsResponseOutputWithContext(context.Background())
-}
-
-func (i MachineReferenceWithHintsResponseArgs) ToMachineReferenceWithHintsResponseOutputWithContext(ctx context.Context) MachineReferenceWithHintsResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MachineReferenceWithHintsResponseOutput)
-}
-
-
-
-
-
-type MachineReferenceWithHintsResponseArrayInput interface {
-	pulumi.Input
-
-	ToMachineReferenceWithHintsResponseArrayOutput() MachineReferenceWithHintsResponseArrayOutput
-	ToMachineReferenceWithHintsResponseArrayOutputWithContext(context.Context) MachineReferenceWithHintsResponseArrayOutput
-}
-
-type MachineReferenceWithHintsResponseArray []MachineReferenceWithHintsResponseInput
-
-func (MachineReferenceWithHintsResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]MachineReferenceWithHintsResponse)(nil)).Elem()
-}
-
-func (i MachineReferenceWithHintsResponseArray) ToMachineReferenceWithHintsResponseArrayOutput() MachineReferenceWithHintsResponseArrayOutput {
-	return i.ToMachineReferenceWithHintsResponseArrayOutputWithContext(context.Background())
-}
-
-func (i MachineReferenceWithHintsResponseArray) ToMachineReferenceWithHintsResponseArrayOutputWithContext(ctx context.Context) MachineReferenceWithHintsResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MachineReferenceWithHintsResponseArrayOutput)
-}
-
 type MachineReferenceWithHintsResponseOutput struct{ *pulumi.OutputState }
 
 func (MachineReferenceWithHintsResponseOutput) ElementType() reflect.Type {
@@ -371,74 +314,6 @@ type SkuResponse struct {
 	Name string `pulumi:"name"`
 }
 
-
-
-
-
-type SkuResponseInput interface {
-	pulumi.Input
-
-	ToSkuResponseOutput() SkuResponseOutput
-	ToSkuResponseOutputWithContext(context.Context) SkuResponseOutput
-}
-
-type SkuResponseArgs struct {
-	Name pulumi.StringInput `pulumi:"name"`
-}
-
-func (SkuResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SkuResponse)(nil)).Elem()
-}
-
-func (i SkuResponseArgs) ToSkuResponseOutput() SkuResponseOutput {
-	return i.ToSkuResponseOutputWithContext(context.Background())
-}
-
-func (i SkuResponseArgs) ToSkuResponseOutputWithContext(ctx context.Context) SkuResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SkuResponseOutput)
-}
-
-func (i SkuResponseArgs) ToSkuResponsePtrOutput() SkuResponsePtrOutput {
-	return i.ToSkuResponsePtrOutputWithContext(context.Background())
-}
-
-func (i SkuResponseArgs) ToSkuResponsePtrOutputWithContext(ctx context.Context) SkuResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SkuResponseOutput).ToSkuResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type SkuResponsePtrInput interface {
-	pulumi.Input
-
-	ToSkuResponsePtrOutput() SkuResponsePtrOutput
-	ToSkuResponsePtrOutputWithContext(context.Context) SkuResponsePtrOutput
-}
-
-type skuResponsePtrType SkuResponseArgs
-
-func SkuResponsePtr(v *SkuResponseArgs) SkuResponsePtrInput {
-	return (*skuResponsePtrType)(v)
-}
-
-func (*skuResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SkuResponse)(nil)).Elem()
-}
-
-func (i *skuResponsePtrType) ToSkuResponsePtrOutput() SkuResponsePtrOutput {
-	return i.ToSkuResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *skuResponsePtrType) ToSkuResponsePtrOutputWithContext(ctx context.Context) SkuResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SkuResponsePtrOutput)
-}
-
 type SkuResponseOutput struct{ *pulumi.OutputState }
 
 func (SkuResponseOutput) ElementType() reflect.Type {
@@ -451,16 +326,6 @@ func (o SkuResponseOutput) ToSkuResponseOutput() SkuResponseOutput {
 
 func (o SkuResponseOutput) ToSkuResponseOutputWithContext(ctx context.Context) SkuResponseOutput {
 	return o
-}
-
-func (o SkuResponseOutput) ToSkuResponsePtrOutput() SkuResponsePtrOutput {
-	return o.ToSkuResponsePtrOutputWithContext(context.Background())
-}
-
-func (o SkuResponseOutput) ToSkuResponsePtrOutputWithContext(ctx context.Context) SkuResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SkuResponse) *SkuResponse {
-		return &v
-	}).(SkuResponsePtrOutput)
 }
 
 func (o SkuResponseOutput) Name() pulumi.StringOutput {

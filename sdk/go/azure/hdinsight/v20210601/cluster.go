@@ -35,9 +35,8 @@ func NewCluster(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	propertiesApplier := func(v ClusterCreateProperties) *ClusterCreateProperties { return v.Defaults() }
 	if args.Properties != nil {
-		args.Properties = args.Properties.ToClusterCreatePropertiesPtrOutput().Elem().ApplyT(propertiesApplier).(ClusterCreatePropertiesPtrOutput)
+		args.Properties = args.Properties.ToClusterCreatePropertiesPtrOutput().ApplyT(func(v *ClusterCreateProperties) *ClusterCreateProperties { return v.Defaults() }).(ClusterCreatePropertiesPtrOutput)
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

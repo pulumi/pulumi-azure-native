@@ -212,79 +212,6 @@ type OrganizationResourcePropertiesResponseOfferDetail struct {
 	TermUnit    *string `pulumi:"termUnit"`
 }
 
-
-
-
-
-type OrganizationResourcePropertiesResponseOfferDetailInput interface {
-	pulumi.Input
-
-	ToOrganizationResourcePropertiesResponseOfferDetailOutput() OrganizationResourcePropertiesResponseOfferDetailOutput
-	ToOrganizationResourcePropertiesResponseOfferDetailOutputWithContext(context.Context) OrganizationResourcePropertiesResponseOfferDetailOutput
-}
-
-type OrganizationResourcePropertiesResponseOfferDetailArgs struct {
-	Id          pulumi.StringPtrInput `pulumi:"id"`
-	PlanId      pulumi.StringPtrInput `pulumi:"planId"`
-	PlanName    pulumi.StringPtrInput `pulumi:"planName"`
-	PublisherId pulumi.StringPtrInput `pulumi:"publisherId"`
-	Status      pulumi.StringInput    `pulumi:"status"`
-	TermUnit    pulumi.StringPtrInput `pulumi:"termUnit"`
-}
-
-func (OrganizationResourcePropertiesResponseOfferDetailArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*OrganizationResourcePropertiesResponseOfferDetail)(nil)).Elem()
-}
-
-func (i OrganizationResourcePropertiesResponseOfferDetailArgs) ToOrganizationResourcePropertiesResponseOfferDetailOutput() OrganizationResourcePropertiesResponseOfferDetailOutput {
-	return i.ToOrganizationResourcePropertiesResponseOfferDetailOutputWithContext(context.Background())
-}
-
-func (i OrganizationResourcePropertiesResponseOfferDetailArgs) ToOrganizationResourcePropertiesResponseOfferDetailOutputWithContext(ctx context.Context) OrganizationResourcePropertiesResponseOfferDetailOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OrganizationResourcePropertiesResponseOfferDetailOutput)
-}
-
-func (i OrganizationResourcePropertiesResponseOfferDetailArgs) ToOrganizationResourcePropertiesResponseOfferDetailPtrOutput() OrganizationResourcePropertiesResponseOfferDetailPtrOutput {
-	return i.ToOrganizationResourcePropertiesResponseOfferDetailPtrOutputWithContext(context.Background())
-}
-
-func (i OrganizationResourcePropertiesResponseOfferDetailArgs) ToOrganizationResourcePropertiesResponseOfferDetailPtrOutputWithContext(ctx context.Context) OrganizationResourcePropertiesResponseOfferDetailPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OrganizationResourcePropertiesResponseOfferDetailOutput).ToOrganizationResourcePropertiesResponseOfferDetailPtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type OrganizationResourcePropertiesResponseOfferDetailPtrInput interface {
-	pulumi.Input
-
-	ToOrganizationResourcePropertiesResponseOfferDetailPtrOutput() OrganizationResourcePropertiesResponseOfferDetailPtrOutput
-	ToOrganizationResourcePropertiesResponseOfferDetailPtrOutputWithContext(context.Context) OrganizationResourcePropertiesResponseOfferDetailPtrOutput
-}
-
-type organizationResourcePropertiesResponseOfferDetailPtrType OrganizationResourcePropertiesResponseOfferDetailArgs
-
-func OrganizationResourcePropertiesResponseOfferDetailPtr(v *OrganizationResourcePropertiesResponseOfferDetailArgs) OrganizationResourcePropertiesResponseOfferDetailPtrInput {
-	return (*organizationResourcePropertiesResponseOfferDetailPtrType)(v)
-}
-
-func (*organizationResourcePropertiesResponseOfferDetailPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**OrganizationResourcePropertiesResponseOfferDetail)(nil)).Elem()
-}
-
-func (i *organizationResourcePropertiesResponseOfferDetailPtrType) ToOrganizationResourcePropertiesResponseOfferDetailPtrOutput() OrganizationResourcePropertiesResponseOfferDetailPtrOutput {
-	return i.ToOrganizationResourcePropertiesResponseOfferDetailPtrOutputWithContext(context.Background())
-}
-
-func (i *organizationResourcePropertiesResponseOfferDetailPtrType) ToOrganizationResourcePropertiesResponseOfferDetailPtrOutputWithContext(ctx context.Context) OrganizationResourcePropertiesResponseOfferDetailPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OrganizationResourcePropertiesResponseOfferDetailPtrOutput)
-}
-
 type OrganizationResourcePropertiesResponseOfferDetailOutput struct{ *pulumi.OutputState }
 
 func (OrganizationResourcePropertiesResponseOfferDetailOutput) ElementType() reflect.Type {
@@ -297,16 +224,6 @@ func (o OrganizationResourcePropertiesResponseOfferDetailOutput) ToOrganizationR
 
 func (o OrganizationResourcePropertiesResponseOfferDetailOutput) ToOrganizationResourcePropertiesResponseOfferDetailOutputWithContext(ctx context.Context) OrganizationResourcePropertiesResponseOfferDetailOutput {
 	return o
-}
-
-func (o OrganizationResourcePropertiesResponseOfferDetailOutput) ToOrganizationResourcePropertiesResponseOfferDetailPtrOutput() OrganizationResourcePropertiesResponseOfferDetailPtrOutput {
-	return o.ToOrganizationResourcePropertiesResponseOfferDetailPtrOutputWithContext(context.Background())
-}
-
-func (o OrganizationResourcePropertiesResponseOfferDetailOutput) ToOrganizationResourcePropertiesResponseOfferDetailPtrOutputWithContext(ctx context.Context) OrganizationResourcePropertiesResponseOfferDetailPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v OrganizationResourcePropertiesResponseOfferDetail) *OrganizationResourcePropertiesResponseOfferDetail {
-		return &v
-	}).(OrganizationResourcePropertiesResponseOfferDetailPtrOutput)
 }
 
 func (o OrganizationResourcePropertiesResponseOfferDetailOutput) Id() pulumi.StringPtrOutput {
@@ -417,76 +334,6 @@ type OrganizationResourcePropertiesResponseUserDetail struct {
 	LastName     *string `pulumi:"lastName"`
 }
 
-
-
-
-
-type OrganizationResourcePropertiesResponseUserDetailInput interface {
-	pulumi.Input
-
-	ToOrganizationResourcePropertiesResponseUserDetailOutput() OrganizationResourcePropertiesResponseUserDetailOutput
-	ToOrganizationResourcePropertiesResponseUserDetailOutputWithContext(context.Context) OrganizationResourcePropertiesResponseUserDetailOutput
-}
-
-type OrganizationResourcePropertiesResponseUserDetailArgs struct {
-	EmailAddress pulumi.StringPtrInput `pulumi:"emailAddress"`
-	FirstName    pulumi.StringPtrInput `pulumi:"firstName"`
-	LastName     pulumi.StringPtrInput `pulumi:"lastName"`
-}
-
-func (OrganizationResourcePropertiesResponseUserDetailArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*OrganizationResourcePropertiesResponseUserDetail)(nil)).Elem()
-}
-
-func (i OrganizationResourcePropertiesResponseUserDetailArgs) ToOrganizationResourcePropertiesResponseUserDetailOutput() OrganizationResourcePropertiesResponseUserDetailOutput {
-	return i.ToOrganizationResourcePropertiesResponseUserDetailOutputWithContext(context.Background())
-}
-
-func (i OrganizationResourcePropertiesResponseUserDetailArgs) ToOrganizationResourcePropertiesResponseUserDetailOutputWithContext(ctx context.Context) OrganizationResourcePropertiesResponseUserDetailOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OrganizationResourcePropertiesResponseUserDetailOutput)
-}
-
-func (i OrganizationResourcePropertiesResponseUserDetailArgs) ToOrganizationResourcePropertiesResponseUserDetailPtrOutput() OrganizationResourcePropertiesResponseUserDetailPtrOutput {
-	return i.ToOrganizationResourcePropertiesResponseUserDetailPtrOutputWithContext(context.Background())
-}
-
-func (i OrganizationResourcePropertiesResponseUserDetailArgs) ToOrganizationResourcePropertiesResponseUserDetailPtrOutputWithContext(ctx context.Context) OrganizationResourcePropertiesResponseUserDetailPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OrganizationResourcePropertiesResponseUserDetailOutput).ToOrganizationResourcePropertiesResponseUserDetailPtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type OrganizationResourcePropertiesResponseUserDetailPtrInput interface {
-	pulumi.Input
-
-	ToOrganizationResourcePropertiesResponseUserDetailPtrOutput() OrganizationResourcePropertiesResponseUserDetailPtrOutput
-	ToOrganizationResourcePropertiesResponseUserDetailPtrOutputWithContext(context.Context) OrganizationResourcePropertiesResponseUserDetailPtrOutput
-}
-
-type organizationResourcePropertiesResponseUserDetailPtrType OrganizationResourcePropertiesResponseUserDetailArgs
-
-func OrganizationResourcePropertiesResponseUserDetailPtr(v *OrganizationResourcePropertiesResponseUserDetailArgs) OrganizationResourcePropertiesResponseUserDetailPtrInput {
-	return (*organizationResourcePropertiesResponseUserDetailPtrType)(v)
-}
-
-func (*organizationResourcePropertiesResponseUserDetailPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**OrganizationResourcePropertiesResponseUserDetail)(nil)).Elem()
-}
-
-func (i *organizationResourcePropertiesResponseUserDetailPtrType) ToOrganizationResourcePropertiesResponseUserDetailPtrOutput() OrganizationResourcePropertiesResponseUserDetailPtrOutput {
-	return i.ToOrganizationResourcePropertiesResponseUserDetailPtrOutputWithContext(context.Background())
-}
-
-func (i *organizationResourcePropertiesResponseUserDetailPtrType) ToOrganizationResourcePropertiesResponseUserDetailPtrOutputWithContext(ctx context.Context) OrganizationResourcePropertiesResponseUserDetailPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OrganizationResourcePropertiesResponseUserDetailPtrOutput)
-}
-
 type OrganizationResourcePropertiesResponseUserDetailOutput struct{ *pulumi.OutputState }
 
 func (OrganizationResourcePropertiesResponseUserDetailOutput) ElementType() reflect.Type {
@@ -499,16 +346,6 @@ func (o OrganizationResourcePropertiesResponseUserDetailOutput) ToOrganizationRe
 
 func (o OrganizationResourcePropertiesResponseUserDetailOutput) ToOrganizationResourcePropertiesResponseUserDetailOutputWithContext(ctx context.Context) OrganizationResourcePropertiesResponseUserDetailOutput {
 	return o
-}
-
-func (o OrganizationResourcePropertiesResponseUserDetailOutput) ToOrganizationResourcePropertiesResponseUserDetailPtrOutput() OrganizationResourcePropertiesResponseUserDetailPtrOutput {
-	return o.ToOrganizationResourcePropertiesResponseUserDetailPtrOutputWithContext(context.Background())
-}
-
-func (o OrganizationResourcePropertiesResponseUserDetailOutput) ToOrganizationResourcePropertiesResponseUserDetailPtrOutputWithContext(ctx context.Context) OrganizationResourcePropertiesResponseUserDetailPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v OrganizationResourcePropertiesResponseUserDetail) *OrganizationResourcePropertiesResponseUserDetail {
-		return &v
-	}).(OrganizationResourcePropertiesResponseUserDetailPtrOutput)
 }
 
 func (o OrganizationResourcePropertiesResponseUserDetailOutput) EmailAddress() pulumi.StringPtrOutput {

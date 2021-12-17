@@ -179,76 +179,6 @@ type AsymmetricEncryptedSecretResponse struct {
 	Value                           string  `pulumi:"value"`
 }
 
-
-
-
-
-type AsymmetricEncryptedSecretResponseInput interface {
-	pulumi.Input
-
-	ToAsymmetricEncryptedSecretResponseOutput() AsymmetricEncryptedSecretResponseOutput
-	ToAsymmetricEncryptedSecretResponseOutputWithContext(context.Context) AsymmetricEncryptedSecretResponseOutput
-}
-
-type AsymmetricEncryptedSecretResponseArgs struct {
-	EncryptionAlgorithm             pulumi.StringInput    `pulumi:"encryptionAlgorithm"`
-	EncryptionCertificateThumbprint pulumi.StringPtrInput `pulumi:"encryptionCertificateThumbprint"`
-	Value                           pulumi.StringInput    `pulumi:"value"`
-}
-
-func (AsymmetricEncryptedSecretResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AsymmetricEncryptedSecretResponse)(nil)).Elem()
-}
-
-func (i AsymmetricEncryptedSecretResponseArgs) ToAsymmetricEncryptedSecretResponseOutput() AsymmetricEncryptedSecretResponseOutput {
-	return i.ToAsymmetricEncryptedSecretResponseOutputWithContext(context.Background())
-}
-
-func (i AsymmetricEncryptedSecretResponseArgs) ToAsymmetricEncryptedSecretResponseOutputWithContext(ctx context.Context) AsymmetricEncryptedSecretResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AsymmetricEncryptedSecretResponseOutput)
-}
-
-func (i AsymmetricEncryptedSecretResponseArgs) ToAsymmetricEncryptedSecretResponsePtrOutput() AsymmetricEncryptedSecretResponsePtrOutput {
-	return i.ToAsymmetricEncryptedSecretResponsePtrOutputWithContext(context.Background())
-}
-
-func (i AsymmetricEncryptedSecretResponseArgs) ToAsymmetricEncryptedSecretResponsePtrOutputWithContext(ctx context.Context) AsymmetricEncryptedSecretResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AsymmetricEncryptedSecretResponseOutput).ToAsymmetricEncryptedSecretResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type AsymmetricEncryptedSecretResponsePtrInput interface {
-	pulumi.Input
-
-	ToAsymmetricEncryptedSecretResponsePtrOutput() AsymmetricEncryptedSecretResponsePtrOutput
-	ToAsymmetricEncryptedSecretResponsePtrOutputWithContext(context.Context) AsymmetricEncryptedSecretResponsePtrOutput
-}
-
-type asymmetricEncryptedSecretResponsePtrType AsymmetricEncryptedSecretResponseArgs
-
-func AsymmetricEncryptedSecretResponsePtr(v *AsymmetricEncryptedSecretResponseArgs) AsymmetricEncryptedSecretResponsePtrInput {
-	return (*asymmetricEncryptedSecretResponsePtrType)(v)
-}
-
-func (*asymmetricEncryptedSecretResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AsymmetricEncryptedSecretResponse)(nil)).Elem()
-}
-
-func (i *asymmetricEncryptedSecretResponsePtrType) ToAsymmetricEncryptedSecretResponsePtrOutput() AsymmetricEncryptedSecretResponsePtrOutput {
-	return i.ToAsymmetricEncryptedSecretResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *asymmetricEncryptedSecretResponsePtrType) ToAsymmetricEncryptedSecretResponsePtrOutputWithContext(ctx context.Context) AsymmetricEncryptedSecretResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AsymmetricEncryptedSecretResponsePtrOutput)
-}
-
 type AsymmetricEncryptedSecretResponseOutput struct{ *pulumi.OutputState }
 
 func (AsymmetricEncryptedSecretResponseOutput) ElementType() reflect.Type {
@@ -261,16 +191,6 @@ func (o AsymmetricEncryptedSecretResponseOutput) ToAsymmetricEncryptedSecretResp
 
 func (o AsymmetricEncryptedSecretResponseOutput) ToAsymmetricEncryptedSecretResponseOutputWithContext(ctx context.Context) AsymmetricEncryptedSecretResponseOutput {
 	return o
-}
-
-func (o AsymmetricEncryptedSecretResponseOutput) ToAsymmetricEncryptedSecretResponsePtrOutput() AsymmetricEncryptedSecretResponsePtrOutput {
-	return o.ToAsymmetricEncryptedSecretResponsePtrOutputWithContext(context.Background())
-}
-
-func (o AsymmetricEncryptedSecretResponseOutput) ToAsymmetricEncryptedSecretResponsePtrOutputWithContext(ctx context.Context) AsymmetricEncryptedSecretResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AsymmetricEncryptedSecretResponse) *AsymmetricEncryptedSecretResponse {
-		return &v
-	}).(AsymmetricEncryptedSecretResponsePtrOutput)
 }
 
 func (o AsymmetricEncryptedSecretResponseOutput) EncryptionAlgorithm() pulumi.StringOutput {
@@ -473,74 +393,6 @@ type ManagerIntrinsicSettingsResponse struct {
 	Type string `pulumi:"type"`
 }
 
-
-
-
-
-type ManagerIntrinsicSettingsResponseInput interface {
-	pulumi.Input
-
-	ToManagerIntrinsicSettingsResponseOutput() ManagerIntrinsicSettingsResponseOutput
-	ToManagerIntrinsicSettingsResponseOutputWithContext(context.Context) ManagerIntrinsicSettingsResponseOutput
-}
-
-type ManagerIntrinsicSettingsResponseArgs struct {
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (ManagerIntrinsicSettingsResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagerIntrinsicSettingsResponse)(nil)).Elem()
-}
-
-func (i ManagerIntrinsicSettingsResponseArgs) ToManagerIntrinsicSettingsResponseOutput() ManagerIntrinsicSettingsResponseOutput {
-	return i.ToManagerIntrinsicSettingsResponseOutputWithContext(context.Background())
-}
-
-func (i ManagerIntrinsicSettingsResponseArgs) ToManagerIntrinsicSettingsResponseOutputWithContext(ctx context.Context) ManagerIntrinsicSettingsResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagerIntrinsicSettingsResponseOutput)
-}
-
-func (i ManagerIntrinsicSettingsResponseArgs) ToManagerIntrinsicSettingsResponsePtrOutput() ManagerIntrinsicSettingsResponsePtrOutput {
-	return i.ToManagerIntrinsicSettingsResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ManagerIntrinsicSettingsResponseArgs) ToManagerIntrinsicSettingsResponsePtrOutputWithContext(ctx context.Context) ManagerIntrinsicSettingsResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagerIntrinsicSettingsResponseOutput).ToManagerIntrinsicSettingsResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type ManagerIntrinsicSettingsResponsePtrInput interface {
-	pulumi.Input
-
-	ToManagerIntrinsicSettingsResponsePtrOutput() ManagerIntrinsicSettingsResponsePtrOutput
-	ToManagerIntrinsicSettingsResponsePtrOutputWithContext(context.Context) ManagerIntrinsicSettingsResponsePtrOutput
-}
-
-type managerIntrinsicSettingsResponsePtrType ManagerIntrinsicSettingsResponseArgs
-
-func ManagerIntrinsicSettingsResponsePtr(v *ManagerIntrinsicSettingsResponseArgs) ManagerIntrinsicSettingsResponsePtrInput {
-	return (*managerIntrinsicSettingsResponsePtrType)(v)
-}
-
-func (*managerIntrinsicSettingsResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ManagerIntrinsicSettingsResponse)(nil)).Elem()
-}
-
-func (i *managerIntrinsicSettingsResponsePtrType) ToManagerIntrinsicSettingsResponsePtrOutput() ManagerIntrinsicSettingsResponsePtrOutput {
-	return i.ToManagerIntrinsicSettingsResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *managerIntrinsicSettingsResponsePtrType) ToManagerIntrinsicSettingsResponsePtrOutputWithContext(ctx context.Context) ManagerIntrinsicSettingsResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagerIntrinsicSettingsResponsePtrOutput)
-}
-
 type ManagerIntrinsicSettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (ManagerIntrinsicSettingsResponseOutput) ElementType() reflect.Type {
@@ -553,16 +405,6 @@ func (o ManagerIntrinsicSettingsResponseOutput) ToManagerIntrinsicSettingsRespon
 
 func (o ManagerIntrinsicSettingsResponseOutput) ToManagerIntrinsicSettingsResponseOutputWithContext(ctx context.Context) ManagerIntrinsicSettingsResponseOutput {
 	return o
-}
-
-func (o ManagerIntrinsicSettingsResponseOutput) ToManagerIntrinsicSettingsResponsePtrOutput() ManagerIntrinsicSettingsResponsePtrOutput {
-	return o.ToManagerIntrinsicSettingsResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ManagerIntrinsicSettingsResponseOutput) ToManagerIntrinsicSettingsResponsePtrOutputWithContext(ctx context.Context) ManagerIntrinsicSettingsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagerIntrinsicSettingsResponse) *ManagerIntrinsicSettingsResponse {
-		return &v
-	}).(ManagerIntrinsicSettingsResponsePtrOutput)
 }
 
 func (o ManagerIntrinsicSettingsResponseOutput) Type() pulumi.StringOutput {
@@ -739,74 +581,6 @@ type ManagerSkuResponse struct {
 	Name string `pulumi:"name"`
 }
 
-
-
-
-
-type ManagerSkuResponseInput interface {
-	pulumi.Input
-
-	ToManagerSkuResponseOutput() ManagerSkuResponseOutput
-	ToManagerSkuResponseOutputWithContext(context.Context) ManagerSkuResponseOutput
-}
-
-type ManagerSkuResponseArgs struct {
-	Name pulumi.StringInput `pulumi:"name"`
-}
-
-func (ManagerSkuResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagerSkuResponse)(nil)).Elem()
-}
-
-func (i ManagerSkuResponseArgs) ToManagerSkuResponseOutput() ManagerSkuResponseOutput {
-	return i.ToManagerSkuResponseOutputWithContext(context.Background())
-}
-
-func (i ManagerSkuResponseArgs) ToManagerSkuResponseOutputWithContext(ctx context.Context) ManagerSkuResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagerSkuResponseOutput)
-}
-
-func (i ManagerSkuResponseArgs) ToManagerSkuResponsePtrOutput() ManagerSkuResponsePtrOutput {
-	return i.ToManagerSkuResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ManagerSkuResponseArgs) ToManagerSkuResponsePtrOutputWithContext(ctx context.Context) ManagerSkuResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagerSkuResponseOutput).ToManagerSkuResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type ManagerSkuResponsePtrInput interface {
-	pulumi.Input
-
-	ToManagerSkuResponsePtrOutput() ManagerSkuResponsePtrOutput
-	ToManagerSkuResponsePtrOutputWithContext(context.Context) ManagerSkuResponsePtrOutput
-}
-
-type managerSkuResponsePtrType ManagerSkuResponseArgs
-
-func ManagerSkuResponsePtr(v *ManagerSkuResponseArgs) ManagerSkuResponsePtrInput {
-	return (*managerSkuResponsePtrType)(v)
-}
-
-func (*managerSkuResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ManagerSkuResponse)(nil)).Elem()
-}
-
-func (i *managerSkuResponsePtrType) ToManagerSkuResponsePtrOutput() ManagerSkuResponsePtrOutput {
-	return i.ToManagerSkuResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *managerSkuResponsePtrType) ToManagerSkuResponsePtrOutputWithContext(ctx context.Context) ManagerSkuResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagerSkuResponsePtrOutput)
-}
-
 type ManagerSkuResponseOutput struct{ *pulumi.OutputState }
 
 func (ManagerSkuResponseOutput) ElementType() reflect.Type {
@@ -819,16 +593,6 @@ func (o ManagerSkuResponseOutput) ToManagerSkuResponseOutput() ManagerSkuRespons
 
 func (o ManagerSkuResponseOutput) ToManagerSkuResponseOutputWithContext(ctx context.Context) ManagerSkuResponseOutput {
 	return o
-}
-
-func (o ManagerSkuResponseOutput) ToManagerSkuResponsePtrOutput() ManagerSkuResponsePtrOutput {
-	return o.ToManagerSkuResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ManagerSkuResponseOutput) ToManagerSkuResponsePtrOutputWithContext(ctx context.Context) ManagerSkuResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagerSkuResponse) *ManagerSkuResponse {
-		return &v
-	}).(ManagerSkuResponsePtrOutput)
 }
 
 func (o ManagerSkuResponseOutput) Name() pulumi.StringOutput {
@@ -901,47 +665,6 @@ func (i TimeArgs) ToTimeOutputWithContext(ctx context.Context) TimeOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TimeOutput)
 }
 
-func (i TimeArgs) ToTimePtrOutput() TimePtrOutput {
-	return i.ToTimePtrOutputWithContext(context.Background())
-}
-
-func (i TimeArgs) ToTimePtrOutputWithContext(ctx context.Context) TimePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TimeOutput).ToTimePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type TimePtrInput interface {
-	pulumi.Input
-
-	ToTimePtrOutput() TimePtrOutput
-	ToTimePtrOutputWithContext(context.Context) TimePtrOutput
-}
-
-type timePtrType TimeArgs
-
-func TimePtr(v *TimeArgs) TimePtrInput {
-	return (*timePtrType)(v)
-}
-
-func (*timePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**Time)(nil)).Elem()
-}
-
-func (i *timePtrType) ToTimePtrOutput() TimePtrOutput {
-	return i.ToTimePtrOutputWithContext(context.Background())
-}
-
-func (i *timePtrType) ToTimePtrOutputWithContext(ctx context.Context) TimePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TimePtrOutput)
-}
-
 type TimeOutput struct{ *pulumi.OutputState }
 
 func (TimeOutput) ElementType() reflect.Type {
@@ -956,16 +679,6 @@ func (o TimeOutput) ToTimeOutputWithContext(ctx context.Context) TimeOutput {
 	return o
 }
 
-func (o TimeOutput) ToTimePtrOutput() TimePtrOutput {
-	return o.ToTimePtrOutputWithContext(context.Background())
-}
-
-func (o TimeOutput) ToTimePtrOutputWithContext(ctx context.Context) TimePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Time) *Time {
-		return &v
-	}).(TimePtrOutput)
-}
-
 func (o TimeOutput) Hour() pulumi.IntOutput {
 	return o.ApplyT(func(v Time) int { return v.Hour }).(pulumi.IntOutput)
 }
@@ -974,120 +687,9 @@ func (o TimeOutput) Minute() pulumi.IntOutput {
 	return o.ApplyT(func(v Time) int { return v.Minute }).(pulumi.IntOutput)
 }
 
-type TimePtrOutput struct{ *pulumi.OutputState }
-
-func (TimePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Time)(nil)).Elem()
-}
-
-func (o TimePtrOutput) ToTimePtrOutput() TimePtrOutput {
-	return o
-}
-
-func (o TimePtrOutput) ToTimePtrOutputWithContext(ctx context.Context) TimePtrOutput {
-	return o
-}
-
-func (o TimePtrOutput) Elem() TimeOutput {
-	return o.ApplyT(func(v *Time) Time {
-		if v != nil {
-			return *v
-		}
-		var ret Time
-		return ret
-	}).(TimeOutput)
-}
-
-func (o TimePtrOutput) Hour() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *Time) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.Hour
-	}).(pulumi.IntPtrOutput)
-}
-
-func (o TimePtrOutput) Minute() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *Time) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.Minute
-	}).(pulumi.IntPtrOutput)
-}
-
 type TimeResponse struct {
 	Hour   int `pulumi:"hour"`
 	Minute int `pulumi:"minute"`
-}
-
-
-
-
-
-type TimeResponseInput interface {
-	pulumi.Input
-
-	ToTimeResponseOutput() TimeResponseOutput
-	ToTimeResponseOutputWithContext(context.Context) TimeResponseOutput
-}
-
-type TimeResponseArgs struct {
-	Hour   pulumi.IntInput `pulumi:"hour"`
-	Minute pulumi.IntInput `pulumi:"minute"`
-}
-
-func (TimeResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TimeResponse)(nil)).Elem()
-}
-
-func (i TimeResponseArgs) ToTimeResponseOutput() TimeResponseOutput {
-	return i.ToTimeResponseOutputWithContext(context.Background())
-}
-
-func (i TimeResponseArgs) ToTimeResponseOutputWithContext(ctx context.Context) TimeResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TimeResponseOutput)
-}
-
-func (i TimeResponseArgs) ToTimeResponsePtrOutput() TimeResponsePtrOutput {
-	return i.ToTimeResponsePtrOutputWithContext(context.Background())
-}
-
-func (i TimeResponseArgs) ToTimeResponsePtrOutputWithContext(ctx context.Context) TimeResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TimeResponseOutput).ToTimeResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type TimeResponsePtrInput interface {
-	pulumi.Input
-
-	ToTimeResponsePtrOutput() TimeResponsePtrOutput
-	ToTimeResponsePtrOutputWithContext(context.Context) TimeResponsePtrOutput
-}
-
-type timeResponsePtrType TimeResponseArgs
-
-func TimeResponsePtr(v *TimeResponseArgs) TimeResponsePtrInput {
-	return (*timeResponsePtrType)(v)
-}
-
-func (*timeResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**TimeResponse)(nil)).Elem()
-}
-
-func (i *timeResponsePtrType) ToTimeResponsePtrOutput() TimeResponsePtrOutput {
-	return i.ToTimeResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *timeResponsePtrType) ToTimeResponsePtrOutputWithContext(ctx context.Context) TimeResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TimeResponsePtrOutput)
 }
 
 type TimeResponseOutput struct{ *pulumi.OutputState }
@@ -1104,64 +706,12 @@ func (o TimeResponseOutput) ToTimeResponseOutputWithContext(ctx context.Context)
 	return o
 }
 
-func (o TimeResponseOutput) ToTimeResponsePtrOutput() TimeResponsePtrOutput {
-	return o.ToTimeResponsePtrOutputWithContext(context.Background())
-}
-
-func (o TimeResponseOutput) ToTimeResponsePtrOutputWithContext(ctx context.Context) TimeResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TimeResponse) *TimeResponse {
-		return &v
-	}).(TimeResponsePtrOutput)
-}
-
 func (o TimeResponseOutput) Hour() pulumi.IntOutput {
 	return o.ApplyT(func(v TimeResponse) int { return v.Hour }).(pulumi.IntOutput)
 }
 
 func (o TimeResponseOutput) Minute() pulumi.IntOutput {
 	return o.ApplyT(func(v TimeResponse) int { return v.Minute }).(pulumi.IntOutput)
-}
-
-type TimeResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (TimeResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**TimeResponse)(nil)).Elem()
-}
-
-func (o TimeResponsePtrOutput) ToTimeResponsePtrOutput() TimeResponsePtrOutput {
-	return o
-}
-
-func (o TimeResponsePtrOutput) ToTimeResponsePtrOutputWithContext(ctx context.Context) TimeResponsePtrOutput {
-	return o
-}
-
-func (o TimeResponsePtrOutput) Elem() TimeResponseOutput {
-	return o.ApplyT(func(v *TimeResponse) TimeResponse {
-		if v != nil {
-			return *v
-		}
-		var ret TimeResponse
-		return ret
-	}).(TimeResponseOutput)
-}
-
-func (o TimeResponsePtrOutput) Hour() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *TimeResponse) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.Hour
-	}).(pulumi.IntPtrOutput)
-}
-
-func (o TimeResponsePtrOutput) Minute() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *TimeResponse) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.Minute
-	}).(pulumi.IntPtrOutput)
 }
 
 func init() {
@@ -1178,7 +728,5 @@ func init() {
 	pulumi.RegisterOutputType(ManagerSkuResponseOutput{})
 	pulumi.RegisterOutputType(ManagerSkuResponsePtrOutput{})
 	pulumi.RegisterOutputType(TimeOutput{})
-	pulumi.RegisterOutputType(TimePtrOutput{})
 	pulumi.RegisterOutputType(TimeResponseOutput{})
-	pulumi.RegisterOutputType(TimeResponsePtrOutput{})
 }
