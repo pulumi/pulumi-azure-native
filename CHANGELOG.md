@@ -15,6 +15,10 @@ CHANGELOG
 - `datamigration.listSqlMigrationServiceMonitoringData`
 - `sql.getIPv6FirewallRule`
 
+#### Enhancements:
+
+- Update to `pulumi/pulumi` 3.20.0
+
 ---
 
 ## 1.50.0 (2021-12-15)
