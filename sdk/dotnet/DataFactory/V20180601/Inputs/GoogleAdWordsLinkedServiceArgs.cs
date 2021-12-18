@@ -30,14 +30,14 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         /// <summary>
         /// The OAuth 2.0 authentication mechanism used for authentication. ServiceAuthentication can only be used on self-hosted IR.
         /// </summary>
-        [Input("authenticationType", required: true)]
-        public InputUnion<string, Pulumi.AzureNative.DataFactory.V20180601.GoogleAdWordsAuthenticationType> AuthenticationType { get; set; } = null!;
+        [Input("authenticationType")]
+        public InputUnion<string, Pulumi.AzureNative.DataFactory.V20180601.GoogleAdWordsAuthenticationType>? AuthenticationType { get; set; }
 
         /// <summary>
         /// The Client customer ID of the AdWords account that you want to fetch report data for.
         /// </summary>
-        [Input("clientCustomerID", required: true)]
-        public Input<object> ClientCustomerID { get; set; } = null!;
+        [Input("clientCustomerID")]
+        public Input<object>? ClientCustomerID { get; set; }
 
         /// <summary>
         /// The client id of the google application used to acquire the refresh token. Type: string (or Expression with resultType string).
@@ -58,6 +58,12 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public Input<Inputs.IntegrationRuntimeReferenceArgs>? ConnectVia { get; set; }
 
         /// <summary>
+        /// Properties used to connect to GoogleAds. It is mutually exclusive with any other properties in the linked service. Type: object.
+        /// </summary>
+        [Input("connectionProperties")]
+        public Input<object>? ConnectionProperties { get; set; }
+
+        /// <summary>
         /// Linked service description.
         /// </summary>
         [Input("description")]
@@ -66,8 +72,8 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         /// <summary>
         /// The developer token associated with the manager account that you use to grant access to the AdWords API.
         /// </summary>
-        [Input("developerToken", required: true)]
-        public InputUnion<Inputs.AzureKeyVaultSecretReferenceArgs, Inputs.SecureStringArgs> DeveloperToken { get; set; } = null!;
+        [Input("developerToken")]
+        public InputUnion<Inputs.AzureKeyVaultSecretReferenceArgs, Inputs.SecureStringArgs>? DeveloperToken { get; set; }
 
         /// <summary>
         /// The service account email ID that is used for ServiceAuthentication and can only be used on self-hosted IR.

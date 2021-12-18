@@ -23,11 +23,11 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// <summary>
         /// The OAuth 2.0 authentication mechanism used for authentication. ServiceAuthentication can only be used on self-hosted IR.
         /// </summary>
-        public readonly string AuthenticationType;
+        public readonly string? AuthenticationType;
         /// <summary>
         /// The Client customer ID of the AdWords account that you want to fetch report data for.
         /// </summary>
-        public readonly object ClientCustomerID;
+        public readonly object? ClientCustomerID;
         /// <summary>
         /// The client id of the google application used to acquire the refresh token. Type: string (or Expression with resultType string).
         /// </summary>
@@ -41,13 +41,17 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly Outputs.IntegrationRuntimeReferenceResponse? ConnectVia;
         /// <summary>
+        /// Properties used to connect to GoogleAds. It is mutually exclusive with any other properties in the linked service. Type: object.
+        /// </summary>
+        public readonly object? ConnectionProperties;
+        /// <summary>
         /// Linked service description.
         /// </summary>
         public readonly string? Description;
         /// <summary>
         /// The developer token associated with the manager account that you use to grant access to the AdWords API.
         /// </summary>
-        public readonly Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse> DeveloperToken;
+        public readonly Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? DeveloperToken;
         /// <summary>
         /// The service account email ID that is used for ServiceAuthentication and can only be used on self-hosted IR.
         /// </summary>
@@ -86,9 +90,9 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         private GoogleAdWordsLinkedServiceResponse(
             ImmutableArray<object> annotations,
 
-            string authenticationType,
+            string? authenticationType,
 
-            object clientCustomerID,
+            object? clientCustomerID,
 
             object? clientId,
 
@@ -96,9 +100,11 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             Outputs.IntegrationRuntimeReferenceResponse? connectVia,
 
+            object? connectionProperties,
+
             string? description,
 
-            Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse> developerToken,
+            Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? developerToken,
 
             object? email,
 
@@ -122,6 +128,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
             ClientId = clientId;
             ClientSecret = clientSecret;
             ConnectVia = connectVia;
+            ConnectionProperties = connectionProperties;
             Description = description;
             DeveloperToken = developerToken;
             Email = email;

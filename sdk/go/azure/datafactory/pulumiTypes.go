@@ -10922,7 +10922,7 @@ type GoogleAdWordsLinkedService struct {
 	// List of tags that can be used for describing the linked service.
 	Annotations []interface{} `pulumi:"annotations"`
 	// The OAuth 2.0 authentication mechanism used for authentication. ServiceAuthentication can only be used on self-hosted IR.
-	AuthenticationType string `pulumi:"authenticationType"`
+	AuthenticationType *string `pulumi:"authenticationType"`
 	// The Client customer ID of the AdWords account that you want to fetch report data for.
 	ClientCustomerID interface{} `pulumi:"clientCustomerID"`
 	// The client id of the google application used to acquire the refresh token. Type: string (or Expression with resultType string).
@@ -10931,6 +10931,8 @@ type GoogleAdWordsLinkedService struct {
 	ClientSecret interface{} `pulumi:"clientSecret"`
 	// The integration runtime reference.
 	ConnectVia *IntegrationRuntimeReference `pulumi:"connectVia"`
+	// Properties used to connect to GoogleAds. It is mutually exclusive with any other properties in the linked service. Type: object.
+	ConnectionProperties interface{} `pulumi:"connectionProperties"`
 	// Linked service description.
 	Description *string `pulumi:"description"`
 	// The developer token associated with the manager account that you use to grant access to the AdWords API.
@@ -10959,7 +10961,7 @@ type GoogleAdWordsLinkedServiceResponse struct {
 	// List of tags that can be used for describing the linked service.
 	Annotations []interface{} `pulumi:"annotations"`
 	// The OAuth 2.0 authentication mechanism used for authentication. ServiceAuthentication can only be used on self-hosted IR.
-	AuthenticationType string `pulumi:"authenticationType"`
+	AuthenticationType *string `pulumi:"authenticationType"`
 	// The Client customer ID of the AdWords account that you want to fetch report data for.
 	ClientCustomerID interface{} `pulumi:"clientCustomerID"`
 	// The client id of the google application used to acquire the refresh token. Type: string (or Expression with resultType string).
@@ -10968,6 +10970,8 @@ type GoogleAdWordsLinkedServiceResponse struct {
 	ClientSecret interface{} `pulumi:"clientSecret"`
 	// The integration runtime reference.
 	ConnectVia *IntegrationRuntimeReferenceResponse `pulumi:"connectVia"`
+	// Properties used to connect to GoogleAds. It is mutually exclusive with any other properties in the linked service. Type: object.
+	ConnectionProperties interface{} `pulumi:"connectionProperties"`
 	// Linked service description.
 	Description *string `pulumi:"description"`
 	// The developer token associated with the manager account that you use to grant access to the AdWords API.

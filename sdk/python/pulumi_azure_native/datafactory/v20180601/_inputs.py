@@ -33231,15 +33231,16 @@ class GlobalParameterSpecificationArgs:
 @pulumi.input_type
 class GoogleAdWordsLinkedServiceArgs:
     def __init__(__self__, *,
-                 authentication_type: pulumi.Input[Union[str, 'GoogleAdWordsAuthenticationType']],
-                 client_customer_id: Any,
-                 developer_token: pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']],
                  type: pulumi.Input[str],
                  annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
+                 authentication_type: Optional[pulumi.Input[Union[str, 'GoogleAdWordsAuthenticationType']]] = None,
+                 client_customer_id: Optional[Any] = None,
                  client_id: Optional[Any] = None,
                  client_secret: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
+                 connection_properties: Optional[Any] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 developer_token: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]] = None,
                  email: Optional[Any] = None,
                  encrypted_credential: Optional[Any] = None,
                  key_file_path: Optional[Any] = None,
@@ -33249,16 +33250,17 @@ class GoogleAdWordsLinkedServiceArgs:
                  use_system_trust_store: Optional[Any] = None):
         """
         Google AdWords service linked service.
-        :param pulumi.Input[Union[str, 'GoogleAdWordsAuthenticationType']] authentication_type: The OAuth 2.0 authentication mechanism used for authentication. ServiceAuthentication can only be used on self-hosted IR.
-        :param Any client_customer_id: The Client customer ID of the AdWords account that you want to fetch report data for.
-        :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] developer_token: The developer token associated with the manager account that you use to grant access to the AdWords API.
         :param pulumi.Input[str] type: Type of linked service.
                Expected value is 'GoogleAdWords'.
         :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the linked service.
+        :param pulumi.Input[Union[str, 'GoogleAdWordsAuthenticationType']] authentication_type: The OAuth 2.0 authentication mechanism used for authentication. ServiceAuthentication can only be used on self-hosted IR.
+        :param Any client_customer_id: The Client customer ID of the AdWords account that you want to fetch report data for.
         :param Any client_id: The client id of the google application used to acquire the refresh token. Type: string (or Expression with resultType string).
         :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] client_secret: The client secret of the google application used to acquire the refresh token.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
+        :param Any connection_properties: Properties used to connect to GoogleAds. It is mutually exclusive with any other properties in the linked service. Type: object.
         :param pulumi.Input[str] description: Linked service description.
+        :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] developer_token: The developer token associated with the manager account that you use to grant access to the AdWords API.
         :param Any email: The service account email ID that is used for ServiceAuthentication and can only be used on self-hosted IR.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param Any key_file_path: The full path to the .p12 key file that is used to authenticate the service account email address and can only be used on self-hosted IR.
@@ -33267,20 +33269,25 @@ class GoogleAdWordsLinkedServiceArgs:
         :param Any trusted_cert_path: The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR.
         :param Any use_system_trust_store: Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is false.
         """
-        pulumi.set(__self__, "authentication_type", authentication_type)
-        pulumi.set(__self__, "client_customer_id", client_customer_id)
-        pulumi.set(__self__, "developer_token", developer_token)
         pulumi.set(__self__, "type", 'GoogleAdWords')
         if annotations is not None:
             pulumi.set(__self__, "annotations", annotations)
+        if authentication_type is not None:
+            pulumi.set(__self__, "authentication_type", authentication_type)
+        if client_customer_id is not None:
+            pulumi.set(__self__, "client_customer_id", client_customer_id)
         if client_id is not None:
             pulumi.set(__self__, "client_id", client_id)
         if client_secret is not None:
             pulumi.set(__self__, "client_secret", client_secret)
         if connect_via is not None:
             pulumi.set(__self__, "connect_via", connect_via)
+        if connection_properties is not None:
+            pulumi.set(__self__, "connection_properties", connection_properties)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if developer_token is not None:
+            pulumi.set(__self__, "developer_token", developer_token)
         if email is not None:
             pulumi.set(__self__, "email", email)
         if encrypted_credential is not None:
@@ -33295,42 +33302,6 @@ class GoogleAdWordsLinkedServiceArgs:
             pulumi.set(__self__, "trusted_cert_path", trusted_cert_path)
         if use_system_trust_store is not None:
             pulumi.set(__self__, "use_system_trust_store", use_system_trust_store)
-
-    @property
-    @pulumi.getter(name="authenticationType")
-    def authentication_type(self) -> pulumi.Input[Union[str, 'GoogleAdWordsAuthenticationType']]:
-        """
-        The OAuth 2.0 authentication mechanism used for authentication. ServiceAuthentication can only be used on self-hosted IR.
-        """
-        return pulumi.get(self, "authentication_type")
-
-    @authentication_type.setter
-    def authentication_type(self, value: pulumi.Input[Union[str, 'GoogleAdWordsAuthenticationType']]):
-        pulumi.set(self, "authentication_type", value)
-
-    @property
-    @pulumi.getter(name="clientCustomerID")
-    def client_customer_id(self) -> Any:
-        """
-        The Client customer ID of the AdWords account that you want to fetch report data for.
-        """
-        return pulumi.get(self, "client_customer_id")
-
-    @client_customer_id.setter
-    def client_customer_id(self, value: Any):
-        pulumi.set(self, "client_customer_id", value)
-
-    @property
-    @pulumi.getter(name="developerToken")
-    def developer_token(self) -> pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]:
-        """
-        The developer token associated with the manager account that you use to grant access to the AdWords API.
-        """
-        return pulumi.get(self, "developer_token")
-
-    @developer_token.setter
-    def developer_token(self, value: pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]):
-        pulumi.set(self, "developer_token", value)
 
     @property
     @pulumi.getter
@@ -33356,6 +33327,30 @@ class GoogleAdWordsLinkedServiceArgs:
     @annotations.setter
     def annotations(self, value: Optional[pulumi.Input[Sequence[Any]]]):
         pulumi.set(self, "annotations", value)
+
+    @property
+    @pulumi.getter(name="authenticationType")
+    def authentication_type(self) -> Optional[pulumi.Input[Union[str, 'GoogleAdWordsAuthenticationType']]]:
+        """
+        The OAuth 2.0 authentication mechanism used for authentication. ServiceAuthentication can only be used on self-hosted IR.
+        """
+        return pulumi.get(self, "authentication_type")
+
+    @authentication_type.setter
+    def authentication_type(self, value: Optional[pulumi.Input[Union[str, 'GoogleAdWordsAuthenticationType']]]):
+        pulumi.set(self, "authentication_type", value)
+
+    @property
+    @pulumi.getter(name="clientCustomerID")
+    def client_customer_id(self) -> Optional[Any]:
+        """
+        The Client customer ID of the AdWords account that you want to fetch report data for.
+        """
+        return pulumi.get(self, "client_customer_id")
+
+    @client_customer_id.setter
+    def client_customer_id(self, value: Optional[Any]):
+        pulumi.set(self, "client_customer_id", value)
 
     @property
     @pulumi.getter(name="clientId")
@@ -33394,6 +33389,18 @@ class GoogleAdWordsLinkedServiceArgs:
         pulumi.set(self, "connect_via", value)
 
     @property
+    @pulumi.getter(name="connectionProperties")
+    def connection_properties(self) -> Optional[Any]:
+        """
+        Properties used to connect to GoogleAds. It is mutually exclusive with any other properties in the linked service. Type: object.
+        """
+        return pulumi.get(self, "connection_properties")
+
+    @connection_properties.setter
+    def connection_properties(self, value: Optional[Any]):
+        pulumi.set(self, "connection_properties", value)
+
+    @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
@@ -33404,6 +33411,18 @@ class GoogleAdWordsLinkedServiceArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="developerToken")
+    def developer_token(self) -> Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]]:
+        """
+        The developer token associated with the manager account that you use to grant access to the AdWords API.
+        """
+        return pulumi.get(self, "developer_token")
+
+    @developer_token.setter
+    def developer_token(self, value: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]]):
+        pulumi.set(self, "developer_token", value)
 
     @property
     @pulumi.getter
