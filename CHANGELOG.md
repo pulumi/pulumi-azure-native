@@ -3,6 +3,12 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 
+(None)
+
+---
+
+## 1.51.0 (2021-12-20)
+
 #### New resources:
 
 - `datamigration.SqlMigrationService`
@@ -22,8 +28,6 @@ CHANGELOG
   - Removed unused input types, see https://github.com/pulumi/pulumi/pull/7943
   - All comments for resources, types, and properties restored
   - SDK size reduced by 30%
-
----
 
 ## 1.50.0 (2021-12-15)
 
