@@ -25,6 +25,30 @@ class MyStack : Stack
             AdministratorLoginPassword = "Un53cuRE!",
             Version = "12.0"
         });
+        
+        var db = new Database("testdb", new DatabaseArgs
+        {
+            ResourceGroupName = resourceGroup.Name,
+            ServerName = server.Name
+        });
+        
+        var shortRetention = new BackupShortTermRetentionPolicy("backup-short", new BackupShortTermRetentionPolicyArgs
+        {
+            ResourceGroupName = resourceGroup.Name,
+            ServerName = server.Name,
+            DatabaseName = db.Name,
+            PolicyName = "default",
+            RetentionDays = 30
+        });
+        
+        var longRetention = new LongTermRetentionPolicy("backup-long", new LongTermRetentionPolicyArgs
+        {
+            ResourceGroupName = resourceGroup.Name,
+            ServerName = server.Name,
+            DatabaseName = db.Name,
+            PolicyName = "default",
+            MonthlyRetention = "P1M"
+        });
 
         var enableADS = new ServerSecurityAlertPolicy("default", new ServerSecurityAlertPolicyArgs
         {
@@ -66,7 +90,7 @@ class MyStack : Stack
             StorageAccountAccessKey = Output.Tuple(resourceGroup.Name, sa.Name).Apply(names =>
                 GetStorageAccountPrimaryKey(names.Item1, names.Item2))
         }, new CustomResourceOptions { DependsOn = { enableADS } });
-        
+
         var sqlFwRuleClientIP = new FirewallRule("sqlFwRuleClientIP", new FirewallRuleArgs
         {
             ResourceGroupName = resourceGroup.Name,
@@ -75,7 +99,7 @@ class MyStack : Stack
             StartIpAddress = "222.222.222.222",
             EndIpAddress = "222.222.222.222"
         });
-        
+
         var vnet = new VirtualNetwork("vnet", new VirtualNetworkArgs
         {
             ResourceGroupName = resourceGroup.Name,
@@ -91,7 +115,7 @@ class MyStack : Stack
                 }
             }
         });
-        
+
         var privateEndpoint = new PrivateEndpoint("endpoint", new PrivateEndpointArgs
         {
             ResourceGroupName = resourceGroup.Name,
@@ -107,7 +131,7 @@ class MyStack : Stack
             },
             Subnet = new SubnetArgs { Id = vnet.Subnets.GetAt(0).Apply(v => v.Id) }
         });
-        
+
         var privateDnsZone = new PrivateDnsZoneGroup("zoneGroup", new PrivateDnsZoneGroupArgs
         {
             ResourceGroupName = resourceGroup.Name,
