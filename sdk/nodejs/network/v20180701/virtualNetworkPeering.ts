@@ -50,7 +50,7 @@ export class VirtualNetworkPeering extends pulumi.CustomResource {
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
-    public readonly etag!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
     /**
      * The name of the resource that is unique within a resource group. This name can be used to access the resource.
      */
@@ -96,7 +96,6 @@ export class VirtualNetworkPeering extends pulumi.CustomResource {
             resourceInputs["allowForwardedTraffic"] = args ? args.allowForwardedTraffic : undefined;
             resourceInputs["allowGatewayTransit"] = args ? args.allowGatewayTransit : undefined;
             resourceInputs["allowVirtualNetworkAccess"] = args ? args.allowVirtualNetworkAccess : undefined;
-            resourceInputs["etag"] = args ? args.etag : undefined;
             resourceInputs["id"] = args ? args.id : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["peeringState"] = args ? args.peeringState : undefined;
@@ -107,6 +106,7 @@ export class VirtualNetworkPeering extends pulumi.CustomResource {
             resourceInputs["useRemoteGateways"] = args ? args.useRemoteGateways : undefined;
             resourceInputs["virtualNetworkName"] = args ? args.virtualNetworkName : undefined;
             resourceInputs["virtualNetworkPeeringName"] = args ? args.virtualNetworkPeeringName : undefined;
+            resourceInputs["etag"] = undefined /*out*/;
         } else {
             resourceInputs["allowForwardedTraffic"] = undefined /*out*/;
             resourceInputs["allowGatewayTransit"] = undefined /*out*/;
@@ -144,10 +144,6 @@ export interface VirtualNetworkPeeringArgs {
      * Whether the VMs in the linked virtual network space would be able to access all the VMs in local Virtual network space.
      */
     allowVirtualNetworkAccess?: pulumi.Input<boolean>;
-    /**
-     * A unique read-only string that changes whenever the resource is updated.
-     */
-    etag?: pulumi.Input<string>;
     /**
      * Resource ID.
      */

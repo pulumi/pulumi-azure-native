@@ -66,7 +66,7 @@ export class NrtAlertRule extends pulumi.CustomResource {
     /**
      * Etag of the azure resource
      */
-    public readonly etag!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
     /**
      * The settings of the incidents that created from alerts triggered by this analytics rule
      */
@@ -156,7 +156,6 @@ export class NrtAlertRule extends pulumi.CustomResource {
             resourceInputs["displayName"] = args ? args.displayName : undefined;
             resourceInputs["enabled"] = args ? args.enabled : undefined;
             resourceInputs["entityMappings"] = args ? args.entityMappings : undefined;
-            resourceInputs["etag"] = args ? args.etag : undefined;
             resourceInputs["incidentConfiguration"] = args ? args.incidentConfiguration : undefined;
             resourceInputs["kind"] = "NRT";
             resourceInputs["query"] = args ? args.query : undefined;
@@ -168,6 +167,7 @@ export class NrtAlertRule extends pulumi.CustomResource {
             resourceInputs["tactics"] = args ? args.tactics : undefined;
             resourceInputs["templateVersion"] = args ? args.templateVersion : undefined;
             resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["lastModifiedUtc"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
@@ -235,10 +235,6 @@ export interface NrtAlertRuleArgs {
      * Array of the entity mappings of the alert rule
      */
     entityMappings?: pulumi.Input<pulumi.Input<inputs.securityinsights.v20210901preview.EntityMappingArgs>[]>;
-    /**
-     * Etag of the azure resource
-     */
-    etag?: pulumi.Input<string>;
     /**
      * The settings of the incidents that created from alerts triggered by this analytics rule
      */

@@ -47,7 +47,7 @@ export class SavedSearch extends pulumi.CustomResource {
     /**
      * The ETag of the saved search. To override an existing saved search, use "*" or specify the current Etag
      */
-    public readonly etag!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
     /**
      * The function alias if query serves as a function.
      */
@@ -105,7 +105,6 @@ export class SavedSearch extends pulumi.CustomResource {
             }
             resourceInputs["category"] = args ? args.category : undefined;
             resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["etag"] = args ? args.etag : undefined;
             resourceInputs["functionAlias"] = args ? args.functionAlias : undefined;
             resourceInputs["functionParameters"] = args ? args.functionParameters : undefined;
             resourceInputs["query"] = args ? args.query : undefined;
@@ -114,6 +113,7 @@ export class SavedSearch extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["version"] = args ? args.version : undefined;
             resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
@@ -149,10 +149,6 @@ export interface SavedSearchArgs {
      * Saved search display name.
      */
     displayName: pulumi.Input<string>;
-    /**
-     * The ETag of the saved search. To override an existing saved search, use "*" or specify the current Etag
-     */
-    etag?: pulumi.Input<string>;
     /**
      * The function alias if query serves as a function.
      */

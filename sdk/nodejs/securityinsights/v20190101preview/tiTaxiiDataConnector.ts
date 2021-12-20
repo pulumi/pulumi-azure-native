@@ -46,7 +46,7 @@ export class TiTaxiiDataConnector extends pulumi.CustomResource {
     /**
      * Etag of the azure resource
      */
-    public readonly etag!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
     /**
      * The friendly name for the TAXII server.
      */
@@ -128,7 +128,6 @@ export class TiTaxiiDataConnector extends pulumi.CustomResource {
             resourceInputs["collectionId"] = args ? args.collectionId : undefined;
             resourceInputs["dataConnectorId"] = args ? args.dataConnectorId : undefined;
             resourceInputs["dataTypes"] = args ? args.dataTypes : undefined;
-            resourceInputs["etag"] = args ? args.etag : undefined;
             resourceInputs["friendlyName"] = args ? args.friendlyName : undefined;
             resourceInputs["kind"] = "ThreatIntelligenceTaxii";
             resourceInputs["operationalInsightsResourceProvider"] = args ? args.operationalInsightsResourceProvider : undefined;
@@ -141,6 +140,7 @@ export class TiTaxiiDataConnector extends pulumi.CustomResource {
             resourceInputs["userName"] = args ? args.userName : undefined;
             resourceInputs["workspaceId"] = args ? args.workspaceId : undefined;
             resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
@@ -184,10 +184,6 @@ export interface TiTaxiiDataConnectorArgs {
      * The available data types for Threat Intelligence TAXII data connector.
      */
     dataTypes: pulumi.Input<inputs.securityinsights.v20190101preview.TiTaxiiDataConnectorDataTypesArgs>;
-    /**
-     * Etag of the azure resource
-     */
-    etag?: pulumi.Input<string>;
     /**
      * The friendly name for the TAXII server.
      */

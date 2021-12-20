@@ -38,7 +38,7 @@ export class Zone extends pulumi.CustomResource {
     /**
      * The etag of the zone.
      */
-    public readonly etag!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
     /**
      * Resource location.
      */
@@ -98,7 +98,6 @@ export class Zone extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["etag"] = args ? args.etag : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["registrationVirtualNetworks"] = args ? args.registrationVirtualNetworks : undefined;
             resourceInputs["resolutionVirtualNetworks"] = args ? args.resolutionVirtualNetworks : undefined;
@@ -106,6 +105,7 @@ export class Zone extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["zoneName"] = args ? args.zoneName : undefined;
             resourceInputs["zoneType"] = (args ? args.zoneType : undefined) ?? "Public";
+            resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["maxNumberOfRecordSets"] = undefined /*out*/;
             resourceInputs["maxNumberOfRecordsPerRecordSet"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -139,10 +139,6 @@ export class Zone extends pulumi.CustomResource {
  * The set of arguments for constructing a Zone resource.
  */
 export interface ZoneArgs {
-    /**
-     * The etag of the zone.
-     */
-    etag?: pulumi.Input<string>;
     /**
      * Resource location.
      */

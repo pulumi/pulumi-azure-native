@@ -58,7 +58,7 @@ export class ActivityCustomEntityQuery extends pulumi.CustomResource {
     /**
      * Etag of the azure resource
      */
-    public readonly etag!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
     /**
      * The type of the query's source entity
      */
@@ -126,7 +126,6 @@ export class ActivityCustomEntityQuery extends pulumi.CustomResource {
             resourceInputs["enabled"] = args ? args.enabled : undefined;
             resourceInputs["entitiesFilter"] = args ? args.entitiesFilter : undefined;
             resourceInputs["entityQueryId"] = args ? args.entityQueryId : undefined;
-            resourceInputs["etag"] = args ? args.etag : undefined;
             resourceInputs["inputEntityType"] = args ? args.inputEntityType : undefined;
             resourceInputs["kind"] = "Activity";
             resourceInputs["queryDefinitions"] = args ? args.queryDefinitions : undefined;
@@ -136,6 +135,7 @@ export class ActivityCustomEntityQuery extends pulumi.CustomResource {
             resourceInputs["title"] = args ? args.title : undefined;
             resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
             resourceInputs["createdTimeUtc"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["lastModifiedTimeUtc"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
@@ -191,10 +191,6 @@ export interface ActivityCustomEntityQueryArgs {
      * entity query ID
      */
     entityQueryId?: pulumi.Input<string>;
-    /**
-     * Etag of the azure resource
-     */
-    etag?: pulumi.Input<string>;
     /**
      * The type of the query's source entity
      */

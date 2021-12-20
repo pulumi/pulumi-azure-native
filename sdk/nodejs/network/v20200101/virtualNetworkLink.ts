@@ -38,7 +38,7 @@ export class VirtualNetworkLink extends pulumi.CustomResource {
     /**
      * The ETag of the virtual network link.
      */
-    public readonly etag!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
     /**
      * The Azure Region where the resource lives
      */
@@ -89,7 +89,6 @@ export class VirtualNetworkLink extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["etag"] = args ? args.etag : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["privateZoneName"] = args ? args.privateZoneName : undefined;
             resourceInputs["registrationEnabled"] = args ? args.registrationEnabled : undefined;
@@ -97,6 +96,7 @@ export class VirtualNetworkLink extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["virtualNetwork"] = args ? args.virtualNetwork : undefined;
             resourceInputs["virtualNetworkLinkName"] = args ? args.virtualNetworkLinkName : undefined;
+            resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -125,10 +125,6 @@ export class VirtualNetworkLink extends pulumi.CustomResource {
  * The set of arguments for constructing a VirtualNetworkLink resource.
  */
 export interface VirtualNetworkLinkArgs {
-    /**
-     * The ETag of the virtual network link.
-     */
-    etag?: pulumi.Input<string>;
     /**
      * The Azure Region where the resource lives
      */

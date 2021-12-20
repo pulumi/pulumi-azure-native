@@ -42,7 +42,7 @@ export class AlertRule extends pulumi.CustomResource {
     /**
      * Etag of the azure resource
      */
-    public readonly etag!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
     /**
      * The alert rule kind
      */
@@ -78,11 +78,11 @@ export class AlertRule extends pulumi.CustomResource {
             if ((!args || args.workspaceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            resourceInputs["etag"] = args ? args.etag : undefined;
             resourceInputs["kind"] = args ? args.kind : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["ruleId"] = args ? args.ruleId : undefined;
             resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
@@ -104,10 +104,6 @@ export class AlertRule extends pulumi.CustomResource {
  * The set of arguments for constructing a AlertRule resource.
  */
 export interface AlertRuleArgs {
-    /**
-     * Etag of the azure resource
-     */
-    etag?: pulumi.Input<string>;
     /**
      * The alert rule kind
      */

@@ -46,7 +46,7 @@ export class VirtualNetwork extends pulumi.CustomResource {
     /**
      * Gets a unique read-only string that changes whenever the resource is updated
      */
-    public readonly etag!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
     /**
      * Resource location
      */
@@ -92,7 +92,6 @@ export class VirtualNetwork extends pulumi.CustomResource {
             }
             resourceInputs["addressSpace"] = args ? args.addressSpace : undefined;
             resourceInputs["dhcpOptions"] = args ? args.dhcpOptions : undefined;
-            resourceInputs["etag"] = args ? args.etag : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["provisioningState"] = args ? args.provisioningState : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -100,6 +99,7 @@ export class VirtualNetwork extends pulumi.CustomResource {
             resourceInputs["subnets"] = args ? args.subnets : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["virtualNetworkName"] = args ? args.virtualNetworkName : undefined;
+            resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
@@ -135,10 +135,6 @@ export interface VirtualNetworkArgs {
      * Gets or sets DHCPOptions that contains an array of DNS servers available to VMs deployed in the virtual network
      */
     dhcpOptions?: pulumi.Input<inputs.network.v20150501preview.DhcpOptionsArgs>;
-    /**
-     * Gets a unique read-only string that changes whenever the resource is updated
-     */
-    etag?: pulumi.Input<string>;
     /**
      * Resource location
      */

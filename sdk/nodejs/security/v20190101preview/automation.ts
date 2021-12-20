@@ -46,7 +46,7 @@ export class Automation extends pulumi.CustomResource {
     /**
      * Entity tag is used for comparing two or more entities from the same requested resource.
      */
-    public readonly etag!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
     /**
      * Indicates whether the security automation is enabled.
      */
@@ -97,7 +97,6 @@ export class Automation extends pulumi.CustomResource {
             resourceInputs["actions"] = args ? args.actions : undefined;
             resourceInputs["automationName"] = args ? args.automationName : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["etag"] = args ? args.etag : undefined;
             resourceInputs["isEnabled"] = args ? args.isEnabled : undefined;
             resourceInputs["kind"] = args ? args.kind : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
@@ -105,6 +104,7 @@ export class Automation extends pulumi.CustomResource {
             resourceInputs["scopes"] = args ? args.scopes : undefined;
             resourceInputs["sources"] = args ? args.sources : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
@@ -145,10 +145,6 @@ export interface AutomationArgs {
      * The security automation description.
      */
     description?: pulumi.Input<string>;
-    /**
-     * Entity tag is used for comparing two or more entities from the same requested resource.
-     */
-    etag?: pulumi.Input<string>;
     /**
      * Indicates whether the security automation is enabled.
      */

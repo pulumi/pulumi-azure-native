@@ -46,7 +46,7 @@ export class IncidentComment extends pulumi.CustomResource {
     /**
      * Etag of the azure resource
      */
-    public readonly etag!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
     /**
      * The time the comment was updated
      */
@@ -91,7 +91,6 @@ export class IncidentComment extends pulumi.CustomResource {
             if ((!args || args.workspaceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            resourceInputs["etag"] = args ? args.etag : undefined;
             resourceInputs["incidentCommentId"] = args ? args.incidentCommentId : undefined;
             resourceInputs["incidentId"] = args ? args.incidentId : undefined;
             resourceInputs["message"] = args ? args.message : undefined;
@@ -99,6 +98,7 @@ export class IncidentComment extends pulumi.CustomResource {
             resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
             resourceInputs["author"] = undefined /*out*/;
             resourceInputs["createdTimeUtc"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["lastModifiedTimeUtc"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
@@ -126,10 +126,6 @@ export class IncidentComment extends pulumi.CustomResource {
  * The set of arguments for constructing a IncidentComment resource.
  */
 export interface IncidentCommentArgs {
-    /**
-     * Etag of the azure resource
-     */
-    etag?: pulumi.Input<string>;
     /**
      * Incident comment ID
      */

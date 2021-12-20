@@ -45,7 +45,7 @@ export class Watcher extends pulumi.CustomResource {
     /**
      * Gets or sets the etag of the resource.
      */
-    public readonly etag!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
     /**
      * Gets or sets the frequency at which the watcher is invoked.
      */
@@ -110,7 +110,6 @@ export class Watcher extends pulumi.CustomResource {
             }
             resourceInputs["automationAccountName"] = args ? args.automationAccountName : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["etag"] = args ? args.etag : undefined;
             resourceInputs["executionFrequencyInSeconds"] = args ? args.executionFrequencyInSeconds : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -120,6 +119,7 @@ export class Watcher extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["watcherName"] = args ? args.watcherName : undefined;
             resourceInputs["creationTime"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["lastModifiedBy"] = undefined /*out*/;
             resourceInputs["lastModifiedTime"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -162,10 +162,6 @@ export interface WatcherArgs {
      * Gets or sets the description.
      */
     description?: pulumi.Input<string>;
-    /**
-     * Gets or sets the etag of the resource.
-     */
-    etag?: pulumi.Input<string>;
     /**
      * Gets or sets the frequency at which the watcher is invoked.
      */

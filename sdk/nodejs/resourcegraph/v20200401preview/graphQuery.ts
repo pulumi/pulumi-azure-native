@@ -42,7 +42,7 @@ export class GraphQuery extends pulumi.CustomResource {
     /**
      * This will be used to handle Optimistic Concurrency.
      */
-    public readonly etag!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
     /**
      * The location of the resource
      */
@@ -94,11 +94,11 @@ export class GraphQuery extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["etag"] = args ? args.etag : undefined;
             resourceInputs["query"] = args ? args.query : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["resourceName"] = args ? args.resourceName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["resultKind"] = undefined /*out*/;
@@ -134,10 +134,6 @@ export interface GraphQueryArgs {
      * The description of a graph query.
      */
     description?: pulumi.Input<string>;
-    /**
-     * This will be used to handle Optimistic Concurrency.
-     */
-    etag?: pulumi.Input<string>;
     /**
      * KQL query that will be graph.
      */

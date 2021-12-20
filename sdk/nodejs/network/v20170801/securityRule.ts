@@ -66,7 +66,7 @@ export class SecurityRule extends pulumi.CustomResource {
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
-    public readonly etag!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
     /**
      * The name of the resource that is unique within a resource group. This name can be used to access the resource.
      */
@@ -133,7 +133,6 @@ export class SecurityRule extends pulumi.CustomResource {
             resourceInputs["destinationPortRange"] = args ? args.destinationPortRange : undefined;
             resourceInputs["destinationPortRanges"] = args ? args.destinationPortRanges : undefined;
             resourceInputs["direction"] = args ? args.direction : undefined;
-            resourceInputs["etag"] = args ? args.etag : undefined;
             resourceInputs["id"] = args ? args.id : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["networkSecurityGroupName"] = args ? args.networkSecurityGroupName : undefined;
@@ -146,6 +145,7 @@ export class SecurityRule extends pulumi.CustomResource {
             resourceInputs["sourceAddressPrefixes"] = args ? args.sourceAddressPrefixes : undefined;
             resourceInputs["sourcePortRange"] = args ? args.sourcePortRange : undefined;
             resourceInputs["sourcePortRanges"] = args ? args.sourcePortRanges : undefined;
+            resourceInputs["etag"] = undefined /*out*/;
         } else {
             resourceInputs["access"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
@@ -205,10 +205,6 @@ export interface SecurityRuleArgs {
      * The direction of the rule. The direction specifies if rule will be evaluated on incoming or outgoing traffic. Possible values are: 'Inbound' and 'Outbound'.
      */
     direction: pulumi.Input<string | enums.network.v20170801.SecurityRuleDirection>;
-    /**
-     * A unique read-only string that changes whenever the resource is updated.
-     */
-    etag?: pulumi.Input<string>;
     /**
      * Resource ID.
      */

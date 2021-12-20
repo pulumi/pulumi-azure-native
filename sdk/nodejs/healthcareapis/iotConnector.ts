@@ -43,7 +43,7 @@ export class IotConnector extends pulumi.CustomResource {
     /**
      * An etag associated with the resource, used for optimistic concurrency when editing it.
      */
-    public readonly etag!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
     /**
      * Setting indicating whether the service has a managed identity associated with it.
      */
@@ -95,7 +95,6 @@ export class IotConnector extends pulumi.CustomResource {
                 throw new Error("Missing required property 'workspaceName'");
             }
             resourceInputs["deviceMapping"] = args ? args.deviceMapping : undefined;
-            resourceInputs["etag"] = args ? args.etag : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["ingestionEndpointConfiguration"] = args ? args.ingestionEndpointConfiguration : undefined;
             resourceInputs["iotConnectorName"] = args ? args.iotConnectorName : undefined;
@@ -103,6 +102,7 @@ export class IotConnector extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
@@ -136,10 +136,6 @@ export interface IotConnectorArgs {
      * Device Mappings.
      */
     deviceMapping?: pulumi.Input<inputs.healthcareapis.IotMappingPropertiesArgs>;
-    /**
-     * An etag associated with the resource, used for optimistic concurrency when editing it.
-     */
-    etag?: pulumi.Input<string>;
     /**
      * Setting indicating whether the service has a managed identity associated with it.
      */

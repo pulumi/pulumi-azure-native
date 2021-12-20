@@ -39,7 +39,7 @@ export class CommitmentPlan extends pulumi.CustomResource {
     /**
      * An entity tag used to enforce optimistic concurrency.
      */
-    public readonly etag!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
     /**
      * Resource location.
      */
@@ -80,11 +80,11 @@ export class CommitmentPlan extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["commitmentPlanName"] = args ? args.commitmentPlanName : undefined;
-            resourceInputs["etag"] = args ? args.etag : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["sku"] = args ? args.sku : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -114,10 +114,6 @@ export interface CommitmentPlanArgs {
      * The Azure ML commitment plan name.
      */
     commitmentPlanName?: pulumi.Input<string>;
-    /**
-     * An entity tag used to enforce optimistic concurrency.
-     */
-    etag?: pulumi.Input<string>;
     /**
      * Resource location.
      */

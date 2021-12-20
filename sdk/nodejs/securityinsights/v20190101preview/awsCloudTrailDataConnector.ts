@@ -46,7 +46,7 @@ export class AwsCloudTrailDataConnector extends pulumi.CustomResource {
     /**
      * Etag of the azure resource
      */
-    public readonly etag!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
     /**
      *
      * Expected value is 'AmazonWebServicesCloudTrail'.
@@ -90,11 +90,11 @@ export class AwsCloudTrailDataConnector extends pulumi.CustomResource {
             resourceInputs["awsRoleArn"] = args ? args.awsRoleArn : undefined;
             resourceInputs["dataConnectorId"] = args ? args.dataConnectorId : undefined;
             resourceInputs["dataTypes"] = args ? args.dataTypes : undefined;
-            resourceInputs["etag"] = args ? args.etag : undefined;
             resourceInputs["kind"] = "AmazonWebServicesCloudTrail";
             resourceInputs["operationalInsightsResourceProvider"] = args ? args.operationalInsightsResourceProvider : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
@@ -130,10 +130,6 @@ export interface AwsCloudTrailDataConnectorArgs {
      * The available data types for the connector.
      */
     dataTypes: pulumi.Input<inputs.securityinsights.v20190101preview.AwsCloudTrailDataConnectorDataTypesArgs>;
-    /**
-     * Etag of the azure resource
-     */
-    etag?: pulumi.Input<string>;
     /**
      *
      * Expected value is 'AmazonWebServicesCloudTrail'.

@@ -42,7 +42,7 @@ export class InterfaceEndpoint extends pulumi.CustomResource {
     /**
      * Gets a unique read-only string that changes whenever the resource is updated.
      */
-    public readonly etag!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
     /**
      * A first-party service's FQDN that is mapped to the private IP allocated via this interface endpoint.
      */
@@ -95,7 +95,6 @@ export class InterfaceEndpoint extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["endpointService"] = args ? args.endpointService : undefined;
-            resourceInputs["etag"] = args ? args.etag : undefined;
             resourceInputs["fqdn"] = args ? args.fqdn : undefined;
             resourceInputs["id"] = args ? args.id : undefined;
             resourceInputs["interfaceEndpointName"] = args ? args.interfaceEndpointName : undefined;
@@ -103,6 +102,7 @@ export class InterfaceEndpoint extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["subnet"] = args ? args.subnet : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["networkInterfaces"] = undefined /*out*/;
             resourceInputs["owner"] = undefined /*out*/;
@@ -138,10 +138,6 @@ export interface InterfaceEndpointArgs {
      * A reference to the service being brought into the virtual network.
      */
     endpointService?: pulumi.Input<inputs.network.v20180801.EndpointServiceArgs>;
-    /**
-     * Gets a unique read-only string that changes whenever the resource is updated.
-     */
-    etag?: pulumi.Input<string>;
     /**
      * A first-party service's FQDN that is mapped to the private IP allocated via this interface endpoint.
      */

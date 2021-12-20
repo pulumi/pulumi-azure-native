@@ -42,7 +42,7 @@ export class ExpressRouteCircuitPeering extends pulumi.CustomResource {
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
-    public readonly etag!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
     /**
      * The GatewayManager Etag.
      */
@@ -123,7 +123,6 @@ export class ExpressRouteCircuitPeering extends pulumi.CustomResource {
             }
             resourceInputs["azureASN"] = args ? args.azureASN : undefined;
             resourceInputs["circuitName"] = args ? args.circuitName : undefined;
-            resourceInputs["etag"] = args ? args.etag : undefined;
             resourceInputs["gatewayManagerEtag"] = args ? args.gatewayManagerEtag : undefined;
             resourceInputs["id"] = args ? args.id : undefined;
             resourceInputs["lastModifiedBy"] = args ? args.lastModifiedBy : undefined;
@@ -142,6 +141,7 @@ export class ExpressRouteCircuitPeering extends pulumi.CustomResource {
             resourceInputs["state"] = args ? args.state : undefined;
             resourceInputs["stats"] = args ? args.stats : undefined;
             resourceInputs["vlanId"] = args ? args.vlanId : undefined;
+            resourceInputs["etag"] = undefined /*out*/;
         } else {
             resourceInputs["azureASN"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
@@ -182,10 +182,6 @@ export interface ExpressRouteCircuitPeeringArgs {
      * The name of the express route circuit.
      */
     circuitName: pulumi.Input<string>;
-    /**
-     * A unique read-only string that changes whenever the resource is updated.
-     */
-    etag?: pulumi.Input<string>;
     /**
      * The GatewayManager Etag.
      */

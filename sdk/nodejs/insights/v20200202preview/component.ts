@@ -66,7 +66,7 @@ export class Component extends pulumi.CustomResource {
     /**
      * Resource etag
      */
-    public readonly etag!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
     /**
      * Used by the Application Insights system to determine what kind of flow this component was created by. This is to be set to 'Bluefield' when creating/updating a component via the REST API.
      */
@@ -179,7 +179,6 @@ export class Component extends pulumi.CustomResource {
             resourceInputs["applicationType"] = (args ? args.applicationType : undefined) ?? "web";
             resourceInputs["disableIpMasking"] = args ? args.disableIpMasking : undefined;
             resourceInputs["disableLocalAuth"] = args ? args.disableLocalAuth : undefined;
-            resourceInputs["etag"] = args ? args.etag : undefined;
             resourceInputs["flowType"] = (args ? args.flowType : undefined) ?? "Bluefield";
             resourceInputs["forceCustomerStorageForProfiler"] = args ? args.forceCustomerStorageForProfiler : undefined;
             resourceInputs["hockeyAppId"] = args ? args.hockeyAppId : undefined;
@@ -199,6 +198,7 @@ export class Component extends pulumi.CustomResource {
             resourceInputs["applicationId"] = undefined /*out*/;
             resourceInputs["connectionString"] = undefined /*out*/;
             resourceInputs["creationDate"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["hockeyAppToken"] = undefined /*out*/;
             resourceInputs["instrumentationKey"] = undefined /*out*/;
             resourceInputs["laMigrationDate"] = undefined /*out*/;
@@ -265,10 +265,6 @@ export interface ComponentArgs {
      * Disable Non-AAD based Auth.
      */
     disableLocalAuth?: pulumi.Input<boolean>;
-    /**
-     * Resource etag
-     */
-    etag?: pulumi.Input<string>;
     /**
      * Used by the Application Insights system to determine what kind of flow this component was created by. This is to be set to 'Bluefield' when creating/updating a component via the REST API.
      */

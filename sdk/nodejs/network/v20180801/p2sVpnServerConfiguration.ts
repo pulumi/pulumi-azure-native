@@ -38,7 +38,7 @@ export class P2sVpnServerConfiguration extends pulumi.CustomResource {
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
-    public readonly etag!: pulumi.Output<string>;
+    public /*out*/ readonly etag!: pulumi.Output<string>;
     /**
      * The name of the P2SVpnServerConfiguration that is unique within a VirtualWan in a resource group. This name can be used to access the resource along with Parent VirtualWan resource name.
      */
@@ -98,7 +98,6 @@ export class P2sVpnServerConfiguration extends pulumi.CustomResource {
             if ((!args || args.virtualWanName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'virtualWanName'");
             }
-            resourceInputs["etag"] = args ? args.etag : undefined;
             resourceInputs["id"] = args ? args.id : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["p2SVpnServerConfigRadiusClientRootCertificates"] = args ? args.p2SVpnServerConfigRadiusClientRootCertificates : undefined;
@@ -112,6 +111,7 @@ export class P2sVpnServerConfiguration extends pulumi.CustomResource {
             resourceInputs["virtualWanName"] = args ? args.virtualWanName : undefined;
             resourceInputs["vpnClientIpsecPolicies"] = args ? args.vpnClientIpsecPolicies : undefined;
             resourceInputs["vpnProtocols"] = args ? args.vpnProtocols : undefined;
+            resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["p2SVpnGateways"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
         } else {
@@ -141,10 +141,6 @@ export class P2sVpnServerConfiguration extends pulumi.CustomResource {
  * The set of arguments for constructing a P2sVpnServerConfiguration resource.
  */
 export interface P2sVpnServerConfigurationArgs {
-    /**
-     * A unique read-only string that changes whenever the resource is updated.
-     */
-    etag?: pulumi.Input<string>;
     /**
      * Resource ID.
      */

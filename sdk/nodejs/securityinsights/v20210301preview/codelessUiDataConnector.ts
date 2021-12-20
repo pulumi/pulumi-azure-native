@@ -42,7 +42,7 @@ export class CodelessUiDataConnector extends pulumi.CustomResource {
     /**
      * Etag of the azure resource
      */
-    public readonly etag!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
     /**
      * The kind of the data connector
      * Expected value is 'GenericUI'.
@@ -86,11 +86,11 @@ export class CodelessUiDataConnector extends pulumi.CustomResource {
             }
             resourceInputs["connectorUiConfig"] = args ? args.connectorUiConfig : undefined;
             resourceInputs["dataConnectorId"] = args ? args.dataConnectorId : undefined;
-            resourceInputs["etag"] = args ? args.etag : undefined;
             resourceInputs["kind"] = "GenericUI";
             resourceInputs["operationalInsightsResourceProvider"] = args ? args.operationalInsightsResourceProvider : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -123,10 +123,6 @@ export interface CodelessUiDataConnectorArgs {
      * Connector ID
      */
     dataConnectorId?: pulumi.Input<string>;
-    /**
-     * Etag of the azure resource
-     */
-    etag?: pulumi.Input<string>;
     /**
      * The kind of the data connector
      * Expected value is 'GenericUI'.

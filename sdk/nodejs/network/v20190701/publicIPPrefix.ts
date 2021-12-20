@@ -38,7 +38,7 @@ export class PublicIPPrefix extends pulumi.CustomResource {
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
-    public readonly etag!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
     /**
      * The allocated Prefix.
      */
@@ -110,7 +110,6 @@ export class PublicIPPrefix extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["etag"] = args ? args.etag : undefined;
             resourceInputs["id"] = args ? args.id : undefined;
             resourceInputs["ipPrefix"] = args ? args.ipPrefix : undefined;
             resourceInputs["ipTags"] = args ? args.ipTags : undefined;
@@ -124,6 +123,7 @@ export class PublicIPPrefix extends pulumi.CustomResource {
             resourceInputs["sku"] = args ? args.sku : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["zones"] = args ? args.zones : undefined;
+            resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["loadBalancerFrontendIpConfiguration"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
@@ -158,10 +158,6 @@ export class PublicIPPrefix extends pulumi.CustomResource {
  * The set of arguments for constructing a PublicIPPrefix resource.
  */
 export interface PublicIPPrefixArgs {
-    /**
-     * A unique read-only string that changes whenever the resource is updated.
-     */
-    etag?: pulumi.Input<string>;
     /**
      * Resource ID.
      */

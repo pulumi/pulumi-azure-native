@@ -58,7 +58,7 @@ export class VirtualNetworkGatewayConnection extends pulumi.CustomResource {
     /**
      * Gets a unique read-only string that changes whenever the resource is updated.
      */
-    public readonly etag!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
     /**
      * The ingress bytes transferred in this connection.
      */
@@ -131,7 +131,6 @@ export class VirtualNetworkGatewayConnection extends pulumi.CustomResource {
             resourceInputs["connectionType"] = args ? args.connectionType : undefined;
             resourceInputs["egressBytesTransferred"] = args ? args.egressBytesTransferred : undefined;
             resourceInputs["enableBgp"] = args ? args.enableBgp : undefined;
-            resourceInputs["etag"] = args ? args.etag : undefined;
             resourceInputs["id"] = args ? args.id : undefined;
             resourceInputs["ingressBytesTransferred"] = args ? args.ingressBytesTransferred : undefined;
             resourceInputs["localNetworkGateway2"] = args ? args.localNetworkGateway2 : undefined;
@@ -146,6 +145,7 @@ export class VirtualNetworkGatewayConnection extends pulumi.CustomResource {
             resourceInputs["virtualNetworkGateway1"] = args ? args.virtualNetworkGateway1 : undefined;
             resourceInputs["virtualNetworkGateway2"] = args ? args.virtualNetworkGateway2 : undefined;
             resourceInputs["virtualNetworkGatewayConnectionName"] = args ? args.virtualNetworkGatewayConnectionName : undefined;
+            resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
@@ -202,10 +202,6 @@ export interface VirtualNetworkGatewayConnectionArgs {
      * EnableBgp flag
      */
     enableBgp?: pulumi.Input<boolean>;
-    /**
-     * Gets a unique read-only string that changes whenever the resource is updated.
-     */
-    etag?: pulumi.Input<string>;
     /**
      * Resource Identifier.
      */

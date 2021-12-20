@@ -50,7 +50,7 @@ export class ApplicationGateway extends pulumi.CustomResource {
     /**
      * A unique read-only string that changes whenever the resource is updated
      */
-    public readonly etag!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
     /**
      * Frontend IP addresses of application gateway resource
      */
@@ -138,7 +138,6 @@ export class ApplicationGateway extends pulumi.CustomResource {
             resourceInputs["authenticationCertificates"] = args ? args.authenticationCertificates : undefined;
             resourceInputs["backendAddressPools"] = args ? args.backendAddressPools : undefined;
             resourceInputs["backendHttpSettingsCollection"] = args ? args.backendHttpSettingsCollection : undefined;
-            resourceInputs["etag"] = args ? args.etag : undefined;
             resourceInputs["frontendIPConfigurations"] = args ? args.frontendIPConfigurations : undefined;
             resourceInputs["frontendPorts"] = args ? args.frontendPorts : undefined;
             resourceInputs["gatewayIPConfigurations"] = args ? args.gatewayIPConfigurations : undefined;
@@ -155,6 +154,7 @@ export class ApplicationGateway extends pulumi.CustomResource {
             resourceInputs["sslPolicy"] = args ? args.sslPolicy : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["urlPathMaps"] = args ? args.urlPathMaps : undefined;
+            resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["operationalState"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -210,10 +210,6 @@ export interface ApplicationGatewayArgs {
      * Backend http settings of application gateway resource
      */
     backendHttpSettingsCollection?: pulumi.Input<pulumi.Input<inputs.network.v20160601.ApplicationGatewayBackendHttpSettingsArgs>[]>;
-    /**
-     * A unique read-only string that changes whenever the resource is updated
-     */
-    etag?: pulumi.Input<string>;
     /**
      * Frontend IP addresses of application gateway resource
      */

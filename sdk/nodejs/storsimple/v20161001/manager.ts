@@ -42,7 +42,7 @@ export class Manager extends pulumi.CustomResource {
     /**
      * ETag of the Manager
      */
-    public readonly etag!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
     /**
      * The Geo location of the Manager
      */
@@ -83,12 +83,12 @@ export class Manager extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["cisIntrinsicSettings"] = args ? args.cisIntrinsicSettings : undefined;
-            resourceInputs["etag"] = args ? args.etag : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["managerName"] = args ? args.managerName : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["sku"] = args ? args.sku : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -119,10 +119,6 @@ export interface ManagerArgs {
      * Specifies if the Manager is Garda or Helsinki
      */
     cisIntrinsicSettings?: pulumi.Input<inputs.storsimple.v20161001.ManagerIntrinsicSettingsArgs>;
-    /**
-     * ETag of the Manager
-     */
-    etag?: pulumi.Input<string>;
     /**
      * The Geo location of the Manager
      */

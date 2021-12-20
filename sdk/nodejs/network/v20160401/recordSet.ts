@@ -50,7 +50,7 @@ export class RecordSet extends pulumi.CustomResource {
     /**
      * The etag of the record set.
      */
-    public readonly etag!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
     /**
      * Fully qualified domain name of the record set.
      */
@@ -119,7 +119,6 @@ export class RecordSet extends pulumi.CustomResource {
             resourceInputs["aRecords"] = args ? args.aRecords : undefined;
             resourceInputs["aaaaRecords"] = args ? args.aaaaRecords : undefined;
             resourceInputs["cnameRecord"] = args ? args.cnameRecord : undefined;
-            resourceInputs["etag"] = args ? args.etag : undefined;
             resourceInputs["id"] = args ? args.id : undefined;
             resourceInputs["metadata"] = args ? args.metadata : undefined;
             resourceInputs["mxRecords"] = args ? args.mxRecords : undefined;
@@ -135,6 +134,7 @@ export class RecordSet extends pulumi.CustomResource {
             resourceInputs["txtRecords"] = args ? args.txtRecords : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
             resourceInputs["zoneName"] = args ? args.zoneName : undefined;
+            resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["fqdn"] = undefined /*out*/;
         } else {
             resourceInputs["aRecords"] = undefined /*out*/;
@@ -178,10 +178,6 @@ export interface RecordSetArgs {
      * The CNAME record in the  record set.
      */
     cnameRecord?: pulumi.Input<inputs.network.v20160401.CnameRecordArgs>;
-    /**
-     * The etag of the record set.
-     */
-    etag?: pulumi.Input<string>;
     /**
      * The ID of the record set.
      */

@@ -38,7 +38,7 @@ export class BookmarkRelation extends pulumi.CustomResource {
     /**
      * Etag of the azure resource
      */
-    public readonly etag!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
     /**
      * Azure resource name
      */
@@ -91,12 +91,12 @@ export class BookmarkRelation extends pulumi.CustomResource {
                 throw new Error("Missing required property 'workspaceName'");
             }
             resourceInputs["bookmarkId"] = args ? args.bookmarkId : undefined;
-            resourceInputs["etag"] = args ? args.etag : undefined;
             resourceInputs["operationalInsightsResourceProvider"] = args ? args.operationalInsightsResourceProvider : undefined;
             resourceInputs["relatedResourceId"] = args ? args.relatedResourceId : undefined;
             resourceInputs["relationName"] = args ? args.relationName : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["relatedResourceKind"] = undefined /*out*/;
             resourceInputs["relatedResourceName"] = undefined /*out*/;
@@ -128,10 +128,6 @@ export interface BookmarkRelationArgs {
      * Bookmark ID
      */
     bookmarkId: pulumi.Input<string>;
-    /**
-     * Etag of the azure resource
-     */
-    etag?: pulumi.Input<string>;
     /**
      * The namespace of workspaces resource provider- Microsoft.OperationalInsights.
      */

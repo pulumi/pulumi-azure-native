@@ -50,7 +50,7 @@ export class InboundNatRule extends pulumi.CustomResource {
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
-    public readonly etag!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
     /**
      * A reference to frontend IP addresses.
      */
@@ -95,7 +95,6 @@ export class InboundNatRule extends pulumi.CustomResource {
             }
             resourceInputs["backendPort"] = args ? args.backendPort : undefined;
             resourceInputs["enableFloatingIP"] = args ? args.enableFloatingIP : undefined;
-            resourceInputs["etag"] = args ? args.etag : undefined;
             resourceInputs["frontendIPConfiguration"] = args ? args.frontendIPConfiguration : undefined;
             resourceInputs["frontendPort"] = args ? args.frontendPort : undefined;
             resourceInputs["id"] = args ? args.id : undefined;
@@ -107,6 +106,7 @@ export class InboundNatRule extends pulumi.CustomResource {
             resourceInputs["provisioningState"] = args ? args.provisioningState : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["backendIPConfiguration"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
         } else {
             resourceInputs["backendIPConfiguration"] = undefined /*out*/;
             resourceInputs["backendPort"] = undefined /*out*/;
@@ -140,10 +140,6 @@ export interface InboundNatRuleArgs {
      * Configures a virtual machine's endpoint for the floating IP capability required to configure a SQL AlwaysOn Availability Group. This setting is required when using the SQL AlwaysOn Availability Groups in SQL server. This setting can't be changed after you create the endpoint.
      */
     enableFloatingIP?: pulumi.Input<boolean>;
-    /**
-     * A unique read-only string that changes whenever the resource is updated.
-     */
-    etag?: pulumi.Input<string>;
     /**
      * A reference to frontend IP addresses.
      */

@@ -46,7 +46,7 @@ export class NetworkInterface extends pulumi.CustomResource {
     /**
      * Gets a unique read-only string that changes whenever the resource is updated
      */
-    public readonly etag!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
     /**
      * Gets or sets list of IPConfigurations of the network interface
      */
@@ -108,7 +108,6 @@ export class NetworkInterface extends pulumi.CustomResource {
             }
             resourceInputs["dnsSettings"] = args ? args.dnsSettings : undefined;
             resourceInputs["enableIPForwarding"] = args ? args.enableIPForwarding : undefined;
-            resourceInputs["etag"] = args ? args.etag : undefined;
             resourceInputs["id"] = args ? args.id : undefined;
             resourceInputs["ipConfigurations"] = args ? args.ipConfigurations : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
@@ -121,6 +120,7 @@ export class NetworkInterface extends pulumi.CustomResource {
             resourceInputs["resourceGuid"] = args ? args.resourceGuid : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["virtualMachine"] = args ? args.virtualMachine : undefined;
+            resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
@@ -160,10 +160,6 @@ export interface NetworkInterfaceArgs {
      * Gets or sets whether IPForwarding is enabled on the NIC
      */
     enableIPForwarding?: pulumi.Input<boolean>;
-    /**
-     * Gets a unique read-only string that changes whenever the resource is updated
-     */
-    etag?: pulumi.Input<string>;
     /**
      * Resource Id
      */

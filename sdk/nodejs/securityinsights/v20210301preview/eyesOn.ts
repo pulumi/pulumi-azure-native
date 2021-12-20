@@ -38,7 +38,7 @@ export class EyesOn extends pulumi.CustomResource {
     /**
      * Etag of the azure resource
      */
-    public readonly etag!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
     /**
      * Determines whether the setting is enable or disabled.
      */
@@ -84,12 +84,12 @@ export class EyesOn extends pulumi.CustomResource {
             if ((!args || args.workspaceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            resourceInputs["etag"] = args ? args.etag : undefined;
             resourceInputs["kind"] = "EyesOn";
             resourceInputs["operationalInsightsResourceProvider"] = args ? args.operationalInsightsResourceProvider : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["settingsName"] = args ? args.settingsName : undefined;
             resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["isEnabled"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
@@ -115,10 +115,6 @@ export class EyesOn extends pulumi.CustomResource {
  * The set of arguments for constructing a EyesOn resource.
  */
 export interface EyesOnArgs {
-    /**
-     * Etag of the azure resource
-     */
-    etag?: pulumi.Input<string>;
     /**
      * The kind of the setting
      * Expected value is 'EyesOn'.

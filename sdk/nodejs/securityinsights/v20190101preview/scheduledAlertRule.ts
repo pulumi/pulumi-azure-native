@@ -54,7 +54,7 @@ export class ScheduledAlertRule extends pulumi.CustomResource {
     /**
      * Etag of the azure resource
      */
-    public readonly etag!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
     /**
      * The event grouping settings.
      */
@@ -174,7 +174,6 @@ export class ScheduledAlertRule extends pulumi.CustomResource {
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["displayName"] = args ? args.displayName : undefined;
             resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["etag"] = args ? args.etag : undefined;
             resourceInputs["eventGroupingSettings"] = args ? args.eventGroupingSettings : undefined;
             resourceInputs["incidentConfiguration"] = args ? args.incidentConfiguration : undefined;
             resourceInputs["kind"] = "Scheduled";
@@ -191,6 +190,7 @@ export class ScheduledAlertRule extends pulumi.CustomResource {
             resourceInputs["triggerOperator"] = args ? args.triggerOperator : undefined;
             resourceInputs["triggerThreshold"] = args ? args.triggerThreshold : undefined;
             resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["lastModifiedUtc"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -245,10 +245,6 @@ export interface ScheduledAlertRuleArgs {
      * Determines whether this alert rule is enabled or disabled.
      */
     enabled: pulumi.Input<boolean>;
-    /**
-     * Etag of the azure resource
-     */
-    etag?: pulumi.Input<string>;
     /**
      * The event grouping settings.
      */

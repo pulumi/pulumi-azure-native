@@ -46,7 +46,7 @@ export class ExpressRouteCircuitAuthorization extends pulumi.CustomResource {
     /**
      * A unique read-only string that changes whenever the resource is updated
      */
-    public readonly etag!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
     /**
      * Gets name of the resource that is unique within a resource group. This name can be used to access the resource
      */
@@ -77,11 +77,11 @@ export class ExpressRouteCircuitAuthorization extends pulumi.CustomResource {
             resourceInputs["authorizationName"] = args ? args.authorizationName : undefined;
             resourceInputs["authorizationUseStatus"] = args ? args.authorizationUseStatus : undefined;
             resourceInputs["circuitName"] = args ? args.circuitName : undefined;
-            resourceInputs["etag"] = args ? args.etag : undefined;
             resourceInputs["id"] = args ? args.id : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["provisioningState"] = args ? args.provisioningState : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["etag"] = undefined /*out*/;
         } else {
             resourceInputs["authorizationKey"] = undefined /*out*/;
             resourceInputs["authorizationUseStatus"] = undefined /*out*/;
@@ -118,10 +118,6 @@ export interface ExpressRouteCircuitAuthorizationArgs {
      * The name of the express route circuit.
      */
     circuitName: pulumi.Input<string>;
-    /**
-     * A unique read-only string that changes whenever the resource is updated
-     */
-    etag?: pulumi.Input<string>;
     /**
      * Resource Id
      */

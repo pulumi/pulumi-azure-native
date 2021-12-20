@@ -62,7 +62,7 @@ export class MicrosoftSecurityIncidentCreationAlertRule extends pulumi.CustomRes
     /**
      * Etag of the azure resource
      */
-    public readonly etag!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
     /**
      *
      * Expected value is 'MicrosoftSecurityIncidentCreation'.
@@ -127,7 +127,6 @@ export class MicrosoftSecurityIncidentCreationAlertRule extends pulumi.CustomRes
             resourceInputs["displayNamesExcludeFilter"] = args ? args.displayNamesExcludeFilter : undefined;
             resourceInputs["displayNamesFilter"] = args ? args.displayNamesFilter : undefined;
             resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["etag"] = args ? args.etag : undefined;
             resourceInputs["kind"] = "MicrosoftSecurityIncidentCreation";
             resourceInputs["operationalInsightsResourceProvider"] = args ? args.operationalInsightsResourceProvider : undefined;
             resourceInputs["productFilter"] = args ? args.productFilter : undefined;
@@ -135,6 +134,7 @@ export class MicrosoftSecurityIncidentCreationAlertRule extends pulumi.CustomRes
             resourceInputs["ruleId"] = args ? args.ruleId : undefined;
             resourceInputs["severitiesFilter"] = args ? args.severitiesFilter : undefined;
             resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["lastModifiedUtc"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -190,10 +190,6 @@ export interface MicrosoftSecurityIncidentCreationAlertRuleArgs {
      * Determines whether this alert rule is enabled or disabled.
      */
     enabled: pulumi.Input<boolean>;
-    /**
-     * Etag of the azure resource
-     */
-    etag?: pulumi.Input<string>;
     /**
      *
      * Expected value is 'MicrosoftSecurityIncidentCreation'.

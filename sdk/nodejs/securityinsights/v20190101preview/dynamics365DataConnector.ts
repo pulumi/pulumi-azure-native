@@ -42,7 +42,7 @@ export class Dynamics365DataConnector extends pulumi.CustomResource {
     /**
      * Etag of the azure resource
      */
-    public readonly etag!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
     /**
      *
      * Expected value is 'Dynamics365'.
@@ -92,12 +92,12 @@ export class Dynamics365DataConnector extends pulumi.CustomResource {
             }
             resourceInputs["dataConnectorId"] = args ? args.dataConnectorId : undefined;
             resourceInputs["dataTypes"] = args ? args.dataTypes : undefined;
-            resourceInputs["etag"] = args ? args.etag : undefined;
             resourceInputs["kind"] = "Dynamics365";
             resourceInputs["operationalInsightsResourceProvider"] = args ? args.operationalInsightsResourceProvider : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tenantId"] = args ? args.tenantId : undefined;
             resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
@@ -129,10 +129,6 @@ export interface Dynamics365DataConnectorArgs {
      * The available data types for the connector.
      */
     dataTypes: pulumi.Input<inputs.securityinsights.v20190101preview.Dynamics365DataConnectorDataTypesArgs>;
-    /**
-     * Etag of the azure resource
-     */
-    etag?: pulumi.Input<string>;
     /**
      *
      * Expected value is 'Dynamics365'.

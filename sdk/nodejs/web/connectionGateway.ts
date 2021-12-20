@@ -39,7 +39,7 @@ export class ConnectionGateway extends pulumi.CustomResource {
     /**
      * Resource ETag
      */
-    public readonly etag!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
     /**
      * Resource location
      */
@@ -73,12 +73,12 @@ export class ConnectionGateway extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["connectionGatewayName"] = args ? args.connectionGatewayName : undefined;
-            resourceInputs["etag"] = args ? args.etag : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["subscriptionId"] = args ? args.subscriptionId : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
@@ -106,10 +106,6 @@ export interface ConnectionGatewayArgs {
      * The connection gateway name
      */
     connectionGatewayName?: pulumi.Input<string>;
-    /**
-     * Resource ETag
-     */
-    etag?: pulumi.Input<string>;
     /**
      * Resource location
      */

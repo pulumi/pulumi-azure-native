@@ -46,7 +46,7 @@ export class WebApplicationFirewallPolicy extends pulumi.CustomResource {
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
-    public readonly etag!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
     /**
      * Resource location.
      */
@@ -98,7 +98,6 @@ export class WebApplicationFirewallPolicy extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["customRules"] = args ? args.customRules : undefined;
-            resourceInputs["etag"] = args ? args.etag : undefined;
             resourceInputs["id"] = args ? args.id : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["managedRules"] = args ? args.managedRules : undefined;
@@ -107,6 +106,7 @@ export class WebApplicationFirewallPolicy extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["applicationGateways"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["resourceState"] = undefined /*out*/;
@@ -141,10 +141,6 @@ export interface WebApplicationFirewallPolicyArgs {
      * Describes custom rules inside the policy.
      */
     customRules?: pulumi.Input<pulumi.Input<inputs.network.v20190801.WebApplicationFirewallCustomRuleArgs>[]>;
-    /**
-     * A unique read-only string that changes whenever the resource is updated.
-     */
-    etag?: pulumi.Input<string>;
     /**
      * Resource ID.
      */

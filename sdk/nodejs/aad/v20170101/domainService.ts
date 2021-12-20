@@ -54,7 +54,7 @@ export class DomainService extends pulumi.CustomResource {
     /**
      * Resource etag
      */
-    public readonly etag!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
     /**
      * Enabled or Disabled flag to turn on Group-based filtered sync
      */
@@ -133,7 +133,6 @@ export class DomainService extends pulumi.CustomResource {
             resourceInputs["domainName"] = args ? args.domainName : undefined;
             resourceInputs["domainSecuritySettings"] = args ? args.domainSecuritySettings : undefined;
             resourceInputs["domainServiceName"] = args ? args.domainServiceName : undefined;
-            resourceInputs["etag"] = args ? args.etag : undefined;
             resourceInputs["filteredSync"] = args ? args.filteredSync : undefined;
             resourceInputs["ldapsSettings"] = args ? args.ldapsSettings : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
@@ -143,6 +142,7 @@ export class DomainService extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["deploymentId"] = undefined /*out*/;
             resourceInputs["domainControllerIpAddress"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["healthAlerts"] = undefined /*out*/;
             resourceInputs["healthLastEvaluated"] = undefined /*out*/;
             resourceInputs["healthMonitors"] = undefined /*out*/;
@@ -199,10 +199,6 @@ export interface DomainServiceArgs {
      * The name of the domain service.
      */
     domainServiceName?: pulumi.Input<string>;
-    /**
-     * Resource etag
-     */
-    etag?: pulumi.Input<string>;
     /**
      * Enabled or Disabled flag to turn on Group-based filtered sync
      */

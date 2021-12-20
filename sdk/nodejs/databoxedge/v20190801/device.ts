@@ -74,7 +74,7 @@ export class Device extends pulumi.CustomResource {
     /**
      * The etag for the devices.
      */
-    public readonly etag!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
     /**
      * The Data Box Edge/Gateway device name.
      */
@@ -133,7 +133,6 @@ export class Device extends pulumi.CustomResource {
             resourceInputs["dataBoxEdgeDeviceStatus"] = args ? args.dataBoxEdgeDeviceStatus : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["deviceName"] = args ? args.deviceName : undefined;
-            resourceInputs["etag"] = args ? args.etag : undefined;
             resourceInputs["friendlyName"] = args ? args.friendlyName : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["modelDescription"] = args ? args.modelDescription : undefined;
@@ -147,6 +146,7 @@ export class Device extends pulumi.CustomResource {
             resourceInputs["deviceModel"] = undefined /*out*/;
             resourceInputs["deviceSoftwareVersion"] = undefined /*out*/;
             resourceInputs["deviceType"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["nodeCount"] = undefined /*out*/;
             resourceInputs["serialNumber"] = undefined /*out*/;
@@ -199,10 +199,6 @@ export interface DeviceArgs {
      * The device name.
      */
     deviceName?: pulumi.Input<string>;
-    /**
-     * The etag for the devices.
-     */
-    etag?: pulumi.Input<string>;
     /**
      * The Data Box Edge/Gateway device name.
      */

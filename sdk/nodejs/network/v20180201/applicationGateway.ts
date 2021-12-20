@@ -54,7 +54,7 @@ export class ApplicationGateway extends pulumi.CustomResource {
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
-    public readonly etag!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
     /**
      * Frontend IP addresses of the application gateway resource.
      */
@@ -151,7 +151,6 @@ export class ApplicationGateway extends pulumi.CustomResource {
             resourceInputs["backendAddressPools"] = args ? args.backendAddressPools : undefined;
             resourceInputs["backendHttpSettingsCollection"] = args ? args.backendHttpSettingsCollection : undefined;
             resourceInputs["enableHttp2"] = args ? args.enableHttp2 : undefined;
-            resourceInputs["etag"] = args ? args.etag : undefined;
             resourceInputs["frontendIPConfigurations"] = args ? args.frontendIPConfigurations : undefined;
             resourceInputs["frontendPorts"] = args ? args.frontendPorts : undefined;
             resourceInputs["gatewayIPConfigurations"] = args ? args.gatewayIPConfigurations : undefined;
@@ -170,6 +169,7 @@ export class ApplicationGateway extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["urlPathMaps"] = args ? args.urlPathMaps : undefined;
             resourceInputs["webApplicationFirewallConfiguration"] = args ? args.webApplicationFirewallConfiguration : undefined;
+            resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["operationalState"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -232,10 +232,6 @@ export interface ApplicationGatewayArgs {
      * Whether HTTP2 is enabled on the application gateway resource.
      */
     enableHttp2?: pulumi.Input<boolean>;
-    /**
-     * A unique read-only string that changes whenever the resource is updated.
-     */
-    etag?: pulumi.Input<string>;
     /**
      * Frontend IP addresses of the application gateway resource.
      */

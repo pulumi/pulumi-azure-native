@@ -42,7 +42,7 @@ export class CodelessApiPollingDataConnector extends pulumi.CustomResource {
     /**
      * Etag of the azure resource
      */
-    public readonly etag!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
     /**
      * The kind of the data connector
      * Expected value is 'APIPolling'.
@@ -87,11 +87,11 @@ export class CodelessApiPollingDataConnector extends pulumi.CustomResource {
             }
             resourceInputs["connectorUiConfig"] = args ? args.connectorUiConfig : undefined;
             resourceInputs["dataConnectorId"] = args ? args.dataConnectorId : undefined;
-            resourceInputs["etag"] = args ? args.etag : undefined;
             resourceInputs["kind"] = "APIPolling";
             resourceInputs["pollingConfig"] = args ? args.pollingConfig : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -125,10 +125,6 @@ export interface CodelessApiPollingDataConnectorArgs {
      * Connector ID
      */
     dataConnectorId?: pulumi.Input<string>;
-    /**
-     * Etag of the azure resource
-     */
-    etag?: pulumi.Input<string>;
     /**
      * The kind of the data connector
      * Expected value is 'APIPolling'.

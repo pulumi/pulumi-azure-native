@@ -50,7 +50,7 @@ export class NetworkInterface extends pulumi.CustomResource {
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
-    public readonly etag!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
     /**
      * A list of references to linked BareMetal resources.
      */
@@ -125,7 +125,6 @@ export class NetworkInterface extends pulumi.CustomResource {
             resourceInputs["dnsSettings"] = args ? args.dnsSettings : undefined;
             resourceInputs["enableAcceleratedNetworking"] = args ? args.enableAcceleratedNetworking : undefined;
             resourceInputs["enableIPForwarding"] = args ? args.enableIPForwarding : undefined;
-            resourceInputs["etag"] = args ? args.etag : undefined;
             resourceInputs["id"] = args ? args.id : undefined;
             resourceInputs["ipConfigurations"] = args ? args.ipConfigurations : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
@@ -137,6 +136,7 @@ export class NetworkInterface extends pulumi.CustomResource {
             resourceInputs["resourceGuid"] = args ? args.resourceGuid : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["tapConfigurations"] = args ? args.tapConfigurations : undefined;
+            resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["hostedWorkloads"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["privateEndpoint"] = undefined /*out*/;
@@ -188,10 +188,6 @@ export interface NetworkInterfaceArgs {
      * Indicates whether IP forwarding is enabled on this network interface.
      */
     enableIPForwarding?: pulumi.Input<boolean>;
-    /**
-     * A unique read-only string that changes whenever the resource is updated.
-     */
-    etag?: pulumi.Input<string>;
     /**
      * Resource ID.
      */

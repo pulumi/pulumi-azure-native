@@ -39,7 +39,7 @@ export class CustomApi extends pulumi.CustomResource {
     /**
      * Resource ETag
      */
-    public readonly etag!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
     /**
      * Resource location
      */
@@ -76,12 +76,12 @@ export class CustomApi extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["apiName"] = args ? args.apiName : undefined;
-            resourceInputs["etag"] = args ? args.etag : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["subscriptionId"] = args ? args.subscriptionId : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
@@ -109,10 +109,6 @@ export interface CustomApiArgs {
      * API name
      */
     apiName?: pulumi.Input<string>;
-    /**
-     * Resource ETag
-     */
-    etag?: pulumi.Input<string>;
     /**
      * Resource location
      */

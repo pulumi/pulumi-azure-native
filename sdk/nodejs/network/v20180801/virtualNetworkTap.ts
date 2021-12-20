@@ -50,7 +50,7 @@ export class VirtualNetworkTap extends pulumi.CustomResource {
     /**
      * Gets a unique read-only string that changes whenever the resource is updated.
      */
-    public readonly etag!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
     /**
      * Resource location.
      */
@@ -97,12 +97,12 @@ export class VirtualNetworkTap extends pulumi.CustomResource {
             resourceInputs["destinationLoadBalancerFrontEndIPConfiguration"] = args ? args.destinationLoadBalancerFrontEndIPConfiguration : undefined;
             resourceInputs["destinationNetworkInterfaceIPConfiguration"] = args ? args.destinationNetworkInterfaceIPConfiguration : undefined;
             resourceInputs["destinationPort"] = args ? args.destinationPort : undefined;
-            resourceInputs["etag"] = args ? args.etag : undefined;
             resourceInputs["id"] = args ? args.id : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["tapName"] = args ? args.tapName : undefined;
+            resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["networkInterfaceTapConfigurations"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
@@ -146,10 +146,6 @@ export interface VirtualNetworkTapArgs {
      * The VXLAN destination port that will receive the tapped traffic.
      */
     destinationPort?: pulumi.Input<number>;
-    /**
-     * Gets a unique read-only string that changes whenever the resource is updated.
-     */
-    etag?: pulumi.Input<string>;
     /**
      * Resource ID.
      */

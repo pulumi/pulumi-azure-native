@@ -39,7 +39,7 @@ export class IotConnectorFhirDestination extends pulumi.CustomResource {
     /**
      * An etag associated with the resource, used for optimistic concurrency when editing it.
      */
-    public readonly etag!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
     /**
      * FHIR Mappings
      */
@@ -98,7 +98,6 @@ export class IotConnectorFhirDestination extends pulumi.CustomResource {
             if ((!args || args.workspaceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            resourceInputs["etag"] = args ? args.etag : undefined;
             resourceInputs["fhirDestinationName"] = args ? args.fhirDestinationName : undefined;
             resourceInputs["fhirMapping"] = args ? args.fhirMapping : undefined;
             resourceInputs["fhirServiceResourceId"] = args ? args.fhirServiceResourceId : undefined;
@@ -107,6 +106,7 @@ export class IotConnectorFhirDestination extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["resourceIdentityResolutionType"] = args ? args.resourceIdentityResolutionType : undefined;
             resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -133,10 +133,6 @@ export class IotConnectorFhirDestination extends pulumi.CustomResource {
  * The set of arguments for constructing a IotConnectorFhirDestination resource.
  */
 export interface IotConnectorFhirDestinationArgs {
-    /**
-     * An etag associated with the resource, used for optimistic concurrency when editing it.
-     */
-    etag?: pulumi.Input<string>;
     /**
      * The name of IoT Connector FHIR destination resource.
      */

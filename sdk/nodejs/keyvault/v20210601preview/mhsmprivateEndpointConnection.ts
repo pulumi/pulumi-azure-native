@@ -38,7 +38,7 @@ export class MHSMPrivateEndpointConnection extends pulumi.CustomResource {
     /**
      * Modified whenever there is a change in the state of private endpoint connection.
      */
-    public readonly etag!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
     /**
      * The supported Azure location where the managed HSM Pool should be created.
      */
@@ -93,7 +93,6 @@ export class MHSMPrivateEndpointConnection extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["etag"] = args ? args.etag : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["privateEndpointConnectionName"] = args ? args.privateEndpointConnectionName : undefined;
@@ -101,6 +100,7 @@ export class MHSMPrivateEndpointConnection extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["sku"] = args ? args.sku : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["privateEndpoint"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
@@ -130,10 +130,6 @@ export class MHSMPrivateEndpointConnection extends pulumi.CustomResource {
  * The set of arguments for constructing a MHSMPrivateEndpointConnection resource.
  */
 export interface MHSMPrivateEndpointConnectionArgs {
-    /**
-     * Modified whenever there is a change in the state of private endpoint connection.
-     */
-    etag?: pulumi.Input<string>;
     /**
      * The supported Azure location where the managed HSM Pool should be created.
      */

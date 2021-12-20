@@ -38,7 +38,7 @@ export class Zone extends pulumi.CustomResource {
     /**
      * Gets or sets the ETag of the zone that is being updated, as received from a Get operation.
      */
-    public readonly etag!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
     /**
      * The geo-location where the resource lives
      */
@@ -74,12 +74,12 @@ export class Zone extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["etag"] = args ? args.etag : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["zoneName"] = args ? args.zoneName : undefined;
+            resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
@@ -103,10 +103,6 @@ export class Zone extends pulumi.CustomResource {
  * The set of arguments for constructing a Zone resource.
  */
 export interface ZoneArgs {
-    /**
-     * Gets or sets the ETag of the zone that is being updated, as received from a Get operation.
-     */
-    etag?: pulumi.Input<string>;
     /**
      * The geo-location where the resource lives
      */

@@ -55,7 +55,7 @@ export class Standard extends pulumi.CustomResource {
     /**
      * Entity tag is used for comparing two or more entities from the same requested resource.
      */
-    public readonly etag!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
     /**
      * Kind of the resource
      */
@@ -103,12 +103,12 @@ export class Standard extends pulumi.CustomResource {
             resourceInputs["components"] = args ? args.components : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["etag"] = args ? args.etag : undefined;
             resourceInputs["kind"] = args ? args.kind : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["standardId"] = args ? args.standardId : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["standardType"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
@@ -156,10 +156,6 @@ export interface StandardArgs {
      * display name of the standard, equivalent to the standardId
      */
     displayName?: pulumi.Input<string>;
-    /**
-     * Entity tag is used for comparing two or more entities from the same requested resource.
-     */
-    etag?: pulumi.Input<string>;
     /**
      * Kind of the resource
      */

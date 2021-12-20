@@ -50,7 +50,7 @@ export class ExpressRouteCircuit extends pulumi.CustomResource {
     /**
      * Gets a unique read-only string that changes whenever the resource is updated
      */
-    public readonly etag!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
     /**
      * Gets or sets the GatewayManager Etag
      */
@@ -118,7 +118,6 @@ export class ExpressRouteCircuit extends pulumi.CustomResource {
             resourceInputs["authorizations"] = args ? args.authorizations : undefined;
             resourceInputs["circuitName"] = args ? args.circuitName : undefined;
             resourceInputs["circuitProvisioningState"] = args ? args.circuitProvisioningState : undefined;
-            resourceInputs["etag"] = args ? args.etag : undefined;
             resourceInputs["gatewayManagerEtag"] = args ? args.gatewayManagerEtag : undefined;
             resourceInputs["id"] = args ? args.id : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
@@ -131,6 +130,7 @@ export class ExpressRouteCircuit extends pulumi.CustomResource {
             resourceInputs["serviceProviderProvisioningState"] = args ? args.serviceProviderProvisioningState : undefined;
             resourceInputs["sku"] = args ? args.sku : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
@@ -180,10 +180,6 @@ export interface ExpressRouteCircuitArgs {
      * Gets or sets CircuitProvisioningState state of the resource 
      */
     circuitProvisioningState?: pulumi.Input<string>;
-    /**
-     * Gets a unique read-only string that changes whenever the resource is updated
-     */
-    etag?: pulumi.Input<string>;
     /**
      * Gets or sets the GatewayManager Etag
      */

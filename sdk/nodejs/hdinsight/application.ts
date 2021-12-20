@@ -39,7 +39,7 @@ export class Application extends pulumi.CustomResource {
     /**
      * The ETag for the application
      */
-    public readonly etag!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
     /**
      * The name of the resource
      */
@@ -76,10 +76,10 @@ export class Application extends pulumi.CustomResource {
             }
             resourceInputs["applicationName"] = args ? args.applicationName : undefined;
             resourceInputs["clusterName"] = args ? args.clusterName : undefined;
-            resourceInputs["etag"] = args ? args.etag : undefined;
             resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
@@ -110,10 +110,6 @@ export interface ApplicationArgs {
      * The name of the cluster.
      */
     clusterName: pulumi.Input<string>;
-    /**
-     * The ETag for the application
-     */
-    etag?: pulumi.Input<string>;
     /**
      * The properties of the application.
      */

@@ -42,7 +42,7 @@ export class LoadBalancer extends pulumi.CustomResource {
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
-    public readonly etag!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
     /**
      * Object representing the frontend IPs to be used for the load balancer
      */
@@ -111,7 +111,6 @@ export class LoadBalancer extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["backendAddressPools"] = args ? args.backendAddressPools : undefined;
-            resourceInputs["etag"] = args ? args.etag : undefined;
             resourceInputs["frontendIPConfigurations"] = args ? args.frontendIPConfigurations : undefined;
             resourceInputs["id"] = args ? args.id : undefined;
             resourceInputs["inboundNatPools"] = args ? args.inboundNatPools : undefined;
@@ -126,6 +125,7 @@ export class LoadBalancer extends pulumi.CustomResource {
             resourceInputs["resourceGuid"] = args ? args.resourceGuid : undefined;
             resourceInputs["sku"] = args ? args.sku : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
@@ -162,10 +162,6 @@ export interface LoadBalancerArgs {
      * Collection of backend address pools used by a load balancer
      */
     backendAddressPools?: pulumi.Input<pulumi.Input<inputs.network.v20180401.BackendAddressPoolArgs>[]>;
-    /**
-     * A unique read-only string that changes whenever the resource is updated.
-     */
-    etag?: pulumi.Input<string>;
     /**
      * Object representing the frontend IPs to be used for the load balancer
      */

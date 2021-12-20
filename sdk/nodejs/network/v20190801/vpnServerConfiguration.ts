@@ -42,7 +42,7 @@ export class VpnServerConfiguration extends pulumi.CustomResource {
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
-    public readonly etag!: pulumi.Output<string>;
+    public /*out*/ readonly etag!: pulumi.Output<string>;
     /**
      * Resource location.
      */
@@ -119,7 +119,6 @@ export class VpnServerConfiguration extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["aadAuthenticationParameters"] = args ? args.aadAuthenticationParameters : undefined;
-            resourceInputs["etag"] = args ? args.etag : undefined;
             resourceInputs["id"] = args ? args.id : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
@@ -135,6 +134,7 @@ export class VpnServerConfiguration extends pulumi.CustomResource {
             resourceInputs["vpnClientRootCertificates"] = args ? args.vpnClientRootCertificates : undefined;
             resourceInputs["vpnProtocols"] = args ? args.vpnProtocols : undefined;
             resourceInputs["vpnServerConfigurationName"] = args ? args.vpnServerConfigurationName : undefined;
+            resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["p2SVpnGateways"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -174,10 +174,6 @@ export interface VpnServerConfigurationArgs {
      * The set of aad vpn authentication parameters.
      */
     aadAuthenticationParameters?: pulumi.Input<inputs.network.v20190801.AadAuthenticationParametersArgs>;
-    /**
-     * A unique read-only string that changes whenever the resource is updated.
-     */
-    etag?: pulumi.Input<string>;
     /**
      * Resource ID.
      */

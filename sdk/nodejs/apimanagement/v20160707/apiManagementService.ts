@@ -54,7 +54,7 @@ export class ApiManagementService extends pulumi.CustomResource {
     /**
      * ETag of the resource.
      */
-    public readonly etag!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
     /**
      * Custom hostname configuration of the API Management service.
      */
@@ -150,7 +150,6 @@ export class ApiManagementService extends pulumi.CustomResource {
             resourceInputs["additionalLocations"] = args ? args.additionalLocations : undefined;
             resourceInputs["addresserEmail"] = args ? args.addresserEmail : undefined;
             resourceInputs["customProperties"] = args ? args.customProperties : undefined;
-            resourceInputs["etag"] = args ? args.etag : undefined;
             resourceInputs["hostnameConfigurations"] = args ? args.hostnameConfigurations : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["publisherEmail"] = args ? args.publisherEmail : undefined;
@@ -162,6 +161,7 @@ export class ApiManagementService extends pulumi.CustomResource {
             resourceInputs["vpnType"] = (args ? args.vpnType : undefined) ?? "None";
             resourceInputs["vpnconfiguration"] = args ? args.vpnconfiguration : undefined;
             resourceInputs["createdAtUtc"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["managementApiUrl"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["portalUrl"] = undefined /*out*/;
@@ -220,10 +220,6 @@ export interface ApiManagementServiceArgs {
      * Custom properties of the API Management service, like disabling TLS 1.0.
      */
     customProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * ETag of the resource.
-     */
-    etag?: pulumi.Input<string>;
     /**
      * Custom hostname configuration of the API Management service.
      */

@@ -34,7 +34,7 @@ export class NetworkWatcher extends pulumi.CustomResource {
         return obj['__pulumiType'] === NetworkWatcher.__pulumiType;
     }
 
-    public readonly etag!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
     /**
      * Resource location.
      */
@@ -70,12 +70,12 @@ export class NetworkWatcher extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["etag"] = (args ? args.etag : undefined) ?? "A unique read-only string that changes whenever the resource is updated.";
             resourceInputs["id"] = args ? args.id : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["networkWatcherName"] = args ? args.networkWatcherName : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -100,7 +100,6 @@ export class NetworkWatcher extends pulumi.CustomResource {
  * The set of arguments for constructing a NetworkWatcher resource.
  */
 export interface NetworkWatcherArgs {
-    etag?: pulumi.Input<string>;
     /**
      * Resource ID.
      */

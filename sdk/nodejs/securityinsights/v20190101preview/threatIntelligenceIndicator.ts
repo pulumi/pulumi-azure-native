@@ -38,7 +38,7 @@ export class ThreatIntelligenceIndicator extends pulumi.CustomResource {
     /**
      * Etag of the azure resource
      */
-    public readonly etag!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
     /**
      * The kind of the entity.
      */
@@ -81,7 +81,6 @@ export class ThreatIntelligenceIndicator extends pulumi.CustomResource {
             resourceInputs["defanged"] = args ? args.defanged : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["etag"] = args ? args.etag : undefined;
             resourceInputs["extensions"] = args ? args.extensions : undefined;
             resourceInputs["externalId"] = args ? args.externalId : undefined;
             resourceInputs["externalLastUpdatedTimeUtc"] = args ? args.externalLastUpdatedTimeUtc : undefined;
@@ -109,6 +108,7 @@ export class ThreatIntelligenceIndicator extends pulumi.CustomResource {
             resourceInputs["validFrom"] = args ? args.validFrom : undefined;
             resourceInputs["validUntil"] = args ? args.validUntil : undefined;
             resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["etag"] = undefined /*out*/;
@@ -153,10 +153,6 @@ export interface ThreatIntelligenceIndicatorArgs {
      * Display name of a threat intelligence entity
      */
     displayName?: pulumi.Input<string>;
-    /**
-     * Etag of the azure resource
-     */
-    etag?: pulumi.Input<string>;
     /**
      * Extensions map
      */

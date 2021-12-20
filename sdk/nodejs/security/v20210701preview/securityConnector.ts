@@ -42,7 +42,7 @@ export class SecurityConnector extends pulumi.CustomResource {
     /**
      * Entity tag is used for comparing two or more entities from the same requested resource.
      */
-    public readonly etag!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
     /**
      * The multi cloud resource identifier (account id in case of AWS connector).
      */
@@ -95,7 +95,6 @@ export class SecurityConnector extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["cloudName"] = args ? args.cloudName : undefined;
-            resourceInputs["etag"] = args ? args.etag : undefined;
             resourceInputs["hierarchyIdentifier"] = args ? args.hierarchyIdentifier : undefined;
             resourceInputs["kind"] = args ? args.kind : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
@@ -104,6 +103,7 @@ export class SecurityConnector extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["securityConnectorName"] = args ? args.securityConnectorName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -137,10 +137,6 @@ export interface SecurityConnectorArgs {
      * The multi cloud resource's cloud name.
      */
     cloudName?: pulumi.Input<string | enums.security.v20210701preview.CloudName>;
-    /**
-     * Entity tag is used for comparing two or more entities from the same requested resource.
-     */
-    etag?: pulumi.Input<string>;
     /**
      * The multi cloud resource identifier (account id in case of AWS connector).
      */

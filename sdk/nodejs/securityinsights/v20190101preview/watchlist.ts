@@ -62,7 +62,7 @@ export class Watchlist extends pulumi.CustomResource {
     /**
      * Etag of the azure resource
      */
-    public readonly etag!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
     /**
      * A flag that indicates if the watchlist is deleted or not
      */
@@ -163,7 +163,6 @@ export class Watchlist extends pulumi.CustomResource {
             resourceInputs["defaultDuration"] = args ? args.defaultDuration : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["etag"] = args ? args.etag : undefined;
             resourceInputs["isDeleted"] = args ? args.isDeleted : undefined;
             resourceInputs["labels"] = args ? args.labels : undefined;
             resourceInputs["numberOfLinesToSkip"] = args ? args.numberOfLinesToSkip : undefined;
@@ -181,6 +180,7 @@ export class Watchlist extends pulumi.CustomResource {
             resourceInputs["watchlistItemsCount"] = args ? args.watchlistItemsCount : undefined;
             resourceInputs["watchlistType"] = args ? args.watchlistType : undefined;
             resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
@@ -245,10 +245,6 @@ export interface WatchlistArgs {
      * The display name of the watchlist
      */
     displayName: pulumi.Input<string>;
-    /**
-     * Etag of the azure resource
-     */
-    etag?: pulumi.Input<string>;
     /**
      * A flag that indicates if the watchlist is deleted or not
      */

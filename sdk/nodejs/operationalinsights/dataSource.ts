@@ -39,7 +39,7 @@ export class DataSource extends pulumi.CustomResource {
     /**
      * The ETag of the data source.
      */
-    public readonly etag!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
     /**
      * The kind of the DataSource.
      */
@@ -85,12 +85,12 @@ export class DataSource extends pulumi.CustomResource {
                 throw new Error("Missing required property 'workspaceName'");
             }
             resourceInputs["dataSourceName"] = args ? args.dataSourceName : undefined;
-            resourceInputs["etag"] = args ? args.etag : undefined;
             resourceInputs["kind"] = args ? args.kind : undefined;
             resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
@@ -118,10 +118,6 @@ export interface DataSourceArgs {
      * The name of the datasource resource.
      */
     dataSourceName?: pulumi.Input<string>;
-    /**
-     * The ETag of the data source.
-     */
-    etag?: pulumi.Input<string>;
     /**
      * The kind of the DataSource.
      */
