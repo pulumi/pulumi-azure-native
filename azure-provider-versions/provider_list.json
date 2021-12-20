@@ -53023,7 +53023,13 @@
           "2020-05-01",
           "2020-02-01",
           "2019-11-01",
-          "2018-03-01-beta"
+          "2018-03-01-preview",
+          "2018-03-01-beta",
+          "2018-01-01-preview",
+          "2017-11-01-preview",
+          "2017-08-31-preview",
+          "2017-06-30-preview",
+          "2017-05-31-preview"
         ],
         "capabilities": "None",
         "defaultApiVersion": null,
@@ -56054,6 +56060,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2020-01-01-preview",
           "2017-04-01",
           "2016-03-01",
           "2014-09-01"
@@ -56099,6 +56106,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2020-01-01-preview",
           "2017-04-01",
           "2016-03-01",
           "2014-09-01"
@@ -80673,7 +80681,7 @@
           "Southeast Asia"
         ],
         "properties": null,
-        "resourceType": "clusters/arcsettings"
+        "resourceType": "clusters/arcSettings"
       },
       {
         "aliases": null,
@@ -92092,6 +92100,8 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-10-01-preview",
+          "2021-09-01-preview",
           "2020-07-01-preview",
           "2020-07-01"
         ],
@@ -92106,6 +92116,8 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-10-01-preview",
+          "2021-09-01-preview",
           "2020-07-01-preview",
           "2020-07-01"
         ],
@@ -92120,6 +92132,8 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-10-01-preview",
+          "2021-09-01-preview",
           "2020-07-01-preview",
           "2020-07-01"
         ],
@@ -92149,6 +92163,8 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-10-01-preview",
+          "2021-09-01-preview",
           "2020-07-01-preview",
           "2020-07-01"
         ],
@@ -92178,6 +92194,8 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-10-01-preview",
+          "2021-09-01-preview",
           "2020-07-01-preview",
           "2020-07-01"
         ],
@@ -92207,6 +92225,8 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-10-01-preview",
+          "2021-09-01-preview",
           "2020-07-01-preview",
           "2020-07-01"
         ],
@@ -105222,6 +105242,7 @@
           "West US",
           "West US 2",
           "South Central US",
+          "West US 3",
           "North Europe",
           "West Europe",
           "Southeast Asia",
@@ -105253,6 +105274,7 @@
           "West US",
           "West US 2",
           "South Central US",
+          "West US 3",
           "North Europe",
           "West Europe",
           "Southeast Asia",
@@ -105324,6 +105346,7 @@
           "West US",
           "West US 2",
           "South Central US",
+          "West US 3",
           "North Europe",
           "West Europe",
           "Southeast Asia",
@@ -105355,6 +105378,7 @@
           "West US",
           "West US 2",
           "South Central US",
+          "West US 3",
           "North Europe",
           "West Europe",
           "Southeast Asia",
