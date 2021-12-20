@@ -19,7 +19,6 @@ class NetworkProfileArgs:
                  resource_group_name: pulumi.Input[str],
                  container_network_interface_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ContainerNetworkInterfaceConfigurationArgs']]]] = None,
                  container_network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input['ContainerNetworkInterfaceArgs']]]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  network_profile_name: Optional[pulumi.Input[str]] = None,
@@ -29,7 +28,6 @@ class NetworkProfileArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[Sequence[pulumi.Input['ContainerNetworkInterfaceConfigurationArgs']]] container_network_interface_configurations: List of chid container network interface configurations.
         :param pulumi.Input[Sequence[pulumi.Input['ContainerNetworkInterfaceArgs']]] container_network_interfaces: List of child container network interfaces.
-        :param pulumi.Input[str] etag: A unique read-only string that changes whenever the resource is updated.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] network_profile_name: The name of the network profile.
@@ -40,8 +38,6 @@ class NetworkProfileArgs:
             pulumi.set(__self__, "container_network_interface_configurations", container_network_interface_configurations)
         if container_network_interfaces is not None:
             pulumi.set(__self__, "container_network_interfaces", container_network_interfaces)
-        if etag is not None:
-            pulumi.set(__self__, "etag", etag)
         if id is not None:
             pulumi.set(__self__, "id", id)
         if location is not None:
@@ -86,18 +82,6 @@ class NetworkProfileArgs:
     @container_network_interfaces.setter
     def container_network_interfaces(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ContainerNetworkInterfaceArgs']]]]):
         pulumi.set(self, "container_network_interfaces", value)
-
-    @property
-    @pulumi.getter
-    def etag(self) -> Optional[pulumi.Input[str]]:
-        """
-        A unique read-only string that changes whenever the resource is updated.
-        """
-        return pulumi.get(self, "etag")
-
-    @etag.setter
-    def etag(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "etag", value)
 
     @property
     @pulumi.getter
@@ -155,7 +139,6 @@ class NetworkProfile(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  container_network_interface_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContainerNetworkInterfaceConfigurationArgs']]]]] = None,
                  container_network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContainerNetworkInterfaceArgs']]]]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  network_profile_name: Optional[pulumi.Input[str]] = None,
@@ -169,7 +152,6 @@ class NetworkProfile(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContainerNetworkInterfaceConfigurationArgs']]]] container_network_interface_configurations: List of chid container network interface configurations.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContainerNetworkInterfaceArgs']]]] container_network_interfaces: List of child container network interfaces.
-        :param pulumi.Input[str] etag: A unique read-only string that changes whenever the resource is updated.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] network_profile_name: The name of the network profile.
@@ -202,7 +184,6 @@ class NetworkProfile(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  container_network_interface_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContainerNetworkInterfaceConfigurationArgs']]]]] = None,
                  container_network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContainerNetworkInterfaceArgs']]]]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  network_profile_name: Optional[pulumi.Input[str]] = None,
@@ -222,7 +203,6 @@ class NetworkProfile(pulumi.CustomResource):
 
             __props__.__dict__["container_network_interface_configurations"] = container_network_interface_configurations
             __props__.__dict__["container_network_interfaces"] = container_network_interfaces
-            __props__.__dict__["etag"] = etag
             __props__.__dict__["id"] = id
             __props__.__dict__["location"] = location
             __props__.__dict__["network_profile_name"] = network_profile_name
@@ -230,6 +210,7 @@ class NetworkProfile(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["resource_guid"] = None

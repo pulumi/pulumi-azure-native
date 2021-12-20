@@ -21,7 +21,6 @@ class TIDataConnectorArgs:
                  workspace_name: pulumi.Input[str],
                  data_connector_id: Optional[pulumi.Input[str]] = None,
                  data_types: Optional[pulumi.Input['TIDataConnectorDataTypesArgs']] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  tenant_id: Optional[pulumi.Input[str]] = None,
                  tip_lookback_period: Optional[pulumi.Input[str]] = None):
         """
@@ -32,7 +31,6 @@ class TIDataConnectorArgs:
         :param pulumi.Input[str] workspace_name: The name of the workspace.
         :param pulumi.Input[str] data_connector_id: Connector ID
         :param pulumi.Input['TIDataConnectorDataTypesArgs'] data_types: The available data types for the connector.
-        :param pulumi.Input[str] etag: Etag of the azure resource
         :param pulumi.Input[str] tenant_id: The tenant id to connect to, and get the data from.
         :param pulumi.Input[str] tip_lookback_period: The lookback period for the feed to be imported.
         """
@@ -43,8 +41,6 @@ class TIDataConnectorArgs:
             pulumi.set(__self__, "data_connector_id", data_connector_id)
         if data_types is not None:
             pulumi.set(__self__, "data_types", data_types)
-        if etag is not None:
-            pulumi.set(__self__, "etag", etag)
         if tenant_id is not None:
             pulumi.set(__self__, "tenant_id", tenant_id)
         if tip_lookback_period is not None:
@@ -112,18 +108,6 @@ class TIDataConnectorArgs:
         pulumi.set(self, "data_types", value)
 
     @property
-    @pulumi.getter
-    def etag(self) -> Optional[pulumi.Input[str]]:
-        """
-        Etag of the azure resource
-        """
-        return pulumi.get(self, "etag")
-
-    @etag.setter
-    def etag(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "etag", value)
-
-    @property
     @pulumi.getter(name="tenantId")
     def tenant_id(self) -> Optional[pulumi.Input[str]]:
         """
@@ -155,7 +139,6 @@ class TIDataConnector(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  data_connector_id: Optional[pulumi.Input[str]] = None,
                  data_types: Optional[pulumi.Input[pulumi.InputType['TIDataConnectorDataTypesArgs']]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tenant_id: Optional[pulumi.Input[str]] = None,
@@ -170,7 +153,6 @@ class TIDataConnector(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] data_connector_id: Connector ID
         :param pulumi.Input[pulumi.InputType['TIDataConnectorDataTypesArgs']] data_types: The available data types for the connector.
-        :param pulumi.Input[str] etag: Etag of the azure resource
         :param pulumi.Input[str] kind: The kind of the data connector
                Expected value is 'ThreatIntelligence'.
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
@@ -205,7 +187,6 @@ class TIDataConnector(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  data_connector_id: Optional[pulumi.Input[str]] = None,
                  data_types: Optional[pulumi.Input[pulumi.InputType['TIDataConnectorDataTypesArgs']]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tenant_id: Optional[pulumi.Input[str]] = None,
@@ -225,7 +206,6 @@ class TIDataConnector(pulumi.CustomResource):
 
             __props__.__dict__["data_connector_id"] = data_connector_id
             __props__.__dict__["data_types"] = data_types
-            __props__.__dict__["etag"] = etag
             if kind is None and not opts.urn:
                 raise TypeError("Missing required property 'kind'")
             __props__.__dict__["kind"] = 'ThreatIntelligence'
@@ -237,6 +217,7 @@ class TIDataConnector(pulumi.CustomResource):
             if workspace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_name'")
             __props__.__dict__["workspace_name"] = workspace_name
+            __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:securityinsights/v20190101preview:TIDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20200101:TIDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20210301preview:TIDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20210901preview:TIDataConnector")])

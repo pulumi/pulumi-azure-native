@@ -18,7 +18,6 @@ class FusionAlertRuleArgs:
                  kind: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
                  workspace_name: pulumi.Input[str],
-                 etag: Optional[pulumi.Input[str]] = None,
                  rule_id: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a FusionAlertRule resource.
@@ -28,7 +27,6 @@ class FusionAlertRuleArgs:
                Expected value is 'Fusion'.
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
         :param pulumi.Input[str] workspace_name: The name of the workspace.
-        :param pulumi.Input[str] etag: Etag of the azure resource
         :param pulumi.Input[str] rule_id: Alert rule ID
         """
         pulumi.set(__self__, "alert_rule_template_name", alert_rule_template_name)
@@ -36,8 +34,6 @@ class FusionAlertRuleArgs:
         pulumi.set(__self__, "kind", 'Fusion')
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "workspace_name", workspace_name)
-        if etag is not None:
-            pulumi.set(__self__, "etag", etag)
         if rule_id is not None:
             pulumi.set(__self__, "rule_id", rule_id)
 
@@ -103,18 +99,6 @@ class FusionAlertRuleArgs:
         pulumi.set(self, "workspace_name", value)
 
     @property
-    @pulumi.getter
-    def etag(self) -> Optional[pulumi.Input[str]]:
-        """
-        Etag of the azure resource
-        """
-        return pulumi.get(self, "etag")
-
-    @etag.setter
-    def etag(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "etag", value)
-
-    @property
     @pulumi.getter(name="ruleId")
     def rule_id(self) -> Optional[pulumi.Input[str]]:
         """
@@ -134,7 +118,6 @@ class FusionAlertRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  alert_rule_template_name: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  rule_id: Optional[pulumi.Input[str]] = None,
@@ -147,7 +130,6 @@ class FusionAlertRule(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] alert_rule_template_name: The Name of the alert rule template used to create this rule.
         :param pulumi.Input[bool] enabled: Determines whether this alert rule is enabled or disabled.
-        :param pulumi.Input[str] etag: Etag of the azure resource
         :param pulumi.Input[str] kind: The kind of the alert rule
                Expected value is 'Fusion'.
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
@@ -180,7 +162,6 @@ class FusionAlertRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  alert_rule_template_name: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  rule_id: Optional[pulumi.Input[str]] = None,
@@ -203,7 +184,6 @@ class FusionAlertRule(pulumi.CustomResource):
             if enabled is None and not opts.urn:
                 raise TypeError("Missing required property 'enabled'")
             __props__.__dict__["enabled"] = enabled
-            __props__.__dict__["etag"] = etag
             if kind is None and not opts.urn:
                 raise TypeError("Missing required property 'kind'")
             __props__.__dict__["kind"] = 'Fusion'
@@ -216,6 +196,7 @@ class FusionAlertRule(pulumi.CustomResource):
             __props__.__dict__["workspace_name"] = workspace_name
             __props__.__dict__["description"] = None
             __props__.__dict__["display_name"] = None
+            __props__.__dict__["etag"] = None
             __props__.__dict__["last_modified_utc"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["severity"] = None

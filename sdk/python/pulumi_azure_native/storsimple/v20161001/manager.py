@@ -18,7 +18,6 @@ class ManagerArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  cis_intrinsic_settings: Optional[pulumi.Input['ManagerIntrinsicSettingsArgs']] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  manager_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input['ManagerSkuArgs']] = None,
@@ -27,7 +26,6 @@ class ManagerArgs:
         The set of arguments for constructing a Manager resource.
         :param pulumi.Input[str] resource_group_name: The resource group name
         :param pulumi.Input['ManagerIntrinsicSettingsArgs'] cis_intrinsic_settings: Specifies if the Manager is Garda or Helsinki
-        :param pulumi.Input[str] etag: ETag of the Manager
         :param pulumi.Input[str] location: The Geo location of the Manager
         :param pulumi.Input[str] manager_name: The manager name
         :param pulumi.Input['ManagerSkuArgs'] sku: Specifies the Sku
@@ -36,8 +34,6 @@ class ManagerArgs:
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if cis_intrinsic_settings is not None:
             pulumi.set(__self__, "cis_intrinsic_settings", cis_intrinsic_settings)
-        if etag is not None:
-            pulumi.set(__self__, "etag", etag)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if manager_name is not None:
@@ -70,18 +66,6 @@ class ManagerArgs:
     @cis_intrinsic_settings.setter
     def cis_intrinsic_settings(self, value: Optional[pulumi.Input['ManagerIntrinsicSettingsArgs']]):
         pulumi.set(self, "cis_intrinsic_settings", value)
-
-    @property
-    @pulumi.getter
-    def etag(self) -> Optional[pulumi.Input[str]]:
-        """
-        ETag of the Manager
-        """
-        return pulumi.get(self, "etag")
-
-    @etag.setter
-    def etag(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "etag", value)
 
     @property
     @pulumi.getter
@@ -138,7 +122,6 @@ class Manager(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cis_intrinsic_settings: Optional[pulumi.Input[pulumi.InputType['ManagerIntrinsicSettingsArgs']]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  manager_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -151,7 +134,6 @@ class Manager(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['ManagerIntrinsicSettingsArgs']] cis_intrinsic_settings: Specifies if the Manager is Garda or Helsinki
-        :param pulumi.Input[str] etag: ETag of the Manager
         :param pulumi.Input[str] location: The Geo location of the Manager
         :param pulumi.Input[str] manager_name: The manager name
         :param pulumi.Input[str] resource_group_name: The resource group name
@@ -183,7 +165,6 @@ class Manager(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cis_intrinsic_settings: Optional[pulumi.Input[pulumi.InputType['ManagerIntrinsicSettingsArgs']]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  manager_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -202,7 +183,6 @@ class Manager(pulumi.CustomResource):
             __props__ = ManagerArgs.__new__(ManagerArgs)
 
             __props__.__dict__["cis_intrinsic_settings"] = cis_intrinsic_settings
-            __props__.__dict__["etag"] = etag
             __props__.__dict__["location"] = location
             __props__.__dict__["manager_name"] = manager_name
             if resource_group_name is None and not opts.urn:
@@ -210,6 +190,7 @@ class Manager(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["sku"] = sku
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["type"] = None

@@ -17,7 +17,6 @@ class LocalNetworkGatewayInitArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  bgp_settings: Optional[pulumi.Input['BgpSettingsArgs']] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  gateway_ip_address: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  local_network_address_space: Optional[pulumi.Input['AddressSpaceArgs']] = None,
@@ -30,7 +29,6 @@ class LocalNetworkGatewayInitArgs:
         The set of arguments for constructing a LocalNetworkGateway resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input['BgpSettingsArgs'] bgp_settings: Local network gateway's BGP speaker settings
-        :param pulumi.Input[str] etag: Gets a unique read-only string that changes whenever the resource is updated
         :param pulumi.Input[str] gateway_ip_address: IP address of local network gateway.
         :param pulumi.Input[str] id: Resource Id
         :param pulumi.Input['AddressSpaceArgs'] local_network_address_space: Local network site Address space
@@ -43,8 +41,6 @@ class LocalNetworkGatewayInitArgs:
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if bgp_settings is not None:
             pulumi.set(__self__, "bgp_settings", bgp_settings)
-        if etag is not None:
-            pulumi.set(__self__, "etag", etag)
         if gateway_ip_address is not None:
             pulumi.set(__self__, "gateway_ip_address", gateway_ip_address)
         if id is not None:
@@ -85,18 +81,6 @@ class LocalNetworkGatewayInitArgs:
     @bgp_settings.setter
     def bgp_settings(self, value: Optional[pulumi.Input['BgpSettingsArgs']]):
         pulumi.set(self, "bgp_settings", value)
-
-    @property
-    @pulumi.getter
-    def etag(self) -> Optional[pulumi.Input[str]]:
-        """
-        Gets a unique read-only string that changes whenever the resource is updated
-        """
-        return pulumi.get(self, "etag")
-
-    @etag.setter
-    def etag(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "etag", value)
 
     @property
     @pulumi.getter(name="gatewayIpAddress")
@@ -201,7 +185,6 @@ class LocalNetworkGateway(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  bgp_settings: Optional[pulumi.Input[pulumi.InputType['BgpSettingsArgs']]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  gateway_ip_address: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  local_network_address_space: Optional[pulumi.Input[pulumi.InputType['AddressSpaceArgs']]] = None,
@@ -218,7 +201,6 @@ class LocalNetworkGateway(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['BgpSettingsArgs']] bgp_settings: Local network gateway's BGP speaker settings
-        :param pulumi.Input[str] etag: Gets a unique read-only string that changes whenever the resource is updated
         :param pulumi.Input[str] gateway_ip_address: IP address of local network gateway.
         :param pulumi.Input[str] id: Resource Id
         :param pulumi.Input[pulumi.InputType['AddressSpaceArgs']] local_network_address_space: Local network site Address space
@@ -254,7 +236,6 @@ class LocalNetworkGateway(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  bgp_settings: Optional[pulumi.Input[pulumi.InputType['BgpSettingsArgs']]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  gateway_ip_address: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  local_network_address_space: Optional[pulumi.Input[pulumi.InputType['AddressSpaceArgs']]] = None,
@@ -277,7 +258,6 @@ class LocalNetworkGateway(pulumi.CustomResource):
             __props__ = LocalNetworkGatewayInitArgs.__new__(LocalNetworkGatewayInitArgs)
 
             __props__.__dict__["bgp_settings"] = bgp_settings
-            __props__.__dict__["etag"] = etag
             __props__.__dict__["gateway_ip_address"] = gateway_ip_address
             __props__.__dict__["id"] = id
             __props__.__dict__["local_network_address_space"] = local_network_address_space
@@ -289,6 +269,7 @@ class LocalNetworkGateway(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["resource_guid"] = resource_guid
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network:LocalNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20150615:LocalNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20160601:LocalNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20160901:LocalNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20161201:LocalNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20170301:LocalNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20170601:LocalNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20170801:LocalNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20170901:LocalNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20171001:LocalNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20171101:LocalNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20180101:LocalNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20180201:LocalNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20180401:LocalNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20180601:LocalNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20180701:LocalNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20180801:LocalNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20181001:LocalNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20181101:LocalNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20181201:LocalNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20190201:LocalNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20190401:LocalNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20190601:LocalNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20190701:LocalNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20190801:LocalNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20190901:LocalNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20191101:LocalNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20191201:LocalNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20200301:LocalNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20200401:LocalNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20200501:LocalNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20200601:LocalNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20200701:LocalNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20200801:LocalNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20201101:LocalNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20210201:LocalNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20210301:LocalNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20210501:LocalNetworkGateway")])

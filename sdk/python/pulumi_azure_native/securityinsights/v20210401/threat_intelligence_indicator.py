@@ -26,7 +26,6 @@ class ThreatIntelligenceIndicatorArgs:
                  defanged: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  extensions: Optional[Any] = None,
                  external_id: Optional[pulumi.Input[str]] = None,
                  external_last_updated_time_utc: Optional[pulumi.Input[str]] = None,
@@ -62,7 +61,6 @@ class ThreatIntelligenceIndicatorArgs:
         :param pulumi.Input[bool] defanged: Is threat intelligence entity defanged
         :param pulumi.Input[str] description: Description of a threat intelligence entity
         :param pulumi.Input[str] display_name: Display name of a threat intelligence entity
-        :param pulumi.Input[str] etag: Etag of the azure resource
         :param Any extensions: Extensions map
         :param pulumi.Input[str] external_id: External ID of threat intelligence entity
         :param pulumi.Input[str] external_last_updated_time_utc: External last updated time in UTC
@@ -103,8 +101,6 @@ class ThreatIntelligenceIndicatorArgs:
             pulumi.set(__self__, "description", description)
         if display_name is not None:
             pulumi.set(__self__, "display_name", display_name)
-        if etag is not None:
-            pulumi.set(__self__, "etag", etag)
         if extensions is not None:
             pulumi.set(__self__, "extensions", extensions)
         if external_id is not None:
@@ -271,18 +267,6 @@ class ThreatIntelligenceIndicatorArgs:
     @display_name.setter
     def display_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "display_name", value)
-
-    @property
-    @pulumi.getter
-    def etag(self) -> Optional[pulumi.Input[str]]:
-        """
-        Etag of the azure resource
-        """
-        return pulumi.get(self, "etag")
-
-    @etag.setter
-    def etag(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "etag", value)
 
     @property
     @pulumi.getter
@@ -572,7 +556,6 @@ class ThreatIntelligenceIndicator(pulumi.CustomResource):
                  defanged: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  extensions: Optional[Any] = None,
                  external_id: Optional[pulumi.Input[str]] = None,
                  external_last_updated_time_utc: Optional[pulumi.Input[str]] = None,
@@ -612,7 +595,6 @@ class ThreatIntelligenceIndicator(pulumi.CustomResource):
         :param pulumi.Input[bool] defanged: Is threat intelligence entity defanged
         :param pulumi.Input[str] description: Description of a threat intelligence entity
         :param pulumi.Input[str] display_name: Display name of a threat intelligence entity
-        :param pulumi.Input[str] etag: Etag of the azure resource
         :param Any extensions: Extensions map
         :param pulumi.Input[str] external_id: External ID of threat intelligence entity
         :param pulumi.Input[str] external_last_updated_time_utc: External last updated time in UTC
@@ -671,7 +653,6 @@ class ThreatIntelligenceIndicator(pulumi.CustomResource):
                  defanged: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  extensions: Optional[Any] = None,
                  external_id: Optional[pulumi.Input[str]] = None,
                  external_last_updated_time_utc: Optional[pulumi.Input[str]] = None,
@@ -717,7 +698,6 @@ class ThreatIntelligenceIndicator(pulumi.CustomResource):
             __props__.__dict__["defanged"] = defanged
             __props__.__dict__["description"] = description
             __props__.__dict__["display_name"] = display_name
-            __props__.__dict__["etag"] = etag
             __props__.__dict__["extensions"] = extensions
             __props__.__dict__["external_id"] = external_id
             __props__.__dict__["external_last_updated_time_utc"] = external_last_updated_time_utc
@@ -753,6 +733,7 @@ class ThreatIntelligenceIndicator(pulumi.CustomResource):
             if workspace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_name'")
             __props__.__dict__["workspace_name"] = workspace_name
+            __props__.__dict__["etag"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:securityinsights:ThreatIntelligenceIndicator"), pulumi.Alias(type_="azure-native:securityinsights/v20190101preview:ThreatIntelligenceIndicator"), pulumi.Alias(type_="azure-native:securityinsights/v20210901preview:ThreatIntelligenceIndicator")])

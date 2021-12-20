@@ -17,7 +17,6 @@ __all__ = ['VaultArgs', 'Vault']
 class VaultArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
-                 etag: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input['IdentityDataArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input['VaultPropertiesArgs']] = None,
@@ -27,7 +26,6 @@ class VaultArgs:
         """
         The set of arguments for constructing a Vault resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group where the recovery services vault is present.
-        :param pulumi.Input[str] etag: Optional ETag.
         :param pulumi.Input['IdentityDataArgs'] identity: Identity for the resource.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input['VaultPropertiesArgs'] properties: Properties of the vault.
@@ -36,8 +34,6 @@ class VaultArgs:
         :param pulumi.Input[str] vault_name: The name of the recovery services vault.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if etag is not None:
-            pulumi.set(__self__, "etag", etag)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
         if location is not None:
@@ -62,18 +58,6 @@ class VaultArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @property
-    @pulumi.getter
-    def etag(self) -> Optional[pulumi.Input[str]]:
-        """
-        Optional ETag.
-        """
-        return pulumi.get(self, "etag")
-
-    @etag.setter
-    def etag(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "etag", value)
 
     @property
     @pulumi.getter
@@ -153,7 +137,6 @@ class Vault(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['IdentityDataArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[pulumi.InputType['VaultPropertiesArgs']]] = None,
@@ -168,7 +151,6 @@ class Vault(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] etag: Optional ETag.
         :param pulumi.Input[pulumi.InputType['IdentityDataArgs']] identity: Identity for the resource.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[pulumi.InputType['VaultPropertiesArgs']] properties: Properties of the vault.
@@ -202,7 +184,6 @@ class Vault(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['IdentityDataArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[pulumi.InputType['VaultPropertiesArgs']]] = None,
@@ -222,7 +203,6 @@ class Vault(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = VaultArgs.__new__(VaultArgs)
 
-            __props__.__dict__["etag"] = etag
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
             __props__.__dict__["properties"] = properties
@@ -232,6 +212,7 @@ class Vault(pulumi.CustomResource):
             __props__.__dict__["sku"] = sku
             __props__.__dict__["tags"] = tags
             __props__.__dict__["vault_name"] = vault_name
+            __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None

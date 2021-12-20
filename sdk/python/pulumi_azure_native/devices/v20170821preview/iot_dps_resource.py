@@ -19,7 +19,6 @@ class IotDpsResourceArgs:
                  properties: pulumi.Input['IotDpsPropertiesDescriptionArgs'],
                  resource_group_name: pulumi.Input[str],
                  sku: pulumi.Input['IotDpsSkuInfoArgs'],
-                 etag: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  provisioning_service_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
@@ -27,7 +26,6 @@ class IotDpsResourceArgs:
         The set of arguments for constructing a IotDpsResource resource.
         :param pulumi.Input[str] resource_group_name: Resource group identifier.
         :param pulumi.Input['IotDpsSkuInfoArgs'] sku: List of possible provisioning service SKUs.
-        :param pulumi.Input[str] etag: The Etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal ETag convention.
         :param pulumi.Input[str] location: The resource location.
         :param pulumi.Input[str] provisioning_service_name: Name of provisioning service to create or update.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The resource tags.
@@ -35,8 +33,6 @@ class IotDpsResourceArgs:
         pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "sku", sku)
-        if etag is not None:
-            pulumi.set(__self__, "etag", etag)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if provisioning_service_name is not None:
@@ -76,18 +72,6 @@ class IotDpsResourceArgs:
     @sku.setter
     def sku(self, value: pulumi.Input['IotDpsSkuInfoArgs']):
         pulumi.set(self, "sku", value)
-
-    @property
-    @pulumi.getter
-    def etag(self) -> Optional[pulumi.Input[str]]:
-        """
-        The Etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal ETag convention.
-        """
-        return pulumi.get(self, "etag")
-
-    @etag.setter
-    def etag(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "etag", value)
 
     @property
     @pulumi.getter
@@ -131,7 +115,6 @@ class IotDpsResource(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[pulumi.InputType['IotDpsPropertiesDescriptionArgs']]] = None,
                  provisioning_service_name: Optional[pulumi.Input[str]] = None,
@@ -144,7 +127,6 @@ class IotDpsResource(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] etag: The Etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal ETag convention.
         :param pulumi.Input[str] location: The resource location.
         :param pulumi.Input[str] provisioning_service_name: Name of provisioning service to create or update.
         :param pulumi.Input[str] resource_group_name: Resource group identifier.
@@ -175,7 +157,6 @@ class IotDpsResource(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[pulumi.InputType['IotDpsPropertiesDescriptionArgs']]] = None,
                  provisioning_service_name: Optional[pulumi.Input[str]] = None,
@@ -194,7 +175,6 @@ class IotDpsResource(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = IotDpsResourceArgs.__new__(IotDpsResourceArgs)
 
-            __props__.__dict__["etag"] = etag
             __props__.__dict__["location"] = location
             if properties is None and not opts.urn:
                 raise TypeError("Missing required property 'properties'")
@@ -207,6 +187,7 @@ class IotDpsResource(pulumi.CustomResource):
                 raise TypeError("Missing required property 'sku'")
             __props__.__dict__["sku"] = sku
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:devices:IotDpsResource"), pulumi.Alias(type_="azure-native:devices/v20171115:IotDpsResource"), pulumi.Alias(type_="azure-native:devices/v20180122:IotDpsResource"), pulumi.Alias(type_="azure-native:devices/v20200101:IotDpsResource"), pulumi.Alias(type_="azure-native:devices/v20200301:IotDpsResource"), pulumi.Alias(type_="azure-native:devices/v20200901preview:IotDpsResource"), pulumi.Alias(type_="azure-native:devices/v20211015:IotDpsResource")])

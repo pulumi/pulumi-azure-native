@@ -25,7 +25,6 @@ class ActivityCustomEntityQueryArgs:
                  enabled: Optional[pulumi.Input[bool]] = None,
                  entities_filter: Optional[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[str]]]]]] = None,
                  entity_query_id: Optional[pulumi.Input[str]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  input_entity_type: Optional[pulumi.Input[Union[str, 'EntityType']]] = None,
                  query_definitions: Optional[pulumi.Input['ActivityEntityQueriesPropertiesQueryDefinitionsArgs']] = None,
                  required_input_fields_sets: Optional[pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input[str]]]]]] = None,
@@ -43,7 +42,6 @@ class ActivityCustomEntityQueryArgs:
         :param pulumi.Input[bool] enabled: Determines whether this activity is enabled or disabled.
         :param pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[str]]]]] entities_filter: The query applied only to entities matching to all filters
         :param pulumi.Input[str] entity_query_id: entity query ID
-        :param pulumi.Input[str] etag: Etag of the azure resource
         :param pulumi.Input[Union[str, 'EntityType']] input_entity_type: The type of the query's source entity
         :param pulumi.Input['ActivityEntityQueriesPropertiesQueryDefinitionsArgs'] query_definitions: The Activity query definitions
         :param pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input[str]]]]] required_input_fields_sets: List of the fields of the source entity that are required to run the query
@@ -64,8 +62,6 @@ class ActivityCustomEntityQueryArgs:
             pulumi.set(__self__, "entities_filter", entities_filter)
         if entity_query_id is not None:
             pulumi.set(__self__, "entity_query_id", entity_query_id)
-        if etag is not None:
-            pulumi.set(__self__, "etag", etag)
         if input_entity_type is not None:
             pulumi.set(__self__, "input_entity_type", input_entity_type)
         if query_definitions is not None:
@@ -187,18 +183,6 @@ class ActivityCustomEntityQueryArgs:
         pulumi.set(self, "entity_query_id", value)
 
     @property
-    @pulumi.getter
-    def etag(self) -> Optional[pulumi.Input[str]]:
-        """
-        Etag of the azure resource
-        """
-        return pulumi.get(self, "etag")
-
-    @etag.setter
-    def etag(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "etag", value)
-
-    @property
     @pulumi.getter(name="inputEntityType")
     def input_entity_type(self) -> Optional[pulumi.Input[Union[str, 'EntityType']]]:
         """
@@ -269,7 +253,6 @@ class ActivityCustomEntityQuery(pulumi.CustomResource):
                  enabled: Optional[pulumi.Input[bool]] = None,
                  entities_filter: Optional[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[str]]]]]] = None,
                  entity_query_id: Optional[pulumi.Input[str]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  input_entity_type: Optional[pulumi.Input[Union[str, 'EntityType']]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  operational_insights_resource_provider: Optional[pulumi.Input[str]] = None,
@@ -290,7 +273,6 @@ class ActivityCustomEntityQuery(pulumi.CustomResource):
         :param pulumi.Input[bool] enabled: Determines whether this activity is enabled or disabled.
         :param pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[str]]]]] entities_filter: The query applied only to entities matching to all filters
         :param pulumi.Input[str] entity_query_id: entity query ID
-        :param pulumi.Input[str] etag: Etag of the azure resource
         :param pulumi.Input[Union[str, 'EntityType']] input_entity_type: The type of the query's source entity
         :param pulumi.Input[str] kind: The kind of the entity query that supports put request.
                Expected value is 'Activity'.
@@ -331,7 +313,6 @@ class ActivityCustomEntityQuery(pulumi.CustomResource):
                  enabled: Optional[pulumi.Input[bool]] = None,
                  entities_filter: Optional[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[str]]]]]] = None,
                  entity_query_id: Optional[pulumi.Input[str]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  input_entity_type: Optional[pulumi.Input[Union[str, 'EntityType']]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  operational_insights_resource_provider: Optional[pulumi.Input[str]] = None,
@@ -358,7 +339,6 @@ class ActivityCustomEntityQuery(pulumi.CustomResource):
             __props__.__dict__["enabled"] = enabled
             __props__.__dict__["entities_filter"] = entities_filter
             __props__.__dict__["entity_query_id"] = entity_query_id
-            __props__.__dict__["etag"] = etag
             __props__.__dict__["input_entity_type"] = input_entity_type
             if kind is None and not opts.urn:
                 raise TypeError("Missing required property 'kind'")
@@ -377,6 +357,7 @@ class ActivityCustomEntityQuery(pulumi.CustomResource):
                 raise TypeError("Missing required property 'workspace_name'")
             __props__.__dict__["workspace_name"] = workspace_name
             __props__.__dict__["created_time_utc"] = None
+            __props__.__dict__["etag"] = None
             __props__.__dict__["last_modified_time_utc"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None

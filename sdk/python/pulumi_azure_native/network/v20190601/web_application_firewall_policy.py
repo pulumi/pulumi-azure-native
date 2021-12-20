@@ -18,7 +18,6 @@ class WebApplicationFirewallPolicyArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  custom_rules: Optional[pulumi.Input[Sequence[pulumi.Input['WebApplicationFirewallCustomRuleArgs']]]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  policy_name: Optional[pulumi.Input[str]] = None,
@@ -28,7 +27,6 @@ class WebApplicationFirewallPolicyArgs:
         The set of arguments for constructing a WebApplicationFirewallPolicy resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[Sequence[pulumi.Input['WebApplicationFirewallCustomRuleArgs']]] custom_rules: Describes custom rules inside the policy.
-        :param pulumi.Input[str] etag: Gets a unique read-only string that changes whenever the resource is updated.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] policy_name: The name of the policy.
@@ -38,8 +36,6 @@ class WebApplicationFirewallPolicyArgs:
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if custom_rules is not None:
             pulumi.set(__self__, "custom_rules", custom_rules)
-        if etag is not None:
-            pulumi.set(__self__, "etag", etag)
         if id is not None:
             pulumi.set(__self__, "id", id)
         if location is not None:
@@ -74,18 +70,6 @@ class WebApplicationFirewallPolicyArgs:
     @custom_rules.setter
     def custom_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WebApplicationFirewallCustomRuleArgs']]]]):
         pulumi.set(self, "custom_rules", value)
-
-    @property
-    @pulumi.getter
-    def etag(self) -> Optional[pulumi.Input[str]]:
-        """
-        Gets a unique read-only string that changes whenever the resource is updated.
-        """
-        return pulumi.get(self, "etag")
-
-    @etag.setter
-    def etag(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "etag", value)
 
     @property
     @pulumi.getter
@@ -154,7 +138,6 @@ class WebApplicationFirewallPolicy(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  custom_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WebApplicationFirewallCustomRuleArgs']]]]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  policy_name: Optional[pulumi.Input[str]] = None,
@@ -168,7 +151,6 @@ class WebApplicationFirewallPolicy(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WebApplicationFirewallCustomRuleArgs']]]] custom_rules: Describes custom rules inside the policy.
-        :param pulumi.Input[str] etag: Gets a unique read-only string that changes whenever the resource is updated.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] policy_name: The name of the policy.
@@ -201,7 +183,6 @@ class WebApplicationFirewallPolicy(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  custom_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WebApplicationFirewallCustomRuleArgs']]]]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  policy_name: Optional[pulumi.Input[str]] = None,
@@ -221,7 +202,6 @@ class WebApplicationFirewallPolicy(pulumi.CustomResource):
             __props__ = WebApplicationFirewallPolicyArgs.__new__(WebApplicationFirewallPolicyArgs)
 
             __props__.__dict__["custom_rules"] = custom_rules
-            __props__.__dict__["etag"] = etag
             __props__.__dict__["id"] = id
             __props__.__dict__["location"] = location
             __props__.__dict__["policy_name"] = policy_name
@@ -231,6 +211,7 @@ class WebApplicationFirewallPolicy(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["application_gateways"] = None
+            __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["resource_state"] = None

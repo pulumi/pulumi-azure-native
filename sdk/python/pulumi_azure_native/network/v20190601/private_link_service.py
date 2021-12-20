@@ -18,7 +18,6 @@ class PrivateLinkServiceArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  auto_approval: Optional[pulumi.Input['PrivateLinkServicePropertiesAutoApprovalArgs']] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  fqdns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['PrivateLinkServiceIpConfigurationArgs']]]] = None,
@@ -32,7 +31,6 @@ class PrivateLinkServiceArgs:
         The set of arguments for constructing a PrivateLinkService resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input['PrivateLinkServicePropertiesAutoApprovalArgs'] auto_approval: The auto-approval list of the private link service.
-        :param pulumi.Input[str] etag: A unique read-only string that changes whenever the resource is updated.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] fqdns: The list of Fqdn.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[Sequence[pulumi.Input['PrivateLinkServiceIpConfigurationArgs']]] ip_configurations: An array of references to the private link service IP configuration.
@@ -46,8 +44,6 @@ class PrivateLinkServiceArgs:
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if auto_approval is not None:
             pulumi.set(__self__, "auto_approval", auto_approval)
-        if etag is not None:
-            pulumi.set(__self__, "etag", etag)
         if fqdns is not None:
             pulumi.set(__self__, "fqdns", fqdns)
         if id is not None:
@@ -90,18 +86,6 @@ class PrivateLinkServiceArgs:
     @auto_approval.setter
     def auto_approval(self, value: Optional[pulumi.Input['PrivateLinkServicePropertiesAutoApprovalArgs']]):
         pulumi.set(self, "auto_approval", value)
-
-    @property
-    @pulumi.getter
-    def etag(self) -> Optional[pulumi.Input[str]]:
-        """
-        A unique read-only string that changes whenever the resource is updated.
-        """
-        return pulumi.get(self, "etag")
-
-    @etag.setter
-    def etag(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "etag", value)
 
     @property
     @pulumi.getter
@@ -218,7 +202,6 @@ class PrivateLinkService(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_approval: Optional[pulumi.Input[pulumi.InputType['PrivateLinkServicePropertiesAutoApprovalArgs']]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  fqdns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PrivateLinkServiceIpConfigurationArgs']]]]] = None,
@@ -236,7 +219,6 @@ class PrivateLinkService(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['PrivateLinkServicePropertiesAutoApprovalArgs']] auto_approval: The auto-approval list of the private link service.
-        :param pulumi.Input[str] etag: A unique read-only string that changes whenever the resource is updated.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] fqdns: The list of Fqdn.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PrivateLinkServiceIpConfigurationArgs']]]] ip_configurations: An array of references to the private link service IP configuration.
@@ -273,7 +255,6 @@ class PrivateLinkService(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_approval: Optional[pulumi.Input[pulumi.InputType['PrivateLinkServicePropertiesAutoApprovalArgs']]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  fqdns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PrivateLinkServiceIpConfigurationArgs']]]]] = None,
@@ -297,7 +278,6 @@ class PrivateLinkService(pulumi.CustomResource):
             __props__ = PrivateLinkServiceArgs.__new__(PrivateLinkServiceArgs)
 
             __props__.__dict__["auto_approval"] = auto_approval
-            __props__.__dict__["etag"] = etag
             __props__.__dict__["fqdns"] = fqdns
             __props__.__dict__["id"] = id
             __props__.__dict__["ip_configurations"] = ip_configurations
@@ -311,6 +291,7 @@ class PrivateLinkService(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["visibility"] = visibility
             __props__.__dict__["alias"] = None
+            __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["network_interfaces"] = None
             __props__.__dict__["provisioning_state"] = None

@@ -21,7 +21,6 @@ class VirtualNetworkGatewayInitArgs:
                  bgp_settings: Optional[pulumi.Input['BgpSettingsArgs']] = None,
                  custom_routes: Optional[pulumi.Input['AddressSpaceArgs']] = None,
                  enable_bgp: Optional[pulumi.Input[bool]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  gateway_default_site: Optional[pulumi.Input['SubResourceArgs']] = None,
                  gateway_type: Optional[pulumi.Input[Union[str, 'VirtualNetworkGatewayType']]] = None,
                  id: Optional[pulumi.Input[str]] = None,
@@ -40,7 +39,6 @@ class VirtualNetworkGatewayInitArgs:
         :param pulumi.Input['BgpSettingsArgs'] bgp_settings: Virtual network gateway's BGP speaker settings.
         :param pulumi.Input['AddressSpaceArgs'] custom_routes: The reference of the address space resource which represents the custom routes address space specified by the customer for virtual network gateway and VpnClient.
         :param pulumi.Input[bool] enable_bgp: Whether BGP is enabled for this virtual network gateway or not.
-        :param pulumi.Input[str] etag: Gets a unique read-only string that changes whenever the resource is updated.
         :param pulumi.Input['SubResourceArgs'] gateway_default_site: The reference of the LocalNetworkGateway resource which represents local network site having default routes. Assign Null value in case of removing existing default site setting.
         :param pulumi.Input[Union[str, 'VirtualNetworkGatewayType']] gateway_type: The type of this virtual network gateway.
         :param pulumi.Input[str] id: Resource ID.
@@ -62,8 +60,6 @@ class VirtualNetworkGatewayInitArgs:
             pulumi.set(__self__, "custom_routes", custom_routes)
         if enable_bgp is not None:
             pulumi.set(__self__, "enable_bgp", enable_bgp)
-        if etag is not None:
-            pulumi.set(__self__, "etag", etag)
         if gateway_default_site is not None:
             pulumi.set(__self__, "gateway_default_site", gateway_default_site)
         if gateway_type is not None:
@@ -146,18 +142,6 @@ class VirtualNetworkGatewayInitArgs:
     @enable_bgp.setter
     def enable_bgp(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enable_bgp", value)
-
-    @property
-    @pulumi.getter
-    def etag(self) -> Optional[pulumi.Input[str]]:
-        """
-        Gets a unique read-only string that changes whenever the resource is updated.
-        """
-        return pulumi.get(self, "etag")
-
-    @etag.setter
-    def etag(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "etag", value)
 
     @property
     @pulumi.getter(name="gatewayDefaultSite")
@@ -301,7 +285,6 @@ class VirtualNetworkGateway(pulumi.CustomResource):
                  bgp_settings: Optional[pulumi.Input[pulumi.InputType['BgpSettingsArgs']]] = None,
                  custom_routes: Optional[pulumi.Input[pulumi.InputType['AddressSpaceArgs']]] = None,
                  enable_bgp: Optional[pulumi.Input[bool]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  gateway_default_site: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
                  gateway_type: Optional[pulumi.Input[Union[str, 'VirtualNetworkGatewayType']]] = None,
                  id: Optional[pulumi.Input[str]] = None,
@@ -324,7 +307,6 @@ class VirtualNetworkGateway(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['BgpSettingsArgs']] bgp_settings: Virtual network gateway's BGP speaker settings.
         :param pulumi.Input[pulumi.InputType['AddressSpaceArgs']] custom_routes: The reference of the address space resource which represents the custom routes address space specified by the customer for virtual network gateway and VpnClient.
         :param pulumi.Input[bool] enable_bgp: Whether BGP is enabled for this virtual network gateway or not.
-        :param pulumi.Input[str] etag: Gets a unique read-only string that changes whenever the resource is updated.
         :param pulumi.Input[pulumi.InputType['SubResourceArgs']] gateway_default_site: The reference of the LocalNetworkGateway resource which represents local network site having default routes. Assign Null value in case of removing existing default site setting.
         :param pulumi.Input[Union[str, 'VirtualNetworkGatewayType']] gateway_type: The type of this virtual network gateway.
         :param pulumi.Input[str] id: Resource ID.
@@ -366,7 +348,6 @@ class VirtualNetworkGateway(pulumi.CustomResource):
                  bgp_settings: Optional[pulumi.Input[pulumi.InputType['BgpSettingsArgs']]] = None,
                  custom_routes: Optional[pulumi.Input[pulumi.InputType['AddressSpaceArgs']]] = None,
                  enable_bgp: Optional[pulumi.Input[bool]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  gateway_default_site: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
                  gateway_type: Optional[pulumi.Input[Union[str, 'VirtualNetworkGatewayType']]] = None,
                  id: Optional[pulumi.Input[str]] = None,
@@ -395,7 +376,6 @@ class VirtualNetworkGateway(pulumi.CustomResource):
             __props__.__dict__["bgp_settings"] = bgp_settings
             __props__.__dict__["custom_routes"] = custom_routes
             __props__.__dict__["enable_bgp"] = enable_bgp
-            __props__.__dict__["etag"] = etag
             __props__.__dict__["gateway_default_site"] = gateway_default_site
             __props__.__dict__["gateway_type"] = gateway_type
             __props__.__dict__["id"] = id
@@ -410,6 +390,7 @@ class VirtualNetworkGateway(pulumi.CustomResource):
             __props__.__dict__["virtual_network_gateway_name"] = virtual_network_gateway_name
             __props__.__dict__["vpn_client_configuration"] = vpn_client_configuration
             __props__.__dict__["vpn_type"] = vpn_type
+            __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["type"] = None

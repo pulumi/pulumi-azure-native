@@ -22,7 +22,6 @@ class IotConnectorFhirDestinationArgs:
                  resource_group_name: pulumi.Input[str],
                  resource_identity_resolution_type: pulumi.Input[Union[str, 'IotIdentityResolutionType']],
                  workspace_name: pulumi.Input[str],
-                 etag: Optional[pulumi.Input[str]] = None,
                  fhir_destination_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None):
         """
@@ -33,7 +32,6 @@ class IotConnectorFhirDestinationArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the service instance.
         :param pulumi.Input[Union[str, 'IotIdentityResolutionType']] resource_identity_resolution_type: Determines how resource identity is resolved on the destination.
         :param pulumi.Input[str] workspace_name: The name of workspace resource.
-        :param pulumi.Input[str] etag: An etag associated with the resource, used for optimistic concurrency when editing it.
         :param pulumi.Input[str] fhir_destination_name: The name of IoT Connector FHIR destination resource.
         :param pulumi.Input[str] location: The resource location.
         """
@@ -43,8 +41,6 @@ class IotConnectorFhirDestinationArgs:
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "resource_identity_resolution_type", resource_identity_resolution_type)
         pulumi.set(__self__, "workspace_name", workspace_name)
-        if etag is not None:
-            pulumi.set(__self__, "etag", etag)
         if fhir_destination_name is not None:
             pulumi.set(__self__, "fhir_destination_name", fhir_destination_name)
         if location is not None:
@@ -123,18 +119,6 @@ class IotConnectorFhirDestinationArgs:
         pulumi.set(self, "workspace_name", value)
 
     @property
-    @pulumi.getter
-    def etag(self) -> Optional[pulumi.Input[str]]:
-        """
-        An etag associated with the resource, used for optimistic concurrency when editing it.
-        """
-        return pulumi.get(self, "etag")
-
-    @etag.setter
-    def etag(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "etag", value)
-
-    @property
     @pulumi.getter(name="fhirDestinationName")
     def fhir_destination_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -164,7 +148,6 @@ class IotConnectorFhirDestination(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  fhir_destination_name: Optional[pulumi.Input[str]] = None,
                  fhir_mapping: Optional[pulumi.Input[pulumi.InputType['IotMappingPropertiesArgs']]] = None,
                  fhir_service_resource_id: Optional[pulumi.Input[str]] = None,
@@ -179,7 +162,6 @@ class IotConnectorFhirDestination(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] etag: An etag associated with the resource, used for optimistic concurrency when editing it.
         :param pulumi.Input[str] fhir_destination_name: The name of IoT Connector FHIR destination resource.
         :param pulumi.Input[pulumi.InputType['IotMappingPropertiesArgs']] fhir_mapping: FHIR Mappings
         :param pulumi.Input[str] fhir_service_resource_id: Fully qualified resource id of the FHIR service to connect to.
@@ -213,7 +195,6 @@ class IotConnectorFhirDestination(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  fhir_destination_name: Optional[pulumi.Input[str]] = None,
                  fhir_mapping: Optional[pulumi.Input[pulumi.InputType['IotMappingPropertiesArgs']]] = None,
                  fhir_service_resource_id: Optional[pulumi.Input[str]] = None,
@@ -234,7 +215,6 @@ class IotConnectorFhirDestination(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = IotConnectorFhirDestinationArgs.__new__(IotConnectorFhirDestinationArgs)
 
-            __props__.__dict__["etag"] = etag
             __props__.__dict__["fhir_destination_name"] = fhir_destination_name
             if fhir_mapping is None and not opts.urn:
                 raise TypeError("Missing required property 'fhir_mapping'")
@@ -255,6 +235,7 @@ class IotConnectorFhirDestination(pulumi.CustomResource):
             if workspace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_name'")
             __props__.__dict__["workspace_name"] = workspace_name
+            __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None

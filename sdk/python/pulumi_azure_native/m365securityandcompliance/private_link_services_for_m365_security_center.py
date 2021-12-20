@@ -18,7 +18,6 @@ class PrivateLinkServicesForM365SecurityCenterArgs:
     def __init__(__self__, *,
                  kind: pulumi.Input['Kind'],
                  resource_group_name: pulumi.Input[str],
-                 etag: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input['ServicesResourceIdentityArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input['ServicesPropertiesArgs']] = None,
@@ -28,7 +27,6 @@ class PrivateLinkServicesForM365SecurityCenterArgs:
         The set of arguments for constructing a PrivateLinkServicesForM365SecurityCenter resource.
         :param pulumi.Input['Kind'] kind: The kind of the service.
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the service instance.
-        :param pulumi.Input[str] etag: An etag associated with the resource, used for optimistic concurrency when editing it.
         :param pulumi.Input['ServicesResourceIdentityArgs'] identity: Setting indicating whether the service has a managed identity associated with it.
         :param pulumi.Input[str] location: The resource location.
         :param pulumi.Input['ServicesPropertiesArgs'] properties: The common properties of a service.
@@ -37,8 +35,6 @@ class PrivateLinkServicesForM365SecurityCenterArgs:
         """
         pulumi.set(__self__, "kind", kind)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if etag is not None:
-            pulumi.set(__self__, "etag", etag)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
         if location is not None:
@@ -73,18 +69,6 @@ class PrivateLinkServicesForM365SecurityCenterArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @property
-    @pulumi.getter
-    def etag(self) -> Optional[pulumi.Input[str]]:
-        """
-        An etag associated with the resource, used for optimistic concurrency when editing it.
-        """
-        return pulumi.get(self, "etag")
-
-    @etag.setter
-    def etag(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "etag", value)
 
     @property
     @pulumi.getter
@@ -152,7 +136,6 @@ class PrivateLinkServicesForM365SecurityCenter(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['ServicesResourceIdentityArgs']]] = None,
                  kind: Optional[pulumi.Input['Kind']] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -167,7 +150,6 @@ class PrivateLinkServicesForM365SecurityCenter(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] etag: An etag associated with the resource, used for optimistic concurrency when editing it.
         :param pulumi.Input[pulumi.InputType['ServicesResourceIdentityArgs']] identity: Setting indicating whether the service has a managed identity associated with it.
         :param pulumi.Input['Kind'] kind: The kind of the service.
         :param pulumi.Input[str] location: The resource location.
@@ -201,7 +183,6 @@ class PrivateLinkServicesForM365SecurityCenter(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['ServicesResourceIdentityArgs']]] = None,
                  kind: Optional[pulumi.Input['Kind']] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -221,7 +202,6 @@ class PrivateLinkServicesForM365SecurityCenter(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = PrivateLinkServicesForM365SecurityCenterArgs.__new__(PrivateLinkServicesForM365SecurityCenterArgs)
 
-            __props__.__dict__["etag"] = etag
             __props__.__dict__["identity"] = identity
             if kind is None and not opts.urn:
                 raise TypeError("Missing required property 'kind'")
@@ -233,6 +213,7 @@ class PrivateLinkServicesForM365SecurityCenter(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["resource_name"] = resource_name_
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None

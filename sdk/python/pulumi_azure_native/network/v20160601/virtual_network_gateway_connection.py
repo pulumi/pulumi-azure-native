@@ -22,7 +22,6 @@ class VirtualNetworkGatewayConnectionArgs:
                  connection_type: Optional[pulumi.Input[Union[str, 'VirtualNetworkGatewayConnectionType']]] = None,
                  egress_bytes_transferred: Optional[pulumi.Input[float]] = None,
                  enable_bgp: Optional[pulumi.Input[bool]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  ingress_bytes_transferred: Optional[pulumi.Input[float]] = None,
                  local_network_gateway2: Optional[pulumi.Input['LocalNetworkGatewayArgs']] = None,
@@ -44,7 +43,6 @@ class VirtualNetworkGatewayConnectionArgs:
         :param pulumi.Input[Union[str, 'VirtualNetworkGatewayConnectionType']] connection_type: Gateway connection type IPsec/Dedicated/VpnClient/Vnet2Vnet
         :param pulumi.Input[float] egress_bytes_transferred: The Egress Bytes Transferred in this connection
         :param pulumi.Input[bool] enable_bgp: EnableBgp Flag
-        :param pulumi.Input[str] etag: Gets a unique read-only string that changes whenever the resource is updated
         :param pulumi.Input[str] id: Resource Id
         :param pulumi.Input[float] ingress_bytes_transferred: The Ingress Bytes Transferred in this connection
         :param pulumi.Input['LocalNetworkGatewayArgs'] local_network_gateway2: A common class for general resource information
@@ -70,8 +68,6 @@ class VirtualNetworkGatewayConnectionArgs:
             pulumi.set(__self__, "egress_bytes_transferred", egress_bytes_transferred)
         if enable_bgp is not None:
             pulumi.set(__self__, "enable_bgp", enable_bgp)
-        if etag is not None:
-            pulumi.set(__self__, "etag", etag)
         if id is not None:
             pulumi.set(__self__, "id", id)
         if ingress_bytes_transferred is not None:
@@ -170,18 +166,6 @@ class VirtualNetworkGatewayConnectionArgs:
     @enable_bgp.setter
     def enable_bgp(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enable_bgp", value)
-
-    @property
-    @pulumi.getter
-    def etag(self) -> Optional[pulumi.Input[str]]:
-        """
-        Gets a unique read-only string that changes whenever the resource is updated
-        """
-        return pulumi.get(self, "etag")
-
-    @etag.setter
-    def etag(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "etag", value)
 
     @property
     @pulumi.getter
@@ -350,7 +334,6 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
                  connection_type: Optional[pulumi.Input[Union[str, 'VirtualNetworkGatewayConnectionType']]] = None,
                  egress_bytes_transferred: Optional[pulumi.Input[float]] = None,
                  enable_bgp: Optional[pulumi.Input[bool]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  ingress_bytes_transferred: Optional[pulumi.Input[float]] = None,
                  local_network_gateway2: Optional[pulumi.Input[pulumi.InputType['LocalNetworkGatewayArgs']]] = None,
@@ -376,7 +359,6 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
         :param pulumi.Input[Union[str, 'VirtualNetworkGatewayConnectionType']] connection_type: Gateway connection type IPsec/Dedicated/VpnClient/Vnet2Vnet
         :param pulumi.Input[float] egress_bytes_transferred: The Egress Bytes Transferred in this connection
         :param pulumi.Input[bool] enable_bgp: EnableBgp Flag
-        :param pulumi.Input[str] etag: Gets a unique read-only string that changes whenever the resource is updated
         :param pulumi.Input[str] id: Resource Id
         :param pulumi.Input[float] ingress_bytes_transferred: The Ingress Bytes Transferred in this connection
         :param pulumi.Input[pulumi.InputType['LocalNetworkGatewayArgs']] local_network_gateway2: A common class for general resource information
@@ -421,7 +403,6 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
                  connection_type: Optional[pulumi.Input[Union[str, 'VirtualNetworkGatewayConnectionType']]] = None,
                  egress_bytes_transferred: Optional[pulumi.Input[float]] = None,
                  enable_bgp: Optional[pulumi.Input[bool]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  ingress_bytes_transferred: Optional[pulumi.Input[float]] = None,
                  local_network_gateway2: Optional[pulumi.Input[pulumi.InputType['LocalNetworkGatewayArgs']]] = None,
@@ -453,7 +434,6 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
             __props__.__dict__["connection_type"] = connection_type
             __props__.__dict__["egress_bytes_transferred"] = egress_bytes_transferred
             __props__.__dict__["enable_bgp"] = enable_bgp
-            __props__.__dict__["etag"] = etag
             __props__.__dict__["id"] = id
             __props__.__dict__["ingress_bytes_transferred"] = ingress_bytes_transferred
             __props__.__dict__["local_network_gateway2"] = local_network_gateway2
@@ -470,6 +450,7 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
             __props__.__dict__["virtual_network_gateway1"] = virtual_network_gateway1
             __props__.__dict__["virtual_network_gateway2"] = virtual_network_gateway2
             __props__.__dict__["virtual_network_gateway_connection_name"] = virtual_network_gateway_connection_name
+            __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-native:network/v20150615:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-native:network/v20160330:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-native:network/v20160901:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-native:network/v20161201:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-native:network/v20170301:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-native:network/v20170601:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-native:network/v20170801:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-native:network/v20170901:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-native:network/v20171001:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-native:network/v20171101:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-native:network/v20180101:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-native:network/v20180201:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-native:network/v20180401:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-native:network/v20180601:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-native:network/v20180701:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-native:network/v20180801:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-native:network/v20181001:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-native:network/v20181101:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-native:network/v20181201:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-native:network/v20190201:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-native:network/v20190401:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-native:network/v20190601:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-native:network/v20190701:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-native:network/v20190801:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-native:network/v20190901:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-native:network/v20191101:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-native:network/v20191201:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-native:network/v20200301:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-native:network/v20200401:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-native:network/v20200501:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-native:network/v20200601:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-native:network/v20200701:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-native:network/v20200801:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-native:network/v20201101:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-native:network/v20210201:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-native:network/v20210301:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-native:network/v20210501:VirtualNetworkGatewayConnection")])

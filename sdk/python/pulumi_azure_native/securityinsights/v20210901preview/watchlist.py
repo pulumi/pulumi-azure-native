@@ -27,7 +27,6 @@ class WatchlistArgs:
                  created_by: Optional[pulumi.Input['WatchlistUserInfoArgs']] = None,
                  default_duration: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  is_deleted: Optional[pulumi.Input[bool]] = None,
                  labels: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  number_of_lines_to_skip: Optional[pulumi.Input[int]] = None,
@@ -53,7 +52,6 @@ class WatchlistArgs:
         :param pulumi.Input['WatchlistUserInfoArgs'] created_by: Describes a user that created the watchlist
         :param pulumi.Input[str] default_duration: The default duration of a watchlist (in ISO 8601 duration format)
         :param pulumi.Input[str] description: A description of the watchlist
-        :param pulumi.Input[str] etag: Etag of the azure resource
         :param pulumi.Input[bool] is_deleted: A flag that indicates if the watchlist is deleted or not
         :param pulumi.Input[Sequence[pulumi.Input[str]]] labels: List of labels relevant to this watchlist
         :param pulumi.Input[int] number_of_lines_to_skip: The number of lines in a csv/tsv content to skip before the header
@@ -83,8 +81,6 @@ class WatchlistArgs:
             pulumi.set(__self__, "default_duration", default_duration)
         if description is not None:
             pulumi.set(__self__, "description", description)
-        if etag is not None:
-            pulumi.set(__self__, "etag", etag)
         if is_deleted is not None:
             pulumi.set(__self__, "is_deleted", is_deleted)
         if labels is not None:
@@ -243,18 +239,6 @@ class WatchlistArgs:
         pulumi.set(self, "description", value)
 
     @property
-    @pulumi.getter
-    def etag(self) -> Optional[pulumi.Input[str]]:
-        """
-        Etag of the azure resource
-        """
-        return pulumi.get(self, "etag")
-
-    @etag.setter
-    def etag(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "etag", value)
-
-    @property
     @pulumi.getter(name="isDeleted")
     def is_deleted(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -410,7 +394,6 @@ class Watchlist(pulumi.CustomResource):
                  default_duration: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  is_deleted: Optional[pulumi.Input[bool]] = None,
                  items_search_key: Optional[pulumi.Input[str]] = None,
                  labels: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -440,7 +423,6 @@ class Watchlist(pulumi.CustomResource):
         :param pulumi.Input[str] default_duration: The default duration of a watchlist (in ISO 8601 duration format)
         :param pulumi.Input[str] description: A description of the watchlist
         :param pulumi.Input[str] display_name: The display name of the watchlist
-        :param pulumi.Input[str] etag: Etag of the azure resource
         :param pulumi.Input[bool] is_deleted: A flag that indicates if the watchlist is deleted or not
         :param pulumi.Input[str] items_search_key: The search key is used to optimize query performance when using watchlists for joins with other data. For example, enable a column with IP addresses to be the designated SearchKey field, then use this field as the key field when joining to other event data by IP address.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] labels: List of labels relevant to this watchlist
@@ -489,7 +471,6 @@ class Watchlist(pulumi.CustomResource):
                  default_duration: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  is_deleted: Optional[pulumi.Input[bool]] = None,
                  items_search_key: Optional[pulumi.Input[str]] = None,
                  labels: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -527,7 +508,6 @@ class Watchlist(pulumi.CustomResource):
             if display_name is None and not opts.urn:
                 raise TypeError("Missing required property 'display_name'")
             __props__.__dict__["display_name"] = display_name
-            __props__.__dict__["etag"] = etag
             __props__.__dict__["is_deleted"] = is_deleted
             if items_search_key is None and not opts.urn:
                 raise TypeError("Missing required property 'items_search_key'")
@@ -555,6 +535,7 @@ class Watchlist(pulumi.CustomResource):
             if workspace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_name'")
             __props__.__dict__["workspace_name"] = workspace_name
+            __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None

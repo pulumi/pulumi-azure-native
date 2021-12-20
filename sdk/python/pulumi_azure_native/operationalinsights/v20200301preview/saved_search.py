@@ -20,7 +20,6 @@ class SavedSearchArgs:
                  query: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
                  workspace_name: pulumi.Input[str],
-                 etag: Optional[pulumi.Input[str]] = None,
                  function_alias: Optional[pulumi.Input[str]] = None,
                  function_parameters: Optional[pulumi.Input[str]] = None,
                  saved_search_id: Optional[pulumi.Input[str]] = None,
@@ -33,7 +32,6 @@ class SavedSearchArgs:
         :param pulumi.Input[str] query: The query expression for the saved search.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] workspace_name: The name of the workspace.
-        :param pulumi.Input[str] etag: The ETag of the saved search.
         :param pulumi.Input[str] function_alias: The function alias if query serves as a function.
         :param pulumi.Input[str] function_parameters: The optional function parameters if query serves as a function. Value should be in the following format: 'param-name1:type1 = default_value1, param-name2:type2 = default_value2'. For more examples and proper syntax please refer to https://docs.microsoft.com/en-us/azure/kusto/query/functions/user-defined-functions.
         :param pulumi.Input[str] saved_search_id: The id of the saved search.
@@ -45,8 +43,6 @@ class SavedSearchArgs:
         pulumi.set(__self__, "query", query)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "workspace_name", workspace_name)
-        if etag is not None:
-            pulumi.set(__self__, "etag", etag)
         if function_alias is not None:
             pulumi.set(__self__, "function_alias", function_alias)
         if function_parameters is not None:
@@ -119,18 +115,6 @@ class SavedSearchArgs:
         pulumi.set(self, "workspace_name", value)
 
     @property
-    @pulumi.getter
-    def etag(self) -> Optional[pulumi.Input[str]]:
-        """
-        The ETag of the saved search.
-        """
-        return pulumi.get(self, "etag")
-
-    @etag.setter
-    def etag(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "etag", value)
-
-    @property
     @pulumi.getter(name="functionAlias")
     def function_alias(self) -> Optional[pulumi.Input[str]]:
         """
@@ -198,7 +182,6 @@ class SavedSearch(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  category: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  function_alias: Optional[pulumi.Input[str]] = None,
                  function_parameters: Optional[pulumi.Input[str]] = None,
                  query: Optional[pulumi.Input[str]] = None,
@@ -215,7 +198,6 @@ class SavedSearch(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] category: The category of the saved search. This helps the user to find a saved search faster. 
         :param pulumi.Input[str] display_name: Saved search display name.
-        :param pulumi.Input[str] etag: The ETag of the saved search.
         :param pulumi.Input[str] function_alias: The function alias if query serves as a function.
         :param pulumi.Input[str] function_parameters: The optional function parameters if query serves as a function. Value should be in the following format: 'param-name1:type1 = default_value1, param-name2:type2 = default_value2'. For more examples and proper syntax please refer to https://docs.microsoft.com/en-us/azure/kusto/query/functions/user-defined-functions.
         :param pulumi.Input[str] query: The query expression for the saved search.
@@ -251,7 +233,6 @@ class SavedSearch(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  category: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  function_alias: Optional[pulumi.Input[str]] = None,
                  function_parameters: Optional[pulumi.Input[str]] = None,
                  query: Optional[pulumi.Input[str]] = None,
@@ -278,7 +259,6 @@ class SavedSearch(pulumi.CustomResource):
             if display_name is None and not opts.urn:
                 raise TypeError("Missing required property 'display_name'")
             __props__.__dict__["display_name"] = display_name
-            __props__.__dict__["etag"] = etag
             __props__.__dict__["function_alias"] = function_alias
             __props__.__dict__["function_parameters"] = function_parameters
             if query is None and not opts.urn:
@@ -293,6 +273,7 @@ class SavedSearch(pulumi.CustomResource):
             if workspace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_name'")
             __props__.__dict__["workspace_name"] = workspace_name
+            __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:operationalinsights:SavedSearch"), pulumi.Alias(type_="azure-native:operationalinsights/v20150320:SavedSearch"), pulumi.Alias(type_="azure-native:operationalinsights/v20200801:SavedSearch")])

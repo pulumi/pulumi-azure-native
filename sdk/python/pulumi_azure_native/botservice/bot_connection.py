@@ -19,7 +19,6 @@ class BotConnectionArgs:
                  resource_group_name: pulumi.Input[str],
                  resource_name: pulumi.Input[str],
                  connection_name: Optional[pulumi.Input[str]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[Union[str, 'Kind']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input['ConnectionSettingPropertiesArgs']] = None,
@@ -30,7 +29,6 @@ class BotConnectionArgs:
         :param pulumi.Input[str] resource_group_name: The name of the Bot resource group in the user subscription.
         :param pulumi.Input[str] resource_name: The name of the Bot resource.
         :param pulumi.Input[str] connection_name: The name of the Bot Service Connection Setting resource.
-        :param pulumi.Input[str] etag: Entity Tag
         :param pulumi.Input[Union[str, 'Kind']] kind: Required. Gets or sets the Kind of the resource.
         :param pulumi.Input[str] location: Specifies the location of the resource.
         :param pulumi.Input['ConnectionSettingPropertiesArgs'] properties: The set of properties specific to bot channel resource
@@ -41,8 +39,6 @@ class BotConnectionArgs:
         pulumi.set(__self__, "resource_name", resource_name)
         if connection_name is not None:
             pulumi.set(__self__, "connection_name", connection_name)
-        if etag is not None:
-            pulumi.set(__self__, "etag", etag)
         if kind is not None:
             pulumi.set(__self__, "kind", kind)
         if location is not None:
@@ -89,18 +85,6 @@ class BotConnectionArgs:
     @connection_name.setter
     def connection_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "connection_name", value)
-
-    @property
-    @pulumi.getter
-    def etag(self) -> Optional[pulumi.Input[str]]:
-        """
-        Entity Tag
-        """
-        return pulumi.get(self, "etag")
-
-    @etag.setter
-    def etag(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "etag", value)
 
     @property
     @pulumi.getter
@@ -169,7 +153,6 @@ class BotConnection(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  connection_name: Optional[pulumi.Input[str]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[Union[str, 'Kind']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[pulumi.InputType['ConnectionSettingPropertiesArgs']]] = None,
@@ -185,7 +168,6 @@ class BotConnection(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] connection_name: The name of the Bot Service Connection Setting resource.
-        :param pulumi.Input[str] etag: Entity Tag
         :param pulumi.Input[Union[str, 'Kind']] kind: Required. Gets or sets the Kind of the resource.
         :param pulumi.Input[str] location: Specifies the location of the resource.
         :param pulumi.Input[pulumi.InputType['ConnectionSettingPropertiesArgs']] properties: The set of properties specific to bot channel resource
@@ -220,7 +202,6 @@ class BotConnection(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  connection_name: Optional[pulumi.Input[str]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[Union[str, 'Kind']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[pulumi.InputType['ConnectionSettingPropertiesArgs']]] = None,
@@ -241,7 +222,6 @@ class BotConnection(pulumi.CustomResource):
             __props__ = BotConnectionArgs.__new__(BotConnectionArgs)
 
             __props__.__dict__["connection_name"] = connection_name
-            __props__.__dict__["etag"] = etag
             __props__.__dict__["kind"] = kind
             __props__.__dict__["location"] = location
             __props__.__dict__["properties"] = properties
@@ -253,6 +233,7 @@ class BotConnection(pulumi.CustomResource):
             __props__.__dict__["resource_name"] = resource_name_
             __props__.__dict__["sku"] = sku
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["zones"] = None

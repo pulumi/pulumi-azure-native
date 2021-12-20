@@ -18,7 +18,6 @@ class InterfaceEndpointArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  endpoint_service: Optional[pulumi.Input['EndpointServiceArgs']] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  fqdn: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  interface_endpoint_name: Optional[pulumi.Input[str]] = None,
@@ -29,7 +28,6 @@ class InterfaceEndpointArgs:
         The set of arguments for constructing a InterfaceEndpoint resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input['EndpointServiceArgs'] endpoint_service: A reference to the service being brought into the virtual network.
-        :param pulumi.Input[str] etag: Gets a unique read-only string that changes whenever the resource is updated.
         :param pulumi.Input[str] fqdn: A first-party service's FQDN that is mapped to the private IP allocated via this interface endpoint.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] interface_endpoint_name: The name of the interface endpoint.
@@ -40,8 +38,6 @@ class InterfaceEndpointArgs:
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if endpoint_service is not None:
             pulumi.set(__self__, "endpoint_service", endpoint_service)
-        if etag is not None:
-            pulumi.set(__self__, "etag", etag)
         if fqdn is not None:
             pulumi.set(__self__, "fqdn", fqdn)
         if id is not None:
@@ -78,18 +74,6 @@ class InterfaceEndpointArgs:
     @endpoint_service.setter
     def endpoint_service(self, value: Optional[pulumi.Input['EndpointServiceArgs']]):
         pulumi.set(self, "endpoint_service", value)
-
-    @property
-    @pulumi.getter
-    def etag(self) -> Optional[pulumi.Input[str]]:
-        """
-        Gets a unique read-only string that changes whenever the resource is updated.
-        """
-        return pulumi.get(self, "etag")
-
-    @etag.setter
-    def etag(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "etag", value)
 
     @property
     @pulumi.getter
@@ -170,7 +154,6 @@ class InterfaceEndpoint(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  endpoint_service: Optional[pulumi.Input[pulumi.InputType['EndpointServiceArgs']]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  fqdn: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  interface_endpoint_name: Optional[pulumi.Input[str]] = None,
@@ -185,7 +168,6 @@ class InterfaceEndpoint(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['EndpointServiceArgs']] endpoint_service: A reference to the service being brought into the virtual network.
-        :param pulumi.Input[str] etag: Gets a unique read-only string that changes whenever the resource is updated.
         :param pulumi.Input[str] fqdn: A first-party service's FQDN that is mapped to the private IP allocated via this interface endpoint.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] interface_endpoint_name: The name of the interface endpoint.
@@ -219,7 +201,6 @@ class InterfaceEndpoint(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  endpoint_service: Optional[pulumi.Input[pulumi.InputType['EndpointServiceArgs']]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  fqdn: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  interface_endpoint_name: Optional[pulumi.Input[str]] = None,
@@ -240,7 +221,6 @@ class InterfaceEndpoint(pulumi.CustomResource):
             __props__ = InterfaceEndpointArgs.__new__(InterfaceEndpointArgs)
 
             __props__.__dict__["endpoint_service"] = endpoint_service
-            __props__.__dict__["etag"] = etag
             __props__.__dict__["fqdn"] = fqdn
             __props__.__dict__["id"] = id
             __props__.__dict__["interface_endpoint_name"] = interface_endpoint_name
@@ -250,6 +230,7 @@ class InterfaceEndpoint(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["subnet"] = subnet
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["network_interfaces"] = None
             __props__.__dict__["owner"] = None

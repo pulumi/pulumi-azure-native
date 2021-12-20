@@ -18,7 +18,6 @@ class CustomApiArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  api_name: Optional[pulumi.Input[str]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input['CustomApiPropertiesDefinitionArgs']] = None,
                  subscription_id: Optional[pulumi.Input[str]] = None,
@@ -27,7 +26,6 @@ class CustomApiArgs:
         The set of arguments for constructing a CustomApi resource.
         :param pulumi.Input[str] resource_group_name: The resource group
         :param pulumi.Input[str] api_name: API name
-        :param pulumi.Input[str] etag: Resource ETag
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input['CustomApiPropertiesDefinitionArgs'] properties: Custom API properties
         :param pulumi.Input[str] subscription_id: Subscription Id
@@ -36,8 +34,6 @@ class CustomApiArgs:
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if api_name is not None:
             pulumi.set(__self__, "api_name", api_name)
-        if etag is not None:
-            pulumi.set(__self__, "etag", etag)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if properties is not None:
@@ -70,18 +66,6 @@ class CustomApiArgs:
     @api_name.setter
     def api_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "api_name", value)
-
-    @property
-    @pulumi.getter
-    def etag(self) -> Optional[pulumi.Input[str]]:
-        """
-        Resource ETag
-        """
-        return pulumi.get(self, "etag")
-
-    @etag.setter
-    def etag(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "etag", value)
 
     @property
     @pulumi.getter
@@ -138,7 +122,6 @@ class CustomApi(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  api_name: Optional[pulumi.Input[str]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[pulumi.InputType['CustomApiPropertiesDefinitionArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -152,7 +135,6 @@ class CustomApi(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] api_name: API name
-        :param pulumi.Input[str] etag: Resource ETag
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[pulumi.InputType['CustomApiPropertiesDefinitionArgs']] properties: Custom API properties
         :param pulumi.Input[str] resource_group_name: The resource group
@@ -185,7 +167,6 @@ class CustomApi(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  api_name: Optional[pulumi.Input[str]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[pulumi.InputType['CustomApiPropertiesDefinitionArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -204,7 +185,6 @@ class CustomApi(pulumi.CustomResource):
             __props__ = CustomApiArgs.__new__(CustomApiArgs)
 
             __props__.__dict__["api_name"] = api_name
-            __props__.__dict__["etag"] = etag
             __props__.__dict__["location"] = location
             __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
@@ -212,6 +192,7 @@ class CustomApi(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["subscription_id"] = subscription_id
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:web/v20160601:CustomApi")])

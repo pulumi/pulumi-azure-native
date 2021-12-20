@@ -21,7 +21,6 @@ class PrivateRecordSetArgs:
                  a_records: Optional[pulumi.Input[Sequence[pulumi.Input['ARecordArgs']]]] = None,
                  aaaa_records: Optional[pulumi.Input[Sequence[pulumi.Input['AaaaRecordArgs']]]] = None,
                  cname_record: Optional[pulumi.Input['CnameRecordArgs']] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  mx_records: Optional[pulumi.Input[Sequence[pulumi.Input['MxRecordArgs']]]] = None,
                  ptr_records: Optional[pulumi.Input[Sequence[pulumi.Input['PtrRecordArgs']]]] = None,
@@ -38,7 +37,6 @@ class PrivateRecordSetArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ARecordArgs']]] a_records: The list of A records in the record set.
         :param pulumi.Input[Sequence[pulumi.Input['AaaaRecordArgs']]] aaaa_records: The list of AAAA records in the record set.
         :param pulumi.Input['CnameRecordArgs'] cname_record: The CNAME record in the record set.
-        :param pulumi.Input[str] etag: The ETag of the record set.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: The metadata attached to the record set.
         :param pulumi.Input[Sequence[pulumi.Input['MxRecordArgs']]] mx_records: The list of MX records in the record set.
         :param pulumi.Input[Sequence[pulumi.Input['PtrRecordArgs']]] ptr_records: The list of PTR records in the record set.
@@ -57,8 +55,6 @@ class PrivateRecordSetArgs:
             pulumi.set(__self__, "aaaa_records", aaaa_records)
         if cname_record is not None:
             pulumi.set(__self__, "cname_record", cname_record)
-        if etag is not None:
-            pulumi.set(__self__, "etag", etag)
         if metadata is not None:
             pulumi.set(__self__, "metadata", metadata)
         if mx_records is not None:
@@ -147,18 +143,6 @@ class PrivateRecordSetArgs:
     @cname_record.setter
     def cname_record(self, value: Optional[pulumi.Input['CnameRecordArgs']]):
         pulumi.set(self, "cname_record", value)
-
-    @property
-    @pulumi.getter
-    def etag(self) -> Optional[pulumi.Input[str]]:
-        """
-        The ETag of the record set.
-        """
-        return pulumi.get(self, "etag")
-
-    @etag.setter
-    def etag(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "etag", value)
 
     @property
     @pulumi.getter
@@ -265,7 +249,6 @@ class PrivateRecordSet(pulumi.CustomResource):
                  a_records: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ARecordArgs']]]]] = None,
                  aaaa_records: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AaaaRecordArgs']]]]] = None,
                  cname_record: Optional[pulumi.Input[pulumi.InputType['CnameRecordArgs']]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  mx_records: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MxRecordArgs']]]]] = None,
                  private_zone_name: Optional[pulumi.Input[str]] = None,
@@ -286,7 +269,6 @@ class PrivateRecordSet(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ARecordArgs']]]] a_records: The list of A records in the record set.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AaaaRecordArgs']]]] aaaa_records: The list of AAAA records in the record set.
         :param pulumi.Input[pulumi.InputType['CnameRecordArgs']] cname_record: The CNAME record in the record set.
-        :param pulumi.Input[str] etag: The ETag of the record set.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: The metadata attached to the record set.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MxRecordArgs']]]] mx_records: The list of MX records in the record set.
         :param pulumi.Input[str] private_zone_name: The name of the Private DNS zone (without a terminating dot).
@@ -326,7 +308,6 @@ class PrivateRecordSet(pulumi.CustomResource):
                  a_records: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ARecordArgs']]]]] = None,
                  aaaa_records: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AaaaRecordArgs']]]]] = None,
                  cname_record: Optional[pulumi.Input[pulumi.InputType['CnameRecordArgs']]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  mx_records: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MxRecordArgs']]]]] = None,
                  private_zone_name: Optional[pulumi.Input[str]] = None,
@@ -353,7 +334,6 @@ class PrivateRecordSet(pulumi.CustomResource):
             __props__.__dict__["a_records"] = a_records
             __props__.__dict__["aaaa_records"] = aaaa_records
             __props__.__dict__["cname_record"] = cname_record
-            __props__.__dict__["etag"] = etag
             __props__.__dict__["metadata"] = metadata
             __props__.__dict__["mx_records"] = mx_records
             if private_zone_name is None and not opts.urn:
@@ -371,6 +351,7 @@ class PrivateRecordSet(pulumi.CustomResource):
             __props__.__dict__["srv_records"] = srv_records
             __props__.__dict__["ttl"] = ttl
             __props__.__dict__["txt_records"] = txt_records
+            __props__.__dict__["etag"] = None
             __props__.__dict__["fqdn"] = None
             __props__.__dict__["is_auto_registered"] = None
             __props__.__dict__["name"] = None

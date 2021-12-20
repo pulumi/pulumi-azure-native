@@ -23,7 +23,6 @@ class BookmarkArgs:
                  bookmark_id: Optional[pulumi.Input[str]] = None,
                  created: Optional[pulumi.Input[str]] = None,
                  created_by: Optional[pulumi.Input['UserInfoArgs']] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  event_time: Optional[pulumi.Input[str]] = None,
                  incident_info: Optional[pulumi.Input['IncidentInfoArgs']] = None,
                  labels: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -42,7 +41,6 @@ class BookmarkArgs:
         :param pulumi.Input[str] bookmark_id: Bookmark ID
         :param pulumi.Input[str] created: The time the bookmark was created
         :param pulumi.Input['UserInfoArgs'] created_by: Describes a user that created the bookmark
-        :param pulumi.Input[str] etag: Etag of the azure resource
         :param pulumi.Input[str] event_time: The bookmark event time
         :param pulumi.Input['IncidentInfoArgs'] incident_info: Describes an incident that relates to bookmark
         :param pulumi.Input[Sequence[pulumi.Input[str]]] labels: List of labels relevant to this bookmark
@@ -63,8 +61,6 @@ class BookmarkArgs:
             pulumi.set(__self__, "created", created)
         if created_by is not None:
             pulumi.set(__self__, "created_by", created_by)
-        if etag is not None:
-            pulumi.set(__self__, "etag", etag)
         if event_time is not None:
             pulumi.set(__self__, "event_time", event_time)
         if incident_info is not None:
@@ -167,18 +163,6 @@ class BookmarkArgs:
     @created_by.setter
     def created_by(self, value: Optional[pulumi.Input['UserInfoArgs']]):
         pulumi.set(self, "created_by", value)
-
-    @property
-    @pulumi.getter
-    def etag(self) -> Optional[pulumi.Input[str]]:
-        """
-        Etag of the azure resource
-        """
-        return pulumi.get(self, "etag")
-
-    @etag.setter
-    def etag(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "etag", value)
 
     @property
     @pulumi.getter(name="eventTime")
@@ -298,7 +282,6 @@ class Bookmark(pulumi.CustomResource):
                  created: Optional[pulumi.Input[str]] = None,
                  created_by: Optional[pulumi.Input[pulumi.InputType['UserInfoArgs']]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  event_time: Optional[pulumi.Input[str]] = None,
                  incident_info: Optional[pulumi.Input[pulumi.InputType['IncidentInfoArgs']]] = None,
                  labels: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -321,7 +304,6 @@ class Bookmark(pulumi.CustomResource):
         :param pulumi.Input[str] created: The time the bookmark was created
         :param pulumi.Input[pulumi.InputType['UserInfoArgs']] created_by: Describes a user that created the bookmark
         :param pulumi.Input[str] display_name: The display name of the bookmark
-        :param pulumi.Input[str] etag: Etag of the azure resource
         :param pulumi.Input[str] event_time: The bookmark event time
         :param pulumi.Input[pulumi.InputType['IncidentInfoArgs']] incident_info: Describes an incident that relates to bookmark
         :param pulumi.Input[Sequence[pulumi.Input[str]]] labels: List of labels relevant to this bookmark
@@ -363,7 +345,6 @@ class Bookmark(pulumi.CustomResource):
                  created: Optional[pulumi.Input[str]] = None,
                  created_by: Optional[pulumi.Input[pulumi.InputType['UserInfoArgs']]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  event_time: Optional[pulumi.Input[str]] = None,
                  incident_info: Optional[pulumi.Input[pulumi.InputType['IncidentInfoArgs']]] = None,
                  labels: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -394,7 +375,6 @@ class Bookmark(pulumi.CustomResource):
             if display_name is None and not opts.urn:
                 raise TypeError("Missing required property 'display_name'")
             __props__.__dict__["display_name"] = display_name
-            __props__.__dict__["etag"] = etag
             __props__.__dict__["event_time"] = event_time
             __props__.__dict__["incident_info"] = incident_info
             __props__.__dict__["labels"] = labels
@@ -413,6 +393,7 @@ class Bookmark(pulumi.CustomResource):
             if workspace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_name'")
             __props__.__dict__["workspace_name"] = workspace_name
+            __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None

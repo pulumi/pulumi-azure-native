@@ -20,7 +20,6 @@ class AutomationArgs:
                  actions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AutomationActionEventHubArgs', 'AutomationActionLogicAppArgs', 'AutomationActionWorkspaceArgs']]]]] = None,
                  automation_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  is_enabled: Optional[pulumi.Input[bool]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -33,7 +32,6 @@ class AutomationArgs:
         :param pulumi.Input[Sequence[pulumi.Input[Union['AutomationActionEventHubArgs', 'AutomationActionLogicAppArgs', 'AutomationActionWorkspaceArgs']]]] actions: A collection of the actions which are triggered if all the configured rules evaluations, within at least one rule set, are true.
         :param pulumi.Input[str] automation_name: The security automation name.
         :param pulumi.Input[str] description: The security automation description.
-        :param pulumi.Input[str] etag: Entity tag is used for comparing two or more entities from the same requested resource.
         :param pulumi.Input[bool] is_enabled: Indicates whether the security automation is enabled.
         :param pulumi.Input[str] kind: Kind of the resource
         :param pulumi.Input[str] location: Location where the resource is stored
@@ -48,8 +46,6 @@ class AutomationArgs:
             pulumi.set(__self__, "automation_name", automation_name)
         if description is not None:
             pulumi.set(__self__, "description", description)
-        if etag is not None:
-            pulumi.set(__self__, "etag", etag)
         if is_enabled is not None:
             pulumi.set(__self__, "is_enabled", is_enabled)
         if kind is not None:
@@ -110,18 +106,6 @@ class AutomationArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
-
-    @property
-    @pulumi.getter
-    def etag(self) -> Optional[pulumi.Input[str]]:
-        """
-        Entity tag is used for comparing two or more entities from the same requested resource.
-        """
-        return pulumi.get(self, "etag")
-
-    @etag.setter
-    def etag(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "etag", value)
 
     @property
     @pulumi.getter(name="isEnabled")
@@ -204,7 +188,6 @@ class Automation(pulumi.CustomResource):
                  actions: Optional[pulumi.Input[Sequence[pulumi.Input[Union[pulumi.InputType['AutomationActionEventHubArgs'], pulumi.InputType['AutomationActionLogicAppArgs'], pulumi.InputType['AutomationActionWorkspaceArgs']]]]]] = None,
                  automation_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  is_enabled: Optional[pulumi.Input[bool]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -221,7 +204,6 @@ class Automation(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union[pulumi.InputType['AutomationActionEventHubArgs'], pulumi.InputType['AutomationActionLogicAppArgs'], pulumi.InputType['AutomationActionWorkspaceArgs']]]]] actions: A collection of the actions which are triggered if all the configured rules evaluations, within at least one rule set, are true.
         :param pulumi.Input[str] automation_name: The security automation name.
         :param pulumi.Input[str] description: The security automation description.
-        :param pulumi.Input[str] etag: Entity tag is used for comparing two or more entities from the same requested resource.
         :param pulumi.Input[bool] is_enabled: Indicates whether the security automation is enabled.
         :param pulumi.Input[str] kind: Kind of the resource
         :param pulumi.Input[str] location: Location where the resource is stored
@@ -257,7 +239,6 @@ class Automation(pulumi.CustomResource):
                  actions: Optional[pulumi.Input[Sequence[pulumi.Input[Union[pulumi.InputType['AutomationActionEventHubArgs'], pulumi.InputType['AutomationActionLogicAppArgs'], pulumi.InputType['AutomationActionWorkspaceArgs']]]]]] = None,
                  automation_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  is_enabled: Optional[pulumi.Input[bool]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -280,7 +261,6 @@ class Automation(pulumi.CustomResource):
             __props__.__dict__["actions"] = actions
             __props__.__dict__["automation_name"] = automation_name
             __props__.__dict__["description"] = description
-            __props__.__dict__["etag"] = etag
             __props__.__dict__["is_enabled"] = is_enabled
             __props__.__dict__["kind"] = kind
             __props__.__dict__["location"] = location
@@ -290,6 +270,7 @@ class Automation(pulumi.CustomResource):
             __props__.__dict__["scopes"] = scopes
             __props__.__dict__["sources"] = sources
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:security:Automation")])

@@ -18,7 +18,6 @@ class RouteTableInitArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  disable_bgp_route_propagation: Optional[pulumi.Input[bool]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  route_table_name: Optional[pulumi.Input[str]] = None,
@@ -28,7 +27,6 @@ class RouteTableInitArgs:
         The set of arguments for constructing a RouteTable resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[bool] disable_bgp_route_propagation: Whether to disable the routes learned by BGP on that route table. True means disable.
-        :param pulumi.Input[str] etag: A unique read-only string that changes whenever the resource is updated.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] route_table_name: The name of the route table.
@@ -38,8 +36,6 @@ class RouteTableInitArgs:
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if disable_bgp_route_propagation is not None:
             pulumi.set(__self__, "disable_bgp_route_propagation", disable_bgp_route_propagation)
-        if etag is not None:
-            pulumi.set(__self__, "etag", etag)
         if id is not None:
             pulumi.set(__self__, "id", id)
         if location is not None:
@@ -74,18 +70,6 @@ class RouteTableInitArgs:
     @disable_bgp_route_propagation.setter
     def disable_bgp_route_propagation(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "disable_bgp_route_propagation", value)
-
-    @property
-    @pulumi.getter
-    def etag(self) -> Optional[pulumi.Input[str]]:
-        """
-        A unique read-only string that changes whenever the resource is updated.
-        """
-        return pulumi.get(self, "etag")
-
-    @etag.setter
-    def etag(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "etag", value)
 
     @property
     @pulumi.getter
@@ -154,7 +138,6 @@ class RouteTable(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  disable_bgp_route_propagation: Optional[pulumi.Input[bool]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -168,7 +151,6 @@ class RouteTable(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] disable_bgp_route_propagation: Whether to disable the routes learned by BGP on that route table. True means disable.
-        :param pulumi.Input[str] etag: A unique read-only string that changes whenever the resource is updated.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
@@ -201,7 +183,6 @@ class RouteTable(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  disable_bgp_route_propagation: Optional[pulumi.Input[bool]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -221,7 +202,6 @@ class RouteTable(pulumi.CustomResource):
             __props__ = RouteTableInitArgs.__new__(RouteTableInitArgs)
 
             __props__.__dict__["disable_bgp_route_propagation"] = disable_bgp_route_propagation
-            __props__.__dict__["etag"] = etag
             __props__.__dict__["id"] = id
             __props__.__dict__["location"] = location
             if resource_group_name is None and not opts.urn:
@@ -230,6 +210,7 @@ class RouteTable(pulumi.CustomResource):
             __props__.__dict__["route_table_name"] = route_table_name
             __props__.__dict__["routes"] = routes
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["subnets"] = None

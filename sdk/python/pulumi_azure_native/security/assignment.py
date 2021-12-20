@@ -23,7 +23,6 @@ class AssignmentArgs:
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  effect: Optional[pulumi.Input[str]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  expires_on: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -40,7 +39,6 @@ class AssignmentArgs:
         :param pulumi.Input[str] description: description of the standardAssignment
         :param pulumi.Input[str] display_name: display name of the standardAssignment
         :param pulumi.Input[str] effect: expected effect of this assignment (Disable/Exempt/etc)
-        :param pulumi.Input[str] etag: Entity tag is used for comparing two or more entities from the same requested resource.
         :param pulumi.Input[str] expires_on: Expiration date of this assignment as a full ISO date
         :param pulumi.Input[str] kind: Kind of the resource
         :param pulumi.Input[str] location: Location where the resource is stored
@@ -63,8 +61,6 @@ class AssignmentArgs:
             pulumi.set(__self__, "display_name", display_name)
         if effect is not None:
             pulumi.set(__self__, "effect", effect)
-        if etag is not None:
-            pulumi.set(__self__, "etag", etag)
         if expires_on is not None:
             pulumi.set(__self__, "expires_on", expires_on)
         if kind is not None:
@@ -175,18 +171,6 @@ class AssignmentArgs:
         pulumi.set(self, "effect", value)
 
     @property
-    @pulumi.getter
-    def etag(self) -> Optional[pulumi.Input[str]]:
-        """
-        Entity tag is used for comparing two or more entities from the same requested resource.
-        """
-        return pulumi.get(self, "etag")
-
-    @etag.setter
-    def etag(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "etag", value)
-
-    @property
     @pulumi.getter(name="expiresOn")
     def expires_on(self) -> Optional[pulumi.Input[str]]:
         """
@@ -271,7 +255,6 @@ class Assignment(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  effect: Optional[pulumi.Input[str]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  expires_on: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -293,7 +276,6 @@ class Assignment(pulumi.CustomResource):
         :param pulumi.Input[str] description: description of the standardAssignment
         :param pulumi.Input[str] display_name: display name of the standardAssignment
         :param pulumi.Input[str] effect: expected effect of this assignment (Disable/Exempt/etc)
-        :param pulumi.Input[str] etag: Entity tag is used for comparing two or more entities from the same requested resource.
         :param pulumi.Input[str] expires_on: Expiration date of this assignment as a full ISO date
         :param pulumi.Input[str] kind: Kind of the resource
         :param pulumi.Input[str] location: Location where the resource is stored
@@ -334,7 +316,6 @@ class Assignment(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  effect: Optional[pulumi.Input[str]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  expires_on: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -361,7 +342,6 @@ class Assignment(pulumi.CustomResource):
             __props__.__dict__["description"] = description
             __props__.__dict__["display_name"] = display_name
             __props__.__dict__["effect"] = effect
-            __props__.__dict__["etag"] = etag
             __props__.__dict__["expires_on"] = expires_on
             __props__.__dict__["kind"] = kind
             __props__.__dict__["location"] = location
@@ -371,6 +351,7 @@ class Assignment(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["scope"] = scope
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None

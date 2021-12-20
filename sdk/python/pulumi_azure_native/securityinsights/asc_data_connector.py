@@ -21,7 +21,6 @@ class ASCDataConnectorArgs:
                  workspace_name: pulumi.Input[str],
                  data_connector_id: Optional[pulumi.Input[str]] = None,
                  data_types: Optional[pulumi.Input['AlertsDataTypeOfDataConnectorArgs']] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  subscription_id: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ASCDataConnector resource.
@@ -31,7 +30,6 @@ class ASCDataConnectorArgs:
         :param pulumi.Input[str] workspace_name: The name of the workspace.
         :param pulumi.Input[str] data_connector_id: Connector ID
         :param pulumi.Input['AlertsDataTypeOfDataConnectorArgs'] data_types: The available data types for the connector.
-        :param pulumi.Input[str] etag: Etag of the azure resource
         :param pulumi.Input[str] subscription_id: The subscription id to connect to, and get the data from.
         """
         pulumi.set(__self__, "kind", 'AzureSecurityCenter')
@@ -41,8 +39,6 @@ class ASCDataConnectorArgs:
             pulumi.set(__self__, "data_connector_id", data_connector_id)
         if data_types is not None:
             pulumi.set(__self__, "data_types", data_types)
-        if etag is not None:
-            pulumi.set(__self__, "etag", etag)
         if subscription_id is not None:
             pulumi.set(__self__, "subscription_id", subscription_id)
 
@@ -108,18 +104,6 @@ class ASCDataConnectorArgs:
         pulumi.set(self, "data_types", value)
 
     @property
-    @pulumi.getter
-    def etag(self) -> Optional[pulumi.Input[str]]:
-        """
-        Etag of the azure resource
-        """
-        return pulumi.get(self, "etag")
-
-    @etag.setter
-    def etag(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "etag", value)
-
-    @property
     @pulumi.getter(name="subscriptionId")
     def subscription_id(self) -> Optional[pulumi.Input[str]]:
         """
@@ -139,7 +123,6 @@ class ASCDataConnector(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  data_connector_id: Optional[pulumi.Input[str]] = None,
                  data_types: Optional[pulumi.Input[pulumi.InputType['AlertsDataTypeOfDataConnectorArgs']]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  subscription_id: Optional[pulumi.Input[str]] = None,
@@ -153,7 +136,6 @@ class ASCDataConnector(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] data_connector_id: Connector ID
         :param pulumi.Input[pulumi.InputType['AlertsDataTypeOfDataConnectorArgs']] data_types: The available data types for the connector.
-        :param pulumi.Input[str] etag: Etag of the azure resource
         :param pulumi.Input[str] kind: The kind of the data connector
                Expected value is 'AzureSecurityCenter'.
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
@@ -187,7 +169,6 @@ class ASCDataConnector(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  data_connector_id: Optional[pulumi.Input[str]] = None,
                  data_types: Optional[pulumi.Input[pulumi.InputType['AlertsDataTypeOfDataConnectorArgs']]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  subscription_id: Optional[pulumi.Input[str]] = None,
@@ -206,7 +187,6 @@ class ASCDataConnector(pulumi.CustomResource):
 
             __props__.__dict__["data_connector_id"] = data_connector_id
             __props__.__dict__["data_types"] = data_types
-            __props__.__dict__["etag"] = etag
             if kind is None and not opts.urn:
                 raise TypeError("Missing required property 'kind'")
             __props__.__dict__["kind"] = 'AzureSecurityCenter'
@@ -217,6 +197,7 @@ class ASCDataConnector(pulumi.CustomResource):
             if workspace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_name'")
             __props__.__dict__["workspace_name"] = workspace_name
+            __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:securityinsights/v20190101preview:ASCDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20200101:ASCDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20210301preview:ASCDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20210901preview:ASCDataConnector")])

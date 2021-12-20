@@ -22,7 +22,6 @@ class DomainServiceArgs:
                  domain_name: Optional[pulumi.Input[str]] = None,
                  domain_security_settings: Optional[pulumi.Input['DomainSecuritySettingsArgs']] = None,
                  domain_service_name: Optional[pulumi.Input[str]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  filtered_sync: Optional[pulumi.Input[Union[str, 'FilteredSync']]] = None,
                  ldaps_settings: Optional[pulumi.Input['LdapsSettingsArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -39,7 +38,6 @@ class DomainServiceArgs:
         :param pulumi.Input[str] domain_name: The name of the Azure domain that the user would like to deploy Domain Services to.
         :param pulumi.Input['DomainSecuritySettingsArgs'] domain_security_settings: DomainSecurity Settings
         :param pulumi.Input[str] domain_service_name: The name of the domain service.
-        :param pulumi.Input[str] etag: Resource etag
         :param pulumi.Input[Union[str, 'FilteredSync']] filtered_sync: Enabled or Disabled flag to turn on Group-based filtered sync
         :param pulumi.Input['LdapsSettingsArgs'] ldaps_settings: Secure LDAP Settings
         :param pulumi.Input[str] location: Resource location
@@ -60,8 +58,6 @@ class DomainServiceArgs:
             pulumi.set(__self__, "domain_security_settings", domain_security_settings)
         if domain_service_name is not None:
             pulumi.set(__self__, "domain_service_name", domain_service_name)
-        if etag is not None:
-            pulumi.set(__self__, "etag", etag)
         if filtered_sync is not None:
             pulumi.set(__self__, "filtered_sync", filtered_sync)
         if ldaps_settings is not None:
@@ -150,18 +146,6 @@ class DomainServiceArgs:
     @domain_service_name.setter
     def domain_service_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "domain_service_name", value)
-
-    @property
-    @pulumi.getter
-    def etag(self) -> Optional[pulumi.Input[str]]:
-        """
-        Resource etag
-        """
-        return pulumi.get(self, "etag")
-
-    @etag.setter
-    def etag(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "etag", value)
 
     @property
     @pulumi.getter(name="filteredSync")
@@ -270,7 +254,6 @@ class DomainService(pulumi.CustomResource):
                  domain_name: Optional[pulumi.Input[str]] = None,
                  domain_security_settings: Optional[pulumi.Input[pulumi.InputType['DomainSecuritySettingsArgs']]] = None,
                  domain_service_name: Optional[pulumi.Input[str]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  filtered_sync: Optional[pulumi.Input[Union[str, 'FilteredSync']]] = None,
                  ldaps_settings: Optional[pulumi.Input[pulumi.InputType['LdapsSettingsArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -291,7 +274,6 @@ class DomainService(pulumi.CustomResource):
         :param pulumi.Input[str] domain_name: The name of the Azure domain that the user would like to deploy Domain Services to.
         :param pulumi.Input[pulumi.InputType['DomainSecuritySettingsArgs']] domain_security_settings: DomainSecurity Settings
         :param pulumi.Input[str] domain_service_name: The name of the domain service.
-        :param pulumi.Input[str] etag: Resource etag
         :param pulumi.Input[Union[str, 'FilteredSync']] filtered_sync: Enabled or Disabled flag to turn on Group-based filtered sync
         :param pulumi.Input[pulumi.InputType['LdapsSettingsArgs']] ldaps_settings: Secure LDAP Settings
         :param pulumi.Input[str] location: Resource location
@@ -331,7 +313,6 @@ class DomainService(pulumi.CustomResource):
                  domain_name: Optional[pulumi.Input[str]] = None,
                  domain_security_settings: Optional[pulumi.Input[pulumi.InputType['DomainSecuritySettingsArgs']]] = None,
                  domain_service_name: Optional[pulumi.Input[str]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  filtered_sync: Optional[pulumi.Input[Union[str, 'FilteredSync']]] = None,
                  ldaps_settings: Optional[pulumi.Input[pulumi.InputType['LdapsSettingsArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -358,7 +339,6 @@ class DomainService(pulumi.CustomResource):
             __props__.__dict__["domain_name"] = domain_name
             __props__.__dict__["domain_security_settings"] = domain_security_settings
             __props__.__dict__["domain_service_name"] = domain_service_name
-            __props__.__dict__["etag"] = etag
             __props__.__dict__["filtered_sync"] = filtered_sync
             __props__.__dict__["ldaps_settings"] = ldaps_settings
             __props__.__dict__["location"] = location
@@ -371,6 +351,7 @@ class DomainService(pulumi.CustomResource):
             __props__.__dict__["sku"] = sku
             __props__.__dict__["tags"] = tags
             __props__.__dict__["deployment_id"] = None
+            __props__.__dict__["etag"] = None
             __props__.__dict__["migration_properties"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None

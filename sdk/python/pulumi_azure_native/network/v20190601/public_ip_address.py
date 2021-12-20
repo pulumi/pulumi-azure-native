@@ -19,7 +19,6 @@ class PublicIPAddressInitArgs:
                  resource_group_name: pulumi.Input[str],
                  ddos_settings: Optional[pulumi.Input['DdosSettingsArgs']] = None,
                  dns_settings: Optional[pulumi.Input['PublicIPAddressDnsSettingsArgs']] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  idle_timeout_in_minutes: Optional[pulumi.Input[int]] = None,
                  ip_address: Optional[pulumi.Input[str]] = None,
@@ -39,7 +38,6 @@ class PublicIPAddressInitArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input['DdosSettingsArgs'] ddos_settings: The DDoS protection custom policy associated with the public IP address.
         :param pulumi.Input['PublicIPAddressDnsSettingsArgs'] dns_settings: The FQDN of the DNS record associated with the public IP address.
-        :param pulumi.Input[str] etag: A unique read-only string that changes whenever the resource is updated.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[int] idle_timeout_in_minutes: The idle timeout of the public IP address.
         :param pulumi.Input[str] ip_address: The IP address associated with the public IP address resource.
@@ -60,8 +58,6 @@ class PublicIPAddressInitArgs:
             pulumi.set(__self__, "ddos_settings", ddos_settings)
         if dns_settings is not None:
             pulumi.set(__self__, "dns_settings", dns_settings)
-        if etag is not None:
-            pulumi.set(__self__, "etag", etag)
         if id is not None:
             pulumi.set(__self__, "id", id)
         if idle_timeout_in_minutes is not None:
@@ -126,18 +122,6 @@ class PublicIPAddressInitArgs:
     @dns_settings.setter
     def dns_settings(self, value: Optional[pulumi.Input['PublicIPAddressDnsSettingsArgs']]):
         pulumi.set(self, "dns_settings", value)
-
-    @property
-    @pulumi.getter
-    def etag(self) -> Optional[pulumi.Input[str]]:
-        """
-        A unique read-only string that changes whenever the resource is updated.
-        """
-        return pulumi.get(self, "etag")
-
-    @etag.setter
-    def etag(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "etag", value)
 
     @property
     @pulumi.getter
@@ -315,7 +299,6 @@ class PublicIPAddress(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  ddos_settings: Optional[pulumi.Input[pulumi.InputType['DdosSettingsArgs']]] = None,
                  dns_settings: Optional[pulumi.Input[pulumi.InputType['PublicIPAddressDnsSettingsArgs']]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  idle_timeout_in_minutes: Optional[pulumi.Input[int]] = None,
                  ip_address: Optional[pulumi.Input[str]] = None,
@@ -339,7 +322,6 @@ class PublicIPAddress(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['DdosSettingsArgs']] ddos_settings: The DDoS protection custom policy associated with the public IP address.
         :param pulumi.Input[pulumi.InputType['PublicIPAddressDnsSettingsArgs']] dns_settings: The FQDN of the DNS record associated with the public IP address.
-        :param pulumi.Input[str] etag: A unique read-only string that changes whenever the resource is updated.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[int] idle_timeout_in_minutes: The idle timeout of the public IP address.
         :param pulumi.Input[str] ip_address: The IP address associated with the public IP address resource.
@@ -382,7 +364,6 @@ class PublicIPAddress(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  ddos_settings: Optional[pulumi.Input[pulumi.InputType['DdosSettingsArgs']]] = None,
                  dns_settings: Optional[pulumi.Input[pulumi.InputType['PublicIPAddressDnsSettingsArgs']]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  idle_timeout_in_minutes: Optional[pulumi.Input[int]] = None,
                  ip_address: Optional[pulumi.Input[str]] = None,
@@ -412,7 +393,6 @@ class PublicIPAddress(pulumi.CustomResource):
 
             __props__.__dict__["ddos_settings"] = ddos_settings
             __props__.__dict__["dns_settings"] = dns_settings
-            __props__.__dict__["etag"] = etag
             __props__.__dict__["id"] = id
             __props__.__dict__["idle_timeout_in_minutes"] = idle_timeout_in_minutes
             __props__.__dict__["ip_address"] = ip_address
@@ -430,6 +410,7 @@ class PublicIPAddress(pulumi.CustomResource):
             __props__.__dict__["sku"] = sku
             __props__.__dict__["tags"] = tags
             __props__.__dict__["zones"] = zones
+            __props__.__dict__["etag"] = None
             __props__.__dict__["ip_configuration"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None

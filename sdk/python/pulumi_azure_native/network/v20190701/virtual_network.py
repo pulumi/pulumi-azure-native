@@ -22,7 +22,6 @@ class VirtualNetworkArgs:
                  dhcp_options: Optional[pulumi.Input['DhcpOptionsArgs']] = None,
                  enable_ddos_protection: Optional[pulumi.Input[bool]] = None,
                  enable_vm_protection: Optional[pulumi.Input[bool]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_guid: Optional[pulumi.Input[str]] = None,
@@ -38,7 +37,6 @@ class VirtualNetworkArgs:
         :param pulumi.Input['DhcpOptionsArgs'] dhcp_options: The dhcpOptions that contains an array of DNS servers available to VMs deployed in the virtual network.
         :param pulumi.Input[bool] enable_ddos_protection: Indicates if DDoS protection is enabled for all the protected resources in the virtual network. It requires a DDoS protection plan associated with the resource.
         :param pulumi.Input[bool] enable_vm_protection: Indicates if VM protection is enabled for all the subnets in the virtual network.
-        :param pulumi.Input[str] etag: A unique read-only string that changes whenever the resource is updated.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] resource_guid: The resourceGuid property of the Virtual Network resource.
@@ -62,8 +60,6 @@ class VirtualNetworkArgs:
             enable_vm_protection = False
         if enable_vm_protection is not None:
             pulumi.set(__self__, "enable_vm_protection", enable_vm_protection)
-        if etag is not None:
-            pulumi.set(__self__, "etag", etag)
         if id is not None:
             pulumi.set(__self__, "id", id)
         if location is not None:
@@ -150,18 +146,6 @@ class VirtualNetworkArgs:
     @enable_vm_protection.setter
     def enable_vm_protection(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enable_vm_protection", value)
-
-    @property
-    @pulumi.getter
-    def etag(self) -> Optional[pulumi.Input[str]]:
-        """
-        A unique read-only string that changes whenever the resource is updated.
-        """
-        return pulumi.get(self, "etag")
-
-    @etag.setter
-    def etag(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "etag", value)
 
     @property
     @pulumi.getter
@@ -258,7 +242,6 @@ class VirtualNetwork(pulumi.CustomResource):
                  dhcp_options: Optional[pulumi.Input[pulumi.InputType['DhcpOptionsArgs']]] = None,
                  enable_ddos_protection: Optional[pulumi.Input[bool]] = None,
                  enable_vm_protection: Optional[pulumi.Input[bool]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -278,7 +261,6 @@ class VirtualNetwork(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['DhcpOptionsArgs']] dhcp_options: The dhcpOptions that contains an array of DNS servers available to VMs deployed in the virtual network.
         :param pulumi.Input[bool] enable_ddos_protection: Indicates if DDoS protection is enabled for all the protected resources in the virtual network. It requires a DDoS protection plan associated with the resource.
         :param pulumi.Input[bool] enable_vm_protection: Indicates if VM protection is enabled for all the subnets in the virtual network.
-        :param pulumi.Input[str] etag: A unique read-only string that changes whenever the resource is updated.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
@@ -317,7 +299,6 @@ class VirtualNetwork(pulumi.CustomResource):
                  dhcp_options: Optional[pulumi.Input[pulumi.InputType['DhcpOptionsArgs']]] = None,
                  enable_ddos_protection: Optional[pulumi.Input[bool]] = None,
                  enable_vm_protection: Optional[pulumi.Input[bool]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -347,7 +328,6 @@ class VirtualNetwork(pulumi.CustomResource):
             if enable_vm_protection is None:
                 enable_vm_protection = False
             __props__.__dict__["enable_vm_protection"] = enable_vm_protection
-            __props__.__dict__["etag"] = etag
             __props__.__dict__["id"] = id
             __props__.__dict__["location"] = location
             if resource_group_name is None and not opts.urn:
@@ -358,6 +338,7 @@ class VirtualNetwork(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["virtual_network_name"] = virtual_network_name
             __props__.__dict__["virtual_network_peerings"] = virtual_network_peerings
+            __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["type"] = None

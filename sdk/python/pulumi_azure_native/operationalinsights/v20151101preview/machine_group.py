@@ -21,7 +21,6 @@ class MachineGroupArgs:
                  resource_group_name: pulumi.Input[str],
                  workspace_name: pulumi.Input[str],
                  count: Optional[pulumi.Input[int]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  group_type: Optional[pulumi.Input[Union[str, 'MachineGroupType']]] = None,
                  machine_group_name: Optional[pulumi.Input[str]] = None,
                  machines: Optional[pulumi.Input[Sequence[pulumi.Input['MachineReferenceWithHintsArgs']]]] = None):
@@ -33,7 +32,6 @@ class MachineGroupArgs:
         :param pulumi.Input[str] resource_group_name: Resource group name within the specified subscriptionId.
         :param pulumi.Input[str] workspace_name: OMS workspace containing the resources of interest.
         :param pulumi.Input[int] count: Count of machines in this group. The value of count may be bigger than the number of machines in case of the group has been truncated due to exceeding the max number of machines a group can handle.
-        :param pulumi.Input[str] etag: Resource ETAG.
         :param pulumi.Input[Union[str, 'MachineGroupType']] group_type: Type of the machine group
         :param pulumi.Input[str] machine_group_name: Machine Group resource name.
         :param pulumi.Input[Sequence[pulumi.Input['MachineReferenceWithHintsArgs']]] machines: References of the machines in this group. The hints within each reference do not represent the current value of the corresponding fields. They are a snapshot created during the last time the machine group was updated.
@@ -44,8 +42,6 @@ class MachineGroupArgs:
         pulumi.set(__self__, "workspace_name", workspace_name)
         if count is not None:
             pulumi.set(__self__, "count", count)
-        if etag is not None:
-            pulumi.set(__self__, "etag", etag)
         if group_type is not None:
             pulumi.set(__self__, "group_type", group_type)
         if machine_group_name is not None:
@@ -115,18 +111,6 @@ class MachineGroupArgs:
         pulumi.set(self, "count", value)
 
     @property
-    @pulumi.getter
-    def etag(self) -> Optional[pulumi.Input[str]]:
-        """
-        Resource ETAG.
-        """
-        return pulumi.get(self, "etag")
-
-    @etag.setter
-    def etag(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "etag", value)
-
-    @property
     @pulumi.getter(name="groupType")
     def group_type(self) -> Optional[pulumi.Input[Union[str, 'MachineGroupType']]]:
         """
@@ -170,7 +154,6 @@ class MachineGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  count: Optional[pulumi.Input[int]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  group_type: Optional[pulumi.Input[Union[str, 'MachineGroupType']]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  machine_group_name: Optional[pulumi.Input[str]] = None,
@@ -185,7 +168,6 @@ class MachineGroup(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] count: Count of machines in this group. The value of count may be bigger than the number of machines in case of the group has been truncated due to exceeding the max number of machines a group can handle.
         :param pulumi.Input[str] display_name: User defined name for the group
-        :param pulumi.Input[str] etag: Resource ETAG.
         :param pulumi.Input[Union[str, 'MachineGroupType']] group_type: Type of the machine group
         :param pulumi.Input[str] kind: Additional resource type qualifier.
                Expected value is 'machineGroup'.
@@ -220,7 +202,6 @@ class MachineGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  count: Optional[pulumi.Input[int]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  group_type: Optional[pulumi.Input[Union[str, 'MachineGroupType']]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  machine_group_name: Optional[pulumi.Input[str]] = None,
@@ -243,7 +224,6 @@ class MachineGroup(pulumi.CustomResource):
             if display_name is None and not opts.urn:
                 raise TypeError("Missing required property 'display_name'")
             __props__.__dict__["display_name"] = display_name
-            __props__.__dict__["etag"] = etag
             __props__.__dict__["group_type"] = group_type
             if kind is None and not opts.urn:
                 raise TypeError("Missing required property 'kind'")
@@ -256,6 +236,7 @@ class MachineGroup(pulumi.CustomResource):
             if workspace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_name'")
             __props__.__dict__["workspace_name"] = workspace_name
+            __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:operationalinsights:MachineGroup")])

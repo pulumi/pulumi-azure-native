@@ -18,7 +18,6 @@ class SecurityConnectorArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  cloud_name: Optional[pulumi.Input[Union[str, 'CloudName']]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  hierarchy_identifier: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -30,7 +29,6 @@ class SecurityConnectorArgs:
         The set of arguments for constructing a SecurityConnector resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
         :param pulumi.Input[Union[str, 'CloudName']] cloud_name: The multi cloud resource's cloud name.
-        :param pulumi.Input[str] etag: Entity tag is used for comparing two or more entities from the same requested resource.
         :param pulumi.Input[str] hierarchy_identifier: The multi cloud resource identifier (account id in case of AWS connector).
         :param pulumi.Input[str] kind: Kind of the resource
         :param pulumi.Input[str] location: Location where the resource is stored
@@ -42,8 +40,6 @@ class SecurityConnectorArgs:
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if cloud_name is not None:
             pulumi.set(__self__, "cloud_name", cloud_name)
-        if etag is not None:
-            pulumi.set(__self__, "etag", etag)
         if hierarchy_identifier is not None:
             pulumi.set(__self__, "hierarchy_identifier", hierarchy_identifier)
         if kind is not None:
@@ -82,18 +78,6 @@ class SecurityConnectorArgs:
     @cloud_name.setter
     def cloud_name(self, value: Optional[pulumi.Input[Union[str, 'CloudName']]]):
         pulumi.set(self, "cloud_name", value)
-
-    @property
-    @pulumi.getter
-    def etag(self) -> Optional[pulumi.Input[str]]:
-        """
-        Entity tag is used for comparing two or more entities from the same requested resource.
-        """
-        return pulumi.get(self, "etag")
-
-    @etag.setter
-    def etag(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "etag", value)
 
     @property
     @pulumi.getter(name="hierarchyIdentifier")
@@ -186,7 +170,6 @@ class SecurityConnector(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cloud_name: Optional[pulumi.Input[Union[str, 'CloudName']]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  hierarchy_identifier: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -202,7 +185,6 @@ class SecurityConnector(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[str, 'CloudName']] cloud_name: The multi cloud resource's cloud name.
-        :param pulumi.Input[str] etag: Entity tag is used for comparing two or more entities from the same requested resource.
         :param pulumi.Input[str] hierarchy_identifier: The multi cloud resource identifier (account id in case of AWS connector).
         :param pulumi.Input[str] kind: Kind of the resource
         :param pulumi.Input[str] location: Location where the resource is stored
@@ -237,7 +219,6 @@ class SecurityConnector(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cloud_name: Optional[pulumi.Input[Union[str, 'CloudName']]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  hierarchy_identifier: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -259,7 +240,6 @@ class SecurityConnector(pulumi.CustomResource):
             __props__ = SecurityConnectorArgs.__new__(SecurityConnectorArgs)
 
             __props__.__dict__["cloud_name"] = cloud_name
-            __props__.__dict__["etag"] = etag
             __props__.__dict__["hierarchy_identifier"] = hierarchy_identifier
             __props__.__dict__["kind"] = kind
             __props__.__dict__["location"] = location
@@ -270,6 +250,7 @@ class SecurityConnector(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["security_connector_name"] = security_connector_name
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None

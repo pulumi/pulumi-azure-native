@@ -18,7 +18,6 @@ class PublicIPAddressInitArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  dns_settings: Optional[pulumi.Input['PublicIPAddressDnsSettingsArgs']] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  idle_timeout_in_minutes: Optional[pulumi.Input[int]] = None,
                  ip_address: Optional[pulumi.Input[str]] = None,
@@ -33,7 +32,6 @@ class PublicIPAddressInitArgs:
         The set of arguments for constructing a PublicIPAddress resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input['PublicIPAddressDnsSettingsArgs'] dns_settings: The FQDN of the DNS record associated with the public IP address.
-        :param pulumi.Input[str] etag: A unique read-only string that changes whenever the resource is updated.
         :param pulumi.Input[str] id: Resource Identifier.
         :param pulumi.Input[int] idle_timeout_in_minutes: The idle timeout of the public IP address.
         :param pulumi.Input['IPConfigurationArgs'] ip_configuration: IPConfiguration
@@ -47,8 +45,6 @@ class PublicIPAddressInitArgs:
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if dns_settings is not None:
             pulumi.set(__self__, "dns_settings", dns_settings)
-        if etag is not None:
-            pulumi.set(__self__, "etag", etag)
         if id is not None:
             pulumi.set(__self__, "id", id)
         if idle_timeout_in_minutes is not None:
@@ -93,18 +89,6 @@ class PublicIPAddressInitArgs:
     @dns_settings.setter
     def dns_settings(self, value: Optional[pulumi.Input['PublicIPAddressDnsSettingsArgs']]):
         pulumi.set(self, "dns_settings", value)
-
-    @property
-    @pulumi.getter
-    def etag(self) -> Optional[pulumi.Input[str]]:
-        """
-        A unique read-only string that changes whenever the resource is updated.
-        """
-        return pulumi.get(self, "etag")
-
-    @etag.setter
-    def etag(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "etag", value)
 
     @property
     @pulumi.getter
@@ -230,7 +214,6 @@ class PublicIPAddress(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  dns_settings: Optional[pulumi.Input[pulumi.InputType['PublicIPAddressDnsSettingsArgs']]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  idle_timeout_in_minutes: Optional[pulumi.Input[int]] = None,
                  ip_address: Optional[pulumi.Input[str]] = None,
@@ -249,7 +232,6 @@ class PublicIPAddress(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['PublicIPAddressDnsSettingsArgs']] dns_settings: The FQDN of the DNS record associated with the public IP address.
-        :param pulumi.Input[str] etag: A unique read-only string that changes whenever the resource is updated.
         :param pulumi.Input[str] id: Resource Identifier.
         :param pulumi.Input[int] idle_timeout_in_minutes: The idle timeout of the public IP address.
         :param pulumi.Input[pulumi.InputType['IPConfigurationArgs']] ip_configuration: IPConfiguration
@@ -286,7 +268,6 @@ class PublicIPAddress(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  dns_settings: Optional[pulumi.Input[pulumi.InputType['PublicIPAddressDnsSettingsArgs']]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  idle_timeout_in_minutes: Optional[pulumi.Input[int]] = None,
                  ip_address: Optional[pulumi.Input[str]] = None,
@@ -311,7 +292,6 @@ class PublicIPAddress(pulumi.CustomResource):
             __props__ = PublicIPAddressInitArgs.__new__(PublicIPAddressInitArgs)
 
             __props__.__dict__["dns_settings"] = dns_settings
-            __props__.__dict__["etag"] = etag
             __props__.__dict__["id"] = id
             __props__.__dict__["idle_timeout_in_minutes"] = idle_timeout_in_minutes
             __props__.__dict__["ip_address"] = ip_address
@@ -325,6 +305,7 @@ class PublicIPAddress(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["resource_guid"] = resource_guid
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network:PublicIPAddress"), pulumi.Alias(type_="azure-native:network/v20150501preview:PublicIPAddress"), pulumi.Alias(type_="azure-native:network/v20160330:PublicIPAddress"), pulumi.Alias(type_="azure-native:network/v20160601:PublicIPAddress"), pulumi.Alias(type_="azure-native:network/v20160901:PublicIPAddress"), pulumi.Alias(type_="azure-native:network/v20161201:PublicIPAddress"), pulumi.Alias(type_="azure-native:network/v20170301:PublicIPAddress"), pulumi.Alias(type_="azure-native:network/v20170601:PublicIPAddress"), pulumi.Alias(type_="azure-native:network/v20170801:PublicIPAddress"), pulumi.Alias(type_="azure-native:network/v20170901:PublicIPAddress"), pulumi.Alias(type_="azure-native:network/v20171001:PublicIPAddress"), pulumi.Alias(type_="azure-native:network/v20171101:PublicIPAddress"), pulumi.Alias(type_="azure-native:network/v20180101:PublicIPAddress"), pulumi.Alias(type_="azure-native:network/v20180201:PublicIPAddress"), pulumi.Alias(type_="azure-native:network/v20180401:PublicIPAddress"), pulumi.Alias(type_="azure-native:network/v20180601:PublicIPAddress"), pulumi.Alias(type_="azure-native:network/v20180701:PublicIPAddress"), pulumi.Alias(type_="azure-native:network/v20180801:PublicIPAddress"), pulumi.Alias(type_="azure-native:network/v20181001:PublicIPAddress"), pulumi.Alias(type_="azure-native:network/v20181101:PublicIPAddress"), pulumi.Alias(type_="azure-native:network/v20181201:PublicIPAddress"), pulumi.Alias(type_="azure-native:network/v20190201:PublicIPAddress"), pulumi.Alias(type_="azure-native:network/v20190401:PublicIPAddress"), pulumi.Alias(type_="azure-native:network/v20190601:PublicIPAddress"), pulumi.Alias(type_="azure-native:network/v20190701:PublicIPAddress"), pulumi.Alias(type_="azure-native:network/v20190801:PublicIPAddress"), pulumi.Alias(type_="azure-native:network/v20190901:PublicIPAddress"), pulumi.Alias(type_="azure-native:network/v20191101:PublicIPAddress"), pulumi.Alias(type_="azure-native:network/v20191201:PublicIPAddress"), pulumi.Alias(type_="azure-native:network/v20200301:PublicIPAddress"), pulumi.Alias(type_="azure-native:network/v20200401:PublicIPAddress"), pulumi.Alias(type_="azure-native:network/v20200501:PublicIPAddress"), pulumi.Alias(type_="azure-native:network/v20200601:PublicIPAddress"), pulumi.Alias(type_="azure-native:network/v20200701:PublicIPAddress"), pulumi.Alias(type_="azure-native:network/v20200801:PublicIPAddress"), pulumi.Alias(type_="azure-native:network/v20201101:PublicIPAddress"), pulumi.Alias(type_="azure-native:network/v20210201:PublicIPAddress"), pulumi.Alias(type_="azure-native:network/v20210301:PublicIPAddress"), pulumi.Alias(type_="azure-native:network/v20210501:PublicIPAddress")])

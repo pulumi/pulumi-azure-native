@@ -21,7 +21,6 @@ class VirtualNetworkGatewayConnectionArgs:
                  virtual_network_gateway1: pulumi.Input['VirtualNetworkGatewayArgs'],
                  authorization_key: Optional[pulumi.Input[str]] = None,
                  enable_bgp: Optional[pulumi.Input[bool]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  express_route_gateway_bypass: Optional[pulumi.Input[bool]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  ipsec_policies: Optional[pulumi.Input[Sequence[pulumi.Input['IpsecPolicyArgs']]]] = None,
@@ -42,7 +41,6 @@ class VirtualNetworkGatewayConnectionArgs:
         :param pulumi.Input['VirtualNetworkGatewayArgs'] virtual_network_gateway1: The reference to virtual network gateway resource.
         :param pulumi.Input[str] authorization_key: The authorizationKey.
         :param pulumi.Input[bool] enable_bgp: EnableBgp flag
-        :param pulumi.Input[str] etag: Gets a unique read-only string that changes whenever the resource is updated.
         :param pulumi.Input[bool] express_route_gateway_bypass: Bypass ExpressRoute Gateway for data forwarding
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[Sequence[pulumi.Input['IpsecPolicyArgs']]] ipsec_policies: The IPSec Policies to be considered by this connection.
@@ -64,8 +62,6 @@ class VirtualNetworkGatewayConnectionArgs:
             pulumi.set(__self__, "authorization_key", authorization_key)
         if enable_bgp is not None:
             pulumi.set(__self__, "enable_bgp", enable_bgp)
-        if etag is not None:
-            pulumi.set(__self__, "etag", etag)
         if express_route_gateway_bypass is not None:
             pulumi.set(__self__, "express_route_gateway_bypass", express_route_gateway_bypass)
         if id is not None:
@@ -152,18 +148,6 @@ class VirtualNetworkGatewayConnectionArgs:
     @enable_bgp.setter
     def enable_bgp(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enable_bgp", value)
-
-    @property
-    @pulumi.getter
-    def etag(self) -> Optional[pulumi.Input[str]]:
-        """
-        Gets a unique read-only string that changes whenever the resource is updated.
-        """
-        return pulumi.get(self, "etag")
-
-    @etag.setter
-    def etag(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "etag", value)
 
     @property
     @pulumi.getter(name="expressRouteGatewayBypass")
@@ -330,7 +314,6 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
                  authorization_key: Optional[pulumi.Input[str]] = None,
                  connection_type: Optional[pulumi.Input[Union[str, 'VirtualNetworkGatewayConnectionType']]] = None,
                  enable_bgp: Optional[pulumi.Input[bool]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  express_route_gateway_bypass: Optional[pulumi.Input[bool]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  ipsec_policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IpsecPolicyArgs']]]]] = None,
@@ -355,7 +338,6 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
         :param pulumi.Input[str] authorization_key: The authorizationKey.
         :param pulumi.Input[Union[str, 'VirtualNetworkGatewayConnectionType']] connection_type: Gateway connection type. Possible values are: 'IPsec','Vnet2Vnet','ExpressRoute', and 'VPNClient.
         :param pulumi.Input[bool] enable_bgp: EnableBgp flag
-        :param pulumi.Input[str] etag: Gets a unique read-only string that changes whenever the resource is updated.
         :param pulumi.Input[bool] express_route_gateway_bypass: Bypass ExpressRoute Gateway for data forwarding
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IpsecPolicyArgs']]]] ipsec_policies: The IPSec Policies to be considered by this connection.
@@ -399,7 +381,6 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
                  authorization_key: Optional[pulumi.Input[str]] = None,
                  connection_type: Optional[pulumi.Input[Union[str, 'VirtualNetworkGatewayConnectionType']]] = None,
                  enable_bgp: Optional[pulumi.Input[bool]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  express_route_gateway_bypass: Optional[pulumi.Input[bool]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  ipsec_policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IpsecPolicyArgs']]]]] = None,
@@ -432,7 +413,6 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
                 raise TypeError("Missing required property 'connection_type'")
             __props__.__dict__["connection_type"] = connection_type
             __props__.__dict__["enable_bgp"] = enable_bgp
-            __props__.__dict__["etag"] = etag
             __props__.__dict__["express_route_gateway_bypass"] = express_route_gateway_bypass
             __props__.__dict__["id"] = id
             __props__.__dict__["ipsec_policies"] = ipsec_policies
@@ -454,6 +434,7 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
             __props__.__dict__["virtual_network_gateway_connection_name"] = virtual_network_gateway_connection_name
             __props__.__dict__["connection_status"] = None
             __props__.__dict__["egress_bytes_transferred"] = None
+            __props__.__dict__["etag"] = None
             __props__.__dict__["ingress_bytes_transferred"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None

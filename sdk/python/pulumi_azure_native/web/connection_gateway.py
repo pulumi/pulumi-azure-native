@@ -17,7 +17,6 @@ class ConnectionGatewayArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  connection_gateway_name: Optional[pulumi.Input[str]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input['ConnectionGatewayDefinitionPropertiesArgs']] = None,
                  subscription_id: Optional[pulumi.Input[str]] = None,
@@ -26,7 +25,6 @@ class ConnectionGatewayArgs:
         The set of arguments for constructing a ConnectionGateway resource.
         :param pulumi.Input[str] resource_group_name: The resource group
         :param pulumi.Input[str] connection_gateway_name: The connection gateway name
-        :param pulumi.Input[str] etag: Resource ETag
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[str] subscription_id: Subscription Id
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
@@ -34,8 +32,6 @@ class ConnectionGatewayArgs:
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if connection_gateway_name is not None:
             pulumi.set(__self__, "connection_gateway_name", connection_gateway_name)
-        if etag is not None:
-            pulumi.set(__self__, "etag", etag)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if properties is not None:
@@ -68,18 +64,6 @@ class ConnectionGatewayArgs:
     @connection_gateway_name.setter
     def connection_gateway_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "connection_gateway_name", value)
-
-    @property
-    @pulumi.getter
-    def etag(self) -> Optional[pulumi.Input[str]]:
-        """
-        Resource ETag
-        """
-        return pulumi.get(self, "etag")
-
-    @etag.setter
-    def etag(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "etag", value)
 
     @property
     @pulumi.getter
@@ -133,7 +117,6 @@ class ConnectionGateway(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  connection_gateway_name: Optional[pulumi.Input[str]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[pulumi.InputType['ConnectionGatewayDefinitionPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -147,7 +130,6 @@ class ConnectionGateway(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] connection_gateway_name: The connection gateway name
-        :param pulumi.Input[str] etag: Resource ETag
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[str] resource_group_name: The resource group
         :param pulumi.Input[str] subscription_id: Subscription Id
@@ -179,7 +161,6 @@ class ConnectionGateway(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  connection_gateway_name: Optional[pulumi.Input[str]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[pulumi.InputType['ConnectionGatewayDefinitionPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -198,7 +179,6 @@ class ConnectionGateway(pulumi.CustomResource):
             __props__ = ConnectionGatewayArgs.__new__(ConnectionGatewayArgs)
 
             __props__.__dict__["connection_gateway_name"] = connection_gateway_name
-            __props__.__dict__["etag"] = etag
             __props__.__dict__["location"] = location
             __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
@@ -206,6 +186,7 @@ class ConnectionGateway(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["subscription_id"] = subscription_id
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:web/v20160601:ConnectionGateway")])

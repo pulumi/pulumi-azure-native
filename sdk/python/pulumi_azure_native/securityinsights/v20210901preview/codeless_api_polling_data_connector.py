@@ -21,7 +21,6 @@ class CodelessApiPollingDataConnectorArgs:
                  workspace_name: pulumi.Input[str],
                  connector_ui_config: Optional[pulumi.Input['CodelessUiConnectorConfigPropertiesArgs']] = None,
                  data_connector_id: Optional[pulumi.Input[str]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  polling_config: Optional[pulumi.Input['CodelessConnectorPollingConfigPropertiesArgs']] = None):
         """
         The set of arguments for constructing a CodelessApiPollingDataConnector resource.
@@ -31,7 +30,6 @@ class CodelessApiPollingDataConnectorArgs:
         :param pulumi.Input[str] workspace_name: The name of the workspace.
         :param pulumi.Input['CodelessUiConnectorConfigPropertiesArgs'] connector_ui_config: Config to describe the instructions blade
         :param pulumi.Input[str] data_connector_id: Connector ID
-        :param pulumi.Input[str] etag: Etag of the azure resource
         :param pulumi.Input['CodelessConnectorPollingConfigPropertiesArgs'] polling_config: Config to describe the polling instructions
         """
         pulumi.set(__self__, "kind", 'APIPolling')
@@ -41,8 +39,6 @@ class CodelessApiPollingDataConnectorArgs:
             pulumi.set(__self__, "connector_ui_config", connector_ui_config)
         if data_connector_id is not None:
             pulumi.set(__self__, "data_connector_id", data_connector_id)
-        if etag is not None:
-            pulumi.set(__self__, "etag", etag)
         if polling_config is not None:
             pulumi.set(__self__, "polling_config", polling_config)
 
@@ -108,18 +104,6 @@ class CodelessApiPollingDataConnectorArgs:
         pulumi.set(self, "data_connector_id", value)
 
     @property
-    @pulumi.getter
-    def etag(self) -> Optional[pulumi.Input[str]]:
-        """
-        Etag of the azure resource
-        """
-        return pulumi.get(self, "etag")
-
-    @etag.setter
-    def etag(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "etag", value)
-
-    @property
     @pulumi.getter(name="pollingConfig")
     def polling_config(self) -> Optional[pulumi.Input['CodelessConnectorPollingConfigPropertiesArgs']]:
         """
@@ -139,7 +123,6 @@ class CodelessApiPollingDataConnector(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  connector_ui_config: Optional[pulumi.Input[pulumi.InputType['CodelessUiConnectorConfigPropertiesArgs']]] = None,
                  data_connector_id: Optional[pulumi.Input[str]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  polling_config: Optional[pulumi.Input[pulumi.InputType['CodelessConnectorPollingConfigPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -152,7 +135,6 @@ class CodelessApiPollingDataConnector(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['CodelessUiConnectorConfigPropertiesArgs']] connector_ui_config: Config to describe the instructions blade
         :param pulumi.Input[str] data_connector_id: Connector ID
-        :param pulumi.Input[str] etag: Etag of the azure resource
         :param pulumi.Input[str] kind: The kind of the data connector
                Expected value is 'APIPolling'.
         :param pulumi.Input[pulumi.InputType['CodelessConnectorPollingConfigPropertiesArgs']] polling_config: Config to describe the polling instructions
@@ -185,7 +167,6 @@ class CodelessApiPollingDataConnector(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  connector_ui_config: Optional[pulumi.Input[pulumi.InputType['CodelessUiConnectorConfigPropertiesArgs']]] = None,
                  data_connector_id: Optional[pulumi.Input[str]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  polling_config: Optional[pulumi.Input[pulumi.InputType['CodelessConnectorPollingConfigPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -204,7 +185,6 @@ class CodelessApiPollingDataConnector(pulumi.CustomResource):
 
             __props__.__dict__["connector_ui_config"] = connector_ui_config
             __props__.__dict__["data_connector_id"] = data_connector_id
-            __props__.__dict__["etag"] = etag
             if kind is None and not opts.urn:
                 raise TypeError("Missing required property 'kind'")
             __props__.__dict__["kind"] = 'APIPolling'
@@ -215,6 +195,7 @@ class CodelessApiPollingDataConnector(pulumi.CustomResource):
             if workspace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_name'")
             __props__.__dict__["workspace_name"] = workspace_name
+            __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None

@@ -19,7 +19,6 @@ class ExpressRouteCircuitPeeringInitArgs:
                  circuit_name: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
                  azure_asn: Optional[pulumi.Input[int]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  gateway_manager_etag: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  last_modified_by: Optional[pulumi.Input[str]] = None,
@@ -42,7 +41,6 @@ class ExpressRouteCircuitPeeringInitArgs:
         :param pulumi.Input[str] circuit_name: The name of the express route circuit.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[int] azure_asn: The Azure ASN.
-        :param pulumi.Input[str] etag: A unique read-only string that changes whenever the resource is updated.
         :param pulumi.Input[str] gateway_manager_etag: The GatewayManager Etag.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] last_modified_by: Gets whether the provider or the customer last modified the peering.
@@ -65,8 +63,6 @@ class ExpressRouteCircuitPeeringInitArgs:
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if azure_asn is not None:
             pulumi.set(__self__, "azure_asn", azure_asn)
-        if etag is not None:
-            pulumi.set(__self__, "etag", etag)
         if gateway_manager_etag is not None:
             pulumi.set(__self__, "gateway_manager_etag", gateway_manager_etag)
         if id is not None:
@@ -137,18 +133,6 @@ class ExpressRouteCircuitPeeringInitArgs:
     @azure_asn.setter
     def azure_asn(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "azure_asn", value)
-
-    @property
-    @pulumi.getter
-    def etag(self) -> Optional[pulumi.Input[str]]:
-        """
-        A unique read-only string that changes whenever the resource is updated.
-        """
-        return pulumi.get(self, "etag")
-
-    @etag.setter
-    def etag(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "etag", value)
 
     @property
     @pulumi.getter(name="gatewayManagerEtag")
@@ -362,7 +346,6 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  azure_asn: Optional[pulumi.Input[int]] = None,
                  circuit_name: Optional[pulumi.Input[str]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  gateway_manager_etag: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  last_modified_by: Optional[pulumi.Input[str]] = None,
@@ -389,7 +372,6 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] azure_asn: The Azure ASN.
         :param pulumi.Input[str] circuit_name: The name of the express route circuit.
-        :param pulumi.Input[str] etag: A unique read-only string that changes whenever the resource is updated.
         :param pulumi.Input[str] gateway_manager_etag: The GatewayManager Etag.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] last_modified_by: Gets whether the provider or the customer last modified the peering.
@@ -435,7 +417,6 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  azure_asn: Optional[pulumi.Input[int]] = None,
                  circuit_name: Optional[pulumi.Input[str]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  gateway_manager_etag: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  last_modified_by: Optional[pulumi.Input[str]] = None,
@@ -470,7 +451,6 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
             if circuit_name is None and not opts.urn:
                 raise TypeError("Missing required property 'circuit_name'")
             __props__.__dict__["circuit_name"] = circuit_name
-            __props__.__dict__["etag"] = etag
             __props__.__dict__["gateway_manager_etag"] = gateway_manager_etag
             __props__.__dict__["id"] = id
             __props__.__dict__["last_modified_by"] = last_modified_by
@@ -491,6 +471,7 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
             __props__.__dict__["state"] = state
             __props__.__dict__["stats"] = stats
             __props__.__dict__["vlan_id"] = vlan_id
+            __props__.__dict__["etag"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network:ExpressRouteCircuitPeering"), pulumi.Alias(type_="azure-native:network/v20150501preview:ExpressRouteCircuitPeering"), pulumi.Alias(type_="azure-native:network/v20150615:ExpressRouteCircuitPeering"), pulumi.Alias(type_="azure-native:network/v20160330:ExpressRouteCircuitPeering"), pulumi.Alias(type_="azure-native:network/v20160601:ExpressRouteCircuitPeering"), pulumi.Alias(type_="azure-native:network/v20161201:ExpressRouteCircuitPeering"), pulumi.Alias(type_="azure-native:network/v20170301:ExpressRouteCircuitPeering"), pulumi.Alias(type_="azure-native:network/v20170601:ExpressRouteCircuitPeering"), pulumi.Alias(type_="azure-native:network/v20170801:ExpressRouteCircuitPeering"), pulumi.Alias(type_="azure-native:network/v20170901:ExpressRouteCircuitPeering"), pulumi.Alias(type_="azure-native:network/v20171001:ExpressRouteCircuitPeering"), pulumi.Alias(type_="azure-native:network/v20171101:ExpressRouteCircuitPeering"), pulumi.Alias(type_="azure-native:network/v20180101:ExpressRouteCircuitPeering"), pulumi.Alias(type_="azure-native:network/v20180201:ExpressRouteCircuitPeering"), pulumi.Alias(type_="azure-native:network/v20180401:ExpressRouteCircuitPeering"), pulumi.Alias(type_="azure-native:network/v20180601:ExpressRouteCircuitPeering"), pulumi.Alias(type_="azure-native:network/v20180701:ExpressRouteCircuitPeering"), pulumi.Alias(type_="azure-native:network/v20180801:ExpressRouteCircuitPeering"), pulumi.Alias(type_="azure-native:network/v20181001:ExpressRouteCircuitPeering"), pulumi.Alias(type_="azure-native:network/v20181101:ExpressRouteCircuitPeering"), pulumi.Alias(type_="azure-native:network/v20181201:ExpressRouteCircuitPeering"), pulumi.Alias(type_="azure-native:network/v20190201:ExpressRouteCircuitPeering"), pulumi.Alias(type_="azure-native:network/v20190401:ExpressRouteCircuitPeering"), pulumi.Alias(type_="azure-native:network/v20190601:ExpressRouteCircuitPeering"), pulumi.Alias(type_="azure-native:network/v20190701:ExpressRouteCircuitPeering"), pulumi.Alias(type_="azure-native:network/v20190801:ExpressRouteCircuitPeering"), pulumi.Alias(type_="azure-native:network/v20190901:ExpressRouteCircuitPeering"), pulumi.Alias(type_="azure-native:network/v20191101:ExpressRouteCircuitPeering"), pulumi.Alias(type_="azure-native:network/v20191201:ExpressRouteCircuitPeering"), pulumi.Alias(type_="azure-native:network/v20200301:ExpressRouteCircuitPeering"), pulumi.Alias(type_="azure-native:network/v20200401:ExpressRouteCircuitPeering"), pulumi.Alias(type_="azure-native:network/v20200501:ExpressRouteCircuitPeering"), pulumi.Alias(type_="azure-native:network/v20200601:ExpressRouteCircuitPeering"), pulumi.Alias(type_="azure-native:network/v20200701:ExpressRouteCircuitPeering"), pulumi.Alias(type_="azure-native:network/v20200801:ExpressRouteCircuitPeering"), pulumi.Alias(type_="azure-native:network/v20201101:ExpressRouteCircuitPeering"), pulumi.Alias(type_="azure-native:network/v20210201:ExpressRouteCircuitPeering"), pulumi.Alias(type_="azure-native:network/v20210301:ExpressRouteCircuitPeering"), pulumi.Alias(type_="azure-native:network/v20210501:ExpressRouteCircuitPeering")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ExpressRouteCircuitPeering, __self__).__init__(

@@ -20,7 +20,6 @@ class StandardArgs:
                  components: Optional[pulumi.Input[Sequence[pulumi.Input['StandardComponentPropertiesArgs']]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  standard_id: Optional[pulumi.Input[str]] = None,
@@ -32,7 +31,6 @@ class StandardArgs:
         :param pulumi.Input[Sequence[pulumi.Input['StandardComponentPropertiesArgs']]] components: List of component objects containing component unique keys (such as assessment keys) to apply to standard scope.  Currently only supports assessment keys.
         :param pulumi.Input[str] description: description of the standard
         :param pulumi.Input[str] display_name: display name of the standard, equivalent to the standardId
-        :param pulumi.Input[str] etag: Entity tag is used for comparing two or more entities from the same requested resource.
         :param pulumi.Input[str] kind: Kind of the resource
         :param pulumi.Input[str] location: Location where the resource is stored
         :param pulumi.Input[str] standard_id: The Security Standard key - unique key for the standard type
@@ -47,8 +45,6 @@ class StandardArgs:
             pulumi.set(__self__, "description", description)
         if display_name is not None:
             pulumi.set(__self__, "display_name", display_name)
-        if etag is not None:
-            pulumi.set(__self__, "etag", etag)
         if kind is not None:
             pulumi.set(__self__, "kind", kind)
         if location is not None:
@@ -120,18 +116,6 @@ class StandardArgs:
 
     @property
     @pulumi.getter
-    def etag(self) -> Optional[pulumi.Input[str]]:
-        """
-        Entity tag is used for comparing two or more entities from the same requested resource.
-        """
-        return pulumi.get(self, "etag")
-
-    @etag.setter
-    def etag(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "etag", value)
-
-    @property
-    @pulumi.getter
     def kind(self) -> Optional[pulumi.Input[str]]:
         """
         Kind of the resource
@@ -188,7 +172,6 @@ class Standard(pulumi.CustomResource):
                  components: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StandardComponentPropertiesArgs']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -204,7 +187,6 @@ class Standard(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StandardComponentPropertiesArgs']]]] components: List of component objects containing component unique keys (such as assessment keys) to apply to standard scope.  Currently only supports assessment keys.
         :param pulumi.Input[str] description: description of the standard
         :param pulumi.Input[str] display_name: display name of the standard, equivalent to the standardId
-        :param pulumi.Input[str] etag: Entity tag is used for comparing two or more entities from the same requested resource.
         :param pulumi.Input[str] kind: Kind of the resource
         :param pulumi.Input[str] location: Location where the resource is stored
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
@@ -239,7 +221,6 @@ class Standard(pulumi.CustomResource):
                  components: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StandardComponentPropertiesArgs']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -261,7 +242,6 @@ class Standard(pulumi.CustomResource):
             __props__.__dict__["components"] = components
             __props__.__dict__["description"] = description
             __props__.__dict__["display_name"] = display_name
-            __props__.__dict__["etag"] = etag
             __props__.__dict__["kind"] = kind
             __props__.__dict__["location"] = location
             if resource_group_name is None and not opts.urn:
@@ -269,6 +249,7 @@ class Standard(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["standard_id"] = standard_id
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["standard_type"] = None
             __props__.__dict__["system_data"] = None

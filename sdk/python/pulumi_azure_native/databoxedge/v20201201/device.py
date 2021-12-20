@@ -19,7 +19,6 @@ class DeviceArgs:
                  resource_group_name: pulumi.Input[str],
                  data_box_edge_device_status: Optional[pulumi.Input[Union[str, 'DataBoxEdgeDeviceStatus']]] = None,
                  device_name: Optional[pulumi.Input[str]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input['ResourceIdentityArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input['SkuArgs']] = None,
@@ -29,7 +28,6 @@ class DeviceArgs:
         :param pulumi.Input[str] resource_group_name: The resource group name.
         :param pulumi.Input[Union[str, 'DataBoxEdgeDeviceStatus']] data_box_edge_device_status: The status of the Data Box Edge/Gateway device.
         :param pulumi.Input[str] device_name: The device name.
-        :param pulumi.Input[str] etag: The etag for the devices.
         :param pulumi.Input['ResourceIdentityArgs'] identity: Msi identity of the resource
         :param pulumi.Input[str] location: The location of the device. This is a supported and registered Azure geographical region (for example, West US, East US, or Southeast Asia). The geographical region of a device cannot be changed once it is created, but if an identical geographical region is specified on update, the request will succeed.
         :param pulumi.Input['SkuArgs'] sku: The SKU type.
@@ -40,8 +38,6 @@ class DeviceArgs:
             pulumi.set(__self__, "data_box_edge_device_status", data_box_edge_device_status)
         if device_name is not None:
             pulumi.set(__self__, "device_name", device_name)
-        if etag is not None:
-            pulumi.set(__self__, "etag", etag)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
         if location is not None:
@@ -86,18 +82,6 @@ class DeviceArgs:
     @device_name.setter
     def device_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "device_name", value)
-
-    @property
-    @pulumi.getter
-    def etag(self) -> Optional[pulumi.Input[str]]:
-        """
-        The etag for the devices.
-        """
-        return pulumi.get(self, "etag")
-
-    @etag.setter
-    def etag(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "etag", value)
 
     @property
     @pulumi.getter
@@ -155,7 +139,6 @@ class Device(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  data_box_edge_device_status: Optional[pulumi.Input[Union[str, 'DataBoxEdgeDeviceStatus']]] = None,
                  device_name: Optional[pulumi.Input[str]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['ResourceIdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -169,7 +152,6 @@ class Device(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[str, 'DataBoxEdgeDeviceStatus']] data_box_edge_device_status: The status of the Data Box Edge/Gateway device.
         :param pulumi.Input[str] device_name: The device name.
-        :param pulumi.Input[str] etag: The etag for the devices.
         :param pulumi.Input[pulumi.InputType['ResourceIdentityArgs']] identity: Msi identity of the resource
         :param pulumi.Input[str] location: The location of the device. This is a supported and registered Azure geographical region (for example, West US, East US, or Southeast Asia). The geographical region of a device cannot be changed once it is created, but if an identical geographical region is specified on update, the request will succeed.
         :param pulumi.Input[str] resource_group_name: The resource group name.
@@ -202,7 +184,6 @@ class Device(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  data_box_edge_device_status: Optional[pulumi.Input[Union[str, 'DataBoxEdgeDeviceStatus']]] = None,
                  device_name: Optional[pulumi.Input[str]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['ResourceIdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -222,7 +203,6 @@ class Device(pulumi.CustomResource):
 
             __props__.__dict__["data_box_edge_device_status"] = data_box_edge_device_status
             __props__.__dict__["device_name"] = device_name
-            __props__.__dict__["etag"] = etag
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
             if resource_group_name is None and not opts.urn:
@@ -239,6 +219,7 @@ class Device(pulumi.CustomResource):
             __props__.__dict__["device_software_version"] = None
             __props__.__dict__["device_type"] = None
             __props__.__dict__["edge_profile"] = None
+            __props__.__dict__["etag"] = None
             __props__.__dict__["friendly_name"] = None
             __props__.__dict__["kind"] = None
             __props__.__dict__["model_description"] = None

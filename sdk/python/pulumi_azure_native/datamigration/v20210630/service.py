@@ -17,7 +17,6 @@ class ServiceArgs:
     def __init__(__self__, *,
                  group_name: pulumi.Input[str],
                  virtual_subnet_id: pulumi.Input[str],
-                 etag: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  public_key: Optional[pulumi.Input[str]] = None,
@@ -29,7 +28,6 @@ class ServiceArgs:
         The set of arguments for constructing a Service resource.
         :param pulumi.Input[str] group_name: Name of the resource group
         :param pulumi.Input[str] virtual_subnet_id: The ID of the Microsoft.Network/virtualNetworks/subnets resource to which the service should be joined
-        :param pulumi.Input[str] etag: HTTP strong entity tag value. Ignored if submitted
         :param pulumi.Input[str] kind: The resource kind. Only 'vm' (the default) is supported.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] public_key: The public key of the service, used to encrypt secrets sent to the service
@@ -40,8 +38,6 @@ class ServiceArgs:
         """
         pulumi.set(__self__, "group_name", group_name)
         pulumi.set(__self__, "virtual_subnet_id", virtual_subnet_id)
-        if etag is not None:
-            pulumi.set(__self__, "etag", etag)
         if kind is not None:
             pulumi.set(__self__, "kind", kind)
         if location is not None:
@@ -80,18 +76,6 @@ class ServiceArgs:
     @virtual_subnet_id.setter
     def virtual_subnet_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "virtual_subnet_id", value)
-
-    @property
-    @pulumi.getter
-    def etag(self) -> Optional[pulumi.Input[str]]:
-        """
-        HTTP strong entity tag value. Ignored if submitted
-        """
-        return pulumi.get(self, "etag")
-
-    @etag.setter
-    def etag(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "etag", value)
 
     @property
     @pulumi.getter
@@ -183,7 +167,6 @@ class Service(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  group_name: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -199,7 +182,6 @@ class Service(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] etag: HTTP strong entity tag value. Ignored if submitted
         :param pulumi.Input[str] group_name: Name of the resource group
         :param pulumi.Input[str] kind: The resource kind. Only 'vm' (the default) is supported.
         :param pulumi.Input[str] location: Resource location.
@@ -234,7 +216,6 @@ class Service(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  group_name: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -256,7 +237,6 @@ class Service(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ServiceArgs.__new__(ServiceArgs)
 
-            __props__.__dict__["etag"] = etag
             if group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'group_name'")
             __props__.__dict__["group_name"] = group_name
@@ -270,6 +250,7 @@ class Service(pulumi.CustomResource):
             if virtual_subnet_id is None and not opts.urn:
                 raise TypeError("Missing required property 'virtual_subnet_id'")
             __props__.__dict__["virtual_subnet_id"] = virtual_subnet_id
+            __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None

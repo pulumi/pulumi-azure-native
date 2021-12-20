@@ -20,7 +20,6 @@ class ComponentArgs:
                  resource_group_name: pulumi.Input[str],
                  disable_ip_masking: Optional[pulumi.Input[bool]] = None,
                  disable_local_auth: Optional[pulumi.Input[bool]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  flow_type: Optional[pulumi.Input[Union[str, 'FlowType']]] = None,
                  force_customer_storage_for_profiler: Optional[pulumi.Input[bool]] = None,
                  hockey_app_id: Optional[pulumi.Input[str]] = None,
@@ -42,7 +41,6 @@ class ComponentArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[bool] disable_ip_masking: Disable IP masking.
         :param pulumi.Input[bool] disable_local_auth: Disable Non-AAD based Auth.
-        :param pulumi.Input[str] etag: Resource etag
         :param pulumi.Input[Union[str, 'FlowType']] flow_type: Used by the Application Insights system to determine what kind of flow this component was created by. This is to be set to 'Bluefield' when creating/updating a component via the REST API.
         :param pulumi.Input[bool] force_customer_storage_for_profiler: Force users to create their own storage account for profiler and debugger.
         :param pulumi.Input[str] hockey_app_id: The unique application ID created when a new application is added to HockeyApp, used for communications with HockeyApp.
@@ -67,8 +65,6 @@ class ComponentArgs:
             pulumi.set(__self__, "disable_ip_masking", disable_ip_masking)
         if disable_local_auth is not None:
             pulumi.set(__self__, "disable_local_auth", disable_local_auth)
-        if etag is not None:
-            pulumi.set(__self__, "etag", etag)
         if flow_type is None:
             flow_type = 'Bluefield'
         if flow_type is not None:
@@ -163,18 +159,6 @@ class ComponentArgs:
     @disable_local_auth.setter
     def disable_local_auth(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "disable_local_auth", value)
-
-    @property
-    @pulumi.getter
-    def etag(self) -> Optional[pulumi.Input[str]]:
-        """
-        Resource etag
-        """
-        return pulumi.get(self, "etag")
-
-    @etag.setter
-    def etag(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "etag", value)
 
     @property
     @pulumi.getter(name="flowType")
@@ -353,7 +337,6 @@ class Component(pulumi.CustomResource):
                  application_type: Optional[pulumi.Input[Union[str, 'ApplicationType']]] = None,
                  disable_ip_masking: Optional[pulumi.Input[bool]] = None,
                  disable_local_auth: Optional[pulumi.Input[bool]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  flow_type: Optional[pulumi.Input[Union[str, 'FlowType']]] = None,
                  force_customer_storage_for_profiler: Optional[pulumi.Input[bool]] = None,
                  hockey_app_id: Optional[pulumi.Input[str]] = None,
@@ -379,7 +362,6 @@ class Component(pulumi.CustomResource):
         :param pulumi.Input[Union[str, 'ApplicationType']] application_type: Type of application being monitored.
         :param pulumi.Input[bool] disable_ip_masking: Disable IP masking.
         :param pulumi.Input[bool] disable_local_auth: Disable Non-AAD based Auth.
-        :param pulumi.Input[str] etag: Resource etag
         :param pulumi.Input[Union[str, 'FlowType']] flow_type: Used by the Application Insights system to determine what kind of flow this component was created by. This is to be set to 'Bluefield' when creating/updating a component via the REST API.
         :param pulumi.Input[bool] force_customer_storage_for_profiler: Force users to create their own storage account for profiler and debugger.
         :param pulumi.Input[str] hockey_app_id: The unique application ID created when a new application is added to HockeyApp, used for communications with HockeyApp.
@@ -424,7 +406,6 @@ class Component(pulumi.CustomResource):
                  application_type: Optional[pulumi.Input[Union[str, 'ApplicationType']]] = None,
                  disable_ip_masking: Optional[pulumi.Input[bool]] = None,
                  disable_local_auth: Optional[pulumi.Input[bool]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  flow_type: Optional[pulumi.Input[Union[str, 'FlowType']]] = None,
                  force_customer_storage_for_profiler: Optional[pulumi.Input[bool]] = None,
                  hockey_app_id: Optional[pulumi.Input[str]] = None,
@@ -460,7 +441,6 @@ class Component(pulumi.CustomResource):
             __props__.__dict__["application_type"] = application_type
             __props__.__dict__["disable_ip_masking"] = disable_ip_masking
             __props__.__dict__["disable_local_auth"] = disable_local_auth
-            __props__.__dict__["etag"] = etag
             if flow_type is None:
                 flow_type = 'Bluefield'
             __props__.__dict__["flow_type"] = flow_type
@@ -491,6 +471,7 @@ class Component(pulumi.CustomResource):
             __props__.__dict__["application_id"] = None
             __props__.__dict__["connection_string"] = None
             __props__.__dict__["creation_date"] = None
+            __props__.__dict__["etag"] = None
             __props__.__dict__["hockey_app_token"] = None
             __props__.__dict__["instrumentation_key"] = None
             __props__.__dict__["la_migration_date"] = None

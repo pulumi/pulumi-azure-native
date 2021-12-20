@@ -18,7 +18,6 @@ class IncidentCommentArgs:
                  message: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
                  workspace_name: pulumi.Input[str],
-                 etag: Optional[pulumi.Input[str]] = None,
                  incident_comment_id: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a IncidentComment resource.
@@ -26,15 +25,12 @@ class IncidentCommentArgs:
         :param pulumi.Input[str] message: The comment message
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] workspace_name: The name of the workspace.
-        :param pulumi.Input[str] etag: Etag of the azure resource
         :param pulumi.Input[str] incident_comment_id: Incident comment ID
         """
         pulumi.set(__self__, "incident_id", incident_id)
         pulumi.set(__self__, "message", message)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "workspace_name", workspace_name)
-        if etag is not None:
-            pulumi.set(__self__, "etag", etag)
         if incident_comment_id is not None:
             pulumi.set(__self__, "incident_comment_id", incident_comment_id)
 
@@ -87,18 +83,6 @@ class IncidentCommentArgs:
         pulumi.set(self, "workspace_name", value)
 
     @property
-    @pulumi.getter
-    def etag(self) -> Optional[pulumi.Input[str]]:
-        """
-        Etag of the azure resource
-        """
-        return pulumi.get(self, "etag")
-
-    @etag.setter
-    def etag(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "etag", value)
-
-    @property
     @pulumi.getter(name="incidentCommentId")
     def incident_comment_id(self) -> Optional[pulumi.Input[str]]:
         """
@@ -116,7 +100,6 @@ class IncidentComment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  incident_comment_id: Optional[pulumi.Input[str]] = None,
                  incident_id: Optional[pulumi.Input[str]] = None,
                  message: Optional[pulumi.Input[str]] = None,
@@ -128,7 +111,6 @@ class IncidentComment(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] etag: Etag of the azure resource
         :param pulumi.Input[str] incident_comment_id: Incident comment ID
         :param pulumi.Input[str] incident_id: Incident ID
         :param pulumi.Input[str] message: The comment message
@@ -159,7 +141,6 @@ class IncidentComment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  incident_comment_id: Optional[pulumi.Input[str]] = None,
                  incident_id: Optional[pulumi.Input[str]] = None,
                  message: Optional[pulumi.Input[str]] = None,
@@ -177,7 +158,6 @@ class IncidentComment(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = IncidentCommentArgs.__new__(IncidentCommentArgs)
 
-            __props__.__dict__["etag"] = etag
             __props__.__dict__["incident_comment_id"] = incident_comment_id
             if incident_id is None and not opts.urn:
                 raise TypeError("Missing required property 'incident_id'")
@@ -193,6 +173,7 @@ class IncidentComment(pulumi.CustomResource):
             __props__.__dict__["workspace_name"] = workspace_name
             __props__.__dict__["author"] = None
             __props__.__dict__["created_time_utc"] = None
+            __props__.__dict__["etag"] = None
             __props__.__dict__["last_modified_time_utc"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None

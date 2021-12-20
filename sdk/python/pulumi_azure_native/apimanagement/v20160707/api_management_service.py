@@ -23,7 +23,6 @@ class ApiManagementServiceArgs:
                  additional_locations: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalRegionArgs']]]] = None,
                  addresser_email: Optional[pulumi.Input[str]] = None,
                  custom_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  hostname_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['HostnameConfigurationArgs']]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
@@ -39,7 +38,6 @@ class ApiManagementServiceArgs:
         :param pulumi.Input[Sequence[pulumi.Input['AdditionalRegionArgs']]] additional_locations: Additional datacenter locations of the API Management service.
         :param pulumi.Input[str] addresser_email: Addresser email.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] custom_properties: Custom properties of the API Management service, like disabling TLS 1.0.
-        :param pulumi.Input[str] etag: ETag of the resource.
         :param pulumi.Input[Sequence[pulumi.Input['HostnameConfigurationArgs']]] hostname_configurations: Custom hostname configuration of the API Management service.
         :param pulumi.Input[str] location: Datacenter location of the API Management service.
         :param pulumi.Input[str] service_name: The name of the API Management service.
@@ -57,8 +55,6 @@ class ApiManagementServiceArgs:
             pulumi.set(__self__, "addresser_email", addresser_email)
         if custom_properties is not None:
             pulumi.set(__self__, "custom_properties", custom_properties)
-        if etag is not None:
-            pulumi.set(__self__, "etag", etag)
         if hostname_configurations is not None:
             pulumi.set(__self__, "hostname_configurations", hostname_configurations)
         if location is not None:
@@ -159,18 +155,6 @@ class ApiManagementServiceArgs:
         pulumi.set(self, "custom_properties", value)
 
     @property
-    @pulumi.getter
-    def etag(self) -> Optional[pulumi.Input[str]]:
-        """
-        ETag of the resource.
-        """
-        return pulumi.get(self, "etag")
-
-    @etag.setter
-    def etag(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "etag", value)
-
-    @property
     @pulumi.getter(name="hostnameConfigurations")
     def hostname_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['HostnameConfigurationArgs']]]]:
         """
@@ -251,7 +235,6 @@ class ApiManagementService(pulumi.CustomResource):
                  additional_locations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AdditionalRegionArgs']]]]] = None,
                  addresser_email: Optional[pulumi.Input[str]] = None,
                  custom_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  hostname_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HostnameConfigurationArgs']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  publisher_email: Optional[pulumi.Input[str]] = None,
@@ -271,7 +254,6 @@ class ApiManagementService(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AdditionalRegionArgs']]]] additional_locations: Additional datacenter locations of the API Management service.
         :param pulumi.Input[str] addresser_email: Addresser email.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] custom_properties: Custom properties of the API Management service, like disabling TLS 1.0.
-        :param pulumi.Input[str] etag: ETag of the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HostnameConfigurationArgs']]]] hostname_configurations: Custom hostname configuration of the API Management service.
         :param pulumi.Input[str] location: Datacenter location of the API Management service.
         :param pulumi.Input[str] publisher_email: Publisher email.
@@ -310,7 +292,6 @@ class ApiManagementService(pulumi.CustomResource):
                  additional_locations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AdditionalRegionArgs']]]]] = None,
                  addresser_email: Optional[pulumi.Input[str]] = None,
                  custom_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  hostname_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HostnameConfigurationArgs']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  publisher_email: Optional[pulumi.Input[str]] = None,
@@ -336,7 +317,6 @@ class ApiManagementService(pulumi.CustomResource):
             __props__.__dict__["additional_locations"] = additional_locations
             __props__.__dict__["addresser_email"] = addresser_email
             __props__.__dict__["custom_properties"] = custom_properties
-            __props__.__dict__["etag"] = etag
             __props__.__dict__["hostname_configurations"] = hostname_configurations
             __props__.__dict__["location"] = location
             if publisher_email is None and not opts.urn:
@@ -358,6 +338,7 @@ class ApiManagementService(pulumi.CustomResource):
             __props__.__dict__["vpn_type"] = vpn_type
             __props__.__dict__["vpnconfiguration"] = vpnconfiguration
             __props__.__dict__["created_at_utc"] = None
+            __props__.__dict__["etag"] = None
             __props__.__dict__["management_api_url"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["portal_url"] = None

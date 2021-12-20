@@ -28,7 +28,6 @@ class NrtAlertRuleArgs:
                  custom_details: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  entity_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['EntityMappingArgs']]]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  incident_configuration: Optional[pulumi.Input['IncidentConfigurationArgs']] = None,
                  query: Optional[pulumi.Input[str]] = None,
                  rule_id: Optional[pulumi.Input[str]] = None,
@@ -50,7 +49,6 @@ class NrtAlertRuleArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] custom_details: Dictionary of string key-value pairs of columns to be attached to the alert
         :param pulumi.Input[str] description: The description of the alert rule.
         :param pulumi.Input[Sequence[pulumi.Input['EntityMappingArgs']]] entity_mappings: Array of the entity mappings of the alert rule
-        :param pulumi.Input[str] etag: Etag of the azure resource
         :param pulumi.Input['IncidentConfigurationArgs'] incident_configuration: The settings of the incidents that created from alerts triggered by this analytics rule
         :param pulumi.Input[str] query: The query that creates alerts for this rule.
         :param pulumi.Input[str] rule_id: Alert rule ID
@@ -75,8 +73,6 @@ class NrtAlertRuleArgs:
             pulumi.set(__self__, "description", description)
         if entity_mappings is not None:
             pulumi.set(__self__, "entity_mappings", entity_mappings)
-        if etag is not None:
-            pulumi.set(__self__, "etag", etag)
         if incident_configuration is not None:
             pulumi.set(__self__, "incident_configuration", incident_configuration)
         if query is not None:
@@ -236,18 +232,6 @@ class NrtAlertRuleArgs:
         pulumi.set(self, "entity_mappings", value)
 
     @property
-    @pulumi.getter
-    def etag(self) -> Optional[pulumi.Input[str]]:
-        """
-        Etag of the azure resource
-        """
-        return pulumi.get(self, "etag")
-
-    @etag.setter
-    def etag(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "etag", value)
-
-    @property
     @pulumi.getter(name="incidentConfiguration")
     def incident_configuration(self) -> Optional[pulumi.Input['IncidentConfigurationArgs']]:
         """
@@ -332,7 +316,6 @@ class NrtAlertRule(pulumi.CustomResource):
                  display_name: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  entity_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EntityMappingArgs']]]]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  incident_configuration: Optional[pulumi.Input[pulumi.InputType['IncidentConfigurationArgs']]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  query: Optional[pulumi.Input[str]] = None,
@@ -357,7 +340,6 @@ class NrtAlertRule(pulumi.CustomResource):
         :param pulumi.Input[str] display_name: The display name for alerts created by this alert rule.
         :param pulumi.Input[bool] enabled: Determines whether this alert rule is enabled or disabled.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EntityMappingArgs']]]] entity_mappings: Array of the entity mappings of the alert rule
-        :param pulumi.Input[str] etag: Etag of the azure resource
         :param pulumi.Input[pulumi.InputType['IncidentConfigurationArgs']] incident_configuration: The settings of the incidents that created from alerts triggered by this analytics rule
         :param pulumi.Input[str] kind: The kind of the alert rule
                Expected value is 'NRT'.
@@ -402,7 +384,6 @@ class NrtAlertRule(pulumi.CustomResource):
                  display_name: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  entity_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EntityMappingArgs']]]]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  incident_configuration: Optional[pulumi.Input[pulumi.InputType['IncidentConfigurationArgs']]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  query: Optional[pulumi.Input[str]] = None,
@@ -437,7 +418,6 @@ class NrtAlertRule(pulumi.CustomResource):
                 raise TypeError("Missing required property 'enabled'")
             __props__.__dict__["enabled"] = enabled
             __props__.__dict__["entity_mappings"] = entity_mappings
-            __props__.__dict__["etag"] = etag
             __props__.__dict__["incident_configuration"] = incident_configuration
             if kind is None and not opts.urn:
                 raise TypeError("Missing required property 'kind'")
@@ -459,6 +439,7 @@ class NrtAlertRule(pulumi.CustomResource):
             if workspace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_name'")
             __props__.__dict__["workspace_name"] = workspace_name
+            __props__.__dict__["etag"] = None
             __props__.__dict__["last_modified_utc"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None

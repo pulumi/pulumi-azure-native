@@ -23,7 +23,6 @@ class WatchlistItemArgs:
                  created: Optional[pulumi.Input[str]] = None,
                  created_by: Optional[pulumi.Input['WatchlistUserInfoArgs']] = None,
                  entity_mapping: Optional[Any] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  is_deleted: Optional[pulumi.Input[bool]] = None,
                  tenant_id: Optional[pulumi.Input[str]] = None,
                  updated: Optional[pulumi.Input[str]] = None,
@@ -40,7 +39,6 @@ class WatchlistItemArgs:
         :param pulumi.Input[str] created: The time the watchlist item was created
         :param pulumi.Input['WatchlistUserInfoArgs'] created_by: Describes a user that created the watchlist item
         :param Any entity_mapping: key-value pairs for a watchlist item entity mapping
-        :param pulumi.Input[str] etag: Etag of the azure resource
         :param pulumi.Input[bool] is_deleted: A flag that indicates if the watchlist item is deleted or not
         :param pulumi.Input[str] tenant_id: The tenantId to which the watchlist item belongs to
         :param pulumi.Input[str] updated: The last time the watchlist item was updated
@@ -59,8 +57,6 @@ class WatchlistItemArgs:
             pulumi.set(__self__, "created_by", created_by)
         if entity_mapping is not None:
             pulumi.set(__self__, "entity_mapping", entity_mapping)
-        if etag is not None:
-            pulumi.set(__self__, "etag", etag)
         if is_deleted is not None:
             pulumi.set(__self__, "is_deleted", is_deleted)
         if tenant_id is not None:
@@ -171,18 +167,6 @@ class WatchlistItemArgs:
         pulumi.set(self, "entity_mapping", value)
 
     @property
-    @pulumi.getter
-    def etag(self) -> Optional[pulumi.Input[str]]:
-        """
-        Etag of the azure resource
-        """
-        return pulumi.get(self, "etag")
-
-    @etag.setter
-    def etag(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "etag", value)
-
-    @property
     @pulumi.getter(name="isDeleted")
     def is_deleted(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -263,7 +247,6 @@ class WatchlistItem(pulumi.CustomResource):
                  created: Optional[pulumi.Input[str]] = None,
                  created_by: Optional[pulumi.Input[pulumi.InputType['WatchlistUserInfoArgs']]] = None,
                  entity_mapping: Optional[Any] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  is_deleted: Optional[pulumi.Input[bool]] = None,
                  items_key_value: Optional[Any] = None,
                  operational_insights_resource_provider: Optional[pulumi.Input[str]] = None,
@@ -284,7 +267,6 @@ class WatchlistItem(pulumi.CustomResource):
         :param pulumi.Input[str] created: The time the watchlist item was created
         :param pulumi.Input[pulumi.InputType['WatchlistUserInfoArgs']] created_by: Describes a user that created the watchlist item
         :param Any entity_mapping: key-value pairs for a watchlist item entity mapping
-        :param pulumi.Input[str] etag: Etag of the azure resource
         :param pulumi.Input[bool] is_deleted: A flag that indicates if the watchlist item is deleted or not
         :param Any items_key_value: key-value pairs for a watchlist item
         :param pulumi.Input[str] operational_insights_resource_provider: The namespace of workspaces resource provider- Microsoft.OperationalInsights.
@@ -324,7 +306,6 @@ class WatchlistItem(pulumi.CustomResource):
                  created: Optional[pulumi.Input[str]] = None,
                  created_by: Optional[pulumi.Input[pulumi.InputType['WatchlistUserInfoArgs']]] = None,
                  entity_mapping: Optional[Any] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  is_deleted: Optional[pulumi.Input[bool]] = None,
                  items_key_value: Optional[Any] = None,
                  operational_insights_resource_provider: Optional[pulumi.Input[str]] = None,
@@ -351,7 +332,6 @@ class WatchlistItem(pulumi.CustomResource):
             __props__.__dict__["created"] = created
             __props__.__dict__["created_by"] = created_by
             __props__.__dict__["entity_mapping"] = entity_mapping
-            __props__.__dict__["etag"] = etag
             __props__.__dict__["is_deleted"] = is_deleted
             if items_key_value is None and not opts.urn:
                 raise TypeError("Missing required property 'items_key_value'")
@@ -373,6 +353,7 @@ class WatchlistItem(pulumi.CustomResource):
             if workspace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_name'")
             __props__.__dict__["workspace_name"] = workspace_name
+            __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:securityinsights:WatchlistItem"), pulumi.Alias(type_="azure-native:securityinsights/v20210301preview:WatchlistItem"), pulumi.Alias(type_="azure-native:securityinsights/v20210401:WatchlistItem"), pulumi.Alias(type_="azure-native:securityinsights/v20210901preview:WatchlistItem")])

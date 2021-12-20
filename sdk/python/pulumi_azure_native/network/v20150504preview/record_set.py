@@ -21,7 +21,6 @@ class RecordSetArgs:
                  a_aaa_records: Optional[pulumi.Input[Sequence[pulumi.Input['AaaaRecordArgs']]]] = None,
                  a_records: Optional[pulumi.Input[Sequence[pulumi.Input['ARecordArgs']]]] = None,
                  c_name_record: Optional[pulumi.Input['CnameRecordArgs']] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  m_x_records: Optional[pulumi.Input[Sequence[pulumi.Input['MxRecordArgs']]]] = None,
                  n_s_records: Optional[pulumi.Input[Sequence[pulumi.Input['NsRecordArgs']]]] = None,
                  p_tr_records: Optional[pulumi.Input[Sequence[pulumi.Input['PtrRecordArgs']]]] = None,
@@ -38,7 +37,6 @@ class RecordSetArgs:
         :param pulumi.Input[Sequence[pulumi.Input['AaaaRecordArgs']]] a_aaa_records: Gets or sets the list of AAAA records in the RecordSet.
         :param pulumi.Input[Sequence[pulumi.Input['ARecordArgs']]] a_records: Gets or sets the list of A records in the RecordSet.
         :param pulumi.Input['CnameRecordArgs'] c_name_record: Gets or sets the CNAME record in the RecordSet.
-        :param pulumi.Input[str] etag: The etag of the record set.
         :param pulumi.Input[Sequence[pulumi.Input['MxRecordArgs']]] m_x_records: Gets or sets the list of MX records in the RecordSet.
         :param pulumi.Input[Sequence[pulumi.Input['NsRecordArgs']]] n_s_records: Gets or sets the list of NS records in the RecordSet.
         :param pulumi.Input[Sequence[pulumi.Input['PtrRecordArgs']]] p_tr_records: Gets or sets the list of PTR records in the RecordSet.
@@ -57,8 +55,6 @@ class RecordSetArgs:
             pulumi.set(__self__, "a_records", a_records)
         if c_name_record is not None:
             pulumi.set(__self__, "c_name_record", c_name_record)
-        if etag is not None:
-            pulumi.set(__self__, "etag", etag)
         if m_x_records is not None:
             pulumi.set(__self__, "m_x_records", m_x_records)
         if n_s_records is not None:
@@ -147,18 +143,6 @@ class RecordSetArgs:
     @c_name_record.setter
     def c_name_record(self, value: Optional[pulumi.Input['CnameRecordArgs']]):
         pulumi.set(self, "c_name_record", value)
-
-    @property
-    @pulumi.getter
-    def etag(self) -> Optional[pulumi.Input[str]]:
-        """
-        The etag of the record set.
-        """
-        return pulumi.get(self, "etag")
-
-    @etag.setter
-    def etag(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "etag", value)
 
     @property
     @pulumi.getter(name="mXRecords")
@@ -265,7 +249,6 @@ class RecordSet(pulumi.CustomResource):
                  a_aaa_records: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AaaaRecordArgs']]]]] = None,
                  a_records: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ARecordArgs']]]]] = None,
                  c_name_record: Optional[pulumi.Input[pulumi.InputType['CnameRecordArgs']]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  m_x_records: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MxRecordArgs']]]]] = None,
                  n_s_records: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NsRecordArgs']]]]] = None,
                  p_tr_records: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PtrRecordArgs']]]]] = None,
@@ -286,7 +269,6 @@ class RecordSet(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AaaaRecordArgs']]]] a_aaa_records: Gets or sets the list of AAAA records in the RecordSet.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ARecordArgs']]]] a_records: Gets or sets the list of A records in the RecordSet.
         :param pulumi.Input[pulumi.InputType['CnameRecordArgs']] c_name_record: Gets or sets the CNAME record in the RecordSet.
-        :param pulumi.Input[str] etag: The etag of the record set.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MxRecordArgs']]]] m_x_records: Gets or sets the list of MX records in the RecordSet.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NsRecordArgs']]]] n_s_records: Gets or sets the list of NS records in the RecordSet.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PtrRecordArgs']]]] p_tr_records: Gets or sets the list of PTR records in the RecordSet.
@@ -326,7 +308,6 @@ class RecordSet(pulumi.CustomResource):
                  a_aaa_records: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AaaaRecordArgs']]]]] = None,
                  a_records: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ARecordArgs']]]]] = None,
                  c_name_record: Optional[pulumi.Input[pulumi.InputType['CnameRecordArgs']]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  m_x_records: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MxRecordArgs']]]]] = None,
                  n_s_records: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NsRecordArgs']]]]] = None,
                  p_tr_records: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PtrRecordArgs']]]]] = None,
@@ -353,7 +334,6 @@ class RecordSet(pulumi.CustomResource):
             __props__.__dict__["a_aaa_records"] = a_aaa_records
             __props__.__dict__["a_records"] = a_records
             __props__.__dict__["c_name_record"] = c_name_record
-            __props__.__dict__["etag"] = etag
             __props__.__dict__["m_x_records"] = m_x_records
             __props__.__dict__["n_s_records"] = n_s_records
             __props__.__dict__["p_tr_records"] = p_tr_records
@@ -371,6 +351,7 @@ class RecordSet(pulumi.CustomResource):
             if zone_name is None and not opts.urn:
                 raise TypeError("Missing required property 'zone_name'")
             __props__.__dict__["zone_name"] = zone_name
+            __props__.__dict__["etag"] = None
             __props__.__dict__["fqdn"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None

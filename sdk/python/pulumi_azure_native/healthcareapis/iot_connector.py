@@ -19,7 +19,6 @@ class IotConnectorArgs:
                  resource_group_name: pulumi.Input[str],
                  workspace_name: pulumi.Input[str],
                  device_mapping: Optional[pulumi.Input['IotMappingPropertiesArgs']] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input['ServiceManagedIdentityIdentityArgs']] = None,
                  ingestion_endpoint_configuration: Optional[pulumi.Input['IotEventHubIngestionEndpointConfigurationArgs']] = None,
                  iot_connector_name: Optional[pulumi.Input[str]] = None,
@@ -30,7 +29,6 @@ class IotConnectorArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the service instance.
         :param pulumi.Input[str] workspace_name: The name of workspace resource.
         :param pulumi.Input['IotMappingPropertiesArgs'] device_mapping: Device Mappings.
-        :param pulumi.Input[str] etag: An etag associated with the resource, used for optimistic concurrency when editing it.
         :param pulumi.Input['ServiceManagedIdentityIdentityArgs'] identity: Setting indicating whether the service has a managed identity associated with it.
         :param pulumi.Input['IotEventHubIngestionEndpointConfigurationArgs'] ingestion_endpoint_configuration: Source configuration.
         :param pulumi.Input[str] iot_connector_name: The name of IoT Connector resource.
@@ -41,8 +39,6 @@ class IotConnectorArgs:
         pulumi.set(__self__, "workspace_name", workspace_name)
         if device_mapping is not None:
             pulumi.set(__self__, "device_mapping", device_mapping)
-        if etag is not None:
-            pulumi.set(__self__, "etag", etag)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
         if ingestion_endpoint_configuration is not None:
@@ -89,18 +85,6 @@ class IotConnectorArgs:
     @device_mapping.setter
     def device_mapping(self, value: Optional[pulumi.Input['IotMappingPropertiesArgs']]):
         pulumi.set(self, "device_mapping", value)
-
-    @property
-    @pulumi.getter
-    def etag(self) -> Optional[pulumi.Input[str]]:
-        """
-        An etag associated with the resource, used for optimistic concurrency when editing it.
-        """
-        return pulumi.get(self, "etag")
-
-    @etag.setter
-    def etag(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "etag", value)
 
     @property
     @pulumi.getter
@@ -169,7 +153,6 @@ class IotConnector(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  device_mapping: Optional[pulumi.Input[pulumi.InputType['IotMappingPropertiesArgs']]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['ServiceManagedIdentityIdentityArgs']]] = None,
                  ingestion_endpoint_configuration: Optional[pulumi.Input[pulumi.InputType['IotEventHubIngestionEndpointConfigurationArgs']]] = None,
                  iot_connector_name: Optional[pulumi.Input[str]] = None,
@@ -185,7 +168,6 @@ class IotConnector(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['IotMappingPropertiesArgs']] device_mapping: Device Mappings.
-        :param pulumi.Input[str] etag: An etag associated with the resource, used for optimistic concurrency when editing it.
         :param pulumi.Input[pulumi.InputType['ServiceManagedIdentityIdentityArgs']] identity: Setting indicating whether the service has a managed identity associated with it.
         :param pulumi.Input[pulumi.InputType['IotEventHubIngestionEndpointConfigurationArgs']] ingestion_endpoint_configuration: Source configuration.
         :param pulumi.Input[str] iot_connector_name: The name of IoT Connector resource.
@@ -220,7 +202,6 @@ class IotConnector(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  device_mapping: Optional[pulumi.Input[pulumi.InputType['IotMappingPropertiesArgs']]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['ServiceManagedIdentityIdentityArgs']]] = None,
                  ingestion_endpoint_configuration: Optional[pulumi.Input[pulumi.InputType['IotEventHubIngestionEndpointConfigurationArgs']]] = None,
                  iot_connector_name: Optional[pulumi.Input[str]] = None,
@@ -241,7 +222,6 @@ class IotConnector(pulumi.CustomResource):
             __props__ = IotConnectorArgs.__new__(IotConnectorArgs)
 
             __props__.__dict__["device_mapping"] = device_mapping
-            __props__.__dict__["etag"] = etag
             __props__.__dict__["identity"] = identity
             __props__.__dict__["ingestion_endpoint_configuration"] = ingestion_endpoint_configuration
             __props__.__dict__["iot_connector_name"] = iot_connector_name
@@ -253,6 +233,7 @@ class IotConnector(pulumi.CustomResource):
             if workspace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_name'")
             __props__.__dict__["workspace_name"] = workspace_name
+            __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None

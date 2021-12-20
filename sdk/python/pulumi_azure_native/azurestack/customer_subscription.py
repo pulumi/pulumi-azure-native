@@ -16,22 +16,18 @@ class CustomerSubscriptionArgs:
                  registration_name: pulumi.Input[str],
                  resource_group: pulumi.Input[str],
                  customer_subscription_name: Optional[pulumi.Input[str]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  tenant_id: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a CustomerSubscription resource.
         :param pulumi.Input[str] registration_name: Name of the Azure Stack registration.
         :param pulumi.Input[str] resource_group: Name of the resource group.
         :param pulumi.Input[str] customer_subscription_name: Name of the product.
-        :param pulumi.Input[str] etag: The entity tag used for optimistic concurrency when modifying the resource.
         :param pulumi.Input[str] tenant_id: Tenant Id.
         """
         pulumi.set(__self__, "registration_name", registration_name)
         pulumi.set(__self__, "resource_group", resource_group)
         if customer_subscription_name is not None:
             pulumi.set(__self__, "customer_subscription_name", customer_subscription_name)
-        if etag is not None:
-            pulumi.set(__self__, "etag", etag)
         if tenant_id is not None:
             pulumi.set(__self__, "tenant_id", tenant_id)
 
@@ -72,18 +68,6 @@ class CustomerSubscriptionArgs:
         pulumi.set(self, "customer_subscription_name", value)
 
     @property
-    @pulumi.getter
-    def etag(self) -> Optional[pulumi.Input[str]]:
-        """
-        The entity tag used for optimistic concurrency when modifying the resource.
-        """
-        return pulumi.get(self, "etag")
-
-    @etag.setter
-    def etag(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "etag", value)
-
-    @property
     @pulumi.getter(name="tenantId")
     def tenant_id(self) -> Optional[pulumi.Input[str]]:
         """
@@ -102,7 +86,6 @@ class CustomerSubscription(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  customer_subscription_name: Optional[pulumi.Input[str]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  registration_name: Optional[pulumi.Input[str]] = None,
                  resource_group: Optional[pulumi.Input[str]] = None,
                  tenant_id: Optional[pulumi.Input[str]] = None,
@@ -114,7 +97,6 @@ class CustomerSubscription(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] customer_subscription_name: Name of the product.
-        :param pulumi.Input[str] etag: The entity tag used for optimistic concurrency when modifying the resource.
         :param pulumi.Input[str] registration_name: Name of the Azure Stack registration.
         :param pulumi.Input[str] resource_group: Name of the resource group.
         :param pulumi.Input[str] tenant_id: Tenant Id.
@@ -145,7 +127,6 @@ class CustomerSubscription(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  customer_subscription_name: Optional[pulumi.Input[str]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  registration_name: Optional[pulumi.Input[str]] = None,
                  resource_group: Optional[pulumi.Input[str]] = None,
                  tenant_id: Optional[pulumi.Input[str]] = None,
@@ -162,7 +143,6 @@ class CustomerSubscription(pulumi.CustomResource):
             __props__ = CustomerSubscriptionArgs.__new__(CustomerSubscriptionArgs)
 
             __props__.__dict__["customer_subscription_name"] = customer_subscription_name
-            __props__.__dict__["etag"] = etag
             if registration_name is None and not opts.urn:
                 raise TypeError("Missing required property 'registration_name'")
             __props__.__dict__["registration_name"] = registration_name
@@ -170,6 +150,7 @@ class CustomerSubscription(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group'")
             __props__.__dict__["resource_group"] = resource_group
             __props__.__dict__["tenant_id"] = tenant_id
+            __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:azurestack/v20170601:CustomerSubscription"), pulumi.Alias(type_="azure-native:azurestack/v20200601preview:CustomerSubscription")])

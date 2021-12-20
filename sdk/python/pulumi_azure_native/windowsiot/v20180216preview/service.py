@@ -16,7 +16,6 @@ class ServiceArgs:
                  resource_group_name: pulumi.Input[str],
                  admin_domain_name: Optional[pulumi.Input[str]] = None,
                  device_name: Optional[pulumi.Input[str]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  notes: Optional[pulumi.Input[str]] = None,
                  quantity: Optional[pulumi.Input[float]] = None,
@@ -26,7 +25,6 @@ class ServiceArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the Windows IoT Device Service.
         :param pulumi.Input[str] admin_domain_name: Windows IoT Device Service OEM AAD domain
         :param pulumi.Input[str] device_name: The name of the Windows IoT Device Service.
-        :param pulumi.Input[str] etag: The Etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal ETag convention.
         :param pulumi.Input[str] location: The Azure Region where the resource lives
         :param pulumi.Input[str] notes: Windows IoT Device Service notes.
         :param pulumi.Input[float] quantity: Windows IoT Device Service device allocation,
@@ -37,8 +35,6 @@ class ServiceArgs:
             pulumi.set(__self__, "admin_domain_name", admin_domain_name)
         if device_name is not None:
             pulumi.set(__self__, "device_name", device_name)
-        if etag is not None:
-            pulumi.set(__self__, "etag", etag)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if notes is not None:
@@ -83,18 +79,6 @@ class ServiceArgs:
     @device_name.setter
     def device_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "device_name", value)
-
-    @property
-    @pulumi.getter
-    def etag(self) -> Optional[pulumi.Input[str]]:
-        """
-        The Etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal ETag convention.
-        """
-        return pulumi.get(self, "etag")
-
-    @etag.setter
-    def etag(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "etag", value)
 
     @property
     @pulumi.getter
@@ -152,7 +136,6 @@ class Service(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  admin_domain_name: Optional[pulumi.Input[str]] = None,
                  device_name: Optional[pulumi.Input[str]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  notes: Optional[pulumi.Input[str]] = None,
                  quantity: Optional[pulumi.Input[float]] = None,
@@ -166,7 +149,6 @@ class Service(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] admin_domain_name: Windows IoT Device Service OEM AAD domain
         :param pulumi.Input[str] device_name: The name of the Windows IoT Device Service.
-        :param pulumi.Input[str] etag: The Etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal ETag convention.
         :param pulumi.Input[str] location: The Azure Region where the resource lives
         :param pulumi.Input[str] notes: Windows IoT Device Service notes.
         :param pulumi.Input[float] quantity: Windows IoT Device Service device allocation,
@@ -199,7 +181,6 @@ class Service(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  admin_domain_name: Optional[pulumi.Input[str]] = None,
                  device_name: Optional[pulumi.Input[str]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  notes: Optional[pulumi.Input[str]] = None,
                  quantity: Optional[pulumi.Input[float]] = None,
@@ -219,7 +200,6 @@ class Service(pulumi.CustomResource):
 
             __props__.__dict__["admin_domain_name"] = admin_domain_name
             __props__.__dict__["device_name"] = device_name
-            __props__.__dict__["etag"] = etag
             __props__.__dict__["location"] = location
             __props__.__dict__["notes"] = notes
             __props__.__dict__["quantity"] = quantity
@@ -228,6 +208,7 @@ class Service(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["billing_domain_name"] = None
+            __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["start_date"] = None
             __props__.__dict__["type"] = None

@@ -24,7 +24,6 @@ class TiTaxiiDataConnectorArgs:
                  workspace_name: pulumi.Input[str],
                  collection_id: Optional[pulumi.Input[str]] = None,
                  data_connector_id: Optional[pulumi.Input[str]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  friendly_name: Optional[pulumi.Input[str]] = None,
                  password: Optional[pulumi.Input[str]] = None,
                  taxii_lookback_period: Optional[pulumi.Input[str]] = None,
@@ -42,7 +41,6 @@ class TiTaxiiDataConnectorArgs:
         :param pulumi.Input[str] workspace_name: The name of the workspace.
         :param pulumi.Input[str] collection_id: The collection id of the TAXII server.
         :param pulumi.Input[str] data_connector_id: Connector ID
-        :param pulumi.Input[str] etag: Etag of the azure resource
         :param pulumi.Input[str] friendly_name: The friendly name for the TAXII server.
         :param pulumi.Input[str] password: The password for the TAXII server.
         :param pulumi.Input[str] taxii_lookback_period: The lookback period for the TAXII server.
@@ -60,8 +58,6 @@ class TiTaxiiDataConnectorArgs:
             pulumi.set(__self__, "collection_id", collection_id)
         if data_connector_id is not None:
             pulumi.set(__self__, "data_connector_id", data_connector_id)
-        if etag is not None:
-            pulumi.set(__self__, "etag", etag)
         if friendly_name is not None:
             pulumi.set(__self__, "friendly_name", friendly_name)
         if password is not None:
@@ -173,18 +169,6 @@ class TiTaxiiDataConnectorArgs:
         pulumi.set(self, "data_connector_id", value)
 
     @property
-    @pulumi.getter
-    def etag(self) -> Optional[pulumi.Input[str]]:
-        """
-        Etag of the azure resource
-        """
-        return pulumi.get(self, "etag")
-
-    @etag.setter
-    def etag(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "etag", value)
-
-    @property
     @pulumi.getter(name="friendlyName")
     def friendly_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -265,7 +249,6 @@ class TiTaxiiDataConnector(pulumi.CustomResource):
                  collection_id: Optional[pulumi.Input[str]] = None,
                  data_connector_id: Optional[pulumi.Input[str]] = None,
                  data_types: Optional[pulumi.Input[pulumi.InputType['TiTaxiiDataConnectorDataTypesArgs']]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  friendly_name: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  password: Optional[pulumi.Input[str]] = None,
@@ -286,7 +269,6 @@ class TiTaxiiDataConnector(pulumi.CustomResource):
         :param pulumi.Input[str] collection_id: The collection id of the TAXII server.
         :param pulumi.Input[str] data_connector_id: Connector ID
         :param pulumi.Input[pulumi.InputType['TiTaxiiDataConnectorDataTypesArgs']] data_types: The available data types for Threat Intelligence TAXII data connector.
-        :param pulumi.Input[str] etag: Etag of the azure resource
         :param pulumi.Input[str] friendly_name: The friendly name for the TAXII server.
         :param pulumi.Input[str] kind: The kind of the data connector
                Expected value is 'ThreatIntelligenceTaxii'.
@@ -327,7 +309,6 @@ class TiTaxiiDataConnector(pulumi.CustomResource):
                  collection_id: Optional[pulumi.Input[str]] = None,
                  data_connector_id: Optional[pulumi.Input[str]] = None,
                  data_types: Optional[pulumi.Input[pulumi.InputType['TiTaxiiDataConnectorDataTypesArgs']]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  friendly_name: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  password: Optional[pulumi.Input[str]] = None,
@@ -356,7 +337,6 @@ class TiTaxiiDataConnector(pulumi.CustomResource):
             if data_types is None and not opts.urn:
                 raise TypeError("Missing required property 'data_types'")
             __props__.__dict__["data_types"] = data_types
-            __props__.__dict__["etag"] = etag
             __props__.__dict__["friendly_name"] = friendly_name
             if kind is None and not opts.urn:
                 raise TypeError("Missing required property 'kind'")
@@ -378,6 +358,7 @@ class TiTaxiiDataConnector(pulumi.CustomResource):
             if workspace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_name'")
             __props__.__dict__["workspace_name"] = workspace_name
+            __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None

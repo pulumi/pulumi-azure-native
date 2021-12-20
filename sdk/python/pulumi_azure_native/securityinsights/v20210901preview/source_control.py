@@ -23,7 +23,6 @@ class SourceControlArgs:
                  resource_group_name: pulumi.Input[str],
                  workspace_name: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  source_control_id: Optional[pulumi.Input[str]] = None):
         """
@@ -35,7 +34,6 @@ class SourceControlArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] workspace_name: The name of the workspace.
         :param pulumi.Input[str] description: A description of the source control
-        :param pulumi.Input[str] etag: Etag of the azure resource
         :param pulumi.Input[str] id: The id (a Guid) of the source control
         :param pulumi.Input[str] source_control_id: Source control Id
         """
@@ -47,8 +45,6 @@ class SourceControlArgs:
         pulumi.set(__self__, "workspace_name", workspace_name)
         if description is not None:
             pulumi.set(__self__, "description", description)
-        if etag is not None:
-            pulumi.set(__self__, "etag", etag)
         if id is not None:
             pulumi.set(__self__, "id", id)
         if source_control_id is not None:
@@ -140,18 +136,6 @@ class SourceControlArgs:
 
     @property
     @pulumi.getter
-    def etag(self) -> Optional[pulumi.Input[str]]:
-        """
-        Etag of the azure resource
-        """
-        return pulumi.get(self, "etag")
-
-    @etag.setter
-    def etag(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "etag", value)
-
-    @property
-    @pulumi.getter
     def id(self) -> Optional[pulumi.Input[str]]:
         """
         The id (a Guid) of the source control
@@ -183,7 +167,6 @@ class SourceControl(pulumi.CustomResource):
                  content_types: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'ContentType']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  repo_type: Optional[pulumi.Input[Union[str, 'RepoType']]] = None,
                  repository: Optional[pulumi.Input[pulumi.InputType['RepositoryArgs']]] = None,
@@ -199,7 +182,6 @@ class SourceControl(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'ContentType']]]] content_types: Array of source control content types.
         :param pulumi.Input[str] description: A description of the source control
         :param pulumi.Input[str] display_name: The display name of the source control
-        :param pulumi.Input[str] etag: Etag of the azure resource
         :param pulumi.Input[str] id: The id (a Guid) of the source control
         :param pulumi.Input[Union[str, 'RepoType']] repo_type: The repository type of the source control
         :param pulumi.Input[pulumi.InputType['RepositoryArgs']] repository: Repository metadata.
@@ -234,7 +216,6 @@ class SourceControl(pulumi.CustomResource):
                  content_types: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'ContentType']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  repo_type: Optional[pulumi.Input[Union[str, 'RepoType']]] = None,
                  repository: Optional[pulumi.Input[pulumi.InputType['RepositoryArgs']]] = None,
@@ -260,7 +241,6 @@ class SourceControl(pulumi.CustomResource):
             if display_name is None and not opts.urn:
                 raise TypeError("Missing required property 'display_name'")
             __props__.__dict__["display_name"] = display_name
-            __props__.__dict__["etag"] = etag
             __props__.__dict__["id"] = id
             if repo_type is None and not opts.urn:
                 raise TypeError("Missing required property 'repo_type'")
@@ -275,6 +255,7 @@ class SourceControl(pulumi.CustomResource):
             if workspace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_name'")
             __props__.__dict__["workspace_name"] = workspace_name
+            __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None

@@ -26,7 +26,6 @@ class MicrosoftSecurityIncidentCreationAlertRuleArgs:
                  description: Optional[pulumi.Input[str]] = None,
                  display_names_exclude_filter: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  display_names_filter: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  rule_id: Optional[pulumi.Input[str]] = None,
                  severities_filter: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'AlertSeverity']]]]] = None):
         """
@@ -43,7 +42,6 @@ class MicrosoftSecurityIncidentCreationAlertRuleArgs:
         :param pulumi.Input[str] description: The description of the alert rule.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] display_names_exclude_filter: the alerts' displayNames on which the cases will not be generated
         :param pulumi.Input[Sequence[pulumi.Input[str]]] display_names_filter: the alerts' displayNames on which the cases will be generated
-        :param pulumi.Input[str] etag: Etag of the azure resource
         :param pulumi.Input[str] rule_id: Alert rule ID
         :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'AlertSeverity']]]] severities_filter: the alerts' severities on which the cases will be generated
         """
@@ -62,8 +60,6 @@ class MicrosoftSecurityIncidentCreationAlertRuleArgs:
             pulumi.set(__self__, "display_names_exclude_filter", display_names_exclude_filter)
         if display_names_filter is not None:
             pulumi.set(__self__, "display_names_filter", display_names_filter)
-        if etag is not None:
-            pulumi.set(__self__, "etag", etag)
         if rule_id is not None:
             pulumi.set(__self__, "rule_id", rule_id)
         if severities_filter is not None:
@@ -203,18 +199,6 @@ class MicrosoftSecurityIncidentCreationAlertRuleArgs:
         pulumi.set(self, "display_names_filter", value)
 
     @property
-    @pulumi.getter
-    def etag(self) -> Optional[pulumi.Input[str]]:
-        """
-        Etag of the azure resource
-        """
-        return pulumi.get(self, "etag")
-
-    @etag.setter
-    def etag(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "etag", value)
-
-    @property
     @pulumi.getter(name="ruleId")
     def rule_id(self) -> Optional[pulumi.Input[str]]:
         """
@@ -250,7 +234,6 @@ class MicrosoftSecurityIncidentCreationAlertRule(pulumi.CustomResource):
                  display_names_exclude_filter: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  display_names_filter: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  operational_insights_resource_provider: Optional[pulumi.Input[str]] = None,
                  product_filter: Optional[pulumi.Input[Union[str, 'MicrosoftSecurityProductName']]] = None,
@@ -270,7 +253,6 @@ class MicrosoftSecurityIncidentCreationAlertRule(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] display_names_exclude_filter: the alerts' displayNames on which the cases will not be generated
         :param pulumi.Input[Sequence[pulumi.Input[str]]] display_names_filter: the alerts' displayNames on which the cases will be generated
         :param pulumi.Input[bool] enabled: Determines whether this alert rule is enabled or disabled.
-        :param pulumi.Input[str] etag: Etag of the azure resource
         :param pulumi.Input[str] kind: The kind of the alert rule
                Expected value is 'MicrosoftSecurityIncidentCreation'.
         :param pulumi.Input[str] operational_insights_resource_provider: The namespace of workspaces resource provider- Microsoft.OperationalInsights.
@@ -310,7 +292,6 @@ class MicrosoftSecurityIncidentCreationAlertRule(pulumi.CustomResource):
                  display_names_exclude_filter: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  display_names_filter: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  operational_insights_resource_provider: Optional[pulumi.Input[str]] = None,
                  product_filter: Optional[pulumi.Input[Union[str, 'MicrosoftSecurityProductName']]] = None,
@@ -340,7 +321,6 @@ class MicrosoftSecurityIncidentCreationAlertRule(pulumi.CustomResource):
             if enabled is None and not opts.urn:
                 raise TypeError("Missing required property 'enabled'")
             __props__.__dict__["enabled"] = enabled
-            __props__.__dict__["etag"] = etag
             if kind is None and not opts.urn:
                 raise TypeError("Missing required property 'kind'")
             __props__.__dict__["kind"] = 'MicrosoftSecurityIncidentCreation'
@@ -358,6 +338,7 @@ class MicrosoftSecurityIncidentCreationAlertRule(pulumi.CustomResource):
             if workspace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_name'")
             __props__.__dict__["workspace_name"] = workspace_name
+            __props__.__dict__["etag"] = None
             __props__.__dict__["last_modified_utc"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None

@@ -16,7 +16,6 @@ class GraphQueryArgs:
                  query: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
@@ -25,7 +24,6 @@ class GraphQueryArgs:
         :param pulumi.Input[str] query: KQL query that will be graph.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] description: The description of a graph query.
-        :param pulumi.Input[str] etag: This will be used to handle Optimistic Concurrency. If not present, it will always overwrite the existing resource without checking conflict.
         :param pulumi.Input[str] location: The location of the resource
         :param pulumi.Input[str] resource_name: The name of the Graph Query resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
@@ -34,8 +32,6 @@ class GraphQueryArgs:
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if description is not None:
             pulumi.set(__self__, "description", description)
-        if etag is not None:
-            pulumi.set(__self__, "etag", etag)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if resource_name is not None:
@@ -81,18 +77,6 @@ class GraphQueryArgs:
 
     @property
     @pulumi.getter
-    def etag(self) -> Optional[pulumi.Input[str]]:
-        """
-        This will be used to handle Optimistic Concurrency. If not present, it will always overwrite the existing resource without checking conflict.
-        """
-        return pulumi.get(self, "etag")
-
-    @etag.setter
-    def etag(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "etag", value)
-
-    @property
-    @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
         The location of the resource
@@ -134,7 +118,6 @@ class GraphQuery(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  query: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -147,7 +130,6 @@ class GraphQuery(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description of a graph query.
-        :param pulumi.Input[str] etag: This will be used to handle Optimistic Concurrency. If not present, it will always overwrite the existing resource without checking conflict.
         :param pulumi.Input[str] location: The location of the resource
         :param pulumi.Input[str] query: KQL query that will be graph.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
@@ -179,7 +161,6 @@ class GraphQuery(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  query: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -198,7 +179,6 @@ class GraphQuery(pulumi.CustomResource):
             __props__ = GraphQueryArgs.__new__(GraphQueryArgs)
 
             __props__.__dict__["description"] = description
-            __props__.__dict__["etag"] = etag
             __props__.__dict__["location"] = location
             if query is None and not opts.urn:
                 raise TypeError("Missing required property 'query'")
@@ -208,6 +188,7 @@ class GraphQuery(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["resource_name"] = resource_name_
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["result_kind"] = None
             __props__.__dict__["time_modified"] = None

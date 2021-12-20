@@ -15,7 +15,6 @@ __all__ = ['ZoneArgs', 'Zone']
 class ZoneArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
-                 etag: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  max_number_of_record_sets: Optional[pulumi.Input[float]] = None,
                  number_of_record_sets: Optional[pulumi.Input[float]] = None,
@@ -25,7 +24,6 @@ class ZoneArgs:
         """
         The set of arguments for constructing a Zone resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[str] etag: The etag of the zone.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[float] max_number_of_record_sets: The maximum number of record sets that can be created in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.
         :param pulumi.Input[float] number_of_record_sets: The current number of record sets in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.
@@ -34,8 +32,6 @@ class ZoneArgs:
         :param pulumi.Input['ZoneType'] zone_type: The type of this DNS zone (Public or Private).
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if etag is not None:
-            pulumi.set(__self__, "etag", etag)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if max_number_of_record_sets is not None:
@@ -62,18 +58,6 @@ class ZoneArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @property
-    @pulumi.getter
-    def etag(self) -> Optional[pulumi.Input[str]]:
-        """
-        The etag of the zone.
-        """
-        return pulumi.get(self, "etag")
-
-    @etag.setter
-    def etag(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "etag", value)
 
     @property
     @pulumi.getter
@@ -153,7 +137,6 @@ class Zone(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  max_number_of_record_sets: Optional[pulumi.Input[float]] = None,
                  number_of_record_sets: Optional[pulumi.Input[float]] = None,
@@ -167,7 +150,6 @@ class Zone(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] etag: The etag of the zone.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[float] max_number_of_record_sets: The maximum number of record sets that can be created in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.
         :param pulumi.Input[float] number_of_record_sets: The current number of record sets in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.
@@ -200,7 +182,6 @@ class Zone(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  max_number_of_record_sets: Optional[pulumi.Input[float]] = None,
                  number_of_record_sets: Optional[pulumi.Input[float]] = None,
@@ -220,7 +201,6 @@ class Zone(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ZoneArgs.__new__(ZoneArgs)
 
-            __props__.__dict__["etag"] = etag
             __props__.__dict__["location"] = location
             __props__.__dict__["max_number_of_record_sets"] = max_number_of_record_sets
             __props__.__dict__["number_of_record_sets"] = number_of_record_sets
@@ -232,6 +212,7 @@ class Zone(pulumi.CustomResource):
             if zone_type is None:
                 zone_type = 'Public'
             __props__.__dict__["zone_type"] = zone_type
+            __props__.__dict__["etag"] = None
             __props__.__dict__["max_number_of_records_per_record_set"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["name_servers"] = None

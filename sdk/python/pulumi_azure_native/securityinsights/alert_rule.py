@@ -17,21 +17,17 @@ class AlertRuleArgs:
                  kind: pulumi.Input[Union[str, 'AlertRuleKind']],
                  resource_group_name: pulumi.Input[str],
                  workspace_name: pulumi.Input[str],
-                 etag: Optional[pulumi.Input[str]] = None,
                  rule_id: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a AlertRule resource.
         :param pulumi.Input[Union[str, 'AlertRuleKind']] kind: The alert rule kind
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
         :param pulumi.Input[str] workspace_name: The name of the workspace.
-        :param pulumi.Input[str] etag: Etag of the azure resource
         :param pulumi.Input[str] rule_id: Alert rule ID
         """
         pulumi.set(__self__, "kind", kind)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "workspace_name", workspace_name)
-        if etag is not None:
-            pulumi.set(__self__, "etag", etag)
         if rule_id is not None:
             pulumi.set(__self__, "rule_id", rule_id)
 
@@ -72,18 +68,6 @@ class AlertRuleArgs:
         pulumi.set(self, "workspace_name", value)
 
     @property
-    @pulumi.getter
-    def etag(self) -> Optional[pulumi.Input[str]]:
-        """
-        Etag of the azure resource
-        """
-        return pulumi.get(self, "etag")
-
-    @etag.setter
-    def etag(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "etag", value)
-
-    @property
     @pulumi.getter(name="ruleId")
     def rule_id(self) -> Optional[pulumi.Input[str]]:
         """
@@ -106,7 +90,6 @@ class AlertRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[Union[str, 'AlertRuleKind']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  rule_id: Optional[pulumi.Input[str]] = None,
@@ -118,7 +101,6 @@ class AlertRule(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] etag: Etag of the azure resource
         :param pulumi.Input[Union[str, 'AlertRuleKind']] kind: The alert rule kind
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
         :param pulumi.Input[str] rule_id: Alert rule ID
@@ -149,7 +131,6 @@ class AlertRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[Union[str, 'AlertRuleKind']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  rule_id: Optional[pulumi.Input[str]] = None,
@@ -167,7 +148,6 @@ class AlertRule(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = AlertRuleArgs.__new__(AlertRuleArgs)
 
-            __props__.__dict__["etag"] = etag
             if kind is None and not opts.urn:
                 raise TypeError("Missing required property 'kind'")
             __props__.__dict__["kind"] = kind
@@ -178,6 +158,7 @@ class AlertRule(pulumi.CustomResource):
             if workspace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_name'")
             __props__.__dict__["workspace_name"] = workspace_name
+            __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:securityinsights/v20190101preview:AlertRule"), pulumi.Alias(type_="azure-native:securityinsights/v20200101:AlertRule"), pulumi.Alias(type_="azure-native:securityinsights/v20210301preview:AlertRule"), pulumi.Alias(type_="azure-native:securityinsights/v20210901preview:AlertRule")])

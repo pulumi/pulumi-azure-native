@@ -21,7 +21,6 @@ class WorkbookArgs:
                  resource_group_name: pulumi.Input[str],
                  serialized_data: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
-                 etag: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  identity: Optional[pulumi.Input['WorkbookResourceIdentityArgs']] = None,
                  kind: Optional[pulumi.Input[Union[str, 'Kind']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -37,7 +36,6 @@ class WorkbookArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] serialized_data: Configuration of this particular workbook. Configuration data is a string containing valid JSON
         :param pulumi.Input[str] description: The description of the workbook.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] etag: Resource etag
         :param pulumi.Input['WorkbookResourceIdentityArgs'] identity: Identity used for BYOS
         :param pulumi.Input[Union[str, 'Kind']] kind: The kind of workbook. Choices are user and shared.
         :param pulumi.Input[str] location: The geo-location where the resource lives
@@ -53,8 +51,6 @@ class WorkbookArgs:
         pulumi.set(__self__, "serialized_data", serialized_data)
         if description is not None:
             pulumi.set(__self__, "description", description)
-        if etag is not None:
-            pulumi.set(__self__, "etag", etag)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
         if kind is not None:
@@ -131,18 +127,6 @@ class WorkbookArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
-
-    @property
-    @pulumi.getter
-    def etag(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        Resource etag
-        """
-        return pulumi.get(self, "etag")
-
-    @etag.setter
-    def etag(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
-        pulumi.set(self, "etag", value)
 
     @property
     @pulumi.getter
@@ -249,7 +233,6 @@ class Workbook(pulumi.CustomResource):
                  category: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
-                 etag: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['WorkbookResourceIdentityArgs']]] = None,
                  kind: Optional[pulumi.Input[Union[str, 'Kind']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -269,7 +252,6 @@ class Workbook(pulumi.CustomResource):
         :param pulumi.Input[str] category: Workbook category, as defined by the user at creation time.
         :param pulumi.Input[str] description: The description of the workbook.
         :param pulumi.Input[str] display_name: The user-defined name (display name) of the workbook.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] etag: Resource etag
         :param pulumi.Input[pulumi.InputType['WorkbookResourceIdentityArgs']] identity: Identity used for BYOS
         :param pulumi.Input[Union[str, 'Kind']] kind: The kind of workbook. Choices are user and shared.
         :param pulumi.Input[str] location: The geo-location where the resource lives
@@ -308,7 +290,6 @@ class Workbook(pulumi.CustomResource):
                  category: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
-                 etag: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['WorkbookResourceIdentityArgs']]] = None,
                  kind: Optional[pulumi.Input[Union[str, 'Kind']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -338,7 +319,6 @@ class Workbook(pulumi.CustomResource):
             if display_name is None and not opts.urn:
                 raise TypeError("Missing required property 'display_name'")
             __props__.__dict__["display_name"] = display_name
-            __props__.__dict__["etag"] = etag
             __props__.__dict__["identity"] = identity
             __props__.__dict__["kind"] = kind
             __props__.__dict__["location"] = location
@@ -353,6 +333,7 @@ class Workbook(pulumi.CustomResource):
             __props__.__dict__["storage_uri"] = storage_uri
             __props__.__dict__["tags"] = tags
             __props__.__dict__["version"] = version
+            __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["revision"] = None
             __props__.__dict__["system_data"] = None

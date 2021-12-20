@@ -17,7 +17,6 @@ class CommitmentPlanInitArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  commitment_plan_name: Optional[pulumi.Input[str]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input['ResourceSkuArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
@@ -25,7 +24,6 @@ class CommitmentPlanInitArgs:
         The set of arguments for constructing a CommitmentPlan resource.
         :param pulumi.Input[str] resource_group_name: The resource group name.
         :param pulumi.Input[str] commitment_plan_name: The Azure ML commitment plan name.
-        :param pulumi.Input[str] etag: An entity tag used to enforce optimistic concurrency.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input['ResourceSkuArgs'] sku: The commitment plan SKU.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: User-defined tags for the resource.
@@ -33,8 +31,6 @@ class CommitmentPlanInitArgs:
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if commitment_plan_name is not None:
             pulumi.set(__self__, "commitment_plan_name", commitment_plan_name)
-        if etag is not None:
-            pulumi.set(__self__, "etag", etag)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if sku is not None:
@@ -65,18 +61,6 @@ class CommitmentPlanInitArgs:
     @commitment_plan_name.setter
     def commitment_plan_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "commitment_plan_name", value)
-
-    @property
-    @pulumi.getter
-    def etag(self) -> Optional[pulumi.Input[str]]:
-        """
-        An entity tag used to enforce optimistic concurrency.
-        """
-        return pulumi.get(self, "etag")
-
-    @etag.setter
-    def etag(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "etag", value)
 
     @property
     @pulumi.getter
@@ -121,7 +105,6 @@ class CommitmentPlan(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  commitment_plan_name: Optional[pulumi.Input[str]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['ResourceSkuArgs']]] = None,
@@ -134,7 +117,6 @@ class CommitmentPlan(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] commitment_plan_name: The Azure ML commitment plan name.
-        :param pulumi.Input[str] etag: An entity tag used to enforce optimistic concurrency.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] resource_group_name: The resource group name.
         :param pulumi.Input[pulumi.InputType['ResourceSkuArgs']] sku: The commitment plan SKU.
@@ -166,7 +148,6 @@ class CommitmentPlan(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  commitment_plan_name: Optional[pulumi.Input[str]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['ResourceSkuArgs']]] = None,
@@ -184,13 +165,13 @@ class CommitmentPlan(pulumi.CustomResource):
             __props__ = CommitmentPlanInitArgs.__new__(CommitmentPlanInitArgs)
 
             __props__.__dict__["commitment_plan_name"] = commitment_plan_name
-            __props__.__dict__["etag"] = etag
             __props__.__dict__["location"] = location
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["sku"] = sku
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["properties"] = None
             __props__.__dict__["type"] = None
