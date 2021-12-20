@@ -101,8 +101,6 @@ func (ChannelState) ElementType() reflect.Type {
 type channelArgs struct {
 	// The name of the Channel resource.
 	ChannelName *string `pulumi:"channelName"`
-	// Entity Tag
-	Etag *string `pulumi:"etag"`
 	// Required. Gets or sets the Kind of the resource.
 	Kind *string `pulumi:"kind"`
 	// Specifies the location of the resource.
@@ -123,8 +121,6 @@ type channelArgs struct {
 type ChannelArgs struct {
 	// The name of the Channel resource.
 	ChannelName pulumi.StringPtrInput
-	// Entity Tag
-	Etag pulumi.StringPtrInput
 	// Required. Gets or sets the Kind of the resource.
 	Kind pulumi.StringPtrInput
 	// Specifies the location of the resource.

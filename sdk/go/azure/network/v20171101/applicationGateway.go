@@ -237,8 +237,6 @@ type applicationGatewayArgs struct {
 	BackendHttpSettingsCollection []ApplicationGatewayBackendHttpSettings `pulumi:"backendHttpSettingsCollection"`
 	// Whether HTTP2 is enabled on the application gateway resource.
 	EnableHttp2 *bool `pulumi:"enableHttp2"`
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag *string `pulumi:"etag"`
 	// Frontend IP addresses of the application gateway resource.
 	FrontendIPConfigurations []ApplicationGatewayFrontendIPConfiguration `pulumi:"frontendIPConfigurations"`
 	// Frontend ports of the application gateway resource.
@@ -289,8 +287,6 @@ type ApplicationGatewayArgs struct {
 	BackendHttpSettingsCollection ApplicationGatewayBackendHttpSettingsArrayInput
 	// Whether HTTP2 is enabled on the application gateway resource.
 	EnableHttp2 pulumi.BoolPtrInput
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringPtrInput
 	// Frontend IP addresses of the application gateway resource.
 	FrontendIPConfigurations ApplicationGatewayFrontendIPConfigurationArrayInput
 	// Frontend ports of the application gateway resource.

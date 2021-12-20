@@ -107,8 +107,6 @@ type sourceControlArgs struct {
 	Description *string `pulumi:"description"`
 	// The display name of the source control
 	DisplayName string `pulumi:"displayName"`
-	// Etag of the azure resource
-	Etag *string `pulumi:"etag"`
 	// The id (a Guid) of the source control
 	Id *string `pulumi:"id"`
 	// The repository type of the source control
@@ -131,8 +129,6 @@ type SourceControlArgs struct {
 	Description pulumi.StringPtrInput
 	// The display name of the source control
 	DisplayName pulumi.StringInput
-	// Etag of the azure resource
-	Etag pulumi.StringPtrInput
 	// The id (a Guid) of the source control
 	Id pulumi.StringPtrInput
 	// The repository type of the source control

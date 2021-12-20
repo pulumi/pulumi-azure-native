@@ -219,8 +219,6 @@ type expressRouteCircuitArgs struct {
 	CircuitName *string `pulumi:"circuitName"`
 	// The CircuitProvisioningState state of the resource.
 	CircuitProvisioningState *string `pulumi:"circuitProvisioningState"`
-	// Gets a unique read-only string that changes whenever the resource is updated.
-	Etag *string `pulumi:"etag"`
 	// The GatewayManager Etag.
 	GatewayManagerEtag *string `pulumi:"gatewayManagerEtag"`
 	// Resource ID.
@@ -257,8 +255,6 @@ type ExpressRouteCircuitArgs struct {
 	CircuitName pulumi.StringPtrInput
 	// The CircuitProvisioningState state of the resource.
 	CircuitProvisioningState pulumi.StringPtrInput
-	// Gets a unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringPtrInput
 	// The GatewayManager Etag.
 	GatewayManagerEtag pulumi.StringPtrInput
 	// Resource ID.

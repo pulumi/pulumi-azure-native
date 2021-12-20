@@ -128,8 +128,6 @@ type workbookArgs struct {
 	Description *string `pulumi:"description"`
 	// The user-defined name (display name) of the workbook.
 	DisplayName string `pulumi:"displayName"`
-	// Resource etag
-	Etag map[string]string `pulumi:"etag"`
 	// Identity used for BYOS
 	Identity *WorkbookResourceIdentity `pulumi:"identity"`
 	// The kind of workbook. Choices are user and shared.
@@ -160,8 +158,6 @@ type WorkbookArgs struct {
 	Description pulumi.StringPtrInput
 	// The user-defined name (display name) of the workbook.
 	DisplayName pulumi.StringInput
-	// Resource etag
-	Etag pulumi.StringMapInput
 	// Identity used for BYOS
 	Identity WorkbookResourceIdentityPtrInput
 	// The kind of workbook. Choices are user and shared.

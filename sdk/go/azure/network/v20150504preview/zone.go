@@ -92,8 +92,6 @@ func (ZoneState) ElementType() reflect.Type {
 }
 
 type zoneArgs struct {
-	// Gets or sets the ETag of the zone that is being updated, as received from a Get operation.
-	Etag *string `pulumi:"etag"`
 	// The geo-location where the resource lives
 	Location *string `pulumi:"location"`
 	// Gets or sets the properties of the zone.
@@ -108,8 +106,6 @@ type zoneArgs struct {
 
 // The set of arguments for constructing a Zone resource.
 type ZoneArgs struct {
-	// Gets or sets the ETag of the zone that is being updated, as received from a Get operation.
-	Etag pulumi.StringPtrInput
 	// The geo-location where the resource lives
 	Location pulumi.StringPtrInput
 	// Gets or sets the properties of the zone.

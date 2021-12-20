@@ -102,8 +102,6 @@ func (IncidentCommentState) ElementType() reflect.Type {
 }
 
 type incidentCommentArgs struct {
-	// Etag of the azure resource
-	Etag *string `pulumi:"etag"`
 	// Incident comment ID
 	IncidentCommentId *string `pulumi:"incidentCommentId"`
 	// Incident ID
@@ -120,8 +118,6 @@ type incidentCommentArgs struct {
 
 // The set of arguments for constructing a IncidentComment resource.
 type IncidentCommentArgs struct {
-	// Etag of the azure resource
-	Etag pulumi.StringPtrInput
 	// Incident comment ID
 	IncidentCommentId pulumi.StringPtrInput
 	// Incident ID

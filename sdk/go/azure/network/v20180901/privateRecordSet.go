@@ -113,8 +113,6 @@ type privateRecordSetArgs struct {
 	AaaaRecords []AaaaRecord `pulumi:"aaaaRecords"`
 	// The CNAME record in the record set.
 	CnameRecord *CnameRecord `pulumi:"cnameRecord"`
-	// The ETag of the record set.
-	Etag *string `pulumi:"etag"`
 	// The metadata attached to the record set.
 	Metadata map[string]string `pulumi:"metadata"`
 	// The list of MX records in the record set.
@@ -147,8 +145,6 @@ type PrivateRecordSetArgs struct {
 	AaaaRecords AaaaRecordArrayInput
 	// The CNAME record in the record set.
 	CnameRecord CnameRecordPtrInput
-	// The ETag of the record set.
-	Etag pulumi.StringPtrInput
 	// The metadata attached to the record set.
 	Metadata pulumi.StringMapInput
 	// The list of MX records in the record set.

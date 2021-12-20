@@ -101,8 +101,6 @@ func (NetworkFunctionState) ElementType() reflect.Type {
 type networkFunctionArgs struct {
 	// The reference to the device resource.
 	Device *SubResource `pulumi:"device"`
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag *string `pulumi:"etag"`
 	// The geo-location where the resource lives
 	Location *string `pulumi:"location"`
 	// The parameters for the managed application.
@@ -125,8 +123,6 @@ type networkFunctionArgs struct {
 type NetworkFunctionArgs struct {
 	// The reference to the device resource.
 	Device SubResourcePtrInput
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringPtrInput
 	// The geo-location where the resource lives
 	Location pulumi.StringPtrInput
 	// The parameters for the managed application.

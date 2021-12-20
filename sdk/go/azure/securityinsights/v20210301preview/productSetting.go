@@ -92,8 +92,6 @@ func (ProductSettingState) ElementType() reflect.Type {
 }
 
 type productSettingArgs struct {
-	// Etag of the azure resource
-	Etag *string `pulumi:"etag"`
 	// The kind of the setting
 	Kind string `pulumi:"kind"`
 	// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
@@ -108,8 +106,6 @@ type productSettingArgs struct {
 
 // The set of arguments for constructing a ProductSetting resource.
 type ProductSettingArgs struct {
-	// Etag of the azure resource
-	Etag pulumi.StringPtrInput
 	// The kind of the setting
 	Kind pulumi.StringInput
 	// The namespace of workspaces resource provider- Microsoft.OperationalInsights.

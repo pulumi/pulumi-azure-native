@@ -162,8 +162,6 @@ type scheduledAlertRuleArgs struct {
 	DisplayName string `pulumi:"displayName"`
 	// Determines whether this alert rule is enabled or disabled.
 	Enabled bool `pulumi:"enabled"`
-	// Etag of the azure resource
-	Etag *string `pulumi:"etag"`
 	// The event grouping settings.
 	EventGroupingSettings *EventGroupingSettings `pulumi:"eventGroupingSettings"`
 	// The settings of the incidents that created from alerts triggered by this analytics rule
@@ -208,8 +206,6 @@ type ScheduledAlertRuleArgs struct {
 	DisplayName pulumi.StringInput
 	// Determines whether this alert rule is enabled or disabled.
 	Enabled pulumi.BoolInput
-	// Etag of the azure resource
-	Etag pulumi.StringPtrInput
 	// The event grouping settings.
 	EventGroupingSettings EventGroupingSettingsPtrInput
 	// The settings of the incidents that created from alerts triggered by this analytics rule

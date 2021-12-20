@@ -95,8 +95,6 @@ func (DataConnectorState) ElementType() reflect.Type {
 type dataConnectorArgs struct {
 	// Connector ID
 	DataConnectorId *string `pulumi:"dataConnectorId"`
-	// Etag of the azure resource
-	Etag *string `pulumi:"etag"`
 	// The kind of the data connector
 	Kind string `pulumi:"kind"`
 	// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
@@ -111,8 +109,6 @@ type dataConnectorArgs struct {
 type DataConnectorArgs struct {
 	// Connector ID
 	DataConnectorId pulumi.StringPtrInput
-	// Etag of the azure resource
-	Etag pulumi.StringPtrInput
 	// The kind of the data connector
 	Kind pulumi.StringInput
 	// The namespace of workspaces resource provider- Microsoft.OperationalInsights.

@@ -116,8 +116,6 @@ type mlbehaviorAnalyticsAlertRuleArgs struct {
 	AlertRuleTemplateName string `pulumi:"alertRuleTemplateName"`
 	// Determines whether this alert rule is enabled or disabled.
 	Enabled bool `pulumi:"enabled"`
-	// Etag of the azure resource
-	Etag *string `pulumi:"etag"`
 	// The kind of the alert rule
 	// Expected value is 'MLBehaviorAnalytics'.
 	Kind string `pulumi:"kind"`
@@ -135,8 +133,6 @@ type MLBehaviorAnalyticsAlertRuleArgs struct {
 	AlertRuleTemplateName pulumi.StringInput
 	// Determines whether this alert rule is enabled or disabled.
 	Enabled pulumi.BoolInput
-	// Etag of the azure resource
-	Etag pulumi.StringPtrInput
 	// The kind of the alert rule
 	// Expected value is 'MLBehaviorAnalytics'.
 	Kind pulumi.StringInput

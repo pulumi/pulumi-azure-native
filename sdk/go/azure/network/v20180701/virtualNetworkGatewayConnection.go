@@ -234,8 +234,6 @@ type virtualNetworkGatewayConnectionArgs struct {
 	ConnectionType string `pulumi:"connectionType"`
 	// EnableBgp flag
 	EnableBgp *bool `pulumi:"enableBgp"`
-	// Gets a unique read-only string that changes whenever the resource is updated.
-	Etag *string `pulumi:"etag"`
 	// Bypass ExpressRoute Gateway for data forwarding
 	ExpressRouteGatewayBypass *bool `pulumi:"expressRouteGatewayBypass"`
 	// Resource ID.
@@ -276,8 +274,6 @@ type VirtualNetworkGatewayConnectionArgs struct {
 	ConnectionType pulumi.StringInput
 	// EnableBgp flag
 	EnableBgp pulumi.BoolPtrInput
-	// Gets a unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringPtrInput
 	// Bypass ExpressRoute Gateway for data forwarding
 	ExpressRouteGatewayBypass pulumi.BoolPtrInput
 	// Resource ID.

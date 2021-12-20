@@ -229,8 +229,6 @@ type applicationGatewayArgs struct {
 	BackendAddressPools []ApplicationGatewayBackendAddressPool `pulumi:"backendAddressPools"`
 	// Backend http settings of application gateway resource
 	BackendHttpSettingsCollection []ApplicationGatewayBackendHttpSettings `pulumi:"backendHttpSettingsCollection"`
-	// A unique read-only string that changes whenever the resource is updated
-	Etag *string `pulumi:"etag"`
 	// Frontend IP addresses of application gateway resource
 	FrontendIPConfigurations []ApplicationGatewayFrontendIPConfiguration `pulumi:"frontendIPConfigurations"`
 	// Frontend ports of application gateway resource
@@ -275,8 +273,6 @@ type ApplicationGatewayArgs struct {
 	BackendAddressPools ApplicationGatewayBackendAddressPoolArrayInput
 	// Backend http settings of application gateway resource
 	BackendHttpSettingsCollection ApplicationGatewayBackendHttpSettingsArrayInput
-	// A unique read-only string that changes whenever the resource is updated
-	Etag pulumi.StringPtrInput
 	// Frontend IP addresses of application gateway resource
 	FrontendIPConfigurations ApplicationGatewayFrontendIPConfigurationArrayInput
 	// Frontend ports of application gateway resource

@@ -211,8 +211,6 @@ type networkInterfaceArgs struct {
 	DnsSettings *NetworkInterfaceDnsSettings `pulumi:"dnsSettings"`
 	// Gets or sets whether IPForwarding is enabled on the NIC
 	EnableIPForwarding *bool `pulumi:"enableIPForwarding"`
-	// Gets a unique read-only string that changes whenever the resource is updated
-	Etag *string `pulumi:"etag"`
 	// Resource Id
 	Id *string `pulumi:"id"`
 	// Gets or sets list of IPConfigurations of the network interface
@@ -245,8 +243,6 @@ type NetworkInterfaceArgs struct {
 	DnsSettings NetworkInterfaceDnsSettingsPtrInput
 	// Gets or sets whether IPForwarding is enabled on the NIC
 	EnableIPForwarding pulumi.BoolPtrInput
-	// Gets a unique read-only string that changes whenever the resource is updated
-	Etag pulumi.StringPtrInput
 	// Resource Id
 	Id pulumi.StringPtrInput
 	// Gets or sets list of IPConfigurations of the network interface

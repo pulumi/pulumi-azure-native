@@ -91,8 +91,6 @@ func (AnomaliesState) ElementType() reflect.Type {
 }
 
 type anomaliesArgs struct {
-	// Etag of the azure resource
-	Etag *string `pulumi:"etag"`
 	// Expected value is 'Anomalies'.
 	Kind string `pulumi:"kind"`
 	// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
@@ -107,8 +105,6 @@ type anomaliesArgs struct {
 
 // The set of arguments for constructing a Anomalies resource.
 type AnomaliesArgs struct {
-	// Etag of the azure resource
-	Etag pulumi.StringPtrInput
 	// Expected value is 'Anomalies'.
 	Kind pulumi.StringInput
 	// The namespace of workspaces resource provider- Microsoft.OperationalInsights.

@@ -91,8 +91,6 @@ func (IPSyncerState) ElementType() reflect.Type {
 }
 
 type ipsyncerArgs struct {
-	// Etag of the azure resource
-	Etag *string `pulumi:"etag"`
 	// Expected value is 'IPSyncer'.
 	Kind string `pulumi:"kind"`
 	// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
@@ -107,8 +105,6 @@ type ipsyncerArgs struct {
 
 // The set of arguments for constructing a IPSyncer resource.
 type IPSyncerArgs struct {
-	// Etag of the azure resource
-	Etag pulumi.StringPtrInput
 	// Expected value is 'IPSyncer'.
 	Kind pulumi.StringInput
 	// The namespace of workspaces resource provider- Microsoft.OperationalInsights.

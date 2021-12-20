@@ -164,8 +164,6 @@ type apiManagementServiceArgs struct {
 	AddresserEmail *string `pulumi:"addresserEmail"`
 	// Custom properties of the API Management service, like disabling TLS 1.0.
 	CustomProperties map[string]string `pulumi:"customProperties"`
-	// ETag of the resource.
-	Etag *string `pulumi:"etag"`
 	// Custom hostname configuration of the API Management service.
 	HostnameConfigurations []HostnameConfiguration `pulumi:"hostnameConfigurations"`
 	// Datacenter location of the API Management service.
@@ -196,8 +194,6 @@ type ApiManagementServiceArgs struct {
 	AddresserEmail pulumi.StringPtrInput
 	// Custom properties of the API Management service, like disabling TLS 1.0.
 	CustomProperties pulumi.StringMapInput
-	// ETag of the resource.
-	Etag pulumi.StringPtrInput
 	// Custom hostname configuration of the API Management service.
 	HostnameConfigurations HostnameConfigurationArrayInput
 	// Datacenter location of the API Management service.

@@ -153,8 +153,6 @@ type deviceArgs struct {
 	DataResidency *DataResidency `pulumi:"dataResidency"`
 	// The device name.
 	DeviceName *string `pulumi:"deviceName"`
-	// The etag for the devices.
-	Etag *string `pulumi:"etag"`
 	// Msi identity of the resource
 	Identity *ResourceIdentity `pulumi:"identity"`
 	// The kind of the device.
@@ -177,8 +175,6 @@ type DeviceArgs struct {
 	DataResidency DataResidencyPtrInput
 	// The device name.
 	DeviceName pulumi.StringPtrInput
-	// The etag for the devices.
-	Etag pulumi.StringPtrInput
 	// Msi identity of the resource
 	Identity ResourceIdentityPtrInput
 	// The kind of the device.

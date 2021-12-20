@@ -149,8 +149,6 @@ type deviceArgs struct {
 	DataBoxEdgeDeviceStatus *string `pulumi:"dataBoxEdgeDeviceStatus"`
 	// The device name.
 	DeviceName *string `pulumi:"deviceName"`
-	// The etag for the devices.
-	Etag *string `pulumi:"etag"`
 	// Msi identity of the resource
 	Identity *ResourceIdentity `pulumi:"identity"`
 	// The location of the device. This is a supported and registered Azure geographical region (for example, West US, East US, or Southeast Asia). The geographical region of a device cannot be changed once it is created, but if an identical geographical region is specified on update, the request will succeed.
@@ -169,8 +167,6 @@ type DeviceArgs struct {
 	DataBoxEdgeDeviceStatus pulumi.StringPtrInput
 	// The device name.
 	DeviceName pulumi.StringPtrInput
-	// The etag for the devices.
-	Etag pulumi.StringPtrInput
 	// Msi identity of the resource
 	Identity ResourceIdentityPtrInput
 	// The location of the device. This is a supported and registered Azure geographical region (for example, West US, East US, or Southeast Asia). The geographical region of a device cannot be changed once it is created, but if an identical geographical region is specified on update, the request will succeed.

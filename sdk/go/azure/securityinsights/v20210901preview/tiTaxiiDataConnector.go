@@ -127,8 +127,6 @@ type tiTaxiiDataConnectorArgs struct {
 	DataConnectorId *string `pulumi:"dataConnectorId"`
 	// The available data types for Threat Intelligence TAXII data connector.
 	DataTypes TiTaxiiDataConnectorDataTypes `pulumi:"dataTypes"`
-	// Etag of the azure resource
-	Etag *string `pulumi:"etag"`
 	// The friendly name for the TAXII server.
 	FriendlyName *string `pulumi:"friendlyName"`
 	// The kind of the data connector
@@ -162,8 +160,6 @@ type TiTaxiiDataConnectorArgs struct {
 	DataConnectorId pulumi.StringPtrInput
 	// The available data types for Threat Intelligence TAXII data connector.
 	DataTypes TiTaxiiDataConnectorDataTypesInput
-	// Etag of the azure resource
-	Etag pulumi.StringPtrInput
 	// The friendly name for the TAXII server.
 	FriendlyName pulumi.StringPtrInput
 	// The kind of the data connector

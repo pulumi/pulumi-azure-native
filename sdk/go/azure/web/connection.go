@@ -82,8 +82,6 @@ func (ConnectionState) ElementType() reflect.Type {
 type connectionArgs struct {
 	// Connection name
 	ConnectionName *string `pulumi:"connectionName"`
-	// Resource ETag
-	Etag *string `pulumi:"etag"`
 	// Resource location
 	Location   *string                            `pulumi:"location"`
 	Properties *ApiConnectionDefinitionProperties `pulumi:"properties"`
@@ -99,8 +97,6 @@ type connectionArgs struct {
 type ConnectionArgs struct {
 	// Connection name
 	ConnectionName pulumi.StringPtrInput
-	// Resource ETag
-	Etag pulumi.StringPtrInput
 	// Resource location
 	Location   pulumi.StringPtrInput
 	Properties ApiConnectionDefinitionPropertiesPtrInput

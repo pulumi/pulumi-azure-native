@@ -226,8 +226,6 @@ type virtualNetworkGatewayArgs struct {
 	EnableBgp *bool `pulumi:"enableBgp"`
 	// Whether dns forwarding is enabled or not.
 	EnableDnsForwarding *bool `pulumi:"enableDnsForwarding"`
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag *string `pulumi:"etag"`
 	// The reference of the LocalNetworkGateway resource which represents local network site having default routes. Assign Null value in case of removing existing default site setting.
 	GatewayDefaultSite *SubResource `pulumi:"gatewayDefaultSite"`
 	// The type of this virtual network gateway.
@@ -268,8 +266,6 @@ type VirtualNetworkGatewayArgs struct {
 	EnableBgp pulumi.BoolPtrInput
 	// Whether dns forwarding is enabled or not.
 	EnableDnsForwarding pulumi.BoolPtrInput
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringPtrInput
 	// The reference of the LocalNetworkGateway resource which represents local network site having default routes. Assign Null value in case of removing existing default site setting.
 	GatewayDefaultSite SubResourcePtrInput
 	// The type of this virtual network gateway.

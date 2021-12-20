@@ -89,8 +89,6 @@ type applicationArgs struct {
 	ApplicationName *string `pulumi:"applicationName"`
 	// The name of the cluster.
 	ClusterName string `pulumi:"clusterName"`
-	// The ETag for the application
-	Etag *string `pulumi:"etag"`
 	// The properties of the application.
 	Properties *ApplicationProperties `pulumi:"properties"`
 	// The name of the resource group.
@@ -105,8 +103,6 @@ type ApplicationArgs struct {
 	ApplicationName pulumi.StringPtrInput
 	// The name of the cluster.
 	ClusterName pulumi.StringInput
-	// The ETag for the application
-	Etag pulumi.StringPtrInput
 	// The properties of the application.
 	Properties ApplicationPropertiesPtrInput
 	// The name of the resource group.

@@ -102,8 +102,6 @@ func (IotDpsResourceState) ElementType() reflect.Type {
 }
 
 type iotDpsResourceArgs struct {
-	// The Etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal ETag convention.
-	Etag *string `pulumi:"etag"`
 	// The resource location.
 	Location   *string                     `pulumi:"location"`
 	Properties IotDpsPropertiesDescription `pulumi:"properties"`
@@ -119,8 +117,6 @@ type iotDpsResourceArgs struct {
 
 // The set of arguments for constructing a IotDpsResource resource.
 type IotDpsResourceArgs struct {
-	// The Etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal ETag convention.
-	Etag pulumi.StringPtrInput
 	// The resource location.
 	Location   pulumi.StringPtrInput
 	Properties IotDpsPropertiesDescriptionInput

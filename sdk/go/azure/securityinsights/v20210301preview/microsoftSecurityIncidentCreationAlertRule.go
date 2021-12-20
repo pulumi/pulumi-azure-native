@@ -134,8 +134,6 @@ type microsoftSecurityIncidentCreationAlertRuleArgs struct {
 	DisplayNamesFilter []string `pulumi:"displayNamesFilter"`
 	// Determines whether this alert rule is enabled or disabled.
 	Enabled bool `pulumi:"enabled"`
-	// Etag of the azure resource
-	Etag *string `pulumi:"etag"`
 	// The kind of the alert rule
 	// Expected value is 'MicrosoftSecurityIncidentCreation'.
 	Kind string `pulumi:"kind"`
@@ -167,8 +165,6 @@ type MicrosoftSecurityIncidentCreationAlertRuleArgs struct {
 	DisplayNamesFilter pulumi.StringArrayInput
 	// Determines whether this alert rule is enabled or disabled.
 	Enabled pulumi.BoolInput
-	// Etag of the azure resource
-	Etag pulumi.StringPtrInput
 	// The kind of the alert rule
 	// Expected value is 'MicrosoftSecurityIncidentCreation'.
 	Kind pulumi.StringInput

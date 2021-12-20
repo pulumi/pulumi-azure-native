@@ -203,8 +203,6 @@ func (NetworkSecurityGroupState) ElementType() reflect.Type {
 type networkSecurityGroupArgs struct {
 	// The default security rules of network security group.
 	DefaultSecurityRules []SecurityRuleType `pulumi:"defaultSecurityRules"`
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag *string `pulumi:"etag"`
 	// Resource ID.
 	Id *string `pulumi:"id"`
 	// Resource location.
@@ -227,8 +225,6 @@ type networkSecurityGroupArgs struct {
 type NetworkSecurityGroupArgs struct {
 	// The default security rules of network security group.
 	DefaultSecurityRules SecurityRuleTypeArrayInput
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringPtrInput
 	// Resource ID.
 	Id pulumi.StringPtrInput
 	// Resource location.

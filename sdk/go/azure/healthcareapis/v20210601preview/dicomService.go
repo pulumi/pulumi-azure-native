@@ -88,8 +88,6 @@ func (DicomServiceState) ElementType() reflect.Type {
 type dicomServiceArgs struct {
 	// The name of DICOM Service resource.
 	DicomServiceName *string `pulumi:"dicomServiceName"`
-	// An etag associated with the resource, used for optimistic concurrency when editing it.
-	Etag *string `pulumi:"etag"`
 	// The resource location.
 	Location *string `pulumi:"location"`
 	// The name of the resource group that contains the service instance.
@@ -104,8 +102,6 @@ type dicomServiceArgs struct {
 type DicomServiceArgs struct {
 	// The name of DICOM Service resource.
 	DicomServiceName pulumi.StringPtrInput
-	// An etag associated with the resource, used for optimistic concurrency when editing it.
-	Etag pulumi.StringPtrInput
 	// The resource location.
 	Location pulumi.StringPtrInput
 	// The name of the resource group that contains the service instance.

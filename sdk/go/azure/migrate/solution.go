@@ -77,8 +77,6 @@ func (SolutionState) ElementType() reflect.Type {
 }
 
 type solutionArgs struct {
-	// Gets or sets the ETAG for optimistic concurrency control.
-	Etag *string `pulumi:"etag"`
 	// Name of the Azure Migrate project.
 	MigrateProjectName string `pulumi:"migrateProjectName"`
 	// Gets or sets the properties of the solution.
@@ -91,8 +89,6 @@ type solutionArgs struct {
 
 // The set of arguments for constructing a Solution resource.
 type SolutionArgs struct {
-	// Gets or sets the ETAG for optimistic concurrency control.
-	Etag pulumi.StringPtrInput
 	// Name of the Azure Migrate project.
 	MigrateProjectName pulumi.StringInput
 	// Gets or sets the properties of the solution.

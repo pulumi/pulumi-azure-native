@@ -88,8 +88,6 @@ func (EntityQueryState) ElementType() reflect.Type {
 type entityQueryArgs struct {
 	// entity query ID
 	EntityQueryId *string `pulumi:"entityQueryId"`
-	// Etag of the azure resource
-	Etag *string `pulumi:"etag"`
 	// the entity query kind
 	Kind string `pulumi:"kind"`
 	// The name of the resource group. The name is case insensitive.
@@ -102,8 +100,6 @@ type entityQueryArgs struct {
 type EntityQueryArgs struct {
 	// entity query ID
 	EntityQueryId pulumi.StringPtrInput
-	// Etag of the azure resource
-	Etag pulumi.StringPtrInput
 	// the entity query kind
 	Kind pulumi.StringInput
 	// The name of the resource group. The name is case insensitive.

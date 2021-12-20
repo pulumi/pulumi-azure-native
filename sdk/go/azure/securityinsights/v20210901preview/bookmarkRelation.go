@@ -95,8 +95,6 @@ func (BookmarkRelationState) ElementType() reflect.Type {
 type bookmarkRelationArgs struct {
 	// Bookmark ID
 	BookmarkId string `pulumi:"bookmarkId"`
-	// Etag of the azure resource
-	Etag *string `pulumi:"etag"`
 	// The resource ID of the related resource
 	RelatedResourceId string `pulumi:"relatedResourceId"`
 	// Relation Name
@@ -111,8 +109,6 @@ type bookmarkRelationArgs struct {
 type BookmarkRelationArgs struct {
 	// Bookmark ID
 	BookmarkId pulumi.StringInput
-	// Etag of the azure resource
-	Etag pulumi.StringPtrInput
 	// The resource ID of the related resource
 	RelatedResourceId pulumi.StringInput
 	// Relation Name

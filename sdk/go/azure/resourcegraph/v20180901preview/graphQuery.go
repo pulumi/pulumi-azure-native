@@ -91,8 +91,6 @@ func (GraphQueryState) ElementType() reflect.Type {
 type graphQueryArgs struct {
 	// The description of a graph query.
 	Description *string `pulumi:"description"`
-	// This will be used to handle Optimistic Concurrency. If not present, it will always overwrite the existing resource without checking conflict.
-	Etag *string `pulumi:"etag"`
 	// The location of the resource
 	Location *string `pulumi:"location"`
 	// KQL query that will be graph.
@@ -109,8 +107,6 @@ type graphQueryArgs struct {
 type GraphQueryArgs struct {
 	// The description of a graph query.
 	Description pulumi.StringPtrInput
-	// This will be used to handle Optimistic Concurrency. If not present, it will always overwrite the existing resource without checking conflict.
-	Etag pulumi.StringPtrInput
 	// The location of the resource
 	Location pulumi.StringPtrInput
 	// KQL query that will be graph.

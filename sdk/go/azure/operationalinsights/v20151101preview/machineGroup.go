@@ -96,8 +96,6 @@ type machineGroupArgs struct {
 	Count *int `pulumi:"count"`
 	// User defined name for the group
 	DisplayName string `pulumi:"displayName"`
-	// Resource ETAG.
-	Etag *string `pulumi:"etag"`
 	// Type of the machine group
 	GroupType *string `pulumi:"groupType"`
 	// Additional resource type qualifier.
@@ -119,8 +117,6 @@ type MachineGroupArgs struct {
 	Count pulumi.IntPtrInput
 	// User defined name for the group
 	DisplayName pulumi.StringInput
-	// Resource ETAG.
-	Etag pulumi.StringPtrInput
 	// Type of the machine group
 	GroupType pulumi.StringPtrInput
 	// Additional resource type qualifier.

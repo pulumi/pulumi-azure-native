@@ -95,8 +95,6 @@ type serviceArgs struct {
 	BillingDomainName *string `pulumi:"billingDomainName"`
 	// The name of the Windows IoT Device Service.
 	DeviceName *string `pulumi:"deviceName"`
-	// The Etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal ETag convention.
-	Etag *string `pulumi:"etag"`
 	// The Azure Region where the resource lives
 	Location *string `pulumi:"location"`
 	// Windows IoT Device Service notes.
@@ -117,8 +115,6 @@ type ServiceArgs struct {
 	BillingDomainName pulumi.StringPtrInput
 	// The name of the Windows IoT Device Service.
 	DeviceName pulumi.StringPtrInput
-	// The Etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal ETag convention.
-	Etag pulumi.StringPtrInput
 	// The Azure Region where the resource lives
 	Location pulumi.StringPtrInput
 	// Windows IoT Device Service notes.

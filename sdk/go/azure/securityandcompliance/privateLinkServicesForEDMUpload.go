@@ -90,8 +90,6 @@ func (PrivateLinkServicesForEDMUploadState) ElementType() reflect.Type {
 }
 
 type privateLinkServicesForEDMUploadArgs struct {
-	// An etag associated with the resource, used for optimistic concurrency when editing it.
-	Etag *string `pulumi:"etag"`
 	// Setting indicating whether the service has a managed identity associated with it.
 	Identity *ServicesResourceIdentity `pulumi:"identity"`
 	// The kind of the service.
@@ -110,8 +108,6 @@ type privateLinkServicesForEDMUploadArgs struct {
 
 // The set of arguments for constructing a PrivateLinkServicesForEDMUpload resource.
 type PrivateLinkServicesForEDMUploadArgs struct {
-	// An etag associated with the resource, used for optimistic concurrency when editing it.
-	Etag pulumi.StringPtrInput
 	// Setting indicating whether the service has a managed identity associated with it.
 	Identity ServicesResourceIdentityPtrInput
 	// The kind of the service.

@@ -153,8 +153,6 @@ func (IotHubResourceState) ElementType() reflect.Type {
 }
 
 type iotHubResourceArgs struct {
-	// The Etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal ETag convention.
-	Etag *string `pulumi:"etag"`
 	// The managed identities for the IotHub.
 	Identity *ArmIdentity `pulumi:"identity"`
 	// The resource location.
@@ -173,8 +171,6 @@ type iotHubResourceArgs struct {
 
 // The set of arguments for constructing a IotHubResource resource.
 type IotHubResourceArgs struct {
-	// The Etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal ETag convention.
-	Etag pulumi.StringPtrInput
 	// The managed identities for the IotHub.
 	Identity ArmIdentityPtrInput
 	// The resource location.

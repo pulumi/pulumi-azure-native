@@ -96,8 +96,6 @@ func (UebaState) ElementType() reflect.Type {
 type uebaArgs struct {
 	// The relevant data sources that enriched by ueba
 	DataSources []string `pulumi:"dataSources"`
-	// Etag of the azure resource
-	Etag *string `pulumi:"etag"`
 	// The kind of the setting
 	// Expected value is 'Ueba'.
 	Kind string `pulumi:"kind"`
@@ -115,8 +113,6 @@ type uebaArgs struct {
 type UebaArgs struct {
 	// The relevant data sources that enriched by ueba
 	DataSources pulumi.StringArrayInput
-	// Etag of the azure resource
-	Etag pulumi.StringPtrInput
 	// The kind of the setting
 	// Expected value is 'Ueba'.
 	Kind pulumi.StringInput

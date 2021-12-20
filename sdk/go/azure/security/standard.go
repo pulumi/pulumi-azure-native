@@ -98,8 +98,6 @@ type standardArgs struct {
 	Description *string `pulumi:"description"`
 	// display name of the standard, equivalent to the standardId
 	DisplayName *string `pulumi:"displayName"`
-	// Entity tag is used for comparing two or more entities from the same requested resource.
-	Etag *string `pulumi:"etag"`
 	// Kind of the resource
 	Kind *string `pulumi:"kind"`
 	// Location where the resource is stored
@@ -122,8 +120,6 @@ type StandardArgs struct {
 	Description pulumi.StringPtrInput
 	// display name of the standard, equivalent to the standardId
 	DisplayName pulumi.StringPtrInput
-	// Entity tag is used for comparing two or more entities from the same requested resource.
-	Etag pulumi.StringPtrInput
 	// Kind of the resource
 	Kind pulumi.StringPtrInput
 	// Location where the resource is stored

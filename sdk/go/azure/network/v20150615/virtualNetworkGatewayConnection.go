@@ -224,8 +224,6 @@ type virtualNetworkGatewayConnectionArgs struct {
 	EgressBytesTransferred *float64 `pulumi:"egressBytesTransferred"`
 	// EnableBgp flag
 	EnableBgp *bool `pulumi:"enableBgp"`
-	// Gets a unique read-only string that changes whenever the resource is updated.
-	Etag *string `pulumi:"etag"`
 	// Resource Identifier.
 	Id *string `pulumi:"id"`
 	// The ingress bytes transferred in this connection.
@@ -268,8 +266,6 @@ type VirtualNetworkGatewayConnectionArgs struct {
 	EgressBytesTransferred pulumi.Float64PtrInput
 	// EnableBgp flag
 	EnableBgp pulumi.BoolPtrInput
-	// Gets a unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringPtrInput
 	// Resource Identifier.
 	Id pulumi.StringPtrInput
 	// The ingress bytes transferred in this connection.

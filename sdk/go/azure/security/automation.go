@@ -94,8 +94,6 @@ type automationArgs struct {
 	AutomationName *string `pulumi:"automationName"`
 	// The security automation description.
 	Description *string `pulumi:"description"`
-	// Entity tag is used for comparing two or more entities from the same requested resource.
-	Etag *string `pulumi:"etag"`
 	// Indicates whether the security automation is enabled.
 	IsEnabled *bool `pulumi:"isEnabled"`
 	// Kind of the resource
@@ -120,8 +118,6 @@ type AutomationArgs struct {
 	AutomationName pulumi.StringPtrInput
 	// The security automation description.
 	Description pulumi.StringPtrInput
-	// Entity tag is used for comparing two or more entities from the same requested resource.
-	Etag pulumi.StringPtrInput
 	// Indicates whether the security automation is enabled.
 	IsEnabled pulumi.BoolPtrInput
 	// Kind of the resource

@@ -198,8 +198,6 @@ func (LocalNetworkGatewayState) ElementType() reflect.Type {
 type localNetworkGatewayArgs struct {
 	// Local network gateway's BGP speaker settings.
 	BgpSettings *BgpSettings `pulumi:"bgpSettings"`
-	// Gets a unique read-only string that changes whenever the resource is updated
-	Etag *string `pulumi:"etag"`
 	// IP address of local network gateway.
 	GatewayIpAddress *string `pulumi:"gatewayIpAddress"`
 	// Resource Identifier.
@@ -224,8 +222,6 @@ type localNetworkGatewayArgs struct {
 type LocalNetworkGatewayArgs struct {
 	// Local network gateway's BGP speaker settings.
 	BgpSettings BgpSettingsPtrInput
-	// Gets a unique read-only string that changes whenever the resource is updated
-	Etag pulumi.StringPtrInput
 	// IP address of local network gateway.
 	GatewayIpAddress pulumi.StringPtrInput
 	// Resource Identifier.

@@ -141,8 +141,6 @@ type deviceArgs struct {
 	Description *string `pulumi:"description"`
 	// The device name.
 	DeviceName *string `pulumi:"deviceName"`
-	// The etag for the devices.
-	Etag *string `pulumi:"etag"`
 	// The Data Box Edge/Gateway device name.
 	FriendlyName *string `pulumi:"friendlyName"`
 	// The location of the device. This is a supported and registered Azure geographical region (for example, West US, East US, or Southeast Asia). The geographical region of a device cannot be changed once it is created, but if an identical geographical region is specified on update, the request will succeed.
@@ -165,8 +163,6 @@ type DeviceArgs struct {
 	Description pulumi.StringPtrInput
 	// The device name.
 	DeviceName pulumi.StringPtrInput
-	// The etag for the devices.
-	Etag pulumi.StringPtrInput
 	// The Data Box Edge/Gateway device name.
 	FriendlyName pulumi.StringPtrInput
 	// The location of the device. This is a supported and registered Azure geographical region (for example, West US, East US, or Southeast Asia). The geographical region of a device cannot be changed once it is created, but if an identical geographical region is specified on update, the request will succeed.

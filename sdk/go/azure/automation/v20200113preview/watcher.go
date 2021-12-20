@@ -106,8 +106,6 @@ type watcherArgs struct {
 	AutomationAccountName string `pulumi:"automationAccountName"`
 	// Gets or sets the description.
 	Description *string `pulumi:"description"`
-	// Gets or sets the etag of the resource.
-	Etag *string `pulumi:"etag"`
 	// Gets or sets the frequency at which the watcher is invoked.
 	ExecutionFrequencyInSeconds *float64 `pulumi:"executionFrequencyInSeconds"`
 	// The geo-location where the resource lives
@@ -132,8 +130,6 @@ type WatcherArgs struct {
 	AutomationAccountName pulumi.StringInput
 	// Gets or sets the description.
 	Description pulumi.StringPtrInput
-	// Gets or sets the etag of the resource.
-	Etag pulumi.StringPtrInput
 	// Gets or sets the frequency at which the watcher is invoked.
 	ExecutionFrequencyInSeconds pulumi.Float64PtrInput
 	// The geo-location where the resource lives

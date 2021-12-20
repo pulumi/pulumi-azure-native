@@ -102,8 +102,6 @@ type threatIntelligenceIndicatorArgs struct {
 	Description *string `pulumi:"description"`
 	// Display name of a threat intelligence entity
 	DisplayName *string `pulumi:"displayName"`
-	// Etag of the azure resource
-	Etag *string `pulumi:"etag"`
 	// Extensions map
 	Extensions interface{} `pulumi:"extensions"`
 	// External ID of threat intelligence entity
@@ -174,8 +172,6 @@ type ThreatIntelligenceIndicatorArgs struct {
 	Description pulumi.StringPtrInput
 	// Display name of a threat intelligence entity
 	DisplayName pulumi.StringPtrInput
-	// Etag of the azure resource
-	Etag pulumi.StringPtrInput
 	// Extensions map
 	Extensions pulumi.Input
 	// External ID of threat intelligence entity

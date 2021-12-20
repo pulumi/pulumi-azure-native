@@ -111,8 +111,6 @@ func (VaultState) ElementType() reflect.Type {
 }
 
 type vaultArgs struct {
-	// Optional ETag.
-	Etag *string `pulumi:"etag"`
 	// Identity for the resource.
 	Identity *IdentityData `pulumi:"identity"`
 	// Resource location.
@@ -131,8 +129,6 @@ type vaultArgs struct {
 
 // The set of arguments for constructing a Vault resource.
 type VaultArgs struct {
-	// Optional ETag.
-	Etag pulumi.StringPtrInput
 	// Identity for the resource.
 	Identity IdentityDataPtrInput
 	// Resource location.

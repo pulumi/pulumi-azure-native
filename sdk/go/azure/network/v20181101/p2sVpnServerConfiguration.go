@@ -112,8 +112,6 @@ func (P2sVpnServerConfigurationState) ElementType() reflect.Type {
 }
 
 type p2sVpnServerConfigurationArgs struct {
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag *string `pulumi:"etag"`
 	// Resource ID.
 	Id *string `pulumi:"id"`
 	// The name of the P2SVpnServerConfiguration that is unique within a VirtualWan in a resource group. This name can be used to access the resource along with Paren VirtualWan resource name.
@@ -144,8 +142,6 @@ type p2sVpnServerConfigurationArgs struct {
 
 // The set of arguments for constructing a P2sVpnServerConfiguration resource.
 type P2sVpnServerConfigurationArgs struct {
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringPtrInput
 	// Resource ID.
 	Id pulumi.StringPtrInput
 	// The name of the P2SVpnServerConfiguration that is unique within a VirtualWan in a resource group. This name can be used to access the resource along with Paren VirtualWan resource name.

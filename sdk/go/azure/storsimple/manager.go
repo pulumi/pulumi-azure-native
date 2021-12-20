@@ -87,8 +87,6 @@ func (ManagerState) ElementType() reflect.Type {
 type managerArgs struct {
 	// Represents the type of StorSimple Manager.
 	CisIntrinsicSettings *ManagerIntrinsicSettings `pulumi:"cisIntrinsicSettings"`
-	// The etag of the manager.
-	Etag *string `pulumi:"etag"`
 	// The geo location of the resource.
 	Location *string `pulumi:"location"`
 	// The manager name
@@ -107,8 +105,6 @@ type managerArgs struct {
 type ManagerArgs struct {
 	// Represents the type of StorSimple Manager.
 	CisIntrinsicSettings ManagerIntrinsicSettingsPtrInput
-	// The etag of the manager.
-	Etag pulumi.StringPtrInput
 	// The geo location of the resource.
 	Location pulumi.StringPtrInput
 	// The manager name

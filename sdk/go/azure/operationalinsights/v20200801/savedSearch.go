@@ -107,8 +107,6 @@ type savedSearchArgs struct {
 	Category string `pulumi:"category"`
 	// Saved search display name.
 	DisplayName string `pulumi:"displayName"`
-	// The ETag of the saved search. To override an existing saved search, use "*" or specify the current Etag
-	Etag *string `pulumi:"etag"`
 	// The function alias if query serves as a function.
 	FunctionAlias *string `pulumi:"functionAlias"`
 	// The optional function parameters if query serves as a function. Value should be in the following format: 'param-name1:type1 = default_value1, param-name2:type2 = default_value2'. For more examples and proper syntax please refer to https://docs.microsoft.com/en-us/azure/kusto/query/functions/user-defined-functions.
@@ -133,8 +131,6 @@ type SavedSearchArgs struct {
 	Category pulumi.StringInput
 	// Saved search display name.
 	DisplayName pulumi.StringInput
-	// The ETag of the saved search. To override an existing saved search, use "*" or specify the current Etag
-	Etag pulumi.StringPtrInput
 	// The function alias if query serves as a function.
 	FunctionAlias pulumi.StringPtrInput
 	// The optional function parameters if query serves as a function. Value should be in the following format: 'param-name1:type1 = default_value1, param-name2:type2 = default_value2'. For more examples and proper syntax please refer to https://docs.microsoft.com/en-us/azure/kusto/query/functions/user-defined-functions.

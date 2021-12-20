@@ -93,8 +93,6 @@ func (UebaState) ElementType() reflect.Type {
 type uebaArgs struct {
 	// The relevant data sources that enriched by ueba
 	DataSources []string `pulumi:"dataSources"`
-	// Etag of the azure resource
-	Etag *string `pulumi:"etag"`
 	// Expected value is 'Ueba'.
 	Kind string `pulumi:"kind"`
 	// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
@@ -111,8 +109,6 @@ type uebaArgs struct {
 type UebaArgs struct {
 	// The relevant data sources that enriched by ueba
 	DataSources pulumi.StringArrayInput
-	// Etag of the azure resource
-	Etag pulumi.StringPtrInput
 	// Expected value is 'Ueba'.
 	Kind pulumi.StringInput
 	// The namespace of workspaces resource provider- Microsoft.OperationalInsights.

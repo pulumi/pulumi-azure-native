@@ -79,8 +79,6 @@ func (ServiceTaskState) ElementType() reflect.Type {
 }
 
 type serviceTaskArgs struct {
-	// HTTP strong entity tag value. This is ignored if submitted.
-	Etag *string `pulumi:"etag"`
 	// Name of the resource group
 	GroupName string `pulumi:"groupName"`
 	// Custom task properties
@@ -93,8 +91,6 @@ type serviceTaskArgs struct {
 
 // The set of arguments for constructing a ServiceTask resource.
 type ServiceTaskArgs struct {
-	// HTTP strong entity tag value. This is ignored if submitted.
-	Etag pulumi.StringPtrInput
 	// Name of the resource group
 	GroupName pulumi.StringInput
 	// Custom task properties

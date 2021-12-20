@@ -209,8 +209,6 @@ func (LoadBalancerState) ElementType() reflect.Type {
 type loadBalancerArgs struct {
 	// Gets or sets Pools of backend IP addresses
 	BackendAddressPools []BackendAddressPool `pulumi:"backendAddressPools"`
-	// Gets a unique read-only string that changes whenever the resource is updated
-	Etag *string `pulumi:"etag"`
 	// Gets or sets frontend IP addresses of the load balancer
 	FrontendIPConfigurations []FrontendIpConfiguration `pulumi:"frontendIPConfigurations"`
 	// Gets or sets inbound NAT pools
@@ -241,8 +239,6 @@ type loadBalancerArgs struct {
 type LoadBalancerArgs struct {
 	// Gets or sets Pools of backend IP addresses
 	BackendAddressPools BackendAddressPoolArrayInput
-	// Gets a unique read-only string that changes whenever the resource is updated
-	Etag pulumi.StringPtrInput
 	// Gets or sets frontend IP addresses of the load balancer
 	FrontendIPConfigurations FrontendIpConfigurationArrayInput
 	// Gets or sets inbound NAT pools

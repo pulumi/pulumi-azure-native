@@ -203,8 +203,6 @@ type virtualNetworkArgs struct {
 	AddressSpace *AddressSpace `pulumi:"addressSpace"`
 	// Gets or sets DHCPOptions that contains an array of DNS servers available to VMs deployed in the virtual network
 	DhcpOptions *DhcpOptions `pulumi:"dhcpOptions"`
-	// Gets a unique read-only string that changes whenever the resource is updated
-	Etag *string `pulumi:"etag"`
 	// Resource Id
 	Id *string `pulumi:"id"`
 	// Resource location
@@ -229,8 +227,6 @@ type VirtualNetworkArgs struct {
 	AddressSpace AddressSpacePtrInput
 	// Gets or sets DHCPOptions that contains an array of DNS servers available to VMs deployed in the virtual network
 	DhcpOptions DhcpOptionsPtrInput
-	// Gets a unique read-only string that changes whenever the resource is updated
-	Etag pulumi.StringPtrInput
 	// Resource Id
 	Id pulumi.StringPtrInput
 	// Resource location

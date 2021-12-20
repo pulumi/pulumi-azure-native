@@ -38,9 +38,6 @@ func NewNetworkWatcher(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if isZero(args.Etag) {
-		args.Etag = pulumi.StringPtr("A unique read-only string that changes whenever the resource is updated.")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-native:network:NetworkWatcher"),
@@ -181,7 +178,6 @@ func (NetworkWatcherState) ElementType() reflect.Type {
 }
 
 type networkWatcherArgs struct {
-	Etag *string `pulumi:"etag"`
 	// Resource ID.
 	Id *string `pulumi:"id"`
 	// Resource location.
@@ -196,7 +192,6 @@ type networkWatcherArgs struct {
 
 // The set of arguments for constructing a NetworkWatcher resource.
 type NetworkWatcherArgs struct {
-	Etag pulumi.StringPtrInput
 	// Resource ID.
 	Id pulumi.StringPtrInput
 	// Resource location.

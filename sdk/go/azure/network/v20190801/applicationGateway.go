@@ -259,8 +259,6 @@ type applicationGatewayArgs struct {
 	EnableFips *bool `pulumi:"enableFips"`
 	// Whether HTTP2 is enabled on the application gateway resource.
 	EnableHttp2 *bool `pulumi:"enableHttp2"`
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag *string `pulumi:"etag"`
 	// Reference of the FirewallPolicy resource.
 	FirewallPolicy *SubResource `pulumi:"firewallPolicy"`
 	// Frontend IP addresses of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
@@ -325,8 +323,6 @@ type ApplicationGatewayArgs struct {
 	EnableFips pulumi.BoolPtrInput
 	// Whether HTTP2 is enabled on the application gateway resource.
 	EnableHttp2 pulumi.BoolPtrInput
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringPtrInput
 	// Reference of the FirewallPolicy resource.
 	FirewallPolicy SubResourcePtrInput
 	// Frontend IP addresses of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).

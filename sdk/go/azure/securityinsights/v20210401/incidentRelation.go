@@ -99,8 +99,6 @@ func (IncidentRelationState) ElementType() reflect.Type {
 }
 
 type incidentRelationArgs struct {
-	// Etag of the azure resource
-	Etag *string `pulumi:"etag"`
 	// Incident ID
 	IncidentId string `pulumi:"incidentId"`
 	// The resource ID of the related resource
@@ -115,8 +113,6 @@ type incidentRelationArgs struct {
 
 // The set of arguments for constructing a IncidentRelation resource.
 type IncidentRelationArgs struct {
-	// Etag of the azure resource
-	Etag pulumi.StringPtrInput
 	// Incident ID
 	IncidentId pulumi.StringInput
 	// The resource ID of the related resource

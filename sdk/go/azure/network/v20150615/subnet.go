@@ -198,8 +198,6 @@ func (SubnetState) ElementType() reflect.Type {
 type subnetArgs struct {
 	// The address prefix for the subnet.
 	AddressPrefix *string `pulumi:"addressPrefix"`
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag *string `pulumi:"etag"`
 	// Resource Identifier.
 	Id *string `pulumi:"id"`
 	// Gets an array of references to the network interface IP configurations using subnet.
@@ -224,8 +222,6 @@ type subnetArgs struct {
 type SubnetArgs struct {
 	// The address prefix for the subnet.
 	AddressPrefix pulumi.StringPtrInput
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringPtrInput
 	// Resource Identifier.
 	Id pulumi.StringPtrInput
 	// Gets an array of references to the network interface IP configurations using subnet.

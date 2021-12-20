@@ -220,8 +220,6 @@ type virtualNetworkGatewayArgs struct {
 	CustomRoutes *AddressSpace `pulumi:"customRoutes"`
 	// Whether BGP is enabled for this virtual network gateway or not.
 	EnableBgp *bool `pulumi:"enableBgp"`
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag *string `pulumi:"etag"`
 	// The reference of the LocalNetworkGateway resource which represents local network site having default routes. Assign Null value in case of removing existing default site setting.
 	GatewayDefaultSite *SubResource `pulumi:"gatewayDefaultSite"`
 	// The type of this virtual network gateway.
@@ -260,8 +258,6 @@ type VirtualNetworkGatewayArgs struct {
 	CustomRoutes AddressSpacePtrInput
 	// Whether BGP is enabled for this virtual network gateway or not.
 	EnableBgp pulumi.BoolPtrInput
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringPtrInput
 	// The reference of the LocalNetworkGateway resource which represents local network site having default routes. Assign Null value in case of removing existing default site setting.
 	GatewayDefaultSite SubResourcePtrInput
 	// The type of this virtual network gateway.

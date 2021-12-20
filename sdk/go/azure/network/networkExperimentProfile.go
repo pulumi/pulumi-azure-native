@@ -82,8 +82,6 @@ func (NetworkExperimentProfileState) ElementType() reflect.Type {
 type networkExperimentProfileArgs struct {
 	// The state of the Experiment
 	EnabledState *string `pulumi:"enabledState"`
-	// Gets a unique read-only string that changes whenever the resource is updated.
-	Etag *string `pulumi:"etag"`
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// The name of the Profile
@@ -100,8 +98,6 @@ type networkExperimentProfileArgs struct {
 type NetworkExperimentProfileArgs struct {
 	// The state of the Experiment
 	EnabledState pulumi.StringPtrInput
-	// Gets a unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringPtrInput
 	// Resource location.
 	Location pulumi.StringPtrInput
 	// The name of the Profile

@@ -115,8 +115,6 @@ type automationRuleArgs struct {
 	AutomationRuleId *string `pulumi:"automationRuleId"`
 	// The display name of the automation  rule
 	DisplayName string `pulumi:"displayName"`
-	// Etag of the azure resource
-	Etag *string `pulumi:"etag"`
 	// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
 	OperationalInsightsResourceProvider string `pulumi:"operationalInsightsResourceProvider"`
 	// The order of execution of the automation rule
@@ -137,8 +135,6 @@ type AutomationRuleArgs struct {
 	AutomationRuleId pulumi.StringPtrInput
 	// The display name of the automation  rule
 	DisplayName pulumi.StringInput
-	// Etag of the azure resource
-	Etag pulumi.StringPtrInput
 	// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
 	OperationalInsightsResourceProvider pulumi.StringInput
 	// The order of execution of the automation rule

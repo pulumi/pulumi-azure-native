@@ -101,8 +101,6 @@ type managerExtendedInfoArgs struct {
 	EncryptionKey *string `pulumi:"encryptionKey"`
 	// Represents the Cert thumbprint that was used to encrypt the CEK
 	EncryptionKeyThumbprint *string `pulumi:"encryptionKeyThumbprint"`
-	// ETag of the Resource
-	Etag *string `pulumi:"etag"`
 	// Represents the CIK of the resource
 	IntegrityKey string `pulumi:"integrityKey"`
 	// The manager name
@@ -123,8 +121,6 @@ type ManagerExtendedInfoArgs struct {
 	EncryptionKey pulumi.StringPtrInput
 	// Represents the Cert thumbprint that was used to encrypt the CEK
 	EncryptionKeyThumbprint pulumi.StringPtrInput
-	// ETag of the Resource
-	Etag pulumi.StringPtrInput
 	// Represents the CIK of the resource
 	IntegrityKey pulumi.StringInput
 	// The manager name

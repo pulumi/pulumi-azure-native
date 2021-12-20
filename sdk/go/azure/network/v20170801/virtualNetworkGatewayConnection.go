@@ -232,8 +232,6 @@ type virtualNetworkGatewayConnectionArgs struct {
 	ConnectionType string `pulumi:"connectionType"`
 	// EnableBgp flag
 	EnableBgp *bool `pulumi:"enableBgp"`
-	// Gets a unique read-only string that changes whenever the resource is updated.
-	Etag *string `pulumi:"etag"`
 	// Resource ID.
 	Id *string `pulumi:"id"`
 	// The IPSec Policies to be considered by this connection.
@@ -272,8 +270,6 @@ type VirtualNetworkGatewayConnectionArgs struct {
 	ConnectionType pulumi.StringInput
 	// EnableBgp flag
 	EnableBgp pulumi.BoolPtrInput
-	// Gets a unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringPtrInput
 	// Resource ID.
 	Id pulumi.StringPtrInput
 	// The IPSec Policies to be considered by this connection.

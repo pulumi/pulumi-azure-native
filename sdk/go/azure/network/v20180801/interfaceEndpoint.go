@@ -152,8 +152,6 @@ func (InterfaceEndpointState) ElementType() reflect.Type {
 type interfaceEndpointArgs struct {
 	// A reference to the service being brought into the virtual network.
 	EndpointService *EndpointService `pulumi:"endpointService"`
-	// Gets a unique read-only string that changes whenever the resource is updated.
-	Etag *string `pulumi:"etag"`
 	// A first-party service's FQDN that is mapped to the private IP allocated via this interface endpoint.
 	Fqdn *string `pulumi:"fqdn"`
 	// Resource ID.
@@ -174,8 +172,6 @@ type interfaceEndpointArgs struct {
 type InterfaceEndpointArgs struct {
 	// A reference to the service being brought into the virtual network.
 	EndpointService EndpointServicePtrInput
-	// Gets a unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringPtrInput
 	// A first-party service's FQDN that is mapped to the private IP allocated via this interface endpoint.
 	Fqdn pulumi.StringPtrInput
 	// Resource ID.

@@ -189,8 +189,6 @@ type inboundNatRuleArgs struct {
 	EnableFloatingIP *bool `pulumi:"enableFloatingIP"`
 	// Receive bidirectional TCP Reset on TCP flow idle timeout or unexpected connection termination. This element is only used when the protocol is set to TCP.
 	EnableTcpReset *bool `pulumi:"enableTcpReset"`
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag *string `pulumi:"etag"`
 	// A reference to frontend IP addresses.
 	FrontendIPConfiguration *SubResource `pulumi:"frontendIPConfiguration"`
 	// The port for the external endpoint. Port numbers for each rule must be unique within the Load Balancer. Acceptable values range from 1 to 65534.
@@ -221,8 +219,6 @@ type InboundNatRuleArgs struct {
 	EnableFloatingIP pulumi.BoolPtrInput
 	// Receive bidirectional TCP Reset on TCP flow idle timeout or unexpected connection termination. This element is only used when the protocol is set to TCP.
 	EnableTcpReset pulumi.BoolPtrInput
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringPtrInput
 	// A reference to frontend IP addresses.
 	FrontendIPConfiguration SubResourcePtrInput
 	// The port for the external endpoint. Port numbers for each rule must be unique within the Load Balancer. Acceptable values range from 1 to 65534.

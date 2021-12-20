@@ -91,8 +91,6 @@ func (EyesOnState) ElementType() reflect.Type {
 }
 
 type eyesOnArgs struct {
-	// Etag of the azure resource
-	Etag *string `pulumi:"etag"`
 	// Expected value is 'EyesOn'.
 	Kind string `pulumi:"kind"`
 	// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
@@ -107,8 +105,6 @@ type eyesOnArgs struct {
 
 // The set of arguments for constructing a EyesOn resource.
 type EyesOnArgs struct {
-	// Etag of the azure resource
-	Etag pulumi.StringPtrInput
 	// Expected value is 'EyesOn'.
 	Kind pulumi.StringInput
 	// The namespace of workspaces resource provider- Microsoft.OperationalInsights.

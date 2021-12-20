@@ -104,8 +104,6 @@ type fhirServiceArgs struct {
 	AuthenticationConfiguration *FhirServiceAuthenticationConfiguration `pulumi:"authenticationConfiguration"`
 	// Fhir Service Cors configuration.
 	CorsConfiguration *FhirServiceCorsConfiguration `pulumi:"corsConfiguration"`
-	// An etag associated with the resource, used for optimistic concurrency when editing it.
-	Etag *string `pulumi:"etag"`
 	// Fhir Service export configuration.
 	ExportConfiguration *FhirServiceExportConfiguration `pulumi:"exportConfiguration"`
 	// The name of FHIR Service resource.
@@ -134,8 +132,6 @@ type FhirServiceArgs struct {
 	AuthenticationConfiguration FhirServiceAuthenticationConfigurationPtrInput
 	// Fhir Service Cors configuration.
 	CorsConfiguration FhirServiceCorsConfigurationPtrInput
-	// An etag associated with the resource, used for optimistic concurrency when editing it.
-	Etag pulumi.StringPtrInput
 	// Fhir Service export configuration.
 	ExportConfiguration FhirServiceExportConfigurationPtrInput
 	// The name of FHIR Service resource.

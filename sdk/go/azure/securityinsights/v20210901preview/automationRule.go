@@ -113,8 +113,6 @@ type automationRuleArgs struct {
 	AutomationRuleId *string `pulumi:"automationRuleId"`
 	// The display name of the automation  rule
 	DisplayName string `pulumi:"displayName"`
-	// Etag of the azure resource
-	Etag *string `pulumi:"etag"`
 	// The order of execution of the automation rule
 	Order int `pulumi:"order"`
 	// The name of the resource group. The name is case insensitive.
@@ -133,8 +131,6 @@ type AutomationRuleArgs struct {
 	AutomationRuleId pulumi.StringPtrInput
 	// The display name of the automation  rule
 	DisplayName pulumi.StringInput
-	// Etag of the azure resource
-	Etag pulumi.StringPtrInput
 	// The order of execution of the automation rule
 	Order pulumi.IntInput
 	// The name of the resource group. The name is case insensitive.

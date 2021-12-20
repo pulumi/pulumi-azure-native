@@ -103,8 +103,6 @@ type officeIRMDataConnectorArgs struct {
 	DataConnectorId *string `pulumi:"dataConnectorId"`
 	// The available data types for the connector.
 	DataTypes *AlertsDataTypeOfDataConnector `pulumi:"dataTypes"`
-	// Etag of the azure resource
-	Etag *string `pulumi:"etag"`
 	// The kind of the data connector
 	// Expected value is 'OfficeIRM'.
 	Kind string `pulumi:"kind"`
@@ -122,8 +120,6 @@ type OfficeIRMDataConnectorArgs struct {
 	DataConnectorId pulumi.StringPtrInput
 	// The available data types for the connector.
 	DataTypes AlertsDataTypeOfDataConnectorPtrInput
-	// Etag of the azure resource
-	Etag pulumi.StringPtrInput
 	// The kind of the data connector
 	// Expected value is 'OfficeIRM'.
 	Kind pulumi.StringInput

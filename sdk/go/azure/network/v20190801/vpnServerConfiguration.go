@@ -140,8 +140,6 @@ func (VpnServerConfigurationState) ElementType() reflect.Type {
 type vpnServerConfigurationArgs struct {
 	// The set of aad vpn authentication parameters.
 	AadAuthenticationParameters *AadAuthenticationParameters `pulumi:"aadAuthenticationParameters"`
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag *string `pulumi:"etag"`
 	// Resource ID.
 	Id *string `pulumi:"id"`
 	// Resource location.
@@ -178,8 +176,6 @@ type vpnServerConfigurationArgs struct {
 type VpnServerConfigurationArgs struct {
 	// The set of aad vpn authentication parameters.
 	AadAuthenticationParameters AadAuthenticationParametersPtrInput
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringPtrInput
 	// Resource ID.
 	Id pulumi.StringPtrInput
 	// Resource location.

@@ -197,8 +197,6 @@ type virtualNetworkPeeringArgs struct {
 	AllowGatewayTransit *bool `pulumi:"allowGatewayTransit"`
 	// Gets or sets whether the VMs in the linked virtual network space would be able to access all the VMs in local Virtual network space
 	AllowVirtualNetworkAccess *bool `pulumi:"allowVirtualNetworkAccess"`
-	// A unique read-only string that changes whenever the resource is updated
-	Etag *string `pulumi:"etag"`
 	// Resource Id
 	Id *string `pulumi:"id"`
 	// Gets or sets the name of the resource that is unique within a resource group. This name can be used to access the resource
@@ -227,8 +225,6 @@ type VirtualNetworkPeeringArgs struct {
 	AllowGatewayTransit pulumi.BoolPtrInput
 	// Gets or sets whether the VMs in the linked virtual network space would be able to access all the VMs in local Virtual network space
 	AllowVirtualNetworkAccess pulumi.BoolPtrInput
-	// A unique read-only string that changes whenever the resource is updated
-	Etag pulumi.StringPtrInput
 	// Resource Id
 	Id pulumi.StringPtrInput
 	// Gets or sets the name of the resource that is unique within a resource group. This name can be used to access the resource

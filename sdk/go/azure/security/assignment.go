@@ -112,8 +112,6 @@ type assignmentArgs struct {
 	DisplayName *string `pulumi:"displayName"`
 	// expected effect of this assignment (Disable/Exempt/etc)
 	Effect *string `pulumi:"effect"`
-	// Entity tag is used for comparing two or more entities from the same requested resource.
-	Etag *string `pulumi:"etag"`
 	// Expiration date of this assignment as a full ISO date
 	ExpiresOn *string `pulumi:"expiresOn"`
 	// Kind of the resource
@@ -146,8 +144,6 @@ type AssignmentArgs struct {
 	DisplayName pulumi.StringPtrInput
 	// expected effect of this assignment (Disable/Exempt/etc)
 	Effect pulumi.StringPtrInput
-	// Entity tag is used for comparing two or more entities from the same requested resource.
-	Etag pulumi.StringPtrInput
 	// Expiration date of this assignment as a full ISO date
 	ExpiresOn pulumi.StringPtrInput
 	// Kind of the resource

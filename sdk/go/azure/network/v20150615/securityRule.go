@@ -231,8 +231,6 @@ type securityRuleArgs struct {
 	DestinationPortRange *string `pulumi:"destinationPortRange"`
 	// The direction of the rule. The direction specifies if rule will be evaluated on incoming or outgoing traffic. Possible values are: 'Inbound' and 'Outbound'.
 	Direction string `pulumi:"direction"`
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag *string `pulumi:"etag"`
 	// Resource Identifier.
 	Id *string `pulumi:"id"`
 	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
@@ -267,8 +265,6 @@ type SecurityRuleArgs struct {
 	DestinationPortRange pulumi.StringPtrInput
 	// The direction of the rule. The direction specifies if rule will be evaluated on incoming or outgoing traffic. Possible values are: 'Inbound' and 'Outbound'.
 	Direction pulumi.StringInput
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringPtrInput
 	// Resource Identifier.
 	Id pulumi.StringPtrInput
 	// The name of the resource that is unique within a resource group. This name can be used to access the resource.

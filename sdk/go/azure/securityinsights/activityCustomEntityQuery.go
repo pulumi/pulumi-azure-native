@@ -122,8 +122,6 @@ type activityCustomEntityQueryArgs struct {
 	EntitiesFilter map[string][]string `pulumi:"entitiesFilter"`
 	// entity query ID
 	EntityQueryId *string `pulumi:"entityQueryId"`
-	// Etag of the azure resource
-	Etag *string `pulumi:"etag"`
 	// The type of the query's source entity
 	InputEntityType *string `pulumi:"inputEntityType"`
 	// The kind of the entity query that supports put request.
@@ -157,8 +155,6 @@ type ActivityCustomEntityQueryArgs struct {
 	EntitiesFilter pulumi.StringArrayMapInput
 	// entity query ID
 	EntityQueryId pulumi.StringPtrInput
-	// Etag of the azure resource
-	Etag pulumi.StringPtrInput
 	// The type of the query's source entity
 	InputEntityType pulumi.StringPtrInput
 	// The kind of the entity query that supports put request.

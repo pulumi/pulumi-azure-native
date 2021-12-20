@@ -137,8 +137,6 @@ type incidentArgs struct {
 	ClassificationReason *string `pulumi:"classificationReason"`
 	// The description of the incident
 	Description *string `pulumi:"description"`
-	// Etag of the azure resource
-	Etag *string `pulumi:"etag"`
 	// The time of the first activity in the incident
 	FirstActivityTimeUtc *string `pulumi:"firstActivityTimeUtc"`
 	// Incident ID
@@ -171,8 +169,6 @@ type IncidentArgs struct {
 	ClassificationReason pulumi.StringPtrInput
 	// The description of the incident
 	Description pulumi.StringPtrInput
-	// Etag of the azure resource
-	Etag pulumi.StringPtrInput
 	// The time of the first activity in the incident
 	FirstActivityTimeUtc pulumi.StringPtrInput
 	// Incident ID

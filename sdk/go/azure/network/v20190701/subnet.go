@@ -226,8 +226,6 @@ type subnetArgs struct {
 	AddressPrefixes []string `pulumi:"addressPrefixes"`
 	// An array of references to the delegations on the subnet.
 	Delegations []Delegation `pulumi:"delegations"`
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag *string `pulumi:"etag"`
 	// Resource ID.
 	Id *string `pulumi:"id"`
 	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
@@ -266,8 +264,6 @@ type SubnetArgs struct {
 	AddressPrefixes pulumi.StringArrayInput
 	// An array of references to the delegations on the subnet.
 	Delegations DelegationArrayInput
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringPtrInput
 	// Resource ID.
 	Id pulumi.StringPtrInput
 	// The name of the resource that is unique within a resource group. This name can be used to access the resource.

@@ -148,8 +148,6 @@ func (PrivateEndpointState) ElementType() reflect.Type {
 }
 
 type privateEndpointArgs struct {
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag *string `pulumi:"etag"`
 	// Resource ID.
 	Id *string `pulumi:"id"`
 	// Resource location.
@@ -170,8 +168,6 @@ type privateEndpointArgs struct {
 
 // The set of arguments for constructing a PrivateEndpoint resource.
 type PrivateEndpointArgs struct {
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringPtrInput
 	// Resource ID.
 	Id pulumi.StringPtrInput
 	// Resource location.

@@ -90,8 +90,6 @@ func (AlertRuleState) ElementType() reflect.Type {
 }
 
 type alertRuleArgs struct {
-	// Etag of the azure resource
-	Etag *string `pulumi:"etag"`
 	// The alert rule kind
 	Kind string `pulumi:"kind"`
 	// The name of the resource group within the user's subscription. The name is case insensitive.
@@ -104,8 +102,6 @@ type alertRuleArgs struct {
 
 // The set of arguments for constructing a AlertRule resource.
 type AlertRuleArgs struct {
-	// Etag of the azure resource
-	Etag pulumi.StringPtrInput
 	// The alert rule kind
 	Kind pulumi.StringInput
 	// The name of the resource group within the user's subscription. The name is case insensitive.

@@ -199,8 +199,6 @@ func (RouteTableState) ElementType() reflect.Type {
 type routeTableArgs struct {
 	// Gets or sets whether to disable the routes learned by BGP on that route table. True means disable.
 	DisableBgpRoutePropagation *bool `pulumi:"disableBgpRoutePropagation"`
-	// Gets a unique read-only string that changes whenever the resource is updated.
-	Etag *string `pulumi:"etag"`
 	// Resource ID.
 	Id *string `pulumi:"id"`
 	// Resource location.
@@ -221,8 +219,6 @@ type routeTableArgs struct {
 type RouteTableArgs struct {
 	// Gets or sets whether to disable the routes learned by BGP on that route table. True means disable.
 	DisableBgpRoutePropagation pulumi.BoolPtrInput
-	// Gets a unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringPtrInput
 	// Resource ID.
 	Id pulumi.StringPtrInput
 	// Resource location.

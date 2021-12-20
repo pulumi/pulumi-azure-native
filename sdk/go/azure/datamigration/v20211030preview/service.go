@@ -110,8 +110,6 @@ type serviceArgs struct {
 	AutoStopDelay *string `pulumi:"autoStopDelay"`
 	// Whether service resources should be deleted when stopped. (Turned on by default)
 	DeleteResourcesOnStop *bool `pulumi:"deleteResourcesOnStop"`
-	// HTTP strong entity tag value. Ignored if submitted
-	Etag *string `pulumi:"etag"`
 	// Name of the resource group
 	GroupName string `pulumi:"groupName"`
 	// The resource kind. Only 'vm' (the default) is supported.
@@ -136,8 +134,6 @@ type ServiceArgs struct {
 	AutoStopDelay pulumi.StringPtrInput
 	// Whether service resources should be deleted when stopped. (Turned on by default)
 	DeleteResourcesOnStop pulumi.BoolPtrInput
-	// HTTP strong entity tag value. Ignored if submitted
-	Etag pulumi.StringPtrInput
 	// Name of the resource group
 	GroupName pulumi.StringInput
 	// The resource kind. Only 'vm' (the default) is supported.

@@ -113,8 +113,6 @@ func (PolicyState) ElementType() reflect.Type {
 type policyArgs struct {
 	// Describes custom rules inside the policy.
 	CustomRules *CustomRuleList `pulumi:"customRules"`
-	// Gets a unique read-only string that changes whenever the resource is updated.
-	Etag *string `pulumi:"etag"`
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// Describes managed rules inside the policy.
@@ -137,8 +135,6 @@ type policyArgs struct {
 type PolicyArgs struct {
 	// Describes custom rules inside the policy.
 	CustomRules CustomRuleListPtrInput
-	// Gets a unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringPtrInput
 	// Resource location.
 	Location pulumi.StringPtrInput
 	// Describes managed rules inside the policy.

@@ -97,8 +97,6 @@ func (IotConnectorFhirDestinationState) ElementType() reflect.Type {
 }
 
 type iotConnectorFhirDestinationArgs struct {
-	// An etag associated with the resource, used for optimistic concurrency when editing it.
-	Etag *string `pulumi:"etag"`
 	// The name of IoT Connector FHIR destination resource.
 	FhirDestinationName *string `pulumi:"fhirDestinationName"`
 	// FHIR Mappings
@@ -119,8 +117,6 @@ type iotConnectorFhirDestinationArgs struct {
 
 // The set of arguments for constructing a IotConnectorFhirDestination resource.
 type IotConnectorFhirDestinationArgs struct {
-	// An etag associated with the resource, used for optimistic concurrency when editing it.
-	Etag pulumi.StringPtrInput
 	// The name of IoT Connector FHIR destination resource.
 	FhirDestinationName pulumi.StringPtrInput
 	// FHIR Mappings

@@ -94,8 +94,6 @@ type adccatalogArgs struct {
 	CatalogName *string `pulumi:"catalogName"`
 	// Automatic unit adjustment enabled or not.
 	EnableAutomaticUnitAdjustment *bool `pulumi:"enableAutomaticUnitAdjustment"`
-	// Resource etag
-	Etag *string `pulumi:"etag"`
 	// Resource location
 	Location *string `pulumi:"location"`
 	// The name of the resource group within the user's subscription. The name is case insensitive.
@@ -120,8 +118,6 @@ type ADCCatalogArgs struct {
 	CatalogName pulumi.StringPtrInput
 	// Automatic unit adjustment enabled or not.
 	EnableAutomaticUnitAdjustment pulumi.BoolPtrInput
-	// Resource etag
-	Etag pulumi.StringPtrInput
 	// Resource location
 	Location pulumi.StringPtrInput
 	// The name of the resource group within the user's subscription. The name is case insensitive.

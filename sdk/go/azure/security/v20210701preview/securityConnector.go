@@ -89,8 +89,6 @@ func (SecurityConnectorState) ElementType() reflect.Type {
 type securityConnectorArgs struct {
 	// The multi cloud resource's cloud name.
 	CloudName *string `pulumi:"cloudName"`
-	// Entity tag is used for comparing two or more entities from the same requested resource.
-	Etag *string `pulumi:"etag"`
 	// The multi cloud resource identifier (account id in case of AWS connector).
 	HierarchyIdentifier *string `pulumi:"hierarchyIdentifier"`
 	// Kind of the resource
@@ -113,8 +111,6 @@ type securityConnectorArgs struct {
 type SecurityConnectorArgs struct {
 	// The multi cloud resource's cloud name.
 	CloudName pulumi.StringPtrInput
-	// Entity tag is used for comparing two or more entities from the same requested resource.
-	Etag pulumi.StringPtrInput
 	// The multi cloud resource identifier (account id in case of AWS connector).
 	HierarchyIdentifier pulumi.StringPtrInput
 	// Kind of the resource

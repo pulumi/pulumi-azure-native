@@ -91,8 +91,6 @@ func (AnomaliesState) ElementType() reflect.Type {
 }
 
 type anomaliesArgs struct {
-	// Etag of the azure resource
-	Etag *string `pulumi:"etag"`
 	// The kind of the setting
 	// Expected value is 'Anomalies'.
 	Kind string `pulumi:"kind"`
@@ -106,8 +104,6 @@ type anomaliesArgs struct {
 
 // The set of arguments for constructing a Anomalies resource.
 type AnomaliesArgs struct {
-	// Etag of the azure resource
-	Etag pulumi.StringPtrInput
 	// The kind of the setting
 	// Expected value is 'Anomalies'.
 	Kind pulumi.StringInput

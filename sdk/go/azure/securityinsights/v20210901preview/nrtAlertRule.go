@@ -148,8 +148,6 @@ type nrtAlertRuleArgs struct {
 	Enabled bool `pulumi:"enabled"`
 	// Array of the entity mappings of the alert rule
 	EntityMappings []EntityMapping `pulumi:"entityMappings"`
-	// Etag of the azure resource
-	Etag *string `pulumi:"etag"`
 	// The settings of the incidents that created from alerts triggered by this analytics rule
 	IncidentConfiguration *IncidentConfiguration `pulumi:"incidentConfiguration"`
 	// The kind of the alert rule
@@ -191,8 +189,6 @@ type NrtAlertRuleArgs struct {
 	Enabled pulumi.BoolInput
 	// Array of the entity mappings of the alert rule
 	EntityMappings EntityMappingArrayInput
-	// Etag of the azure resource
-	Etag pulumi.StringPtrInput
 	// The settings of the incidents that created from alerts triggered by this analytics rule
 	IncidentConfiguration IncidentConfigurationPtrInput
 	// The kind of the alert rule

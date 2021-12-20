@@ -83,8 +83,6 @@ func (CustomerSubscriptionState) ElementType() reflect.Type {
 type customerSubscriptionArgs struct {
 	// Name of the product.
 	CustomerSubscriptionName *string `pulumi:"customerSubscriptionName"`
-	// The entity tag used for optimistic concurrency when modifying the resource.
-	Etag *string `pulumi:"etag"`
 	// Name of the Azure Stack registration.
 	RegistrationName string `pulumi:"registrationName"`
 	// Name of the resource group.
@@ -97,8 +95,6 @@ type customerSubscriptionArgs struct {
 type CustomerSubscriptionArgs struct {
 	// Name of the product.
 	CustomerSubscriptionName pulumi.StringPtrInput
-	// The entity tag used for optimistic concurrency when modifying the resource.
-	Etag pulumi.StringPtrInput
 	// Name of the Azure Stack registration.
 	RegistrationName pulumi.StringInput
 	// Name of the resource group.

@@ -109,8 +109,6 @@ type mstidataConnectorArgs struct {
 	DataConnectorId *string `pulumi:"dataConnectorId"`
 	// The available data types for the connector.
 	DataTypes MSTIDataConnectorDataTypes `pulumi:"dataTypes"`
-	// Etag of the azure resource
-	Etag *string `pulumi:"etag"`
 	// The kind of the data connector
 	// Expected value is 'MicrosoftThreatIntelligence'.
 	Kind string `pulumi:"kind"`
@@ -130,8 +128,6 @@ type MSTIDataConnectorArgs struct {
 	DataConnectorId pulumi.StringPtrInput
 	// The available data types for the connector.
 	DataTypes MSTIDataConnectorDataTypesInput
-	// Etag of the azure resource
-	Etag pulumi.StringPtrInput
 	// The kind of the data connector
 	// Expected value is 'MicrosoftThreatIntelligence'.
 	Kind pulumi.StringInput

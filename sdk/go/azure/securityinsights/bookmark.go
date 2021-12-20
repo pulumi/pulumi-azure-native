@@ -121,8 +121,6 @@ type bookmarkArgs struct {
 	CreatedBy *UserInfo `pulumi:"createdBy"`
 	// The display name of the bookmark
 	DisplayName string `pulumi:"displayName"`
-	// Etag of the azure resource
-	Etag *string `pulumi:"etag"`
 	// The bookmark event time
 	EventTime *string `pulumi:"eventTime"`
 	// Describes an incident that relates to bookmark
@@ -159,8 +157,6 @@ type BookmarkArgs struct {
 	CreatedBy UserInfoPtrInput
 	// The display name of the bookmark
 	DisplayName pulumi.StringInput
-	// Etag of the azure resource
-	Etag pulumi.StringPtrInput
 	// The bookmark event time
 	EventTime pulumi.StringPtrInput
 	// Describes an incident that relates to bookmark

@@ -98,8 +98,6 @@ func (TaskState) ElementType() reflect.Type {
 }
 
 type taskArgs struct {
-	// HTTP strong entity tag value. This is ignored if submitted.
-	Etag *string `pulumi:"etag"`
 	// Name of the resource group
 	GroupName string `pulumi:"groupName"`
 	// Name of the project
@@ -114,8 +112,6 @@ type taskArgs struct {
 
 // The set of arguments for constructing a Task resource.
 type TaskArgs struct {
-	// HTTP strong entity tag value. This is ignored if submitted.
-	Etag pulumi.StringPtrInput
 	// Name of the resource group
 	GroupName pulumi.StringInput
 	// Name of the project
