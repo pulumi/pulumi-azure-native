@@ -50,7 +50,7 @@ export class VirtualNetworkGateway extends pulumi.CustomResource {
     /**
      * Gets a unique read-only string that changes whenever the resource is updated.
      */
-    public readonly etag!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
     /**
      * The reference of the LocalNetworkGateway resource which represents local network site having default routes. Assign Null value in case of removing existing default site setting.
      */
@@ -126,7 +126,6 @@ export class VirtualNetworkGateway extends pulumi.CustomResource {
             resourceInputs["activeActive"] = args ? args.activeActive : undefined;
             resourceInputs["bgpSettings"] = args ? args.bgpSettings : undefined;
             resourceInputs["enableBgp"] = args ? args.enableBgp : undefined;
-            resourceInputs["etag"] = args ? args.etag : undefined;
             resourceInputs["gatewayDefaultSite"] = args ? args.gatewayDefaultSite : undefined;
             resourceInputs["gatewayType"] = args ? args.gatewayType : undefined;
             resourceInputs["id"] = args ? args.id : undefined;
@@ -139,6 +138,7 @@ export class VirtualNetworkGateway extends pulumi.CustomResource {
             resourceInputs["virtualNetworkGatewayName"] = args ? args.virtualNetworkGatewayName : undefined;
             resourceInputs["vpnClientConfiguration"] = args ? args.vpnClientConfiguration : undefined;
             resourceInputs["vpnType"] = args ? args.vpnType : undefined;
+            resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -185,10 +185,6 @@ export interface VirtualNetworkGatewayArgs {
      * Whether BGP is enabled for this virtual network gateway or not.
      */
     enableBgp?: pulumi.Input<boolean>;
-    /**
-     * Gets a unique read-only string that changes whenever the resource is updated.
-     */
-    etag?: pulumi.Input<string>;
     /**
      * The reference of the LocalNetworkGateway resource which represents local network site having default routes. Assign Null value in case of removing existing default site setting.
      */

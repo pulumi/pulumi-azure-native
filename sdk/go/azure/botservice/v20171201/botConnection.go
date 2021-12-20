@@ -98,8 +98,6 @@ func (BotConnectionState) ElementType() reflect.Type {
 type botConnectionArgs struct {
 	// The name of the Bot Service Connection Setting resource
 	ConnectionName *string `pulumi:"connectionName"`
-	// Entity Tag
-	Etag *string `pulumi:"etag"`
 	// Required. Gets or sets the Kind of the resource.
 	Kind *string `pulumi:"kind"`
 	// Specifies the location of the resource.
@@ -120,8 +118,6 @@ type botConnectionArgs struct {
 type BotConnectionArgs struct {
 	// The name of the Bot Service Connection Setting resource
 	ConnectionName pulumi.StringPtrInput
-	// Entity Tag
-	Etag pulumi.StringPtrInput
 	// Required. Gets or sets the Kind of the resource.
 	Kind pulumi.StringPtrInput
 	// Specifies the location of the resource.

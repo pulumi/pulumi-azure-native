@@ -41,7 +41,7 @@ export class EntityQuery extends pulumi.CustomResource {
     /**
      * Etag of the azure resource
      */
-    public readonly etag!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
     /**
      * the entity query kind
      */
@@ -85,11 +85,11 @@ export class EntityQuery extends pulumi.CustomResource {
                 throw new Error("Missing required property 'workspaceName'");
             }
             resourceInputs["entityQueryId"] = args ? args.entityQueryId : undefined;
-            resourceInputs["etag"] = args ? args.etag : undefined;
             resourceInputs["kind"] = args ? args.kind : undefined;
             resourceInputs["operationalInsightsResourceProvider"] = args ? args.operationalInsightsResourceProvider : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -117,10 +117,6 @@ export interface EntityQueryArgs {
      * entity query ID
      */
     entityQueryId?: pulumi.Input<string>;
-    /**
-     * Etag of the azure resource
-     */
-    etag?: pulumi.Input<string>;
     /**
      * the entity query kind
      */

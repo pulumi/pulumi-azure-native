@@ -111,12 +111,6 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210901Preview
     public sealed class EntityAnalyticsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Etag of the azure resource
-        /// </summary>
-        [Input("etag")]
-        public Input<string>? Etag { get; set; }
-
-        /// <summary>
         /// The kind of the setting
         /// Expected value is 'EntityAnalytics'.
         /// </summary>

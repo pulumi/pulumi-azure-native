@@ -211,8 +211,6 @@ func (PublicIpAddressState) ElementType() reflect.Type {
 type publicIpAddressArgs struct {
 	// Gets or sets FQDN of the DNS record associated with the public IP address
 	DnsSettings *PublicIpAddressDnsSettings `pulumi:"dnsSettings"`
-	// Gets a unique read-only string that changes whenever the resource is updated
-	Etag *string `pulumi:"etag"`
 	// Gets or sets the idle timeout of the public IP address
 	IdleTimeoutInMinutes *int `pulumi:"idleTimeoutInMinutes"`
 	// Gets the assigned public IP address
@@ -239,8 +237,6 @@ type publicIpAddressArgs struct {
 type PublicIpAddressArgs struct {
 	// Gets or sets FQDN of the DNS record associated with the public IP address
 	DnsSettings PublicIpAddressDnsSettingsPtrInput
-	// Gets a unique read-only string that changes whenever the resource is updated
-	Etag pulumi.StringPtrInput
 	// Gets or sets the idle timeout of the public IP address
 	IdleTimeoutInMinutes pulumi.IntPtrInput
 	// Gets the assigned public IP address

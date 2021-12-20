@@ -223,8 +223,6 @@ type virtualNetworkArgs struct {
 	EnableDdosProtection *bool `pulumi:"enableDdosProtection"`
 	// Indicates if VM protection is enabled for all the subnets in the virtual network.
 	EnableVmProtection *bool `pulumi:"enableVmProtection"`
-	// Gets a unique read-only string that changes whenever the resource is updated.
-	Etag *string `pulumi:"etag"`
 	// Resource ID.
 	Id *string `pulumi:"id"`
 	// Resource location.
@@ -257,8 +255,6 @@ type VirtualNetworkArgs struct {
 	EnableDdosProtection pulumi.BoolPtrInput
 	// Indicates if VM protection is enabled for all the subnets in the virtual network.
 	EnableVmProtection pulumi.BoolPtrInput
-	// Gets a unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringPtrInput
 	// Resource ID.
 	Id pulumi.StringPtrInput
 	// Resource location.

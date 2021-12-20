@@ -98,8 +98,6 @@ type mcasdataConnectorArgs struct {
 	DataConnectorId *string `pulumi:"dataConnectorId"`
 	// The available data types for the connector.
 	DataTypes *MCASDataConnectorDataTypes `pulumi:"dataTypes"`
-	// Etag of the azure resource
-	Etag *string `pulumi:"etag"`
 	// The kind of the data connector
 	// Expected value is 'MicrosoftCloudAppSecurity'.
 	Kind string `pulumi:"kind"`
@@ -117,8 +115,6 @@ type MCASDataConnectorArgs struct {
 	DataConnectorId pulumi.StringPtrInput
 	// The available data types for the connector.
 	DataTypes MCASDataConnectorDataTypesPtrInput
-	// Etag of the azure resource
-	Etag pulumi.StringPtrInput
 	// The kind of the data connector
 	// Expected value is 'MicrosoftCloudAppSecurity'.
 	Kind pulumi.StringInput

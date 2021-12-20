@@ -144,12 +144,6 @@ namespace Pulumi.AzureNative.StorSimple.V20170601
         public Input<string>? EncryptionKeyThumbprint { get; set; }
 
         /// <summary>
-        /// The etag of the resource.
-        /// </summary>
-        [Input("etag")]
-        public Input<string>? Etag { get; set; }
-
-        /// <summary>
         /// Represents the CIK of the resource.
         /// </summary>
         [Input("integrityKey", required: true)]

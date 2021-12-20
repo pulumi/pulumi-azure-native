@@ -18,21 +18,17 @@ class PrivateEndpointConnectionArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  vault_name: pulumi.Input[str],
-                 etag: Optional[pulumi.Input[str]] = None,
                  private_endpoint_connection_name: Optional[pulumi.Input[str]] = None,
                  private_link_service_connection_state: Optional[pulumi.Input['PrivateLinkServiceConnectionStateArgs']] = None):
         """
         The set of arguments for constructing a PrivateEndpointConnection resource.
         :param pulumi.Input[str] resource_group_name: Name of the resource group that contains the key vault.
         :param pulumi.Input[str] vault_name: The name of the key vault.
-        :param pulumi.Input[str] etag: Modified whenever there is a change in the state of private endpoint connection.
         :param pulumi.Input[str] private_endpoint_connection_name: Name of the private endpoint connection associated with the key vault.
         :param pulumi.Input['PrivateLinkServiceConnectionStateArgs'] private_link_service_connection_state: Approval state of the private link connection.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "vault_name", vault_name)
-        if etag is not None:
-            pulumi.set(__self__, "etag", etag)
         if private_endpoint_connection_name is not None:
             pulumi.set(__self__, "private_endpoint_connection_name", private_endpoint_connection_name)
         if private_link_service_connection_state is not None:
@@ -61,18 +57,6 @@ class PrivateEndpointConnectionArgs:
     @vault_name.setter
     def vault_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "vault_name", value)
-
-    @property
-    @pulumi.getter
-    def etag(self) -> Optional[pulumi.Input[str]]:
-        """
-        Modified whenever there is a change in the state of private endpoint connection.
-        """
-        return pulumi.get(self, "etag")
-
-    @etag.setter
-    def etag(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "etag", value)
 
     @property
     @pulumi.getter(name="privateEndpointConnectionName")
@@ -104,7 +88,6 @@ class PrivateEndpointConnection(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  private_endpoint_connection_name: Optional[pulumi.Input[str]] = None,
                  private_link_service_connection_state: Optional[pulumi.Input[pulumi.InputType['PrivateLinkServiceConnectionStateArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -116,7 +99,6 @@ class PrivateEndpointConnection(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] etag: Modified whenever there is a change in the state of private endpoint connection.
         :param pulumi.Input[str] private_endpoint_connection_name: Name of the private endpoint connection associated with the key vault.
         :param pulumi.Input[pulumi.InputType['PrivateLinkServiceConnectionStateArgs']] private_link_service_connection_state: Approval state of the private link connection.
         :param pulumi.Input[str] resource_group_name: Name of the resource group that contains the key vault.
@@ -147,7 +129,6 @@ class PrivateEndpointConnection(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  private_endpoint_connection_name: Optional[pulumi.Input[str]] = None,
                  private_link_service_connection_state: Optional[pulumi.Input[pulumi.InputType['PrivateLinkServiceConnectionStateArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -164,7 +145,6 @@ class PrivateEndpointConnection(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = PrivateEndpointConnectionArgs.__new__(PrivateEndpointConnectionArgs)
 
-            __props__.__dict__["etag"] = etag
             __props__.__dict__["private_endpoint_connection_name"] = private_endpoint_connection_name
             __props__.__dict__["private_link_service_connection_state"] = private_link_service_connection_state
             if resource_group_name is None and not opts.urn:
@@ -173,6 +153,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
             if vault_name is None and not opts.urn:
                 raise TypeError("Missing required property 'vault_name'")
             __props__.__dict__["vault_name"] = vault_name
+            __props__.__dict__["etag"] = None
             __props__.__dict__["location"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["private_endpoint"] = None

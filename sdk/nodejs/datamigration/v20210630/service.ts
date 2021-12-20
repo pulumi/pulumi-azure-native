@@ -38,7 +38,7 @@ export class Service extends pulumi.CustomResource {
     /**
      * HTTP strong entity tag value. Ignored if submitted
      */
-    public readonly etag!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
     /**
      * The resource kind. Only 'vm' (the default) is supported.
      */
@@ -101,7 +101,6 @@ export class Service extends pulumi.CustomResource {
             if ((!args || args.virtualSubnetId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'virtualSubnetId'");
             }
-            resourceInputs["etag"] = args ? args.etag : undefined;
             resourceInputs["groupName"] = args ? args.groupName : undefined;
             resourceInputs["kind"] = args ? args.kind : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
@@ -111,6 +110,7 @@ export class Service extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["virtualNicId"] = args ? args.virtualNicId : undefined;
             resourceInputs["virtualSubnetId"] = args ? args.virtualSubnetId : undefined;
+            resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
@@ -142,10 +142,6 @@ export class Service extends pulumi.CustomResource {
  * The set of arguments for constructing a Service resource.
  */
 export interface ServiceArgs {
-    /**
-     * HTTP strong entity tag value. Ignored if submitted
-     */
-    etag?: pulumi.Input<string>;
     /**
      * Name of the resource group
      */

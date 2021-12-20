@@ -50,7 +50,7 @@ export class PrivateRecordSet extends pulumi.CustomResource {
     /**
      * The ETag of the record set.
      */
-    public readonly etag!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
     /**
      * Fully qualified domain name of the record set.
      */
@@ -119,7 +119,6 @@ export class PrivateRecordSet extends pulumi.CustomResource {
             resourceInputs["aRecords"] = args ? args.aRecords : undefined;
             resourceInputs["aaaaRecords"] = args ? args.aaaaRecords : undefined;
             resourceInputs["cnameRecord"] = args ? args.cnameRecord : undefined;
-            resourceInputs["etag"] = args ? args.etag : undefined;
             resourceInputs["metadata"] = args ? args.metadata : undefined;
             resourceInputs["mxRecords"] = args ? args.mxRecords : undefined;
             resourceInputs["privateZoneName"] = args ? args.privateZoneName : undefined;
@@ -131,6 +130,7 @@ export class PrivateRecordSet extends pulumi.CustomResource {
             resourceInputs["srvRecords"] = args ? args.srvRecords : undefined;
             resourceInputs["ttl"] = args ? args.ttl : undefined;
             resourceInputs["txtRecords"] = args ? args.txtRecords : undefined;
+            resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["fqdn"] = undefined /*out*/;
             resourceInputs["isAutoRegistered"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -177,10 +177,6 @@ export interface PrivateRecordSetArgs {
      * The CNAME record in the record set.
      */
     cnameRecord?: pulumi.Input<inputs.network.v20200101.CnameRecordArgs>;
-    /**
-     * The ETag of the record set.
-     */
-    etag?: pulumi.Input<string>;
     /**
      * The metadata attached to the record set.
      */

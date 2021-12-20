@@ -105,12 +105,6 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210301Preview
         public Input<string>? DataConnectorId { get; set; }
 
         /// <summary>
-        /// Etag of the azure resource
-        /// </summary>
-        [Input("etag")]
-        public Input<string>? Etag { get; set; }
-
-        /// <summary>
         /// The data connector kind
         /// </summary>
         [Input("kind", required: true)]

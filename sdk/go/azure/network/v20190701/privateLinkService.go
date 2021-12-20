@@ -143,8 +143,6 @@ func (PrivateLinkServiceState) ElementType() reflect.Type {
 type privateLinkServiceArgs struct {
 	// The auto-approval list of the private link service.
 	AutoApproval *PrivateLinkServicePropertiesAutoApproval `pulumi:"autoApproval"`
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag *string `pulumi:"etag"`
 	// The list of Fqdn.
 	Fqdns []string `pulumi:"fqdns"`
 	// Resource ID.
@@ -171,8 +169,6 @@ type privateLinkServiceArgs struct {
 type PrivateLinkServiceArgs struct {
 	// The auto-approval list of the private link service.
 	AutoApproval PrivateLinkServicePropertiesAutoApprovalPtrInput
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringPtrInput
 	// The list of Fqdn.
 	Fqdns pulumi.StringArrayInput
 	// Resource ID.

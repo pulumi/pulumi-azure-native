@@ -130,8 +130,6 @@ type recordSetArgs struct {
 	CaaRecords []CaaRecord `pulumi:"caaRecords"`
 	// The CNAME record in the  record set.
 	CnameRecord *CnameRecord `pulumi:"cnameRecord"`
-	// The etag of the record set.
-	Etag *string `pulumi:"etag"`
 	// The metadata attached to the record set.
 	Metadata map[string]string `pulumi:"metadata"`
 	// The list of MX records in the record set.
@@ -170,8 +168,6 @@ type RecordSetArgs struct {
 	CaaRecords CaaRecordArrayInput
 	// The CNAME record in the  record set.
 	CnameRecord CnameRecordPtrInput
-	// The etag of the record set.
-	Etag pulumi.StringPtrInput
 	// The metadata attached to the record set.
 	Metadata pulumi.StringMapInput
 	// The list of MX records in the record set.

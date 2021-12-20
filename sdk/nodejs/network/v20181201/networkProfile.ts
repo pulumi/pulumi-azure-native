@@ -46,7 +46,7 @@ export class NetworkProfile extends pulumi.CustomResource {
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
-    public readonly etag!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
     /**
      * Resource location.
      */
@@ -88,12 +88,12 @@ export class NetworkProfile extends pulumi.CustomResource {
             }
             resourceInputs["containerNetworkInterfaceConfigurations"] = args ? args.containerNetworkInterfaceConfigurations : undefined;
             resourceInputs["containerNetworkInterfaces"] = args ? args.containerNetworkInterfaces : undefined;
-            resourceInputs["etag"] = args ? args.etag : undefined;
             resourceInputs["id"] = args ? args.id : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["networkProfileName"] = args ? args.networkProfileName : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["resourceGuid"] = undefined /*out*/;
@@ -130,10 +130,6 @@ export interface NetworkProfileArgs {
      * List of child container network interfaces.
      */
     containerNetworkInterfaces?: pulumi.Input<pulumi.Input<inputs.network.v20181201.ContainerNetworkInterfaceArgs>[]>;
-    /**
-     * A unique read-only string that changes whenever the resource is updated.
-     */
-    etag?: pulumi.Input<string>;
     /**
      * Resource ID.
      */

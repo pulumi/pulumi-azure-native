@@ -104,8 +104,6 @@ type managerExtendedInfoArgs struct {
 	EncryptionKey *string `pulumi:"encryptionKey"`
 	// Represents the Cert thumbprint that was used to encrypt the CEK.
 	EncryptionKeyThumbprint *string `pulumi:"encryptionKeyThumbprint"`
-	// The etag of the resource.
-	Etag *string `pulumi:"etag"`
 	// Represents the CIK of the resource.
 	IntegrityKey string `pulumi:"integrityKey"`
 	// The Kind of the object. Currently only Series8000 is supported
@@ -128,8 +126,6 @@ type ManagerExtendedInfoArgs struct {
 	EncryptionKey pulumi.StringPtrInput
 	// Represents the Cert thumbprint that was used to encrypt the CEK.
 	EncryptionKeyThumbprint pulumi.StringPtrInput
-	// The etag of the resource.
-	Etag pulumi.StringPtrInput
 	// Represents the CIK of the resource.
 	IntegrityKey pulumi.StringInput
 	// The Kind of the object. Currently only Series8000 is supported

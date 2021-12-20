@@ -155,12 +155,6 @@ namespace Pulumi.AzureNative.SecurityInsights
         public Input<bool> Enabled { get; set; } = null!;
 
         /// <summary>
-        /// Etag of the azure resource
-        /// </summary>
-        [Input("etag")]
-        public Input<string>? Etag { get; set; }
-
-        /// <summary>
         /// The kind of the alert rule
         /// Expected value is 'Fusion'.
         /// </summary>

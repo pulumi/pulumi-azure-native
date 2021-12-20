@@ -19,7 +19,6 @@ class SubnetInitArgs:
                  resource_group_name: pulumi.Input[str],
                  virtual_network_name: pulumi.Input[str],
                  address_prefix: Optional[pulumi.Input[str]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network_security_group: Optional[pulumi.Input['NetworkSecurityGroupArgs']] = None,
@@ -32,7 +31,6 @@ class SubnetInitArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] virtual_network_name: The name of the virtual network.
         :param pulumi.Input[str] address_prefix: The address prefix for the subnet.
-        :param pulumi.Input[str] etag: A unique read-only string that changes whenever the resource is updated.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
         :param pulumi.Input['NetworkSecurityGroupArgs'] network_security_group: The reference of the NetworkSecurityGroup resource.
@@ -45,8 +43,6 @@ class SubnetInitArgs:
         pulumi.set(__self__, "virtual_network_name", virtual_network_name)
         if address_prefix is not None:
             pulumi.set(__self__, "address_prefix", address_prefix)
-        if etag is not None:
-            pulumi.set(__self__, "etag", etag)
         if id is not None:
             pulumi.set(__self__, "id", id)
         if name is not None:
@@ -97,18 +93,6 @@ class SubnetInitArgs:
     @address_prefix.setter
     def address_prefix(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "address_prefix", value)
-
-    @property
-    @pulumi.getter
-    def etag(self) -> Optional[pulumi.Input[str]]:
-        """
-        A unique read-only string that changes whenever the resource is updated.
-        """
-        return pulumi.get(self, "etag")
-
-    @etag.setter
-    def etag(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "etag", value)
 
     @property
     @pulumi.getter
@@ -201,7 +185,6 @@ class Subnet(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  address_prefix: Optional[pulumi.Input[str]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network_security_group: Optional[pulumi.Input[pulumi.InputType['NetworkSecurityGroupArgs']]] = None,
@@ -218,7 +201,6 @@ class Subnet(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] address_prefix: The address prefix for the subnet.
-        :param pulumi.Input[str] etag: A unique read-only string that changes whenever the resource is updated.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
         :param pulumi.Input[pulumi.InputType['NetworkSecurityGroupArgs']] network_security_group: The reference of the NetworkSecurityGroup resource.
@@ -254,7 +236,6 @@ class Subnet(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  address_prefix: Optional[pulumi.Input[str]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network_security_group: Optional[pulumi.Input[pulumi.InputType['NetworkSecurityGroupArgs']]] = None,
@@ -277,7 +258,6 @@ class Subnet(pulumi.CustomResource):
             __props__ = SubnetInitArgs.__new__(SubnetInitArgs)
 
             __props__.__dict__["address_prefix"] = address_prefix
-            __props__.__dict__["etag"] = etag
             __props__.__dict__["id"] = id
             __props__.__dict__["name"] = name
             __props__.__dict__["network_security_group"] = network_security_group
@@ -291,6 +271,7 @@ class Subnet(pulumi.CustomResource):
             if virtual_network_name is None and not opts.urn:
                 raise TypeError("Missing required property 'virtual_network_name'")
             __props__.__dict__["virtual_network_name"] = virtual_network_name
+            __props__.__dict__["etag"] = None
             __props__.__dict__["ip_configurations"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network:Subnet"), pulumi.Alias(type_="azure-native:network/v20150501preview:Subnet"), pulumi.Alias(type_="azure-native:network/v20150615:Subnet"), pulumi.Alias(type_="azure-native:network/v20160330:Subnet"), pulumi.Alias(type_="azure-native:network/v20160601:Subnet"), pulumi.Alias(type_="azure-native:network/v20161201:Subnet"), pulumi.Alias(type_="azure-native:network/v20170301:Subnet"), pulumi.Alias(type_="azure-native:network/v20170601:Subnet"), pulumi.Alias(type_="azure-native:network/v20170801:Subnet"), pulumi.Alias(type_="azure-native:network/v20170901:Subnet"), pulumi.Alias(type_="azure-native:network/v20171001:Subnet"), pulumi.Alias(type_="azure-native:network/v20171101:Subnet"), pulumi.Alias(type_="azure-native:network/v20180101:Subnet"), pulumi.Alias(type_="azure-native:network/v20180201:Subnet"), pulumi.Alias(type_="azure-native:network/v20180401:Subnet"), pulumi.Alias(type_="azure-native:network/v20180601:Subnet"), pulumi.Alias(type_="azure-native:network/v20180701:Subnet"), pulumi.Alias(type_="azure-native:network/v20180801:Subnet"), pulumi.Alias(type_="azure-native:network/v20181001:Subnet"), pulumi.Alias(type_="azure-native:network/v20181101:Subnet"), pulumi.Alias(type_="azure-native:network/v20181201:Subnet"), pulumi.Alias(type_="azure-native:network/v20190201:Subnet"), pulumi.Alias(type_="azure-native:network/v20190401:Subnet"), pulumi.Alias(type_="azure-native:network/v20190601:Subnet"), pulumi.Alias(type_="azure-native:network/v20190701:Subnet"), pulumi.Alias(type_="azure-native:network/v20190801:Subnet"), pulumi.Alias(type_="azure-native:network/v20190901:Subnet"), pulumi.Alias(type_="azure-native:network/v20191101:Subnet"), pulumi.Alias(type_="azure-native:network/v20191201:Subnet"), pulumi.Alias(type_="azure-native:network/v20200301:Subnet"), pulumi.Alias(type_="azure-native:network/v20200401:Subnet"), pulumi.Alias(type_="azure-native:network/v20200501:Subnet"), pulumi.Alias(type_="azure-native:network/v20200601:Subnet"), pulumi.Alias(type_="azure-native:network/v20200701:Subnet"), pulumi.Alias(type_="azure-native:network/v20200801:Subnet"), pulumi.Alias(type_="azure-native:network/v20201101:Subnet"), pulumi.Alias(type_="azure-native:network/v20210201:Subnet"), pulumi.Alias(type_="azure-native:network/v20210301:Subnet"), pulumi.Alias(type_="azure-native:network/v20210501:Subnet")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)

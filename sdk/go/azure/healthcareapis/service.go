@@ -102,8 +102,6 @@ func (ServiceState) ElementType() reflect.Type {
 }
 
 type serviceArgs struct {
-	// An etag associated with the resource, used for optimistic concurrency when editing it.
-	Etag *string `pulumi:"etag"`
 	// Setting indicating whether the service has a managed identity associated with it.
 	Identity *ServicesResourceIdentity `pulumi:"identity"`
 	// The kind of the service.
@@ -122,8 +120,6 @@ type serviceArgs struct {
 
 // The set of arguments for constructing a Service resource.
 type ServiceArgs struct {
-	// An etag associated with the resource, used for optimistic concurrency when editing it.
-	Etag pulumi.StringPtrInput
 	// Setting indicating whether the service has a managed identity associated with it.
 	Identity ServicesResourceIdentityPtrInput
 	// The kind of the service.

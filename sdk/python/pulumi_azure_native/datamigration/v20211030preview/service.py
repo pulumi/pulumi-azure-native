@@ -18,7 +18,6 @@ class ServiceArgs:
                  group_name: pulumi.Input[str],
                  auto_stop_delay: Optional[pulumi.Input[str]] = None,
                  delete_resources_on_stop: Optional[pulumi.Input[bool]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  public_key: Optional[pulumi.Input[str]] = None,
@@ -32,7 +31,6 @@ class ServiceArgs:
         :param pulumi.Input[str] group_name: Name of the resource group
         :param pulumi.Input[str] auto_stop_delay: The time delay before the service is auto-stopped when idle.
         :param pulumi.Input[bool] delete_resources_on_stop: Whether service resources should be deleted when stopped. (Turned on by default)
-        :param pulumi.Input[str] etag: HTTP strong entity tag value. Ignored if submitted
         :param pulumi.Input[str] kind: The resource kind. Only 'vm' (the default) is supported.
         :param pulumi.Input[str] public_key: The public key of the service, used to encrypt secrets sent to the service
         :param pulumi.Input[str] service_name: Name of the service
@@ -45,8 +43,6 @@ class ServiceArgs:
             pulumi.set(__self__, "auto_stop_delay", auto_stop_delay)
         if delete_resources_on_stop is not None:
             pulumi.set(__self__, "delete_resources_on_stop", delete_resources_on_stop)
-        if etag is not None:
-            pulumi.set(__self__, "etag", etag)
         if kind is not None:
             pulumi.set(__self__, "kind", kind)
         if location is not None:
@@ -99,18 +95,6 @@ class ServiceArgs:
     @delete_resources_on_stop.setter
     def delete_resources_on_stop(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "delete_resources_on_stop", value)
-
-    @property
-    @pulumi.getter
-    def etag(self) -> Optional[pulumi.Input[str]]:
-        """
-        HTTP strong entity tag value. Ignored if submitted
-        """
-        return pulumi.get(self, "etag")
-
-    @etag.setter
-    def etag(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "etag", value)
 
     @property
     @pulumi.getter
@@ -210,7 +194,6 @@ class Service(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_stop_delay: Optional[pulumi.Input[str]] = None,
                  delete_resources_on_stop: Optional[pulumi.Input[bool]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  group_name: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -228,7 +211,6 @@ class Service(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] auto_stop_delay: The time delay before the service is auto-stopped when idle.
         :param pulumi.Input[bool] delete_resources_on_stop: Whether service resources should be deleted when stopped. (Turned on by default)
-        :param pulumi.Input[str] etag: HTTP strong entity tag value. Ignored if submitted
         :param pulumi.Input[str] group_name: Name of the resource group
         :param pulumi.Input[str] kind: The resource kind. Only 'vm' (the default) is supported.
         :param pulumi.Input[str] public_key: The public key of the service, used to encrypt secrets sent to the service
@@ -263,7 +245,6 @@ class Service(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_stop_delay: Optional[pulumi.Input[str]] = None,
                  delete_resources_on_stop: Optional[pulumi.Input[bool]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  group_name: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -287,7 +268,6 @@ class Service(pulumi.CustomResource):
 
             __props__.__dict__["auto_stop_delay"] = auto_stop_delay
             __props__.__dict__["delete_resources_on_stop"] = delete_resources_on_stop
-            __props__.__dict__["etag"] = etag
             if group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'group_name'")
             __props__.__dict__["group_name"] = group_name
@@ -299,6 +279,7 @@ class Service(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["virtual_nic_id"] = virtual_nic_id
             __props__.__dict__["virtual_subnet_id"] = virtual_subnet_id
+            __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None

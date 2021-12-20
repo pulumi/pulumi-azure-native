@@ -203,12 +203,6 @@ namespace Pulumi.AzureNative.Security.V20210801Preview
         public Input<string>? Effect { get; set; }
 
         /// <summary>
-        /// Entity tag is used for comparing two or more entities from the same requested resource.
-        /// </summary>
-        [Input("etag")]
-        public Input<string>? Etag { get; set; }
-
-        /// <summary>
         /// Expiration date of this assignment as a full ISO date
         /// </summary>
         [Input("expiresOn")]

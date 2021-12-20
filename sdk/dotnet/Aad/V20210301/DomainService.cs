@@ -219,12 +219,6 @@ namespace Pulumi.AzureNative.Aad.V20210301
         public Input<string>? DomainServiceName { get; set; }
 
         /// <summary>
-        /// Resource etag
-        /// </summary>
-        [Input("etag")]
-        public Input<string>? Etag { get; set; }
-
-        /// <summary>
         /// Enabled or Disabled flag to turn on Group-based filtered sync
         /// </summary>
         [Input("filteredSync")]

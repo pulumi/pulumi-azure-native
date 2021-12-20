@@ -17,7 +17,6 @@ __all__ = ['NatGatewayArgs', 'NatGateway']
 class NatGatewayArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
-                 etag: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  idle_timeout_in_minutes: Optional[pulumi.Input[int]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -32,7 +31,6 @@ class NatGatewayArgs:
         """
         The set of arguments for constructing a NatGateway resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[str] etag: A unique read-only string that changes whenever the resource is updated.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[int] idle_timeout_in_minutes: The idle timeout of the nat gateway.
         :param pulumi.Input[str] location: Resource location.
@@ -46,8 +44,6 @@ class NatGatewayArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: A list of availability zones denoting the zone in which Nat Gateway should be deployed.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if etag is not None:
-            pulumi.set(__self__, "etag", etag)
         if id is not None:
             pulumi.set(__self__, "id", id)
         if idle_timeout_in_minutes is not None:
@@ -82,18 +78,6 @@ class NatGatewayArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @property
-    @pulumi.getter
-    def etag(self) -> Optional[pulumi.Input[str]]:
-        """
-        A unique read-only string that changes whenever the resource is updated.
-        """
-        return pulumi.get(self, "etag")
-
-    @etag.setter
-    def etag(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "etag", value)
 
     @property
     @pulumi.getter
@@ -233,7 +217,6 @@ class NatGateway(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  idle_timeout_in_minutes: Optional[pulumi.Input[int]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -252,7 +235,6 @@ class NatGateway(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] etag: A unique read-only string that changes whenever the resource is updated.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[int] idle_timeout_in_minutes: The idle timeout of the nat gateway.
         :param pulumi.Input[str] location: Resource location.
@@ -290,7 +272,6 @@ class NatGateway(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  idle_timeout_in_minutes: Optional[pulumi.Input[int]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -315,7 +296,6 @@ class NatGateway(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = NatGatewayArgs.__new__(NatGatewayArgs)
 
-            __props__.__dict__["etag"] = etag
             __props__.__dict__["id"] = id
             __props__.__dict__["idle_timeout_in_minutes"] = idle_timeout_in_minutes
             __props__.__dict__["location"] = location
@@ -330,6 +310,7 @@ class NatGateway(pulumi.CustomResource):
             __props__.__dict__["sku"] = sku
             __props__.__dict__["tags"] = tags
             __props__.__dict__["zones"] = zones
+            __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["subnets"] = None
             __props__.__dict__["type"] = None

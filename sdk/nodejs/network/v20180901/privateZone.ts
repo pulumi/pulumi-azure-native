@@ -37,7 +37,7 @@ export class PrivateZone extends pulumi.CustomResource {
     /**
      * The ETag of the zone.
      */
-    public readonly etag!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
     /**
      * The Azure Region where the resource lives
      */
@@ -97,11 +97,11 @@ export class PrivateZone extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["etag"] = args ? args.etag : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["privateZoneName"] = args ? args.privateZoneName : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["maxNumberOfRecordSets"] = undefined /*out*/;
             resourceInputs["maxNumberOfVirtualNetworkLinks"] = undefined /*out*/;
             resourceInputs["maxNumberOfVirtualNetworkLinksWithRegistration"] = undefined /*out*/;
@@ -138,10 +138,6 @@ export class PrivateZone extends pulumi.CustomResource {
  * The set of arguments for constructing a PrivateZone resource.
  */
 export interface PrivateZoneArgs {
-    /**
-     * The ETag of the zone.
-     */
-    etag?: pulumi.Input<string>;
     /**
      * The Azure Region where the resource lives
      */

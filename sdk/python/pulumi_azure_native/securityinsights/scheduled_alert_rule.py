@@ -29,7 +29,6 @@ class ScheduledAlertRuleArgs:
                  workspace_name: pulumi.Input[str],
                  alert_rule_template_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  rule_id: Optional[pulumi.Input[str]] = None,
                  tactics: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'AttackTactic']]]]] = None):
         """
@@ -50,7 +49,6 @@ class ScheduledAlertRuleArgs:
         :param pulumi.Input[str] workspace_name: The name of the workspace.
         :param pulumi.Input[str] alert_rule_template_name: The Name of the alert rule template used to create this rule.
         :param pulumi.Input[str] description: The description of the alert rule.
-        :param pulumi.Input[str] etag: Etag of the azure resource
         :param pulumi.Input[str] rule_id: Alert rule ID
         :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'AttackTactic']]]] tactics: The tactics of the alert rule
         """
@@ -71,8 +69,6 @@ class ScheduledAlertRuleArgs:
             pulumi.set(__self__, "alert_rule_template_name", alert_rule_template_name)
         if description is not None:
             pulumi.set(__self__, "description", description)
-        if etag is not None:
-            pulumi.set(__self__, "etag", etag)
         if rule_id is not None:
             pulumi.set(__self__, "rule_id", rule_id)
         if tactics is not None:
@@ -260,18 +256,6 @@ class ScheduledAlertRuleArgs:
         pulumi.set(self, "description", value)
 
     @property
-    @pulumi.getter
-    def etag(self) -> Optional[pulumi.Input[str]]:
-        """
-        Etag of the azure resource
-        """
-        return pulumi.get(self, "etag")
-
-    @etag.setter
-    def etag(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "etag", value)
-
-    @property
     @pulumi.getter(name="ruleId")
     def rule_id(self) -> Optional[pulumi.Input[str]]:
         """
@@ -305,7 +289,6 @@ class ScheduledAlertRule(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  query: Optional[pulumi.Input[str]] = None,
                  query_frequency: Optional[pulumi.Input[str]] = None,
@@ -330,7 +313,6 @@ class ScheduledAlertRule(pulumi.CustomResource):
         :param pulumi.Input[str] description: The description of the alert rule.
         :param pulumi.Input[str] display_name: The display name for alerts created by this alert rule.
         :param pulumi.Input[bool] enabled: Determines whether this alert rule is enabled or disabled.
-        :param pulumi.Input[str] etag: Etag of the azure resource
         :param pulumi.Input[str] kind: The kind of the alert rule
                Expected value is 'Scheduled'.
         :param pulumi.Input[str] query: The query that creates alerts for this rule.
@@ -375,7 +357,6 @@ class ScheduledAlertRule(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  query: Optional[pulumi.Input[str]] = None,
                  query_frequency: Optional[pulumi.Input[str]] = None,
@@ -409,7 +390,6 @@ class ScheduledAlertRule(pulumi.CustomResource):
             if enabled is None and not opts.urn:
                 raise TypeError("Missing required property 'enabled'")
             __props__.__dict__["enabled"] = enabled
-            __props__.__dict__["etag"] = etag
             if kind is None and not opts.urn:
                 raise TypeError("Missing required property 'kind'")
             __props__.__dict__["kind"] = 'Scheduled'
@@ -445,6 +425,7 @@ class ScheduledAlertRule(pulumi.CustomResource):
             if workspace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_name'")
             __props__.__dict__["workspace_name"] = workspace_name
+            __props__.__dict__["etag"] = None
             __props__.__dict__["last_modified_utc"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None

@@ -63,7 +63,7 @@ export class Assignment extends pulumi.CustomResource {
     /**
      * Entity tag is used for comparing two or more entities from the same requested resource.
      */
-    public readonly etag!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
     /**
      * Expiration date of this assignment as a full ISO date
      */
@@ -122,7 +122,6 @@ export class Assignment extends pulumi.CustomResource {
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["displayName"] = args ? args.displayName : undefined;
             resourceInputs["effect"] = args ? args.effect : undefined;
-            resourceInputs["etag"] = args ? args.etag : undefined;
             resourceInputs["expiresOn"] = args ? args.expiresOn : undefined;
             resourceInputs["kind"] = args ? args.kind : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
@@ -130,6 +129,7 @@ export class Assignment extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["scope"] = args ? args.scope : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -192,10 +192,6 @@ export interface AssignmentArgs {
      * expected effect of this assignment (Disable/Exempt/etc)
      */
     effect?: pulumi.Input<string>;
-    /**
-     * Entity tag is used for comparing two or more entities from the same requested resource.
-     */
-    etag?: pulumi.Input<string>;
     /**
      * Expiration date of this assignment as a full ISO date
      */

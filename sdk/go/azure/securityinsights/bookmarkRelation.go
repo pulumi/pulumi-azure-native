@@ -97,8 +97,6 @@ func (BookmarkRelationState) ElementType() reflect.Type {
 type bookmarkRelationArgs struct {
 	// Bookmark ID
 	BookmarkId string `pulumi:"bookmarkId"`
-	// Etag of the azure resource
-	Etag *string `pulumi:"etag"`
 	// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
 	OperationalInsightsResourceProvider string `pulumi:"operationalInsightsResourceProvider"`
 	// The resource ID of the related resource
@@ -115,8 +113,6 @@ type bookmarkRelationArgs struct {
 type BookmarkRelationArgs struct {
 	// Bookmark ID
 	BookmarkId pulumi.StringInput
-	// Etag of the azure resource
-	Etag pulumi.StringPtrInput
 	// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
 	OperationalInsightsResourceProvider pulumi.StringInput
 	// The resource ID of the related resource

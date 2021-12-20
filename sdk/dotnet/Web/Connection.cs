@@ -106,12 +106,6 @@ namespace Pulumi.AzureNative.Web
         public Input<string>? ConnectionName { get; set; }
 
         /// <summary>
-        /// Resource ETag
-        /// </summary>
-        [Input("etag")]
-        public Input<string>? Etag { get; set; }
-
-        /// <summary>
         /// Resource location
         /// </summary>
         [Input("location")]

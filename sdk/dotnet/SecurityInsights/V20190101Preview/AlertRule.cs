@@ -93,12 +93,6 @@ namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview
     public sealed class AlertRuleArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Etag of the azure resource
-        /// </summary>
-        [Input("etag")]
-        public Input<string>? Etag { get; set; }
-
-        /// <summary>
         /// The kind of the alert rule
         /// </summary>
         [Input("kind", required: true)]

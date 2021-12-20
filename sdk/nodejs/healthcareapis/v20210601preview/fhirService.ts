@@ -54,7 +54,7 @@ export class FhirService extends pulumi.CustomResource {
     /**
      * An etag associated with the resource, used for optimistic concurrency when editing it.
      */
-    public readonly etag!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
     /**
      * Fhir Service export configuration.
      */
@@ -113,7 +113,6 @@ export class FhirService extends pulumi.CustomResource {
             resourceInputs["acrConfiguration"] = args ? args.acrConfiguration : undefined;
             resourceInputs["authenticationConfiguration"] = args ? args.authenticationConfiguration : undefined;
             resourceInputs["corsConfiguration"] = args ? args.corsConfiguration : undefined;
-            resourceInputs["etag"] = args ? args.etag : undefined;
             resourceInputs["exportConfiguration"] = args ? args.exportConfiguration : undefined;
             resourceInputs["fhirServiceName"] = args ? args.fhirServiceName : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
@@ -122,6 +121,7 @@ export class FhirService extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
@@ -171,10 +171,6 @@ export interface FhirServiceArgs {
      * Fhir Service Cors configuration.
      */
     corsConfiguration?: pulumi.Input<inputs.healthcareapis.v20210601preview.FhirServiceCorsConfigurationArgs>;
-    /**
-     * An etag associated with the resource, used for optimistic concurrency when editing it.
-     */
-    etag?: pulumi.Input<string>;
     /**
      * Fhir Service export configuration.
      */

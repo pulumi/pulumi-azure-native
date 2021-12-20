@@ -95,8 +95,6 @@ func (PrivateZoneState) ElementType() reflect.Type {
 }
 
 type privateZoneArgs struct {
-	// The ETag of the zone.
-	Etag *string `pulumi:"etag"`
 	// The Azure Region where the resource lives
 	Location *string `pulumi:"location"`
 	// The name of the Private DNS zone (without a terminating dot).
@@ -109,8 +107,6 @@ type privateZoneArgs struct {
 
 // The set of arguments for constructing a PrivateZone resource.
 type PrivateZoneArgs struct {
-	// The ETag of the zone.
-	Etag pulumi.StringPtrInput
 	// The Azure Region where the resource lives
 	Location pulumi.StringPtrInput
 	// The name of the Private DNS zone (without a terminating dot).

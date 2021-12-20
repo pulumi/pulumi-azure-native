@@ -50,7 +50,7 @@ export class WatchlistItem extends pulumi.CustomResource {
     /**
      * Etag of the azure resource
      */
-    public readonly etag!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
     /**
      * A flag that indicates if the watchlist item is deleted or not
      */
@@ -121,7 +121,6 @@ export class WatchlistItem extends pulumi.CustomResource {
             resourceInputs["created"] = args ? args.created : undefined;
             resourceInputs["createdBy"] = args ? args.createdBy : undefined;
             resourceInputs["entityMapping"] = args ? args.entityMapping : undefined;
-            resourceInputs["etag"] = args ? args.etag : undefined;
             resourceInputs["isDeleted"] = args ? args.isDeleted : undefined;
             resourceInputs["itemsKeyValue"] = args ? args.itemsKeyValue : undefined;
             resourceInputs["operationalInsightsResourceProvider"] = args ? args.operationalInsightsResourceProvider : undefined;
@@ -133,6 +132,7 @@ export class WatchlistItem extends pulumi.CustomResource {
             resourceInputs["watchlistItemId"] = args ? args.watchlistItemId : undefined;
             resourceInputs["watchlistItemType"] = args ? args.watchlistItemType : undefined;
             resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -177,10 +177,6 @@ export interface WatchlistItemArgs {
      * key-value pairs for a watchlist item entity mapping
      */
     entityMapping?: any;
-    /**
-     * Etag of the azure resource
-     */
-    etag?: pulumi.Input<string>;
     /**
      * A flag that indicates if the watchlist item is deleted or not
      */

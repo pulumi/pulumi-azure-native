@@ -156,8 +156,6 @@ type virtualNetworkTapArgs struct {
 	DestinationNetworkInterfaceIPConfiguration *NetworkInterfaceIPConfiguration `pulumi:"destinationNetworkInterfaceIPConfiguration"`
 	// The VXLAN destination port that will receive the tapped traffic.
 	DestinationPort *int `pulumi:"destinationPort"`
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag *string `pulumi:"etag"`
 	// Resource ID.
 	Id *string `pulumi:"id"`
 	// Resource location.
@@ -178,8 +176,6 @@ type VirtualNetworkTapArgs struct {
 	DestinationNetworkInterfaceIPConfiguration NetworkInterfaceIPConfigurationPtrInput
 	// The VXLAN destination port that will receive the tapped traffic.
 	DestinationPort pulumi.IntPtrInput
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringPtrInput
 	// Resource ID.
 	Id pulumi.StringPtrInput
 	// Resource location.

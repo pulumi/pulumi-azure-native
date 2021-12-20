@@ -105,8 +105,6 @@ type awsCloudTrailDataConnectorArgs struct {
 	DataConnectorId *string `pulumi:"dataConnectorId"`
 	// The available data types for the connector.
 	DataTypes AwsCloudTrailDataConnectorDataTypes `pulumi:"dataTypes"`
-	// Etag of the azure resource
-	Etag *string `pulumi:"etag"`
 	// The kind of the data connector
 	// Expected value is 'AmazonWebServicesCloudTrail'.
 	Kind string `pulumi:"kind"`
@@ -124,8 +122,6 @@ type AwsCloudTrailDataConnectorArgs struct {
 	DataConnectorId pulumi.StringPtrInput
 	// The available data types for the connector.
 	DataTypes AwsCloudTrailDataConnectorDataTypesInput
-	// Etag of the azure resource
-	Etag pulumi.StringPtrInput
 	// The kind of the data connector
 	// Expected value is 'AmazonWebServicesCloudTrail'.
 	Kind pulumi.StringInput

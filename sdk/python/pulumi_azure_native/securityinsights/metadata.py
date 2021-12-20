@@ -25,7 +25,6 @@ class MetadataArgs:
                  categories: Optional[pulumi.Input['MetadataCategoriesArgs']] = None,
                  content_id: Optional[pulumi.Input[str]] = None,
                  dependencies: Optional[pulumi.Input['MetadataDependenciesArgs']] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  first_publish_date: Optional[pulumi.Input[str]] = None,
                  last_publish_date: Optional[pulumi.Input[str]] = None,
                  metadata_name: Optional[pulumi.Input[str]] = None,
@@ -44,7 +43,6 @@ class MetadataArgs:
         :param pulumi.Input['MetadataCategoriesArgs'] categories: Categories for the solution content item
         :param pulumi.Input[str] content_id: Static ID for the content.  Used to identify dependencies and content from solutions or community.  Hard-coded/static for out of the box content and solutions. Dynamic for user-created.  This is the resource name
         :param pulumi.Input['MetadataDependenciesArgs'] dependencies: Dependencies for the content item, what other content items it requires to work.  Can describe more complex dependencies using a recursive/nested structure. For a single dependency an id/kind/version can be supplied or operator/criteria for complex formats.
-        :param pulumi.Input[str] etag: Etag of the azure resource
         :param pulumi.Input[str] first_publish_date: first publish date solution content item
         :param pulumi.Input[str] last_publish_date: last publish date for the solution content item
         :param pulumi.Input[str] metadata_name: The Metadata name.
@@ -66,8 +64,6 @@ class MetadataArgs:
             pulumi.set(__self__, "content_id", content_id)
         if dependencies is not None:
             pulumi.set(__self__, "dependencies", dependencies)
-        if etag is not None:
-            pulumi.set(__self__, "etag", etag)
         if first_publish_date is not None:
             pulumi.set(__self__, "first_publish_date", first_publish_date)
         if last_publish_date is not None:
@@ -192,18 +188,6 @@ class MetadataArgs:
         pulumi.set(self, "dependencies", value)
 
     @property
-    @pulumi.getter
-    def etag(self) -> Optional[pulumi.Input[str]]:
-        """
-        Etag of the azure resource
-        """
-        return pulumi.get(self, "etag")
-
-    @etag.setter
-    def etag(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "etag", value)
-
-    @property
     @pulumi.getter(name="firstPublishDate")
     def first_publish_date(self) -> Optional[pulumi.Input[str]]:
         """
@@ -297,7 +281,6 @@ class Metadata(pulumi.CustomResource):
                  categories: Optional[pulumi.Input[pulumi.InputType['MetadataCategoriesArgs']]] = None,
                  content_id: Optional[pulumi.Input[str]] = None,
                  dependencies: Optional[pulumi.Input[pulumi.InputType['MetadataDependenciesArgs']]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  first_publish_date: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[Union[str, 'Kind']]] = None,
                  last_publish_date: Optional[pulumi.Input[str]] = None,
@@ -321,7 +304,6 @@ class Metadata(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['MetadataCategoriesArgs']] categories: Categories for the solution content item
         :param pulumi.Input[str] content_id: Static ID for the content.  Used to identify dependencies and content from solutions or community.  Hard-coded/static for out of the box content and solutions. Dynamic for user-created.  This is the resource name
         :param pulumi.Input[pulumi.InputType['MetadataDependenciesArgs']] dependencies: Dependencies for the content item, what other content items it requires to work.  Can describe more complex dependencies using a recursive/nested structure. For a single dependency an id/kind/version can be supplied or operator/criteria for complex formats.
-        :param pulumi.Input[str] etag: Etag of the azure resource
         :param pulumi.Input[str] first_publish_date: first publish date solution content item
         :param pulumi.Input[Union[str, 'Kind']] kind: The kind of content the metadata is for.
         :param pulumi.Input[str] last_publish_date: last publish date for the solution content item
@@ -364,7 +346,6 @@ class Metadata(pulumi.CustomResource):
                  categories: Optional[pulumi.Input[pulumi.InputType['MetadataCategoriesArgs']]] = None,
                  content_id: Optional[pulumi.Input[str]] = None,
                  dependencies: Optional[pulumi.Input[pulumi.InputType['MetadataDependenciesArgs']]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  first_publish_date: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[Union[str, 'Kind']]] = None,
                  last_publish_date: Optional[pulumi.Input[str]] = None,
@@ -393,7 +374,6 @@ class Metadata(pulumi.CustomResource):
             __props__.__dict__["categories"] = categories
             __props__.__dict__["content_id"] = content_id
             __props__.__dict__["dependencies"] = dependencies
-            __props__.__dict__["etag"] = etag
             __props__.__dict__["first_publish_date"] = first_publish_date
             if kind is None and not opts.urn:
                 raise TypeError("Missing required property 'kind'")
@@ -416,6 +396,7 @@ class Metadata(pulumi.CustomResource):
             if workspace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_name'")
             __props__.__dict__["workspace_name"] = workspace_name
+            __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None

@@ -123,8 +123,6 @@ type domainServiceArgs struct {
 	DomainSecuritySettings *DomainSecuritySettings `pulumi:"domainSecuritySettings"`
 	// The name of the domain service.
 	DomainServiceName *string `pulumi:"domainServiceName"`
-	// Resource etag
-	Etag *string `pulumi:"etag"`
 	// Enabled or Disabled flag to turn on Group-based filtered sync
 	FilteredSync *string `pulumi:"filteredSync"`
 	// Secure LDAP Settings
@@ -149,8 +147,6 @@ type DomainServiceArgs struct {
 	DomainSecuritySettings DomainSecuritySettingsPtrInput
 	// The name of the domain service.
 	DomainServiceName pulumi.StringPtrInput
-	// Resource etag
-	Etag pulumi.StringPtrInput
 	// Enabled or Disabled flag to turn on Group-based filtered sync
 	FilteredSync pulumi.StringPtrInput
 	// Secure LDAP Settings

@@ -151,12 +151,6 @@ namespace Pulumi.AzureNative.Network.V20150615
     public sealed class RouteTableArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Gets a unique read-only string that changes whenever the resource is updated.
-        /// </summary>
-        [Input("etag")]
-        public Input<string>? Etag { get; set; }
-
-        /// <summary>
         /// Resource Identifier.
         /// </summary>
         [Input("id")]

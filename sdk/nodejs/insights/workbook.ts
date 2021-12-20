@@ -47,7 +47,7 @@ export class Workbook extends pulumi.CustomResource {
     /**
      * Resource etag
      */
-    public readonly etag!: pulumi.Output<{[key: string]: string} | undefined>;
+    public /*out*/ readonly etag!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Identity used for BYOS
      */
@@ -122,7 +122,6 @@ export class Workbook extends pulumi.CustomResource {
             }
             resourceInputs["category"] = args ? args.category : undefined;
             resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["etag"] = args ? args.etag : undefined;
             resourceInputs["id"] = args ? args.id : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["kind"] = args ? args.kind : undefined;
@@ -136,6 +135,7 @@ export class Workbook extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
             resourceInputs["version"] = args ? args.version : undefined;
+            resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["timeModified"] = undefined /*out*/;
             resourceInputs["userId"] = undefined /*out*/;
         } else {
@@ -176,10 +176,6 @@ export interface WorkbookArgs {
      * The user-defined name (display name) of the workbook.
      */
     displayName: pulumi.Input<string>;
-    /**
-     * Resource etag
-     */
-    etag?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Azure resource Id
      */

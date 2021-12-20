@@ -50,7 +50,7 @@ export class Bookmark extends pulumi.CustomResource {
     /**
      * Etag of the azure resource
      */
-    public readonly etag!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
     /**
      * The bookmark event time
      */
@@ -130,7 +130,6 @@ export class Bookmark extends pulumi.CustomResource {
             resourceInputs["created"] = args ? args.created : undefined;
             resourceInputs["createdBy"] = args ? args.createdBy : undefined;
             resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["etag"] = args ? args.etag : undefined;
             resourceInputs["eventTime"] = args ? args.eventTime : undefined;
             resourceInputs["incidentInfo"] = args ? args.incidentInfo : undefined;
             resourceInputs["labels"] = args ? args.labels : undefined;
@@ -144,6 +143,7 @@ export class Bookmark extends pulumi.CustomResource {
             resourceInputs["updated"] = args ? args.updated : undefined;
             resourceInputs["updatedBy"] = args ? args.updatedBy : undefined;
             resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
@@ -193,10 +193,6 @@ export interface BookmarkArgs {
      * The display name of the bookmark
      */
     displayName: pulumi.Input<string>;
-    /**
-     * Etag of the azure resource
-     */
-    etag?: pulumi.Input<string>;
     /**
      * The bookmark event time
      */

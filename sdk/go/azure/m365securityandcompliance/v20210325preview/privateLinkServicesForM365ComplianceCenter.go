@@ -86,8 +86,6 @@ func (PrivateLinkServicesForM365ComplianceCenterState) ElementType() reflect.Typ
 }
 
 type privateLinkServicesForM365ComplianceCenterArgs struct {
-	// An etag associated with the resource, used for optimistic concurrency when editing it.
-	Etag *string `pulumi:"etag"`
 	// Setting indicating whether the service has a managed identity associated with it.
 	Identity *ServicesResourceIdentity `pulumi:"identity"`
 	// The kind of the service.
@@ -106,8 +104,6 @@ type privateLinkServicesForM365ComplianceCenterArgs struct {
 
 // The set of arguments for constructing a PrivateLinkServicesForM365ComplianceCenter resource.
 type PrivateLinkServicesForM365ComplianceCenterArgs struct {
-	// An etag associated with the resource, used for optimistic concurrency when editing it.
-	Etag pulumi.StringPtrInput
 	// Setting indicating whether the service has a managed identity associated with it.
 	Identity ServicesResourceIdentityPtrInput
 	// The kind of the service.

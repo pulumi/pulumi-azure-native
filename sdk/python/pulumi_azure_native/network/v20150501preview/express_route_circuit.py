@@ -20,7 +20,6 @@ class ExpressRouteCircuitArgs:
                  resource_group_name: pulumi.Input[str],
                  authorizations: Optional[pulumi.Input[Sequence[pulumi.Input['ExpressRouteCircuitAuthorizationArgs']]]] = None,
                  circuit_provisioning_state: Optional[pulumi.Input[str]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  peerings: Optional[pulumi.Input[Sequence[pulumi.Input['ExpressRouteCircuitPeeringArgs']]]] = None,
                  provisioning_state: Optional[pulumi.Input[str]] = None,
@@ -36,7 +35,6 @@ class ExpressRouteCircuitArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[Sequence[pulumi.Input['ExpressRouteCircuitAuthorizationArgs']]] authorizations: Gets or sets list of authorizations
         :param pulumi.Input[str] circuit_provisioning_state: Gets or sets CircuitProvisioningState state of the resource 
-        :param pulumi.Input[str] etag: Gets a unique read-only string that changes whenever the resource is updated
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[Sequence[pulumi.Input['ExpressRouteCircuitPeeringArgs']]] peerings: Gets or sets list of peerings
         :param pulumi.Input[str] provisioning_state: Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
@@ -53,8 +51,6 @@ class ExpressRouteCircuitArgs:
             pulumi.set(__self__, "authorizations", authorizations)
         if circuit_provisioning_state is not None:
             pulumi.set(__self__, "circuit_provisioning_state", circuit_provisioning_state)
-        if etag is not None:
-            pulumi.set(__self__, "etag", etag)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if peerings is not None:
@@ -121,18 +117,6 @@ class ExpressRouteCircuitArgs:
     @circuit_provisioning_state.setter
     def circuit_provisioning_state(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "circuit_provisioning_state", value)
-
-    @property
-    @pulumi.getter
-    def etag(self) -> Optional[pulumi.Input[str]]:
-        """
-        Gets a unique read-only string that changes whenever the resource is updated
-        """
-        return pulumi.get(self, "etag")
-
-    @etag.setter
-    def etag(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "etag", value)
 
     @property
     @pulumi.getter
@@ -251,7 +235,6 @@ class ExpressRouteCircuit(pulumi.CustomResource):
                  authorizations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExpressRouteCircuitAuthorizationArgs']]]]] = None,
                  circuit_name: Optional[pulumi.Input[str]] = None,
                  circuit_provisioning_state: Optional[pulumi.Input[str]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  peerings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExpressRouteCircuitPeeringArgs']]]]] = None,
                  provisioning_state: Optional[pulumi.Input[str]] = None,
@@ -271,7 +254,6 @@ class ExpressRouteCircuit(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExpressRouteCircuitAuthorizationArgs']]]] authorizations: Gets or sets list of authorizations
         :param pulumi.Input[str] circuit_name: The name of the circuit.
         :param pulumi.Input[str] circuit_provisioning_state: Gets or sets CircuitProvisioningState state of the resource 
-        :param pulumi.Input[str] etag: Gets a unique read-only string that changes whenever the resource is updated
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExpressRouteCircuitPeeringArgs']]]] peerings: Gets or sets list of peerings
         :param pulumi.Input[str] provisioning_state: Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
@@ -310,7 +292,6 @@ class ExpressRouteCircuit(pulumi.CustomResource):
                  authorizations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExpressRouteCircuitAuthorizationArgs']]]]] = None,
                  circuit_name: Optional[pulumi.Input[str]] = None,
                  circuit_provisioning_state: Optional[pulumi.Input[str]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  peerings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExpressRouteCircuitPeeringArgs']]]]] = None,
                  provisioning_state: Optional[pulumi.Input[str]] = None,
@@ -338,7 +319,6 @@ class ExpressRouteCircuit(pulumi.CustomResource):
                 raise TypeError("Missing required property 'circuit_name'")
             __props__.__dict__["circuit_name"] = circuit_name
             __props__.__dict__["circuit_provisioning_state"] = circuit_provisioning_state
-            __props__.__dict__["etag"] = etag
             __props__.__dict__["location"] = location
             __props__.__dict__["peerings"] = peerings
             __props__.__dict__["provisioning_state"] = provisioning_state
@@ -351,6 +331,7 @@ class ExpressRouteCircuit(pulumi.CustomResource):
             __props__.__dict__["service_provider_provisioning_state"] = service_provider_provisioning_state
             __props__.__dict__["sku"] = sku
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network:ExpressRouteCircuit"), pulumi.Alias(type_="azure-native:network/v20150615:ExpressRouteCircuit"), pulumi.Alias(type_="azure-native:network/v20160330:ExpressRouteCircuit"), pulumi.Alias(type_="azure-native:network/v20160601:ExpressRouteCircuit"), pulumi.Alias(type_="azure-native:network/v20160901:ExpressRouteCircuit"), pulumi.Alias(type_="azure-native:network/v20161201:ExpressRouteCircuit"), pulumi.Alias(type_="azure-native:network/v20170301:ExpressRouteCircuit"), pulumi.Alias(type_="azure-native:network/v20170601:ExpressRouteCircuit"), pulumi.Alias(type_="azure-native:network/v20170801:ExpressRouteCircuit"), pulumi.Alias(type_="azure-native:network/v20170901:ExpressRouteCircuit"), pulumi.Alias(type_="azure-native:network/v20171001:ExpressRouteCircuit"), pulumi.Alias(type_="azure-native:network/v20171101:ExpressRouteCircuit"), pulumi.Alias(type_="azure-native:network/v20180101:ExpressRouteCircuit"), pulumi.Alias(type_="azure-native:network/v20180201:ExpressRouteCircuit"), pulumi.Alias(type_="azure-native:network/v20180401:ExpressRouteCircuit"), pulumi.Alias(type_="azure-native:network/v20180601:ExpressRouteCircuit"), pulumi.Alias(type_="azure-native:network/v20180701:ExpressRouteCircuit"), pulumi.Alias(type_="azure-native:network/v20180801:ExpressRouteCircuit"), pulumi.Alias(type_="azure-native:network/v20181001:ExpressRouteCircuit"), pulumi.Alias(type_="azure-native:network/v20181101:ExpressRouteCircuit"), pulumi.Alias(type_="azure-native:network/v20181201:ExpressRouteCircuit"), pulumi.Alias(type_="azure-native:network/v20190201:ExpressRouteCircuit"), pulumi.Alias(type_="azure-native:network/v20190401:ExpressRouteCircuit"), pulumi.Alias(type_="azure-native:network/v20190601:ExpressRouteCircuit"), pulumi.Alias(type_="azure-native:network/v20190701:ExpressRouteCircuit"), pulumi.Alias(type_="azure-native:network/v20190801:ExpressRouteCircuit"), pulumi.Alias(type_="azure-native:network/v20190901:ExpressRouteCircuit"), pulumi.Alias(type_="azure-native:network/v20191101:ExpressRouteCircuit"), pulumi.Alias(type_="azure-native:network/v20191201:ExpressRouteCircuit"), pulumi.Alias(type_="azure-native:network/v20200301:ExpressRouteCircuit"), pulumi.Alias(type_="azure-native:network/v20200401:ExpressRouteCircuit"), pulumi.Alias(type_="azure-native:network/v20200501:ExpressRouteCircuit"), pulumi.Alias(type_="azure-native:network/v20200601:ExpressRouteCircuit"), pulumi.Alias(type_="azure-native:network/v20200701:ExpressRouteCircuit"), pulumi.Alias(type_="azure-native:network/v20200801:ExpressRouteCircuit"), pulumi.Alias(type_="azure-native:network/v20201101:ExpressRouteCircuit"), pulumi.Alias(type_="azure-native:network/v20210201:ExpressRouteCircuit"), pulumi.Alias(type_="azure-native:network/v20210301:ExpressRouteCircuit"), pulumi.Alias(type_="azure-native:network/v20210501:ExpressRouteCircuit")])

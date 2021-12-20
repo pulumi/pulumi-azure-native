@@ -58,7 +58,7 @@ export class VirtualNetworkGatewayConnection extends pulumi.CustomResource {
     /**
      * Gets a unique read-only string that changes whenever the resource is updated.
      */
-    public readonly etag!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
     /**
      * The ingress bytes transferred in this connection.
      */
@@ -147,7 +147,6 @@ export class VirtualNetworkGatewayConnection extends pulumi.CustomResource {
             resourceInputs["authorizationKey"] = args ? args.authorizationKey : undefined;
             resourceInputs["connectionType"] = args ? args.connectionType : undefined;
             resourceInputs["enableBgp"] = args ? args.enableBgp : undefined;
-            resourceInputs["etag"] = args ? args.etag : undefined;
             resourceInputs["id"] = args ? args.id : undefined;
             resourceInputs["ipsecPolicies"] = args ? args.ipsecPolicies : undefined;
             resourceInputs["localNetworkGateway2"] = args ? args.localNetworkGateway2 : undefined;
@@ -164,6 +163,7 @@ export class VirtualNetworkGatewayConnection extends pulumi.CustomResource {
             resourceInputs["virtualNetworkGatewayConnectionName"] = args ? args.virtualNetworkGatewayConnectionName : undefined;
             resourceInputs["connectionStatus"] = undefined /*out*/;
             resourceInputs["egressBytesTransferred"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["ingressBytesTransferred"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
@@ -218,10 +218,6 @@ export interface VirtualNetworkGatewayConnectionArgs {
      * EnableBgp flag
      */
     enableBgp?: pulumi.Input<boolean>;
-    /**
-     * Gets a unique read-only string that changes whenever the resource is updated.
-     */
-    etag?: pulumi.Input<string>;
     /**
      * Resource ID.
      */

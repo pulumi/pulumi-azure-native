@@ -46,7 +46,7 @@ export class Policy extends pulumi.CustomResource {
     /**
      * Gets a unique read-only string that changes whenever the resource is updated.
      */
-    public readonly etag!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
     /**
      * Resource location.
      */
@@ -103,7 +103,6 @@ export class Policy extends pulumi.CustomResource {
                 throw new Error("Missing required property 'sku'");
             }
             resourceInputs["customRules"] = args ? args.customRules : undefined;
-            resourceInputs["etag"] = args ? args.etag : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["managedRules"] = args ? args.managedRules : undefined;
             resourceInputs["policyName"] = args ? args.policyName : undefined;
@@ -113,6 +112,7 @@ export class Policy extends pulumi.CustomResource {
             resourceInputs["sku"] = args ? args.sku : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["endpointLinks"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["resourceState"] = undefined /*out*/;
@@ -149,10 +149,6 @@ export interface PolicyArgs {
      * Describes custom rules inside the policy.
      */
     customRules?: pulumi.Input<inputs.cdn.v20190615preview.CustomRuleListArgs>;
-    /**
-     * Gets a unique read-only string that changes whenever the resource is updated.
-     */
-    etag?: pulumi.Input<string>;
     /**
      * Resource location.
      */

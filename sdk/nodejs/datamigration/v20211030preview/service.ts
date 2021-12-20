@@ -46,7 +46,7 @@ export class Service extends pulumi.CustomResource {
     /**
      * HTTP strong entity tag value. Ignored if submitted
      */
-    public readonly etag!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
     /**
      * The resource kind. Only 'vm' (the default) is supported.
      */
@@ -93,7 +93,6 @@ export class Service extends pulumi.CustomResource {
             }
             resourceInputs["autoStopDelay"] = args ? args.autoStopDelay : undefined;
             resourceInputs["deleteResourcesOnStop"] = args ? args.deleteResourcesOnStop : undefined;
-            resourceInputs["etag"] = args ? args.etag : undefined;
             resourceInputs["groupName"] = args ? args.groupName : undefined;
             resourceInputs["kind"] = args ? args.kind : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
@@ -103,6 +102,7 @@ export class Service extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["virtualNicId"] = args ? args.virtualNicId : undefined;
             resourceInputs["virtualSubnetId"] = args ? args.virtualSubnetId : undefined;
+            resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
@@ -144,10 +144,6 @@ export interface ServiceArgs {
      * Whether service resources should be deleted when stopped. (Turned on by default)
      */
     deleteResourcesOnStop?: pulumi.Input<boolean>;
-    /**
-     * HTTP strong entity tag value. Ignored if submitted
-     */
-    etag?: pulumi.Input<string>;
     /**
      * Name of the resource group
      */

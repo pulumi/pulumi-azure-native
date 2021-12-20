@@ -38,7 +38,7 @@ export class PrivateEndpoint extends pulumi.CustomResource {
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
-    public readonly etag!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
     /**
      * Resource location.
      */
@@ -90,7 +90,6 @@ export class PrivateEndpoint extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["etag"] = args ? args.etag : undefined;
             resourceInputs["id"] = args ? args.id : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["manualPrivateLinkServiceConnections"] = args ? args.manualPrivateLinkServiceConnections : undefined;
@@ -99,6 +98,7 @@ export class PrivateEndpoint extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["subnet"] = args ? args.subnet : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["networkInterfaces"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
@@ -128,10 +128,6 @@ export class PrivateEndpoint extends pulumi.CustomResource {
  * The set of arguments for constructing a PrivateEndpoint resource.
  */
 export interface PrivateEndpointArgs {
-    /**
-     * A unique read-only string that changes whenever the resource is updated.
-     */
-    etag?: pulumi.Input<string>;
     /**
      * Resource ID.
      */

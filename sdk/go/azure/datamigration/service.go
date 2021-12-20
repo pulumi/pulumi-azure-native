@@ -107,8 +107,6 @@ func (ServiceState) ElementType() reflect.Type {
 }
 
 type serviceArgs struct {
-	// HTTP strong entity tag value. Ignored if submitted
-	Etag *string `pulumi:"etag"`
 	// Name of the resource group
 	GroupName string `pulumi:"groupName"`
 	// The resource kind. Only 'vm' (the default) is supported.
@@ -129,8 +127,6 @@ type serviceArgs struct {
 
 // The set of arguments for constructing a Service resource.
 type ServiceArgs struct {
-	// HTTP strong entity tag value. Ignored if submitted
-	Etag pulumi.StringPtrInput
 	// Name of the resource group
 	GroupName pulumi.StringInput
 	// The resource kind. Only 'vm' (the default) is supported.

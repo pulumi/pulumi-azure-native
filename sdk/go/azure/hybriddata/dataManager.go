@@ -86,8 +86,6 @@ func (DataManagerState) ElementType() reflect.Type {
 type dataManagerArgs struct {
 	// The name of the DataManager Resource within the specified resource group. DataManager names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
 	DataManagerName *string `pulumi:"dataManagerName"`
-	// Etag of the Resource.
-	Etag *string `pulumi:"etag"`
 	// The location of the resource. This will be one of the supported and registered Azure Geo Regions (e.g. West US, East
 	// US, Southeast Asia, etc.). The geo region of a resource cannot be changed once it is created, but if an identical geo
 	// region is specified on update the request will succeed.
@@ -105,8 +103,6 @@ type dataManagerArgs struct {
 type DataManagerArgs struct {
 	// The name of the DataManager Resource within the specified resource group. DataManager names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
 	DataManagerName pulumi.StringPtrInput
-	// Etag of the Resource.
-	Etag pulumi.StringPtrInput
 	// The location of the resource. This will be one of the supported and registered Azure Geo Regions (e.g. West US, East
 	// US, Southeast Asia, etc.). The geo region of a resource cannot be changed once it is created, but if an identical geo
 	// region is specified on update the request will succeed.

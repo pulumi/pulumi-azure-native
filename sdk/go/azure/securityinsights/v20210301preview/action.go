@@ -103,8 +103,6 @@ func (ActionState) ElementType() reflect.Type {
 type actionArgs struct {
 	// Action ID
 	ActionId *string `pulumi:"actionId"`
-	// Etag of the azure resource
-	Etag *string `pulumi:"etag"`
 	// Logic App Resource Id, /subscriptions/{my-subscription}/resourceGroups/{my-resource-group}/providers/Microsoft.Logic/workflows/{my-workflow-id}.
 	LogicAppResourceId string `pulumi:"logicAppResourceId"`
 	// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
@@ -123,8 +121,6 @@ type actionArgs struct {
 type ActionArgs struct {
 	// Action ID
 	ActionId pulumi.StringPtrInput
-	// Etag of the azure resource
-	Etag pulumi.StringPtrInput
 	// Logic App Resource Id, /subscriptions/{my-subscription}/resourceGroups/{my-resource-group}/providers/Microsoft.Logic/workflows/{my-workflow-id}.
 	LogicAppResourceId pulumi.StringInput
 	// The namespace of workspaces resource provider- Microsoft.OperationalInsights.

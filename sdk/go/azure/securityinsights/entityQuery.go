@@ -92,8 +92,6 @@ func (EntityQueryState) ElementType() reflect.Type {
 type entityQueryArgs struct {
 	// entity query ID
 	EntityQueryId *string `pulumi:"entityQueryId"`
-	// Etag of the azure resource
-	Etag *string `pulumi:"etag"`
 	// the entity query kind
 	Kind string `pulumi:"kind"`
 	// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
@@ -108,8 +106,6 @@ type entityQueryArgs struct {
 type EntityQueryArgs struct {
 	// entity query ID
 	EntityQueryId pulumi.StringPtrInput
-	// Etag of the azure resource
-	Etag pulumi.StringPtrInput
 	// the entity query kind
 	Kind pulumi.StringInput
 	// The namespace of workspaces resource provider- Microsoft.OperationalInsights.

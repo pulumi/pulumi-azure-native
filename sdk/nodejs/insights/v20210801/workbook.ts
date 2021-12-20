@@ -50,7 +50,7 @@ export class Workbook extends pulumi.CustomResource {
     /**
      * Resource etag
      */
-    public readonly etag!: pulumi.Output<{[key: string]: string} | undefined>;
+    public /*out*/ readonly etag!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Identity used for BYOS
      */
@@ -134,7 +134,6 @@ export class Workbook extends pulumi.CustomResource {
             resourceInputs["category"] = args ? args.category : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["etag"] = args ? args.etag : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["kind"] = args ? args.kind : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
@@ -145,6 +144,7 @@ export class Workbook extends pulumi.CustomResource {
             resourceInputs["storageUri"] = args ? args.storageUri : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["version"] = args ? args.version : undefined;
+            resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["revision"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
@@ -196,10 +196,6 @@ export interface WorkbookArgs {
      * The user-defined name (display name) of the workbook.
      */
     displayName: pulumi.Input<string>;
-    /**
-     * Resource etag
-     */
-    etag?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Identity used for BYOS
      */

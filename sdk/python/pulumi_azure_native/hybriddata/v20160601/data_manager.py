@@ -17,7 +17,6 @@ class DataManagerArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  data_manager_name: Optional[pulumi.Input[str]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input['SkuArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
@@ -25,7 +24,6 @@ class DataManagerArgs:
         The set of arguments for constructing a DataManager resource.
         :param pulumi.Input[str] resource_group_name: The Resource Group Name
         :param pulumi.Input[str] data_manager_name: The name of the DataManager Resource within the specified resource group. DataManager names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
-        :param pulumi.Input[str] etag: Etag of the Resource.
         :param pulumi.Input[str] location: The location of the resource. This will be one of the supported and registered Azure Geo Regions (e.g. West US, East
                US, Southeast Asia, etc.). The geo region of a resource cannot be changed once it is created, but if an identical geo
                region is specified on update the request will succeed.
@@ -36,8 +34,6 @@ class DataManagerArgs:
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if data_manager_name is not None:
             pulumi.set(__self__, "data_manager_name", data_manager_name)
-        if etag is not None:
-            pulumi.set(__self__, "etag", etag)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if sku is not None:
@@ -68,18 +64,6 @@ class DataManagerArgs:
     @data_manager_name.setter
     def data_manager_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "data_manager_name", value)
-
-    @property
-    @pulumi.getter
-    def etag(self) -> Optional[pulumi.Input[str]]:
-        """
-        Etag of the Resource.
-        """
-        return pulumi.get(self, "etag")
-
-    @etag.setter
-    def etag(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "etag", value)
 
     @property
     @pulumi.getter
@@ -127,7 +111,6 @@ class DataManager(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  data_manager_name: Optional[pulumi.Input[str]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
@@ -139,7 +122,6 @@ class DataManager(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] data_manager_name: The name of the DataManager Resource within the specified resource group. DataManager names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
-        :param pulumi.Input[str] etag: Etag of the Resource.
         :param pulumi.Input[str] location: The location of the resource. This will be one of the supported and registered Azure Geo Regions (e.g. West US, East
                US, Southeast Asia, etc.). The geo region of a resource cannot be changed once it is created, but if an identical geo
                region is specified on update the request will succeed.
@@ -173,7 +155,6 @@ class DataManager(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  data_manager_name: Optional[pulumi.Input[str]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
@@ -191,13 +172,13 @@ class DataManager(pulumi.CustomResource):
             __props__ = DataManagerArgs.__new__(DataManagerArgs)
 
             __props__.__dict__["data_manager_name"] = data_manager_name
-            __props__.__dict__["etag"] = etag
             __props__.__dict__["location"] = location
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["sku"] = sku
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:hybriddata:DataManager"), pulumi.Alias(type_="azure-native:hybriddata/v20190601:DataManager")])

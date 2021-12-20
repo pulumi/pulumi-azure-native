@@ -47,7 +47,7 @@ export class MachineGroup extends pulumi.CustomResource {
     /**
      * Resource ETAG.
      */
-    public readonly etag!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
     /**
      * Type of the machine group
      */
@@ -95,13 +95,13 @@ export class MachineGroup extends pulumi.CustomResource {
             }
             resourceInputs["count"] = args ? args.count : undefined;
             resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["etag"] = args ? args.etag : undefined;
             resourceInputs["groupType"] = args ? args.groupType : undefined;
             resourceInputs["kind"] = "machineGroup";
             resourceInputs["machineGroupName"] = args ? args.machineGroupName : undefined;
             resourceInputs["machines"] = args ? args.machines : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
@@ -135,10 +135,6 @@ export interface MachineGroupArgs {
      * User defined name for the group
      */
     displayName: pulumi.Input<string>;
-    /**
-     * Resource ETAG.
-     */
-    etag?: pulumi.Input<string>;
     /**
      * Type of the machine group
      */

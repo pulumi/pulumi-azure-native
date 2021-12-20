@@ -42,7 +42,7 @@ export class DicomService extends pulumi.CustomResource {
     /**
      * An etag associated with the resource, used for optimistic concurrency when editing it.
      */
-    public readonly etag!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
     /**
      * The resource location.
      */
@@ -90,12 +90,12 @@ export class DicomService extends pulumi.CustomResource {
                 throw new Error("Missing required property 'workspaceName'");
             }
             resourceInputs["dicomServiceName"] = args ? args.dicomServiceName : undefined;
-            resourceInputs["etag"] = args ? args.etag : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
             resourceInputs["authenticationConfiguration"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["serviceUrl"] = undefined /*out*/;
@@ -129,10 +129,6 @@ export interface DicomServiceArgs {
      * The name of DICOM Service resource.
      */
     dicomServiceName?: pulumi.Input<string>;
-    /**
-     * An etag associated with the resource, used for optimistic concurrency when editing it.
-     */
-    etag?: pulumi.Input<string>;
     /**
      * The resource location.
      */

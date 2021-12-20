@@ -124,12 +124,6 @@ namespace Pulumi.AzureNative.SecurityInsights.V20200101
         public Input<Inputs.AlertsDataTypeOfDataConnectorArgs>? DataTypes { get; set; }
 
         /// <summary>
-        /// Etag of the azure resource
-        /// </summary>
-        [Input("etag")]
-        public Input<string>? Etag { get; set; }
-
-        /// <summary>
         /// The kind of the data connector
         /// Expected value is 'AzureActiveDirectory'.
         /// </summary>

@@ -22,8 +22,7 @@ class AwsCloudTrailDataConnectorArgs:
                  resource_group_name: pulumi.Input[str],
                  workspace_name: pulumi.Input[str],
                  aws_role_arn: Optional[pulumi.Input[str]] = None,
-                 data_connector_id: Optional[pulumi.Input[str]] = None,
-                 etag: Optional[pulumi.Input[str]] = None):
+                 data_connector_id: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a AwsCloudTrailDataConnector resource.
         :param pulumi.Input['AwsCloudTrailDataConnectorDataTypesArgs'] data_types: The available data types for the connector.
@@ -34,7 +33,6 @@ class AwsCloudTrailDataConnectorArgs:
         :param pulumi.Input[str] workspace_name: The name of the workspace.
         :param pulumi.Input[str] aws_role_arn: The Aws Role Arn (with CloudTrailReadOnly policy) that is used to access the Aws account.
         :param pulumi.Input[str] data_connector_id: Connector ID
-        :param pulumi.Input[str] etag: Etag of the azure resource
         """
         pulumi.set(__self__, "data_types", data_types)
         pulumi.set(__self__, "kind", 'AmazonWebServicesCloudTrail')
@@ -45,8 +43,6 @@ class AwsCloudTrailDataConnectorArgs:
             pulumi.set(__self__, "aws_role_arn", aws_role_arn)
         if data_connector_id is not None:
             pulumi.set(__self__, "data_connector_id", data_connector_id)
-        if etag is not None:
-            pulumi.set(__self__, "etag", etag)
 
     @property
     @pulumi.getter(name="dataTypes")
@@ -133,18 +129,6 @@ class AwsCloudTrailDataConnectorArgs:
     def data_connector_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "data_connector_id", value)
 
-    @property
-    @pulumi.getter
-    def etag(self) -> Optional[pulumi.Input[str]]:
-        """
-        Etag of the azure resource
-        """
-        return pulumi.get(self, "etag")
-
-    @etag.setter
-    def etag(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "etag", value)
-
 
 class AwsCloudTrailDataConnector(pulumi.CustomResource):
     @overload
@@ -154,7 +138,6 @@ class AwsCloudTrailDataConnector(pulumi.CustomResource):
                  aws_role_arn: Optional[pulumi.Input[str]] = None,
                  data_connector_id: Optional[pulumi.Input[str]] = None,
                  data_types: Optional[pulumi.Input[pulumi.InputType['AwsCloudTrailDataConnectorDataTypesArgs']]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  operational_insights_resource_provider: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -168,7 +151,6 @@ class AwsCloudTrailDataConnector(pulumi.CustomResource):
         :param pulumi.Input[str] aws_role_arn: The Aws Role Arn (with CloudTrailReadOnly policy) that is used to access the Aws account.
         :param pulumi.Input[str] data_connector_id: Connector ID
         :param pulumi.Input[pulumi.InputType['AwsCloudTrailDataConnectorDataTypesArgs']] data_types: The available data types for the connector.
-        :param pulumi.Input[str] etag: Etag of the azure resource
         :param pulumi.Input[str] kind: 
                Expected value is 'AmazonWebServicesCloudTrail'.
         :param pulumi.Input[str] operational_insights_resource_provider: The namespace of workspaces resource provider- Microsoft.OperationalInsights.
@@ -202,7 +184,6 @@ class AwsCloudTrailDataConnector(pulumi.CustomResource):
                  aws_role_arn: Optional[pulumi.Input[str]] = None,
                  data_connector_id: Optional[pulumi.Input[str]] = None,
                  data_types: Optional[pulumi.Input[pulumi.InputType['AwsCloudTrailDataConnectorDataTypesArgs']]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  operational_insights_resource_provider: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -224,7 +205,6 @@ class AwsCloudTrailDataConnector(pulumi.CustomResource):
             if data_types is None and not opts.urn:
                 raise TypeError("Missing required property 'data_types'")
             __props__.__dict__["data_types"] = data_types
-            __props__.__dict__["etag"] = etag
             if kind is None and not opts.urn:
                 raise TypeError("Missing required property 'kind'")
             __props__.__dict__["kind"] = 'AmazonWebServicesCloudTrail'
@@ -237,6 +217,7 @@ class AwsCloudTrailDataConnector(pulumi.CustomResource):
             if workspace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_name'")
             __props__.__dict__["workspace_name"] = workspace_name
+            __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:securityinsights:AwsCloudTrailDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20200101:AwsCloudTrailDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20210301preview:AwsCloudTrailDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20210901preview:AwsCloudTrailDataConnector")])

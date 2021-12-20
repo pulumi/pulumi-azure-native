@@ -22,7 +22,6 @@ class FhirServiceArgs:
                  acr_configuration: Optional[pulumi.Input['FhirServiceAcrConfigurationArgs']] = None,
                  authentication_configuration: Optional[pulumi.Input['FhirServiceAuthenticationConfigurationArgs']] = None,
                  cors_configuration: Optional[pulumi.Input['FhirServiceCorsConfigurationArgs']] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  export_configuration: Optional[pulumi.Input['FhirServiceExportConfigurationArgs']] = None,
                  fhir_service_name: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input['ServiceManagedIdentityIdentityArgs']] = None,
@@ -37,7 +36,6 @@ class FhirServiceArgs:
         :param pulumi.Input['FhirServiceAcrConfigurationArgs'] acr_configuration: Fhir Service Azure container registry configuration.
         :param pulumi.Input['FhirServiceAuthenticationConfigurationArgs'] authentication_configuration: Fhir Service authentication configuration.
         :param pulumi.Input['FhirServiceCorsConfigurationArgs'] cors_configuration: Fhir Service Cors configuration.
-        :param pulumi.Input[str] etag: An etag associated with the resource, used for optimistic concurrency when editing it.
         :param pulumi.Input['FhirServiceExportConfigurationArgs'] export_configuration: Fhir Service export configuration.
         :param pulumi.Input[str] fhir_service_name: The name of FHIR Service resource.
         :param pulumi.Input['ServiceManagedIdentityIdentityArgs'] identity: Setting indicating whether the service has a managed identity associated with it.
@@ -55,8 +53,6 @@ class FhirServiceArgs:
             pulumi.set(__self__, "authentication_configuration", authentication_configuration)
         if cors_configuration is not None:
             pulumi.set(__self__, "cors_configuration", cors_configuration)
-        if etag is not None:
-            pulumi.set(__self__, "etag", etag)
         if export_configuration is not None:
             pulumi.set(__self__, "export_configuration", export_configuration)
         if fhir_service_name is not None:
@@ -143,18 +139,6 @@ class FhirServiceArgs:
         pulumi.set(self, "cors_configuration", value)
 
     @property
-    @pulumi.getter
-    def etag(self) -> Optional[pulumi.Input[str]]:
-        """
-        An etag associated with the resource, used for optimistic concurrency when editing it.
-        """
-        return pulumi.get(self, "etag")
-
-    @etag.setter
-    def etag(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "etag", value)
-
-    @property
     @pulumi.getter(name="exportConfiguration")
     def export_configuration(self) -> Optional[pulumi.Input['FhirServiceExportConfigurationArgs']]:
         """
@@ -236,7 +220,6 @@ class FhirService(pulumi.CustomResource):
                  acr_configuration: Optional[pulumi.Input[pulumi.InputType['FhirServiceAcrConfigurationArgs']]] = None,
                  authentication_configuration: Optional[pulumi.Input[pulumi.InputType['FhirServiceAuthenticationConfigurationArgs']]] = None,
                  cors_configuration: Optional[pulumi.Input[pulumi.InputType['FhirServiceCorsConfigurationArgs']]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  export_configuration: Optional[pulumi.Input[pulumi.InputType['FhirServiceExportConfigurationArgs']]] = None,
                  fhir_service_name: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['ServiceManagedIdentityIdentityArgs']]] = None,
@@ -256,7 +239,6 @@ class FhirService(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['FhirServiceAcrConfigurationArgs']] acr_configuration: Fhir Service Azure container registry configuration.
         :param pulumi.Input[pulumi.InputType['FhirServiceAuthenticationConfigurationArgs']] authentication_configuration: Fhir Service authentication configuration.
         :param pulumi.Input[pulumi.InputType['FhirServiceCorsConfigurationArgs']] cors_configuration: Fhir Service Cors configuration.
-        :param pulumi.Input[str] etag: An etag associated with the resource, used for optimistic concurrency when editing it.
         :param pulumi.Input[pulumi.InputType['FhirServiceExportConfigurationArgs']] export_configuration: Fhir Service export configuration.
         :param pulumi.Input[str] fhir_service_name: The name of FHIR Service resource.
         :param pulumi.Input[pulumi.InputType['ServiceManagedIdentityIdentityArgs']] identity: Setting indicating whether the service has a managed identity associated with it.
@@ -295,7 +277,6 @@ class FhirService(pulumi.CustomResource):
                  acr_configuration: Optional[pulumi.Input[pulumi.InputType['FhirServiceAcrConfigurationArgs']]] = None,
                  authentication_configuration: Optional[pulumi.Input[pulumi.InputType['FhirServiceAuthenticationConfigurationArgs']]] = None,
                  cors_configuration: Optional[pulumi.Input[pulumi.InputType['FhirServiceCorsConfigurationArgs']]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  export_configuration: Optional[pulumi.Input[pulumi.InputType['FhirServiceExportConfigurationArgs']]] = None,
                  fhir_service_name: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['ServiceManagedIdentityIdentityArgs']]] = None,
@@ -320,7 +301,6 @@ class FhirService(pulumi.CustomResource):
             __props__.__dict__["acr_configuration"] = acr_configuration
             __props__.__dict__["authentication_configuration"] = authentication_configuration
             __props__.__dict__["cors_configuration"] = cors_configuration
-            __props__.__dict__["etag"] = etag
             __props__.__dict__["export_configuration"] = export_configuration
             __props__.__dict__["fhir_service_name"] = fhir_service_name
             __props__.__dict__["identity"] = identity
@@ -333,6 +313,7 @@ class FhirService(pulumi.CustomResource):
             if workspace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_name'")
             __props__.__dict__["workspace_name"] = workspace_name
+            __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None

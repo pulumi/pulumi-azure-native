@@ -17,22 +17,18 @@ class SentinelOnboardingStateArgs:
                  resource_group_name: pulumi.Input[str],
                  workspace_name: pulumi.Input[str],
                  customer_managed_key: Optional[pulumi.Input[bool]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  sentinel_onboarding_state_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a SentinelOnboardingState resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] workspace_name: The name of the workspace.
         :param pulumi.Input[bool] customer_managed_key: Flag that indicates the status of the CMK setting
-        :param pulumi.Input[str] etag: Etag of the azure resource
         :param pulumi.Input[str] sentinel_onboarding_state_name: The Sentinel onboarding state name. Supports - default
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "workspace_name", workspace_name)
         if customer_managed_key is not None:
             pulumi.set(__self__, "customer_managed_key", customer_managed_key)
-        if etag is not None:
-            pulumi.set(__self__, "etag", etag)
         if sentinel_onboarding_state_name is not None:
             pulumi.set(__self__, "sentinel_onboarding_state_name", sentinel_onboarding_state_name)
 
@@ -73,18 +69,6 @@ class SentinelOnboardingStateArgs:
         pulumi.set(self, "customer_managed_key", value)
 
     @property
-    @pulumi.getter
-    def etag(self) -> Optional[pulumi.Input[str]]:
-        """
-        Etag of the azure resource
-        """
-        return pulumi.get(self, "etag")
-
-    @etag.setter
-    def etag(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "etag", value)
-
-    @property
     @pulumi.getter(name="sentinelOnboardingStateName")
     def sentinel_onboarding_state_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -103,7 +87,6 @@ class SentinelOnboardingState(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  customer_managed_key: Optional[pulumi.Input[bool]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sentinel_onboarding_state_name: Optional[pulumi.Input[str]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
@@ -114,7 +97,6 @@ class SentinelOnboardingState(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] customer_managed_key: Flag that indicates the status of the CMK setting
-        :param pulumi.Input[str] etag: Etag of the azure resource
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] sentinel_onboarding_state_name: The Sentinel onboarding state name. Supports - default
         :param pulumi.Input[str] workspace_name: The name of the workspace.
@@ -144,7 +126,6 @@ class SentinelOnboardingState(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  customer_managed_key: Optional[pulumi.Input[bool]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sentinel_onboarding_state_name: Optional[pulumi.Input[str]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
@@ -161,7 +142,6 @@ class SentinelOnboardingState(pulumi.CustomResource):
             __props__ = SentinelOnboardingStateArgs.__new__(SentinelOnboardingStateArgs)
 
             __props__.__dict__["customer_managed_key"] = customer_managed_key
-            __props__.__dict__["etag"] = etag
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
@@ -169,6 +149,7 @@ class SentinelOnboardingState(pulumi.CustomResource):
             if workspace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_name'")
             __props__.__dict__["workspace_name"] = workspace_name
+            __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None

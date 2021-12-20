@@ -42,7 +42,7 @@ export class NetworkSecurityGroup extends pulumi.CustomResource {
     /**
      * Gets a unique read-only string that changes whenever the resource is updated
      */
-    public readonly etag!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
     /**
      * Resource location
      */
@@ -95,7 +95,6 @@ export class NetworkSecurityGroup extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["defaultSecurityRules"] = args ? args.defaultSecurityRules : undefined;
-            resourceInputs["etag"] = args ? args.etag : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["networkInterfaces"] = args ? args.networkInterfaces : undefined;
             resourceInputs["networkSecurityGroupName"] = args ? args.networkSecurityGroupName : undefined;
@@ -105,6 +104,7 @@ export class NetworkSecurityGroup extends pulumi.CustomResource {
             resourceInputs["securityRules"] = args ? args.securityRules : undefined;
             resourceInputs["subnets"] = args ? args.subnets : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
@@ -137,10 +137,6 @@ export interface NetworkSecurityGroupArgs {
      * Gets or sets Default security rules of network security group
      */
     defaultSecurityRules?: pulumi.Input<pulumi.Input<inputs.network.v20150501preview.SecurityRuleArgs>[]>;
-    /**
-     * Gets a unique read-only string that changes whenever the resource is updated
-     */
-    etag?: pulumi.Input<string>;
     /**
      * Resource location
      */

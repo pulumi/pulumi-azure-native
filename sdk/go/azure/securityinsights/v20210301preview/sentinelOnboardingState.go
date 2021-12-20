@@ -86,8 +86,6 @@ func (SentinelOnboardingStateState) ElementType() reflect.Type {
 type sentinelOnboardingStateArgs struct {
 	// Flag that indicates the status of the CMK setting
 	CustomerManagedKey *bool `pulumi:"customerManagedKey"`
-	// Etag of the azure resource
-	Etag *string `pulumi:"etag"`
 	// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
 	OperationalInsightsResourceProvider string `pulumi:"operationalInsightsResourceProvider"`
 	// The name of the resource group. The name is case insensitive.
@@ -102,8 +100,6 @@ type sentinelOnboardingStateArgs struct {
 type SentinelOnboardingStateArgs struct {
 	// Flag that indicates the status of the CMK setting
 	CustomerManagedKey pulumi.BoolPtrInput
-	// Etag of the azure resource
-	Etag pulumi.StringPtrInput
 	// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
 	OperationalInsightsResourceProvider pulumi.StringInput
 	// The name of the resource group. The name is case insensitive.

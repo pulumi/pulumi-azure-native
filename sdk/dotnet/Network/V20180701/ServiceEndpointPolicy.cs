@@ -135,12 +135,6 @@ namespace Pulumi.AzureNative.Network.V20180701
     public sealed class ServiceEndpointPolicyArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A unique read-only string that changes whenever the resource is updated.
-        /// </summary>
-        [Input("etag")]
-        public Input<string>? Etag { get; set; }
-
-        /// <summary>
         /// Resource ID.
         /// </summary>
         [Input("id")]

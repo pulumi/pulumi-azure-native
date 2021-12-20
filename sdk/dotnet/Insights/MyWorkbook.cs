@@ -169,18 +169,6 @@ namespace Pulumi.AzureNative.Insights
         [Input("displayName", required: true)]
         public Input<string> DisplayName { get; set; } = null!;
 
-        [Input("etag")]
-        private InputMap<string>? _etag;
-
-        /// <summary>
-        /// Resource etag
-        /// </summary>
-        public InputMap<string> Etag
-        {
-            get => _etag ?? (_etag = new InputMap<string>());
-            set => _etag = value;
-        }
-
         /// <summary>
         /// Azure resource Id
         /// </summary>

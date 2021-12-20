@@ -50,7 +50,7 @@ export class ManagerExtendedInfo extends pulumi.CustomResource {
     /**
      * The etag of the resource.
      */
-    public readonly etag!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
     /**
      * Represents the CIK of the resource.
      */
@@ -102,13 +102,13 @@ export class ManagerExtendedInfo extends pulumi.CustomResource {
             resourceInputs["algorithm"] = args ? args.algorithm : undefined;
             resourceInputs["encryptionKey"] = args ? args.encryptionKey : undefined;
             resourceInputs["encryptionKeyThumbprint"] = args ? args.encryptionKeyThumbprint : undefined;
-            resourceInputs["etag"] = args ? args.etag : undefined;
             resourceInputs["integrityKey"] = args ? args.integrityKey : undefined;
             resourceInputs["kind"] = args ? args.kind : undefined;
             resourceInputs["managerName"] = args ? args.managerName : undefined;
             resourceInputs["portalCertificateThumbprint"] = args ? args.portalCertificateThumbprint : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["version"] = args ? args.version : undefined;
+            resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
@@ -148,10 +148,6 @@ export interface ManagerExtendedInfoArgs {
      * Represents the Cert thumbprint that was used to encrypt the CEK.
      */
     encryptionKeyThumbprint?: pulumi.Input<string>;
-    /**
-     * The etag of the resource.
-     */
-    etag?: pulumi.Input<string>;
     /**
      * Represents the CIK of the resource.
      */

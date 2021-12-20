@@ -39,7 +39,7 @@ export class DataManager extends pulumi.CustomResource {
     /**
      * Etag of the Resource.
      */
-    public readonly etag!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
     /**
      * The location of the resource. This will be one of the supported and registered Azure Geo Regions (e.g. West US, East
      * US, Southeast Asia, etc.). The geo region of a resource cannot be changed once it is created, but if an identical geo
@@ -79,11 +79,11 @@ export class DataManager extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["dataManagerName"] = args ? args.dataManagerName : undefined;
-            resourceInputs["etag"] = args ? args.etag : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["sku"] = args ? args.sku : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
@@ -111,10 +111,6 @@ export interface DataManagerArgs {
      * The name of the DataManager Resource within the specified resource group. DataManager names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
      */
     dataManagerName?: pulumi.Input<string>;
-    /**
-     * Etag of the Resource.
-     */
-    etag?: pulumi.Input<string>;
     /**
      * The location of the resource. This will be one of the supported and registered Azure Geo Regions (e.g. West US, East
      * US, Southeast Asia, etc.). The geo region of a resource cannot be changed once it is created, but if an identical geo

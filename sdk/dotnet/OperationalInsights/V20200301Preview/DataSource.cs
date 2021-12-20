@@ -109,12 +109,6 @@ namespace Pulumi.AzureNative.OperationalInsights.V20200301Preview
         public Input<string>? DataSourceName { get; set; }
 
         /// <summary>
-        /// The ETag of the data source.
-        /// </summary>
-        [Input("etag")]
-        public Input<string>? Etag { get; set; }
-
-        /// <summary>
         /// The kind of the DataSource.
         /// </summary>
         [Input("kind", required: true)]

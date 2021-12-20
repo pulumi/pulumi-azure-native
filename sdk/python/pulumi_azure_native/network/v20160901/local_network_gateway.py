@@ -18,7 +18,6 @@ class LocalNetworkGatewayInitArgs:
                  local_network_address_space: pulumi.Input['AddressSpaceArgs'],
                  resource_group_name: pulumi.Input[str],
                  bgp_settings: Optional[pulumi.Input['BgpSettingsArgs']] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  gateway_ip_address: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  local_network_gateway_name: Optional[pulumi.Input[str]] = None,
@@ -30,7 +29,6 @@ class LocalNetworkGatewayInitArgs:
         :param pulumi.Input['AddressSpaceArgs'] local_network_address_space: Local network site address space.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input['BgpSettingsArgs'] bgp_settings: Local network gateway's BGP speaker settings.
-        :param pulumi.Input[str] etag: A unique read-only string that changes whenever the resource is updated.
         :param pulumi.Input[str] gateway_ip_address: IP address of local network gateway.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] local_network_gateway_name: The name of the local network gateway.
@@ -42,8 +40,6 @@ class LocalNetworkGatewayInitArgs:
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if bgp_settings is not None:
             pulumi.set(__self__, "bgp_settings", bgp_settings)
-        if etag is not None:
-            pulumi.set(__self__, "etag", etag)
         if gateway_ip_address is not None:
             pulumi.set(__self__, "gateway_ip_address", gateway_ip_address)
         if id is not None:
@@ -92,18 +88,6 @@ class LocalNetworkGatewayInitArgs:
     @bgp_settings.setter
     def bgp_settings(self, value: Optional[pulumi.Input['BgpSettingsArgs']]):
         pulumi.set(self, "bgp_settings", value)
-
-    @property
-    @pulumi.getter
-    def etag(self) -> Optional[pulumi.Input[str]]:
-        """
-        A unique read-only string that changes whenever the resource is updated.
-        """
-        return pulumi.get(self, "etag")
-
-    @etag.setter
-    def etag(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "etag", value)
 
     @property
     @pulumi.getter(name="gatewayIpAddress")
@@ -184,7 +168,6 @@ class LocalNetworkGateway(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  bgp_settings: Optional[pulumi.Input[pulumi.InputType['BgpSettingsArgs']]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  gateway_ip_address: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  local_network_address_space: Optional[pulumi.Input[pulumi.InputType['AddressSpaceArgs']]] = None,
@@ -200,7 +183,6 @@ class LocalNetworkGateway(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['BgpSettingsArgs']] bgp_settings: Local network gateway's BGP speaker settings.
-        :param pulumi.Input[str] etag: A unique read-only string that changes whenever the resource is updated.
         :param pulumi.Input[str] gateway_ip_address: IP address of local network gateway.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[pulumi.InputType['AddressSpaceArgs']] local_network_address_space: Local network site address space.
@@ -235,7 +217,6 @@ class LocalNetworkGateway(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  bgp_settings: Optional[pulumi.Input[pulumi.InputType['BgpSettingsArgs']]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  gateway_ip_address: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  local_network_address_space: Optional[pulumi.Input[pulumi.InputType['AddressSpaceArgs']]] = None,
@@ -257,7 +238,6 @@ class LocalNetworkGateway(pulumi.CustomResource):
             __props__ = LocalNetworkGatewayInitArgs.__new__(LocalNetworkGatewayInitArgs)
 
             __props__.__dict__["bgp_settings"] = bgp_settings
-            __props__.__dict__["etag"] = etag
             __props__.__dict__["gateway_ip_address"] = gateway_ip_address
             __props__.__dict__["id"] = id
             if local_network_address_space is None and not opts.urn:
@@ -270,6 +250,7 @@ class LocalNetworkGateway(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["resource_guid"] = resource_guid
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["type"] = None

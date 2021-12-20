@@ -38,7 +38,7 @@ export class Solution extends pulumi.CustomResource {
     /**
      * Gets or sets the ETAG for optimistic concurrency control.
      */
-    public readonly etag!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
     /**
      * Gets the name of this REST resource.
      */
@@ -69,11 +69,11 @@ export class Solution extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["etag"] = args ? args.etag : undefined;
             resourceInputs["migrateProjectName"] = args ? args.migrateProjectName : undefined;
             resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["solutionName"] = args ? args.solutionName : undefined;
+            resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
@@ -95,10 +95,6 @@ export class Solution extends pulumi.CustomResource {
  * The set of arguments for constructing a Solution resource.
  */
 export interface SolutionArgs {
-    /**
-     * Gets or sets the ETAG for optimistic concurrency control.
-     */
-    etag?: pulumi.Input<string>;
     /**
      * Name of the Azure Migrate project.
      */

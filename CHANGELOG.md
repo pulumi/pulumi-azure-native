@@ -33,6 +33,8 @@ CHANGELOG
 
 #### Enhancements:
 
+- Remove `etag` from resource inputs
+  [#1337](https://github.com/pulumi/pulumi-azure-native/issues/1337)
 - Update to `pulumi/pulumi` 3.19.0
 
 #### Breaking Changes published by Microsoft:

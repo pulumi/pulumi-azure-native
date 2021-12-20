@@ -54,7 +54,7 @@ export class AutomationRule extends pulumi.CustomResource {
     /**
      * Etag of the azure resource
      */
-    public readonly etag!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
     /**
      * Describes the client that last updated the automation rule
      */
@@ -115,7 +115,6 @@ export class AutomationRule extends pulumi.CustomResource {
             resourceInputs["actions"] = args ? args.actions : undefined;
             resourceInputs["automationRuleId"] = args ? args.automationRuleId : undefined;
             resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["etag"] = args ? args.etag : undefined;
             resourceInputs["operationalInsightsResourceProvider"] = args ? args.operationalInsightsResourceProvider : undefined;
             resourceInputs["order"] = args ? args.order : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -123,6 +122,7 @@ export class AutomationRule extends pulumi.CustomResource {
             resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
             resourceInputs["createdBy"] = undefined /*out*/;
             resourceInputs["createdTimeUtc"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["lastModifiedBy"] = undefined /*out*/;
             resourceInputs["lastModifiedTimeUtc"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -165,10 +165,6 @@ export interface AutomationRuleArgs {
      * The display name of the automation  rule
      */
     displayName: pulumi.Input<string>;
-    /**
-     * Etag of the azure resource
-     */
-    etag?: pulumi.Input<string>;
     /**
      * The namespace of workspaces resource provider- Microsoft.OperationalInsights.
      */

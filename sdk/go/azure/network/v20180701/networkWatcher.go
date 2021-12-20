@@ -179,8 +179,6 @@ func (NetworkWatcherState) ElementType() reflect.Type {
 }
 
 type networkWatcherArgs struct {
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag *string `pulumi:"etag"`
 	// Resource ID.
 	Id *string `pulumi:"id"`
 	// Resource location.
@@ -195,8 +193,6 @@ type networkWatcherArgs struct {
 
 // The set of arguments for constructing a NetworkWatcher resource.
 type NetworkWatcherArgs struct {
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringPtrInput
 	// Resource ID.
 	Id pulumi.StringPtrInput
 	// Resource location.

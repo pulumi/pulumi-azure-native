@@ -174,12 +174,6 @@ namespace Pulumi.AzureNative.HybridNetwork.V20210501
         public Input<Inputs.SubResourceArgs>? Device { get; set; }
 
         /// <summary>
-        /// A unique read-only string that changes whenever the resource is updated.
-        /// </summary>
-        [Input("etag")]
-        public Input<string>? Etag { get; set; }
-
-        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         [Input("location")]

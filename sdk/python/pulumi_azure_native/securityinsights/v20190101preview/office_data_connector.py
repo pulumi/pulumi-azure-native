@@ -22,8 +22,7 @@ class OfficeDataConnectorArgs:
                  resource_group_name: pulumi.Input[str],
                  tenant_id: pulumi.Input[str],
                  workspace_name: pulumi.Input[str],
-                 data_connector_id: Optional[pulumi.Input[str]] = None,
-                 etag: Optional[pulumi.Input[str]] = None):
+                 data_connector_id: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a OfficeDataConnector resource.
         :param pulumi.Input['OfficeDataConnectorDataTypesArgs'] data_types: The available data types for the connector.
@@ -34,7 +33,6 @@ class OfficeDataConnectorArgs:
         :param pulumi.Input[str] tenant_id: The tenant id to connect to, and get the data from.
         :param pulumi.Input[str] workspace_name: The name of the workspace.
         :param pulumi.Input[str] data_connector_id: Connector ID
-        :param pulumi.Input[str] etag: Etag of the azure resource
         """
         pulumi.set(__self__, "data_types", data_types)
         pulumi.set(__self__, "kind", 'Office365')
@@ -44,8 +42,6 @@ class OfficeDataConnectorArgs:
         pulumi.set(__self__, "workspace_name", workspace_name)
         if data_connector_id is not None:
             pulumi.set(__self__, "data_connector_id", data_connector_id)
-        if etag is not None:
-            pulumi.set(__self__, "etag", etag)
 
     @property
     @pulumi.getter(name="dataTypes")
@@ -132,18 +128,6 @@ class OfficeDataConnectorArgs:
     def data_connector_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "data_connector_id", value)
 
-    @property
-    @pulumi.getter
-    def etag(self) -> Optional[pulumi.Input[str]]:
-        """
-        Etag of the azure resource
-        """
-        return pulumi.get(self, "etag")
-
-    @etag.setter
-    def etag(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "etag", value)
-
 
 class OfficeDataConnector(pulumi.CustomResource):
     @overload
@@ -152,7 +136,6 @@ class OfficeDataConnector(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  data_connector_id: Optional[pulumi.Input[str]] = None,
                  data_types: Optional[pulumi.Input[pulumi.InputType['OfficeDataConnectorDataTypesArgs']]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  operational_insights_resource_provider: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -166,7 +149,6 @@ class OfficeDataConnector(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] data_connector_id: Connector ID
         :param pulumi.Input[pulumi.InputType['OfficeDataConnectorDataTypesArgs']] data_types: The available data types for the connector.
-        :param pulumi.Input[str] etag: Etag of the azure resource
         :param pulumi.Input[str] kind: 
                Expected value is 'Office365'.
         :param pulumi.Input[str] operational_insights_resource_provider: The namespace of workspaces resource provider- Microsoft.OperationalInsights.
@@ -200,7 +182,6 @@ class OfficeDataConnector(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  data_connector_id: Optional[pulumi.Input[str]] = None,
                  data_types: Optional[pulumi.Input[pulumi.InputType['OfficeDataConnectorDataTypesArgs']]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  operational_insights_resource_provider: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -222,7 +203,6 @@ class OfficeDataConnector(pulumi.CustomResource):
             if data_types is None and not opts.urn:
                 raise TypeError("Missing required property 'data_types'")
             __props__.__dict__["data_types"] = data_types
-            __props__.__dict__["etag"] = etag
             if kind is None and not opts.urn:
                 raise TypeError("Missing required property 'kind'")
             __props__.__dict__["kind"] = 'Office365'
@@ -238,6 +218,7 @@ class OfficeDataConnector(pulumi.CustomResource):
             if workspace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_name'")
             __props__.__dict__["workspace_name"] = workspace_name
+            __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:securityinsights:OfficeDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20200101:OfficeDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20210301preview:OfficeDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20210901preview:OfficeDataConnector")])

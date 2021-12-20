@@ -19,7 +19,6 @@ class ChannelArgs:
                  resource_group_name: pulumi.Input[str],
                  resource_name: pulumi.Input[str],
                  channel_name: Optional[pulumi.Input[str]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[Union[str, 'Kind']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[Union['AlexaChannelArgs', 'DirectLineChannelArgs', 'DirectLineSpeechChannelArgs', 'EmailChannelArgs', 'FacebookChannelArgs', 'KikChannelArgs', 'LineChannelArgs', 'MsTeamsChannelArgs', 'SkypeChannelArgs', 'SlackChannelArgs', 'SmsChannelArgs', 'TelegramChannelArgs', 'WebChatChannelArgs']]] = None,
@@ -30,7 +29,6 @@ class ChannelArgs:
         :param pulumi.Input[str] resource_group_name: The name of the Bot resource group in the user subscription.
         :param pulumi.Input[str] resource_name: The name of the Bot resource.
         :param pulumi.Input[str] channel_name: The name of the Channel resource.
-        :param pulumi.Input[str] etag: Entity Tag
         :param pulumi.Input[Union[str, 'Kind']] kind: Required. Gets or sets the Kind of the resource.
         :param pulumi.Input[str] location: Specifies the location of the resource.
         :param pulumi.Input[Union['AlexaChannelArgs', 'DirectLineChannelArgs', 'DirectLineSpeechChannelArgs', 'EmailChannelArgs', 'FacebookChannelArgs', 'KikChannelArgs', 'LineChannelArgs', 'MsTeamsChannelArgs', 'SkypeChannelArgs', 'SlackChannelArgs', 'SmsChannelArgs', 'TelegramChannelArgs', 'WebChatChannelArgs']] properties: The set of properties specific to bot channel resource
@@ -41,8 +39,6 @@ class ChannelArgs:
         pulumi.set(__self__, "resource_name", resource_name)
         if channel_name is not None:
             pulumi.set(__self__, "channel_name", channel_name)
-        if etag is not None:
-            pulumi.set(__self__, "etag", etag)
         if kind is not None:
             pulumi.set(__self__, "kind", kind)
         if location is not None:
@@ -89,18 +85,6 @@ class ChannelArgs:
     @channel_name.setter
     def channel_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "channel_name", value)
-
-    @property
-    @pulumi.getter
-    def etag(self) -> Optional[pulumi.Input[str]]:
-        """
-        Entity Tag
-        """
-        return pulumi.get(self, "etag")
-
-    @etag.setter
-    def etag(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "etag", value)
 
     @property
     @pulumi.getter
@@ -169,7 +153,6 @@ class Channel(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  channel_name: Optional[pulumi.Input[str]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[Union[str, 'Kind']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[Union[pulumi.InputType['AlexaChannelArgs'], pulumi.InputType['DirectLineChannelArgs'], pulumi.InputType['DirectLineSpeechChannelArgs'], pulumi.InputType['EmailChannelArgs'], pulumi.InputType['FacebookChannelArgs'], pulumi.InputType['KikChannelArgs'], pulumi.InputType['LineChannelArgs'], pulumi.InputType['MsTeamsChannelArgs'], pulumi.InputType['SkypeChannelArgs'], pulumi.InputType['SlackChannelArgs'], pulumi.InputType['SmsChannelArgs'], pulumi.InputType['TelegramChannelArgs'], pulumi.InputType['WebChatChannelArgs']]]] = None,
@@ -184,7 +167,6 @@ class Channel(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] channel_name: The name of the Channel resource.
-        :param pulumi.Input[str] etag: Entity Tag
         :param pulumi.Input[Union[str, 'Kind']] kind: Required. Gets or sets the Kind of the resource.
         :param pulumi.Input[str] location: Specifies the location of the resource.
         :param pulumi.Input[Union[pulumi.InputType['AlexaChannelArgs'], pulumi.InputType['DirectLineChannelArgs'], pulumi.InputType['DirectLineSpeechChannelArgs'], pulumi.InputType['EmailChannelArgs'], pulumi.InputType['FacebookChannelArgs'], pulumi.InputType['KikChannelArgs'], pulumi.InputType['LineChannelArgs'], pulumi.InputType['MsTeamsChannelArgs'], pulumi.InputType['SkypeChannelArgs'], pulumi.InputType['SlackChannelArgs'], pulumi.InputType['SmsChannelArgs'], pulumi.InputType['TelegramChannelArgs'], pulumi.InputType['WebChatChannelArgs']]] properties: The set of properties specific to bot channel resource
@@ -218,7 +200,6 @@ class Channel(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  channel_name: Optional[pulumi.Input[str]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[Union[str, 'Kind']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[Union[pulumi.InputType['AlexaChannelArgs'], pulumi.InputType['DirectLineChannelArgs'], pulumi.InputType['DirectLineSpeechChannelArgs'], pulumi.InputType['EmailChannelArgs'], pulumi.InputType['FacebookChannelArgs'], pulumi.InputType['KikChannelArgs'], pulumi.InputType['LineChannelArgs'], pulumi.InputType['MsTeamsChannelArgs'], pulumi.InputType['SkypeChannelArgs'], pulumi.InputType['SlackChannelArgs'], pulumi.InputType['SmsChannelArgs'], pulumi.InputType['TelegramChannelArgs'], pulumi.InputType['WebChatChannelArgs']]]] = None,
@@ -239,7 +220,6 @@ class Channel(pulumi.CustomResource):
             __props__ = ChannelArgs.__new__(ChannelArgs)
 
             __props__.__dict__["channel_name"] = channel_name
-            __props__.__dict__["etag"] = etag
             __props__.__dict__["kind"] = kind
             __props__.__dict__["location"] = location
             __props__.__dict__["properties"] = properties
@@ -251,6 +231,7 @@ class Channel(pulumi.CustomResource):
             __props__.__dict__["resource_name"] = resource_name_
             __props__.__dict__["sku"] = sku
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["zones"] = None

@@ -151,8 +151,6 @@ type watchlistArgs struct {
 	Description *string `pulumi:"description"`
 	// The display name of the watchlist
 	DisplayName string `pulumi:"displayName"`
-	// Etag of the azure resource
-	Etag *string `pulumi:"etag"`
 	// A flag that indicates if the watchlist is deleted or not
 	IsDeleted *bool `pulumi:"isDeleted"`
 	// The search key is used to optimize query performance when using watchlists for joins with other data. For example, enable a column with IP addresses to be the designated SearchKey field, then use this field as the key field when joining to other event data by IP address.
@@ -203,8 +201,6 @@ type WatchlistArgs struct {
 	Description pulumi.StringPtrInput
 	// The display name of the watchlist
 	DisplayName pulumi.StringInput
-	// Etag of the azure resource
-	Etag pulumi.StringPtrInput
 	// A flag that indicates if the watchlist is deleted or not
 	IsDeleted pulumi.BoolPtrInput
 	// The search key is used to optimize query performance when using watchlists for joins with other data. For example, enable a column with IP addresses to be the designated SearchKey field, then use this field as the key field when joining to other event data by IP address.

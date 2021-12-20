@@ -41,7 +41,7 @@ export class ServiceEndpointPolicyDefinition extends pulumi.CustomResource {
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
-    public readonly etag!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
     /**
      * The name of the resource that is unique within a resource group. This name can be used to access the resource.
      */
@@ -77,7 +77,6 @@ export class ServiceEndpointPolicyDefinition extends pulumi.CustomResource {
                 throw new Error("Missing required property 'serviceEndpointPolicyName'");
             }
             resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["etag"] = args ? args.etag : undefined;
             resourceInputs["id"] = args ? args.id : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["provisioningState"] = args ? args.provisioningState : undefined;
@@ -86,6 +85,7 @@ export class ServiceEndpointPolicyDefinition extends pulumi.CustomResource {
             resourceInputs["serviceEndpointPolicyDefinitionName"] = args ? args.serviceEndpointPolicyDefinitionName : undefined;
             resourceInputs["serviceEndpointPolicyName"] = args ? args.serviceEndpointPolicyName : undefined;
             resourceInputs["serviceResources"] = args ? args.serviceResources : undefined;
+            resourceInputs["etag"] = undefined /*out*/;
         } else {
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
@@ -111,10 +111,6 @@ export interface ServiceEndpointPolicyDefinitionArgs {
      * A description for this rule. Restricted to 140 chars.
      */
     description?: pulumi.Input<string>;
-    /**
-     * A unique read-only string that changes whenever the resource is updated.
-     */
-    etag?: pulumi.Input<string>;
     /**
      * Resource ID.
      */

@@ -19,7 +19,6 @@ class ApplicationArgs:
                  cluster_name: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
                  application_name: Optional[pulumi.Input[str]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input['ApplicationPropertiesArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
@@ -27,7 +26,6 @@ class ApplicationArgs:
         :param pulumi.Input[str] cluster_name: The name of the cluster.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] application_name: The constant value for the application name.
-        :param pulumi.Input[str] etag: The ETag for the application
         :param pulumi.Input['ApplicationPropertiesArgs'] properties: The properties of the application.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags for the application.
         """
@@ -35,8 +33,6 @@ class ApplicationArgs:
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if application_name is not None:
             pulumi.set(__self__, "application_name", application_name)
-        if etag is not None:
-            pulumi.set(__self__, "etag", etag)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
         if tags is not None:
@@ -80,18 +76,6 @@ class ApplicationArgs:
 
     @property
     @pulumi.getter
-    def etag(self) -> Optional[pulumi.Input[str]]:
-        """
-        The ETag for the application
-        """
-        return pulumi.get(self, "etag")
-
-    @etag.setter
-    def etag(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "etag", value)
-
-    @property
-    @pulumi.getter
     def properties(self) -> Optional[pulumi.Input['ApplicationPropertiesArgs']]:
         """
         The properties of the application.
@@ -122,7 +106,6 @@ class Application(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application_name: Optional[pulumi.Input[str]] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[pulumi.InputType['ApplicationPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -134,7 +117,6 @@ class Application(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] application_name: The constant value for the application name.
         :param pulumi.Input[str] cluster_name: The name of the cluster.
-        :param pulumi.Input[str] etag: The ETag for the application
         :param pulumi.Input[pulumi.InputType['ApplicationPropertiesArgs']] properties: The properties of the application.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags for the application.
@@ -165,7 +147,6 @@ class Application(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application_name: Optional[pulumi.Input[str]] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[pulumi.InputType['ApplicationPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -185,12 +166,12 @@ class Application(pulumi.CustomResource):
             if cluster_name is None and not opts.urn:
                 raise TypeError("Missing required property 'cluster_name'")
             __props__.__dict__["cluster_name"] = cluster_name
-            __props__.__dict__["etag"] = etag
             __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:hdinsight:Application"), pulumi.Alias(type_="azure-native:hdinsight/v20180601preview:Application"), pulumi.Alias(type_="azure-native:hdinsight/v20210601:Application")])

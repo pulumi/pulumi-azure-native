@@ -137,12 +137,6 @@ namespace Pulumi.AzureNative.Security.V20210701Preview
         public InputUnion<string, Pulumi.AzureNative.Security.V20210701Preview.CloudName>? CloudName { get; set; }
 
         /// <summary>
-        /// Entity tag is used for comparing two or more entities from the same requested resource.
-        /// </summary>
-        [Input("etag")]
-        public Input<string>? Etag { get; set; }
-
-        /// <summary>
         /// The multi cloud resource identifier (account id in case of AWS connector).
         /// </summary>
         [Input("hierarchyIdentifier")]

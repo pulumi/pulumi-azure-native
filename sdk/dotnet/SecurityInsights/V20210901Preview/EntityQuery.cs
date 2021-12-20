@@ -103,12 +103,6 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210901Preview
         public Input<string>? EntityQueryId { get; set; }
 
         /// <summary>
-        /// Etag of the azure resource
-        /// </summary>
-        [Input("etag")]
-        public Input<string>? Etag { get; set; }
-
-        /// <summary>
         /// the entity query kind
         /// </summary>
         [Input("kind", required: true)]

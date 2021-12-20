@@ -155,8 +155,6 @@ type componentArgs struct {
 	DisableIpMasking *bool `pulumi:"disableIpMasking"`
 	// Disable Non-AAD based Auth.
 	DisableLocalAuth *bool `pulumi:"disableLocalAuth"`
-	// Resource etag
-	Etag *string `pulumi:"etag"`
 	// Used by the Application Insights system to determine what kind of flow this component was created by. This is to be set to 'Bluefield' when creating/updating a component via the REST API.
 	FlowType *string `pulumi:"flowType"`
 	// Force users to create their own storage account for profiler and debugger.
@@ -199,8 +197,6 @@ type ComponentArgs struct {
 	DisableIpMasking pulumi.BoolPtrInput
 	// Disable Non-AAD based Auth.
 	DisableLocalAuth pulumi.BoolPtrInput
-	// Resource etag
-	Etag pulumi.StringPtrInput
 	// Used by the Application Insights system to determine what kind of flow this component was created by. This is to be set to 'Bluefield' when creating/updating a component via the REST API.
 	FlowType pulumi.StringPtrInput
 	// Force users to create their own storage account for profiler and debugger.

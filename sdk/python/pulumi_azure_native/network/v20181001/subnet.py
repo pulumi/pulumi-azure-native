@@ -21,7 +21,6 @@ class SubnetInitArgs:
                  address_prefix: Optional[pulumi.Input[str]] = None,
                  address_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  delegations: Optional[pulumi.Input[Sequence[pulumi.Input['DelegationArgs']]]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network_security_group: Optional[pulumi.Input['NetworkSecurityGroupArgs']] = None,
@@ -39,7 +38,6 @@ class SubnetInitArgs:
         :param pulumi.Input[str] address_prefix: The address prefix for the subnet.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] address_prefixes: List of  address prefixes for the subnet.
         :param pulumi.Input[Sequence[pulumi.Input['DelegationArgs']]] delegations: Gets an array of references to the delegations on the subnet.
-        :param pulumi.Input[str] etag: A unique read-only string that changes whenever the resource is updated.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
         :param pulumi.Input['NetworkSecurityGroupArgs'] network_security_group: The reference of the NetworkSecurityGroup resource.
@@ -59,8 +57,6 @@ class SubnetInitArgs:
             pulumi.set(__self__, "address_prefixes", address_prefixes)
         if delegations is not None:
             pulumi.set(__self__, "delegations", delegations)
-        if etag is not None:
-            pulumi.set(__self__, "etag", etag)
         if id is not None:
             pulumi.set(__self__, "id", id)
         if name is not None:
@@ -141,18 +137,6 @@ class SubnetInitArgs:
     @delegations.setter
     def delegations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DelegationArgs']]]]):
         pulumi.set(self, "delegations", value)
-
-    @property
-    @pulumi.getter
-    def etag(self) -> Optional[pulumi.Input[str]]:
-        """
-        A unique read-only string that changes whenever the resource is updated.
-        """
-        return pulumi.get(self, "etag")
-
-    @etag.setter
-    def etag(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "etag", value)
 
     @property
     @pulumi.getter
@@ -283,7 +267,6 @@ class Subnet(pulumi.CustomResource):
                  address_prefix: Optional[pulumi.Input[str]] = None,
                  address_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  delegations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DelegationArgs']]]]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network_security_group: Optional[pulumi.Input[pulumi.InputType['NetworkSecurityGroupArgs']]] = None,
@@ -305,7 +288,6 @@ class Subnet(pulumi.CustomResource):
         :param pulumi.Input[str] address_prefix: The address prefix for the subnet.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] address_prefixes: List of  address prefixes for the subnet.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DelegationArgs']]]] delegations: Gets an array of references to the delegations on the subnet.
-        :param pulumi.Input[str] etag: A unique read-only string that changes whenever the resource is updated.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
         :param pulumi.Input[pulumi.InputType['NetworkSecurityGroupArgs']] network_security_group: The reference of the NetworkSecurityGroup resource.
@@ -346,7 +328,6 @@ class Subnet(pulumi.CustomResource):
                  address_prefix: Optional[pulumi.Input[str]] = None,
                  address_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  delegations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DelegationArgs']]]]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network_security_group: Optional[pulumi.Input[pulumi.InputType['NetworkSecurityGroupArgs']]] = None,
@@ -374,7 +355,6 @@ class Subnet(pulumi.CustomResource):
             __props__.__dict__["address_prefix"] = address_prefix
             __props__.__dict__["address_prefixes"] = address_prefixes
             __props__.__dict__["delegations"] = delegations
-            __props__.__dict__["etag"] = etag
             __props__.__dict__["id"] = id
             __props__.__dict__["name"] = name
             __props__.__dict__["network_security_group"] = network_security_group
@@ -391,6 +371,7 @@ class Subnet(pulumi.CustomResource):
             if virtual_network_name is None and not opts.urn:
                 raise TypeError("Missing required property 'virtual_network_name'")
             __props__.__dict__["virtual_network_name"] = virtual_network_name
+            __props__.__dict__["etag"] = None
             __props__.__dict__["interface_endpoints"] = None
             __props__.__dict__["ip_configuration_profiles"] = None
             __props__.__dict__["ip_configurations"] = None

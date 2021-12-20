@@ -18,7 +18,6 @@ class PolicyArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  custom_rules: Optional[pulumi.Input['CustomRuleListArgs']] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  managed_rules: Optional[pulumi.Input['ManagedRuleSetListArgs']] = None,
                  policy_name: Optional[pulumi.Input[str]] = None,
@@ -29,7 +28,6 @@ class PolicyArgs:
         The set of arguments for constructing a Policy resource.
         :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription.
         :param pulumi.Input['CustomRuleListArgs'] custom_rules: Describes custom rules inside the policy.
-        :param pulumi.Input[str] etag: Gets a unique read-only string that changes whenever the resource is updated.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input['ManagedRuleSetListArgs'] managed_rules: Describes managed rules inside the policy.
         :param pulumi.Input[str] policy_name: The name of the Web Application Firewall Policy.
@@ -40,8 +38,6 @@ class PolicyArgs:
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if custom_rules is not None:
             pulumi.set(__self__, "custom_rules", custom_rules)
-        if etag is not None:
-            pulumi.set(__self__, "etag", etag)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if managed_rules is not None:
@@ -78,18 +74,6 @@ class PolicyArgs:
     @custom_rules.setter
     def custom_rules(self, value: Optional[pulumi.Input['CustomRuleListArgs']]):
         pulumi.set(self, "custom_rules", value)
-
-    @property
-    @pulumi.getter
-    def etag(self) -> Optional[pulumi.Input[str]]:
-        """
-        Gets a unique read-only string that changes whenever the resource is updated.
-        """
-        return pulumi.get(self, "etag")
-
-    @etag.setter
-    def etag(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "etag", value)
 
     @property
     @pulumi.getter
@@ -170,7 +154,6 @@ class Policy(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  custom_rules: Optional[pulumi.Input[pulumi.InputType['CustomRuleListArgs']]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  managed_rules: Optional[pulumi.Input[pulumi.InputType['ManagedRuleSetListArgs']]] = None,
                  policy_name: Optional[pulumi.Input[str]] = None,
@@ -186,7 +169,6 @@ class Policy(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['CustomRuleListArgs']] custom_rules: Describes custom rules inside the policy.
-        :param pulumi.Input[str] etag: Gets a unique read-only string that changes whenever the resource is updated.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[pulumi.InputType['ManagedRuleSetListArgs']] managed_rules: Describes managed rules inside the policy.
         :param pulumi.Input[str] policy_name: The name of the Web Application Firewall Policy.
@@ -221,7 +203,6 @@ class Policy(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  custom_rules: Optional[pulumi.Input[pulumi.InputType['CustomRuleListArgs']]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  managed_rules: Optional[pulumi.Input[pulumi.InputType['ManagedRuleSetListArgs']]] = None,
                  policy_name: Optional[pulumi.Input[str]] = None,
@@ -242,7 +223,6 @@ class Policy(pulumi.CustomResource):
             __props__ = PolicyArgs.__new__(PolicyArgs)
 
             __props__.__dict__["custom_rules"] = custom_rules
-            __props__.__dict__["etag"] = etag
             __props__.__dict__["location"] = location
             __props__.__dict__["managed_rules"] = managed_rules
             __props__.__dict__["policy_name"] = policy_name
@@ -252,6 +232,7 @@ class Policy(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["sku"] = sku
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["etag"] = None
             __props__.__dict__["frontend_endpoint_links"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None

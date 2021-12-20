@@ -63,7 +63,7 @@ export class SourceControl extends pulumi.CustomResource {
     /**
      * Etag of the azure resource
      */
-    public readonly etag!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
     /**
      * The timestamp of resource last modification (UTC)
      */
@@ -135,7 +135,6 @@ export class SourceControl extends pulumi.CustomResource {
             resourceInputs["createdByType"] = args ? args.createdByType : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["etag"] = args ? args.etag : undefined;
             resourceInputs["id"] = args ? args.id : undefined;
             resourceInputs["lastModifiedAt"] = args ? args.lastModifiedAt : undefined;
             resourceInputs["lastModifiedBy"] = args ? args.lastModifiedBy : undefined;
@@ -146,6 +145,7 @@ export class SourceControl extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["sourceControlId"] = args ? args.sourceControlId : undefined;
             resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -203,10 +203,6 @@ export interface SourceControlArgs {
      * The display name of the source control
      */
     displayName: pulumi.Input<string>;
-    /**
-     * Etag of the azure resource
-     */
-    etag?: pulumi.Input<string>;
     /**
      * The id (a Guid) of the source control
      */

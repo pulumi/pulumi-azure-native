@@ -116,8 +116,6 @@ type fusionAlertRuleArgs struct {
 	AlertRuleTemplateName string `pulumi:"alertRuleTemplateName"`
 	// Determines whether this alert rule is enabled or disabled.
 	Enabled bool `pulumi:"enabled"`
-	// Etag of the azure resource
-	Etag *string `pulumi:"etag"`
 	// Expected value is 'Fusion'.
 	Kind string `pulumi:"kind"`
 	// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
@@ -136,8 +134,6 @@ type FusionAlertRuleArgs struct {
 	AlertRuleTemplateName pulumi.StringInput
 	// Determines whether this alert rule is enabled or disabled.
 	Enabled pulumi.BoolInput
-	// Etag of the azure resource
-	Etag pulumi.StringPtrInput
 	// Expected value is 'Fusion'.
 	Kind pulumi.StringInput
 	// The namespace of workspaces resource provider- Microsoft.OperationalInsights.

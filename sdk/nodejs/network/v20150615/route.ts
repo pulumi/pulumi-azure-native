@@ -42,7 +42,7 @@ export class Route extends pulumi.CustomResource {
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
-    public readonly etag!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
     /**
      * The name of the resource that is unique within a resource group. This name can be used to access the resource.
      */
@@ -81,7 +81,6 @@ export class Route extends pulumi.CustomResource {
                 throw new Error("Missing required property 'routeTableName'");
             }
             resourceInputs["addressPrefix"] = args ? args.addressPrefix : undefined;
-            resourceInputs["etag"] = args ? args.etag : undefined;
             resourceInputs["id"] = args ? args.id : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["nextHopIpAddress"] = args ? args.nextHopIpAddress : undefined;
@@ -90,6 +89,7 @@ export class Route extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["routeName"] = args ? args.routeName : undefined;
             resourceInputs["routeTableName"] = args ? args.routeTableName : undefined;
+            resourceInputs["etag"] = undefined /*out*/;
         } else {
             resourceInputs["addressPrefix"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
@@ -115,10 +115,6 @@ export interface RouteArgs {
      * The destination CIDR to which the route applies.
      */
     addressPrefix?: pulumi.Input<string>;
-    /**
-     * A unique read-only string that changes whenever the resource is updated.
-     */
-    etag?: pulumi.Input<string>;
     /**
      * Resource Identifier.
      */

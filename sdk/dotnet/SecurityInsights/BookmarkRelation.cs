@@ -115,12 +115,6 @@ namespace Pulumi.AzureNative.SecurityInsights
         public Input<string> BookmarkId { get; set; } = null!;
 
         /// <summary>
-        /// Etag of the azure resource
-        /// </summary>
-        [Input("etag")]
-        public Input<string>? Etag { get; set; }
-
-        /// <summary>
         /// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
         /// </summary>
         [Input("operationalInsightsResourceProvider", required: true)]

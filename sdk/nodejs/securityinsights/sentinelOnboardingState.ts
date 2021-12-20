@@ -43,7 +43,7 @@ export class SentinelOnboardingState extends pulumi.CustomResource {
     /**
      * Etag of the azure resource
      */
-    public readonly etag!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
     /**
      * Azure resource name
      */
@@ -78,11 +78,11 @@ export class SentinelOnboardingState extends pulumi.CustomResource {
                 throw new Error("Missing required property 'workspaceName'");
             }
             resourceInputs["customerManagedKey"] = args ? args.customerManagedKey : undefined;
-            resourceInputs["etag"] = args ? args.etag : undefined;
             resourceInputs["operationalInsightsResourceProvider"] = args ? args.operationalInsightsResourceProvider : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["sentinelOnboardingStateName"] = args ? args.sentinelOnboardingStateName : undefined;
             resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -110,10 +110,6 @@ export interface SentinelOnboardingStateArgs {
      * Flag that indicates the status of the CMK setting
      */
     customerManagedKey?: pulumi.Input<boolean>;
-    /**
-     * Etag of the azure resource
-     */
-    etag?: pulumi.Input<string>;
     /**
      * The namespace of workspaces resource provider- Microsoft.OperationalInsights.
      */

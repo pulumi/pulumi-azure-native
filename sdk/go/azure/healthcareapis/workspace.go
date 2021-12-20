@@ -80,8 +80,6 @@ func (WorkspaceState) ElementType() reflect.Type {
 }
 
 type workspaceArgs struct {
-	// An etag associated with the resource, used for optimistic concurrency when editing it.
-	Etag *string `pulumi:"etag"`
 	// The resource location.
 	Location *string `pulumi:"location"`
 	// The name of the resource group that contains the service instance.
@@ -94,8 +92,6 @@ type workspaceArgs struct {
 
 // The set of arguments for constructing a Workspace resource.
 type WorkspaceArgs struct {
-	// An etag associated with the resource, used for optimistic concurrency when editing it.
-	Etag pulumi.StringPtrInput
 	// The resource location.
 	Location pulumi.StringPtrInput
 	// The name of the resource group that contains the service instance.

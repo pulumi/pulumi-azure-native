@@ -118,8 +118,6 @@ type awsS3DataConnectorArgs struct {
 	DataTypes AwsS3DataConnectorDataTypes `pulumi:"dataTypes"`
 	// The logs destination table name in LogAnalytics.
 	DestinationTable string `pulumi:"destinationTable"`
-	// Etag of the azure resource
-	Etag *string `pulumi:"etag"`
 	// The kind of the data connector
 	// Expected value is 'AmazonWebServicesS3'.
 	Kind string `pulumi:"kind"`
@@ -141,8 +139,6 @@ type AwsS3DataConnectorArgs struct {
 	DataTypes AwsS3DataConnectorDataTypesInput
 	// The logs destination table name in LogAnalytics.
 	DestinationTable pulumi.StringInput
-	// Etag of the azure resource
-	Etag pulumi.StringPtrInput
 	// The kind of the data connector
 	// Expected value is 'AmazonWebServicesS3'.
 	Kind pulumi.StringInput

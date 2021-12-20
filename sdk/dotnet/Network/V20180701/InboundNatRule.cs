@@ -180,12 +180,6 @@ namespace Pulumi.AzureNative.Network.V20180701
         public Input<bool>? EnableTcpReset { get; set; }
 
         /// <summary>
-        /// A unique read-only string that changes whenever the resource is updated.
-        /// </summary>
-        [Input("etag")]
-        public Input<string>? Etag { get; set; }
-
-        /// <summary>
         /// A reference to frontend IP addresses.
         /// </summary>
         [Input("frontendIPConfiguration")]

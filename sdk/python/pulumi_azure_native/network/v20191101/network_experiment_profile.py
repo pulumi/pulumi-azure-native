@@ -16,7 +16,6 @@ class NetworkExperimentProfileArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  enabled_state: Optional[pulumi.Input[Union[str, 'State']]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  profile_name: Optional[pulumi.Input[str]] = None,
@@ -25,7 +24,6 @@ class NetworkExperimentProfileArgs:
         The set of arguments for constructing a NetworkExperimentProfile resource.
         :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription.
         :param pulumi.Input[Union[str, 'State']] enabled_state: The state of the Experiment
-        :param pulumi.Input[str] etag: Gets a unique read-only string that changes whenever the resource is updated.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] name: The name of the Profile
         :param pulumi.Input[str] profile_name: The Profile identifier associated with the Tenant and Partner
@@ -34,8 +32,6 @@ class NetworkExperimentProfileArgs:
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if enabled_state is not None:
             pulumi.set(__self__, "enabled_state", enabled_state)
-        if etag is not None:
-            pulumi.set(__self__, "etag", etag)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if name is not None:
@@ -68,18 +64,6 @@ class NetworkExperimentProfileArgs:
     @enabled_state.setter
     def enabled_state(self, value: Optional[pulumi.Input[Union[str, 'State']]]):
         pulumi.set(self, "enabled_state", value)
-
-    @property
-    @pulumi.getter
-    def etag(self) -> Optional[pulumi.Input[str]]:
-        """
-        Gets a unique read-only string that changes whenever the resource is updated.
-        """
-        return pulumi.get(self, "etag")
-
-    @etag.setter
-    def etag(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "etag", value)
 
     @property
     @pulumi.getter
@@ -136,7 +120,6 @@ class NetworkExperimentProfile(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  enabled_state: Optional[pulumi.Input[Union[str, 'State']]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  profile_name: Optional[pulumi.Input[str]] = None,
@@ -149,7 +132,6 @@ class NetworkExperimentProfile(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[str, 'State']] enabled_state: The state of the Experiment
-        :param pulumi.Input[str] etag: Gets a unique read-only string that changes whenever the resource is updated.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] name: The name of the Profile
         :param pulumi.Input[str] profile_name: The Profile identifier associated with the Tenant and Partner
@@ -181,7 +163,6 @@ class NetworkExperimentProfile(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  enabled_state: Optional[pulumi.Input[Union[str, 'State']]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  profile_name: Optional[pulumi.Input[str]] = None,
@@ -200,7 +181,6 @@ class NetworkExperimentProfile(pulumi.CustomResource):
             __props__ = NetworkExperimentProfileArgs.__new__(NetworkExperimentProfileArgs)
 
             __props__.__dict__["enabled_state"] = enabled_state
-            __props__.__dict__["etag"] = etag
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
             __props__.__dict__["profile_name"] = profile_name
@@ -208,6 +188,7 @@ class NetworkExperimentProfile(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["etag"] = None
             __props__.__dict__["resource_state"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network:NetworkExperimentProfile")])

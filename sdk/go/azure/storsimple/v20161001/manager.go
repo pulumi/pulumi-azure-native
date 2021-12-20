@@ -86,8 +86,6 @@ func (ManagerState) ElementType() reflect.Type {
 type managerArgs struct {
 	// Specifies if the Manager is Garda or Helsinki
 	CisIntrinsicSettings *ManagerIntrinsicSettings `pulumi:"cisIntrinsicSettings"`
-	// ETag of the Manager
-	Etag *string `pulumi:"etag"`
 	// The Geo location of the Manager
 	Location *string `pulumi:"location"`
 	// The manager name
@@ -104,8 +102,6 @@ type managerArgs struct {
 type ManagerArgs struct {
 	// Specifies if the Manager is Garda or Helsinki
 	CisIntrinsicSettings ManagerIntrinsicSettingsPtrInput
-	// ETag of the Manager
-	Etag pulumi.StringPtrInput
 	// The Geo location of the Manager
 	Location pulumi.StringPtrInput
 	// The manager name

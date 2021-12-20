@@ -18,7 +18,6 @@ class VpnServerConfigurationArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  aad_authentication_parameters: Optional[pulumi.Input['AadAuthenticationParametersArgs']] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -37,7 +36,6 @@ class VpnServerConfigurationArgs:
         The set of arguments for constructing a VpnServerConfiguration resource.
         :param pulumi.Input[str] resource_group_name: The resource group name of the VpnServerConfiguration.
         :param pulumi.Input['AadAuthenticationParametersArgs'] aad_authentication_parameters: The set of aad vpn authentication parameters.
-        :param pulumi.Input[str] etag: A unique read-only string that changes whenever the resource is updated.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] name: The name of the VpnServerConfiguration that is unique within a resource group.
@@ -56,8 +54,6 @@ class VpnServerConfigurationArgs:
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if aad_authentication_parameters is not None:
             pulumi.set(__self__, "aad_authentication_parameters", aad_authentication_parameters)
-        if etag is not None:
-            pulumi.set(__self__, "etag", etag)
         if id is not None:
             pulumi.set(__self__, "id", id)
         if location is not None:
@@ -110,18 +106,6 @@ class VpnServerConfigurationArgs:
     @aad_authentication_parameters.setter
     def aad_authentication_parameters(self, value: Optional[pulumi.Input['AadAuthenticationParametersArgs']]):
         pulumi.set(self, "aad_authentication_parameters", value)
-
-    @property
-    @pulumi.getter
-    def etag(self) -> Optional[pulumi.Input[str]]:
-        """
-        A unique read-only string that changes whenever the resource is updated.
-        """
-        return pulumi.get(self, "etag")
-
-    @etag.setter
-    def etag(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "etag", value)
 
     @property
     @pulumi.getter
@@ -298,7 +282,6 @@ class VpnServerConfiguration(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  aad_authentication_parameters: Optional[pulumi.Input[pulumi.InputType['AadAuthenticationParametersArgs']]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -321,7 +304,6 @@ class VpnServerConfiguration(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['AadAuthenticationParametersArgs']] aad_authentication_parameters: The set of aad vpn authentication parameters.
-        :param pulumi.Input[str] etag: A unique read-only string that changes whenever the resource is updated.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] name: The name of the VpnServerConfiguration that is unique within a resource group.
@@ -363,7 +345,6 @@ class VpnServerConfiguration(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  aad_authentication_parameters: Optional[pulumi.Input[pulumi.InputType['AadAuthenticationParametersArgs']]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -392,7 +373,6 @@ class VpnServerConfiguration(pulumi.CustomResource):
             __props__ = VpnServerConfigurationArgs.__new__(VpnServerConfigurationArgs)
 
             __props__.__dict__["aad_authentication_parameters"] = aad_authentication_parameters
-            __props__.__dict__["etag"] = etag
             __props__.__dict__["id"] = id
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
@@ -410,6 +390,7 @@ class VpnServerConfiguration(pulumi.CustomResource):
             __props__.__dict__["vpn_client_root_certificates"] = vpn_client_root_certificates
             __props__.__dict__["vpn_protocols"] = vpn_protocols
             __props__.__dict__["vpn_server_configuration_name"] = vpn_server_configuration_name
+            __props__.__dict__["etag"] = None
             __props__.__dict__["p2_s_vpn_gateways"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["type"] = None

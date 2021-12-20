@@ -50,7 +50,7 @@ export class Subnet extends pulumi.CustomResource {
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
-    public readonly etag!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
     /**
      * An array of references to interface endpoints 
      */
@@ -124,7 +124,6 @@ export class Subnet extends pulumi.CustomResource {
             resourceInputs["addressPrefix"] = args ? args.addressPrefix : undefined;
             resourceInputs["addressPrefixes"] = args ? args.addressPrefixes : undefined;
             resourceInputs["delegations"] = args ? args.delegations : undefined;
-            resourceInputs["etag"] = args ? args.etag : undefined;
             resourceInputs["id"] = args ? args.id : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["natGateway"] = args ? args.natGateway : undefined;
@@ -138,6 +137,7 @@ export class Subnet extends pulumi.CustomResource {
             resourceInputs["serviceEndpoints"] = args ? args.serviceEndpoints : undefined;
             resourceInputs["subnetName"] = args ? args.subnetName : undefined;
             resourceInputs["virtualNetworkName"] = args ? args.virtualNetworkName : undefined;
+            resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["interfaceEndpoints"] = undefined /*out*/;
             resourceInputs["ipConfigurationProfiles"] = undefined /*out*/;
             resourceInputs["ipConfigurations"] = undefined /*out*/;
@@ -186,10 +186,6 @@ export interface SubnetArgs {
      * Gets an array of references to the delegations on the subnet.
      */
     delegations?: pulumi.Input<pulumi.Input<inputs.network.v20190201.DelegationArgs>[]>;
-    /**
-     * A unique read-only string that changes whenever the resource is updated.
-     */
-    etag?: pulumi.Input<string>;
     /**
      * Resource ID.
      */

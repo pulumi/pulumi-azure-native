@@ -42,7 +42,7 @@ export class TIDataConnector extends pulumi.CustomResource {
     /**
      * Etag of the azure resource
      */
-    public readonly etag!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
     /**
      * The kind of the data connector
      * Expected value is 'ThreatIntelligence'.
@@ -100,13 +100,13 @@ export class TIDataConnector extends pulumi.CustomResource {
             }
             resourceInputs["dataConnectorId"] = args ? args.dataConnectorId : undefined;
             resourceInputs["dataTypes"] = args ? args.dataTypes : undefined;
-            resourceInputs["etag"] = args ? args.etag : undefined;
             resourceInputs["kind"] = "ThreatIntelligence";
             resourceInputs["operationalInsightsResourceProvider"] = args ? args.operationalInsightsResourceProvider : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tenantId"] = args ? args.tenantId : undefined;
             resourceInputs["tipLookbackPeriod"] = args ? args.tipLookbackPeriod : undefined;
             resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -141,10 +141,6 @@ export interface TIDataConnectorArgs {
      * The available data types for the connector.
      */
     dataTypes: pulumi.Input<inputs.securityinsights.v20210301preview.TIDataConnectorDataTypesArgs>;
-    /**
-     * Etag of the azure resource
-     */
-    etag?: pulumi.Input<string>;
     /**
      * The kind of the data connector
      * Expected value is 'ThreatIntelligence'.

@@ -179,12 +179,6 @@ namespace Pulumi.AzureNative.HealthcareApis.V20210601Preview
         public Input<Inputs.FhirServiceCorsConfigurationArgs>? CorsConfiguration { get; set; }
 
         /// <summary>
-        /// An etag associated with the resource, used for optimistic concurrency when editing it.
-        /// </summary>
-        [Input("etag")]
-        public Input<string>? Etag { get; set; }
-
-        /// <summary>
         /// Fhir Service export configuration.
         /// </summary>
         [Input("exportConfiguration")]

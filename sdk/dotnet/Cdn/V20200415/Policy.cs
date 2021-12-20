@@ -151,12 +151,6 @@ namespace Pulumi.AzureNative.Cdn.V20200415
         public Input<Inputs.CustomRuleListArgs>? CustomRules { get; set; }
 
         /// <summary>
-        /// Gets a unique read-only string that changes whenever the resource is updated.
-        /// </summary>
-        [Input("etag")]
-        public Input<string>? Etag { get; set; }
-
-        /// <summary>
         /// Resource location.
         /// </summary>
         [Input("location")]

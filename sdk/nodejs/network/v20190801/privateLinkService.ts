@@ -46,7 +46,7 @@ export class PrivateLinkService extends pulumi.CustomResource {
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
-    public readonly etag!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
     /**
      * The list of Fqdn.
      */
@@ -107,7 +107,6 @@ export class PrivateLinkService extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["autoApproval"] = args ? args.autoApproval : undefined;
-            resourceInputs["etag"] = args ? args.etag : undefined;
             resourceInputs["fqdns"] = args ? args.fqdns : undefined;
             resourceInputs["id"] = args ? args.id : undefined;
             resourceInputs["ipConfigurations"] = args ? args.ipConfigurations : undefined;
@@ -119,6 +118,7 @@ export class PrivateLinkService extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["visibility"] = args ? args.visibility : undefined;
             resourceInputs["alias"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["networkInterfaces"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
@@ -156,10 +156,6 @@ export interface PrivateLinkServiceArgs {
      * The auto-approval list of the private link service.
      */
     autoApproval?: pulumi.Input<inputs.network.v20190801.PrivateLinkServicePropertiesAutoApprovalArgs>;
-    /**
-     * A unique read-only string that changes whenever the resource is updated.
-     */
-    etag?: pulumi.Input<string>;
     /**
      * The list of Fqdn.
      */

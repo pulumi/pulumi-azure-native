@@ -161,7 +161,6 @@ func TestFlattenParams(t *testing.T) {
 				"resourceName":      "samplebotname",
 				"connectionName":    "sampleConnection",
 				"location":          "West US",
-				"etag":              "etag1",
 				"properties": map[string]interface{}{
 					"clientId":          "sampleclientid",
 					"clientSecret":      "samplesecret",

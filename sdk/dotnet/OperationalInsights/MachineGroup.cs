@@ -134,12 +134,6 @@ namespace Pulumi.AzureNative.OperationalInsights
         public Input<string> DisplayName { get; set; } = null!;
 
         /// <summary>
-        /// Resource ETAG.
-        /// </summary>
-        [Input("etag")]
-        public Input<string>? Etag { get; set; }
-
-        /// <summary>
         /// Type of the machine group
         /// </summary>
         [Input("groupType")]

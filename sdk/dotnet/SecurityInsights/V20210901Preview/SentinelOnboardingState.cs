@@ -102,12 +102,6 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210901Preview
         public Input<bool>? CustomerManagedKey { get; set; }
 
         /// <summary>
-        /// Etag of the azure resource
-        /// </summary>
-        [Input("etag")]
-        public Input<string>? Etag { get; set; }
-
-        /// <summary>
         /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]

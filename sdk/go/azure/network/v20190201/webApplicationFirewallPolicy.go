@@ -141,8 +141,6 @@ func (WebApplicationFirewallPolicyState) ElementType() reflect.Type {
 type webApplicationFirewallPolicyArgs struct {
 	// Describes custom rules inside the policy
 	CustomRules []WebApplicationFirewallCustomRule `pulumi:"customRules"`
-	// Gets a unique read-only string that changes whenever the resource is updated.
-	Etag *string `pulumi:"etag"`
 	// Resource ID.
 	Id *string `pulumi:"id"`
 	// Resource location.
@@ -161,8 +159,6 @@ type webApplicationFirewallPolicyArgs struct {
 type WebApplicationFirewallPolicyArgs struct {
 	// Describes custom rules inside the policy
 	CustomRules WebApplicationFirewallCustomRuleArrayInput
-	// Gets a unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringPtrInput
 	// Resource ID.
 	Id pulumi.StringPtrInput
 	// Resource location.

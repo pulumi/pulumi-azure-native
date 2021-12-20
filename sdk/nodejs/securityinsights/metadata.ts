@@ -55,7 +55,7 @@ export class Metadata extends pulumi.CustomResource {
     /**
      * Etag of the azure resource
      */
-    public readonly etag!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
     /**
      * first publish date solution content item
      */
@@ -131,7 +131,6 @@ export class Metadata extends pulumi.CustomResource {
             resourceInputs["categories"] = args ? args.categories : undefined;
             resourceInputs["contentId"] = args ? args.contentId : undefined;
             resourceInputs["dependencies"] = args ? args.dependencies : undefined;
-            resourceInputs["etag"] = args ? args.etag : undefined;
             resourceInputs["firstPublishDate"] = args ? args.firstPublishDate : undefined;
             resourceInputs["kind"] = args ? args.kind : undefined;
             resourceInputs["lastPublishDate"] = args ? args.lastPublishDate : undefined;
@@ -144,6 +143,7 @@ export class Metadata extends pulumi.CustomResource {
             resourceInputs["support"] = args ? args.support : undefined;
             resourceInputs["version"] = args ? args.version : undefined;
             resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -194,10 +194,6 @@ export interface MetadataArgs {
      * Dependencies for the content item, what other content items it requires to work.  Can describe more complex dependencies using a recursive/nested structure. For a single dependency an id/kind/version can be supplied or operator/criteria for complex formats.
      */
     dependencies?: pulumi.Input<inputs.securityinsights.MetadataDependenciesArgs>;
-    /**
-     * Etag of the azure resource
-     */
-    etag?: pulumi.Input<string>;
     /**
      * first publish date solution content item
      */

@@ -109,8 +109,6 @@ type officeDataConnectorArgs struct {
 	DataConnectorId *string `pulumi:"dataConnectorId"`
 	// The available data types for the connector.
 	DataTypes OfficeDataConnectorDataTypes `pulumi:"dataTypes"`
-	// Etag of the azure resource
-	Etag *string `pulumi:"etag"`
 	// The kind of the data connector
 	// Expected value is 'Office365'.
 	Kind string `pulumi:"kind"`
@@ -130,8 +128,6 @@ type OfficeDataConnectorArgs struct {
 	DataConnectorId pulumi.StringPtrInput
 	// The available data types for the connector.
 	DataTypes OfficeDataConnectorDataTypesInput
-	// Etag of the azure resource
-	Etag pulumi.StringPtrInput
 	// The kind of the data connector
 	// Expected value is 'Office365'.
 	Kind pulumi.StringInput

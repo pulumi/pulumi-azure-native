@@ -199,8 +199,6 @@ func (RouteState) ElementType() reflect.Type {
 type routeArgs struct {
 	// Gets or sets the destination CIDR to which the route applies.
 	AddressPrefix *string `pulumi:"addressPrefix"`
-	// A unique read-only string that changes whenever the resource is updated
-	Etag *string `pulumi:"etag"`
 	// Resource Id
 	Id *string `pulumi:"id"`
 	// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
@@ -223,8 +221,6 @@ type routeArgs struct {
 type RouteArgs struct {
 	// Gets or sets the destination CIDR to which the route applies.
 	AddressPrefix pulumi.StringPtrInput
-	// A unique read-only string that changes whenever the resource is updated
-	Etag pulumi.StringPtrInput
 	// Resource Id
 	Id pulumi.StringPtrInput
 	// Gets name of the resource that is unique within a resource group. This name can be used to access the resource

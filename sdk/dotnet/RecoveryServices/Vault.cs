@@ -129,12 +129,6 @@ namespace Pulumi.AzureNative.RecoveryServices
     public sealed class VaultArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Optional ETag.
-        /// </summary>
-        [Input("etag")]
-        public Input<string>? Etag { get; set; }
-
-        /// <summary>
         /// Identity for the resource.
         /// </summary>
         [Input("identity")]

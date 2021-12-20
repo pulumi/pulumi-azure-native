@@ -94,8 +94,6 @@ func (DataSourceState) ElementType() reflect.Type {
 type dataSourceArgs struct {
 	// The name of the datasource resource.
 	DataSourceName *string `pulumi:"dataSourceName"`
-	// The ETag of the data source.
-	Etag *string `pulumi:"etag"`
 	// The kind of the DataSource.
 	Kind string `pulumi:"kind"`
 	// The data source properties in raw json format, each kind of data source have it's own schema.
@@ -112,8 +110,6 @@ type dataSourceArgs struct {
 type DataSourceArgs struct {
 	// The name of the datasource resource.
 	DataSourceName pulumi.StringPtrInput
-	// The ETag of the data source.
-	Etag pulumi.StringPtrInput
 	// The kind of the DataSource.
 	Kind pulumi.StringInput
 	// The data source properties in raw json format, each kind of data source have it's own schema.

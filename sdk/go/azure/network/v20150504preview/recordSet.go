@@ -120,8 +120,6 @@ type recordSetArgs struct {
 	ARecords []ARecord `pulumi:"aRecords"`
 	// Gets or sets the CNAME record in the RecordSet.
 	CNAMERecord *CnameRecord `pulumi:"cNAMERecord"`
-	// The etag of the record set.
-	Etag *string `pulumi:"etag"`
 	// Gets or sets the list of MX records in the RecordSet.
 	MXRecords []MxRecord `pulumi:"mXRecords"`
 	// Gets or sets the list of NS records in the RecordSet.
@@ -154,8 +152,6 @@ type RecordSetArgs struct {
 	ARecords ARecordArrayInput
 	// Gets or sets the CNAME record in the RecordSet.
 	CNAMERecord CnameRecordPtrInput
-	// The etag of the record set.
-	Etag pulumi.StringPtrInput
 	// Gets or sets the list of MX records in the RecordSet.
 	MXRecords MxRecordArrayInput
 	// Gets or sets the list of NS records in the RecordSet.

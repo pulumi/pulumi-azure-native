@@ -18,7 +18,6 @@ class P2sVpnServerConfigurationArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  virtual_wan_name: pulumi.Input[str],
-                 etag: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  p2_s_vpn_server_config_radius_client_root_certificates: Optional[pulumi.Input[Sequence[pulumi.Input['P2SVpnServerConfigRadiusClientRootCertificateArgs']]]] = None,
@@ -34,7 +33,6 @@ class P2sVpnServerConfigurationArgs:
         The set of arguments for constructing a P2sVpnServerConfiguration resource.
         :param pulumi.Input[str] resource_group_name: The resource group name of the VirtualWan.
         :param pulumi.Input[str] virtual_wan_name: The name of the VirtualWan.
-        :param pulumi.Input[str] etag: A unique read-only string that changes whenever the resource is updated.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] name: The name of the P2SVpnServerConfiguration that is unique within a VirtualWan in a resource group. This name can be used to access the resource along with Paren VirtualWan resource name.
         :param pulumi.Input[Sequence[pulumi.Input['P2SVpnServerConfigRadiusClientRootCertificateArgs']]] p2_s_vpn_server_config_radius_client_root_certificates: Radius client root certificate of P2SVpnServerConfiguration.
@@ -49,8 +47,6 @@ class P2sVpnServerConfigurationArgs:
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "virtual_wan_name", virtual_wan_name)
-        if etag is not None:
-            pulumi.set(__self__, "etag", etag)
         if id is not None:
             pulumi.set(__self__, "id", id)
         if name is not None:
@@ -97,18 +93,6 @@ class P2sVpnServerConfigurationArgs:
     @virtual_wan_name.setter
     def virtual_wan_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "virtual_wan_name", value)
-
-    @property
-    @pulumi.getter
-    def etag(self) -> Optional[pulumi.Input[str]]:
-        """
-        A unique read-only string that changes whenever the resource is updated.
-        """
-        return pulumi.get(self, "etag")
-
-    @etag.setter
-    def etag(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "etag", value)
 
     @property
     @pulumi.getter
@@ -248,7 +232,6 @@ class P2sVpnServerConfiguration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  p2_s_vpn_server_config_radius_client_root_certificates: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['P2SVpnServerConfigRadiusClientRootCertificateArgs']]]]] = None,
@@ -268,7 +251,6 @@ class P2sVpnServerConfiguration(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] etag: A unique read-only string that changes whenever the resource is updated.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] name: The name of the P2SVpnServerConfiguration that is unique within a VirtualWan in a resource group. This name can be used to access the resource along with Paren VirtualWan resource name.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['P2SVpnServerConfigRadiusClientRootCertificateArgs']]]] p2_s_vpn_server_config_radius_client_root_certificates: Radius client root certificate of P2SVpnServerConfiguration.
@@ -307,7 +289,6 @@ class P2sVpnServerConfiguration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  p2_s_vpn_server_config_radius_client_root_certificates: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['P2SVpnServerConfigRadiusClientRootCertificateArgs']]]]] = None,
@@ -333,7 +314,6 @@ class P2sVpnServerConfiguration(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = P2sVpnServerConfigurationArgs.__new__(P2sVpnServerConfigurationArgs)
 
-            __props__.__dict__["etag"] = etag
             __props__.__dict__["id"] = id
             __props__.__dict__["name"] = name
             __props__.__dict__["p2_s_vpn_server_config_radius_client_root_certificates"] = p2_s_vpn_server_config_radius_client_root_certificates
@@ -351,6 +331,7 @@ class P2sVpnServerConfiguration(pulumi.CustomResource):
             __props__.__dict__["virtual_wan_name"] = virtual_wan_name
             __props__.__dict__["vpn_client_ipsec_policies"] = vpn_client_ipsec_policies
             __props__.__dict__["vpn_protocols"] = vpn_protocols
+            __props__.__dict__["etag"] = None
             __props__.__dict__["p2_s_vpn_gateways"] = None
             __props__.__dict__["provisioning_state"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network:P2sVpnServerConfiguration"), pulumi.Alias(type_="azure-native:network/v20180801:P2sVpnServerConfiguration"), pulumi.Alias(type_="azure-native:network/v20181001:P2sVpnServerConfiguration"), pulumi.Alias(type_="azure-native:network/v20181101:P2sVpnServerConfiguration"), pulumi.Alias(type_="azure-native:network/v20181201:P2sVpnServerConfiguration"), pulumi.Alias(type_="azure-native:network/v20190201:P2sVpnServerConfiguration"), pulumi.Alias(type_="azure-native:network/v20190601:P2sVpnServerConfiguration"), pulumi.Alias(type_="azure-native:network/v20190701:P2sVpnServerConfiguration")])

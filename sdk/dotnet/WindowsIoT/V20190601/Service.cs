@@ -144,12 +144,6 @@ namespace Pulumi.AzureNative.WindowsIoT.V20190601
         public Input<string>? DeviceName { get; set; }
 
         /// <summary>
-        /// The Etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal ETag convention.
-        /// </summary>
-        [Input("etag")]
-        public Input<string>? Etag { get; set; }
-
-        /// <summary>
         /// The Azure Region where the resource lives
         /// </summary>
         [Input("location")]

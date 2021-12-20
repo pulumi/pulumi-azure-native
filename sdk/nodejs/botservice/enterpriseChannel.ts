@@ -39,7 +39,7 @@ export class EnterpriseChannel extends pulumi.CustomResource {
     /**
      * Entity Tag
      */
-    public readonly etag!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
     /**
      * Required. Gets or sets the Kind of the resource.
      */
@@ -83,7 +83,6 @@ export class EnterpriseChannel extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["etag"] = args ? args.etag : undefined;
             resourceInputs["kind"] = args ? args.kind : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["properties"] = args ? args.properties : undefined;
@@ -91,6 +90,7 @@ export class EnterpriseChannel extends pulumi.CustomResource {
             resourceInputs["resourceName"] = args ? args.resourceName : undefined;
             resourceInputs["sku"] = args ? args.sku : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
@@ -116,10 +116,6 @@ export class EnterpriseChannel extends pulumi.CustomResource {
  * The set of arguments for constructing a EnterpriseChannel resource.
  */
 export interface EnterpriseChannelArgs {
-    /**
-     * Entity Tag
-     */
-    etag?: pulumi.Input<string>;
     /**
      * Required. Gets or sets the Kind of the resource.
      */

@@ -66,7 +66,7 @@ export class ApplicationGateway extends pulumi.CustomResource {
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
-    public readonly etag!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
     /**
      * Reference of the FirewallPolicy resource.
      */
@@ -186,7 +186,6 @@ export class ApplicationGateway extends pulumi.CustomResource {
             resourceInputs["customErrorConfigurations"] = args ? args.customErrorConfigurations : undefined;
             resourceInputs["enableFips"] = args ? args.enableFips : undefined;
             resourceInputs["enableHttp2"] = args ? args.enableHttp2 : undefined;
-            resourceInputs["etag"] = args ? args.etag : undefined;
             resourceInputs["firewallPolicy"] = args ? args.firewallPolicy : undefined;
             resourceInputs["frontendIPConfigurations"] = args ? args.frontendIPConfigurations : undefined;
             resourceInputs["frontendPorts"] = args ? args.frontendPorts : undefined;
@@ -210,6 +209,7 @@ export class ApplicationGateway extends pulumi.CustomResource {
             resourceInputs["urlPathMaps"] = args ? args.urlPathMaps : undefined;
             resourceInputs["webApplicationFirewallConfiguration"] = args ? args.webApplicationFirewallConfiguration : undefined;
             resourceInputs["zones"] = args ? args.zones : undefined;
+            resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["operationalState"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -292,10 +292,6 @@ export interface ApplicationGatewayArgs {
      * Whether HTTP2 is enabled on the application gateway resource.
      */
     enableHttp2?: pulumi.Input<boolean>;
-    /**
-     * A unique read-only string that changes whenever the resource is updated.
-     */
-    etag?: pulumi.Input<string>;
     /**
      * Reference of the FirewallPolicy resource.
      */

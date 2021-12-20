@@ -23,8 +23,7 @@ class AutomationRuleArgs:
                  resource_group_name: pulumi.Input[str],
                  triggering_logic: pulumi.Input['AutomationRuleTriggeringLogicArgs'],
                  workspace_name: pulumi.Input[str],
-                 automation_rule_id: Optional[pulumi.Input[str]] = None,
-                 etag: Optional[pulumi.Input[str]] = None):
+                 automation_rule_id: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a AutomationRule resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['AutomationRuleModifyPropertiesActionArgs', 'AutomationRuleRunPlaybookActionArgs']]]] actions: The actions to execute when the automation rule is triggered
@@ -35,7 +34,6 @@ class AutomationRuleArgs:
         :param pulumi.Input['AutomationRuleTriggeringLogicArgs'] triggering_logic: The triggering logic of the automation rule
         :param pulumi.Input[str] workspace_name: The name of the workspace.
         :param pulumi.Input[str] automation_rule_id: Automation rule ID
-        :param pulumi.Input[str] etag: Etag of the azure resource
         """
         pulumi.set(__self__, "actions", actions)
         pulumi.set(__self__, "display_name", display_name)
@@ -46,8 +44,6 @@ class AutomationRuleArgs:
         pulumi.set(__self__, "workspace_name", workspace_name)
         if automation_rule_id is not None:
             pulumi.set(__self__, "automation_rule_id", automation_rule_id)
-        if etag is not None:
-            pulumi.set(__self__, "etag", etag)
 
     @property
     @pulumi.getter
@@ -145,18 +141,6 @@ class AutomationRuleArgs:
     def automation_rule_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "automation_rule_id", value)
 
-    @property
-    @pulumi.getter
-    def etag(self) -> Optional[pulumi.Input[str]]:
-        """
-        Etag of the azure resource
-        """
-        return pulumi.get(self, "etag")
-
-    @etag.setter
-    def etag(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "etag", value)
-
 
 class AutomationRule(pulumi.CustomResource):
     @overload
@@ -166,7 +150,6 @@ class AutomationRule(pulumi.CustomResource):
                  actions: Optional[pulumi.Input[Sequence[pulumi.Input[Union[pulumi.InputType['AutomationRuleModifyPropertiesActionArgs'], pulumi.InputType['AutomationRuleRunPlaybookActionArgs']]]]]] = None,
                  automation_rule_id: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  operational_insights_resource_provider: Optional[pulumi.Input[str]] = None,
                  order: Optional[pulumi.Input[int]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -182,7 +165,6 @@ class AutomationRule(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union[pulumi.InputType['AutomationRuleModifyPropertiesActionArgs'], pulumi.InputType['AutomationRuleRunPlaybookActionArgs']]]]] actions: The actions to execute when the automation rule is triggered
         :param pulumi.Input[str] automation_rule_id: Automation rule ID
         :param pulumi.Input[str] display_name: The display name of the automation  rule
-        :param pulumi.Input[str] etag: Etag of the azure resource
         :param pulumi.Input[str] operational_insights_resource_provider: The namespace of workspaces resource provider- Microsoft.OperationalInsights.
         :param pulumi.Input[int] order: The order of execution of the automation rule
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
@@ -217,7 +199,6 @@ class AutomationRule(pulumi.CustomResource):
                  actions: Optional[pulumi.Input[Sequence[pulumi.Input[Union[pulumi.InputType['AutomationRuleModifyPropertiesActionArgs'], pulumi.InputType['AutomationRuleRunPlaybookActionArgs']]]]]] = None,
                  automation_rule_id: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  operational_insights_resource_provider: Optional[pulumi.Input[str]] = None,
                  order: Optional[pulumi.Input[int]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -242,7 +223,6 @@ class AutomationRule(pulumi.CustomResource):
             if display_name is None and not opts.urn:
                 raise TypeError("Missing required property 'display_name'")
             __props__.__dict__["display_name"] = display_name
-            __props__.__dict__["etag"] = etag
             if operational_insights_resource_provider is None and not opts.urn:
                 raise TypeError("Missing required property 'operational_insights_resource_provider'")
             __props__.__dict__["operational_insights_resource_provider"] = operational_insights_resource_provider
@@ -260,6 +240,7 @@ class AutomationRule(pulumi.CustomResource):
             __props__.__dict__["workspace_name"] = workspace_name
             __props__.__dict__["created_by"] = None
             __props__.__dict__["created_time_utc"] = None
+            __props__.__dict__["etag"] = None
             __props__.__dict__["last_modified_by"] = None
             __props__.__dict__["last_modified_time_utc"] = None
             __props__.__dict__["name"] = None

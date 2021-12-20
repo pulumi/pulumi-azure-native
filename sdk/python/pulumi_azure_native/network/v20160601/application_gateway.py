@@ -21,7 +21,6 @@ class ApplicationGatewayArgs:
                  authentication_certificates: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayAuthenticationCertificateArgs']]]] = None,
                  backend_address_pools: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayBackendAddressPoolArgs']]]] = None,
                  backend_http_settings_collection: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayBackendHttpSettingsArgs']]]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  frontend_ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayFrontendIPConfigurationArgs']]]] = None,
                  frontend_ports: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayFrontendPortArgs']]]] = None,
                  gateway_ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayIPConfigurationArgs']]]] = None,
@@ -44,7 +43,6 @@ class ApplicationGatewayArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayAuthenticationCertificateArgs']]] authentication_certificates: Authentication certificates of application gateway resource
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayBackendAddressPoolArgs']]] backend_address_pools: Backend address pool of application gateway resource
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayBackendHttpSettingsArgs']]] backend_http_settings_collection: Backend http settings of application gateway resource
-        :param pulumi.Input[str] etag: A unique read-only string that changes whenever the resource is updated
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayFrontendIPConfigurationArgs']]] frontend_ip_configurations: Frontend IP addresses of application gateway resource
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayFrontendPortArgs']]] frontend_ports: Frontend ports of application gateway resource
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayIPConfigurationArgs']]] gateway_ip_configurations: Subnets of application gateway resource
@@ -70,8 +68,6 @@ class ApplicationGatewayArgs:
             pulumi.set(__self__, "backend_address_pools", backend_address_pools)
         if backend_http_settings_collection is not None:
             pulumi.set(__self__, "backend_http_settings_collection", backend_http_settings_collection)
-        if etag is not None:
-            pulumi.set(__self__, "etag", etag)
         if frontend_ip_configurations is not None:
             pulumi.set(__self__, "frontend_ip_configurations", frontend_ip_configurations)
         if frontend_ports is not None:
@@ -162,18 +158,6 @@ class ApplicationGatewayArgs:
     @backend_http_settings_collection.setter
     def backend_http_settings_collection(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayBackendHttpSettingsArgs']]]]):
         pulumi.set(self, "backend_http_settings_collection", value)
-
-    @property
-    @pulumi.getter
-    def etag(self) -> Optional[pulumi.Input[str]]:
-        """
-        A unique read-only string that changes whenever the resource is updated
-        """
-        return pulumi.get(self, "etag")
-
-    @etag.setter
-    def etag(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "etag", value)
 
     @property
     @pulumi.getter(name="frontendIPConfigurations")
@@ -365,7 +349,6 @@ class ApplicationGateway(pulumi.CustomResource):
                  authentication_certificates: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayAuthenticationCertificateArgs']]]]] = None,
                  backend_address_pools: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayBackendAddressPoolArgs']]]]] = None,
                  backend_http_settings_collection: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayBackendHttpSettingsArgs']]]]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  frontend_ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayFrontendIPConfigurationArgs']]]]] = None,
                  frontend_ports: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayFrontendPortArgs']]]]] = None,
                  gateway_ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayIPConfigurationArgs']]]]] = None,
@@ -392,7 +375,6 @@ class ApplicationGateway(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayAuthenticationCertificateArgs']]]] authentication_certificates: Authentication certificates of application gateway resource
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayBackendAddressPoolArgs']]]] backend_address_pools: Backend address pool of application gateway resource
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayBackendHttpSettingsArgs']]]] backend_http_settings_collection: Backend http settings of application gateway resource
-        :param pulumi.Input[str] etag: A unique read-only string that changes whenever the resource is updated
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayFrontendIPConfigurationArgs']]]] frontend_ip_configurations: Frontend IP addresses of application gateway resource
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayFrontendPortArgs']]]] frontend_ports: Frontend ports of application gateway resource
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayIPConfigurationArgs']]]] gateway_ip_configurations: Subnets of application gateway resource
@@ -438,7 +420,6 @@ class ApplicationGateway(pulumi.CustomResource):
                  authentication_certificates: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayAuthenticationCertificateArgs']]]]] = None,
                  backend_address_pools: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayBackendAddressPoolArgs']]]]] = None,
                  backend_http_settings_collection: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayBackendHttpSettingsArgs']]]]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  frontend_ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayFrontendIPConfigurationArgs']]]]] = None,
                  frontend_ports: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayFrontendPortArgs']]]]] = None,
                  gateway_ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayIPConfigurationArgs']]]]] = None,
@@ -471,7 +452,6 @@ class ApplicationGateway(pulumi.CustomResource):
             __props__.__dict__["authentication_certificates"] = authentication_certificates
             __props__.__dict__["backend_address_pools"] = backend_address_pools
             __props__.__dict__["backend_http_settings_collection"] = backend_http_settings_collection
-            __props__.__dict__["etag"] = etag
             __props__.__dict__["frontend_ip_configurations"] = frontend_ip_configurations
             __props__.__dict__["frontend_ports"] = frontend_ports
             __props__.__dict__["gateway_ip_configurations"] = gateway_ip_configurations
@@ -490,6 +470,7 @@ class ApplicationGateway(pulumi.CustomResource):
             __props__.__dict__["ssl_policy"] = ssl_policy
             __props__.__dict__["tags"] = tags
             __props__.__dict__["url_path_maps"] = url_path_maps
+            __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["operational_state"] = None
             __props__.__dict__["type"] = None

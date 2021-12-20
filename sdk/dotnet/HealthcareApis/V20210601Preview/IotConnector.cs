@@ -131,12 +131,6 @@ namespace Pulumi.AzureNative.HealthcareApis.V20210601Preview
         public Input<Inputs.IotMappingPropertiesArgs>? DeviceMapping { get; set; }
 
         /// <summary>
-        /// An etag associated with the resource, used for optimistic concurrency when editing it.
-        /// </summary>
-        [Input("etag")]
-        public Input<string>? Etag { get; set; }
-
-        /// <summary>
         /// Setting indicating whether the service has a managed identity associated with it.
         /// </summary>
         [Input("identity")]

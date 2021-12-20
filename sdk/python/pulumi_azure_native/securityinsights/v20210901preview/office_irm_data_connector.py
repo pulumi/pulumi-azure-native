@@ -21,8 +21,7 @@ class OfficeIRMDataConnectorArgs:
                  tenant_id: pulumi.Input[str],
                  workspace_name: pulumi.Input[str],
                  data_connector_id: Optional[pulumi.Input[str]] = None,
-                 data_types: Optional[pulumi.Input['AlertsDataTypeOfDataConnectorArgs']] = None,
-                 etag: Optional[pulumi.Input[str]] = None):
+                 data_types: Optional[pulumi.Input['AlertsDataTypeOfDataConnectorArgs']] = None):
         """
         The set of arguments for constructing a OfficeIRMDataConnector resource.
         :param pulumi.Input[str] kind: The kind of the data connector
@@ -32,7 +31,6 @@ class OfficeIRMDataConnectorArgs:
         :param pulumi.Input[str] workspace_name: The name of the workspace.
         :param pulumi.Input[str] data_connector_id: Connector ID
         :param pulumi.Input['AlertsDataTypeOfDataConnectorArgs'] data_types: The available data types for the connector.
-        :param pulumi.Input[str] etag: Etag of the azure resource
         """
         pulumi.set(__self__, "kind", 'OfficeIRM')
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -42,8 +40,6 @@ class OfficeIRMDataConnectorArgs:
             pulumi.set(__self__, "data_connector_id", data_connector_id)
         if data_types is not None:
             pulumi.set(__self__, "data_types", data_types)
-        if etag is not None:
-            pulumi.set(__self__, "etag", etag)
 
     @property
     @pulumi.getter
@@ -118,18 +114,6 @@ class OfficeIRMDataConnectorArgs:
     def data_types(self, value: Optional[pulumi.Input['AlertsDataTypeOfDataConnectorArgs']]):
         pulumi.set(self, "data_types", value)
 
-    @property
-    @pulumi.getter
-    def etag(self) -> Optional[pulumi.Input[str]]:
-        """
-        Etag of the azure resource
-        """
-        return pulumi.get(self, "etag")
-
-    @etag.setter
-    def etag(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "etag", value)
-
 
 class OfficeIRMDataConnector(pulumi.CustomResource):
     @overload
@@ -138,7 +122,6 @@ class OfficeIRMDataConnector(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  data_connector_id: Optional[pulumi.Input[str]] = None,
                  data_types: Optional[pulumi.Input[pulumi.InputType['AlertsDataTypeOfDataConnectorArgs']]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tenant_id: Optional[pulumi.Input[str]] = None,
@@ -151,7 +134,6 @@ class OfficeIRMDataConnector(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] data_connector_id: Connector ID
         :param pulumi.Input[pulumi.InputType['AlertsDataTypeOfDataConnectorArgs']] data_types: The available data types for the connector.
-        :param pulumi.Input[str] etag: Etag of the azure resource
         :param pulumi.Input[str] kind: The kind of the data connector
                Expected value is 'OfficeIRM'.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
@@ -184,7 +166,6 @@ class OfficeIRMDataConnector(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  data_connector_id: Optional[pulumi.Input[str]] = None,
                  data_types: Optional[pulumi.Input[pulumi.InputType['AlertsDataTypeOfDataConnectorArgs']]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tenant_id: Optional[pulumi.Input[str]] = None,
@@ -203,7 +184,6 @@ class OfficeIRMDataConnector(pulumi.CustomResource):
 
             __props__.__dict__["data_connector_id"] = data_connector_id
             __props__.__dict__["data_types"] = data_types
-            __props__.__dict__["etag"] = etag
             if kind is None and not opts.urn:
                 raise TypeError("Missing required property 'kind'")
             __props__.__dict__["kind"] = 'OfficeIRM'
@@ -216,6 +196,7 @@ class OfficeIRMDataConnector(pulumi.CustomResource):
             if workspace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_name'")
             __props__.__dict__["workspace_name"] = workspace_name
+            __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None

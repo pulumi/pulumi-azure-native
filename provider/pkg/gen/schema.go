@@ -1075,6 +1075,12 @@ func (m *moduleGenerator) genProperties(resolvedSchema *openapi.Schema, isOutput
 			return nil, err
 		}
 
+		if name == "etag" && !isType && !isOutput {
+			// ETags may be defined as inputs to PUT endpoints, but we should never model them as
+			// resource inputs because they are a protocol implementation detail rather than
+			// a meaningful desired-state property.
+			continue
+		}
 		if name == "clusterID" && property.Description == "The deprecated identity" {
 			// TODO: Get rid of this in https://github.com/pulumi/pulumi-azure-native/issues/331
 			continue

@@ -116,12 +116,6 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210901Preview
     public sealed class IncidentCommentArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Etag of the azure resource
-        /// </summary>
-        [Input("etag")]
-        public Input<string>? Etag { get; set; }
-
-        /// <summary>
         /// Incident comment ID
         /// </summary>
         [Input("incidentCommentId")]

@@ -93,8 +93,6 @@ func (GraphQueryState) ElementType() reflect.Type {
 type graphQueryArgs struct {
 	// The description of a graph query.
 	Description *string `pulumi:"description"`
-	// This will be used to handle Optimistic Concurrency.
-	Etag *string `pulumi:"etag"`
 	// KQL query that will be graph.
 	Query string `pulumi:"query"`
 	// The name of the resource group.
@@ -109,8 +107,6 @@ type graphQueryArgs struct {
 type GraphQueryArgs struct {
 	// The description of a graph query.
 	Description pulumi.StringPtrInput
-	// This will be used to handle Optimistic Concurrency.
-	Etag pulumi.StringPtrInput
 	// KQL query that will be graph.
 	Query pulumi.StringInput
 	// The name of the resource group.

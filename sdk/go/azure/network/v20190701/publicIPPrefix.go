@@ -161,8 +161,6 @@ func (PublicIPPrefixState) ElementType() reflect.Type {
 }
 
 type publicIPPrefixArgs struct {
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag *string `pulumi:"etag"`
 	// Resource ID.
 	Id *string `pulumi:"id"`
 	// The allocated Prefix.
@@ -193,8 +191,6 @@ type publicIPPrefixArgs struct {
 
 // The set of arguments for constructing a PublicIPPrefix resource.
 type PublicIPPrefixArgs struct {
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringPtrInput
 	// Resource ID.
 	Id pulumi.StringPtrInput
 	// The allocated Prefix.

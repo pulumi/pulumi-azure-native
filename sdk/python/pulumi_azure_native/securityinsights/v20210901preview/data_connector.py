@@ -18,23 +18,19 @@ class DataConnectorArgs:
                  kind: pulumi.Input[Union[str, 'DataConnectorKind']],
                  resource_group_name: pulumi.Input[str],
                  workspace_name: pulumi.Input[str],
-                 data_connector_id: Optional[pulumi.Input[str]] = None,
-                 etag: Optional[pulumi.Input[str]] = None):
+                 data_connector_id: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a DataConnector resource.
         :param pulumi.Input[Union[str, 'DataConnectorKind']] kind: The data connector kind
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] workspace_name: The name of the workspace.
         :param pulumi.Input[str] data_connector_id: Connector ID
-        :param pulumi.Input[str] etag: Etag of the azure resource
         """
         pulumi.set(__self__, "kind", kind)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "workspace_name", workspace_name)
         if data_connector_id is not None:
             pulumi.set(__self__, "data_connector_id", data_connector_id)
-        if etag is not None:
-            pulumi.set(__self__, "etag", etag)
 
     @property
     @pulumi.getter
@@ -84,18 +80,6 @@ class DataConnectorArgs:
     def data_connector_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "data_connector_id", value)
 
-    @property
-    @pulumi.getter
-    def etag(self) -> Optional[pulumi.Input[str]]:
-        """
-        Etag of the azure resource
-        """
-        return pulumi.get(self, "etag")
-
-    @etag.setter
-    def etag(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "etag", value)
-
 
 warnings.warn("""Please use one of the variants: AADDataConnector, AATPDataConnector, ASCDataConnector, AwsCloudTrailDataConnector, AwsS3DataConnector, CodelessApiPollingDataConnector, CodelessUiDataConnector, Dynamics365DataConnector, MCASDataConnector, MDATPDataConnector, MSTIDataConnector, MTPDataConnector, OfficeATPDataConnector, OfficeDataConnector, OfficeIRMDataConnector, TIDataConnector, TiTaxiiDataConnector.""", DeprecationWarning)
 
@@ -108,7 +92,6 @@ class DataConnector(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  data_connector_id: Optional[pulumi.Input[str]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[Union[str, 'DataConnectorKind']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
@@ -119,7 +102,6 @@ class DataConnector(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] data_connector_id: Connector ID
-        :param pulumi.Input[str] etag: Etag of the azure resource
         :param pulumi.Input[Union[str, 'DataConnectorKind']] kind: The data connector kind
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] workspace_name: The name of the workspace.
@@ -149,7 +131,6 @@ class DataConnector(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  data_connector_id: Optional[pulumi.Input[str]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[Union[str, 'DataConnectorKind']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
@@ -167,7 +148,6 @@ class DataConnector(pulumi.CustomResource):
             __props__ = DataConnectorArgs.__new__(DataConnectorArgs)
 
             __props__.__dict__["data_connector_id"] = data_connector_id
-            __props__.__dict__["etag"] = etag
             if kind is None and not opts.urn:
                 raise TypeError("Missing required property 'kind'")
             __props__.__dict__["kind"] = kind
@@ -177,6 +157,7 @@ class DataConnector(pulumi.CustomResource):
             if workspace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_name'")
             __props__.__dict__["workspace_name"] = workspace_name
+            __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None

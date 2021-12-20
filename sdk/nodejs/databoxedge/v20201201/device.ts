@@ -78,7 +78,7 @@ export class Device extends pulumi.CustomResource {
     /**
      * The etag for the devices.
      */
-    public readonly etag!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
     /**
      * The Data Box Edge/Gateway device name.
      */
@@ -152,7 +152,6 @@ export class Device extends pulumi.CustomResource {
             }
             resourceInputs["dataBoxEdgeDeviceStatus"] = args ? args.dataBoxEdgeDeviceStatus : undefined;
             resourceInputs["deviceName"] = args ? args.deviceName : undefined;
-            resourceInputs["etag"] = args ? args.etag : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -167,6 +166,7 @@ export class Device extends pulumi.CustomResource {
             resourceInputs["deviceSoftwareVersion"] = undefined /*out*/;
             resourceInputs["deviceType"] = undefined /*out*/;
             resourceInputs["edgeProfile"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["friendlyName"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
             resourceInputs["modelDescription"] = undefined /*out*/;
@@ -225,10 +225,6 @@ export interface DeviceArgs {
      * The device name.
      */
     deviceName?: pulumi.Input<string>;
-    /**
-     * The etag for the devices.
-     */
-    etag?: pulumi.Input<string>;
     /**
      * Msi identity of the resource
      */

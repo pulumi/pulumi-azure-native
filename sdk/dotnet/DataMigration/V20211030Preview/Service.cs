@@ -152,12 +152,6 @@ namespace Pulumi.AzureNative.DataMigration.V20211030Preview
         public Input<bool>? DeleteResourcesOnStop { get; set; }
 
         /// <summary>
-        /// HTTP strong entity tag value. Ignored if submitted
-        /// </summary>
-        [Input("etag")]
-        public Input<string>? Etag { get; set; }
-
-        /// <summary>
         /// Name of the resource group
         /// </summary>
         [Input("groupName", required: true)]

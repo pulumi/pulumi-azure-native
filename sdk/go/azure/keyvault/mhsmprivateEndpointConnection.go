@@ -92,8 +92,6 @@ func (MHSMPrivateEndpointConnectionState) ElementType() reflect.Type {
 }
 
 type mhsmprivateEndpointConnectionArgs struct {
-	// Modified whenever there is a change in the state of private endpoint connection.
-	Etag *string `pulumi:"etag"`
 	// The supported Azure location where the managed HSM Pool should be created.
 	Location *string `pulumi:"location"`
 	// Name of the managed HSM Pool
@@ -112,8 +110,6 @@ type mhsmprivateEndpointConnectionArgs struct {
 
 // The set of arguments for constructing a MHSMPrivateEndpointConnection resource.
 type MHSMPrivateEndpointConnectionArgs struct {
-	// Modified whenever there is a change in the state of private endpoint connection.
-	Etag pulumi.StringPtrInput
 	// The supported Azure location where the managed HSM Pool should be created.
 	Location pulumi.StringPtrInput
 	// Name of the managed HSM Pool

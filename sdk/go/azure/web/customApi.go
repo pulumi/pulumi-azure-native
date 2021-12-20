@@ -80,8 +80,6 @@ func (CustomApiState) ElementType() reflect.Type {
 type customApiArgs struct {
 	// API name
 	ApiName *string `pulumi:"apiName"`
-	// Resource ETag
-	Etag *string `pulumi:"etag"`
 	// Resource location
 	Location *string `pulumi:"location"`
 	// Custom API properties
@@ -98,8 +96,6 @@ type customApiArgs struct {
 type CustomApiArgs struct {
 	// API name
 	ApiName pulumi.StringPtrInput
-	// Resource ETag
-	Etag pulumi.StringPtrInput
 	// Resource location
 	Location pulumi.StringPtrInput
 	// Custom API properties

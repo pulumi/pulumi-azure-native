@@ -115,8 +115,6 @@ type myWorkbookArgs struct {
 	Category string `pulumi:"category"`
 	// The user-defined name of the private workbook.
 	DisplayName string `pulumi:"displayName"`
-	// Resource etag
-	Etag map[string]string `pulumi:"etag"`
 	// Azure resource Id
 	Id *string `pulumi:"id"`
 	// Identity used for BYOS
@@ -151,8 +149,6 @@ type MyWorkbookArgs struct {
 	Category pulumi.StringInput
 	// The user-defined name of the private workbook.
 	DisplayName pulumi.StringInput
-	// Resource etag
-	Etag pulumi.StringMapInput
 	// Azure resource Id
 	Id pulumi.StringPtrInput
 	// Identity used for BYOS

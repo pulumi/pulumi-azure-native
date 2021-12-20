@@ -18,7 +18,6 @@ class BookmarkRelationArgs:
                  related_resource_id: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
                  workspace_name: pulumi.Input[str],
-                 etag: Optional[pulumi.Input[str]] = None,
                  relation_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a BookmarkRelation resource.
@@ -27,7 +26,6 @@ class BookmarkRelationArgs:
         :param pulumi.Input[str] related_resource_id: The resource ID of the related resource
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
         :param pulumi.Input[str] workspace_name: The name of the workspace.
-        :param pulumi.Input[str] etag: Etag of the azure resource
         :param pulumi.Input[str] relation_name: Relation Name
         """
         pulumi.set(__self__, "bookmark_id", bookmark_id)
@@ -35,8 +33,6 @@ class BookmarkRelationArgs:
         pulumi.set(__self__, "related_resource_id", related_resource_id)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "workspace_name", workspace_name)
-        if etag is not None:
-            pulumi.set(__self__, "etag", etag)
         if relation_name is not None:
             pulumi.set(__self__, "relation_name", relation_name)
 
@@ -101,18 +97,6 @@ class BookmarkRelationArgs:
         pulumi.set(self, "workspace_name", value)
 
     @property
-    @pulumi.getter
-    def etag(self) -> Optional[pulumi.Input[str]]:
-        """
-        Etag of the azure resource
-        """
-        return pulumi.get(self, "etag")
-
-    @etag.setter
-    def etag(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "etag", value)
-
-    @property
     @pulumi.getter(name="relationName")
     def relation_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -131,7 +115,6 @@ class BookmarkRelation(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  bookmark_id: Optional[pulumi.Input[str]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  operational_insights_resource_provider: Optional[pulumi.Input[str]] = None,
                  related_resource_id: Optional[pulumi.Input[str]] = None,
                  relation_name: Optional[pulumi.Input[str]] = None,
@@ -144,7 +127,6 @@ class BookmarkRelation(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] bookmark_id: Bookmark ID
-        :param pulumi.Input[str] etag: Etag of the azure resource
         :param pulumi.Input[str] operational_insights_resource_provider: The namespace of workspaces resource provider- Microsoft.OperationalInsights.
         :param pulumi.Input[str] related_resource_id: The resource ID of the related resource
         :param pulumi.Input[str] relation_name: Relation Name
@@ -176,7 +158,6 @@ class BookmarkRelation(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  bookmark_id: Optional[pulumi.Input[str]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  operational_insights_resource_provider: Optional[pulumi.Input[str]] = None,
                  related_resource_id: Optional[pulumi.Input[str]] = None,
                  relation_name: Optional[pulumi.Input[str]] = None,
@@ -197,7 +178,6 @@ class BookmarkRelation(pulumi.CustomResource):
             if bookmark_id is None and not opts.urn:
                 raise TypeError("Missing required property 'bookmark_id'")
             __props__.__dict__["bookmark_id"] = bookmark_id
-            __props__.__dict__["etag"] = etag
             if operational_insights_resource_provider is None and not opts.urn:
                 raise TypeError("Missing required property 'operational_insights_resource_provider'")
             __props__.__dict__["operational_insights_resource_provider"] = operational_insights_resource_provider
@@ -211,6 +191,7 @@ class BookmarkRelation(pulumi.CustomResource):
             if workspace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_name'")
             __props__.__dict__["workspace_name"] = workspace_name
+            __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["related_resource_kind"] = None
             __props__.__dict__["related_resource_name"] = None

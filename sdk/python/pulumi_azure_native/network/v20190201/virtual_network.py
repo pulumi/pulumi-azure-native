@@ -22,7 +22,6 @@ class VirtualNetworkArgs:
                  dhcp_options: Optional[pulumi.Input['DhcpOptionsArgs']] = None,
                  enable_ddos_protection: Optional[pulumi.Input[bool]] = None,
                  enable_vm_protection: Optional[pulumi.Input[bool]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  provisioning_state: Optional[pulumi.Input[str]] = None,
@@ -39,7 +38,6 @@ class VirtualNetworkArgs:
         :param pulumi.Input['DhcpOptionsArgs'] dhcp_options: The dhcpOptions that contains an array of DNS servers available to VMs deployed in the virtual network.
         :param pulumi.Input[bool] enable_ddos_protection: Indicates if DDoS protection is enabled for all the protected resources in the virtual network. It requires a DDoS protection plan associated with the resource.
         :param pulumi.Input[bool] enable_vm_protection: Indicates if VM protection is enabled for all the subnets in the virtual network.
-        :param pulumi.Input[str] etag: Gets a unique read-only string that changes whenever the resource is updated.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] provisioning_state: The provisioning state of the PublicIP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
@@ -64,8 +62,6 @@ class VirtualNetworkArgs:
             enable_vm_protection = False
         if enable_vm_protection is not None:
             pulumi.set(__self__, "enable_vm_protection", enable_vm_protection)
-        if etag is not None:
-            pulumi.set(__self__, "etag", etag)
         if id is not None:
             pulumi.set(__self__, "id", id)
         if location is not None:
@@ -154,18 +150,6 @@ class VirtualNetworkArgs:
     @enable_vm_protection.setter
     def enable_vm_protection(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enable_vm_protection", value)
-
-    @property
-    @pulumi.getter
-    def etag(self) -> Optional[pulumi.Input[str]]:
-        """
-        Gets a unique read-only string that changes whenever the resource is updated.
-        """
-        return pulumi.get(self, "etag")
-
-    @etag.setter
-    def etag(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "etag", value)
 
     @property
     @pulumi.getter
@@ -274,7 +258,6 @@ class VirtualNetwork(pulumi.CustomResource):
                  dhcp_options: Optional[pulumi.Input[pulumi.InputType['DhcpOptionsArgs']]] = None,
                  enable_ddos_protection: Optional[pulumi.Input[bool]] = None,
                  enable_vm_protection: Optional[pulumi.Input[bool]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  provisioning_state: Optional[pulumi.Input[str]] = None,
@@ -295,7 +278,6 @@ class VirtualNetwork(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['DhcpOptionsArgs']] dhcp_options: The dhcpOptions that contains an array of DNS servers available to VMs deployed in the virtual network.
         :param pulumi.Input[bool] enable_ddos_protection: Indicates if DDoS protection is enabled for all the protected resources in the virtual network. It requires a DDoS protection plan associated with the resource.
         :param pulumi.Input[bool] enable_vm_protection: Indicates if VM protection is enabled for all the subnets in the virtual network.
-        :param pulumi.Input[str] etag: Gets a unique read-only string that changes whenever the resource is updated.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] provisioning_state: The provisioning state of the PublicIP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
@@ -335,7 +317,6 @@ class VirtualNetwork(pulumi.CustomResource):
                  dhcp_options: Optional[pulumi.Input[pulumi.InputType['DhcpOptionsArgs']]] = None,
                  enable_ddos_protection: Optional[pulumi.Input[bool]] = None,
                  enable_vm_protection: Optional[pulumi.Input[bool]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  provisioning_state: Optional[pulumi.Input[str]] = None,
@@ -366,7 +347,6 @@ class VirtualNetwork(pulumi.CustomResource):
             if enable_vm_protection is None:
                 enable_vm_protection = False
             __props__.__dict__["enable_vm_protection"] = enable_vm_protection
-            __props__.__dict__["etag"] = etag
             __props__.__dict__["id"] = id
             __props__.__dict__["location"] = location
             __props__.__dict__["provisioning_state"] = provisioning_state
@@ -378,6 +358,7 @@ class VirtualNetwork(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["virtual_network_name"] = virtual_network_name
             __props__.__dict__["virtual_network_peerings"] = virtual_network_peerings
+            __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20150501preview:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20150615:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20160330:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20160601:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20160901:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20161201:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20170301:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20170601:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20170801:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20170901:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20171001:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20171101:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20180101:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20180201:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20180401:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20180601:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20180701:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20180801:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20181001:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20181101:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20181201:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20190401:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20190601:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20190701:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20190801:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20190901:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20191101:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20191201:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20200301:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20200401:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20200501:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20200601:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20200701:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20200801:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20201101:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20210201:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20210301:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20210501:VirtualNetwork")])

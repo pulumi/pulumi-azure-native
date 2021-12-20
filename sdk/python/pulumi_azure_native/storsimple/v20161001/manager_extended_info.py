@@ -19,7 +19,6 @@ class ManagerExtendedInfoArgs:
                  resource_group_name: pulumi.Input[str],
                  encryption_key: Optional[pulumi.Input[str]] = None,
                  encryption_key_thumbprint: Optional[pulumi.Input[str]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  portal_certificate_thumbprint: Optional[pulumi.Input[str]] = None,
                  version: Optional[pulumi.Input[str]] = None):
         """
@@ -30,7 +29,6 @@ class ManagerExtendedInfoArgs:
         :param pulumi.Input[str] resource_group_name: The resource group name
         :param pulumi.Input[str] encryption_key: Represents the CEK of the resource
         :param pulumi.Input[str] encryption_key_thumbprint: Represents the Cert thumbprint that was used to encrypt the CEK
-        :param pulumi.Input[str] etag: ETag of the Resource
         :param pulumi.Input[str] portal_certificate_thumbprint: Represents the portal thumbprint which can be used optionally to encrypt the entire data before storing it.
         :param pulumi.Input[str] version: Represents the version of the ExtendedInfo object being persisted
         """
@@ -42,8 +40,6 @@ class ManagerExtendedInfoArgs:
             pulumi.set(__self__, "encryption_key", encryption_key)
         if encryption_key_thumbprint is not None:
             pulumi.set(__self__, "encryption_key_thumbprint", encryption_key_thumbprint)
-        if etag is not None:
-            pulumi.set(__self__, "etag", etag)
         if portal_certificate_thumbprint is not None:
             pulumi.set(__self__, "portal_certificate_thumbprint", portal_certificate_thumbprint)
         if version is not None:
@@ -122,18 +118,6 @@ class ManagerExtendedInfoArgs:
         pulumi.set(self, "encryption_key_thumbprint", value)
 
     @property
-    @pulumi.getter
-    def etag(self) -> Optional[pulumi.Input[str]]:
-        """
-        ETag of the Resource
-        """
-        return pulumi.get(self, "etag")
-
-    @etag.setter
-    def etag(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "etag", value)
-
-    @property
     @pulumi.getter(name="portalCertificateThumbprint")
     def portal_certificate_thumbprint(self) -> Optional[pulumi.Input[str]]:
         """
@@ -166,7 +150,6 @@ class ManagerExtendedInfo(pulumi.CustomResource):
                  algorithm: Optional[pulumi.Input[str]] = None,
                  encryption_key: Optional[pulumi.Input[str]] = None,
                  encryption_key_thumbprint: Optional[pulumi.Input[str]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  integrity_key: Optional[pulumi.Input[str]] = None,
                  manager_name: Optional[pulumi.Input[str]] = None,
                  portal_certificate_thumbprint: Optional[pulumi.Input[str]] = None,
@@ -181,7 +164,6 @@ class ManagerExtendedInfo(pulumi.CustomResource):
         :param pulumi.Input[str] algorithm: Represents the encryption algorithm used to encrypt the other keys. None - if EncryptionKey is saved in plain text format. AlgorithmName - if encryption is used
         :param pulumi.Input[str] encryption_key: Represents the CEK of the resource
         :param pulumi.Input[str] encryption_key_thumbprint: Represents the Cert thumbprint that was used to encrypt the CEK
-        :param pulumi.Input[str] etag: ETag of the Resource
         :param pulumi.Input[str] integrity_key: Represents the CIK of the resource
         :param pulumi.Input[str] manager_name: The manager name
         :param pulumi.Input[str] portal_certificate_thumbprint: Represents the portal thumbprint which can be used optionally to encrypt the entire data before storing it.
@@ -215,7 +197,6 @@ class ManagerExtendedInfo(pulumi.CustomResource):
                  algorithm: Optional[pulumi.Input[str]] = None,
                  encryption_key: Optional[pulumi.Input[str]] = None,
                  encryption_key_thumbprint: Optional[pulumi.Input[str]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  integrity_key: Optional[pulumi.Input[str]] = None,
                  manager_name: Optional[pulumi.Input[str]] = None,
                  portal_certificate_thumbprint: Optional[pulumi.Input[str]] = None,
@@ -238,7 +219,6 @@ class ManagerExtendedInfo(pulumi.CustomResource):
             __props__.__dict__["algorithm"] = algorithm
             __props__.__dict__["encryption_key"] = encryption_key
             __props__.__dict__["encryption_key_thumbprint"] = encryption_key_thumbprint
-            __props__.__dict__["etag"] = etag
             if integrity_key is None and not opts.urn:
                 raise TypeError("Missing required property 'integrity_key'")
             __props__.__dict__["integrity_key"] = integrity_key
@@ -250,6 +230,7 @@ class ManagerExtendedInfo(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["version"] = version
+            __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:storsimple:ManagerExtendedInfo"), pulumi.Alias(type_="azure-native:storsimple/v20170601:ManagerExtendedInfo")])

@@ -199,12 +199,6 @@ namespace Pulumi.AzureNative.SecurityInsights
         public Input<string> DisplayName { get; set; } = null!;
 
         /// <summary>
-        /// Etag of the azure resource
-        /// </summary>
-        [Input("etag")]
-        public Input<string>? Etag { get; set; }
-
-        /// <summary>
         /// The id (a Guid) of the source control
         /// </summary>
         [Input("id")]

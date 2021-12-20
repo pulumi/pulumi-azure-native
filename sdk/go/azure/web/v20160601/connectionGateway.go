@@ -78,8 +78,6 @@ func (ConnectionGatewayState) ElementType() reflect.Type {
 type connectionGatewayArgs struct {
 	// The connection gateway name
 	ConnectionGatewayName *string `pulumi:"connectionGatewayName"`
-	// Resource ETag
-	Etag *string `pulumi:"etag"`
 	// Resource location
 	Location   *string                                `pulumi:"location"`
 	Properties *ConnectionGatewayDefinitionProperties `pulumi:"properties"`
@@ -95,8 +93,6 @@ type connectionGatewayArgs struct {
 type ConnectionGatewayArgs struct {
 	// The connection gateway name
 	ConnectionGatewayName pulumi.StringPtrInput
-	// Resource ETag
-	Etag pulumi.StringPtrInput
 	// Resource location
 	Location   pulumi.StringPtrInput
 	Properties ConnectionGatewayDefinitionPropertiesPtrInput

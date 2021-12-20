@@ -107,12 +107,6 @@ namespace Pulumi.AzureNative.Web.V20160601
         public Input<string>? ApiName { get; set; }
 
         /// <summary>
-        /// Resource ETag
-        /// </summary>
-        [Input("etag")]
-        public Input<string>? Etag { get; set; }
-
-        /// <summary>
         /// Resource location
         /// </summary>
         [Input("location")]

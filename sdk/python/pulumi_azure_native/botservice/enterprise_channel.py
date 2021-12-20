@@ -17,7 +17,6 @@ __all__ = ['EnterpriseChannelArgs', 'EnterpriseChannel']
 class EnterpriseChannelArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
-                 etag: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[Union[str, 'Kind']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input['EnterpriseChannelPropertiesArgs']] = None,
@@ -27,7 +26,6 @@ class EnterpriseChannelArgs:
         """
         The set of arguments for constructing a EnterpriseChannel resource.
         :param pulumi.Input[str] resource_group_name: The name of the Bot resource group in the user subscription.
-        :param pulumi.Input[str] etag: Entity Tag
         :param pulumi.Input[Union[str, 'Kind']] kind: Required. Gets or sets the Kind of the resource.
         :param pulumi.Input[str] location: Specifies the location of the resource.
         :param pulumi.Input['EnterpriseChannelPropertiesArgs'] properties: The set of properties specific to an Enterprise Channel resource.
@@ -36,8 +34,6 @@ class EnterpriseChannelArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Contains resource tags defined as key/value pairs.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if etag is not None:
-            pulumi.set(__self__, "etag", etag)
         if kind is not None:
             pulumi.set(__self__, "kind", kind)
         if location is not None:
@@ -62,18 +58,6 @@ class EnterpriseChannelArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @property
-    @pulumi.getter
-    def etag(self) -> Optional[pulumi.Input[str]]:
-        """
-        Entity Tag
-        """
-        return pulumi.get(self, "etag")
-
-    @etag.setter
-    def etag(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "etag", value)
 
     @property
     @pulumi.getter
@@ -153,7 +137,6 @@ class EnterpriseChannel(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[Union[str, 'Kind']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[pulumi.InputType['EnterpriseChannelPropertiesArgs']]] = None,
@@ -168,7 +151,6 @@ class EnterpriseChannel(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] etag: Entity Tag
         :param pulumi.Input[Union[str, 'Kind']] kind: Required. Gets or sets the Kind of the resource.
         :param pulumi.Input[str] location: Specifies the location of the resource.
         :param pulumi.Input[pulumi.InputType['EnterpriseChannelPropertiesArgs']] properties: The set of properties specific to an Enterprise Channel resource.
@@ -202,7 +184,6 @@ class EnterpriseChannel(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[Union[str, 'Kind']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[pulumi.InputType['EnterpriseChannelPropertiesArgs']]] = None,
@@ -222,7 +203,6 @@ class EnterpriseChannel(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = EnterpriseChannelArgs.__new__(EnterpriseChannelArgs)
 
-            __props__.__dict__["etag"] = etag
             __props__.__dict__["kind"] = kind
             __props__.__dict__["location"] = location
             __props__.__dict__["properties"] = properties
@@ -232,6 +212,7 @@ class EnterpriseChannel(pulumi.CustomResource):
             __props__.__dict__["resource_name"] = resource_name_
             __props__.__dict__["sku"] = sku
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:botservice/v20180712:EnterpriseChannel")])

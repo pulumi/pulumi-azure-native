@@ -110,12 +110,6 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210901Preview
         public Input<string>? ActionId { get; set; }
 
         /// <summary>
-        /// Etag of the azure resource
-        /// </summary>
-        [Input("etag")]
-        public Input<string>? Etag { get; set; }
-
-        /// <summary>
         /// Logic App Resource Id, /subscriptions/{my-subscription}/resourceGroups/{my-resource-group}/providers/Microsoft.Logic/workflows/{my-workflow-id}.
         /// </summary>
         [Input("logicAppResourceId", required: true)]

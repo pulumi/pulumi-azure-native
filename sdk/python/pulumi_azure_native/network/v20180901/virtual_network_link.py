@@ -17,7 +17,6 @@ class VirtualNetworkLinkArgs:
     def __init__(__self__, *,
                  private_zone_name: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
-                 etag: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  registration_enabled: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -27,7 +26,6 @@ class VirtualNetworkLinkArgs:
         The set of arguments for constructing a VirtualNetworkLink resource.
         :param pulumi.Input[str] private_zone_name: The name of the Private DNS zone (without a terminating dot).
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[str] etag: The ETag of the virtual network link.
         :param pulumi.Input[str] location: The Azure Region where the resource lives
         :param pulumi.Input[bool] registration_enabled: Is auto-registration of virtual machine records in the virtual network in the Private DNS zone enabled?
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
@@ -36,8 +34,6 @@ class VirtualNetworkLinkArgs:
         """
         pulumi.set(__self__, "private_zone_name", private_zone_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if etag is not None:
-            pulumi.set(__self__, "etag", etag)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if registration_enabled is not None:
@@ -72,18 +68,6 @@ class VirtualNetworkLinkArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @property
-    @pulumi.getter
-    def etag(self) -> Optional[pulumi.Input[str]]:
-        """
-        The ETag of the virtual network link.
-        """
-        return pulumi.get(self, "etag")
-
-    @etag.setter
-    def etag(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "etag", value)
 
     @property
     @pulumi.getter
@@ -151,7 +135,6 @@ class VirtualNetworkLink(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  private_zone_name: Optional[pulumi.Input[str]] = None,
                  registration_enabled: Optional[pulumi.Input[bool]] = None,
@@ -165,7 +148,6 @@ class VirtualNetworkLink(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] etag: The ETag of the virtual network link.
         :param pulumi.Input[str] location: The Azure Region where the resource lives
         :param pulumi.Input[str] private_zone_name: The name of the Private DNS zone (without a terminating dot).
         :param pulumi.Input[bool] registration_enabled: Is auto-registration of virtual machine records in the virtual network in the Private DNS zone enabled?
@@ -198,7 +180,6 @@ class VirtualNetworkLink(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  private_zone_name: Optional[pulumi.Input[str]] = None,
                  registration_enabled: Optional[pulumi.Input[bool]] = None,
@@ -218,7 +199,6 @@ class VirtualNetworkLink(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = VirtualNetworkLinkArgs.__new__(VirtualNetworkLinkArgs)
 
-            __props__.__dict__["etag"] = etag
             __props__.__dict__["location"] = location
             if private_zone_name is None and not opts.urn:
                 raise TypeError("Missing required property 'private_zone_name'")
@@ -230,6 +210,7 @@ class VirtualNetworkLink(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["virtual_network"] = virtual_network
             __props__.__dict__["virtual_network_link_name"] = virtual_network_link_name
+            __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["type"] = None

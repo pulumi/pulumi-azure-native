@@ -82,8 +82,6 @@ func (CommitmentPlanState) ElementType() reflect.Type {
 type commitmentPlanArgs struct {
 	// The Azure ML commitment plan name.
 	CommitmentPlanName *string `pulumi:"commitmentPlanName"`
-	// An entity tag used to enforce optimistic concurrency.
-	Etag *string `pulumi:"etag"`
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// The resource group name.
@@ -98,8 +96,6 @@ type commitmentPlanArgs struct {
 type CommitmentPlanArgs struct {
 	// The Azure ML commitment plan name.
 	CommitmentPlanName pulumi.StringPtrInput
-	// An entity tag used to enforce optimistic concurrency.
-	Etag pulumi.StringPtrInput
 	// Resource location.
 	Location pulumi.StringPtrInput
 	// The resource group name.

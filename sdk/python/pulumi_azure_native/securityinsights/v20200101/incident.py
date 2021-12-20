@@ -25,7 +25,6 @@ class IncidentArgs:
                  classification_comment: Optional[pulumi.Input[str]] = None,
                  classification_reason: Optional[pulumi.Input[Union[str, 'IncidentClassificationReason']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  first_activity_time_utc: Optional[pulumi.Input[str]] = None,
                  incident_id: Optional[pulumi.Input[str]] = None,
                  labels: Optional[pulumi.Input[Sequence[pulumi.Input['IncidentLabelArgs']]]] = None,
@@ -42,7 +41,6 @@ class IncidentArgs:
         :param pulumi.Input[str] classification_comment: Describes the reason the incident was closed
         :param pulumi.Input[Union[str, 'IncidentClassificationReason']] classification_reason: The classification reason the incident was closed with
         :param pulumi.Input[str] description: The description of the incident
-        :param pulumi.Input[str] etag: Etag of the azure resource
         :param pulumi.Input[str] first_activity_time_utc: The time of the first activity in the incident
         :param pulumi.Input[str] incident_id: Incident ID
         :param pulumi.Input[Sequence[pulumi.Input['IncidentLabelArgs']]] labels: List of labels relevant to this incident
@@ -62,8 +60,6 @@ class IncidentArgs:
             pulumi.set(__self__, "classification_reason", classification_reason)
         if description is not None:
             pulumi.set(__self__, "description", description)
-        if etag is not None:
-            pulumi.set(__self__, "etag", etag)
         if first_activity_time_utc is not None:
             pulumi.set(__self__, "first_activity_time_utc", first_activity_time_utc)
         if incident_id is not None:
@@ -184,18 +180,6 @@ class IncidentArgs:
         pulumi.set(self, "description", value)
 
     @property
-    @pulumi.getter
-    def etag(self) -> Optional[pulumi.Input[str]]:
-        """
-        Etag of the azure resource
-        """
-        return pulumi.get(self, "etag")
-
-    @etag.setter
-    def etag(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "etag", value)
-
-    @property
     @pulumi.getter(name="firstActivityTimeUtc")
     def first_activity_time_utc(self) -> Optional[pulumi.Input[str]]:
         """
@@ -265,7 +249,6 @@ class Incident(pulumi.CustomResource):
                  classification_comment: Optional[pulumi.Input[str]] = None,
                  classification_reason: Optional[pulumi.Input[Union[str, 'IncidentClassificationReason']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  first_activity_time_utc: Optional[pulumi.Input[str]] = None,
                  incident_id: Optional[pulumi.Input[str]] = None,
                  labels: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IncidentLabelArgs']]]]] = None,
@@ -286,7 +269,6 @@ class Incident(pulumi.CustomResource):
         :param pulumi.Input[str] classification_comment: Describes the reason the incident was closed
         :param pulumi.Input[Union[str, 'IncidentClassificationReason']] classification_reason: The classification reason the incident was closed with
         :param pulumi.Input[str] description: The description of the incident
-        :param pulumi.Input[str] etag: Etag of the azure resource
         :param pulumi.Input[str] first_activity_time_utc: The time of the first activity in the incident
         :param pulumi.Input[str] incident_id: Incident ID
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IncidentLabelArgs']]]] labels: List of labels relevant to this incident
@@ -326,7 +308,6 @@ class Incident(pulumi.CustomResource):
                  classification_comment: Optional[pulumi.Input[str]] = None,
                  classification_reason: Optional[pulumi.Input[Union[str, 'IncidentClassificationReason']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  first_activity_time_utc: Optional[pulumi.Input[str]] = None,
                  incident_id: Optional[pulumi.Input[str]] = None,
                  labels: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IncidentLabelArgs']]]]] = None,
@@ -353,7 +334,6 @@ class Incident(pulumi.CustomResource):
             __props__.__dict__["classification_comment"] = classification_comment
             __props__.__dict__["classification_reason"] = classification_reason
             __props__.__dict__["description"] = description
-            __props__.__dict__["etag"] = etag
             __props__.__dict__["first_activity_time_utc"] = first_activity_time_utc
             __props__.__dict__["incident_id"] = incident_id
             __props__.__dict__["labels"] = labels
@@ -376,6 +356,7 @@ class Incident(pulumi.CustomResource):
             __props__.__dict__["workspace_name"] = workspace_name
             __props__.__dict__["additional_data"] = None
             __props__.__dict__["created_time_utc"] = None
+            __props__.__dict__["etag"] = None
             __props__.__dict__["incident_number"] = None
             __props__.__dict__["incident_url"] = None
             __props__.__dict__["last_modified_time_utc"] = None

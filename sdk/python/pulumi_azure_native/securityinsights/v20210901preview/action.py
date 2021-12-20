@@ -19,8 +19,7 @@ class ActionArgs:
                  rule_id: pulumi.Input[str],
                  trigger_uri: pulumi.Input[str],
                  workspace_name: pulumi.Input[str],
-                 action_id: Optional[pulumi.Input[str]] = None,
-                 etag: Optional[pulumi.Input[str]] = None):
+                 action_id: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Action resource.
         :param pulumi.Input[str] logic_app_resource_id: Logic App Resource Id, /subscriptions/{my-subscription}/resourceGroups/{my-resource-group}/providers/Microsoft.Logic/workflows/{my-workflow-id}.
@@ -29,7 +28,6 @@ class ActionArgs:
         :param pulumi.Input[str] trigger_uri: Logic App Callback URL for this specific workflow.
         :param pulumi.Input[str] workspace_name: The name of the workspace.
         :param pulumi.Input[str] action_id: Action ID
-        :param pulumi.Input[str] etag: Etag of the azure resource
         """
         pulumi.set(__self__, "logic_app_resource_id", logic_app_resource_id)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -38,8 +36,6 @@ class ActionArgs:
         pulumi.set(__self__, "workspace_name", workspace_name)
         if action_id is not None:
             pulumi.set(__self__, "action_id", action_id)
-        if etag is not None:
-            pulumi.set(__self__, "etag", etag)
 
     @property
     @pulumi.getter(name="logicAppResourceId")
@@ -113,18 +109,6 @@ class ActionArgs:
     def action_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "action_id", value)
 
-    @property
-    @pulumi.getter
-    def etag(self) -> Optional[pulumi.Input[str]]:
-        """
-        Etag of the azure resource
-        """
-        return pulumi.get(self, "etag")
-
-    @etag.setter
-    def etag(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "etag", value)
-
 
 class Action(pulumi.CustomResource):
     @overload
@@ -132,7 +116,6 @@ class Action(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  action_id: Optional[pulumi.Input[str]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  logic_app_resource_id: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  rule_id: Optional[pulumi.Input[str]] = None,
@@ -145,7 +128,6 @@ class Action(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] action_id: Action ID
-        :param pulumi.Input[str] etag: Etag of the azure resource
         :param pulumi.Input[str] logic_app_resource_id: Logic App Resource Id, /subscriptions/{my-subscription}/resourceGroups/{my-resource-group}/providers/Microsoft.Logic/workflows/{my-workflow-id}.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] rule_id: Alert rule ID
@@ -177,7 +159,6 @@ class Action(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  action_id: Optional[pulumi.Input[str]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  logic_app_resource_id: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  rule_id: Optional[pulumi.Input[str]] = None,
@@ -196,7 +177,6 @@ class Action(pulumi.CustomResource):
             __props__ = ActionArgs.__new__(ActionArgs)
 
             __props__.__dict__["action_id"] = action_id
-            __props__.__dict__["etag"] = etag
             if logic_app_resource_id is None and not opts.urn:
                 raise TypeError("Missing required property 'logic_app_resource_id'")
             __props__.__dict__["logic_app_resource_id"] = logic_app_resource_id
@@ -212,6 +192,7 @@ class Action(pulumi.CustomResource):
             if workspace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_name'")
             __props__.__dict__["workspace_name"] = workspace_name
+            __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None

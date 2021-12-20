@@ -209,8 +209,6 @@ func (LoadBalancerState) ElementType() reflect.Type {
 type loadBalancerArgs struct {
 	// Collection of backend address pools used by a load balancer
 	BackendAddressPools []BackendAddressPool `pulumi:"backendAddressPools"`
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag *string `pulumi:"etag"`
 	// Object representing the frontend IPs to be used for the load balancer
 	FrontendIPConfigurations []FrontendIPConfiguration `pulumi:"frontendIPConfigurations"`
 	// Resource Identifier.
@@ -243,8 +241,6 @@ type loadBalancerArgs struct {
 type LoadBalancerArgs struct {
 	// Collection of backend address pools used by a load balancer
 	BackendAddressPools BackendAddressPoolArrayInput
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringPtrInput
 	// Object representing the frontend IPs to be used for the load balancer
 	FrontendIPConfigurations FrontendIPConfigurationArrayInput
 	// Resource Identifier.

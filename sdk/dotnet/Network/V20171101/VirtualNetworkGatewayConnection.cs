@@ -252,12 +252,6 @@ namespace Pulumi.AzureNative.Network.V20171101
         public Input<bool>? EnableBgp { get; set; }
 
         /// <summary>
-        /// Gets a unique read-only string that changes whenever the resource is updated.
-        /// </summary>
-        [Input("etag")]
-        public Input<string>? Etag { get; set; }
-
-        /// <summary>
         /// Resource ID.
         /// </summary>
         [Input("id")]

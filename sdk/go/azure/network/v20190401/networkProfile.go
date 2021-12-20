@@ -150,8 +150,6 @@ type networkProfileArgs struct {
 	ContainerNetworkInterfaceConfigurations []ContainerNetworkInterfaceConfiguration `pulumi:"containerNetworkInterfaceConfigurations"`
 	// List of child container network interfaces.
 	ContainerNetworkInterfaces []ContainerNetworkInterface `pulumi:"containerNetworkInterfaces"`
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag *string `pulumi:"etag"`
 	// Resource ID.
 	Id *string `pulumi:"id"`
 	// Resource location.
@@ -170,8 +168,6 @@ type NetworkProfileArgs struct {
 	ContainerNetworkInterfaceConfigurations ContainerNetworkInterfaceConfigurationArrayInput
 	// List of child container network interfaces.
 	ContainerNetworkInterfaces ContainerNetworkInterfaceArrayInput
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringPtrInput
 	// Resource ID.
 	Id pulumi.StringPtrInput
 	// Resource location.

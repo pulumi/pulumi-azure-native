@@ -39,7 +39,7 @@ export class Vault extends pulumi.CustomResource {
     /**
      * Optional ETag.
      */
-    public readonly etag!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
     /**
      * Identity for the resource.
      */
@@ -87,7 +87,6 @@ export class Vault extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["etag"] = args ? args.etag : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["properties"] = args ? args.properties : undefined;
@@ -95,6 +94,7 @@ export class Vault extends pulumi.CustomResource {
             resourceInputs["sku"] = args ? args.sku : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["vaultName"] = args ? args.vaultName : undefined;
+            resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -122,10 +122,6 @@ export class Vault extends pulumi.CustomResource {
  * The set of arguments for constructing a Vault resource.
  */
 export interface VaultArgs {
-    /**
-     * Optional ETag.
-     */
-    etag?: pulumi.Input<string>;
     /**
      * Identity for the resource.
      */

@@ -41,7 +41,7 @@ export class DataConnector extends pulumi.CustomResource {
     /**
      * Etag of the azure resource
      */
-    public readonly etag!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
     /**
      * The data connector kind
      */
@@ -78,10 +78,10 @@ export class DataConnector extends pulumi.CustomResource {
                 throw new Error("Missing required property 'workspaceName'");
             }
             resourceInputs["dataConnectorId"] = args ? args.dataConnectorId : undefined;
-            resourceInputs["etag"] = args ? args.etag : undefined;
             resourceInputs["kind"] = args ? args.kind : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
@@ -107,10 +107,6 @@ export interface DataConnectorArgs {
      * Connector ID
      */
     dataConnectorId?: pulumi.Input<string>;
-    /**
-     * Etag of the azure resource
-     */
-    etag?: pulumi.Input<string>;
     /**
      * The data connector kind
      */

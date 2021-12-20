@@ -37,7 +37,7 @@ export class CustomerSubscription extends pulumi.CustomResource {
     /**
      * The entity tag used for optimistic concurrency when modifying the resource.
      */
-    public readonly etag!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
     /**
      * Name of the resource.
      */
@@ -69,10 +69,10 @@ export class CustomerSubscription extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroup'");
             }
             resourceInputs["customerSubscriptionName"] = args ? args.customerSubscriptionName : undefined;
-            resourceInputs["etag"] = args ? args.etag : undefined;
             resourceInputs["registrationName"] = args ? args.registrationName : undefined;
             resourceInputs["resourceGroup"] = args ? args.resourceGroup : undefined;
             resourceInputs["tenantId"] = args ? args.tenantId : undefined;
+            resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
@@ -98,10 +98,6 @@ export interface CustomerSubscriptionArgs {
      * Name of the product.
      */
     customerSubscriptionName?: pulumi.Input<string>;
-    /**
-     * The entity tag used for optimistic concurrency when modifying the resource.
-     */
-    etag?: pulumi.Input<string>;
     /**
      * Name of the Azure Stack registration.
      */

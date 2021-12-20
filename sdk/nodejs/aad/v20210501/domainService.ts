@@ -58,7 +58,7 @@ export class DomainService extends pulumi.CustomResource {
     /**
      * Resource etag
      */
-    public readonly etag!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
     /**
      * Enabled or Disabled flag to turn on Group-based filtered sync
      */
@@ -143,7 +143,6 @@ export class DomainService extends pulumi.CustomResource {
             resourceInputs["domainName"] = args ? args.domainName : undefined;
             resourceInputs["domainSecuritySettings"] = args ? (args.domainSecuritySettings ? pulumi.output(args.domainSecuritySettings).apply(inputs.aad.v20210501.domainSecuritySettingsArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["domainServiceName"] = args ? args.domainServiceName : undefined;
-            resourceInputs["etag"] = args ? args.etag : undefined;
             resourceInputs["filteredSync"] = args ? args.filteredSync : undefined;
             resourceInputs["ldapsSettings"] = args ? (args.ldapsSettings ? pulumi.output(args.ldapsSettings).apply(inputs.aad.v20210501.ldapsSettingsArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
@@ -154,6 +153,7 @@ export class DomainService extends pulumi.CustomResource {
             resourceInputs["sku"] = args ? args.sku : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["deploymentId"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["migrationProperties"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
@@ -219,10 +219,6 @@ export interface DomainServiceArgs {
      * The name of the domain service.
      */
     domainServiceName?: pulumi.Input<string>;
-    /**
-     * Resource etag
-     */
-    etag?: pulumi.Input<string>;
     /**
      * Enabled or Disabled flag to turn on Group-based filtered sync
      */

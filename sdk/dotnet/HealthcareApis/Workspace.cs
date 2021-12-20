@@ -108,12 +108,6 @@ namespace Pulumi.AzureNative.HealthcareApis
     public sealed class WorkspaceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// An etag associated with the resource, used for optimistic concurrency when editing it.
-        /// </summary>
-        [Input("etag")]
-        public Input<string>? Etag { get; set; }
-
-        /// <summary>
         /// The resource location.
         /// </summary>
         [Input("location")]

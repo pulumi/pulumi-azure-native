@@ -38,7 +38,7 @@ export class PrivateLinkServicesForMIPPolicySync extends pulumi.CustomResource {
     /**
      * An etag associated with the resource, used for optimistic concurrency when editing it.
      */
-    public readonly etag!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
     /**
      * Setting indicating whether the service has a managed identity associated with it.
      */
@@ -89,7 +89,6 @@ export class PrivateLinkServicesForMIPPolicySync extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["etag"] = args ? args.etag : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["kind"] = args ? args.kind : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
@@ -97,6 +96,7 @@ export class PrivateLinkServicesForMIPPolicySync extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["resourceName"] = args ? args.resourceName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -124,10 +124,6 @@ export class PrivateLinkServicesForMIPPolicySync extends pulumi.CustomResource {
  * The set of arguments for constructing a PrivateLinkServicesForMIPPolicySync resource.
  */
 export interface PrivateLinkServicesForMIPPolicySyncArgs {
-    /**
-     * An etag associated with the resource, used for optimistic concurrency when editing it.
-     */
-    etag?: pulumi.Input<string>;
     /**
      * Setting indicating whether the service has a managed identity associated with it.
      */

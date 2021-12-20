@@ -92,8 +92,6 @@ func (VirtualNetworkLinkState) ElementType() reflect.Type {
 }
 
 type virtualNetworkLinkArgs struct {
-	// The ETag of the virtual network link.
-	Etag *string `pulumi:"etag"`
 	// The Azure Region where the resource lives
 	Location *string `pulumi:"location"`
 	// The name of the Private DNS zone (without a terminating dot).
@@ -112,8 +110,6 @@ type virtualNetworkLinkArgs struct {
 
 // The set of arguments for constructing a VirtualNetworkLink resource.
 type VirtualNetworkLinkArgs struct {
-	// The ETag of the virtual network link.
-	Etag pulumi.StringPtrInput
 	// The Azure Region where the resource lives
 	Location pulumi.StringPtrInput
 	// The name of the Private DNS zone (without a terminating dot).

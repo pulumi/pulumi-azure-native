@@ -117,12 +117,6 @@ namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview
         }
 
         /// <summary>
-        /// Etag of the azure resource
-        /// </summary>
-        [Input("etag")]
-        public Input<string>? Etag { get; set; }
-
-        /// <summary>
         /// 
         /// Expected value is 'Ueba'.
         /// </summary>

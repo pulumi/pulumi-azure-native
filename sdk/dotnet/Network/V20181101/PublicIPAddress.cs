@@ -223,12 +223,6 @@ namespace Pulumi.AzureNative.Network.V20181101
         public Input<Inputs.PublicIPAddressDnsSettingsArgs>? DnsSettings { get; set; }
 
         /// <summary>
-        /// A unique read-only string that changes whenever the resource is updated.
-        /// </summary>
-        [Input("etag")]
-        public Input<string>? Etag { get; set; }
-
-        /// <summary>
         /// Resource ID.
         /// </summary>
         [Input("id")]

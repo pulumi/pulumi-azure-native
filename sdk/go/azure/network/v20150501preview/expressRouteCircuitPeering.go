@@ -216,8 +216,6 @@ type expressRouteCircuitPeeringArgs struct {
 	AzureASN *int `pulumi:"azureASN"`
 	// The name of the express route circuit.
 	CircuitName string `pulumi:"circuitName"`
-	// A unique read-only string that changes whenever the resource is updated
-	Etag *string `pulumi:"etag"`
 	// Resource Id
 	Id *string `pulumi:"id"`
 	// Gets or sets the Microsoft peering config
@@ -258,8 +256,6 @@ type ExpressRouteCircuitPeeringArgs struct {
 	AzureASN pulumi.IntPtrInput
 	// The name of the express route circuit.
 	CircuitName pulumi.StringInput
-	// A unique read-only string that changes whenever the resource is updated
-	Etag pulumi.StringPtrInput
 	// Resource Id
 	Id pulumi.StringPtrInput
 	// Gets or sets the Microsoft peering config

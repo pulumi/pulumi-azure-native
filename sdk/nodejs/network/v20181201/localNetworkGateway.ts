@@ -42,7 +42,7 @@ export class LocalNetworkGateway extends pulumi.CustomResource {
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
-    public readonly etag!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
     /**
      * IP address of local network gateway.
      */
@@ -91,7 +91,6 @@ export class LocalNetworkGateway extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["bgpSettings"] = args ? args.bgpSettings : undefined;
-            resourceInputs["etag"] = args ? args.etag : undefined;
             resourceInputs["gatewayIpAddress"] = args ? args.gatewayIpAddress : undefined;
             resourceInputs["id"] = args ? args.id : undefined;
             resourceInputs["localNetworkAddressSpace"] = args ? args.localNetworkAddressSpace : undefined;
@@ -100,6 +99,7 @@ export class LocalNetworkGateway extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["resourceGuid"] = args ? args.resourceGuid : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -132,10 +132,6 @@ export interface LocalNetworkGatewayArgs {
      * Local network gateway's BGP speaker settings.
      */
     bgpSettings?: pulumi.Input<inputs.network.v20181201.BgpSettingsArgs>;
-    /**
-     * A unique read-only string that changes whenever the resource is updated.
-     */
-    etag?: pulumi.Input<string>;
     /**
      * IP address of local network gateway.
      */

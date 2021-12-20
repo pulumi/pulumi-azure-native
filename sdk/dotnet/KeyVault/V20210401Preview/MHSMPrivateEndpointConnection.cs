@@ -126,12 +126,6 @@ namespace Pulumi.AzureNative.KeyVault.V20210401Preview
     public sealed class MHSMPrivateEndpointConnectionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Modified whenever there is a change in the state of private endpoint connection.
-        /// </summary>
-        [Input("etag")]
-        public Input<string>? Etag { get; set; }
-
-        /// <summary>
         /// The supported Azure location where the managed HSM Pool should be created.
         /// </summary>
         [Input("location")]

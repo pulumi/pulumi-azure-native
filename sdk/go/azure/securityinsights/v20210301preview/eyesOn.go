@@ -94,8 +94,6 @@ func (EyesOnState) ElementType() reflect.Type {
 }
 
 type eyesOnArgs struct {
-	// Etag of the azure resource
-	Etag *string `pulumi:"etag"`
 	// The kind of the setting
 	// Expected value is 'EyesOn'.
 	Kind string `pulumi:"kind"`
@@ -111,8 +109,6 @@ type eyesOnArgs struct {
 
 // The set of arguments for constructing a EyesOn resource.
 type EyesOnArgs struct {
-	// Etag of the azure resource
-	Etag pulumi.StringPtrInput
 	// The kind of the setting
 	// Expected value is 'EyesOn'.
 	Kind pulumi.StringInput

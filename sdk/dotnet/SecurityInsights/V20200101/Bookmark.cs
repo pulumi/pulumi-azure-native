@@ -187,12 +187,6 @@ namespace Pulumi.AzureNative.SecurityInsights.V20200101
         public Input<string> DisplayName { get; set; } = null!;
 
         /// <summary>
-        /// Etag of the azure resource
-        /// </summary>
-        [Input("etag")]
-        public Input<string>? Etag { get; set; }
-
-        /// <summary>
         /// The bookmark event time
         /// </summary>
         [Input("eventTime")]

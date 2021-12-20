@@ -89,8 +89,6 @@ func (ProductSettingState) ElementType() reflect.Type {
 }
 
 type productSettingArgs struct {
-	// Etag of the azure resource
-	Etag *string `pulumi:"etag"`
 	// The kind of the setting
 	Kind string `pulumi:"kind"`
 	// The name of the resource group. The name is case insensitive.
@@ -103,8 +101,6 @@ type productSettingArgs struct {
 
 // The set of arguments for constructing a ProductSetting resource.
 type ProductSettingArgs struct {
-	// Etag of the azure resource
-	Etag pulumi.StringPtrInput
 	// The kind of the setting
 	Kind pulumi.StringInput
 	// The name of the resource group. The name is case insensitive.

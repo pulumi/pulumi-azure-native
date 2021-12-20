@@ -187,12 +187,6 @@ namespace Pulumi.AzureNative.SecurityInsights
         public Input<Inputs.MetadataDependenciesArgs>? Dependencies { get; set; }
 
         /// <summary>
-        /// Etag of the azure resource
-        /// </summary>
-        [Input("etag")]
-        public Input<string>? Etag { get; set; }
-
-        /// <summary>
         /// first publish date solution content item
         /// </summary>
         [Input("firstPublishDate")]

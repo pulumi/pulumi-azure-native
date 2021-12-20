@@ -38,7 +38,7 @@ export class IncidentRelation extends pulumi.CustomResource {
     /**
      * Etag of the azure resource
      */
-    public readonly etag!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
     /**
      * The name of the resource
      */
@@ -91,12 +91,12 @@ export class IncidentRelation extends pulumi.CustomResource {
             if ((!args || args.workspaceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            resourceInputs["etag"] = args ? args.etag : undefined;
             resourceInputs["incidentId"] = args ? args.incidentId : undefined;
             resourceInputs["relatedResourceId"] = args ? args.relatedResourceId : undefined;
             resourceInputs["relationName"] = args ? args.relationName : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["relatedResourceKind"] = undefined /*out*/;
             resourceInputs["relatedResourceName"] = undefined /*out*/;
@@ -126,10 +126,6 @@ export class IncidentRelation extends pulumi.CustomResource {
  * The set of arguments for constructing a IncidentRelation resource.
  */
 export interface IncidentRelationArgs {
-    /**
-     * Etag of the azure resource
-     */
-    etag?: pulumi.Input<string>;
     /**
      * Incident ID
      */

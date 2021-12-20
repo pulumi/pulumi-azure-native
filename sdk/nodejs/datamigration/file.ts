@@ -39,7 +39,7 @@ export class File extends pulumi.CustomResource {
     /**
      * HTTP strong entity tag value. This is ignored if submitted.
      */
-    public readonly etag!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
     /**
      * Resource name.
      */
@@ -73,12 +73,12 @@ export class File extends pulumi.CustomResource {
             if ((!args || args.serviceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceName'");
             }
-            resourceInputs["etag"] = args ? args.etag : undefined;
             resourceInputs["fileName"] = args ? args.fileName : undefined;
             resourceInputs["groupName"] = args ? args.groupName : undefined;
             resourceInputs["projectName"] = args ? args.projectName : undefined;
             resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["serviceName"] = args ? args.serviceName : undefined;
+            resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
@@ -100,10 +100,6 @@ export class File extends pulumi.CustomResource {
  * The set of arguments for constructing a File resource.
  */
 export interface FileArgs {
-    /**
-     * HTTP strong entity tag value. This is ignored if submitted.
-     */
-    etag?: pulumi.Input<string>;
     /**
      * Name of the File
      */

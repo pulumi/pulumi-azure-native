@@ -54,7 +54,7 @@ export class VirtualNetwork extends pulumi.CustomResource {
     /**
      * Gets a unique read-only string that changes whenever the resource is updated.
      */
-    public readonly etag!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
     /**
      * Resource location.
      */
@@ -106,7 +106,6 @@ export class VirtualNetwork extends pulumi.CustomResource {
             resourceInputs["dhcpOptions"] = args ? args.dhcpOptions : undefined;
             resourceInputs["enableDdosProtection"] = args ? args.enableDdosProtection : undefined;
             resourceInputs["enableVmProtection"] = args ? args.enableVmProtection : undefined;
-            resourceInputs["etag"] = args ? args.etag : undefined;
             resourceInputs["id"] = args ? args.id : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["provisioningState"] = args ? args.provisioningState : undefined;
@@ -116,6 +115,7 @@ export class VirtualNetwork extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["virtualNetworkName"] = args ? args.virtualNetworkName : undefined;
             resourceInputs["virtualNetworkPeerings"] = args ? args.virtualNetworkPeerings : undefined;
+            resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
@@ -162,10 +162,6 @@ export interface VirtualNetworkArgs {
      * Indicates if Vm protection is enabled for all the subnets in a Virtual Network.
      */
     enableVmProtection?: pulumi.Input<boolean>;
-    /**
-     * Gets a unique read-only string that changes whenever the resource is updated.
-     */
-    etag?: pulumi.Input<string>;
     /**
      * Resource ID.
      */

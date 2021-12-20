@@ -18,7 +18,6 @@ class NetworkFunctionArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  device: Optional[pulumi.Input['SubResourceArgs']] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  managed_application_parameters: Optional[Any] = None,
                  network_function_name: Optional[pulumi.Input[str]] = None,
@@ -30,7 +29,6 @@ class NetworkFunctionArgs:
         The set of arguments for constructing a NetworkFunction resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['SubResourceArgs'] device: The reference to the device resource.
-        :param pulumi.Input[str] etag: A unique read-only string that changes whenever the resource is updated.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param Any managed_application_parameters: The parameters for the managed application.
         :param pulumi.Input[str] network_function_name: Resource name for the network function resource.
@@ -42,8 +40,6 @@ class NetworkFunctionArgs:
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if device is not None:
             pulumi.set(__self__, "device", device)
-        if etag is not None:
-            pulumi.set(__self__, "etag", etag)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if managed_application_parameters is not None:
@@ -82,18 +78,6 @@ class NetworkFunctionArgs:
     @device.setter
     def device(self, value: Optional[pulumi.Input['SubResourceArgs']]):
         pulumi.set(self, "device", value)
-
-    @property
-    @pulumi.getter
-    def etag(self) -> Optional[pulumi.Input[str]]:
-        """
-        A unique read-only string that changes whenever the resource is updated.
-        """
-        return pulumi.get(self, "etag")
-
-    @etag.setter
-    def etag(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "etag", value)
 
     @property
     @pulumi.getter
@@ -186,7 +170,6 @@ class NetworkFunction(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  device: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  managed_application_parameters: Optional[Any] = None,
                  network_function_name: Optional[pulumi.Input[str]] = None,
@@ -202,7 +185,6 @@ class NetworkFunction(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['SubResourceArgs']] device: The reference to the device resource.
-        :param pulumi.Input[str] etag: A unique read-only string that changes whenever the resource is updated.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param Any managed_application_parameters: The parameters for the managed application.
         :param pulumi.Input[str] network_function_name: Resource name for the network function resource.
@@ -237,7 +219,6 @@ class NetworkFunction(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  device: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  managed_application_parameters: Optional[Any] = None,
                  network_function_name: Optional[pulumi.Input[str]] = None,
@@ -259,7 +240,6 @@ class NetworkFunction(pulumi.CustomResource):
             __props__ = NetworkFunctionArgs.__new__(NetworkFunctionArgs)
 
             __props__.__dict__["device"] = device
-            __props__.__dict__["etag"] = etag
             __props__.__dict__["location"] = location
             __props__.__dict__["managed_application_parameters"] = managed_application_parameters
             __props__.__dict__["network_function_name"] = network_function_name
@@ -270,6 +250,7 @@ class NetworkFunction(pulumi.CustomResource):
             __props__.__dict__["sku_name"] = sku_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["vendor_name"] = vendor_name
+            __props__.__dict__["etag"] = None
             __props__.__dict__["managed_application"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None

@@ -46,7 +46,7 @@ export class AwsS3DataConnector extends pulumi.CustomResource {
     /**
      * Etag of the azure resource
      */
-    public readonly etag!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
     /**
      * The kind of the data connector
      * Expected value is 'AmazonWebServicesS3'.
@@ -108,12 +108,12 @@ export class AwsS3DataConnector extends pulumi.CustomResource {
             resourceInputs["dataConnectorId"] = args ? args.dataConnectorId : undefined;
             resourceInputs["dataTypes"] = args ? args.dataTypes : undefined;
             resourceInputs["destinationTable"] = args ? args.destinationTable : undefined;
-            resourceInputs["etag"] = args ? args.etag : undefined;
             resourceInputs["kind"] = "AmazonWebServicesS3";
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["roleArn"] = args ? args.roleArn : undefined;
             resourceInputs["sqsUrls"] = args ? args.sqsUrls : undefined;
             resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -153,10 +153,6 @@ export interface AwsS3DataConnectorArgs {
      * The logs destination table name in LogAnalytics.
      */
     destinationTable: pulumi.Input<string>;
-    /**
-     * Etag of the azure resource
-     */
-    etag?: pulumi.Input<string>;
     /**
      * The kind of the data connector
      * Expected value is 'AmazonWebServicesS3'.

@@ -43,7 +43,7 @@ export class Manager extends pulumi.CustomResource {
     /**
      * The etag of the manager.
      */
-    public readonly etag!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
     /**
      * The geo location of the resource.
      */
@@ -84,13 +84,13 @@ export class Manager extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["cisIntrinsicSettings"] = args ? args.cisIntrinsicSettings : undefined;
-            resourceInputs["etag"] = args ? args.etag : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["managerName"] = args ? args.managerName : undefined;
             resourceInputs["provisioningState"] = args ? args.provisioningState : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["sku"] = args ? args.sku : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
@@ -120,10 +120,6 @@ export interface ManagerArgs {
      * Represents the type of StorSimple Manager.
      */
     cisIntrinsicSettings?: pulumi.Input<inputs.storsimple.ManagerIntrinsicSettingsArgs>;
-    /**
-     * The etag of the manager.
-     */
-    etag?: pulumi.Input<string>;
     /**
      * The geo location of the resource.
      */

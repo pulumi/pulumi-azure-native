@@ -120,8 +120,6 @@ type watchlistItemArgs struct {
 	CreatedBy *WatchlistUserInfo `pulumi:"createdBy"`
 	// key-value pairs for a watchlist item entity mapping
 	EntityMapping interface{} `pulumi:"entityMapping"`
-	// Etag of the azure resource
-	Etag *string `pulumi:"etag"`
 	// A flag that indicates if the watchlist item is deleted or not
 	IsDeleted *bool `pulumi:"isDeleted"`
 	// key-value pairs for a watchlist item
@@ -154,8 +152,6 @@ type WatchlistItemArgs struct {
 	CreatedBy WatchlistUserInfoPtrInput
 	// key-value pairs for a watchlist item entity mapping
 	EntityMapping pulumi.Input
-	// Etag of the azure resource
-	Etag pulumi.StringPtrInput
 	// A flag that indicates if the watchlist item is deleted or not
 	IsDeleted pulumi.BoolPtrInput
 	// key-value pairs for a watchlist item

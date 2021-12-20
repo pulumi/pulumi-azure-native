@@ -17,21 +17,17 @@ class SolutionArgs:
     def __init__(__self__, *,
                  migrate_project_name: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
-                 etag: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input['SolutionPropertiesArgs']] = None,
                  solution_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Solution resource.
         :param pulumi.Input[str] migrate_project_name: Name of the Azure Migrate project.
         :param pulumi.Input[str] resource_group_name: Name of the Azure Resource Group that migrate project is part of.
-        :param pulumi.Input[str] etag: Gets or sets the ETAG for optimistic concurrency control.
         :param pulumi.Input['SolutionPropertiesArgs'] properties: Gets or sets the properties of the solution.
         :param pulumi.Input[str] solution_name: Unique name of a migration solution within a migrate project.
         """
         pulumi.set(__self__, "migrate_project_name", migrate_project_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if etag is not None:
-            pulumi.set(__self__, "etag", etag)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
         if solution_name is not None:
@@ -63,18 +59,6 @@ class SolutionArgs:
 
     @property
     @pulumi.getter
-    def etag(self) -> Optional[pulumi.Input[str]]:
-        """
-        Gets or sets the ETAG for optimistic concurrency control.
-        """
-        return pulumi.get(self, "etag")
-
-    @etag.setter
-    def etag(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "etag", value)
-
-    @property
-    @pulumi.getter
     def properties(self) -> Optional[pulumi.Input['SolutionPropertiesArgs']]:
         """
         Gets or sets the properties of the solution.
@@ -103,7 +87,6 @@ class Solution(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  migrate_project_name: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[pulumi.InputType['SolutionPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -114,7 +97,6 @@ class Solution(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] etag: Gets or sets the ETAG for optimistic concurrency control.
         :param pulumi.Input[str] migrate_project_name: Name of the Azure Migrate project.
         :param pulumi.Input[pulumi.InputType['SolutionPropertiesArgs']] properties: Gets or sets the properties of the solution.
         :param pulumi.Input[str] resource_group_name: Name of the Azure Resource Group that migrate project is part of.
@@ -144,7 +126,6 @@ class Solution(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  migrate_project_name: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[pulumi.InputType['SolutionPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -161,7 +142,6 @@ class Solution(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = SolutionArgs.__new__(SolutionArgs)
 
-            __props__.__dict__["etag"] = etag
             if migrate_project_name is None and not opts.urn:
                 raise TypeError("Missing required property 'migrate_project_name'")
             __props__.__dict__["migrate_project_name"] = migrate_project_name
@@ -170,6 +150,7 @@ class Solution(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["solution_name"] = solution_name
+            __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:migrate:Solution")])

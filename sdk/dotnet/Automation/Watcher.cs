@@ -164,12 +164,6 @@ namespace Pulumi.AzureNative.Automation
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Gets or sets the etag of the resource.
-        /// </summary>
-        [Input("etag")]
-        public Input<string>? Etag { get; set; }
-
-        /// <summary>
         /// Gets or sets the frequency at which the watcher is invoked.
         /// </summary>
         [Input("executionFrequencyInSeconds")]

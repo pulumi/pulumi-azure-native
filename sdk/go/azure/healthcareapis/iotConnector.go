@@ -91,8 +91,6 @@ func (IotConnectorState) ElementType() reflect.Type {
 type iotConnectorArgs struct {
 	// Device Mappings.
 	DeviceMapping *IotMappingProperties `pulumi:"deviceMapping"`
-	// An etag associated with the resource, used for optimistic concurrency when editing it.
-	Etag *string `pulumi:"etag"`
 	// Setting indicating whether the service has a managed identity associated with it.
 	Identity *ServiceManagedIdentityIdentity `pulumi:"identity"`
 	// Source configuration.
@@ -113,8 +111,6 @@ type iotConnectorArgs struct {
 type IotConnectorArgs struct {
 	// Device Mappings.
 	DeviceMapping IotMappingPropertiesPtrInput
-	// An etag associated with the resource, used for optimistic concurrency when editing it.
-	Etag pulumi.StringPtrInput
 	// Setting indicating whether the service has a managed identity associated with it.
 	Identity ServiceManagedIdentityIdentityPtrInput
 	// Source configuration.

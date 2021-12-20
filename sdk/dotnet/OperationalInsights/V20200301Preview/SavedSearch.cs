@@ -139,12 +139,6 @@ namespace Pulumi.AzureNative.OperationalInsights.V20200301Preview
         public Input<string> DisplayName { get; set; } = null!;
 
         /// <summary>
-        /// The ETag of the saved search.
-        /// </summary>
-        [Input("etag")]
-        public Input<string>? Etag { get; set; }
-
-        /// <summary>
         /// The function alias if query serves as a function.
         /// </summary>
         [Input("functionAlias")]

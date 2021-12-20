@@ -207,12 +207,6 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20190301
         public Input<string>? DeviceName { get; set; }
 
         /// <summary>
-        /// The etag for the devices.
-        /// </summary>
-        [Input("etag")]
-        public Input<string>? Etag { get; set; }
-
-        /// <summary>
         /// The Data Box Edge/Gateway device name.
         /// </summary>
         [Input("friendlyName")]

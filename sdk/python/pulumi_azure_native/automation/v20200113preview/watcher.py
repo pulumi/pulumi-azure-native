@@ -16,7 +16,6 @@ class WatcherArgs:
                  automation_account_name: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  execution_frequency_in_seconds: Optional[pulumi.Input[float]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  script_name: Optional[pulumi.Input[str]] = None,
@@ -29,7 +28,6 @@ class WatcherArgs:
         :param pulumi.Input[str] automation_account_name: The name of the automation account.
         :param pulumi.Input[str] resource_group_name: Name of an Azure Resource group.
         :param pulumi.Input[str] description: Gets or sets the description.
-        :param pulumi.Input[str] etag: Gets or sets the etag of the resource.
         :param pulumi.Input[float] execution_frequency_in_seconds: Gets or sets the frequency at which the watcher is invoked.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] script_name: Gets or sets the name of the script the watcher is attached to, i.e. the name of an existing runbook.
@@ -42,8 +40,6 @@ class WatcherArgs:
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if description is not None:
             pulumi.set(__self__, "description", description)
-        if etag is not None:
-            pulumi.set(__self__, "etag", etag)
         if execution_frequency_in_seconds is not None:
             pulumi.set(__self__, "execution_frequency_in_seconds", execution_frequency_in_seconds)
         if location is not None:
@@ -94,18 +90,6 @@ class WatcherArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
-
-    @property
-    @pulumi.getter
-    def etag(self) -> Optional[pulumi.Input[str]]:
-        """
-        Gets or sets the etag of the resource.
-        """
-        return pulumi.get(self, "etag")
-
-    @etag.setter
-    def etag(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "etag", value)
 
     @property
     @pulumi.getter(name="executionFrequencyInSeconds")
@@ -199,7 +183,6 @@ class Watcher(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  automation_account_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  execution_frequency_in_seconds: Optional[pulumi.Input[float]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -216,7 +199,6 @@ class Watcher(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] automation_account_name: The name of the automation account.
         :param pulumi.Input[str] description: Gets or sets the description.
-        :param pulumi.Input[str] etag: Gets or sets the etag of the resource.
         :param pulumi.Input[float] execution_frequency_in_seconds: Gets or sets the frequency at which the watcher is invoked.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] resource_group_name: Name of an Azure Resource group.
@@ -252,7 +234,6 @@ class Watcher(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  automation_account_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  execution_frequency_in_seconds: Optional[pulumi.Input[float]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -277,7 +258,6 @@ class Watcher(pulumi.CustomResource):
                 raise TypeError("Missing required property 'automation_account_name'")
             __props__.__dict__["automation_account_name"] = automation_account_name
             __props__.__dict__["description"] = description
-            __props__.__dict__["etag"] = etag
             __props__.__dict__["execution_frequency_in_seconds"] = execution_frequency_in_seconds
             __props__.__dict__["location"] = location
             if resource_group_name is None and not opts.urn:
@@ -289,6 +269,7 @@ class Watcher(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["watcher_name"] = watcher_name
             __props__.__dict__["creation_time"] = None
+            __props__.__dict__["etag"] = None
             __props__.__dict__["last_modified_by"] = None
             __props__.__dict__["last_modified_time"] = None
             __props__.__dict__["name"] = None

@@ -121,12 +121,6 @@ namespace Pulumi.AzureNative.SecurityAndCompliance
     public sealed class PrivateLinkServicesForM365ComplianceCenterArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// An etag associated with the resource, used for optimistic concurrency when editing it.
-        /// </summary>
-        [Input("etag")]
-        public Input<string>? Etag { get; set; }
-
-        /// <summary>
         /// Setting indicating whether the service has a managed identity associated with it.
         /// </summary>
         [Input("identity")]

@@ -91,8 +91,6 @@ func (EntityAnalyticsState) ElementType() reflect.Type {
 }
 
 type entityAnalyticsArgs struct {
-	// Etag of the azure resource
-	Etag *string `pulumi:"etag"`
 	// The kind of the setting
 	// Expected value is 'EntityAnalytics'.
 	Kind string `pulumi:"kind"`
@@ -106,8 +104,6 @@ type entityAnalyticsArgs struct {
 
 // The set of arguments for constructing a EntityAnalytics resource.
 type EntityAnalyticsArgs struct {
-	// Etag of the azure resource
-	Etag pulumi.StringPtrInput
 	// The kind of the setting
 	// Expected value is 'EntityAnalytics'.
 	Kind pulumi.StringInput

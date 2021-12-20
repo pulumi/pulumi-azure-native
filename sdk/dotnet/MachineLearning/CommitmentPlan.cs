@@ -114,12 +114,6 @@ namespace Pulumi.AzureNative.MachineLearning
         public Input<string>? CommitmentPlanName { get; set; }
 
         /// <summary>
-        /// An entity tag used to enforce optimistic concurrency.
-        /// </summary>
-        [Input("etag")]
-        public Input<string>? Etag { get; set; }
-
-        /// <summary>
         /// Resource location.
         /// </summary>
         [Input("location")]

@@ -46,7 +46,7 @@ export class ADCCatalog extends pulumi.CustomResource {
     /**
      * Resource etag
      */
-    public readonly etag!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
     /**
      * Resource location
      */
@@ -97,7 +97,6 @@ export class ADCCatalog extends pulumi.CustomResource {
             resourceInputs["admins"] = args ? args.admins : undefined;
             resourceInputs["catalogName"] = args ? args.catalogName : undefined;
             resourceInputs["enableAutomaticUnitAdjustment"] = args ? args.enableAutomaticUnitAdjustment : undefined;
-            resourceInputs["etag"] = args ? args.etag : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["sku"] = args ? args.sku : undefined;
@@ -105,6 +104,7 @@ export class ADCCatalog extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["units"] = args ? args.units : undefined;
             resourceInputs["users"] = args ? args.users : undefined;
+            resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
@@ -145,10 +145,6 @@ export interface ADCCatalogArgs {
      * Automatic unit adjustment enabled or not.
      */
     enableAutomaticUnitAdjustment?: pulumi.Input<boolean>;
-    /**
-     * Resource etag
-     */
-    etag?: pulumi.Input<string>;
     /**
      * Resource location
      */

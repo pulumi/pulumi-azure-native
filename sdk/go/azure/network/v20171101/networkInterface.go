@@ -215,8 +215,6 @@ type networkInterfaceArgs struct {
 	EnableAcceleratedNetworking *bool `pulumi:"enableAcceleratedNetworking"`
 	// Indicates whether IP forwarding is enabled on this network interface.
 	EnableIPForwarding *bool `pulumi:"enableIPForwarding"`
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag *string `pulumi:"etag"`
 	// Resource ID.
 	Id *string `pulumi:"id"`
 	// A list of IPConfigurations of the network interface.
@@ -251,8 +249,6 @@ type NetworkInterfaceArgs struct {
 	EnableAcceleratedNetworking pulumi.BoolPtrInput
 	// Indicates whether IP forwarding is enabled on this network interface.
 	EnableIPForwarding pulumi.BoolPtrInput
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringPtrInput
 	// Resource ID.
 	Id pulumi.StringPtrInput
 	// A list of IPConfigurations of the network interface.

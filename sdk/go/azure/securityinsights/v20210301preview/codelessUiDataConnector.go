@@ -101,8 +101,6 @@ type codelessUiDataConnectorArgs struct {
 	ConnectorUiConfig *CodelessUiConnectorConfigProperties `pulumi:"connectorUiConfig"`
 	// Connector ID
 	DataConnectorId *string `pulumi:"dataConnectorId"`
-	// Etag of the azure resource
-	Etag *string `pulumi:"etag"`
 	// The kind of the data connector
 	// Expected value is 'GenericUI'.
 	Kind string `pulumi:"kind"`
@@ -120,8 +118,6 @@ type CodelessUiDataConnectorArgs struct {
 	ConnectorUiConfig CodelessUiConnectorConfigPropertiesPtrInput
 	// Connector ID
 	DataConnectorId pulumi.StringPtrInput
-	// Etag of the azure resource
-	Etag pulumi.StringPtrInput
 	// The kind of the data connector
 	// Expected value is 'GenericUI'.
 	Kind pulumi.StringInput

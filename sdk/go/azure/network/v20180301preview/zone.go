@@ -107,8 +107,6 @@ func (ZoneState) ElementType() reflect.Type {
 }
 
 type zoneArgs struct {
-	// The etag of the zone.
-	Etag *string `pulumi:"etag"`
 	// The geo-location where the resource lives
 	Location *string `pulumi:"location"`
 	// A list of references to virtual networks that register hostnames in this DNS zone. This is a only when ZoneType is Private.
@@ -127,8 +125,6 @@ type zoneArgs struct {
 
 // The set of arguments for constructing a Zone resource.
 type ZoneArgs struct {
-	// The etag of the zone.
-	Etag pulumi.StringPtrInput
 	// The geo-location where the resource lives
 	Location pulumi.StringPtrInput
 	// A list of references to virtual networks that register hostnames in this DNS zone. This is a only when ZoneType is Private.

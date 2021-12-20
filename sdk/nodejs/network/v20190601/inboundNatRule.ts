@@ -54,7 +54,7 @@ export class InboundNatRule extends pulumi.CustomResource {
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
-    public readonly etag!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
     /**
      * A reference to frontend IP addresses.
      */
@@ -104,7 +104,6 @@ export class InboundNatRule extends pulumi.CustomResource {
             resourceInputs["backendPort"] = args ? args.backendPort : undefined;
             resourceInputs["enableFloatingIP"] = args ? args.enableFloatingIP : undefined;
             resourceInputs["enableTcpReset"] = args ? args.enableTcpReset : undefined;
-            resourceInputs["etag"] = args ? args.etag : undefined;
             resourceInputs["frontendIPConfiguration"] = args ? args.frontendIPConfiguration : undefined;
             resourceInputs["frontendPort"] = args ? args.frontendPort : undefined;
             resourceInputs["id"] = args ? args.id : undefined;
@@ -116,6 +115,7 @@ export class InboundNatRule extends pulumi.CustomResource {
             resourceInputs["provisioningState"] = args ? args.provisioningState : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["backendIPConfiguration"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["backendIPConfiguration"] = undefined /*out*/;
@@ -156,10 +156,6 @@ export interface InboundNatRuleArgs {
      * Receive bidirectional TCP Reset on TCP flow idle timeout or unexpected connection termination. This element is only used when the protocol is set to TCP.
      */
     enableTcpReset?: pulumi.Input<boolean>;
-    /**
-     * A unique read-only string that changes whenever the resource is updated.
-     */
-    etag?: pulumi.Input<string>;
     /**
      * A reference to frontend IP addresses.
      */

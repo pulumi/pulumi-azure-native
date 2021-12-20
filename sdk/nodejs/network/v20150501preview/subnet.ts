@@ -42,7 +42,7 @@ export class Subnet extends pulumi.CustomResource {
     /**
      * A unique read-only string that changes whenever the resource is updated
      */
-    public readonly etag!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
     /**
      * Gets array of references to the network interface IP configurations using subnet
      */
@@ -85,7 +85,6 @@ export class Subnet extends pulumi.CustomResource {
                 throw new Error("Missing required property 'virtualNetworkName'");
             }
             resourceInputs["addressPrefix"] = args ? args.addressPrefix : undefined;
-            resourceInputs["etag"] = args ? args.etag : undefined;
             resourceInputs["id"] = args ? args.id : undefined;
             resourceInputs["ipConfigurations"] = args ? args.ipConfigurations : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
@@ -95,6 +94,7 @@ export class Subnet extends pulumi.CustomResource {
             resourceInputs["routeTable"] = args ? args.routeTable : undefined;
             resourceInputs["subnetName"] = args ? args.subnetName : undefined;
             resourceInputs["virtualNetworkName"] = args ? args.virtualNetworkName : undefined;
+            resourceInputs["etag"] = undefined /*out*/;
         } else {
             resourceInputs["addressPrefix"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
@@ -121,10 +121,6 @@ export interface SubnetArgs {
      * Gets or sets Address prefix for the subnet.
      */
     addressPrefix: pulumi.Input<string>;
-    /**
-     * A unique read-only string that changes whenever the resource is updated
-     */
-    etag?: pulumi.Input<string>;
     /**
      * Resource Id
      */

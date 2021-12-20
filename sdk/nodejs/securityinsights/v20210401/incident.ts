@@ -62,7 +62,7 @@ export class Incident extends pulumi.CustomResource {
     /**
      * Etag of the azure resource
      */
-    public readonly etag!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
     /**
      * The time of the first activity in the incident
      */
@@ -150,7 +150,6 @@ export class Incident extends pulumi.CustomResource {
             resourceInputs["classificationComment"] = args ? args.classificationComment : undefined;
             resourceInputs["classificationReason"] = args ? args.classificationReason : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["etag"] = args ? args.etag : undefined;
             resourceInputs["firstActivityTimeUtc"] = args ? args.firstActivityTimeUtc : undefined;
             resourceInputs["incidentId"] = args ? args.incidentId : undefined;
             resourceInputs["labels"] = args ? args.labels : undefined;
@@ -163,6 +162,7 @@ export class Incident extends pulumi.CustomResource {
             resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
             resourceInputs["additionalData"] = undefined /*out*/;
             resourceInputs["createdTimeUtc"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["incidentNumber"] = undefined /*out*/;
             resourceInputs["incidentUrl"] = undefined /*out*/;
             resourceInputs["lastModifiedTimeUtc"] = undefined /*out*/;
@@ -222,10 +222,6 @@ export interface IncidentArgs {
      * The description of the incident
      */
     description?: pulumi.Input<string>;
-    /**
-     * Etag of the azure resource
-     */
-    etag?: pulumi.Input<string>;
     /**
      * The time of the first activity in the incident
      */

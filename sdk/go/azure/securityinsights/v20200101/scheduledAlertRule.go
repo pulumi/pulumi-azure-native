@@ -156,8 +156,6 @@ type scheduledAlertRuleArgs struct {
 	DisplayName string `pulumi:"displayName"`
 	// Determines whether this alert rule is enabled or disabled.
 	Enabled bool `pulumi:"enabled"`
-	// Etag of the azure resource
-	Etag *string `pulumi:"etag"`
 	// The kind of the alert rule
 	// Expected value is 'Scheduled'.
 	Kind string `pulumi:"kind"`
@@ -197,8 +195,6 @@ type ScheduledAlertRuleArgs struct {
 	DisplayName pulumi.StringInput
 	// Determines whether this alert rule is enabled or disabled.
 	Enabled pulumi.BoolInput
-	// Etag of the azure resource
-	Etag pulumi.StringPtrInput
 	// The kind of the alert rule
 	// Expected value is 'Scheduled'.
 	Kind pulumi.StringInput

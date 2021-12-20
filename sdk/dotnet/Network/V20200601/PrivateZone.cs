@@ -145,12 +145,6 @@ namespace Pulumi.AzureNative.Network.V20200601
     public sealed class PrivateZoneArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ETag of the zone.
-        /// </summary>
-        [Input("etag")]
-        public Input<string>? Etag { get; set; }
-
-        /// <summary>
         /// The Azure Region where the resource lives
         /// </summary>
         [Input("location")]

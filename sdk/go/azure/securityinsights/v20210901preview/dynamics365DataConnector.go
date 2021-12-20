@@ -106,8 +106,6 @@ type dynamics365DataConnectorArgs struct {
 	DataConnectorId *string `pulumi:"dataConnectorId"`
 	// The available data types for the connector.
 	DataTypes Dynamics365DataConnectorDataTypes `pulumi:"dataTypes"`
-	// Etag of the azure resource
-	Etag *string `pulumi:"etag"`
 	// The kind of the data connector
 	// Expected value is 'Dynamics365'.
 	Kind string `pulumi:"kind"`
@@ -125,8 +123,6 @@ type Dynamics365DataConnectorArgs struct {
 	DataConnectorId pulumi.StringPtrInput
 	// The available data types for the connector.
 	DataTypes Dynamics365DataConnectorDataTypesInput
-	// Etag of the azure resource
-	Etag pulumi.StringPtrInput
 	// The kind of the data connector
 	// Expected value is 'Dynamics365'.
 	Kind pulumi.StringInput

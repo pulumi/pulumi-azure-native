@@ -106,12 +106,6 @@ namespace Pulumi.AzureNative.Network.V20150504Preview
     public sealed class ZoneArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Gets or sets the ETag of the zone that is being updated, as received from a Get operation.
-        /// </summary>
-        [Input("etag")]
-        public Input<string>? Etag { get; set; }
-
-        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         [Input("location")]

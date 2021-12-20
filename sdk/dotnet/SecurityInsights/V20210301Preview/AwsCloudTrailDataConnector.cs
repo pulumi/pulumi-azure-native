@@ -136,12 +136,6 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210301Preview
         public Input<Inputs.AwsCloudTrailDataConnectorDataTypesArgs> DataTypes { get; set; } = null!;
 
         /// <summary>
-        /// Etag of the azure resource
-        /// </summary>
-        [Input("etag")]
-        public Input<string>? Etag { get; set; }
-
-        /// <summary>
         /// The kind of the data connector
         /// Expected value is 'AmazonWebServicesCloudTrail'.
         /// </summary>

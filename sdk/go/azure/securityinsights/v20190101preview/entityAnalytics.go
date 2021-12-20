@@ -91,8 +91,6 @@ func (EntityAnalyticsState) ElementType() reflect.Type {
 }
 
 type entityAnalyticsArgs struct {
-	// Etag of the azure resource
-	Etag *string `pulumi:"etag"`
 	// Expected value is 'EntityAnalytics'.
 	Kind string `pulumi:"kind"`
 	// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
@@ -107,8 +105,6 @@ type entityAnalyticsArgs struct {
 
 // The set of arguments for constructing a EntityAnalytics resource.
 type EntityAnalyticsArgs struct {
-	// Etag of the azure resource
-	Etag pulumi.StringPtrInput
 	// Expected value is 'EntityAnalytics'.
 	Kind pulumi.StringInput
 	// The namespace of workspaces resource provider- Microsoft.OperationalInsights.

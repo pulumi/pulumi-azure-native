@@ -38,7 +38,7 @@ export class IotHubResource extends pulumi.CustomResource {
     /**
      * The Etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal ETag convention.
      */
-    public readonly etag!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
     /**
      * The resource location.
      */
@@ -95,7 +95,6 @@ export class IotHubResource extends pulumi.CustomResource {
             if ((!args || args.subscriptionid === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'subscriptionid'");
             }
-            resourceInputs["etag"] = args ? args.etag : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -104,6 +103,7 @@ export class IotHubResource extends pulumi.CustomResource {
             resourceInputs["sku"] = args ? args.sku : undefined;
             resourceInputs["subscriptionid"] = args ? args.subscriptionid : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
@@ -130,10 +130,6 @@ export class IotHubResource extends pulumi.CustomResource {
  * The set of arguments for constructing a IotHubResource resource.
  */
 export interface IotHubResourceArgs {
-    /**
-     * The Etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal ETag convention.
-     */
-    etag?: pulumi.Input<string>;
     /**
      * The resource location.
      */

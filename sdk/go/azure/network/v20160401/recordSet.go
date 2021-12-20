@@ -122,8 +122,6 @@ type recordSetArgs struct {
 	AaaaRecords []AaaaRecord `pulumi:"aaaaRecords"`
 	// The CNAME record in the  record set.
 	CnameRecord *CnameRecord `pulumi:"cnameRecord"`
-	// The etag of the record set.
-	Etag *string `pulumi:"etag"`
 	// The ID of the record set.
 	Id *string `pulumi:"id"`
 	// The metadata attached to the record set.
@@ -164,8 +162,6 @@ type RecordSetArgs struct {
 	AaaaRecords AaaaRecordArrayInput
 	// The CNAME record in the  record set.
 	CnameRecord CnameRecordPtrInput
-	// The etag of the record set.
-	Etag pulumi.StringPtrInput
 	// The ID of the record set.
 	Id pulumi.StringPtrInput
 	// The metadata attached to the record set.

@@ -53,7 +53,7 @@ export class FusionAlertRule extends pulumi.CustomResource {
     /**
      * Etag of the azure resource
      */
-    public readonly etag!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
     /**
      * The kind of the alert rule
      * Expected value is 'Fusion'.
@@ -108,13 +108,13 @@ export class FusionAlertRule extends pulumi.CustomResource {
             }
             resourceInputs["alertRuleTemplateName"] = args ? args.alertRuleTemplateName : undefined;
             resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["etag"] = args ? args.etag : undefined;
             resourceInputs["kind"] = "Fusion";
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["ruleId"] = args ? args.ruleId : undefined;
             resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["displayName"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["lastModifiedUtc"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["severity"] = undefined /*out*/;
@@ -154,10 +154,6 @@ export interface FusionAlertRuleArgs {
      * Determines whether this alert rule is enabled or disabled.
      */
     enabled: pulumi.Input<boolean>;
-    /**
-     * Etag of the azure resource
-     */
-    etag?: pulumi.Input<string>;
     /**
      * The kind of the alert rule
      * Expected value is 'Fusion'.

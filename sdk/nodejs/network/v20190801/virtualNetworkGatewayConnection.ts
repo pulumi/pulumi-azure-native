@@ -62,7 +62,7 @@ export class VirtualNetworkGatewayConnection extends pulumi.CustomResource {
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
-    public readonly etag!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
     /**
      * Bypass ExpressRoute Gateway for data forwarding.
      */
@@ -160,7 +160,6 @@ export class VirtualNetworkGatewayConnection extends pulumi.CustomResource {
             resourceInputs["connectionProtocol"] = args ? args.connectionProtocol : undefined;
             resourceInputs["connectionType"] = args ? args.connectionType : undefined;
             resourceInputs["enableBgp"] = args ? args.enableBgp : undefined;
-            resourceInputs["etag"] = args ? args.etag : undefined;
             resourceInputs["expressRouteGatewayBypass"] = args ? args.expressRouteGatewayBypass : undefined;
             resourceInputs["id"] = args ? args.id : undefined;
             resourceInputs["ipsecPolicies"] = args ? args.ipsecPolicies : undefined;
@@ -179,6 +178,7 @@ export class VirtualNetworkGatewayConnection extends pulumi.CustomResource {
             resourceInputs["virtualNetworkGatewayConnectionName"] = args ? args.virtualNetworkGatewayConnectionName : undefined;
             resourceInputs["connectionStatus"] = undefined /*out*/;
             resourceInputs["egressBytesTransferred"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["ingressBytesTransferred"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
@@ -240,10 +240,6 @@ export interface VirtualNetworkGatewayConnectionArgs {
      * EnableBgp flag.
      */
     enableBgp?: pulumi.Input<boolean>;
-    /**
-     * A unique read-only string that changes whenever the resource is updated.
-     */
-    etag?: pulumi.Input<string>;
     /**
      * Bypass ExpressRoute Gateway for data forwarding.
      */

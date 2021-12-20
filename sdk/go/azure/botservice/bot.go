@@ -99,8 +99,6 @@ func (BotState) ElementType() reflect.Type {
 }
 
 type botArgs struct {
-	// Entity Tag
-	Etag *string `pulumi:"etag"`
 	// Required. Gets or sets the Kind of the resource.
 	Kind *string `pulumi:"kind"`
 	// Specifies the location of the resource.
@@ -119,8 +117,6 @@ type botArgs struct {
 
 // The set of arguments for constructing a Bot resource.
 type BotArgs struct {
-	// Entity Tag
-	Etag pulumi.StringPtrInput
 	// Required. Gets or sets the Kind of the resource.
 	Kind pulumi.StringPtrInput
 	// Specifies the location of the resource.

@@ -85,8 +85,6 @@ func (FileState) ElementType() reflect.Type {
 }
 
 type fileArgs struct {
-	// HTTP strong entity tag value. This is ignored if submitted.
-	Etag *string `pulumi:"etag"`
 	// Name of the File
 	FileName *string `pulumi:"fileName"`
 	// Name of the resource group
@@ -101,8 +99,6 @@ type fileArgs struct {
 
 // The set of arguments for constructing a File resource.
 type FileArgs struct {
-	// HTTP strong entity tag value. This is ignored if submitted.
-	Etag pulumi.StringPtrInput
 	// Name of the File
 	FileName pulumi.StringPtrInput
 	// Name of the resource group

@@ -131,9 +131,6 @@ namespace Pulumi.AzureNative.Network.V20180101
 
     public sealed class NetworkWatcherArgs : Pulumi.ResourceArgs
     {
-        [Input("etag")]
-        public Input<string>? Etag { get; set; }
-
         /// <summary>
         /// Resource ID.
         /// </summary>
@@ -172,7 +169,6 @@ namespace Pulumi.AzureNative.Network.V20180101
 
         public NetworkWatcherArgs()
         {
-            Etag = "A unique read-only string that changes whenever the resource is updated.";
         }
     }
 }

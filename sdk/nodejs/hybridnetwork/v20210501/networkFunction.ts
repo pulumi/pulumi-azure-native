@@ -42,7 +42,7 @@ export class NetworkFunction extends pulumi.CustomResource {
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
-    public readonly etag!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
     /**
      * The geo-location where the resource lives
      */
@@ -119,7 +119,6 @@ export class NetworkFunction extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["device"] = args ? args.device : undefined;
-            resourceInputs["etag"] = args ? args.etag : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["managedApplicationParameters"] = args ? args.managedApplicationParameters : undefined;
             resourceInputs["networkFunctionContainerConfigurations"] = args ? args.networkFunctionContainerConfigurations : undefined;
@@ -129,6 +128,7 @@ export class NetworkFunction extends pulumi.CustomResource {
             resourceInputs["skuName"] = args ? args.skuName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["vendorName"] = args ? args.vendorName : undefined;
+            resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["managedApplication"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
@@ -173,10 +173,6 @@ export interface NetworkFunctionArgs {
      * The reference to the device resource. Once set, it cannot be updated.
      */
     device?: pulumi.Input<inputs.hybridnetwork.v20210501.SubResourceArgs>;
-    /**
-     * A unique read-only string that changes whenever the resource is updated.
-     */
-    etag?: pulumi.Input<string>;
     /**
      * The geo-location where the resource lives
      */

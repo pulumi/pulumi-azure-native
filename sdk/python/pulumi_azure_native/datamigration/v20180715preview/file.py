@@ -18,7 +18,6 @@ class FileArgs:
                  group_name: pulumi.Input[str],
                  project_name: pulumi.Input[str],
                  service_name: pulumi.Input[str],
-                 etag: Optional[pulumi.Input[str]] = None,
                  file_name: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input['ProjectFilePropertiesArgs']] = None):
         """
@@ -26,15 +25,12 @@ class FileArgs:
         :param pulumi.Input[str] group_name: Name of the resource group
         :param pulumi.Input[str] project_name: Name of the project
         :param pulumi.Input[str] service_name: Name of the service
-        :param pulumi.Input[str] etag: HTTP strong entity tag value. This is ignored if submitted.
         :param pulumi.Input[str] file_name: Name of the File
         :param pulumi.Input['ProjectFilePropertiesArgs'] properties: Custom file properties
         """
         pulumi.set(__self__, "group_name", group_name)
         pulumi.set(__self__, "project_name", project_name)
         pulumi.set(__self__, "service_name", service_name)
-        if etag is not None:
-            pulumi.set(__self__, "etag", etag)
         if file_name is not None:
             pulumi.set(__self__, "file_name", file_name)
         if properties is not None:
@@ -77,18 +73,6 @@ class FileArgs:
         pulumi.set(self, "service_name", value)
 
     @property
-    @pulumi.getter
-    def etag(self) -> Optional[pulumi.Input[str]]:
-        """
-        HTTP strong entity tag value. This is ignored if submitted.
-        """
-        return pulumi.get(self, "etag")
-
-    @etag.setter
-    def etag(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "etag", value)
-
-    @property
     @pulumi.getter(name="fileName")
     def file_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -118,7 +102,6 @@ class File(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  file_name: Optional[pulumi.Input[str]] = None,
                  group_name: Optional[pulumi.Input[str]] = None,
                  project_name: Optional[pulumi.Input[str]] = None,
@@ -130,7 +113,6 @@ class File(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] etag: HTTP strong entity tag value. This is ignored if submitted.
         :param pulumi.Input[str] file_name: Name of the File
         :param pulumi.Input[str] group_name: Name of the resource group
         :param pulumi.Input[str] project_name: Name of the project
@@ -161,7 +143,6 @@ class File(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  file_name: Optional[pulumi.Input[str]] = None,
                  group_name: Optional[pulumi.Input[str]] = None,
                  project_name: Optional[pulumi.Input[str]] = None,
@@ -179,7 +160,6 @@ class File(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = FileArgs.__new__(FileArgs)
 
-            __props__.__dict__["etag"] = etag
             __props__.__dict__["file_name"] = file_name
             if group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'group_name'")
@@ -191,6 +171,7 @@ class File(pulumi.CustomResource):
             if service_name is None and not opts.urn:
                 raise TypeError("Missing required property 'service_name'")
             __props__.__dict__["service_name"] = service_name
+            __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:datamigration:File"), pulumi.Alias(type_="azure-native:datamigration/v20210630:File"), pulumi.Alias(type_="azure-native:datamigration/v20211030preview:File")])
