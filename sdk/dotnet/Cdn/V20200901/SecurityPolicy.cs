@@ -74,6 +74,7 @@ namespace Pulumi.AzureNative.Cdn.V20200901
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:cdn:SecurityPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:cdn/v20210601:SecurityPolicy"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

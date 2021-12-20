@@ -95,7 +95,7 @@ export class SecurityPolicy extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:cdn/v20200901:SecurityPolicy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:cdn/v20200901:SecurityPolicy" }, { type: "azure-native:cdn/v20210601:SecurityPolicy" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SecurityPolicy.__pulumiType, name, resourceInputs, opts);
     }

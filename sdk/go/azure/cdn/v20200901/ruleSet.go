@@ -43,6 +43,9 @@ func NewRuleSet(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:cdn:RuleSet"),
 		},
+		{
+			Type: pulumi.String("azure-native:cdn/v20210601:RuleSet"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource RuleSet

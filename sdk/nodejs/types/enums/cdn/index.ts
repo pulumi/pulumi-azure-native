@@ -14,6 +14,7 @@ import * as v20191231 from "./v20191231";
 import * as v20200331 from "./v20200331";
 import * as v20200415 from "./v20200415";
 import * as v20200901 from "./v20200901";
+import * as v20210601 from "./v20210601";
 
 export {
     v20150601,
@@ -28,6 +29,7 @@ export {
     v20200331,
     v20200415,
     v20200901,
+    v20210601,
 };
 
 export const AFDEndpointProtocols = {
@@ -590,6 +592,10 @@ export type SkuName = (typeof SkuName)[keyof typeof SkuName];
 export const Transform = {
     Lowercase: "Lowercase",
     Uppercase: "Uppercase",
+    Trim: "Trim",
+    UrlDecode: "UrlDecode",
+    UrlEncode: "UrlEncode",
+    RemoveNulls: "RemoveNulls",
 } as const;
 
 /**

@@ -14,166 +14,10 @@ import (
 type ArcSqlManagedInstanceLicenseType string
 
 const (
-	ArcSqlManagedInstanceLicenseTypeBasePrice       = ArcSqlManagedInstanceLicenseType("BasePrice")
-	ArcSqlManagedInstanceLicenseTypeLicenseIncluded = ArcSqlManagedInstanceLicenseType("LicenseIncluded")
+	ArcSqlManagedInstanceLicenseTypeBasePrice        = ArcSqlManagedInstanceLicenseType("BasePrice")
+	ArcSqlManagedInstanceLicenseTypeLicenseIncluded  = ArcSqlManagedInstanceLicenseType("LicenseIncluded")
+	ArcSqlManagedInstanceLicenseTypeDisasterRecovery = ArcSqlManagedInstanceLicenseType("DisasterRecovery")
 )
-
-func (ArcSqlManagedInstanceLicenseType) ElementType() reflect.Type {
-	return reflect.TypeOf((*ArcSqlManagedInstanceLicenseType)(nil)).Elem()
-}
-
-func (e ArcSqlManagedInstanceLicenseType) ToArcSqlManagedInstanceLicenseTypeOutput() ArcSqlManagedInstanceLicenseTypeOutput {
-	return pulumi.ToOutput(e).(ArcSqlManagedInstanceLicenseTypeOutput)
-}
-
-func (e ArcSqlManagedInstanceLicenseType) ToArcSqlManagedInstanceLicenseTypeOutputWithContext(ctx context.Context) ArcSqlManagedInstanceLicenseTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(ArcSqlManagedInstanceLicenseTypeOutput)
-}
-
-func (e ArcSqlManagedInstanceLicenseType) ToArcSqlManagedInstanceLicenseTypePtrOutput() ArcSqlManagedInstanceLicenseTypePtrOutput {
-	return e.ToArcSqlManagedInstanceLicenseTypePtrOutputWithContext(context.Background())
-}
-
-func (e ArcSqlManagedInstanceLicenseType) ToArcSqlManagedInstanceLicenseTypePtrOutputWithContext(ctx context.Context) ArcSqlManagedInstanceLicenseTypePtrOutput {
-	return ArcSqlManagedInstanceLicenseType(e).ToArcSqlManagedInstanceLicenseTypeOutputWithContext(ctx).ToArcSqlManagedInstanceLicenseTypePtrOutputWithContext(ctx)
-}
-
-func (e ArcSqlManagedInstanceLicenseType) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e ArcSqlManagedInstanceLicenseType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e ArcSqlManagedInstanceLicenseType) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e ArcSqlManagedInstanceLicenseType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-type ArcSqlManagedInstanceLicenseTypeOutput struct{ *pulumi.OutputState }
-
-func (ArcSqlManagedInstanceLicenseTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ArcSqlManagedInstanceLicenseType)(nil)).Elem()
-}
-
-func (o ArcSqlManagedInstanceLicenseTypeOutput) ToArcSqlManagedInstanceLicenseTypeOutput() ArcSqlManagedInstanceLicenseTypeOutput {
-	return o
-}
-
-func (o ArcSqlManagedInstanceLicenseTypeOutput) ToArcSqlManagedInstanceLicenseTypeOutputWithContext(ctx context.Context) ArcSqlManagedInstanceLicenseTypeOutput {
-	return o
-}
-
-func (o ArcSqlManagedInstanceLicenseTypeOutput) ToArcSqlManagedInstanceLicenseTypePtrOutput() ArcSqlManagedInstanceLicenseTypePtrOutput {
-	return o.ToArcSqlManagedInstanceLicenseTypePtrOutputWithContext(context.Background())
-}
-
-func (o ArcSqlManagedInstanceLicenseTypeOutput) ToArcSqlManagedInstanceLicenseTypePtrOutputWithContext(ctx context.Context) ArcSqlManagedInstanceLicenseTypePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ArcSqlManagedInstanceLicenseType) *ArcSqlManagedInstanceLicenseType {
-		return &v
-	}).(ArcSqlManagedInstanceLicenseTypePtrOutput)
-}
-
-func (o ArcSqlManagedInstanceLicenseTypeOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o ArcSqlManagedInstanceLicenseTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e ArcSqlManagedInstanceLicenseType) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o ArcSqlManagedInstanceLicenseTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o ArcSqlManagedInstanceLicenseTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e ArcSqlManagedInstanceLicenseType) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type ArcSqlManagedInstanceLicenseTypePtrOutput struct{ *pulumi.OutputState }
-
-func (ArcSqlManagedInstanceLicenseTypePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ArcSqlManagedInstanceLicenseType)(nil)).Elem()
-}
-
-func (o ArcSqlManagedInstanceLicenseTypePtrOutput) ToArcSqlManagedInstanceLicenseTypePtrOutput() ArcSqlManagedInstanceLicenseTypePtrOutput {
-	return o
-}
-
-func (o ArcSqlManagedInstanceLicenseTypePtrOutput) ToArcSqlManagedInstanceLicenseTypePtrOutputWithContext(ctx context.Context) ArcSqlManagedInstanceLicenseTypePtrOutput {
-	return o
-}
-
-func (o ArcSqlManagedInstanceLicenseTypePtrOutput) Elem() ArcSqlManagedInstanceLicenseTypeOutput {
-	return o.ApplyT(func(v *ArcSqlManagedInstanceLicenseType) ArcSqlManagedInstanceLicenseType {
-		if v != nil {
-			return *v
-		}
-		var ret ArcSqlManagedInstanceLicenseType
-		return ret
-	}).(ArcSqlManagedInstanceLicenseTypeOutput)
-}
-
-func (o ArcSqlManagedInstanceLicenseTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o ArcSqlManagedInstanceLicenseTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ArcSqlManagedInstanceLicenseType) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// ArcSqlManagedInstanceLicenseTypeInput is an input type that accepts ArcSqlManagedInstanceLicenseTypeArgs and ArcSqlManagedInstanceLicenseTypeOutput values.
-// You can construct a concrete instance of `ArcSqlManagedInstanceLicenseTypeInput` via:
-//
-//          ArcSqlManagedInstanceLicenseTypeArgs{...}
-type ArcSqlManagedInstanceLicenseTypeInput interface {
-	pulumi.Input
-
-	ToArcSqlManagedInstanceLicenseTypeOutput() ArcSqlManagedInstanceLicenseTypeOutput
-	ToArcSqlManagedInstanceLicenseTypeOutputWithContext(context.Context) ArcSqlManagedInstanceLicenseTypeOutput
-}
-
-var arcSqlManagedInstanceLicenseTypePtrType = reflect.TypeOf((**ArcSqlManagedInstanceLicenseType)(nil)).Elem()
-
-type ArcSqlManagedInstanceLicenseTypePtrInput interface {
-	pulumi.Input
-
-	ToArcSqlManagedInstanceLicenseTypePtrOutput() ArcSqlManagedInstanceLicenseTypePtrOutput
-	ToArcSqlManagedInstanceLicenseTypePtrOutputWithContext(context.Context) ArcSqlManagedInstanceLicenseTypePtrOutput
-}
-
-type arcSqlManagedInstanceLicenseTypePtr string
-
-func ArcSqlManagedInstanceLicenseTypePtr(v string) ArcSqlManagedInstanceLicenseTypePtrInput {
-	return (*arcSqlManagedInstanceLicenseTypePtr)(&v)
-}
-
-func (*arcSqlManagedInstanceLicenseTypePtr) ElementType() reflect.Type {
-	return arcSqlManagedInstanceLicenseTypePtrType
-}
-
-func (in *arcSqlManagedInstanceLicenseTypePtr) ToArcSqlManagedInstanceLicenseTypePtrOutput() ArcSqlManagedInstanceLicenseTypePtrOutput {
-	return pulumi.ToOutput(in).(ArcSqlManagedInstanceLicenseTypePtrOutput)
-}
-
-func (in *arcSqlManagedInstanceLicenseTypePtr) ToArcSqlManagedInstanceLicenseTypePtrOutputWithContext(ctx context.Context) ArcSqlManagedInstanceLicenseTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(ArcSqlManagedInstanceLicenseTypePtrOutput)
-}
 
 // SQL Server license type.
 type ArcSqlServerLicenseType string
@@ -566,8 +410,6 @@ const (
 )
 
 func init() {
-	pulumi.RegisterOutputType(ArcSqlManagedInstanceLicenseTypeOutput{})
-	pulumi.RegisterOutputType(ArcSqlManagedInstanceLicenseTypePtrOutput{})
 	pulumi.RegisterOutputType(InfrastructureOutput{})
 	pulumi.RegisterOutputType(InfrastructurePtrOutput{})
 	pulumi.RegisterOutputType(SqlManagedInstanceSkuTierOutput{})

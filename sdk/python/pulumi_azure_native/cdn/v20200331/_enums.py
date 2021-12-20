@@ -381,6 +381,10 @@ class Transform(str, Enum):
     """
     LOWERCASE = "Lowercase"
     UPPERCASE = "Uppercase"
+    TRIM = "Trim"
+    URL_DECODE = "UrlDecode"
+    URL_ENCODE = "UrlEncode"
+    REMOVE_NULLS = "RemoveNulls"
 
 
 class TransformType(str, Enum):

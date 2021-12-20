@@ -69,6 +69,7 @@ namespace Pulumi.AzureNative.Cdn
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:cdn/v20200901:RuleSet"},
+                    new Pulumi.Alias { Type = "azure-native:cdn/v20210601:RuleSet"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

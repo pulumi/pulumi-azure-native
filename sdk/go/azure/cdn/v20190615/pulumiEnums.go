@@ -631,8 +631,12 @@ const (
 type Transform string
 
 const (
-	TransformLowercase = Transform("Lowercase")
-	TransformUppercase = Transform("Uppercase")
+	TransformLowercase   = Transform("Lowercase")
+	TransformUppercase   = Transform("Uppercase")
+	TransformTrim        = Transform("Trim")
+	TransformUrlDecode   = Transform("UrlDecode")
+	TransformUrlEncode   = Transform("UrlEncode")
+	TransformRemoveNulls = Transform("RemoveNulls")
 )
 
 // Describes what transforms were applied before matching.

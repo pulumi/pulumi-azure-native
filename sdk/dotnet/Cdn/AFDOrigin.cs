@@ -123,6 +123,7 @@ namespace Pulumi.AzureNative.Cdn
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:cdn/v20200901:AFDOrigin"},
+                    new Pulumi.Alias { Type = "azure-native:cdn/v20210601:AFDOrigin"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

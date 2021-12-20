@@ -197,6 +197,7 @@ namespace Pulumi.AzureNative.Cdn
                     new Pulumi.Alias { Type = "azure-native:cdn/v20200331:Endpoint"},
                     new Pulumi.Alias { Type = "azure-native:cdn/v20200415:Endpoint"},
                     new Pulumi.Alias { Type = "azure-native:cdn/v20200901:Endpoint"},
+                    new Pulumi.Alias { Type = "azure-native:cdn/v20210601:Endpoint"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

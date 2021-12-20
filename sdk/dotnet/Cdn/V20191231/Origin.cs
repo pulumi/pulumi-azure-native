@@ -112,6 +112,7 @@ namespace Pulumi.AzureNative.Cdn.V20191231
                     new Pulumi.Alias { Type = "azure-native:cdn/v20200331:Origin"},
                     new Pulumi.Alias { Type = "azure-native:cdn/v20200415:Origin"},
                     new Pulumi.Alias { Type = "azure-native:cdn/v20200901:Origin"},
+                    new Pulumi.Alias { Type = "azure-native:cdn/v20210601:Origin"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

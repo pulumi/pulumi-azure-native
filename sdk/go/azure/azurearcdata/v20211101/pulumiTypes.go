@@ -2345,7 +2345,7 @@ type SqlManagedInstanceProperties struct {
 	// Last uploaded date from Kubernetes cluster. Defaults to current date time
 	LastUploadedDate *string `pulumi:"lastUploadedDate"`
 	// The license type to apply for this managed instance.
-	LicenseType *ArcSqlManagedInstanceLicenseType `pulumi:"licenseType"`
+	LicenseType *string `pulumi:"licenseType"`
 	// The instance start time
 	StartTime *string `pulumi:"startTime"`
 }
@@ -2357,7 +2357,7 @@ func (val *SqlManagedInstanceProperties) Defaults() *SqlManagedInstancePropertie
 	}
 	tmp := *val
 	if isZero(tmp.LicenseType) {
-		licenseType_ := ArcSqlManagedInstanceLicenseType("BasePrice")
+		licenseType_ := "BasePrice"
 		tmp.LicenseType = &licenseType_
 	}
 	return &tmp
@@ -2393,7 +2393,7 @@ type SqlManagedInstancePropertiesArgs struct {
 	// Last uploaded date from Kubernetes cluster. Defaults to current date time
 	LastUploadedDate pulumi.StringPtrInput `pulumi:"lastUploadedDate"`
 	// The license type to apply for this managed instance.
-	LicenseType ArcSqlManagedInstanceLicenseTypePtrInput `pulumi:"licenseType"`
+	LicenseType pulumi.StringPtrInput `pulumi:"licenseType"`
 	// The instance start time
 	StartTime pulumi.StringPtrInput `pulumi:"startTime"`
 }
@@ -2466,8 +2466,8 @@ func (o SqlManagedInstancePropertiesOutput) LastUploadedDate() pulumi.StringPtrO
 }
 
 // The license type to apply for this managed instance.
-func (o SqlManagedInstancePropertiesOutput) LicenseType() ArcSqlManagedInstanceLicenseTypePtrOutput {
-	return o.ApplyT(func(v SqlManagedInstanceProperties) *ArcSqlManagedInstanceLicenseType { return v.LicenseType }).(ArcSqlManagedInstanceLicenseTypePtrOutput)
+func (o SqlManagedInstancePropertiesOutput) LicenseType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SqlManagedInstanceProperties) *string { return v.LicenseType }).(pulumi.StringPtrOutput)
 }
 
 // The instance start time

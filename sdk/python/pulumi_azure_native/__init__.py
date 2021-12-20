@@ -3043,6 +3043,28 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "cdn/v20210601",
+  "fqn": "pulumi_azure_native.cdn.v20210601",
+  "classes": {
+   "azure-native:cdn/v20210601:AFDCustomDomain": "AFDCustomDomain",
+   "azure-native:cdn/v20210601:AFDEndpoint": "AFDEndpoint",
+   "azure-native:cdn/v20210601:AFDOrigin": "AFDOrigin",
+   "azure-native:cdn/v20210601:AFDOriginGroup": "AFDOriginGroup",
+   "azure-native:cdn/v20210601:CustomDomain": "CustomDomain",
+   "azure-native:cdn/v20210601:Endpoint": "Endpoint",
+   "azure-native:cdn/v20210601:Origin": "Origin",
+   "azure-native:cdn/v20210601:OriginGroup": "OriginGroup",
+   "azure-native:cdn/v20210601:Policy": "Policy",
+   "azure-native:cdn/v20210601:Profile": "Profile",
+   "azure-native:cdn/v20210601:Route": "Route",
+   "azure-native:cdn/v20210601:Rule": "Rule",
+   "azure-native:cdn/v20210601:RuleSet": "RuleSet",
+   "azure-native:cdn/v20210601:Secret": "Secret",
+   "azure-native:cdn/v20210601:SecurityPolicy": "SecurityPolicy"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "certificateregistration",
   "fqn": "pulumi_azure_native.certificateregistration",
   "classes": {

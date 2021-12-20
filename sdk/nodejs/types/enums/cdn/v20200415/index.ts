@@ -418,6 +418,10 @@ export type SkuName = (typeof SkuName)[keyof typeof SkuName];
 export const Transform = {
     Lowercase: "Lowercase",
     Uppercase: "Uppercase",
+    Trim: "Trim",
+    UrlDecode: "UrlDecode",
+    UrlEncode: "UrlEncode",
+    RemoveNulls: "RemoveNulls",
 } as const;
 
 /**

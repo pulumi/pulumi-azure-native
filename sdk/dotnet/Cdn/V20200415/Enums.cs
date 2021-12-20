@@ -1128,6 +1128,10 @@ namespace Pulumi.AzureNative.Cdn.V20200415
 
         public static Transform Lowercase { get; } = new Transform("Lowercase");
         public static Transform Uppercase { get; } = new Transform("Uppercase");
+        public static Transform Trim { get; } = new Transform("Trim");
+        public static Transform UrlDecode { get; } = new Transform("UrlDecode");
+        public static Transform UrlEncode { get; } = new Transform("UrlEncode");
+        public static Transform RemoveNulls { get; } = new Transform("RemoveNulls");
 
         public static bool operator ==(Transform left, Transform right) => left.Equals(right);
         public static bool operator !=(Transform left, Transform right) => !left.Equals(right);

@@ -23,6 +23,7 @@ class ArcSqlManagedInstanceLicenseType(str, Enum):
     """
     BASE_PRICE = "BasePrice"
     LICENSE_INCLUDED = "LicenseIncluded"
+    DISASTER_RECOVERY = "DisasterRecovery"
 
 
 class ArcSqlServerLicenseType(str, Enum):

@@ -22,6 +22,7 @@ namespace Pulumi.AzureNative.AzureArcData.V20211101
 
         public static ArcSqlManagedInstanceLicenseType BasePrice { get; } = new ArcSqlManagedInstanceLicenseType("BasePrice");
         public static ArcSqlManagedInstanceLicenseType LicenseIncluded { get; } = new ArcSqlManagedInstanceLicenseType("LicenseIncluded");
+        public static ArcSqlManagedInstanceLicenseType DisasterRecovery { get; } = new ArcSqlManagedInstanceLicenseType("DisasterRecovery");
 
         public static bool operator ==(ArcSqlManagedInstanceLicenseType left, ArcSqlManagedInstanceLicenseType right) => left.Equals(right);
         public static bool operator !=(ArcSqlManagedInstanceLicenseType left, ArcSqlManagedInstanceLicenseType right) => !left.Equals(right);

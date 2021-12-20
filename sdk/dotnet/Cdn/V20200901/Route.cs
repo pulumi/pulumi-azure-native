@@ -140,6 +140,7 @@ namespace Pulumi.AzureNative.Cdn.V20200901
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:cdn:Route"},
+                    new Pulumi.Alias { Type = "azure-native:cdn/v20210601:Route"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

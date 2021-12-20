@@ -94,6 +94,7 @@ namespace Pulumi.AzureNative.Cdn.V20160402
                     new Pulumi.Alias { Type = "azure-native:cdn/v20200331:Profile"},
                     new Pulumi.Alias { Type = "azure-native:cdn/v20200415:Profile"},
                     new Pulumi.Alias { Type = "azure-native:cdn/v20200901:Profile"},
+                    new Pulumi.Alias { Type = "azure-native:cdn/v20210601:Profile"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

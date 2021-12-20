@@ -5,6 +5,7 @@
 export const ArcSqlManagedInstanceLicenseType = {
     BasePrice: "BasePrice",
     LicenseIncluded: "LicenseIncluded",
+    DisasterRecovery: "DisasterRecovery",
 } as const;
 
 /**

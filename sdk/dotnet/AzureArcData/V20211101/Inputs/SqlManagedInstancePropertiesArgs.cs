@@ -67,7 +67,7 @@ namespace Pulumi.AzureNative.AzureArcData.V20211101.Inputs
         /// The license type to apply for this managed instance.
         /// </summary>
         [Input("licenseType")]
-        public Input<Pulumi.AzureNative.AzureArcData.V20211101.ArcSqlManagedInstanceLicenseType>? LicenseType { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.AzureArcData.V20211101.ArcSqlManagedInstanceLicenseType>? LicenseType { get; set; }
 
         /// <summary>
         /// The instance start time
@@ -77,7 +77,7 @@ namespace Pulumi.AzureNative.AzureArcData.V20211101.Inputs
 
         public SqlManagedInstancePropertiesArgs()
         {
-            LicenseType = Pulumi.AzureNative.AzureArcData.V20211101.ArcSqlManagedInstanceLicenseType.BasePrice;
+            LicenseType = "BasePrice";
         }
     }
 }

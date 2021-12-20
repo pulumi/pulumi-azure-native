@@ -566,7 +566,7 @@ class SqlManagedInstancePropertiesArgs:
                  extension_id: Optional[pulumi.Input[str]] = None,
                  k8s_raw: Optional[pulumi.Input['SqlManagedInstanceK8sRawArgs']] = None,
                  last_uploaded_date: Optional[pulumi.Input[str]] = None,
-                 license_type: Optional[pulumi.Input['ArcSqlManagedInstanceLicenseType']] = None,
+                 license_type: Optional[pulumi.Input[Union[str, 'ArcSqlManagedInstanceLicenseType']]] = None,
                  start_time: Optional[pulumi.Input[str]] = None):
         """
         Properties of sqlManagedInstance.
@@ -578,7 +578,7 @@ class SqlManagedInstancePropertiesArgs:
         :param pulumi.Input[str] extension_id: If a CustomLocation is provided, this contains the ARM id of the extension the custom location belongs to.
         :param pulumi.Input['SqlManagedInstanceK8sRawArgs'] k8s_raw: The raw kubernetes information
         :param pulumi.Input[str] last_uploaded_date: Last uploaded date from Kubernetes cluster. Defaults to current date time
-        :param pulumi.Input['ArcSqlManagedInstanceLicenseType'] license_type: The license type to apply for this managed instance.
+        :param pulumi.Input[Union[str, 'ArcSqlManagedInstanceLicenseType']] license_type: The license type to apply for this managed instance.
         :param pulumi.Input[str] start_time: The instance start time
         """
         if admin is not None:
@@ -702,14 +702,14 @@ class SqlManagedInstancePropertiesArgs:
 
     @property
     @pulumi.getter(name="licenseType")
-    def license_type(self) -> Optional[pulumi.Input['ArcSqlManagedInstanceLicenseType']]:
+    def license_type(self) -> Optional[pulumi.Input[Union[str, 'ArcSqlManagedInstanceLicenseType']]]:
         """
         The license type to apply for this managed instance.
         """
         return pulumi.get(self, "license_type")
 
     @license_type.setter
-    def license_type(self, value: Optional[pulumi.Input['ArcSqlManagedInstanceLicenseType']]):
+    def license_type(self, value: Optional[pulumi.Input[Union[str, 'ArcSqlManagedInstanceLicenseType']]]):
         pulumi.set(self, "license_type", value)
 
     @property
