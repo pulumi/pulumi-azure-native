@@ -219,12 +219,6 @@ namespace Pulumi.AzureNative.Network.V20180501
         [Input("cnameRecord")]
         public Input<Inputs.CnameRecordArgs>? CnameRecord { get; set; }
 
-        /// <summary>
-        /// The etag of the record set.
-        /// </summary>
-        [Input("etag")]
-        public Input<string>? Etag { get; set; }
-
         [Input("metadata")]
         private InputMap<string>? _metadata;
 

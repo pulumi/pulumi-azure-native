@@ -136,12 +136,6 @@ namespace Pulumi.AzureNative.Devices.V20210303Preview
     public sealed class IotHubResourceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal ETag convention.
-        /// </summary>
-        [Input("etag")]
-        public Input<string>? Etag { get; set; }
-
-        /// <summary>
         /// The managed identities for the IotHub.
         /// </summary>
         [Input("identity")]

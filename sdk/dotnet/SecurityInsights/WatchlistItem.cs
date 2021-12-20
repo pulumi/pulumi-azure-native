@@ -171,12 +171,6 @@ namespace Pulumi.AzureNative.SecurityInsights
         public Input<object>? EntityMapping { get; set; }
 
         /// <summary>
-        /// Etag of the azure resource
-        /// </summary>
-        [Input("etag")]
-        public Input<string>? Etag { get; set; }
-
-        /// <summary>
         /// A flag that indicates if the watchlist item is deleted or not
         /// </summary>
         [Input("isDeleted")]

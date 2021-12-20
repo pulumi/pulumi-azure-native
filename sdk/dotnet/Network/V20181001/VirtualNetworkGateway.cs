@@ -216,12 +216,6 @@ namespace Pulumi.AzureNative.Network.V20181001
         public Input<bool>? EnableBgp { get; set; }
 
         /// <summary>
-        /// Gets a unique read-only string that changes whenever the resource is updated.
-        /// </summary>
-        [Input("etag")]
-        public Input<string>? Etag { get; set; }
-
-        /// <summary>
         /// The reference of the LocalNetworkGateway resource which represents local network site having default routes. Assign Null value in case of removing existing default site setting.
         /// </summary>
         [Input("gatewayDefaultSite")]

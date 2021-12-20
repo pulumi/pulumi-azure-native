@@ -102,12 +102,6 @@ namespace Pulumi.AzureNative.AzureStack.V20200601Preview
         public Input<string>? CustomerSubscriptionName { get; set; }
 
         /// <summary>
-        /// The entity tag used for optimistic concurrency when modifying the resource.
-        /// </summary>
-        [Input("etag")]
-        public Input<string>? Etag { get; set; }
-
-        /// <summary>
         /// Name of the Azure Stack registration.
         /// </summary>
         [Input("registrationName", required: true)]

@@ -117,12 +117,6 @@ namespace Pulumi.AzureNative.KeyVault.V20210401Preview
     public sealed class PrivateEndpointConnectionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Modified whenever there is a change in the state of private endpoint connection.
-        /// </summary>
-        [Input("etag")]
-        public Input<string>? Etag { get; set; }
-
-        /// <summary>
         /// Name of the private endpoint connection associated with the key vault.
         /// </summary>
         [Input("privateEndpointConnectionName")]

@@ -253,12 +253,6 @@ namespace Pulumi.AzureNative.Network.V20170801
         public InputUnion<string, Pulumi.AzureNative.Network.V20170801.SecurityRuleDirection> Direction { get; set; } = null!;
 
         /// <summary>
-        /// A unique read-only string that changes whenever the resource is updated.
-        /// </summary>
-        [Input("etag")]
-        public Input<string>? Etag { get; set; }
-
-        /// <summary>
         /// Resource ID.
         /// </summary>
         [Input("id")]

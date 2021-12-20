@@ -114,12 +114,6 @@ namespace Pulumi.AzureNative.HealthcareApis
     public sealed class IotConnectorFhirDestinationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// An etag associated with the resource, used for optimistic concurrency when editing it.
-        /// </summary>
-        [Input("etag")]
-        public Input<string>? Etag { get; set; }
-
-        /// <summary>
         /// The name of IoT Connector FHIR destination resource.
         /// </summary>
         [Input("fhirDestinationName")]

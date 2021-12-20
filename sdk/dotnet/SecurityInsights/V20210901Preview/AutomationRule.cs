@@ -162,12 +162,6 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210901Preview
         public Input<string> DisplayName { get; set; } = null!;
 
         /// <summary>
-        /// Etag of the azure resource
-        /// </summary>
-        [Input("etag")]
-        public Input<string>? Etag { get; set; }
-
-        /// <summary>
         /// The order of execution of the automation rule
         /// </summary>
         [Input("order", required: true)]

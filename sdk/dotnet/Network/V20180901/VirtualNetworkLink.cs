@@ -121,12 +121,6 @@ namespace Pulumi.AzureNative.Network.V20180901
     public sealed class VirtualNetworkLinkArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ETag of the virtual network link.
-        /// </summary>
-        [Input("etag")]
-        public Input<string>? Etag { get; set; }
-
-        /// <summary>
         /// The Azure Region where the resource lives
         /// </summary>
         [Input("location")]

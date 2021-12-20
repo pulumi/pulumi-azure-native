@@ -132,12 +132,6 @@ namespace Pulumi.AzureNative.ResourceGraph.V20200401Preview
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// This will be used to handle Optimistic Concurrency.
-        /// </summary>
-        [Input("etag")]
-        public Input<string>? Etag { get; set; }
-
-        /// <summary>
         /// KQL query that will be graph.
         /// </summary>
         [Input("query", required: true)]

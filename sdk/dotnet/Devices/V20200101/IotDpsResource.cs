@@ -113,12 +113,6 @@ namespace Pulumi.AzureNative.Devices.V20200101
     public sealed class IotDpsResourceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal ETag convention.
-        /// </summary>
-        [Input("etag")]
-        public Input<string>? Etag { get; set; }
-
-        /// <summary>
         /// The resource location.
         /// </summary>
         [Input("location")]

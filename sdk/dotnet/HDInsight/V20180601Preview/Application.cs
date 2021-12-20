@@ -109,12 +109,6 @@ namespace Pulumi.AzureNative.HDInsight.V20180601Preview
         public Input<string> ClusterName { get; set; } = null!;
 
         /// <summary>
-        /// The ETag for the application
-        /// </summary>
-        [Input("etag")]
-        public Input<string>? Etag { get; set; }
-
-        /// <summary>
         /// The properties of the application.
         /// </summary>
         [Input("properties")]

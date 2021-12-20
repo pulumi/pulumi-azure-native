@@ -170,12 +170,6 @@ namespace Pulumi.AzureNative.Network.V20190601
         [Input("autoApproval")]
         public Input<Inputs.PrivateLinkServicePropertiesAutoApprovalArgs>? AutoApproval { get; set; }
 
-        /// <summary>
-        /// A unique read-only string that changes whenever the resource is updated.
-        /// </summary>
-        [Input("etag")]
-        public Input<string>? Etag { get; set; }
-
         [Input("fqdns")]
         private InputList<string>? _fqdns;
 

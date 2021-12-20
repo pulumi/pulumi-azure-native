@@ -266,12 +266,6 @@ namespace Pulumi.AzureNative.Insights.V20200202
         public Input<bool>? DisableLocalAuth { get; set; }
 
         /// <summary>
-        /// Resource etag
-        /// </summary>
-        [Input("etag")]
-        public Input<string>? Etag { get; set; }
-
-        /// <summary>
         /// Used by the Application Insights system to determine what kind of flow this component was created by. This is to be set to 'Bluefield' when creating/updating a component via the REST API.
         /// </summary>
         [Input("flowType")]

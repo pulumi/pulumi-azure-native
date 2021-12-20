@@ -114,12 +114,6 @@ namespace Pulumi.AzureNative.BotService
     public sealed class EnterpriseChannelArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Entity Tag
-        /// </summary>
-        [Input("etag")]
-        public Input<string>? Etag { get; set; }
-
-        /// <summary>
         /// Required. Gets or sets the Kind of the resource.
         /// </summary>
         [Input("kind")]

@@ -121,12 +121,6 @@ namespace Pulumi.AzureNative.StorSimple
         public Input<Inputs.ManagerIntrinsicSettingsArgs>? CisIntrinsicSettings { get; set; }
 
         /// <summary>
-        /// The etag of the manager.
-        /// </summary>
-        [Input("etag")]
-        public Input<string>? Etag { get; set; }
-
-        /// <summary>
         /// The geo location of the resource.
         /// </summary>
         [Input("location")]

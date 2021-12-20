@@ -360,12 +360,6 @@ namespace Pulumi.AzureNative.Network.V20181101
         [Input("enableHttp2")]
         public Input<bool>? EnableHttp2 { get; set; }
 
-        /// <summary>
-        /// A unique read-only string that changes whenever the resource is updated.
-        /// </summary>
-        [Input("etag")]
-        public Input<string>? Etag { get; set; }
-
         [Input("frontendIPConfigurations")]
         private InputList<Inputs.ApplicationGatewayFrontendIPConfigurationArgs>? _frontendIPConfigurations;
 

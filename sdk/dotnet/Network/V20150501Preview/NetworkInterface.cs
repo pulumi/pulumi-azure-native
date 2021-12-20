@@ -198,12 +198,6 @@ namespace Pulumi.AzureNative.Network.V20150501Preview
         [Input("enableIPForwarding")]
         public Input<bool>? EnableIPForwarding { get; set; }
 
-        /// <summary>
-        /// Gets a unique read-only string that changes whenever the resource is updated
-        /// </summary>
-        [Input("etag")]
-        public Input<string>? Etag { get; set; }
-
         [Input("ipConfigurations")]
         private InputList<Inputs.NetworkInterfaceIpConfigurationArgs>? _ipConfigurations;
 

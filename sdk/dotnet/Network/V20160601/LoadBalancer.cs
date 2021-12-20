@@ -198,12 +198,6 @@ namespace Pulumi.AzureNative.Network.V20160601
             set => _backendAddressPools = value;
         }
 
-        /// <summary>
-        /// Gets a unique read-only string that changes whenever the resource is updated
-        /// </summary>
-        [Input("etag")]
-        public Input<string>? Etag { get; set; }
-
         [Input("frontendIPConfigurations")]
         private InputList<Inputs.FrontendIPConfigurationArgs>? _frontendIPConfigurations;
 

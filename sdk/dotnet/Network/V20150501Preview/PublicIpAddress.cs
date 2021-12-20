@@ -181,12 +181,6 @@ namespace Pulumi.AzureNative.Network.V20150501Preview
         public Input<Inputs.PublicIpAddressDnsSettingsArgs>? DnsSettings { get; set; }
 
         /// <summary>
-        /// Gets a unique read-only string that changes whenever the resource is updated
-        /// </summary>
-        [Input("etag")]
-        public Input<string>? Etag { get; set; }
-
-        /// <summary>
         /// Gets or sets the idle timeout of the public IP address
         /// </summary>
         [Input("idleTimeoutInMinutes")]

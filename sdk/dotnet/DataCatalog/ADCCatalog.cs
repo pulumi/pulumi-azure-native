@@ -156,12 +156,6 @@ namespace Pulumi.AzureNative.DataCatalog
         public Input<bool>? EnableAutomaticUnitAdjustment { get; set; }
 
         /// <summary>
-        /// Resource etag
-        /// </summary>
-        [Input("etag")]
-        public Input<string>? Etag { get; set; }
-
-        /// <summary>
         /// Resource location
         /// </summary>
         [Input("location")]

@@ -274,12 +274,6 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210301Preview
         }
 
         /// <summary>
-        /// Etag of the azure resource
-        /// </summary>
-        [Input("etag")]
-        public Input<string>? Etag { get; set; }
-
-        /// <summary>
         /// The event grouping settings.
         /// </summary>
         [Input("eventGroupingSettings")]

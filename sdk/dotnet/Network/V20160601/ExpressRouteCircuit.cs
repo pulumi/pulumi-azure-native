@@ -229,12 +229,6 @@ namespace Pulumi.AzureNative.Network.V20160601
         public Input<string>? CircuitProvisioningState { get; set; }
 
         /// <summary>
-        /// Gets a unique read-only string that changes whenever the resource is updated
-        /// </summary>
-        [Input("etag")]
-        public Input<string>? Etag { get; set; }
-
-        /// <summary>
         /// Gets or sets the GatewayManager Etag
         /// </summary>
         [Input("gatewayManagerEtag")]

@@ -250,12 +250,6 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210901Preview
         }
 
         /// <summary>
-        /// Etag of the azure resource
-        /// </summary>
-        [Input("etag")]
-        public Input<string>? Etag { get; set; }
-
-        /// <summary>
         /// The settings of the incidents that created from alerts triggered by this analytics rule
         /// </summary>
         [Input("incidentConfiguration")]

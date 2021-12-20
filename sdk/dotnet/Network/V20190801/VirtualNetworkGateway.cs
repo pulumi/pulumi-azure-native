@@ -252,12 +252,6 @@ namespace Pulumi.AzureNative.Network.V20190801
         public Input<bool>? EnableDnsForwarding { get; set; }
 
         /// <summary>
-        /// A unique read-only string that changes whenever the resource is updated.
-        /// </summary>
-        [Input("etag")]
-        public Input<string>? Etag { get; set; }
-
-        /// <summary>
         /// The reference of the LocalNetworkGateway resource which represents local network site having default routes. Assign Null value in case of removing existing default site setting.
         /// </summary>
         [Input("gatewayDefaultSite")]

@@ -127,12 +127,6 @@ namespace Pulumi.AzureNative.ResourceGraph
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// This will be used to handle Optimistic Concurrency. If not present, it will always overwrite the existing resource without checking conflict.
-        /// </summary>
-        [Input("etag")]
-        public Input<string>? Etag { get; set; }
-
-        /// <summary>
         /// The location of the resource
         /// </summary>
         [Input("location")]

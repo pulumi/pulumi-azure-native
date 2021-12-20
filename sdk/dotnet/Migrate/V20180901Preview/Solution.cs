@@ -89,12 +89,6 @@ namespace Pulumi.AzureNative.Migrate.V20180901Preview
     public sealed class SolutionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Gets or sets the ETAG for optimistic concurrency control.
-        /// </summary>
-        [Input("etag")]
-        public Input<string>? Etag { get; set; }
-
-        /// <summary>
         /// Name of the Azure Migrate project.
         /// </summary>
         [Input("migrateProjectName", required: true)]

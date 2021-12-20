@@ -270,12 +270,6 @@ namespace Pulumi.AzureNative.Network.V20190201
         public Input<bool>? EnableBgp { get; set; }
 
         /// <summary>
-        /// Gets a unique read-only string that changes whenever the resource is updated.
-        /// </summary>
-        [Input("etag")]
-        public Input<string>? Etag { get; set; }
-
-        /// <summary>
         /// Bypass ExpressRoute Gateway for data forwarding
         /// </summary>
         [Input("expressRouteGatewayBypass")]

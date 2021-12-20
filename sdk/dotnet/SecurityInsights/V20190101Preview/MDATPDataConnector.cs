@@ -124,12 +124,6 @@ namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview
         public Input<Inputs.AlertsDataTypeOfDataConnectorArgs>? DataTypes { get; set; }
 
         /// <summary>
-        /// Etag of the azure resource
-        /// </summary>
-        [Input("etag")]
-        public Input<string>? Etag { get; set; }
-
-        /// <summary>
         /// 
         /// Expected value is 'MicrosoftDefenderAdvancedThreatProtection'.
         /// </summary>

@@ -238,12 +238,6 @@ namespace Pulumi.AzureNative.ApiManagement.V20160707
             set => _customProperties = value;
         }
 
-        /// <summary>
-        /// ETag of the resource.
-        /// </summary>
-        [Input("etag")]
-        public Input<string>? Etag { get; set; }
-
         [Input("hostnameConfigurations")]
         private InputList<Inputs.HostnameConfigurationArgs>? _hostnameConfigurations;
 

@@ -114,12 +114,6 @@ namespace Pulumi.AzureNative.Network
         public InputUnion<string, Pulumi.AzureNative.Network.State>? EnabledState { get; set; }
 
         /// <summary>
-        /// Gets a unique read-only string that changes whenever the resource is updated.
-        /// </summary>
-        [Input("etag")]
-        public Input<string>? Etag { get; set; }
-
-        /// <summary>
         /// Resource location.
         /// </summary>
         [Input("location")]

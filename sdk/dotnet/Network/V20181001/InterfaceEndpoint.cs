@@ -158,12 +158,6 @@ namespace Pulumi.AzureNative.Network.V20181001
         public Input<Inputs.EndpointServiceArgs>? EndpointService { get; set; }
 
         /// <summary>
-        /// Gets a unique read-only string that changes whenever the resource is updated.
-        /// </summary>
-        [Input("etag")]
-        public Input<string>? Etag { get; set; }
-
-        /// <summary>
         /// A first-party service's FQDN that is mapped to the private IP allocated via this interface endpoint.
         /// </summary>
         [Input("fqdn")]

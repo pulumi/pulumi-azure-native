@@ -143,12 +143,6 @@ namespace Pulumi.AzureNative.Network
     public sealed class ZoneArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The etag of the zone.
-        /// </summary>
-        [Input("etag")]
-        public Input<string>? Etag { get; set; }
-
-        /// <summary>
         /// Resource location.
         /// </summary>
         [Input("location")]

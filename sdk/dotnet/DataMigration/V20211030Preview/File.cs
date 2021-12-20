@@ -97,12 +97,6 @@ namespace Pulumi.AzureNative.DataMigration.V20211030Preview
     public sealed class FileArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// HTTP strong entity tag value. This is ignored if submitted.
-        /// </summary>
-        [Input("etag")]
-        public Input<string>? Etag { get; set; }
-
-        /// <summary>
         /// Name of the File
         /// </summary>
         [Input("fileName")]

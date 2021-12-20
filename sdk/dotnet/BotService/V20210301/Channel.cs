@@ -129,12 +129,6 @@ namespace Pulumi.AzureNative.BotService.V20210301
         public Input<string>? ChannelName { get; set; }
 
         /// <summary>
-        /// Entity Tag
-        /// </summary>
-        [Input("etag")]
-        public Input<string>? Etag { get; set; }
-
-        /// <summary>
         /// Required. Gets or sets the Kind of the resource.
         /// </summary>
         [Input("kind")]

@@ -95,12 +95,6 @@ namespace Pulumi.AzureNative.DataMigration.V20180315Preview
     public sealed class TaskArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// HTTP strong entity tag value. This is ignored if submitted.
-        /// </summary>
-        [Input("etag")]
-        public Input<string>? Etag { get; set; }
-
-        /// <summary>
         /// Name of the resource group
         /// </summary>
         [Input("groupName", required: true)]

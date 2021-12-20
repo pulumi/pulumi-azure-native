@@ -105,12 +105,6 @@ namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview
     public sealed class IPSyncerArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Etag of the azure resource
-        /// </summary>
-        [Input("etag")]
-        public Input<string>? Etag { get; set; }
-
-        /// <summary>
         /// 
         /// Expected value is 'IPSyncer'.
         /// </summary>

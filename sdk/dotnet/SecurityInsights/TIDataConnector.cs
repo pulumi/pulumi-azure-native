@@ -131,12 +131,6 @@ namespace Pulumi.AzureNative.SecurityInsights
         public Input<Inputs.TIDataConnectorDataTypesArgs>? DataTypes { get; set; }
 
         /// <summary>
-        /// Etag of the azure resource
-        /// </summary>
-        [Input("etag")]
-        public Input<string>? Etag { get; set; }
-
-        /// <summary>
         /// The kind of the data connector
         /// Expected value is 'ThreatIntelligence'.
         /// </summary>

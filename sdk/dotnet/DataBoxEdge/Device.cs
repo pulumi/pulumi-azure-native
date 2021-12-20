@@ -238,12 +238,6 @@ namespace Pulumi.AzureNative.DataBoxEdge
         public Input<string>? DeviceName { get; set; }
 
         /// <summary>
-        /// The etag for the devices.
-        /// </summary>
-        [Input("etag")]
-        public Input<string>? Etag { get; set; }
-
-        /// <summary>
         /// Msi identity of the resource
         /// </summary>
         [Input("identity")]
