@@ -29,6 +29,10 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly Outputs.IntegrationRuntimeReferenceResponse? ConnectVia;
         /// <summary>
+        /// The credential reference containing authentication information.
+        /// </summary>
+        public readonly Outputs.CredentialReferenceResponse? Credential;
+        /// <summary>
         /// The deployment type of the Dynamics instance. 'Online' for Dynamics Online and 'OnPremisesWithIfd' for Dynamics on-premises with Ifd. Type: string (or Expression with resultType string).
         /// </summary>
         public readonly object DeploymentType;
@@ -94,6 +98,8 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             Outputs.IntegrationRuntimeReferenceResponse? connectVia,
 
+            Outputs.CredentialReferenceResponse? credential,
+
             object deploymentType,
 
             string? description,
@@ -125,6 +131,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
             Annotations = annotations;
             AuthenticationType = authenticationType;
             ConnectVia = connectVia;
+            Credential = credential;
             DeploymentType = deploymentType;
             Description = description;
             EncryptedCredential = encryptedCredential;

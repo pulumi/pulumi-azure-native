@@ -45,6 +45,10 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly object? ConnectionString;
         /// <summary>
+        /// The credential reference containing authentication information.
+        /// </summary>
+        public readonly Outputs.CredentialReferenceResponse? Credential;
+        /// <summary>
         /// The name of the database. Type: string (or Expression with resultType string)
         /// </summary>
         public readonly object? Database;
@@ -98,6 +102,8 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             object? connectionString,
 
+            Outputs.CredentialReferenceResponse? credential,
+
             object? database,
 
             string? description,
@@ -123,6 +129,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
             ConnectVia = connectVia;
             ConnectionMode = connectionMode;
             ConnectionString = connectionString;
+            Credential = credential;
             Database = database;
             Description = description;
             EncryptedCredential = encryptedCredential;

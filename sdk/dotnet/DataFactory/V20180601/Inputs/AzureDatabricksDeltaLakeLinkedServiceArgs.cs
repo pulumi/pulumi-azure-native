@@ -46,6 +46,12 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public Input<Inputs.IntegrationRuntimeReferenceArgs>? ConnectVia { get; set; }
 
         /// <summary>
+        /// The credential reference containing authentication information.
+        /// </summary>
+        [Input("credential")]
+        public Input<Inputs.CredentialReferenceArgs>? Credential { get; set; }
+
+        /// <summary>
         /// Linked service description.
         /// </summary>
         [Input("description")]
@@ -81,6 +87,12 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
+
+        /// <summary>
+        /// Workspace resource id for databricks REST API. Type: string (or Expression with resultType string).
+        /// </summary>
+        [Input("workspaceResourceId")]
+        public Input<object>? WorkspaceResourceId { get; set; }
 
         public AzureDatabricksDeltaLakeLinkedServiceArgs()
         {

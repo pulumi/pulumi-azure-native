@@ -23,6 +23,12 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public Input<string> AuthorizationType { get; set; } = null!;
 
         /// <summary>
+        /// The credential reference containing authentication information.
+        /// </summary>
+        [Input("credential")]
+        public Input<Inputs.CredentialReferenceArgs>? Credential { get; set; }
+
+        /// <summary>
         /// The resource identifier of the integration runtime to be shared.
         /// </summary>
         [Input("resourceId", required: true)]

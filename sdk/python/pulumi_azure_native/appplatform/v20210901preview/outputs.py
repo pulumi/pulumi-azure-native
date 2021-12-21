@@ -574,7 +574,6 @@ class ContentCertificatePropertiesResponse(dict):
 
     def __init__(__self__, *,
                  activate_date: str,
-                 content: str,
                  dns_names: Sequence[str],
                  expiration_date: str,
                  issued_date: str,
@@ -585,7 +584,6 @@ class ContentCertificatePropertiesResponse(dict):
         """
         Properties of certificate imported from key vault.
         :param str activate_date: The activate date of certificate.
-        :param str content: The content of uploaded certificate.
         :param Sequence[str] dns_names: The domain list of certificate.
         :param str expiration_date: The expiration date of certificate.
         :param str issued_date: The issue date of certificate.
@@ -596,7 +594,6 @@ class ContentCertificatePropertiesResponse(dict):
                Expected value is 'ContentCertificate'.
         """
         pulumi.set(__self__, "activate_date", activate_date)
-        pulumi.set(__self__, "content", content)
         pulumi.set(__self__, "dns_names", dns_names)
         pulumi.set(__self__, "expiration_date", expiration_date)
         pulumi.set(__self__, "issued_date", issued_date)
@@ -612,14 +609,6 @@ class ContentCertificatePropertiesResponse(dict):
         The activate date of certificate.
         """
         return pulumi.get(self, "activate_date")
-
-    @property
-    @pulumi.getter
-    def content(self) -> str:
-        """
-        The content of uploaded certificate.
-        """
-        return pulumi.get(self, "content")
 
     @property
     @pulumi.getter(name="dnsNames")

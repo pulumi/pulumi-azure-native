@@ -21,10 +21,6 @@ namespace Pulumi.AzureNative.AppPlatform.V20210901Preview.Outputs
         /// </summary>
         public readonly string ActivateDate;
         /// <summary>
-        /// The content of uploaded certificate.
-        /// </summary>
-        public readonly string Content;
-        /// <summary>
         /// The domain list of certificate.
         /// </summary>
         public readonly ImmutableArray<string> DnsNames;
@@ -58,8 +54,6 @@ namespace Pulumi.AzureNative.AppPlatform.V20210901Preview.Outputs
         private ContentCertificatePropertiesResponse(
             string activateDate,
 
-            string content,
-
             ImmutableArray<string> dnsNames,
 
             string expirationDate,
@@ -75,7 +69,6 @@ namespace Pulumi.AzureNative.AppPlatform.V20210901Preview.Outputs
             string type)
         {
             ActivateDate = activateDate;
-            Content = content;
             DnsNames = dnsNames;
             ExpirationDate = expirationDate;
             IssuedDate = issuedDate;

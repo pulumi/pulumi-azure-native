@@ -9341,9 +9341,11 @@ class AzureDatabricksDeltaLakeLinkedServiceArgs:
                  annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
                  cluster_id: Optional[Any] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
+                 credential: Optional[pulumi.Input['CredentialReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  encrypted_credential: Optional[Any] = None,
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None):
+                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
+                 workspace_resource_id: Optional[Any] = None):
         """
         Azure Databricks Delta Lake linked service.
         :param Any domain: <REGION>.azuredatabricks.net, domain name of your Databricks deployment. Type: string (or Expression with resultType string).
@@ -9353,9 +9355,11 @@ class AzureDatabricksDeltaLakeLinkedServiceArgs:
         :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the linked service.
         :param Any cluster_id: The id of an existing interactive cluster that will be used for all runs of this job. Type: string (or Expression with resultType string).
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
+        :param pulumi.Input['CredentialReferenceArgs'] credential: The credential reference containing authentication information.
         :param pulumi.Input[str] description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for linked service.
+        :param Any workspace_resource_id: Workspace resource id for databricks REST API. Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "domain", domain)
         pulumi.set(__self__, "type", 'AzureDatabricksDeltaLake')
@@ -9367,12 +9371,16 @@ class AzureDatabricksDeltaLakeLinkedServiceArgs:
             pulumi.set(__self__, "cluster_id", cluster_id)
         if connect_via is not None:
             pulumi.set(__self__, "connect_via", connect_via)
+        if credential is not None:
+            pulumi.set(__self__, "credential", credential)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if encrypted_credential is not None:
             pulumi.set(__self__, "encrypted_credential", encrypted_credential)
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
+        if workspace_resource_id is not None:
+            pulumi.set(__self__, "workspace_resource_id", workspace_resource_id)
 
     @property
     @pulumi.getter
@@ -9449,6 +9457,18 @@ class AzureDatabricksDeltaLakeLinkedServiceArgs:
 
     @property
     @pulumi.getter
+    def credential(self) -> Optional[pulumi.Input['CredentialReferenceArgs']]:
+        """
+        The credential reference containing authentication information.
+        """
+        return pulumi.get(self, "credential")
+
+    @credential.setter
+    def credential(self, value: Optional[pulumi.Input['CredentialReferenceArgs']]):
+        pulumi.set(self, "credential", value)
+
+    @property
+    @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
         Linked service description.
@@ -9482,6 +9502,18 @@ class AzureDatabricksDeltaLakeLinkedServiceArgs:
     @parameters.setter
     def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]]):
         pulumi.set(self, "parameters", value)
+
+    @property
+    @pulumi.getter(name="workspaceResourceId")
+    def workspace_resource_id(self) -> Optional[Any]:
+        """
+        Workspace resource id for databricks REST API. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "workspace_resource_id")
+
+    @workspace_resource_id.setter
+    def workspace_resource_id(self, value: Optional[Any]):
+        pulumi.set(self, "workspace_resource_id", value)
 
 
 @pulumi.input_type
@@ -20539,6 +20571,7 @@ class CosmosDbLinkedServiceArgs:
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  connection_mode: Optional[pulumi.Input[Union[str, 'CosmosDbConnectionMode']]] = None,
                  connection_string: Optional[Any] = None,
+                 credential: Optional[pulumi.Input['CredentialReferenceArgs']] = None,
                  database: Optional[Any] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  encrypted_credential: Optional[Any] = None,
@@ -20558,6 +20591,7 @@ class CosmosDbLinkedServiceArgs:
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[Union[str, 'CosmosDbConnectionMode']] connection_mode: The connection mode used to access CosmosDB account. Type: string (or Expression with resultType string).
         :param Any connection_string: The connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
+        :param pulumi.Input['CredentialReferenceArgs'] credential: The credential reference containing authentication information.
         :param Any database: The name of the database. Type: string (or Expression with resultType string)
         :param pulumi.Input[str] description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
@@ -20582,6 +20616,8 @@ class CosmosDbLinkedServiceArgs:
             pulumi.set(__self__, "connection_mode", connection_mode)
         if connection_string is not None:
             pulumi.set(__self__, "connection_string", connection_string)
+        if credential is not None:
+            pulumi.set(__self__, "credential", credential)
         if database is not None:
             pulumi.set(__self__, "database", database)
         if description is not None:
@@ -20695,6 +20731,18 @@ class CosmosDbLinkedServiceArgs:
     @connection_string.setter
     def connection_string(self, value: Optional[Any]):
         pulumi.set(self, "connection_string", value)
+
+    @property
+    @pulumi.getter
+    def credential(self) -> Optional[pulumi.Input['CredentialReferenceArgs']]:
+        """
+        The credential reference containing authentication information.
+        """
+        return pulumi.get(self, "credential")
+
+    @credential.setter
+    def credential(self, value: Optional[pulumi.Input['CredentialReferenceArgs']]):
+        pulumi.set(self, "credential", value)
 
     @property
     @pulumi.getter
@@ -28005,6 +28053,7 @@ class DynamicsLinkedServiceArgs:
                  type: pulumi.Input[str],
                  annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
+                 credential: Optional[pulumi.Input['CredentialReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  encrypted_credential: Optional[Any] = None,
                  host_name: Optional[Any] = None,
@@ -28025,6 +28074,7 @@ class DynamicsLinkedServiceArgs:
                Expected value is 'Dynamics'.
         :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the linked service.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
+        :param pulumi.Input['CredentialReferenceArgs'] credential: The credential reference containing authentication information.
         :param pulumi.Input[str] description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param Any host_name: The host name of the on-premises Dynamics server. The property is required for on-prem and not allowed for online. Type: string (or Expression with resultType string).
@@ -28045,6 +28095,8 @@ class DynamicsLinkedServiceArgs:
             pulumi.set(__self__, "annotations", annotations)
         if connect_via is not None:
             pulumi.set(__self__, "connect_via", connect_via)
+        if credential is not None:
+            pulumi.set(__self__, "credential", credential)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if encrypted_credential is not None:
@@ -28130,6 +28182,18 @@ class DynamicsLinkedServiceArgs:
     @connect_via.setter
     def connect_via(self, value: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']]):
         pulumi.set(self, "connect_via", value)
+
+    @property
+    @pulumi.getter
+    def credential(self) -> Optional[pulumi.Input['CredentialReferenceArgs']]:
+        """
+        The credential reference containing authentication information.
+        """
+        return pulumi.get(self, "credential")
+
+    @credential.setter
+    def credential(self, value: Optional[pulumi.Input['CredentialReferenceArgs']]):
+        pulumi.set(self, "credential", value)
 
     @property
     @pulumi.getter
@@ -43686,15 +43750,19 @@ class LinkedIntegrationRuntimeKeyAuthorizationArgs:
 class LinkedIntegrationRuntimeRbacAuthorizationArgs:
     def __init__(__self__, *,
                  authorization_type: pulumi.Input[str],
-                 resource_id: pulumi.Input[str]):
+                 resource_id: pulumi.Input[str],
+                 credential: Optional[pulumi.Input['CredentialReferenceArgs']] = None):
         """
         The role based access control (RBAC) authorization type integration runtime.
         :param pulumi.Input[str] authorization_type: The authorization type for integration runtime sharing.
                Expected value is 'RBAC'.
         :param pulumi.Input[str] resource_id: The resource identifier of the integration runtime to be shared.
+        :param pulumi.Input['CredentialReferenceArgs'] credential: The credential reference containing authentication information.
         """
         pulumi.set(__self__, "authorization_type", 'RBAC')
         pulumi.set(__self__, "resource_id", resource_id)
+        if credential is not None:
+            pulumi.set(__self__, "credential", credential)
 
     @property
     @pulumi.getter(name="authorizationType")
@@ -43720,6 +43788,18 @@ class LinkedIntegrationRuntimeRbacAuthorizationArgs:
     @resource_id.setter
     def resource_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_id", value)
+
+    @property
+    @pulumi.getter
+    def credential(self) -> Optional[pulumi.Input['CredentialReferenceArgs']]:
+        """
+        The credential reference containing authentication information.
+        """
+        return pulumi.get(self, "credential")
+
+    @credential.setter
+    def credential(self, value: Optional[pulumi.Input['CredentialReferenceArgs']]):
+        pulumi.set(self, "credential", value)
 
 
 @pulumi.input_type

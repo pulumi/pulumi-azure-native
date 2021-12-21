@@ -2725,6 +2725,8 @@ type AzureDatabricksDeltaLakeLinkedService struct {
 	ClusterId interface{} `pulumi:"clusterId"`
 	// The integration runtime reference.
 	ConnectVia *IntegrationRuntimeReference `pulumi:"connectVia"`
+	// The credential reference containing authentication information.
+	Credential *CredentialReference `pulumi:"credential"`
 	// Linked service description.
 	Description *string `pulumi:"description"`
 	// <REGION>.azuredatabricks.net, domain name of your Databricks deployment. Type: string (or Expression with resultType string).
@@ -2736,6 +2738,8 @@ type AzureDatabricksDeltaLakeLinkedService struct {
 	// Type of linked service.
 	// Expected value is 'AzureDatabricksDeltaLake'.
 	Type string `pulumi:"type"`
+	// Workspace resource id for databricks REST API. Type: string (or Expression with resultType string).
+	WorkspaceResourceId interface{} `pulumi:"workspaceResourceId"`
 }
 
 // Azure Databricks Delta Lake linked service.
@@ -2748,6 +2752,8 @@ type AzureDatabricksDeltaLakeLinkedServiceResponse struct {
 	ClusterId interface{} `pulumi:"clusterId"`
 	// The integration runtime reference.
 	ConnectVia *IntegrationRuntimeReferenceResponse `pulumi:"connectVia"`
+	// The credential reference containing authentication information.
+	Credential *CredentialReferenceResponse `pulumi:"credential"`
 	// Linked service description.
 	Description *string `pulumi:"description"`
 	// <REGION>.azuredatabricks.net, domain name of your Databricks deployment. Type: string (or Expression with resultType string).
@@ -2759,6 +2765,8 @@ type AzureDatabricksDeltaLakeLinkedServiceResponse struct {
 	// Type of linked service.
 	// Expected value is 'AzureDatabricksDeltaLake'.
 	Type string `pulumi:"type"`
+	// Workspace resource id for databricks REST API. Type: string (or Expression with resultType string).
+	WorkspaceResourceId interface{} `pulumi:"workspaceResourceId"`
 }
 
 // A copy activity Azure Databricks Delta Lake sink.
@@ -6379,6 +6387,8 @@ type CosmosDbLinkedService struct {
 	ConnectionMode *string `pulumi:"connectionMode"`
 	// The connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
 	ConnectionString interface{} `pulumi:"connectionString"`
+	// The credential reference containing authentication information.
+	Credential *CredentialReference `pulumi:"credential"`
 	// The name of the database. Type: string (or Expression with resultType string)
 	Database interface{} `pulumi:"database"`
 	// Linked service description.
@@ -6416,6 +6426,8 @@ type CosmosDbLinkedServiceResponse struct {
 	ConnectionMode *string `pulumi:"connectionMode"`
 	// The connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
 	ConnectionString interface{} `pulumi:"connectionString"`
+	// The credential reference containing authentication information.
+	Credential *CredentialReferenceResponse `pulumi:"credential"`
 	// The name of the database. Type: string (or Expression with resultType string)
 	Database interface{} `pulumi:"database"`
 	// Linked service description.
@@ -8657,6 +8669,8 @@ type DynamicsLinkedService struct {
 	AuthenticationType interface{} `pulumi:"authenticationType"`
 	// The integration runtime reference.
 	ConnectVia *IntegrationRuntimeReference `pulumi:"connectVia"`
+	// The credential reference containing authentication information.
+	Credential *CredentialReference `pulumi:"credential"`
 	// The deployment type of the Dynamics instance. 'Online' for Dynamics Online and 'OnPremisesWithIfd' for Dynamics on-premises with Ifd. Type: string (or Expression with resultType string).
 	DeploymentType interface{} `pulumi:"deploymentType"`
 	// Linked service description.
@@ -8696,6 +8710,8 @@ type DynamicsLinkedServiceResponse struct {
 	AuthenticationType interface{} `pulumi:"authenticationType"`
 	// The integration runtime reference.
 	ConnectVia *IntegrationRuntimeReferenceResponse `pulumi:"connectVia"`
+	// The credential reference containing authentication information.
+	Credential *CredentialReferenceResponse `pulumi:"credential"`
 	// The deployment type of the Dynamics instance. 'Online' for Dynamics Online and 'OnPremisesWithIfd' for Dynamics on-premises with Ifd. Type: string (or Expression with resultType string).
 	DeploymentType interface{} `pulumi:"deploymentType"`
 	// Linked service description.
@@ -14032,6 +14048,8 @@ type LinkedIntegrationRuntimeRbacAuthorization struct {
 	// The authorization type for integration runtime sharing.
 	// Expected value is 'RBAC'.
 	AuthorizationType string `pulumi:"authorizationType"`
+	// The credential reference containing authentication information.
+	Credential *CredentialReference `pulumi:"credential"`
 	// The resource identifier of the integration runtime to be shared.
 	ResourceId string `pulumi:"resourceId"`
 }
@@ -14041,6 +14059,8 @@ type LinkedIntegrationRuntimeRbacAuthorizationResponse struct {
 	// The authorization type for integration runtime sharing.
 	// Expected value is 'RBAC'.
 	AuthorizationType string `pulumi:"authorizationType"`
+	// The credential reference containing authentication information.
+	Credential *CredentialReferenceResponse `pulumi:"credential"`
 	// The resource identifier of the integration runtime to be shared.
 	ResourceId string `pulumi:"resourceId"`
 }

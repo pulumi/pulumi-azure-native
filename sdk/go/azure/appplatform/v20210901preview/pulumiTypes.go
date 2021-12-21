@@ -1246,7 +1246,7 @@ func (o ClusterResourcePropertiesResponseOutput) Version() pulumi.IntOutput {
 // Properties of certificate imported from key vault.
 type ContentCertificateProperties struct {
 	// The content of uploaded certificate.
-	Content string `pulumi:"content"`
+	Content *string `pulumi:"content"`
 	// The type of the certificate source.
 	// Expected value is 'ContentCertificate'.
 	Type string `pulumi:"type"`
@@ -1256,8 +1256,6 @@ type ContentCertificateProperties struct {
 type ContentCertificatePropertiesResponse struct {
 	// The activate date of certificate.
 	ActivateDate string `pulumi:"activateDate"`
-	// The content of uploaded certificate.
-	Content string `pulumi:"content"`
 	// The domain list of certificate.
 	DnsNames []string `pulumi:"dnsNames"`
 	// The expiration date of certificate.

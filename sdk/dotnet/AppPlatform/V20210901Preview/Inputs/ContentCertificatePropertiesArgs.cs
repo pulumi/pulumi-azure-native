@@ -18,8 +18,8 @@ namespace Pulumi.AzureNative.AppPlatform.V20210901Preview.Inputs
         /// <summary>
         /// The content of uploaded certificate.
         /// </summary>
-        [Input("content", required: true)]
-        public Input<string> Content { get; set; } = null!;
+        [Input("content")]
+        public Input<string>? Content { get; set; }
 
         /// <summary>
         /// The type of the certificate source.

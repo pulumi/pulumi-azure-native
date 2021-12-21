@@ -22,6 +22,10 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly string AuthorizationType;
         /// <summary>
+        /// The credential reference containing authentication information.
+        /// </summary>
+        public readonly Outputs.CredentialReferenceResponse? Credential;
+        /// <summary>
         /// The resource identifier of the integration runtime to be shared.
         /// </summary>
         public readonly string ResourceId;
@@ -30,9 +34,12 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         private LinkedIntegrationRuntimeRbacAuthorizationResponse(
             string authorizationType,
 
+            Outputs.CredentialReferenceResponse? credential,
+
             string resourceId)
         {
             AuthorizationType = authorizationType;
+            Credential = credential;
             ResourceId = resourceId;
         }
     }

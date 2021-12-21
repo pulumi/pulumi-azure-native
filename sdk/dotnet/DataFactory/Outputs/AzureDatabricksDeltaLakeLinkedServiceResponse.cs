@@ -33,6 +33,10 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly Outputs.IntegrationRuntimeReferenceResponse? ConnectVia;
         /// <summary>
+        /// The credential reference containing authentication information.
+        /// </summary>
+        public readonly Outputs.CredentialReferenceResponse? Credential;
+        /// <summary>
         /// Linked service description.
         /// </summary>
         public readonly string? Description;
@@ -53,6 +57,10 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// Expected value is 'AzureDatabricksDeltaLake'.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Workspace resource id for databricks REST API. Type: string (or Expression with resultType string).
+        /// </summary>
+        public readonly object? WorkspaceResourceId;
 
         [OutputConstructor]
         private AzureDatabricksDeltaLakeLinkedServiceResponse(
@@ -64,6 +72,8 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             Outputs.IntegrationRuntimeReferenceResponse? connectVia,
 
+            Outputs.CredentialReferenceResponse? credential,
+
             string? description,
 
             object domain,
@@ -72,17 +82,21 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? parameters,
 
-            string type)
+            string type,
+
+            object? workspaceResourceId)
         {
             AccessToken = accessToken;
             Annotations = annotations;
             ClusterId = clusterId;
             ConnectVia = connectVia;
+            Credential = credential;
             Description = description;
             Domain = domain;
             EncryptedCredential = encryptedCredential;
             Parameters = parameters;
             Type = type;
+            WorkspaceResourceId = workspaceResourceId;
         }
     }
 }

@@ -360,28 +360,17 @@ class ClusterResourcePropertiesArgs:
 @pulumi.input_type
 class ContentCertificatePropertiesArgs:
     def __init__(__self__, *,
-                 content: pulumi.Input[str],
-                 type: pulumi.Input[str]):
+                 type: pulumi.Input[str],
+                 content: Optional[pulumi.Input[str]] = None):
         """
         Properties of certificate imported from key vault.
-        :param pulumi.Input[str] content: The content of uploaded certificate.
         :param pulumi.Input[str] type: The type of the certificate source.
                Expected value is 'ContentCertificate'.
+        :param pulumi.Input[str] content: The content of uploaded certificate.
         """
-        pulumi.set(__self__, "content", content)
         pulumi.set(__self__, "type", 'ContentCertificate')
-
-    @property
-    @pulumi.getter
-    def content(self) -> pulumi.Input[str]:
-        """
-        The content of uploaded certificate.
-        """
-        return pulumi.get(self, "content")
-
-    @content.setter
-    def content(self, value: pulumi.Input[str]):
-        pulumi.set(self, "content", value)
+        if content is not None:
+            pulumi.set(__self__, "content", content)
 
     @property
     @pulumi.getter
@@ -395,6 +384,18 @@ class ContentCertificatePropertiesArgs:
     @type.setter
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def content(self) -> Optional[pulumi.Input[str]]:
+        """
+        The content of uploaded certificate.
+        """
+        return pulumi.get(self, "content")
+
+    @content.setter
+    def content(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "content", value)
 
 
 @pulumi.input_type
