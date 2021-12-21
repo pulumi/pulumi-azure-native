@@ -47945,8 +47945,19 @@
           "West Europe",
           "Southeast Asia",
           "West US 2",
+          "France Central",
+          "Switzerland North",
+          "Brazil South",
           "North Europe",
+          "Japan East",
+          "Central US",
+          "Korea Central",
+          "Central India",
+          "East Asia",
           "Germany West Central",
+          "Japan West",
+          "West Central US",
+          "West US",
           "East US 2 EUAP"
         ],
         "properties": null,
@@ -48810,6 +48821,7 @@
         "locations": [
           "Australia East",
           "Australia Southeast",
+          "Brazil South",
           "Canada Central",
           "Central India",
           "Central US",
@@ -48818,8 +48830,8 @@
           "East US 2",
           "France Central",
           "Germany West Central",
-          "Japan West",
           "Japan East",
+          "Japan West",
           "Korea Central",
           "North Central US",
           "North Europe",
@@ -53023,13 +53035,7 @@
           "2020-05-01",
           "2020-02-01",
           "2019-11-01",
-          "2018-03-01-preview",
-          "2018-03-01-beta",
-          "2018-01-01-preview",
-          "2017-11-01-preview",
-          "2017-08-31-preview",
-          "2017-06-30-preview",
-          "2017-05-31-preview"
+          "2018-03-01-beta"
         ],
         "capabilities": "None",
         "defaultApiVersion": null,
@@ -53761,7 +53767,8 @@
           "West US 2",
           "West US 3",
           "Canada East",
-          "Japan East"
+          "Japan East",
+          "UAE North"
         ],
         "properties": null,
         "resourceType": "managedHSMs"
@@ -53799,7 +53806,8 @@
           "West US 2",
           "West US 3",
           "Canada East",
-          "Japan East"
+          "Japan East",
+          "UAE North"
         ],
         "properties": null,
         "resourceType": "deletedManagedHSMs"
@@ -53837,7 +53845,8 @@
           "West US 2",
           "West US 3",
           "Canada East",
-          "Japan East"
+          "Japan East",
+          "UAE North"
         ],
         "properties": null,
         "resourceType": "locations/deletedManagedHSMs"
@@ -56328,6 +56337,7 @@
           }
         ],
         "apiVersions": [
+          "2021-11-01-preview",
           "2021-10-01",
           "2021-08-01",
           "2021-07-01",
@@ -56419,6 +56429,7 @@
           }
         ],
         "apiVersions": [
+          "2021-11-01-preview",
           "2021-10-01",
           "2021-08-01",
           "2021-07-01",
@@ -56471,6 +56482,7 @@
           }
         ],
         "apiVersions": [
+          "2021-11-01-preview",
           "2021-10-01",
           "2021-08-01",
           "2021-07-01",
