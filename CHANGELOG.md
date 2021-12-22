@@ -3,7 +3,10 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 
-(None)
+#### Bug fixes:
+
+- Fix deletion of `sql.BackupShortTermRetentionPolicy` and `sql.LongTermRetentionPolicy`
+  [#1345](https://github.com/pulumi/pulumi-azure-native/issues/1345)
 
 ---
 
