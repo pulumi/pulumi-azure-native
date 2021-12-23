@@ -63,6 +63,7 @@ namespace Pulumi.AzureNative.AppPlatform.V20210601Preview
                     new Pulumi.Alias { Type = "azure-native:appplatform/v20200701:Certificate"},
                     new Pulumi.Alias { Type = "azure-native:appplatform/v20201101preview:Certificate"},
                     new Pulumi.Alias { Type = "azure-native:appplatform/v20210901preview:Certificate"},
+                    new Pulumi.Alias { Type = "azure-native:appplatform/v20220101preview:Certificate"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

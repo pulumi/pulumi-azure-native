@@ -6,22 +6,42 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
+from .api_portal import *
+from .api_portal_custom_domain import *
 from .app import *
 from .binding import *
+from .build_service_builder import *
+from .buildpack_binding import *
 from .certificate import *
+from .configuration_service import *
 from .custom_domain import *
 from .deployment import *
+from .gateway import *
+from .gateway_custom_domain import *
+from .gateway_route_config import *
+from .get_api_portal import *
+from .get_api_portal_custom_domain import *
 from .get_app import *
 from .get_app_resource_upload_url import *
 from .get_binding import *
+from .get_build_service_build_result_log import *
+from .get_build_service_builder import *
+from .get_build_service_resource_upload_url import *
+from .get_buildpack_binding import *
 from .get_certificate import *
+from .get_configuration_service import *
 from .get_custom_domain import *
 from .get_deployment import *
 from .get_deployment_log_file_url import *
+from .get_gateway import *
+from .get_gateway_custom_domain import *
+from .get_gateway_route_config import *
 from .get_service import *
+from .get_service_registry import *
 from .get_storage import *
 from .list_service_test_keys import *
 from .service import *
+from .service_registry import *
 from .storage import *
 from ._inputs import *
 from . import outputs
@@ -38,10 +58,13 @@ if typing.TYPE_CHECKING:
     v20210601preview = __v20210601preview
     import pulumi_azure_native.appplatform.v20210901preview as __v20210901preview
     v20210901preview = __v20210901preview
+    import pulumi_azure_native.appplatform.v20220101preview as __v20220101preview
+    v20220101preview = __v20220101preview
 else:
     v20190501preview = _utilities.lazy_import('pulumi_azure_native.appplatform.v20190501preview')
     v20200701 = _utilities.lazy_import('pulumi_azure_native.appplatform.v20200701')
     v20201101preview = _utilities.lazy_import('pulumi_azure_native.appplatform.v20201101preview')
     v20210601preview = _utilities.lazy_import('pulumi_azure_native.appplatform.v20210601preview')
     v20210901preview = _utilities.lazy_import('pulumi_azure_native.appplatform.v20210901preview')
+    v20220101preview = _utilities.lazy_import('pulumi_azure_native.appplatform.v20220101preview')
 

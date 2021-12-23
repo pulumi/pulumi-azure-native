@@ -132,6 +132,7 @@ import * as network from "./network";
 import * as notebooks from "./notebooks";
 import * as notificationhubs from "./notificationhubs";
 import * as offazure from "./offazure";
+import * as openenergyplatform from "./openenergyplatform";
 import * as operationalinsights from "./operationalinsights";
 import * as operationsmanagement from "./operationsmanagement";
 import * as orbital from "./orbital";
@@ -312,6 +313,7 @@ export {
     notebooks,
     notificationhubs,
     offazure,
+    openenergyplatform,
     operationalinsights,
     operationsmanagement,
     orbital,

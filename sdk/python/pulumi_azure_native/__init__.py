@@ -257,6 +257,8 @@ if typing.TYPE_CHECKING:
     notificationhubs = __notificationhubs
     import pulumi_azure_native.offazure as __offazure
     offazure = __offazure
+    import pulumi_azure_native.openenergyplatform as __openenergyplatform
+    openenergyplatform = __openenergyplatform
     import pulumi_azure_native.operationalinsights as __operationalinsights
     operationalinsights = __operationalinsights
     import pulumi_azure_native.operationsmanagement as __operationsmanagement
@@ -488,6 +490,7 @@ else:
     notebooks = _utilities.lazy_import('pulumi_azure_native.notebooks')
     notificationhubs = _utilities.lazy_import('pulumi_azure_native.notificationhubs')
     offazure = _utilities.lazy_import('pulumi_azure_native.offazure')
+    openenergyplatform = _utilities.lazy_import('pulumi_azure_native.openenergyplatform')
     operationalinsights = _utilities.lazy_import('pulumi_azure_native.operationalinsights')
     operationsmanagement = _utilities.lazy_import('pulumi_azure_native.operationsmanagement')
     orbital = _utilities.lazy_import('pulumi_azure_native.orbital')
@@ -1518,12 +1521,21 @@ _utilities.register(
   "mod": "appplatform",
   "fqn": "pulumi_azure_native.appplatform",
   "classes": {
+   "azure-native:appplatform:ApiPortal": "ApiPortal",
+   "azure-native:appplatform:ApiPortalCustomDomain": "ApiPortalCustomDomain",
    "azure-native:appplatform:App": "App",
    "azure-native:appplatform:Binding": "Binding",
+   "azure-native:appplatform:BuildServiceBuilder": "BuildServiceBuilder",
+   "azure-native:appplatform:BuildpackBinding": "BuildpackBinding",
    "azure-native:appplatform:Certificate": "Certificate",
+   "azure-native:appplatform:ConfigurationService": "ConfigurationService",
    "azure-native:appplatform:CustomDomain": "CustomDomain",
    "azure-native:appplatform:Deployment": "Deployment",
+   "azure-native:appplatform:Gateway": "Gateway",
+   "azure-native:appplatform:GatewayCustomDomain": "GatewayCustomDomain",
+   "azure-native:appplatform:GatewayRouteConfig": "GatewayRouteConfig",
    "azure-native:appplatform:Service": "Service",
+   "azure-native:appplatform:ServiceRegistry": "ServiceRegistry",
    "azure-native:appplatform:Storage": "Storage"
   }
  },
@@ -1591,6 +1603,29 @@ _utilities.register(
    "azure-native:appplatform/v20210901preview:Deployment": "Deployment",
    "azure-native:appplatform/v20210901preview:Service": "Service",
    "azure-native:appplatform/v20210901preview:Storage": "Storage"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "appplatform/v20220101preview",
+  "fqn": "pulumi_azure_native.appplatform.v20220101preview",
+  "classes": {
+   "azure-native:appplatform/v20220101preview:ApiPortal": "ApiPortal",
+   "azure-native:appplatform/v20220101preview:ApiPortalCustomDomain": "ApiPortalCustomDomain",
+   "azure-native:appplatform/v20220101preview:App": "App",
+   "azure-native:appplatform/v20220101preview:Binding": "Binding",
+   "azure-native:appplatform/v20220101preview:BuildServiceBuilder": "BuildServiceBuilder",
+   "azure-native:appplatform/v20220101preview:BuildpackBinding": "BuildpackBinding",
+   "azure-native:appplatform/v20220101preview:Certificate": "Certificate",
+   "azure-native:appplatform/v20220101preview:ConfigurationService": "ConfigurationService",
+   "azure-native:appplatform/v20220101preview:CustomDomain": "CustomDomain",
+   "azure-native:appplatform/v20220101preview:Deployment": "Deployment",
+   "azure-native:appplatform/v20220101preview:Gateway": "Gateway",
+   "azure-native:appplatform/v20220101preview:GatewayCustomDomain": "GatewayCustomDomain",
+   "azure-native:appplatform/v20220101preview:GatewayRouteConfig": "GatewayRouteConfig",
+   "azure-native:appplatform/v20220101preview:Service": "Service",
+   "azure-native:appplatform/v20220101preview:ServiceRegistry": "ServiceRegistry",
+   "azure-native:appplatform/v20220101preview:Storage": "Storage"
   }
  },
  {
@@ -13065,6 +13100,22 @@ _utilities.register(
    "azure-native:offazure/v20200707:HyperVSite": "HyperVSite",
    "azure-native:offazure/v20200707:PrivateEndpointConnection": "PrivateEndpointConnection",
    "azure-native:offazure/v20200707:Site": "Site"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "openenergyplatform",
+  "fqn": "pulumi_azure_native.openenergyplatform",
+  "classes": {
+   "azure-native:openenergyplatform:EnergyService": "EnergyService"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "openenergyplatform/v20210601preview",
+  "fqn": "pulumi_azure_native.openenergyplatform.v20210601preview",
+  "classes": {
+   "azure-native:openenergyplatform/v20210601preview:EnergyService": "EnergyService"
   }
  },
  {

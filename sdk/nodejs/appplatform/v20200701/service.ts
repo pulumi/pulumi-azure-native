@@ -93,7 +93,7 @@ export class Service extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:appplatform:Service" }, { type: "azure-native:appplatform/v20190501preview:Service" }, { type: "azure-native:appplatform/v20201101preview:Service" }, { type: "azure-native:appplatform/v20210601preview:Service" }, { type: "azure-native:appplatform/v20210901preview:Service" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:appplatform:Service" }, { type: "azure-native:appplatform/v20190501preview:Service" }, { type: "azure-native:appplatform/v20201101preview:Service" }, { type: "azure-native:appplatform/v20210601preview:Service" }, { type: "azure-native:appplatform/v20210901preview:Service" }, { type: "azure-native:appplatform/v20220101preview:Service" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Service.__pulumiType, name, resourceInputs, opts);
     }

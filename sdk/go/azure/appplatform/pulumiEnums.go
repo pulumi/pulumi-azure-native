@@ -3,6 +3,18 @@
 
 package appplatform
 
+// Buildpack Binding Type
+type BindingType string
+
+const (
+	BindingTypeApplicationInsights = BindingType("ApplicationInsights")
+	BindingTypeApacheSkyWalking    = BindingType("ApacheSkyWalking")
+	BindingTypeAppDynamics         = BindingType("AppDynamics")
+	BindingTypeDynatrace           = BindingType("Dynatrace")
+	BindingTypeNewRelic            = BindingType("NewRelic")
+	BindingTypeElasticAPM          = BindingType("ElasticAPM")
+)
+
 // Type of the managed identity
 type ManagedIdentityType string
 

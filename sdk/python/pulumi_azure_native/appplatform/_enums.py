@@ -5,10 +5,23 @@
 from enum import Enum
 
 __all__ = [
+    'BindingType',
     'ManagedIdentityType',
     'RuntimeVersion',
     'UserSourceType',
 ]
+
+
+class BindingType(str, Enum):
+    """
+    Buildpack Binding Type
+    """
+    APPLICATION_INSIGHTS = "ApplicationInsights"
+    APACHE_SKY_WALKING = "ApacheSkyWalking"
+    APP_DYNAMICS = "AppDynamics"
+    DYNATRACE = "Dynatrace"
+    NEW_RELIC = "NewRelic"
+    ELASTIC_APM = "ElasticAPM"
 
 
 class ManagedIdentityType(str, Enum):

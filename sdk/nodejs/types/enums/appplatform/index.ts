@@ -7,6 +7,7 @@ import * as v20200701 from "./v20200701";
 import * as v20201101preview from "./v20201101preview";
 import * as v20210601preview from "./v20210601preview";
 import * as v20210901preview from "./v20210901preview";
+import * as v20220101preview from "./v20220101preview";
 
 export {
     v20190501preview,
@@ -14,7 +15,22 @@ export {
     v20201101preview,
     v20210601preview,
     v20210901preview,
+    v20220101preview,
 };
+
+export const BindingType = {
+    ApplicationInsights: "ApplicationInsights",
+    ApacheSkyWalking: "ApacheSkyWalking",
+    AppDynamics: "AppDynamics",
+    Dynatrace: "Dynatrace",
+    NewRelic: "NewRelic",
+    ElasticAPM: "ElasticAPM",
+} as const;
+
+/**
+ * Buildpack Binding Type
+ */
+export type BindingType = (typeof BindingType)[keyof typeof BindingType];
 
 export const ManagedIdentityType = {
     None: "None",
