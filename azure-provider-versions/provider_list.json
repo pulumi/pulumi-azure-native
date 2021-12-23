@@ -36212,7 +36212,7 @@
           "2014-06-01",
           "2014-04-01"
         ],
-        "capabilities": "SupportsTags, SupportsLocation",
+        "capabilities": "SystemAssignedResourceIdentity, SupportsTags, SupportsLocation",
         "defaultApiVersion": null,
         "locationMappings": null,
         "locations": [
@@ -48808,13 +48808,7 @@
       {
         "aliases": null,
         "apiProfiles": null,
-        "apiVersions": [
-          "2021-06-01-preview",
-          "2021-06-01",
-          "2020-11-05-preview",
-          "2020-02-14-privatepreview",
-          "2020-02-14-preview"
-        ],
+        "apiVersions": [],
         "capabilities": "None",
         "defaultApiVersion": null,
         "locationMappings": null,
@@ -53035,7 +53029,13 @@
           "2020-05-01",
           "2020-02-01",
           "2019-11-01",
-          "2018-03-01-beta"
+          "2018-03-01-preview",
+          "2018-03-01-beta",
+          "2018-01-01-preview",
+          "2017-11-01-preview",
+          "2017-08-31-preview",
+          "2017-06-30-preview",
+          "2017-05-31-preview"
         ],
         "capabilities": "None",
         "defaultApiVersion": null,
