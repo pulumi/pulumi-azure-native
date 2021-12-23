@@ -3,6 +3,34 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 
+#### New resources:
+
+- `appplatform.ApiPortal`
+- `appplatform.ApiPortalCustomDomain`
+- `appplatform.BuildServiceBuilder`
+- `appplatform.BuildpackBinding`
+- `appplatform.ConfigurationService`
+- `appplatform.Gateway`
+- `appplatform.GatewayCustomDomain`
+- `appplatform.GatewayRouteConfig`
+- `appplatform.ServiceRegistry`
+- `openenergyplatform.EnergyService`
+
+#### New functions:
+
+- `appplatform.getApiPortal`
+- `appplatform.getApiPortalCustomDomain`
+- `appplatform.getBuildServiceBuildResultLog`
+- `appplatform.getBuildServiceBuilder`
+- `appplatform.getBuildServiceResourceUploadUrl`
+- `appplatform.getBuildpackBinding`
+- `appplatform.getConfigurationService`
+- `appplatform.getGateway`
+- `appplatform.getGatewayCustomDomain`
+- `appplatform.getGatewayRouteConfig`
+- `appplatform.getServiceRegistry`
+- `openenergyplatform.getEnergyService`
+
 #### Bug fixes:
 
 - Fix deletion of `sql.BackupShortTermRetentionPolicy` and `sql.LongTermRetentionPolicy`
