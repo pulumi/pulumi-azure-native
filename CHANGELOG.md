@@ -46,6 +46,10 @@ CHANGELOG
 - `appplatform.getServiceRegistry`
 - `openenergyplatform.getEnergyService`
 
+#### Enhancements:
+
+- Input/output based functions API in Go SDK
+
 #### Bug fixes:
 
 - Fix deletion of `sql.BackupShortTermRetentionPolicy` and `sql.LongTermRetentionPolicy`
