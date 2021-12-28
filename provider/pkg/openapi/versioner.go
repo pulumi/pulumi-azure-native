@@ -97,6 +97,7 @@ var cutoffProviderVersions = map[string]string{
 	"alertsmanagement":              "v20200804preview",
 	"apimanagement":                 "v20210401preview",
 	"appconfiguration":              "v20200701preview",
+	"appplatform":                   "v20210901preview",
 	"authorization":                 "v20210301preview",
 	"automanage":                    "v20200630preview",
 	"autonomousdevelopmentplatform": "v20210201preview",
@@ -186,6 +187,9 @@ var lockedTypeVersions = map[string]string{
 	"compute:SshPublicKey":                              "v20201201",
 	"compute:getLogAnalyticExportRequestRateByInterval": "v20201201",
 	"compute:getLogAnalyticExportThrottledRequests":     "v20201201",
+
+	"containerservice:Snapshot":    "v20210801",
+	"containerservice:getSnapshot": "v20210801",
 
 	"eventgrid:PartnerTopicEventSubscription": "v20200401preview",
 	"eventgrid:SystemTopicEventSubscription":  "v20200401preview",

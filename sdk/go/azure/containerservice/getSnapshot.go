@@ -8,7 +8,7 @@ import (
 )
 
 // A node pool snapshot resource.
-// API Version: 2021-11-01-preview.
+// API Version: 2021-08-01.
 func LookupSnapshot(ctx *pulumi.Context, args *LookupSnapshotArgs, opts ...pulumi.InvokeOption) (*LookupSnapshotResult, error) {
 	var rv LookupSnapshotResult
 	err := ctx.Invoke("azure-native:containerservice:getSnapshot", args, &rv, opts...)
@@ -29,22 +29,12 @@ type LookupSnapshotArgs struct {
 type LookupSnapshotResult struct {
 	// CreationData to be used to specify the source agent pool resource ID to create this snapshot.
 	CreationData *CreationDataResponse `pulumi:"creationData"`
-	// Whether to use a FIPS-enabled OS.
-	EnableFIPS bool `pulumi:"enableFIPS"`
 	// Resource Id
 	Id string `pulumi:"id"`
-	// The version of Kubernetes.
-	KubernetesVersion string `pulumi:"kubernetesVersion"`
 	// Resource location
 	Location string `pulumi:"location"`
 	// Resource name
 	Name string `pulumi:"name"`
-	// The version of node image.
-	NodeImageVersion string `pulumi:"nodeImageVersion"`
-	// Specifies an OS SKU. This value must not be specified if OSType is Windows.
-	OsSku string `pulumi:"osSku"`
-	// The operating system type. The default is Linux.
-	OsType string `pulumi:"osType"`
 	// The type of a snapshot. The default is NodePool.
 	SnapshotType *string `pulumi:"snapshotType"`
 	// The system metadata relating to this snapshot.
@@ -53,6 +43,4 @@ type LookupSnapshotResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type
 	Type string `pulumi:"type"`
-	// The size of the VM.
-	VmSize string `pulumi:"vmSize"`
 }

@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * A node pool snapshot resource.
- * API Version: 2021-11-01-preview.
+ * API Version: 2021-08-01.
  */
 export class Snapshot extends pulumi.CustomResource {
     /**
@@ -41,14 +41,6 @@ export class Snapshot extends pulumi.CustomResource {
      */
     public readonly creationData!: pulumi.Output<outputs.containerservice.CreationDataResponse | undefined>;
     /**
-     * Whether to use a FIPS-enabled OS.
-     */
-    public /*out*/ readonly enableFIPS!: pulumi.Output<boolean>;
-    /**
-     * The version of Kubernetes.
-     */
-    public /*out*/ readonly kubernetesVersion!: pulumi.Output<string>;
-    /**
      * Resource location
      */
     public readonly location!: pulumi.Output<string>;
@@ -56,18 +48,6 @@ export class Snapshot extends pulumi.CustomResource {
      * Resource name
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
-    /**
-     * The version of node image.
-     */
-    public /*out*/ readonly nodeImageVersion!: pulumi.Output<string>;
-    /**
-     * Specifies an OS SKU. This value must not be specified if OSType is Windows.
-     */
-    public /*out*/ readonly osSku!: pulumi.Output<string>;
-    /**
-     * The operating system type. The default is Linux.
-     */
-    public /*out*/ readonly osType!: pulumi.Output<string>;
     /**
      * The type of a snapshot. The default is NodePool.
      */
@@ -84,10 +64,6 @@ export class Snapshot extends pulumi.CustomResource {
      * Resource type
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
-    /**
-     * The size of the VM.
-     */
-    public /*out*/ readonly vmSize!: pulumi.Output<string>;
 
     /**
      * Create a Snapshot resource with the given unique name, arguments, and options.
@@ -109,29 +85,17 @@ export class Snapshot extends pulumi.CustomResource {
             resourceInputs["resourceName"] = args ? args.resourceName : undefined;
             resourceInputs["snapshotType"] = args ? args.snapshotType : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["enableFIPS"] = undefined /*out*/;
-            resourceInputs["kubernetesVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["nodeImageVersion"] = undefined /*out*/;
-            resourceInputs["osSku"] = undefined /*out*/;
-            resourceInputs["osType"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
-            resourceInputs["vmSize"] = undefined /*out*/;
         } else {
             resourceInputs["creationData"] = undefined /*out*/;
-            resourceInputs["enableFIPS"] = undefined /*out*/;
-            resourceInputs["kubernetesVersion"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["nodeImageVersion"] = undefined /*out*/;
-            resourceInputs["osSku"] = undefined /*out*/;
-            resourceInputs["osType"] = undefined /*out*/;
             resourceInputs["snapshotType"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
-            resourceInputs["vmSize"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});

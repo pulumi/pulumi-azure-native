@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * A node pool snapshot resource.
- * API Version: 2021-11-01-preview.
+ * API Version: 2021-08-01.
  */
 export function getSnapshot(args: GetSnapshotArgs, opts?: pulumi.InvokeOptions): Promise<GetSnapshotResult> {
     if (!opts) {
@@ -43,17 +43,9 @@ export interface GetSnapshotResult {
      */
     readonly creationData?: outputs.containerservice.CreationDataResponse;
     /**
-     * Whether to use a FIPS-enabled OS.
-     */
-    readonly enableFIPS: boolean;
-    /**
      * Resource Id
      */
     readonly id: string;
-    /**
-     * The version of Kubernetes.
-     */
-    readonly kubernetesVersion: string;
     /**
      * Resource location
      */
@@ -62,18 +54,6 @@ export interface GetSnapshotResult {
      * Resource name
      */
     readonly name: string;
-    /**
-     * The version of node image.
-     */
-    readonly nodeImageVersion: string;
-    /**
-     * Specifies an OS SKU. This value must not be specified if OSType is Windows.
-     */
-    readonly osSku: string;
-    /**
-     * The operating system type. The default is Linux.
-     */
-    readonly osType: string;
     /**
      * The type of a snapshot. The default is NodePool.
      */
@@ -90,10 +70,6 @@ export interface GetSnapshotResult {
      * Resource type
      */
     readonly type: string;
-    /**
-     * The size of the VM.
-     */
-    readonly vmSize: string;
 }
 
 export function getSnapshotOutput(args: GetSnapshotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSnapshotResult> {

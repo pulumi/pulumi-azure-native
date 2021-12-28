@@ -130,7 +130,7 @@ class Snapshot(pulumi.CustomResource):
                  __props__=None):
         """
         A node pool snapshot resource.
-        API Version: 2021-11-01-preview.
+        API Version: 2021-08-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -149,7 +149,7 @@ class Snapshot(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A node pool snapshot resource.
-        API Version: 2021-11-01-preview.
+        API Version: 2021-08-01.
 
         :param str resource_name: The name of the resource.
         :param SnapshotArgs args: The arguments to use to populate this resource's properties.
@@ -192,15 +192,9 @@ class Snapshot(pulumi.CustomResource):
             __props__.__dict__["resource_name"] = resource_name_
             __props__.__dict__["snapshot_type"] = snapshot_type
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["enable_fips"] = None
-            __props__.__dict__["kubernetes_version"] = None
             __props__.__dict__["name"] = None
-            __props__.__dict__["node_image_version"] = None
-            __props__.__dict__["os_sku"] = None
-            __props__.__dict__["os_type"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-            __props__.__dict__["vm_size"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:containerservice/v20210801:Snapshot"), pulumi.Alias(type_="azure-native:containerservice/v20210901:Snapshot"), pulumi.Alias(type_="azure-native:containerservice/v20211001:Snapshot"), pulumi.Alias(type_="azure-native:containerservice/v20211101preview:Snapshot")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Snapshot, __self__).__init__(
@@ -226,18 +220,12 @@ class Snapshot(pulumi.CustomResource):
         __props__ = SnapshotArgs.__new__(SnapshotArgs)
 
         __props__.__dict__["creation_data"] = None
-        __props__.__dict__["enable_fips"] = None
-        __props__.__dict__["kubernetes_version"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
-        __props__.__dict__["node_image_version"] = None
-        __props__.__dict__["os_sku"] = None
-        __props__.__dict__["os_type"] = None
         __props__.__dict__["snapshot_type"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
-        __props__.__dict__["vm_size"] = None
         return Snapshot(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -247,22 +235,6 @@ class Snapshot(pulumi.CustomResource):
         CreationData to be used to specify the source agent pool resource ID to create this snapshot.
         """
         return pulumi.get(self, "creation_data")
-
-    @property
-    @pulumi.getter(name="enableFIPS")
-    def enable_fips(self) -> pulumi.Output[bool]:
-        """
-        Whether to use a FIPS-enabled OS.
-        """
-        return pulumi.get(self, "enable_fips")
-
-    @property
-    @pulumi.getter(name="kubernetesVersion")
-    def kubernetes_version(self) -> pulumi.Output[str]:
-        """
-        The version of Kubernetes.
-        """
-        return pulumi.get(self, "kubernetes_version")
 
     @property
     @pulumi.getter
@@ -279,30 +251,6 @@ class Snapshot(pulumi.CustomResource):
         Resource name
         """
         return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter(name="nodeImageVersion")
-    def node_image_version(self) -> pulumi.Output[str]:
-        """
-        The version of node image.
-        """
-        return pulumi.get(self, "node_image_version")
-
-    @property
-    @pulumi.getter(name="osSku")
-    def os_sku(self) -> pulumi.Output[str]:
-        """
-        Specifies an OS SKU. This value must not be specified if OSType is Windows.
-        """
-        return pulumi.get(self, "os_sku")
-
-    @property
-    @pulumi.getter(name="osType")
-    def os_type(self) -> pulumi.Output[str]:
-        """
-        The operating system type. The default is Linux.
-        """
-        return pulumi.get(self, "os_type")
 
     @property
     @pulumi.getter(name="snapshotType")
@@ -335,12 +283,4 @@ class Snapshot(pulumi.CustomResource):
         Resource type
         """
         return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter(name="vmSize")
-    def vm_size(self) -> pulumi.Output[str]:
-        """
-        The size of the VM.
-        """
-        return pulumi.get(self, "vm_size")
 

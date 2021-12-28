@@ -12,7 +12,7 @@ import (
 )
 
 // Storage resource payload.
-// API Version: 2022-01-01-preview.
+// API Version: 2021-09-01-preview.
 type Storage struct {
 	pulumi.CustomResourceState
 

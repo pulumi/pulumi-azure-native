@@ -12,26 +12,16 @@ import (
 )
 
 // A node pool snapshot resource.
-// API Version: 2021-11-01-preview.
+// API Version: 2021-08-01.
 type Snapshot struct {
 	pulumi.CustomResourceState
 
 	// CreationData to be used to specify the source agent pool resource ID to create this snapshot.
 	CreationData CreationDataResponsePtrOutput `pulumi:"creationData"`
-	// Whether to use a FIPS-enabled OS.
-	EnableFIPS pulumi.BoolOutput `pulumi:"enableFIPS"`
-	// The version of Kubernetes.
-	KubernetesVersion pulumi.StringOutput `pulumi:"kubernetesVersion"`
 	// Resource location
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Resource name
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The version of node image.
-	NodeImageVersion pulumi.StringOutput `pulumi:"nodeImageVersion"`
-	// Specifies an OS SKU. This value must not be specified if OSType is Windows.
-	OsSku pulumi.StringOutput `pulumi:"osSku"`
-	// The operating system type. The default is Linux.
-	OsType pulumi.StringOutput `pulumi:"osType"`
 	// The type of a snapshot. The default is NodePool.
 	SnapshotType pulumi.StringPtrOutput `pulumi:"snapshotType"`
 	// The system metadata relating to this snapshot.
@@ -40,8 +30,6 @@ type Snapshot struct {
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Resource type
 	Type pulumi.StringOutput `pulumi:"type"`
-	// The size of the VM.
-	VmSize pulumi.StringOutput `pulumi:"vmSize"`
 }
 
 // NewSnapshot registers a new resource with the given unique name, arguments, and options.

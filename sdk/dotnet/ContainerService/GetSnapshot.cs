@@ -14,14 +14,14 @@ namespace Pulumi.AzureNative.ContainerService
     {
         /// <summary>
         /// A node pool snapshot resource.
-        /// API Version: 2021-11-01-preview.
+        /// API Version: 2021-08-01.
         /// </summary>
         public static Task<GetSnapshotResult> InvokeAsync(GetSnapshotArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSnapshotResult>("azure-native:containerservice:getSnapshot", args ?? new GetSnapshotArgs(), options.WithVersion());
 
         /// <summary>
         /// A node pool snapshot resource.
-        /// API Version: 2021-11-01-preview.
+        /// API Version: 2021-08-01.
         /// </summary>
         public static Output<GetSnapshotResult> Invoke(GetSnapshotInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetSnapshotResult>("azure-native:containerservice:getSnapshot", args ?? new GetSnapshotInvokeArgs(), options.WithVersion());
@@ -75,17 +75,9 @@ namespace Pulumi.AzureNative.ContainerService
         /// </summary>
         public readonly Outputs.CreationDataResponse? CreationData;
         /// <summary>
-        /// Whether to use a FIPS-enabled OS.
-        /// </summary>
-        public readonly bool EnableFIPS;
-        /// <summary>
         /// Resource Id
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// The version of Kubernetes.
-        /// </summary>
-        public readonly string KubernetesVersion;
         /// <summary>
         /// Resource location
         /// </summary>
@@ -94,18 +86,6 @@ namespace Pulumi.AzureNative.ContainerService
         /// Resource name
         /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// The version of node image.
-        /// </summary>
-        public readonly string NodeImageVersion;
-        /// <summary>
-        /// Specifies an OS SKU. This value must not be specified if OSType is Windows.
-        /// </summary>
-        public readonly string OsSku;
-        /// <summary>
-        /// The operating system type. The default is Linux.
-        /// </summary>
-        public readonly string OsType;
         /// <summary>
         /// The type of a snapshot. The default is NodePool.
         /// </summary>
@@ -122,30 +102,16 @@ namespace Pulumi.AzureNative.ContainerService
         /// Resource type
         /// </summary>
         public readonly string Type;
-        /// <summary>
-        /// The size of the VM.
-        /// </summary>
-        public readonly string VmSize;
 
         [OutputConstructor]
         private GetSnapshotResult(
             Outputs.CreationDataResponse? creationData,
 
-            bool enableFIPS,
-
             string id,
-
-            string kubernetesVersion,
 
             string location,
 
             string name,
-
-            string nodeImageVersion,
-
-            string osSku,
-
-            string osType,
 
             string? snapshotType,
 
@@ -153,24 +119,16 @@ namespace Pulumi.AzureNative.ContainerService
 
             ImmutableDictionary<string, string>? tags,
 
-            string type,
-
-            string vmSize)
+            string type)
         {
             CreationData = creationData;
-            EnableFIPS = enableFIPS;
             Id = id;
-            KubernetesVersion = kubernetesVersion;
             Location = location;
             Name = name;
-            NodeImageVersion = nodeImageVersion;
-            OsSku = osSku;
-            OsType = osType;
             SnapshotType = snapshotType;
             SystemData = systemData;
             Tags = tags;
             Type = type;
-            VmSize = vmSize;
         }
     }
 }

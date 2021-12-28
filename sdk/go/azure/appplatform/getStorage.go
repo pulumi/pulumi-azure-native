@@ -8,7 +8,7 @@ import (
 )
 
 // Storage resource payload.
-// API Version: 2022-01-01-preview.
+// API Version: 2021-09-01-preview.
 func LookupStorage(ctx *pulumi.Context, args *LookupStorageArgs, opts ...pulumi.InvokeOption) (*LookupStorageResult, error) {
 	var rv LookupStorageResult
 	err := ctx.Invoke("azure-native:appplatform:getStorage", args, &rv, opts...)

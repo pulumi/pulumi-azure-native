@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.AppPlatform
 {
     /// <summary>
     /// Storage resource payload.
-    /// API Version: 2022-01-01-preview.
+    /// API Version: 2021-09-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:appplatform:Storage")]
     public partial class Storage : Pulumi.CustomResource
