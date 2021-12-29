@@ -3,6 +3,12 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 
+(None)
+
+---
+
+## 1.52.0 (2021-12-29)
+
 #### New resources:
 
 - `appplatform.ApiPortal`
@@ -35,8 +41,6 @@ CHANGELOG
 
 - Fix deletion of `sql.BackupShortTermRetentionPolicy` and `sql.LongTermRetentionPolicy`
   [#1345](https://github.com/pulumi/pulumi-azure-native/issues/1345)
-
----
 
 ## 1.51.0 (2021-12-20)
 
