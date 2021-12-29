@@ -21,7 +21,7 @@ class GetWorkspaceResult:
     """
     A workspace
     """
-    def __init__(__self__, adla_resource_id=None, azure_ad_only_authentication=None, connectivity_endpoints=None, csp_workspace_admin_properties=None, default_data_lake_storage=None, encryption=None, extra_properties=None, id=None, identity=None, location=None, managed_resource_group_name=None, managed_virtual_network=None, managed_virtual_network_settings=None, name=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, purview_configuration=None, settings=None, sql_administrator_login=None, sql_administrator_login_password=None, tags=None, type=None, virtual_network_profile=None, workspace_repository_configuration=None, workspace_uid=None):
+    def __init__(__self__, adla_resource_id=None, azure_ad_only_authentication=None, connectivity_endpoints=None, csp_workspace_admin_properties=None, default_data_lake_storage=None, encryption=None, extra_properties=None, id=None, identity=None, location=None, managed_resource_group_name=None, managed_virtual_network=None, managed_virtual_network_settings=None, name=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, purview_configuration=None, settings=None, sql_administrator_login=None, sql_administrator_login_password=None, tags=None, trusted_service_bypass_enabled=None, type=None, virtual_network_profile=None, workspace_repository_configuration=None, workspace_uid=None):
         if adla_resource_id and not isinstance(adla_resource_id, str):
             raise TypeError("Expected argument 'adla_resource_id' to be a str")
         pulumi.set(__self__, "adla_resource_id", adla_resource_id)
@@ -88,6 +88,9 @@ class GetWorkspaceResult:
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
+        if trusted_service_bypass_enabled and not isinstance(trusted_service_bypass_enabled, bool):
+            raise TypeError("Expected argument 'trusted_service_bypass_enabled' to be a bool")
+        pulumi.set(__self__, "trusted_service_bypass_enabled", trusted_service_bypass_enabled)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -278,6 +281,14 @@ class GetWorkspaceResult:
         return pulumi.get(self, "tags")
 
     @property
+    @pulumi.getter(name="trustedServiceBypassEnabled")
+    def trusted_service_bypass_enabled(self) -> Optional[bool]:
+        """
+        Is trustedServiceBypassEnabled for the workspace
+        """
+        return pulumi.get(self, "trusted_service_bypass_enabled")
+
+    @property
     @pulumi.getter
     def type(self) -> str:
         """
@@ -338,6 +349,7 @@ class AwaitableGetWorkspaceResult(GetWorkspaceResult):
             sql_administrator_login=self.sql_administrator_login,
             sql_administrator_login_password=self.sql_administrator_login_password,
             tags=self.tags,
+            trusted_service_bypass_enabled=self.trusted_service_bypass_enabled,
             type=self.type,
             virtual_network_profile=self.virtual_network_profile,
             workspace_repository_configuration=self.workspace_repository_configuration,
@@ -386,6 +398,7 @@ def get_workspace(resource_group_name: Optional[str] = None,
         sql_administrator_login=__ret__.sql_administrator_login,
         sql_administrator_login_password=__ret__.sql_administrator_login_password,
         tags=__ret__.tags,
+        trusted_service_bypass_enabled=__ret__.trusted_service_bypass_enabled,
         type=__ret__.type,
         virtual_network_profile=__ret__.virtual_network_profile,
         workspace_repository_configuration=__ret__.workspace_repository_configuration,

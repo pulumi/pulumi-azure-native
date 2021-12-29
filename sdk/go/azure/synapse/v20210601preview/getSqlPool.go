@@ -30,18 +30,8 @@ type LookupSqlPoolArgs struct {
 type LookupSqlPoolResult struct {
 	// Collation mode
 	Collation *string `pulumi:"collation"`
-	// Specifies the mode of sql pool creation.
-	//
-	// Default: regular sql pool creation.
-	//
-	// PointInTimeRestore: Creates a sql pool by restoring a point in time backup of an existing sql pool. sourceDatabaseId must be specified as the resource ID of the existing sql pool, and restorePointInTime must be specified.
-	//
-	// Recovery: Creates a sql pool by a geo-replicated backup. sourceDatabaseId  must be specified as the recoverableDatabaseId to restore.
-	//
-	// Restore: Creates a sql pool by restoring a backup of a deleted sql  pool. SourceDatabaseId should be the sql pool's original resource ID. SourceDatabaseId and sourceDatabaseDeletionDate must be specified.
-	CreateMode *string `pulumi:"createMode"`
 	// Date the SQL pool was created
-	CreationDate *string `pulumi:"creationDate"`
+	CreationDate string `pulumi:"creationDate"`
 	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 	Id string `pulumi:"id"`
 	// The geo-location where the resource lives
@@ -60,10 +50,8 @@ type LookupSqlPoolResult struct {
 	Sku *SkuResponse `pulumi:"sku"`
 	// Specifies the time that the sql pool was deleted
 	SourceDatabaseDeletionDate *string `pulumi:"sourceDatabaseDeletionDate"`
-	// Source database to create from
-	SourceDatabaseId *string `pulumi:"sourceDatabaseId"`
 	// Resource status
-	Status *string `pulumi:"status"`
+	Status string `pulumi:"status"`
 	// The storage account type used to store backups for this sql pool.
 	StorageAccountType *string `pulumi:"storageAccountType"`
 	// Resource tags.

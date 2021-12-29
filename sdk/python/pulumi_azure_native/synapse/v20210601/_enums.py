@@ -5,6 +5,7 @@
 from enum import Enum
 
 __all__ = [
+    'ConfigurationType',
     'CreateMode',
     'DataFlowComputeType',
     'IntegrationRuntimeEdition',
@@ -20,6 +21,14 @@ __all__ = [
     'TransparentDataEncryptionStatus',
     'WorkspacePublicNetworkAccess',
 ]
+
+
+class ConfigurationType(str, Enum):
+    """
+    The type of the spark config properties file.
+    """
+    FILE = "File"
+    ARTIFACT = "Artifact"
 
 
 class CreateMode(str, Enum):
@@ -137,7 +146,6 @@ class StorageAccountType(str, Enum):
     """
     GRS = "GRS"
     LRS = "LRS"
-    ZRS = "ZRS"
 
 
 class TransparentDataEncryptionStatus(str, Enum):

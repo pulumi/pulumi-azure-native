@@ -22,7 +22,6 @@ class BigDataPoolArgs:
                  auto_scale: Optional[pulumi.Input['AutoScalePropertiesArgs']] = None,
                  big_data_pool_name: Optional[pulumi.Input[str]] = None,
                  cache_size: Optional[pulumi.Input[int]] = None,
-                 creation_date: Optional[pulumi.Input[str]] = None,
                  custom_libraries: Optional[pulumi.Input[Sequence[pulumi.Input['LibraryInfoArgs']]]] = None,
                  default_spark_log_folder: Optional[pulumi.Input[str]] = None,
                  dynamic_executor_allocation: Optional[pulumi.Input['DynamicExecutorAllocationArgs']] = None,
@@ -35,7 +34,7 @@ class BigDataPoolArgs:
                  node_size_family: Optional[pulumi.Input[Union[str, 'NodeSizeFamily']]] = None,
                  provisioning_state: Optional[pulumi.Input[str]] = None,
                  session_level_packages_enabled: Optional[pulumi.Input[bool]] = None,
-                 spark_config_properties: Optional[pulumi.Input['LibraryRequirementsArgs']] = None,
+                 spark_config_properties: Optional[pulumi.Input['SparkConfigPropertiesArgs']] = None,
                  spark_events_folder: Optional[pulumi.Input[str]] = None,
                  spark_version: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
@@ -47,7 +46,6 @@ class BigDataPoolArgs:
         :param pulumi.Input['AutoScalePropertiesArgs'] auto_scale: Auto-scaling properties
         :param pulumi.Input[str] big_data_pool_name: Big Data pool name
         :param pulumi.Input[int] cache_size: The cache size
-        :param pulumi.Input[str] creation_date: The time when the Big Data pool was created.
         :param pulumi.Input[Sequence[pulumi.Input['LibraryInfoArgs']]] custom_libraries: List of custom libraries/packages associated with the spark pool.
         :param pulumi.Input[str] default_spark_log_folder: The default folder where Spark logs will be written.
         :param pulumi.Input['DynamicExecutorAllocationArgs'] dynamic_executor_allocation: Dynamic Executor Allocation
@@ -60,7 +58,7 @@ class BigDataPoolArgs:
         :param pulumi.Input[Union[str, 'NodeSizeFamily']] node_size_family: The kind of nodes that the Big Data pool provides.
         :param pulumi.Input[str] provisioning_state: The state of the Big Data pool.
         :param pulumi.Input[bool] session_level_packages_enabled: Whether session level packages enabled.
-        :param pulumi.Input['LibraryRequirementsArgs'] spark_config_properties: Spark configuration file to specify additional properties
+        :param pulumi.Input['SparkConfigPropertiesArgs'] spark_config_properties: Spark configuration file to specify additional properties
         :param pulumi.Input[str] spark_events_folder: The Spark events folder
         :param pulumi.Input[str] spark_version: The Apache Spark version.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
@@ -75,8 +73,6 @@ class BigDataPoolArgs:
             pulumi.set(__self__, "big_data_pool_name", big_data_pool_name)
         if cache_size is not None:
             pulumi.set(__self__, "cache_size", cache_size)
-        if creation_date is not None:
-            pulumi.set(__self__, "creation_date", creation_date)
         if custom_libraries is not None:
             pulumi.set(__self__, "custom_libraries", custom_libraries)
         if default_spark_log_folder is not None:
@@ -181,18 +177,6 @@ class BigDataPoolArgs:
     @cache_size.setter
     def cache_size(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "cache_size", value)
-
-    @property
-    @pulumi.getter(name="creationDate")
-    def creation_date(self) -> Optional[pulumi.Input[str]]:
-        """
-        The time when the Big Data pool was created.
-        """
-        return pulumi.get(self, "creation_date")
-
-    @creation_date.setter
-    def creation_date(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "creation_date", value)
 
     @property
     @pulumi.getter(name="customLibraries")
@@ -340,14 +324,14 @@ class BigDataPoolArgs:
 
     @property
     @pulumi.getter(name="sparkConfigProperties")
-    def spark_config_properties(self) -> Optional[pulumi.Input['LibraryRequirementsArgs']]:
+    def spark_config_properties(self) -> Optional[pulumi.Input['SparkConfigPropertiesArgs']]:
         """
         Spark configuration file to specify additional properties
         """
         return pulumi.get(self, "spark_config_properties")
 
     @spark_config_properties.setter
-    def spark_config_properties(self, value: Optional[pulumi.Input['LibraryRequirementsArgs']]):
+    def spark_config_properties(self, value: Optional[pulumi.Input['SparkConfigPropertiesArgs']]):
         pulumi.set(self, "spark_config_properties", value)
 
     @property
@@ -396,7 +380,6 @@ class BigDataPool(pulumi.CustomResource):
                  auto_scale: Optional[pulumi.Input[pulumi.InputType['AutoScalePropertiesArgs']]] = None,
                  big_data_pool_name: Optional[pulumi.Input[str]] = None,
                  cache_size: Optional[pulumi.Input[int]] = None,
-                 creation_date: Optional[pulumi.Input[str]] = None,
                  custom_libraries: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LibraryInfoArgs']]]]] = None,
                  default_spark_log_folder: Optional[pulumi.Input[str]] = None,
                  dynamic_executor_allocation: Optional[pulumi.Input[pulumi.InputType['DynamicExecutorAllocationArgs']]] = None,
@@ -410,7 +393,7 @@ class BigDataPool(pulumi.CustomResource):
                  provisioning_state: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  session_level_packages_enabled: Optional[pulumi.Input[bool]] = None,
-                 spark_config_properties: Optional[pulumi.Input[pulumi.InputType['LibraryRequirementsArgs']]] = None,
+                 spark_config_properties: Optional[pulumi.Input[pulumi.InputType['SparkConfigPropertiesArgs']]] = None,
                  spark_events_folder: Optional[pulumi.Input[str]] = None,
                  spark_version: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -425,7 +408,6 @@ class BigDataPool(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['AutoScalePropertiesArgs']] auto_scale: Auto-scaling properties
         :param pulumi.Input[str] big_data_pool_name: Big Data pool name
         :param pulumi.Input[int] cache_size: The cache size
-        :param pulumi.Input[str] creation_date: The time when the Big Data pool was created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LibraryInfoArgs']]]] custom_libraries: List of custom libraries/packages associated with the spark pool.
         :param pulumi.Input[str] default_spark_log_folder: The default folder where Spark logs will be written.
         :param pulumi.Input[pulumi.InputType['DynamicExecutorAllocationArgs']] dynamic_executor_allocation: Dynamic Executor Allocation
@@ -439,7 +421,7 @@ class BigDataPool(pulumi.CustomResource):
         :param pulumi.Input[str] provisioning_state: The state of the Big Data pool.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[bool] session_level_packages_enabled: Whether session level packages enabled.
-        :param pulumi.Input[pulumi.InputType['LibraryRequirementsArgs']] spark_config_properties: Spark configuration file to specify additional properties
+        :param pulumi.Input[pulumi.InputType['SparkConfigPropertiesArgs']] spark_config_properties: Spark configuration file to specify additional properties
         :param pulumi.Input[str] spark_events_folder: The Spark events folder
         :param pulumi.Input[str] spark_version: The Apache Spark version.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
@@ -473,7 +455,6 @@ class BigDataPool(pulumi.CustomResource):
                  auto_scale: Optional[pulumi.Input[pulumi.InputType['AutoScalePropertiesArgs']]] = None,
                  big_data_pool_name: Optional[pulumi.Input[str]] = None,
                  cache_size: Optional[pulumi.Input[int]] = None,
-                 creation_date: Optional[pulumi.Input[str]] = None,
                  custom_libraries: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LibraryInfoArgs']]]]] = None,
                  default_spark_log_folder: Optional[pulumi.Input[str]] = None,
                  dynamic_executor_allocation: Optional[pulumi.Input[pulumi.InputType['DynamicExecutorAllocationArgs']]] = None,
@@ -487,7 +468,7 @@ class BigDataPool(pulumi.CustomResource):
                  provisioning_state: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  session_level_packages_enabled: Optional[pulumi.Input[bool]] = None,
-                 spark_config_properties: Optional[pulumi.Input[pulumi.InputType['LibraryRequirementsArgs']]] = None,
+                 spark_config_properties: Optional[pulumi.Input[pulumi.InputType['SparkConfigPropertiesArgs']]] = None,
                  spark_events_folder: Optional[pulumi.Input[str]] = None,
                  spark_version: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -508,7 +489,6 @@ class BigDataPool(pulumi.CustomResource):
             __props__.__dict__["auto_scale"] = auto_scale
             __props__.__dict__["big_data_pool_name"] = big_data_pool_name
             __props__.__dict__["cache_size"] = cache_size
-            __props__.__dict__["creation_date"] = creation_date
             __props__.__dict__["custom_libraries"] = custom_libraries
             __props__.__dict__["default_spark_log_folder"] = default_spark_log_folder
             __props__.__dict__["dynamic_executor_allocation"] = dynamic_executor_allocation
@@ -531,6 +511,7 @@ class BigDataPool(pulumi.CustomResource):
             if workspace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_name'")
             __props__.__dict__["workspace_name"] = workspace_name
+            __props__.__dict__["creation_date"] = None
             __props__.__dict__["last_succeeded_timestamp"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
@@ -608,7 +589,7 @@ class BigDataPool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="creationDate")
-    def creation_date(self) -> pulumi.Output[Optional[str]]:
+    def creation_date(self) -> pulumi.Output[str]:
         """
         The time when the Big Data pool was created.
         """
@@ -720,7 +701,7 @@ class BigDataPool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sparkConfigProperties")
-    def spark_config_properties(self) -> pulumi.Output[Optional['outputs.LibraryRequirementsResponse']]:
+    def spark_config_properties(self) -> pulumi.Output[Optional['outputs.SparkConfigPropertiesResponse']]:
         """
         Spark configuration file to specify additional properties
         """

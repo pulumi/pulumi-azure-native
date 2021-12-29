@@ -53,6 +53,10 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview.Outputs
         /// </summary>
         public readonly string LocalTimeZoneOffset;
         /// <summary>
+        /// The newer versions on download center.
+        /// </summary>
+        public readonly ImmutableArray<string> NewerVersions;
+        /// <summary>
         /// The node communication Channel encryption mode
         /// </summary>
         public readonly string NodeCommunicationChannelEncryptionMode;
@@ -68,6 +72,10 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview.Outputs
         /// The date at which the integration runtime will be scheduled to update, in ISO8601 format.
         /// </summary>
         public readonly string ScheduledUpdateDate;
+        /// <summary>
+        /// The service region of the integration runtime
+        /// </summary>
+        public readonly string? ServiceRegion;
         /// <summary>
         /// The URLs for the services used in integration runtime backend service.
         /// </summary>
@@ -118,6 +126,8 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview.Outputs
 
             string localTimeZoneOffset,
 
+            ImmutableArray<string> newerVersions,
+
             string nodeCommunicationChannelEncryptionMode,
 
             ImmutableArray<Outputs.SelfHostedIntegrationRuntimeNodeResponse> nodes,
@@ -125,6 +135,8 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview.Outputs
             string pushedVersion,
 
             string scheduledUpdateDate,
+
+            string? serviceRegion,
 
             ImmutableArray<string> serviceUrls,
 
@@ -149,10 +161,12 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview.Outputs
             LatestVersion = latestVersion;
             Links = links;
             LocalTimeZoneOffset = localTimeZoneOffset;
+            NewerVersions = newerVersions;
             NodeCommunicationChannelEncryptionMode = nodeCommunicationChannelEncryptionMode;
             Nodes = nodes;
             PushedVersion = pushedVersion;
             ScheduledUpdateDate = scheduledUpdateDate;
+            ServiceRegion = serviceRegion;
             ServiceUrls = serviceUrls;
             State = state;
             TaskQueueId = taskQueueId;

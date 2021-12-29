@@ -33,6 +33,7 @@ class WorkspaceArgs:
                  sql_administrator_login: Optional[pulumi.Input[str]] = None,
                  sql_administrator_login_password: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 trusted_service_bypass_enabled: Optional[pulumi.Input[bool]] = None,
                  virtual_network_profile: Optional[pulumi.Input['VirtualNetworkProfileArgs']] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
                  workspace_repository_configuration: Optional[pulumi.Input['WorkspaceRepositoryConfigurationArgs']] = None):
@@ -55,6 +56,7 @@ class WorkspaceArgs:
         :param pulumi.Input[str] sql_administrator_login: Login for workspace SQL active directory administrator
         :param pulumi.Input[str] sql_administrator_login_password: SQL administrator login password
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
+        :param pulumi.Input[bool] trusted_service_bypass_enabled: Is trustedServiceBypassEnabled for the workspace
         :param pulumi.Input['VirtualNetworkProfileArgs'] virtual_network_profile: Virtual Network profile
         :param pulumi.Input[str] workspace_name: The name of the workspace.
         :param pulumi.Input['WorkspaceRepositoryConfigurationArgs'] workspace_repository_configuration: Git integration settings
@@ -82,6 +84,8 @@ class WorkspaceArgs:
             pulumi.set(__self__, "managed_virtual_network_settings", managed_virtual_network_settings)
         if private_endpoint_connections is not None:
             pulumi.set(__self__, "private_endpoint_connections", private_endpoint_connections)
+        if public_network_access is None:
+            public_network_access = 'Enabled'
         if public_network_access is not None:
             pulumi.set(__self__, "public_network_access", public_network_access)
         if purview_configuration is not None:
@@ -92,6 +96,10 @@ class WorkspaceArgs:
             pulumi.set(__self__, "sql_administrator_login_password", sql_administrator_login_password)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if trusted_service_bypass_enabled is None:
+            trusted_service_bypass_enabled = False
+        if trusted_service_bypass_enabled is not None:
+            pulumi.set(__self__, "trusted_service_bypass_enabled", trusted_service_bypass_enabled)
         if virtual_network_profile is not None:
             pulumi.set(__self__, "virtual_network_profile", virtual_network_profile)
         if workspace_name is not None:
@@ -304,6 +312,18 @@ class WorkspaceArgs:
         pulumi.set(self, "tags", value)
 
     @property
+    @pulumi.getter(name="trustedServiceBypassEnabled")
+    def trusted_service_bypass_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is trustedServiceBypassEnabled for the workspace
+        """
+        return pulumi.get(self, "trusted_service_bypass_enabled")
+
+    @trusted_service_bypass_enabled.setter
+    def trusted_service_bypass_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "trusted_service_bypass_enabled", value)
+
+    @property
     @pulumi.getter(name="virtualNetworkProfile")
     def virtual_network_profile(self) -> Optional[pulumi.Input['VirtualNetworkProfileArgs']]:
         """
@@ -362,6 +382,7 @@ class Workspace(pulumi.CustomResource):
                  sql_administrator_login: Optional[pulumi.Input[str]] = None,
                  sql_administrator_login_password: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 trusted_service_bypass_enabled: Optional[pulumi.Input[bool]] = None,
                  virtual_network_profile: Optional[pulumi.Input[pulumi.InputType['VirtualNetworkProfileArgs']]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
                  workspace_repository_configuration: Optional[pulumi.Input[pulumi.InputType['WorkspaceRepositoryConfigurationArgs']]] = None,
@@ -388,6 +409,7 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.Input[str] sql_administrator_login: Login for workspace SQL active directory administrator
         :param pulumi.Input[str] sql_administrator_login_password: SQL administrator login password
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
+        :param pulumi.Input[bool] trusted_service_bypass_enabled: Is trustedServiceBypassEnabled for the workspace
         :param pulumi.Input[pulumi.InputType['VirtualNetworkProfileArgs']] virtual_network_profile: Virtual Network profile
         :param pulumi.Input[str] workspace_name: The name of the workspace.
         :param pulumi.Input[pulumi.InputType['WorkspaceRepositoryConfigurationArgs']] workspace_repository_configuration: Git integration settings
@@ -433,6 +455,7 @@ class Workspace(pulumi.CustomResource):
                  sql_administrator_login: Optional[pulumi.Input[str]] = None,
                  sql_administrator_login_password: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 trusted_service_bypass_enabled: Optional[pulumi.Input[bool]] = None,
                  virtual_network_profile: Optional[pulumi.Input[pulumi.InputType['VirtualNetworkProfileArgs']]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
                  workspace_repository_configuration: Optional[pulumi.Input[pulumi.InputType['WorkspaceRepositoryConfigurationArgs']]] = None,
@@ -459,6 +482,8 @@ class Workspace(pulumi.CustomResource):
             __props__.__dict__["managed_virtual_network"] = managed_virtual_network
             __props__.__dict__["managed_virtual_network_settings"] = managed_virtual_network_settings
             __props__.__dict__["private_endpoint_connections"] = private_endpoint_connections
+            if public_network_access is None:
+                public_network_access = 'Enabled'
             __props__.__dict__["public_network_access"] = public_network_access
             __props__.__dict__["purview_configuration"] = purview_configuration
             if resource_group_name is None and not opts.urn:
@@ -467,6 +492,9 @@ class Workspace(pulumi.CustomResource):
             __props__.__dict__["sql_administrator_login"] = sql_administrator_login
             __props__.__dict__["sql_administrator_login_password"] = sql_administrator_login_password
             __props__.__dict__["tags"] = tags
+            if trusted_service_bypass_enabled is None:
+                trusted_service_bypass_enabled = False
+            __props__.__dict__["trusted_service_bypass_enabled"] = trusted_service_bypass_enabled
             __props__.__dict__["virtual_network_profile"] = virtual_network_profile
             __props__.__dict__["workspace_name"] = workspace_name
             __props__.__dict__["workspace_repository_configuration"] = workspace_repository_configuration
@@ -522,6 +550,7 @@ class Workspace(pulumi.CustomResource):
         __props__.__dict__["sql_administrator_login"] = None
         __props__.__dict__["sql_administrator_login_password"] = None
         __props__.__dict__["tags"] = None
+        __props__.__dict__["trusted_service_bypass_enabled"] = None
         __props__.__dict__["type"] = None
         __props__.__dict__["virtual_network_profile"] = None
         __props__.__dict__["workspace_repository_configuration"] = None
@@ -695,6 +724,14 @@ class Workspace(pulumi.CustomResource):
         Resource tags.
         """
         return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="trustedServiceBypassEnabled")
+    def trusted_service_bypass_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Is trustedServiceBypassEnabled for the workspace
+        """
+        return pulumi.get(self, "trusted_service_bypass_enabled")
 
     @property
     @pulumi.getter

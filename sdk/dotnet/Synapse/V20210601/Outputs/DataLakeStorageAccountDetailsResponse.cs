@@ -21,10 +21,6 @@ namespace Pulumi.AzureNative.Synapse.V20210601.Outputs
         /// </summary>
         public readonly string? AccountUrl;
         /// <summary>
-        /// Create managed private endpoint to this storage account or not
-        /// </summary>
-        public readonly bool? CreateManagedPrivateEndpoint;
-        /// <summary>
         /// Filesystem name
         /// </summary>
         public readonly string? Filesystem;
@@ -37,14 +33,11 @@ namespace Pulumi.AzureNative.Synapse.V20210601.Outputs
         private DataLakeStorageAccountDetailsResponse(
             string? accountUrl,
 
-            bool? createManagedPrivateEndpoint,
-
             string? filesystem,
 
             string? resourceId)
         {
             AccountUrl = accountUrl;
-            CreateManagedPrivateEndpoint = createManagedPrivateEndpoint;
             Filesystem = filesystem;
             ResourceId = resourceId;
         }

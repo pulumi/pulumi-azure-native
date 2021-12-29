@@ -20,7 +20,6 @@ class SqlPoolArgs:
                  workspace_name: pulumi.Input[str],
                  collation: Optional[pulumi.Input[str]] = None,
                  create_mode: Optional[pulumi.Input[Union[str, 'CreateMode']]] = None,
-                 creation_date: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  max_size_bytes: Optional[pulumi.Input[float]] = None,
                  provisioning_state: Optional[pulumi.Input[str]] = None,
@@ -30,7 +29,6 @@ class SqlPoolArgs:
                  source_database_deletion_date: Optional[pulumi.Input[str]] = None,
                  source_database_id: Optional[pulumi.Input[str]] = None,
                  sql_pool_name: Optional[pulumi.Input[str]] = None,
-                 status: Optional[pulumi.Input[str]] = None,
                  storage_account_type: Optional[pulumi.Input[Union[str, 'StorageAccountType']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
@@ -47,7 +45,6 @@ class SqlPoolArgs:
                Recovery: Creates a sql pool by a geo-replicated backup. sourceDatabaseId  must be specified as the recoverableDatabaseId to restore.
                
                Restore: Creates a sql pool by restoring a backup of a deleted sql  pool. SourceDatabaseId should be the sql pool's original resource ID. SourceDatabaseId and sourceDatabaseDeletionDate must be specified.
-        :param pulumi.Input[str] creation_date: Date the SQL pool was created
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[float] max_size_bytes: Maximum size in bytes
         :param pulumi.Input[str] provisioning_state: Resource state
@@ -57,18 +54,17 @@ class SqlPoolArgs:
         :param pulumi.Input[str] source_database_deletion_date: Specifies the time that the sql pool was deleted
         :param pulumi.Input[str] source_database_id: Source database to create from
         :param pulumi.Input[str] sql_pool_name: SQL pool name
-        :param pulumi.Input[str] status: Resource status
         :param pulumi.Input[Union[str, 'StorageAccountType']] storage_account_type: The storage account type used to store backups for this sql pool.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "workspace_name", workspace_name)
+        if collation is None:
+            collation = ''
         if collation is not None:
             pulumi.set(__self__, "collation", collation)
         if create_mode is not None:
             pulumi.set(__self__, "create_mode", create_mode)
-        if creation_date is not None:
-            pulumi.set(__self__, "creation_date", creation_date)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if max_size_bytes is not None:
@@ -87,8 +83,8 @@ class SqlPoolArgs:
             pulumi.set(__self__, "source_database_id", source_database_id)
         if sql_pool_name is not None:
             pulumi.set(__self__, "sql_pool_name", sql_pool_name)
-        if status is not None:
-            pulumi.set(__self__, "status", status)
+        if storage_account_type is None:
+            storage_account_type = 'GRS'
         if storage_account_type is not None:
             pulumi.set(__self__, "storage_account_type", storage_account_type)
         if tags is not None:
@@ -149,18 +145,6 @@ class SqlPoolArgs:
     @create_mode.setter
     def create_mode(self, value: Optional[pulumi.Input[Union[str, 'CreateMode']]]):
         pulumi.set(self, "create_mode", value)
-
-    @property
-    @pulumi.getter(name="creationDate")
-    def creation_date(self) -> Optional[pulumi.Input[str]]:
-        """
-        Date the SQL pool was created
-        """
-        return pulumi.get(self, "creation_date")
-
-    @creation_date.setter
-    def creation_date(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "creation_date", value)
 
     @property
     @pulumi.getter
@@ -271,18 +255,6 @@ class SqlPoolArgs:
         pulumi.set(self, "sql_pool_name", value)
 
     @property
-    @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[str]]:
-        """
-        Resource status
-        """
-        return pulumi.get(self, "status")
-
-    @status.setter
-    def status(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "status", value)
-
-    @property
     @pulumi.getter(name="storageAccountType")
     def storage_account_type(self) -> Optional[pulumi.Input[Union[str, 'StorageAccountType']]]:
         """
@@ -314,7 +286,6 @@ class SqlPool(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  collation: Optional[pulumi.Input[str]] = None,
                  create_mode: Optional[pulumi.Input[Union[str, 'CreateMode']]] = None,
-                 creation_date: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  max_size_bytes: Optional[pulumi.Input[float]] = None,
                  provisioning_state: Optional[pulumi.Input[str]] = None,
@@ -325,7 +296,6 @@ class SqlPool(pulumi.CustomResource):
                  source_database_deletion_date: Optional[pulumi.Input[str]] = None,
                  source_database_id: Optional[pulumi.Input[str]] = None,
                  sql_pool_name: Optional[pulumi.Input[str]] = None,
-                 status: Optional[pulumi.Input[str]] = None,
                  storage_account_type: Optional[pulumi.Input[Union[str, 'StorageAccountType']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
@@ -345,7 +315,6 @@ class SqlPool(pulumi.CustomResource):
                Recovery: Creates a sql pool by a geo-replicated backup. sourceDatabaseId  must be specified as the recoverableDatabaseId to restore.
                
                Restore: Creates a sql pool by restoring a backup of a deleted sql  pool. SourceDatabaseId should be the sql pool's original resource ID. SourceDatabaseId and sourceDatabaseDeletionDate must be specified.
-        :param pulumi.Input[str] creation_date: Date the SQL pool was created
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[float] max_size_bytes: Maximum size in bytes
         :param pulumi.Input[str] provisioning_state: Resource state
@@ -356,7 +325,6 @@ class SqlPool(pulumi.CustomResource):
         :param pulumi.Input[str] source_database_deletion_date: Specifies the time that the sql pool was deleted
         :param pulumi.Input[str] source_database_id: Source database to create from
         :param pulumi.Input[str] sql_pool_name: SQL pool name
-        :param pulumi.Input[str] status: Resource status
         :param pulumi.Input[Union[str, 'StorageAccountType']] storage_account_type: The storage account type used to store backups for this sql pool.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] workspace_name: The name of the workspace.
@@ -387,7 +355,6 @@ class SqlPool(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  collation: Optional[pulumi.Input[str]] = None,
                  create_mode: Optional[pulumi.Input[Union[str, 'CreateMode']]] = None,
-                 creation_date: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  max_size_bytes: Optional[pulumi.Input[float]] = None,
                  provisioning_state: Optional[pulumi.Input[str]] = None,
@@ -398,7 +365,6 @@ class SqlPool(pulumi.CustomResource):
                  source_database_deletion_date: Optional[pulumi.Input[str]] = None,
                  source_database_id: Optional[pulumi.Input[str]] = None,
                  sql_pool_name: Optional[pulumi.Input[str]] = None,
-                 status: Optional[pulumi.Input[str]] = None,
                  storage_account_type: Optional[pulumi.Input[Union[str, 'StorageAccountType']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
@@ -414,9 +380,10 @@ class SqlPool(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = SqlPoolArgs.__new__(SqlPoolArgs)
 
+            if collation is None:
+                collation = ''
             __props__.__dict__["collation"] = collation
             __props__.__dict__["create_mode"] = create_mode
-            __props__.__dict__["creation_date"] = creation_date
             __props__.__dict__["location"] = location
             __props__.__dict__["max_size_bytes"] = max_size_bytes
             __props__.__dict__["provisioning_state"] = provisioning_state
@@ -429,13 +396,16 @@ class SqlPool(pulumi.CustomResource):
             __props__.__dict__["source_database_deletion_date"] = source_database_deletion_date
             __props__.__dict__["source_database_id"] = source_database_id
             __props__.__dict__["sql_pool_name"] = sql_pool_name
-            __props__.__dict__["status"] = status
+            if storage_account_type is None:
+                storage_account_type = 'GRS'
             __props__.__dict__["storage_account_type"] = storage_account_type
             __props__.__dict__["tags"] = tags
             if workspace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_name'")
             __props__.__dict__["workspace_name"] = workspace_name
+            __props__.__dict__["creation_date"] = None
             __props__.__dict__["name"] = None
+            __props__.__dict__["status"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:synapse:SqlPool"), pulumi.Alias(type_="azure-native:synapse/v20190601preview:SqlPool"), pulumi.Alias(type_="azure-native:synapse/v20200401preview:SqlPool"), pulumi.Alias(type_="azure-native:synapse/v20201201:SqlPool"), pulumi.Alias(type_="azure-native:synapse/v20210301:SqlPool"), pulumi.Alias(type_="azure-native:synapse/v20210401preview:SqlPool"), pulumi.Alias(type_="azure-native:synapse/v20210501:SqlPool"), pulumi.Alias(type_="azure-native:synapse/v20210601preview:SqlPool")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -462,7 +432,6 @@ class SqlPool(pulumi.CustomResource):
         __props__ = SqlPoolArgs.__new__(SqlPoolArgs)
 
         __props__.__dict__["collation"] = None
-        __props__.__dict__["create_mode"] = None
         __props__.__dict__["creation_date"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["max_size_bytes"] = None
@@ -472,7 +441,6 @@ class SqlPool(pulumi.CustomResource):
         __props__.__dict__["restore_point_in_time"] = None
         __props__.__dict__["sku"] = None
         __props__.__dict__["source_database_deletion_date"] = None
-        __props__.__dict__["source_database_id"] = None
         __props__.__dict__["status"] = None
         __props__.__dict__["storage_account_type"] = None
         __props__.__dict__["tags"] = None
@@ -488,24 +456,8 @@ class SqlPool(pulumi.CustomResource):
         return pulumi.get(self, "collation")
 
     @property
-    @pulumi.getter(name="createMode")
-    def create_mode(self) -> pulumi.Output[Optional[str]]:
-        """
-        Specifies the mode of sql pool creation.
-
-        Default: regular sql pool creation.
-
-        PointInTimeRestore: Creates a sql pool by restoring a point in time backup of an existing sql pool. sourceDatabaseId must be specified as the resource ID of the existing sql pool, and restorePointInTime must be specified.
-
-        Recovery: Creates a sql pool by a geo-replicated backup. sourceDatabaseId  must be specified as the recoverableDatabaseId to restore.
-
-        Restore: Creates a sql pool by restoring a backup of a deleted sql  pool. SourceDatabaseId should be the sql pool's original resource ID. SourceDatabaseId and sourceDatabaseDeletionDate must be specified.
-        """
-        return pulumi.get(self, "create_mode")
-
-    @property
     @pulumi.getter(name="creationDate")
-    def creation_date(self) -> pulumi.Output[Optional[str]]:
+    def creation_date(self) -> pulumi.Output[str]:
         """
         Date the SQL pool was created
         """
@@ -576,16 +528,8 @@ class SqlPool(pulumi.CustomResource):
         return pulumi.get(self, "source_database_deletion_date")
 
     @property
-    @pulumi.getter(name="sourceDatabaseId")
-    def source_database_id(self) -> pulumi.Output[Optional[str]]:
-        """
-        Source database to create from
-        """
-        return pulumi.get(self, "source_database_id")
-
-    @property
     @pulumi.getter
-    def status(self) -> pulumi.Output[Optional[str]]:
+    def status(self) -> pulumi.Output[str]:
         """
         Resource status
         """

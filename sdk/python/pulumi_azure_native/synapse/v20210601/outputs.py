@@ -53,6 +53,7 @@ __all__ = [
     'SelfHostedIntegrationRuntimeResponse',
     'SelfHostedIntegrationRuntimeStatusResponse',
     'SkuResponse',
+    'SparkConfigPropertiesResponse',
     'SqlPoolVulnerabilityAssessmentRuleBaselineItemResponse',
     'SsisEnvironmentReferenceResponse',
     'SsisEnvironmentResponse',
@@ -441,8 +442,6 @@ class DataLakeStorageAccountDetailsResponse(dict):
         suggest = None
         if key == "accountUrl":
             suggest = "account_url"
-        elif key == "createManagedPrivateEndpoint":
-            suggest = "create_managed_private_endpoint"
         elif key == "resourceId":
             suggest = "resource_id"
 
@@ -459,20 +458,16 @@ class DataLakeStorageAccountDetailsResponse(dict):
 
     def __init__(__self__, *,
                  account_url: Optional[str] = None,
-                 create_managed_private_endpoint: Optional[bool] = None,
                  filesystem: Optional[str] = None,
                  resource_id: Optional[str] = None):
         """
         Details of the data lake storage account associated with the workspace
         :param str account_url: Account URL
-        :param bool create_managed_private_endpoint: Create managed private endpoint to this storage account or not
         :param str filesystem: Filesystem name
         :param str resource_id: ARM resource Id of this storage account
         """
         if account_url is not None:
             pulumi.set(__self__, "account_url", account_url)
-        if create_managed_private_endpoint is not None:
-            pulumi.set(__self__, "create_managed_private_endpoint", create_managed_private_endpoint)
         if filesystem is not None:
             pulumi.set(__self__, "filesystem", filesystem)
         if resource_id is not None:
@@ -485,14 +480,6 @@ class DataLakeStorageAccountDetailsResponse(dict):
         Account URL
         """
         return pulumi.get(self, "account_url")
-
-    @property
-    @pulumi.getter(name="createManagedPrivateEndpoint")
-    def create_managed_private_endpoint(self) -> Optional[bool]:
-        """
-        Create managed private endpoint to this storage account or not
-        """
-        return pulumi.get(self, "create_managed_private_endpoint")
 
     @property
     @pulumi.getter
@@ -516,14 +503,41 @@ class DynamicExecutorAllocationResponse(dict):
     """
     Dynamic Executor Allocation Properties
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxExecutors":
+            suggest = "max_executors"
+        elif key == "minExecutors":
+            suggest = "min_executors"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DynamicExecutorAllocationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DynamicExecutorAllocationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DynamicExecutorAllocationResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
-                 enabled: Optional[bool] = None):
+                 enabled: Optional[bool] = None,
+                 max_executors: Optional[int] = None,
+                 min_executors: Optional[int] = None):
         """
         Dynamic Executor Allocation Properties
         :param bool enabled: Indicates whether Dynamic Executor Allocation is enabled or not.
+        :param int max_executors: The maximum number of executors alloted
+        :param int min_executors: The minimum number of executors alloted
         """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
+        if max_executors is not None:
+            pulumi.set(__self__, "max_executors", max_executors)
+        if min_executors is not None:
+            pulumi.set(__self__, "min_executors", min_executors)
 
     @property
     @pulumi.getter
@@ -532,6 +546,22 @@ class DynamicExecutorAllocationResponse(dict):
         Indicates whether Dynamic Executor Allocation is enabled or not.
         """
         return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="maxExecutors")
+    def max_executors(self) -> Optional[int]:
+        """
+        The maximum number of executors alloted
+        """
+        return pulumi.get(self, "max_executors")
+
+    @property
+    @pulumi.getter(name="minExecutors")
+    def min_executors(self) -> Optional[int]:
+        """
+        The minimum number of executors alloted
+        """
+        return pulumi.get(self, "min_executors")
 
 
 @pulumi.output_type
@@ -1958,10 +1988,14 @@ class ManagedIntegrationRuntimeResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "computeProperties":
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "computeProperties":
             suggest = "compute_properties"
         elif key == "customerVirtualNetwork":
             suggest = "customer_virtual_network"
+        elif key == "referenceName":
+            suggest = "reference_name"
         elif key == "ssisProperties":
             suggest = "ssis_properties"
 
@@ -1977,23 +2011,27 @@ class ManagedIntegrationRuntimeResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 state: str,
+                 provisioning_state: str,
                  type: str,
                  compute_properties: Optional['outputs.IntegrationRuntimeComputePropertiesResponse'] = None,
                  customer_virtual_network: Optional['outputs.IntegrationRuntimeCustomerVirtualNetworkResponse'] = None,
                  description: Optional[str] = None,
+                 id: Optional[str] = None,
+                 reference_name: Optional[str] = None,
                  ssis_properties: Optional['outputs.IntegrationRuntimeSsisPropertiesResponse'] = None):
         """
         Managed integration runtime, including managed elastic and managed dedicated integration runtimes.
-        :param str state: Integration runtime state, only valid for managed dedicated integration runtime.
+        :param str provisioning_state: Integration runtime state, only valid for managed dedicated integration runtime.
         :param str type: The type of integration runtime.
                Expected value is 'Managed'.
         :param 'IntegrationRuntimeComputePropertiesResponse' compute_properties: The compute resource for managed integration runtime.
         :param 'IntegrationRuntimeCustomerVirtualNetworkResponse' customer_virtual_network: The name of virtual network to which Azure-SSIS integration runtime will join
         :param str description: Integration runtime description.
+        :param str id: The id of the managed virtual network.
+        :param str reference_name: The reference name of the managed virtual network
         :param 'IntegrationRuntimeSsisPropertiesResponse' ssis_properties: SSIS properties for managed integration runtime.
         """
-        pulumi.set(__self__, "state", state)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
         pulumi.set(__self__, "type", 'Managed')
         if compute_properties is not None:
             pulumi.set(__self__, "compute_properties", compute_properties)
@@ -2001,16 +2039,20 @@ class ManagedIntegrationRuntimeResponse(dict):
             pulumi.set(__self__, "customer_virtual_network", customer_virtual_network)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if reference_name is not None:
+            pulumi.set(__self__, "reference_name", reference_name)
         if ssis_properties is not None:
             pulumi.set(__self__, "ssis_properties", ssis_properties)
 
     @property
-    @pulumi.getter
-    def state(self) -> str:
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
         """
         Integration runtime state, only valid for managed dedicated integration runtime.
         """
-        return pulumi.get(self, "state")
+        return pulumi.get(self, "provisioning_state")
 
     @property
     @pulumi.getter
@@ -2044,6 +2086,22 @@ class ManagedIntegrationRuntimeResponse(dict):
         Integration runtime description.
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        The id of the managed virtual network.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="referenceName")
+    def reference_name(self) -> Optional[str]:
+        """
+        The reference name of the managed virtual network
+        """
+        return pulumi.get(self, "reference_name")
 
     @property
     @pulumi.getter(name="ssisProperties")
@@ -3104,6 +3162,81 @@ class SkuResponse(dict):
         The service tier
         """
         return pulumi.get(self, "tier")
+
+
+@pulumi.output_type
+class SparkConfigPropertiesResponse(dict):
+    """
+    SparkConfig Properties for a Big Data pool powered by Apache Spark
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "configurationType":
+            suggest = "configuration_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SparkConfigPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SparkConfigPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SparkConfigPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 time: str,
+                 configuration_type: Optional[str] = None,
+                 content: Optional[str] = None,
+                 filename: Optional[str] = None):
+        """
+        SparkConfig Properties for a Big Data pool powered by Apache Spark
+        :param str time: The last update time of the spark config properties file.
+        :param str configuration_type: The type of the spark config properties file.
+        :param str content: The spark config properties.
+        :param str filename: The filename of the spark config properties file.
+        """
+        pulumi.set(__self__, "time", time)
+        if configuration_type is not None:
+            pulumi.set(__self__, "configuration_type", configuration_type)
+        if content is not None:
+            pulumi.set(__self__, "content", content)
+        if filename is not None:
+            pulumi.set(__self__, "filename", filename)
+
+    @property
+    @pulumi.getter
+    def time(self) -> str:
+        """
+        The last update time of the spark config properties file.
+        """
+        return pulumi.get(self, "time")
+
+    @property
+    @pulumi.getter(name="configurationType")
+    def configuration_type(self) -> Optional[str]:
+        """
+        The type of the spark config properties file.
+        """
+        return pulumi.get(self, "configuration_type")
+
+    @property
+    @pulumi.getter
+    def content(self) -> Optional[str]:
+        """
+        The spark config properties.
+        """
+        return pulumi.get(self, "content")
+
+    @property
+    @pulumi.getter
+    def filename(self) -> Optional[str]:
+        """
+        The filename of the spark config properties file.
+        """
+        return pulumi.get(self, "filename")
 
 
 @pulumi.output_type

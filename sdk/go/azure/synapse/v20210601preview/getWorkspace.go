@@ -14,7 +14,7 @@ func LookupWorkspace(ctx *pulumi.Context, args *LookupWorkspaceArgs, opts ...pul
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupWorkspaceArgs struct {
@@ -70,6 +70,8 @@ type LookupWorkspaceResult struct {
 	SqlAdministratorLoginPassword *string `pulumi:"sqlAdministratorLoginPassword"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
+	// Is trustedServiceBypassEnabled for the workspace
+	TrustedServiceBypassEnabled *bool `pulumi:"trustedServiceBypassEnabled"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
 	// Virtual Network profile
@@ -78,4 +80,21 @@ type LookupWorkspaceResult struct {
 	WorkspaceRepositoryConfiguration *WorkspaceRepositoryConfigurationResponse `pulumi:"workspaceRepositoryConfiguration"`
 	// The workspace unique identifier
 	WorkspaceUID string `pulumi:"workspaceUID"`
+}
+
+// Defaults sets the appropriate defaults for LookupWorkspaceResult
+func (val *LookupWorkspaceResult) Defaults() *LookupWorkspaceResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.PublicNetworkAccess) {
+		publicNetworkAccess_ := "Enabled"
+		tmp.PublicNetworkAccess = &publicNetworkAccess_
+	}
+	if isZero(tmp.TrustedServiceBypassEnabled) {
+		trustedServiceBypassEnabled_ := false
+		tmp.TrustedServiceBypassEnabled = &trustedServiceBypassEnabled_
+	}
+	return &tmp
 }

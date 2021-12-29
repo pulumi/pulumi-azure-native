@@ -157,6 +157,10 @@ namespace Pulumi.AzureNative.Synapse.V20210601
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
+        /// Is trustedServiceBypassEnabled for the workspace
+        /// </summary>
+        public readonly bool? TrustedServiceBypassEnabled;
+        /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
@@ -219,6 +223,8 @@ namespace Pulumi.AzureNative.Synapse.V20210601
 
             ImmutableDictionary<string, string>? tags,
 
+            bool? trustedServiceBypassEnabled,
+
             string type,
 
             Outputs.VirtualNetworkProfileResponse? virtualNetworkProfile,
@@ -249,6 +255,7 @@ namespace Pulumi.AzureNative.Synapse.V20210601
             SqlAdministratorLogin = sqlAdministratorLogin;
             SqlAdministratorLoginPassword = sqlAdministratorLoginPassword;
             Tags = tags;
+            TrustedServiceBypassEnabled = trustedServiceBypassEnabled;
             Type = type;
             VirtualNetworkProfile = virtualNetworkProfile;
             WorkspaceRepositoryConfiguration = workspaceRepositoryConfiguration;

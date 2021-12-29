@@ -57,7 +57,7 @@ export interface GetBigDataPoolResult {
     /**
      * The time when the Big Data pool was created.
      */
-    readonly creationDate?: string;
+    readonly creationDate: string;
     /**
      * List of custom libraries/packages associated with the spark pool.
      */
@@ -117,7 +117,7 @@ export interface GetBigDataPoolResult {
     /**
      * Spark configuration file to specify additional properties
      */
-    readonly sparkConfigProperties?: outputs.synapse.v20210601.LibraryRequirementsResponse;
+    readonly sparkConfigProperties?: outputs.synapse.v20210601.SparkConfigPropertiesResponse;
     /**
      * The Spark events folder
      */

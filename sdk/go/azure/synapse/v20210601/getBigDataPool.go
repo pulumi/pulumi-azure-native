@@ -35,7 +35,7 @@ type LookupBigDataPoolResult struct {
 	// The cache size
 	CacheSize *int `pulumi:"cacheSize"`
 	// The time when the Big Data pool was created.
-	CreationDate *string `pulumi:"creationDate"`
+	CreationDate string `pulumi:"creationDate"`
 	// List of custom libraries/packages associated with the spark pool.
 	CustomLibraries []LibraryInfoResponse `pulumi:"customLibraries"`
 	// The default folder where Spark logs will be written.
@@ -65,7 +65,7 @@ type LookupBigDataPoolResult struct {
 	// Whether session level packages enabled.
 	SessionLevelPackagesEnabled *bool `pulumi:"sessionLevelPackagesEnabled"`
 	// Spark configuration file to specify additional properties
-	SparkConfigProperties *LibraryRequirementsResponse `pulumi:"sparkConfigProperties"`
+	SparkConfigProperties *SparkConfigPropertiesResponse `pulumi:"sparkConfigProperties"`
 	// The Spark events folder
 	SparkEventsFolder *string `pulumi:"sparkEventsFolder"`
 	// The Apache Spark version.

@@ -3731,6 +3731,18 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "compute/v20210801",
+  "fqn": "pulumi_azure_native.compute.v20210801",
+  "classes": {
+   "azure-native:compute/v20210801:Disk": "Disk",
+   "azure-native:compute/v20210801:DiskAccess": "DiskAccess",
+   "azure-native:compute/v20210801:DiskAccessAPrivateEndpointConnection": "DiskAccessAPrivateEndpointConnection",
+   "azure-native:compute/v20210801:DiskEncryptionSet": "DiskEncryptionSet",
+   "azure-native:compute/v20210801:Snapshot": "Snapshot"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "confidentialledger",
   "fqn": "pulumi_azure_native.confidentialledger",
   "classes": {
@@ -4582,6 +4594,18 @@ _utilities.register(
    "azure-native:containerservice/v20211001:ManagedCluster": "ManagedCluster",
    "azure-native:containerservice/v20211001:PrivateEndpointConnection": "PrivateEndpointConnection",
    "azure-native:containerservice/v20211001:Snapshot": "Snapshot"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "containerservice/v20211101preview",
+  "fqn": "pulumi_azure_native.containerservice.v20211101preview",
+  "classes": {
+   "azure-native:containerservice/v20211101preview:AgentPool": "AgentPool",
+   "azure-native:containerservice/v20211101preview:MaintenanceConfiguration": "MaintenanceConfiguration",
+   "azure-native:containerservice/v20211101preview:ManagedCluster": "ManagedCluster",
+   "azure-native:containerservice/v20211101preview:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:containerservice/v20211101preview:Snapshot": "Snapshot"
   }
  },
  {

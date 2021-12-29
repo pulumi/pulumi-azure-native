@@ -118,7 +118,7 @@ class GetBigDataPoolResult:
 
     @property
     @pulumi.getter(name="creationDate")
-    def creation_date(self) -> Optional[str]:
+    def creation_date(self) -> str:
         """
         The time when the Big Data pool was created.
         """

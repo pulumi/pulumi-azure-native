@@ -95,7 +95,7 @@ namespace Pulumi.AzureNative.Synapse.V20210601
         /// <summary>
         /// The time when the Big Data pool was created.
         /// </summary>
-        public readonly string? CreationDate;
+        public readonly string CreationDate;
         /// <summary>
         /// List of custom libraries/packages associated with the spark pool.
         /// </summary>
@@ -155,7 +155,7 @@ namespace Pulumi.AzureNative.Synapse.V20210601
         /// <summary>
         /// Spark configuration file to specify additional properties
         /// </summary>
-        public readonly Outputs.LibraryRequirementsResponse? SparkConfigProperties;
+        public readonly Outputs.SparkConfigPropertiesResponse? SparkConfigProperties;
         /// <summary>
         /// The Spark events folder
         /// </summary>
@@ -181,7 +181,7 @@ namespace Pulumi.AzureNative.Synapse.V20210601
 
             int? cacheSize,
 
-            string? creationDate,
+            string creationDate,
 
             ImmutableArray<Outputs.LibraryInfoResponse> customLibraries,
 
@@ -211,7 +211,7 @@ namespace Pulumi.AzureNative.Synapse.V20210601
 
             bool? sessionLevelPackagesEnabled,
 
-            Outputs.LibraryRequirementsResponse? sparkConfigProperties,
+            Outputs.SparkConfigPropertiesResponse? sparkConfigProperties,
 
             string? sparkEventsFolder,
 

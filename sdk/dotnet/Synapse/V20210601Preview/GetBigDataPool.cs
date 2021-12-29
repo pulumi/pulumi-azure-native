@@ -95,7 +95,7 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview
         /// <summary>
         /// The time when the Big Data pool was created.
         /// </summary>
-        public readonly string? CreationDate;
+        public readonly string CreationDate;
         /// <summary>
         /// List of custom libraries/packages associated with the spark pool.
         /// </summary>
@@ -181,7 +181,7 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview
 
             int? cacheSize,
 
-            string? creationDate,
+            string creationDate,
 
             ImmutableArray<Outputs.LibraryInfoResponse> customLibraries,
 

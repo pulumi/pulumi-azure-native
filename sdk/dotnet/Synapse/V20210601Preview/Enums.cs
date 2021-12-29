@@ -869,7 +869,6 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview
 
         public static StorageAccountType GRS { get; } = new StorageAccountType("GRS");
         public static StorageAccountType LRS { get; } = new StorageAccountType("LRS");
-        public static StorageAccountType ZRS { get; } = new StorageAccountType("ZRS");
 
         public static bool operator ==(StorageAccountType left, StorageAccountType right) => left.Equals(right);
         public static bool operator !=(StorageAccountType left, StorageAccountType right) => !left.Equals(right);

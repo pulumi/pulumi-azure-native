@@ -468,13 +468,21 @@ class DataLakeStorageAccountDetailsArgs:
 @pulumi.input_type
 class DynamicExecutorAllocationArgs:
     def __init__(__self__, *,
-                 enabled: Optional[pulumi.Input[bool]] = None):
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 max_executors: Optional[pulumi.Input[int]] = None,
+                 min_executors: Optional[pulumi.Input[int]] = None):
         """
         Dynamic Executor Allocation Properties
         :param pulumi.Input[bool] enabled: Indicates whether Dynamic Executor Allocation is enabled or not.
+        :param pulumi.Input[int] max_executors: The maximum number of executors alloted
+        :param pulumi.Input[int] min_executors: The minimum number of executors alloted
         """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
+        if max_executors is not None:
+            pulumi.set(__self__, "max_executors", max_executors)
+        if min_executors is not None:
+            pulumi.set(__self__, "min_executors", min_executors)
 
     @property
     @pulumi.getter
@@ -487,6 +495,30 @@ class DynamicExecutorAllocationArgs:
     @enabled.setter
     def enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="maxExecutors")
+    def max_executors(self) -> Optional[pulumi.Input[int]]:
+        """
+        The maximum number of executors alloted
+        """
+        return pulumi.get(self, "max_executors")
+
+    @max_executors.setter
+    def max_executors(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_executors", value)
+
+    @property
+    @pulumi.getter(name="minExecutors")
+    def min_executors(self) -> Optional[pulumi.Input[int]]:
+        """
+        The minimum number of executors alloted
+        """
+        return pulumi.get(self, "min_executors")
+
+    @min_executors.setter
+    def min_executors(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "min_executors", value)
 
 
 @pulumi.input_type
@@ -1422,6 +1454,8 @@ class ManagedIntegrationRuntimeArgs:
                  type: pulumi.Input[str],
                  compute_properties: Optional[pulumi.Input['IntegrationRuntimeComputePropertiesArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 reference_name: Optional[pulumi.Input[str]] = None,
                  ssis_properties: Optional[pulumi.Input['IntegrationRuntimeSsisPropertiesArgs']] = None):
         """
         Managed integration runtime, including managed elastic and managed dedicated integration runtimes.
@@ -1429,6 +1463,8 @@ class ManagedIntegrationRuntimeArgs:
                Expected value is 'Managed'.
         :param pulumi.Input['IntegrationRuntimeComputePropertiesArgs'] compute_properties: The compute resource for managed integration runtime.
         :param pulumi.Input[str] description: Integration runtime description.
+        :param pulumi.Input[str] id: The id of the managed virtual network.
+        :param pulumi.Input[str] reference_name: The reference name of the managed virtual network.
         :param pulumi.Input['IntegrationRuntimeSsisPropertiesArgs'] ssis_properties: SSIS properties for managed integration runtime.
         """
         pulumi.set(__self__, "type", 'Managed')
@@ -1436,6 +1472,10 @@ class ManagedIntegrationRuntimeArgs:
             pulumi.set(__self__, "compute_properties", compute_properties)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if reference_name is not None:
+            pulumi.set(__self__, "reference_name", reference_name)
         if ssis_properties is not None:
             pulumi.set(__self__, "ssis_properties", ssis_properties)
 
@@ -1475,6 +1515,30 @@ class ManagedIntegrationRuntimeArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The id of the managed virtual network.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter(name="referenceName")
+    def reference_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The reference name of the managed virtual network.
+        """
+        return pulumi.get(self, "reference_name")
+
+    @reference_name.setter
+    def reference_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "reference_name", value)
 
     @property
     @pulumi.getter(name="ssisProperties")

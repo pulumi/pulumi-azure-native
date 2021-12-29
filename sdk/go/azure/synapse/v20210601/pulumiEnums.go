@@ -10,6 +10,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// The type of the spark config properties file.
+type ConfigurationType string
+
+const (
+	ConfigurationTypeFile     = ConfigurationType("File")
+	ConfigurationTypeArtifact = ConfigurationType("Artifact")
+)
+
 // Specifies the mode of sql pool creation.
 //
 // Default: regular sql pool creation.
@@ -441,7 +449,6 @@ type StorageAccountType string
 const (
 	StorageAccountTypeGRS = StorageAccountType("GRS")
 	StorageAccountTypeLRS = StorageAccountType("LRS")
-	StorageAccountTypeZRS = StorageAccountType("ZRS")
 )
 
 // The status of the database transparent data encryption.

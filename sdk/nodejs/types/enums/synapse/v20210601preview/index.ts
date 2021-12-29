@@ -327,7 +327,6 @@ export type SkuSize = (typeof SkuSize)[keyof typeof SkuSize];
 export const StorageAccountType = {
     GRS: "GRS",
     LRS: "LRS",
-    ZRS: "ZRS",
 } as const;
 
 /**

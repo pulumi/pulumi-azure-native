@@ -37,7 +37,7 @@ namespace Pulumi.AzureNative.Synapse.V20210601
         /// The time when the Big Data pool was created.
         /// </summary>
         [Output("creationDate")]
-        public Output<string?> CreationDate { get; private set; } = null!;
+        public Output<string> CreationDate { get; private set; } = null!;
 
         /// <summary>
         /// List of custom libraries/packages associated with the spark pool.
@@ -121,7 +121,7 @@ namespace Pulumi.AzureNative.Synapse.V20210601
         /// Spark configuration file to specify additional properties
         /// </summary>
         [Output("sparkConfigProperties")]
-        public Output<Outputs.LibraryRequirementsResponse?> SparkConfigProperties { get; private set; } = null!;
+        public Output<Outputs.SparkConfigPropertiesResponse?> SparkConfigProperties { get; private set; } = null!;
 
         /// <summary>
         /// The Spark events folder
@@ -226,12 +226,6 @@ namespace Pulumi.AzureNative.Synapse.V20210601
         [Input("cacheSize")]
         public Input<int>? CacheSize { get; set; }
 
-        /// <summary>
-        /// The time when the Big Data pool was created.
-        /// </summary>
-        [Input("creationDate")]
-        public Input<string>? CreationDate { get; set; }
-
         [Input("customLibraries")]
         private InputList<Inputs.LibraryInfoArgs>? _customLibraries;
 
@@ -320,7 +314,7 @@ namespace Pulumi.AzureNative.Synapse.V20210601
         /// Spark configuration file to specify additional properties
         /// </summary>
         [Input("sparkConfigProperties")]
-        public Input<Inputs.LibraryRequirementsArgs>? SparkConfigProperties { get; set; }
+        public Input<Inputs.SparkConfigPropertiesArgs>? SparkConfigProperties { get; set; }
 
         /// <summary>
         /// The Spark events folder

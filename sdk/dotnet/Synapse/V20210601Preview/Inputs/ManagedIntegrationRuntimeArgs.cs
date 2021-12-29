@@ -28,6 +28,18 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview.Inputs
         public Input<string>? Description { get; set; }
 
         /// <summary>
+        /// The id of the managed virtual network.
+        /// </summary>
+        [Input("id")]
+        public Input<string>? Id { get; set; }
+
+        /// <summary>
+        /// The reference name of the managed virtual network.
+        /// </summary>
+        [Input("referenceName")]
+        public Input<string>? ReferenceName { get; set; }
+
+        /// <summary>
         /// SSIS properties for managed integration runtime.
         /// </summary>
         [Input("ssisProperties")]

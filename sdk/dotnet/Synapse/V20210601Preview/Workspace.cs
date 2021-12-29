@@ -142,6 +142,12 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
+        /// Is trustedServiceBypassEnabled for the workspace
+        /// </summary>
+        [Output("trustedServiceBypassEnabled")]
+        public Output<bool?> TrustedServiceBypassEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
@@ -341,6 +347,12 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview
         }
 
         /// <summary>
+        /// Is trustedServiceBypassEnabled for the workspace
+        /// </summary>
+        [Input("trustedServiceBypassEnabled")]
+        public Input<bool>? TrustedServiceBypassEnabled { get; set; }
+
+        /// <summary>
         /// Virtual Network profile
         /// </summary>
         [Input("virtualNetworkProfile")]
@@ -360,6 +372,8 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview
 
         public WorkspaceArgs()
         {
+            PublicNetworkAccess = "Enabled";
+            TrustedServiceBypassEnabled = false;
         }
     }
 }

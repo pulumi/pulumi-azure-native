@@ -22,24 +22,10 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview
         public Output<string?> Collation { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the mode of sql pool creation.
-        /// 
-        /// Default: regular sql pool creation.
-        /// 
-        /// PointInTimeRestore: Creates a sql pool by restoring a point in time backup of an existing sql pool. sourceDatabaseId must be specified as the resource ID of the existing sql pool, and restorePointInTime must be specified.
-        /// 
-        /// Recovery: Creates a sql pool by a geo-replicated backup. sourceDatabaseId  must be specified as the recoverableDatabaseId to restore.
-        /// 
-        /// Restore: Creates a sql pool by restoring a backup of a deleted sql  pool. SourceDatabaseId should be the sql pool's original resource ID. SourceDatabaseId and sourceDatabaseDeletionDate must be specified.
-        /// </summary>
-        [Output("createMode")]
-        public Output<string?> CreateMode { get; private set; } = null!;
-
-        /// <summary>
         /// Date the SQL pool was created
         /// </summary>
         [Output("creationDate")]
-        public Output<string?> CreationDate { get; private set; } = null!;
+        public Output<string> CreationDate { get; private set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives
@@ -90,16 +76,10 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview
         public Output<string?> SourceDatabaseDeletionDate { get; private set; } = null!;
 
         /// <summary>
-        /// Source database to create from
-        /// </summary>
-        [Output("sourceDatabaseId")]
-        public Output<string?> SourceDatabaseId { get; private set; } = null!;
-
-        /// <summary>
         /// Resource status
         /// </summary>
         [Output("status")]
-        public Output<string?> Status { get; private set; } = null!;
+        public Output<string> Status { get; private set; } = null!;
 
         /// <summary>
         /// The storage account type used to store backups for this sql pool.
@@ -196,12 +176,6 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview
         public InputUnion<string, Pulumi.AzureNative.Synapse.V20210601Preview.CreateMode>? CreateMode { get; set; }
 
         /// <summary>
-        /// Date the SQL pool was created
-        /// </summary>
-        [Input("creationDate")]
-        public Input<string>? CreationDate { get; set; }
-
-        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         [Input("location")]
@@ -260,12 +234,6 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview
         /// </summary>
         [Input("sqlPoolName")]
         public Input<string>? SqlPoolName { get; set; }
-
-        /// <summary>
-        /// Resource status
-        /// </summary>
-        [Input("status")]
-        public Input<string>? Status { get; set; }
 
         /// <summary>
         /// The storage account type used to store backups for this sql pool.

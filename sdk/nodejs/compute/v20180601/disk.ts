@@ -150,7 +150,7 @@ export class Disk extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:compute:Disk" }, { type: "azure-native:compute/v20160430preview:Disk" }, { type: "azure-native:compute/v20170330:Disk" }, { type: "azure-native:compute/v20180401:Disk" }, { type: "azure-native:compute/v20180930:Disk" }, { type: "azure-native:compute/v20190301:Disk" }, { type: "azure-native:compute/v20190701:Disk" }, { type: "azure-native:compute/v20191101:Disk" }, { type: "azure-native:compute/v20200501:Disk" }, { type: "azure-native:compute/v20200630:Disk" }, { type: "azure-native:compute/v20200930:Disk" }, { type: "azure-native:compute/v20201201:Disk" }, { type: "azure-native:compute/v20210401:Disk" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:compute:Disk" }, { type: "azure-native:compute/v20160430preview:Disk" }, { type: "azure-native:compute/v20170330:Disk" }, { type: "azure-native:compute/v20180401:Disk" }, { type: "azure-native:compute/v20180930:Disk" }, { type: "azure-native:compute/v20190301:Disk" }, { type: "azure-native:compute/v20190701:Disk" }, { type: "azure-native:compute/v20191101:Disk" }, { type: "azure-native:compute/v20200501:Disk" }, { type: "azure-native:compute/v20200630:Disk" }, { type: "azure-native:compute/v20200930:Disk" }, { type: "azure-native:compute/v20201201:Disk" }, { type: "azure-native:compute/v20210401:Disk" }, { type: "azure-native:compute/v20210801:Disk" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Disk.__pulumiType, name, resourceInputs, opts);
     }

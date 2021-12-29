@@ -57,7 +57,7 @@ export interface GetBigDataPoolResult {
     /**
      * The time when the Big Data pool was created.
      */
-    readonly creationDate?: string;
+    readonly creationDate: string;
     /**
      * List of custom libraries/packages associated with the spark pool.
      */

@@ -314,7 +314,6 @@ class StorageAccountType(str, Enum):
     """
     GRS = "GRS"
     LRS = "LRS"
-    ZRS = "ZRS"
 
 
 class TransparentDataEncryptionStatus(str, Enum):

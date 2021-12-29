@@ -604,7 +604,6 @@ type StorageAccountType string
 const (
 	StorageAccountTypeGRS = StorageAccountType("GRS")
 	StorageAccountTypeLRS = StorageAccountType("LRS")
-	StorageAccountTypeZRS = StorageAccountType("ZRS")
 )
 
 // The status of the database transparent data encryption.

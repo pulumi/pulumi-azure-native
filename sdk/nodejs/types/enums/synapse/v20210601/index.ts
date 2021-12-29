@@ -2,6 +2,16 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const ConfigurationType = {
+    File: "File",
+    Artifact: "Artifact",
+} as const;
+
+/**
+ * The type of the spark config properties file.
+ */
+export type ConfigurationType = (typeof ConfigurationType)[keyof typeof ConfigurationType];
+
 export const CreateMode = {
     Default: "Default",
     PointInTimeRestore: "PointInTimeRestore",
@@ -136,7 +146,6 @@ export type SensitivityLabelRank = (typeof SensitivityLabelRank)[keyof typeof Se
 export const StorageAccountType = {
     GRS: "GRS",
     LRS: "LRS",
-    ZRS: "ZRS",
 } as const;
 
 /**

@@ -118,7 +118,7 @@ class GetBigDataPoolResult:
 
     @property
     @pulumi.getter(name="creationDate")
-    def creation_date(self) -> Optional[str]:
+    def creation_date(self) -> str:
         """
         The time when the Big Data pool was created.
         """
@@ -238,7 +238,7 @@ class GetBigDataPoolResult:
 
     @property
     @pulumi.getter(name="sparkConfigProperties")
-    def spark_config_properties(self) -> Optional['outputs.LibraryRequirementsResponse']:
+    def spark_config_properties(self) -> Optional['outputs.SparkConfigPropertiesResponse']:
         """
         Spark configuration file to specify additional properties
         """

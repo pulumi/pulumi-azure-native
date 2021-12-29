@@ -126,6 +126,10 @@ export interface GetWorkspaceResult {
      */
     readonly tags?: {[key: string]: string};
     /**
+     * Is trustedServiceBypassEnabled for the workspace
+     */
+    readonly trustedServiceBypassEnabled?: boolean;
+    /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;

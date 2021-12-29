@@ -1220,8 +1220,6 @@ func (o DataLakeStorageAccountDetailsPtrOutput) ResourceId() pulumi.StringPtrOut
 type DataLakeStorageAccountDetailsResponse struct {
 	// Account URL
 	AccountUrl *string `pulumi:"accountUrl"`
-	// Create managed private endpoint to this storage account or not
-	CreateManagedPrivateEndpoint *bool `pulumi:"createManagedPrivateEndpoint"`
 	// Filesystem name
 	Filesystem *string `pulumi:"filesystem"`
 	// ARM resource Id of this storage account
@@ -1246,11 +1244,6 @@ func (o DataLakeStorageAccountDetailsResponseOutput) ToDataLakeStorageAccountDet
 // Account URL
 func (o DataLakeStorageAccountDetailsResponseOutput) AccountUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataLakeStorageAccountDetailsResponse) *string { return v.AccountUrl }).(pulumi.StringPtrOutput)
-}
-
-// Create managed private endpoint to this storage account or not
-func (o DataLakeStorageAccountDetailsResponseOutput) CreateManagedPrivateEndpoint() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v DataLakeStorageAccountDetailsResponse) *bool { return v.CreateManagedPrivateEndpoint }).(pulumi.BoolPtrOutput)
 }
 
 // Filesystem name
@@ -1297,16 +1290,6 @@ func (o DataLakeStorageAccountDetailsResponsePtrOutput) AccountUrl() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// Create managed private endpoint to this storage account or not
-func (o DataLakeStorageAccountDetailsResponsePtrOutput) CreateManagedPrivateEndpoint() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *DataLakeStorageAccountDetailsResponse) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.CreateManagedPrivateEndpoint
-	}).(pulumi.BoolPtrOutput)
-}
-
 // Filesystem name
 func (o DataLakeStorageAccountDetailsResponsePtrOutput) Filesystem() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataLakeStorageAccountDetailsResponse) *string {
@@ -1331,6 +1314,10 @@ func (o DataLakeStorageAccountDetailsResponsePtrOutput) ResourceId() pulumi.Stri
 type DynamicExecutorAllocation struct {
 	// Indicates whether Dynamic Executor Allocation is enabled or not.
 	Enabled *bool `pulumi:"enabled"`
+	// The maximum number of executors alloted
+	MaxExecutors *int `pulumi:"maxExecutors"`
+	// The minimum number of executors alloted
+	MinExecutors *int `pulumi:"minExecutors"`
 }
 
 // DynamicExecutorAllocationInput is an input type that accepts DynamicExecutorAllocationArgs and DynamicExecutorAllocationOutput values.
@@ -1348,6 +1335,10 @@ type DynamicExecutorAllocationInput interface {
 type DynamicExecutorAllocationArgs struct {
 	// Indicates whether Dynamic Executor Allocation is enabled or not.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// The maximum number of executors alloted
+	MaxExecutors pulumi.IntPtrInput `pulumi:"maxExecutors"`
+	// The minimum number of executors alloted
+	MinExecutors pulumi.IntPtrInput `pulumi:"minExecutors"`
 }
 
 func (DynamicExecutorAllocationArgs) ElementType() reflect.Type {
@@ -1433,6 +1424,16 @@ func (o DynamicExecutorAllocationOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DynamicExecutorAllocation) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
+// The maximum number of executors alloted
+func (o DynamicExecutorAllocationOutput) MaxExecutors() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DynamicExecutorAllocation) *int { return v.MaxExecutors }).(pulumi.IntPtrOutput)
+}
+
+// The minimum number of executors alloted
+func (o DynamicExecutorAllocationOutput) MinExecutors() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DynamicExecutorAllocation) *int { return v.MinExecutors }).(pulumi.IntPtrOutput)
+}
+
 type DynamicExecutorAllocationPtrOutput struct{ *pulumi.OutputState }
 
 func (DynamicExecutorAllocationPtrOutput) ElementType() reflect.Type {
@@ -1467,10 +1468,34 @@ func (o DynamicExecutorAllocationPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+// The maximum number of executors alloted
+func (o DynamicExecutorAllocationPtrOutput) MaxExecutors() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DynamicExecutorAllocation) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxExecutors
+	}).(pulumi.IntPtrOutput)
+}
+
+// The minimum number of executors alloted
+func (o DynamicExecutorAllocationPtrOutput) MinExecutors() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DynamicExecutorAllocation) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MinExecutors
+	}).(pulumi.IntPtrOutput)
+}
+
 // Dynamic Executor Allocation Properties
 type DynamicExecutorAllocationResponse struct {
 	// Indicates whether Dynamic Executor Allocation is enabled or not.
 	Enabled *bool `pulumi:"enabled"`
+	// The maximum number of executors alloted
+	MaxExecutors *int `pulumi:"maxExecutors"`
+	// The minimum number of executors alloted
+	MinExecutors *int `pulumi:"minExecutors"`
 }
 
 // Dynamic Executor Allocation Properties
@@ -1491,6 +1516,16 @@ func (o DynamicExecutorAllocationResponseOutput) ToDynamicExecutorAllocationResp
 // Indicates whether Dynamic Executor Allocation is enabled or not.
 func (o DynamicExecutorAllocationResponseOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DynamicExecutorAllocationResponse) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// The maximum number of executors alloted
+func (o DynamicExecutorAllocationResponseOutput) MaxExecutors() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DynamicExecutorAllocationResponse) *int { return v.MaxExecutors }).(pulumi.IntPtrOutput)
+}
+
+// The minimum number of executors alloted
+func (o DynamicExecutorAllocationResponseOutput) MinExecutors() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DynamicExecutorAllocationResponse) *int { return v.MinExecutors }).(pulumi.IntPtrOutput)
 }
 
 type DynamicExecutorAllocationResponsePtrOutput struct{ *pulumi.OutputState }
@@ -1525,6 +1560,26 @@ func (o DynamicExecutorAllocationResponsePtrOutput) Enabled() pulumi.BoolPtrOutp
 		}
 		return v.Enabled
 	}).(pulumi.BoolPtrOutput)
+}
+
+// The maximum number of executors alloted
+func (o DynamicExecutorAllocationResponsePtrOutput) MaxExecutors() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DynamicExecutorAllocationResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxExecutors
+	}).(pulumi.IntPtrOutput)
+}
+
+// The minimum number of executors alloted
+func (o DynamicExecutorAllocationResponsePtrOutput) MinExecutors() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DynamicExecutorAllocationResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MinExecutors
+	}).(pulumi.IntPtrOutput)
 }
 
 // Details of the encryption associated with the workspace
@@ -2996,6 +3051,10 @@ type ManagedIntegrationRuntime struct {
 	CustomerVirtualNetwork *IntegrationRuntimeCustomerVirtualNetwork `pulumi:"customerVirtualNetwork"`
 	// Integration runtime description.
 	Description *string `pulumi:"description"`
+	// The id of the managed virtual network.
+	Id *string `pulumi:"id"`
+	// The reference name of the managed virtual network
+	ReferenceName *string `pulumi:"referenceName"`
 	// SSIS properties for managed integration runtime.
 	SsisProperties *IntegrationRuntimeSsisProperties `pulumi:"ssisProperties"`
 	// The type of integration runtime.
@@ -3049,10 +3108,14 @@ type ManagedIntegrationRuntimeResponse struct {
 	CustomerVirtualNetwork *IntegrationRuntimeCustomerVirtualNetworkResponse `pulumi:"customerVirtualNetwork"`
 	// Integration runtime description.
 	Description *string `pulumi:"description"`
+	// The id of the managed virtual network.
+	Id *string `pulumi:"id"`
+	// Integration runtime state, only valid for managed dedicated integration runtime.
+	ProvisioningState string `pulumi:"provisioningState"`
+	// The reference name of the managed virtual network
+	ReferenceName *string `pulumi:"referenceName"`
 	// SSIS properties for managed integration runtime.
 	SsisProperties *IntegrationRuntimeSsisPropertiesResponse `pulumi:"ssisProperties"`
-	// Integration runtime state, only valid for managed dedicated integration runtime.
-	State string `pulumi:"state"`
 	// The type of integration runtime.
 	// Expected value is 'Managed'.
 	Type string `pulumi:"type"`
@@ -4512,6 +4575,295 @@ func (o SkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 			return nil
 		}
 		return v.Tier
+	}).(pulumi.StringPtrOutput)
+}
+
+// SparkConfig Properties for a Big Data pool powered by Apache Spark
+type SparkConfigProperties struct {
+	// The type of the spark config properties file.
+	ConfigurationType *string `pulumi:"configurationType"`
+	// The spark config properties.
+	Content *string `pulumi:"content"`
+	// The filename of the spark config properties file.
+	Filename *string `pulumi:"filename"`
+}
+
+// SparkConfigPropertiesInput is an input type that accepts SparkConfigPropertiesArgs and SparkConfigPropertiesOutput values.
+// You can construct a concrete instance of `SparkConfigPropertiesInput` via:
+//
+//          SparkConfigPropertiesArgs{...}
+type SparkConfigPropertiesInput interface {
+	pulumi.Input
+
+	ToSparkConfigPropertiesOutput() SparkConfigPropertiesOutput
+	ToSparkConfigPropertiesOutputWithContext(context.Context) SparkConfigPropertiesOutput
+}
+
+// SparkConfig Properties for a Big Data pool powered by Apache Spark
+type SparkConfigPropertiesArgs struct {
+	// The type of the spark config properties file.
+	ConfigurationType pulumi.StringPtrInput `pulumi:"configurationType"`
+	// The spark config properties.
+	Content pulumi.StringPtrInput `pulumi:"content"`
+	// The filename of the spark config properties file.
+	Filename pulumi.StringPtrInput `pulumi:"filename"`
+}
+
+func (SparkConfigPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SparkConfigProperties)(nil)).Elem()
+}
+
+func (i SparkConfigPropertiesArgs) ToSparkConfigPropertiesOutput() SparkConfigPropertiesOutput {
+	return i.ToSparkConfigPropertiesOutputWithContext(context.Background())
+}
+
+func (i SparkConfigPropertiesArgs) ToSparkConfigPropertiesOutputWithContext(ctx context.Context) SparkConfigPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SparkConfigPropertiesOutput)
+}
+
+func (i SparkConfigPropertiesArgs) ToSparkConfigPropertiesPtrOutput() SparkConfigPropertiesPtrOutput {
+	return i.ToSparkConfigPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i SparkConfigPropertiesArgs) ToSparkConfigPropertiesPtrOutputWithContext(ctx context.Context) SparkConfigPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SparkConfigPropertiesOutput).ToSparkConfigPropertiesPtrOutputWithContext(ctx)
+}
+
+// SparkConfigPropertiesPtrInput is an input type that accepts SparkConfigPropertiesArgs, SparkConfigPropertiesPtr and SparkConfigPropertiesPtrOutput values.
+// You can construct a concrete instance of `SparkConfigPropertiesPtrInput` via:
+//
+//          SparkConfigPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type SparkConfigPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToSparkConfigPropertiesPtrOutput() SparkConfigPropertiesPtrOutput
+	ToSparkConfigPropertiesPtrOutputWithContext(context.Context) SparkConfigPropertiesPtrOutput
+}
+
+type sparkConfigPropertiesPtrType SparkConfigPropertiesArgs
+
+func SparkConfigPropertiesPtr(v *SparkConfigPropertiesArgs) SparkConfigPropertiesPtrInput {
+	return (*sparkConfigPropertiesPtrType)(v)
+}
+
+func (*sparkConfigPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SparkConfigProperties)(nil)).Elem()
+}
+
+func (i *sparkConfigPropertiesPtrType) ToSparkConfigPropertiesPtrOutput() SparkConfigPropertiesPtrOutput {
+	return i.ToSparkConfigPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *sparkConfigPropertiesPtrType) ToSparkConfigPropertiesPtrOutputWithContext(ctx context.Context) SparkConfigPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SparkConfigPropertiesPtrOutput)
+}
+
+// SparkConfig Properties for a Big Data pool powered by Apache Spark
+type SparkConfigPropertiesOutput struct{ *pulumi.OutputState }
+
+func (SparkConfigPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SparkConfigProperties)(nil)).Elem()
+}
+
+func (o SparkConfigPropertiesOutput) ToSparkConfigPropertiesOutput() SparkConfigPropertiesOutput {
+	return o
+}
+
+func (o SparkConfigPropertiesOutput) ToSparkConfigPropertiesOutputWithContext(ctx context.Context) SparkConfigPropertiesOutput {
+	return o
+}
+
+func (o SparkConfigPropertiesOutput) ToSparkConfigPropertiesPtrOutput() SparkConfigPropertiesPtrOutput {
+	return o.ToSparkConfigPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o SparkConfigPropertiesOutput) ToSparkConfigPropertiesPtrOutputWithContext(ctx context.Context) SparkConfigPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SparkConfigProperties) *SparkConfigProperties {
+		return &v
+	}).(SparkConfigPropertiesPtrOutput)
+}
+
+// The type of the spark config properties file.
+func (o SparkConfigPropertiesOutput) ConfigurationType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SparkConfigProperties) *string { return v.ConfigurationType }).(pulumi.StringPtrOutput)
+}
+
+// The spark config properties.
+func (o SparkConfigPropertiesOutput) Content() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SparkConfigProperties) *string { return v.Content }).(pulumi.StringPtrOutput)
+}
+
+// The filename of the spark config properties file.
+func (o SparkConfigPropertiesOutput) Filename() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SparkConfigProperties) *string { return v.Filename }).(pulumi.StringPtrOutput)
+}
+
+type SparkConfigPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (SparkConfigPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SparkConfigProperties)(nil)).Elem()
+}
+
+func (o SparkConfigPropertiesPtrOutput) ToSparkConfigPropertiesPtrOutput() SparkConfigPropertiesPtrOutput {
+	return o
+}
+
+func (o SparkConfigPropertiesPtrOutput) ToSparkConfigPropertiesPtrOutputWithContext(ctx context.Context) SparkConfigPropertiesPtrOutput {
+	return o
+}
+
+func (o SparkConfigPropertiesPtrOutput) Elem() SparkConfigPropertiesOutput {
+	return o.ApplyT(func(v *SparkConfigProperties) SparkConfigProperties {
+		if v != nil {
+			return *v
+		}
+		var ret SparkConfigProperties
+		return ret
+	}).(SparkConfigPropertiesOutput)
+}
+
+// The type of the spark config properties file.
+func (o SparkConfigPropertiesPtrOutput) ConfigurationType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SparkConfigProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ConfigurationType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The spark config properties.
+func (o SparkConfigPropertiesPtrOutput) Content() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SparkConfigProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Content
+	}).(pulumi.StringPtrOutput)
+}
+
+// The filename of the spark config properties file.
+func (o SparkConfigPropertiesPtrOutput) Filename() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SparkConfigProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Filename
+	}).(pulumi.StringPtrOutput)
+}
+
+// SparkConfig Properties for a Big Data pool powered by Apache Spark
+type SparkConfigPropertiesResponse struct {
+	// The type of the spark config properties file.
+	ConfigurationType *string `pulumi:"configurationType"`
+	// The spark config properties.
+	Content *string `pulumi:"content"`
+	// The filename of the spark config properties file.
+	Filename *string `pulumi:"filename"`
+	// The last update time of the spark config properties file.
+	Time string `pulumi:"time"`
+}
+
+// SparkConfig Properties for a Big Data pool powered by Apache Spark
+type SparkConfigPropertiesResponseOutput struct{ *pulumi.OutputState }
+
+func (SparkConfigPropertiesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SparkConfigPropertiesResponse)(nil)).Elem()
+}
+
+func (o SparkConfigPropertiesResponseOutput) ToSparkConfigPropertiesResponseOutput() SparkConfigPropertiesResponseOutput {
+	return o
+}
+
+func (o SparkConfigPropertiesResponseOutput) ToSparkConfigPropertiesResponseOutputWithContext(ctx context.Context) SparkConfigPropertiesResponseOutput {
+	return o
+}
+
+// The type of the spark config properties file.
+func (o SparkConfigPropertiesResponseOutput) ConfigurationType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SparkConfigPropertiesResponse) *string { return v.ConfigurationType }).(pulumi.StringPtrOutput)
+}
+
+// The spark config properties.
+func (o SparkConfigPropertiesResponseOutput) Content() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SparkConfigPropertiesResponse) *string { return v.Content }).(pulumi.StringPtrOutput)
+}
+
+// The filename of the spark config properties file.
+func (o SparkConfigPropertiesResponseOutput) Filename() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SparkConfigPropertiesResponse) *string { return v.Filename }).(pulumi.StringPtrOutput)
+}
+
+// The last update time of the spark config properties file.
+func (o SparkConfigPropertiesResponseOutput) Time() pulumi.StringOutput {
+	return o.ApplyT(func(v SparkConfigPropertiesResponse) string { return v.Time }).(pulumi.StringOutput)
+}
+
+type SparkConfigPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (SparkConfigPropertiesResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SparkConfigPropertiesResponse)(nil)).Elem()
+}
+
+func (o SparkConfigPropertiesResponsePtrOutput) ToSparkConfigPropertiesResponsePtrOutput() SparkConfigPropertiesResponsePtrOutput {
+	return o
+}
+
+func (o SparkConfigPropertiesResponsePtrOutput) ToSparkConfigPropertiesResponsePtrOutputWithContext(ctx context.Context) SparkConfigPropertiesResponsePtrOutput {
+	return o
+}
+
+func (o SparkConfigPropertiesResponsePtrOutput) Elem() SparkConfigPropertiesResponseOutput {
+	return o.ApplyT(func(v *SparkConfigPropertiesResponse) SparkConfigPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SparkConfigPropertiesResponse
+		return ret
+	}).(SparkConfigPropertiesResponseOutput)
+}
+
+// The type of the spark config properties file.
+func (o SparkConfigPropertiesResponsePtrOutput) ConfigurationType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SparkConfigPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ConfigurationType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The spark config properties.
+func (o SparkConfigPropertiesResponsePtrOutput) Content() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SparkConfigPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Content
+	}).(pulumi.StringPtrOutput)
+}
+
+// The filename of the spark config properties file.
+func (o SparkConfigPropertiesResponsePtrOutput) Filename() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SparkConfigPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Filename
+	}).(pulumi.StringPtrOutput)
+}
+
+// The last update time of the spark config properties file.
+func (o SparkConfigPropertiesResponsePtrOutput) Time() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SparkConfigPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Time
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -6137,6 +6489,10 @@ func init() {
 	pulumi.RegisterOutputType(SkuPtrOutput{})
 	pulumi.RegisterOutputType(SkuResponseOutput{})
 	pulumi.RegisterOutputType(SkuResponsePtrOutput{})
+	pulumi.RegisterOutputType(SparkConfigPropertiesOutput{})
+	pulumi.RegisterOutputType(SparkConfigPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(SparkConfigPropertiesResponseOutput{})
+	pulumi.RegisterOutputType(SparkConfigPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(SqlPoolVulnerabilityAssessmentRuleBaselineItemOutput{})
 	pulumi.RegisterOutputType(SqlPoolVulnerabilityAssessmentRuleBaselineItemArrayOutput{})
 	pulumi.RegisterOutputType(SqlPoolVulnerabilityAssessmentRuleBaselineItemResponseOutput{})

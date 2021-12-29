@@ -85,21 +85,9 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview
         /// </summary>
         public readonly string? Collation;
         /// <summary>
-        /// Specifies the mode of sql pool creation.
-        /// 
-        /// Default: regular sql pool creation.
-        /// 
-        /// PointInTimeRestore: Creates a sql pool by restoring a point in time backup of an existing sql pool. sourceDatabaseId must be specified as the resource ID of the existing sql pool, and restorePointInTime must be specified.
-        /// 
-        /// Recovery: Creates a sql pool by a geo-replicated backup. sourceDatabaseId  must be specified as the recoverableDatabaseId to restore.
-        /// 
-        /// Restore: Creates a sql pool by restoring a backup of a deleted sql  pool. SourceDatabaseId should be the sql pool's original resource ID. SourceDatabaseId and sourceDatabaseDeletionDate must be specified.
-        /// </summary>
-        public readonly string? CreateMode;
-        /// <summary>
         /// Date the SQL pool was created
         /// </summary>
-        public readonly string? CreationDate;
+        public readonly string CreationDate;
         /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
@@ -137,13 +125,9 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview
         /// </summary>
         public readonly string? SourceDatabaseDeletionDate;
         /// <summary>
-        /// Source database to create from
-        /// </summary>
-        public readonly string? SourceDatabaseId;
-        /// <summary>
         /// Resource status
         /// </summary>
-        public readonly string? Status;
+        public readonly string Status;
         /// <summary>
         /// The storage account type used to store backups for this sql pool.
         /// </summary>
@@ -161,9 +145,7 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview
         private GetSqlPoolResult(
             string? collation,
 
-            string? createMode,
-
-            string? creationDate,
+            string creationDate,
 
             string id,
 
@@ -183,9 +165,7 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview
 
             string? sourceDatabaseDeletionDate,
 
-            string? sourceDatabaseId,
-
-            string? status,
+            string status,
 
             string? storageAccountType,
 
@@ -194,7 +174,6 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview
             string type)
         {
             Collation = collation;
-            CreateMode = createMode;
             CreationDate = creationDate;
             Id = id;
             Location = location;
@@ -205,7 +184,6 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview
             RestorePointInTime = restorePointInTime;
             Sku = sku;
             SourceDatabaseDeletionDate = sourceDatabaseDeletionDate;
-            SourceDatabaseId = sourceDatabaseId;
             Status = status;
             StorageAccountType = storageAccountType;
             Tags = tags;

@@ -120,6 +120,10 @@ export class Workspace extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
+     * Is trustedServiceBypassEnabled for the workspace
+     */
+    public readonly trustedServiceBypassEnabled!: pulumi.Output<boolean | undefined>;
+    /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
@@ -161,12 +165,13 @@ export class Workspace extends pulumi.CustomResource {
             resourceInputs["managedVirtualNetwork"] = args ? args.managedVirtualNetwork : undefined;
             resourceInputs["managedVirtualNetworkSettings"] = args ? args.managedVirtualNetworkSettings : undefined;
             resourceInputs["privateEndpointConnections"] = args ? args.privateEndpointConnections : undefined;
-            resourceInputs["publicNetworkAccess"] = args ? args.publicNetworkAccess : undefined;
+            resourceInputs["publicNetworkAccess"] = (args ? args.publicNetworkAccess : undefined) ?? "Enabled";
             resourceInputs["purviewConfiguration"] = args ? args.purviewConfiguration : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["sqlAdministratorLogin"] = args ? args.sqlAdministratorLogin : undefined;
             resourceInputs["sqlAdministratorLoginPassword"] = args ? args.sqlAdministratorLoginPassword : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["trustedServiceBypassEnabled"] = (args ? args.trustedServiceBypassEnabled : undefined) ?? false;
             resourceInputs["virtualNetworkProfile"] = args ? args.virtualNetworkProfile : undefined;
             resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
             resourceInputs["workspaceRepositoryConfiguration"] = args ? args.workspaceRepositoryConfiguration : undefined;
@@ -199,6 +204,7 @@ export class Workspace extends pulumi.CustomResource {
             resourceInputs["sqlAdministratorLogin"] = undefined /*out*/;
             resourceInputs["sqlAdministratorLoginPassword"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["trustedServiceBypassEnabled"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["virtualNetworkProfile"] = undefined /*out*/;
             resourceInputs["workspaceRepositoryConfiguration"] = undefined /*out*/;
@@ -285,6 +291,10 @@ export interface WorkspaceArgs {
      * Resource tags.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Is trustedServiceBypassEnabled for the workspace
+     */
+    trustedServiceBypassEnabled?: pulumi.Input<boolean>;
     /**
      * Virtual Network profile
      */

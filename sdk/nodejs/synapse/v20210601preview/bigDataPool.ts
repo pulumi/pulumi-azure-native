@@ -50,7 +50,7 @@ export class BigDataPool extends pulumi.CustomResource {
     /**
      * The time when the Big Data pool was created.
      */
-    public readonly creationDate!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly creationDate!: pulumi.Output<string>;
     /**
      * List of custom libraries/packages associated with the spark pool.
      */
@@ -145,7 +145,6 @@ export class BigDataPool extends pulumi.CustomResource {
             resourceInputs["autoScale"] = args ? args.autoScale : undefined;
             resourceInputs["bigDataPoolName"] = args ? args.bigDataPoolName : undefined;
             resourceInputs["cacheSize"] = args ? args.cacheSize : undefined;
-            resourceInputs["creationDate"] = args ? args.creationDate : undefined;
             resourceInputs["customLibraries"] = args ? args.customLibraries : undefined;
             resourceInputs["defaultSparkLogFolder"] = args ? args.defaultSparkLogFolder : undefined;
             resourceInputs["dynamicExecutorAllocation"] = args ? args.dynamicExecutorAllocation : undefined;
@@ -164,6 +163,7 @@ export class BigDataPool extends pulumi.CustomResource {
             resourceInputs["sparkVersion"] = args ? args.sparkVersion : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["creationDate"] = undefined /*out*/;
             resourceInputs["lastSucceededTimestamp"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -220,10 +220,6 @@ export interface BigDataPoolArgs {
      * The cache size
      */
     cacheSize?: pulumi.Input<number>;
-    /**
-     * The time when the Big Data pool was created.
-     */
-    creationDate?: pulumi.Input<string>;
     /**
      * List of custom libraries/packages associated with the spark pool.
      */

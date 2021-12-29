@@ -111,7 +111,7 @@ export class DiskEncryptionSet extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:compute:DiskEncryptionSet" }, { type: "azure-native:compute/v20190701:DiskEncryptionSet" }, { type: "azure-native:compute/v20191101:DiskEncryptionSet" }, { type: "azure-native:compute/v20200630:DiskEncryptionSet" }, { type: "azure-native:compute/v20200930:DiskEncryptionSet" }, { type: "azure-native:compute/v20201201:DiskEncryptionSet" }, { type: "azure-native:compute/v20210401:DiskEncryptionSet" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:compute:DiskEncryptionSet" }, { type: "azure-native:compute/v20190701:DiskEncryptionSet" }, { type: "azure-native:compute/v20191101:DiskEncryptionSet" }, { type: "azure-native:compute/v20200630:DiskEncryptionSet" }, { type: "azure-native:compute/v20200930:DiskEncryptionSet" }, { type: "azure-native:compute/v20201201:DiskEncryptionSet" }, { type: "azure-native:compute/v20210401:DiskEncryptionSet" }, { type: "azure-native:compute/v20210801:DiskEncryptionSet" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DiskEncryptionSet.__pulumiType, name, resourceInputs, opts);
     }

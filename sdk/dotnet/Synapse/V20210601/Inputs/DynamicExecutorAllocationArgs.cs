@@ -21,6 +21,18 @@ namespace Pulumi.AzureNative.Synapse.V20210601.Inputs
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
+        /// <summary>
+        /// The maximum number of executors alloted
+        /// </summary>
+        [Input("maxExecutors")]
+        public Input<int>? MaxExecutors { get; set; }
+
+        /// <summary>
+        /// The minimum number of executors alloted
+        /// </summary>
+        [Input("minExecutors")]
+        public Input<int>? MinExecutors { get; set; }
+
         public DynamicExecutorAllocationArgs()
         {
         }

@@ -22,7 +22,7 @@ type BigDataPool struct {
 	// The cache size
 	CacheSize pulumi.IntPtrOutput `pulumi:"cacheSize"`
 	// The time when the Big Data pool was created.
-	CreationDate pulumi.StringPtrOutput `pulumi:"creationDate"`
+	CreationDate pulumi.StringOutput `pulumi:"creationDate"`
 	// List of custom libraries/packages associated with the spark pool.
 	CustomLibraries LibraryInfoResponseArrayOutput `pulumi:"customLibraries"`
 	// The default folder where Spark logs will be written.
@@ -50,7 +50,7 @@ type BigDataPool struct {
 	// Whether session level packages enabled.
 	SessionLevelPackagesEnabled pulumi.BoolPtrOutput `pulumi:"sessionLevelPackagesEnabled"`
 	// Spark configuration file to specify additional properties
-	SparkConfigProperties LibraryRequirementsResponsePtrOutput `pulumi:"sparkConfigProperties"`
+	SparkConfigProperties SparkConfigPropertiesResponsePtrOutput `pulumi:"sparkConfigProperties"`
 	// The Spark events folder
 	SparkEventsFolder pulumi.StringPtrOutput `pulumi:"sparkEventsFolder"`
 	// The Apache Spark version.
@@ -138,8 +138,6 @@ type bigDataPoolArgs struct {
 	BigDataPoolName *string `pulumi:"bigDataPoolName"`
 	// The cache size
 	CacheSize *int `pulumi:"cacheSize"`
-	// The time when the Big Data pool was created.
-	CreationDate *string `pulumi:"creationDate"`
 	// List of custom libraries/packages associated with the spark pool.
 	CustomLibraries []LibraryInfo `pulumi:"customLibraries"`
 	// The default folder where Spark logs will be written.
@@ -167,7 +165,7 @@ type bigDataPoolArgs struct {
 	// Whether session level packages enabled.
 	SessionLevelPackagesEnabled *bool `pulumi:"sessionLevelPackagesEnabled"`
 	// Spark configuration file to specify additional properties
-	SparkConfigProperties *LibraryRequirements `pulumi:"sparkConfigProperties"`
+	SparkConfigProperties *SparkConfigProperties `pulumi:"sparkConfigProperties"`
 	// The Spark events folder
 	SparkEventsFolder *string `pulumi:"sparkEventsFolder"`
 	// The Apache Spark version.
@@ -188,8 +186,6 @@ type BigDataPoolArgs struct {
 	BigDataPoolName pulumi.StringPtrInput
 	// The cache size
 	CacheSize pulumi.IntPtrInput
-	// The time when the Big Data pool was created.
-	CreationDate pulumi.StringPtrInput
 	// List of custom libraries/packages associated with the spark pool.
 	CustomLibraries LibraryInfoArrayInput
 	// The default folder where Spark logs will be written.
@@ -217,7 +213,7 @@ type BigDataPoolArgs struct {
 	// Whether session level packages enabled.
 	SessionLevelPackagesEnabled pulumi.BoolPtrInput
 	// Spark configuration file to specify additional properties
-	SparkConfigProperties LibraryRequirementsPtrInput
+	SparkConfigProperties SparkConfigPropertiesPtrInput
 	// The Spark events folder
 	SparkEventsFolder pulumi.StringPtrInput
 	// The Apache Spark version.

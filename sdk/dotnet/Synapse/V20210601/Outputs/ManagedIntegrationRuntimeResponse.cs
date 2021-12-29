@@ -29,13 +29,21 @@ namespace Pulumi.AzureNative.Synapse.V20210601.Outputs
         /// </summary>
         public readonly string? Description;
         /// <summary>
-        /// SSIS properties for managed integration runtime.
+        /// The id of the managed virtual network.
         /// </summary>
-        public readonly Outputs.IntegrationRuntimeSsisPropertiesResponse? SsisProperties;
+        public readonly string? Id;
         /// <summary>
         /// Integration runtime state, only valid for managed dedicated integration runtime.
         /// </summary>
-        public readonly string State;
+        public readonly string ProvisioningState;
+        /// <summary>
+        /// The reference name of the managed virtual network
+        /// </summary>
+        public readonly string? ReferenceName;
+        /// <summary>
+        /// SSIS properties for managed integration runtime.
+        /// </summary>
+        public readonly Outputs.IntegrationRuntimeSsisPropertiesResponse? SsisProperties;
         /// <summary>
         /// The type of integration runtime.
         /// Expected value is 'Managed'.
@@ -50,17 +58,23 @@ namespace Pulumi.AzureNative.Synapse.V20210601.Outputs
 
             string? description,
 
-            Outputs.IntegrationRuntimeSsisPropertiesResponse? ssisProperties,
+            string? id,
 
-            string state,
+            string provisioningState,
+
+            string? referenceName,
+
+            Outputs.IntegrationRuntimeSsisPropertiesResponse? ssisProperties,
 
             string type)
         {
             ComputeProperties = computeProperties;
             CustomerVirtualNetwork = customerVirtualNetwork;
             Description = description;
+            Id = id;
+            ProvisioningState = provisioningState;
+            ReferenceName = referenceName;
             SsisProperties = ssisProperties;
-            State = state;
             Type = type;
         }
     }

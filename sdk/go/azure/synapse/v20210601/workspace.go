@@ -57,6 +57,8 @@ type Workspace struct {
 	SqlAdministratorLoginPassword pulumi.StringPtrOutput `pulumi:"sqlAdministratorLoginPassword"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// Is trustedServiceBypassEnabled for the workspace
+	TrustedServiceBypassEnabled pulumi.BoolPtrOutput `pulumi:"trustedServiceBypassEnabled"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 	// Virtual Network profile
@@ -76,6 +78,12 @@ func NewWorkspace(ctx *pulumi.Context,
 
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if isZero(args.PublicNetworkAccess) {
+		args.PublicNetworkAccess = pulumi.StringPtr("Enabled")
+	}
+	if isZero(args.TrustedServiceBypassEnabled) {
+		args.TrustedServiceBypassEnabled = pulumi.BoolPtr(false)
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -167,6 +175,8 @@ type workspaceArgs struct {
 	SqlAdministratorLoginPassword *string `pulumi:"sqlAdministratorLoginPassword"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
+	// Is trustedServiceBypassEnabled for the workspace
+	TrustedServiceBypassEnabled *bool `pulumi:"trustedServiceBypassEnabled"`
 	// Virtual Network profile
 	VirtualNetworkProfile *VirtualNetworkProfile `pulumi:"virtualNetworkProfile"`
 	// The name of the workspace.
@@ -211,6 +221,8 @@ type WorkspaceArgs struct {
 	SqlAdministratorLoginPassword pulumi.StringPtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
+	// Is trustedServiceBypassEnabled for the workspace
+	TrustedServiceBypassEnabled pulumi.BoolPtrInput
 	// Virtual Network profile
 	VirtualNetworkProfile VirtualNetworkProfilePtrInput
 	// The name of the workspace.

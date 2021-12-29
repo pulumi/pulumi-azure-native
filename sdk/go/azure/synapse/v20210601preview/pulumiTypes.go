@@ -1470,6 +1470,10 @@ func (o DatabaseStatisticsResponseOutput) Size() pulumi.Float64PtrOutput {
 type DynamicExecutorAllocation struct {
 	// Indicates whether Dynamic Executor Allocation is enabled or not.
 	Enabled *bool `pulumi:"enabled"`
+	// The maximum number of executors alloted
+	MaxExecutors *int `pulumi:"maxExecutors"`
+	// The minimum number of executors alloted
+	MinExecutors *int `pulumi:"minExecutors"`
 }
 
 // DynamicExecutorAllocationInput is an input type that accepts DynamicExecutorAllocationArgs and DynamicExecutorAllocationOutput values.
@@ -1487,6 +1491,10 @@ type DynamicExecutorAllocationInput interface {
 type DynamicExecutorAllocationArgs struct {
 	// Indicates whether Dynamic Executor Allocation is enabled or not.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// The maximum number of executors alloted
+	MaxExecutors pulumi.IntPtrInput `pulumi:"maxExecutors"`
+	// The minimum number of executors alloted
+	MinExecutors pulumi.IntPtrInput `pulumi:"minExecutors"`
 }
 
 func (DynamicExecutorAllocationArgs) ElementType() reflect.Type {
@@ -1572,6 +1580,16 @@ func (o DynamicExecutorAllocationOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DynamicExecutorAllocation) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
+// The maximum number of executors alloted
+func (o DynamicExecutorAllocationOutput) MaxExecutors() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DynamicExecutorAllocation) *int { return v.MaxExecutors }).(pulumi.IntPtrOutput)
+}
+
+// The minimum number of executors alloted
+func (o DynamicExecutorAllocationOutput) MinExecutors() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DynamicExecutorAllocation) *int { return v.MinExecutors }).(pulumi.IntPtrOutput)
+}
+
 type DynamicExecutorAllocationPtrOutput struct{ *pulumi.OutputState }
 
 func (DynamicExecutorAllocationPtrOutput) ElementType() reflect.Type {
@@ -1606,10 +1624,34 @@ func (o DynamicExecutorAllocationPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+// The maximum number of executors alloted
+func (o DynamicExecutorAllocationPtrOutput) MaxExecutors() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DynamicExecutorAllocation) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxExecutors
+	}).(pulumi.IntPtrOutput)
+}
+
+// The minimum number of executors alloted
+func (o DynamicExecutorAllocationPtrOutput) MinExecutors() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DynamicExecutorAllocation) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MinExecutors
+	}).(pulumi.IntPtrOutput)
+}
+
 // Dynamic Executor Allocation Properties
 type DynamicExecutorAllocationResponse struct {
 	// Indicates whether Dynamic Executor Allocation is enabled or not.
 	Enabled *bool `pulumi:"enabled"`
+	// The maximum number of executors alloted
+	MaxExecutors *int `pulumi:"maxExecutors"`
+	// The minimum number of executors alloted
+	MinExecutors *int `pulumi:"minExecutors"`
 }
 
 // Dynamic Executor Allocation Properties
@@ -1630,6 +1672,16 @@ func (o DynamicExecutorAllocationResponseOutput) ToDynamicExecutorAllocationResp
 // Indicates whether Dynamic Executor Allocation is enabled or not.
 func (o DynamicExecutorAllocationResponseOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DynamicExecutorAllocationResponse) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// The maximum number of executors alloted
+func (o DynamicExecutorAllocationResponseOutput) MaxExecutors() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DynamicExecutorAllocationResponse) *int { return v.MaxExecutors }).(pulumi.IntPtrOutput)
+}
+
+// The minimum number of executors alloted
+func (o DynamicExecutorAllocationResponseOutput) MinExecutors() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DynamicExecutorAllocationResponse) *int { return v.MinExecutors }).(pulumi.IntPtrOutput)
 }
 
 type DynamicExecutorAllocationResponsePtrOutput struct{ *pulumi.OutputState }
@@ -1664,6 +1716,26 @@ func (o DynamicExecutorAllocationResponsePtrOutput) Enabled() pulumi.BoolPtrOutp
 		}
 		return v.Enabled
 	}).(pulumi.BoolPtrOutput)
+}
+
+// The maximum number of executors alloted
+func (o DynamicExecutorAllocationResponsePtrOutput) MaxExecutors() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DynamicExecutorAllocationResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxExecutors
+	}).(pulumi.IntPtrOutput)
+}
+
+// The minimum number of executors alloted
+func (o DynamicExecutorAllocationResponsePtrOutput) MinExecutors() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DynamicExecutorAllocationResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MinExecutors
+	}).(pulumi.IntPtrOutput)
 }
 
 // Details of the encryption associated with the workspace
@@ -3216,6 +3288,10 @@ type ManagedIntegrationRuntime struct {
 	ComputeProperties *IntegrationRuntimeComputeProperties `pulumi:"computeProperties"`
 	// Integration runtime description.
 	Description *string `pulumi:"description"`
+	// The id of the managed virtual network.
+	Id *string `pulumi:"id"`
+	// The reference name of the managed virtual network.
+	ReferenceName *string `pulumi:"referenceName"`
 	// SSIS properties for managed integration runtime.
 	SsisProperties *IntegrationRuntimeSsisProperties `pulumi:"ssisProperties"`
 	// The type of integration runtime.
@@ -3267,6 +3343,10 @@ type ManagedIntegrationRuntimeResponse struct {
 	ComputeProperties *IntegrationRuntimeComputePropertiesResponse `pulumi:"computeProperties"`
 	// Integration runtime description.
 	Description *string `pulumi:"description"`
+	// The id of the managed virtual network.
+	Id *string `pulumi:"id"`
+	// The reference name of the managed virtual network.
+	ReferenceName *string `pulumi:"referenceName"`
 	// SSIS properties for managed integration runtime.
 	SsisProperties *IntegrationRuntimeSsisPropertiesResponse `pulumi:"ssisProperties"`
 	// Integration runtime state, only valid for managed dedicated integration runtime.
@@ -4744,6 +4824,8 @@ type SelfHostedIntegrationRuntimeStatusResponse struct {
 	Links []LinkedIntegrationRuntimeResponse `pulumi:"links"`
 	// The local time zone offset in hours.
 	LocalTimeZoneOffset string `pulumi:"localTimeZoneOffset"`
+	// The newer versions on download center.
+	NewerVersions []string `pulumi:"newerVersions"`
 	// The node communication Channel encryption mode
 	NodeCommunicationChannelEncryptionMode string `pulumi:"nodeCommunicationChannelEncryptionMode"`
 	// The list of nodes for this integration runtime.
@@ -4752,6 +4834,8 @@ type SelfHostedIntegrationRuntimeStatusResponse struct {
 	PushedVersion string `pulumi:"pushedVersion"`
 	// The date at which the integration runtime will be scheduled to update, in ISO8601 format.
 	ScheduledUpdateDate string `pulumi:"scheduledUpdateDate"`
+	// The service region of the integration runtime
+	ServiceRegion *string `pulumi:"serviceRegion"`
 	// The URLs for the services used in integration runtime backend service.
 	ServiceUrls []string `pulumi:"serviceUrls"`
 	// The state of integration runtime.
