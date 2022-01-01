@@ -795,6 +795,14 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "alertsmanagement/v20210808",
+  "fqn": "pulumi_azure_native.alertsmanagement.v20210808",
+  "classes": {
+   "azure-native:alertsmanagement/v20210808:AlertProcessingRuleByName": "AlertProcessingRuleByName"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "alertsmanagement/v20210808preview",
   "fqn": "pulumi_azure_native.alertsmanagement.v20210808preview",
   "classes": {
@@ -14044,6 +14052,14 @@ _utilities.register(
    "azure-native:recoveryservices/v20211001:ReplicationStorageClassificationMapping": "ReplicationStorageClassificationMapping",
    "azure-native:recoveryservices/v20211001:ReplicationvCenter": "ReplicationvCenter",
    "azure-native:recoveryservices/v20211001:ResourceGuardProxy": "ResourceGuardProxy"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "recoveryservices/v20211101preview",
+  "fqn": "pulumi_azure_native.recoveryservices.v20211101preview",
+  "classes": {
+   "azure-native:recoveryservices/v20211101preview:Vault": "Vault"
   }
  },
  {

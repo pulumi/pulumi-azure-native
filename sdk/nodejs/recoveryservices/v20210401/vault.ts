@@ -111,7 +111,7 @@ export class Vault extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:recoveryservices:Vault" }, { type: "azure-native:recoveryservices/v20160601:Vault" }, { type: "azure-native:recoveryservices/v20200202:Vault" }, { type: "azure-native:recoveryservices/v20201001:Vault" }, { type: "azure-native:recoveryservices/v20210101:Vault" }, { type: "azure-native:recoveryservices/v20210210:Vault" }, { type: "azure-native:recoveryservices/v20210301:Vault" }, { type: "azure-native:recoveryservices/v20210601:Vault" }, { type: "azure-native:recoveryservices/v20210701:Vault" }, { type: "azure-native:recoveryservices/v20210801:Vault" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:recoveryservices:Vault" }, { type: "azure-native:recoveryservices/v20160601:Vault" }, { type: "azure-native:recoveryservices/v20200202:Vault" }, { type: "azure-native:recoveryservices/v20201001:Vault" }, { type: "azure-native:recoveryservices/v20210101:Vault" }, { type: "azure-native:recoveryservices/v20210210:Vault" }, { type: "azure-native:recoveryservices/v20210301:Vault" }, { type: "azure-native:recoveryservices/v20210601:Vault" }, { type: "azure-native:recoveryservices/v20210701:Vault" }, { type: "azure-native:recoveryservices/v20210801:Vault" }, { type: "azure-native:recoveryservices/v20211101preview:Vault" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Vault.__pulumiType, name, resourceInputs, opts);
     }

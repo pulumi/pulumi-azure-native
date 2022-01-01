@@ -45,6 +45,9 @@ func NewActionRuleByName(ctx *pulumi.Context,
 			Type: pulumi.String("azure-native:alertsmanagement/v20190505preview:ActionRuleByName"),
 		},
 		{
+			Type: pulumi.String("azure-native:alertsmanagement/v20210808:ActionRuleByName"),
+		},
+		{
 			Type: pulumi.String("azure-native:alertsmanagement/v20210808preview:ActionRuleByName"),
 		},
 	})

@@ -73,6 +73,7 @@ namespace Pulumi.AzureNative.AlertsManagement
                 {
                     new Pulumi.Alias { Type = "azure-native:alertsmanagement/v20181102privatepreview:ActionRuleByName"},
                     new Pulumi.Alias { Type = "azure-native:alertsmanagement/v20190505preview:ActionRuleByName"},
+                    new Pulumi.Alias { Type = "azure-native:alertsmanagement/v20210808:ActionRuleByName"},
                     new Pulumi.Alias { Type = "azure-native:alertsmanagement/v20210808preview:ActionRuleByName"},
                 },
             };
