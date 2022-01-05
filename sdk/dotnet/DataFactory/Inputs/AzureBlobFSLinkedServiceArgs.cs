@@ -76,6 +76,18 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         }
 
         /// <summary>
+        /// The credential of the service principal object in Azure Active Directory. If servicePrincipalCredentialType is 'ServicePrincipalKey', servicePrincipalCredential can be SecureString or AzureKeyVaultSecretReference. If servicePrincipalCredentialType is 'ServicePrincipalCert', servicePrincipalCredential can only be AzureKeyVaultSecretReference.
+        /// </summary>
+        [Input("servicePrincipalCredential")]
+        public InputUnion<Inputs.AzureKeyVaultSecretReferenceArgs, Inputs.SecureStringArgs>? ServicePrincipalCredential { get; set; }
+
+        /// <summary>
+        /// The service principal credential type to use in Server-To-Server authentication. 'ServicePrincipalKey' for key/secret, 'ServicePrincipalCert' for certificate. Type: string (or Expression with resultType string).
+        /// </summary>
+        [Input("servicePrincipalCredentialType")]
+        public Input<object>? ServicePrincipalCredentialType { get; set; }
+
+        /// <summary>
         /// The ID of the application used to authenticate against the Azure Data Lake Storage Gen2 account. Type: string (or Expression with resultType string).
         /// </summary>
         [Input("servicePrincipalId")]

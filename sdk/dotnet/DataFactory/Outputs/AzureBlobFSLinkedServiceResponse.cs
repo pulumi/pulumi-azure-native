@@ -49,6 +49,14 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? Parameters;
         /// <summary>
+        /// The credential of the service principal object in Azure Active Directory. If servicePrincipalCredentialType is 'ServicePrincipalKey', servicePrincipalCredential can be SecureString or AzureKeyVaultSecretReference. If servicePrincipalCredentialType is 'ServicePrincipalCert', servicePrincipalCredential can only be AzureKeyVaultSecretReference.
+        /// </summary>
+        public readonly Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? ServicePrincipalCredential;
+        /// <summary>
+        /// The service principal credential type to use in Server-To-Server authentication. 'ServicePrincipalKey' for key/secret, 'ServicePrincipalCert' for certificate. Type: string (or Expression with resultType string).
+        /// </summary>
+        public readonly object? ServicePrincipalCredentialType;
+        /// <summary>
         /// The ID of the application used to authenticate against the Azure Data Lake Storage Gen2 account. Type: string (or Expression with resultType string).
         /// </summary>
         public readonly object? ServicePrincipalId;
@@ -88,6 +96,10 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? parameters,
 
+            Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? servicePrincipalCredential,
+
+            object? servicePrincipalCredentialType,
+
             object? servicePrincipalId,
 
             Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? servicePrincipalKey,
@@ -106,6 +118,8 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
             Description = description;
             EncryptedCredential = encryptedCredential;
             Parameters = parameters;
+            ServicePrincipalCredential = servicePrincipalCredential;
+            ServicePrincipalCredentialType = servicePrincipalCredentialType;
             ServicePrincipalId = servicePrincipalId;
             ServicePrincipalKey = servicePrincipalKey;
             Tenant = tenant;

@@ -1549,6 +1549,10 @@ type AzureBlobFSLinkedService struct {
 	EncryptedCredential interface{} `pulumi:"encryptedCredential"`
 	// Parameters for linked service.
 	Parameters map[string]ParameterSpecification `pulumi:"parameters"`
+	// The credential of the service principal object in Azure Active Directory. If servicePrincipalCredentialType is 'ServicePrincipalKey', servicePrincipalCredential can be SecureString or AzureKeyVaultSecretReference. If servicePrincipalCredentialType is 'ServicePrincipalCert', servicePrincipalCredential can only be AzureKeyVaultSecretReference.
+	ServicePrincipalCredential interface{} `pulumi:"servicePrincipalCredential"`
+	// The service principal credential type to use in Server-To-Server authentication. 'ServicePrincipalKey' for key/secret, 'ServicePrincipalCert' for certificate. Type: string (or Expression with resultType string).
+	ServicePrincipalCredentialType interface{} `pulumi:"servicePrincipalCredentialType"`
 	// The ID of the application used to authenticate against the Azure Data Lake Storage Gen2 account. Type: string (or Expression with resultType string).
 	ServicePrincipalId interface{} `pulumi:"servicePrincipalId"`
 	// The Key of the application used to authenticate against the Azure Data Lake Storage Gen2 account.
@@ -1580,6 +1584,10 @@ type AzureBlobFSLinkedServiceResponse struct {
 	EncryptedCredential interface{} `pulumi:"encryptedCredential"`
 	// Parameters for linked service.
 	Parameters map[string]ParameterSpecificationResponse `pulumi:"parameters"`
+	// The credential of the service principal object in Azure Active Directory. If servicePrincipalCredentialType is 'ServicePrincipalKey', servicePrincipalCredential can be SecureString or AzureKeyVaultSecretReference. If servicePrincipalCredentialType is 'ServicePrincipalCert', servicePrincipalCredential can only be AzureKeyVaultSecretReference.
+	ServicePrincipalCredential interface{} `pulumi:"servicePrincipalCredential"`
+	// The service principal credential type to use in Server-To-Server authentication. 'ServicePrincipalKey' for key/secret, 'ServicePrincipalCert' for certificate. Type: string (or Expression with resultType string).
+	ServicePrincipalCredentialType interface{} `pulumi:"servicePrincipalCredentialType"`
 	// The ID of the application used to authenticate against the Azure Data Lake Storage Gen2 account. Type: string (or Expression with resultType string).
 	ServicePrincipalId interface{} `pulumi:"servicePrincipalId"`
 	// The Key of the application used to authenticate against the Azure Data Lake Storage Gen2 account.

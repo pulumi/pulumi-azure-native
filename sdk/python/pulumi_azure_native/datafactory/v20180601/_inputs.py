@@ -5427,6 +5427,8 @@ class AzureBlobFSLinkedServiceArgs:
                  description: Optional[pulumi.Input[str]] = None,
                  encrypted_credential: Optional[Any] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
+                 service_principal_credential: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]] = None,
+                 service_principal_credential_type: Optional[Any] = None,
                  service_principal_id: Optional[Any] = None,
                  service_principal_key: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]] = None,
                  tenant: Optional[Any] = None):
@@ -5443,6 +5445,8 @@ class AzureBlobFSLinkedServiceArgs:
         :param pulumi.Input[str] description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for linked service.
+        :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] service_principal_credential: The credential of the service principal object in Azure Active Directory. If servicePrincipalCredentialType is 'ServicePrincipalKey', servicePrincipalCredential can be SecureString or AzureKeyVaultSecretReference. If servicePrincipalCredentialType is 'ServicePrincipalCert', servicePrincipalCredential can only be AzureKeyVaultSecretReference.
+        :param Any service_principal_credential_type: The service principal credential type to use in Server-To-Server authentication. 'ServicePrincipalKey' for key/secret, 'ServicePrincipalCert' for certificate. Type: string (or Expression with resultType string).
         :param Any service_principal_id: The ID of the application used to authenticate against the Azure Data Lake Storage Gen2 account. Type: string (or Expression with resultType string).
         :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] service_principal_key: The Key of the application used to authenticate against the Azure Data Lake Storage Gen2 account.
         :param Any tenant: The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
@@ -5465,6 +5469,10 @@ class AzureBlobFSLinkedServiceArgs:
             pulumi.set(__self__, "encrypted_credential", encrypted_credential)
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
+        if service_principal_credential is not None:
+            pulumi.set(__self__, "service_principal_credential", service_principal_credential)
+        if service_principal_credential_type is not None:
+            pulumi.set(__self__, "service_principal_credential_type", service_principal_credential_type)
         if service_principal_id is not None:
             pulumi.set(__self__, "service_principal_id", service_principal_id)
         if service_principal_key is not None:
@@ -5592,6 +5600,30 @@ class AzureBlobFSLinkedServiceArgs:
     @parameters.setter
     def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]]):
         pulumi.set(self, "parameters", value)
+
+    @property
+    @pulumi.getter(name="servicePrincipalCredential")
+    def service_principal_credential(self) -> Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]]:
+        """
+        The credential of the service principal object in Azure Active Directory. If servicePrincipalCredentialType is 'ServicePrincipalKey', servicePrincipalCredential can be SecureString or AzureKeyVaultSecretReference. If servicePrincipalCredentialType is 'ServicePrincipalCert', servicePrincipalCredential can only be AzureKeyVaultSecretReference.
+        """
+        return pulumi.get(self, "service_principal_credential")
+
+    @service_principal_credential.setter
+    def service_principal_credential(self, value: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]]):
+        pulumi.set(self, "service_principal_credential", value)
+
+    @property
+    @pulumi.getter(name="servicePrincipalCredentialType")
+    def service_principal_credential_type(self) -> Optional[Any]:
+        """
+        The service principal credential type to use in Server-To-Server authentication. 'ServicePrincipalKey' for key/secret, 'ServicePrincipalCert' for certificate. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "service_principal_credential_type")
+
+    @service_principal_credential_type.setter
+    def service_principal_credential_type(self, value: Optional[Any]):
+        pulumi.set(self, "service_principal_credential_type", value)
 
     @property
     @pulumi.getter(name="servicePrincipalId")
