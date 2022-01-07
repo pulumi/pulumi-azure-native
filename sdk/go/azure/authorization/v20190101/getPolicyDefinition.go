@@ -4,6 +4,9 @@
 package v20190101
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -44,4 +47,91 @@ type LookupPolicyDefinitionResult struct {
 	PolicyType *string `pulumi:"policyType"`
 	// The type of the resource (Microsoft.Authorization/policyDefinitions).
 	Type string `pulumi:"type"`
+}
+
+func LookupPolicyDefinitionOutput(ctx *pulumi.Context, args LookupPolicyDefinitionOutputArgs, opts ...pulumi.InvokeOption) LookupPolicyDefinitionResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupPolicyDefinitionResult, error) {
+			args := v.(LookupPolicyDefinitionArgs)
+			r, err := LookupPolicyDefinition(ctx, &args, opts...)
+			return *r, err
+		}).(LookupPolicyDefinitionResultOutput)
+}
+
+type LookupPolicyDefinitionOutputArgs struct {
+	// The name of the policy definition to get.
+	PolicyDefinitionName pulumi.StringInput `pulumi:"policyDefinitionName"`
+}
+
+func (LookupPolicyDefinitionOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupPolicyDefinitionArgs)(nil)).Elem()
+}
+
+// The policy definition.
+type LookupPolicyDefinitionResultOutput struct{ *pulumi.OutputState }
+
+func (LookupPolicyDefinitionResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupPolicyDefinitionResult)(nil)).Elem()
+}
+
+func (o LookupPolicyDefinitionResultOutput) ToLookupPolicyDefinitionResultOutput() LookupPolicyDefinitionResultOutput {
+	return o
+}
+
+func (o LookupPolicyDefinitionResultOutput) ToLookupPolicyDefinitionResultOutputWithContext(ctx context.Context) LookupPolicyDefinitionResultOutput {
+	return o
+}
+
+// The policy definition description.
+func (o LookupPolicyDefinitionResultOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupPolicyDefinitionResult) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The display name of the policy definition.
+func (o LookupPolicyDefinitionResultOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupPolicyDefinitionResult) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the policy definition.
+func (o LookupPolicyDefinitionResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPolicyDefinitionResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The policy definition metadata.
+func (o LookupPolicyDefinitionResultOutput) Metadata() pulumi.AnyOutput {
+	return o.ApplyT(func(v LookupPolicyDefinitionResult) interface{} { return v.Metadata }).(pulumi.AnyOutput)
+}
+
+// The policy definition mode. Some examples are All, Indexed, Microsoft.KeyVault.Data.
+func (o LookupPolicyDefinitionResultOutput) Mode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupPolicyDefinitionResult) *string { return v.Mode }).(pulumi.StringPtrOutput)
+}
+
+// The name of the policy definition.
+func (o LookupPolicyDefinitionResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPolicyDefinitionResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Required if a parameter is used in policy rule.
+func (o LookupPolicyDefinitionResultOutput) Parameters() pulumi.AnyOutput {
+	return o.ApplyT(func(v LookupPolicyDefinitionResult) interface{} { return v.Parameters }).(pulumi.AnyOutput)
+}
+
+// The policy rule.
+func (o LookupPolicyDefinitionResultOutput) PolicyRule() pulumi.AnyOutput {
+	return o.ApplyT(func(v LookupPolicyDefinitionResult) interface{} { return v.PolicyRule }).(pulumi.AnyOutput)
+}
+
+// The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.
+func (o LookupPolicyDefinitionResultOutput) PolicyType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupPolicyDefinitionResult) *string { return v.PolicyType }).(pulumi.StringPtrOutput)
+}
+
+// The type of the resource (Microsoft.Authorization/policyDefinitions).
+func (o LookupPolicyDefinitionResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPolicyDefinitionResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupPolicyDefinitionResultOutput{})
 }

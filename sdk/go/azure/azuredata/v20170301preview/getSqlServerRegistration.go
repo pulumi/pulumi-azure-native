@@ -4,6 +4,9 @@
 package v20170301preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -42,4 +45,83 @@ type LookupSqlServerRegistrationResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.
 	Type string `pulumi:"type"`
+}
+
+func LookupSqlServerRegistrationOutput(ctx *pulumi.Context, args LookupSqlServerRegistrationOutputArgs, opts ...pulumi.InvokeOption) LookupSqlServerRegistrationResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupSqlServerRegistrationResult, error) {
+			args := v.(LookupSqlServerRegistrationArgs)
+			r, err := LookupSqlServerRegistration(ctx, &args, opts...)
+			return *r, err
+		}).(LookupSqlServerRegistrationResultOutput)
+}
+
+type LookupSqlServerRegistrationOutputArgs struct {
+	// Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// Name of the SQL Server registration.
+	SqlServerRegistrationName pulumi.StringInput `pulumi:"sqlServerRegistrationName"`
+}
+
+func (LookupSqlServerRegistrationOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupSqlServerRegistrationArgs)(nil)).Elem()
+}
+
+// A SQL server registration.
+type LookupSqlServerRegistrationResultOutput struct{ *pulumi.OutputState }
+
+func (LookupSqlServerRegistrationResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupSqlServerRegistrationResult)(nil)).Elem()
+}
+
+func (o LookupSqlServerRegistrationResultOutput) ToLookupSqlServerRegistrationResultOutput() LookupSqlServerRegistrationResultOutput {
+	return o
+}
+
+func (o LookupSqlServerRegistrationResultOutput) ToLookupSqlServerRegistrationResultOutputWithContext(ctx context.Context) LookupSqlServerRegistrationResultOutput {
+	return o
+}
+
+// Resource ID.
+func (o LookupSqlServerRegistrationResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSqlServerRegistrationResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Resource location.
+func (o LookupSqlServerRegistrationResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSqlServerRegistrationResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o LookupSqlServerRegistrationResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSqlServerRegistrationResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Optional Properties as JSON string
+func (o LookupSqlServerRegistrationResultOutput) PropertyBag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSqlServerRegistrationResult) *string { return v.PropertyBag }).(pulumi.StringPtrOutput)
+}
+
+// Resource Group Name
+func (o LookupSqlServerRegistrationResultOutput) ResourceGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSqlServerRegistrationResult) *string { return v.ResourceGroup }).(pulumi.StringPtrOutput)
+}
+
+// Subscription Id
+func (o LookupSqlServerRegistrationResultOutput) SubscriptionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSqlServerRegistrationResult) *string { return v.SubscriptionId }).(pulumi.StringPtrOutput)
+}
+
+// Resource tags.
+func (o LookupSqlServerRegistrationResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupSqlServerRegistrationResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type.
+func (o LookupSqlServerRegistrationResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSqlServerRegistrationResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupSqlServerRegistrationResultOutput{})
 }

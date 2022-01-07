@@ -4,6 +4,9 @@
 package costmanagement
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -65,4 +68,138 @@ type LookupViewByScopeResult struct {
 	Timeframe string `pulumi:"timeframe"`
 	// Resource type.
 	Type string `pulumi:"type"`
+}
+
+func LookupViewByScopeOutput(ctx *pulumi.Context, args LookupViewByScopeOutputArgs, opts ...pulumi.InvokeOption) LookupViewByScopeResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupViewByScopeResult, error) {
+			args := v.(LookupViewByScopeArgs)
+			r, err := LookupViewByScope(ctx, &args, opts...)
+			return *r, err
+		}).(LookupViewByScopeResultOutput)
+}
+
+type LookupViewByScopeOutputArgs struct {
+	// The scope associated with view operations. This includes 'subscriptions/{subscriptionId}' for subscription scope, 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for resourceGroup scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}' for Department scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}' for EnrollmentAccount scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for BillingProfile scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/invoiceSections/{invoiceSectionId}' for InvoiceSection scope, 'providers/Microsoft.Management/managementGroups/{managementGroupId}' for Management Group scope, 'providers/Microsoft.CostManagement/externalBillingAccounts/{externalBillingAccountName}' for External Billing Account scope and 'providers/Microsoft.CostManagement/externalSubscriptions/{externalSubscriptionName}' for External Subscription scope.
+	Scope pulumi.StringInput `pulumi:"scope"`
+	// View name
+	ViewName pulumi.StringInput `pulumi:"viewName"`
+}
+
+func (LookupViewByScopeOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupViewByScopeArgs)(nil)).Elem()
+}
+
+// States and configurations of Cost Analysis.
+type LookupViewByScopeResultOutput struct{ *pulumi.OutputState }
+
+func (LookupViewByScopeResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupViewByScopeResult)(nil)).Elem()
+}
+
+func (o LookupViewByScopeResultOutput) ToLookupViewByScopeResultOutput() LookupViewByScopeResultOutput {
+	return o
+}
+
+func (o LookupViewByScopeResultOutput) ToLookupViewByScopeResultOutputWithContext(ctx context.Context) LookupViewByScopeResultOutput {
+	return o
+}
+
+// Show costs accumulated over time.
+func (o LookupViewByScopeResultOutput) Accumulated() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupViewByScopeResult) *string { return v.Accumulated }).(pulumi.StringPtrOutput)
+}
+
+// Chart type of the main view in Cost Analysis. Required.
+func (o LookupViewByScopeResultOutput) Chart() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupViewByScopeResult) *string { return v.Chart }).(pulumi.StringPtrOutput)
+}
+
+// Date the user created this view.
+func (o LookupViewByScopeResultOutput) CreatedOn() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupViewByScopeResult) string { return v.CreatedOn }).(pulumi.StringOutput)
+}
+
+// Selected currency.
+func (o LookupViewByScopeResultOutput) Currency() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupViewByScopeResult) string { return v.Currency }).(pulumi.StringOutput)
+}
+
+// Has definition for data in this report config.
+func (o LookupViewByScopeResultOutput) DataSet() ReportConfigDatasetResponsePtrOutput {
+	return o.ApplyT(func(v LookupViewByScopeResult) *ReportConfigDatasetResponse { return v.DataSet }).(ReportConfigDatasetResponsePtrOutput)
+}
+
+// Selected date range for viewing cost in.
+func (o LookupViewByScopeResultOutput) DateRange() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupViewByScopeResult) string { return v.DateRange }).(pulumi.StringOutput)
+}
+
+// User input name of the view. Required.
+func (o LookupViewByScopeResultOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupViewByScopeResult) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+// eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
+func (o LookupViewByScopeResultOutput) ETag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupViewByScopeResult) *string { return v.ETag }).(pulumi.StringPtrOutput)
+}
+
+// Resource Id.
+func (o LookupViewByScopeResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupViewByScopeResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Include monetary commitment
+func (o LookupViewByScopeResultOutput) IncludeMonetaryCommitment() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupViewByScopeResult) bool { return v.IncludeMonetaryCommitment }).(pulumi.BoolOutput)
+}
+
+// List of KPIs to show in Cost Analysis UI.
+func (o LookupViewByScopeResultOutput) Kpis() KpiPropertiesResponseArrayOutput {
+	return o.ApplyT(func(v LookupViewByScopeResult) []KpiPropertiesResponse { return v.Kpis }).(KpiPropertiesResponseArrayOutput)
+}
+
+// Metric to use when displaying costs.
+func (o LookupViewByScopeResultOutput) Metric() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupViewByScopeResult) *string { return v.Metric }).(pulumi.StringPtrOutput)
+}
+
+// Date when the user last modified this view.
+func (o LookupViewByScopeResultOutput) ModifiedOn() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupViewByScopeResult) string { return v.ModifiedOn }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o LookupViewByScopeResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupViewByScopeResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Configuration of 3 sub-views in the Cost Analysis UI.
+func (o LookupViewByScopeResultOutput) Pivots() PivotPropertiesResponseArrayOutput {
+	return o.ApplyT(func(v LookupViewByScopeResult) []PivotPropertiesResponse { return v.Pivots }).(PivotPropertiesResponseArrayOutput)
+}
+
+// Cost Management scope to save the view on. This includes 'subscriptions/{subscriptionId}' for subscription scope, 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for resourceGroup scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}' for Department scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}' for EnrollmentAccount scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for BillingProfile scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/invoiceSections/{invoiceSectionId}' for InvoiceSection scope, 'providers/Microsoft.Management/managementGroups/{managementGroupId}' for Management Group scope, '/providers/Microsoft.CostManagement/externalBillingAccounts/{externalBillingAccountName}' for ExternalBillingAccount scope, and '/providers/Microsoft.CostManagement/externalSubscriptions/{externalSubscriptionName}' for ExternalSubscription scope.
+func (o LookupViewByScopeResultOutput) Scope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupViewByScopeResult) *string { return v.Scope }).(pulumi.StringPtrOutput)
+}
+
+// Has time period for pulling data for the report.
+func (o LookupViewByScopeResultOutput) TimePeriod() ReportConfigTimePeriodResponsePtrOutput {
+	return o.ApplyT(func(v LookupViewByScopeResult) *ReportConfigTimePeriodResponse { return v.TimePeriod }).(ReportConfigTimePeriodResponsePtrOutput)
+}
+
+// The time frame for pulling data for the report. If custom, then a specific time period must be provided.
+func (o LookupViewByScopeResultOutput) Timeframe() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupViewByScopeResult) string { return v.Timeframe }).(pulumi.StringOutput)
+}
+
+// Resource type.
+func (o LookupViewByScopeResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupViewByScopeResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupViewByScopeResultOutput{})
 }

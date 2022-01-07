@@ -4,6 +4,9 @@
 package v20201001preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -37,4 +40,79 @@ type LookupMonitorResult struct {
 	Tags       map[string]string  `pulumi:"tags"`
 	// The type of the monitor resource.
 	Type string `pulumi:"type"`
+}
+
+func LookupMonitorOutput(ctx *pulumi.Context, args LookupMonitorOutputArgs, opts ...pulumi.InvokeOption) LookupMonitorResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupMonitorResult, error) {
+			args := v.(LookupMonitorArgs)
+			r, err := LookupMonitor(ctx, &args, opts...)
+			return *r, err
+		}).(LookupMonitorResultOutput)
+}
+
+type LookupMonitorOutputArgs struct {
+	// Monitor resource name
+	MonitorName pulumi.StringInput `pulumi:"monitorName"`
+	// The name of the resource group. The name is case insensitive.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupMonitorOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupMonitorArgs)(nil)).Elem()
+}
+
+type LookupMonitorResultOutput struct{ *pulumi.OutputState }
+
+func (LookupMonitorResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupMonitorResult)(nil)).Elem()
+}
+
+func (o LookupMonitorResultOutput) ToLookupMonitorResultOutput() LookupMonitorResultOutput {
+	return o
+}
+
+func (o LookupMonitorResultOutput) ToLookupMonitorResultOutputWithContext(ctx context.Context) LookupMonitorResultOutput {
+	return o
+}
+
+// ARM id of the monitor resource.
+func (o LookupMonitorResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupMonitorResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o LookupMonitorResultOutput) Identity() IdentityPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v LookupMonitorResult) *IdentityPropertiesResponse { return v.Identity }).(IdentityPropertiesResponsePtrOutput)
+}
+
+func (o LookupMonitorResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupMonitorResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// Name of the monitor resource.
+func (o LookupMonitorResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupMonitorResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Properties specific to the monitor resource.
+func (o LookupMonitorResultOutput) Properties() MonitorPropertiesResponseOutput {
+	return o.ApplyT(func(v LookupMonitorResult) MonitorPropertiesResponse { return v.Properties }).(MonitorPropertiesResponseOutput)
+}
+
+// The system metadata relating to this resource
+func (o LookupMonitorResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupMonitorResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+func (o LookupMonitorResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupMonitorResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the monitor resource.
+func (o LookupMonitorResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupMonitorResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupMonitorResultOutput{})
 }

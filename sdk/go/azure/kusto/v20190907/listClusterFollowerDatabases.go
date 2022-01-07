@@ -4,6 +4,9 @@
 package v20190907
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -28,4 +31,48 @@ type ListClusterFollowerDatabasesArgs struct {
 type ListClusterFollowerDatabasesResult struct {
 	// The list of follower database result.
 	Value []FollowerDatabaseDefinitionResponse `pulumi:"value"`
+}
+
+func ListClusterFollowerDatabasesOutput(ctx *pulumi.Context, args ListClusterFollowerDatabasesOutputArgs, opts ...pulumi.InvokeOption) ListClusterFollowerDatabasesResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (ListClusterFollowerDatabasesResult, error) {
+			args := v.(ListClusterFollowerDatabasesArgs)
+			r, err := ListClusterFollowerDatabases(ctx, &args, opts...)
+			return *r, err
+		}).(ListClusterFollowerDatabasesResultOutput)
+}
+
+type ListClusterFollowerDatabasesOutputArgs struct {
+	// The name of the Kusto cluster.
+	ClusterName pulumi.StringInput `pulumi:"clusterName"`
+	// The name of the resource group containing the Kusto cluster.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (ListClusterFollowerDatabasesOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListClusterFollowerDatabasesArgs)(nil)).Elem()
+}
+
+// The list Kusto database principals operation response.
+type ListClusterFollowerDatabasesResultOutput struct{ *pulumi.OutputState }
+
+func (ListClusterFollowerDatabasesResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListClusterFollowerDatabasesResult)(nil)).Elem()
+}
+
+func (o ListClusterFollowerDatabasesResultOutput) ToListClusterFollowerDatabasesResultOutput() ListClusterFollowerDatabasesResultOutput {
+	return o
+}
+
+func (o ListClusterFollowerDatabasesResultOutput) ToListClusterFollowerDatabasesResultOutputWithContext(ctx context.Context) ListClusterFollowerDatabasesResultOutput {
+	return o
+}
+
+// The list of follower database result.
+func (o ListClusterFollowerDatabasesResultOutput) Value() FollowerDatabaseDefinitionResponseArrayOutput {
+	return o.ApplyT(func(v ListClusterFollowerDatabasesResult) []FollowerDatabaseDefinitionResponse { return v.Value }).(FollowerDatabaseDefinitionResponseArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(ListClusterFollowerDatabasesResultOutput{})
 }

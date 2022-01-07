@@ -4,6 +4,9 @@
 package network
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -43,4 +46,83 @@ type LookupNetworkExperimentProfileResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.
 	Type string `pulumi:"type"`
+}
+
+func LookupNetworkExperimentProfileOutput(ctx *pulumi.Context, args LookupNetworkExperimentProfileOutputArgs, opts ...pulumi.InvokeOption) LookupNetworkExperimentProfileResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupNetworkExperimentProfileResult, error) {
+			args := v.(LookupNetworkExperimentProfileArgs)
+			r, err := LookupNetworkExperimentProfile(ctx, &args, opts...)
+			return *r, err
+		}).(LookupNetworkExperimentProfileResultOutput)
+}
+
+type LookupNetworkExperimentProfileOutputArgs struct {
+	// The Profile identifier associated with the Tenant and Partner
+	ProfileName pulumi.StringInput `pulumi:"profileName"`
+	// Name of the Resource group within the Azure subscription.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupNetworkExperimentProfileOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupNetworkExperimentProfileArgs)(nil)).Elem()
+}
+
+// Defines an Network Experiment Profile and lists of Experiments
+type LookupNetworkExperimentProfileResultOutput struct{ *pulumi.OutputState }
+
+func (LookupNetworkExperimentProfileResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupNetworkExperimentProfileResult)(nil)).Elem()
+}
+
+func (o LookupNetworkExperimentProfileResultOutput) ToLookupNetworkExperimentProfileResultOutput() LookupNetworkExperimentProfileResultOutput {
+	return o
+}
+
+func (o LookupNetworkExperimentProfileResultOutput) ToLookupNetworkExperimentProfileResultOutputWithContext(ctx context.Context) LookupNetworkExperimentProfileResultOutput {
+	return o
+}
+
+// The state of the Experiment
+func (o LookupNetworkExperimentProfileResultOutput) EnabledState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupNetworkExperimentProfileResult) *string { return v.EnabledState }).(pulumi.StringPtrOutput)
+}
+
+// Gets a unique read-only string that changes whenever the resource is updated.
+func (o LookupNetworkExperimentProfileResultOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupNetworkExperimentProfileResult) *string { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// Resource ID.
+func (o LookupNetworkExperimentProfileResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupNetworkExperimentProfileResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Resource location.
+func (o LookupNetworkExperimentProfileResultOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupNetworkExperimentProfileResult) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Resource name.
+func (o LookupNetworkExperimentProfileResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupNetworkExperimentProfileResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Resource status.
+func (o LookupNetworkExperimentProfileResultOutput) ResourceState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupNetworkExperimentProfileResult) string { return v.ResourceState }).(pulumi.StringOutput)
+}
+
+// Resource tags.
+func (o LookupNetworkExperimentProfileResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupNetworkExperimentProfileResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type.
+func (o LookupNetworkExperimentProfileResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupNetworkExperimentProfileResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupNetworkExperimentProfileResultOutput{})
 }

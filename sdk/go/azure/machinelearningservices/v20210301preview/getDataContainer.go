@@ -4,6 +4,9 @@
 package v20210301preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -38,4 +41,70 @@ type LookupDataContainerResult struct {
 	SystemData SystemDataResponse `pulumi:"systemData"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
+}
+
+func LookupDataContainerOutput(ctx *pulumi.Context, args LookupDataContainerOutputArgs, opts ...pulumi.InvokeOption) LookupDataContainerResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupDataContainerResult, error) {
+			args := v.(LookupDataContainerArgs)
+			r, err := LookupDataContainer(ctx, &args, opts...)
+			return *r, err
+		}).(LookupDataContainerResultOutput)
+}
+
+type LookupDataContainerOutputArgs struct {
+	// Container name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The name of the resource group. The name is case insensitive.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// Name of Azure Machine Learning workspace.
+	WorkspaceName pulumi.StringInput `pulumi:"workspaceName"`
+}
+
+func (LookupDataContainerOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupDataContainerArgs)(nil)).Elem()
+}
+
+// Azure Resource Manager resource envelope.
+type LookupDataContainerResultOutput struct{ *pulumi.OutputState }
+
+func (LookupDataContainerResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupDataContainerResult)(nil)).Elem()
+}
+
+func (o LookupDataContainerResultOutput) ToLookupDataContainerResultOutput() LookupDataContainerResultOutput {
+	return o
+}
+
+func (o LookupDataContainerResultOutput) ToLookupDataContainerResultOutputWithContext(ctx context.Context) LookupDataContainerResultOutput {
+	return o
+}
+
+// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+func (o LookupDataContainerResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDataContainerResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o LookupDataContainerResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDataContainerResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Additional attributes of the entity.
+func (o LookupDataContainerResultOutput) Properties() DataContainerResponseOutput {
+	return o.ApplyT(func(v LookupDataContainerResult) DataContainerResponse { return v.Properties }).(DataContainerResponseOutput)
+}
+
+// System data associated with resource provider
+func (o LookupDataContainerResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupDataContainerResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o LookupDataContainerResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDataContainerResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupDataContainerResultOutput{})
 }

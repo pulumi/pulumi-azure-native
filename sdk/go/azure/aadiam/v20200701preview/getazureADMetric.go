@@ -4,6 +4,9 @@
 package v20200701preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -37,4 +40,72 @@ type GetazureADMetricResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
+}
+
+func GetazureADMetricOutput(ctx *pulumi.Context, args GetazureADMetricOutputArgs, opts ...pulumi.InvokeOption) GetazureADMetricResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetazureADMetricResult, error) {
+			args := v.(GetazureADMetricArgs)
+			r, err := GetazureADMetric(ctx, &args, opts...)
+			return *r, err
+		}).(GetazureADMetricResultOutput)
+}
+
+type GetazureADMetricOutputArgs struct {
+	// Name of the azureADMetrics instance.
+	AzureADMetricsName pulumi.StringInput `pulumi:"azureADMetricsName"`
+	// Name of an Azure resource group.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (GetazureADMetricOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetazureADMetricArgs)(nil)).Elem()
+}
+
+// AzureADMetrics resource.
+type GetazureADMetricResultOutput struct{ *pulumi.OutputState }
+
+func (GetazureADMetricResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetazureADMetricResult)(nil)).Elem()
+}
+
+func (o GetazureADMetricResultOutput) ToGetazureADMetricResultOutput() GetazureADMetricResultOutput {
+	return o
+}
+
+func (o GetazureADMetricResultOutput) ToGetazureADMetricResultOutputWithContext(ctx context.Context) GetazureADMetricResultOutput {
+	return o
+}
+
+// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+func (o GetazureADMetricResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetazureADMetricResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The geo-location where the resource lives
+func (o GetazureADMetricResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v GetazureADMetricResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o GetazureADMetricResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetazureADMetricResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o GetazureADMetricResultOutput) Properties() AzureADMetricsPropertiesFormatResponseOutput {
+	return o.ApplyT(func(v GetazureADMetricResult) AzureADMetricsPropertiesFormatResponse { return v.Properties }).(AzureADMetricsPropertiesFormatResponseOutput)
+}
+
+// Resource tags.
+func (o GetazureADMetricResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetazureADMetricResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o GetazureADMetricResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetazureADMetricResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetazureADMetricResultOutput{})
 }

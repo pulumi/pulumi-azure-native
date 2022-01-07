@@ -4,6 +4,9 @@
 package automation
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -70,4 +73,115 @@ func (val *LookupWebhookResult) Defaults() *LookupWebhookResult {
 		tmp.IsEnabled = &isEnabled_
 	}
 	return &tmp
+}
+
+func LookupWebhookOutput(ctx *pulumi.Context, args LookupWebhookOutputArgs, opts ...pulumi.InvokeOption) LookupWebhookResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupWebhookResult, error) {
+			args := v.(LookupWebhookArgs)
+			r, err := LookupWebhook(ctx, &args, opts...)
+			return *r, err
+		}).(LookupWebhookResultOutput)
+}
+
+type LookupWebhookOutputArgs struct {
+	// The name of the automation account.
+	AutomationAccountName pulumi.StringInput `pulumi:"automationAccountName"`
+	// Name of an Azure Resource group.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The webhook name.
+	WebhookName pulumi.StringInput `pulumi:"webhookName"`
+}
+
+func (LookupWebhookOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupWebhookArgs)(nil)).Elem()
+}
+
+// Definition of the webhook type.
+type LookupWebhookResultOutput struct{ *pulumi.OutputState }
+
+func (LookupWebhookResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupWebhookResult)(nil)).Elem()
+}
+
+func (o LookupWebhookResultOutput) ToLookupWebhookResultOutput() LookupWebhookResultOutput {
+	return o
+}
+
+func (o LookupWebhookResultOutput) ToLookupWebhookResultOutputWithContext(ctx context.Context) LookupWebhookResultOutput {
+	return o
+}
+
+// Gets or sets the creation time.
+func (o LookupWebhookResultOutput) CreationTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupWebhookResult) *string { return v.CreationTime }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the description.
+func (o LookupWebhookResultOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupWebhookResult) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the expiry time.
+func (o LookupWebhookResultOutput) ExpiryTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupWebhookResult) *string { return v.ExpiryTime }).(pulumi.StringPtrOutput)
+}
+
+// Fully qualified resource Id for the resource
+func (o LookupWebhookResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWebhookResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Gets or sets the value of the enabled flag of the webhook.
+func (o LookupWebhookResultOutput) IsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupWebhookResult) *bool { return v.IsEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Gets or sets the last invoked time.
+func (o LookupWebhookResultOutput) LastInvokedTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupWebhookResult) *string { return v.LastInvokedTime }).(pulumi.StringPtrOutput)
+}
+
+// Details of the user who last modified the Webhook
+func (o LookupWebhookResultOutput) LastModifiedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupWebhookResult) *string { return v.LastModifiedBy }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the last modified time.
+func (o LookupWebhookResultOutput) LastModifiedTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupWebhookResult) *string { return v.LastModifiedTime }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource
+func (o LookupWebhookResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWebhookResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Gets or sets the parameters of the job that is created when the webhook calls the runbook it is associated with.
+func (o LookupWebhookResultOutput) Parameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupWebhookResult) map[string]string { return v.Parameters }).(pulumi.StringMapOutput)
+}
+
+// Gets or sets the name of the hybrid worker group the webhook job will run on.
+func (o LookupWebhookResultOutput) RunOn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupWebhookResult) *string { return v.RunOn }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the runbook the webhook is associated with.
+func (o LookupWebhookResultOutput) Runbook() RunbookAssociationPropertyResponsePtrOutput {
+	return o.ApplyT(func(v LookupWebhookResult) *RunbookAssociationPropertyResponse { return v.Runbook }).(RunbookAssociationPropertyResponsePtrOutput)
+}
+
+// The type of the resource.
+func (o LookupWebhookResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWebhookResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Gets or sets the webhook uri.
+func (o LookupWebhookResultOutput) Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupWebhookResult) *string { return v.Uri }).(pulumi.StringPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupWebhookResultOutput{})
 }

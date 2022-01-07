@@ -4,6 +4,9 @@
 package v20210601preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -44,4 +47,77 @@ type LookupKustoPoolDatabaseResult struct {
 	SystemData SystemDataResponse `pulumi:"systemData"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
+}
+
+func LookupKustoPoolDatabaseOutput(ctx *pulumi.Context, args LookupKustoPoolDatabaseOutputArgs, opts ...pulumi.InvokeOption) LookupKustoPoolDatabaseResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupKustoPoolDatabaseResult, error) {
+			args := v.(LookupKustoPoolDatabaseArgs)
+			r, err := LookupKustoPoolDatabase(ctx, &args, opts...)
+			return *r, err
+		}).(LookupKustoPoolDatabaseResultOutput)
+}
+
+type LookupKustoPoolDatabaseOutputArgs struct {
+	// The name of the database in the Kusto pool.
+	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
+	// The name of the Kusto pool.
+	KustoPoolName pulumi.StringInput `pulumi:"kustoPoolName"`
+	// The name of the resource group. The name is case insensitive.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the workspace.
+	WorkspaceName pulumi.StringInput `pulumi:"workspaceName"`
+}
+
+func (LookupKustoPoolDatabaseOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupKustoPoolDatabaseArgs)(nil)).Elem()
+}
+
+// Class representing a Kusto database.
+type LookupKustoPoolDatabaseResultOutput struct{ *pulumi.OutputState }
+
+func (LookupKustoPoolDatabaseResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupKustoPoolDatabaseResult)(nil)).Elem()
+}
+
+func (o LookupKustoPoolDatabaseResultOutput) ToLookupKustoPoolDatabaseResultOutput() LookupKustoPoolDatabaseResultOutput {
+	return o
+}
+
+func (o LookupKustoPoolDatabaseResultOutput) ToLookupKustoPoolDatabaseResultOutputWithContext(ctx context.Context) LookupKustoPoolDatabaseResultOutput {
+	return o
+}
+
+// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+func (o LookupKustoPoolDatabaseResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupKustoPoolDatabaseResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Kind of the database
+func (o LookupKustoPoolDatabaseResultOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupKustoPoolDatabaseResult) string { return v.Kind }).(pulumi.StringOutput)
+}
+
+// Resource location.
+func (o LookupKustoPoolDatabaseResultOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupKustoPoolDatabaseResult) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource
+func (o LookupKustoPoolDatabaseResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupKustoPoolDatabaseResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+func (o LookupKustoPoolDatabaseResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupKustoPoolDatabaseResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o LookupKustoPoolDatabaseResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupKustoPoolDatabaseResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupKustoPoolDatabaseResultOutput{})
 }

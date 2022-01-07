@@ -4,6 +4,9 @@
 package v20150501preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -48,4 +51,95 @@ type LookupServerKeyResult struct {
 	Type string `pulumi:"type"`
 	// The URI of the server key.
 	Uri *string `pulumi:"uri"`
+}
+
+func LookupServerKeyOutput(ctx *pulumi.Context, args LookupServerKeyOutputArgs, opts ...pulumi.InvokeOption) LookupServerKeyResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupServerKeyResult, error) {
+			args := v.(LookupServerKeyArgs)
+			r, err := LookupServerKey(ctx, &args, opts...)
+			return *r, err
+		}).(LookupServerKeyResultOutput)
+}
+
+type LookupServerKeyOutputArgs struct {
+	// The name of the server key to be retrieved.
+	KeyName pulumi.StringInput `pulumi:"keyName"`
+	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the server.
+	ServerName pulumi.StringInput `pulumi:"serverName"`
+}
+
+func (LookupServerKeyOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupServerKeyArgs)(nil)).Elem()
+}
+
+// A server key.
+type LookupServerKeyResultOutput struct{ *pulumi.OutputState }
+
+func (LookupServerKeyResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupServerKeyResult)(nil)).Elem()
+}
+
+func (o LookupServerKeyResultOutput) ToLookupServerKeyResultOutput() LookupServerKeyResultOutput {
+	return o
+}
+
+func (o LookupServerKeyResultOutput) ToLookupServerKeyResultOutputWithContext(ctx context.Context) LookupServerKeyResultOutput {
+	return o
+}
+
+// The server key creation date.
+func (o LookupServerKeyResultOutput) CreationDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupServerKeyResult) *string { return v.CreationDate }).(pulumi.StringPtrOutput)
+}
+
+// Resource ID.
+func (o LookupServerKeyResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServerKeyResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Kind of encryption protector. This is metadata used for the Azure portal experience.
+func (o LookupServerKeyResultOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupServerKeyResult) *string { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Resource location.
+func (o LookupServerKeyResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServerKeyResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o LookupServerKeyResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServerKeyResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The server key type like 'ServiceManaged', 'AzureKeyVault'.
+func (o LookupServerKeyResultOutput) ServerKeyType() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServerKeyResult) string { return v.ServerKeyType }).(pulumi.StringOutput)
+}
+
+// Subregion of the server key.
+func (o LookupServerKeyResultOutput) Subregion() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServerKeyResult) string { return v.Subregion }).(pulumi.StringOutput)
+}
+
+// Thumbprint of the server key.
+func (o LookupServerKeyResultOutput) Thumbprint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupServerKeyResult) *string { return v.Thumbprint }).(pulumi.StringPtrOutput)
+}
+
+// Resource type.
+func (o LookupServerKeyResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServerKeyResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The URI of the server key.
+func (o LookupServerKeyResultOutput) Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupServerKeyResult) *string { return v.Uri }).(pulumi.StringPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupServerKeyResultOutput{})
 }

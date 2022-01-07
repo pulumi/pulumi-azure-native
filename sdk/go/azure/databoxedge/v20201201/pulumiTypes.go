@@ -1764,6 +1764,61 @@ type DeviceSecretsResponse struct {
 	SystemVolumeBitLockerRecoveryKey *SecretResponse `pulumi:"systemVolumeBitLockerRecoveryKey"`
 }
 
+// Device Secrets
+type DeviceSecretsResponseOutput struct{ *pulumi.OutputState }
+
+func (DeviceSecretsResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeviceSecretsResponse)(nil)).Elem()
+}
+
+func (o DeviceSecretsResponseOutput) ToDeviceSecretsResponseOutput() DeviceSecretsResponseOutput {
+	return o
+}
+
+func (o DeviceSecretsResponseOutput) ToDeviceSecretsResponseOutputWithContext(ctx context.Context) DeviceSecretsResponseOutput {
+	return o
+}
+
+// Keyvault Id of BMCDefaultUserPassword
+func (o DeviceSecretsResponseOutput) BmcDefaultUserPassword() SecretResponsePtrOutput {
+	return o.ApplyT(func(v DeviceSecretsResponse) *SecretResponse { return v.BmcDefaultUserPassword }).(SecretResponsePtrOutput)
+}
+
+// Keyvault Id of HcsDataVolumeBitLockerExternalKey
+func (o DeviceSecretsResponseOutput) HcsDataVolumeBitLockerExternalKey() SecretResponsePtrOutput {
+	return o.ApplyT(func(v DeviceSecretsResponse) *SecretResponse { return v.HcsDataVolumeBitLockerExternalKey }).(SecretResponsePtrOutput)
+}
+
+// Keyvault Id of HcsInternalVolumeBitLockerExternalKey
+func (o DeviceSecretsResponseOutput) HcsInternalVolumeBitLockerExternalKey() SecretResponsePtrOutput {
+	return o.ApplyT(func(v DeviceSecretsResponse) *SecretResponse { return v.HcsInternalVolumeBitLockerExternalKey }).(SecretResponsePtrOutput)
+}
+
+// Keyvault Id of RotateKeyForDataVolumeBitlocker
+func (o DeviceSecretsResponseOutput) RotateKeyForDataVolumeBitlocker() SecretResponsePtrOutput {
+	return o.ApplyT(func(v DeviceSecretsResponse) *SecretResponse { return v.RotateKeyForDataVolumeBitlocker }).(SecretResponsePtrOutput)
+}
+
+// Keyvault Id of RotateKeysForSedDrivesSerialized
+func (o DeviceSecretsResponseOutput) RotateKeysForSedDrivesSerialized() SecretResponsePtrOutput {
+	return o.ApplyT(func(v DeviceSecretsResponse) *SecretResponse { return v.RotateKeysForSedDrivesSerialized }).(SecretResponsePtrOutput)
+}
+
+// Keyvault Id of SEDEncryptionExternalKey
+func (o DeviceSecretsResponseOutput) SedEncryptionExternalKey() SecretResponsePtrOutput {
+	return o.ApplyT(func(v DeviceSecretsResponse) *SecretResponse { return v.SedEncryptionExternalKey }).(SecretResponsePtrOutput)
+}
+
+// Keyvault Id of SEDEncryptionExternalKeyId
+func (o DeviceSecretsResponseOutput) SedEncryptionExternalKeyId() SecretResponsePtrOutput {
+	return o.ApplyT(func(v DeviceSecretsResponse) *SecretResponse { return v.SedEncryptionExternalKeyId }).(SecretResponsePtrOutput)
+}
+
+// Keyvault Id of SystemVolumeBitLockerRecoveryKey
+func (o DeviceSecretsResponseOutput) SystemVolumeBitLockerRecoveryKey() SecretResponsePtrOutput {
+	return o.ApplyT(func(v DeviceSecretsResponse) *SecretResponse { return v.SystemVolumeBitLockerRecoveryKey }).(SecretResponsePtrOutput)
+}
+
 // Details about Edge Profile for the resource
 type EdgeProfileResponse struct {
 	// Edge Profile Subscription
@@ -5243,6 +5298,75 @@ type SecretResponse struct {
 	KeyVaultId *string `pulumi:"keyVaultId"`
 }
 
+// Holds device secret either as a KeyVault reference or as an encrypted value.
+type SecretResponseOutput struct{ *pulumi.OutputState }
+
+func (SecretResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecretResponse)(nil)).Elem()
+}
+
+func (o SecretResponseOutput) ToSecretResponseOutput() SecretResponseOutput {
+	return o
+}
+
+func (o SecretResponseOutput) ToSecretResponseOutputWithContext(ctx context.Context) SecretResponseOutput {
+	return o
+}
+
+// Encrypted (using device public key) secret value.
+func (o SecretResponseOutput) EncryptedSecret() AsymmetricEncryptedSecretResponsePtrOutput {
+	return o.ApplyT(func(v SecretResponse) *AsymmetricEncryptedSecretResponse { return v.EncryptedSecret }).(AsymmetricEncryptedSecretResponsePtrOutput)
+}
+
+// Id of the Key-Vault where secret is stored (ex: secrets/AuthClientSecret/82ef4346187a4033a10d629cde07d740).
+func (o SecretResponseOutput) KeyVaultId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecretResponse) *string { return v.KeyVaultId }).(pulumi.StringPtrOutput)
+}
+
+type SecretResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (SecretResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecretResponse)(nil)).Elem()
+}
+
+func (o SecretResponsePtrOutput) ToSecretResponsePtrOutput() SecretResponsePtrOutput {
+	return o
+}
+
+func (o SecretResponsePtrOutput) ToSecretResponsePtrOutputWithContext(ctx context.Context) SecretResponsePtrOutput {
+	return o
+}
+
+func (o SecretResponsePtrOutput) Elem() SecretResponseOutput {
+	return o.ApplyT(func(v *SecretResponse) SecretResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SecretResponse
+		return ret
+	}).(SecretResponseOutput)
+}
+
+// Encrypted (using device public key) secret value.
+func (o SecretResponsePtrOutput) EncryptedSecret() AsymmetricEncryptedSecretResponsePtrOutput {
+	return o.ApplyT(func(v *SecretResponse) *AsymmetricEncryptedSecretResponse {
+		if v == nil {
+			return nil
+		}
+		return v.EncryptedSecret
+	}).(AsymmetricEncryptedSecretResponsePtrOutput)
+}
+
+// Id of the Key-Vault where secret is stored (ex: secrets/AuthClientSecret/82ef4346187a4033a10d629cde07d740).
+func (o SecretResponsePtrOutput) KeyVaultId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecretResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KeyVaultId
+	}).(pulumi.StringPtrOutput)
+}
+
 // Specifies the mapping between this particular user and the type of access he has on shares on this device.
 type ShareAccessRightResponse struct {
 	// Type of access to be allowed on the share for this user.
@@ -6097,6 +6221,7 @@ func init() {
 	pulumi.RegisterOutputType(ComputeResourceResponsePtrOutput{})
 	pulumi.RegisterOutputType(ContactDetailsOutput{})
 	pulumi.RegisterOutputType(ContactDetailsResponseOutput{})
+	pulumi.RegisterOutputType(DeviceSecretsResponseOutput{})
 	pulumi.RegisterOutputType(EdgeProfileResponseOutput{})
 	pulumi.RegisterOutputType(EdgeProfileSubscriptionResponseOutput{})
 	pulumi.RegisterOutputType(EdgeProfileSubscriptionResponsePtrOutput{})
@@ -6166,6 +6291,8 @@ func init() {
 	pulumi.RegisterOutputType(ResourceMoveDetailsResponseOutput{})
 	pulumi.RegisterOutputType(RoleSinkInfoOutput{})
 	pulumi.RegisterOutputType(RoleSinkInfoResponseOutput{})
+	pulumi.RegisterOutputType(SecretResponseOutput{})
+	pulumi.RegisterOutputType(SecretResponsePtrOutput{})
 	pulumi.RegisterOutputType(ShareAccessRightResponseOutput{})
 	pulumi.RegisterOutputType(ShareAccessRightResponseArrayOutput{})
 	pulumi.RegisterOutputType(SkuOutput{})

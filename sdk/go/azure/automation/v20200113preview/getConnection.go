@@ -4,6 +4,9 @@
 package v20200113preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -44,4 +47,85 @@ type LookupConnectionResult struct {
 	Name string `pulumi:"name"`
 	// The type of the resource.
 	Type string `pulumi:"type"`
+}
+
+func LookupConnectionOutput(ctx *pulumi.Context, args LookupConnectionOutputArgs, opts ...pulumi.InvokeOption) LookupConnectionResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupConnectionResult, error) {
+			args := v.(LookupConnectionArgs)
+			r, err := LookupConnection(ctx, &args, opts...)
+			return *r, err
+		}).(LookupConnectionResultOutput)
+}
+
+type LookupConnectionOutputArgs struct {
+	// The name of the automation account.
+	AutomationAccountName pulumi.StringInput `pulumi:"automationAccountName"`
+	// The name of connection.
+	ConnectionName pulumi.StringInput `pulumi:"connectionName"`
+	// Name of an Azure Resource group.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupConnectionOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupConnectionArgs)(nil)).Elem()
+}
+
+// Definition of the connection.
+type LookupConnectionResultOutput struct{ *pulumi.OutputState }
+
+func (LookupConnectionResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupConnectionResult)(nil)).Elem()
+}
+
+func (o LookupConnectionResultOutput) ToLookupConnectionResultOutput() LookupConnectionResultOutput {
+	return o
+}
+
+func (o LookupConnectionResultOutput) ToLookupConnectionResultOutputWithContext(ctx context.Context) LookupConnectionResultOutput {
+	return o
+}
+
+// Gets or sets the connectionType of the connection.
+func (o LookupConnectionResultOutput) ConnectionType() ConnectionTypeAssociationPropertyResponsePtrOutput {
+	return o.ApplyT(func(v LookupConnectionResult) *ConnectionTypeAssociationPropertyResponse { return v.ConnectionType }).(ConnectionTypeAssociationPropertyResponsePtrOutput)
+}
+
+// Gets the creation time.
+func (o LookupConnectionResultOutput) CreationTime() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupConnectionResult) string { return v.CreationTime }).(pulumi.StringOutput)
+}
+
+// Gets or sets the description.
+func (o LookupConnectionResultOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupConnectionResult) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Gets the field definition values of the connection.
+func (o LookupConnectionResultOutput) FieldDefinitionValues() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupConnectionResult) map[string]string { return v.FieldDefinitionValues }).(pulumi.StringMapOutput)
+}
+
+// Fully qualified resource Id for the resource
+func (o LookupConnectionResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupConnectionResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Gets the last modified time.
+func (o LookupConnectionResultOutput) LastModifiedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupConnectionResult) string { return v.LastModifiedTime }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o LookupConnectionResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupConnectionResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The type of the resource.
+func (o LookupConnectionResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupConnectionResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupConnectionResultOutput{})
 }

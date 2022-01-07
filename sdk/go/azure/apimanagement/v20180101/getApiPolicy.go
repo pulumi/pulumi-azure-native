@@ -4,6 +4,9 @@
 package v20180101
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -53,4 +56,72 @@ func (val *LookupApiPolicyResult) Defaults() *LookupApiPolicyResult {
 		tmp.ContentFormat = &contentFormat_
 	}
 	return &tmp
+}
+
+func LookupApiPolicyOutput(ctx *pulumi.Context, args LookupApiPolicyOutputArgs, opts ...pulumi.InvokeOption) LookupApiPolicyResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupApiPolicyResult, error) {
+			args := v.(LookupApiPolicyArgs)
+			r, err := LookupApiPolicy(ctx, &args, opts...)
+			return *r, err
+		}).(LookupApiPolicyResultOutput)
+}
+
+type LookupApiPolicyOutputArgs struct {
+	// API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
+	ApiId pulumi.StringInput `pulumi:"apiId"`
+	// The identifier of the Policy.
+	PolicyId pulumi.StringInput `pulumi:"policyId"`
+	// The name of the resource group.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the API Management service.
+	ServiceName pulumi.StringInput `pulumi:"serviceName"`
+}
+
+func (LookupApiPolicyOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupApiPolicyArgs)(nil)).Elem()
+}
+
+// Policy Contract details.
+type LookupApiPolicyResultOutput struct{ *pulumi.OutputState }
+
+func (LookupApiPolicyResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupApiPolicyResult)(nil)).Elem()
+}
+
+func (o LookupApiPolicyResultOutput) ToLookupApiPolicyResultOutput() LookupApiPolicyResultOutput {
+	return o
+}
+
+func (o LookupApiPolicyResultOutput) ToLookupApiPolicyResultOutputWithContext(ctx context.Context) LookupApiPolicyResultOutput {
+	return o
+}
+
+// Format of the policyContent.
+func (o LookupApiPolicyResultOutput) ContentFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupApiPolicyResult) *string { return v.ContentFormat }).(pulumi.StringPtrOutput)
+}
+
+// Resource ID.
+func (o LookupApiPolicyResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupApiPolicyResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o LookupApiPolicyResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupApiPolicyResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Json escaped Xml Encoded contents of the Policy.
+func (o LookupApiPolicyResultOutput) PolicyContent() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupApiPolicyResult) string { return v.PolicyContent }).(pulumi.StringOutput)
+}
+
+// Resource type for API Management resource.
+func (o LookupApiPolicyResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupApiPolicyResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupApiPolicyResultOutput{})
 }

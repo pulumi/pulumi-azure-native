@@ -4,6 +4,9 @@
 package security
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -35,4 +38,63 @@ type LookupAdvancedThreatProtectionResult struct {
 	Name string `pulumi:"name"`
 	// Resource type
 	Type string `pulumi:"type"`
+}
+
+func LookupAdvancedThreatProtectionOutput(ctx *pulumi.Context, args LookupAdvancedThreatProtectionOutputArgs, opts ...pulumi.InvokeOption) LookupAdvancedThreatProtectionResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupAdvancedThreatProtectionResult, error) {
+			args := v.(LookupAdvancedThreatProtectionArgs)
+			r, err := LookupAdvancedThreatProtection(ctx, &args, opts...)
+			return *r, err
+		}).(LookupAdvancedThreatProtectionResultOutput)
+}
+
+type LookupAdvancedThreatProtectionOutputArgs struct {
+	// The identifier of the resource.
+	ResourceId pulumi.StringInput `pulumi:"resourceId"`
+	// Advanced Threat Protection setting name.
+	SettingName pulumi.StringInput `pulumi:"settingName"`
+}
+
+func (LookupAdvancedThreatProtectionOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupAdvancedThreatProtectionArgs)(nil)).Elem()
+}
+
+// The Advanced Threat Protection resource.
+type LookupAdvancedThreatProtectionResultOutput struct{ *pulumi.OutputState }
+
+func (LookupAdvancedThreatProtectionResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupAdvancedThreatProtectionResult)(nil)).Elem()
+}
+
+func (o LookupAdvancedThreatProtectionResultOutput) ToLookupAdvancedThreatProtectionResultOutput() LookupAdvancedThreatProtectionResultOutput {
+	return o
+}
+
+func (o LookupAdvancedThreatProtectionResultOutput) ToLookupAdvancedThreatProtectionResultOutputWithContext(ctx context.Context) LookupAdvancedThreatProtectionResultOutput {
+	return o
+}
+
+// Resource Id
+func (o LookupAdvancedThreatProtectionResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAdvancedThreatProtectionResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Indicates whether Advanced Threat Protection is enabled.
+func (o LookupAdvancedThreatProtectionResultOutput) IsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupAdvancedThreatProtectionResult) *bool { return v.IsEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Resource name
+func (o LookupAdvancedThreatProtectionResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAdvancedThreatProtectionResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Resource type
+func (o LookupAdvancedThreatProtectionResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAdvancedThreatProtectionResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupAdvancedThreatProtectionResultOutput{})
 }

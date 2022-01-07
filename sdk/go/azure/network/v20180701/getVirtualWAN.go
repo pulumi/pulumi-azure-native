@@ -4,6 +4,9 @@
 package v20180701
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -45,4 +48,92 @@ type LookupVirtualWANResult struct {
 	// List of VirtualHubs in the VirtualWAN.
 	VirtualHubs []SubResourceResponse `pulumi:"virtualHubs"`
 	VpnSites    []SubResourceResponse `pulumi:"vpnSites"`
+}
+
+func LookupVirtualWANOutput(ctx *pulumi.Context, args LookupVirtualWANOutputArgs, opts ...pulumi.InvokeOption) LookupVirtualWANResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupVirtualWANResult, error) {
+			args := v.(LookupVirtualWANArgs)
+			r, err := LookupVirtualWAN(ctx, &args, opts...)
+			return *r, err
+		}).(LookupVirtualWANResultOutput)
+}
+
+type LookupVirtualWANOutputArgs struct {
+	// The resource group name of the VirtualWan.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the VirtualWAN being retrieved.
+	VirtualWANName pulumi.StringInput `pulumi:"virtualWANName"`
+}
+
+func (LookupVirtualWANOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupVirtualWANArgs)(nil)).Elem()
+}
+
+// VirtualWAN Resource.
+type LookupVirtualWANResultOutput struct{ *pulumi.OutputState }
+
+func (LookupVirtualWANResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupVirtualWANResult)(nil)).Elem()
+}
+
+func (o LookupVirtualWANResultOutput) ToLookupVirtualWANResultOutput() LookupVirtualWANResultOutput {
+	return o
+}
+
+func (o LookupVirtualWANResultOutput) ToLookupVirtualWANResultOutputWithContext(ctx context.Context) LookupVirtualWANResultOutput {
+	return o
+}
+
+// Vpn encryption to be disabled or not.
+func (o LookupVirtualWANResultOutput) DisableVpnEncryption() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupVirtualWANResult) *bool { return v.DisableVpnEncryption }).(pulumi.BoolPtrOutput)
+}
+
+// Gets a unique read-only string that changes whenever the resource is updated.
+func (o LookupVirtualWANResultOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVirtualWANResult) string { return v.Etag }).(pulumi.StringOutput)
+}
+
+// Resource ID.
+func (o LookupVirtualWANResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVirtualWANResult) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// Resource location.
+func (o LookupVirtualWANResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVirtualWANResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o LookupVirtualWANResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVirtualWANResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The provisioning state of the resource.
+func (o LookupVirtualWANResultOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVirtualWANResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Resource tags.
+func (o LookupVirtualWANResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupVirtualWANResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type.
+func (o LookupVirtualWANResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVirtualWANResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// List of VirtualHubs in the VirtualWAN.
+func (o LookupVirtualWANResultOutput) VirtualHubs() SubResourceResponseArrayOutput {
+	return o.ApplyT(func(v LookupVirtualWANResult) []SubResourceResponse { return v.VirtualHubs }).(SubResourceResponseArrayOutput)
+}
+
+func (o LookupVirtualWANResultOutput) VpnSites() SubResourceResponseArrayOutput {
+	return o.ApplyT(func(v LookupVirtualWANResult) []SubResourceResponse { return v.VpnSites }).(SubResourceResponseArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupVirtualWANResultOutput{})
 }

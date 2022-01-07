@@ -4,6 +4,9 @@
 package v20210601preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -41,4 +44,82 @@ type LookupDataControllerResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type string `pulumi:"type"`
+}
+
+func LookupDataControllerOutput(ctx *pulumi.Context, args LookupDataControllerOutputArgs, opts ...pulumi.InvokeOption) LookupDataControllerResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupDataControllerResult, error) {
+			args := v.(LookupDataControllerArgs)
+			r, err := LookupDataController(ctx, &args, opts...)
+			return *r, err
+		}).(LookupDataControllerResultOutput)
+}
+
+type LookupDataControllerOutputArgs struct {
+	DataControllerName pulumi.StringInput `pulumi:"dataControllerName"`
+	// The name of the Azure resource group
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupDataControllerOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupDataControllerArgs)(nil)).Elem()
+}
+
+// Data controller resource
+type LookupDataControllerResultOutput struct{ *pulumi.OutputState }
+
+func (LookupDataControllerResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupDataControllerResult)(nil)).Elem()
+}
+
+func (o LookupDataControllerResultOutput) ToLookupDataControllerResultOutput() LookupDataControllerResultOutput {
+	return o
+}
+
+func (o LookupDataControllerResultOutput) ToLookupDataControllerResultOutputWithContext(ctx context.Context) LookupDataControllerResultOutput {
+	return o
+}
+
+// The extendedLocation of the resource.
+func (o LookupDataControllerResultOutput) ExtendedLocation() ExtendedLocationResponsePtrOutput {
+	return o.ApplyT(func(v LookupDataControllerResult) *ExtendedLocationResponse { return v.ExtendedLocation }).(ExtendedLocationResponsePtrOutput)
+}
+
+// Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+func (o LookupDataControllerResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDataControllerResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The geo-location where the resource lives
+func (o LookupDataControllerResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDataControllerResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o LookupDataControllerResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDataControllerResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The data controller's properties
+func (o LookupDataControllerResultOutput) Properties() DataControllerPropertiesResponseOutput {
+	return o.ApplyT(func(v LookupDataControllerResult) DataControllerPropertiesResponse { return v.Properties }).(DataControllerPropertiesResponseOutput)
+}
+
+// Read only system data
+func (o LookupDataControllerResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupDataControllerResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource tags.
+func (o LookupDataControllerResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupDataControllerResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+func (o LookupDataControllerResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDataControllerResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupDataControllerResultOutput{})
 }

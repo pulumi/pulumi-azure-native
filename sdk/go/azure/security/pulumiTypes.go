@@ -2826,6 +2826,51 @@ type IngestionConnectionStringResponse struct {
 	Value string `pulumi:"value"`
 }
 
+// Connection string for ingesting security data and logs
+type IngestionConnectionStringResponseOutput struct{ *pulumi.OutputState }
+
+func (IngestionConnectionStringResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IngestionConnectionStringResponse)(nil)).Elem()
+}
+
+func (o IngestionConnectionStringResponseOutput) ToIngestionConnectionStringResponseOutput() IngestionConnectionStringResponseOutput {
+	return o
+}
+
+func (o IngestionConnectionStringResponseOutput) ToIngestionConnectionStringResponseOutputWithContext(ctx context.Context) IngestionConnectionStringResponseOutput {
+	return o
+}
+
+// The region where ingested logs and data resides
+func (o IngestionConnectionStringResponseOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v IngestionConnectionStringResponse) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// Connection string value
+func (o IngestionConnectionStringResponseOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v IngestionConnectionStringResponse) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type IngestionConnectionStringResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (IngestionConnectionStringResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IngestionConnectionStringResponse)(nil)).Elem()
+}
+
+func (o IngestionConnectionStringResponseArrayOutput) ToIngestionConnectionStringResponseArrayOutput() IngestionConnectionStringResponseArrayOutput {
+	return o
+}
+
+func (o IngestionConnectionStringResponseArrayOutput) ToIngestionConnectionStringResponseArrayOutputWithContext(ctx context.Context) IngestionConnectionStringResponseArrayOutput {
+	return o
+}
+
+func (o IngestionConnectionStringResponseArrayOutput) Index(i pulumi.IntInput) IngestionConnectionStringResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IngestionConnectionStringResponse {
+		return vs[0].([]IngestionConnectionStringResponse)[vs[1].(int)]
+	}).(IngestionConnectionStringResponseOutput)
+}
+
 type JitNetworkAccessPolicyVirtualMachine struct {
 	// Resource ID of the virtual machine that is linked to this policy
 	Id string `pulumi:"id"`
@@ -8899,6 +8944,8 @@ func init() {
 	pulumi.RegisterOutputType(HybridComputeSettingsPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(HybridComputeSettingsPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(HybridComputeSettingsPropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(IngestionConnectionStringResponseOutput{})
+	pulumi.RegisterOutputType(IngestionConnectionStringResponseArrayOutput{})
 	pulumi.RegisterOutputType(JitNetworkAccessPolicyVirtualMachineOutput{})
 	pulumi.RegisterOutputType(JitNetworkAccessPolicyVirtualMachineArrayOutput{})
 	pulumi.RegisterOutputType(JitNetworkAccessPolicyVirtualMachineResponseOutput{})

@@ -4,6 +4,9 @@
 package v20181031preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -48,4 +51,98 @@ type LookupDedicatedHsmResult struct {
 	Type string `pulumi:"type"`
 	// The Dedicated Hsm zones.
 	Zones []string `pulumi:"zones"`
+}
+
+func LookupDedicatedHsmOutput(ctx *pulumi.Context, args LookupDedicatedHsmOutputArgs, opts ...pulumi.InvokeOption) LookupDedicatedHsmResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupDedicatedHsmResult, error) {
+			args := v.(LookupDedicatedHsmArgs)
+			r, err := LookupDedicatedHsm(ctx, &args, opts...)
+			return *r, err
+		}).(LookupDedicatedHsmResultOutput)
+}
+
+type LookupDedicatedHsmOutputArgs struct {
+	// The name of the dedicated HSM.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The name of the Resource Group to which the dedicated hsm belongs.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupDedicatedHsmOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupDedicatedHsmArgs)(nil)).Elem()
+}
+
+// Resource information with extended details.
+type LookupDedicatedHsmResultOutput struct{ *pulumi.OutputState }
+
+func (LookupDedicatedHsmResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupDedicatedHsmResult)(nil)).Elem()
+}
+
+func (o LookupDedicatedHsmResultOutput) ToLookupDedicatedHsmResultOutput() LookupDedicatedHsmResultOutput {
+	return o
+}
+
+func (o LookupDedicatedHsmResultOutput) ToLookupDedicatedHsmResultOutputWithContext(ctx context.Context) LookupDedicatedHsmResultOutput {
+	return o
+}
+
+// The Azure Resource Manager resource ID for the dedicated HSM.
+func (o LookupDedicatedHsmResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDedicatedHsmResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The supported Azure location where the dedicated HSM should be created.
+func (o LookupDedicatedHsmResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDedicatedHsmResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the dedicated HSM.
+func (o LookupDedicatedHsmResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDedicatedHsmResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Specifies the network interfaces of the dedicated hsm.
+func (o LookupDedicatedHsmResultOutput) NetworkProfile() NetworkProfileResponsePtrOutput {
+	return o.ApplyT(func(v LookupDedicatedHsmResult) *NetworkProfileResponse { return v.NetworkProfile }).(NetworkProfileResponsePtrOutput)
+}
+
+// Provisioning state.
+func (o LookupDedicatedHsmResultOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDedicatedHsmResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// SKU details
+func (o LookupDedicatedHsmResultOutput) Sku() SkuResponseOutput {
+	return o.ApplyT(func(v LookupDedicatedHsmResult) SkuResponse { return v.Sku }).(SkuResponseOutput)
+}
+
+// This field will be used when RP does not support Availability zones.
+func (o LookupDedicatedHsmResultOutput) StampId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDedicatedHsmResult) *string { return v.StampId }).(pulumi.StringPtrOutput)
+}
+
+// Resource Status Message.
+func (o LookupDedicatedHsmResultOutput) StatusMessage() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDedicatedHsmResult) string { return v.StatusMessage }).(pulumi.StringOutput)
+}
+
+// Resource tags
+func (o LookupDedicatedHsmResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupDedicatedHsmResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The resource type of the dedicated HSM.
+func (o LookupDedicatedHsmResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDedicatedHsmResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The Dedicated Hsm zones.
+func (o LookupDedicatedHsmResultOutput) Zones() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupDedicatedHsmResult) []string { return v.Zones }).(pulumi.StringArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupDedicatedHsmResultOutput{})
 }

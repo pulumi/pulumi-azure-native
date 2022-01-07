@@ -4,6 +4,9 @@
 package labservices
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -63,4 +66,124 @@ type LookupEnvironmentSettingResult struct {
 	Type string `pulumi:"type"`
 	// The unique immutable identifier of a resource (Guid).
 	UniqueIdentifier *string `pulumi:"uniqueIdentifier"`
+}
+
+func LookupEnvironmentSettingOutput(ctx *pulumi.Context, args LookupEnvironmentSettingOutputArgs, opts ...pulumi.InvokeOption) LookupEnvironmentSettingResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupEnvironmentSettingResult, error) {
+			args := v.(LookupEnvironmentSettingArgs)
+			r, err := LookupEnvironmentSetting(ctx, &args, opts...)
+			return *r, err
+		}).(LookupEnvironmentSettingResultOutput)
+}
+
+type LookupEnvironmentSettingOutputArgs struct {
+	// The name of the environment Setting.
+	EnvironmentSettingName pulumi.StringInput `pulumi:"environmentSettingName"`
+	// Specify the $expand query. Example: 'properties($select=publishingState)'
+	Expand pulumi.StringPtrInput `pulumi:"expand"`
+	// The name of the lab Account.
+	LabAccountName pulumi.StringInput `pulumi:"labAccountName"`
+	// The name of the lab.
+	LabName pulumi.StringInput `pulumi:"labName"`
+	// The name of the resource group.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupEnvironmentSettingOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupEnvironmentSettingArgs)(nil)).Elem()
+}
+
+// Represents settings of an environment, from which environment instances would be created
+type LookupEnvironmentSettingResultOutput struct{ *pulumi.OutputState }
+
+func (LookupEnvironmentSettingResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupEnvironmentSettingResult)(nil)).Elem()
+}
+
+func (o LookupEnvironmentSettingResultOutput) ToLookupEnvironmentSettingResultOutput() LookupEnvironmentSettingResultOutput {
+	return o
+}
+
+func (o LookupEnvironmentSettingResultOutput) ToLookupEnvironmentSettingResultOutputWithContext(ctx context.Context) LookupEnvironmentSettingResultOutput {
+	return o
+}
+
+// Describes the user's progress in configuring their environment setting
+func (o LookupEnvironmentSettingResultOutput) ConfigurationState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupEnvironmentSettingResult) *string { return v.ConfigurationState }).(pulumi.StringPtrOutput)
+}
+
+// Describes the environment and its resource settings
+func (o LookupEnvironmentSettingResultOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupEnvironmentSettingResult) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The identifier of the resource.
+func (o LookupEnvironmentSettingResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupEnvironmentSettingResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Time when the template VM was last changed.
+func (o LookupEnvironmentSettingResultOutput) LastChanged() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupEnvironmentSettingResult) string { return v.LastChanged }).(pulumi.StringOutput)
+}
+
+// Time when the template VM was last sent for publishing.
+func (o LookupEnvironmentSettingResultOutput) LastPublished() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupEnvironmentSettingResult) string { return v.LastPublished }).(pulumi.StringOutput)
+}
+
+// The details of the latest operation. ex: status, error
+func (o LookupEnvironmentSettingResultOutput) LatestOperationResult() LatestOperationResultResponseOutput {
+	return o.ApplyT(func(v LookupEnvironmentSettingResult) LatestOperationResultResponse { return v.LatestOperationResult }).(LatestOperationResultResponseOutput)
+}
+
+// The location of the resource.
+func (o LookupEnvironmentSettingResultOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupEnvironmentSettingResult) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource.
+func (o LookupEnvironmentSettingResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupEnvironmentSettingResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The provisioning status of the resource.
+func (o LookupEnvironmentSettingResultOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupEnvironmentSettingResult) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+}
+
+// Describes the readiness of this environment setting
+func (o LookupEnvironmentSettingResultOutput) PublishingState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupEnvironmentSettingResult) string { return v.PublishingState }).(pulumi.StringOutput)
+}
+
+// The resource specific settings
+func (o LookupEnvironmentSettingResultOutput) ResourceSettings() ResourceSettingsResponseOutput {
+	return o.ApplyT(func(v LookupEnvironmentSettingResult) ResourceSettingsResponse { return v.ResourceSettings }).(ResourceSettingsResponseOutput)
+}
+
+// The tags of the resource.
+func (o LookupEnvironmentSettingResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupEnvironmentSettingResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Brief title describing the environment and its resource settings
+func (o LookupEnvironmentSettingResultOutput) Title() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupEnvironmentSettingResult) *string { return v.Title }).(pulumi.StringPtrOutput)
+}
+
+// The type of the resource.
+func (o LookupEnvironmentSettingResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupEnvironmentSettingResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The unique immutable identifier of a resource (Guid).
+func (o LookupEnvironmentSettingResultOutput) UniqueIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupEnvironmentSettingResult) *string { return v.UniqueIdentifier }).(pulumi.StringPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupEnvironmentSettingResultOutput{})
 }

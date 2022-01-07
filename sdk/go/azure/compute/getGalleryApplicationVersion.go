@@ -4,6 +4,9 @@
 package compute
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -49,4 +52,91 @@ type LookupGalleryApplicationVersionResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type
 	Type string `pulumi:"type"`
+}
+
+func LookupGalleryApplicationVersionOutput(ctx *pulumi.Context, args LookupGalleryApplicationVersionOutputArgs, opts ...pulumi.InvokeOption) LookupGalleryApplicationVersionResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupGalleryApplicationVersionResult, error) {
+			args := v.(LookupGalleryApplicationVersionArgs)
+			r, err := LookupGalleryApplicationVersion(ctx, &args, opts...)
+			return *r, err
+		}).(LookupGalleryApplicationVersionResultOutput)
+}
+
+type LookupGalleryApplicationVersionOutputArgs struct {
+	// The expand expression to apply on the operation.
+	Expand pulumi.StringPtrInput `pulumi:"expand"`
+	// The name of the gallery Application Definition in which the Application Version resides.
+	GalleryApplicationName pulumi.StringInput `pulumi:"galleryApplicationName"`
+	// The name of the gallery Application Version to be retrieved.
+	GalleryApplicationVersionName pulumi.StringInput `pulumi:"galleryApplicationVersionName"`
+	// The name of the Shared Application Gallery in which the Application Definition resides.
+	GalleryName pulumi.StringInput `pulumi:"galleryName"`
+	// The name of the resource group.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupGalleryApplicationVersionOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupGalleryApplicationVersionArgs)(nil)).Elem()
+}
+
+// Specifies information about the gallery Application Version that you want to create or update.
+type LookupGalleryApplicationVersionResultOutput struct{ *pulumi.OutputState }
+
+func (LookupGalleryApplicationVersionResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupGalleryApplicationVersionResult)(nil)).Elem()
+}
+
+func (o LookupGalleryApplicationVersionResultOutput) ToLookupGalleryApplicationVersionResultOutput() LookupGalleryApplicationVersionResultOutput {
+	return o
+}
+
+func (o LookupGalleryApplicationVersionResultOutput) ToLookupGalleryApplicationVersionResultOutputWithContext(ctx context.Context) LookupGalleryApplicationVersionResultOutput {
+	return o
+}
+
+// Resource Id
+func (o LookupGalleryApplicationVersionResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupGalleryApplicationVersionResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Resource location
+func (o LookupGalleryApplicationVersionResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupGalleryApplicationVersionResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource name
+func (o LookupGalleryApplicationVersionResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupGalleryApplicationVersionResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The provisioning state, which only appears in the response.
+func (o LookupGalleryApplicationVersionResultOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupGalleryApplicationVersionResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The publishing profile of a gallery image version.
+func (o LookupGalleryApplicationVersionResultOutput) PublishingProfile() GalleryApplicationVersionPublishingProfileResponseOutput {
+	return o.ApplyT(func(v LookupGalleryApplicationVersionResult) GalleryApplicationVersionPublishingProfileResponse {
+		return v.PublishingProfile
+	}).(GalleryApplicationVersionPublishingProfileResponseOutput)
+}
+
+// This is the replication status of the gallery image version.
+func (o LookupGalleryApplicationVersionResultOutput) ReplicationStatus() ReplicationStatusResponseOutput {
+	return o.ApplyT(func(v LookupGalleryApplicationVersionResult) ReplicationStatusResponse { return v.ReplicationStatus }).(ReplicationStatusResponseOutput)
+}
+
+// Resource tags
+func (o LookupGalleryApplicationVersionResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupGalleryApplicationVersionResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type
+func (o LookupGalleryApplicationVersionResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupGalleryApplicationVersionResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupGalleryApplicationVersionResultOutput{})
 }

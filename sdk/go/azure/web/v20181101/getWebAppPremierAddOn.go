@@ -4,6 +4,9 @@
 package v20181101
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -50,4 +53,100 @@ type LookupWebAppPremierAddOnResult struct {
 	Type string `pulumi:"type"`
 	// Premier add on Vendor.
 	Vendor *string `pulumi:"vendor"`
+}
+
+func LookupWebAppPremierAddOnOutput(ctx *pulumi.Context, args LookupWebAppPremierAddOnOutputArgs, opts ...pulumi.InvokeOption) LookupWebAppPremierAddOnResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupWebAppPremierAddOnResult, error) {
+			args := v.(LookupWebAppPremierAddOnArgs)
+			r, err := LookupWebAppPremierAddOn(ctx, &args, opts...)
+			return *r, err
+		}).(LookupWebAppPremierAddOnResultOutput)
+}
+
+type LookupWebAppPremierAddOnOutputArgs struct {
+	// Name of the app.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Add-on name.
+	PremierAddOnName pulumi.StringInput `pulumi:"premierAddOnName"`
+	// Name of the resource group to which the resource belongs.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupWebAppPremierAddOnOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupWebAppPremierAddOnArgs)(nil)).Elem()
+}
+
+// Premier add-on.
+type LookupWebAppPremierAddOnResultOutput struct{ *pulumi.OutputState }
+
+func (LookupWebAppPremierAddOnResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupWebAppPremierAddOnResult)(nil)).Elem()
+}
+
+func (o LookupWebAppPremierAddOnResultOutput) ToLookupWebAppPremierAddOnResultOutput() LookupWebAppPremierAddOnResultOutput {
+	return o
+}
+
+func (o LookupWebAppPremierAddOnResultOutput) ToLookupWebAppPremierAddOnResultOutputWithContext(ctx context.Context) LookupWebAppPremierAddOnResultOutput {
+	return o
+}
+
+// Resource Id.
+func (o LookupWebAppPremierAddOnResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWebAppPremierAddOnResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Kind of resource.
+func (o LookupWebAppPremierAddOnResultOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupWebAppPremierAddOnResult) *string { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Resource Location.
+func (o LookupWebAppPremierAddOnResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWebAppPremierAddOnResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// Premier add on Marketplace offer.
+func (o LookupWebAppPremierAddOnResultOutput) MarketplaceOffer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupWebAppPremierAddOnResult) *string { return v.MarketplaceOffer }).(pulumi.StringPtrOutput)
+}
+
+// Premier add on Marketplace publisher.
+func (o LookupWebAppPremierAddOnResultOutput) MarketplacePublisher() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupWebAppPremierAddOnResult) *string { return v.MarketplacePublisher }).(pulumi.StringPtrOutput)
+}
+
+// Resource Name.
+func (o LookupWebAppPremierAddOnResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWebAppPremierAddOnResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Premier add on Product.
+func (o LookupWebAppPremierAddOnResultOutput) Product() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupWebAppPremierAddOnResult) *string { return v.Product }).(pulumi.StringPtrOutput)
+}
+
+// Premier add on SKU.
+func (o LookupWebAppPremierAddOnResultOutput) Sku() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupWebAppPremierAddOnResult) *string { return v.Sku }).(pulumi.StringPtrOutput)
+}
+
+// Resource tags.
+func (o LookupWebAppPremierAddOnResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupWebAppPremierAddOnResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type.
+func (o LookupWebAppPremierAddOnResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWebAppPremierAddOnResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Premier add on Vendor.
+func (o LookupWebAppPremierAddOnResultOutput) Vendor() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupWebAppPremierAddOnResult) *string { return v.Vendor }).(pulumi.StringPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupWebAppPremierAddOnResultOutput{})
 }

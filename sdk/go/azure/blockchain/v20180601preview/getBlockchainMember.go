@@ -4,6 +4,9 @@
 package v20180601preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -66,4 +69,143 @@ type LookupBlockchainMemberResult struct {
 	UserName string `pulumi:"userName"`
 	// Gets or sets the blockchain validator nodes Sku.
 	ValidatorNodesSku *BlockchainMemberNodesSkuResponse `pulumi:"validatorNodesSku"`
+}
+
+func LookupBlockchainMemberOutput(ctx *pulumi.Context, args LookupBlockchainMemberOutputArgs, opts ...pulumi.InvokeOption) LookupBlockchainMemberResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupBlockchainMemberResult, error) {
+			args := v.(LookupBlockchainMemberArgs)
+			r, err := LookupBlockchainMember(ctx, &args, opts...)
+			return *r, err
+		}).(LookupBlockchainMemberResultOutput)
+}
+
+type LookupBlockchainMemberOutputArgs struct {
+	// Blockchain member name.
+	BlockchainMemberName pulumi.StringInput `pulumi:"blockchainMemberName"`
+	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupBlockchainMemberOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupBlockchainMemberArgs)(nil)).Elem()
+}
+
+// Payload of the blockchain member which is exposed in the request/response of the resource provider.
+type LookupBlockchainMemberResultOutput struct{ *pulumi.OutputState }
+
+func (LookupBlockchainMemberResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupBlockchainMemberResult)(nil)).Elem()
+}
+
+func (o LookupBlockchainMemberResultOutput) ToLookupBlockchainMemberResultOutput() LookupBlockchainMemberResultOutput {
+	return o
+}
+
+func (o LookupBlockchainMemberResultOutput) ToLookupBlockchainMemberResultOutputWithContext(ctx context.Context) LookupBlockchainMemberResultOutput {
+	return o
+}
+
+// Gets or sets the consortium for the blockchain member.
+func (o LookupBlockchainMemberResultOutput) Consortium() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupBlockchainMemberResult) *string { return v.Consortium }).(pulumi.StringPtrOutput)
+}
+
+// Gets the managed consortium management account address.
+func (o LookupBlockchainMemberResultOutput) ConsortiumManagementAccountAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBlockchainMemberResult) string { return v.ConsortiumManagementAccountAddress }).(pulumi.StringOutput)
+}
+
+// Sets the managed consortium management account password.
+func (o LookupBlockchainMemberResultOutput) ConsortiumManagementAccountPassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupBlockchainMemberResult) *string { return v.ConsortiumManagementAccountPassword }).(pulumi.StringPtrOutput)
+}
+
+// Gets the display name of the member in the consortium.
+func (o LookupBlockchainMemberResultOutput) ConsortiumMemberDisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupBlockchainMemberResult) *string { return v.ConsortiumMemberDisplayName }).(pulumi.StringPtrOutput)
+}
+
+// Gets the role of the member in the consortium.
+func (o LookupBlockchainMemberResultOutput) ConsortiumRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupBlockchainMemberResult) *string { return v.ConsortiumRole }).(pulumi.StringPtrOutput)
+}
+
+// Gets the dns endpoint of the blockchain member.
+func (o LookupBlockchainMemberResultOutput) Dns() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBlockchainMemberResult) string { return v.Dns }).(pulumi.StringOutput)
+}
+
+// Gets or sets firewall rules
+func (o LookupBlockchainMemberResultOutput) FirewallRules() FirewallRuleResponseArrayOutput {
+	return o.ApplyT(func(v LookupBlockchainMemberResult) []FirewallRuleResponse { return v.FirewallRules }).(FirewallRuleResponseArrayOutput)
+}
+
+// Fully qualified resource Id of the resource.
+func (o LookupBlockchainMemberResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBlockchainMemberResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The GEO location of the blockchain service.
+func (o LookupBlockchainMemberResultOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupBlockchainMemberResult) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource.
+func (o LookupBlockchainMemberResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBlockchainMemberResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Sets the basic auth password of the blockchain member.
+func (o LookupBlockchainMemberResultOutput) Password() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupBlockchainMemberResult) *string { return v.Password }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the blockchain protocol.
+func (o LookupBlockchainMemberResultOutput) Protocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupBlockchainMemberResult) *string { return v.Protocol }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the blockchain member provision state.
+func (o LookupBlockchainMemberResultOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBlockchainMemberResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Gets the public key of the blockchain member (default transaction node).
+func (o LookupBlockchainMemberResultOutput) PublicKey() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBlockchainMemberResult) string { return v.PublicKey }).(pulumi.StringOutput)
+}
+
+// Gets the Ethereum root contract address of the blockchain.
+func (o LookupBlockchainMemberResultOutput) RootContractAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBlockchainMemberResult) string { return v.RootContractAddress }).(pulumi.StringOutput)
+}
+
+// Gets or sets the blockchain member Sku.
+func (o LookupBlockchainMemberResultOutput) Sku() SkuResponsePtrOutput {
+	return o.ApplyT(func(v LookupBlockchainMemberResult) *SkuResponse { return v.Sku }).(SkuResponsePtrOutput)
+}
+
+// Tags of the service which is a list of key value pairs that describes the resource.
+func (o LookupBlockchainMemberResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupBlockchainMemberResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the service - e.g. "Microsoft.Blockchain"
+func (o LookupBlockchainMemberResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBlockchainMemberResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Gets the auth user name of the blockchain member.
+func (o LookupBlockchainMemberResultOutput) UserName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBlockchainMemberResult) string { return v.UserName }).(pulumi.StringOutput)
+}
+
+// Gets or sets the blockchain validator nodes Sku.
+func (o LookupBlockchainMemberResultOutput) ValidatorNodesSku() BlockchainMemberNodesSkuResponsePtrOutput {
+	return o.ApplyT(func(v LookupBlockchainMemberResult) *BlockchainMemberNodesSkuResponse { return v.ValidatorNodesSku }).(BlockchainMemberNodesSkuResponsePtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupBlockchainMemberResultOutput{})
 }

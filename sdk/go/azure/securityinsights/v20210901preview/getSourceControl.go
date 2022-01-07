@@ -4,6 +4,9 @@
 package v20210901preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -48,4 +51,95 @@ type LookupSourceControlResult struct {
 	SystemData SystemDataResponse `pulumi:"systemData"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
+}
+
+func LookupSourceControlOutput(ctx *pulumi.Context, args LookupSourceControlOutputArgs, opts ...pulumi.InvokeOption) LookupSourceControlResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupSourceControlResult, error) {
+			args := v.(LookupSourceControlArgs)
+			r, err := LookupSourceControl(ctx, &args, opts...)
+			return *r, err
+		}).(LookupSourceControlResultOutput)
+}
+
+type LookupSourceControlOutputArgs struct {
+	// The name of the resource group. The name is case insensitive.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// Source control Id
+	SourceControlId pulumi.StringInput `pulumi:"sourceControlId"`
+	// The name of the workspace.
+	WorkspaceName pulumi.StringInput `pulumi:"workspaceName"`
+}
+
+func (LookupSourceControlOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupSourceControlArgs)(nil)).Elem()
+}
+
+// Represents a SourceControl in Azure Security Insights.
+type LookupSourceControlResultOutput struct{ *pulumi.OutputState }
+
+func (LookupSourceControlResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupSourceControlResult)(nil)).Elem()
+}
+
+func (o LookupSourceControlResultOutput) ToLookupSourceControlResultOutput() LookupSourceControlResultOutput {
+	return o
+}
+
+func (o LookupSourceControlResultOutput) ToLookupSourceControlResultOutputWithContext(ctx context.Context) LookupSourceControlResultOutput {
+	return o
+}
+
+// Array of source control content types.
+func (o LookupSourceControlResultOutput) ContentTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupSourceControlResult) []string { return v.ContentTypes }).(pulumi.StringArrayOutput)
+}
+
+// A description of the source control
+func (o LookupSourceControlResultOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSourceControlResult) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The display name of the source control
+func (o LookupSourceControlResultOutput) DisplayName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSourceControlResult) string { return v.DisplayName }).(pulumi.StringOutput)
+}
+
+// Etag of the azure resource
+func (o LookupSourceControlResultOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSourceControlResult) *string { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+func (o LookupSourceControlResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSourceControlResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o LookupSourceControlResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSourceControlResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The repository type of the source control
+func (o LookupSourceControlResultOutput) RepoType() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSourceControlResult) string { return v.RepoType }).(pulumi.StringOutput)
+}
+
+// Repository metadata.
+func (o LookupSourceControlResultOutput) Repository() RepositoryResponseOutput {
+	return o.ApplyT(func(v LookupSourceControlResult) RepositoryResponse { return v.Repository }).(RepositoryResponseOutput)
+}
+
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+func (o LookupSourceControlResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupSourceControlResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o LookupSourceControlResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSourceControlResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupSourceControlResultOutput{})
 }

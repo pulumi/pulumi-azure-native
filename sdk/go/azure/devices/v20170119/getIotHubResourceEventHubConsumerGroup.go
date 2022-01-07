@@ -4,6 +4,9 @@
 package v20170119
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -36,4 +39,62 @@ type LookupIotHubResourceEventHubConsumerGroupResult struct {
 	Name *string `pulumi:"name"`
 	// The tags.
 	Tags map[string]string `pulumi:"tags"`
+}
+
+func LookupIotHubResourceEventHubConsumerGroupOutput(ctx *pulumi.Context, args LookupIotHubResourceEventHubConsumerGroupOutputArgs, opts ...pulumi.InvokeOption) LookupIotHubResourceEventHubConsumerGroupResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupIotHubResourceEventHubConsumerGroupResult, error) {
+			args := v.(LookupIotHubResourceEventHubConsumerGroupArgs)
+			r, err := LookupIotHubResourceEventHubConsumerGroup(ctx, &args, opts...)
+			return *r, err
+		}).(LookupIotHubResourceEventHubConsumerGroupResultOutput)
+}
+
+type LookupIotHubResourceEventHubConsumerGroupOutputArgs struct {
+	// The name of the Event Hub-compatible endpoint in the IoT hub.
+	EventHubEndpointName pulumi.StringInput `pulumi:"eventHubEndpointName"`
+	// The name of the consumer group to retrieve.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The name of the resource group that contains the IoT hub.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the IoT hub.
+	ResourceName pulumi.StringInput `pulumi:"resourceName"`
+}
+
+func (LookupIotHubResourceEventHubConsumerGroupOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupIotHubResourceEventHubConsumerGroupArgs)(nil)).Elem()
+}
+
+// The properties of the EventHubConsumerGroupInfo object.
+type LookupIotHubResourceEventHubConsumerGroupResultOutput struct{ *pulumi.OutputState }
+
+func (LookupIotHubResourceEventHubConsumerGroupResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupIotHubResourceEventHubConsumerGroupResult)(nil)).Elem()
+}
+
+func (o LookupIotHubResourceEventHubConsumerGroupResultOutput) ToLookupIotHubResourceEventHubConsumerGroupResultOutput() LookupIotHubResourceEventHubConsumerGroupResultOutput {
+	return o
+}
+
+func (o LookupIotHubResourceEventHubConsumerGroupResultOutput) ToLookupIotHubResourceEventHubConsumerGroupResultOutputWithContext(ctx context.Context) LookupIotHubResourceEventHubConsumerGroupResultOutput {
+	return o
+}
+
+// The Event Hub-compatible consumer group identifier.
+func (o LookupIotHubResourceEventHubConsumerGroupResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupIotHubResourceEventHubConsumerGroupResult) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// The Event Hub-compatible consumer group name.
+func (o LookupIotHubResourceEventHubConsumerGroupResultOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupIotHubResourceEventHubConsumerGroupResult) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The tags.
+func (o LookupIotHubResourceEventHubConsumerGroupResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupIotHubResourceEventHubConsumerGroupResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupIotHubResourceEventHubConsumerGroupResultOutput{})
 }

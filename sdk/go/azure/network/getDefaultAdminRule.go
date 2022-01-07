@@ -4,6 +4,9 @@
 package network
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -70,4 +73,140 @@ type LookupDefaultAdminRuleResult struct {
 	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource type.
 	Type string `pulumi:"type"`
+}
+
+func LookupDefaultAdminRuleOutput(ctx *pulumi.Context, args LookupDefaultAdminRuleOutputArgs, opts ...pulumi.InvokeOption) LookupDefaultAdminRuleResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupDefaultAdminRuleResult, error) {
+			args := v.(LookupDefaultAdminRuleArgs)
+			r, err := LookupDefaultAdminRule(ctx, &args, opts...)
+			return *r, err
+		}).(LookupDefaultAdminRuleResultOutput)
+}
+
+type LookupDefaultAdminRuleOutputArgs struct {
+	// The name of the network manager security Configuration.
+	ConfigurationName pulumi.StringInput `pulumi:"configurationName"`
+	// The name of the network manager.
+	NetworkManagerName pulumi.StringInput `pulumi:"networkManagerName"`
+	// The name of the resource group.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the network manager security Configuration rule collection.
+	RuleCollectionName pulumi.StringInput `pulumi:"ruleCollectionName"`
+	// The name of the rule.
+	RuleName pulumi.StringInput `pulumi:"ruleName"`
+}
+
+func (LookupDefaultAdminRuleOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupDefaultAdminRuleArgs)(nil)).Elem()
+}
+
+// Network default admin rule.
+type LookupDefaultAdminRuleResultOutput struct{ *pulumi.OutputState }
+
+func (LookupDefaultAdminRuleResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupDefaultAdminRuleResult)(nil)).Elem()
+}
+
+func (o LookupDefaultAdminRuleResultOutput) ToLookupDefaultAdminRuleResultOutput() LookupDefaultAdminRuleResultOutput {
+	return o
+}
+
+func (o LookupDefaultAdminRuleResultOutput) ToLookupDefaultAdminRuleResultOutputWithContext(ctx context.Context) LookupDefaultAdminRuleResultOutput {
+	return o
+}
+
+// Indicates the access allowed for this particular rule
+func (o LookupDefaultAdminRuleResultOutput) Access() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDefaultAdminRuleResult) string { return v.Access }).(pulumi.StringOutput)
+}
+
+// A description for this rule. Restricted to 140 chars.
+func (o LookupDefaultAdminRuleResultOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDefaultAdminRuleResult) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// The destination port ranges.
+func (o LookupDefaultAdminRuleResultOutput) DestinationPortRanges() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupDefaultAdminRuleResult) []string { return v.DestinationPortRanges }).(pulumi.StringArrayOutput)
+}
+
+// The destination address prefixes. CIDR or destination IP ranges.
+func (o LookupDefaultAdminRuleResultOutput) Destinations() AddressPrefixItemResponseArrayOutput {
+	return o.ApplyT(func(v LookupDefaultAdminRuleResult) []AddressPrefixItemResponse { return v.Destinations }).(AddressPrefixItemResponseArrayOutput)
+}
+
+// Indicates if the traffic matched against the rule in inbound or outbound.
+func (o LookupDefaultAdminRuleResultOutput) Direction() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDefaultAdminRuleResult) string { return v.Direction }).(pulumi.StringOutput)
+}
+
+// A friendly name for the rule.
+func (o LookupDefaultAdminRuleResultOutput) DisplayName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDefaultAdminRuleResult) string { return v.DisplayName }).(pulumi.StringOutput)
+}
+
+// A unique read-only string that changes whenever the resource is updated.
+func (o LookupDefaultAdminRuleResultOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDefaultAdminRuleResult) string { return v.Etag }).(pulumi.StringOutput)
+}
+
+// Default rule flag.
+func (o LookupDefaultAdminRuleResultOutput) Flag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDefaultAdminRuleResult) *string { return v.Flag }).(pulumi.StringPtrOutput)
+}
+
+// Resource ID.
+func (o LookupDefaultAdminRuleResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDefaultAdminRuleResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Whether the rule is custom or default.
+// Expected value is 'Default'.
+func (o LookupDefaultAdminRuleResultOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDefaultAdminRuleResult) string { return v.Kind }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o LookupDefaultAdminRuleResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDefaultAdminRuleResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The priority of the rule. The value can be between 1 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
+func (o LookupDefaultAdminRuleResultOutput) Priority() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupDefaultAdminRuleResult) int { return v.Priority }).(pulumi.IntOutput)
+}
+
+// Network protocol this rule applies to.
+func (o LookupDefaultAdminRuleResultOutput) Protocol() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDefaultAdminRuleResult) string { return v.Protocol }).(pulumi.StringOutput)
+}
+
+// The provisioning state of the resource.
+func (o LookupDefaultAdminRuleResultOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDefaultAdminRuleResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The source port ranges.
+func (o LookupDefaultAdminRuleResultOutput) SourcePortRanges() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupDefaultAdminRuleResult) []string { return v.SourcePortRanges }).(pulumi.StringArrayOutput)
+}
+
+// The CIDR or source IP ranges.
+func (o LookupDefaultAdminRuleResultOutput) Sources() AddressPrefixItemResponseArrayOutput {
+	return o.ApplyT(func(v LookupDefaultAdminRuleResult) []AddressPrefixItemResponse { return v.Sources }).(AddressPrefixItemResponseArrayOutput)
+}
+
+// The system metadata related to this resource.
+func (o LookupDefaultAdminRuleResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupDefaultAdminRuleResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource type.
+func (o LookupDefaultAdminRuleResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDefaultAdminRuleResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupDefaultAdminRuleResultOutput{})
 }

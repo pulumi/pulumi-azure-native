@@ -4,6 +4,9 @@
 package v20160515
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -60,4 +63,122 @@ type LookupLabResult struct {
 	UniqueIdentifier *string `pulumi:"uniqueIdentifier"`
 	// The lab's Key vault.
 	VaultName string `pulumi:"vaultName"`
+}
+
+func LookupLabOutput(ctx *pulumi.Context, args LookupLabOutputArgs, opts ...pulumi.InvokeOption) LookupLabResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupLabResult, error) {
+			args := v.(LookupLabArgs)
+			r, err := LookupLab(ctx, &args, opts...)
+			return *r, err
+		}).(LookupLabResultOutput)
+}
+
+type LookupLabOutputArgs struct {
+	// Specify the $expand query. Example: 'properties($select=defaultStorageAccount)'
+	Expand pulumi.StringPtrInput `pulumi:"expand"`
+	// The name of the lab.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The name of the resource group.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupLabOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupLabArgs)(nil)).Elem()
+}
+
+// A lab.
+type LookupLabResultOutput struct{ *pulumi.OutputState }
+
+func (LookupLabResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupLabResult)(nil)).Elem()
+}
+
+func (o LookupLabResultOutput) ToLookupLabResultOutput() LookupLabResultOutput {
+	return o
+}
+
+func (o LookupLabResultOutput) ToLookupLabResultOutputWithContext(ctx context.Context) LookupLabResultOutput {
+	return o
+}
+
+// The lab's artifact storage account.
+func (o LookupLabResultOutput) ArtifactsStorageAccount() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupLabResult) string { return v.ArtifactsStorageAccount }).(pulumi.StringOutput)
+}
+
+// The creation date of the lab.
+func (o LookupLabResultOutput) CreatedDate() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupLabResult) string { return v.CreatedDate }).(pulumi.StringOutput)
+}
+
+// The lab's default premium storage account.
+func (o LookupLabResultOutput) DefaultPremiumStorageAccount() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupLabResult) string { return v.DefaultPremiumStorageAccount }).(pulumi.StringOutput)
+}
+
+// The lab's default storage account.
+func (o LookupLabResultOutput) DefaultStorageAccount() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupLabResult) string { return v.DefaultStorageAccount }).(pulumi.StringOutput)
+}
+
+// The identifier of the resource.
+func (o LookupLabResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupLabResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Type of storage used by the lab. It can be either Premium or Standard. Default is Premium.
+func (o LookupLabResultOutput) LabStorageType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupLabResult) *string { return v.LabStorageType }).(pulumi.StringPtrOutput)
+}
+
+// The location of the resource.
+func (o LookupLabResultOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupLabResult) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource.
+func (o LookupLabResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupLabResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The lab's premium data disk storage account.
+func (o LookupLabResultOutput) PremiumDataDiskStorageAccount() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupLabResult) string { return v.PremiumDataDiskStorageAccount }).(pulumi.StringOutput)
+}
+
+// The setting to enable usage of premium data disks.
+// When its value is 'Enabled', creation of standard or premium data disks is allowed.
+// When its value is 'Disabled', only creation of standard data disks is allowed.
+func (o LookupLabResultOutput) PremiumDataDisks() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupLabResult) *string { return v.PremiumDataDisks }).(pulumi.StringPtrOutput)
+}
+
+// The provisioning status of the resource.
+func (o LookupLabResultOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupLabResult) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+}
+
+// The tags of the resource.
+func (o LookupLabResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupLabResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource.
+func (o LookupLabResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupLabResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The unique immutable identifier of a resource (Guid).
+func (o LookupLabResultOutput) UniqueIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupLabResult) *string { return v.UniqueIdentifier }).(pulumi.StringPtrOutput)
+}
+
+// The lab's Key vault.
+func (o LookupLabResultOutput) VaultName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupLabResult) string { return v.VaultName }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupLabResultOutput{})
 }

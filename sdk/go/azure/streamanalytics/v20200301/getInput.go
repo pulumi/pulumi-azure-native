@@ -4,6 +4,9 @@
 package v20200301
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -36,4 +39,65 @@ type LookupInputResult struct {
 	Properties interface{} `pulumi:"properties"`
 	// Resource type
 	Type string `pulumi:"type"`
+}
+
+func LookupInputOutput(ctx *pulumi.Context, args LookupInputOutputArgs, opts ...pulumi.InvokeOption) LookupInputResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupInputResult, error) {
+			args := v.(LookupInputArgs)
+			r, err := LookupInput(ctx, &args, opts...)
+			return *r, err
+		}).(LookupInputResultOutput)
+}
+
+type LookupInputOutputArgs struct {
+	// The name of the input.
+	InputName pulumi.StringInput `pulumi:"inputName"`
+	// The name of the streaming job.
+	JobName pulumi.StringInput `pulumi:"jobName"`
+	// The name of the resource group. The name is case insensitive.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupInputOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupInputArgs)(nil)).Elem()
+}
+
+// An input object, containing all information associated with the named input. All inputs are contained under a streaming job.
+type LookupInputResultOutput struct{ *pulumi.OutputState }
+
+func (LookupInputResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupInputResult)(nil)).Elem()
+}
+
+func (o LookupInputResultOutput) ToLookupInputResultOutput() LookupInputResultOutput {
+	return o
+}
+
+func (o LookupInputResultOutput) ToLookupInputResultOutputWithContext(ctx context.Context) LookupInputResultOutput {
+	return o
+}
+
+// Resource Id
+func (o LookupInputResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupInputResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Resource name
+func (o LookupInputResultOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupInputResult) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The properties that are associated with an input. Required on PUT (CreateOrReplace) requests.
+func (o LookupInputResultOutput) Properties() pulumi.AnyOutput {
+	return o.ApplyT(func(v LookupInputResult) interface{} { return v.Properties }).(pulumi.AnyOutput)
+}
+
+// Resource type
+func (o LookupInputResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupInputResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupInputResultOutput{})
 }

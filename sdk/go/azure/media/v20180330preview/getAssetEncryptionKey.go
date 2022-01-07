@@ -4,6 +4,9 @@
 package v20180330preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -30,4 +33,50 @@ type GetAssetEncryptionKeyArgs struct {
 type GetAssetEncryptionKeyResult struct {
 	// The Asset storage encryption key.
 	StorageEncryptionKey *string `pulumi:"storageEncryptionKey"`
+}
+
+func GetAssetEncryptionKeyOutput(ctx *pulumi.Context, args GetAssetEncryptionKeyOutputArgs, opts ...pulumi.InvokeOption) GetAssetEncryptionKeyResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetAssetEncryptionKeyResult, error) {
+			args := v.(GetAssetEncryptionKeyArgs)
+			r, err := GetAssetEncryptionKey(ctx, &args, opts...)
+			return *r, err
+		}).(GetAssetEncryptionKeyResultOutput)
+}
+
+type GetAssetEncryptionKeyOutputArgs struct {
+	// The Media Services account name.
+	AccountName pulumi.StringInput `pulumi:"accountName"`
+	// The Asset name.
+	AssetName pulumi.StringInput `pulumi:"assetName"`
+	// The name of the resource group within the Azure subscription.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (GetAssetEncryptionKeyOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAssetEncryptionKeyArgs)(nil)).Elem()
+}
+
+// The Asset Storage encryption key.
+type GetAssetEncryptionKeyResultOutput struct{ *pulumi.OutputState }
+
+func (GetAssetEncryptionKeyResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAssetEncryptionKeyResult)(nil)).Elem()
+}
+
+func (o GetAssetEncryptionKeyResultOutput) ToGetAssetEncryptionKeyResultOutput() GetAssetEncryptionKeyResultOutput {
+	return o
+}
+
+func (o GetAssetEncryptionKeyResultOutput) ToGetAssetEncryptionKeyResultOutputWithContext(ctx context.Context) GetAssetEncryptionKeyResultOutput {
+	return o
+}
+
+// The Asset storage encryption key.
+func (o GetAssetEncryptionKeyResultOutput) StorageEncryptionKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetAssetEncryptionKeyResult) *string { return v.StorageEncryptionKey }).(pulumi.StringPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetAssetEncryptionKeyResultOutput{})
 }

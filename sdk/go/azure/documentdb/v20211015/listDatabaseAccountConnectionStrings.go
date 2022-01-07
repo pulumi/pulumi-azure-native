@@ -4,6 +4,9 @@
 package v20211015
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -28,4 +31,50 @@ type ListDatabaseAccountConnectionStringsArgs struct {
 type ListDatabaseAccountConnectionStringsResult struct {
 	// An array that contains the connection strings for the Cosmos DB account.
 	ConnectionStrings []DatabaseAccountConnectionStringResponse `pulumi:"connectionStrings"`
+}
+
+func ListDatabaseAccountConnectionStringsOutput(ctx *pulumi.Context, args ListDatabaseAccountConnectionStringsOutputArgs, opts ...pulumi.InvokeOption) ListDatabaseAccountConnectionStringsResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (ListDatabaseAccountConnectionStringsResult, error) {
+			args := v.(ListDatabaseAccountConnectionStringsArgs)
+			r, err := ListDatabaseAccountConnectionStrings(ctx, &args, opts...)
+			return *r, err
+		}).(ListDatabaseAccountConnectionStringsResultOutput)
+}
+
+type ListDatabaseAccountConnectionStringsOutputArgs struct {
+	// Cosmos DB database account name.
+	AccountName pulumi.StringInput `pulumi:"accountName"`
+	// The name of the resource group. The name is case insensitive.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (ListDatabaseAccountConnectionStringsOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListDatabaseAccountConnectionStringsArgs)(nil)).Elem()
+}
+
+// The connection strings for the given database account.
+type ListDatabaseAccountConnectionStringsResultOutput struct{ *pulumi.OutputState }
+
+func (ListDatabaseAccountConnectionStringsResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListDatabaseAccountConnectionStringsResult)(nil)).Elem()
+}
+
+func (o ListDatabaseAccountConnectionStringsResultOutput) ToListDatabaseAccountConnectionStringsResultOutput() ListDatabaseAccountConnectionStringsResultOutput {
+	return o
+}
+
+func (o ListDatabaseAccountConnectionStringsResultOutput) ToListDatabaseAccountConnectionStringsResultOutputWithContext(ctx context.Context) ListDatabaseAccountConnectionStringsResultOutput {
+	return o
+}
+
+// An array that contains the connection strings for the Cosmos DB account.
+func (o ListDatabaseAccountConnectionStringsResultOutput) ConnectionStrings() DatabaseAccountConnectionStringResponseArrayOutput {
+	return o.ApplyT(func(v ListDatabaseAccountConnectionStringsResult) []DatabaseAccountConnectionStringResponse {
+		return v.ConnectionStrings
+	}).(DatabaseAccountConnectionStringResponseArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(ListDatabaseAccountConnectionStringsResultOutput{})
 }

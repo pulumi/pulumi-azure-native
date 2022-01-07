@@ -4,6 +4,9 @@
 package v20210301
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -50,4 +53,100 @@ type LookupDatabaseResult struct {
 	ResourceState string `pulumi:"resourceState"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
+}
+
+func LookupDatabaseOutput(ctx *pulumi.Context, args LookupDatabaseOutputArgs, opts ...pulumi.InvokeOption) LookupDatabaseResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupDatabaseResult, error) {
+			args := v.(LookupDatabaseArgs)
+			r, err := LookupDatabase(ctx, &args, opts...)
+			return *r, err
+		}).(LookupDatabaseResultOutput)
+}
+
+type LookupDatabaseOutputArgs struct {
+	// The name of the RedisEnterprise cluster.
+	ClusterName pulumi.StringInput `pulumi:"clusterName"`
+	// The name of the database.
+	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
+	// The name of the resource group. The name is case insensitive.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupDatabaseOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupDatabaseArgs)(nil)).Elem()
+}
+
+// Describes a database on the RedisEnterprise cluster
+type LookupDatabaseResultOutput struct{ *pulumi.OutputState }
+
+func (LookupDatabaseResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupDatabaseResult)(nil)).Elem()
+}
+
+func (o LookupDatabaseResultOutput) ToLookupDatabaseResultOutput() LookupDatabaseResultOutput {
+	return o
+}
+
+func (o LookupDatabaseResultOutput) ToLookupDatabaseResultOutputWithContext(ctx context.Context) LookupDatabaseResultOutput {
+	return o
+}
+
+// Specifies whether redis clients can connect using TLS-encrypted or plaintext redis protocols. Default is TLS-encrypted.
+func (o LookupDatabaseResultOutput) ClientProtocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDatabaseResult) *string { return v.ClientProtocol }).(pulumi.StringPtrOutput)
+}
+
+// Clustering policy - default is OSSCluster. Specified at create time.
+func (o LookupDatabaseResultOutput) ClusteringPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDatabaseResult) *string { return v.ClusteringPolicy }).(pulumi.StringPtrOutput)
+}
+
+// Redis eviction policy - default is VolatileLRU
+func (o LookupDatabaseResultOutput) EvictionPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDatabaseResult) *string { return v.EvictionPolicy }).(pulumi.StringPtrOutput)
+}
+
+// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+func (o LookupDatabaseResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDatabaseResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Optional set of redis modules to enable in this database - modules can only be added at creation time.
+func (o LookupDatabaseResultOutput) Modules() ModuleResponseArrayOutput {
+	return o.ApplyT(func(v LookupDatabaseResult) []ModuleResponse { return v.Modules }).(ModuleResponseArrayOutput)
+}
+
+// The name of the resource
+func (o LookupDatabaseResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDatabaseResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Persistence settings
+func (o LookupDatabaseResultOutput) Persistence() PersistenceResponsePtrOutput {
+	return o.ApplyT(func(v LookupDatabaseResult) *PersistenceResponse { return v.Persistence }).(PersistenceResponsePtrOutput)
+}
+
+// TCP port of the database endpoint. Specified at create time. Defaults to an available port.
+func (o LookupDatabaseResultOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupDatabaseResult) *int { return v.Port }).(pulumi.IntPtrOutput)
+}
+
+// Current provisioning status of the database
+func (o LookupDatabaseResultOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDatabaseResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Current resource status of the database
+func (o LookupDatabaseResultOutput) ResourceState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDatabaseResult) string { return v.ResourceState }).(pulumi.StringOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o LookupDatabaseResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDatabaseResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupDatabaseResultOutput{})
 }

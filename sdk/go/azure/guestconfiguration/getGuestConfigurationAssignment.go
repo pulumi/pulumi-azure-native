@@ -4,6 +4,9 @@
 package guestconfiguration
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -50,4 +53,72 @@ func (val *LookupGuestConfigurationAssignmentResult) Defaults() *LookupGuestConf
 	tmp.Properties = *tmp.Properties.Defaults()
 
 	return &tmp
+}
+
+func LookupGuestConfigurationAssignmentOutput(ctx *pulumi.Context, args LookupGuestConfigurationAssignmentOutputArgs, opts ...pulumi.InvokeOption) LookupGuestConfigurationAssignmentResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupGuestConfigurationAssignmentResult, error) {
+			args := v.(LookupGuestConfigurationAssignmentArgs)
+			r, err := LookupGuestConfigurationAssignment(ctx, &args, opts...)
+			return *r, err
+		}).(LookupGuestConfigurationAssignmentResultOutput)
+}
+
+type LookupGuestConfigurationAssignmentOutputArgs struct {
+	// The guest configuration assignment name.
+	GuestConfigurationAssignmentName pulumi.StringInput `pulumi:"guestConfigurationAssignmentName"`
+	// The resource group name.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the virtual machine.
+	VmName pulumi.StringInput `pulumi:"vmName"`
+}
+
+func (LookupGuestConfigurationAssignmentOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupGuestConfigurationAssignmentArgs)(nil)).Elem()
+}
+
+// Guest configuration assignment is an association between a machine and guest configuration.
+type LookupGuestConfigurationAssignmentResultOutput struct{ *pulumi.OutputState }
+
+func (LookupGuestConfigurationAssignmentResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupGuestConfigurationAssignmentResult)(nil)).Elem()
+}
+
+func (o LookupGuestConfigurationAssignmentResultOutput) ToLookupGuestConfigurationAssignmentResultOutput() LookupGuestConfigurationAssignmentResultOutput {
+	return o
+}
+
+func (o LookupGuestConfigurationAssignmentResultOutput) ToLookupGuestConfigurationAssignmentResultOutputWithContext(ctx context.Context) LookupGuestConfigurationAssignmentResultOutput {
+	return o
+}
+
+// ARM resource id of the guest configuration assignment.
+func (o LookupGuestConfigurationAssignmentResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupGuestConfigurationAssignmentResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Region where the VM is located.
+func (o LookupGuestConfigurationAssignmentResultOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupGuestConfigurationAssignmentResult) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Name of the guest configuration assignment.
+func (o LookupGuestConfigurationAssignmentResultOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupGuestConfigurationAssignmentResult) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Properties of the Guest configuration assignment.
+func (o LookupGuestConfigurationAssignmentResultOutput) Properties() GuestConfigurationAssignmentPropertiesResponseOutput {
+	return o.ApplyT(func(v LookupGuestConfigurationAssignmentResult) GuestConfigurationAssignmentPropertiesResponse {
+		return v.Properties
+	}).(GuestConfigurationAssignmentPropertiesResponseOutput)
+}
+
+// The type of the resource.
+func (o LookupGuestConfigurationAssignmentResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupGuestConfigurationAssignmentResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupGuestConfigurationAssignmentResultOutput{})
 }

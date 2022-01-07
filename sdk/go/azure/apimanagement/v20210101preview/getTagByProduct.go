@@ -4,6 +4,9 @@
 package v20210101preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -38,4 +41,67 @@ type LookupTagByProductResult struct {
 	Name string `pulumi:"name"`
 	// Resource type for API Management resource.
 	Type string `pulumi:"type"`
+}
+
+func LookupTagByProductOutput(ctx *pulumi.Context, args LookupTagByProductOutputArgs, opts ...pulumi.InvokeOption) LookupTagByProductResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupTagByProductResult, error) {
+			args := v.(LookupTagByProductArgs)
+			r, err := LookupTagByProduct(ctx, &args, opts...)
+			return *r, err
+		}).(LookupTagByProductResultOutput)
+}
+
+type LookupTagByProductOutputArgs struct {
+	// Product identifier. Must be unique in the current API Management service instance.
+	ProductId pulumi.StringInput `pulumi:"productId"`
+	// The name of the resource group.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the API Management service.
+	ServiceName pulumi.StringInput `pulumi:"serviceName"`
+	// Tag identifier. Must be unique in the current API Management service instance.
+	TagId pulumi.StringInput `pulumi:"tagId"`
+}
+
+func (LookupTagByProductOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupTagByProductArgs)(nil)).Elem()
+}
+
+// Tag Contract details.
+type LookupTagByProductResultOutput struct{ *pulumi.OutputState }
+
+func (LookupTagByProductResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupTagByProductResult)(nil)).Elem()
+}
+
+func (o LookupTagByProductResultOutput) ToLookupTagByProductResultOutput() LookupTagByProductResultOutput {
+	return o
+}
+
+func (o LookupTagByProductResultOutput) ToLookupTagByProductResultOutputWithContext(ctx context.Context) LookupTagByProductResultOutput {
+	return o
+}
+
+// Tag name.
+func (o LookupTagByProductResultOutput) DisplayName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTagByProductResult) string { return v.DisplayName }).(pulumi.StringOutput)
+}
+
+// Resource ID.
+func (o LookupTagByProductResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTagByProductResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o LookupTagByProductResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTagByProductResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Resource type for API Management resource.
+func (o LookupTagByProductResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTagByProductResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupTagByProductResultOutput{})
 }

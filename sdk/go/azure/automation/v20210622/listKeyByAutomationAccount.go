@@ -4,6 +4,9 @@
 package v20210622
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -26,4 +29,47 @@ type ListKeyByAutomationAccountArgs struct {
 type ListKeyByAutomationAccountResult struct {
 	// Lists the automation keys.
 	Keys []KeyResponse `pulumi:"keys"`
+}
+
+func ListKeyByAutomationAccountOutput(ctx *pulumi.Context, args ListKeyByAutomationAccountOutputArgs, opts ...pulumi.InvokeOption) ListKeyByAutomationAccountResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (ListKeyByAutomationAccountResult, error) {
+			args := v.(ListKeyByAutomationAccountArgs)
+			r, err := ListKeyByAutomationAccount(ctx, &args, opts...)
+			return *r, err
+		}).(ListKeyByAutomationAccountResultOutput)
+}
+
+type ListKeyByAutomationAccountOutputArgs struct {
+	// The name of the automation account.
+	AutomationAccountName pulumi.StringInput `pulumi:"automationAccountName"`
+	// Name of an Azure Resource group.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (ListKeyByAutomationAccountOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListKeyByAutomationAccountArgs)(nil)).Elem()
+}
+
+type ListKeyByAutomationAccountResultOutput struct{ *pulumi.OutputState }
+
+func (ListKeyByAutomationAccountResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListKeyByAutomationAccountResult)(nil)).Elem()
+}
+
+func (o ListKeyByAutomationAccountResultOutput) ToListKeyByAutomationAccountResultOutput() ListKeyByAutomationAccountResultOutput {
+	return o
+}
+
+func (o ListKeyByAutomationAccountResultOutput) ToListKeyByAutomationAccountResultOutputWithContext(ctx context.Context) ListKeyByAutomationAccountResultOutput {
+	return o
+}
+
+// Lists the automation keys.
+func (o ListKeyByAutomationAccountResultOutput) Keys() KeyResponseArrayOutput {
+	return o.ApplyT(func(v ListKeyByAutomationAccountResult) []KeyResponse { return v.Keys }).(KeyResponseArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(ListKeyByAutomationAccountResultOutput{})
 }

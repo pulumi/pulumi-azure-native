@@ -4,6 +4,9 @@
 package communication
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -51,4 +54,103 @@ type LookupCommunicationServiceResult struct {
 	Type string `pulumi:"type"`
 	// Version of the CommunicationService resource. Probably you need the same or higher version of client SDKs.
 	Version string `pulumi:"version"`
+}
+
+func LookupCommunicationServiceOutput(ctx *pulumi.Context, args LookupCommunicationServiceOutputArgs, opts ...pulumi.InvokeOption) LookupCommunicationServiceResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupCommunicationServiceResult, error) {
+			args := v.(LookupCommunicationServiceArgs)
+			r, err := LookupCommunicationService(ctx, &args, opts...)
+			return *r, err
+		}).(LookupCommunicationServiceResultOutput)
+}
+
+type LookupCommunicationServiceOutputArgs struct {
+	// The name of the CommunicationService resource.
+	CommunicationServiceName pulumi.StringInput `pulumi:"communicationServiceName"`
+	// The name of the resource group. The name is case insensitive.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupCommunicationServiceOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupCommunicationServiceArgs)(nil)).Elem()
+}
+
+// A class representing a CommunicationService resource.
+type LookupCommunicationServiceResultOutput struct{ *pulumi.OutputState }
+
+func (LookupCommunicationServiceResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupCommunicationServiceResult)(nil)).Elem()
+}
+
+func (o LookupCommunicationServiceResultOutput) ToLookupCommunicationServiceResultOutput() LookupCommunicationServiceResultOutput {
+	return o
+}
+
+func (o LookupCommunicationServiceResultOutput) ToLookupCommunicationServiceResultOutputWithContext(ctx context.Context) LookupCommunicationServiceResultOutput {
+	return o
+}
+
+// The location where the communication service stores its data at rest.
+func (o LookupCommunicationServiceResultOutput) DataLocation() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCommunicationServiceResult) string { return v.DataLocation }).(pulumi.StringOutput)
+}
+
+// FQDN of the CommunicationService instance.
+func (o LookupCommunicationServiceResultOutput) HostName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCommunicationServiceResult) string { return v.HostName }).(pulumi.StringOutput)
+}
+
+// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+func (o LookupCommunicationServiceResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCommunicationServiceResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The immutable resource Id of the communication service.
+func (o LookupCommunicationServiceResultOutput) ImmutableResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCommunicationServiceResult) string { return v.ImmutableResourceId }).(pulumi.StringOutput)
+}
+
+// The Azure location where the CommunicationService is running.
+func (o LookupCommunicationServiceResultOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupCommunicationServiceResult) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource
+func (o LookupCommunicationServiceResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCommunicationServiceResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Resource ID of an Azure Notification Hub linked to this resource.
+func (o LookupCommunicationServiceResultOutput) NotificationHubId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCommunicationServiceResult) string { return v.NotificationHubId }).(pulumi.StringOutput)
+}
+
+// Provisioning state of the resource.
+func (o LookupCommunicationServiceResultOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCommunicationServiceResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o LookupCommunicationServiceResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupCommunicationServiceResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Tags of the service which is a list of key value pairs that describe the resource.
+func (o LookupCommunicationServiceResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupCommunicationServiceResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o LookupCommunicationServiceResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCommunicationServiceResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Version of the CommunicationService resource. Probably you need the same or higher version of client SDKs.
+func (o LookupCommunicationServiceResultOutput) Version() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCommunicationServiceResult) string { return v.Version }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupCommunicationServiceResultOutput{})
 }

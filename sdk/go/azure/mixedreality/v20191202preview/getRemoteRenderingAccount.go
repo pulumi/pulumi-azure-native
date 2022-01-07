@@ -4,6 +4,9 @@
 package v20191202preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -42,4 +45,83 @@ type LookupRemoteRenderingAccountResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
+}
+
+func LookupRemoteRenderingAccountOutput(ctx *pulumi.Context, args LookupRemoteRenderingAccountOutputArgs, opts ...pulumi.InvokeOption) LookupRemoteRenderingAccountResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupRemoteRenderingAccountResult, error) {
+			args := v.(LookupRemoteRenderingAccountArgs)
+			r, err := LookupRemoteRenderingAccount(ctx, &args, opts...)
+			return *r, err
+		}).(LookupRemoteRenderingAccountResultOutput)
+}
+
+type LookupRemoteRenderingAccountOutputArgs struct {
+	// Name of an Mixed Reality Account.
+	AccountName pulumi.StringInput `pulumi:"accountName"`
+	// Name of an Azure resource group.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupRemoteRenderingAccountOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupRemoteRenderingAccountArgs)(nil)).Elem()
+}
+
+// RemoteRenderingAccount Response.
+type LookupRemoteRenderingAccountResultOutput struct{ *pulumi.OutputState }
+
+func (LookupRemoteRenderingAccountResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupRemoteRenderingAccountResult)(nil)).Elem()
+}
+
+func (o LookupRemoteRenderingAccountResultOutput) ToLookupRemoteRenderingAccountResultOutput() LookupRemoteRenderingAccountResultOutput {
+	return o
+}
+
+func (o LookupRemoteRenderingAccountResultOutput) ToLookupRemoteRenderingAccountResultOutputWithContext(ctx context.Context) LookupRemoteRenderingAccountResultOutput {
+	return o
+}
+
+// Correspond domain name of certain Spatial Anchors Account
+func (o LookupRemoteRenderingAccountResultOutput) AccountDomain() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRemoteRenderingAccountResult) string { return v.AccountDomain }).(pulumi.StringOutput)
+}
+
+// unique id of certain account.
+func (o LookupRemoteRenderingAccountResultOutput) AccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRemoteRenderingAccountResult) string { return v.AccountId }).(pulumi.StringOutput)
+}
+
+// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+func (o LookupRemoteRenderingAccountResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRemoteRenderingAccountResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The identity associated with this account
+func (o LookupRemoteRenderingAccountResultOutput) Identity() IdentityResponsePtrOutput {
+	return o.ApplyT(func(v LookupRemoteRenderingAccountResult) *IdentityResponse { return v.Identity }).(IdentityResponsePtrOutput)
+}
+
+// The geo-location where the resource lives
+func (o LookupRemoteRenderingAccountResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRemoteRenderingAccountResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o LookupRemoteRenderingAccountResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRemoteRenderingAccountResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Resource tags.
+func (o LookupRemoteRenderingAccountResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupRemoteRenderingAccountResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o LookupRemoteRenderingAccountResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRemoteRenderingAccountResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupRemoteRenderingAccountResultOutput{})
 }

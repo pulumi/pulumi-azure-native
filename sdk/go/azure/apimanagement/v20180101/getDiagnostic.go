@@ -4,6 +4,9 @@
 package v20180101
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -36,4 +39,65 @@ type LookupDiagnosticResult struct {
 	Name string `pulumi:"name"`
 	// Resource type for API Management resource.
 	Type string `pulumi:"type"`
+}
+
+func LookupDiagnosticOutput(ctx *pulumi.Context, args LookupDiagnosticOutputArgs, opts ...pulumi.InvokeOption) LookupDiagnosticResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupDiagnosticResult, error) {
+			args := v.(LookupDiagnosticArgs)
+			r, err := LookupDiagnostic(ctx, &args, opts...)
+			return *r, err
+		}).(LookupDiagnosticResultOutput)
+}
+
+type LookupDiagnosticOutputArgs struct {
+	// Diagnostic identifier. Must be unique in the current API Management service instance.
+	DiagnosticId pulumi.StringInput `pulumi:"diagnosticId"`
+	// The name of the resource group.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the API Management service.
+	ServiceName pulumi.StringInput `pulumi:"serviceName"`
+}
+
+func (LookupDiagnosticOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupDiagnosticArgs)(nil)).Elem()
+}
+
+// Diagnostic details.
+type LookupDiagnosticResultOutput struct{ *pulumi.OutputState }
+
+func (LookupDiagnosticResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupDiagnosticResult)(nil)).Elem()
+}
+
+func (o LookupDiagnosticResultOutput) ToLookupDiagnosticResultOutput() LookupDiagnosticResultOutput {
+	return o
+}
+
+func (o LookupDiagnosticResultOutput) ToLookupDiagnosticResultOutputWithContext(ctx context.Context) LookupDiagnosticResultOutput {
+	return o
+}
+
+// Indicates whether a diagnostic should receive data or not.
+func (o LookupDiagnosticResultOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupDiagnosticResult) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// Resource ID.
+func (o LookupDiagnosticResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDiagnosticResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o LookupDiagnosticResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDiagnosticResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Resource type for API Management resource.
+func (o LookupDiagnosticResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDiagnosticResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupDiagnosticResultOutput{})
 }

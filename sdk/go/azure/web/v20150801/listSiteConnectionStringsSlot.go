@@ -4,6 +4,9 @@
 package v20150801
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -42,4 +45,82 @@ type ListSiteConnectionStringsSlotResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type
 	Type *string `pulumi:"type"`
+}
+
+func ListSiteConnectionStringsSlotOutput(ctx *pulumi.Context, args ListSiteConnectionStringsSlotOutputArgs, opts ...pulumi.InvokeOption) ListSiteConnectionStringsSlotResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (ListSiteConnectionStringsSlotResult, error) {
+			args := v.(ListSiteConnectionStringsSlotArgs)
+			r, err := ListSiteConnectionStringsSlot(ctx, &args, opts...)
+			return *r, err
+		}).(ListSiteConnectionStringsSlotResultOutput)
+}
+
+type ListSiteConnectionStringsSlotOutputArgs struct {
+	// Name of web app
+	Name pulumi.StringInput `pulumi:"name"`
+	// Name of resource group
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// Name of web app slot. If not specified then will default to production slot.
+	Slot pulumi.StringInput `pulumi:"slot"`
+}
+
+func (ListSiteConnectionStringsSlotOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListSiteConnectionStringsSlotArgs)(nil)).Elem()
+}
+
+// String dictionary resource
+type ListSiteConnectionStringsSlotResultOutput struct{ *pulumi.OutputState }
+
+func (ListSiteConnectionStringsSlotResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListSiteConnectionStringsSlotResult)(nil)).Elem()
+}
+
+func (o ListSiteConnectionStringsSlotResultOutput) ToListSiteConnectionStringsSlotResultOutput() ListSiteConnectionStringsSlotResultOutput {
+	return o
+}
+
+func (o ListSiteConnectionStringsSlotResultOutput) ToListSiteConnectionStringsSlotResultOutputWithContext(ctx context.Context) ListSiteConnectionStringsSlotResultOutput {
+	return o
+}
+
+// Resource Id
+func (o ListSiteConnectionStringsSlotResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListSiteConnectionStringsSlotResult) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// Kind of resource
+func (o ListSiteConnectionStringsSlotResultOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListSiteConnectionStringsSlotResult) *string { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Resource Location
+func (o ListSiteConnectionStringsSlotResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v ListSiteConnectionStringsSlotResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource Name
+func (o ListSiteConnectionStringsSlotResultOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListSiteConnectionStringsSlotResult) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Connection strings
+func (o ListSiteConnectionStringsSlotResultOutput) Properties() ConnStringValueTypePairResponseMapOutput {
+	return o.ApplyT(func(v ListSiteConnectionStringsSlotResult) map[string]ConnStringValueTypePairResponse {
+		return v.Properties
+	}).(ConnStringValueTypePairResponseMapOutput)
+}
+
+// Resource tags
+func (o ListSiteConnectionStringsSlotResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ListSiteConnectionStringsSlotResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type
+func (o ListSiteConnectionStringsSlotResultOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListSiteConnectionStringsSlotResult) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(ListSiteConnectionStringsSlotResultOutput{})
 }

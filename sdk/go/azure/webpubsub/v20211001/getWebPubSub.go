@@ -4,6 +4,9 @@
 package v20211001
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -105,4 +108,169 @@ func (val *LookupWebPubSubResult) Defaults() *LookupWebPubSubResult {
 	tmp.Tls = tmp.Tls.Defaults()
 
 	return &tmp
+}
+
+func LookupWebPubSubOutput(ctx *pulumi.Context, args LookupWebPubSubOutputArgs, opts ...pulumi.InvokeOption) LookupWebPubSubResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupWebPubSubResult, error) {
+			args := v.(LookupWebPubSubArgs)
+			r, err := LookupWebPubSub(ctx, &args, opts...)
+			return *r, err
+		}).(LookupWebPubSubResultOutput)
+}
+
+type LookupWebPubSubOutputArgs struct {
+	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the resource.
+	ResourceName pulumi.StringInput `pulumi:"resourceName"`
+}
+
+func (LookupWebPubSubOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupWebPubSubArgs)(nil)).Elem()
+}
+
+// A class represent a resource.
+type LookupWebPubSubResultOutput struct{ *pulumi.OutputState }
+
+func (LookupWebPubSubResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupWebPubSubResult)(nil)).Elem()
+}
+
+func (o LookupWebPubSubResultOutput) ToLookupWebPubSubResultOutput() LookupWebPubSubResultOutput {
+	return o
+}
+
+func (o LookupWebPubSubResultOutput) ToLookupWebPubSubResultOutputWithContext(ctx context.Context) LookupWebPubSubResultOutput {
+	return o
+}
+
+// DisableLocalAuth
+// Enable or disable aad auth
+// When set as true, connection with AuthType=aad won't work.
+func (o LookupWebPubSubResultOutput) DisableAadAuth() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupWebPubSubResult) *bool { return v.DisableAadAuth }).(pulumi.BoolPtrOutput)
+}
+
+// DisableLocalAuth
+// Enable or disable local auth with AccessKey
+// When set as true, connection with AccessKey=xxx won't work.
+func (o LookupWebPubSubResultOutput) DisableLocalAuth() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupWebPubSubResult) *bool { return v.DisableLocalAuth }).(pulumi.BoolPtrOutput)
+}
+
+// The publicly accessible IP of the resource.
+func (o LookupWebPubSubResultOutput) ExternalIP() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWebPubSubResult) string { return v.ExternalIP }).(pulumi.StringOutput)
+}
+
+// FQDN of the service instance.
+func (o LookupWebPubSubResultOutput) HostName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWebPubSubResult) string { return v.HostName }).(pulumi.StringOutput)
+}
+
+// Deprecated.
+func (o LookupWebPubSubResultOutput) HostNamePrefix() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWebPubSubResult) string { return v.HostNamePrefix }).(pulumi.StringOutput)
+}
+
+// Fully qualified resource Id for the resource.
+func (o LookupWebPubSubResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWebPubSubResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// A class represent managed identities used for request and response
+func (o LookupWebPubSubResultOutput) Identity() ManagedIdentityResponsePtrOutput {
+	return o.ApplyT(func(v LookupWebPubSubResult) *ManagedIdentityResponse { return v.Identity }).(ManagedIdentityResponsePtrOutput)
+}
+
+// Live trace configuration of a Microsoft.SignalRService resource.
+func (o LookupWebPubSubResultOutput) LiveTraceConfiguration() LiveTraceConfigurationResponsePtrOutput {
+	return o.ApplyT(func(v LookupWebPubSubResult) *LiveTraceConfigurationResponse { return v.LiveTraceConfiguration }).(LiveTraceConfigurationResponsePtrOutput)
+}
+
+// The GEO location of the resource. e.g. West US | East US | North Central US | South Central US.
+func (o LookupWebPubSubResultOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupWebPubSubResult) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource.
+func (o LookupWebPubSubResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWebPubSubResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Network ACLs for the resource
+func (o LookupWebPubSubResultOutput) NetworkACLs() WebPubSubNetworkACLsResponsePtrOutput {
+	return o.ApplyT(func(v LookupWebPubSubResult) *WebPubSubNetworkACLsResponse { return v.NetworkACLs }).(WebPubSubNetworkACLsResponsePtrOutput)
+}
+
+// Private endpoint connections to the resource.
+func (o LookupWebPubSubResultOutput) PrivateEndpointConnections() PrivateEndpointConnectionResponseArrayOutput {
+	return o.ApplyT(func(v LookupWebPubSubResult) []PrivateEndpointConnectionResponse { return v.PrivateEndpointConnections }).(PrivateEndpointConnectionResponseArrayOutput)
+}
+
+// Provisioning state of the resource.
+func (o LookupWebPubSubResultOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWebPubSubResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Enable or disable public network access. Default to "Enabled".
+// When it's Enabled, network ACLs still apply.
+// When it's Disabled, public network access is always disabled no matter what you set in network ACLs.
+func (o LookupWebPubSubResultOutput) PublicNetworkAccess() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupWebPubSubResult) *string { return v.PublicNetworkAccess }).(pulumi.StringPtrOutput)
+}
+
+// The publicly accessible port of the resource which is designed for browser/client side usage.
+func (o LookupWebPubSubResultOutput) PublicPort() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupWebPubSubResult) int { return v.PublicPort }).(pulumi.IntOutput)
+}
+
+// Resource log configuration of a Microsoft.SignalRService resource.
+func (o LookupWebPubSubResultOutput) ResourceLogConfiguration() ResourceLogConfigurationResponsePtrOutput {
+	return o.ApplyT(func(v LookupWebPubSubResult) *ResourceLogConfigurationResponse { return v.ResourceLogConfiguration }).(ResourceLogConfigurationResponsePtrOutput)
+}
+
+// The publicly accessible port of the resource which is designed for customer server side usage.
+func (o LookupWebPubSubResultOutput) ServerPort() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupWebPubSubResult) int { return v.ServerPort }).(pulumi.IntOutput)
+}
+
+// The list of shared private link resources.
+func (o LookupWebPubSubResultOutput) SharedPrivateLinkResources() SharedPrivateLinkResourceResponseArrayOutput {
+	return o.ApplyT(func(v LookupWebPubSubResult) []SharedPrivateLinkResourceResponse { return v.SharedPrivateLinkResources }).(SharedPrivateLinkResourceResponseArrayOutput)
+}
+
+// The billing information of the resource.
+func (o LookupWebPubSubResultOutput) Sku() ResourceSkuResponsePtrOutput {
+	return o.ApplyT(func(v LookupWebPubSubResult) *ResourceSkuResponse { return v.Sku }).(ResourceSkuResponsePtrOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o LookupWebPubSubResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupWebPubSubResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Tags of the service which is a list of key value pairs that describe the resource.
+func (o LookupWebPubSubResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupWebPubSubResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// TLS settings for the resource
+func (o LookupWebPubSubResultOutput) Tls() WebPubSubTlsSettingsResponsePtrOutput {
+	return o.ApplyT(func(v LookupWebPubSubResult) *WebPubSubTlsSettingsResponse { return v.Tls }).(WebPubSubTlsSettingsResponsePtrOutput)
+}
+
+// The type of the resource - e.g. "Microsoft.SignalRService/SignalR"
+func (o LookupWebPubSubResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWebPubSubResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Version of the resource. Probably you need the same or higher version of client SDKs.
+func (o LookupWebPubSubResultOutput) Version() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWebPubSubResult) string { return v.Version }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupWebPubSubResultOutput{})
 }

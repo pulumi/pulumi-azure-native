@@ -4,6 +4,9 @@
 package v20201001
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -50,4 +53,100 @@ type LookupStorageTargetResult struct {
 	Type string `pulumi:"type"`
 	// Properties when targetType is unknown.
 	Unknown *UnknownTargetResponse `pulumi:"unknown"`
+}
+
+func LookupStorageTargetOutput(ctx *pulumi.Context, args LookupStorageTargetOutputArgs, opts ...pulumi.InvokeOption) LookupStorageTargetResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupStorageTargetResult, error) {
+			args := v.(LookupStorageTargetArgs)
+			r, err := LookupStorageTarget(ctx, &args, opts...)
+			return *r, err
+		}).(LookupStorageTargetResultOutput)
+}
+
+type LookupStorageTargetOutputArgs struct {
+	// Name of Cache. Length of name must not be greater than 80 and chars must be from the [-0-9a-zA-Z_] char class.
+	CacheName pulumi.StringInput `pulumi:"cacheName"`
+	// Target resource group.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// Name of the Storage Target. Length of name must not be greater than 80 and chars must be from the [-0-9a-zA-Z_] char class.
+	StorageTargetName pulumi.StringInput `pulumi:"storageTargetName"`
+}
+
+func (LookupStorageTargetOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupStorageTargetArgs)(nil)).Elem()
+}
+
+// Type of the Storage Target.
+type LookupStorageTargetResultOutput struct{ *pulumi.OutputState }
+
+func (LookupStorageTargetResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupStorageTargetResult)(nil)).Elem()
+}
+
+func (o LookupStorageTargetResultOutput) ToLookupStorageTargetResultOutput() LookupStorageTargetResultOutput {
+	return o
+}
+
+func (o LookupStorageTargetResultOutput) ToLookupStorageTargetResultOutputWithContext(ctx context.Context) LookupStorageTargetResultOutput {
+	return o
+}
+
+// Properties when targetType is clfs.
+func (o LookupStorageTargetResultOutput) Clfs() ClfsTargetResponsePtrOutput {
+	return o.ApplyT(func(v LookupStorageTargetResult) *ClfsTargetResponse { return v.Clfs }).(ClfsTargetResponsePtrOutput)
+}
+
+// Resource ID of the Storage Target.
+func (o LookupStorageTargetResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupStorageTargetResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// List of Cache namespace junctions to target for namespace associations.
+func (o LookupStorageTargetResultOutput) Junctions() NamespaceJunctionResponseArrayOutput {
+	return o.ApplyT(func(v LookupStorageTargetResult) []NamespaceJunctionResponse { return v.Junctions }).(NamespaceJunctionResponseArrayOutput)
+}
+
+// Region name string.
+func (o LookupStorageTargetResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupStorageTargetResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// Name of the Storage Target.
+func (o LookupStorageTargetResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupStorageTargetResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Properties when targetType is nfs3.
+func (o LookupStorageTargetResultOutput) Nfs3() Nfs3TargetResponsePtrOutput {
+	return o.ApplyT(func(v LookupStorageTargetResult) *Nfs3TargetResponse { return v.Nfs3 }).(Nfs3TargetResponsePtrOutput)
+}
+
+// ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
+func (o LookupStorageTargetResultOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupStorageTargetResult) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+}
+
+// The system meta data relating to this resource.
+func (o LookupStorageTargetResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupStorageTargetResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Type of the Storage Target.
+func (o LookupStorageTargetResultOutput) TargetType() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupStorageTargetResult) string { return v.TargetType }).(pulumi.StringOutput)
+}
+
+// Type of the Storage Target; Microsoft.StorageCache/Cache/StorageTarget
+func (o LookupStorageTargetResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupStorageTargetResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Properties when targetType is unknown.
+func (o LookupStorageTargetResultOutput) Unknown() UnknownTargetResponsePtrOutput {
+	return o.ApplyT(func(v LookupStorageTargetResult) *UnknownTargetResponse { return v.Unknown }).(UnknownTargetResponsePtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupStorageTargetResultOutput{})
 }

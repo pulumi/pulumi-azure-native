@@ -4,6 +4,9 @@
 package v20210501preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -42,4 +45,80 @@ type LookupManagedInstanceKeyResult struct {
 	Thumbprint string `pulumi:"thumbprint"`
 	// Resource type.
 	Type string `pulumi:"type"`
+}
+
+func LookupManagedInstanceKeyOutput(ctx *pulumi.Context, args LookupManagedInstanceKeyOutputArgs, opts ...pulumi.InvokeOption) LookupManagedInstanceKeyResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupManagedInstanceKeyResult, error) {
+			args := v.(LookupManagedInstanceKeyArgs)
+			r, err := LookupManagedInstanceKey(ctx, &args, opts...)
+			return *r, err
+		}).(LookupManagedInstanceKeyResultOutput)
+}
+
+type LookupManagedInstanceKeyOutputArgs struct {
+	// The name of the managed instance key to be retrieved.
+	KeyName pulumi.StringInput `pulumi:"keyName"`
+	// The name of the managed instance.
+	ManagedInstanceName pulumi.StringInput `pulumi:"managedInstanceName"`
+	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupManagedInstanceKeyOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupManagedInstanceKeyArgs)(nil)).Elem()
+}
+
+// A managed instance key.
+type LookupManagedInstanceKeyResultOutput struct{ *pulumi.OutputState }
+
+func (LookupManagedInstanceKeyResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupManagedInstanceKeyResult)(nil)).Elem()
+}
+
+func (o LookupManagedInstanceKeyResultOutput) ToLookupManagedInstanceKeyResultOutput() LookupManagedInstanceKeyResultOutput {
+	return o
+}
+
+func (o LookupManagedInstanceKeyResultOutput) ToLookupManagedInstanceKeyResultOutputWithContext(ctx context.Context) LookupManagedInstanceKeyResultOutput {
+	return o
+}
+
+// Key auto rotation opt-in flag. Either true or false.
+func (o LookupManagedInstanceKeyResultOutput) AutoRotationEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupManagedInstanceKeyResult) bool { return v.AutoRotationEnabled }).(pulumi.BoolOutput)
+}
+
+// The key creation date.
+func (o LookupManagedInstanceKeyResultOutput) CreationDate() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupManagedInstanceKeyResult) string { return v.CreationDate }).(pulumi.StringOutput)
+}
+
+// Resource ID.
+func (o LookupManagedInstanceKeyResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupManagedInstanceKeyResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Kind of encryption protector. This is metadata used for the Azure portal experience.
+func (o LookupManagedInstanceKeyResultOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupManagedInstanceKeyResult) string { return v.Kind }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o LookupManagedInstanceKeyResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupManagedInstanceKeyResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Thumbprint of the key.
+func (o LookupManagedInstanceKeyResultOutput) Thumbprint() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupManagedInstanceKeyResult) string { return v.Thumbprint }).(pulumi.StringOutput)
+}
+
+// Resource type.
+func (o LookupManagedInstanceKeyResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupManagedInstanceKeyResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupManagedInstanceKeyResultOutput{})
 }

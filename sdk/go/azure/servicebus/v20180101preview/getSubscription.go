@@ -4,6 +4,9 @@
 package v20180101preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -70,4 +73,147 @@ type LookupSubscriptionResult struct {
 	Type string `pulumi:"type"`
 	// The exact time the message was updated.
 	UpdatedAt string `pulumi:"updatedAt"`
+}
+
+func LookupSubscriptionOutput(ctx *pulumi.Context, args LookupSubscriptionOutputArgs, opts ...pulumi.InvokeOption) LookupSubscriptionResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupSubscriptionResult, error) {
+			args := v.(LookupSubscriptionArgs)
+			r, err := LookupSubscription(ctx, &args, opts...)
+			return *r, err
+		}).(LookupSubscriptionResultOutput)
+}
+
+type LookupSubscriptionOutputArgs struct {
+	// The namespace name
+	NamespaceName pulumi.StringInput `pulumi:"namespaceName"`
+	// Name of the Resource group within the Azure subscription.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The subscription name.
+	SubscriptionName pulumi.StringInput `pulumi:"subscriptionName"`
+	// The topic name.
+	TopicName pulumi.StringInput `pulumi:"topicName"`
+}
+
+func (LookupSubscriptionOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupSubscriptionArgs)(nil)).Elem()
+}
+
+// Description of subscription resource.
+type LookupSubscriptionResultOutput struct{ *pulumi.OutputState }
+
+func (LookupSubscriptionResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupSubscriptionResult)(nil)).Elem()
+}
+
+func (o LookupSubscriptionResultOutput) ToLookupSubscriptionResultOutput() LookupSubscriptionResultOutput {
+	return o
+}
+
+func (o LookupSubscriptionResultOutput) ToLookupSubscriptionResultOutputWithContext(ctx context.Context) LookupSubscriptionResultOutput {
+	return o
+}
+
+// Last time there was a receive request to this subscription.
+func (o LookupSubscriptionResultOutput) AccessedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSubscriptionResult) string { return v.AccessedAt }).(pulumi.StringOutput)
+}
+
+// ISO 8061 timeSpan idle interval after which the topic is automatically deleted. The minimum duration is 5 minutes.
+func (o LookupSubscriptionResultOutput) AutoDeleteOnIdle() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSubscriptionResult) *string { return v.AutoDeleteOnIdle }).(pulumi.StringPtrOutput)
+}
+
+// Message count details
+func (o LookupSubscriptionResultOutput) CountDetails() MessageCountDetailsResponseOutput {
+	return o.ApplyT(func(v LookupSubscriptionResult) MessageCountDetailsResponse { return v.CountDetails }).(MessageCountDetailsResponseOutput)
+}
+
+// Exact time the message was created.
+func (o LookupSubscriptionResultOutput) CreatedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSubscriptionResult) string { return v.CreatedAt }).(pulumi.StringOutput)
+}
+
+// Value that indicates whether a subscription has dead letter support on filter evaluation exceptions.
+func (o LookupSubscriptionResultOutput) DeadLetteringOnFilterEvaluationExceptions() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupSubscriptionResult) *bool { return v.DeadLetteringOnFilterEvaluationExceptions }).(pulumi.BoolPtrOutput)
+}
+
+// Value that indicates whether a subscription has dead letter support when a message expires.
+func (o LookupSubscriptionResultOutput) DeadLetteringOnMessageExpiration() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupSubscriptionResult) *bool { return v.DeadLetteringOnMessageExpiration }).(pulumi.BoolPtrOutput)
+}
+
+// ISO 8061 Default message timespan to live value. This is the duration after which the message expires, starting from when the message is sent to Service Bus. This is the default value used when TimeToLive is not set on a message itself.
+func (o LookupSubscriptionResultOutput) DefaultMessageTimeToLive() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSubscriptionResult) *string { return v.DefaultMessageTimeToLive }).(pulumi.StringPtrOutput)
+}
+
+// ISO 8601 timeSpan structure that defines the duration of the duplicate detection history. The default value is 10 minutes.
+func (o LookupSubscriptionResultOutput) DuplicateDetectionHistoryTimeWindow() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSubscriptionResult) *string { return v.DuplicateDetectionHistoryTimeWindow }).(pulumi.StringPtrOutput)
+}
+
+// Value that indicates whether server-side batched operations are enabled.
+func (o LookupSubscriptionResultOutput) EnableBatchedOperations() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupSubscriptionResult) *bool { return v.EnableBatchedOperations }).(pulumi.BoolPtrOutput)
+}
+
+// Queue/Topic name to forward the Dead Letter message
+func (o LookupSubscriptionResultOutput) ForwardDeadLetteredMessagesTo() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSubscriptionResult) *string { return v.ForwardDeadLetteredMessagesTo }).(pulumi.StringPtrOutput)
+}
+
+// Queue/Topic name to forward the messages
+func (o LookupSubscriptionResultOutput) ForwardTo() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSubscriptionResult) *string { return v.ForwardTo }).(pulumi.StringPtrOutput)
+}
+
+// Resource Id
+func (o LookupSubscriptionResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSubscriptionResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// ISO 8061 lock duration timespan for the subscription. The default value is 1 minute.
+func (o LookupSubscriptionResultOutput) LockDuration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSubscriptionResult) *string { return v.LockDuration }).(pulumi.StringPtrOutput)
+}
+
+// Number of maximum deliveries.
+func (o LookupSubscriptionResultOutput) MaxDeliveryCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupSubscriptionResult) *int { return v.MaxDeliveryCount }).(pulumi.IntPtrOutput)
+}
+
+// Number of messages.
+func (o LookupSubscriptionResultOutput) MessageCount() pulumi.Float64Output {
+	return o.ApplyT(func(v LookupSubscriptionResult) float64 { return v.MessageCount }).(pulumi.Float64Output)
+}
+
+// Resource name
+func (o LookupSubscriptionResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSubscriptionResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Value indicating if a subscription supports the concept of sessions.
+func (o LookupSubscriptionResultOutput) RequiresSession() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupSubscriptionResult) *bool { return v.RequiresSession }).(pulumi.BoolPtrOutput)
+}
+
+// Enumerates the possible values for the status of a messaging entity.
+func (o LookupSubscriptionResultOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSubscriptionResult) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+// Resource type
+func (o LookupSubscriptionResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSubscriptionResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The exact time the message was updated.
+func (o LookupSubscriptionResultOutput) UpdatedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSubscriptionResult) string { return v.UpdatedAt }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupSubscriptionResultOutput{})
 }

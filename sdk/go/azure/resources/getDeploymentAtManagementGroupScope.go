@@ -4,6 +4,9 @@
 package resources
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -39,4 +42,75 @@ type LookupDeploymentAtManagementGroupScopeResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the deployment.
 	Type string `pulumi:"type"`
+}
+
+func LookupDeploymentAtManagementGroupScopeOutput(ctx *pulumi.Context, args LookupDeploymentAtManagementGroupScopeOutputArgs, opts ...pulumi.InvokeOption) LookupDeploymentAtManagementGroupScopeResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupDeploymentAtManagementGroupScopeResult, error) {
+			args := v.(LookupDeploymentAtManagementGroupScopeArgs)
+			r, err := LookupDeploymentAtManagementGroupScope(ctx, &args, opts...)
+			return *r, err
+		}).(LookupDeploymentAtManagementGroupScopeResultOutput)
+}
+
+type LookupDeploymentAtManagementGroupScopeOutputArgs struct {
+	// The name of the deployment.
+	DeploymentName pulumi.StringInput `pulumi:"deploymentName"`
+	// The management group ID.
+	GroupId pulumi.StringInput `pulumi:"groupId"`
+}
+
+func (LookupDeploymentAtManagementGroupScopeOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupDeploymentAtManagementGroupScopeArgs)(nil)).Elem()
+}
+
+// Deployment information.
+type LookupDeploymentAtManagementGroupScopeResultOutput struct{ *pulumi.OutputState }
+
+func (LookupDeploymentAtManagementGroupScopeResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupDeploymentAtManagementGroupScopeResult)(nil)).Elem()
+}
+
+func (o LookupDeploymentAtManagementGroupScopeResultOutput) ToLookupDeploymentAtManagementGroupScopeResultOutput() LookupDeploymentAtManagementGroupScopeResultOutput {
+	return o
+}
+
+func (o LookupDeploymentAtManagementGroupScopeResultOutput) ToLookupDeploymentAtManagementGroupScopeResultOutputWithContext(ctx context.Context) LookupDeploymentAtManagementGroupScopeResultOutput {
+	return o
+}
+
+// The ID of the deployment.
+func (o LookupDeploymentAtManagementGroupScopeResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDeploymentAtManagementGroupScopeResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// the location of the deployment.
+func (o LookupDeploymentAtManagementGroupScopeResultOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDeploymentAtManagementGroupScopeResult) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The name of the deployment.
+func (o LookupDeploymentAtManagementGroupScopeResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDeploymentAtManagementGroupScopeResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Deployment properties.
+func (o LookupDeploymentAtManagementGroupScopeResultOutput) Properties() DeploymentPropertiesExtendedResponseOutput {
+	return o.ApplyT(func(v LookupDeploymentAtManagementGroupScopeResult) DeploymentPropertiesExtendedResponse {
+		return v.Properties
+	}).(DeploymentPropertiesExtendedResponseOutput)
+}
+
+// Deployment tags
+func (o LookupDeploymentAtManagementGroupScopeResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupDeploymentAtManagementGroupScopeResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the deployment.
+func (o LookupDeploymentAtManagementGroupScopeResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDeploymentAtManagementGroupScopeResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupDeploymentAtManagementGroupScopeResultOutput{})
 }

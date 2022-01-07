@@ -4,6 +4,9 @@
 package v20150801preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -40,4 +43,78 @@ type LookupDashboardResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type
 	Type string `pulumi:"type"`
+}
+
+func LookupDashboardOutput(ctx *pulumi.Context, args LookupDashboardOutputArgs, opts ...pulumi.InvokeOption) LookupDashboardResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupDashboardResult, error) {
+			args := v.(LookupDashboardArgs)
+			r, err := LookupDashboard(ctx, &args, opts...)
+			return *r, err
+		}).(LookupDashboardResultOutput)
+}
+
+type LookupDashboardOutputArgs struct {
+	// The name of the dashboard.
+	DashboardName pulumi.StringInput `pulumi:"dashboardName"`
+	// The name of the resource group.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupDashboardOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupDashboardArgs)(nil)).Elem()
+}
+
+// The shared dashboard resource definition.
+type LookupDashboardResultOutput struct{ *pulumi.OutputState }
+
+func (LookupDashboardResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupDashboardResult)(nil)).Elem()
+}
+
+func (o LookupDashboardResultOutput) ToLookupDashboardResultOutput() LookupDashboardResultOutput {
+	return o
+}
+
+func (o LookupDashboardResultOutput) ToLookupDashboardResultOutputWithContext(ctx context.Context) LookupDashboardResultOutput {
+	return o
+}
+
+// Resource Id
+func (o LookupDashboardResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDashboardResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The dashboard lenses.
+func (o LookupDashboardResultOutput) Lenses() DashboardLensResponseMapOutput {
+	return o.ApplyT(func(v LookupDashboardResult) map[string]DashboardLensResponse { return v.Lenses }).(DashboardLensResponseMapOutput)
+}
+
+// Resource location
+func (o LookupDashboardResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDashboardResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// The dashboard metadata.
+func (o LookupDashboardResultOutput) Metadata() pulumi.MapOutput {
+	return o.ApplyT(func(v LookupDashboardResult) map[string]interface{} { return v.Metadata }).(pulumi.MapOutput)
+}
+
+// Resource name
+func (o LookupDashboardResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDashboardResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Resource tags
+func (o LookupDashboardResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupDashboardResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type
+func (o LookupDashboardResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDashboardResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupDashboardResultOutput{})
 }

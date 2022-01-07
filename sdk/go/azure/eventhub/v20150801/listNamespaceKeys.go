@@ -4,6 +4,9 @@
 package v20150801
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -38,4 +41,70 @@ type ListNamespaceKeysResult struct {
 	SecondaryConnectionString string `pulumi:"secondaryConnectionString"`
 	// A base64-encoded 256-bit primary key for signing and validating the SAS token.
 	SecondaryKey string `pulumi:"secondaryKey"`
+}
+
+func ListNamespaceKeysOutput(ctx *pulumi.Context, args ListNamespaceKeysOutputArgs, opts ...pulumi.InvokeOption) ListNamespaceKeysResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (ListNamespaceKeysResult, error) {
+			args := v.(ListNamespaceKeysArgs)
+			r, err := ListNamespaceKeys(ctx, &args, opts...)
+			return *r, err
+		}).(ListNamespaceKeysResultOutput)
+}
+
+type ListNamespaceKeysOutputArgs struct {
+	// The authorization rule name.
+	AuthorizationRuleName pulumi.StringInput `pulumi:"authorizationRuleName"`
+	// The Namespace name
+	NamespaceName pulumi.StringInput `pulumi:"namespaceName"`
+	// Name of the resource group within the azure subscription.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (ListNamespaceKeysOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListNamespaceKeysArgs)(nil)).Elem()
+}
+
+// Namespace/EventHub Connection String
+type ListNamespaceKeysResultOutput struct{ *pulumi.OutputState }
+
+func (ListNamespaceKeysResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListNamespaceKeysResult)(nil)).Elem()
+}
+
+func (o ListNamespaceKeysResultOutput) ToListNamespaceKeysResultOutput() ListNamespaceKeysResultOutput {
+	return o
+}
+
+func (o ListNamespaceKeysResultOutput) ToListNamespaceKeysResultOutputWithContext(ctx context.Context) ListNamespaceKeysResultOutput {
+	return o
+}
+
+// A string that describes the AuthorizationRule.
+func (o ListNamespaceKeysResultOutput) KeyName() pulumi.StringOutput {
+	return o.ApplyT(func(v ListNamespaceKeysResult) string { return v.KeyName }).(pulumi.StringOutput)
+}
+
+// Primary connection string of the created Namespace AuthorizationRule.
+func (o ListNamespaceKeysResultOutput) PrimaryConnectionString() pulumi.StringOutput {
+	return o.ApplyT(func(v ListNamespaceKeysResult) string { return v.PrimaryConnectionString }).(pulumi.StringOutput)
+}
+
+// A base64-encoded 256-bit primary key for signing and validating the SAS token.
+func (o ListNamespaceKeysResultOutput) PrimaryKey() pulumi.StringOutput {
+	return o.ApplyT(func(v ListNamespaceKeysResult) string { return v.PrimaryKey }).(pulumi.StringOutput)
+}
+
+// Secondary connection string of the created Namespace AuthorizationRule.
+func (o ListNamespaceKeysResultOutput) SecondaryConnectionString() pulumi.StringOutput {
+	return o.ApplyT(func(v ListNamespaceKeysResult) string { return v.SecondaryConnectionString }).(pulumi.StringOutput)
+}
+
+// A base64-encoded 256-bit primary key for signing and validating the SAS token.
+func (o ListNamespaceKeysResultOutput) SecondaryKey() pulumi.StringOutput {
+	return o.ApplyT(func(v ListNamespaceKeysResult) string { return v.SecondaryKey }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(ListNamespaceKeysResultOutput{})
 }

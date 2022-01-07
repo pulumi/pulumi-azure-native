@@ -4,6 +4,9 @@
 package v20210601
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -75,4 +78,120 @@ func (val *LookupSqlPoolResult) Defaults() *LookupSqlPoolResult {
 		tmp.StorageAccountType = &storageAccountType_
 	}
 	return &tmp
+}
+
+func LookupSqlPoolOutput(ctx *pulumi.Context, args LookupSqlPoolOutputArgs, opts ...pulumi.InvokeOption) LookupSqlPoolResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupSqlPoolResult, error) {
+			args := v.(LookupSqlPoolArgs)
+			r, err := LookupSqlPool(ctx, &args, opts...)
+			return *r, err
+		}).(LookupSqlPoolResultOutput)
+}
+
+type LookupSqlPoolOutputArgs struct {
+	// The name of the resource group. The name is case insensitive.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// SQL pool name
+	SqlPoolName pulumi.StringInput `pulumi:"sqlPoolName"`
+	// The name of the workspace.
+	WorkspaceName pulumi.StringInput `pulumi:"workspaceName"`
+}
+
+func (LookupSqlPoolOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupSqlPoolArgs)(nil)).Elem()
+}
+
+// A SQL Analytics pool
+type LookupSqlPoolResultOutput struct{ *pulumi.OutputState }
+
+func (LookupSqlPoolResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupSqlPoolResult)(nil)).Elem()
+}
+
+func (o LookupSqlPoolResultOutput) ToLookupSqlPoolResultOutput() LookupSqlPoolResultOutput {
+	return o
+}
+
+func (o LookupSqlPoolResultOutput) ToLookupSqlPoolResultOutputWithContext(ctx context.Context) LookupSqlPoolResultOutput {
+	return o
+}
+
+// Collation mode
+func (o LookupSqlPoolResultOutput) Collation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSqlPoolResult) *string { return v.Collation }).(pulumi.StringPtrOutput)
+}
+
+// Date the SQL pool was created
+func (o LookupSqlPoolResultOutput) CreationDate() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSqlPoolResult) string { return v.CreationDate }).(pulumi.StringOutput)
+}
+
+// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+func (o LookupSqlPoolResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSqlPoolResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The geo-location where the resource lives
+func (o LookupSqlPoolResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSqlPoolResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// Maximum size in bytes
+func (o LookupSqlPoolResultOutput) MaxSizeBytes() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v LookupSqlPoolResult) *float64 { return v.MaxSizeBytes }).(pulumi.Float64PtrOutput)
+}
+
+// The name of the resource
+func (o LookupSqlPoolResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSqlPoolResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Resource state
+func (o LookupSqlPoolResultOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSqlPoolResult) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+}
+
+// Backup database to restore from
+func (o LookupSqlPoolResultOutput) RecoverableDatabaseId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSqlPoolResult) *string { return v.RecoverableDatabaseId }).(pulumi.StringPtrOutput)
+}
+
+// Snapshot time to restore
+func (o LookupSqlPoolResultOutput) RestorePointInTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSqlPoolResult) *string { return v.RestorePointInTime }).(pulumi.StringPtrOutput)
+}
+
+// SQL pool SKU
+func (o LookupSqlPoolResultOutput) Sku() SkuResponsePtrOutput {
+	return o.ApplyT(func(v LookupSqlPoolResult) *SkuResponse { return v.Sku }).(SkuResponsePtrOutput)
+}
+
+// Specifies the time that the sql pool was deleted
+func (o LookupSqlPoolResultOutput) SourceDatabaseDeletionDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSqlPoolResult) *string { return v.SourceDatabaseDeletionDate }).(pulumi.StringPtrOutput)
+}
+
+// Resource status
+func (o LookupSqlPoolResultOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSqlPoolResult) string { return v.Status }).(pulumi.StringOutput)
+}
+
+// The storage account type used to store backups for this sql pool.
+func (o LookupSqlPoolResultOutput) StorageAccountType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSqlPoolResult) *string { return v.StorageAccountType }).(pulumi.StringPtrOutput)
+}
+
+// Resource tags.
+func (o LookupSqlPoolResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupSqlPoolResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o LookupSqlPoolResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSqlPoolResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupSqlPoolResultOutput{})
 }

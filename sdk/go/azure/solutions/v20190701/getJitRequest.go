@@ -4,6 +4,9 @@
 package v20190701
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -52,4 +55,108 @@ type LookupJitRequestResult struct {
 	Type string `pulumi:"type"`
 	// The client entity that last updated the JIT request.
 	UpdatedBy ApplicationClientDetailsResponse `pulumi:"updatedBy"`
+}
+
+func LookupJitRequestOutput(ctx *pulumi.Context, args LookupJitRequestOutputArgs, opts ...pulumi.InvokeOption) LookupJitRequestResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupJitRequestResult, error) {
+			args := v.(LookupJitRequestArgs)
+			r, err := LookupJitRequest(ctx, &args, opts...)
+			return *r, err
+		}).(LookupJitRequestResultOutput)
+}
+
+type LookupJitRequestOutputArgs struct {
+	// The name of the JIT request.
+	JitRequestName pulumi.StringInput `pulumi:"jitRequestName"`
+	// The name of the resource group. The name is case insensitive.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupJitRequestOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupJitRequestArgs)(nil)).Elem()
+}
+
+// Information about JIT request definition.
+type LookupJitRequestResultOutput struct{ *pulumi.OutputState }
+
+func (LookupJitRequestResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupJitRequestResult)(nil)).Elem()
+}
+
+func (o LookupJitRequestResultOutput) ToLookupJitRequestResultOutput() LookupJitRequestResultOutput {
+	return o
+}
+
+func (o LookupJitRequestResultOutput) ToLookupJitRequestResultOutputWithContext(ctx context.Context) LookupJitRequestResultOutput {
+	return o
+}
+
+// The parent application id.
+func (o LookupJitRequestResultOutput) ApplicationResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupJitRequestResult) string { return v.ApplicationResourceId }).(pulumi.StringOutput)
+}
+
+// The client entity that created the JIT request.
+func (o LookupJitRequestResultOutput) CreatedBy() ApplicationClientDetailsResponseOutput {
+	return o.ApplyT(func(v LookupJitRequestResult) ApplicationClientDetailsResponse { return v.CreatedBy }).(ApplicationClientDetailsResponseOutput)
+}
+
+// Resource ID
+func (o LookupJitRequestResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupJitRequestResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The JIT authorization policies.
+func (o LookupJitRequestResultOutput) JitAuthorizationPolicies() JitAuthorizationPoliciesResponseArrayOutput {
+	return o.ApplyT(func(v LookupJitRequestResult) []JitAuthorizationPoliciesResponse { return v.JitAuthorizationPolicies }).(JitAuthorizationPoliciesResponseArrayOutput)
+}
+
+// The JIT request state.
+func (o LookupJitRequestResultOutput) JitRequestState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupJitRequestResult) string { return v.JitRequestState }).(pulumi.StringOutput)
+}
+
+// The JIT request properties.
+func (o LookupJitRequestResultOutput) JitSchedulingPolicy() JitSchedulingPolicyResponseOutput {
+	return o.ApplyT(func(v LookupJitRequestResult) JitSchedulingPolicyResponse { return v.JitSchedulingPolicy }).(JitSchedulingPolicyResponseOutput)
+}
+
+// Resource location
+func (o LookupJitRequestResultOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupJitRequestResult) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Resource name
+func (o LookupJitRequestResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupJitRequestResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The JIT request provisioning state.
+func (o LookupJitRequestResultOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupJitRequestResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The publisher tenant id.
+func (o LookupJitRequestResultOutput) PublisherTenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupJitRequestResult) string { return v.PublisherTenantId }).(pulumi.StringOutput)
+}
+
+// Resource tags
+func (o LookupJitRequestResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupJitRequestResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type
+func (o LookupJitRequestResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupJitRequestResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The client entity that last updated the JIT request.
+func (o LookupJitRequestResultOutput) UpdatedBy() ApplicationClientDetailsResponseOutput {
+	return o.ApplyT(func(v LookupJitRequestResult) ApplicationClientDetailsResponse { return v.UpdatedBy }).(ApplicationClientDetailsResponseOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupJitRequestResultOutput{})
 }

@@ -4,6 +4,9 @@
 package v20191101preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -42,4 +45,80 @@ type LookupComputePolicyResult struct {
 	ObjectType string `pulumi:"objectType"`
 	// The resource type.
 	Type string `pulumi:"type"`
+}
+
+func LookupComputePolicyOutput(ctx *pulumi.Context, args LookupComputePolicyOutputArgs, opts ...pulumi.InvokeOption) LookupComputePolicyResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupComputePolicyResult, error) {
+			args := v.(LookupComputePolicyArgs)
+			r, err := LookupComputePolicy(ctx, &args, opts...)
+			return *r, err
+		}).(LookupComputePolicyResultOutput)
+}
+
+type LookupComputePolicyOutputArgs struct {
+	// The name of the Data Lake Analytics account.
+	AccountName pulumi.StringInput `pulumi:"accountName"`
+	// The name of the compute policy to retrieve.
+	ComputePolicyName pulumi.StringInput `pulumi:"computePolicyName"`
+	// The name of the Azure resource group.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupComputePolicyOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupComputePolicyArgs)(nil)).Elem()
+}
+
+// Data Lake Analytics compute policy information.
+type LookupComputePolicyResultOutput struct{ *pulumi.OutputState }
+
+func (LookupComputePolicyResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupComputePolicyResult)(nil)).Elem()
+}
+
+func (o LookupComputePolicyResultOutput) ToLookupComputePolicyResultOutput() LookupComputePolicyResultOutput {
+	return o
+}
+
+func (o LookupComputePolicyResultOutput) ToLookupComputePolicyResultOutputWithContext(ctx context.Context) LookupComputePolicyResultOutput {
+	return o
+}
+
+// The resource identifier.
+func (o LookupComputePolicyResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupComputePolicyResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The maximum degree of parallelism per job this user can use to submit jobs.
+func (o LookupComputePolicyResultOutput) MaxDegreeOfParallelismPerJob() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupComputePolicyResult) int { return v.MaxDegreeOfParallelismPerJob }).(pulumi.IntOutput)
+}
+
+// The minimum priority per job this user can use to submit jobs.
+func (o LookupComputePolicyResultOutput) MinPriorityPerJob() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupComputePolicyResult) int { return v.MinPriorityPerJob }).(pulumi.IntOutput)
+}
+
+// The resource name.
+func (o LookupComputePolicyResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupComputePolicyResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The AAD object identifier for the entity to create a policy for.
+func (o LookupComputePolicyResultOutput) ObjectId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupComputePolicyResult) string { return v.ObjectId }).(pulumi.StringOutput)
+}
+
+// The type of AAD object the object identifier refers to.
+func (o LookupComputePolicyResultOutput) ObjectType() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupComputePolicyResult) string { return v.ObjectType }).(pulumi.StringOutput)
+}
+
+// The resource type.
+func (o LookupComputePolicyResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupComputePolicyResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupComputePolicyResultOutput{})
 }

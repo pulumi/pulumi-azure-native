@@ -4,6 +4,9 @@
 package v20160701
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -40,4 +43,72 @@ type ListWCFRelayKeysResult struct {
 	SecondaryConnectionString *string `pulumi:"secondaryConnectionString"`
 	// A base64-encoded 256-bit secondary key for signing and validating the SAS token
 	SecondaryKey *string `pulumi:"secondaryKey"`
+}
+
+func ListWCFRelayKeysOutput(ctx *pulumi.Context, args ListWCFRelayKeysOutputArgs, opts ...pulumi.InvokeOption) ListWCFRelayKeysResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (ListWCFRelayKeysResult, error) {
+			args := v.(ListWCFRelayKeysArgs)
+			r, err := ListWCFRelayKeys(ctx, &args, opts...)
+			return *r, err
+		}).(ListWCFRelayKeysResultOutput)
+}
+
+type ListWCFRelayKeysOutputArgs struct {
+	// The authorizationRule name.
+	AuthorizationRuleName pulumi.StringInput `pulumi:"authorizationRuleName"`
+	// The Namespace Name
+	NamespaceName pulumi.StringInput `pulumi:"namespaceName"`
+	// The relay name
+	RelayName pulumi.StringInput `pulumi:"relayName"`
+	// Name of the Resource group within the Azure subscription.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (ListWCFRelayKeysOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListWCFRelayKeysArgs)(nil)).Elem()
+}
+
+// Namespace/Relay Connection String
+type ListWCFRelayKeysResultOutput struct{ *pulumi.OutputState }
+
+func (ListWCFRelayKeysResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListWCFRelayKeysResult)(nil)).Elem()
+}
+
+func (o ListWCFRelayKeysResultOutput) ToListWCFRelayKeysResultOutput() ListWCFRelayKeysResultOutput {
+	return o
+}
+
+func (o ListWCFRelayKeysResultOutput) ToListWCFRelayKeysResultOutputWithContext(ctx context.Context) ListWCFRelayKeysResultOutput {
+	return o
+}
+
+// A string that describes the authorization rule
+func (o ListWCFRelayKeysResultOutput) KeyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListWCFRelayKeysResult) *string { return v.KeyName }).(pulumi.StringPtrOutput)
+}
+
+// PrimaryConnectionString of the created Namespace AuthorizationRule.
+func (o ListWCFRelayKeysResultOutput) PrimaryConnectionString() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListWCFRelayKeysResult) *string { return v.PrimaryConnectionString }).(pulumi.StringPtrOutput)
+}
+
+// A base64-encoded 256-bit primary key for signing and validating the SAS token
+func (o ListWCFRelayKeysResultOutput) PrimaryKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListWCFRelayKeysResult) *string { return v.PrimaryKey }).(pulumi.StringPtrOutput)
+}
+
+// SecondaryConnectionString of the created Namespace AuthorizationRule
+func (o ListWCFRelayKeysResultOutput) SecondaryConnectionString() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListWCFRelayKeysResult) *string { return v.SecondaryConnectionString }).(pulumi.StringPtrOutput)
+}
+
+// A base64-encoded 256-bit secondary key for signing and validating the SAS token
+func (o ListWCFRelayKeysResultOutput) SecondaryKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListWCFRelayKeysResult) *string { return v.SecondaryKey }).(pulumi.StringPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(ListWCFRelayKeysResultOutput{})
 }

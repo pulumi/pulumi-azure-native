@@ -4,6 +4,9 @@
 package v20181015
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -68,4 +71,136 @@ type LookupEnvironmentResult struct {
 	Type string `pulumi:"type"`
 	// The unique immutable identifier of a resource (Guid).
 	UniqueIdentifier *string `pulumi:"uniqueIdentifier"`
+}
+
+func LookupEnvironmentOutput(ctx *pulumi.Context, args LookupEnvironmentOutputArgs, opts ...pulumi.InvokeOption) LookupEnvironmentResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupEnvironmentResult, error) {
+			args := v.(LookupEnvironmentArgs)
+			r, err := LookupEnvironment(ctx, &args, opts...)
+			return *r, err
+		}).(LookupEnvironmentResultOutput)
+}
+
+type LookupEnvironmentOutputArgs struct {
+	// The name of the environment.
+	EnvironmentName pulumi.StringInput `pulumi:"environmentName"`
+	// The name of the environment Setting.
+	EnvironmentSettingName pulumi.StringInput `pulumi:"environmentSettingName"`
+	// Specify the $expand query. Example: 'properties($expand=networkInterface)'
+	Expand pulumi.StringPtrInput `pulumi:"expand"`
+	// The name of the lab Account.
+	LabAccountName pulumi.StringInput `pulumi:"labAccountName"`
+	// The name of the lab.
+	LabName pulumi.StringInput `pulumi:"labName"`
+	// The name of the resource group.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupEnvironmentOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupEnvironmentArgs)(nil)).Elem()
+}
+
+// Represents an environment instance
+type LookupEnvironmentResultOutput struct{ *pulumi.OutputState }
+
+func (LookupEnvironmentResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupEnvironmentResult)(nil)).Elem()
+}
+
+func (o LookupEnvironmentResultOutput) ToLookupEnvironmentResultOutput() LookupEnvironmentResultOutput {
+	return o
+}
+
+func (o LookupEnvironmentResultOutput) ToLookupEnvironmentResultOutputWithContext(ctx context.Context) LookupEnvironmentResultOutput {
+	return o
+}
+
+// The name or email address of the user who has claimed the environment
+func (o LookupEnvironmentResultOutput) ClaimedByUserName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupEnvironmentResult) string { return v.ClaimedByUserName }).(pulumi.StringOutput)
+}
+
+// The AAD object Id of the user who has claimed the environment
+func (o LookupEnvironmentResultOutput) ClaimedByUserObjectId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupEnvironmentResult) string { return v.ClaimedByUserObjectId }).(pulumi.StringOutput)
+}
+
+// The user principal Id of the user who has claimed the environment
+func (o LookupEnvironmentResultOutput) ClaimedByUserPrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupEnvironmentResult) string { return v.ClaimedByUserPrincipalId }).(pulumi.StringOutput)
+}
+
+// The identifier of the resource.
+func (o LookupEnvironmentResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupEnvironmentResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Is the environment claimed or not
+func (o LookupEnvironmentResultOutput) IsClaimed() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupEnvironmentResult) bool { return v.IsClaimed }).(pulumi.BoolOutput)
+}
+
+// Last known power state of the environment
+func (o LookupEnvironmentResultOutput) LastKnownPowerState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupEnvironmentResult) string { return v.LastKnownPowerState }).(pulumi.StringOutput)
+}
+
+// The details of the latest operation. ex: status, error
+func (o LookupEnvironmentResultOutput) LatestOperationResult() LatestOperationResultResponseOutput {
+	return o.ApplyT(func(v LookupEnvironmentResult) LatestOperationResultResponse { return v.LatestOperationResult }).(LatestOperationResultResponseOutput)
+}
+
+// The location of the resource.
+func (o LookupEnvironmentResultOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupEnvironmentResult) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource.
+func (o LookupEnvironmentResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupEnvironmentResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Network details of the environment
+func (o LookupEnvironmentResultOutput) NetworkInterface() NetworkInterfaceResponseOutput {
+	return o.ApplyT(func(v LookupEnvironmentResult) NetworkInterfaceResponse { return v.NetworkInterface }).(NetworkInterfaceResponseOutput)
+}
+
+// When the password was last reset on the environment.
+func (o LookupEnvironmentResultOutput) PasswordLastReset() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupEnvironmentResult) string { return v.PasswordLastReset }).(pulumi.StringOutput)
+}
+
+// The provisioning status of the resource.
+func (o LookupEnvironmentResultOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupEnvironmentResult) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+}
+
+// The set of a VM and the setting id it was created for
+func (o LookupEnvironmentResultOutput) ResourceSets() ResourceSetResponsePtrOutput {
+	return o.ApplyT(func(v LookupEnvironmentResult) *ResourceSetResponse { return v.ResourceSets }).(ResourceSetResponsePtrOutput)
+}
+
+// The tags of the resource.
+func (o LookupEnvironmentResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupEnvironmentResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// How long the environment has been used by a lab user
+func (o LookupEnvironmentResultOutput) TotalUsage() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupEnvironmentResult) string { return v.TotalUsage }).(pulumi.StringOutput)
+}
+
+// The type of the resource.
+func (o LookupEnvironmentResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupEnvironmentResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The unique immutable identifier of a resource (Guid).
+func (o LookupEnvironmentResultOutput) UniqueIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupEnvironmentResult) *string { return v.UniqueIdentifier }).(pulumi.StringPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupEnvironmentResultOutput{})
 }

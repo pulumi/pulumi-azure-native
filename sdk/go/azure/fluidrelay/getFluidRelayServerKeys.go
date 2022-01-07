@@ -4,6 +4,9 @@
 package fluidrelay
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -31,4 +34,53 @@ type GetFluidRelayServerKeysResult struct {
 	Key1 string `pulumi:"key1"`
 	// The secondary key for this server
 	Key2 string `pulumi:"key2"`
+}
+
+func GetFluidRelayServerKeysOutput(ctx *pulumi.Context, args GetFluidRelayServerKeysOutputArgs, opts ...pulumi.InvokeOption) GetFluidRelayServerKeysResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetFluidRelayServerKeysResult, error) {
+			args := v.(GetFluidRelayServerKeysArgs)
+			r, err := GetFluidRelayServerKeys(ctx, &args, opts...)
+			return *r, err
+		}).(GetFluidRelayServerKeysResultOutput)
+}
+
+type GetFluidRelayServerKeysOutputArgs struct {
+	// The resource name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The resource group containing the resource.
+	ResourceGroup pulumi.StringInput `pulumi:"resourceGroup"`
+}
+
+func (GetFluidRelayServerKeysOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFluidRelayServerKeysArgs)(nil)).Elem()
+}
+
+// The set of available keys for this server.
+type GetFluidRelayServerKeysResultOutput struct{ *pulumi.OutputState }
+
+func (GetFluidRelayServerKeysResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFluidRelayServerKeysResult)(nil)).Elem()
+}
+
+func (o GetFluidRelayServerKeysResultOutput) ToGetFluidRelayServerKeysResultOutput() GetFluidRelayServerKeysResultOutput {
+	return o
+}
+
+func (o GetFluidRelayServerKeysResultOutput) ToGetFluidRelayServerKeysResultOutputWithContext(ctx context.Context) GetFluidRelayServerKeysResultOutput {
+	return o
+}
+
+// The primary key for this server
+func (o GetFluidRelayServerKeysResultOutput) Key1() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFluidRelayServerKeysResult) string { return v.Key1 }).(pulumi.StringOutput)
+}
+
+// The secondary key for this server
+func (o GetFluidRelayServerKeysResultOutput) Key2() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFluidRelayServerKeysResult) string { return v.Key2 }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetFluidRelayServerKeysResultOutput{})
 }

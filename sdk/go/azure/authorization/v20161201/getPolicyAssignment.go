@@ -4,6 +4,9 @@
 package v20161201
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -42,4 +45,83 @@ type LookupPolicyAssignmentResult struct {
 	Scope *string `pulumi:"scope"`
 	// The type of the policy assignment.
 	Type *string `pulumi:"type"`
+}
+
+func LookupPolicyAssignmentOutput(ctx *pulumi.Context, args LookupPolicyAssignmentOutputArgs, opts ...pulumi.InvokeOption) LookupPolicyAssignmentResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupPolicyAssignmentResult, error) {
+			args := v.(LookupPolicyAssignmentArgs)
+			r, err := LookupPolicyAssignment(ctx, &args, opts...)
+			return *r, err
+		}).(LookupPolicyAssignmentResultOutput)
+}
+
+type LookupPolicyAssignmentOutputArgs struct {
+	// The name of the policy assignment to get.
+	PolicyAssignmentName pulumi.StringInput `pulumi:"policyAssignmentName"`
+	// The scope of the policy assignment.
+	Scope pulumi.StringInput `pulumi:"scope"`
+}
+
+func (LookupPolicyAssignmentOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupPolicyAssignmentArgs)(nil)).Elem()
+}
+
+// The policy assignment.
+type LookupPolicyAssignmentResultOutput struct{ *pulumi.OutputState }
+
+func (LookupPolicyAssignmentResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupPolicyAssignmentResult)(nil)).Elem()
+}
+
+func (o LookupPolicyAssignmentResultOutput) ToLookupPolicyAssignmentResultOutput() LookupPolicyAssignmentResultOutput {
+	return o
+}
+
+func (o LookupPolicyAssignmentResultOutput) ToLookupPolicyAssignmentResultOutputWithContext(ctx context.Context) LookupPolicyAssignmentResultOutput {
+	return o
+}
+
+// This message will be part of response in case of policy violation.
+func (o LookupPolicyAssignmentResultOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupPolicyAssignmentResult) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The display name of the policy assignment.
+func (o LookupPolicyAssignmentResultOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupPolicyAssignmentResult) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the policy assignment.
+func (o LookupPolicyAssignmentResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPolicyAssignmentResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The name of the policy assignment.
+func (o LookupPolicyAssignmentResultOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupPolicyAssignmentResult) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Required if a parameter is used in policy rule.
+func (o LookupPolicyAssignmentResultOutput) Parameters() pulumi.AnyOutput {
+	return o.ApplyT(func(v LookupPolicyAssignmentResult) interface{} { return v.Parameters }).(pulumi.AnyOutput)
+}
+
+// The ID of the policy definition.
+func (o LookupPolicyAssignmentResultOutput) PolicyDefinitionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupPolicyAssignmentResult) *string { return v.PolicyDefinitionId }).(pulumi.StringPtrOutput)
+}
+
+// The scope for the policy assignment.
+func (o LookupPolicyAssignmentResultOutput) Scope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupPolicyAssignmentResult) *string { return v.Scope }).(pulumi.StringPtrOutput)
+}
+
+// The type of the policy assignment.
+func (o LookupPolicyAssignmentResultOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupPolicyAssignmentResult) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupPolicyAssignmentResultOutput{})
 }

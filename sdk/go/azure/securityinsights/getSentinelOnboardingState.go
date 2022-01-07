@@ -4,6 +4,9 @@
 package securityinsights
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -43,4 +46,77 @@ type LookupSentinelOnboardingStateResult struct {
 	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Azure resource type
 	Type string `pulumi:"type"`
+}
+
+func LookupSentinelOnboardingStateOutput(ctx *pulumi.Context, args LookupSentinelOnboardingStateOutputArgs, opts ...pulumi.InvokeOption) LookupSentinelOnboardingStateResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupSentinelOnboardingStateResult, error) {
+			args := v.(LookupSentinelOnboardingStateArgs)
+			r, err := LookupSentinelOnboardingState(ctx, &args, opts...)
+			return *r, err
+		}).(LookupSentinelOnboardingStateResultOutput)
+}
+
+type LookupSentinelOnboardingStateOutputArgs struct {
+	// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
+	OperationalInsightsResourceProvider pulumi.StringInput `pulumi:"operationalInsightsResourceProvider"`
+	// The name of the resource group. The name is case insensitive.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The Sentinel onboarding state name. Supports - default
+	SentinelOnboardingStateName pulumi.StringInput `pulumi:"sentinelOnboardingStateName"`
+	// The name of the workspace.
+	WorkspaceName pulumi.StringInput `pulumi:"workspaceName"`
+}
+
+func (LookupSentinelOnboardingStateOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupSentinelOnboardingStateArgs)(nil)).Elem()
+}
+
+// Sentinel onboarding state
+type LookupSentinelOnboardingStateResultOutput struct{ *pulumi.OutputState }
+
+func (LookupSentinelOnboardingStateResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupSentinelOnboardingStateResult)(nil)).Elem()
+}
+
+func (o LookupSentinelOnboardingStateResultOutput) ToLookupSentinelOnboardingStateResultOutput() LookupSentinelOnboardingStateResultOutput {
+	return o
+}
+
+func (o LookupSentinelOnboardingStateResultOutput) ToLookupSentinelOnboardingStateResultOutputWithContext(ctx context.Context) LookupSentinelOnboardingStateResultOutput {
+	return o
+}
+
+// Flag that indicates the status of the CMK setting
+func (o LookupSentinelOnboardingStateResultOutput) CustomerManagedKey() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupSentinelOnboardingStateResult) *bool { return v.CustomerManagedKey }).(pulumi.BoolPtrOutput)
+}
+
+// Etag of the azure resource
+func (o LookupSentinelOnboardingStateResultOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSentinelOnboardingStateResult) *string { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// Azure resource Id
+func (o LookupSentinelOnboardingStateResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSentinelOnboardingStateResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Azure resource name
+func (o LookupSentinelOnboardingStateResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSentinelOnboardingStateResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+func (o LookupSentinelOnboardingStateResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupSentinelOnboardingStateResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Azure resource type
+func (o LookupSentinelOnboardingStateResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSentinelOnboardingStateResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupSentinelOnboardingStateResultOutput{})
 }

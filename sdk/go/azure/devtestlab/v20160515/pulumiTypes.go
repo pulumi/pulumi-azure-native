@@ -4705,6 +4705,46 @@ type LabVhdResponse struct {
 	Id *string `pulumi:"id"`
 }
 
+// Properties of a VHD in the lab.
+type LabVhdResponseOutput struct{ *pulumi.OutputState }
+
+func (LabVhdResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LabVhdResponse)(nil)).Elem()
+}
+
+func (o LabVhdResponseOutput) ToLabVhdResponseOutput() LabVhdResponseOutput {
+	return o
+}
+
+func (o LabVhdResponseOutput) ToLabVhdResponseOutputWithContext(ctx context.Context) LabVhdResponseOutput {
+	return o
+}
+
+// The URI to the VHD.
+func (o LabVhdResponseOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LabVhdResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+type LabVhdResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (LabVhdResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LabVhdResponse)(nil)).Elem()
+}
+
+func (o LabVhdResponseArrayOutput) ToLabVhdResponseArrayOutput() LabVhdResponseArrayOutput {
+	return o
+}
+
+func (o LabVhdResponseArrayOutput) ToLabVhdResponseArrayOutputWithContext(ctx context.Context) LabVhdResponseArrayOutput {
+	return o
+}
+
+func (o LabVhdResponseArrayOutput) Index(i pulumi.IntInput) LabVhdResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LabVhdResponse {
+		return vs[0].([]LabVhdResponse)[vs[1].(int)]
+	}).(LabVhdResponseOutput)
+}
+
 // Properties for creating a virtual machine.
 type LabVirtualMachineCreationParameter struct {
 	// Indicates whether another user can take ownership of the virtual machine
@@ -7897,6 +7937,26 @@ func (o ScheduleResponsePtrOutput) WeeklyRecurrence() WeekDetailsResponsePtrOutp
 	}).(WeekDetailsResponsePtrOutput)
 }
 
+type ScheduleResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ScheduleResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ScheduleResponse)(nil)).Elem()
+}
+
+func (o ScheduleResponseArrayOutput) ToScheduleResponseArrayOutput() ScheduleResponseArrayOutput {
+	return o
+}
+
+func (o ScheduleResponseArrayOutput) ToScheduleResponseArrayOutputWithContext(ctx context.Context) ScheduleResponseArrayOutput {
+	return o
+}
+
+func (o ScheduleResponseArrayOutput) Index(i pulumi.IntInput) ScheduleResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ScheduleResponse {
+		return vs[0].([]ScheduleResponse)[vs[1].(int)]
+	}).(ScheduleResponseOutput)
+}
+
 // Properties of a virtual machine that determine how it is connected to a load balancer.
 type SharedPublicIpAddressConfiguration struct {
 	// The incoming NAT rules
@@ -9802,6 +9862,8 @@ func init() {
 	pulumi.RegisterOutputType(InboundNatRuleArrayOutput{})
 	pulumi.RegisterOutputType(InboundNatRuleResponseOutput{})
 	pulumi.RegisterOutputType(InboundNatRuleResponseArrayOutput{})
+	pulumi.RegisterOutputType(LabVhdResponseOutput{})
+	pulumi.RegisterOutputType(LabVhdResponseArrayOutput{})
 	pulumi.RegisterOutputType(LabVirtualMachineCreationParameterOutput{})
 	pulumi.RegisterOutputType(LabVirtualMachineCreationParameterPtrOutput{})
 	pulumi.RegisterOutputType(LabVirtualMachineCreationParameterResponseOutput{})
@@ -9826,6 +9888,7 @@ func init() {
 	pulumi.RegisterOutputType(ScheduleTypePtrOutput{})
 	pulumi.RegisterOutputType(ScheduleResponseOutput{})
 	pulumi.RegisterOutputType(ScheduleResponsePtrOutput{})
+	pulumi.RegisterOutputType(ScheduleResponseArrayOutput{})
 	pulumi.RegisterOutputType(SharedPublicIpAddressConfigurationOutput{})
 	pulumi.RegisterOutputType(SharedPublicIpAddressConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(SharedPublicIpAddressConfigurationResponseOutput{})

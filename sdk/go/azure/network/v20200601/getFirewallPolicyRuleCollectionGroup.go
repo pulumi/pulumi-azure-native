@@ -4,6 +4,9 @@
 package v20200601
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -42,4 +45,80 @@ type LookupFirewallPolicyRuleCollectionGroupResult struct {
 	RuleCollections []interface{} `pulumi:"ruleCollections"`
 	// Rule Group type.
 	Type string `pulumi:"type"`
+}
+
+func LookupFirewallPolicyRuleCollectionGroupOutput(ctx *pulumi.Context, args LookupFirewallPolicyRuleCollectionGroupOutputArgs, opts ...pulumi.InvokeOption) LookupFirewallPolicyRuleCollectionGroupResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupFirewallPolicyRuleCollectionGroupResult, error) {
+			args := v.(LookupFirewallPolicyRuleCollectionGroupArgs)
+			r, err := LookupFirewallPolicyRuleCollectionGroup(ctx, &args, opts...)
+			return *r, err
+		}).(LookupFirewallPolicyRuleCollectionGroupResultOutput)
+}
+
+type LookupFirewallPolicyRuleCollectionGroupOutputArgs struct {
+	// The name of the Firewall Policy.
+	FirewallPolicyName pulumi.StringInput `pulumi:"firewallPolicyName"`
+	// The name of the resource group.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the FirewallPolicyRuleCollectionGroup.
+	RuleCollectionGroupName pulumi.StringInput `pulumi:"ruleCollectionGroupName"`
+}
+
+func (LookupFirewallPolicyRuleCollectionGroupOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupFirewallPolicyRuleCollectionGroupArgs)(nil)).Elem()
+}
+
+// Rule Collection Group resource.
+type LookupFirewallPolicyRuleCollectionGroupResultOutput struct{ *pulumi.OutputState }
+
+func (LookupFirewallPolicyRuleCollectionGroupResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupFirewallPolicyRuleCollectionGroupResult)(nil)).Elem()
+}
+
+func (o LookupFirewallPolicyRuleCollectionGroupResultOutput) ToLookupFirewallPolicyRuleCollectionGroupResultOutput() LookupFirewallPolicyRuleCollectionGroupResultOutput {
+	return o
+}
+
+func (o LookupFirewallPolicyRuleCollectionGroupResultOutput) ToLookupFirewallPolicyRuleCollectionGroupResultOutputWithContext(ctx context.Context) LookupFirewallPolicyRuleCollectionGroupResultOutput {
+	return o
+}
+
+// A unique read-only string that changes whenever the resource is updated.
+func (o LookupFirewallPolicyRuleCollectionGroupResultOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupFirewallPolicyRuleCollectionGroupResult) string { return v.Etag }).(pulumi.StringOutput)
+}
+
+// Resource ID.
+func (o LookupFirewallPolicyRuleCollectionGroupResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupFirewallPolicyRuleCollectionGroupResult) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource that is unique within a resource group. This name can be used to access the resource.
+func (o LookupFirewallPolicyRuleCollectionGroupResultOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupFirewallPolicyRuleCollectionGroupResult) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Priority of the Firewall Policy Rule Collection Group resource.
+func (o LookupFirewallPolicyRuleCollectionGroupResultOutput) Priority() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupFirewallPolicyRuleCollectionGroupResult) *int { return v.Priority }).(pulumi.IntPtrOutput)
+}
+
+// The provisioning state of the firewall policy rule collection group resource.
+func (o LookupFirewallPolicyRuleCollectionGroupResultOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupFirewallPolicyRuleCollectionGroupResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Group of Firewall Policy rule collections.
+func (o LookupFirewallPolicyRuleCollectionGroupResultOutput) RuleCollections() pulumi.ArrayOutput {
+	return o.ApplyT(func(v LookupFirewallPolicyRuleCollectionGroupResult) []interface{} { return v.RuleCollections }).(pulumi.ArrayOutput)
+}
+
+// Rule Group type.
+func (o LookupFirewallPolicyRuleCollectionGroupResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupFirewallPolicyRuleCollectionGroupResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupFirewallPolicyRuleCollectionGroupResultOutput{})
 }

@@ -4,6 +4,9 @@
 package v20190101preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -42,4 +45,77 @@ type LookupIPSyncerResult struct {
 	Name string `pulumi:"name"`
 	// Azure resource type
 	Type string `pulumi:"type"`
+}
+
+func LookupIPSyncerOutput(ctx *pulumi.Context, args LookupIPSyncerOutputArgs, opts ...pulumi.InvokeOption) LookupIPSyncerResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupIPSyncerResult, error) {
+			args := v.(LookupIPSyncerArgs)
+			r, err := LookupIPSyncer(ctx, &args, opts...)
+			return *r, err
+		}).(LookupIPSyncerResultOutput)
+}
+
+type LookupIPSyncerOutputArgs struct {
+	// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
+	OperationalInsightsResourceProvider pulumi.StringInput `pulumi:"operationalInsightsResourceProvider"`
+	// The name of the resource group within the user's subscription. The name is case insensitive.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The setting name. Supports - Anomalies, EyesOn, EntityAnalytics, Ueba
+	SettingsName pulumi.StringInput `pulumi:"settingsName"`
+	// The name of the workspace.
+	WorkspaceName pulumi.StringInput `pulumi:"workspaceName"`
+}
+
+func (LookupIPSyncerOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupIPSyncerArgs)(nil)).Elem()
+}
+
+// Settings with single toggle.
+type LookupIPSyncerResultOutput struct{ *pulumi.OutputState }
+
+func (LookupIPSyncerResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupIPSyncerResult)(nil)).Elem()
+}
+
+func (o LookupIPSyncerResultOutput) ToLookupIPSyncerResultOutput() LookupIPSyncerResultOutput {
+	return o
+}
+
+func (o LookupIPSyncerResultOutput) ToLookupIPSyncerResultOutputWithContext(ctx context.Context) LookupIPSyncerResultOutput {
+	return o
+}
+
+// Etag of the azure resource
+func (o LookupIPSyncerResultOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupIPSyncerResult) *string { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// Azure resource Id
+func (o LookupIPSyncerResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupIPSyncerResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Determines whether the setting is enable or disabled.
+func (o LookupIPSyncerResultOutput) IsEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupIPSyncerResult) bool { return v.IsEnabled }).(pulumi.BoolOutput)
+}
+
+// Expected value is 'IPSyncer'.
+func (o LookupIPSyncerResultOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupIPSyncerResult) string { return v.Kind }).(pulumi.StringOutput)
+}
+
+// Azure resource name
+func (o LookupIPSyncerResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupIPSyncerResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Azure resource type
+func (o LookupIPSyncerResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupIPSyncerResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupIPSyncerResultOutput{})
 }

@@ -4,6 +4,9 @@
 package appplatform
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -43,4 +46,74 @@ type LookupBuildpackBindingResult struct {
 	SystemData SystemDataResponse `pulumi:"systemData"`
 	// The type of the resource.
 	Type string `pulumi:"type"`
+}
+
+func LookupBuildpackBindingOutput(ctx *pulumi.Context, args LookupBuildpackBindingOutputArgs, opts ...pulumi.InvokeOption) LookupBuildpackBindingResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupBuildpackBindingResult, error) {
+			args := v.(LookupBuildpackBindingArgs)
+			r, err := LookupBuildpackBinding(ctx, &args, opts...)
+			return *r, err
+		}).(LookupBuildpackBindingResultOutput)
+}
+
+type LookupBuildpackBindingOutputArgs struct {
+	// The name of the build service resource.
+	BuildServiceName pulumi.StringInput `pulumi:"buildServiceName"`
+	// The name of the builder resource.
+	BuilderName pulumi.StringInput `pulumi:"builderName"`
+	// The name of the Buildpack Binding Name
+	BuildpackBindingName pulumi.StringInput `pulumi:"buildpackBindingName"`
+	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the Service resource.
+	ServiceName pulumi.StringInput `pulumi:"serviceName"`
+}
+
+func (LookupBuildpackBindingOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupBuildpackBindingArgs)(nil)).Elem()
+}
+
+// Buildpack Binding Resource object
+type LookupBuildpackBindingResultOutput struct{ *pulumi.OutputState }
+
+func (LookupBuildpackBindingResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupBuildpackBindingResult)(nil)).Elem()
+}
+
+func (o LookupBuildpackBindingResultOutput) ToLookupBuildpackBindingResultOutput() LookupBuildpackBindingResultOutput {
+	return o
+}
+
+func (o LookupBuildpackBindingResultOutput) ToLookupBuildpackBindingResultOutputWithContext(ctx context.Context) LookupBuildpackBindingResultOutput {
+	return o
+}
+
+// Fully qualified resource Id for the resource.
+func (o LookupBuildpackBindingResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBuildpackBindingResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The name of the resource.
+func (o LookupBuildpackBindingResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBuildpackBindingResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Properties of a buildpack binding
+func (o LookupBuildpackBindingResultOutput) Properties() BuildpackBindingPropertiesResponseOutput {
+	return o.ApplyT(func(v LookupBuildpackBindingResult) BuildpackBindingPropertiesResponse { return v.Properties }).(BuildpackBindingPropertiesResponseOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o LookupBuildpackBindingResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupBuildpackBindingResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the resource.
+func (o LookupBuildpackBindingResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBuildpackBindingResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupBuildpackBindingResultOutput{})
 }

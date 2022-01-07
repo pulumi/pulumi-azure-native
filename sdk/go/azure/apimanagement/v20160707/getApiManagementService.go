@@ -4,6 +4,9 @@
 package v20160707
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -87,4 +90,162 @@ func (val *LookupApiManagementServiceResult) Defaults() *LookupApiManagementServ
 		tmp.VpnType = &vpnType_
 	}
 	return &tmp
+}
+
+func LookupApiManagementServiceOutput(ctx *pulumi.Context, args LookupApiManagementServiceOutputArgs, opts ...pulumi.InvokeOption) LookupApiManagementServiceResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupApiManagementServiceResult, error) {
+			args := v.(LookupApiManagementServiceArgs)
+			r, err := LookupApiManagementService(ctx, &args, opts...)
+			return *r, err
+		}).(LookupApiManagementServiceResultOutput)
+}
+
+type LookupApiManagementServiceOutputArgs struct {
+	// The name of the resource group.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the API Management service.
+	ServiceName pulumi.StringInput `pulumi:"serviceName"`
+}
+
+func (LookupApiManagementServiceOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupApiManagementServiceArgs)(nil)).Elem()
+}
+
+// Description of an API Management service resource.
+type LookupApiManagementServiceResultOutput struct{ *pulumi.OutputState }
+
+func (LookupApiManagementServiceResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupApiManagementServiceResult)(nil)).Elem()
+}
+
+func (o LookupApiManagementServiceResultOutput) ToLookupApiManagementServiceResultOutput() LookupApiManagementServiceResultOutput {
+	return o
+}
+
+func (o LookupApiManagementServiceResultOutput) ToLookupApiManagementServiceResultOutputWithContext(ctx context.Context) LookupApiManagementServiceResultOutput {
+	return o
+}
+
+// Additional datacenter locations of the API Management service.
+func (o LookupApiManagementServiceResultOutput) AdditionalLocations() AdditionalRegionResponseArrayOutput {
+	return o.ApplyT(func(v LookupApiManagementServiceResult) []AdditionalRegionResponse { return v.AdditionalLocations }).(AdditionalRegionResponseArrayOutput)
+}
+
+// Addresser email.
+func (o LookupApiManagementServiceResultOutput) AddresserEmail() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupApiManagementServiceResult) *string { return v.AddresserEmail }).(pulumi.StringPtrOutput)
+}
+
+// Creation UTC date of the API Management service.The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
+func (o LookupApiManagementServiceResultOutput) CreatedAtUtc() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupApiManagementServiceResult) string { return v.CreatedAtUtc }).(pulumi.StringOutput)
+}
+
+// Custom properties of the API Management service, like disabling TLS 1.0.
+func (o LookupApiManagementServiceResultOutput) CustomProperties() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupApiManagementServiceResult) map[string]string { return v.CustomProperties }).(pulumi.StringMapOutput)
+}
+
+// ETag of the resource.
+func (o LookupApiManagementServiceResultOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupApiManagementServiceResult) *string { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// Custom hostname configuration of the API Management service.
+func (o LookupApiManagementServiceResultOutput) HostnameConfigurations() HostnameConfigurationResponseArrayOutput {
+	return o.ApplyT(func(v LookupApiManagementServiceResult) []HostnameConfigurationResponse {
+		return v.HostnameConfigurations
+	}).(HostnameConfigurationResponseArrayOutput)
+}
+
+// The ID of the created API Management service.
+func (o LookupApiManagementServiceResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupApiManagementServiceResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Datacenter location of the API Management service.
+func (o LookupApiManagementServiceResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupApiManagementServiceResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// Management API endpoint URL of the API Management service.
+func (o LookupApiManagementServiceResultOutput) ManagementApiUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupApiManagementServiceResult) string { return v.ManagementApiUrl }).(pulumi.StringOutput)
+}
+
+// Name of the API Management service.
+func (o LookupApiManagementServiceResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupApiManagementServiceResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Publisher portal endpoint Url of the API Management service.
+func (o LookupApiManagementServiceResultOutput) PortalUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupApiManagementServiceResult) string { return v.PortalUrl }).(pulumi.StringOutput)
+}
+
+// The current provisioning state of the API Management service which can be one of the following: Created/Activating/Succeeded/Updating/Failed/Stopped/Terminating/TerminationFailed/Deleted.
+func (o LookupApiManagementServiceResultOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupApiManagementServiceResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Publisher email.
+func (o LookupApiManagementServiceResultOutput) PublisherEmail() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupApiManagementServiceResult) string { return v.PublisherEmail }).(pulumi.StringOutput)
+}
+
+// Publisher name.
+func (o LookupApiManagementServiceResultOutput) PublisherName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupApiManagementServiceResult) string { return v.PublisherName }).(pulumi.StringOutput)
+}
+
+// Proxy endpoint URL of the API Management service.
+func (o LookupApiManagementServiceResultOutput) RuntimeUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupApiManagementServiceResult) string { return v.RuntimeUrl }).(pulumi.StringOutput)
+}
+
+// SCM endpoint URL of the API Management service.
+func (o LookupApiManagementServiceResultOutput) ScmUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupApiManagementServiceResult) string { return v.ScmUrl }).(pulumi.StringOutput)
+}
+
+// SKU properties of the API Management service.
+func (o LookupApiManagementServiceResultOutput) Sku() ApiManagementServiceSkuPropertiesResponseOutput {
+	return o.ApplyT(func(v LookupApiManagementServiceResult) ApiManagementServiceSkuPropertiesResponse { return v.Sku }).(ApiManagementServiceSkuPropertiesResponseOutput)
+}
+
+// Static IP addresses of the API Management service virtual machines. Available only for Standard and Premium SKU.
+func (o LookupApiManagementServiceResultOutput) StaticIPs() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupApiManagementServiceResult) []string { return v.StaticIPs }).(pulumi.StringArrayOutput)
+}
+
+// API Management service tags. A maximum of 10 tags can be provided for a resource, and each tag must have a key no greater than 128 characters (and a value no greater than 256 characters).
+func (o LookupApiManagementServiceResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupApiManagementServiceResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The provisioning state of the API Management service, which is targeted by the long running operation started on the service.
+func (o LookupApiManagementServiceResultOutput) TargetProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupApiManagementServiceResult) string { return v.TargetProvisioningState }).(pulumi.StringOutput)
+}
+
+// Resource type of the API Management service.
+func (o LookupApiManagementServiceResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupApiManagementServiceResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The type of VPN in which API Management service needs to be configured in. None (Default Value) means the API Management service is not part of any Virtual Network, External means the API Management deployment is set up inside a Virtual Network having an Internet Facing Endpoint, and Internal means that API Management deployment is setup inside a Virtual Network having an Intranet Facing Endpoint only.
+func (o LookupApiManagementServiceResultOutput) VpnType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupApiManagementServiceResult) *string { return v.VpnType }).(pulumi.StringPtrOutput)
+}
+
+// Virtual network configuration of the API Management service.
+func (o LookupApiManagementServiceResultOutput) Vpnconfiguration() VirtualNetworkConfigurationResponsePtrOutput {
+	return o.ApplyT(func(v LookupApiManagementServiceResult) *VirtualNetworkConfigurationResponse {
+		return v.Vpnconfiguration
+	}).(VirtualNetworkConfigurationResponsePtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupApiManagementServiceResultOutput{})
 }

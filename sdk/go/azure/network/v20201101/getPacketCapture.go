@@ -4,6 +4,9 @@
 package v20201101
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -69,4 +72,95 @@ func (val *LookupPacketCaptureResult) Defaults() *LookupPacketCaptureResult {
 		tmp.TotalBytesPerSession = &totalBytesPerSession_
 	}
 	return &tmp
+}
+
+func LookupPacketCaptureOutput(ctx *pulumi.Context, args LookupPacketCaptureOutputArgs, opts ...pulumi.InvokeOption) LookupPacketCaptureResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupPacketCaptureResult, error) {
+			args := v.(LookupPacketCaptureArgs)
+			r, err := LookupPacketCapture(ctx, &args, opts...)
+			return *r, err
+		}).(LookupPacketCaptureResultOutput)
+}
+
+type LookupPacketCaptureOutputArgs struct {
+	// The name of the network watcher.
+	NetworkWatcherName pulumi.StringInput `pulumi:"networkWatcherName"`
+	// The name of the packet capture session.
+	PacketCaptureName pulumi.StringInput `pulumi:"packetCaptureName"`
+	// The name of the resource group.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupPacketCaptureOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupPacketCaptureArgs)(nil)).Elem()
+}
+
+// Information about packet capture session.
+type LookupPacketCaptureResultOutput struct{ *pulumi.OutputState }
+
+func (LookupPacketCaptureResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupPacketCaptureResult)(nil)).Elem()
+}
+
+func (o LookupPacketCaptureResultOutput) ToLookupPacketCaptureResultOutput() LookupPacketCaptureResultOutput {
+	return o
+}
+
+func (o LookupPacketCaptureResultOutput) ToLookupPacketCaptureResultOutputWithContext(ctx context.Context) LookupPacketCaptureResultOutput {
+	return o
+}
+
+// Number of bytes captured per packet, the remaining bytes are truncated.
+func (o LookupPacketCaptureResultOutput) BytesToCapturePerPacket() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v LookupPacketCaptureResult) *float64 { return v.BytesToCapturePerPacket }).(pulumi.Float64PtrOutput)
+}
+
+// A unique read-only string that changes whenever the resource is updated.
+func (o LookupPacketCaptureResultOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPacketCaptureResult) string { return v.Etag }).(pulumi.StringOutput)
+}
+
+// A list of packet capture filters.
+func (o LookupPacketCaptureResultOutput) Filters() PacketCaptureFilterResponseArrayOutput {
+	return o.ApplyT(func(v LookupPacketCaptureResult) []PacketCaptureFilterResponse { return v.Filters }).(PacketCaptureFilterResponseArrayOutput)
+}
+
+// ID of the packet capture operation.
+func (o LookupPacketCaptureResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPacketCaptureResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Name of the packet capture session.
+func (o LookupPacketCaptureResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPacketCaptureResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The provisioning state of the packet capture session.
+func (o LookupPacketCaptureResultOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPacketCaptureResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The storage location for a packet capture session.
+func (o LookupPacketCaptureResultOutput) StorageLocation() PacketCaptureStorageLocationResponseOutput {
+	return o.ApplyT(func(v LookupPacketCaptureResult) PacketCaptureStorageLocationResponse { return v.StorageLocation }).(PacketCaptureStorageLocationResponseOutput)
+}
+
+// The ID of the targeted resource, only VM is currently supported.
+func (o LookupPacketCaptureResultOutput) Target() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPacketCaptureResult) string { return v.Target }).(pulumi.StringOutput)
+}
+
+// Maximum duration of the capture session in seconds.
+func (o LookupPacketCaptureResultOutput) TimeLimitInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupPacketCaptureResult) *int { return v.TimeLimitInSeconds }).(pulumi.IntPtrOutput)
+}
+
+// Maximum size of the capture output.
+func (o LookupPacketCaptureResultOutput) TotalBytesPerSession() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v LookupPacketCaptureResult) *float64 { return v.TotalBytesPerSession }).(pulumi.Float64PtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupPacketCaptureResultOutput{})
 }

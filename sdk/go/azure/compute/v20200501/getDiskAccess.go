@@ -4,6 +4,9 @@
 package v20200501
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -42,4 +45,85 @@ type LookupDiskAccessResult struct {
 	TimeCreated string `pulumi:"timeCreated"`
 	// Resource type
 	Type string `pulumi:"type"`
+}
+
+func LookupDiskAccessOutput(ctx *pulumi.Context, args LookupDiskAccessOutputArgs, opts ...pulumi.InvokeOption) LookupDiskAccessResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupDiskAccessResult, error) {
+			args := v.(LookupDiskAccessArgs)
+			r, err := LookupDiskAccess(ctx, &args, opts...)
+			return *r, err
+		}).(LookupDiskAccessResultOutput)
+}
+
+type LookupDiskAccessOutputArgs struct {
+	// The name of the disk access resource that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.
+	DiskAccessName pulumi.StringInput `pulumi:"diskAccessName"`
+	// The name of the resource group.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupDiskAccessOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupDiskAccessArgs)(nil)).Elem()
+}
+
+// disk access resource.
+type LookupDiskAccessResultOutput struct{ *pulumi.OutputState }
+
+func (LookupDiskAccessResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupDiskAccessResult)(nil)).Elem()
+}
+
+func (o LookupDiskAccessResultOutput) ToLookupDiskAccessResultOutput() LookupDiskAccessResultOutput {
+	return o
+}
+
+func (o LookupDiskAccessResultOutput) ToLookupDiskAccessResultOutputWithContext(ctx context.Context) LookupDiskAccessResultOutput {
+	return o
+}
+
+// Resource Id
+func (o LookupDiskAccessResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDiskAccessResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Resource location
+func (o LookupDiskAccessResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDiskAccessResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource name
+func (o LookupDiskAccessResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDiskAccessResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// A readonly collection of private endpoint connections created on the disk. Currently only one endpoint connection is supported.
+func (o LookupDiskAccessResultOutput) PrivateEndpointConnections() PrivateEndpointConnectionResponseArrayOutput {
+	return o.ApplyT(func(v LookupDiskAccessResult) []PrivateEndpointConnectionResponse {
+		return v.PrivateEndpointConnections
+	}).(PrivateEndpointConnectionResponseArrayOutput)
+}
+
+// The disk access resource provisioning state.
+func (o LookupDiskAccessResultOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDiskAccessResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Resource tags
+func (o LookupDiskAccessResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupDiskAccessResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The time when the disk access was created.
+func (o LookupDiskAccessResultOutput) TimeCreated() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDiskAccessResult) string { return v.TimeCreated }).(pulumi.StringOutput)
+}
+
+// Resource type
+func (o LookupDiskAccessResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDiskAccessResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupDiskAccessResultOutput{})
 }

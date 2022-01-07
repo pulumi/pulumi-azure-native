@@ -4,6 +4,9 @@
 package v20180201preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -49,4 +52,67 @@ func (val *LookupBuildStepResult) Defaults() *LookupBuildStepResult {
 	tmp.Properties = *tmp.Properties.Defaults()
 
 	return &tmp
+}
+
+func LookupBuildStepOutput(ctx *pulumi.Context, args LookupBuildStepOutputArgs, opts ...pulumi.InvokeOption) LookupBuildStepResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupBuildStepResult, error) {
+			args := v.(LookupBuildStepArgs)
+			r, err := LookupBuildStep(ctx, &args, opts...)
+			return *r, err
+		}).(LookupBuildStepResultOutput)
+}
+
+type LookupBuildStepOutputArgs struct {
+	// The name of the container registry build task.
+	BuildTaskName pulumi.StringInput `pulumi:"buildTaskName"`
+	// The name of the container registry.
+	RegistryName pulumi.StringInput `pulumi:"registryName"`
+	// The name of the resource group to which the container registry belongs.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of a build step for a container registry build task.
+	StepName pulumi.StringInput `pulumi:"stepName"`
+}
+
+func (LookupBuildStepOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupBuildStepArgs)(nil)).Elem()
+}
+
+// Build step resource properties
+type LookupBuildStepResultOutput struct{ *pulumi.OutputState }
+
+func (LookupBuildStepResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupBuildStepResult)(nil)).Elem()
+}
+
+func (o LookupBuildStepResultOutput) ToLookupBuildStepResultOutput() LookupBuildStepResultOutput {
+	return o
+}
+
+func (o LookupBuildStepResultOutput) ToLookupBuildStepResultOutputWithContext(ctx context.Context) LookupBuildStepResultOutput {
+	return o
+}
+
+// The resource ID.
+func (o LookupBuildStepResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBuildStepResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The name of the resource.
+func (o LookupBuildStepResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBuildStepResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The properties of a build step.
+func (o LookupBuildStepResultOutput) Properties() DockerBuildStepResponseOutput {
+	return o.ApplyT(func(v LookupBuildStepResult) DockerBuildStepResponse { return v.Properties }).(DockerBuildStepResponseOutput)
+}
+
+// The type of the resource.
+func (o LookupBuildStepResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBuildStepResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupBuildStepResultOutput{})
 }

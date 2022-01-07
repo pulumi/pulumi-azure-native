@@ -4,6 +4,9 @@
 package v20201201
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -42,4 +45,72 @@ type LookupAddonResult struct {
 	SystemData SystemDataResponse `pulumi:"systemData"`
 	// The hierarchical type of the object.
 	Type string `pulumi:"type"`
+}
+
+func LookupAddonOutput(ctx *pulumi.Context, args LookupAddonOutputArgs, opts ...pulumi.InvokeOption) LookupAddonResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupAddonResult, error) {
+			args := v.(LookupAddonArgs)
+			r, err := LookupAddon(ctx, &args, opts...)
+			return *r, err
+		}).(LookupAddonResultOutput)
+}
+
+type LookupAddonOutputArgs struct {
+	// The addon name.
+	AddonName pulumi.StringInput `pulumi:"addonName"`
+	// The device name.
+	DeviceName pulumi.StringInput `pulumi:"deviceName"`
+	// The resource group name.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The role name.
+	RoleName pulumi.StringInput `pulumi:"roleName"`
+}
+
+func (LookupAddonOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupAddonArgs)(nil)).Elem()
+}
+
+// Role Addon
+type LookupAddonResultOutput struct{ *pulumi.OutputState }
+
+func (LookupAddonResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupAddonResult)(nil)).Elem()
+}
+
+func (o LookupAddonResultOutput) ToLookupAddonResultOutput() LookupAddonResultOutput {
+	return o
+}
+
+func (o LookupAddonResultOutput) ToLookupAddonResultOutputWithContext(ctx context.Context) LookupAddonResultOutput {
+	return o
+}
+
+// The path ID that uniquely identifies the object.
+func (o LookupAddonResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAddonResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Addon type.
+func (o LookupAddonResultOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAddonResult) string { return v.Kind }).(pulumi.StringOutput)
+}
+
+// The object name.
+func (o LookupAddonResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAddonResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Addon type
+func (o LookupAddonResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupAddonResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The hierarchical type of the object.
+func (o LookupAddonResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAddonResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupAddonResultOutput{})
 }

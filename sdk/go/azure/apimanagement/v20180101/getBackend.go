@@ -4,6 +4,9 @@
 package v20180101
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -63,4 +66,105 @@ func (val *LookupBackendResult) Defaults() *LookupBackendResult {
 	tmp.Tls = tmp.Tls.Defaults()
 
 	return &tmp
+}
+
+func LookupBackendOutput(ctx *pulumi.Context, args LookupBackendOutputArgs, opts ...pulumi.InvokeOption) LookupBackendResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupBackendResult, error) {
+			args := v.(LookupBackendArgs)
+			r, err := LookupBackend(ctx, &args, opts...)
+			return *r, err
+		}).(LookupBackendResultOutput)
+}
+
+type LookupBackendOutputArgs struct {
+	// Identifier of the Backend entity. Must be unique in the current API Management service instance.
+	Backendid pulumi.StringInput `pulumi:"backendid"`
+	// The name of the resource group.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the API Management service.
+	ServiceName pulumi.StringInput `pulumi:"serviceName"`
+}
+
+func (LookupBackendOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupBackendArgs)(nil)).Elem()
+}
+
+// Backend details.
+type LookupBackendResultOutput struct{ *pulumi.OutputState }
+
+func (LookupBackendResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupBackendResult)(nil)).Elem()
+}
+
+func (o LookupBackendResultOutput) ToLookupBackendResultOutput() LookupBackendResultOutput {
+	return o
+}
+
+func (o LookupBackendResultOutput) ToLookupBackendResultOutputWithContext(ctx context.Context) LookupBackendResultOutput {
+	return o
+}
+
+// Backend Credentials Contract Properties
+func (o LookupBackendResultOutput) Credentials() BackendCredentialsContractResponsePtrOutput {
+	return o.ApplyT(func(v LookupBackendResult) *BackendCredentialsContractResponse { return v.Credentials }).(BackendCredentialsContractResponsePtrOutput)
+}
+
+// Backend Description.
+func (o LookupBackendResultOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupBackendResult) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Resource ID.
+func (o LookupBackendResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBackendResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o LookupBackendResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBackendResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Backend Properties contract
+func (o LookupBackendResultOutput) Properties() BackendPropertiesResponseOutput {
+	return o.ApplyT(func(v LookupBackendResult) BackendPropertiesResponse { return v.Properties }).(BackendPropertiesResponseOutput)
+}
+
+// Backend communication protocol.
+func (o LookupBackendResultOutput) Protocol() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBackendResult) string { return v.Protocol }).(pulumi.StringOutput)
+}
+
+// Backend Proxy Contract Properties
+func (o LookupBackendResultOutput) Proxy() BackendProxyContractResponsePtrOutput {
+	return o.ApplyT(func(v LookupBackendResult) *BackendProxyContractResponse { return v.Proxy }).(BackendProxyContractResponsePtrOutput)
+}
+
+// Management Uri of the Resource in External System. This url can be the Arm Resource Id of Logic Apps, Function Apps or Api Apps.
+func (o LookupBackendResultOutput) ResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupBackendResult) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
+}
+
+// Backend Title.
+func (o LookupBackendResultOutput) Title() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupBackendResult) *string { return v.Title }).(pulumi.StringPtrOutput)
+}
+
+// Backend TLS Properties
+func (o LookupBackendResultOutput) Tls() BackendTlsPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v LookupBackendResult) *BackendTlsPropertiesResponse { return v.Tls }).(BackendTlsPropertiesResponsePtrOutput)
+}
+
+// Resource type for API Management resource.
+func (o LookupBackendResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBackendResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Runtime Url of the Backend.
+func (o LookupBackendResultOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBackendResult) string { return v.Url }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupBackendResultOutput{})
 }

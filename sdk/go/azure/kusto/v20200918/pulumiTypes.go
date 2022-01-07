@@ -141,6 +141,76 @@ type DatabasePrincipalResponse struct {
 	Type string `pulumi:"type"`
 }
 
+// A class representing database principal entity.
+type DatabasePrincipalResponseOutput struct{ *pulumi.OutputState }
+
+func (DatabasePrincipalResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabasePrincipalResponse)(nil)).Elem()
+}
+
+func (o DatabasePrincipalResponseOutput) ToDatabasePrincipalResponseOutput() DatabasePrincipalResponseOutput {
+	return o
+}
+
+func (o DatabasePrincipalResponseOutput) ToDatabasePrincipalResponseOutputWithContext(ctx context.Context) DatabasePrincipalResponseOutput {
+	return o
+}
+
+// Application id - relevant only for application principal type.
+func (o DatabasePrincipalResponseOutput) AppId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabasePrincipalResponse) *string { return v.AppId }).(pulumi.StringPtrOutput)
+}
+
+// Database principal email if exists.
+func (o DatabasePrincipalResponseOutput) Email() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabasePrincipalResponse) *string { return v.Email }).(pulumi.StringPtrOutput)
+}
+
+// Database principal fully qualified name.
+func (o DatabasePrincipalResponseOutput) Fqn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabasePrincipalResponse) *string { return v.Fqn }).(pulumi.StringPtrOutput)
+}
+
+// Database principal name.
+func (o DatabasePrincipalResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DatabasePrincipalResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Database principal role.
+func (o DatabasePrincipalResponseOutput) Role() pulumi.StringOutput {
+	return o.ApplyT(func(v DatabasePrincipalResponse) string { return v.Role }).(pulumi.StringOutput)
+}
+
+// The tenant name of the principal
+func (o DatabasePrincipalResponseOutput) TenantName() pulumi.StringOutput {
+	return o.ApplyT(func(v DatabasePrincipalResponse) string { return v.TenantName }).(pulumi.StringOutput)
+}
+
+// Database principal type.
+func (o DatabasePrincipalResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v DatabasePrincipalResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type DatabasePrincipalResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (DatabasePrincipalResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DatabasePrincipalResponse)(nil)).Elem()
+}
+
+func (o DatabasePrincipalResponseArrayOutput) ToDatabasePrincipalResponseArrayOutput() DatabasePrincipalResponseArrayOutput {
+	return o
+}
+
+func (o DatabasePrincipalResponseArrayOutput) ToDatabasePrincipalResponseArrayOutputWithContext(ctx context.Context) DatabasePrincipalResponseArrayOutput {
+	return o
+}
+
+func (o DatabasePrincipalResponseArrayOutput) Index(i pulumi.IntInput) DatabasePrincipalResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DatabasePrincipalResponse {
+		return vs[0].([]DatabasePrincipalResponse)[vs[1].(int)]
+	}).(DatabasePrincipalResponseOutput)
+}
+
 // A class that contains database statistics information.
 type DatabaseStatisticsResponse struct {
 	// The database size - the total size of compressed data and index in bytes.
@@ -175,6 +245,56 @@ type FollowerDatabaseDefinitionResponse struct {
 	ClusterResourceId string `pulumi:"clusterResourceId"`
 	// The database name owned by this cluster that was followed. * in case following all databases.
 	DatabaseName string `pulumi:"databaseName"`
+}
+
+// A class representing follower database request.
+type FollowerDatabaseDefinitionResponseOutput struct{ *pulumi.OutputState }
+
+func (FollowerDatabaseDefinitionResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FollowerDatabaseDefinitionResponse)(nil)).Elem()
+}
+
+func (o FollowerDatabaseDefinitionResponseOutput) ToFollowerDatabaseDefinitionResponseOutput() FollowerDatabaseDefinitionResponseOutput {
+	return o
+}
+
+func (o FollowerDatabaseDefinitionResponseOutput) ToFollowerDatabaseDefinitionResponseOutputWithContext(ctx context.Context) FollowerDatabaseDefinitionResponseOutput {
+	return o
+}
+
+// Resource name of the attached database configuration in the follower cluster.
+func (o FollowerDatabaseDefinitionResponseOutput) AttachedDatabaseConfigurationName() pulumi.StringOutput {
+	return o.ApplyT(func(v FollowerDatabaseDefinitionResponse) string { return v.AttachedDatabaseConfigurationName }).(pulumi.StringOutput)
+}
+
+// Resource id of the cluster that follows a database owned by this cluster.
+func (o FollowerDatabaseDefinitionResponseOutput) ClusterResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v FollowerDatabaseDefinitionResponse) string { return v.ClusterResourceId }).(pulumi.StringOutput)
+}
+
+// The database name owned by this cluster that was followed. * in case following all databases.
+func (o FollowerDatabaseDefinitionResponseOutput) DatabaseName() pulumi.StringOutput {
+	return o.ApplyT(func(v FollowerDatabaseDefinitionResponse) string { return v.DatabaseName }).(pulumi.StringOutput)
+}
+
+type FollowerDatabaseDefinitionResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (FollowerDatabaseDefinitionResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FollowerDatabaseDefinitionResponse)(nil)).Elem()
+}
+
+func (o FollowerDatabaseDefinitionResponseArrayOutput) ToFollowerDatabaseDefinitionResponseArrayOutput() FollowerDatabaseDefinitionResponseArrayOutput {
+	return o
+}
+
+func (o FollowerDatabaseDefinitionResponseArrayOutput) ToFollowerDatabaseDefinitionResponseArrayOutputWithContext(ctx context.Context) FollowerDatabaseDefinitionResponseArrayOutput {
+	return o
+}
+
+func (o FollowerDatabaseDefinitionResponseArrayOutput) Index(i pulumi.IntInput) FollowerDatabaseDefinitionResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FollowerDatabaseDefinitionResponse {
+		return vs[0].([]FollowerDatabaseDefinitionResponse)[vs[1].(int)]
+	}).(FollowerDatabaseDefinitionResponseOutput)
 }
 
 // Identity for the resource.
@@ -1609,7 +1729,11 @@ func (o VirtualNetworkConfigurationResponsePtrOutput) SubnetId() pulumi.StringPt
 func init() {
 	pulumi.RegisterOutputType(AzureSkuOutput{})
 	pulumi.RegisterOutputType(AzureSkuResponseOutput{})
+	pulumi.RegisterOutputType(DatabasePrincipalResponseOutput{})
+	pulumi.RegisterOutputType(DatabasePrincipalResponseArrayOutput{})
 	pulumi.RegisterOutputType(DatabaseStatisticsResponseOutput{})
+	pulumi.RegisterOutputType(FollowerDatabaseDefinitionResponseOutput{})
+	pulumi.RegisterOutputType(FollowerDatabaseDefinitionResponseArrayOutput{})
 	pulumi.RegisterOutputType(IdentityOutput{})
 	pulumi.RegisterOutputType(IdentityPtrOutput{})
 	pulumi.RegisterOutputType(IdentityResponseOutput{})

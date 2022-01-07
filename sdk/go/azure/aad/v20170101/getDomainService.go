@@ -4,6 +4,9 @@
 package v20170101
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -68,4 +71,148 @@ type LookupDomainServiceResult struct {
 	Type string `pulumi:"type"`
 	// Virtual network site id
 	VnetSiteId string `pulumi:"vnetSiteId"`
+}
+
+func LookupDomainServiceOutput(ctx *pulumi.Context, args LookupDomainServiceOutputArgs, opts ...pulumi.InvokeOption) LookupDomainServiceResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupDomainServiceResult, error) {
+			args := v.(LookupDomainServiceArgs)
+			r, err := LookupDomainService(ctx, &args, opts...)
+			return *r, err
+		}).(LookupDomainServiceResultOutput)
+}
+
+type LookupDomainServiceOutputArgs struct {
+	// The name of the domain service.
+	DomainServiceName pulumi.StringInput `pulumi:"domainServiceName"`
+	// The name of the resource group within the user's subscription. The name is case insensitive.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupDomainServiceOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupDomainServiceArgs)(nil)).Elem()
+}
+
+// Domain service.
+type LookupDomainServiceResultOutput struct{ *pulumi.OutputState }
+
+func (LookupDomainServiceResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupDomainServiceResult)(nil)).Elem()
+}
+
+func (o LookupDomainServiceResultOutput) ToLookupDomainServiceResultOutput() LookupDomainServiceResultOutput {
+	return o
+}
+
+func (o LookupDomainServiceResultOutput) ToLookupDomainServiceResultOutputWithContext(ctx context.Context) LookupDomainServiceResultOutput {
+	return o
+}
+
+// Deployment Id
+func (o LookupDomainServiceResultOutput) DeploymentId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDomainServiceResult) string { return v.DeploymentId }).(pulumi.StringOutput)
+}
+
+// List of Domain Controller IP Address
+func (o LookupDomainServiceResultOutput) DomainControllerIpAddress() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupDomainServiceResult) []string { return v.DomainControllerIpAddress }).(pulumi.StringArrayOutput)
+}
+
+// The name of the Azure domain that the user would like to deploy Domain Services to.
+func (o LookupDomainServiceResultOutput) DomainName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDomainServiceResult) *string { return v.DomainName }).(pulumi.StringPtrOutput)
+}
+
+// DomainSecurity Settings
+func (o LookupDomainServiceResultOutput) DomainSecuritySettings() DomainSecuritySettingsResponsePtrOutput {
+	return o.ApplyT(func(v LookupDomainServiceResult) *DomainSecuritySettingsResponse { return v.DomainSecuritySettings }).(DomainSecuritySettingsResponsePtrOutput)
+}
+
+// Resource etag
+func (o LookupDomainServiceResultOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDomainServiceResult) *string { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// Enabled or Disabled flag to turn on Group-based filtered sync
+func (o LookupDomainServiceResultOutput) FilteredSync() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDomainServiceResult) *string { return v.FilteredSync }).(pulumi.StringPtrOutput)
+}
+
+// List of Domain Health Alerts
+func (o LookupDomainServiceResultOutput) HealthAlerts() HealthAlertResponseArrayOutput {
+	return o.ApplyT(func(v LookupDomainServiceResult) []HealthAlertResponse { return v.HealthAlerts }).(HealthAlertResponseArrayOutput)
+}
+
+// Last domain evaluation run DateTime
+func (o LookupDomainServiceResultOutput) HealthLastEvaluated() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDomainServiceResult) string { return v.HealthLastEvaluated }).(pulumi.StringOutput)
+}
+
+// List of Domain Health Monitors
+func (o LookupDomainServiceResultOutput) HealthMonitors() HealthMonitorResponseArrayOutput {
+	return o.ApplyT(func(v LookupDomainServiceResult) []HealthMonitorResponse { return v.HealthMonitors }).(HealthMonitorResponseArrayOutput)
+}
+
+// Resource Id
+func (o LookupDomainServiceResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDomainServiceResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Secure LDAP Settings
+func (o LookupDomainServiceResultOutput) LdapsSettings() LdapsSettingsResponsePtrOutput {
+	return o.ApplyT(func(v LookupDomainServiceResult) *LdapsSettingsResponse { return v.LdapsSettings }).(LdapsSettingsResponsePtrOutput)
+}
+
+// Resource location
+func (o LookupDomainServiceResultOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDomainServiceResult) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Resource name
+func (o LookupDomainServiceResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDomainServiceResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Notification Settings
+func (o LookupDomainServiceResultOutput) NotificationSettings() NotificationSettingsResponsePtrOutput {
+	return o.ApplyT(func(v LookupDomainServiceResult) *NotificationSettingsResponse { return v.NotificationSettings }).(NotificationSettingsResponsePtrOutput)
+}
+
+// the current deployment or provisioning state, which only appears in the response.
+func (o LookupDomainServiceResultOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDomainServiceResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Status of Domain Service instance
+func (o LookupDomainServiceResultOutput) ServiceStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDomainServiceResult) string { return v.ServiceStatus }).(pulumi.StringOutput)
+}
+
+// The name of the virtual network that Domain Services will be deployed on. The id of the subnet that Domain Services will be deployed on. /virtualNetwork/vnetName/subnets/subnetName.
+func (o LookupDomainServiceResultOutput) SubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDomainServiceResult) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
+}
+
+// Resource tags
+func (o LookupDomainServiceResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupDomainServiceResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Azure Active Directory tenant id
+func (o LookupDomainServiceResultOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDomainServiceResult) string { return v.TenantId }).(pulumi.StringOutput)
+}
+
+// Resource type
+func (o LookupDomainServiceResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDomainServiceResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Virtual network site id
+func (o LookupDomainServiceResultOutput) VnetSiteId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDomainServiceResult) string { return v.VnetSiteId }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupDomainServiceResultOutput{})
 }

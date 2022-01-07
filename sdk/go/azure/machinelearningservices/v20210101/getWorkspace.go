@@ -4,6 +4,9 @@
 package v20210101
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -99,4 +102,185 @@ func (val *LookupWorkspaceResult) Defaults() *LookupWorkspaceResult {
 		tmp.HbiWorkspace = &hbiWorkspace_
 	}
 	return &tmp
+}
+
+func LookupWorkspaceOutput(ctx *pulumi.Context, args LookupWorkspaceOutputArgs, opts ...pulumi.InvokeOption) LookupWorkspaceResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupWorkspaceResult, error) {
+			args := v.(LookupWorkspaceArgs)
+			r, err := LookupWorkspace(ctx, &args, opts...)
+			return *r, err
+		}).(LookupWorkspaceResultOutput)
+}
+
+type LookupWorkspaceOutputArgs struct {
+	// Name of the resource group in which workspace is located.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// Name of Azure Machine Learning workspace.
+	WorkspaceName pulumi.StringInput `pulumi:"workspaceName"`
+}
+
+func (LookupWorkspaceOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupWorkspaceArgs)(nil)).Elem()
+}
+
+// An object that represents a machine learning workspace.
+type LookupWorkspaceResultOutput struct{ *pulumi.OutputState }
+
+func (LookupWorkspaceResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupWorkspaceResult)(nil)).Elem()
+}
+
+func (o LookupWorkspaceResultOutput) ToLookupWorkspaceResultOutput() LookupWorkspaceResultOutput {
+	return o
+}
+
+func (o LookupWorkspaceResultOutput) ToLookupWorkspaceResultOutputWithContext(ctx context.Context) LookupWorkspaceResultOutput {
+	return o
+}
+
+// The flag to indicate whether to allow public access when behind VNet.
+func (o LookupWorkspaceResultOutput) AllowPublicAccessWhenBehindVnet() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupWorkspaceResult) *bool { return v.AllowPublicAccessWhenBehindVnet }).(pulumi.BoolPtrOutput)
+}
+
+// ARM id of the application insights associated with this workspace. This cannot be changed once the workspace has been created
+func (o LookupWorkspaceResultOutput) ApplicationInsights() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupWorkspaceResult) *string { return v.ApplicationInsights }).(pulumi.StringPtrOutput)
+}
+
+// ARM id of the container registry associated with this workspace. This cannot be changed once the workspace has been created
+func (o LookupWorkspaceResultOutput) ContainerRegistry() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupWorkspaceResult) *string { return v.ContainerRegistry }).(pulumi.StringPtrOutput)
+}
+
+// The description of this workspace.
+func (o LookupWorkspaceResultOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupWorkspaceResult) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Url for the discovery service to identify regional endpoints for machine learning experimentation services
+func (o LookupWorkspaceResultOutput) DiscoveryUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupWorkspaceResult) *string { return v.DiscoveryUrl }).(pulumi.StringPtrOutput)
+}
+
+// The encryption settings of Azure ML workspace.
+func (o LookupWorkspaceResultOutput) Encryption() EncryptionPropertyResponsePtrOutput {
+	return o.ApplyT(func(v LookupWorkspaceResult) *EncryptionPropertyResponse { return v.Encryption }).(EncryptionPropertyResponsePtrOutput)
+}
+
+// The friendly name for this workspace. This name in mutable
+func (o LookupWorkspaceResultOutput) FriendlyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupWorkspaceResult) *string { return v.FriendlyName }).(pulumi.StringPtrOutput)
+}
+
+// The flag to signal HBI data in the workspace and reduce diagnostic data collected by the service
+func (o LookupWorkspaceResultOutput) HbiWorkspace() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupWorkspaceResult) *bool { return v.HbiWorkspace }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies the resource ID.
+func (o LookupWorkspaceResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWorkspaceResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The identity of the resource.
+func (o LookupWorkspaceResultOutput) Identity() IdentityResponsePtrOutput {
+	return o.ApplyT(func(v LookupWorkspaceResult) *IdentityResponse { return v.Identity }).(IdentityResponsePtrOutput)
+}
+
+// The compute name for image build
+func (o LookupWorkspaceResultOutput) ImageBuildCompute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupWorkspaceResult) *string { return v.ImageBuildCompute }).(pulumi.StringPtrOutput)
+}
+
+// ARM id of the key vault associated with this workspace. This cannot be changed once the workspace has been created
+func (o LookupWorkspaceResultOutput) KeyVault() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupWorkspaceResult) *string { return v.KeyVault }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the location of the resource.
+func (o LookupWorkspaceResultOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupWorkspaceResult) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the name of the resource.
+func (o LookupWorkspaceResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWorkspaceResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The notebook info of Azure ML workspace.
+func (o LookupWorkspaceResultOutput) NotebookInfo() NotebookResourceInfoResponseOutput {
+	return o.ApplyT(func(v LookupWorkspaceResult) NotebookResourceInfoResponse { return v.NotebookInfo }).(NotebookResourceInfoResponseOutput)
+}
+
+// The user assigned identity resource id that represents the workspace identity.
+func (o LookupWorkspaceResultOutput) PrimaryUserAssignedIdentity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupWorkspaceResult) *string { return v.PrimaryUserAssignedIdentity }).(pulumi.StringPtrOutput)
+}
+
+// The list of private endpoint connections in the workspace.
+func (o LookupWorkspaceResultOutput) PrivateEndpointConnections() PrivateEndpointConnectionResponseArrayOutput {
+	return o.ApplyT(func(v LookupWorkspaceResult) []PrivateEndpointConnectionResponse { return v.PrivateEndpointConnections }).(PrivateEndpointConnectionResponseArrayOutput)
+}
+
+// Count of private connections in the workspace
+func (o LookupWorkspaceResultOutput) PrivateLinkCount() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupWorkspaceResult) int { return v.PrivateLinkCount }).(pulumi.IntOutput)
+}
+
+// The current deployment state of workspace resource. The provisioningState is to indicate states for resource provisioning.
+func (o LookupWorkspaceResultOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWorkspaceResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The service managed resource settings.
+func (o LookupWorkspaceResultOutput) ServiceManagedResourcesSettings() ServiceManagedResourcesSettingsResponsePtrOutput {
+	return o.ApplyT(func(v LookupWorkspaceResult) *ServiceManagedResourcesSettingsResponse {
+		return v.ServiceManagedResourcesSettings
+	}).(ServiceManagedResourcesSettingsResponsePtrOutput)
+}
+
+// The name of the managed resource group created by workspace RP in customer subscription if the workspace is CMK workspace
+func (o LookupWorkspaceResultOutput) ServiceProvisionedResourceGroup() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWorkspaceResult) string { return v.ServiceProvisionedResourceGroup }).(pulumi.StringOutput)
+}
+
+// The list of shared private link resources in this workspace.
+func (o LookupWorkspaceResultOutput) SharedPrivateLinkResources() SharedPrivateLinkResourceResponseArrayOutput {
+	return o.ApplyT(func(v LookupWorkspaceResult) []SharedPrivateLinkResourceResponse { return v.SharedPrivateLinkResources }).(SharedPrivateLinkResourceResponseArrayOutput)
+}
+
+// The sku of the workspace.
+func (o LookupWorkspaceResultOutput) Sku() SkuResponsePtrOutput {
+	return o.ApplyT(func(v LookupWorkspaceResult) *SkuResponse { return v.Sku }).(SkuResponsePtrOutput)
+}
+
+// ARM id of the storage account associated with this workspace. This cannot be changed once the workspace has been created
+func (o LookupWorkspaceResultOutput) StorageAccount() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupWorkspaceResult) *string { return v.StorageAccount }).(pulumi.StringPtrOutput)
+}
+
+// Read only system data
+func (o LookupWorkspaceResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupWorkspaceResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Contains resource tags defined as key/value pairs.
+func (o LookupWorkspaceResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupWorkspaceResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Specifies the type of the resource.
+func (o LookupWorkspaceResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWorkspaceResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The immutable id associated with this workspace.
+func (o LookupWorkspaceResultOutput) WorkspaceId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWorkspaceResult) string { return v.WorkspaceId }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupWorkspaceResultOutput{})
 }

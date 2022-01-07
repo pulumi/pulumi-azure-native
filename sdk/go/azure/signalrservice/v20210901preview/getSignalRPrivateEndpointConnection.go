@@ -4,6 +4,9 @@
 package v20210901preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -42,4 +45,84 @@ type LookupSignalRPrivateEndpointConnectionResult struct {
 	SystemData SystemDataResponse `pulumi:"systemData"`
 	// The type of the resource - e.g. "Microsoft.SignalRService/SignalR"
 	Type string `pulumi:"type"`
+}
+
+func LookupSignalRPrivateEndpointConnectionOutput(ctx *pulumi.Context, args LookupSignalRPrivateEndpointConnectionOutputArgs, opts ...pulumi.InvokeOption) LookupSignalRPrivateEndpointConnectionResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupSignalRPrivateEndpointConnectionResult, error) {
+			args := v.(LookupSignalRPrivateEndpointConnectionArgs)
+			r, err := LookupSignalRPrivateEndpointConnection(ctx, &args, opts...)
+			return *r, err
+		}).(LookupSignalRPrivateEndpointConnectionResultOutput)
+}
+
+type LookupSignalRPrivateEndpointConnectionOutputArgs struct {
+	// The name of the private endpoint connection
+	PrivateEndpointConnectionName pulumi.StringInput `pulumi:"privateEndpointConnectionName"`
+	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the resource.
+	ResourceName pulumi.StringInput `pulumi:"resourceName"`
+}
+
+func (LookupSignalRPrivateEndpointConnectionOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupSignalRPrivateEndpointConnectionArgs)(nil)).Elem()
+}
+
+// A private endpoint connection to an azure resource
+type LookupSignalRPrivateEndpointConnectionResultOutput struct{ *pulumi.OutputState }
+
+func (LookupSignalRPrivateEndpointConnectionResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupSignalRPrivateEndpointConnectionResult)(nil)).Elem()
+}
+
+func (o LookupSignalRPrivateEndpointConnectionResultOutput) ToLookupSignalRPrivateEndpointConnectionResultOutput() LookupSignalRPrivateEndpointConnectionResultOutput {
+	return o
+}
+
+func (o LookupSignalRPrivateEndpointConnectionResultOutput) ToLookupSignalRPrivateEndpointConnectionResultOutputWithContext(ctx context.Context) LookupSignalRPrivateEndpointConnectionResultOutput {
+	return o
+}
+
+// Fully qualified resource Id for the resource.
+func (o LookupSignalRPrivateEndpointConnectionResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSignalRPrivateEndpointConnectionResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The name of the resource.
+func (o LookupSignalRPrivateEndpointConnectionResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSignalRPrivateEndpointConnectionResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Private endpoint associated with the private endpoint connection
+func (o LookupSignalRPrivateEndpointConnectionResultOutput) PrivateEndpoint() PrivateEndpointResponsePtrOutput {
+	return o.ApplyT(func(v LookupSignalRPrivateEndpointConnectionResult) *PrivateEndpointResponse {
+		return v.PrivateEndpoint
+	}).(PrivateEndpointResponsePtrOutput)
+}
+
+// Connection state
+func (o LookupSignalRPrivateEndpointConnectionResultOutput) PrivateLinkServiceConnectionState() PrivateLinkServiceConnectionStateResponsePtrOutput {
+	return o.ApplyT(func(v LookupSignalRPrivateEndpointConnectionResult) *PrivateLinkServiceConnectionStateResponse {
+		return v.PrivateLinkServiceConnectionState
+	}).(PrivateLinkServiceConnectionStateResponsePtrOutput)
+}
+
+// Provisioning state of the private endpoint connection
+func (o LookupSignalRPrivateEndpointConnectionResultOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSignalRPrivateEndpointConnectionResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o LookupSignalRPrivateEndpointConnectionResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupSignalRPrivateEndpointConnectionResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the resource - e.g. "Microsoft.SignalRService/SignalR"
+func (o LookupSignalRPrivateEndpointConnectionResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSignalRPrivateEndpointConnectionResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupSignalRPrivateEndpointConnectionResultOutput{})
 }

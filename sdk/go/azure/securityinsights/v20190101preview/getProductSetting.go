@@ -4,6 +4,9 @@
 package v20190101preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -42,4 +45,72 @@ type LookupProductSettingResult struct {
 	Name string `pulumi:"name"`
 	// Azure resource type
 	Type string `pulumi:"type"`
+}
+
+func LookupProductSettingOutput(ctx *pulumi.Context, args LookupProductSettingOutputArgs, opts ...pulumi.InvokeOption) LookupProductSettingResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupProductSettingResult, error) {
+			args := v.(LookupProductSettingArgs)
+			r, err := LookupProductSetting(ctx, &args, opts...)
+			return *r, err
+		}).(LookupProductSettingResultOutput)
+}
+
+type LookupProductSettingOutputArgs struct {
+	// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
+	OperationalInsightsResourceProvider pulumi.StringInput `pulumi:"operationalInsightsResourceProvider"`
+	// The name of the resource group within the user's subscription. The name is case insensitive.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The setting name. Supports - Anomalies, EyesOn, EntityAnalytics, Ueba
+	SettingsName pulumi.StringInput `pulumi:"settingsName"`
+	// The name of the workspace.
+	WorkspaceName pulumi.StringInput `pulumi:"workspaceName"`
+}
+
+func (LookupProductSettingOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupProductSettingArgs)(nil)).Elem()
+}
+
+// The Setting.
+type LookupProductSettingResultOutput struct{ *pulumi.OutputState }
+
+func (LookupProductSettingResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupProductSettingResult)(nil)).Elem()
+}
+
+func (o LookupProductSettingResultOutput) ToLookupProductSettingResultOutput() LookupProductSettingResultOutput {
+	return o
+}
+
+func (o LookupProductSettingResultOutput) ToLookupProductSettingResultOutputWithContext(ctx context.Context) LookupProductSettingResultOutput {
+	return o
+}
+
+// Etag of the azure resource
+func (o LookupProductSettingResultOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupProductSettingResult) *string { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// Azure resource Id
+func (o LookupProductSettingResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupProductSettingResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The kind of the setting
+func (o LookupProductSettingResultOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupProductSettingResult) string { return v.Kind }).(pulumi.StringOutput)
+}
+
+// Azure resource name
+func (o LookupProductSettingResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupProductSettingResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Azure resource type
+func (o LookupProductSettingResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupProductSettingResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupProductSettingResultOutput{})
 }

@@ -4,6 +4,9 @@
 package v20201201
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -38,4 +41,67 @@ type LookupContentItemResult struct {
 	Properties interface{} `pulumi:"properties"`
 	// Resource type for API Management resource.
 	Type string `pulumi:"type"`
+}
+
+func LookupContentItemOutput(ctx *pulumi.Context, args LookupContentItemOutputArgs, opts ...pulumi.InvokeOption) LookupContentItemResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupContentItemResult, error) {
+			args := v.(LookupContentItemArgs)
+			r, err := LookupContentItem(ctx, &args, opts...)
+			return *r, err
+		}).(LookupContentItemResultOutput)
+}
+
+type LookupContentItemOutputArgs struct {
+	// Content item identifier.
+	ContentItemId pulumi.StringInput `pulumi:"contentItemId"`
+	// Content type identifier.
+	ContentTypeId pulumi.StringInput `pulumi:"contentTypeId"`
+	// The name of the resource group.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the API Management service.
+	ServiceName pulumi.StringInput `pulumi:"serviceName"`
+}
+
+func (LookupContentItemOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupContentItemArgs)(nil)).Elem()
+}
+
+// Content type contract details.
+type LookupContentItemResultOutput struct{ *pulumi.OutputState }
+
+func (LookupContentItemResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupContentItemResult)(nil)).Elem()
+}
+
+func (o LookupContentItemResultOutput) ToLookupContentItemResultOutput() LookupContentItemResultOutput {
+	return o
+}
+
+func (o LookupContentItemResultOutput) ToLookupContentItemResultOutputWithContext(ctx context.Context) LookupContentItemResultOutput {
+	return o
+}
+
+// Resource ID.
+func (o LookupContentItemResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupContentItemResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o LookupContentItemResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupContentItemResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Properties of the content item.
+func (o LookupContentItemResultOutput) Properties() pulumi.AnyOutput {
+	return o.ApplyT(func(v LookupContentItemResult) interface{} { return v.Properties }).(pulumi.AnyOutput)
+}
+
+// Resource type for API Management resource.
+func (o LookupContentItemResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupContentItemResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupContentItemResultOutput{})
 }

@@ -4,6 +4,9 @@
 package v20200501
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -48,4 +51,92 @@ type LookupApplicationPackageResult struct {
 	StorageUrlExpiry string `pulumi:"storageUrlExpiry"`
 	// The type of the resource.
 	Type string `pulumi:"type"`
+}
+
+func LookupApplicationPackageOutput(ctx *pulumi.Context, args LookupApplicationPackageOutputArgs, opts ...pulumi.InvokeOption) LookupApplicationPackageResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupApplicationPackageResult, error) {
+			args := v.(LookupApplicationPackageArgs)
+			r, err := LookupApplicationPackage(ctx, &args, opts...)
+			return *r, err
+		}).(LookupApplicationPackageResultOutput)
+}
+
+type LookupApplicationPackageOutputArgs struct {
+	// The name of the Batch account.
+	AccountName pulumi.StringInput `pulumi:"accountName"`
+	// The name of the application. This must be unique within the account.
+	ApplicationName pulumi.StringInput `pulumi:"applicationName"`
+	// The name of the resource group that contains the Batch account.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The version of the application.
+	VersionName pulumi.StringInput `pulumi:"versionName"`
+}
+
+func (LookupApplicationPackageOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupApplicationPackageArgs)(nil)).Elem()
+}
+
+// An application package which represents a particular version of an application.
+type LookupApplicationPackageResultOutput struct{ *pulumi.OutputState }
+
+func (LookupApplicationPackageResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupApplicationPackageResult)(nil)).Elem()
+}
+
+func (o LookupApplicationPackageResultOutput) ToLookupApplicationPackageResultOutput() LookupApplicationPackageResultOutput {
+	return o
+}
+
+func (o LookupApplicationPackageResultOutput) ToLookupApplicationPackageResultOutputWithContext(ctx context.Context) LookupApplicationPackageResultOutput {
+	return o
+}
+
+// The ETag of the resource, used for concurrency statements.
+func (o LookupApplicationPackageResultOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupApplicationPackageResult) string { return v.Etag }).(pulumi.StringOutput)
+}
+
+// The format of the application package, if the package is active.
+func (o LookupApplicationPackageResultOutput) Format() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupApplicationPackageResult) string { return v.Format }).(pulumi.StringOutput)
+}
+
+// The ID of the resource.
+func (o LookupApplicationPackageResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupApplicationPackageResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The time at which the package was last activated, if the package is active.
+func (o LookupApplicationPackageResultOutput) LastActivationTime() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupApplicationPackageResult) string { return v.LastActivationTime }).(pulumi.StringOutput)
+}
+
+// The name of the resource.
+func (o LookupApplicationPackageResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupApplicationPackageResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The current state of the application package.
+func (o LookupApplicationPackageResultOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupApplicationPackageResult) string { return v.State }).(pulumi.StringOutput)
+}
+
+// The URL for the application package in Azure Storage.
+func (o LookupApplicationPackageResultOutput) StorageUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupApplicationPackageResult) string { return v.StorageUrl }).(pulumi.StringOutput)
+}
+
+// The UTC time at which the Azure Storage URL will expire.
+func (o LookupApplicationPackageResultOutput) StorageUrlExpiry() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupApplicationPackageResult) string { return v.StorageUrlExpiry }).(pulumi.StringOutput)
+}
+
+// The type of the resource.
+func (o LookupApplicationPackageResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupApplicationPackageResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupApplicationPackageResultOutput{})
 }

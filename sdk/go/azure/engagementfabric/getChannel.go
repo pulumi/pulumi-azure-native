@@ -4,6 +4,9 @@
 package engagementfabric
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -41,4 +44,75 @@ type LookupChannelResult struct {
 	Name string `pulumi:"name"`
 	// The fully qualified type of the resource
 	Type string `pulumi:"type"`
+}
+
+func LookupChannelOutput(ctx *pulumi.Context, args LookupChannelOutputArgs, opts ...pulumi.InvokeOption) LookupChannelResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupChannelResult, error) {
+			args := v.(LookupChannelArgs)
+			r, err := LookupChannel(ctx, &args, opts...)
+			return *r, err
+		}).(LookupChannelResultOutput)
+}
+
+type LookupChannelOutputArgs struct {
+	// Account Name
+	AccountName pulumi.StringInput `pulumi:"accountName"`
+	// Channel Name
+	ChannelName pulumi.StringInput `pulumi:"channelName"`
+	// Resource Group Name
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupChannelOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupChannelArgs)(nil)).Elem()
+}
+
+// The EngagementFabric channel
+type LookupChannelResultOutput struct{ *pulumi.OutputState }
+
+func (LookupChannelResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupChannelResult)(nil)).Elem()
+}
+
+func (o LookupChannelResultOutput) ToLookupChannelResultOutput() LookupChannelResultOutput {
+	return o
+}
+
+func (o LookupChannelResultOutput) ToLookupChannelResultOutputWithContext(ctx context.Context) LookupChannelResultOutput {
+	return o
+}
+
+// The functions to be enabled for the channel
+func (o LookupChannelResultOutput) ChannelFunctions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupChannelResult) []string { return v.ChannelFunctions }).(pulumi.StringArrayOutput)
+}
+
+// The channel type
+func (o LookupChannelResultOutput) ChannelType() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupChannelResult) string { return v.ChannelType }).(pulumi.StringOutput)
+}
+
+// The channel credentials
+func (o LookupChannelResultOutput) Credentials() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupChannelResult) map[string]string { return v.Credentials }).(pulumi.StringMapOutput)
+}
+
+// The ID of the resource
+func (o LookupChannelResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupChannelResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o LookupChannelResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupChannelResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The fully qualified type of the resource
+func (o LookupChannelResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupChannelResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupChannelResultOutput{})
 }

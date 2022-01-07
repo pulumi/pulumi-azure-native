@@ -4,6 +4,9 @@
 package datafactory
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -35,4 +38,57 @@ type GetExposureControlFeatureValueByFactoryResult struct {
 	FeatureName string `pulumi:"featureName"`
 	// The feature value.
 	Value string `pulumi:"value"`
+}
+
+func GetExposureControlFeatureValueByFactoryOutput(ctx *pulumi.Context, args GetExposureControlFeatureValueByFactoryOutputArgs, opts ...pulumi.InvokeOption) GetExposureControlFeatureValueByFactoryResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetExposureControlFeatureValueByFactoryResult, error) {
+			args := v.(GetExposureControlFeatureValueByFactoryArgs)
+			r, err := GetExposureControlFeatureValueByFactory(ctx, &args, opts...)
+			return *r, err
+		}).(GetExposureControlFeatureValueByFactoryResultOutput)
+}
+
+type GetExposureControlFeatureValueByFactoryOutputArgs struct {
+	// The factory name.
+	FactoryName pulumi.StringInput `pulumi:"factoryName"`
+	// The feature name.
+	FeatureName pulumi.StringPtrInput `pulumi:"featureName"`
+	// The feature type.
+	FeatureType pulumi.StringPtrInput `pulumi:"featureType"`
+	// The resource group name.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (GetExposureControlFeatureValueByFactoryOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetExposureControlFeatureValueByFactoryArgs)(nil)).Elem()
+}
+
+// The exposure control response.
+type GetExposureControlFeatureValueByFactoryResultOutput struct{ *pulumi.OutputState }
+
+func (GetExposureControlFeatureValueByFactoryResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetExposureControlFeatureValueByFactoryResult)(nil)).Elem()
+}
+
+func (o GetExposureControlFeatureValueByFactoryResultOutput) ToGetExposureControlFeatureValueByFactoryResultOutput() GetExposureControlFeatureValueByFactoryResultOutput {
+	return o
+}
+
+func (o GetExposureControlFeatureValueByFactoryResultOutput) ToGetExposureControlFeatureValueByFactoryResultOutputWithContext(ctx context.Context) GetExposureControlFeatureValueByFactoryResultOutput {
+	return o
+}
+
+// The feature name.
+func (o GetExposureControlFeatureValueByFactoryResultOutput) FeatureName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetExposureControlFeatureValueByFactoryResult) string { return v.FeatureName }).(pulumi.StringOutput)
+}
+
+// The feature value.
+func (o GetExposureControlFeatureValueByFactoryResultOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetExposureControlFeatureValueByFactoryResult) string { return v.Value }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetExposureControlFeatureValueByFactoryResultOutput{})
 }

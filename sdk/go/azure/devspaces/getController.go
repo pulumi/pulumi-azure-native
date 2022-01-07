@@ -4,6 +4,9 @@
 package devspaces
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -47,4 +50,97 @@ type LookupControllerResult struct {
 	TargetContainerHostResourceId string `pulumi:"targetContainerHostResourceId"`
 	// The type of the resource.
 	Type string `pulumi:"type"`
+}
+
+func LookupControllerOutput(ctx *pulumi.Context, args LookupControllerOutputArgs, opts ...pulumi.InvokeOption) LookupControllerResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupControllerResult, error) {
+			args := v.(LookupControllerArgs)
+			r, err := LookupController(ctx, &args, opts...)
+			return *r, err
+		}).(LookupControllerResultOutput)
+}
+
+type LookupControllerOutputArgs struct {
+	// Name of the resource.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Resource group to which the resource belongs.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupControllerOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupControllerArgs)(nil)).Elem()
+}
+
+type LookupControllerResultOutput struct{ *pulumi.OutputState }
+
+func (LookupControllerResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupControllerResult)(nil)).Elem()
+}
+
+func (o LookupControllerResultOutput) ToLookupControllerResultOutput() LookupControllerResultOutput {
+	return o
+}
+
+func (o LookupControllerResultOutput) ToLookupControllerResultOutputWithContext(ctx context.Context) LookupControllerResultOutput {
+	return o
+}
+
+// DNS name for accessing DataPlane services
+func (o LookupControllerResultOutput) DataPlaneFqdn() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupControllerResult) string { return v.DataPlaneFqdn }).(pulumi.StringOutput)
+}
+
+// DNS suffix for public endpoints running in the Azure Dev Spaces Controller.
+func (o LookupControllerResultOutput) HostSuffix() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupControllerResult) string { return v.HostSuffix }).(pulumi.StringOutput)
+}
+
+// Fully qualified resource Id for the resource.
+func (o LookupControllerResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupControllerResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Region where the Azure resource is located.
+func (o LookupControllerResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupControllerResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the resource.
+func (o LookupControllerResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupControllerResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Provisioning state of the Azure Dev Spaces Controller.
+func (o LookupControllerResultOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupControllerResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Model representing SKU for Azure Dev Spaces Controller.
+func (o LookupControllerResultOutput) Sku() SkuResponseOutput {
+	return o.ApplyT(func(v LookupControllerResult) SkuResponse { return v.Sku }).(SkuResponseOutput)
+}
+
+// Tags for the Azure resource.
+func (o LookupControllerResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupControllerResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// DNS of the target container host's API server
+func (o LookupControllerResultOutput) TargetContainerHostApiServerFqdn() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupControllerResult) string { return v.TargetContainerHostApiServerFqdn }).(pulumi.StringOutput)
+}
+
+// Resource ID of the target container host
+func (o LookupControllerResultOutput) TargetContainerHostResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupControllerResult) string { return v.TargetContainerHostResourceId }).(pulumi.StringOutput)
+}
+
+// The type of the resource.
+func (o LookupControllerResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupControllerResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupControllerResultOutput{})
 }

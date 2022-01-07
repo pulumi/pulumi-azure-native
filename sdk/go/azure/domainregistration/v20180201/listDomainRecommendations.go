@@ -4,6 +4,9 @@
 package v20180201
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -30,4 +33,53 @@ type ListDomainRecommendationsResult struct {
 	NextLink string `pulumi:"nextLink"`
 	// Collection of resources.
 	Value []NameIdentifierResponse `pulumi:"value"`
+}
+
+func ListDomainRecommendationsOutput(ctx *pulumi.Context, args ListDomainRecommendationsOutputArgs, opts ...pulumi.InvokeOption) ListDomainRecommendationsResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (ListDomainRecommendationsResult, error) {
+			args := v.(ListDomainRecommendationsArgs)
+			r, err := ListDomainRecommendations(ctx, &args, opts...)
+			return *r, err
+		}).(ListDomainRecommendationsResultOutput)
+}
+
+type ListDomainRecommendationsOutputArgs struct {
+	// Keywords to be used for generating domain recommendations.
+	Keywords pulumi.StringPtrInput `pulumi:"keywords"`
+	// Maximum number of recommendations.
+	MaxDomainRecommendations pulumi.IntPtrInput `pulumi:"maxDomainRecommendations"`
+}
+
+func (ListDomainRecommendationsOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListDomainRecommendationsArgs)(nil)).Elem()
+}
+
+// Collection of domain name identifiers.
+type ListDomainRecommendationsResultOutput struct{ *pulumi.OutputState }
+
+func (ListDomainRecommendationsResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListDomainRecommendationsResult)(nil)).Elem()
+}
+
+func (o ListDomainRecommendationsResultOutput) ToListDomainRecommendationsResultOutput() ListDomainRecommendationsResultOutput {
+	return o
+}
+
+func (o ListDomainRecommendationsResultOutput) ToListDomainRecommendationsResultOutputWithContext(ctx context.Context) ListDomainRecommendationsResultOutput {
+	return o
+}
+
+// Link to next page of resources.
+func (o ListDomainRecommendationsResultOutput) NextLink() pulumi.StringOutput {
+	return o.ApplyT(func(v ListDomainRecommendationsResult) string { return v.NextLink }).(pulumi.StringOutput)
+}
+
+// Collection of resources.
+func (o ListDomainRecommendationsResultOutput) Value() NameIdentifierResponseArrayOutput {
+	return o.ApplyT(func(v ListDomainRecommendationsResult) []NameIdentifierResponse { return v.Value }).(NameIdentifierResponseArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(ListDomainRecommendationsResultOutput{})
 }

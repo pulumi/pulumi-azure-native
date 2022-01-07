@@ -4,6 +4,9 @@
 package v20160401
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -36,4 +39,68 @@ type LookupPatchScheduleResult struct {
 	ScheduleEntries []ScheduleEntryResponse `pulumi:"scheduleEntries"`
 	// Resource type.
 	Type string `pulumi:"type"`
+}
+
+func LookupPatchScheduleOutput(ctx *pulumi.Context, args LookupPatchScheduleOutputArgs, opts ...pulumi.InvokeOption) LookupPatchScheduleResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupPatchScheduleResult, error) {
+			args := v.(LookupPatchScheduleArgs)
+			r, err := LookupPatchSchedule(ctx, &args, opts...)
+			return *r, err
+		}).(LookupPatchScheduleResultOutput)
+}
+
+type LookupPatchScheduleOutputArgs struct {
+	// The name of the redis cache.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The name of the resource group.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupPatchScheduleOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupPatchScheduleArgs)(nil)).Elem()
+}
+
+// Response to put/get patch schedules for Redis cache.
+type LookupPatchScheduleResultOutput struct{ *pulumi.OutputState }
+
+func (LookupPatchScheduleResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupPatchScheduleResult)(nil)).Elem()
+}
+
+func (o LookupPatchScheduleResultOutput) ToLookupPatchScheduleResultOutput() LookupPatchScheduleResultOutput {
+	return o
+}
+
+func (o LookupPatchScheduleResultOutput) ToLookupPatchScheduleResultOutputWithContext(ctx context.Context) LookupPatchScheduleResultOutput {
+	return o
+}
+
+// Resource ID.
+func (o LookupPatchScheduleResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPatchScheduleResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Resource location.
+func (o LookupPatchScheduleResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPatchScheduleResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o LookupPatchScheduleResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPatchScheduleResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// List of patch schedules for a Redis cache.
+func (o LookupPatchScheduleResultOutput) ScheduleEntries() ScheduleEntryResponseArrayOutput {
+	return o.ApplyT(func(v LookupPatchScheduleResult) []ScheduleEntryResponse { return v.ScheduleEntries }).(ScheduleEntryResponseArrayOutput)
+}
+
+// Resource type.
+func (o LookupPatchScheduleResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPatchScheduleResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupPatchScheduleResultOutput{})
 }

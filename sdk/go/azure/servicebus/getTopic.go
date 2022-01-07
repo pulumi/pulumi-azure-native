@@ -4,6 +4,9 @@
 package servicebus
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -67,4 +70,140 @@ type LookupTopicResult struct {
 	Type string `pulumi:"type"`
 	// The exact time the message was updated.
 	UpdatedAt string `pulumi:"updatedAt"`
+}
+
+func LookupTopicOutput(ctx *pulumi.Context, args LookupTopicOutputArgs, opts ...pulumi.InvokeOption) LookupTopicResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupTopicResult, error) {
+			args := v.(LookupTopicArgs)
+			r, err := LookupTopic(ctx, &args, opts...)
+			return *r, err
+		}).(LookupTopicResultOutput)
+}
+
+type LookupTopicOutputArgs struct {
+	// The namespace name
+	NamespaceName pulumi.StringInput `pulumi:"namespaceName"`
+	// Name of the Resource group within the Azure subscription.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The topic name.
+	TopicName pulumi.StringInput `pulumi:"topicName"`
+}
+
+func (LookupTopicOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupTopicArgs)(nil)).Elem()
+}
+
+// Description of topic resource.
+type LookupTopicResultOutput struct{ *pulumi.OutputState }
+
+func (LookupTopicResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupTopicResult)(nil)).Elem()
+}
+
+func (o LookupTopicResultOutput) ToLookupTopicResultOutput() LookupTopicResultOutput {
+	return o
+}
+
+func (o LookupTopicResultOutput) ToLookupTopicResultOutputWithContext(ctx context.Context) LookupTopicResultOutput {
+	return o
+}
+
+// Last time the message was sent, or a request was received, for this topic.
+func (o LookupTopicResultOutput) AccessedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTopicResult) string { return v.AccessedAt }).(pulumi.StringOutput)
+}
+
+// ISO 8601 timespan idle interval after which the topic is automatically deleted. The minimum duration is 5 minutes.
+func (o LookupTopicResultOutput) AutoDeleteOnIdle() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupTopicResult) *string { return v.AutoDeleteOnIdle }).(pulumi.StringPtrOutput)
+}
+
+// Message count details
+func (o LookupTopicResultOutput) CountDetails() MessageCountDetailsResponseOutput {
+	return o.ApplyT(func(v LookupTopicResult) MessageCountDetailsResponse { return v.CountDetails }).(MessageCountDetailsResponseOutput)
+}
+
+// Exact time the message was created.
+func (o LookupTopicResultOutput) CreatedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTopicResult) string { return v.CreatedAt }).(pulumi.StringOutput)
+}
+
+// ISO 8601 Default message timespan to live value. This is the duration after which the message expires, starting from when the message is sent to Service Bus. This is the default value used when TimeToLive is not set on a message itself.
+func (o LookupTopicResultOutput) DefaultMessageTimeToLive() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupTopicResult) *string { return v.DefaultMessageTimeToLive }).(pulumi.StringPtrOutput)
+}
+
+// ISO8601 timespan structure that defines the duration of the duplicate detection history. The default value is 10 minutes.
+func (o LookupTopicResultOutput) DuplicateDetectionHistoryTimeWindow() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupTopicResult) *string { return v.DuplicateDetectionHistoryTimeWindow }).(pulumi.StringPtrOutput)
+}
+
+// Value that indicates whether server-side batched operations are enabled.
+func (o LookupTopicResultOutput) EnableBatchedOperations() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupTopicResult) *bool { return v.EnableBatchedOperations }).(pulumi.BoolPtrOutput)
+}
+
+// Value that indicates whether Express Entities are enabled. An express topic holds a message in memory temporarily before writing it to persistent storage.
+func (o LookupTopicResultOutput) EnableExpress() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupTopicResult) *bool { return v.EnableExpress }).(pulumi.BoolPtrOutput)
+}
+
+// Value that indicates whether the topic to be partitioned across multiple message brokers is enabled.
+func (o LookupTopicResultOutput) EnablePartitioning() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupTopicResult) *bool { return v.EnablePartitioning }).(pulumi.BoolPtrOutput)
+}
+
+// Resource Id
+func (o LookupTopicResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTopicResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Maximum size of the topic in megabytes, which is the size of the memory allocated for the topic. Default is 1024.
+func (o LookupTopicResultOutput) MaxSizeInMegabytes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupTopicResult) *int { return v.MaxSizeInMegabytes }).(pulumi.IntPtrOutput)
+}
+
+// Resource name
+func (o LookupTopicResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTopicResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Value indicating if this topic requires duplicate detection.
+func (o LookupTopicResultOutput) RequiresDuplicateDetection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupTopicResult) *bool { return v.RequiresDuplicateDetection }).(pulumi.BoolPtrOutput)
+}
+
+// Size of the topic, in bytes.
+func (o LookupTopicResultOutput) SizeInBytes() pulumi.Float64Output {
+	return o.ApplyT(func(v LookupTopicResult) float64 { return v.SizeInBytes }).(pulumi.Float64Output)
+}
+
+// Enumerates the possible values for the status of a messaging entity.
+func (o LookupTopicResultOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupTopicResult) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+// Number of subscriptions.
+func (o LookupTopicResultOutput) SubscriptionCount() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupTopicResult) int { return v.SubscriptionCount }).(pulumi.IntOutput)
+}
+
+// Value that indicates whether the topic supports ordering.
+func (o LookupTopicResultOutput) SupportOrdering() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupTopicResult) *bool { return v.SupportOrdering }).(pulumi.BoolPtrOutput)
+}
+
+// Resource type
+func (o LookupTopicResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTopicResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The exact time the message was updated.
+func (o LookupTopicResultOutput) UpdatedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTopicResult) string { return v.UpdatedAt }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupTopicResultOutput{})
 }

@@ -4,6 +4,9 @@
 package operationsmanagement
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -41,4 +44,78 @@ type LookupSolutionResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.
 	Type string `pulumi:"type"`
+}
+
+func LookupSolutionOutput(ctx *pulumi.Context, args LookupSolutionOutputArgs, opts ...pulumi.InvokeOption) LookupSolutionResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupSolutionResult, error) {
+			args := v.(LookupSolutionArgs)
+			r, err := LookupSolution(ctx, &args, opts...)
+			return *r, err
+		}).(LookupSolutionResultOutput)
+}
+
+type LookupSolutionOutputArgs struct {
+	// The name of the resource group to get. The name is case insensitive.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// User Solution Name.
+	SolutionName pulumi.StringInput `pulumi:"solutionName"`
+}
+
+func (LookupSolutionOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupSolutionArgs)(nil)).Elem()
+}
+
+// The container for solution.
+type LookupSolutionResultOutput struct{ *pulumi.OutputState }
+
+func (LookupSolutionResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupSolutionResult)(nil)).Elem()
+}
+
+func (o LookupSolutionResultOutput) ToLookupSolutionResultOutput() LookupSolutionResultOutput {
+	return o
+}
+
+func (o LookupSolutionResultOutput) ToLookupSolutionResultOutputWithContext(ctx context.Context) LookupSolutionResultOutput {
+	return o
+}
+
+// Resource ID.
+func (o LookupSolutionResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSolutionResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Resource location
+func (o LookupSolutionResultOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSolutionResult) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Resource name.
+func (o LookupSolutionResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSolutionResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Plan for solution object supported by the OperationsManagement resource provider.
+func (o LookupSolutionResultOutput) Plan() SolutionPlanResponsePtrOutput {
+	return o.ApplyT(func(v LookupSolutionResult) *SolutionPlanResponse { return v.Plan }).(SolutionPlanResponsePtrOutput)
+}
+
+// Properties for solution object supported by the OperationsManagement resource provider.
+func (o LookupSolutionResultOutput) Properties() SolutionPropertiesResponseOutput {
+	return o.ApplyT(func(v LookupSolutionResult) SolutionPropertiesResponse { return v.Properties }).(SolutionPropertiesResponseOutput)
+}
+
+// Resource tags
+func (o LookupSolutionResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupSolutionResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type.
+func (o LookupSolutionResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSolutionResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupSolutionResultOutput{})
 }

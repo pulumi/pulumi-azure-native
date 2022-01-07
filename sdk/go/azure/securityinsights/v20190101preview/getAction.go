@@ -4,6 +4,9 @@
 package v20190101preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -44,4 +47,79 @@ type LookupActionResult struct {
 	Type string `pulumi:"type"`
 	// The name of the logic app's workflow.
 	WorkflowId *string `pulumi:"workflowId"`
+}
+
+func LookupActionOutput(ctx *pulumi.Context, args LookupActionOutputArgs, opts ...pulumi.InvokeOption) LookupActionResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupActionResult, error) {
+			args := v.(LookupActionArgs)
+			r, err := LookupAction(ctx, &args, opts...)
+			return *r, err
+		}).(LookupActionResultOutput)
+}
+
+type LookupActionOutputArgs struct {
+	// Action ID
+	ActionId pulumi.StringInput `pulumi:"actionId"`
+	// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
+	OperationalInsightsResourceProvider pulumi.StringInput `pulumi:"operationalInsightsResourceProvider"`
+	// The name of the resource group within the user's subscription. The name is case insensitive.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// Alert rule ID
+	RuleId pulumi.StringInput `pulumi:"ruleId"`
+	// The name of the workspace.
+	WorkspaceName pulumi.StringInput `pulumi:"workspaceName"`
+}
+
+func (LookupActionOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupActionArgs)(nil)).Elem()
+}
+
+// Action for alert rule.
+type LookupActionResultOutput struct{ *pulumi.OutputState }
+
+func (LookupActionResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupActionResult)(nil)).Elem()
+}
+
+func (o LookupActionResultOutput) ToLookupActionResultOutput() LookupActionResultOutput {
+	return o
+}
+
+func (o LookupActionResultOutput) ToLookupActionResultOutputWithContext(ctx context.Context) LookupActionResultOutput {
+	return o
+}
+
+// Etag of the action.
+func (o LookupActionResultOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupActionResult) *string { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// Azure resource Id
+func (o LookupActionResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupActionResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Logic App Resource Id, /subscriptions/{my-subscription}/resourceGroups/{my-resource-group}/providers/Microsoft.Logic/workflows/{my-workflow-id}.
+func (o LookupActionResultOutput) LogicAppResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupActionResult) string { return v.LogicAppResourceId }).(pulumi.StringOutput)
+}
+
+// Azure resource name
+func (o LookupActionResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupActionResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Azure resource type
+func (o LookupActionResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupActionResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The name of the logic app's workflow.
+func (o LookupActionResultOutput) WorkflowId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupActionResult) *string { return v.WorkflowId }).(pulumi.StringPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupActionResultOutput{})
 }

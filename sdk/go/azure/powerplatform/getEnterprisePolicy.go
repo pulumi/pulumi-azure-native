@@ -4,6 +4,9 @@
 package powerplatform
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -49,4 +52,98 @@ type LookupEnterprisePolicyResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
+}
+
+func LookupEnterprisePolicyOutput(ctx *pulumi.Context, args LookupEnterprisePolicyOutputArgs, opts ...pulumi.InvokeOption) LookupEnterprisePolicyResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupEnterprisePolicyResult, error) {
+			args := v.(LookupEnterprisePolicyArgs)
+			r, err := LookupEnterprisePolicy(ctx, &args, opts...)
+			return *r, err
+		}).(LookupEnterprisePolicyResultOutput)
+}
+
+type LookupEnterprisePolicyOutputArgs struct {
+	// The EnterprisePolicy name.
+	EnterprisePolicyName pulumi.StringInput `pulumi:"enterprisePolicyName"`
+	// The name of the resource group. The name is case insensitive.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupEnterprisePolicyOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupEnterprisePolicyArgs)(nil)).Elem()
+}
+
+// Definition of the EnterprisePolicy.
+type LookupEnterprisePolicyResultOutput struct{ *pulumi.OutputState }
+
+func (LookupEnterprisePolicyResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupEnterprisePolicyResult)(nil)).Elem()
+}
+
+func (o LookupEnterprisePolicyResultOutput) ToLookupEnterprisePolicyResultOutput() LookupEnterprisePolicyResultOutput {
+	return o
+}
+
+func (o LookupEnterprisePolicyResultOutput) ToLookupEnterprisePolicyResultOutputWithContext(ctx context.Context) LookupEnterprisePolicyResultOutput {
+	return o
+}
+
+// The encryption settings for a configuration store.
+func (o LookupEnterprisePolicyResultOutput) Encryption() PropertiesResponseEncryptionPtrOutput {
+	return o.ApplyT(func(v LookupEnterprisePolicyResult) *PropertiesResponseEncryption { return v.Encryption }).(PropertiesResponseEncryptionPtrOutput)
+}
+
+// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+func (o LookupEnterprisePolicyResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupEnterprisePolicyResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The identity of the EnterprisePolicy.
+func (o LookupEnterprisePolicyResultOutput) Identity() EnterprisePolicyIdentityResponsePtrOutput {
+	return o.ApplyT(func(v LookupEnterprisePolicyResult) *EnterprisePolicyIdentityResponse { return v.Identity }).(EnterprisePolicyIdentityResponsePtrOutput)
+}
+
+// The kind (type) of Enterprise Policy.
+func (o LookupEnterprisePolicyResultOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupEnterprisePolicyResult) string { return v.Kind }).(pulumi.StringOutput)
+}
+
+// The geo-location where the resource lives
+func (o LookupEnterprisePolicyResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupEnterprisePolicyResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// Settings concerning lockbox.
+func (o LookupEnterprisePolicyResultOutput) Lockbox() PropertiesResponseLockboxPtrOutput {
+	return o.ApplyT(func(v LookupEnterprisePolicyResult) *PropertiesResponseLockbox { return v.Lockbox }).(PropertiesResponseLockboxPtrOutput)
+}
+
+// The name of the resource
+func (o LookupEnterprisePolicyResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupEnterprisePolicyResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Settings concerning network injection.
+func (o LookupEnterprisePolicyResultOutput) NetworkInjection() PropertiesResponseNetworkInjectionPtrOutput {
+	return o.ApplyT(func(v LookupEnterprisePolicyResult) *PropertiesResponseNetworkInjection { return v.NetworkInjection }).(PropertiesResponseNetworkInjectionPtrOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o LookupEnterprisePolicyResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupEnterprisePolicyResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource tags.
+func (o LookupEnterprisePolicyResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupEnterprisePolicyResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o LookupEnterprisePolicyResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupEnterprisePolicyResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupEnterprisePolicyResultOutput{})
 }

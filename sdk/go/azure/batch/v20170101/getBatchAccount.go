@@ -4,6 +4,9 @@
 package v20170101
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -49,4 +52,105 @@ type LookupBatchAccountResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource
 	Type string `pulumi:"type"`
+}
+
+func LookupBatchAccountOutput(ctx *pulumi.Context, args LookupBatchAccountOutputArgs, opts ...pulumi.InvokeOption) LookupBatchAccountResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupBatchAccountResult, error) {
+			args := v.(LookupBatchAccountArgs)
+			r, err := LookupBatchAccount(ctx, &args, opts...)
+			return *r, err
+		}).(LookupBatchAccountResultOutput)
+}
+
+type LookupBatchAccountOutputArgs struct {
+	// The name of the account.
+	AccountName pulumi.StringInput `pulumi:"accountName"`
+	// The name of the resource group that contains the Batch account.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupBatchAccountOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupBatchAccountArgs)(nil)).Elem()
+}
+
+// Contains information about an Azure Batch account.
+type LookupBatchAccountResultOutput struct{ *pulumi.OutputState }
+
+func (LookupBatchAccountResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupBatchAccountResult)(nil)).Elem()
+}
+
+func (o LookupBatchAccountResultOutput) ToLookupBatchAccountResultOutput() LookupBatchAccountResultOutput {
+	return o
+}
+
+func (o LookupBatchAccountResultOutput) ToLookupBatchAccountResultOutputWithContext(ctx context.Context) LookupBatchAccountResultOutput {
+	return o
+}
+
+// The endpoint used by this account to interact with the Batch services.
+func (o LookupBatchAccountResultOutput) AccountEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBatchAccountResult) string { return v.AccountEndpoint }).(pulumi.StringOutput)
+}
+
+func (o LookupBatchAccountResultOutput) ActiveJobAndJobScheduleQuota() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupBatchAccountResult) int { return v.ActiveJobAndJobScheduleQuota }).(pulumi.IntOutput)
+}
+
+// Contains information about the auto storage account associated with a Batch account.
+func (o LookupBatchAccountResultOutput) AutoStorage() AutoStoragePropertiesResponseOutput {
+	return o.ApplyT(func(v LookupBatchAccountResult) AutoStoragePropertiesResponse { return v.AutoStorage }).(AutoStoragePropertiesResponseOutput)
+}
+
+func (o LookupBatchAccountResultOutput) CoreQuota() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupBatchAccountResult) int { return v.CoreQuota }).(pulumi.IntOutput)
+}
+
+// The ID of the resource
+func (o LookupBatchAccountResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBatchAccountResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Identifies the Azure key vault associated with a Batch account.
+func (o LookupBatchAccountResultOutput) KeyVaultReference() KeyVaultReferenceResponseOutput {
+	return o.ApplyT(func(v LookupBatchAccountResult) KeyVaultReferenceResponse { return v.KeyVaultReference }).(KeyVaultReferenceResponseOutput)
+}
+
+// The location of the resource
+func (o LookupBatchAccountResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBatchAccountResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o LookupBatchAccountResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBatchAccountResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The allocation mode for creating pools in the Batch account.
+func (o LookupBatchAccountResultOutput) PoolAllocationMode() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBatchAccountResult) string { return v.PoolAllocationMode }).(pulumi.StringOutput)
+}
+
+func (o LookupBatchAccountResultOutput) PoolQuota() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupBatchAccountResult) int { return v.PoolQuota }).(pulumi.IntOutput)
+}
+
+// The provisioned state of the resource
+func (o LookupBatchAccountResultOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBatchAccountResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The tags of the resource
+func (o LookupBatchAccountResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupBatchAccountResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource
+func (o LookupBatchAccountResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBatchAccountResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupBatchAccountResultOutput{})
 }

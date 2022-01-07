@@ -4,6 +4,9 @@
 package v20190701
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -43,4 +46,81 @@ type LookupPeriodicTimerEventTriggerResult struct {
 	SourceInfo PeriodicTimerSourceInfoResponse `pulumi:"sourceInfo"`
 	// The hierarchical type of the object.
 	Type string `pulumi:"type"`
+}
+
+func LookupPeriodicTimerEventTriggerOutput(ctx *pulumi.Context, args LookupPeriodicTimerEventTriggerOutputArgs, opts ...pulumi.InvokeOption) LookupPeriodicTimerEventTriggerResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupPeriodicTimerEventTriggerResult, error) {
+			args := v.(LookupPeriodicTimerEventTriggerArgs)
+			r, err := LookupPeriodicTimerEventTrigger(ctx, &args, opts...)
+			return *r, err
+		}).(LookupPeriodicTimerEventTriggerResultOutput)
+}
+
+type LookupPeriodicTimerEventTriggerOutputArgs struct {
+	// The device name.
+	DeviceName pulumi.StringInput `pulumi:"deviceName"`
+	// The trigger name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The resource group name.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupPeriodicTimerEventTriggerOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupPeriodicTimerEventTriggerArgs)(nil)).Elem()
+}
+
+// Trigger details.
+type LookupPeriodicTimerEventTriggerResultOutput struct{ *pulumi.OutputState }
+
+func (LookupPeriodicTimerEventTriggerResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupPeriodicTimerEventTriggerResult)(nil)).Elem()
+}
+
+func (o LookupPeriodicTimerEventTriggerResultOutput) ToLookupPeriodicTimerEventTriggerResultOutput() LookupPeriodicTimerEventTriggerResultOutput {
+	return o
+}
+
+func (o LookupPeriodicTimerEventTriggerResultOutput) ToLookupPeriodicTimerEventTriggerResultOutputWithContext(ctx context.Context) LookupPeriodicTimerEventTriggerResultOutput {
+	return o
+}
+
+// A custom context tag typically used to correlate the trigger against its usage. For example, if a periodic timer trigger is intended for certain specific IoT modules in the device, the tag can be the name or the image URL of the module.
+func (o LookupPeriodicTimerEventTriggerResultOutput) CustomContextTag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupPeriodicTimerEventTriggerResult) *string { return v.CustomContextTag }).(pulumi.StringPtrOutput)
+}
+
+// The path ID that uniquely identifies the object.
+func (o LookupPeriodicTimerEventTriggerResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPeriodicTimerEventTriggerResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Trigger Kind.
+// Expected value is 'PeriodicTimerEvent'.
+func (o LookupPeriodicTimerEventTriggerResultOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPeriodicTimerEventTriggerResult) string { return v.Kind }).(pulumi.StringOutput)
+}
+
+// The object name.
+func (o LookupPeriodicTimerEventTriggerResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPeriodicTimerEventTriggerResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Role Sink information.
+func (o LookupPeriodicTimerEventTriggerResultOutput) SinkInfo() RoleSinkInfoResponseOutput {
+	return o.ApplyT(func(v LookupPeriodicTimerEventTriggerResult) RoleSinkInfoResponse { return v.SinkInfo }).(RoleSinkInfoResponseOutput)
+}
+
+// Periodic timer details.
+func (o LookupPeriodicTimerEventTriggerResultOutput) SourceInfo() PeriodicTimerSourceInfoResponseOutput {
+	return o.ApplyT(func(v LookupPeriodicTimerEventTriggerResult) PeriodicTimerSourceInfoResponse { return v.SourceInfo }).(PeriodicTimerSourceInfoResponseOutput)
+}
+
+// The hierarchical type of the object.
+func (o LookupPeriodicTimerEventTriggerResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPeriodicTimerEventTriggerResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupPeriodicTimerEventTriggerResultOutput{})
 }

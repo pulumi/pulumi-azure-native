@@ -4,6 +4,9 @@
 package attestation
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -47,4 +50,95 @@ type LookupAttestationProviderResult struct {
 	TrustModel *string `pulumi:"trustModel"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
+}
+
+func LookupAttestationProviderOutput(ctx *pulumi.Context, args LookupAttestationProviderOutputArgs, opts ...pulumi.InvokeOption) LookupAttestationProviderResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupAttestationProviderResult, error) {
+			args := v.(LookupAttestationProviderArgs)
+			r, err := LookupAttestationProvider(ctx, &args, opts...)
+			return *r, err
+		}).(LookupAttestationProviderResultOutput)
+}
+
+type LookupAttestationProviderOutputArgs struct {
+	// Name of the attestation provider.
+	ProviderName pulumi.StringInput `pulumi:"providerName"`
+	// The name of the resource group. The name is case insensitive.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupAttestationProviderOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupAttestationProviderArgs)(nil)).Elem()
+}
+
+// Attestation service response message.
+type LookupAttestationProviderResultOutput struct{ *pulumi.OutputState }
+
+func (LookupAttestationProviderResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupAttestationProviderResult)(nil)).Elem()
+}
+
+func (o LookupAttestationProviderResultOutput) ToLookupAttestationProviderResultOutput() LookupAttestationProviderResultOutput {
+	return o
+}
+
+func (o LookupAttestationProviderResultOutput) ToLookupAttestationProviderResultOutputWithContext(ctx context.Context) LookupAttestationProviderResultOutput {
+	return o
+}
+
+// Gets the uri of attestation service
+func (o LookupAttestationProviderResultOutput) AttestUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupAttestationProviderResult) *string { return v.AttestUri }).(pulumi.StringPtrOutput)
+}
+
+// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+func (o LookupAttestationProviderResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAttestationProviderResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The geo-location where the resource lives
+func (o LookupAttestationProviderResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAttestationProviderResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o LookupAttestationProviderResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAttestationProviderResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// List of private endpoint connections associated with the attestation provider.
+func (o LookupAttestationProviderResultOutput) PrivateEndpointConnections() PrivateEndpointConnectionResponseArrayOutput {
+	return o.ApplyT(func(v LookupAttestationProviderResult) []PrivateEndpointConnectionResponse {
+		return v.PrivateEndpointConnections
+	}).(PrivateEndpointConnectionResponseArrayOutput)
+}
+
+// Status of attestation service.
+func (o LookupAttestationProviderResultOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupAttestationProviderResult) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+// The system metadata relating to this resource
+func (o LookupAttestationProviderResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupAttestationProviderResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource tags.
+func (o LookupAttestationProviderResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupAttestationProviderResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Trust model for the attestation provider.
+func (o LookupAttestationProviderResultOutput) TrustModel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupAttestationProviderResult) *string { return v.TrustModel }).(pulumi.StringPtrOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o LookupAttestationProviderResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAttestationProviderResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupAttestationProviderResultOutput{})
 }

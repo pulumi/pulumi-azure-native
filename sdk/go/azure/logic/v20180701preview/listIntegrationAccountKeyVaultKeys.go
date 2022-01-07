@@ -4,6 +4,9 @@
 package v20180701preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -34,4 +37,57 @@ type ListIntegrationAccountKeyVaultKeysResult struct {
 	SkipToken *string `pulumi:"skipToken"`
 	// The key vault keys.
 	Value []KeyVaultKeyResponse `pulumi:"value"`
+}
+
+func ListIntegrationAccountKeyVaultKeysOutput(ctx *pulumi.Context, args ListIntegrationAccountKeyVaultKeysOutputArgs, opts ...pulumi.InvokeOption) ListIntegrationAccountKeyVaultKeysResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (ListIntegrationAccountKeyVaultKeysResult, error) {
+			args := v.(ListIntegrationAccountKeyVaultKeysArgs)
+			r, err := ListIntegrationAccountKeyVaultKeys(ctx, &args, opts...)
+			return *r, err
+		}).(ListIntegrationAccountKeyVaultKeysResultOutput)
+}
+
+type ListIntegrationAccountKeyVaultKeysOutputArgs struct {
+	// The integration account name.
+	IntegrationAccountName pulumi.StringInput `pulumi:"integrationAccountName"`
+	// The key vault reference.
+	KeyVault KeyVaultReferenceInput `pulumi:"keyVault"`
+	// The resource group name.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The skip token.
+	SkipToken pulumi.StringPtrInput `pulumi:"skipToken"`
+}
+
+func (ListIntegrationAccountKeyVaultKeysOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListIntegrationAccountKeyVaultKeysArgs)(nil)).Elem()
+}
+
+// Collection of key vault keys.
+type ListIntegrationAccountKeyVaultKeysResultOutput struct{ *pulumi.OutputState }
+
+func (ListIntegrationAccountKeyVaultKeysResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListIntegrationAccountKeyVaultKeysResult)(nil)).Elem()
+}
+
+func (o ListIntegrationAccountKeyVaultKeysResultOutput) ToListIntegrationAccountKeyVaultKeysResultOutput() ListIntegrationAccountKeyVaultKeysResultOutput {
+	return o
+}
+
+func (o ListIntegrationAccountKeyVaultKeysResultOutput) ToListIntegrationAccountKeyVaultKeysResultOutputWithContext(ctx context.Context) ListIntegrationAccountKeyVaultKeysResultOutput {
+	return o
+}
+
+// The skip token.
+func (o ListIntegrationAccountKeyVaultKeysResultOutput) SkipToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListIntegrationAccountKeyVaultKeysResult) *string { return v.SkipToken }).(pulumi.StringPtrOutput)
+}
+
+// The key vault keys.
+func (o ListIntegrationAccountKeyVaultKeysResultOutput) Value() KeyVaultKeyResponseArrayOutput {
+	return o.ApplyT(func(v ListIntegrationAccountKeyVaultKeysResult) []KeyVaultKeyResponse { return v.Value }).(KeyVaultKeyResponseArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(ListIntegrationAccountKeyVaultKeysResultOutput{})
 }

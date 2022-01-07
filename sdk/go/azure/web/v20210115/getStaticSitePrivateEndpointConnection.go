@@ -4,6 +4,9 @@
 package v20210115
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -43,4 +46,88 @@ type LookupStaticSitePrivateEndpointConnectionResult struct {
 	ProvisioningState                 string                              `pulumi:"provisioningState"`
 	// Resource type.
 	Type string `pulumi:"type"`
+}
+
+func LookupStaticSitePrivateEndpointConnectionOutput(ctx *pulumi.Context, args LookupStaticSitePrivateEndpointConnectionOutputArgs, opts ...pulumi.InvokeOption) LookupStaticSitePrivateEndpointConnectionResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupStaticSitePrivateEndpointConnectionResult, error) {
+			args := v.(LookupStaticSitePrivateEndpointConnectionArgs)
+			r, err := LookupStaticSitePrivateEndpointConnection(ctx, &args, opts...)
+			return *r, err
+		}).(LookupStaticSitePrivateEndpointConnectionResultOutput)
+}
+
+type LookupStaticSitePrivateEndpointConnectionOutputArgs struct {
+	// Name of the static site.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Name of the private endpoint connection.
+	PrivateEndpointConnectionName pulumi.StringInput `pulumi:"privateEndpointConnectionName"`
+	// Name of the resource group to which the resource belongs.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupStaticSitePrivateEndpointConnectionOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupStaticSitePrivateEndpointConnectionArgs)(nil)).Elem()
+}
+
+// Remote Private Endpoint Connection ARM resource.
+type LookupStaticSitePrivateEndpointConnectionResultOutput struct{ *pulumi.OutputState }
+
+func (LookupStaticSitePrivateEndpointConnectionResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupStaticSitePrivateEndpointConnectionResult)(nil)).Elem()
+}
+
+func (o LookupStaticSitePrivateEndpointConnectionResultOutput) ToLookupStaticSitePrivateEndpointConnectionResultOutput() LookupStaticSitePrivateEndpointConnectionResultOutput {
+	return o
+}
+
+func (o LookupStaticSitePrivateEndpointConnectionResultOutput) ToLookupStaticSitePrivateEndpointConnectionResultOutputWithContext(ctx context.Context) LookupStaticSitePrivateEndpointConnectionResultOutput {
+	return o
+}
+
+// Resource Id.
+func (o LookupStaticSitePrivateEndpointConnectionResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupStaticSitePrivateEndpointConnectionResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Private IPAddresses mapped to the remote private endpoint
+func (o LookupStaticSitePrivateEndpointConnectionResultOutput) IpAddresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupStaticSitePrivateEndpointConnectionResult) []string { return v.IpAddresses }).(pulumi.StringArrayOutput)
+}
+
+// Kind of resource.
+func (o LookupStaticSitePrivateEndpointConnectionResultOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupStaticSitePrivateEndpointConnectionResult) *string { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Resource Name.
+func (o LookupStaticSitePrivateEndpointConnectionResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupStaticSitePrivateEndpointConnectionResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// PrivateEndpoint of a remote private endpoint connection
+func (o LookupStaticSitePrivateEndpointConnectionResultOutput) PrivateEndpoint() ArmIdWrapperResponsePtrOutput {
+	return o.ApplyT(func(v LookupStaticSitePrivateEndpointConnectionResult) *ArmIdWrapperResponse {
+		return v.PrivateEndpoint
+	}).(ArmIdWrapperResponsePtrOutput)
+}
+
+// The state of a private link connection
+func (o LookupStaticSitePrivateEndpointConnectionResultOutput) PrivateLinkServiceConnectionState() PrivateLinkConnectionStateResponsePtrOutput {
+	return o.ApplyT(func(v LookupStaticSitePrivateEndpointConnectionResult) *PrivateLinkConnectionStateResponse {
+		return v.PrivateLinkServiceConnectionState
+	}).(PrivateLinkConnectionStateResponsePtrOutput)
+}
+
+func (o LookupStaticSitePrivateEndpointConnectionResultOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupStaticSitePrivateEndpointConnectionResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Resource type.
+func (o LookupStaticSitePrivateEndpointConnectionResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupStaticSitePrivateEndpointConnectionResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupStaticSitePrivateEndpointConnectionResultOutput{})
 }

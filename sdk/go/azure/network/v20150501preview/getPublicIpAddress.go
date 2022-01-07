@@ -4,6 +4,9 @@
 package v20150501preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -52,4 +55,108 @@ type LookupPublicIpAddressResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type
 	Type string `pulumi:"type"`
+}
+
+func LookupPublicIpAddressOutput(ctx *pulumi.Context, args LookupPublicIpAddressOutputArgs, opts ...pulumi.InvokeOption) LookupPublicIpAddressResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupPublicIpAddressResult, error) {
+			args := v.(LookupPublicIpAddressArgs)
+			r, err := LookupPublicIpAddress(ctx, &args, opts...)
+			return *r, err
+		}).(LookupPublicIpAddressResultOutput)
+}
+
+type LookupPublicIpAddressOutputArgs struct {
+	// The name of the subnet.
+	PublicIpAddressName pulumi.StringInput `pulumi:"publicIpAddressName"`
+	// The name of the resource group.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupPublicIpAddressOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupPublicIpAddressArgs)(nil)).Elem()
+}
+
+// PublicIPAddress resource
+type LookupPublicIpAddressResultOutput struct{ *pulumi.OutputState }
+
+func (LookupPublicIpAddressResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupPublicIpAddressResult)(nil)).Elem()
+}
+
+func (o LookupPublicIpAddressResultOutput) ToLookupPublicIpAddressResultOutput() LookupPublicIpAddressResultOutput {
+	return o
+}
+
+func (o LookupPublicIpAddressResultOutput) ToLookupPublicIpAddressResultOutputWithContext(ctx context.Context) LookupPublicIpAddressResultOutput {
+	return o
+}
+
+// Gets or sets FQDN of the DNS record associated with the public IP address
+func (o LookupPublicIpAddressResultOutput) DnsSettings() PublicIpAddressDnsSettingsResponsePtrOutput {
+	return o.ApplyT(func(v LookupPublicIpAddressResult) *PublicIpAddressDnsSettingsResponse { return v.DnsSettings }).(PublicIpAddressDnsSettingsResponsePtrOutput)
+}
+
+// Gets a unique read-only string that changes whenever the resource is updated
+func (o LookupPublicIpAddressResultOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupPublicIpAddressResult) *string { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// Resource Id
+func (o LookupPublicIpAddressResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPublicIpAddressResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Gets or sets the idle timeout of the public IP address
+func (o LookupPublicIpAddressResultOutput) IdleTimeoutInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupPublicIpAddressResult) *int { return v.IdleTimeoutInMinutes }).(pulumi.IntPtrOutput)
+}
+
+// Gets the assigned public IP address
+func (o LookupPublicIpAddressResultOutput) IpAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupPublicIpAddressResult) *string { return v.IpAddress }).(pulumi.StringPtrOutput)
+}
+
+// Gets a reference to the network interface IP configurations using this public IP address
+func (o LookupPublicIpAddressResultOutput) IpConfiguration() SubResourceResponsePtrOutput {
+	return o.ApplyT(func(v LookupPublicIpAddressResult) *SubResourceResponse { return v.IpConfiguration }).(SubResourceResponsePtrOutput)
+}
+
+// Resource location
+func (o LookupPublicIpAddressResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPublicIpAddressResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource name
+func (o LookupPublicIpAddressResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPublicIpAddressResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
+func (o LookupPublicIpAddressResultOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupPublicIpAddressResult) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets PublicIP allocation method (Static/Dynamic)
+func (o LookupPublicIpAddressResultOutput) PublicIPAllocationMethod() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPublicIpAddressResult) string { return v.PublicIPAllocationMethod }).(pulumi.StringOutput)
+}
+
+// Gets or sets resource guid property of the PublicIP resource
+func (o LookupPublicIpAddressResultOutput) ResourceGuid() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupPublicIpAddressResult) *string { return v.ResourceGuid }).(pulumi.StringPtrOutput)
+}
+
+// Resource tags
+func (o LookupPublicIpAddressResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupPublicIpAddressResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type
+func (o LookupPublicIpAddressResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPublicIpAddressResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupPublicIpAddressResultOutput{})
 }

@@ -4,6 +4,9 @@
 package labservices
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -29,4 +32,50 @@ type GetGlobalUserOperationBatchStatusArgs struct {
 type GetGlobalUserOperationBatchStatusResult struct {
 	// Gets a collection of items that contain the operation url and status.
 	Items []OperationBatchStatusResponseItemResponse `pulumi:"items"`
+}
+
+func GetGlobalUserOperationBatchStatusOutput(ctx *pulumi.Context, args GetGlobalUserOperationBatchStatusOutputArgs, opts ...pulumi.InvokeOption) GetGlobalUserOperationBatchStatusResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetGlobalUserOperationBatchStatusResult, error) {
+			args := v.(GetGlobalUserOperationBatchStatusArgs)
+			r, err := GetGlobalUserOperationBatchStatus(ctx, &args, opts...)
+			return *r, err
+		}).(GetGlobalUserOperationBatchStatusResultOutput)
+}
+
+type GetGlobalUserOperationBatchStatusOutputArgs struct {
+	// The operation url of long running operation
+	Urls pulumi.StringArrayInput `pulumi:"urls"`
+	// The name of the user.
+	UserName pulumi.StringInput `pulumi:"userName"`
+}
+
+func (GetGlobalUserOperationBatchStatusOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetGlobalUserOperationBatchStatusArgs)(nil)).Elem()
+}
+
+// Status Details of the long running operation for an environment
+type GetGlobalUserOperationBatchStatusResultOutput struct{ *pulumi.OutputState }
+
+func (GetGlobalUserOperationBatchStatusResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetGlobalUserOperationBatchStatusResult)(nil)).Elem()
+}
+
+func (o GetGlobalUserOperationBatchStatusResultOutput) ToGetGlobalUserOperationBatchStatusResultOutput() GetGlobalUserOperationBatchStatusResultOutput {
+	return o
+}
+
+func (o GetGlobalUserOperationBatchStatusResultOutput) ToGetGlobalUserOperationBatchStatusResultOutputWithContext(ctx context.Context) GetGlobalUserOperationBatchStatusResultOutput {
+	return o
+}
+
+// Gets a collection of items that contain the operation url and status.
+func (o GetGlobalUserOperationBatchStatusResultOutput) Items() OperationBatchStatusResponseItemResponseArrayOutput {
+	return o.ApplyT(func(v GetGlobalUserOperationBatchStatusResult) []OperationBatchStatusResponseItemResponse {
+		return v.Items
+	}).(OperationBatchStatusResponseItemResponseArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetGlobalUserOperationBatchStatusResultOutput{})
 }

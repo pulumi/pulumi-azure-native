@@ -4,6 +4,9 @@
 package v20210301preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -42,4 +45,74 @@ type LookupLabelingJobResult struct {
 	SystemData SystemDataResponse `pulumi:"systemData"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
+}
+
+func LookupLabelingJobOutput(ctx *pulumi.Context, args LookupLabelingJobOutputArgs, opts ...pulumi.InvokeOption) LookupLabelingJobResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupLabelingJobResult, error) {
+			args := v.(LookupLabelingJobArgs)
+			r, err := LookupLabelingJob(ctx, &args, opts...)
+			return *r, err
+		}).(LookupLabelingJobResultOutput)
+}
+
+type LookupLabelingJobOutputArgs struct {
+	// The name and identifier for the LabelingJob.
+	Id pulumi.StringInput `pulumi:"id"`
+	// Boolean value to indicate whether to include JobInstructions in response.
+	IncludeJobInstructions pulumi.BoolPtrInput `pulumi:"includeJobInstructions"`
+	// Boolean value to indicate Whether to include LabelCategories in response.
+	IncludeLabelCategories pulumi.BoolPtrInput `pulumi:"includeLabelCategories"`
+	// The name of the resource group. The name is case insensitive.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// Name of Azure Machine Learning workspace.
+	WorkspaceName pulumi.StringInput `pulumi:"workspaceName"`
+}
+
+func (LookupLabelingJobOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupLabelingJobArgs)(nil)).Elem()
+}
+
+// Azure Resource Manager resource envelope.
+type LookupLabelingJobResultOutput struct{ *pulumi.OutputState }
+
+func (LookupLabelingJobResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupLabelingJobResult)(nil)).Elem()
+}
+
+func (o LookupLabelingJobResultOutput) ToLookupLabelingJobResultOutput() LookupLabelingJobResultOutput {
+	return o
+}
+
+func (o LookupLabelingJobResultOutput) ToLookupLabelingJobResultOutputWithContext(ctx context.Context) LookupLabelingJobResultOutput {
+	return o
+}
+
+// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+func (o LookupLabelingJobResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupLabelingJobResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o LookupLabelingJobResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupLabelingJobResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Additional attributes of the entity.
+func (o LookupLabelingJobResultOutput) Properties() LabelingJobResponseOutput {
+	return o.ApplyT(func(v LookupLabelingJobResult) LabelingJobResponse { return v.Properties }).(LabelingJobResponseOutput)
+}
+
+// System data associated with resource provider
+func (o LookupLabelingJobResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupLabelingJobResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o LookupLabelingJobResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupLabelingJobResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupLabelingJobResultOutput{})
 }

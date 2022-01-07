@@ -4,6 +4,9 @@
 package v20210301
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -89,4 +92,123 @@ func (val *LookupBastionHostResult) Defaults() *LookupBastionHostResult {
 	tmp.Sku = tmp.Sku.Defaults()
 
 	return &tmp
+}
+
+func LookupBastionHostOutput(ctx *pulumi.Context, args LookupBastionHostOutputArgs, opts ...pulumi.InvokeOption) LookupBastionHostResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupBastionHostResult, error) {
+			args := v.(LookupBastionHostArgs)
+			r, err := LookupBastionHost(ctx, &args, opts...)
+			return *r, err
+		}).(LookupBastionHostResultOutput)
+}
+
+type LookupBastionHostOutputArgs struct {
+	// The name of the Bastion Host.
+	BastionHostName pulumi.StringInput `pulumi:"bastionHostName"`
+	// The name of the resource group.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupBastionHostOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupBastionHostArgs)(nil)).Elem()
+}
+
+// Bastion Host resource.
+type LookupBastionHostResultOutput struct{ *pulumi.OutputState }
+
+func (LookupBastionHostResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupBastionHostResult)(nil)).Elem()
+}
+
+func (o LookupBastionHostResultOutput) ToLookupBastionHostResultOutput() LookupBastionHostResultOutput {
+	return o
+}
+
+func (o LookupBastionHostResultOutput) ToLookupBastionHostResultOutputWithContext(ctx context.Context) LookupBastionHostResultOutput {
+	return o
+}
+
+// Enable/Disable Copy/Paste feature of the Bastion Host resource.
+func (o LookupBastionHostResultOutput) DisableCopyPaste() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupBastionHostResult) *bool { return v.DisableCopyPaste }).(pulumi.BoolPtrOutput)
+}
+
+// FQDN for the endpoint on which bastion host is accessible.
+func (o LookupBastionHostResultOutput) DnsName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupBastionHostResult) *string { return v.DnsName }).(pulumi.StringPtrOutput)
+}
+
+// Enable/Disable File Copy feature of the Bastion Host resource.
+func (o LookupBastionHostResultOutput) EnableFileCopy() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupBastionHostResult) *bool { return v.EnableFileCopy }).(pulumi.BoolPtrOutput)
+}
+
+// Enable/Disable IP Connect feature of the Bastion Host resource.
+func (o LookupBastionHostResultOutput) EnableIpConnect() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupBastionHostResult) *bool { return v.EnableIpConnect }).(pulumi.BoolPtrOutput)
+}
+
+// Enable/Disable Shareable Link of the Bastion Host resource.
+func (o LookupBastionHostResultOutput) EnableShareableLink() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupBastionHostResult) *bool { return v.EnableShareableLink }).(pulumi.BoolPtrOutput)
+}
+
+// Enable/Disable Tunneling feature of the Bastion Host resource.
+func (o LookupBastionHostResultOutput) EnableTunneling() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupBastionHostResult) *bool { return v.EnableTunneling }).(pulumi.BoolPtrOutput)
+}
+
+// A unique read-only string that changes whenever the resource is updated.
+func (o LookupBastionHostResultOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBastionHostResult) string { return v.Etag }).(pulumi.StringOutput)
+}
+
+// Resource ID.
+func (o LookupBastionHostResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupBastionHostResult) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// IP configuration of the Bastion Host resource.
+func (o LookupBastionHostResultOutput) IpConfigurations() BastionHostIPConfigurationResponseArrayOutput {
+	return o.ApplyT(func(v LookupBastionHostResult) []BastionHostIPConfigurationResponse { return v.IpConfigurations }).(BastionHostIPConfigurationResponseArrayOutput)
+}
+
+// Resource location.
+func (o LookupBastionHostResultOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupBastionHostResult) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Resource name.
+func (o LookupBastionHostResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBastionHostResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The provisioning state of the bastion host resource.
+func (o LookupBastionHostResultOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBastionHostResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The scale units for the Bastion Host resource.
+func (o LookupBastionHostResultOutput) ScaleUnits() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupBastionHostResult) *int { return v.ScaleUnits }).(pulumi.IntPtrOutput)
+}
+
+// The sku of this Bastion Host.
+func (o LookupBastionHostResultOutput) Sku() SkuResponsePtrOutput {
+	return o.ApplyT(func(v LookupBastionHostResult) *SkuResponse { return v.Sku }).(SkuResponsePtrOutput)
+}
+
+// Resource tags.
+func (o LookupBastionHostResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupBastionHostResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type.
+func (o LookupBastionHostResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBastionHostResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupBastionHostResultOutput{})
 }

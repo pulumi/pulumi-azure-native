@@ -4,6 +4,9 @@
 package v20160601
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -52,4 +55,105 @@ type LookupVirtualNetworkResult struct {
 	Type string `pulumi:"type"`
 	// Gets or sets list of peerings in a VirtualNetwork
 	VirtualNetworkPeerings []VirtualNetworkPeeringResponse `pulumi:"virtualNetworkPeerings"`
+}
+
+func LookupVirtualNetworkOutput(ctx *pulumi.Context, args LookupVirtualNetworkOutputArgs, opts ...pulumi.InvokeOption) LookupVirtualNetworkResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupVirtualNetworkResult, error) {
+			args := v.(LookupVirtualNetworkArgs)
+			r, err := LookupVirtualNetwork(ctx, &args, opts...)
+			return *r, err
+		}).(LookupVirtualNetworkResultOutput)
+}
+
+type LookupVirtualNetworkOutputArgs struct {
+	// expand references resources.
+	Expand pulumi.StringPtrInput `pulumi:"expand"`
+	// The name of the resource group.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the virtual network.
+	VirtualNetworkName pulumi.StringInput `pulumi:"virtualNetworkName"`
+}
+
+func (LookupVirtualNetworkOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupVirtualNetworkArgs)(nil)).Elem()
+}
+
+// Virtual Network resource
+type LookupVirtualNetworkResultOutput struct{ *pulumi.OutputState }
+
+func (LookupVirtualNetworkResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupVirtualNetworkResult)(nil)).Elem()
+}
+
+func (o LookupVirtualNetworkResultOutput) ToLookupVirtualNetworkResultOutput() LookupVirtualNetworkResultOutput {
+	return o
+}
+
+func (o LookupVirtualNetworkResultOutput) ToLookupVirtualNetworkResultOutputWithContext(ctx context.Context) LookupVirtualNetworkResultOutput {
+	return o
+}
+
+// Gets or sets AddressSpace that contains an array of IP address ranges that can be used by subnets
+func (o LookupVirtualNetworkResultOutput) AddressSpace() AddressSpaceResponsePtrOutput {
+	return o.ApplyT(func(v LookupVirtualNetworkResult) *AddressSpaceResponse { return v.AddressSpace }).(AddressSpaceResponsePtrOutput)
+}
+
+// Gets or sets DHCPOptions that contains an array of DNS servers available to VMs deployed in the virtual network
+func (o LookupVirtualNetworkResultOutput) DhcpOptions() DhcpOptionsResponsePtrOutput {
+	return o.ApplyT(func(v LookupVirtualNetworkResult) *DhcpOptionsResponse { return v.DhcpOptions }).(DhcpOptionsResponsePtrOutput)
+}
+
+// Gets a unique read-only string that changes whenever the resource is updated
+func (o LookupVirtualNetworkResultOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVirtualNetworkResult) *string { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// Resource Id
+func (o LookupVirtualNetworkResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVirtualNetworkResult) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// Resource location
+func (o LookupVirtualNetworkResultOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVirtualNetworkResult) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Resource name
+func (o LookupVirtualNetworkResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVirtualNetworkResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Gets provisioning state of the PublicIP resource Updating/Deleting/Failed
+func (o LookupVirtualNetworkResultOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVirtualNetworkResult) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets resource guid property of the VirtualNetwork resource
+func (o LookupVirtualNetworkResultOutput) ResourceGuid() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVirtualNetworkResult) *string { return v.ResourceGuid }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets list of subnets in a VirtualNetwork
+func (o LookupVirtualNetworkResultOutput) Subnets() SubnetResponseArrayOutput {
+	return o.ApplyT(func(v LookupVirtualNetworkResult) []SubnetResponse { return v.Subnets }).(SubnetResponseArrayOutput)
+}
+
+// Resource tags
+func (o LookupVirtualNetworkResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupVirtualNetworkResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type
+func (o LookupVirtualNetworkResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVirtualNetworkResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Gets or sets list of peerings in a VirtualNetwork
+func (o LookupVirtualNetworkResultOutput) VirtualNetworkPeerings() VirtualNetworkPeeringResponseArrayOutput {
+	return o.ApplyT(func(v LookupVirtualNetworkResult) []VirtualNetworkPeeringResponse { return v.VirtualNetworkPeerings }).(VirtualNetworkPeeringResponseArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupVirtualNetworkResultOutput{})
 }

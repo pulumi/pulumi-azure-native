@@ -4,6 +4,9 @@
 package v20210601
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -29,4 +32,49 @@ type ListClusterUpgradableVersionsArgs struct {
 // The list of intermediate cluster code versions for an upgrade or downgrade. Or minimum and maximum upgradable version if no target was given
 type ListClusterUpgradableVersionsResult struct {
 	SupportedPath []string `pulumi:"supportedPath"`
+}
+
+func ListClusterUpgradableVersionsOutput(ctx *pulumi.Context, args ListClusterUpgradableVersionsOutputArgs, opts ...pulumi.InvokeOption) ListClusterUpgradableVersionsResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (ListClusterUpgradableVersionsResult, error) {
+			args := v.(ListClusterUpgradableVersionsArgs)
+			r, err := ListClusterUpgradableVersions(ctx, &args, opts...)
+			return *r, err
+		}).(ListClusterUpgradableVersionsResultOutput)
+}
+
+type ListClusterUpgradableVersionsOutputArgs struct {
+	// The name of the cluster resource.
+	ClusterName pulumi.StringInput `pulumi:"clusterName"`
+	// The name of the resource group.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The target code version.
+	TargetVersion pulumi.StringInput `pulumi:"targetVersion"`
+}
+
+func (ListClusterUpgradableVersionsOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListClusterUpgradableVersionsArgs)(nil)).Elem()
+}
+
+// The list of intermediate cluster code versions for an upgrade or downgrade. Or minimum and maximum upgradable version if no target was given
+type ListClusterUpgradableVersionsResultOutput struct{ *pulumi.OutputState }
+
+func (ListClusterUpgradableVersionsResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListClusterUpgradableVersionsResult)(nil)).Elem()
+}
+
+func (o ListClusterUpgradableVersionsResultOutput) ToListClusterUpgradableVersionsResultOutput() ListClusterUpgradableVersionsResultOutput {
+	return o
+}
+
+func (o ListClusterUpgradableVersionsResultOutput) ToListClusterUpgradableVersionsResultOutputWithContext(ctx context.Context) ListClusterUpgradableVersionsResultOutput {
+	return o
+}
+
+func (o ListClusterUpgradableVersionsResultOutput) SupportedPath() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ListClusterUpgradableVersionsResult) []string { return v.SupportedPath }).(pulumi.StringArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(ListClusterUpgradableVersionsResultOutput{})
 }

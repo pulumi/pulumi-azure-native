@@ -4,6 +4,9 @@
 package v20210115
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -38,4 +41,73 @@ type LookupWebAppSwiftVirtualNetworkConnectionResult struct {
 	SwiftSupported *bool `pulumi:"swiftSupported"`
 	// Resource type.
 	Type string `pulumi:"type"`
+}
+
+func LookupWebAppSwiftVirtualNetworkConnectionOutput(ctx *pulumi.Context, args LookupWebAppSwiftVirtualNetworkConnectionOutputArgs, opts ...pulumi.InvokeOption) LookupWebAppSwiftVirtualNetworkConnectionResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupWebAppSwiftVirtualNetworkConnectionResult, error) {
+			args := v.(LookupWebAppSwiftVirtualNetworkConnectionArgs)
+			r, err := LookupWebAppSwiftVirtualNetworkConnection(ctx, &args, opts...)
+			return *r, err
+		}).(LookupWebAppSwiftVirtualNetworkConnectionResultOutput)
+}
+
+type LookupWebAppSwiftVirtualNetworkConnectionOutputArgs struct {
+	// Name of the app.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Name of the resource group to which the resource belongs.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupWebAppSwiftVirtualNetworkConnectionOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupWebAppSwiftVirtualNetworkConnectionArgs)(nil)).Elem()
+}
+
+// Swift Virtual Network Contract. This is used to enable the new Swift way of doing virtual network integration.
+type LookupWebAppSwiftVirtualNetworkConnectionResultOutput struct{ *pulumi.OutputState }
+
+func (LookupWebAppSwiftVirtualNetworkConnectionResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupWebAppSwiftVirtualNetworkConnectionResult)(nil)).Elem()
+}
+
+func (o LookupWebAppSwiftVirtualNetworkConnectionResultOutput) ToLookupWebAppSwiftVirtualNetworkConnectionResultOutput() LookupWebAppSwiftVirtualNetworkConnectionResultOutput {
+	return o
+}
+
+func (o LookupWebAppSwiftVirtualNetworkConnectionResultOutput) ToLookupWebAppSwiftVirtualNetworkConnectionResultOutputWithContext(ctx context.Context) LookupWebAppSwiftVirtualNetworkConnectionResultOutput {
+	return o
+}
+
+// Resource Id.
+func (o LookupWebAppSwiftVirtualNetworkConnectionResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWebAppSwiftVirtualNetworkConnectionResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Kind of resource.
+func (o LookupWebAppSwiftVirtualNetworkConnectionResultOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupWebAppSwiftVirtualNetworkConnectionResult) *string { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Resource Name.
+func (o LookupWebAppSwiftVirtualNetworkConnectionResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWebAppSwiftVirtualNetworkConnectionResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The Virtual Network subnet's resource ID. This is the subnet that this Web App will join. This subnet must have a delegation to Microsoft.Web/serverFarms defined first.
+func (o LookupWebAppSwiftVirtualNetworkConnectionResultOutput) SubnetResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupWebAppSwiftVirtualNetworkConnectionResult) *string { return v.SubnetResourceId }).(pulumi.StringPtrOutput)
+}
+
+// A flag that specifies if the scale unit this Web App is on supports Swift integration.
+func (o LookupWebAppSwiftVirtualNetworkConnectionResultOutput) SwiftSupported() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupWebAppSwiftVirtualNetworkConnectionResult) *bool { return v.SwiftSupported }).(pulumi.BoolPtrOutput)
+}
+
+// Resource type.
+func (o LookupWebAppSwiftVirtualNetworkConnectionResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWebAppSwiftVirtualNetworkConnectionResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupWebAppSwiftVirtualNetworkConnectionResultOutput{})
 }

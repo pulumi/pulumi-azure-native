@@ -4,6 +4,9 @@
 package v20140401
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -42,4 +45,80 @@ type LookupFirewallRuleResult struct {
 	StartIpAddress string `pulumi:"startIpAddress"`
 	// Resource type.
 	Type string `pulumi:"type"`
+}
+
+func LookupFirewallRuleOutput(ctx *pulumi.Context, args LookupFirewallRuleOutputArgs, opts ...pulumi.InvokeOption) LookupFirewallRuleResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupFirewallRuleResult, error) {
+			args := v.(LookupFirewallRuleArgs)
+			r, err := LookupFirewallRule(ctx, &args, opts...)
+			return *r, err
+		}).(LookupFirewallRuleResultOutput)
+}
+
+type LookupFirewallRuleOutputArgs struct {
+	// The name of the firewall rule.
+	FirewallRuleName pulumi.StringInput `pulumi:"firewallRuleName"`
+	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the server.
+	ServerName pulumi.StringInput `pulumi:"serverName"`
+}
+
+func (LookupFirewallRuleOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupFirewallRuleArgs)(nil)).Elem()
+}
+
+// Represents a server firewall rule.
+type LookupFirewallRuleResultOutput struct{ *pulumi.OutputState }
+
+func (LookupFirewallRuleResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupFirewallRuleResult)(nil)).Elem()
+}
+
+func (o LookupFirewallRuleResultOutput) ToLookupFirewallRuleResultOutput() LookupFirewallRuleResultOutput {
+	return o
+}
+
+func (o LookupFirewallRuleResultOutput) ToLookupFirewallRuleResultOutputWithContext(ctx context.Context) LookupFirewallRuleResultOutput {
+	return o
+}
+
+// The end IP address of the firewall rule. Must be IPv4 format. Must be greater than or equal to startIpAddress. Use value '0.0.0.0' to represent all Azure-internal IP addresses.
+func (o LookupFirewallRuleResultOutput) EndIpAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupFirewallRuleResult) string { return v.EndIpAddress }).(pulumi.StringOutput)
+}
+
+// Resource ID.
+func (o LookupFirewallRuleResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupFirewallRuleResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Kind of server that contains this firewall rule.
+func (o LookupFirewallRuleResultOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupFirewallRuleResult) string { return v.Kind }).(pulumi.StringOutput)
+}
+
+// Location of the server that contains this firewall rule.
+func (o LookupFirewallRuleResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupFirewallRuleResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o LookupFirewallRuleResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupFirewallRuleResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The start IP address of the firewall rule. Must be IPv4 format. Use value '0.0.0.0' to represent all Azure-internal IP addresses.
+func (o LookupFirewallRuleResultOutput) StartIpAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupFirewallRuleResult) string { return v.StartIpAddress }).(pulumi.StringOutput)
+}
+
+// Resource type.
+func (o LookupFirewallRuleResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupFirewallRuleResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupFirewallRuleResultOutput{})
 }

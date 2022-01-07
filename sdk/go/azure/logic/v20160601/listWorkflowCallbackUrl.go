@@ -4,6 +4,9 @@
 package v20160601
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -42,4 +45,77 @@ type ListWorkflowCallbackUrlResult struct {
 	RelativePathParameters []string `pulumi:"relativePathParameters"`
 	// Gets the workflow trigger callback URL.
 	Value string `pulumi:"value"`
+}
+
+func ListWorkflowCallbackUrlOutput(ctx *pulumi.Context, args ListWorkflowCallbackUrlOutputArgs, opts ...pulumi.InvokeOption) ListWorkflowCallbackUrlResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (ListWorkflowCallbackUrlResult, error) {
+			args := v.(ListWorkflowCallbackUrlArgs)
+			r, err := ListWorkflowCallbackUrl(ctx, &args, opts...)
+			return *r, err
+		}).(ListWorkflowCallbackUrlResultOutput)
+}
+
+type ListWorkflowCallbackUrlOutputArgs struct {
+	// The key type.
+	KeyType KeyTypePtrInput `pulumi:"keyType"`
+	// The expiry time.
+	NotAfter pulumi.StringPtrInput `pulumi:"notAfter"`
+	// The resource group name.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The workflow name.
+	WorkflowName pulumi.StringInput `pulumi:"workflowName"`
+}
+
+func (ListWorkflowCallbackUrlOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListWorkflowCallbackUrlArgs)(nil)).Elem()
+}
+
+// The workflow trigger callback URL.
+type ListWorkflowCallbackUrlResultOutput struct{ *pulumi.OutputState }
+
+func (ListWorkflowCallbackUrlResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListWorkflowCallbackUrlResult)(nil)).Elem()
+}
+
+func (o ListWorkflowCallbackUrlResultOutput) ToListWorkflowCallbackUrlResultOutput() ListWorkflowCallbackUrlResultOutput {
+	return o
+}
+
+func (o ListWorkflowCallbackUrlResultOutput) ToListWorkflowCallbackUrlResultOutputWithContext(ctx context.Context) ListWorkflowCallbackUrlResultOutput {
+	return o
+}
+
+// Gets the workflow trigger callback URL base path.
+func (o ListWorkflowCallbackUrlResultOutput) BasePath() pulumi.StringOutput {
+	return o.ApplyT(func(v ListWorkflowCallbackUrlResult) string { return v.BasePath }).(pulumi.StringOutput)
+}
+
+// Gets the workflow trigger callback URL HTTP method.
+func (o ListWorkflowCallbackUrlResultOutput) Method() pulumi.StringOutput {
+	return o.ApplyT(func(v ListWorkflowCallbackUrlResult) string { return v.Method }).(pulumi.StringOutput)
+}
+
+// Gets the workflow trigger callback URL query parameters.
+func (o ListWorkflowCallbackUrlResultOutput) Queries() WorkflowTriggerListCallbackUrlQueriesResponsePtrOutput {
+	return o.ApplyT(func(v ListWorkflowCallbackUrlResult) *WorkflowTriggerListCallbackUrlQueriesResponse { return v.Queries }).(WorkflowTriggerListCallbackUrlQueriesResponsePtrOutput)
+}
+
+// Gets the workflow trigger callback URL relative path.
+func (o ListWorkflowCallbackUrlResultOutput) RelativePath() pulumi.StringOutput {
+	return o.ApplyT(func(v ListWorkflowCallbackUrlResult) string { return v.RelativePath }).(pulumi.StringOutput)
+}
+
+// Gets the workflow trigger callback URL relative path parameters.
+func (o ListWorkflowCallbackUrlResultOutput) RelativePathParameters() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ListWorkflowCallbackUrlResult) []string { return v.RelativePathParameters }).(pulumi.StringArrayOutput)
+}
+
+// Gets the workflow trigger callback URL.
+func (o ListWorkflowCallbackUrlResultOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v ListWorkflowCallbackUrlResult) string { return v.Value }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(ListWorkflowCallbackUrlResultOutput{})
 }

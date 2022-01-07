@@ -4,6 +4,9 @@
 package v20150101
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -36,4 +39,68 @@ type LookupManagementLockAtResourceGroupLevelResult struct {
 	Notes *string `pulumi:"notes"`
 	// The type of the lock.
 	Type string `pulumi:"type"`
+}
+
+func LookupManagementLockAtResourceGroupLevelOutput(ctx *pulumi.Context, args LookupManagementLockAtResourceGroupLevelOutputArgs, opts ...pulumi.InvokeOption) LookupManagementLockAtResourceGroupLevelResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupManagementLockAtResourceGroupLevelResult, error) {
+			args := v.(LookupManagementLockAtResourceGroupLevelArgs)
+			r, err := LookupManagementLockAtResourceGroupLevel(ctx, &args, opts...)
+			return *r, err
+		}).(LookupManagementLockAtResourceGroupLevelResultOutput)
+}
+
+type LookupManagementLockAtResourceGroupLevelOutputArgs struct {
+	// The lock name.
+	LockName pulumi.StringInput `pulumi:"lockName"`
+	// The resource group name.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupManagementLockAtResourceGroupLevelOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupManagementLockAtResourceGroupLevelArgs)(nil)).Elem()
+}
+
+// Management lock information.
+type LookupManagementLockAtResourceGroupLevelResultOutput struct{ *pulumi.OutputState }
+
+func (LookupManagementLockAtResourceGroupLevelResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupManagementLockAtResourceGroupLevelResult)(nil)).Elem()
+}
+
+func (o LookupManagementLockAtResourceGroupLevelResultOutput) ToLookupManagementLockAtResourceGroupLevelResultOutput() LookupManagementLockAtResourceGroupLevelResultOutput {
+	return o
+}
+
+func (o LookupManagementLockAtResourceGroupLevelResultOutput) ToLookupManagementLockAtResourceGroupLevelResultOutputWithContext(ctx context.Context) LookupManagementLockAtResourceGroupLevelResultOutput {
+	return o
+}
+
+// The Id of the lock.
+func (o LookupManagementLockAtResourceGroupLevelResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupManagementLockAtResourceGroupLevelResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The lock level of the management lock.
+func (o LookupManagementLockAtResourceGroupLevelResultOutput) Level() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupManagementLockAtResourceGroupLevelResult) *string { return v.Level }).(pulumi.StringPtrOutput)
+}
+
+// The name of the lock.
+func (o LookupManagementLockAtResourceGroupLevelResultOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupManagementLockAtResourceGroupLevelResult) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The notes of the management lock.
+func (o LookupManagementLockAtResourceGroupLevelResultOutput) Notes() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupManagementLockAtResourceGroupLevelResult) *string { return v.Notes }).(pulumi.StringPtrOutput)
+}
+
+// The type of the lock.
+func (o LookupManagementLockAtResourceGroupLevelResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupManagementLockAtResourceGroupLevelResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupManagementLockAtResourceGroupLevelResultOutput{})
 }

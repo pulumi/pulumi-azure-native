@@ -4,6 +4,9 @@
 package media
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -39,4 +42,72 @@ type GetContentKeyPolicyPropertiesWithSecretsResult struct {
 	Options []ContentKeyPolicyOptionResponse `pulumi:"options"`
 	// The legacy Policy ID.
 	PolicyId string `pulumi:"policyId"`
+}
+
+func GetContentKeyPolicyPropertiesWithSecretsOutput(ctx *pulumi.Context, args GetContentKeyPolicyPropertiesWithSecretsOutputArgs, opts ...pulumi.InvokeOption) GetContentKeyPolicyPropertiesWithSecretsResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetContentKeyPolicyPropertiesWithSecretsResult, error) {
+			args := v.(GetContentKeyPolicyPropertiesWithSecretsArgs)
+			r, err := GetContentKeyPolicyPropertiesWithSecrets(ctx, &args, opts...)
+			return *r, err
+		}).(GetContentKeyPolicyPropertiesWithSecretsResultOutput)
+}
+
+type GetContentKeyPolicyPropertiesWithSecretsOutputArgs struct {
+	// The Media Services account name.
+	AccountName pulumi.StringInput `pulumi:"accountName"`
+	// The Content Key Policy name.
+	ContentKeyPolicyName pulumi.StringInput `pulumi:"contentKeyPolicyName"`
+	// The name of the resource group within the Azure subscription.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (GetContentKeyPolicyPropertiesWithSecretsOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetContentKeyPolicyPropertiesWithSecretsArgs)(nil)).Elem()
+}
+
+// The properties of the Content Key Policy.
+type GetContentKeyPolicyPropertiesWithSecretsResultOutput struct{ *pulumi.OutputState }
+
+func (GetContentKeyPolicyPropertiesWithSecretsResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetContentKeyPolicyPropertiesWithSecretsResult)(nil)).Elem()
+}
+
+func (o GetContentKeyPolicyPropertiesWithSecretsResultOutput) ToGetContentKeyPolicyPropertiesWithSecretsResultOutput() GetContentKeyPolicyPropertiesWithSecretsResultOutput {
+	return o
+}
+
+func (o GetContentKeyPolicyPropertiesWithSecretsResultOutput) ToGetContentKeyPolicyPropertiesWithSecretsResultOutputWithContext(ctx context.Context) GetContentKeyPolicyPropertiesWithSecretsResultOutput {
+	return o
+}
+
+// The creation date of the Policy
+func (o GetContentKeyPolicyPropertiesWithSecretsResultOutput) Created() pulumi.StringOutput {
+	return o.ApplyT(func(v GetContentKeyPolicyPropertiesWithSecretsResult) string { return v.Created }).(pulumi.StringOutput)
+}
+
+// A description for the Policy.
+func (o GetContentKeyPolicyPropertiesWithSecretsResultOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetContentKeyPolicyPropertiesWithSecretsResult) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The last modified date of the Policy
+func (o GetContentKeyPolicyPropertiesWithSecretsResultOutput) LastModified() pulumi.StringOutput {
+	return o.ApplyT(func(v GetContentKeyPolicyPropertiesWithSecretsResult) string { return v.LastModified }).(pulumi.StringOutput)
+}
+
+// The Key Policy options.
+func (o GetContentKeyPolicyPropertiesWithSecretsResultOutput) Options() ContentKeyPolicyOptionResponseArrayOutput {
+	return o.ApplyT(func(v GetContentKeyPolicyPropertiesWithSecretsResult) []ContentKeyPolicyOptionResponse {
+		return v.Options
+	}).(ContentKeyPolicyOptionResponseArrayOutput)
+}
+
+// The legacy Policy ID.
+func (o GetContentKeyPolicyPropertiesWithSecretsResultOutput) PolicyId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetContentKeyPolicyPropertiesWithSecretsResult) string { return v.PolicyId }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetContentKeyPolicyPropertiesWithSecretsResultOutput{})
 }

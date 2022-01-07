@@ -4,6 +4,9 @@
 package webpubsub
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -50,4 +53,70 @@ func (val *LookupWebPubSubHubResult) Defaults() *LookupWebPubSubHubResult {
 	tmp.Properties = *tmp.Properties.Defaults()
 
 	return &tmp
+}
+
+func LookupWebPubSubHubOutput(ctx *pulumi.Context, args LookupWebPubSubHubOutputArgs, opts ...pulumi.InvokeOption) LookupWebPubSubHubResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupWebPubSubHubResult, error) {
+			args := v.(LookupWebPubSubHubArgs)
+			r, err := LookupWebPubSubHub(ctx, &args, opts...)
+			return *r, err
+		}).(LookupWebPubSubHubResultOutput)
+}
+
+type LookupWebPubSubHubOutputArgs struct {
+	// The hub name.
+	HubName pulumi.StringInput `pulumi:"hubName"`
+	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the resource.
+	ResourceName pulumi.StringInput `pulumi:"resourceName"`
+}
+
+func (LookupWebPubSubHubOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupWebPubSubHubArgs)(nil)).Elem()
+}
+
+// A hub setting
+type LookupWebPubSubHubResultOutput struct{ *pulumi.OutputState }
+
+func (LookupWebPubSubHubResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupWebPubSubHubResult)(nil)).Elem()
+}
+
+func (o LookupWebPubSubHubResultOutput) ToLookupWebPubSubHubResultOutput() LookupWebPubSubHubResultOutput {
+	return o
+}
+
+func (o LookupWebPubSubHubResultOutput) ToLookupWebPubSubHubResultOutputWithContext(ctx context.Context) LookupWebPubSubHubResultOutput {
+	return o
+}
+
+// Fully qualified resource Id for the resource.
+func (o LookupWebPubSubHubResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWebPubSubHubResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The name of the resource.
+func (o LookupWebPubSubHubResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWebPubSubHubResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Properties of a hub.
+func (o LookupWebPubSubHubResultOutput) Properties() WebPubSubHubPropertiesResponseOutput {
+	return o.ApplyT(func(v LookupWebPubSubHubResult) WebPubSubHubPropertiesResponse { return v.Properties }).(WebPubSubHubPropertiesResponseOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o LookupWebPubSubHubResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupWebPubSubHubResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the resource - e.g. "Microsoft.SignalRService/SignalR"
+func (o LookupWebPubSubHubResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWebPubSubHubResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupWebPubSubHubResultOutput{})
 }

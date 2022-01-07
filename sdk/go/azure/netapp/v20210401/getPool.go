@@ -4,6 +4,9 @@
 package v20210401
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -82,4 +85,120 @@ func (val *LookupPoolResult) Defaults() *LookupPoolResult {
 		tmp.ServiceLevel = "Premium"
 	}
 	return &tmp
+}
+
+func LookupPoolOutput(ctx *pulumi.Context, args LookupPoolOutputArgs, opts ...pulumi.InvokeOption) LookupPoolResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupPoolResult, error) {
+			args := v.(LookupPoolArgs)
+			r, err := LookupPool(ctx, &args, opts...)
+			return *r, err
+		}).(LookupPoolResultOutput)
+}
+
+type LookupPoolOutputArgs struct {
+	// The name of the NetApp account
+	AccountName pulumi.StringInput `pulumi:"accountName"`
+	// The name of the capacity pool
+	PoolName pulumi.StringInput `pulumi:"poolName"`
+	// The name of the resource group.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupPoolOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupPoolArgs)(nil)).Elem()
+}
+
+// Capacity pool resource
+type LookupPoolResultOutput struct{ *pulumi.OutputState }
+
+func (LookupPoolResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupPoolResult)(nil)).Elem()
+}
+
+func (o LookupPoolResultOutput) ToLookupPoolResultOutput() LookupPoolResultOutput {
+	return o
+}
+
+func (o LookupPoolResultOutput) ToLookupPoolResultOutputWithContext(ctx context.Context) LookupPoolResultOutput {
+	return o
+}
+
+// If enabled (true) the pool can contain cool Access enabled volumes.
+func (o LookupPoolResultOutput) CoolAccess() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupPoolResult) *bool { return v.CoolAccess }).(pulumi.BoolPtrOutput)
+}
+
+// Encryption type of the capacity pool, set encryption type for data at rest for this pool and all volumes in it. This value can only be set when creating new pool.
+func (o LookupPoolResultOutput) EncryptionType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupPoolResult) *string { return v.EncryptionType }).(pulumi.StringPtrOutput)
+}
+
+// A unique read-only string that changes whenever the resource is updated.
+func (o LookupPoolResultOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPoolResult) string { return v.Etag }).(pulumi.StringOutput)
+}
+
+// Resource Id
+func (o LookupPoolResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPoolResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Resource location
+func (o LookupPoolResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPoolResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource name
+func (o LookupPoolResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPoolResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// UUID v4 used to identify the Pool
+func (o LookupPoolResultOutput) PoolId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPoolResult) string { return v.PoolId }).(pulumi.StringOutput)
+}
+
+// Azure lifecycle management
+func (o LookupPoolResultOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPoolResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The qos type of the pool
+func (o LookupPoolResultOutput) QosType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupPoolResult) *string { return v.QosType }).(pulumi.StringPtrOutput)
+}
+
+// The service level of the file system
+func (o LookupPoolResultOutput) ServiceLevel() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPoolResult) string { return v.ServiceLevel }).(pulumi.StringOutput)
+}
+
+// Provisioned size of the pool (in bytes). Allowed values are in 4TiB chunks (value must be multiply of 4398046511104).
+func (o LookupPoolResultOutput) Size() pulumi.Float64Output {
+	return o.ApplyT(func(v LookupPoolResult) float64 { return v.Size }).(pulumi.Float64Output)
+}
+
+// Resource tags
+func (o LookupPoolResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupPoolResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Total throughput of pool in Mibps
+func (o LookupPoolResultOutput) TotalThroughputMibps() pulumi.Float64Output {
+	return o.ApplyT(func(v LookupPoolResult) float64 { return v.TotalThroughputMibps }).(pulumi.Float64Output)
+}
+
+// Resource type
+func (o LookupPoolResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPoolResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Utilized throughput of pool in Mibps
+func (o LookupPoolResultOutput) UtilizedThroughputMibps() pulumi.Float64Output {
+	return o.ApplyT(func(v LookupPoolResult) float64 { return v.UtilizedThroughputMibps }).(pulumi.Float64Output)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupPoolResultOutput{})
 }

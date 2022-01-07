@@ -4,6 +4,9 @@
 package v20181101preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -38,4 +41,65 @@ type LookupArtifactResult struct {
 	Name string `pulumi:"name"`
 	// Type of this resource.
 	Type string `pulumi:"type"`
+}
+
+func LookupArtifactOutput(ctx *pulumi.Context, args LookupArtifactOutputArgs, opts ...pulumi.InvokeOption) LookupArtifactResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupArtifactResult, error) {
+			args := v.(LookupArtifactArgs)
+			r, err := LookupArtifact(ctx, &args, opts...)
+			return *r, err
+		}).(LookupArtifactResultOutput)
+}
+
+type LookupArtifactOutputArgs struct {
+	// Name of the blueprint artifact.
+	ArtifactName pulumi.StringInput `pulumi:"artifactName"`
+	// Name of the blueprint definition.
+	BlueprintName pulumi.StringInput `pulumi:"blueprintName"`
+	// The scope of the resource. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: '/subscriptions/{subscriptionId}').
+	ResourceScope pulumi.StringInput `pulumi:"resourceScope"`
+}
+
+func (LookupArtifactOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupArtifactArgs)(nil)).Elem()
+}
+
+// Represents a blueprint artifact.
+type LookupArtifactResultOutput struct{ *pulumi.OutputState }
+
+func (LookupArtifactResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupArtifactResult)(nil)).Elem()
+}
+
+func (o LookupArtifactResultOutput) ToLookupArtifactResultOutput() LookupArtifactResultOutput {
+	return o
+}
+
+func (o LookupArtifactResultOutput) ToLookupArtifactResultOutputWithContext(ctx context.Context) LookupArtifactResultOutput {
+	return o
+}
+
+// String Id used to locate any resource on Azure.
+func (o LookupArtifactResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupArtifactResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Specifies the kind of blueprint artifact.
+func (o LookupArtifactResultOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupArtifactResult) string { return v.Kind }).(pulumi.StringOutput)
+}
+
+// Name of this resource.
+func (o LookupArtifactResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupArtifactResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Type of this resource.
+func (o LookupArtifactResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupArtifactResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupArtifactResultOutput{})
 }

@@ -4,6 +4,9 @@
 package machinelearning
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -53,4 +56,108 @@ type LookupWorkspaceResult struct {
 	WorkspaceState string `pulumi:"workspaceState"`
 	// The type of this workspace.
 	WorkspaceType string `pulumi:"workspaceType"`
+}
+
+func LookupWorkspaceOutput(ctx *pulumi.Context, args LookupWorkspaceOutputArgs, opts ...pulumi.InvokeOption) LookupWorkspaceResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupWorkspaceResult, error) {
+			args := v.(LookupWorkspaceArgs)
+			r, err := LookupWorkspace(ctx, &args, opts...)
+			return *r, err
+		}).(LookupWorkspaceResultOutput)
+}
+
+type LookupWorkspaceOutputArgs struct {
+	// The name of the resource group to which the machine learning workspace belongs.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the machine learning workspace.
+	WorkspaceName pulumi.StringInput `pulumi:"workspaceName"`
+}
+
+func (LookupWorkspaceOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupWorkspaceArgs)(nil)).Elem()
+}
+
+// An object that represents a machine learning workspace.
+type LookupWorkspaceResultOutput struct{ *pulumi.OutputState }
+
+func (LookupWorkspaceResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupWorkspaceResult)(nil)).Elem()
+}
+
+func (o LookupWorkspaceResultOutput) ToLookupWorkspaceResultOutput() LookupWorkspaceResultOutput {
+	return o
+}
+
+func (o LookupWorkspaceResultOutput) ToLookupWorkspaceResultOutputWithContext(ctx context.Context) LookupWorkspaceResultOutput {
+	return o
+}
+
+// The creation time for this workspace resource.
+func (o LookupWorkspaceResultOutput) CreationTime() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWorkspaceResult) string { return v.CreationTime }).(pulumi.StringOutput)
+}
+
+// The resource ID.
+func (o LookupWorkspaceResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWorkspaceResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The key vault identifier used for encrypted workspaces.
+func (o LookupWorkspaceResultOutput) KeyVaultIdentifierId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupWorkspaceResult) *string { return v.KeyVaultIdentifierId }).(pulumi.StringPtrOutput)
+}
+
+// The location of the resource. This cannot be changed after the resource is created.
+func (o LookupWorkspaceResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWorkspaceResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the resource.
+func (o LookupWorkspaceResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWorkspaceResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The email id of the owner for this workspace.
+func (o LookupWorkspaceResultOutput) OwnerEmail() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWorkspaceResult) string { return v.OwnerEmail }).(pulumi.StringOutput)
+}
+
+// The regional endpoint for the machine learning studio service which hosts this workspace.
+func (o LookupWorkspaceResultOutput) StudioEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWorkspaceResult) string { return v.StudioEndpoint }).(pulumi.StringOutput)
+}
+
+// The tags of the resource.
+func (o LookupWorkspaceResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupWorkspaceResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource.
+func (o LookupWorkspaceResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWorkspaceResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The fully qualified arm id of the storage account associated with this workspace.
+func (o LookupWorkspaceResultOutput) UserStorageAccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWorkspaceResult) string { return v.UserStorageAccountId }).(pulumi.StringOutput)
+}
+
+// The immutable id associated with this workspace.
+func (o LookupWorkspaceResultOutput) WorkspaceId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWorkspaceResult) string { return v.WorkspaceId }).(pulumi.StringOutput)
+}
+
+// The current state of workspace resource.
+func (o LookupWorkspaceResultOutput) WorkspaceState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWorkspaceResult) string { return v.WorkspaceState }).(pulumi.StringOutput)
+}
+
+// The type of this workspace.
+func (o LookupWorkspaceResultOutput) WorkspaceType() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWorkspaceResult) string { return v.WorkspaceType }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupWorkspaceResultOutput{})
 }

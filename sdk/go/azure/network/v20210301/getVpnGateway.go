@@ -4,6 +4,9 @@
 package v20210301
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -56,4 +59,118 @@ type LookupVpnGatewayResult struct {
 	VirtualHub *SubResourceResponse `pulumi:"virtualHub"`
 	// The scale unit for this vpn gateway.
 	VpnGatewayScaleUnit *int `pulumi:"vpnGatewayScaleUnit"`
+}
+
+func LookupVpnGatewayOutput(ctx *pulumi.Context, args LookupVpnGatewayOutputArgs, opts ...pulumi.InvokeOption) LookupVpnGatewayResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupVpnGatewayResult, error) {
+			args := v.(LookupVpnGatewayArgs)
+			r, err := LookupVpnGateway(ctx, &args, opts...)
+			return *r, err
+		}).(LookupVpnGatewayResultOutput)
+}
+
+type LookupVpnGatewayOutputArgs struct {
+	// The name of the gateway.
+	GatewayName pulumi.StringInput `pulumi:"gatewayName"`
+	// The resource group name of the VpnGateway.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupVpnGatewayOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupVpnGatewayArgs)(nil)).Elem()
+}
+
+// VpnGateway Resource.
+type LookupVpnGatewayResultOutput struct{ *pulumi.OutputState }
+
+func (LookupVpnGatewayResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupVpnGatewayResult)(nil)).Elem()
+}
+
+func (o LookupVpnGatewayResultOutput) ToLookupVpnGatewayResultOutput() LookupVpnGatewayResultOutput {
+	return o
+}
+
+func (o LookupVpnGatewayResultOutput) ToLookupVpnGatewayResultOutputWithContext(ctx context.Context) LookupVpnGatewayResultOutput {
+	return o
+}
+
+// Local network gateway's BGP speaker settings.
+func (o LookupVpnGatewayResultOutput) BgpSettings() BgpSettingsResponsePtrOutput {
+	return o.ApplyT(func(v LookupVpnGatewayResult) *BgpSettingsResponse { return v.BgpSettings }).(BgpSettingsResponsePtrOutput)
+}
+
+// List of all vpn connections to the gateway.
+func (o LookupVpnGatewayResultOutput) Connections() VpnConnectionResponseArrayOutput {
+	return o.ApplyT(func(v LookupVpnGatewayResult) []VpnConnectionResponse { return v.Connections }).(VpnConnectionResponseArrayOutput)
+}
+
+// Enable BGP routes translation for NAT on this VpnGateway.
+func (o LookupVpnGatewayResultOutput) EnableBgpRouteTranslationForNat() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupVpnGatewayResult) *bool { return v.EnableBgpRouteTranslationForNat }).(pulumi.BoolPtrOutput)
+}
+
+// A unique read-only string that changes whenever the resource is updated.
+func (o LookupVpnGatewayResultOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVpnGatewayResult) string { return v.Etag }).(pulumi.StringOutput)
+}
+
+// Resource ID.
+func (o LookupVpnGatewayResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVpnGatewayResult) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// List of all IPs configured on the gateway.
+func (o LookupVpnGatewayResultOutput) IpConfigurations() VpnGatewayIpConfigurationResponseArrayOutput {
+	return o.ApplyT(func(v LookupVpnGatewayResult) []VpnGatewayIpConfigurationResponse { return v.IpConfigurations }).(VpnGatewayIpConfigurationResponseArrayOutput)
+}
+
+// Enable Routing Preference property for the Public IP Interface of the VpnGateway.
+func (o LookupVpnGatewayResultOutput) IsRoutingPreferenceInternet() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupVpnGatewayResult) *bool { return v.IsRoutingPreferenceInternet }).(pulumi.BoolPtrOutput)
+}
+
+// Resource location.
+func (o LookupVpnGatewayResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVpnGatewayResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o LookupVpnGatewayResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVpnGatewayResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// List of all the nat Rules associated with the gateway.
+func (o LookupVpnGatewayResultOutput) NatRules() VpnGatewayNatRuleResponseArrayOutput {
+	return o.ApplyT(func(v LookupVpnGatewayResult) []VpnGatewayNatRuleResponse { return v.NatRules }).(VpnGatewayNatRuleResponseArrayOutput)
+}
+
+// The provisioning state of the VPN gateway resource.
+func (o LookupVpnGatewayResultOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVpnGatewayResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Resource tags.
+func (o LookupVpnGatewayResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupVpnGatewayResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type.
+func (o LookupVpnGatewayResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVpnGatewayResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The VirtualHub to which the gateway belongs.
+func (o LookupVpnGatewayResultOutput) VirtualHub() SubResourceResponsePtrOutput {
+	return o.ApplyT(func(v LookupVpnGatewayResult) *SubResourceResponse { return v.VirtualHub }).(SubResourceResponsePtrOutput)
+}
+
+// The scale unit for this vpn gateway.
+func (o LookupVpnGatewayResultOutput) VpnGatewayScaleUnit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupVpnGatewayResult) *int { return v.VpnGatewayScaleUnit }).(pulumi.IntPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupVpnGatewayResultOutput{})
 }

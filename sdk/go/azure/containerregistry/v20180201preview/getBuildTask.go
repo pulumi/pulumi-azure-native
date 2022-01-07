@@ -4,6 +4,9 @@
 package v20180201preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -67,4 +70,105 @@ func (val *LookupBuildTaskResult) Defaults() *LookupBuildTaskResult {
 		tmp.Timeout = &timeout_
 	}
 	return &tmp
+}
+
+func LookupBuildTaskOutput(ctx *pulumi.Context, args LookupBuildTaskOutputArgs, opts ...pulumi.InvokeOption) LookupBuildTaskResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupBuildTaskResult, error) {
+			args := v.(LookupBuildTaskArgs)
+			r, err := LookupBuildTask(ctx, &args, opts...)
+			return *r, err
+		}).(LookupBuildTaskResultOutput)
+}
+
+type LookupBuildTaskOutputArgs struct {
+	// The name of the container registry build task.
+	BuildTaskName pulumi.StringInput `pulumi:"buildTaskName"`
+	// The name of the container registry.
+	RegistryName pulumi.StringInput `pulumi:"registryName"`
+	// The name of the resource group to which the container registry belongs.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupBuildTaskOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupBuildTaskArgs)(nil)).Elem()
+}
+
+// The build task that has the resource properties and all build items. The build task will have all information to schedule a build against it.
+type LookupBuildTaskResultOutput struct{ *pulumi.OutputState }
+
+func (LookupBuildTaskResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupBuildTaskResult)(nil)).Elem()
+}
+
+func (o LookupBuildTaskResultOutput) ToLookupBuildTaskResultOutput() LookupBuildTaskResultOutput {
+	return o
+}
+
+func (o LookupBuildTaskResultOutput) ToLookupBuildTaskResultOutputWithContext(ctx context.Context) LookupBuildTaskResultOutput {
+	return o
+}
+
+// The alternative updatable name for a build task.
+func (o LookupBuildTaskResultOutput) Alias() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBuildTaskResult) string { return v.Alias }).(pulumi.StringOutput)
+}
+
+// The creation date of build task.
+func (o LookupBuildTaskResultOutput) CreationDate() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBuildTaskResult) string { return v.CreationDate }).(pulumi.StringOutput)
+}
+
+// The resource ID.
+func (o LookupBuildTaskResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBuildTaskResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The location of the resource. This cannot be changed after the resource is created.
+func (o LookupBuildTaskResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBuildTaskResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the resource.
+func (o LookupBuildTaskResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBuildTaskResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The platform properties against which the build has to happen.
+func (o LookupBuildTaskResultOutput) Platform() PlatformPropertiesResponseOutput {
+	return o.ApplyT(func(v LookupBuildTaskResult) PlatformPropertiesResponse { return v.Platform }).(PlatformPropertiesResponseOutput)
+}
+
+// The provisioning state of the build task.
+func (o LookupBuildTaskResultOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBuildTaskResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The properties that describes the source(code) for the build task.
+func (o LookupBuildTaskResultOutput) SourceRepository() SourceRepositoryPropertiesResponseOutput {
+	return o.ApplyT(func(v LookupBuildTaskResult) SourceRepositoryPropertiesResponse { return v.SourceRepository }).(SourceRepositoryPropertiesResponseOutput)
+}
+
+// The current status of build task.
+func (o LookupBuildTaskResultOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupBuildTaskResult) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+// The tags of the resource.
+func (o LookupBuildTaskResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupBuildTaskResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Build timeout in seconds.
+func (o LookupBuildTaskResultOutput) Timeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupBuildTaskResult) *int { return v.Timeout }).(pulumi.IntPtrOutput)
+}
+
+// The type of the resource.
+func (o LookupBuildTaskResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBuildTaskResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupBuildTaskResultOutput{})
 }

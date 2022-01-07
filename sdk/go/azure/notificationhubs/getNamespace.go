@@ -4,6 +4,9 @@
 package notificationhubs
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -65,4 +68,138 @@ type LookupNamespaceResult struct {
 	Type string `pulumi:"type"`
 	// The time the namespace was updated.
 	UpdatedAt *string `pulumi:"updatedAt"`
+}
+
+func LookupNamespaceOutput(ctx *pulumi.Context, args LookupNamespaceOutputArgs, opts ...pulumi.InvokeOption) LookupNamespaceResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupNamespaceResult, error) {
+			args := v.(LookupNamespaceArgs)
+			r, err := LookupNamespace(ctx, &args, opts...)
+			return *r, err
+		}).(LookupNamespaceResultOutput)
+}
+
+type LookupNamespaceOutputArgs struct {
+	// The namespace name.
+	NamespaceName pulumi.StringInput `pulumi:"namespaceName"`
+	// The name of the resource group.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupNamespaceOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupNamespaceArgs)(nil)).Elem()
+}
+
+// Description of a Namespace resource.
+type LookupNamespaceResultOutput struct{ *pulumi.OutputState }
+
+func (LookupNamespaceResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupNamespaceResult)(nil)).Elem()
+}
+
+func (o LookupNamespaceResultOutput) ToLookupNamespaceResultOutput() LookupNamespaceResultOutput {
+	return o
+}
+
+func (o LookupNamespaceResultOutput) ToLookupNamespaceResultOutputWithContext(ctx context.Context) LookupNamespaceResultOutput {
+	return o
+}
+
+// The time the namespace was created.
+func (o LookupNamespaceResultOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupNamespaceResult) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
+}
+
+// Whether or not the namespace is set as Critical.
+func (o LookupNamespaceResultOutput) Critical() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupNamespaceResult) *bool { return v.Critical }).(pulumi.BoolPtrOutput)
+}
+
+// Data center for the namespace
+func (o LookupNamespaceResultOutput) DataCenter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupNamespaceResult) *string { return v.DataCenter }).(pulumi.StringPtrOutput)
+}
+
+// Whether or not the namespace is currently enabled.
+func (o LookupNamespaceResultOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupNamespaceResult) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// Resource Id
+func (o LookupNamespaceResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupNamespaceResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Resource location
+func (o LookupNamespaceResultOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupNamespaceResult) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Identifier for Azure Insights metrics
+func (o LookupNamespaceResultOutput) MetricId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupNamespaceResult) string { return v.MetricId }).(pulumi.StringOutput)
+}
+
+// Resource name
+func (o LookupNamespaceResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupNamespaceResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The namespace type.
+func (o LookupNamespaceResultOutput) NamespaceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupNamespaceResult) *string { return v.NamespaceType }).(pulumi.StringPtrOutput)
+}
+
+// Provisioning state of the Namespace.
+func (o LookupNamespaceResultOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupNamespaceResult) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the targeted region in which the namespace should be created. It can be any of the following values: Australia East, Australia Southeast, Central US, East US, East US 2, West US, North Central US, South Central US, East Asia, Southeast Asia, Brazil South, Japan East, Japan West, North Europe, West Europe
+func (o LookupNamespaceResultOutput) Region() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupNamespaceResult) *string { return v.Region }).(pulumi.StringPtrOutput)
+}
+
+// ScaleUnit where the namespace gets created
+func (o LookupNamespaceResultOutput) ScaleUnit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupNamespaceResult) *string { return v.ScaleUnit }).(pulumi.StringPtrOutput)
+}
+
+// Endpoint you can use to perform NotificationHub operations.
+func (o LookupNamespaceResultOutput) ServiceBusEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupNamespaceResult) *string { return v.ServiceBusEndpoint }).(pulumi.StringPtrOutput)
+}
+
+// The sku of the created namespace
+func (o LookupNamespaceResultOutput) Sku() SkuResponsePtrOutput {
+	return o.ApplyT(func(v LookupNamespaceResult) *SkuResponse { return v.Sku }).(SkuResponsePtrOutput)
+}
+
+// Status of the namespace. It can be any of these values:1 = Created/Active2 = Creating3 = Suspended4 = Deleting
+func (o LookupNamespaceResultOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupNamespaceResult) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+// The Id of the Azure subscription associated with the namespace.
+func (o LookupNamespaceResultOutput) SubscriptionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupNamespaceResult) *string { return v.SubscriptionId }).(pulumi.StringPtrOutput)
+}
+
+// Resource tags
+func (o LookupNamespaceResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupNamespaceResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type
+func (o LookupNamespaceResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupNamespaceResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The time the namespace was updated.
+func (o LookupNamespaceResultOutput) UpdatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupNamespaceResult) *string { return v.UpdatedAt }).(pulumi.StringPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupNamespaceResultOutput{})
 }

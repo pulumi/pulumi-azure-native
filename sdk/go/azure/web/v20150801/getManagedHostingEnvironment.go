@@ -4,6 +4,9 @@
 package v20150801
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -59,4 +62,124 @@ type LookupManagedHostingEnvironmentResult struct {
 	Type *string `pulumi:"type"`
 	// Description of the managed hosting environment's virtual network
 	VirtualNetwork *VirtualNetworkProfileResponse `pulumi:"virtualNetwork"`
+}
+
+func LookupManagedHostingEnvironmentOutput(ctx *pulumi.Context, args LookupManagedHostingEnvironmentOutputArgs, opts ...pulumi.InvokeOption) LookupManagedHostingEnvironmentResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupManagedHostingEnvironmentResult, error) {
+			args := v.(LookupManagedHostingEnvironmentArgs)
+			r, err := LookupManagedHostingEnvironment(ctx, &args, opts...)
+			return *r, err
+		}).(LookupManagedHostingEnvironmentResultOutput)
+}
+
+type LookupManagedHostingEnvironmentOutputArgs struct {
+	// Name of managed hosting environment
+	Name pulumi.StringInput `pulumi:"name"`
+	// Name of resource group
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupManagedHostingEnvironmentOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupManagedHostingEnvironmentArgs)(nil)).Elem()
+}
+
+// Description of a managed hosting environment
+type LookupManagedHostingEnvironmentResultOutput struct{ *pulumi.OutputState }
+
+func (LookupManagedHostingEnvironmentResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupManagedHostingEnvironmentResult)(nil)).Elem()
+}
+
+func (o LookupManagedHostingEnvironmentResultOutput) ToLookupManagedHostingEnvironmentResultOutput() LookupManagedHostingEnvironmentResultOutput {
+	return o
+}
+
+func (o LookupManagedHostingEnvironmentResultOutput) ToLookupManagedHostingEnvironmentResultOutputWithContext(ctx context.Context) LookupManagedHostingEnvironmentResultOutput {
+	return o
+}
+
+// Resource id of the api management account associated with this managed hosting environment (read only)
+func (o LookupManagedHostingEnvironmentResultOutput) ApiManagementAccount() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupManagedHostingEnvironmentResult) *string { return v.ApiManagementAccount }).(pulumi.StringPtrOutput)
+}
+
+// DNS suffix of the managed hosting environment
+func (o LookupManagedHostingEnvironmentResultOutput) DnsSuffix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupManagedHostingEnvironmentResult) *string { return v.DnsSuffix }).(pulumi.StringPtrOutput)
+}
+
+// True/false indicating whether the managed hosting environment is healthy
+func (o LookupManagedHostingEnvironmentResultOutput) EnvironmentIsHealthy() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupManagedHostingEnvironmentResult) *bool { return v.EnvironmentIsHealthy }).(pulumi.BoolPtrOutput)
+}
+
+// Detailed message about with results of the last check of the managed hosting environment
+func (o LookupManagedHostingEnvironmentResultOutput) EnvironmentStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupManagedHostingEnvironmentResult) *string { return v.EnvironmentStatus }).(pulumi.StringPtrOutput)
+}
+
+// Resource Id
+func (o LookupManagedHostingEnvironmentResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupManagedHostingEnvironmentResult) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// Number of ip ssl addresses reserved for the managed hosting environment
+func (o LookupManagedHostingEnvironmentResultOutput) IpsslAddressCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupManagedHostingEnvironmentResult) *int { return v.IpsslAddressCount }).(pulumi.IntPtrOutput)
+}
+
+// Kind of resource
+func (o LookupManagedHostingEnvironmentResultOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupManagedHostingEnvironmentResult) *string { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Resource Location
+func (o LookupManagedHostingEnvironmentResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupManagedHostingEnvironmentResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource Name
+func (o LookupManagedHostingEnvironmentResultOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupManagedHostingEnvironmentResult) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Resource group of the managed hosting environment (read only)
+func (o LookupManagedHostingEnvironmentResultOutput) ResourceGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupManagedHostingEnvironmentResult) *string { return v.ResourceGroup }).(pulumi.StringPtrOutput)
+}
+
+// Current status of the managed hosting environment
+func (o LookupManagedHostingEnvironmentResultOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupManagedHostingEnvironmentResult) string { return v.Status }).(pulumi.StringOutput)
+}
+
+// Subscription of the managed hosting environment (read only)
+func (o LookupManagedHostingEnvironmentResultOutput) SubscriptionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupManagedHostingEnvironmentResult) *string { return v.SubscriptionId }).(pulumi.StringPtrOutput)
+}
+
+// True/false indicating whether the managed hosting environment is suspended. The environment can be suspended e.g. when the management endpoint is no longer available
+//             (most likely because NSG blocked the incoming traffic)
+func (o LookupManagedHostingEnvironmentResultOutput) Suspended() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupManagedHostingEnvironmentResult) *bool { return v.Suspended }).(pulumi.BoolPtrOutput)
+}
+
+// Resource tags
+func (o LookupManagedHostingEnvironmentResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupManagedHostingEnvironmentResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type
+func (o LookupManagedHostingEnvironmentResultOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupManagedHostingEnvironmentResult) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+// Description of the managed hosting environment's virtual network
+func (o LookupManagedHostingEnvironmentResultOutput) VirtualNetwork() VirtualNetworkProfileResponsePtrOutput {
+	return o.ApplyT(func(v LookupManagedHostingEnvironmentResult) *VirtualNetworkProfileResponse { return v.VirtualNetwork }).(VirtualNetworkProfileResponsePtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupManagedHostingEnvironmentResultOutput{})
 }

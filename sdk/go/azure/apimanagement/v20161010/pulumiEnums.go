@@ -185,6 +185,163 @@ const (
 	KeyTypeContractSecondary = KeyTypeContract("secondary")
 )
 
+func (KeyTypeContract) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyTypeContract)(nil)).Elem()
+}
+
+func (e KeyTypeContract) ToKeyTypeContractOutput() KeyTypeContractOutput {
+	return pulumi.ToOutput(e).(KeyTypeContractOutput)
+}
+
+func (e KeyTypeContract) ToKeyTypeContractOutputWithContext(ctx context.Context) KeyTypeContractOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(KeyTypeContractOutput)
+}
+
+func (e KeyTypeContract) ToKeyTypeContractPtrOutput() KeyTypeContractPtrOutput {
+	return e.ToKeyTypeContractPtrOutputWithContext(context.Background())
+}
+
+func (e KeyTypeContract) ToKeyTypeContractPtrOutputWithContext(ctx context.Context) KeyTypeContractPtrOutput {
+	return KeyTypeContract(e).ToKeyTypeContractOutputWithContext(ctx).ToKeyTypeContractPtrOutputWithContext(ctx)
+}
+
+func (e KeyTypeContract) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e KeyTypeContract) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e KeyTypeContract) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e KeyTypeContract) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type KeyTypeContractOutput struct{ *pulumi.OutputState }
+
+func (KeyTypeContractOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyTypeContract)(nil)).Elem()
+}
+
+func (o KeyTypeContractOutput) ToKeyTypeContractOutput() KeyTypeContractOutput {
+	return o
+}
+
+func (o KeyTypeContractOutput) ToKeyTypeContractOutputWithContext(ctx context.Context) KeyTypeContractOutput {
+	return o
+}
+
+func (o KeyTypeContractOutput) ToKeyTypeContractPtrOutput() KeyTypeContractPtrOutput {
+	return o.ToKeyTypeContractPtrOutputWithContext(context.Background())
+}
+
+func (o KeyTypeContractOutput) ToKeyTypeContractPtrOutputWithContext(ctx context.Context) KeyTypeContractPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeyTypeContract) *KeyTypeContract {
+		return &v
+	}).(KeyTypeContractPtrOutput)
+}
+
+func (o KeyTypeContractOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o KeyTypeContractOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e KeyTypeContract) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o KeyTypeContractOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o KeyTypeContractOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e KeyTypeContract) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type KeyTypeContractPtrOutput struct{ *pulumi.OutputState }
+
+func (KeyTypeContractPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KeyTypeContract)(nil)).Elem()
+}
+
+func (o KeyTypeContractPtrOutput) ToKeyTypeContractPtrOutput() KeyTypeContractPtrOutput {
+	return o
+}
+
+func (o KeyTypeContractPtrOutput) ToKeyTypeContractPtrOutputWithContext(ctx context.Context) KeyTypeContractPtrOutput {
+	return o
+}
+
+func (o KeyTypeContractPtrOutput) Elem() KeyTypeContractOutput {
+	return o.ApplyT(func(v *KeyTypeContract) KeyTypeContract {
+		if v != nil {
+			return *v
+		}
+		var ret KeyTypeContract
+		return ret
+	}).(KeyTypeContractOutput)
+}
+
+func (o KeyTypeContractPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o KeyTypeContractPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *KeyTypeContract) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// KeyTypeContractInput is an input type that accepts KeyTypeContractArgs and KeyTypeContractOutput values.
+// You can construct a concrete instance of `KeyTypeContractInput` via:
+//
+//          KeyTypeContractArgs{...}
+type KeyTypeContractInput interface {
+	pulumi.Input
+
+	ToKeyTypeContractOutput() KeyTypeContractOutput
+	ToKeyTypeContractOutputWithContext(context.Context) KeyTypeContractOutput
+}
+
+var keyTypeContractPtrType = reflect.TypeOf((**KeyTypeContract)(nil)).Elem()
+
+type KeyTypeContractPtrInput interface {
+	pulumi.Input
+
+	ToKeyTypeContractPtrOutput() KeyTypeContractPtrOutput
+	ToKeyTypeContractPtrOutputWithContext(context.Context) KeyTypeContractPtrOutput
+}
+
+type keyTypeContractPtr string
+
+func KeyTypeContractPtr(v string) KeyTypeContractPtrInput {
+	return (*keyTypeContractPtr)(&v)
+}
+
+func (*keyTypeContractPtr) ElementType() reflect.Type {
+	return keyTypeContractPtrType
+}
+
+func (in *keyTypeContractPtr) ToKeyTypeContractPtrOutput() KeyTypeContractPtrOutput {
+	return pulumi.ToOutput(in).(KeyTypeContractPtrOutput)
+}
+
+func (in *keyTypeContractPtr) ToKeyTypeContractPtrOutputWithContext(ctx context.Context) KeyTypeContractPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(KeyTypeContractPtrOutput)
+}
+
 // Name of the Sku.
 type SkuType string
 
@@ -520,6 +677,8 @@ func (in *virtualNetworkTypePtr) ToVirtualNetworkTypePtrOutputWithContext(ctx co
 func init() {
 	pulumi.RegisterOutputType(HostnameTypeOutput{})
 	pulumi.RegisterOutputType(HostnameTypePtrOutput{})
+	pulumi.RegisterOutputType(KeyTypeContractOutput{})
+	pulumi.RegisterOutputType(KeyTypeContractPtrOutput{})
 	pulumi.RegisterOutputType(SkuTypeOutput{})
 	pulumi.RegisterOutputType(SkuTypePtrOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkTypeOutput{})

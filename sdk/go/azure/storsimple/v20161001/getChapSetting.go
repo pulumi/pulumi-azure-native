@@ -4,6 +4,9 @@
 package v20161001
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -38,4 +41,67 @@ type LookupChapSettingResult struct {
 	Password AsymmetricEncryptedSecretResponse `pulumi:"password"`
 	// The type.
 	Type string `pulumi:"type"`
+}
+
+func LookupChapSettingOutput(ctx *pulumi.Context, args LookupChapSettingOutputArgs, opts ...pulumi.InvokeOption) LookupChapSettingResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupChapSettingResult, error) {
+			args := v.(LookupChapSettingArgs)
+			r, err := LookupChapSetting(ctx, &args, opts...)
+			return *r, err
+		}).(LookupChapSettingResultOutput)
+}
+
+type LookupChapSettingOutputArgs struct {
+	// The user name of chap to be fetched.
+	ChapUserName pulumi.StringInput `pulumi:"chapUserName"`
+	// The device name.
+	DeviceName pulumi.StringInput `pulumi:"deviceName"`
+	// The manager name
+	ManagerName pulumi.StringInput `pulumi:"managerName"`
+	// The resource group name
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupChapSettingOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupChapSettingArgs)(nil)).Elem()
+}
+
+// Challenge-Handshake Authentication Protocol (CHAP) setting
+type LookupChapSettingResultOutput struct{ *pulumi.OutputState }
+
+func (LookupChapSettingResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupChapSettingResult)(nil)).Elem()
+}
+
+func (o LookupChapSettingResultOutput) ToLookupChapSettingResultOutput() LookupChapSettingResultOutput {
+	return o
+}
+
+func (o LookupChapSettingResultOutput) ToLookupChapSettingResultOutputWithContext(ctx context.Context) LookupChapSettingResultOutput {
+	return o
+}
+
+// The identifier.
+func (o LookupChapSettingResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupChapSettingResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The name.
+func (o LookupChapSettingResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupChapSettingResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The chap password.
+func (o LookupChapSettingResultOutput) Password() AsymmetricEncryptedSecretResponseOutput {
+	return o.ApplyT(func(v LookupChapSettingResult) AsymmetricEncryptedSecretResponse { return v.Password }).(AsymmetricEncryptedSecretResponseOutput)
+}
+
+// The type.
+func (o LookupChapSettingResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupChapSettingResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupChapSettingResultOutput{})
 }

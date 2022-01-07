@@ -4,6 +4,9 @@
 package v20160601
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -70,4 +73,171 @@ type LookupApplicationGatewayResult struct {
 	Type string `pulumi:"type"`
 	// URL path map of application gateway resource
 	UrlPathMaps []ApplicationGatewayUrlPathMapResponse `pulumi:"urlPathMaps"`
+}
+
+func LookupApplicationGatewayOutput(ctx *pulumi.Context, args LookupApplicationGatewayOutputArgs, opts ...pulumi.InvokeOption) LookupApplicationGatewayResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupApplicationGatewayResult, error) {
+			args := v.(LookupApplicationGatewayArgs)
+			r, err := LookupApplicationGateway(ctx, &args, opts...)
+			return *r, err
+		}).(LookupApplicationGatewayResultOutput)
+}
+
+type LookupApplicationGatewayOutputArgs struct {
+	// The name of the application gateway.
+	ApplicationGatewayName pulumi.StringInput `pulumi:"applicationGatewayName"`
+	// The name of the resource group.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupApplicationGatewayOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupApplicationGatewayArgs)(nil)).Elem()
+}
+
+// ApplicationGateways resource
+type LookupApplicationGatewayResultOutput struct{ *pulumi.OutputState }
+
+func (LookupApplicationGatewayResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupApplicationGatewayResult)(nil)).Elem()
+}
+
+func (o LookupApplicationGatewayResultOutput) ToLookupApplicationGatewayResultOutput() LookupApplicationGatewayResultOutput {
+	return o
+}
+
+func (o LookupApplicationGatewayResultOutput) ToLookupApplicationGatewayResultOutputWithContext(ctx context.Context) LookupApplicationGatewayResultOutput {
+	return o
+}
+
+// Authentication certificates of application gateway resource
+func (o LookupApplicationGatewayResultOutput) AuthenticationCertificates() ApplicationGatewayAuthenticationCertificateResponseArrayOutput {
+	return o.ApplyT(func(v LookupApplicationGatewayResult) []ApplicationGatewayAuthenticationCertificateResponse {
+		return v.AuthenticationCertificates
+	}).(ApplicationGatewayAuthenticationCertificateResponseArrayOutput)
+}
+
+// Backend address pool of application gateway resource
+func (o LookupApplicationGatewayResultOutput) BackendAddressPools() ApplicationGatewayBackendAddressPoolResponseArrayOutput {
+	return o.ApplyT(func(v LookupApplicationGatewayResult) []ApplicationGatewayBackendAddressPoolResponse {
+		return v.BackendAddressPools
+	}).(ApplicationGatewayBackendAddressPoolResponseArrayOutput)
+}
+
+// Backend http settings of application gateway resource
+func (o LookupApplicationGatewayResultOutput) BackendHttpSettingsCollection() ApplicationGatewayBackendHttpSettingsResponseArrayOutput {
+	return o.ApplyT(func(v LookupApplicationGatewayResult) []ApplicationGatewayBackendHttpSettingsResponse {
+		return v.BackendHttpSettingsCollection
+	}).(ApplicationGatewayBackendHttpSettingsResponseArrayOutput)
+}
+
+// A unique read-only string that changes whenever the resource is updated
+func (o LookupApplicationGatewayResultOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupApplicationGatewayResult) *string { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// Frontend IP addresses of application gateway resource
+func (o LookupApplicationGatewayResultOutput) FrontendIPConfigurations() ApplicationGatewayFrontendIPConfigurationResponseArrayOutput {
+	return o.ApplyT(func(v LookupApplicationGatewayResult) []ApplicationGatewayFrontendIPConfigurationResponse {
+		return v.FrontendIPConfigurations
+	}).(ApplicationGatewayFrontendIPConfigurationResponseArrayOutput)
+}
+
+// Frontend ports of application gateway resource
+func (o LookupApplicationGatewayResultOutput) FrontendPorts() ApplicationGatewayFrontendPortResponseArrayOutput {
+	return o.ApplyT(func(v LookupApplicationGatewayResult) []ApplicationGatewayFrontendPortResponse {
+		return v.FrontendPorts
+	}).(ApplicationGatewayFrontendPortResponseArrayOutput)
+}
+
+// Subnets of application gateway resource
+func (o LookupApplicationGatewayResultOutput) GatewayIPConfigurations() ApplicationGatewayIPConfigurationResponseArrayOutput {
+	return o.ApplyT(func(v LookupApplicationGatewayResult) []ApplicationGatewayIPConfigurationResponse {
+		return v.GatewayIPConfigurations
+	}).(ApplicationGatewayIPConfigurationResponseArrayOutput)
+}
+
+// HTTP listeners of application gateway resource
+func (o LookupApplicationGatewayResultOutput) HttpListeners() ApplicationGatewayHttpListenerResponseArrayOutput {
+	return o.ApplyT(func(v LookupApplicationGatewayResult) []ApplicationGatewayHttpListenerResponse {
+		return v.HttpListeners
+	}).(ApplicationGatewayHttpListenerResponseArrayOutput)
+}
+
+// Resource Id
+func (o LookupApplicationGatewayResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupApplicationGatewayResult) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// Resource location
+func (o LookupApplicationGatewayResultOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupApplicationGatewayResult) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Resource name
+func (o LookupApplicationGatewayResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupApplicationGatewayResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Operational state of application gateway resource
+func (o LookupApplicationGatewayResultOutput) OperationalState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupApplicationGatewayResult) string { return v.OperationalState }).(pulumi.StringOutput)
+}
+
+// Probes of application gateway resource
+func (o LookupApplicationGatewayResultOutput) Probes() ApplicationGatewayProbeResponseArrayOutput {
+	return o.ApplyT(func(v LookupApplicationGatewayResult) []ApplicationGatewayProbeResponse { return v.Probes }).(ApplicationGatewayProbeResponseArrayOutput)
+}
+
+// Provisioning state of the ApplicationGateway resource Updating/Deleting/Failed
+func (o LookupApplicationGatewayResultOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupApplicationGatewayResult) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+}
+
+// Request routing rules of application gateway resource
+func (o LookupApplicationGatewayResultOutput) RequestRoutingRules() ApplicationGatewayRequestRoutingRuleResponseArrayOutput {
+	return o.ApplyT(func(v LookupApplicationGatewayResult) []ApplicationGatewayRequestRoutingRuleResponse {
+		return v.RequestRoutingRules
+	}).(ApplicationGatewayRequestRoutingRuleResponseArrayOutput)
+}
+
+// Resource guid property of the ApplicationGateway resource
+func (o LookupApplicationGatewayResultOutput) ResourceGuid() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupApplicationGatewayResult) *string { return v.ResourceGuid }).(pulumi.StringPtrOutput)
+}
+
+// Sku of application gateway resource
+func (o LookupApplicationGatewayResultOutput) Sku() ApplicationGatewaySkuResponsePtrOutput {
+	return o.ApplyT(func(v LookupApplicationGatewayResult) *ApplicationGatewaySkuResponse { return v.Sku }).(ApplicationGatewaySkuResponsePtrOutput)
+}
+
+// SSL certificates of application gateway resource
+func (o LookupApplicationGatewayResultOutput) SslCertificates() ApplicationGatewaySslCertificateResponseArrayOutput {
+	return o.ApplyT(func(v LookupApplicationGatewayResult) []ApplicationGatewaySslCertificateResponse {
+		return v.SslCertificates
+	}).(ApplicationGatewaySslCertificateResponseArrayOutput)
+}
+
+// SSL policy of application gateway resource
+func (o LookupApplicationGatewayResultOutput) SslPolicy() ApplicationGatewaySslPolicyResponsePtrOutput {
+	return o.ApplyT(func(v LookupApplicationGatewayResult) *ApplicationGatewaySslPolicyResponse { return v.SslPolicy }).(ApplicationGatewaySslPolicyResponsePtrOutput)
+}
+
+// Resource tags
+func (o LookupApplicationGatewayResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupApplicationGatewayResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type
+func (o LookupApplicationGatewayResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupApplicationGatewayResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// URL path map of application gateway resource
+func (o LookupApplicationGatewayResultOutput) UrlPathMaps() ApplicationGatewayUrlPathMapResponseArrayOutput {
+	return o.ApplyT(func(v LookupApplicationGatewayResult) []ApplicationGatewayUrlPathMapResponse { return v.UrlPathMaps }).(ApplicationGatewayUrlPathMapResponseArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupApplicationGatewayResultOutput{})
 }

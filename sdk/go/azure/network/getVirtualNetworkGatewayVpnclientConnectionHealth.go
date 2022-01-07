@@ -4,6 +4,9 @@
 package network
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -29,4 +32,50 @@ type GetVirtualNetworkGatewayVpnclientConnectionHealthArgs struct {
 type GetVirtualNetworkGatewayVpnclientConnectionHealthResult struct {
 	// List of vpn client connection health.
 	Value []VpnClientConnectionHealthDetailResponse `pulumi:"value"`
+}
+
+func GetVirtualNetworkGatewayVpnclientConnectionHealthOutput(ctx *pulumi.Context, args GetVirtualNetworkGatewayVpnclientConnectionHealthOutputArgs, opts ...pulumi.InvokeOption) GetVirtualNetworkGatewayVpnclientConnectionHealthResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetVirtualNetworkGatewayVpnclientConnectionHealthResult, error) {
+			args := v.(GetVirtualNetworkGatewayVpnclientConnectionHealthArgs)
+			r, err := GetVirtualNetworkGatewayVpnclientConnectionHealth(ctx, &args, opts...)
+			return *r, err
+		}).(GetVirtualNetworkGatewayVpnclientConnectionHealthResultOutput)
+}
+
+type GetVirtualNetworkGatewayVpnclientConnectionHealthOutputArgs struct {
+	// The name of the resource group.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the virtual network gateway.
+	VirtualNetworkGatewayName pulumi.StringInput `pulumi:"virtualNetworkGatewayName"`
+}
+
+func (GetVirtualNetworkGatewayVpnclientConnectionHealthOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVirtualNetworkGatewayVpnclientConnectionHealthArgs)(nil)).Elem()
+}
+
+// List of virtual network gateway vpn client connection health.
+type GetVirtualNetworkGatewayVpnclientConnectionHealthResultOutput struct{ *pulumi.OutputState }
+
+func (GetVirtualNetworkGatewayVpnclientConnectionHealthResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVirtualNetworkGatewayVpnclientConnectionHealthResult)(nil)).Elem()
+}
+
+func (o GetVirtualNetworkGatewayVpnclientConnectionHealthResultOutput) ToGetVirtualNetworkGatewayVpnclientConnectionHealthResultOutput() GetVirtualNetworkGatewayVpnclientConnectionHealthResultOutput {
+	return o
+}
+
+func (o GetVirtualNetworkGatewayVpnclientConnectionHealthResultOutput) ToGetVirtualNetworkGatewayVpnclientConnectionHealthResultOutputWithContext(ctx context.Context) GetVirtualNetworkGatewayVpnclientConnectionHealthResultOutput {
+	return o
+}
+
+// List of vpn client connection health.
+func (o GetVirtualNetworkGatewayVpnclientConnectionHealthResultOutput) Value() VpnClientConnectionHealthDetailResponseArrayOutput {
+	return o.ApplyT(func(v GetVirtualNetworkGatewayVpnclientConnectionHealthResult) []VpnClientConnectionHealthDetailResponse {
+		return v.Value
+	}).(VpnClientConnectionHealthDetailResponseArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetVirtualNetworkGatewayVpnclientConnectionHealthResultOutput{})
 }

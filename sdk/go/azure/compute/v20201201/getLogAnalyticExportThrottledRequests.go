@@ -4,6 +4,9 @@
 package v20201201
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -42,4 +45,62 @@ type GetLogAnalyticExportThrottledRequestsArgs struct {
 type GetLogAnalyticExportThrottledRequestsResult struct {
 	// LogAnalyticsOutput
 	Properties LogAnalyticsOutputResponse `pulumi:"properties"`
+}
+
+func GetLogAnalyticExportThrottledRequestsOutput(ctx *pulumi.Context, args GetLogAnalyticExportThrottledRequestsOutputArgs, opts ...pulumi.InvokeOption) GetLogAnalyticExportThrottledRequestsResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetLogAnalyticExportThrottledRequestsResult, error) {
+			args := v.(GetLogAnalyticExportThrottledRequestsArgs)
+			r, err := GetLogAnalyticExportThrottledRequests(ctx, &args, opts...)
+			return *r, err
+		}).(GetLogAnalyticExportThrottledRequestsResultOutput)
+}
+
+type GetLogAnalyticExportThrottledRequestsOutputArgs struct {
+	// SAS Uri of the logging blob container to which LogAnalytics Api writes output logs to.
+	BlobContainerSasUri pulumi.StringInput `pulumi:"blobContainerSasUri"`
+	// From time of the query
+	FromTime pulumi.StringInput `pulumi:"fromTime"`
+	// Group query result by Client Application ID.
+	GroupByClientApplicationId pulumi.BoolPtrInput `pulumi:"groupByClientApplicationId"`
+	// Group query result by Operation Name.
+	GroupByOperationName pulumi.BoolPtrInput `pulumi:"groupByOperationName"`
+	// Group query result by Resource Name.
+	GroupByResourceName pulumi.BoolPtrInput `pulumi:"groupByResourceName"`
+	// Group query result by Throttle Policy applied.
+	GroupByThrottlePolicy pulumi.BoolPtrInput `pulumi:"groupByThrottlePolicy"`
+	// Group query result by User Agent.
+	GroupByUserAgent pulumi.BoolPtrInput `pulumi:"groupByUserAgent"`
+	// The location upon which virtual-machine-sizes is queried.
+	Location pulumi.StringInput `pulumi:"location"`
+	// To time of the query
+	ToTime pulumi.StringInput `pulumi:"toTime"`
+}
+
+func (GetLogAnalyticExportThrottledRequestsOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLogAnalyticExportThrottledRequestsArgs)(nil)).Elem()
+}
+
+// LogAnalytics operation status response
+type GetLogAnalyticExportThrottledRequestsResultOutput struct{ *pulumi.OutputState }
+
+func (GetLogAnalyticExportThrottledRequestsResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLogAnalyticExportThrottledRequestsResult)(nil)).Elem()
+}
+
+func (o GetLogAnalyticExportThrottledRequestsResultOutput) ToGetLogAnalyticExportThrottledRequestsResultOutput() GetLogAnalyticExportThrottledRequestsResultOutput {
+	return o
+}
+
+func (o GetLogAnalyticExportThrottledRequestsResultOutput) ToGetLogAnalyticExportThrottledRequestsResultOutputWithContext(ctx context.Context) GetLogAnalyticExportThrottledRequestsResultOutput {
+	return o
+}
+
+// LogAnalyticsOutput
+func (o GetLogAnalyticExportThrottledRequestsResultOutput) Properties() LogAnalyticsOutputResponseOutput {
+	return o.ApplyT(func(v GetLogAnalyticExportThrottledRequestsResult) LogAnalyticsOutputResponse { return v.Properties }).(LogAnalyticsOutputResponseOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetLogAnalyticExportThrottledRequestsResultOutput{})
 }

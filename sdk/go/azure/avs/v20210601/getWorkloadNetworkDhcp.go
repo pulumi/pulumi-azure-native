@@ -4,6 +4,9 @@
 package v20210601
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -36,4 +39,65 @@ type LookupWorkloadNetworkDhcpResult struct {
 	Properties interface{} `pulumi:"properties"`
 	// Resource type.
 	Type string `pulumi:"type"`
+}
+
+func LookupWorkloadNetworkDhcpOutput(ctx *pulumi.Context, args LookupWorkloadNetworkDhcpOutputArgs, opts ...pulumi.InvokeOption) LookupWorkloadNetworkDhcpResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupWorkloadNetworkDhcpResult, error) {
+			args := v.(LookupWorkloadNetworkDhcpArgs)
+			r, err := LookupWorkloadNetworkDhcp(ctx, &args, opts...)
+			return *r, err
+		}).(LookupWorkloadNetworkDhcpResultOutput)
+}
+
+type LookupWorkloadNetworkDhcpOutputArgs struct {
+	// NSX DHCP identifier. Generally the same as the DHCP display name
+	DhcpId pulumi.StringInput `pulumi:"dhcpId"`
+	// Name of the private cloud
+	PrivateCloudName pulumi.StringInput `pulumi:"privateCloudName"`
+	// The name of the resource group. The name is case insensitive.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupWorkloadNetworkDhcpOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupWorkloadNetworkDhcpArgs)(nil)).Elem()
+}
+
+// NSX DHCP
+type LookupWorkloadNetworkDhcpResultOutput struct{ *pulumi.OutputState }
+
+func (LookupWorkloadNetworkDhcpResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupWorkloadNetworkDhcpResult)(nil)).Elem()
+}
+
+func (o LookupWorkloadNetworkDhcpResultOutput) ToLookupWorkloadNetworkDhcpResultOutput() LookupWorkloadNetworkDhcpResultOutput {
+	return o
+}
+
+func (o LookupWorkloadNetworkDhcpResultOutput) ToLookupWorkloadNetworkDhcpResultOutputWithContext(ctx context.Context) LookupWorkloadNetworkDhcpResultOutput {
+	return o
+}
+
+// Resource ID.
+func (o LookupWorkloadNetworkDhcpResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWorkloadNetworkDhcpResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o LookupWorkloadNetworkDhcpResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWorkloadNetworkDhcpResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// DHCP properties.
+func (o LookupWorkloadNetworkDhcpResultOutput) Properties() pulumi.AnyOutput {
+	return o.ApplyT(func(v LookupWorkloadNetworkDhcpResult) interface{} { return v.Properties }).(pulumi.AnyOutput)
+}
+
+// Resource type.
+func (o LookupWorkloadNetworkDhcpResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWorkloadNetworkDhcpResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupWorkloadNetworkDhcpResultOutput{})
 }

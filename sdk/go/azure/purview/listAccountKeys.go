@@ -4,6 +4,9 @@
 package purview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -31,4 +34,53 @@ type ListAccountKeysResult struct {
 	AtlasKafkaPrimaryEndpoint *string `pulumi:"atlasKafkaPrimaryEndpoint"`
 	// Gets or sets the secondary connection string.
 	AtlasKafkaSecondaryEndpoint *string `pulumi:"atlasKafkaSecondaryEndpoint"`
+}
+
+func ListAccountKeysOutput(ctx *pulumi.Context, args ListAccountKeysOutputArgs, opts ...pulumi.InvokeOption) ListAccountKeysResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (ListAccountKeysResult, error) {
+			args := v.(ListAccountKeysArgs)
+			r, err := ListAccountKeys(ctx, &args, opts...)
+			return *r, err
+		}).(ListAccountKeysResultOutput)
+}
+
+type ListAccountKeysOutputArgs struct {
+	// The name of the account.
+	AccountName pulumi.StringInput `pulumi:"accountName"`
+	// The resource group name.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (ListAccountKeysOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListAccountKeysArgs)(nil)).Elem()
+}
+
+// The Account access keys.
+type ListAccountKeysResultOutput struct{ *pulumi.OutputState }
+
+func (ListAccountKeysResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListAccountKeysResult)(nil)).Elem()
+}
+
+func (o ListAccountKeysResultOutput) ToListAccountKeysResultOutput() ListAccountKeysResultOutput {
+	return o
+}
+
+func (o ListAccountKeysResultOutput) ToListAccountKeysResultOutputWithContext(ctx context.Context) ListAccountKeysResultOutput {
+	return o
+}
+
+// Gets or sets the primary connection string.
+func (o ListAccountKeysResultOutput) AtlasKafkaPrimaryEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListAccountKeysResult) *string { return v.AtlasKafkaPrimaryEndpoint }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the secondary connection string.
+func (o ListAccountKeysResultOutput) AtlasKafkaSecondaryEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListAccountKeysResult) *string { return v.AtlasKafkaSecondaryEndpoint }).(pulumi.StringPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(ListAccountKeysResultOutput{})
 }

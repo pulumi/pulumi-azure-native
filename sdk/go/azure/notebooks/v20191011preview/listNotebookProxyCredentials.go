@@ -4,6 +4,9 @@
 package v20191011preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -34,4 +37,63 @@ type ListNotebookProxyCredentialsResult struct {
 	ResourceId *string `pulumi:"resourceId"`
 	// The secondary key of the NotebookProxy resource.
 	SecondaryAccessKey *string `pulumi:"secondaryAccessKey"`
+}
+
+func ListNotebookProxyCredentialsOutput(ctx *pulumi.Context, args ListNotebookProxyCredentialsOutputArgs, opts ...pulumi.InvokeOption) ListNotebookProxyCredentialsResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (ListNotebookProxyCredentialsResult, error) {
+			args := v.(ListNotebookProxyCredentialsArgs)
+			r, err := ListNotebookProxyCredentials(ctx, &args, opts...)
+			return *r, err
+		}).(ListNotebookProxyCredentialsResultOutput)
+}
+
+type ListNotebookProxyCredentialsOutputArgs struct {
+	// The name of the resource group. The name is case insensitive.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the resource.
+	ResourceName pulumi.StringInput `pulumi:"resourceName"`
+}
+
+func (ListNotebookProxyCredentialsOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListNotebookProxyCredentialsArgs)(nil)).Elem()
+}
+
+// Credentials and other properties of NotebookProxy resource
+type ListNotebookProxyCredentialsResultOutput struct{ *pulumi.OutputState }
+
+func (ListNotebookProxyCredentialsResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListNotebookProxyCredentialsResult)(nil)).Elem()
+}
+
+func (o ListNotebookProxyCredentialsResultOutput) ToListNotebookProxyCredentialsResultOutput() ListNotebookProxyCredentialsResultOutput {
+	return o
+}
+
+func (o ListNotebookProxyCredentialsResultOutput) ToListNotebookProxyCredentialsResultOutputWithContext(ctx context.Context) ListNotebookProxyCredentialsResultOutput {
+	return o
+}
+
+// Hostname for the Notebook Proxy resource
+func (o ListNotebookProxyCredentialsResultOutput) Hostname() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListNotebookProxyCredentialsResult) *string { return v.Hostname }).(pulumi.StringPtrOutput)
+}
+
+// The primary key of the NotebookProxy resource.
+func (o ListNotebookProxyCredentialsResultOutput) PrimaryAccessKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListNotebookProxyCredentialsResult) *string { return v.PrimaryAccessKey }).(pulumi.StringPtrOutput)
+}
+
+// Notebook Proxy resource id
+func (o ListNotebookProxyCredentialsResultOutput) ResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListNotebookProxyCredentialsResult) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
+}
+
+// The secondary key of the NotebookProxy resource.
+func (o ListNotebookProxyCredentialsResultOutput) SecondaryAccessKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListNotebookProxyCredentialsResult) *string { return v.SecondaryAccessKey }).(pulumi.StringPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(ListNotebookProxyCredentialsResultOutput{})
 }

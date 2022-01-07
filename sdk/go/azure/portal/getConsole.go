@@ -4,6 +4,9 @@
 package portal
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -27,4 +30,46 @@ type LookupConsoleArgs struct {
 type LookupConsoleResult struct {
 	// Cloud shell console properties.
 	Properties ConsolePropertiesResponse `pulumi:"properties"`
+}
+
+func LookupConsoleOutput(ctx *pulumi.Context, args LookupConsoleOutputArgs, opts ...pulumi.InvokeOption) LookupConsoleResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupConsoleResult, error) {
+			args := v.(LookupConsoleArgs)
+			r, err := LookupConsole(ctx, &args, opts...)
+			return *r, err
+		}).(LookupConsoleResultOutput)
+}
+
+type LookupConsoleOutputArgs struct {
+	// The name of the console
+	ConsoleName pulumi.StringInput `pulumi:"consoleName"`
+}
+
+func (LookupConsoleOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupConsoleArgs)(nil)).Elem()
+}
+
+// Cloud shell console
+type LookupConsoleResultOutput struct{ *pulumi.OutputState }
+
+func (LookupConsoleResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupConsoleResult)(nil)).Elem()
+}
+
+func (o LookupConsoleResultOutput) ToLookupConsoleResultOutput() LookupConsoleResultOutput {
+	return o
+}
+
+func (o LookupConsoleResultOutput) ToLookupConsoleResultOutputWithContext(ctx context.Context) LookupConsoleResultOutput {
+	return o
+}
+
+// Cloud shell console properties.
+func (o LookupConsoleResultOutput) Properties() ConsolePropertiesResponseOutput {
+	return o.ApplyT(func(v LookupConsoleResult) ConsolePropertiesResponse { return v.Properties }).(ConsolePropertiesResponseOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupConsoleResultOutput{})
 }

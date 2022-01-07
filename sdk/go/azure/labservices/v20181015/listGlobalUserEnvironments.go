@@ -4,6 +4,9 @@
 package v20181015
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -28,4 +31,48 @@ type ListGlobalUserEnvironmentsArgs struct {
 type ListGlobalUserEnvironmentsResult struct {
 	// List of all the environments
 	Environments []EnvironmentDetailsResponse `pulumi:"environments"`
+}
+
+func ListGlobalUserEnvironmentsOutput(ctx *pulumi.Context, args ListGlobalUserEnvironmentsOutputArgs, opts ...pulumi.InvokeOption) ListGlobalUserEnvironmentsResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (ListGlobalUserEnvironmentsResult, error) {
+			args := v.(ListGlobalUserEnvironmentsArgs)
+			r, err := ListGlobalUserEnvironments(ctx, &args, opts...)
+			return *r, err
+		}).(ListGlobalUserEnvironmentsResultOutput)
+}
+
+type ListGlobalUserEnvironmentsOutputArgs struct {
+	// The resource Id of the lab
+	LabId pulumi.StringPtrInput `pulumi:"labId"`
+	// The name of the user.
+	UserName pulumi.StringInput `pulumi:"userName"`
+}
+
+func (ListGlobalUserEnvironmentsOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListGlobalUserEnvironmentsArgs)(nil)).Elem()
+}
+
+// Represents the list of environments owned by a user
+type ListGlobalUserEnvironmentsResultOutput struct{ *pulumi.OutputState }
+
+func (ListGlobalUserEnvironmentsResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListGlobalUserEnvironmentsResult)(nil)).Elem()
+}
+
+func (o ListGlobalUserEnvironmentsResultOutput) ToListGlobalUserEnvironmentsResultOutput() ListGlobalUserEnvironmentsResultOutput {
+	return o
+}
+
+func (o ListGlobalUserEnvironmentsResultOutput) ToListGlobalUserEnvironmentsResultOutputWithContext(ctx context.Context) ListGlobalUserEnvironmentsResultOutput {
+	return o
+}
+
+// List of all the environments
+func (o ListGlobalUserEnvironmentsResultOutput) Environments() EnvironmentDetailsResponseArrayOutput {
+	return o.ApplyT(func(v ListGlobalUserEnvironmentsResult) []EnvironmentDetailsResponse { return v.Environments }).(EnvironmentDetailsResponseArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(ListGlobalUserEnvironmentsResultOutput{})
 }

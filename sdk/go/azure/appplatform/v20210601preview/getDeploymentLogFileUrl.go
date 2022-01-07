@@ -4,6 +4,9 @@
 package v20210601preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -32,4 +35,52 @@ type GetDeploymentLogFileUrlArgs struct {
 type GetDeploymentLogFileUrlResult struct {
 	// URL of the log file
 	Url string `pulumi:"url"`
+}
+
+func GetDeploymentLogFileUrlOutput(ctx *pulumi.Context, args GetDeploymentLogFileUrlOutputArgs, opts ...pulumi.InvokeOption) GetDeploymentLogFileUrlResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetDeploymentLogFileUrlResult, error) {
+			args := v.(GetDeploymentLogFileUrlArgs)
+			r, err := GetDeploymentLogFileUrl(ctx, &args, opts...)
+			return *r, err
+		}).(GetDeploymentLogFileUrlResultOutput)
+}
+
+type GetDeploymentLogFileUrlOutputArgs struct {
+	// The name of the App resource.
+	AppName pulumi.StringInput `pulumi:"appName"`
+	// The name of the Deployment resource.
+	DeploymentName pulumi.StringInput `pulumi:"deploymentName"`
+	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the Service resource.
+	ServiceName pulumi.StringInput `pulumi:"serviceName"`
+}
+
+func (GetDeploymentLogFileUrlOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDeploymentLogFileUrlArgs)(nil)).Elem()
+}
+
+// Log file URL payload
+type GetDeploymentLogFileUrlResultOutput struct{ *pulumi.OutputState }
+
+func (GetDeploymentLogFileUrlResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDeploymentLogFileUrlResult)(nil)).Elem()
+}
+
+func (o GetDeploymentLogFileUrlResultOutput) ToGetDeploymentLogFileUrlResultOutput() GetDeploymentLogFileUrlResultOutput {
+	return o
+}
+
+func (o GetDeploymentLogFileUrlResultOutput) ToGetDeploymentLogFileUrlResultOutputWithContext(ctx context.Context) GetDeploymentLogFileUrlResultOutput {
+	return o
+}
+
+// URL of the log file
+func (o GetDeploymentLogFileUrlResultOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDeploymentLogFileUrlResult) string { return v.Url }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetDeploymentLogFileUrlResultOutput{})
 }

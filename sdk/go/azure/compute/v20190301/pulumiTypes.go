@@ -8101,6 +8101,26 @@ type LogAnalyticsOutputResponse struct {
 	Output string `pulumi:"output"`
 }
 
+// LogAnalytics output properties
+type LogAnalyticsOutputResponseOutput struct{ *pulumi.OutputState }
+
+func (LogAnalyticsOutputResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogAnalyticsOutputResponse)(nil)).Elem()
+}
+
+func (o LogAnalyticsOutputResponseOutput) ToLogAnalyticsOutputResponseOutput() LogAnalyticsOutputResponseOutput {
+	return o
+}
+
+func (o LogAnalyticsOutputResponseOutput) ToLogAnalyticsOutputResponseOutputWithContext(ctx context.Context) LogAnalyticsOutputResponseOutput {
+	return o
+}
+
+// Output file Uri path to blob container.
+func (o LogAnalyticsOutputResponseOutput) Output() pulumi.StringOutput {
+	return o.ApplyT(func(v LogAnalyticsOutputResponse) string { return v.Output }).(pulumi.StringOutput)
+}
+
 // Maintenance Operation Status.
 type MaintenanceRedeployStatusResponse struct {
 	// True, if customer is allowed to perform Maintenance.
@@ -22037,6 +22057,7 @@ func init() {
 	pulumi.RegisterOutputType(LinuxConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(LinuxConfigurationResponseOutput{})
 	pulumi.RegisterOutputType(LinuxConfigurationResponsePtrOutput{})
+	pulumi.RegisterOutputType(LogAnalyticsOutputResponseOutput{})
 	pulumi.RegisterOutputType(MaintenanceRedeployStatusResponseOutput{})
 	pulumi.RegisterOutputType(MaintenanceRedeployStatusResponsePtrOutput{})
 	pulumi.RegisterOutputType(ManagedArtifactOutput{})

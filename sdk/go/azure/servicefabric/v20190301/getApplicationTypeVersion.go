@@ -4,6 +4,9 @@
 package v20190301
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -48,4 +51,92 @@ type LookupApplicationTypeVersionResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Azure resource type.
 	Type string `pulumi:"type"`
+}
+
+func LookupApplicationTypeVersionOutput(ctx *pulumi.Context, args LookupApplicationTypeVersionOutputArgs, opts ...pulumi.InvokeOption) LookupApplicationTypeVersionResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupApplicationTypeVersionResult, error) {
+			args := v.(LookupApplicationTypeVersionArgs)
+			r, err := LookupApplicationTypeVersion(ctx, &args, opts...)
+			return *r, err
+		}).(LookupApplicationTypeVersionResultOutput)
+}
+
+type LookupApplicationTypeVersionOutputArgs struct {
+	// The name of the application type name resource.
+	ApplicationTypeName pulumi.StringInput `pulumi:"applicationTypeName"`
+	// The name of the cluster resource.
+	ClusterName pulumi.StringInput `pulumi:"clusterName"`
+	// The name of the resource group.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The application type version.
+	Version pulumi.StringInput `pulumi:"version"`
+}
+
+func (LookupApplicationTypeVersionOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupApplicationTypeVersionArgs)(nil)).Elem()
+}
+
+// An application type version resource for the specified application type name resource.
+type LookupApplicationTypeVersionResultOutput struct{ *pulumi.OutputState }
+
+func (LookupApplicationTypeVersionResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupApplicationTypeVersionResult)(nil)).Elem()
+}
+
+func (o LookupApplicationTypeVersionResultOutput) ToLookupApplicationTypeVersionResultOutput() LookupApplicationTypeVersionResultOutput {
+	return o
+}
+
+func (o LookupApplicationTypeVersionResultOutput) ToLookupApplicationTypeVersionResultOutputWithContext(ctx context.Context) LookupApplicationTypeVersionResultOutput {
+	return o
+}
+
+// The URL to the application package
+func (o LookupApplicationTypeVersionResultOutput) AppPackageUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupApplicationTypeVersionResult) string { return v.AppPackageUrl }).(pulumi.StringOutput)
+}
+
+// List of application type parameters that can be overridden when creating or updating the application.
+func (o LookupApplicationTypeVersionResultOutput) DefaultParameterList() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupApplicationTypeVersionResult) map[string]string { return v.DefaultParameterList }).(pulumi.StringMapOutput)
+}
+
+// Azure resource etag.
+func (o LookupApplicationTypeVersionResultOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupApplicationTypeVersionResult) string { return v.Etag }).(pulumi.StringOutput)
+}
+
+// Azure resource identifier.
+func (o LookupApplicationTypeVersionResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupApplicationTypeVersionResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// It will be deprecated in New API, resource location depends on the parent resource.
+func (o LookupApplicationTypeVersionResultOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupApplicationTypeVersionResult) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Azure resource name.
+func (o LookupApplicationTypeVersionResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupApplicationTypeVersionResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The current deployment or provisioning state, which only appears in the response
+func (o LookupApplicationTypeVersionResultOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupApplicationTypeVersionResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Azure resource tags.
+func (o LookupApplicationTypeVersionResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupApplicationTypeVersionResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Azure resource type.
+func (o LookupApplicationTypeVersionResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupApplicationTypeVersionResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupApplicationTypeVersionResultOutput{})
 }

@@ -4,6 +4,9 @@
 package v20211001
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -54,4 +57,113 @@ type LookupSnapshotResult struct {
 	Type string `pulumi:"type"`
 	// The size of the VM.
 	VmSize string `pulumi:"vmSize"`
+}
+
+func LookupSnapshotOutput(ctx *pulumi.Context, args LookupSnapshotOutputArgs, opts ...pulumi.InvokeOption) LookupSnapshotResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupSnapshotResult, error) {
+			args := v.(LookupSnapshotArgs)
+			r, err := LookupSnapshot(ctx, &args, opts...)
+			return *r, err
+		}).(LookupSnapshotResultOutput)
+}
+
+type LookupSnapshotOutputArgs struct {
+	// The name of the resource group.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the managed cluster resource.
+	ResourceName pulumi.StringInput `pulumi:"resourceName"`
+}
+
+func (LookupSnapshotOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupSnapshotArgs)(nil)).Elem()
+}
+
+// A node pool snapshot resource.
+type LookupSnapshotResultOutput struct{ *pulumi.OutputState }
+
+func (LookupSnapshotResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupSnapshotResult)(nil)).Elem()
+}
+
+func (o LookupSnapshotResultOutput) ToLookupSnapshotResultOutput() LookupSnapshotResultOutput {
+	return o
+}
+
+func (o LookupSnapshotResultOutput) ToLookupSnapshotResultOutputWithContext(ctx context.Context) LookupSnapshotResultOutput {
+	return o
+}
+
+// CreationData to be used to specify the source agent pool resource ID to create this snapshot.
+func (o LookupSnapshotResultOutput) CreationData() CreationDataResponsePtrOutput {
+	return o.ApplyT(func(v LookupSnapshotResult) *CreationDataResponse { return v.CreationData }).(CreationDataResponsePtrOutput)
+}
+
+// Whether to use a FIPS-enabled OS.
+func (o LookupSnapshotResultOutput) EnableFIPS() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupSnapshotResult) bool { return v.EnableFIPS }).(pulumi.BoolOutput)
+}
+
+// Resource Id
+func (o LookupSnapshotResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSnapshotResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The version of Kubernetes.
+func (o LookupSnapshotResultOutput) KubernetesVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSnapshotResult) string { return v.KubernetesVersion }).(pulumi.StringOutput)
+}
+
+// Resource location
+func (o LookupSnapshotResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSnapshotResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource name
+func (o LookupSnapshotResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSnapshotResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The version of node image.
+func (o LookupSnapshotResultOutput) NodeImageVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSnapshotResult) string { return v.NodeImageVersion }).(pulumi.StringOutput)
+}
+
+// Specifies an OS SKU. This value must not be specified if OSType is Windows.
+func (o LookupSnapshotResultOutput) OsSku() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSnapshotResult) string { return v.OsSku }).(pulumi.StringOutput)
+}
+
+// The operating system type. The default is Linux.
+func (o LookupSnapshotResultOutput) OsType() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSnapshotResult) string { return v.OsType }).(pulumi.StringOutput)
+}
+
+// The type of a snapshot. The default is NodePool.
+func (o LookupSnapshotResultOutput) SnapshotType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSnapshotResult) *string { return v.SnapshotType }).(pulumi.StringPtrOutput)
+}
+
+// The system metadata relating to this snapshot.
+func (o LookupSnapshotResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupSnapshotResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource tags
+func (o LookupSnapshotResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupSnapshotResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type
+func (o LookupSnapshotResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSnapshotResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The size of the VM.
+func (o LookupSnapshotResultOutput) VmSize() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSnapshotResult) string { return v.VmSize }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupSnapshotResultOutput{})
 }

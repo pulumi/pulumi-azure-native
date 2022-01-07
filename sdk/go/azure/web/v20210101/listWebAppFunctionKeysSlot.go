@@ -4,6 +4,9 @@
 package v20210101
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -40,4 +43,72 @@ type ListWebAppFunctionKeysSlotResult struct {
 	Properties map[string]string `pulumi:"properties"`
 	// Resource type.
 	Type string `pulumi:"type"`
+}
+
+func ListWebAppFunctionKeysSlotOutput(ctx *pulumi.Context, args ListWebAppFunctionKeysSlotOutputArgs, opts ...pulumi.InvokeOption) ListWebAppFunctionKeysSlotResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (ListWebAppFunctionKeysSlotResult, error) {
+			args := v.(ListWebAppFunctionKeysSlotArgs)
+			r, err := ListWebAppFunctionKeysSlot(ctx, &args, opts...)
+			return *r, err
+		}).(ListWebAppFunctionKeysSlotResultOutput)
+}
+
+type ListWebAppFunctionKeysSlotOutputArgs struct {
+	// Function name.
+	FunctionName pulumi.StringInput `pulumi:"functionName"`
+	// Site name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Name of the resource group to which the resource belongs.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// Name of the deployment slot.
+	Slot pulumi.StringInput `pulumi:"slot"`
+}
+
+func (ListWebAppFunctionKeysSlotOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListWebAppFunctionKeysSlotArgs)(nil)).Elem()
+}
+
+// String dictionary resource.
+type ListWebAppFunctionKeysSlotResultOutput struct{ *pulumi.OutputState }
+
+func (ListWebAppFunctionKeysSlotResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListWebAppFunctionKeysSlotResult)(nil)).Elem()
+}
+
+func (o ListWebAppFunctionKeysSlotResultOutput) ToListWebAppFunctionKeysSlotResultOutput() ListWebAppFunctionKeysSlotResultOutput {
+	return o
+}
+
+func (o ListWebAppFunctionKeysSlotResultOutput) ToListWebAppFunctionKeysSlotResultOutputWithContext(ctx context.Context) ListWebAppFunctionKeysSlotResultOutput {
+	return o
+}
+
+// Resource Id.
+func (o ListWebAppFunctionKeysSlotResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v ListWebAppFunctionKeysSlotResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Kind of resource.
+func (o ListWebAppFunctionKeysSlotResultOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListWebAppFunctionKeysSlotResult) *string { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Resource Name.
+func (o ListWebAppFunctionKeysSlotResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ListWebAppFunctionKeysSlotResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Settings.
+func (o ListWebAppFunctionKeysSlotResultOutput) Properties() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ListWebAppFunctionKeysSlotResult) map[string]string { return v.Properties }).(pulumi.StringMapOutput)
+}
+
+// Resource type.
+func (o ListWebAppFunctionKeysSlotResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ListWebAppFunctionKeysSlotResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(ListWebAppFunctionKeysSlotResultOutput{})
 }

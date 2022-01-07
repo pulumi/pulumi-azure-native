@@ -4,6 +4,9 @@
 package v20201005preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -88,4 +91,138 @@ func (val *LookupWebTestResult) Defaults() *LookupWebTestResult {
 		tmp.WebTestKind = "ping"
 	}
 	return &tmp
+}
+
+func LookupWebTestOutput(ctx *pulumi.Context, args LookupWebTestOutputArgs, opts ...pulumi.InvokeOption) LookupWebTestResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupWebTestResult, error) {
+			args := v.(LookupWebTestArgs)
+			r, err := LookupWebTest(ctx, &args, opts...)
+			return *r, err
+		}).(LookupWebTestResultOutput)
+}
+
+type LookupWebTestOutputArgs struct {
+	// The name of the resource group. The name is case insensitive.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the Application Insights WebTest resource.
+	WebTestName pulumi.StringInput `pulumi:"webTestName"`
+}
+
+func (LookupWebTestOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupWebTestArgs)(nil)).Elem()
+}
+
+// An Application Insights WebTest definition.
+type LookupWebTestResultOutput struct{ *pulumi.OutputState }
+
+func (LookupWebTestResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupWebTestResult)(nil)).Elem()
+}
+
+func (o LookupWebTestResultOutput) ToLookupWebTestResultOutput() LookupWebTestResultOutput {
+	return o
+}
+
+func (o LookupWebTestResultOutput) ToLookupWebTestResultOutputWithContext(ctx context.Context) LookupWebTestResultOutput {
+	return o
+}
+
+// An XML configuration specification for a WebTest.
+func (o LookupWebTestResultOutput) Configuration() WebTestPropertiesResponseConfigurationPtrOutput {
+	return o.ApplyT(func(v LookupWebTestResult) *WebTestPropertiesResponseConfiguration { return v.Configuration }).(WebTestPropertiesResponseConfigurationPtrOutput)
+}
+
+// User defined description for this WebTest.
+func (o LookupWebTestResultOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupWebTestResult) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Is the test actively being monitored.
+func (o LookupWebTestResultOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupWebTestResult) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// Interval in seconds between test runs for this WebTest. Default value is 300.
+func (o LookupWebTestResultOutput) Frequency() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupWebTestResult) *int { return v.Frequency }).(pulumi.IntPtrOutput)
+}
+
+// Azure resource Id
+func (o LookupWebTestResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWebTestResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The kind of WebTest that this web test watches. Choices are ping and multistep.
+func (o LookupWebTestResultOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupWebTestResult) *string { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Resource location
+func (o LookupWebTestResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWebTestResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// A list of where to physically run the tests from to give global coverage for accessibility of your application.
+func (o LookupWebTestResultOutput) Locations() WebTestGeolocationResponseArrayOutput {
+	return o.ApplyT(func(v LookupWebTestResult) []WebTestGeolocationResponse { return v.Locations }).(WebTestGeolocationResponseArrayOutput)
+}
+
+// Azure resource name
+func (o LookupWebTestResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWebTestResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Current state of this component, whether or not is has been provisioned within the resource group it is defined. Users cannot change this value but are able to read from it. Values will include Succeeded, Deploying, Canceled, and Failed.
+func (o LookupWebTestResultOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWebTestResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The collection of request properties
+func (o LookupWebTestResultOutput) Request() WebTestPropertiesResponseRequestPtrOutput {
+	return o.ApplyT(func(v LookupWebTestResult) *WebTestPropertiesResponseRequest { return v.Request }).(WebTestPropertiesResponseRequestPtrOutput)
+}
+
+// Allow for retries should this WebTest fail.
+func (o LookupWebTestResultOutput) RetryEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupWebTestResult) *bool { return v.RetryEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Unique ID of this WebTest. This is typically the same value as the Name field.
+func (o LookupWebTestResultOutput) SyntheticMonitorId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWebTestResult) string { return v.SyntheticMonitorId }).(pulumi.StringOutput)
+}
+
+// Resource tags
+func (o LookupWebTestResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupWebTestResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Seconds until this WebTest will timeout and fail. Default value is 30.
+func (o LookupWebTestResultOutput) Timeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupWebTestResult) *int { return v.Timeout }).(pulumi.IntPtrOutput)
+}
+
+// Azure resource type
+func (o LookupWebTestResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWebTestResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The collection of validation rule properties
+func (o LookupWebTestResultOutput) ValidationRules() WebTestPropertiesResponseValidationRulesPtrOutput {
+	return o.ApplyT(func(v LookupWebTestResult) *WebTestPropertiesResponseValidationRules { return v.ValidationRules }).(WebTestPropertiesResponseValidationRulesPtrOutput)
+}
+
+// The kind of web test this is, valid choices are ping, multistep, basic, and standard.
+func (o LookupWebTestResultOutput) WebTestKind() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWebTestResult) string { return v.WebTestKind }).(pulumi.StringOutput)
+}
+
+// User defined name if this WebTest.
+func (o LookupWebTestResultOutput) WebTestName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWebTestResult) string { return v.WebTestName }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupWebTestResultOutput{})
 }

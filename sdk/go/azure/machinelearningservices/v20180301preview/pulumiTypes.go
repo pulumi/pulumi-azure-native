@@ -483,10 +483,78 @@ type PasswordResponse struct {
 	Value string `pulumi:"value"`
 }
 
+type PasswordResponseOutput struct{ *pulumi.OutputState }
+
+func (PasswordResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PasswordResponse)(nil)).Elem()
+}
+
+func (o PasswordResponseOutput) ToPasswordResponseOutput() PasswordResponseOutput {
+	return o
+}
+
+func (o PasswordResponseOutput) ToPasswordResponseOutputWithContext(ctx context.Context) PasswordResponseOutput {
+	return o
+}
+
+func (o PasswordResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v PasswordResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o PasswordResponseOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v PasswordResponse) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type PasswordResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (PasswordResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PasswordResponse)(nil)).Elem()
+}
+
+func (o PasswordResponseArrayOutput) ToPasswordResponseArrayOutput() PasswordResponseArrayOutput {
+	return o
+}
+
+func (o PasswordResponseArrayOutput) ToPasswordResponseArrayOutputWithContext(ctx context.Context) PasswordResponseArrayOutput {
+	return o
+}
+
+func (o PasswordResponseArrayOutput) Index(i pulumi.IntInput) PasswordResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PasswordResponse {
+		return vs[0].([]PasswordResponse)[vs[1].(int)]
+	}).(PasswordResponseOutput)
+}
+
 type RegistryListCredentialsResultResponse struct {
 	Location  string             `pulumi:"location"`
 	Passwords []PasswordResponse `pulumi:"passwords"`
 	Username  string             `pulumi:"username"`
+}
+
+type RegistryListCredentialsResultResponseOutput struct{ *pulumi.OutputState }
+
+func (RegistryListCredentialsResultResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegistryListCredentialsResultResponse)(nil)).Elem()
+}
+
+func (o RegistryListCredentialsResultResponseOutput) ToRegistryListCredentialsResultResponseOutput() RegistryListCredentialsResultResponseOutput {
+	return o
+}
+
+func (o RegistryListCredentialsResultResponseOutput) ToRegistryListCredentialsResultResponseOutputWithContext(ctx context.Context) RegistryListCredentialsResultResponseOutput {
+	return o
+}
+
+func (o RegistryListCredentialsResultResponseOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v RegistryListCredentialsResultResponse) string { return v.Location }).(pulumi.StringOutput)
+}
+
+func (o RegistryListCredentialsResultResponseOutput) Passwords() PasswordResponseArrayOutput {
+	return o.ApplyT(func(v RegistryListCredentialsResultResponse) []PasswordResponse { return v.Passwords }).(PasswordResponseArrayOutput)
+}
+
+func (o RegistryListCredentialsResultResponseOutput) Username() pulumi.StringOutput {
+	return o.ApplyT(func(v RegistryListCredentialsResultResponse) string { return v.Username }).(pulumi.StringOutput)
 }
 
 // scale settings for BatchAI Compute
@@ -630,4 +698,7 @@ func init() {
 	pulumi.RegisterOutputType(IdentityPtrOutput{})
 	pulumi.RegisterOutputType(IdentityResponseOutput{})
 	pulumi.RegisterOutputType(IdentityResponsePtrOutput{})
+	pulumi.RegisterOutputType(PasswordResponseOutput{})
+	pulumi.RegisterOutputType(PasswordResponseArrayOutput{})
+	pulumi.RegisterOutputType(RegistryListCredentialsResultResponseOutput{})
 }

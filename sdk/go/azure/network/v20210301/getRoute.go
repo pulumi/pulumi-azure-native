@@ -4,6 +4,9 @@
 package v20210301
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -46,4 +49,90 @@ type LookupRouteResult struct {
 	ProvisioningState string `pulumi:"provisioningState"`
 	// The type of the resource.
 	Type *string `pulumi:"type"`
+}
+
+func LookupRouteOutput(ctx *pulumi.Context, args LookupRouteOutputArgs, opts ...pulumi.InvokeOption) LookupRouteResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupRouteResult, error) {
+			args := v.(LookupRouteArgs)
+			r, err := LookupRoute(ctx, &args, opts...)
+			return *r, err
+		}).(LookupRouteResultOutput)
+}
+
+type LookupRouteOutputArgs struct {
+	// The name of the resource group.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the route.
+	RouteName pulumi.StringInput `pulumi:"routeName"`
+	// The name of the route table.
+	RouteTableName pulumi.StringInput `pulumi:"routeTableName"`
+}
+
+func (LookupRouteOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupRouteArgs)(nil)).Elem()
+}
+
+// Route resource.
+type LookupRouteResultOutput struct{ *pulumi.OutputState }
+
+func (LookupRouteResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupRouteResult)(nil)).Elem()
+}
+
+func (o LookupRouteResultOutput) ToLookupRouteResultOutput() LookupRouteResultOutput {
+	return o
+}
+
+func (o LookupRouteResultOutput) ToLookupRouteResultOutputWithContext(ctx context.Context) LookupRouteResultOutput {
+	return o
+}
+
+// The destination CIDR to which the route applies.
+func (o LookupRouteResultOutput) AddressPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupRouteResult) *string { return v.AddressPrefix }).(pulumi.StringPtrOutput)
+}
+
+// A unique read-only string that changes whenever the resource is updated.
+func (o LookupRouteResultOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRouteResult) string { return v.Etag }).(pulumi.StringOutput)
+}
+
+// A value indicating whether this route overrides overlapping BGP routes regardless of LPM.
+func (o LookupRouteResultOutput) HasBgpOverride() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupRouteResult) *bool { return v.HasBgpOverride }).(pulumi.BoolPtrOutput)
+}
+
+// Resource ID.
+func (o LookupRouteResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupRouteResult) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource that is unique within a resource group. This name can be used to access the resource.
+func (o LookupRouteResultOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupRouteResult) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is VirtualAppliance.
+func (o LookupRouteResultOutput) NextHopIpAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupRouteResult) *string { return v.NextHopIpAddress }).(pulumi.StringPtrOutput)
+}
+
+// The type of Azure hop the packet should be sent to.
+func (o LookupRouteResultOutput) NextHopType() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRouteResult) string { return v.NextHopType }).(pulumi.StringOutput)
+}
+
+// The provisioning state of the route resource.
+func (o LookupRouteResultOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRouteResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The type of the resource.
+func (o LookupRouteResultOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupRouteResult) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupRouteResultOutput{})
 }

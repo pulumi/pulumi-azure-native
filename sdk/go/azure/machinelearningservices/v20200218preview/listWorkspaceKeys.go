@@ -4,6 +4,9 @@
 package v20200218preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -28,4 +31,60 @@ type ListWorkspaceKeysResult struct {
 	ContainerRegistryCredentials  RegistryListCredentialsResultResponse `pulumi:"containerRegistryCredentials"`
 	UserStorageKey                string                                `pulumi:"userStorageKey"`
 	UserStorageResourceId         string                                `pulumi:"userStorageResourceId"`
+}
+
+func ListWorkspaceKeysOutput(ctx *pulumi.Context, args ListWorkspaceKeysOutputArgs, opts ...pulumi.InvokeOption) ListWorkspaceKeysResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (ListWorkspaceKeysResult, error) {
+			args := v.(ListWorkspaceKeysArgs)
+			r, err := ListWorkspaceKeys(ctx, &args, opts...)
+			return *r, err
+		}).(ListWorkspaceKeysResultOutput)
+}
+
+type ListWorkspaceKeysOutputArgs struct {
+	// Name of the resource group in which workspace is located.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// Name of Azure Machine Learning workspace.
+	WorkspaceName pulumi.StringInput `pulumi:"workspaceName"`
+}
+
+func (ListWorkspaceKeysOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListWorkspaceKeysArgs)(nil)).Elem()
+}
+
+type ListWorkspaceKeysResultOutput struct{ *pulumi.OutputState }
+
+func (ListWorkspaceKeysResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListWorkspaceKeysResult)(nil)).Elem()
+}
+
+func (o ListWorkspaceKeysResultOutput) ToListWorkspaceKeysResultOutput() ListWorkspaceKeysResultOutput {
+	return o
+}
+
+func (o ListWorkspaceKeysResultOutput) ToListWorkspaceKeysResultOutputWithContext(ctx context.Context) ListWorkspaceKeysResultOutput {
+	return o
+}
+
+func (o ListWorkspaceKeysResultOutput) AppInsightsInstrumentationKey() pulumi.StringOutput {
+	return o.ApplyT(func(v ListWorkspaceKeysResult) string { return v.AppInsightsInstrumentationKey }).(pulumi.StringOutput)
+}
+
+func (o ListWorkspaceKeysResultOutput) ContainerRegistryCredentials() RegistryListCredentialsResultResponseOutput {
+	return o.ApplyT(func(v ListWorkspaceKeysResult) RegistryListCredentialsResultResponse {
+		return v.ContainerRegistryCredentials
+	}).(RegistryListCredentialsResultResponseOutput)
+}
+
+func (o ListWorkspaceKeysResultOutput) UserStorageKey() pulumi.StringOutput {
+	return o.ApplyT(func(v ListWorkspaceKeysResult) string { return v.UserStorageKey }).(pulumi.StringOutput)
+}
+
+func (o ListWorkspaceKeysResultOutput) UserStorageResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v ListWorkspaceKeysResult) string { return v.UserStorageResourceId }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(ListWorkspaceKeysResultOutput{})
 }

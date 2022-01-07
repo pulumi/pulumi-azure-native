@@ -4,6 +4,9 @@
 package v20150501
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -66,4 +69,113 @@ func (val *LookupWorkbookResult) Defaults() *LookupWorkbookResult {
 		tmp.SharedTypeKind = "shared"
 	}
 	return &tmp
+}
+
+func LookupWorkbookOutput(ctx *pulumi.Context, args LookupWorkbookOutputArgs, opts ...pulumi.InvokeOption) LookupWorkbookResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupWorkbookResult, error) {
+			args := v.(LookupWorkbookArgs)
+			r, err := LookupWorkbook(ctx, &args, opts...)
+			return *r, err
+		}).(LookupWorkbookResultOutput)
+}
+
+type LookupWorkbookOutputArgs struct {
+	// The name of the resource group. The name is case insensitive.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the Application Insights component resource.
+	ResourceName pulumi.StringInput `pulumi:"resourceName"`
+}
+
+func (LookupWorkbookOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupWorkbookArgs)(nil)).Elem()
+}
+
+// An Application Insights workbook definition.
+type LookupWorkbookResultOutput struct{ *pulumi.OutputState }
+
+func (LookupWorkbookResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupWorkbookResult)(nil)).Elem()
+}
+
+func (o LookupWorkbookResultOutput) ToLookupWorkbookResultOutput() LookupWorkbookResultOutput {
+	return o
+}
+
+func (o LookupWorkbookResultOutput) ToLookupWorkbookResultOutputWithContext(ctx context.Context) LookupWorkbookResultOutput {
+	return o
+}
+
+// Workbook category, as defined by the user at creation time.
+func (o LookupWorkbookResultOutput) Category() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWorkbookResult) string { return v.Category }).(pulumi.StringOutput)
+}
+
+// Azure resource Id
+func (o LookupWorkbookResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWorkbookResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The kind of workbook. Choices are user and shared.
+func (o LookupWorkbookResultOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupWorkbookResult) *string { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Resource location
+func (o LookupWorkbookResultOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupWorkbookResult) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Azure resource name
+func (o LookupWorkbookResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWorkbookResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Configuration of this particular workbook. Configuration data is a string containing valid JSON
+func (o LookupWorkbookResultOutput) SerializedData() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWorkbookResult) string { return v.SerializedData }).(pulumi.StringOutput)
+}
+
+// Enum indicating if this workbook definition is owned by a specific user or is shared between all users with access to the Application Insights component.
+func (o LookupWorkbookResultOutput) SharedTypeKind() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWorkbookResult) string { return v.SharedTypeKind }).(pulumi.StringOutput)
+}
+
+// Optional resourceId for a source resource.
+func (o LookupWorkbookResultOutput) SourceResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupWorkbookResult) *string { return v.SourceResourceId }).(pulumi.StringPtrOutput)
+}
+
+// Resource tags
+func (o LookupWorkbookResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupWorkbookResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Date and time in UTC of the last modification that was made to this workbook definition.
+func (o LookupWorkbookResultOutput) TimeModified() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWorkbookResult) string { return v.TimeModified }).(pulumi.StringOutput)
+}
+
+// Azure resource type
+func (o LookupWorkbookResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWorkbookResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Unique user id of the specific user that owns this workbook.
+func (o LookupWorkbookResultOutput) UserId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWorkbookResult) string { return v.UserId }).(pulumi.StringOutput)
+}
+
+// This instance's version of the data model. This can change as new features are added that can be marked workbook.
+func (o LookupWorkbookResultOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupWorkbookResult) *string { return v.Version }).(pulumi.StringPtrOutput)
+}
+
+// Internally assigned unique id of the workbook definition.
+func (o LookupWorkbookResultOutput) WorkbookId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWorkbookResult) string { return v.WorkbookId }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupWorkbookResultOutput{})
 }

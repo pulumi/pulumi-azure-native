@@ -4,6 +4,9 @@
 package v20210501
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -27,4 +30,50 @@ type ListMediaServiceEdgePoliciesArgs struct {
 
 type ListMediaServiceEdgePoliciesResult struct {
 	UsageDataCollectionPolicy *EdgeUsageDataCollectionPolicyResponse `pulumi:"usageDataCollectionPolicy"`
+}
+
+func ListMediaServiceEdgePoliciesOutput(ctx *pulumi.Context, args ListMediaServiceEdgePoliciesOutputArgs, opts ...pulumi.InvokeOption) ListMediaServiceEdgePoliciesResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (ListMediaServiceEdgePoliciesResult, error) {
+			args := v.(ListMediaServiceEdgePoliciesArgs)
+			r, err := ListMediaServiceEdgePolicies(ctx, &args, opts...)
+			return *r, err
+		}).(ListMediaServiceEdgePoliciesResultOutput)
+}
+
+type ListMediaServiceEdgePoliciesOutputArgs struct {
+	// The Media Services account name.
+	AccountName pulumi.StringInput `pulumi:"accountName"`
+	// Unique identifier of the edge device.
+	DeviceId pulumi.StringPtrInput `pulumi:"deviceId"`
+	// The name of the resource group within the Azure subscription.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (ListMediaServiceEdgePoliciesOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListMediaServiceEdgePoliciesArgs)(nil)).Elem()
+}
+
+type ListMediaServiceEdgePoliciesResultOutput struct{ *pulumi.OutputState }
+
+func (ListMediaServiceEdgePoliciesResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListMediaServiceEdgePoliciesResult)(nil)).Elem()
+}
+
+func (o ListMediaServiceEdgePoliciesResultOutput) ToListMediaServiceEdgePoliciesResultOutput() ListMediaServiceEdgePoliciesResultOutput {
+	return o
+}
+
+func (o ListMediaServiceEdgePoliciesResultOutput) ToListMediaServiceEdgePoliciesResultOutputWithContext(ctx context.Context) ListMediaServiceEdgePoliciesResultOutput {
+	return o
+}
+
+func (o ListMediaServiceEdgePoliciesResultOutput) UsageDataCollectionPolicy() EdgeUsageDataCollectionPolicyResponsePtrOutput {
+	return o.ApplyT(func(v ListMediaServiceEdgePoliciesResult) *EdgeUsageDataCollectionPolicyResponse {
+		return v.UsageDataCollectionPolicy
+	}).(EdgeUsageDataCollectionPolicyResponsePtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(ListMediaServiceEdgePoliciesResultOutput{})
 }

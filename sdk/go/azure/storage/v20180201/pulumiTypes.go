@@ -2397,6 +2397,56 @@ type StorageAccountKeyResponse struct {
 	Value string `pulumi:"value"`
 }
 
+// An access key for the storage account.
+type StorageAccountKeyResponseOutput struct{ *pulumi.OutputState }
+
+func (StorageAccountKeyResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageAccountKeyResponse)(nil)).Elem()
+}
+
+func (o StorageAccountKeyResponseOutput) ToStorageAccountKeyResponseOutput() StorageAccountKeyResponseOutput {
+	return o
+}
+
+func (o StorageAccountKeyResponseOutput) ToStorageAccountKeyResponseOutputWithContext(ctx context.Context) StorageAccountKeyResponseOutput {
+	return o
+}
+
+// Name of the key.
+func (o StorageAccountKeyResponseOutput) KeyName() pulumi.StringOutput {
+	return o.ApplyT(func(v StorageAccountKeyResponse) string { return v.KeyName }).(pulumi.StringOutput)
+}
+
+// Permissions for the key -- read-only or full permissions.
+func (o StorageAccountKeyResponseOutput) Permissions() pulumi.StringOutput {
+	return o.ApplyT(func(v StorageAccountKeyResponse) string { return v.Permissions }).(pulumi.StringOutput)
+}
+
+// Base 64-encoded value of the key.
+func (o StorageAccountKeyResponseOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v StorageAccountKeyResponse) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type StorageAccountKeyResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (StorageAccountKeyResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StorageAccountKeyResponse)(nil)).Elem()
+}
+
+func (o StorageAccountKeyResponseArrayOutput) ToStorageAccountKeyResponseArrayOutput() StorageAccountKeyResponseArrayOutput {
+	return o
+}
+
+func (o StorageAccountKeyResponseArrayOutput) ToStorageAccountKeyResponseArrayOutputWithContext(ctx context.Context) StorageAccountKeyResponseArrayOutput {
+	return o
+}
+
+func (o StorageAccountKeyResponseArrayOutput) Index(i pulumi.IntInput) StorageAccountKeyResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StorageAccountKeyResponse {
+		return vs[0].([]StorageAccountKeyResponse)[vs[1].(int)]
+	}).(StorageAccountKeyResponseOutput)
+}
+
 // A tag of the LegalHold of a blob container.
 type TagPropertyResponse struct {
 	// Returns the Object ID of the user who added the tag.
@@ -2797,6 +2847,8 @@ func init() {
 	pulumi.RegisterOutputType(SKUCapabilityResponseArrayOutput{})
 	pulumi.RegisterOutputType(SkuOutput{})
 	pulumi.RegisterOutputType(SkuResponseOutput{})
+	pulumi.RegisterOutputType(StorageAccountKeyResponseOutput{})
+	pulumi.RegisterOutputType(StorageAccountKeyResponseArrayOutput{})
 	pulumi.RegisterOutputType(TagPropertyResponseOutput{})
 	pulumi.RegisterOutputType(TagPropertyResponseArrayOutput{})
 	pulumi.RegisterOutputType(UpdateHistoryPropertyResponseOutput{})

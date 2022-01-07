@@ -4,6 +4,9 @@
 package v20170801preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -67,4 +70,117 @@ func (val *LookupIotSecuritySolutionResult) Defaults() *LookupIotSecuritySolutio
 		tmp.Status = &status_
 	}
 	return &tmp
+}
+
+func LookupIotSecuritySolutionOutput(ctx *pulumi.Context, args LookupIotSecuritySolutionOutputArgs, opts ...pulumi.InvokeOption) LookupIotSecuritySolutionResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupIotSecuritySolutionResult, error) {
+			args := v.(LookupIotSecuritySolutionArgs)
+			r, err := LookupIotSecuritySolution(ctx, &args, opts...)
+			return *r, err
+		}).(LookupIotSecuritySolutionResultOutput)
+}
+
+type LookupIotSecuritySolutionOutputArgs struct {
+	// The name of the resource group within the user's subscription. The name is case insensitive.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The solution manager name
+	SolutionName pulumi.StringInput `pulumi:"solutionName"`
+}
+
+func (LookupIotSecuritySolutionOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupIotSecuritySolutionArgs)(nil)).Elem()
+}
+
+// Security Solution
+type LookupIotSecuritySolutionResultOutput struct{ *pulumi.OutputState }
+
+func (LookupIotSecuritySolutionResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupIotSecuritySolutionResult)(nil)).Elem()
+}
+
+func (o LookupIotSecuritySolutionResultOutput) ToLookupIotSecuritySolutionResultOutput() LookupIotSecuritySolutionResultOutput {
+	return o
+}
+
+func (o LookupIotSecuritySolutionResultOutput) ToLookupIotSecuritySolutionResultOutputWithContext(ctx context.Context) LookupIotSecuritySolutionResultOutput {
+	return o
+}
+
+// List of resources that were automatically discovered as relevant to the security solution.
+func (o LookupIotSecuritySolutionResultOutput) AutoDiscoveredResources() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupIotSecuritySolutionResult) []string { return v.AutoDiscoveredResources }).(pulumi.StringArrayOutput)
+}
+
+// Disabled data sources. Disabling these data sources compromises the system.
+func (o LookupIotSecuritySolutionResultOutput) DisabledDataSources() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupIotSecuritySolutionResult) []string { return v.DisabledDataSources }).(pulumi.StringArrayOutput)
+}
+
+// Resource display name.
+func (o LookupIotSecuritySolutionResultOutput) DisplayName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupIotSecuritySolutionResult) string { return v.DisplayName }).(pulumi.StringOutput)
+}
+
+// List of additional export to workspace data options
+func (o LookupIotSecuritySolutionResultOutput) Export() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupIotSecuritySolutionResult) []string { return v.Export }).(pulumi.StringArrayOutput)
+}
+
+// Resource Id
+func (o LookupIotSecuritySolutionResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupIotSecuritySolutionResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// IoT Hub resource IDs
+func (o LookupIotSecuritySolutionResultOutput) IotHubs() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupIotSecuritySolutionResult) []string { return v.IotHubs }).(pulumi.StringArrayOutput)
+}
+
+// The resource location.
+func (o LookupIotSecuritySolutionResultOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupIotSecuritySolutionResult) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Resource name
+func (o LookupIotSecuritySolutionResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupIotSecuritySolutionResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// List of recommendation configuration
+func (o LookupIotSecuritySolutionResultOutput) RecommendationsConfiguration() RecommendationConfigurationPropertiesResponseArrayOutput {
+	return o.ApplyT(func(v LookupIotSecuritySolutionResult) []RecommendationConfigurationPropertiesResponse {
+		return v.RecommendationsConfiguration
+	}).(RecommendationConfigurationPropertiesResponseArrayOutput)
+}
+
+// Security solution status
+func (o LookupIotSecuritySolutionResultOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupIotSecuritySolutionResult) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+// Resource tags
+func (o LookupIotSecuritySolutionResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupIotSecuritySolutionResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type
+func (o LookupIotSecuritySolutionResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupIotSecuritySolutionResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Properties of the solution's user defined resources.
+func (o LookupIotSecuritySolutionResultOutput) UserDefinedResources() UserDefinedResourcesPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v LookupIotSecuritySolutionResult) *UserDefinedResourcesPropertiesResponse {
+		return v.UserDefinedResources
+	}).(UserDefinedResourcesPropertiesResponsePtrOutput)
+}
+
+// Workspace resource ID
+func (o LookupIotSecuritySolutionResultOutput) Workspace() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupIotSecuritySolutionResult) string { return v.Workspace }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupIotSecuritySolutionResultOutput{})
 }

@@ -4,6 +4,9 @@
 package v20200701
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -28,4 +31,48 @@ type ListManagedClusterAdminCredentialsArgs struct {
 type ListManagedClusterAdminCredentialsResult struct {
 	// Base64-encoded Kubernetes configuration file.
 	Kubeconfigs []CredentialResultResponse `pulumi:"kubeconfigs"`
+}
+
+func ListManagedClusterAdminCredentialsOutput(ctx *pulumi.Context, args ListManagedClusterAdminCredentialsOutputArgs, opts ...pulumi.InvokeOption) ListManagedClusterAdminCredentialsResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (ListManagedClusterAdminCredentialsResult, error) {
+			args := v.(ListManagedClusterAdminCredentialsArgs)
+			r, err := ListManagedClusterAdminCredentials(ctx, &args, opts...)
+			return *r, err
+		}).(ListManagedClusterAdminCredentialsResultOutput)
+}
+
+type ListManagedClusterAdminCredentialsOutputArgs struct {
+	// The name of the resource group.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the managed cluster resource.
+	ResourceName pulumi.StringInput `pulumi:"resourceName"`
+}
+
+func (ListManagedClusterAdminCredentialsOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListManagedClusterAdminCredentialsArgs)(nil)).Elem()
+}
+
+// The list of credential result response.
+type ListManagedClusterAdminCredentialsResultOutput struct{ *pulumi.OutputState }
+
+func (ListManagedClusterAdminCredentialsResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListManagedClusterAdminCredentialsResult)(nil)).Elem()
+}
+
+func (o ListManagedClusterAdminCredentialsResultOutput) ToListManagedClusterAdminCredentialsResultOutput() ListManagedClusterAdminCredentialsResultOutput {
+	return o
+}
+
+func (o ListManagedClusterAdminCredentialsResultOutput) ToListManagedClusterAdminCredentialsResultOutputWithContext(ctx context.Context) ListManagedClusterAdminCredentialsResultOutput {
+	return o
+}
+
+// Base64-encoded Kubernetes configuration file.
+func (o ListManagedClusterAdminCredentialsResultOutput) Kubeconfigs() CredentialResultResponseArrayOutput {
+	return o.ApplyT(func(v ListManagedClusterAdminCredentialsResult) []CredentialResultResponse { return v.Kubeconfigs }).(CredentialResultResponseArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(ListManagedClusterAdminCredentialsResultOutput{})
 }

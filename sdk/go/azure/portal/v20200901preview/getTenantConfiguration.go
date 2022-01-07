@@ -4,6 +4,9 @@
 package v20200901preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -32,4 +35,61 @@ type LookupTenantConfigurationResult struct {
 	Name string `pulumi:"name"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
+}
+
+func LookupTenantConfigurationOutput(ctx *pulumi.Context, args LookupTenantConfigurationOutputArgs, opts ...pulumi.InvokeOption) LookupTenantConfigurationResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupTenantConfigurationResult, error) {
+			args := v.(LookupTenantConfigurationArgs)
+			r, err := LookupTenantConfiguration(ctx, &args, opts...)
+			return *r, err
+		}).(LookupTenantConfigurationResultOutput)
+}
+
+type LookupTenantConfigurationOutputArgs struct {
+	// The configuration name. Value must be 'default'
+	ConfigurationName pulumi.StringInput `pulumi:"configurationName"`
+}
+
+func (LookupTenantConfigurationOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupTenantConfigurationArgs)(nil)).Elem()
+}
+
+// Tenant configuration.
+type LookupTenantConfigurationResultOutput struct{ *pulumi.OutputState }
+
+func (LookupTenantConfigurationResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupTenantConfigurationResult)(nil)).Elem()
+}
+
+func (o LookupTenantConfigurationResultOutput) ToLookupTenantConfigurationResultOutput() LookupTenantConfigurationResultOutput {
+	return o
+}
+
+func (o LookupTenantConfigurationResultOutput) ToLookupTenantConfigurationResultOutputWithContext(ctx context.Context) LookupTenantConfigurationResultOutput {
+	return o
+}
+
+// When flag is set to true Markdown tile will require external storage configuration (URI). The inline content configuration will be prohibited.
+func (o LookupTenantConfigurationResultOutput) EnforcePrivateMarkdownStorage() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupTenantConfigurationResult) *bool { return v.EnforcePrivateMarkdownStorage }).(pulumi.BoolPtrOutput)
+}
+
+// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+func (o LookupTenantConfigurationResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTenantConfigurationResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o LookupTenantConfigurationResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTenantConfigurationResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o LookupTenantConfigurationResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTenantConfigurationResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupTenantConfigurationResultOutput{})
 }

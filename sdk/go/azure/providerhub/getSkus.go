@@ -4,6 +4,9 @@
 package providerhub
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -34,4 +37,63 @@ type LookupSkusResult struct {
 	Properties SkuResourceResponseProperties `pulumi:"properties"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
+}
+
+func LookupSkusOutput(ctx *pulumi.Context, args LookupSkusOutputArgs, opts ...pulumi.InvokeOption) LookupSkusResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupSkusResult, error) {
+			args := v.(LookupSkusArgs)
+			r, err := LookupSkus(ctx, &args, opts...)
+			return *r, err
+		}).(LookupSkusResultOutput)
+}
+
+type LookupSkusOutputArgs struct {
+	// The name of the resource provider hosted within ProviderHub.
+	ProviderNamespace pulumi.StringInput `pulumi:"providerNamespace"`
+	// The resource type.
+	ResourceType pulumi.StringInput `pulumi:"resourceType"`
+	// The SKU.
+	Sku pulumi.StringInput `pulumi:"sku"`
+}
+
+func (LookupSkusOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupSkusArgs)(nil)).Elem()
+}
+
+type LookupSkusResultOutput struct{ *pulumi.OutputState }
+
+func (LookupSkusResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupSkusResult)(nil)).Elem()
+}
+
+func (o LookupSkusResultOutput) ToLookupSkusResultOutput() LookupSkusResultOutput {
+	return o
+}
+
+func (o LookupSkusResultOutput) ToLookupSkusResultOutputWithContext(ctx context.Context) LookupSkusResultOutput {
+	return o
+}
+
+// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+func (o LookupSkusResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSkusResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o LookupSkusResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSkusResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupSkusResultOutput) Properties() SkuResourceResponsePropertiesOutput {
+	return o.ApplyT(func(v LookupSkusResult) SkuResourceResponseProperties { return v.Properties }).(SkuResourceResponsePropertiesOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o LookupSkusResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSkusResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupSkusResultOutput{})
 }

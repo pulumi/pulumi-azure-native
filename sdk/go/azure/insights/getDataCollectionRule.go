@@ -4,6 +4,9 @@
 package insights
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -54,4 +57,109 @@ type LookupDataCollectionRuleResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource.
 	Type string `pulumi:"type"`
+}
+
+func LookupDataCollectionRuleOutput(ctx *pulumi.Context, args LookupDataCollectionRuleOutputArgs, opts ...pulumi.InvokeOption) LookupDataCollectionRuleResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupDataCollectionRuleResult, error) {
+			args := v.(LookupDataCollectionRuleArgs)
+			r, err := LookupDataCollectionRule(ctx, &args, opts...)
+			return *r, err
+		}).(LookupDataCollectionRuleResultOutput)
+}
+
+type LookupDataCollectionRuleOutputArgs struct {
+	// The name of the data collection rule. The name is case insensitive.
+	DataCollectionRuleName pulumi.StringInput `pulumi:"dataCollectionRuleName"`
+	// The name of the resource group. The name is case insensitive.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupDataCollectionRuleOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupDataCollectionRuleArgs)(nil)).Elem()
+}
+
+// Definition of ARM tracked top level resource.
+type LookupDataCollectionRuleResultOutput struct{ *pulumi.OutputState }
+
+func (LookupDataCollectionRuleResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupDataCollectionRuleResult)(nil)).Elem()
+}
+
+func (o LookupDataCollectionRuleResultOutput) ToLookupDataCollectionRuleResultOutput() LookupDataCollectionRuleResultOutput {
+	return o
+}
+
+func (o LookupDataCollectionRuleResultOutput) ToLookupDataCollectionRuleResultOutputWithContext(ctx context.Context) LookupDataCollectionRuleResultOutput {
+	return o
+}
+
+// The specification of data flows.
+func (o LookupDataCollectionRuleResultOutput) DataFlows() DataFlowResponseArrayOutput {
+	return o.ApplyT(func(v LookupDataCollectionRuleResult) []DataFlowResponse { return v.DataFlows }).(DataFlowResponseArrayOutput)
+}
+
+// The specification of data sources.
+// This property is optional and can be omitted if the rule is meant to be used via direct calls to the provisioned endpoint.
+func (o LookupDataCollectionRuleResultOutput) DataSources() DataCollectionRuleResponseDataSourcesPtrOutput {
+	return o.ApplyT(func(v LookupDataCollectionRuleResult) *DataCollectionRuleResponseDataSources { return v.DataSources }).(DataCollectionRuleResponseDataSourcesPtrOutput)
+}
+
+// Description of the data collection rule.
+func (o LookupDataCollectionRuleResultOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDataCollectionRuleResult) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The specification of destinations.
+func (o LookupDataCollectionRuleResultOutput) Destinations() DataCollectionRuleResponseDestinationsPtrOutput {
+	return o.ApplyT(func(v LookupDataCollectionRuleResult) *DataCollectionRuleResponseDestinations { return v.Destinations }).(DataCollectionRuleResponseDestinationsPtrOutput)
+}
+
+// Resource entity tag (ETag).
+func (o LookupDataCollectionRuleResultOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDataCollectionRuleResult) string { return v.Etag }).(pulumi.StringOutput)
+}
+
+// Fully qualified ID of the resource.
+func (o LookupDataCollectionRuleResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDataCollectionRuleResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The immutable ID of this data collection rule. This property is READ-ONLY.
+func (o LookupDataCollectionRuleResultOutput) ImmutableId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDataCollectionRuleResult) string { return v.ImmutableId }).(pulumi.StringOutput)
+}
+
+// The kind of the resource.
+func (o LookupDataCollectionRuleResultOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDataCollectionRuleResult) *string { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// The geo-location where the resource lives.
+func (o LookupDataCollectionRuleResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDataCollectionRuleResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the resource.
+func (o LookupDataCollectionRuleResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDataCollectionRuleResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The resource provisioning state.
+func (o LookupDataCollectionRuleResultOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDataCollectionRuleResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Resource tags.
+func (o LookupDataCollectionRuleResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupDataCollectionRuleResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource.
+func (o LookupDataCollectionRuleResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDataCollectionRuleResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupDataCollectionRuleResultOutput{})
 }

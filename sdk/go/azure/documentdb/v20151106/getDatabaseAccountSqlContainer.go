@@ -4,6 +4,9 @@
 package v20151106
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -71,4 +74,114 @@ func (val *LookupDatabaseAccountSqlContainerResult) Defaults() *LookupDatabaseAc
 	tmp.PartitionKey = tmp.PartitionKey.Defaults()
 
 	return &tmp
+}
+
+func LookupDatabaseAccountSqlContainerOutput(ctx *pulumi.Context, args LookupDatabaseAccountSqlContainerOutputArgs, opts ...pulumi.InvokeOption) LookupDatabaseAccountSqlContainerResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupDatabaseAccountSqlContainerResult, error) {
+			args := v.(LookupDatabaseAccountSqlContainerArgs)
+			r, err := LookupDatabaseAccountSqlContainer(ctx, &args, opts...)
+			return *r, err
+		}).(LookupDatabaseAccountSqlContainerResultOutput)
+}
+
+type LookupDatabaseAccountSqlContainerOutputArgs struct {
+	// Cosmos DB database account name.
+	AccountName pulumi.StringInput `pulumi:"accountName"`
+	// Cosmos DB container name.
+	ContainerName pulumi.StringInput `pulumi:"containerName"`
+	// Cosmos DB database name.
+	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
+	// Name of an Azure resource group.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupDatabaseAccountSqlContainerOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupDatabaseAccountSqlContainerArgs)(nil)).Elem()
+}
+
+// An Azure Cosmos DB container.
+type LookupDatabaseAccountSqlContainerResultOutput struct{ *pulumi.OutputState }
+
+func (LookupDatabaseAccountSqlContainerResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupDatabaseAccountSqlContainerResult)(nil)).Elem()
+}
+
+func (o LookupDatabaseAccountSqlContainerResultOutput) ToLookupDatabaseAccountSqlContainerResultOutput() LookupDatabaseAccountSqlContainerResultOutput {
+	return o
+}
+
+func (o LookupDatabaseAccountSqlContainerResultOutput) ToLookupDatabaseAccountSqlContainerResultOutputWithContext(ctx context.Context) LookupDatabaseAccountSqlContainerResultOutput {
+	return o
+}
+
+// The conflict resolution policy for the container.
+func (o LookupDatabaseAccountSqlContainerResultOutput) ConflictResolutionPolicy() ConflictResolutionPolicyResponsePtrOutput {
+	return o.ApplyT(func(v LookupDatabaseAccountSqlContainerResult) *ConflictResolutionPolicyResponse {
+		return v.ConflictResolutionPolicy
+	}).(ConflictResolutionPolicyResponsePtrOutput)
+}
+
+// Default time to live
+func (o LookupDatabaseAccountSqlContainerResultOutput) DefaultTtl() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupDatabaseAccountSqlContainerResult) *int { return v.DefaultTtl }).(pulumi.IntPtrOutput)
+}
+
+// A system generated property representing the resource etag required for optimistic concurrency control.
+func (o LookupDatabaseAccountSqlContainerResultOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDatabaseAccountSqlContainerResult) *string { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// The unique resource identifier of the database account.
+func (o LookupDatabaseAccountSqlContainerResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDatabaseAccountSqlContainerResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The configuration of the indexing policy. By default, the indexing is automatic for all document paths within the container
+func (o LookupDatabaseAccountSqlContainerResultOutput) IndexingPolicy() IndexingPolicyResponsePtrOutput {
+	return o.ApplyT(func(v LookupDatabaseAccountSqlContainerResult) *IndexingPolicyResponse { return v.IndexingPolicy }).(IndexingPolicyResponsePtrOutput)
+}
+
+// The location of the resource group to which the resource belongs.
+func (o LookupDatabaseAccountSqlContainerResultOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDatabaseAccountSqlContainerResult) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The name of the database account.
+func (o LookupDatabaseAccountSqlContainerResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDatabaseAccountSqlContainerResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The configuration of the partition key to be used for partitioning data into multiple partitions
+func (o LookupDatabaseAccountSqlContainerResultOutput) PartitionKey() ContainerPartitionKeyResponsePtrOutput {
+	return o.ApplyT(func(v LookupDatabaseAccountSqlContainerResult) *ContainerPartitionKeyResponse { return v.PartitionKey }).(ContainerPartitionKeyResponsePtrOutput)
+}
+
+// A system generated property. A unique identifier.
+func (o LookupDatabaseAccountSqlContainerResultOutput) Rid() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDatabaseAccountSqlContainerResult) *string { return v.Rid }).(pulumi.StringPtrOutput)
+}
+
+// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
+func (o LookupDatabaseAccountSqlContainerResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupDatabaseAccountSqlContainerResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// A system generated property that denotes the last updated timestamp of the resource.
+func (o LookupDatabaseAccountSqlContainerResultOutput) Ts() pulumi.AnyOutput {
+	return o.ApplyT(func(v LookupDatabaseAccountSqlContainerResult) interface{} { return v.Ts }).(pulumi.AnyOutput)
+}
+
+// The type of Azure resource.
+func (o LookupDatabaseAccountSqlContainerResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDatabaseAccountSqlContainerResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The unique key policy configuration for specifying uniqueness constraints on documents in the collection in the Azure Cosmos DB service.
+func (o LookupDatabaseAccountSqlContainerResultOutput) UniqueKeyPolicy() UniqueKeyPolicyResponsePtrOutput {
+	return o.ApplyT(func(v LookupDatabaseAccountSqlContainerResult) *UniqueKeyPolicyResponse { return v.UniqueKeyPolicy }).(UniqueKeyPolicyResponsePtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupDatabaseAccountSqlContainerResultOutput{})
 }

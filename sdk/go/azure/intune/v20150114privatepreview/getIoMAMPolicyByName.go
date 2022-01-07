@@ -4,6 +4,9 @@
 package v20150114privatepreview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -114,4 +117,150 @@ func (val *LookupIoMAMPolicyByNameResult) Defaults() *LookupIoMAMPolicyByNameRes
 		tmp.TouchId = &touchId_
 	}
 	return &tmp
+}
+
+func LookupIoMAMPolicyByNameOutput(ctx *pulumi.Context, args LookupIoMAMPolicyByNameOutputArgs, opts ...pulumi.InvokeOption) LookupIoMAMPolicyByNameResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupIoMAMPolicyByNameResult, error) {
+			args := v.(LookupIoMAMPolicyByNameArgs)
+			r, err := LookupIoMAMPolicyByName(ctx, &args, opts...)
+			return *r, err
+		}).(LookupIoMAMPolicyByNameResultOutput)
+}
+
+type LookupIoMAMPolicyByNameOutputArgs struct {
+	// Location hostName for the tenant
+	HostName pulumi.StringInput `pulumi:"hostName"`
+	// Unique name for the policy
+	PolicyName pulumi.StringInput `pulumi:"policyName"`
+	// select specific fields in entity.
+	Select pulumi.StringPtrInput `pulumi:"select"`
+}
+
+func (LookupIoMAMPolicyByNameOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupIoMAMPolicyByNameArgs)(nil)).Elem()
+}
+
+// iOS Policy entity for Intune MAM.
+type LookupIoMAMPolicyByNameResultOutput struct{ *pulumi.OutputState }
+
+func (LookupIoMAMPolicyByNameResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupIoMAMPolicyByNameResult)(nil)).Elem()
+}
+
+func (o LookupIoMAMPolicyByNameResultOutput) ToLookupIoMAMPolicyByNameResultOutput() LookupIoMAMPolicyByNameResultOutput {
+	return o
+}
+
+func (o LookupIoMAMPolicyByNameResultOutput) ToLookupIoMAMPolicyByNameResultOutputWithContext(ctx context.Context) LookupIoMAMPolicyByNameResultOutput {
+	return o
+}
+
+func (o LookupIoMAMPolicyByNameResultOutput) AccessRecheckOfflineTimeout() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupIoMAMPolicyByNameResult) *string { return v.AccessRecheckOfflineTimeout }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupIoMAMPolicyByNameResultOutput) AccessRecheckOnlineTimeout() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupIoMAMPolicyByNameResult) *string { return v.AccessRecheckOnlineTimeout }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupIoMAMPolicyByNameResultOutput) AppSharingFromLevel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupIoMAMPolicyByNameResult) *string { return v.AppSharingFromLevel }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupIoMAMPolicyByNameResultOutput) AppSharingToLevel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupIoMAMPolicyByNameResult) *string { return v.AppSharingToLevel }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupIoMAMPolicyByNameResultOutput) Authentication() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupIoMAMPolicyByNameResult) *string { return v.Authentication }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupIoMAMPolicyByNameResultOutput) ClipboardSharingLevel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupIoMAMPolicyByNameResult) *string { return v.ClipboardSharingLevel }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupIoMAMPolicyByNameResultOutput) DataBackup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupIoMAMPolicyByNameResult) *string { return v.DataBackup }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupIoMAMPolicyByNameResultOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupIoMAMPolicyByNameResult) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupIoMAMPolicyByNameResultOutput) DeviceCompliance() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupIoMAMPolicyByNameResult) *string { return v.DeviceCompliance }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupIoMAMPolicyByNameResultOutput) FileEncryptionLevel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupIoMAMPolicyByNameResult) *string { return v.FileEncryptionLevel }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupIoMAMPolicyByNameResultOutput) FileSharingSaveAs() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupIoMAMPolicyByNameResult) *string { return v.FileSharingSaveAs }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupIoMAMPolicyByNameResultOutput) FriendlyName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupIoMAMPolicyByNameResult) string { return v.FriendlyName }).(pulumi.StringOutput)
+}
+
+func (o LookupIoMAMPolicyByNameResultOutput) GroupStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupIoMAMPolicyByNameResult) string { return v.GroupStatus }).(pulumi.StringOutput)
+}
+
+// Resource Id
+func (o LookupIoMAMPolicyByNameResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupIoMAMPolicyByNameResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o LookupIoMAMPolicyByNameResultOutput) LastModifiedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupIoMAMPolicyByNameResult) string { return v.LastModifiedTime }).(pulumi.StringOutput)
+}
+
+// Resource Location
+func (o LookupIoMAMPolicyByNameResultOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupIoMAMPolicyByNameResult) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupIoMAMPolicyByNameResultOutput) ManagedBrowser() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupIoMAMPolicyByNameResult) *string { return v.ManagedBrowser }).(pulumi.StringPtrOutput)
+}
+
+// Resource name
+func (o LookupIoMAMPolicyByNameResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupIoMAMPolicyByNameResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupIoMAMPolicyByNameResultOutput) NumOfApps() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupIoMAMPolicyByNameResult) int { return v.NumOfApps }).(pulumi.IntOutput)
+}
+
+func (o LookupIoMAMPolicyByNameResultOutput) OfflineWipeTimeout() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupIoMAMPolicyByNameResult) *string { return v.OfflineWipeTimeout }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupIoMAMPolicyByNameResultOutput) Pin() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupIoMAMPolicyByNameResult) *string { return v.Pin }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupIoMAMPolicyByNameResultOutput) PinNumRetry() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupIoMAMPolicyByNameResult) *int { return v.PinNumRetry }).(pulumi.IntPtrOutput)
+}
+
+// Resource Tags
+func (o LookupIoMAMPolicyByNameResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupIoMAMPolicyByNameResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+func (o LookupIoMAMPolicyByNameResultOutput) TouchId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupIoMAMPolicyByNameResult) *string { return v.TouchId }).(pulumi.StringPtrOutput)
+}
+
+// Resource type
+func (o LookupIoMAMPolicyByNameResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupIoMAMPolicyByNameResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupIoMAMPolicyByNameResultOutput{})
 }

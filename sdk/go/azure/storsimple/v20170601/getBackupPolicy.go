@@ -4,6 +4,9 @@
 package v20170601
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -52,4 +55,102 @@ type LookupBackupPolicyResult struct {
 	Type string `pulumi:"type"`
 	// The path IDs of the volumes which are part of the backup policy.
 	VolumeIds []string `pulumi:"volumeIds"`
+}
+
+func LookupBackupPolicyOutput(ctx *pulumi.Context, args LookupBackupPolicyOutputArgs, opts ...pulumi.InvokeOption) LookupBackupPolicyResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupBackupPolicyResult, error) {
+			args := v.(LookupBackupPolicyArgs)
+			r, err := LookupBackupPolicy(ctx, &args, opts...)
+			return *r, err
+		}).(LookupBackupPolicyResultOutput)
+}
+
+type LookupBackupPolicyOutputArgs struct {
+	// The name of backup policy to be fetched.
+	BackupPolicyName pulumi.StringInput `pulumi:"backupPolicyName"`
+	// The device name
+	DeviceName pulumi.StringInput `pulumi:"deviceName"`
+	// The manager name
+	ManagerName pulumi.StringInput `pulumi:"managerName"`
+	// The resource group name
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupBackupPolicyOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupBackupPolicyArgs)(nil)).Elem()
+}
+
+// The backup policy.
+type LookupBackupPolicyResultOutput struct{ *pulumi.OutputState }
+
+func (LookupBackupPolicyResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupBackupPolicyResult)(nil)).Elem()
+}
+
+func (o LookupBackupPolicyResultOutput) ToLookupBackupPolicyResultOutput() LookupBackupPolicyResultOutput {
+	return o
+}
+
+func (o LookupBackupPolicyResultOutput) ToLookupBackupPolicyResultOutputWithContext(ctx context.Context) LookupBackupPolicyResultOutput {
+	return o
+}
+
+// The backup policy creation type. Indicates whether this was created through SaaS or through StorSimple Snapshot Manager.
+func (o LookupBackupPolicyResultOutput) BackupPolicyCreationType() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBackupPolicyResult) string { return v.BackupPolicyCreationType }).(pulumi.StringOutput)
+}
+
+// The path ID that uniquely identifies the object.
+func (o LookupBackupPolicyResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBackupPolicyResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The Kind of the object. Currently only Series8000 is supported
+func (o LookupBackupPolicyResultOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupBackupPolicyResult) *string { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// The time of the last backup for the backup policy.
+func (o LookupBackupPolicyResultOutput) LastBackupTime() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBackupPolicyResult) string { return v.LastBackupTime }).(pulumi.StringOutput)
+}
+
+// The name of the object.
+func (o LookupBackupPolicyResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBackupPolicyResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The time of the next backup for the backup policy.
+func (o LookupBackupPolicyResultOutput) NextBackupTime() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBackupPolicyResult) string { return v.NextBackupTime }).(pulumi.StringOutput)
+}
+
+// Indicates whether at least one of the schedules in the backup policy is active or not.
+func (o LookupBackupPolicyResultOutput) ScheduledBackupStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBackupPolicyResult) string { return v.ScheduledBackupStatus }).(pulumi.StringOutput)
+}
+
+// The count of schedules the backup policy contains.
+func (o LookupBackupPolicyResultOutput) SchedulesCount() pulumi.Float64Output {
+	return o.ApplyT(func(v LookupBackupPolicyResult) float64 { return v.SchedulesCount }).(pulumi.Float64Output)
+}
+
+// If the backup policy was created by StorSimple Snapshot Manager, then this field indicates the hostname of the StorSimple Snapshot Manager.
+func (o LookupBackupPolicyResultOutput) SsmHostName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBackupPolicyResult) string { return v.SsmHostName }).(pulumi.StringOutput)
+}
+
+// The hierarchical type of the object.
+func (o LookupBackupPolicyResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBackupPolicyResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The path IDs of the volumes which are part of the backup policy.
+func (o LookupBackupPolicyResultOutput) VolumeIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupBackupPolicyResult) []string { return v.VolumeIds }).(pulumi.StringArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupBackupPolicyResultOutput{})
 }

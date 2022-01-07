@@ -4,6 +4,9 @@
 package marketplace
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -49,4 +52,98 @@ type LookupPrivateStoreCollectionResult struct {
 	SystemData SystemDataResponse `pulumi:"systemData"`
 	// The type of the resource.
 	Type string `pulumi:"type"`
+}
+
+func LookupPrivateStoreCollectionOutput(ctx *pulumi.Context, args LookupPrivateStoreCollectionOutputArgs, opts ...pulumi.InvokeOption) LookupPrivateStoreCollectionResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupPrivateStoreCollectionResult, error) {
+			args := v.(LookupPrivateStoreCollectionArgs)
+			r, err := LookupPrivateStoreCollection(ctx, &args, opts...)
+			return *r, err
+		}).(LookupPrivateStoreCollectionResultOutput)
+}
+
+type LookupPrivateStoreCollectionOutputArgs struct {
+	// The collection ID
+	CollectionId pulumi.StringInput `pulumi:"collectionId"`
+	// The store ID - must use the tenant ID
+	PrivateStoreId pulumi.StringInput `pulumi:"privateStoreId"`
+}
+
+func (LookupPrivateStoreCollectionOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupPrivateStoreCollectionArgs)(nil)).Elem()
+}
+
+// The Collection data structure.
+type LookupPrivateStoreCollectionResultOutput struct{ *pulumi.OutputState }
+
+func (LookupPrivateStoreCollectionResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupPrivateStoreCollectionResult)(nil)).Elem()
+}
+
+func (o LookupPrivateStoreCollectionResultOutput) ToLookupPrivateStoreCollectionResultOutput() LookupPrivateStoreCollectionResultOutput {
+	return o
+}
+
+func (o LookupPrivateStoreCollectionResultOutput) ToLookupPrivateStoreCollectionResultOutputWithContext(ctx context.Context) LookupPrivateStoreCollectionResultOutput {
+	return o
+}
+
+// Indicating whether all subscriptions are selected (=true) or not (=false).
+func (o LookupPrivateStoreCollectionResultOutput) AllSubscriptions() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupPrivateStoreCollectionResult) *bool { return v.AllSubscriptions }).(pulumi.BoolPtrOutput)
+}
+
+// Gets or sets the association with Commercial's Billing Account.
+func (o LookupPrivateStoreCollectionResultOutput) Claim() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupPrivateStoreCollectionResult) *string { return v.Claim }).(pulumi.StringPtrOutput)
+}
+
+// Gets collection Id.
+func (o LookupPrivateStoreCollectionResultOutput) CollectionId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPrivateStoreCollectionResult) string { return v.CollectionId }).(pulumi.StringOutput)
+}
+
+// Gets or sets collection name.
+func (o LookupPrivateStoreCollectionResultOutput) CollectionName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupPrivateStoreCollectionResult) *string { return v.CollectionName }).(pulumi.StringPtrOutput)
+}
+
+// Indicating whether the collection is enabled or disabled.
+func (o LookupPrivateStoreCollectionResultOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupPrivateStoreCollectionResult) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// The resource ID.
+func (o LookupPrivateStoreCollectionResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPrivateStoreCollectionResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The name of the resource.
+func (o LookupPrivateStoreCollectionResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPrivateStoreCollectionResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Gets the number of offers associated with the collection.
+func (o LookupPrivateStoreCollectionResultOutput) NumberOfOffers() pulumi.Float64Output {
+	return o.ApplyT(func(v LookupPrivateStoreCollectionResult) float64 { return v.NumberOfOffers }).(pulumi.Float64Output)
+}
+
+// Gets or sets subscription ids list. Empty list indicates all subscriptions are selected, null indicates no update is done, explicit list indicates the explicit selected subscriptions. On insert, null is considered as bad request
+func (o LookupPrivateStoreCollectionResultOutput) SubscriptionsList() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupPrivateStoreCollectionResult) []string { return v.SubscriptionsList }).(pulumi.StringArrayOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource
+func (o LookupPrivateStoreCollectionResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupPrivateStoreCollectionResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the resource.
+func (o LookupPrivateStoreCollectionResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPrivateStoreCollectionResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupPrivateStoreCollectionResultOutput{})
 }

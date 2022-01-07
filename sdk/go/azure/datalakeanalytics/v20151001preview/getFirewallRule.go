@@ -4,6 +4,9 @@
 package v20151001preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -38,4 +41,70 @@ type LookupFirewallRuleResult struct {
 	StartIpAddress string `pulumi:"startIpAddress"`
 	// The resource type.
 	Type string `pulumi:"type"`
+}
+
+func LookupFirewallRuleOutput(ctx *pulumi.Context, args LookupFirewallRuleOutputArgs, opts ...pulumi.InvokeOption) LookupFirewallRuleResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupFirewallRuleResult, error) {
+			args := v.(LookupFirewallRuleArgs)
+			r, err := LookupFirewallRule(ctx, &args, opts...)
+			return *r, err
+		}).(LookupFirewallRuleResultOutput)
+}
+
+type LookupFirewallRuleOutputArgs struct {
+	// The name of the Data Lake Analytics account.
+	AccountName pulumi.StringInput `pulumi:"accountName"`
+	// The name of the firewall rule to retrieve.
+	FirewallRuleName pulumi.StringInput `pulumi:"firewallRuleName"`
+	// The name of the Azure resource group.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupFirewallRuleOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupFirewallRuleArgs)(nil)).Elem()
+}
+
+// Data Lake Analytics firewall rule information.
+type LookupFirewallRuleResultOutput struct{ *pulumi.OutputState }
+
+func (LookupFirewallRuleResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupFirewallRuleResult)(nil)).Elem()
+}
+
+func (o LookupFirewallRuleResultOutput) ToLookupFirewallRuleResultOutput() LookupFirewallRuleResultOutput {
+	return o
+}
+
+func (o LookupFirewallRuleResultOutput) ToLookupFirewallRuleResultOutputWithContext(ctx context.Context) LookupFirewallRuleResultOutput {
+	return o
+}
+
+// The end IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
+func (o LookupFirewallRuleResultOutput) EndIpAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupFirewallRuleResult) string { return v.EndIpAddress }).(pulumi.StringOutput)
+}
+
+// The resource identifier.
+func (o LookupFirewallRuleResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupFirewallRuleResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The resource name.
+func (o LookupFirewallRuleResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupFirewallRuleResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The start IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
+func (o LookupFirewallRuleResultOutput) StartIpAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupFirewallRuleResult) string { return v.StartIpAddress }).(pulumi.StringOutput)
+}
+
+// The resource type.
+func (o LookupFirewallRuleResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupFirewallRuleResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupFirewallRuleResultOutput{})
 }

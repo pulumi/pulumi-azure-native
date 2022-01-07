@@ -4,6 +4,9 @@
 package softwareplan
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -43,4 +46,83 @@ type LookupHybridUseBenefitResult struct {
 	Sku SkuResponse `pulumi:"sku"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
+}
+
+func LookupHybridUseBenefitOutput(ctx *pulumi.Context, args LookupHybridUseBenefitOutputArgs, opts ...pulumi.InvokeOption) LookupHybridUseBenefitResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupHybridUseBenefitResult, error) {
+			args := v.(LookupHybridUseBenefitArgs)
+			r, err := LookupHybridUseBenefit(ctx, &args, opts...)
+			return *r, err
+		}).(LookupHybridUseBenefitResultOutput)
+}
+
+type LookupHybridUseBenefitOutputArgs struct {
+	// This is a unique identifier for a plan. Should be a guid.
+	PlanId pulumi.StringInput `pulumi:"planId"`
+	// The scope at which the operation is performed. This is limited to Microsoft.Compute/virtualMachines and Microsoft.Compute/hostGroups/hosts for now
+	Scope pulumi.StringInput `pulumi:"scope"`
+}
+
+func (LookupHybridUseBenefitOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupHybridUseBenefitArgs)(nil)).Elem()
+}
+
+// Response on GET of a hybrid use benefit
+type LookupHybridUseBenefitResultOutput struct{ *pulumi.OutputState }
+
+func (LookupHybridUseBenefitResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupHybridUseBenefitResult)(nil)).Elem()
+}
+
+func (o LookupHybridUseBenefitResultOutput) ToLookupHybridUseBenefitResultOutput() LookupHybridUseBenefitResultOutput {
+	return o
+}
+
+func (o LookupHybridUseBenefitResultOutput) ToLookupHybridUseBenefitResultOutputWithContext(ctx context.Context) LookupHybridUseBenefitResultOutput {
+	return o
+}
+
+// Created date
+func (o LookupHybridUseBenefitResultOutput) CreatedDate() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupHybridUseBenefitResult) string { return v.CreatedDate }).(pulumi.StringOutput)
+}
+
+// Indicates the revision of the hybrid use benefit
+func (o LookupHybridUseBenefitResultOutput) Etag() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupHybridUseBenefitResult) int { return v.Etag }).(pulumi.IntOutput)
+}
+
+// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+func (o LookupHybridUseBenefitResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupHybridUseBenefitResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Last updated date
+func (o LookupHybridUseBenefitResultOutput) LastUpdatedDate() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupHybridUseBenefitResult) string { return v.LastUpdatedDate }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o LookupHybridUseBenefitResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupHybridUseBenefitResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Provisioning state
+func (o LookupHybridUseBenefitResultOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupHybridUseBenefitResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Hybrid use benefit SKU
+func (o LookupHybridUseBenefitResultOutput) Sku() SkuResponseOutput {
+	return o.ApplyT(func(v LookupHybridUseBenefitResult) SkuResponse { return v.Sku }).(SkuResponseOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o LookupHybridUseBenefitResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupHybridUseBenefitResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupHybridUseBenefitResultOutput{})
 }

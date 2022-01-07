@@ -4,6 +4,9 @@
 package v20200707
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -41,4 +44,82 @@ type LookupHyperVSiteResult struct {
 	Tags       map[string]string  `pulumi:"tags"`
 	// Type of resource. Type = Microsoft.OffAzure/HyperVSites.
 	Type string `pulumi:"type"`
+}
+
+func LookupHyperVSiteOutput(ctx *pulumi.Context, args LookupHyperVSiteOutputArgs, opts ...pulumi.InvokeOption) LookupHyperVSiteResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupHyperVSiteResult, error) {
+			args := v.(LookupHyperVSiteArgs)
+			r, err := LookupHyperVSite(ctx, &args, opts...)
+			return *r, err
+		}).(LookupHyperVSiteResultOutput)
+}
+
+type LookupHyperVSiteOutputArgs struct {
+	// The name of the resource group. The name is case insensitive.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// Site name.
+	SiteName pulumi.StringInput `pulumi:"siteName"`
+}
+
+func (LookupHyperVSiteOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupHyperVSiteArgs)(nil)).Elem()
+}
+
+// Site REST Resource.
+type LookupHyperVSiteResultOutput struct{ *pulumi.OutputState }
+
+func (LookupHyperVSiteResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupHyperVSiteResult)(nil)).Elem()
+}
+
+func (o LookupHyperVSiteResultOutput) ToLookupHyperVSiteResultOutput() LookupHyperVSiteResultOutput {
+	return o
+}
+
+func (o LookupHyperVSiteResultOutput) ToLookupHyperVSiteResultOutputWithContext(ctx context.Context) LookupHyperVSiteResultOutput {
+	return o
+}
+
+// eTag for concurrency control.
+func (o LookupHyperVSiteResultOutput) ETag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupHyperVSiteResult) *string { return v.ETag }).(pulumi.StringPtrOutput)
+}
+
+// Resource Id.
+func (o LookupHyperVSiteResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupHyperVSiteResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Azure location in which Sites is created.
+func (o LookupHyperVSiteResultOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupHyperVSiteResult) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Name of the Hyper-V site.
+func (o LookupHyperVSiteResultOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupHyperVSiteResult) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Nested properties of Hyper-V site.
+func (o LookupHyperVSiteResultOutput) Properties() SitePropertiesResponseOutput {
+	return o.ApplyT(func(v LookupHyperVSiteResult) SitePropertiesResponse { return v.Properties }).(SitePropertiesResponseOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o LookupHyperVSiteResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupHyperVSiteResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+func (o LookupHyperVSiteResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupHyperVSiteResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Type of resource. Type = Microsoft.OffAzure/HyperVSites.
+func (o LookupHyperVSiteResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupHyperVSiteResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupHyperVSiteResultOutput{})
 }

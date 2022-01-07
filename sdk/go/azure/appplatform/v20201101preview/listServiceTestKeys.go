@@ -4,6 +4,9 @@
 package v20201101preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -36,4 +39,68 @@ type ListServiceTestKeysResult struct {
 	SecondaryKey *string `pulumi:"secondaryKey"`
 	// Secondary test endpoint
 	SecondaryTestEndpoint *string `pulumi:"secondaryTestEndpoint"`
+}
+
+func ListServiceTestKeysOutput(ctx *pulumi.Context, args ListServiceTestKeysOutputArgs, opts ...pulumi.InvokeOption) ListServiceTestKeysResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (ListServiceTestKeysResult, error) {
+			args := v.(ListServiceTestKeysArgs)
+			r, err := ListServiceTestKeys(ctx, &args, opts...)
+			return *r, err
+		}).(ListServiceTestKeysResultOutput)
+}
+
+type ListServiceTestKeysOutputArgs struct {
+	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the Service resource.
+	ServiceName pulumi.StringInput `pulumi:"serviceName"`
+}
+
+func (ListServiceTestKeysOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListServiceTestKeysArgs)(nil)).Elem()
+}
+
+// Test keys payload
+type ListServiceTestKeysResultOutput struct{ *pulumi.OutputState }
+
+func (ListServiceTestKeysResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListServiceTestKeysResult)(nil)).Elem()
+}
+
+func (o ListServiceTestKeysResultOutput) ToListServiceTestKeysResultOutput() ListServiceTestKeysResultOutput {
+	return o
+}
+
+func (o ListServiceTestKeysResultOutput) ToListServiceTestKeysResultOutputWithContext(ctx context.Context) ListServiceTestKeysResultOutput {
+	return o
+}
+
+// Indicates whether the test endpoint feature enabled or not
+func (o ListServiceTestKeysResultOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ListServiceTestKeysResult) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// Primary key
+func (o ListServiceTestKeysResultOutput) PrimaryKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListServiceTestKeysResult) *string { return v.PrimaryKey }).(pulumi.StringPtrOutput)
+}
+
+// Primary test endpoint
+func (o ListServiceTestKeysResultOutput) PrimaryTestEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListServiceTestKeysResult) *string { return v.PrimaryTestEndpoint }).(pulumi.StringPtrOutput)
+}
+
+// Secondary key
+func (o ListServiceTestKeysResultOutput) SecondaryKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListServiceTestKeysResult) *string { return v.SecondaryKey }).(pulumi.StringPtrOutput)
+}
+
+// Secondary test endpoint
+func (o ListServiceTestKeysResultOutput) SecondaryTestEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListServiceTestKeysResult) *string { return v.SecondaryTestEndpoint }).(pulumi.StringPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(ListServiceTestKeysResultOutput{})
 }

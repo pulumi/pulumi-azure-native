@@ -6711,6 +6711,56 @@ type StreamingPathResponse struct {
 	StreamingProtocol string `pulumi:"streamingProtocol"`
 }
 
+// Class of paths for streaming
+type StreamingPathResponseOutput struct{ *pulumi.OutputState }
+
+func (StreamingPathResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamingPathResponse)(nil)).Elem()
+}
+
+func (o StreamingPathResponseOutput) ToStreamingPathResponseOutput() StreamingPathResponseOutput {
+	return o
+}
+
+func (o StreamingPathResponseOutput) ToStreamingPathResponseOutputWithContext(ctx context.Context) StreamingPathResponseOutput {
+	return o
+}
+
+// Encryption scheme
+func (o StreamingPathResponseOutput) EncryptionScheme() pulumi.StringOutput {
+	return o.ApplyT(func(v StreamingPathResponse) string { return v.EncryptionScheme }).(pulumi.StringOutput)
+}
+
+// Streaming paths for each protocol and encryptionScheme pair
+func (o StreamingPathResponseOutput) Paths() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v StreamingPathResponse) []string { return v.Paths }).(pulumi.StringArrayOutput)
+}
+
+// Streaming protocol
+func (o StreamingPathResponseOutput) StreamingProtocol() pulumi.StringOutput {
+	return o.ApplyT(func(v StreamingPathResponse) string { return v.StreamingProtocol }).(pulumi.StringOutput)
+}
+
+type StreamingPathResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (StreamingPathResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StreamingPathResponse)(nil)).Elem()
+}
+
+func (o StreamingPathResponseArrayOutput) ToStreamingPathResponseArrayOutput() StreamingPathResponseArrayOutput {
+	return o
+}
+
+func (o StreamingPathResponseArrayOutput) ToStreamingPathResponseArrayOutputWithContext(ctx context.Context) StreamingPathResponseArrayOutput {
+	return o
+}
+
+func (o StreamingPathResponseArrayOutput) Index(i pulumi.IntInput) StreamingPathResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StreamingPathResponse {
+		return vs[0].([]StreamingPathResponse)[vs[1].(int)]
+	}).(StreamingPathResponseOutput)
+}
+
 // Class to specify properties of content key
 type StreamingPolicyContentKey struct {
 	// Label can be used to specify Content Key when creating a Streaming Locator
@@ -8525,6 +8575,8 @@ func init() {
 	pulumi.RegisterOutputType(StreamingLocatorContentKeyArrayOutput{})
 	pulumi.RegisterOutputType(StreamingLocatorContentKeyResponseOutput{})
 	pulumi.RegisterOutputType(StreamingLocatorContentKeyResponseArrayOutput{})
+	pulumi.RegisterOutputType(StreamingPathResponseOutput{})
+	pulumi.RegisterOutputType(StreamingPathResponseArrayOutput{})
 	pulumi.RegisterOutputType(StreamingPolicyContentKeyOutput{})
 	pulumi.RegisterOutputType(StreamingPolicyContentKeyArrayOutput{})
 	pulumi.RegisterOutputType(StreamingPolicyContentKeyResponseOutput{})

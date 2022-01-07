@@ -4,6 +4,9 @@
 package v20210430preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -38,4 +41,72 @@ type LookupConfigurationProfileAssignmentResult struct {
 	SystemData SystemDataResponse `pulumi:"systemData"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
+}
+
+func LookupConfigurationProfileAssignmentOutput(ctx *pulumi.Context, args LookupConfigurationProfileAssignmentOutputArgs, opts ...pulumi.InvokeOption) LookupConfigurationProfileAssignmentResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupConfigurationProfileAssignmentResult, error) {
+			args := v.(LookupConfigurationProfileAssignmentArgs)
+			r, err := LookupConfigurationProfileAssignment(ctx, &args, opts...)
+			return *r, err
+		}).(LookupConfigurationProfileAssignmentResultOutput)
+}
+
+type LookupConfigurationProfileAssignmentOutputArgs struct {
+	// The configuration profile assignment name.
+	ConfigurationProfileAssignmentName pulumi.StringInput `pulumi:"configurationProfileAssignmentName"`
+	// The name of the resource group. The name is case insensitive.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the virtual machine.
+	VmName pulumi.StringInput `pulumi:"vmName"`
+}
+
+func (LookupConfigurationProfileAssignmentOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupConfigurationProfileAssignmentArgs)(nil)).Elem()
+}
+
+// Configuration profile assignment is an association between a VM and automanage profile configuration.
+type LookupConfigurationProfileAssignmentResultOutput struct{ *pulumi.OutputState }
+
+func (LookupConfigurationProfileAssignmentResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupConfigurationProfileAssignmentResult)(nil)).Elem()
+}
+
+func (o LookupConfigurationProfileAssignmentResultOutput) ToLookupConfigurationProfileAssignmentResultOutput() LookupConfigurationProfileAssignmentResultOutput {
+	return o
+}
+
+func (o LookupConfigurationProfileAssignmentResultOutput) ToLookupConfigurationProfileAssignmentResultOutputWithContext(ctx context.Context) LookupConfigurationProfileAssignmentResultOutput {
+	return o
+}
+
+// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+func (o LookupConfigurationProfileAssignmentResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupConfigurationProfileAssignmentResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o LookupConfigurationProfileAssignmentResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupConfigurationProfileAssignmentResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Properties of the configuration profile assignment.
+func (o LookupConfigurationProfileAssignmentResultOutput) Properties() ConfigurationProfileAssignmentPropertiesResponseOutput {
+	return o.ApplyT(func(v LookupConfigurationProfileAssignmentResult) ConfigurationProfileAssignmentPropertiesResponse {
+		return v.Properties
+	}).(ConfigurationProfileAssignmentPropertiesResponseOutput)
+}
+
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+func (o LookupConfigurationProfileAssignmentResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupConfigurationProfileAssignmentResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o LookupConfigurationProfileAssignmentResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupConfigurationProfileAssignmentResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupConfigurationProfileAssignmentResultOutput{})
 }

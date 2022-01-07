@@ -4,6 +4,9 @@
 package v20190601preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -70,4 +73,157 @@ type LookupWorkspaceResult struct {
 	WorkspaceRepositoryConfiguration *WorkspaceRepositoryConfigurationResponse `pulumi:"workspaceRepositoryConfiguration"`
 	// The workspace unique identifier
 	WorkspaceUID string `pulumi:"workspaceUID"`
+}
+
+func LookupWorkspaceOutput(ctx *pulumi.Context, args LookupWorkspaceOutputArgs, opts ...pulumi.InvokeOption) LookupWorkspaceResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupWorkspaceResult, error) {
+			args := v.(LookupWorkspaceArgs)
+			r, err := LookupWorkspace(ctx, &args, opts...)
+			return *r, err
+		}).(LookupWorkspaceResultOutput)
+}
+
+type LookupWorkspaceOutputArgs struct {
+	// The name of the resource group. The name is case insensitive.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the workspace
+	WorkspaceName pulumi.StringInput `pulumi:"workspaceName"`
+}
+
+func (LookupWorkspaceOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupWorkspaceArgs)(nil)).Elem()
+}
+
+// A workspace
+type LookupWorkspaceResultOutput struct{ *pulumi.OutputState }
+
+func (LookupWorkspaceResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupWorkspaceResult)(nil)).Elem()
+}
+
+func (o LookupWorkspaceResultOutput) ToLookupWorkspaceResultOutput() LookupWorkspaceResultOutput {
+	return o
+}
+
+func (o LookupWorkspaceResultOutput) ToLookupWorkspaceResultOutputWithContext(ctx context.Context) LookupWorkspaceResultOutput {
+	return o
+}
+
+// The ADLA resource ID.
+func (o LookupWorkspaceResultOutput) AdlaResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWorkspaceResult) string { return v.AdlaResourceId }).(pulumi.StringOutput)
+}
+
+// Connectivity endpoints
+func (o LookupWorkspaceResultOutput) ConnectivityEndpoints() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupWorkspaceResult) map[string]string { return v.ConnectivityEndpoints }).(pulumi.StringMapOutput)
+}
+
+// Workspace default data lake storage account details
+func (o LookupWorkspaceResultOutput) DefaultDataLakeStorage() DataLakeStorageAccountDetailsResponsePtrOutput {
+	return o.ApplyT(func(v LookupWorkspaceResult) *DataLakeStorageAccountDetailsResponse { return v.DefaultDataLakeStorage }).(DataLakeStorageAccountDetailsResponsePtrOutput)
+}
+
+// The encryption details of the workspace
+func (o LookupWorkspaceResultOutput) Encryption() EncryptionDetailsResponsePtrOutput {
+	return o.ApplyT(func(v LookupWorkspaceResult) *EncryptionDetailsResponse { return v.Encryption }).(EncryptionDetailsResponsePtrOutput)
+}
+
+// Workspace level configs and feature flags
+func (o LookupWorkspaceResultOutput) ExtraProperties() pulumi.MapOutput {
+	return o.ApplyT(func(v LookupWorkspaceResult) map[string]interface{} { return v.ExtraProperties }).(pulumi.MapOutput)
+}
+
+// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+func (o LookupWorkspaceResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWorkspaceResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Identity of the workspace
+func (o LookupWorkspaceResultOutput) Identity() ManagedIdentityResponsePtrOutput {
+	return o.ApplyT(func(v LookupWorkspaceResult) *ManagedIdentityResponse { return v.Identity }).(ManagedIdentityResponsePtrOutput)
+}
+
+// The geo-location where the resource lives
+func (o LookupWorkspaceResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWorkspaceResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// Workspace managed resource group. The resource group name uniquely identifies the resource group within the user subscriptionId. The resource group name must be no longer than 90 characters long, and must be alphanumeric characters (Char.IsLetterOrDigit()) and '-', '_', '(', ')' and'.'. Note that the name cannot end with '.'
+func (o LookupWorkspaceResultOutput) ManagedResourceGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupWorkspaceResult) *string { return v.ManagedResourceGroupName }).(pulumi.StringPtrOutput)
+}
+
+// Setting this to 'default' will ensure that all compute for this workspace is in a virtual network managed on behalf of the user.
+func (o LookupWorkspaceResultOutput) ManagedVirtualNetwork() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupWorkspaceResult) *string { return v.ManagedVirtualNetwork }).(pulumi.StringPtrOutput)
+}
+
+// Managed Virtual Network Settings
+func (o LookupWorkspaceResultOutput) ManagedVirtualNetworkSettings() ManagedVirtualNetworkSettingsResponsePtrOutput {
+	return o.ApplyT(func(v LookupWorkspaceResult) *ManagedVirtualNetworkSettingsResponse {
+		return v.ManagedVirtualNetworkSettings
+	}).(ManagedVirtualNetworkSettingsResponsePtrOutput)
+}
+
+// The name of the resource
+func (o LookupWorkspaceResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWorkspaceResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Private endpoint connections to the workspace
+func (o LookupWorkspaceResultOutput) PrivateEndpointConnections() PrivateEndpointConnectionResponseArrayOutput {
+	return o.ApplyT(func(v LookupWorkspaceResult) []PrivateEndpointConnectionResponse { return v.PrivateEndpointConnections }).(PrivateEndpointConnectionResponseArrayOutput)
+}
+
+// Resource provisioning state
+func (o LookupWorkspaceResultOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWorkspaceResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Purview Configuration
+func (o LookupWorkspaceResultOutput) PurviewConfiguration() PurviewConfigurationResponsePtrOutput {
+	return o.ApplyT(func(v LookupWorkspaceResult) *PurviewConfigurationResponse { return v.PurviewConfiguration }).(PurviewConfigurationResponsePtrOutput)
+}
+
+// Login for workspace SQL active directory administrator
+func (o LookupWorkspaceResultOutput) SqlAdministratorLogin() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupWorkspaceResult) *string { return v.SqlAdministratorLogin }).(pulumi.StringPtrOutput)
+}
+
+// SQL administrator login password
+func (o LookupWorkspaceResultOutput) SqlAdministratorLoginPassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupWorkspaceResult) *string { return v.SqlAdministratorLoginPassword }).(pulumi.StringPtrOutput)
+}
+
+// Resource tags.
+func (o LookupWorkspaceResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupWorkspaceResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o LookupWorkspaceResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWorkspaceResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Virtual Network profile
+func (o LookupWorkspaceResultOutput) VirtualNetworkProfile() VirtualNetworkProfileResponsePtrOutput {
+	return o.ApplyT(func(v LookupWorkspaceResult) *VirtualNetworkProfileResponse { return v.VirtualNetworkProfile }).(VirtualNetworkProfileResponsePtrOutput)
+}
+
+// Git integration settings
+func (o LookupWorkspaceResultOutput) WorkspaceRepositoryConfiguration() WorkspaceRepositoryConfigurationResponsePtrOutput {
+	return o.ApplyT(func(v LookupWorkspaceResult) *WorkspaceRepositoryConfigurationResponse {
+		return v.WorkspaceRepositoryConfiguration
+	}).(WorkspaceRepositoryConfigurationResponsePtrOutput)
+}
+
+// The workspace unique identifier
+func (o LookupWorkspaceResultOutput) WorkspaceUID() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWorkspaceResult) string { return v.WorkspaceUID }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupWorkspaceResultOutput{})
 }

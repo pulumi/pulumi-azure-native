@@ -4,6 +4,9 @@
 package v20171115
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -42,4 +45,75 @@ type LookupEventSourceResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type
 	Type string `pulumi:"type"`
+}
+
+func LookupEventSourceOutput(ctx *pulumi.Context, args LookupEventSourceOutputArgs, opts ...pulumi.InvokeOption) LookupEventSourceResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupEventSourceResult, error) {
+			args := v.(LookupEventSourceArgs)
+			r, err := LookupEventSource(ctx, &args, opts...)
+			return *r, err
+		}).(LookupEventSourceResultOutput)
+}
+
+type LookupEventSourceOutputArgs struct {
+	// The name of the Time Series Insights environment associated with the specified resource group.
+	EnvironmentName pulumi.StringInput `pulumi:"environmentName"`
+	// The name of the Time Series Insights event source associated with the specified environment.
+	EventSourceName pulumi.StringInput `pulumi:"eventSourceName"`
+	// Name of an Azure Resource group.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupEventSourceOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupEventSourceArgs)(nil)).Elem()
+}
+
+// An environment receives data from one or more event sources. Each event source has associated connection info that allows the Time Series Insights ingress pipeline to connect to and pull data from the event source
+type LookupEventSourceResultOutput struct{ *pulumi.OutputState }
+
+func (LookupEventSourceResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupEventSourceResult)(nil)).Elem()
+}
+
+func (o LookupEventSourceResultOutput) ToLookupEventSourceResultOutput() LookupEventSourceResultOutput {
+	return o
+}
+
+func (o LookupEventSourceResultOutput) ToLookupEventSourceResultOutputWithContext(ctx context.Context) LookupEventSourceResultOutput {
+	return o
+}
+
+// Resource Id
+func (o LookupEventSourceResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupEventSourceResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The kind of the event source.
+func (o LookupEventSourceResultOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupEventSourceResult) string { return v.Kind }).(pulumi.StringOutput)
+}
+
+// Resource location
+func (o LookupEventSourceResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupEventSourceResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource name
+func (o LookupEventSourceResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupEventSourceResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Resource tags
+func (o LookupEventSourceResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupEventSourceResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type
+func (o LookupEventSourceResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupEventSourceResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupEventSourceResultOutput{})
 }

@@ -4,6 +4,9 @@
 package v20180601preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -70,4 +73,152 @@ type LookupStreamingEndpointResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource.
 	Type string `pulumi:"type"`
+}
+
+func LookupStreamingEndpointOutput(ctx *pulumi.Context, args LookupStreamingEndpointOutputArgs, opts ...pulumi.InvokeOption) LookupStreamingEndpointResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupStreamingEndpointResult, error) {
+			args := v.(LookupStreamingEndpointArgs)
+			r, err := LookupStreamingEndpoint(ctx, &args, opts...)
+			return *r, err
+		}).(LookupStreamingEndpointResultOutput)
+}
+
+type LookupStreamingEndpointOutputArgs struct {
+	// The Media Services account name.
+	AccountName pulumi.StringInput `pulumi:"accountName"`
+	// The name of the resource group within the Azure subscription.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the StreamingEndpoint.
+	StreamingEndpointName pulumi.StringInput `pulumi:"streamingEndpointName"`
+}
+
+func (LookupStreamingEndpointOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupStreamingEndpointArgs)(nil)).Elem()
+}
+
+// The StreamingEndpoint.
+type LookupStreamingEndpointResultOutput struct{ *pulumi.OutputState }
+
+func (LookupStreamingEndpointResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupStreamingEndpointResult)(nil)).Elem()
+}
+
+func (o LookupStreamingEndpointResultOutput) ToLookupStreamingEndpointResultOutput() LookupStreamingEndpointResultOutput {
+	return o
+}
+
+func (o LookupStreamingEndpointResultOutput) ToLookupStreamingEndpointResultOutputWithContext(ctx context.Context) LookupStreamingEndpointResultOutput {
+	return o
+}
+
+// The access control definition of the StreamingEndpoint.
+func (o LookupStreamingEndpointResultOutput) AccessControl() StreamingEndpointAccessControlResponsePtrOutput {
+	return o.ApplyT(func(v LookupStreamingEndpointResult) *StreamingEndpointAccessControlResponse { return v.AccessControl }).(StreamingEndpointAccessControlResponsePtrOutput)
+}
+
+// AvailabilitySet name
+func (o LookupStreamingEndpointResultOutput) AvailabilitySetName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupStreamingEndpointResult) *string { return v.AvailabilitySetName }).(pulumi.StringPtrOutput)
+}
+
+// The CDN enabled flag.
+func (o LookupStreamingEndpointResultOutput) CdnEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupStreamingEndpointResult) *bool { return v.CdnEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// The CDN profile name.
+func (o LookupStreamingEndpointResultOutput) CdnProfile() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupStreamingEndpointResult) *string { return v.CdnProfile }).(pulumi.StringPtrOutput)
+}
+
+// The CDN provider name.
+func (o LookupStreamingEndpointResultOutput) CdnProvider() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupStreamingEndpointResult) *string { return v.CdnProvider }).(pulumi.StringPtrOutput)
+}
+
+// The exact time the StreamingEndpoint was created.
+func (o LookupStreamingEndpointResultOutput) Created() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupStreamingEndpointResult) string { return v.Created }).(pulumi.StringOutput)
+}
+
+// The StreamingEndpoint access policies.
+func (o LookupStreamingEndpointResultOutput) CrossSiteAccessPolicies() CrossSiteAccessPoliciesResponsePtrOutput {
+	return o.ApplyT(func(v LookupStreamingEndpointResult) *CrossSiteAccessPoliciesResponse {
+		return v.CrossSiteAccessPolicies
+	}).(CrossSiteAccessPoliciesResponsePtrOutput)
+}
+
+// The custom host names of the StreamingEndpoint
+func (o LookupStreamingEndpointResultOutput) CustomHostNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupStreamingEndpointResult) []string { return v.CustomHostNames }).(pulumi.StringArrayOutput)
+}
+
+// The StreamingEndpoint description.
+func (o LookupStreamingEndpointResultOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupStreamingEndpointResult) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The free trial expiration time.
+func (o LookupStreamingEndpointResultOutput) FreeTrialEndTime() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupStreamingEndpointResult) string { return v.FreeTrialEndTime }).(pulumi.StringOutput)
+}
+
+// The StreamingEndpoint host name.
+func (o LookupStreamingEndpointResultOutput) HostName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupStreamingEndpointResult) string { return v.HostName }).(pulumi.StringOutput)
+}
+
+// Fully qualified resource ID for the resource.
+func (o LookupStreamingEndpointResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupStreamingEndpointResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The exact time the StreamingEndpoint was last modified.
+func (o LookupStreamingEndpointResultOutput) LastModified() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupStreamingEndpointResult) string { return v.LastModified }).(pulumi.StringOutput)
+}
+
+// The Azure Region of the resource.
+func (o LookupStreamingEndpointResultOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupStreamingEndpointResult) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Max cache age
+func (o LookupStreamingEndpointResultOutput) MaxCacheAge() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v LookupStreamingEndpointResult) *float64 { return v.MaxCacheAge }).(pulumi.Float64PtrOutput)
+}
+
+// The name of the resource.
+func (o LookupStreamingEndpointResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupStreamingEndpointResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The provisioning state of the StreamingEndpoint.
+func (o LookupStreamingEndpointResultOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupStreamingEndpointResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The resource state of the StreamingEndpoint.
+func (o LookupStreamingEndpointResultOutput) ResourceState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupStreamingEndpointResult) string { return v.ResourceState }).(pulumi.StringOutput)
+}
+
+// The number of scale units.
+func (o LookupStreamingEndpointResultOutput) ScaleUnits() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupStreamingEndpointResult) *int { return v.ScaleUnits }).(pulumi.IntPtrOutput)
+}
+
+// Resource tags.
+func (o LookupStreamingEndpointResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupStreamingEndpointResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource.
+func (o LookupStreamingEndpointResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupStreamingEndpointResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupStreamingEndpointResultOutput{})
 }

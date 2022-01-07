@@ -4,6 +4,9 @@
 package v20200201preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -30,4 +33,53 @@ type ListMonitorHostsResult struct {
 	NextLink *string `pulumi:"nextLink"`
 	// Results of a list operation.
 	Value []DatadogHostResponse `pulumi:"value"`
+}
+
+func ListMonitorHostsOutput(ctx *pulumi.Context, args ListMonitorHostsOutputArgs, opts ...pulumi.InvokeOption) ListMonitorHostsResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (ListMonitorHostsResult, error) {
+			args := v.(ListMonitorHostsArgs)
+			r, err := ListMonitorHosts(ctx, &args, opts...)
+			return *r, err
+		}).(ListMonitorHostsResultOutput)
+}
+
+type ListMonitorHostsOutputArgs struct {
+	// Monitor resource name
+	MonitorName pulumi.StringInput `pulumi:"monitorName"`
+	// The name of the resource group to which the Datadog resource belongs.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (ListMonitorHostsOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListMonitorHostsArgs)(nil)).Elem()
+}
+
+// Response of a list operation.
+type ListMonitorHostsResultOutput struct{ *pulumi.OutputState }
+
+func (ListMonitorHostsResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListMonitorHostsResult)(nil)).Elem()
+}
+
+func (o ListMonitorHostsResultOutput) ToListMonitorHostsResultOutput() ListMonitorHostsResultOutput {
+	return o
+}
+
+func (o ListMonitorHostsResultOutput) ToListMonitorHostsResultOutputWithContext(ctx context.Context) ListMonitorHostsResultOutput {
+	return o
+}
+
+// Link to the next set of results, if any.
+func (o ListMonitorHostsResultOutput) NextLink() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListMonitorHostsResult) *string { return v.NextLink }).(pulumi.StringPtrOutput)
+}
+
+// Results of a list operation.
+func (o ListMonitorHostsResultOutput) Value() DatadogHostResponseArrayOutput {
+	return o.ApplyT(func(v ListMonitorHostsResult) []DatadogHostResponse { return v.Value }).(DatadogHostResponseArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(ListMonitorHostsResultOutput{})
 }

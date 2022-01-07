@@ -4,6 +4,9 @@
 package v20170714
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -28,4 +31,48 @@ type ListServerGatewayStatusArgs struct {
 type ListServerGatewayStatusResult struct {
 	// Live message of list gateway. Status: 0 - Live
 	Status *int `pulumi:"status"`
+}
+
+func ListServerGatewayStatusOutput(ctx *pulumi.Context, args ListServerGatewayStatusOutputArgs, opts ...pulumi.InvokeOption) ListServerGatewayStatusResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (ListServerGatewayStatusResult, error) {
+			args := v.(ListServerGatewayStatusArgs)
+			r, err := ListServerGatewayStatus(ctx, &args, opts...)
+			return *r, err
+		}).(ListServerGatewayStatusResultOutput)
+}
+
+type ListServerGatewayStatusOutputArgs struct {
+	// The name of the Azure Resource group of which a given Analysis Services server is part. This name must be at least 1 character in length, and no more than 90.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the Analysis Services server. It must be at least 3 characters in length, and no more than 63.
+	ServerName pulumi.StringInput `pulumi:"serverName"`
+}
+
+func (ListServerGatewayStatusOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListServerGatewayStatusArgs)(nil)).Elem()
+}
+
+// Status of gateway is live
+type ListServerGatewayStatusResultOutput struct{ *pulumi.OutputState }
+
+func (ListServerGatewayStatusResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListServerGatewayStatusResult)(nil)).Elem()
+}
+
+func (o ListServerGatewayStatusResultOutput) ToListServerGatewayStatusResultOutput() ListServerGatewayStatusResultOutput {
+	return o
+}
+
+func (o ListServerGatewayStatusResultOutput) ToListServerGatewayStatusResultOutputWithContext(ctx context.Context) ListServerGatewayStatusResultOutput {
+	return o
+}
+
+// Live message of list gateway. Status: 0 - Live
+func (o ListServerGatewayStatusResultOutput) Status() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ListServerGatewayStatusResult) *int { return v.Status }).(pulumi.IntPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(ListServerGatewayStatusResultOutput{})
 }

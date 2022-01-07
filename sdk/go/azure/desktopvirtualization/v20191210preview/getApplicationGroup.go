@@ -4,6 +4,9 @@
 package v20191210preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -46,4 +49,93 @@ type LookupApplicationGroupResult struct {
 	Type string `pulumi:"type"`
 	// Workspace arm path of ApplicationGroup.
 	WorkspaceArmPath string `pulumi:"workspaceArmPath"`
+}
+
+func LookupApplicationGroupOutput(ctx *pulumi.Context, args LookupApplicationGroupOutputArgs, opts ...pulumi.InvokeOption) LookupApplicationGroupResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupApplicationGroupResult, error) {
+			args := v.(LookupApplicationGroupArgs)
+			r, err := LookupApplicationGroup(ctx, &args, opts...)
+			return *r, err
+		}).(LookupApplicationGroupResultOutput)
+}
+
+type LookupApplicationGroupOutputArgs struct {
+	// The name of the application group
+	ApplicationGroupName pulumi.StringInput `pulumi:"applicationGroupName"`
+	// The name of the resource group. The name is case insensitive.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupApplicationGroupOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupApplicationGroupArgs)(nil)).Elem()
+}
+
+// Represents a ApplicationGroup definition.
+type LookupApplicationGroupResultOutput struct{ *pulumi.OutputState }
+
+func (LookupApplicationGroupResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupApplicationGroupResult)(nil)).Elem()
+}
+
+func (o LookupApplicationGroupResultOutput) ToLookupApplicationGroupResultOutput() LookupApplicationGroupResultOutput {
+	return o
+}
+
+func (o LookupApplicationGroupResultOutput) ToLookupApplicationGroupResultOutputWithContext(ctx context.Context) LookupApplicationGroupResultOutput {
+	return o
+}
+
+// Resource Type of ApplicationGroup.
+func (o LookupApplicationGroupResultOutput) ApplicationGroupType() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupApplicationGroupResult) string { return v.ApplicationGroupType }).(pulumi.StringOutput)
+}
+
+// Description of ApplicationGroup.
+func (o LookupApplicationGroupResultOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupApplicationGroupResult) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Friendly name of ApplicationGroup.
+func (o LookupApplicationGroupResultOutput) FriendlyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupApplicationGroupResult) *string { return v.FriendlyName }).(pulumi.StringPtrOutput)
+}
+
+// HostPool arm path of ApplicationGroup.
+func (o LookupApplicationGroupResultOutput) HostPoolArmPath() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupApplicationGroupResult) string { return v.HostPoolArmPath }).(pulumi.StringOutput)
+}
+
+// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+func (o LookupApplicationGroupResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupApplicationGroupResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The geo-location where the resource lives
+func (o LookupApplicationGroupResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupApplicationGroupResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o LookupApplicationGroupResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupApplicationGroupResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Resource tags.
+func (o LookupApplicationGroupResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupApplicationGroupResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o LookupApplicationGroupResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupApplicationGroupResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Workspace arm path of ApplicationGroup.
+func (o LookupApplicationGroupResultOutput) WorkspaceArmPath() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupApplicationGroupResult) string { return v.WorkspaceArmPath }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupApplicationGroupResultOutput{})
 }

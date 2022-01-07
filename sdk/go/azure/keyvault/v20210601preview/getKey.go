@@ -4,6 +4,9 @@
 package v20210601preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -66,4 +69,114 @@ func (val *LookupKeyResult) Defaults() *LookupKeyResult {
 	tmp.ReleasePolicy = tmp.ReleasePolicy.Defaults()
 
 	return &tmp
+}
+
+func LookupKeyOutput(ctx *pulumi.Context, args LookupKeyOutputArgs, opts ...pulumi.InvokeOption) LookupKeyResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupKeyResult, error) {
+			args := v.(LookupKeyArgs)
+			r, err := LookupKey(ctx, &args, opts...)
+			return *r, err
+		}).(LookupKeyResultOutput)
+}
+
+type LookupKeyOutputArgs struct {
+	// The name of the key to be retrieved.
+	KeyName pulumi.StringInput `pulumi:"keyName"`
+	// The name of the resource group which contains the specified key vault.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the vault which contains the key to be retrieved.
+	VaultName pulumi.StringInput `pulumi:"vaultName"`
+}
+
+func (LookupKeyOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupKeyArgs)(nil)).Elem()
+}
+
+// The key resource.
+type LookupKeyResultOutput struct{ *pulumi.OutputState }
+
+func (LookupKeyResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupKeyResult)(nil)).Elem()
+}
+
+func (o LookupKeyResultOutput) ToLookupKeyResultOutput() LookupKeyResultOutput {
+	return o
+}
+
+func (o LookupKeyResultOutput) ToLookupKeyResultOutputWithContext(ctx context.Context) LookupKeyResultOutput {
+	return o
+}
+
+// The attributes of the key.
+func (o LookupKeyResultOutput) Attributes() KeyAttributesResponsePtrOutput {
+	return o.ApplyT(func(v LookupKeyResult) *KeyAttributesResponse { return v.Attributes }).(KeyAttributesResponsePtrOutput)
+}
+
+// The elliptic curve name. For valid values, see JsonWebKeyCurveName.
+func (o LookupKeyResultOutput) CurveName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupKeyResult) *string { return v.CurveName }).(pulumi.StringPtrOutput)
+}
+
+// Fully qualified identifier of the key vault resource.
+func (o LookupKeyResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupKeyResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o LookupKeyResultOutput) KeyOps() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupKeyResult) []string { return v.KeyOps }).(pulumi.StringArrayOutput)
+}
+
+// The key size in bits. For example: 2048, 3072, or 4096 for RSA.
+func (o LookupKeyResultOutput) KeySize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupKeyResult) *int { return v.KeySize }).(pulumi.IntPtrOutput)
+}
+
+// The URI to retrieve the current version of the key.
+func (o LookupKeyResultOutput) KeyUri() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupKeyResult) string { return v.KeyUri }).(pulumi.StringOutput)
+}
+
+// The URI to retrieve the specific version of the key.
+func (o LookupKeyResultOutput) KeyUriWithVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupKeyResult) string { return v.KeyUriWithVersion }).(pulumi.StringOutput)
+}
+
+// The type of the key. For valid values, see JsonWebKeyType.
+func (o LookupKeyResultOutput) Kty() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupKeyResult) *string { return v.Kty }).(pulumi.StringPtrOutput)
+}
+
+// Azure location of the key vault resource.
+func (o LookupKeyResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupKeyResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// Name of the key vault resource.
+func (o LookupKeyResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupKeyResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Key release policy in response. It will be used for both output and input. Omitted if empty
+func (o LookupKeyResultOutput) ReleasePolicy() KeyReleasePolicyResponsePtrOutput {
+	return o.ApplyT(func(v LookupKeyResult) *KeyReleasePolicyResponse { return v.ReleasePolicy }).(KeyReleasePolicyResponsePtrOutput)
+}
+
+// Key rotation policy in response. It will be used for both output and input. Omitted if empty
+func (o LookupKeyResultOutput) RotationPolicy() RotationPolicyResponsePtrOutput {
+	return o.ApplyT(func(v LookupKeyResult) *RotationPolicyResponse { return v.RotationPolicy }).(RotationPolicyResponsePtrOutput)
+}
+
+// Tags assigned to the key vault resource.
+func (o LookupKeyResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupKeyResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type of the key vault resource.
+func (o LookupKeyResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupKeyResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupKeyResultOutput{})
 }

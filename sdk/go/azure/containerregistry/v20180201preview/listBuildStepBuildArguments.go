@@ -4,6 +4,9 @@
 package v20180201preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -34,4 +37,57 @@ type ListBuildStepBuildArgumentsResult struct {
 	NextLink *string `pulumi:"nextLink"`
 	// The collection value.
 	Value []BuildArgumentResponse `pulumi:"value"`
+}
+
+func ListBuildStepBuildArgumentsOutput(ctx *pulumi.Context, args ListBuildStepBuildArgumentsOutputArgs, opts ...pulumi.InvokeOption) ListBuildStepBuildArgumentsResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (ListBuildStepBuildArgumentsResult, error) {
+			args := v.(ListBuildStepBuildArgumentsArgs)
+			r, err := ListBuildStepBuildArguments(ctx, &args, opts...)
+			return *r, err
+		}).(ListBuildStepBuildArgumentsResultOutput)
+}
+
+type ListBuildStepBuildArgumentsOutputArgs struct {
+	// The name of the container registry build task.
+	BuildTaskName pulumi.StringInput `pulumi:"buildTaskName"`
+	// The name of the container registry.
+	RegistryName pulumi.StringInput `pulumi:"registryName"`
+	// The name of the resource group to which the container registry belongs.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of a build step for a container registry build task.
+	StepName pulumi.StringInput `pulumi:"stepName"`
+}
+
+func (ListBuildStepBuildArgumentsOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListBuildStepBuildArgumentsArgs)(nil)).Elem()
+}
+
+// The list of build arguments for a build step.
+type ListBuildStepBuildArgumentsResultOutput struct{ *pulumi.OutputState }
+
+func (ListBuildStepBuildArgumentsResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListBuildStepBuildArgumentsResult)(nil)).Elem()
+}
+
+func (o ListBuildStepBuildArgumentsResultOutput) ToListBuildStepBuildArgumentsResultOutput() ListBuildStepBuildArgumentsResultOutput {
+	return o
+}
+
+func (o ListBuildStepBuildArgumentsResultOutput) ToListBuildStepBuildArgumentsResultOutputWithContext(ctx context.Context) ListBuildStepBuildArgumentsResultOutput {
+	return o
+}
+
+// The URI that can be used to request the next set of paged results.
+func (o ListBuildStepBuildArgumentsResultOutput) NextLink() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListBuildStepBuildArgumentsResult) *string { return v.NextLink }).(pulumi.StringPtrOutput)
+}
+
+// The collection value.
+func (o ListBuildStepBuildArgumentsResultOutput) Value() BuildArgumentResponseArrayOutput {
+	return o.ApplyT(func(v ListBuildStepBuildArgumentsResult) []BuildArgumentResponse { return v.Value }).(BuildArgumentResponseArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(ListBuildStepBuildArgumentsResultOutput{})
 }

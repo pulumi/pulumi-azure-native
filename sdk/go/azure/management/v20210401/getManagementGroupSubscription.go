@@ -4,6 +4,9 @@
 package v20210401
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -40,4 +43,78 @@ type LookupManagementGroupSubscriptionResult struct {
 	Tenant *string `pulumi:"tenant"`
 	// The type of the resource.  For example, Microsoft.Management/managementGroups/subscriptions
 	Type string `pulumi:"type"`
+}
+
+func LookupManagementGroupSubscriptionOutput(ctx *pulumi.Context, args LookupManagementGroupSubscriptionOutputArgs, opts ...pulumi.InvokeOption) LookupManagementGroupSubscriptionResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupManagementGroupSubscriptionResult, error) {
+			args := v.(LookupManagementGroupSubscriptionArgs)
+			r, err := LookupManagementGroupSubscription(ctx, &args, opts...)
+			return *r, err
+		}).(LookupManagementGroupSubscriptionResultOutput)
+}
+
+type LookupManagementGroupSubscriptionOutputArgs struct {
+	// Management Group ID.
+	GroupId pulumi.StringInput `pulumi:"groupId"`
+	// Subscription ID.
+	SubscriptionId pulumi.StringPtrInput `pulumi:"subscriptionId"`
+}
+
+func (LookupManagementGroupSubscriptionOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupManagementGroupSubscriptionArgs)(nil)).Elem()
+}
+
+// The details of subscription under management group.
+type LookupManagementGroupSubscriptionResultOutput struct{ *pulumi.OutputState }
+
+func (LookupManagementGroupSubscriptionResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupManagementGroupSubscriptionResult)(nil)).Elem()
+}
+
+func (o LookupManagementGroupSubscriptionResultOutput) ToLookupManagementGroupSubscriptionResultOutput() LookupManagementGroupSubscriptionResultOutput {
+	return o
+}
+
+func (o LookupManagementGroupSubscriptionResultOutput) ToLookupManagementGroupSubscriptionResultOutputWithContext(ctx context.Context) LookupManagementGroupSubscriptionResultOutput {
+	return o
+}
+
+// The friendly name of the subscription.
+func (o LookupManagementGroupSubscriptionResultOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupManagementGroupSubscriptionResult) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+// The fully qualified ID for the subscription.  For example, /providers/Microsoft.Management/managementGroups/0000000-0000-0000-0000-000000000000/subscriptions/0000000-0000-0000-0000-000000000001
+func (o LookupManagementGroupSubscriptionResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupManagementGroupSubscriptionResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The stringified id of the subscription. For example, 00000000-0000-0000-0000-000000000000
+func (o LookupManagementGroupSubscriptionResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupManagementGroupSubscriptionResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The ID of the parent management group.
+func (o LookupManagementGroupSubscriptionResultOutput) Parent() DescendantParentGroupInfoResponsePtrOutput {
+	return o.ApplyT(func(v LookupManagementGroupSubscriptionResult) *DescendantParentGroupInfoResponse { return v.Parent }).(DescendantParentGroupInfoResponsePtrOutput)
+}
+
+// The state of the subscription.
+func (o LookupManagementGroupSubscriptionResultOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupManagementGroupSubscriptionResult) *string { return v.State }).(pulumi.StringPtrOutput)
+}
+
+// The AAD Tenant ID associated with the subscription. For example, 00000000-0000-0000-0000-000000000000
+func (o LookupManagementGroupSubscriptionResultOutput) Tenant() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupManagementGroupSubscriptionResult) *string { return v.Tenant }).(pulumi.StringPtrOutput)
+}
+
+// The type of the resource.  For example, Microsoft.Management/managementGroups/subscriptions
+func (o LookupManagementGroupSubscriptionResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupManagementGroupSubscriptionResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupManagementGroupSubscriptionResultOutput{})
 }

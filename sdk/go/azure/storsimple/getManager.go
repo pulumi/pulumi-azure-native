@@ -4,6 +4,9 @@
 package storsimple
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -45,4 +48,88 @@ type LookupManagerResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// The resource type.
 	Type string `pulumi:"type"`
+}
+
+func LookupManagerOutput(ctx *pulumi.Context, args LookupManagerOutputArgs, opts ...pulumi.InvokeOption) LookupManagerResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupManagerResult, error) {
+			args := v.(LookupManagerArgs)
+			r, err := LookupManager(ctx, &args, opts...)
+			return *r, err
+		}).(LookupManagerResultOutput)
+}
+
+type LookupManagerOutputArgs struct {
+	// The manager name
+	ManagerName pulumi.StringInput `pulumi:"managerName"`
+	// The resource group name
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupManagerOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupManagerArgs)(nil)).Elem()
+}
+
+// The StorSimple Manager.
+type LookupManagerResultOutput struct{ *pulumi.OutputState }
+
+func (LookupManagerResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupManagerResult)(nil)).Elem()
+}
+
+func (o LookupManagerResultOutput) ToLookupManagerResultOutput() LookupManagerResultOutput {
+	return o
+}
+
+func (o LookupManagerResultOutput) ToLookupManagerResultOutputWithContext(ctx context.Context) LookupManagerResultOutput {
+	return o
+}
+
+// Represents the type of StorSimple Manager.
+func (o LookupManagerResultOutput) CisIntrinsicSettings() ManagerIntrinsicSettingsResponsePtrOutput {
+	return o.ApplyT(func(v LookupManagerResult) *ManagerIntrinsicSettingsResponse { return v.CisIntrinsicSettings }).(ManagerIntrinsicSettingsResponsePtrOutput)
+}
+
+// The etag of the manager.
+func (o LookupManagerResultOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupManagerResult) *string { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// The resource ID.
+func (o LookupManagerResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupManagerResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The geo location of the resource.
+func (o LookupManagerResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupManagerResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// The resource name.
+func (o LookupManagerResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupManagerResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Specifies the state of the resource as it is getting provisioned. Value of "Succeeded" means the Manager was successfully created.
+func (o LookupManagerResultOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupManagerResult) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the Sku.
+func (o LookupManagerResultOutput) Sku() ManagerSkuResponsePtrOutput {
+	return o.ApplyT(func(v LookupManagerResult) *ManagerSkuResponse { return v.Sku }).(ManagerSkuResponsePtrOutput)
+}
+
+// The tags attached to the resource.
+func (o LookupManagerResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupManagerResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The resource type.
+func (o LookupManagerResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupManagerResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupManagerResultOutput{})
 }

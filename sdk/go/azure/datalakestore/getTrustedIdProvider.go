@@ -4,6 +4,9 @@
 package datalakestore
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -37,4 +40,65 @@ type LookupTrustedIdProviderResult struct {
 	Name string `pulumi:"name"`
 	// The resource type.
 	Type string `pulumi:"type"`
+}
+
+func LookupTrustedIdProviderOutput(ctx *pulumi.Context, args LookupTrustedIdProviderOutputArgs, opts ...pulumi.InvokeOption) LookupTrustedIdProviderResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupTrustedIdProviderResult, error) {
+			args := v.(LookupTrustedIdProviderArgs)
+			r, err := LookupTrustedIdProvider(ctx, &args, opts...)
+			return *r, err
+		}).(LookupTrustedIdProviderResultOutput)
+}
+
+type LookupTrustedIdProviderOutputArgs struct {
+	// The name of the Data Lake Store account.
+	AccountName pulumi.StringInput `pulumi:"accountName"`
+	// The name of the Azure resource group.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the trusted identity provider to retrieve.
+	TrustedIdProviderName pulumi.StringInput `pulumi:"trustedIdProviderName"`
+}
+
+func (LookupTrustedIdProviderOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupTrustedIdProviderArgs)(nil)).Elem()
+}
+
+// Data Lake Store trusted identity provider information.
+type LookupTrustedIdProviderResultOutput struct{ *pulumi.OutputState }
+
+func (LookupTrustedIdProviderResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupTrustedIdProviderResult)(nil)).Elem()
+}
+
+func (o LookupTrustedIdProviderResultOutput) ToLookupTrustedIdProviderResultOutput() LookupTrustedIdProviderResultOutput {
+	return o
+}
+
+func (o LookupTrustedIdProviderResultOutput) ToLookupTrustedIdProviderResultOutputWithContext(ctx context.Context) LookupTrustedIdProviderResultOutput {
+	return o
+}
+
+// The resource identifier.
+func (o LookupTrustedIdProviderResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTrustedIdProviderResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The URL of this trusted identity provider.
+func (o LookupTrustedIdProviderResultOutput) IdProvider() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTrustedIdProviderResult) string { return v.IdProvider }).(pulumi.StringOutput)
+}
+
+// The resource name.
+func (o LookupTrustedIdProviderResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTrustedIdProviderResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The resource type.
+func (o LookupTrustedIdProviderResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTrustedIdProviderResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupTrustedIdProviderResultOutput{})
 }

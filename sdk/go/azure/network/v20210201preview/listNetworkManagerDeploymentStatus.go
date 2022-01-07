@@ -4,6 +4,9 @@
 package v20210201preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -36,4 +39,61 @@ type ListNetworkManagerDeploymentStatusResult struct {
 	SkipToken *string `pulumi:"skipToken"`
 	// Gets a page of Network Manager Deployment Status
 	Value []NetworkManagerDeploymentStatusResponse `pulumi:"value"`
+}
+
+func ListNetworkManagerDeploymentStatusOutput(ctx *pulumi.Context, args ListNetworkManagerDeploymentStatusOutputArgs, opts ...pulumi.InvokeOption) ListNetworkManagerDeploymentStatusResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (ListNetworkManagerDeploymentStatusResult, error) {
+			args := v.(ListNetworkManagerDeploymentStatusArgs)
+			r, err := ListNetworkManagerDeploymentStatus(ctx, &args, opts...)
+			return *r, err
+		}).(ListNetworkManagerDeploymentStatusResultOutput)
+}
+
+type ListNetworkManagerDeploymentStatusOutputArgs struct {
+	// List of deployment types.
+	DeploymentTypes pulumi.StringArrayInput `pulumi:"deploymentTypes"`
+	// The name of the network manager.
+	NetworkManagerName pulumi.StringInput `pulumi:"networkManagerName"`
+	// List of locations.
+	Regions pulumi.StringArrayInput `pulumi:"regions"`
+	// The name of the resource group.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// Continuation token for pagination, capturing the next page size and offset, as well as the context of the query.
+	SkipToken pulumi.StringPtrInput `pulumi:"skipToken"`
+}
+
+func (ListNetworkManagerDeploymentStatusOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListNetworkManagerDeploymentStatusArgs)(nil)).Elem()
+}
+
+// A list of Network Manager Deployment Status
+type ListNetworkManagerDeploymentStatusResultOutput struct{ *pulumi.OutputState }
+
+func (ListNetworkManagerDeploymentStatusResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListNetworkManagerDeploymentStatusResult)(nil)).Elem()
+}
+
+func (o ListNetworkManagerDeploymentStatusResultOutput) ToListNetworkManagerDeploymentStatusResultOutput() ListNetworkManagerDeploymentStatusResultOutput {
+	return o
+}
+
+func (o ListNetworkManagerDeploymentStatusResultOutput) ToListNetworkManagerDeploymentStatusResultOutputWithContext(ctx context.Context) ListNetworkManagerDeploymentStatusResultOutput {
+	return o
+}
+
+// When present, the value can be passed to a subsequent query call (together with the same query and scopes used in the current request) to retrieve the next page of data.
+func (o ListNetworkManagerDeploymentStatusResultOutput) SkipToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListNetworkManagerDeploymentStatusResult) *string { return v.SkipToken }).(pulumi.StringPtrOutput)
+}
+
+// Gets a page of Network Manager Deployment Status
+func (o ListNetworkManagerDeploymentStatusResultOutput) Value() NetworkManagerDeploymentStatusResponseArrayOutput {
+	return o.ApplyT(func(v ListNetworkManagerDeploymentStatusResult) []NetworkManagerDeploymentStatusResponse {
+		return v.Value
+	}).(NetworkManagerDeploymentStatusResponseArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(ListNetworkManagerDeploymentStatusResultOutput{})
 }

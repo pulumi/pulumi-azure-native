@@ -4,6 +4,9 @@
 package v20190301
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -42,4 +45,80 @@ type LookupBandwidthScheduleResult struct {
 	Stop string `pulumi:"stop"`
 	// The hierarchical type of the object.
 	Type string `pulumi:"type"`
+}
+
+func LookupBandwidthScheduleOutput(ctx *pulumi.Context, args LookupBandwidthScheduleOutputArgs, opts ...pulumi.InvokeOption) LookupBandwidthScheduleResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupBandwidthScheduleResult, error) {
+			args := v.(LookupBandwidthScheduleArgs)
+			r, err := LookupBandwidthSchedule(ctx, &args, opts...)
+			return *r, err
+		}).(LookupBandwidthScheduleResultOutput)
+}
+
+type LookupBandwidthScheduleOutputArgs struct {
+	// The device name.
+	DeviceName pulumi.StringInput `pulumi:"deviceName"`
+	// The bandwidth schedule name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The resource group name.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupBandwidthScheduleOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupBandwidthScheduleArgs)(nil)).Elem()
+}
+
+// The bandwidth schedule details.
+type LookupBandwidthScheduleResultOutput struct{ *pulumi.OutputState }
+
+func (LookupBandwidthScheduleResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupBandwidthScheduleResult)(nil)).Elem()
+}
+
+func (o LookupBandwidthScheduleResultOutput) ToLookupBandwidthScheduleResultOutput() LookupBandwidthScheduleResultOutput {
+	return o
+}
+
+func (o LookupBandwidthScheduleResultOutput) ToLookupBandwidthScheduleResultOutputWithContext(ctx context.Context) LookupBandwidthScheduleResultOutput {
+	return o
+}
+
+// The days of the week when this schedule is applicable.
+func (o LookupBandwidthScheduleResultOutput) Days() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupBandwidthScheduleResult) []string { return v.Days }).(pulumi.StringArrayOutput)
+}
+
+// The path ID that uniquely identifies the object.
+func (o LookupBandwidthScheduleResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBandwidthScheduleResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The object name.
+func (o LookupBandwidthScheduleResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBandwidthScheduleResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The bandwidth rate in Mbps.
+func (o LookupBandwidthScheduleResultOutput) RateInMbps() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupBandwidthScheduleResult) int { return v.RateInMbps }).(pulumi.IntOutput)
+}
+
+// The start time of the schedule in UTC.
+func (o LookupBandwidthScheduleResultOutput) Start() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBandwidthScheduleResult) string { return v.Start }).(pulumi.StringOutput)
+}
+
+// The stop time of the schedule in UTC.
+func (o LookupBandwidthScheduleResultOutput) Stop() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBandwidthScheduleResult) string { return v.Stop }).(pulumi.StringOutput)
+}
+
+// The hierarchical type of the object.
+func (o LookupBandwidthScheduleResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBandwidthScheduleResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupBandwidthScheduleResultOutput{})
 }

@@ -4,6 +4,9 @@
 package avs
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -35,4 +38,63 @@ type ListPrivateCloudAdminCredentialsResult struct {
 	VcenterPassword string `pulumi:"vcenterPassword"`
 	// vCenter admin username
 	VcenterUsername string `pulumi:"vcenterUsername"`
+}
+
+func ListPrivateCloudAdminCredentialsOutput(ctx *pulumi.Context, args ListPrivateCloudAdminCredentialsOutputArgs, opts ...pulumi.InvokeOption) ListPrivateCloudAdminCredentialsResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (ListPrivateCloudAdminCredentialsResult, error) {
+			args := v.(ListPrivateCloudAdminCredentialsArgs)
+			r, err := ListPrivateCloudAdminCredentials(ctx, &args, opts...)
+			return *r, err
+		}).(ListPrivateCloudAdminCredentialsResultOutput)
+}
+
+type ListPrivateCloudAdminCredentialsOutputArgs struct {
+	// Name of the private cloud
+	PrivateCloudName pulumi.StringInput `pulumi:"privateCloudName"`
+	// The name of the resource group. The name is case insensitive.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (ListPrivateCloudAdminCredentialsOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListPrivateCloudAdminCredentialsArgs)(nil)).Elem()
+}
+
+// Administrative credentials for accessing vCenter and NSX-T
+type ListPrivateCloudAdminCredentialsResultOutput struct{ *pulumi.OutputState }
+
+func (ListPrivateCloudAdminCredentialsResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListPrivateCloudAdminCredentialsResult)(nil)).Elem()
+}
+
+func (o ListPrivateCloudAdminCredentialsResultOutput) ToListPrivateCloudAdminCredentialsResultOutput() ListPrivateCloudAdminCredentialsResultOutput {
+	return o
+}
+
+func (o ListPrivateCloudAdminCredentialsResultOutput) ToListPrivateCloudAdminCredentialsResultOutputWithContext(ctx context.Context) ListPrivateCloudAdminCredentialsResultOutput {
+	return o
+}
+
+// NSX-T Manager password
+func (o ListPrivateCloudAdminCredentialsResultOutput) NsxtPassword() pulumi.StringOutput {
+	return o.ApplyT(func(v ListPrivateCloudAdminCredentialsResult) string { return v.NsxtPassword }).(pulumi.StringOutput)
+}
+
+// NSX-T Manager username
+func (o ListPrivateCloudAdminCredentialsResultOutput) NsxtUsername() pulumi.StringOutput {
+	return o.ApplyT(func(v ListPrivateCloudAdminCredentialsResult) string { return v.NsxtUsername }).(pulumi.StringOutput)
+}
+
+// vCenter admin password
+func (o ListPrivateCloudAdminCredentialsResultOutput) VcenterPassword() pulumi.StringOutput {
+	return o.ApplyT(func(v ListPrivateCloudAdminCredentialsResult) string { return v.VcenterPassword }).(pulumi.StringOutput)
+}
+
+// vCenter admin username
+func (o ListPrivateCloudAdminCredentialsResultOutput) VcenterUsername() pulumi.StringOutput {
+	return o.ApplyT(func(v ListPrivateCloudAdminCredentialsResult) string { return v.VcenterUsername }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(ListPrivateCloudAdminCredentialsResultOutput{})
 }

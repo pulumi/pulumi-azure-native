@@ -4,6 +4,9 @@
 package v20210201
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -59,4 +62,90 @@ func (val *LookupVirtualHubIpConfigurationResult) Defaults() *LookupVirtualHubIp
 	tmp.Subnet = tmp.Subnet.Defaults()
 
 	return &tmp
+}
+
+func LookupVirtualHubIpConfigurationOutput(ctx *pulumi.Context, args LookupVirtualHubIpConfigurationOutputArgs, opts ...pulumi.InvokeOption) LookupVirtualHubIpConfigurationResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupVirtualHubIpConfigurationResult, error) {
+			args := v.(LookupVirtualHubIpConfigurationArgs)
+			r, err := LookupVirtualHubIpConfiguration(ctx, &args, opts...)
+			return *r, err
+		}).(LookupVirtualHubIpConfigurationResultOutput)
+}
+
+type LookupVirtualHubIpConfigurationOutputArgs struct {
+	// The name of the ipconfig.
+	IpConfigName pulumi.StringInput `pulumi:"ipConfigName"`
+	// The resource group name of the VirtualHub.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the VirtualHub.
+	VirtualHubName pulumi.StringInput `pulumi:"virtualHubName"`
+}
+
+func (LookupVirtualHubIpConfigurationOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupVirtualHubIpConfigurationArgs)(nil)).Elem()
+}
+
+// IpConfigurations.
+type LookupVirtualHubIpConfigurationResultOutput struct{ *pulumi.OutputState }
+
+func (LookupVirtualHubIpConfigurationResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupVirtualHubIpConfigurationResult)(nil)).Elem()
+}
+
+func (o LookupVirtualHubIpConfigurationResultOutput) ToLookupVirtualHubIpConfigurationResultOutput() LookupVirtualHubIpConfigurationResultOutput {
+	return o
+}
+
+func (o LookupVirtualHubIpConfigurationResultOutput) ToLookupVirtualHubIpConfigurationResultOutputWithContext(ctx context.Context) LookupVirtualHubIpConfigurationResultOutput {
+	return o
+}
+
+// A unique read-only string that changes whenever the resource is updated.
+func (o LookupVirtualHubIpConfigurationResultOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVirtualHubIpConfigurationResult) string { return v.Etag }).(pulumi.StringOutput)
+}
+
+// Resource ID.
+func (o LookupVirtualHubIpConfigurationResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVirtualHubIpConfigurationResult) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// Name of the Ip Configuration.
+func (o LookupVirtualHubIpConfigurationResultOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVirtualHubIpConfigurationResult) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The private IP address of the IP configuration.
+func (o LookupVirtualHubIpConfigurationResultOutput) PrivateIPAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVirtualHubIpConfigurationResult) *string { return v.PrivateIPAddress }).(pulumi.StringPtrOutput)
+}
+
+// The private IP address allocation method.
+func (o LookupVirtualHubIpConfigurationResultOutput) PrivateIPAllocationMethod() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVirtualHubIpConfigurationResult) *string { return v.PrivateIPAllocationMethod }).(pulumi.StringPtrOutput)
+}
+
+// The provisioning state of the IP configuration resource.
+func (o LookupVirtualHubIpConfigurationResultOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVirtualHubIpConfigurationResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The reference to the public IP resource.
+func (o LookupVirtualHubIpConfigurationResultOutput) PublicIPAddress() PublicIPAddressResponsePtrOutput {
+	return o.ApplyT(func(v LookupVirtualHubIpConfigurationResult) *PublicIPAddressResponse { return v.PublicIPAddress }).(PublicIPAddressResponsePtrOutput)
+}
+
+// The reference to the subnet resource.
+func (o LookupVirtualHubIpConfigurationResultOutput) Subnet() SubnetResponsePtrOutput {
+	return o.ApplyT(func(v LookupVirtualHubIpConfigurationResult) *SubnetResponse { return v.Subnet }).(SubnetResponsePtrOutput)
+}
+
+// Ipconfiguration type.
+func (o LookupVirtualHubIpConfigurationResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVirtualHubIpConfigurationResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupVirtualHubIpConfigurationResultOutput{})
 }

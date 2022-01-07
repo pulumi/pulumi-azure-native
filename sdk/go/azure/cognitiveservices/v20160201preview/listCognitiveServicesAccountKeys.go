@@ -4,6 +4,9 @@
 package v20160201preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -30,4 +33,53 @@ type ListCognitiveServicesAccountKeysResult struct {
 	Key1 *string `pulumi:"key1"`
 	// Gets the value of key 2.
 	Key2 *string `pulumi:"key2"`
+}
+
+func ListCognitiveServicesAccountKeysOutput(ctx *pulumi.Context, args ListCognitiveServicesAccountKeysOutputArgs, opts ...pulumi.InvokeOption) ListCognitiveServicesAccountKeysResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (ListCognitiveServicesAccountKeysResult, error) {
+			args := v.(ListCognitiveServicesAccountKeysArgs)
+			r, err := ListCognitiveServicesAccountKeys(ctx, &args, opts...)
+			return *r, err
+		}).(ListCognitiveServicesAccountKeysResultOutput)
+}
+
+type ListCognitiveServicesAccountKeysOutputArgs struct {
+	// The name of the cognitive services account within the specified resource group. Cognitive Services account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
+	AccountName pulumi.StringInput `pulumi:"accountName"`
+	// The name of the resource group within the user's subscription.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (ListCognitiveServicesAccountKeysOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListCognitiveServicesAccountKeysArgs)(nil)).Elem()
+}
+
+// The access keys for the cognitive services account.
+type ListCognitiveServicesAccountKeysResultOutput struct{ *pulumi.OutputState }
+
+func (ListCognitiveServicesAccountKeysResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListCognitiveServicesAccountKeysResult)(nil)).Elem()
+}
+
+func (o ListCognitiveServicesAccountKeysResultOutput) ToListCognitiveServicesAccountKeysResultOutput() ListCognitiveServicesAccountKeysResultOutput {
+	return o
+}
+
+func (o ListCognitiveServicesAccountKeysResultOutput) ToListCognitiveServicesAccountKeysResultOutputWithContext(ctx context.Context) ListCognitiveServicesAccountKeysResultOutput {
+	return o
+}
+
+// Gets the value of key 1.
+func (o ListCognitiveServicesAccountKeysResultOutput) Key1() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListCognitiveServicesAccountKeysResult) *string { return v.Key1 }).(pulumi.StringPtrOutput)
+}
+
+// Gets the value of key 2.
+func (o ListCognitiveServicesAccountKeysResultOutput) Key2() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListCognitiveServicesAccountKeysResult) *string { return v.Key2 }).(pulumi.StringPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(ListCognitiveServicesAccountKeysResultOutput{})
 }

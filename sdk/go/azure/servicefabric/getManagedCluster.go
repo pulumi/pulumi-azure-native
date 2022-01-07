@@ -4,6 +4,9 @@
 package servicefabric
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -91,4 +94,158 @@ func (val *LookupManagedClusterResult) Defaults() *LookupManagedClusterResult {
 		tmp.HttpGatewayConnectionPort = &httpGatewayConnectionPort_
 	}
 	return &tmp
+}
+
+func LookupManagedClusterOutput(ctx *pulumi.Context, args LookupManagedClusterOutputArgs, opts ...pulumi.InvokeOption) LookupManagedClusterResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupManagedClusterResult, error) {
+			args := v.(LookupManagedClusterArgs)
+			r, err := LookupManagedCluster(ctx, &args, opts...)
+			return *r, err
+		}).(LookupManagedClusterResultOutput)
+}
+
+type LookupManagedClusterOutputArgs struct {
+	// The name of the cluster resource.
+	ClusterName pulumi.StringInput `pulumi:"clusterName"`
+	// The name of the resource group.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupManagedClusterOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupManagedClusterArgs)(nil)).Elem()
+}
+
+// The manged cluster resource
+type LookupManagedClusterResultOutput struct{ *pulumi.OutputState }
+
+func (LookupManagedClusterResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupManagedClusterResult)(nil)).Elem()
+}
+
+func (o LookupManagedClusterResultOutput) ToLookupManagedClusterResultOutput() LookupManagedClusterResultOutput {
+	return o
+}
+
+func (o LookupManagedClusterResultOutput) ToLookupManagedClusterResultOutputWithContext(ctx context.Context) LookupManagedClusterResultOutput {
+	return o
+}
+
+// client certificates for the cluster.
+func (o LookupManagedClusterResultOutput) AddonFeatures() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupManagedClusterResult) []string { return v.AddonFeatures }).(pulumi.StringArrayOutput)
+}
+
+// vm admin user password.
+func (o LookupManagedClusterResultOutput) AdminPassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupManagedClusterResult) *string { return v.AdminPassword }).(pulumi.StringPtrOutput)
+}
+
+// vm admin user name.
+func (o LookupManagedClusterResultOutput) AdminUserName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupManagedClusterResult) string { return v.AdminUserName }).(pulumi.StringOutput)
+}
+
+// Azure active directory.
+func (o LookupManagedClusterResultOutput) AzureActiveDirectory() AzureActiveDirectoryResponsePtrOutput {
+	return o.ApplyT(func(v LookupManagedClusterResult) *AzureActiveDirectoryResponse { return v.AzureActiveDirectory }).(AzureActiveDirectoryResponsePtrOutput)
+}
+
+// The port used for client connections to the cluster.
+func (o LookupManagedClusterResultOutput) ClientConnectionPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupManagedClusterResult) *int { return v.ClientConnectionPort }).(pulumi.IntPtrOutput)
+}
+
+// client certificates for the cluster.
+func (o LookupManagedClusterResultOutput) Clients() ClientCertificateResponseArrayOutput {
+	return o.ApplyT(func(v LookupManagedClusterResult) []ClientCertificateResponse { return v.Clients }).(ClientCertificateResponseArrayOutput)
+}
+
+// The cluster certificate thumbprint used node to node communication.
+func (o LookupManagedClusterResultOutput) ClusterCertificateThumbprint() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupManagedClusterResult) string { return v.ClusterCertificateThumbprint }).(pulumi.StringOutput)
+}
+
+// The Service Fabric runtime version of the cluster. This property can only by set the user when **upgradeMode** is set to 'Manual'. To get list of available Service Fabric versions for new clusters use [ClusterVersion API](./ClusterVersion.md). To get the list of available version for existing clusters use **availableClusterVersions**.
+func (o LookupManagedClusterResultOutput) ClusterCodeVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupManagedClusterResult) *string { return v.ClusterCodeVersion }).(pulumi.StringPtrOutput)
+}
+
+// A service generated unique identifier for the cluster resource.
+func (o LookupManagedClusterResultOutput) ClusterId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupManagedClusterResult) string { return v.ClusterId }).(pulumi.StringOutput)
+}
+
+// The current state of the cluster.
+func (o LookupManagedClusterResultOutput) ClusterState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupManagedClusterResult) string { return v.ClusterState }).(pulumi.StringOutput)
+}
+
+// The cluster dns name.
+func (o LookupManagedClusterResultOutput) DnsName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupManagedClusterResult) string { return v.DnsName }).(pulumi.StringOutput)
+}
+
+// Azure resource etag.
+func (o LookupManagedClusterResultOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupManagedClusterResult) string { return v.Etag }).(pulumi.StringOutput)
+}
+
+// The list of custom fabric settings to configure the cluster.
+func (o LookupManagedClusterResultOutput) FabricSettings() SettingsSectionDescriptionResponseArrayOutput {
+	return o.ApplyT(func(v LookupManagedClusterResult) []SettingsSectionDescriptionResponse { return v.FabricSettings }).(SettingsSectionDescriptionResponseArrayOutput)
+}
+
+// the cluster Fully qualified domain name.
+func (o LookupManagedClusterResultOutput) Fqdn() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupManagedClusterResult) string { return v.Fqdn }).(pulumi.StringOutput)
+}
+
+// The port used for http connections to the cluster.
+func (o LookupManagedClusterResultOutput) HttpGatewayConnectionPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupManagedClusterResult) *int { return v.HttpGatewayConnectionPort }).(pulumi.IntPtrOutput)
+}
+
+// Azure resource identifier.
+func (o LookupManagedClusterResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupManagedClusterResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Describes load balancing rules.
+func (o LookupManagedClusterResultOutput) LoadBalancingRules() LoadBalancingRuleResponseArrayOutput {
+	return o.ApplyT(func(v LookupManagedClusterResult) []LoadBalancingRuleResponse { return v.LoadBalancingRules }).(LoadBalancingRuleResponseArrayOutput)
+}
+
+// Azure resource location.
+func (o LookupManagedClusterResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupManagedClusterResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// Azure resource name.
+func (o LookupManagedClusterResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupManagedClusterResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The provisioning state of the managed cluster resource.
+func (o LookupManagedClusterResultOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupManagedClusterResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The sku of the managed cluster
+func (o LookupManagedClusterResultOutput) Sku() SkuResponsePtrOutput {
+	return o.ApplyT(func(v LookupManagedClusterResult) *SkuResponse { return v.Sku }).(SkuResponsePtrOutput)
+}
+
+// Azure resource tags.
+func (o LookupManagedClusterResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupManagedClusterResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Azure resource type.
+func (o LookupManagedClusterResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupManagedClusterResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupManagedClusterResultOutput{})
 }

@@ -4,6 +4,9 @@
 package v20180501
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -34,4 +37,68 @@ type LookupDeploymentAtSubscriptionScopeResult struct {
 	Properties DeploymentPropertiesExtendedResponse `pulumi:"properties"`
 	// The type of the deployment.
 	Type string `pulumi:"type"`
+}
+
+func LookupDeploymentAtSubscriptionScopeOutput(ctx *pulumi.Context, args LookupDeploymentAtSubscriptionScopeOutputArgs, opts ...pulumi.InvokeOption) LookupDeploymentAtSubscriptionScopeResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupDeploymentAtSubscriptionScopeResult, error) {
+			args := v.(LookupDeploymentAtSubscriptionScopeArgs)
+			r, err := LookupDeploymentAtSubscriptionScope(ctx, &args, opts...)
+			return *r, err
+		}).(LookupDeploymentAtSubscriptionScopeResultOutput)
+}
+
+type LookupDeploymentAtSubscriptionScopeOutputArgs struct {
+	// The name of the deployment to get.
+	DeploymentName pulumi.StringInput `pulumi:"deploymentName"`
+}
+
+func (LookupDeploymentAtSubscriptionScopeOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupDeploymentAtSubscriptionScopeArgs)(nil)).Elem()
+}
+
+// Deployment information.
+type LookupDeploymentAtSubscriptionScopeResultOutput struct{ *pulumi.OutputState }
+
+func (LookupDeploymentAtSubscriptionScopeResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupDeploymentAtSubscriptionScopeResult)(nil)).Elem()
+}
+
+func (o LookupDeploymentAtSubscriptionScopeResultOutput) ToLookupDeploymentAtSubscriptionScopeResultOutput() LookupDeploymentAtSubscriptionScopeResultOutput {
+	return o
+}
+
+func (o LookupDeploymentAtSubscriptionScopeResultOutput) ToLookupDeploymentAtSubscriptionScopeResultOutputWithContext(ctx context.Context) LookupDeploymentAtSubscriptionScopeResultOutput {
+	return o
+}
+
+// The ID of the deployment.
+func (o LookupDeploymentAtSubscriptionScopeResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDeploymentAtSubscriptionScopeResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// the location of the deployment.
+func (o LookupDeploymentAtSubscriptionScopeResultOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDeploymentAtSubscriptionScopeResult) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The name of the deployment.
+func (o LookupDeploymentAtSubscriptionScopeResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDeploymentAtSubscriptionScopeResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Deployment properties.
+func (o LookupDeploymentAtSubscriptionScopeResultOutput) Properties() DeploymentPropertiesExtendedResponseOutput {
+	return o.ApplyT(func(v LookupDeploymentAtSubscriptionScopeResult) DeploymentPropertiesExtendedResponse {
+		return v.Properties
+	}).(DeploymentPropertiesExtendedResponseOutput)
+}
+
+// The type of the deployment.
+func (o LookupDeploymentAtSubscriptionScopeResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDeploymentAtSubscriptionScopeResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupDeploymentAtSubscriptionScopeResultOutput{})
 }

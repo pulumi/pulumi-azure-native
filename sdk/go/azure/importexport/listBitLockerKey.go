@@ -4,6 +4,9 @@
 package importexport
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -29,4 +32,48 @@ type ListBitLockerKeyArgs struct {
 type ListBitLockerKeyResult struct {
 	// drive status
 	Value []DriveBitLockerKeyResponse `pulumi:"value"`
+}
+
+func ListBitLockerKeyOutput(ctx *pulumi.Context, args ListBitLockerKeyOutputArgs, opts ...pulumi.InvokeOption) ListBitLockerKeyResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (ListBitLockerKeyResult, error) {
+			args := v.(ListBitLockerKeyArgs)
+			r, err := ListBitLockerKey(ctx, &args, opts...)
+			return *r, err
+		}).(ListBitLockerKeyResultOutput)
+}
+
+type ListBitLockerKeyOutputArgs struct {
+	// The name of the import/export job.
+	JobName pulumi.StringInput `pulumi:"jobName"`
+	// The resource group name uniquely identifies the resource group within the user subscription.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (ListBitLockerKeyOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListBitLockerKeyArgs)(nil)).Elem()
+}
+
+// GetBitLockerKeys response
+type ListBitLockerKeyResultOutput struct{ *pulumi.OutputState }
+
+func (ListBitLockerKeyResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListBitLockerKeyResult)(nil)).Elem()
+}
+
+func (o ListBitLockerKeyResultOutput) ToListBitLockerKeyResultOutput() ListBitLockerKeyResultOutput {
+	return o
+}
+
+func (o ListBitLockerKeyResultOutput) ToListBitLockerKeyResultOutputWithContext(ctx context.Context) ListBitLockerKeyResultOutput {
+	return o
+}
+
+// drive status
+func (o ListBitLockerKeyResultOutput) Value() DriveBitLockerKeyResponseArrayOutput {
+	return o.ApplyT(func(v ListBitLockerKeyResult) []DriveBitLockerKeyResponse { return v.Value }).(DriveBitLockerKeyResponseArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(ListBitLockerKeyResultOutput{})
 }

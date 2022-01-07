@@ -4,6 +4,9 @@
 package v20210201
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -50,4 +53,100 @@ type LookupRouteTableResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.
 	Type string `pulumi:"type"`
+}
+
+func LookupRouteTableOutput(ctx *pulumi.Context, args LookupRouteTableOutputArgs, opts ...pulumi.InvokeOption) LookupRouteTableResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupRouteTableResult, error) {
+			args := v.(LookupRouteTableArgs)
+			r, err := LookupRouteTable(ctx, &args, opts...)
+			return *r, err
+		}).(LookupRouteTableResultOutput)
+}
+
+type LookupRouteTableOutputArgs struct {
+	// Expands referenced resources.
+	Expand pulumi.StringPtrInput `pulumi:"expand"`
+	// The name of the resource group.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the route table.
+	RouteTableName pulumi.StringInput `pulumi:"routeTableName"`
+}
+
+func (LookupRouteTableOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupRouteTableArgs)(nil)).Elem()
+}
+
+// Route table resource.
+type LookupRouteTableResultOutput struct{ *pulumi.OutputState }
+
+func (LookupRouteTableResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupRouteTableResult)(nil)).Elem()
+}
+
+func (o LookupRouteTableResultOutput) ToLookupRouteTableResultOutput() LookupRouteTableResultOutput {
+	return o
+}
+
+func (o LookupRouteTableResultOutput) ToLookupRouteTableResultOutputWithContext(ctx context.Context) LookupRouteTableResultOutput {
+	return o
+}
+
+// Whether to disable the routes learned by BGP on that route table. True means disable.
+func (o LookupRouteTableResultOutput) DisableBgpRoutePropagation() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupRouteTableResult) *bool { return v.DisableBgpRoutePropagation }).(pulumi.BoolPtrOutput)
+}
+
+// A unique read-only string that changes whenever the resource is updated.
+func (o LookupRouteTableResultOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRouteTableResult) string { return v.Etag }).(pulumi.StringOutput)
+}
+
+// Resource ID.
+func (o LookupRouteTableResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupRouteTableResult) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// Resource location.
+func (o LookupRouteTableResultOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupRouteTableResult) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Resource name.
+func (o LookupRouteTableResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRouteTableResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The provisioning state of the route table resource.
+func (o LookupRouteTableResultOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRouteTableResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The resource GUID property of the route table.
+func (o LookupRouteTableResultOutput) ResourceGuid() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRouteTableResult) string { return v.ResourceGuid }).(pulumi.StringOutput)
+}
+
+// Collection of routes contained within a route table.
+func (o LookupRouteTableResultOutput) Routes() RouteResponseArrayOutput {
+	return o.ApplyT(func(v LookupRouteTableResult) []RouteResponse { return v.Routes }).(RouteResponseArrayOutput)
+}
+
+// A collection of references to subnets.
+func (o LookupRouteTableResultOutput) Subnets() SubnetResponseArrayOutput {
+	return o.ApplyT(func(v LookupRouteTableResult) []SubnetResponse { return v.Subnets }).(SubnetResponseArrayOutput)
+}
+
+// Resource tags.
+func (o LookupRouteTableResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupRouteTableResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type.
+func (o LookupRouteTableResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRouteTableResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupRouteTableResultOutput{})
 }

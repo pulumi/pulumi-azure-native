@@ -4,6 +4,9 @@
 package v20150801
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -82,4 +85,153 @@ type ListSiteBackupStatusSecretsResult struct {
 	Type *string `pulumi:"type"`
 	// Size of the original web app which has been backed up
 	WebsiteSizeInBytes *float64 `pulumi:"websiteSizeInBytes"`
+}
+
+func ListSiteBackupStatusSecretsOutput(ctx *pulumi.Context, args ListSiteBackupStatusSecretsOutputArgs, opts ...pulumi.InvokeOption) ListSiteBackupStatusSecretsResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (ListSiteBackupStatusSecretsResult, error) {
+			args := v.(ListSiteBackupStatusSecretsArgs)
+			r, err := ListSiteBackupStatusSecrets(ctx, &args, opts...)
+			return *r, err
+		}).(ListSiteBackupStatusSecretsResultOutput)
+}
+
+type ListSiteBackupStatusSecretsOutputArgs struct {
+	// Id of backup
+	BackupId pulumi.StringInput `pulumi:"backupId"`
+	// Schedule for the backup if it is executed periodically
+	BackupSchedule BackupSchedulePtrInput `pulumi:"backupSchedule"`
+	// Databases included in the backup
+	Databases DatabaseBackupSettingArrayInput `pulumi:"databases"`
+	// True if the backup schedule is enabled (must be included in that case), false if the backup schedule should be disabled
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// Resource Id
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Kind of resource
+	Kind pulumi.StringPtrInput `pulumi:"kind"`
+	// Resource Location
+	Location pulumi.StringPtrInput `pulumi:"location"`
+	// Resource Name
+	Name pulumi.StringInput `pulumi:"name"`
+	// Name of resource group
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// SAS URL to the container
+	StorageAccountUrl pulumi.StringPtrInput `pulumi:"storageAccountUrl"`
+	// Resource tags
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+	// Resource type
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ListSiteBackupStatusSecretsOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListSiteBackupStatusSecretsArgs)(nil)).Elem()
+}
+
+// Backup description
+type ListSiteBackupStatusSecretsResultOutput struct{ *pulumi.OutputState }
+
+func (ListSiteBackupStatusSecretsResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListSiteBackupStatusSecretsResult)(nil)).Elem()
+}
+
+func (o ListSiteBackupStatusSecretsResultOutput) ToListSiteBackupStatusSecretsResultOutput() ListSiteBackupStatusSecretsResultOutput {
+	return o
+}
+
+func (o ListSiteBackupStatusSecretsResultOutput) ToListSiteBackupStatusSecretsResultOutputWithContext(ctx context.Context) ListSiteBackupStatusSecretsResultOutput {
+	return o
+}
+
+// Name of the blob which contains data for this backup
+func (o ListSiteBackupStatusSecretsResultOutput) BlobName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListSiteBackupStatusSecretsResult) *string { return v.BlobName }).(pulumi.StringPtrOutput)
+}
+
+// Unique correlation identifier. Please use this along with the timestamp while communicating with Azure support.
+func (o ListSiteBackupStatusSecretsResultOutput) CorrelationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListSiteBackupStatusSecretsResult) *string { return v.CorrelationId }).(pulumi.StringPtrOutput)
+}
+
+// Timestamp of the backup creation
+func (o ListSiteBackupStatusSecretsResultOutput) Created() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListSiteBackupStatusSecretsResult) *string { return v.Created }).(pulumi.StringPtrOutput)
+}
+
+// List of databases included in the backup
+func (o ListSiteBackupStatusSecretsResultOutput) Databases() DatabaseBackupSettingResponseArrayOutput {
+	return o.ApplyT(func(v ListSiteBackupStatusSecretsResult) []DatabaseBackupSettingResponse { return v.Databases }).(DatabaseBackupSettingResponseArrayOutput)
+}
+
+// Timestamp when this backup finished.
+func (o ListSiteBackupStatusSecretsResultOutput) FinishedTimeStamp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListSiteBackupStatusSecretsResult) *string { return v.FinishedTimeStamp }).(pulumi.StringPtrOutput)
+}
+
+// Resource Id
+func (o ListSiteBackupStatusSecretsResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListSiteBackupStatusSecretsResult) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// Kind of resource
+func (o ListSiteBackupStatusSecretsResultOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListSiteBackupStatusSecretsResult) *string { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Timestamp of a last restore operation which used this backup.
+func (o ListSiteBackupStatusSecretsResultOutput) LastRestoreTimeStamp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListSiteBackupStatusSecretsResult) *string { return v.LastRestoreTimeStamp }).(pulumi.StringPtrOutput)
+}
+
+// Resource Location
+func (o ListSiteBackupStatusSecretsResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v ListSiteBackupStatusSecretsResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// Details regarding this backup. Might contain an error message.
+func (o ListSiteBackupStatusSecretsResultOutput) Log() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListSiteBackupStatusSecretsResult) *string { return v.Log }).(pulumi.StringPtrOutput)
+}
+
+// Resource Name
+func (o ListSiteBackupStatusSecretsResultOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListSiteBackupStatusSecretsResult) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// True if this backup has been created due to a schedule being triggered.
+func (o ListSiteBackupStatusSecretsResultOutput) Scheduled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ListSiteBackupStatusSecretsResult) *bool { return v.Scheduled }).(pulumi.BoolPtrOutput)
+}
+
+// Size of the backup in bytes
+func (o ListSiteBackupStatusSecretsResultOutput) SizeInBytes() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ListSiteBackupStatusSecretsResult) *float64 { return v.SizeInBytes }).(pulumi.Float64PtrOutput)
+}
+
+// Backup status
+func (o ListSiteBackupStatusSecretsResultOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v ListSiteBackupStatusSecretsResult) string { return v.Status }).(pulumi.StringOutput)
+}
+
+// SAS URL for the storage account container which contains this backup
+func (o ListSiteBackupStatusSecretsResultOutput) StorageAccountUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListSiteBackupStatusSecretsResult) *string { return v.StorageAccountUrl }).(pulumi.StringPtrOutput)
+}
+
+// Resource tags
+func (o ListSiteBackupStatusSecretsResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ListSiteBackupStatusSecretsResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type
+func (o ListSiteBackupStatusSecretsResultOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListSiteBackupStatusSecretsResult) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+// Size of the original web app which has been backed up
+func (o ListSiteBackupStatusSecretsResultOutput) WebsiteSizeInBytes() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ListSiteBackupStatusSecretsResult) *float64 { return v.WebsiteSizeInBytes }).(pulumi.Float64PtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(ListSiteBackupStatusSecretsResultOutput{})
 }

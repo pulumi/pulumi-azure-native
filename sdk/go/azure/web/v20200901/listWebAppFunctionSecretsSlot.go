@@ -4,6 +4,9 @@
 package v20200901
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -34,4 +37,57 @@ type ListWebAppFunctionSecretsSlotResult struct {
 	Key *string `pulumi:"key"`
 	// Trigger URL.
 	TriggerUrl *string `pulumi:"triggerUrl"`
+}
+
+func ListWebAppFunctionSecretsSlotOutput(ctx *pulumi.Context, args ListWebAppFunctionSecretsSlotOutputArgs, opts ...pulumi.InvokeOption) ListWebAppFunctionSecretsSlotResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (ListWebAppFunctionSecretsSlotResult, error) {
+			args := v.(ListWebAppFunctionSecretsSlotArgs)
+			r, err := ListWebAppFunctionSecretsSlot(ctx, &args, opts...)
+			return *r, err
+		}).(ListWebAppFunctionSecretsSlotResultOutput)
+}
+
+type ListWebAppFunctionSecretsSlotOutputArgs struct {
+	// Function name.
+	FunctionName pulumi.StringInput `pulumi:"functionName"`
+	// Site name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Name of the resource group to which the resource belongs.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// Name of the deployment slot.
+	Slot pulumi.StringInput `pulumi:"slot"`
+}
+
+func (ListWebAppFunctionSecretsSlotOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListWebAppFunctionSecretsSlotArgs)(nil)).Elem()
+}
+
+// Function secrets.
+type ListWebAppFunctionSecretsSlotResultOutput struct{ *pulumi.OutputState }
+
+func (ListWebAppFunctionSecretsSlotResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListWebAppFunctionSecretsSlotResult)(nil)).Elem()
+}
+
+func (o ListWebAppFunctionSecretsSlotResultOutput) ToListWebAppFunctionSecretsSlotResultOutput() ListWebAppFunctionSecretsSlotResultOutput {
+	return o
+}
+
+func (o ListWebAppFunctionSecretsSlotResultOutput) ToListWebAppFunctionSecretsSlotResultOutputWithContext(ctx context.Context) ListWebAppFunctionSecretsSlotResultOutput {
+	return o
+}
+
+// Secret key.
+func (o ListWebAppFunctionSecretsSlotResultOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListWebAppFunctionSecretsSlotResult) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// Trigger URL.
+func (o ListWebAppFunctionSecretsSlotResultOutput) TriggerUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListWebAppFunctionSecretsSlotResult) *string { return v.TriggerUrl }).(pulumi.StringPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(ListWebAppFunctionSecretsSlotResultOutput{})
 }

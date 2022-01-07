@@ -4,6 +4,9 @@
 package v20211101preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -28,4 +31,48 @@ type ListLinkerConfigurationsArgs struct {
 type ListLinkerConfigurationsResult struct {
 	// The configuration properties for source resource.
 	Configurations []SourceConfigurationResponse `pulumi:"configurations"`
+}
+
+func ListLinkerConfigurationsOutput(ctx *pulumi.Context, args ListLinkerConfigurationsOutputArgs, opts ...pulumi.InvokeOption) ListLinkerConfigurationsResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (ListLinkerConfigurationsResult, error) {
+			args := v.(ListLinkerConfigurationsArgs)
+			r, err := ListLinkerConfigurations(ctx, &args, opts...)
+			return *r, err
+		}).(ListLinkerConfigurationsResultOutput)
+}
+
+type ListLinkerConfigurationsOutputArgs struct {
+	// The name Linker resource.
+	LinkerName pulumi.StringInput `pulumi:"linkerName"`
+	// The fully qualified Azure Resource manager identifier of the resource to be connected.
+	ResourceUri pulumi.StringInput `pulumi:"resourceUri"`
+}
+
+func (ListLinkerConfigurationsOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListLinkerConfigurationsArgs)(nil)).Elem()
+}
+
+// Configurations for source resource, include appSettings, connectionString and serviceBindings
+type ListLinkerConfigurationsResultOutput struct{ *pulumi.OutputState }
+
+func (ListLinkerConfigurationsResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListLinkerConfigurationsResult)(nil)).Elem()
+}
+
+func (o ListLinkerConfigurationsResultOutput) ToListLinkerConfigurationsResultOutput() ListLinkerConfigurationsResultOutput {
+	return o
+}
+
+func (o ListLinkerConfigurationsResultOutput) ToListLinkerConfigurationsResultOutputWithContext(ctx context.Context) ListLinkerConfigurationsResultOutput {
+	return o
+}
+
+// The configuration properties for source resource.
+func (o ListLinkerConfigurationsResultOutput) Configurations() SourceConfigurationResponseArrayOutput {
+	return o.ApplyT(func(v ListLinkerConfigurationsResult) []SourceConfigurationResponse { return v.Configurations }).(SourceConfigurationResponseArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(ListLinkerConfigurationsResultOutput{})
 }

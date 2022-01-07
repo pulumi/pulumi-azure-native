@@ -4,6 +4,9 @@
 package insights
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -27,4 +30,46 @@ type GetDiagnosticServiceTokenReadWriteArgs struct {
 type GetDiagnosticServiceTokenReadWriteResult struct {
 	// JWT token for accessing application insights diagnostic service data.
 	Token *string `pulumi:"token"`
+}
+
+func GetDiagnosticServiceTokenReadWriteOutput(ctx *pulumi.Context, args GetDiagnosticServiceTokenReadWriteOutputArgs, opts ...pulumi.InvokeOption) GetDiagnosticServiceTokenReadWriteResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetDiagnosticServiceTokenReadWriteResult, error) {
+			args := v.(GetDiagnosticServiceTokenReadWriteArgs)
+			r, err := GetDiagnosticServiceTokenReadWrite(ctx, &args, opts...)
+			return *r, err
+		}).(GetDiagnosticServiceTokenReadWriteResultOutput)
+}
+
+type GetDiagnosticServiceTokenReadWriteOutputArgs struct {
+	// The identifier of the resource.
+	ResourceUri pulumi.StringInput `pulumi:"resourceUri"`
+}
+
+func (GetDiagnosticServiceTokenReadWriteOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDiagnosticServiceTokenReadWriteArgs)(nil)).Elem()
+}
+
+// The response to a diagnostic services token query.
+type GetDiagnosticServiceTokenReadWriteResultOutput struct{ *pulumi.OutputState }
+
+func (GetDiagnosticServiceTokenReadWriteResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDiagnosticServiceTokenReadWriteResult)(nil)).Elem()
+}
+
+func (o GetDiagnosticServiceTokenReadWriteResultOutput) ToGetDiagnosticServiceTokenReadWriteResultOutput() GetDiagnosticServiceTokenReadWriteResultOutput {
+	return o
+}
+
+func (o GetDiagnosticServiceTokenReadWriteResultOutput) ToGetDiagnosticServiceTokenReadWriteResultOutputWithContext(ctx context.Context) GetDiagnosticServiceTokenReadWriteResultOutput {
+	return o
+}
+
+// JWT token for accessing application insights diagnostic service data.
+func (o GetDiagnosticServiceTokenReadWriteResultOutput) Token() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetDiagnosticServiceTokenReadWriteResult) *string { return v.Token }).(pulumi.StringPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetDiagnosticServiceTokenReadWriteResultOutput{})
 }

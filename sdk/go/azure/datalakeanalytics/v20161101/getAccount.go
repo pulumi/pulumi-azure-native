@@ -4,6 +4,9 @@
 package v20161101
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -115,4 +118,215 @@ func (val *LookupAccountResult) Defaults() *LookupAccountResult {
 		tmp.QueryStoreRetention = &queryStoreRetention_
 	}
 	return &tmp
+}
+
+func LookupAccountOutput(ctx *pulumi.Context, args LookupAccountOutputArgs, opts ...pulumi.InvokeOption) LookupAccountResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupAccountResult, error) {
+			args := v.(LookupAccountArgs)
+			r, err := LookupAccount(ctx, &args, opts...)
+			return *r, err
+		}).(LookupAccountResultOutput)
+}
+
+type LookupAccountOutputArgs struct {
+	// The name of the Data Lake Analytics account.
+	AccountName pulumi.StringInput `pulumi:"accountName"`
+	// The name of the Azure resource group.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupAccountOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupAccountArgs)(nil)).Elem()
+}
+
+// A Data Lake Analytics account object, containing all information associated with the named Data Lake Analytics account.
+type LookupAccountResultOutput struct{ *pulumi.OutputState }
+
+func (LookupAccountResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupAccountResult)(nil)).Elem()
+}
+
+func (o LookupAccountResultOutput) ToLookupAccountResultOutput() LookupAccountResultOutput {
+	return o
+}
+
+func (o LookupAccountResultOutput) ToLookupAccountResultOutputWithContext(ctx context.Context) LookupAccountResultOutput {
+	return o
+}
+
+// The unique identifier associated with this Data Lake Analytics account.
+func (o LookupAccountResultOutput) AccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAccountResult) string { return v.AccountId }).(pulumi.StringOutput)
+}
+
+// The list of compute policies associated with this account.
+func (o LookupAccountResultOutput) ComputePolicies() ComputePolicyResponseArrayOutput {
+	return o.ApplyT(func(v LookupAccountResult) []ComputePolicyResponse { return v.ComputePolicies }).(ComputePolicyResponseArrayOutput)
+}
+
+// The account creation time.
+func (o LookupAccountResultOutput) CreationTime() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAccountResult) string { return v.CreationTime }).(pulumi.StringOutput)
+}
+
+// The commitment tier in use for the current month.
+func (o LookupAccountResultOutput) CurrentTier() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAccountResult) string { return v.CurrentTier }).(pulumi.StringOutput)
+}
+
+// The list of Data Lake Store accounts associated with this account.
+func (o LookupAccountResultOutput) DataLakeStoreAccounts() DataLakeStoreAccountInformationResponseArrayOutput {
+	return o.ApplyT(func(v LookupAccountResult) []DataLakeStoreAccountInformationResponse { return v.DataLakeStoreAccounts }).(DataLakeStoreAccountInformationResponseArrayOutput)
+}
+
+// The current state of the DebugDataAccessLevel for this account.
+func (o LookupAccountResultOutput) DebugDataAccessLevel() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAccountResult) string { return v.DebugDataAccessLevel }).(pulumi.StringOutput)
+}
+
+// The default Data Lake Store account associated with this account.
+func (o LookupAccountResultOutput) DefaultDataLakeStoreAccount() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAccountResult) string { return v.DefaultDataLakeStoreAccount }).(pulumi.StringOutput)
+}
+
+// The full CName endpoint for this account.
+func (o LookupAccountResultOutput) Endpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAccountResult) string { return v.Endpoint }).(pulumi.StringOutput)
+}
+
+// The current state of allowing or disallowing IPs originating within Azure through the firewall. If the firewall is disabled, this is not enforced.
+func (o LookupAccountResultOutput) FirewallAllowAzureIps() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupAccountResult) *string { return v.FirewallAllowAzureIps }).(pulumi.StringPtrOutput)
+}
+
+// The list of firewall rules associated with this account.
+func (o LookupAccountResultOutput) FirewallRules() FirewallRuleResponseArrayOutput {
+	return o.ApplyT(func(v LookupAccountResult) []FirewallRuleResponse { return v.FirewallRules }).(FirewallRuleResponseArrayOutput)
+}
+
+// The current state of the IP address firewall for this account.
+func (o LookupAccountResultOutput) FirewallState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupAccountResult) *string { return v.FirewallState }).(pulumi.StringPtrOutput)
+}
+
+// The list of hiveMetastores associated with this account.
+func (o LookupAccountResultOutput) HiveMetastores() HiveMetastoreResponseArrayOutput {
+	return o.ApplyT(func(v LookupAccountResult) []HiveMetastoreResponse { return v.HiveMetastores }).(HiveMetastoreResponseArrayOutput)
+}
+
+// The resource identifier.
+func (o LookupAccountResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAccountResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The account last modified time.
+func (o LookupAccountResultOutput) LastModifiedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAccountResult) string { return v.LastModifiedTime }).(pulumi.StringOutput)
+}
+
+// The resource location.
+func (o LookupAccountResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAccountResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// The maximum supported active jobs under the account at the same time.
+func (o LookupAccountResultOutput) MaxActiveJobCountPerUser() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupAccountResult) int { return v.MaxActiveJobCountPerUser }).(pulumi.IntOutput)
+}
+
+// The maximum supported degree of parallelism for this account.
+func (o LookupAccountResultOutput) MaxDegreeOfParallelism() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupAccountResult) *int { return v.MaxDegreeOfParallelism }).(pulumi.IntPtrOutput)
+}
+
+// The maximum supported degree of parallelism per job for this account.
+func (o LookupAccountResultOutput) MaxDegreeOfParallelismPerJob() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupAccountResult) *int { return v.MaxDegreeOfParallelismPerJob }).(pulumi.IntPtrOutput)
+}
+
+// The maximum supported jobs running under the account at the same time.
+func (o LookupAccountResultOutput) MaxJobCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupAccountResult) *int { return v.MaxJobCount }).(pulumi.IntPtrOutput)
+}
+
+// The maximum supported active jobs under the account at the same time.
+func (o LookupAccountResultOutput) MaxJobRunningTimeInMin() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupAccountResult) int { return v.MaxJobRunningTimeInMin }).(pulumi.IntOutput)
+}
+
+// The maximum supported jobs queued under the account at the same time.
+func (o LookupAccountResultOutput) MaxQueuedJobCountPerUser() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupAccountResult) int { return v.MaxQueuedJobCountPerUser }).(pulumi.IntOutput)
+}
+
+// The minimum supported priority per job for this account.
+func (o LookupAccountResultOutput) MinPriorityPerJob() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupAccountResult) int { return v.MinPriorityPerJob }).(pulumi.IntOutput)
+}
+
+// The resource name.
+func (o LookupAccountResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAccountResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The commitment tier for the next month.
+func (o LookupAccountResultOutput) NewTier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupAccountResult) *string { return v.NewTier }).(pulumi.StringPtrOutput)
+}
+
+// The provisioning status of the Data Lake Analytics account.
+func (o LookupAccountResultOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAccountResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The list of Data Lake Store accounts associated with this account.
+func (o LookupAccountResultOutput) PublicDataLakeStoreAccounts() DataLakeStoreAccountInformationResponseArrayOutput {
+	return o.ApplyT(func(v LookupAccountResult) []DataLakeStoreAccountInformationResponse {
+		return v.PublicDataLakeStoreAccounts
+	}).(DataLakeStoreAccountInformationResponseArrayOutput)
+}
+
+// The number of days that job metadata is retained.
+func (o LookupAccountResultOutput) QueryStoreRetention() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupAccountResult) *int { return v.QueryStoreRetention }).(pulumi.IntPtrOutput)
+}
+
+// The state of the Data Lake Analytics account.
+func (o LookupAccountResultOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAccountResult) string { return v.State }).(pulumi.StringOutput)
+}
+
+// The list of Azure Blob Storage accounts associated with this account.
+func (o LookupAccountResultOutput) StorageAccounts() StorageAccountInformationResponseArrayOutput {
+	return o.ApplyT(func(v LookupAccountResult) []StorageAccountInformationResponse { return v.StorageAccounts }).(StorageAccountInformationResponseArrayOutput)
+}
+
+// The system defined maximum supported degree of parallelism for this account, which restricts the maximum value of parallelism the user can set for the account.
+func (o LookupAccountResultOutput) SystemMaxDegreeOfParallelism() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupAccountResult) int { return v.SystemMaxDegreeOfParallelism }).(pulumi.IntOutput)
+}
+
+// The system defined maximum supported jobs running under the account at the same time, which restricts the maximum number of running jobs the user can set for the account.
+func (o LookupAccountResultOutput) SystemMaxJobCount() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupAccountResult) int { return v.SystemMaxJobCount }).(pulumi.IntOutput)
+}
+
+// The resource tags.
+func (o LookupAccountResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupAccountResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The resource type.
+func (o LookupAccountResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAccountResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The list of virtualNetwork rules associated with this account.
+func (o LookupAccountResultOutput) VirtualNetworkRules() VirtualNetworkRuleResponseArrayOutput {
+	return o.ApplyT(func(v LookupAccountResult) []VirtualNetworkRuleResponse { return v.VirtualNetworkRules }).(VirtualNetworkRuleResponseArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupAccountResultOutput{})
 }

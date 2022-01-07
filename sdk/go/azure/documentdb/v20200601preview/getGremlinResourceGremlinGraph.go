@@ -4,6 +4,9 @@
 package v20200601preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -55,4 +58,89 @@ func (val *LookupGremlinResourceGremlinGraphResult) Defaults() *LookupGremlinRes
 	tmp.Resource = tmp.Resource.Defaults()
 
 	return &tmp
+}
+
+func LookupGremlinResourceGremlinGraphOutput(ctx *pulumi.Context, args LookupGremlinResourceGremlinGraphOutputArgs, opts ...pulumi.InvokeOption) LookupGremlinResourceGremlinGraphResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupGremlinResourceGremlinGraphResult, error) {
+			args := v.(LookupGremlinResourceGremlinGraphArgs)
+			r, err := LookupGremlinResourceGremlinGraph(ctx, &args, opts...)
+			return *r, err
+		}).(LookupGremlinResourceGremlinGraphResultOutput)
+}
+
+type LookupGremlinResourceGremlinGraphOutputArgs struct {
+	// Cosmos DB database account name.
+	AccountName pulumi.StringInput `pulumi:"accountName"`
+	// Cosmos DB database name.
+	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
+	// Cosmos DB graph name.
+	GraphName pulumi.StringInput `pulumi:"graphName"`
+	// The name of the resource group. The name is case insensitive.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupGremlinResourceGremlinGraphOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupGremlinResourceGremlinGraphArgs)(nil)).Elem()
+}
+
+// An Azure Cosmos DB Gremlin graph.
+type LookupGremlinResourceGremlinGraphResultOutput struct{ *pulumi.OutputState }
+
+func (LookupGremlinResourceGremlinGraphResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupGremlinResourceGremlinGraphResult)(nil)).Elem()
+}
+
+func (o LookupGremlinResourceGremlinGraphResultOutput) ToLookupGremlinResourceGremlinGraphResultOutput() LookupGremlinResourceGremlinGraphResultOutput {
+	return o
+}
+
+func (o LookupGremlinResourceGremlinGraphResultOutput) ToLookupGremlinResourceGremlinGraphResultOutputWithContext(ctx context.Context) LookupGremlinResourceGremlinGraphResultOutput {
+	return o
+}
+
+// The unique resource identifier of the ARM resource.
+func (o LookupGremlinResourceGremlinGraphResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupGremlinResourceGremlinGraphResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Identity for the resource.
+func (o LookupGremlinResourceGremlinGraphResultOutput) Identity() ManagedServiceIdentityResponsePtrOutput {
+	return o.ApplyT(func(v LookupGremlinResourceGremlinGraphResult) *ManagedServiceIdentityResponse { return v.Identity }).(ManagedServiceIdentityResponsePtrOutput)
+}
+
+// The location of the resource group to which the resource belongs.
+func (o LookupGremlinResourceGremlinGraphResultOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupGremlinResourceGremlinGraphResult) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The name of the ARM resource.
+func (o LookupGremlinResourceGremlinGraphResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupGremlinResourceGremlinGraphResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupGremlinResourceGremlinGraphResultOutput) Options() GremlinGraphGetPropertiesResponseOptionsPtrOutput {
+	return o.ApplyT(func(v LookupGremlinResourceGremlinGraphResult) *GremlinGraphGetPropertiesResponseOptions {
+		return v.Options
+	}).(GremlinGraphGetPropertiesResponseOptionsPtrOutput)
+}
+
+func (o LookupGremlinResourceGremlinGraphResultOutput) Resource() GremlinGraphGetPropertiesResponseResourcePtrOutput {
+	return o.ApplyT(func(v LookupGremlinResourceGremlinGraphResult) *GremlinGraphGetPropertiesResponseResource {
+		return v.Resource
+	}).(GremlinGraphGetPropertiesResponseResourcePtrOutput)
+}
+
+// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
+func (o LookupGremlinResourceGremlinGraphResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupGremlinResourceGremlinGraphResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of Azure resource.
+func (o LookupGremlinResourceGremlinGraphResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupGremlinResourceGremlinGraphResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupGremlinResourceGremlinGraphResultOutput{})
 }

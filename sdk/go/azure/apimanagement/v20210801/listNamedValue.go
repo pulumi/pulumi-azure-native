@@ -4,6 +4,9 @@
 package v20210801
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -30,4 +33,50 @@ type ListNamedValueArgs struct {
 type ListNamedValueResult struct {
 	// This is secret value of the NamedValue entity.
 	Value *string `pulumi:"value"`
+}
+
+func ListNamedValueOutput(ctx *pulumi.Context, args ListNamedValueOutputArgs, opts ...pulumi.InvokeOption) ListNamedValueResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (ListNamedValueResult, error) {
+			args := v.(ListNamedValueArgs)
+			r, err := ListNamedValue(ctx, &args, opts...)
+			return *r, err
+		}).(ListNamedValueResultOutput)
+}
+
+type ListNamedValueOutputArgs struct {
+	// Identifier of the NamedValue.
+	NamedValueId pulumi.StringInput `pulumi:"namedValueId"`
+	// The name of the resource group.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the API Management service.
+	ServiceName pulumi.StringInput `pulumi:"serviceName"`
+}
+
+func (ListNamedValueOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListNamedValueArgs)(nil)).Elem()
+}
+
+// Client or app secret used in IdentityProviders, Aad, OpenID or OAuth.
+type ListNamedValueResultOutput struct{ *pulumi.OutputState }
+
+func (ListNamedValueResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListNamedValueResult)(nil)).Elem()
+}
+
+func (o ListNamedValueResultOutput) ToListNamedValueResultOutput() ListNamedValueResultOutput {
+	return o
+}
+
+func (o ListNamedValueResultOutput) ToListNamedValueResultOutputWithContext(ctx context.Context) ListNamedValueResultOutput {
+	return o
+}
+
+// This is secret value of the NamedValue entity.
+func (o ListNamedValueResultOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListNamedValueResult) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(ListNamedValueResultOutput{})
 }

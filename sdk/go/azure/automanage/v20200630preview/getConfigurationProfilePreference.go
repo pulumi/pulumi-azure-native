@@ -4,6 +4,9 @@
 package v20200630preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -38,4 +41,75 @@ type LookupConfigurationProfilePreferenceResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
+}
+
+func LookupConfigurationProfilePreferenceOutput(ctx *pulumi.Context, args LookupConfigurationProfilePreferenceOutputArgs, opts ...pulumi.InvokeOption) LookupConfigurationProfilePreferenceResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupConfigurationProfilePreferenceResult, error) {
+			args := v.(LookupConfigurationProfilePreferenceArgs)
+			r, err := LookupConfigurationProfilePreference(ctx, &args, opts...)
+			return *r, err
+		}).(LookupConfigurationProfilePreferenceResultOutput)
+}
+
+type LookupConfigurationProfilePreferenceOutputArgs struct {
+	// The configuration profile preference name.
+	ConfigurationProfilePreferenceName pulumi.StringInput `pulumi:"configurationProfilePreferenceName"`
+	// The name of the resource group. The name is case insensitive.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupConfigurationProfilePreferenceOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupConfigurationProfilePreferenceArgs)(nil)).Elem()
+}
+
+// Definition of the configuration profile preference.
+type LookupConfigurationProfilePreferenceResultOutput struct{ *pulumi.OutputState }
+
+func (LookupConfigurationProfilePreferenceResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupConfigurationProfilePreferenceResult)(nil)).Elem()
+}
+
+func (o LookupConfigurationProfilePreferenceResultOutput) ToLookupConfigurationProfilePreferenceResultOutput() LookupConfigurationProfilePreferenceResultOutput {
+	return o
+}
+
+func (o LookupConfigurationProfilePreferenceResultOutput) ToLookupConfigurationProfilePreferenceResultOutputWithContext(ctx context.Context) LookupConfigurationProfilePreferenceResultOutput {
+	return o
+}
+
+// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+func (o LookupConfigurationProfilePreferenceResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupConfigurationProfilePreferenceResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The geo-location where the resource lives
+func (o LookupConfigurationProfilePreferenceResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupConfigurationProfilePreferenceResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o LookupConfigurationProfilePreferenceResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupConfigurationProfilePreferenceResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Properties of the configuration profile preference.
+func (o LookupConfigurationProfilePreferenceResultOutput) Properties() ConfigurationProfilePreferencePropertiesResponseOutput {
+	return o.ApplyT(func(v LookupConfigurationProfilePreferenceResult) ConfigurationProfilePreferencePropertiesResponse {
+		return v.Properties
+	}).(ConfigurationProfilePreferencePropertiesResponseOutput)
+}
+
+// Resource tags.
+func (o LookupConfigurationProfilePreferenceResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupConfigurationProfilePreferenceResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o LookupConfigurationProfilePreferenceResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupConfigurationProfilePreferenceResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupConfigurationProfilePreferenceResultOutput{})
 }

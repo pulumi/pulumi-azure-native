@@ -4,6 +4,9 @@
 package v20200301preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -58,4 +61,123 @@ type LookupClusterResult struct {
 	TrialDaysRemaining float64 `pulumi:"trialDaysRemaining"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
+}
+
+func LookupClusterOutput(ctx *pulumi.Context, args LookupClusterOutputArgs, opts ...pulumi.InvokeOption) LookupClusterResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupClusterResult, error) {
+			args := v.(LookupClusterArgs)
+			r, err := LookupCluster(ctx, &args, opts...)
+			return *r, err
+		}).(LookupClusterResultOutput)
+}
+
+type LookupClusterOutputArgs struct {
+	// The name of the cluster.
+	ClusterName pulumi.StringInput `pulumi:"clusterName"`
+	// The name of the resource group. The name is case insensitive.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupClusterOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupClusterArgs)(nil)).Elem()
+}
+
+// Cluster details.
+type LookupClusterResultOutput struct{ *pulumi.OutputState }
+
+func (LookupClusterResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupClusterResult)(nil)).Elem()
+}
+
+func (o LookupClusterResultOutput) ToLookupClusterResultOutput() LookupClusterResultOutput {
+	return o
+}
+
+func (o LookupClusterResultOutput) ToLookupClusterResultOutputWithContext(ctx context.Context) LookupClusterResultOutput {
+	return o
+}
+
+// App id of cluster AAD identity.
+func (o LookupClusterResultOutput) AadClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupClusterResult) string { return v.AadClientId }).(pulumi.StringOutput)
+}
+
+// Tenant id of cluster AAD identity.
+func (o LookupClusterResultOutput) AadTenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupClusterResult) string { return v.AadTenantId }).(pulumi.StringOutput)
+}
+
+// Type of billing applied to the resource.
+func (o LookupClusterResultOutput) BillingModel() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupClusterResult) string { return v.BillingModel }).(pulumi.StringOutput)
+}
+
+// Unique, immutable resource id.
+func (o LookupClusterResultOutput) CloudId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupClusterResult) string { return v.CloudId }).(pulumi.StringOutput)
+}
+
+// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+func (o LookupClusterResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupClusterResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Most recent billing meter timestamp.
+func (o LookupClusterResultOutput) LastBillingTimestamp() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupClusterResult) string { return v.LastBillingTimestamp }).(pulumi.StringOutput)
+}
+
+// Most recent cluster sync timestamp.
+func (o LookupClusterResultOutput) LastSyncTimestamp() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupClusterResult) string { return v.LastSyncTimestamp }).(pulumi.StringOutput)
+}
+
+// The geo-location where the resource lives
+func (o LookupClusterResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupClusterResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o LookupClusterResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupClusterResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Provisioning state.
+func (o LookupClusterResultOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupClusterResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// First cluster sync timestamp.
+func (o LookupClusterResultOutput) RegistrationTimestamp() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupClusterResult) string { return v.RegistrationTimestamp }).(pulumi.StringOutput)
+}
+
+// Properties reported by cluster agent.
+func (o LookupClusterResultOutput) ReportedProperties() ClusterReportedPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v LookupClusterResult) *ClusterReportedPropertiesResponse { return v.ReportedProperties }).(ClusterReportedPropertiesResponsePtrOutput)
+}
+
+// Status of the cluster agent.
+func (o LookupClusterResultOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupClusterResult) string { return v.Status }).(pulumi.StringOutput)
+}
+
+// Resource tags.
+func (o LookupClusterResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupClusterResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Number of days remaining in the trial period.
+func (o LookupClusterResultOutput) TrialDaysRemaining() pulumi.Float64Output {
+	return o.ApplyT(func(v LookupClusterResult) float64 { return v.TrialDaysRemaining }).(pulumi.Float64Output)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o LookupClusterResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupClusterResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupClusterResultOutput{})
 }

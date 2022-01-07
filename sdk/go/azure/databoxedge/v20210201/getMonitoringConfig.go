@@ -4,6 +4,9 @@
 package v20210201
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -38,4 +41,70 @@ type LookupMonitoringConfigResult struct {
 	SystemData SystemDataResponse `pulumi:"systemData"`
 	// The hierarchical type of the object.
 	Type string `pulumi:"type"`
+}
+
+func LookupMonitoringConfigOutput(ctx *pulumi.Context, args LookupMonitoringConfigOutputArgs, opts ...pulumi.InvokeOption) LookupMonitoringConfigResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupMonitoringConfigResult, error) {
+			args := v.(LookupMonitoringConfigArgs)
+			r, err := LookupMonitoringConfig(ctx, &args, opts...)
+			return *r, err
+		}).(LookupMonitoringConfigResultOutput)
+}
+
+type LookupMonitoringConfigOutputArgs struct {
+	// The device name.
+	DeviceName pulumi.StringInput `pulumi:"deviceName"`
+	// The resource group name.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The role name.
+	RoleName pulumi.StringInput `pulumi:"roleName"`
+}
+
+func (LookupMonitoringConfigOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupMonitoringConfigArgs)(nil)).Elem()
+}
+
+// The metric setting details for the role
+type LookupMonitoringConfigResultOutput struct{ *pulumi.OutputState }
+
+func (LookupMonitoringConfigResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupMonitoringConfigResult)(nil)).Elem()
+}
+
+func (o LookupMonitoringConfigResultOutput) ToLookupMonitoringConfigResultOutput() LookupMonitoringConfigResultOutput {
+	return o
+}
+
+func (o LookupMonitoringConfigResultOutput) ToLookupMonitoringConfigResultOutputWithContext(ctx context.Context) LookupMonitoringConfigResultOutput {
+	return o
+}
+
+// The path ID that uniquely identifies the object.
+func (o LookupMonitoringConfigResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupMonitoringConfigResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The metrics configuration details
+func (o LookupMonitoringConfigResultOutput) MetricConfigurations() MetricConfigurationResponseArrayOutput {
+	return o.ApplyT(func(v LookupMonitoringConfigResult) []MetricConfigurationResponse { return v.MetricConfigurations }).(MetricConfigurationResponseArrayOutput)
+}
+
+// The object name.
+func (o LookupMonitoringConfigResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupMonitoringConfigResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// MonitoringConfiguration on ASE device
+func (o LookupMonitoringConfigResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupMonitoringConfigResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The hierarchical type of the object.
+func (o LookupMonitoringConfigResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupMonitoringConfigResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupMonitoringConfigResultOutput{})
 }

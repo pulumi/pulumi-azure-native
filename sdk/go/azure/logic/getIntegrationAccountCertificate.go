@@ -4,6 +4,9 @@
 package logic
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -49,4 +52,95 @@ type LookupIntegrationAccountCertificateResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Gets the resource type.
 	Type string `pulumi:"type"`
+}
+
+func LookupIntegrationAccountCertificateOutput(ctx *pulumi.Context, args LookupIntegrationAccountCertificateOutputArgs, opts ...pulumi.InvokeOption) LookupIntegrationAccountCertificateResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupIntegrationAccountCertificateResult, error) {
+			args := v.(LookupIntegrationAccountCertificateArgs)
+			r, err := LookupIntegrationAccountCertificate(ctx, &args, opts...)
+			return *r, err
+		}).(LookupIntegrationAccountCertificateResultOutput)
+}
+
+type LookupIntegrationAccountCertificateOutputArgs struct {
+	// The integration account certificate name.
+	CertificateName pulumi.StringInput `pulumi:"certificateName"`
+	// The integration account name.
+	IntegrationAccountName pulumi.StringInput `pulumi:"integrationAccountName"`
+	// The resource group name.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupIntegrationAccountCertificateOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupIntegrationAccountCertificateArgs)(nil)).Elem()
+}
+
+// The integration account certificate.
+type LookupIntegrationAccountCertificateResultOutput struct{ *pulumi.OutputState }
+
+func (LookupIntegrationAccountCertificateResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupIntegrationAccountCertificateResult)(nil)).Elem()
+}
+
+func (o LookupIntegrationAccountCertificateResultOutput) ToLookupIntegrationAccountCertificateResultOutput() LookupIntegrationAccountCertificateResultOutput {
+	return o
+}
+
+func (o LookupIntegrationAccountCertificateResultOutput) ToLookupIntegrationAccountCertificateResultOutputWithContext(ctx context.Context) LookupIntegrationAccountCertificateResultOutput {
+	return o
+}
+
+// The changed time.
+func (o LookupIntegrationAccountCertificateResultOutput) ChangedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupIntegrationAccountCertificateResult) string { return v.ChangedTime }).(pulumi.StringOutput)
+}
+
+// The created time.
+func (o LookupIntegrationAccountCertificateResultOutput) CreatedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupIntegrationAccountCertificateResult) string { return v.CreatedTime }).(pulumi.StringOutput)
+}
+
+// The resource id.
+func (o LookupIntegrationAccountCertificateResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupIntegrationAccountCertificateResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The key details in the key vault.
+func (o LookupIntegrationAccountCertificateResultOutput) Key() KeyVaultKeyReferenceResponsePtrOutput {
+	return o.ApplyT(func(v LookupIntegrationAccountCertificateResult) *KeyVaultKeyReferenceResponse { return v.Key }).(KeyVaultKeyReferenceResponsePtrOutput)
+}
+
+// The resource location.
+func (o LookupIntegrationAccountCertificateResultOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupIntegrationAccountCertificateResult) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The metadata.
+func (o LookupIntegrationAccountCertificateResultOutput) Metadata() pulumi.AnyOutput {
+	return o.ApplyT(func(v LookupIntegrationAccountCertificateResult) interface{} { return v.Metadata }).(pulumi.AnyOutput)
+}
+
+// Gets the resource name.
+func (o LookupIntegrationAccountCertificateResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupIntegrationAccountCertificateResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The public certificate.
+func (o LookupIntegrationAccountCertificateResultOutput) PublicCertificate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupIntegrationAccountCertificateResult) *string { return v.PublicCertificate }).(pulumi.StringPtrOutput)
+}
+
+// The resource tags.
+func (o LookupIntegrationAccountCertificateResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupIntegrationAccountCertificateResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Gets the resource type.
+func (o LookupIntegrationAccountCertificateResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupIntegrationAccountCertificateResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupIntegrationAccountCertificateResultOutput{})
 }

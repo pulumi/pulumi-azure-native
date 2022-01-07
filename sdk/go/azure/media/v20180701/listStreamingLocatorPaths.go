@@ -4,6 +4,9 @@
 package v20180701
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -32,4 +35,55 @@ type ListStreamingLocatorPathsResult struct {
 	DownloadPaths []string `pulumi:"downloadPaths"`
 	// Streaming Paths supported by current Streaming Locator
 	StreamingPaths []StreamingPathResponse `pulumi:"streamingPaths"`
+}
+
+func ListStreamingLocatorPathsOutput(ctx *pulumi.Context, args ListStreamingLocatorPathsOutputArgs, opts ...pulumi.InvokeOption) ListStreamingLocatorPathsResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (ListStreamingLocatorPathsResult, error) {
+			args := v.(ListStreamingLocatorPathsArgs)
+			r, err := ListStreamingLocatorPaths(ctx, &args, opts...)
+			return *r, err
+		}).(ListStreamingLocatorPathsResultOutput)
+}
+
+type ListStreamingLocatorPathsOutputArgs struct {
+	// The Media Services account name.
+	AccountName pulumi.StringInput `pulumi:"accountName"`
+	// The name of the resource group within the Azure subscription.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The Streaming Locator name.
+	StreamingLocatorName pulumi.StringInput `pulumi:"streamingLocatorName"`
+}
+
+func (ListStreamingLocatorPathsOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListStreamingLocatorPathsArgs)(nil)).Elem()
+}
+
+// Class of response for listPaths action
+type ListStreamingLocatorPathsResultOutput struct{ *pulumi.OutputState }
+
+func (ListStreamingLocatorPathsResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListStreamingLocatorPathsResult)(nil)).Elem()
+}
+
+func (o ListStreamingLocatorPathsResultOutput) ToListStreamingLocatorPathsResultOutput() ListStreamingLocatorPathsResultOutput {
+	return o
+}
+
+func (o ListStreamingLocatorPathsResultOutput) ToListStreamingLocatorPathsResultOutputWithContext(ctx context.Context) ListStreamingLocatorPathsResultOutput {
+	return o
+}
+
+// Download Paths supported by current Streaming Locator
+func (o ListStreamingLocatorPathsResultOutput) DownloadPaths() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ListStreamingLocatorPathsResult) []string { return v.DownloadPaths }).(pulumi.StringArrayOutput)
+}
+
+// Streaming Paths supported by current Streaming Locator
+func (o ListStreamingLocatorPathsResultOutput) StreamingPaths() StreamingPathResponseArrayOutput {
+	return o.ApplyT(func(v ListStreamingLocatorPathsResult) []StreamingPathResponse { return v.StreamingPaths }).(StreamingPathResponseArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(ListStreamingLocatorPathsResultOutput{})
 }

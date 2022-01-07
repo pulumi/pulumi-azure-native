@@ -4,6 +4,9 @@
 package v20210114preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -87,4 +90,200 @@ type LookupHostPoolResult struct {
 	ValidationEnvironment *bool `pulumi:"validationEnvironment"`
 	// VM template for sessionhosts configuration within hostpool.
 	VmTemplate *string `pulumi:"vmTemplate"`
+}
+
+func LookupHostPoolOutput(ctx *pulumi.Context, args LookupHostPoolOutputArgs, opts ...pulumi.InvokeOption) LookupHostPoolResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupHostPoolResult, error) {
+			args := v.(LookupHostPoolArgs)
+			r, err := LookupHostPool(ctx, &args, opts...)
+			return *r, err
+		}).(LookupHostPoolResultOutput)
+}
+
+type LookupHostPoolOutputArgs struct {
+	// The name of the host pool within the specified resource group
+	HostPoolName pulumi.StringInput `pulumi:"hostPoolName"`
+	// The name of the resource group. The name is case insensitive.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupHostPoolOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupHostPoolArgs)(nil)).Elem()
+}
+
+// Represents a HostPool definition.
+type LookupHostPoolResultOutput struct{ *pulumi.OutputState }
+
+func (LookupHostPoolResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupHostPoolResult)(nil)).Elem()
+}
+
+func (o LookupHostPoolResultOutput) ToLookupHostPoolResultOutput() LookupHostPoolResultOutput {
+	return o
+}
+
+func (o LookupHostPoolResultOutput) ToLookupHostPoolResultOutputWithContext(ctx context.Context) LookupHostPoolResultOutput {
+	return o
+}
+
+// List of applicationGroup links.
+func (o LookupHostPoolResultOutput) ApplicationGroupReferences() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupHostPoolResult) []string { return v.ApplicationGroupReferences }).(pulumi.StringArrayOutput)
+}
+
+// Is cloud pc resource.
+func (o LookupHostPoolResultOutput) CloudPcResource() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupHostPoolResult) bool { return v.CloudPcResource }).(pulumi.BoolOutput)
+}
+
+// Custom rdp property of HostPool.
+func (o LookupHostPoolResultOutput) CustomRdpProperty() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupHostPoolResult) *string { return v.CustomRdpProperty }).(pulumi.StringPtrOutput)
+}
+
+// Description of HostPool.
+func (o LookupHostPoolResultOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupHostPoolResult) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields.
+func (o LookupHostPoolResultOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupHostPoolResult) string { return v.Etag }).(pulumi.StringOutput)
+}
+
+// Friendly name of HostPool.
+func (o LookupHostPoolResultOutput) FriendlyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupHostPoolResult) *string { return v.FriendlyName }).(pulumi.StringPtrOutput)
+}
+
+// HostPool type for desktop.
+func (o LookupHostPoolResultOutput) HostPoolType() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupHostPoolResult) string { return v.HostPoolType }).(pulumi.StringOutput)
+}
+
+// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+func (o LookupHostPoolResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupHostPoolResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o LookupHostPoolResultOutput) Identity() ResourceModelWithAllowedPropertySetResponseIdentityPtrOutput {
+	return o.ApplyT(func(v LookupHostPoolResult) *ResourceModelWithAllowedPropertySetResponseIdentity { return v.Identity }).(ResourceModelWithAllowedPropertySetResponseIdentityPtrOutput)
+}
+
+// Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
+func (o LookupHostPoolResultOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupHostPoolResult) *string { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// The type of the load balancer.
+func (o LookupHostPoolResultOutput) LoadBalancerType() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupHostPoolResult) string { return v.LoadBalancerType }).(pulumi.StringOutput)
+}
+
+// The geo-location where the resource lives
+func (o LookupHostPoolResultOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupHostPoolResult) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The fully qualified resource ID of the resource that manages this resource. Indicates if this resource is managed by another Azure resource. If this is present, complete mode deployment will not delete the resource if it is removed from the template since it is managed by another resource.
+func (o LookupHostPoolResultOutput) ManagedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupHostPoolResult) *string { return v.ManagedBy }).(pulumi.StringPtrOutput)
+}
+
+// The max session limit of HostPool.
+func (o LookupHostPoolResultOutput) MaxSessionLimit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupHostPoolResult) *int { return v.MaxSessionLimit }).(pulumi.IntPtrOutput)
+}
+
+// The registration info of HostPool.
+func (o LookupHostPoolResultOutput) MigrationRequest() MigrationRequestPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v LookupHostPoolResult) *MigrationRequestPropertiesResponse { return v.MigrationRequest }).(MigrationRequestPropertiesResponsePtrOutput)
+}
+
+// The name of the resource
+func (o LookupHostPoolResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupHostPoolResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// ObjectId of HostPool. (internal use)
+func (o LookupHostPoolResultOutput) ObjectId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupHostPoolResult) string { return v.ObjectId }).(pulumi.StringOutput)
+}
+
+// PersonalDesktopAssignment type for HostPool.
+func (o LookupHostPoolResultOutput) PersonalDesktopAssignmentType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupHostPoolResult) *string { return v.PersonalDesktopAssignmentType }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupHostPoolResultOutput) Plan() ResourceModelWithAllowedPropertySetResponsePlanPtrOutput {
+	return o.ApplyT(func(v LookupHostPoolResult) *ResourceModelWithAllowedPropertySetResponsePlan { return v.Plan }).(ResourceModelWithAllowedPropertySetResponsePlanPtrOutput)
+}
+
+// The type of preferred application group type, default to Desktop Application Group
+func (o LookupHostPoolResultOutput) PreferredAppGroupType() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupHostPoolResult) string { return v.PreferredAppGroupType }).(pulumi.StringOutput)
+}
+
+// The registration info of HostPool.
+func (o LookupHostPoolResultOutput) RegistrationInfo() RegistrationInfoResponsePtrOutput {
+	return o.ApplyT(func(v LookupHostPoolResult) *RegistrationInfoResponse { return v.RegistrationInfo }).(RegistrationInfoResponsePtrOutput)
+}
+
+// The ring number of HostPool.
+func (o LookupHostPoolResultOutput) Ring() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupHostPoolResult) *int { return v.Ring }).(pulumi.IntPtrOutput)
+}
+
+func (o LookupHostPoolResultOutput) Sku() ResourceModelWithAllowedPropertySetResponseSkuPtrOutput {
+	return o.ApplyT(func(v LookupHostPoolResult) *ResourceModelWithAllowedPropertySetResponseSku { return v.Sku }).(ResourceModelWithAllowedPropertySetResponseSkuPtrOutput)
+}
+
+// ClientId for the registered Relying Party used to issue WVD SSO certificates.
+func (o LookupHostPoolResultOutput) SsoClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupHostPoolResult) *string { return v.SsoClientId }).(pulumi.StringPtrOutput)
+}
+
+// Path to Azure KeyVault storing the secret used for communication to ADFS.
+func (o LookupHostPoolResultOutput) SsoClientSecretKeyVaultPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupHostPoolResult) *string { return v.SsoClientSecretKeyVaultPath }).(pulumi.StringPtrOutput)
+}
+
+// The type of single sign on Secret Type.
+func (o LookupHostPoolResultOutput) SsoSecretType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupHostPoolResult) *string { return v.SsoSecretType }).(pulumi.StringPtrOutput)
+}
+
+// URL to customer ADFS server for signing WVD SSO certificates.
+func (o LookupHostPoolResultOutput) SsoadfsAuthority() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupHostPoolResult) *string { return v.SsoadfsAuthority }).(pulumi.StringPtrOutput)
+}
+
+// The flag to turn on/off StartVMOnConnect feature.
+func (o LookupHostPoolResultOutput) StartVMOnConnect() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupHostPoolResult) *bool { return v.StartVMOnConnect }).(pulumi.BoolPtrOutput)
+}
+
+// Resource tags.
+func (o LookupHostPoolResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupHostPoolResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o LookupHostPoolResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupHostPoolResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Is validation environment.
+func (o LookupHostPoolResultOutput) ValidationEnvironment() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupHostPoolResult) *bool { return v.ValidationEnvironment }).(pulumi.BoolPtrOutput)
+}
+
+// VM template for sessionhosts configuration within hostpool.
+func (o LookupHostPoolResultOutput) VmTemplate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupHostPoolResult) *string { return v.VmTemplate }).(pulumi.StringPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupHostPoolResultOutput{})
 }

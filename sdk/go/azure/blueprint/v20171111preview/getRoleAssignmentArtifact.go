@@ -4,6 +4,9 @@
 package v20171111preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -49,4 +52,96 @@ type LookupRoleAssignmentArtifactResult struct {
 	RoleDefinitionId string `pulumi:"roleDefinitionId"`
 	// Type of this resource.
 	Type string `pulumi:"type"`
+}
+
+func LookupRoleAssignmentArtifactOutput(ctx *pulumi.Context, args LookupRoleAssignmentArtifactOutputArgs, opts ...pulumi.InvokeOption) LookupRoleAssignmentArtifactResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupRoleAssignmentArtifactResult, error) {
+			args := v.(LookupRoleAssignmentArtifactArgs)
+			r, err := LookupRoleAssignmentArtifact(ctx, &args, opts...)
+			return *r, err
+		}).(LookupRoleAssignmentArtifactResultOutput)
+}
+
+type LookupRoleAssignmentArtifactOutputArgs struct {
+	// name of the artifact.
+	ArtifactName pulumi.StringInput `pulumi:"artifactName"`
+	// name of the blueprint.
+	BlueprintName pulumi.StringInput `pulumi:"blueprintName"`
+	// ManagementGroup where blueprint stores.
+	ManagementGroupName pulumi.StringInput `pulumi:"managementGroupName"`
+}
+
+func (LookupRoleAssignmentArtifactOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupRoleAssignmentArtifactArgs)(nil)).Elem()
+}
+
+// Blueprint artifact applies Azure role assignment.
+type LookupRoleAssignmentArtifactResultOutput struct{ *pulumi.OutputState }
+
+func (LookupRoleAssignmentArtifactResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupRoleAssignmentArtifactResult)(nil)).Elem()
+}
+
+func (o LookupRoleAssignmentArtifactResultOutput) ToLookupRoleAssignmentArtifactResultOutput() LookupRoleAssignmentArtifactResultOutput {
+	return o
+}
+
+func (o LookupRoleAssignmentArtifactResultOutput) ToLookupRoleAssignmentArtifactResultOutputWithContext(ctx context.Context) LookupRoleAssignmentArtifactResultOutput {
+	return o
+}
+
+// Artifacts which need to be deployed before the specified artifact.
+func (o LookupRoleAssignmentArtifactResultOutput) DependsOn() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupRoleAssignmentArtifactResult) []string { return v.DependsOn }).(pulumi.StringArrayOutput)
+}
+
+// Multi-line explain this resource.
+func (o LookupRoleAssignmentArtifactResultOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupRoleAssignmentArtifactResult) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// One-liner string explain this resource.
+func (o LookupRoleAssignmentArtifactResultOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupRoleAssignmentArtifactResult) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+// String Id used to locate any resource on Azure.
+func (o LookupRoleAssignmentArtifactResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRoleAssignmentArtifactResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Specifies the kind of Blueprint artifact.
+// Expected value is 'roleAssignment'.
+func (o LookupRoleAssignmentArtifactResultOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRoleAssignmentArtifactResult) string { return v.Kind }).(pulumi.StringOutput)
+}
+
+// Name of this resource.
+func (o LookupRoleAssignmentArtifactResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRoleAssignmentArtifactResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Array of user or group identities in Azure Active Directory. The roleDefinition will apply to these identity.
+func (o LookupRoleAssignmentArtifactResultOutput) PrincipalIds() pulumi.AnyOutput {
+	return o.ApplyT(func(v LookupRoleAssignmentArtifactResult) interface{} { return v.PrincipalIds }).(pulumi.AnyOutput)
+}
+
+// RoleAssignment will be scope to this resourceGroup, if left empty, it would scope to the subscription.
+func (o LookupRoleAssignmentArtifactResultOutput) ResourceGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupRoleAssignmentArtifactResult) *string { return v.ResourceGroup }).(pulumi.StringPtrOutput)
+}
+
+// Azure resource ID of the RoleDefinition.
+func (o LookupRoleAssignmentArtifactResultOutput) RoleDefinitionId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRoleAssignmentArtifactResult) string { return v.RoleDefinitionId }).(pulumi.StringOutput)
+}
+
+// Type of this resource.
+func (o LookupRoleAssignmentArtifactResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRoleAssignmentArtifactResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupRoleAssignmentArtifactResultOutput{})
 }

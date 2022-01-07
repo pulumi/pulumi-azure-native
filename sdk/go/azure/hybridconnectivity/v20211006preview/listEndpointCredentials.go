@@ -4,6 +4,9 @@
 package v20211006preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -38,4 +41,70 @@ type ListEndpointCredentialsResult struct {
 	NamespaceName string `pulumi:"namespaceName"`
 	// The suffix domain name of relay namespace.
 	NamespaceNameSuffix string `pulumi:"namespaceNameSuffix"`
+}
+
+func ListEndpointCredentialsOutput(ctx *pulumi.Context, args ListEndpointCredentialsOutputArgs, opts ...pulumi.InvokeOption) ListEndpointCredentialsResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (ListEndpointCredentialsResult, error) {
+			args := v.(ListEndpointCredentialsArgs)
+			r, err := ListEndpointCredentials(ctx, &args, opts...)
+			return *r, err
+		}).(ListEndpointCredentialsResultOutput)
+}
+
+type ListEndpointCredentialsOutputArgs struct {
+	// The endpoint name.
+	EndpointName pulumi.StringInput `pulumi:"endpointName"`
+	// The is how long the endpoint access token is valid (in seconds).
+	Expiresin pulumi.IntPtrInput `pulumi:"expiresin"`
+	// The fully qualified Azure Resource manager identifier of the resource to be connected.
+	ResourceUri pulumi.StringInput `pulumi:"resourceUri"`
+}
+
+func (ListEndpointCredentialsOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListEndpointCredentialsArgs)(nil)).Elem()
+}
+
+// The endpoint access for the target resource.
+type ListEndpointCredentialsResultOutput struct{ *pulumi.OutputState }
+
+func (ListEndpointCredentialsResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListEndpointCredentialsResult)(nil)).Elem()
+}
+
+func (o ListEndpointCredentialsResultOutput) ToListEndpointCredentialsResultOutput() ListEndpointCredentialsResultOutput {
+	return o
+}
+
+func (o ListEndpointCredentialsResultOutput) ToListEndpointCredentialsResultOutputWithContext(ctx context.Context) ListEndpointCredentialsResultOutput {
+	return o
+}
+
+// Access key for hybrid connection.
+func (o ListEndpointCredentialsResultOutput) AccessKey() pulumi.StringOutput {
+	return o.ApplyT(func(v ListEndpointCredentialsResult) string { return v.AccessKey }).(pulumi.StringOutput)
+}
+
+// The expiration of access key in unix time.
+func (o ListEndpointCredentialsResultOutput) ExpiresOn() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ListEndpointCredentialsResult) *float64 { return v.ExpiresOn }).(pulumi.Float64PtrOutput)
+}
+
+// Azure Relay hybrid connection name for the resource.
+func (o ListEndpointCredentialsResultOutput) HybridConnectionName() pulumi.StringOutput {
+	return o.ApplyT(func(v ListEndpointCredentialsResult) string { return v.HybridConnectionName }).(pulumi.StringOutput)
+}
+
+// The namespace name.
+func (o ListEndpointCredentialsResultOutput) NamespaceName() pulumi.StringOutput {
+	return o.ApplyT(func(v ListEndpointCredentialsResult) string { return v.NamespaceName }).(pulumi.StringOutput)
+}
+
+// The suffix domain name of relay namespace.
+func (o ListEndpointCredentialsResultOutput) NamespaceNameSuffix() pulumi.StringOutput {
+	return o.ApplyT(func(v ListEndpointCredentialsResult) string { return v.NamespaceNameSuffix }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(ListEndpointCredentialsResultOutput{})
 }

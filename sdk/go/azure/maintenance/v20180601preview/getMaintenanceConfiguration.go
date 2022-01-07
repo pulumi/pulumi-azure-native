@@ -4,6 +4,9 @@
 package v20180601preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -42,4 +45,83 @@ type LookupMaintenanceConfigurationResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Type of the resource
 	Type string `pulumi:"type"`
+}
+
+func LookupMaintenanceConfigurationOutput(ctx *pulumi.Context, args LookupMaintenanceConfigurationOutputArgs, opts ...pulumi.InvokeOption) LookupMaintenanceConfigurationResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupMaintenanceConfigurationResult, error) {
+			args := v.(LookupMaintenanceConfigurationArgs)
+			r, err := LookupMaintenanceConfiguration(ctx, &args, opts...)
+			return *r, err
+		}).(LookupMaintenanceConfigurationResultOutput)
+}
+
+type LookupMaintenanceConfigurationOutputArgs struct {
+	// Resource Group Name
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// Resource Identifier
+	ResourceName pulumi.StringInput `pulumi:"resourceName"`
+}
+
+func (LookupMaintenanceConfigurationOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupMaintenanceConfigurationArgs)(nil)).Elem()
+}
+
+// Maintenance configuration record type
+type LookupMaintenanceConfigurationResultOutput struct{ *pulumi.OutputState }
+
+func (LookupMaintenanceConfigurationResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupMaintenanceConfigurationResult)(nil)).Elem()
+}
+
+func (o LookupMaintenanceConfigurationResultOutput) ToLookupMaintenanceConfigurationResultOutput() LookupMaintenanceConfigurationResultOutput {
+	return o
+}
+
+func (o LookupMaintenanceConfigurationResultOutput) ToLookupMaintenanceConfigurationResultOutputWithContext(ctx context.Context) LookupMaintenanceConfigurationResultOutput {
+	return o
+}
+
+// Gets or sets extensionProperties of the maintenanceConfiguration
+func (o LookupMaintenanceConfigurationResultOutput) ExtensionProperties() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupMaintenanceConfigurationResult) map[string]string { return v.ExtensionProperties }).(pulumi.StringMapOutput)
+}
+
+// Fully qualified identifier of the resource
+func (o LookupMaintenanceConfigurationResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupMaintenanceConfigurationResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Gets or sets location of the resource
+func (o LookupMaintenanceConfigurationResultOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupMaintenanceConfigurationResult) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets maintenanceScope of the configuration
+func (o LookupMaintenanceConfigurationResultOutput) MaintenanceScope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupMaintenanceConfigurationResult) *string { return v.MaintenanceScope }).(pulumi.StringPtrOutput)
+}
+
+// Name of the resource
+func (o LookupMaintenanceConfigurationResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupMaintenanceConfigurationResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Gets or sets namespace of the resource
+func (o LookupMaintenanceConfigurationResultOutput) Namespace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupMaintenanceConfigurationResult) *string { return v.Namespace }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets tags of the resource
+func (o LookupMaintenanceConfigurationResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupMaintenanceConfigurationResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Type of the resource
+func (o LookupMaintenanceConfigurationResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupMaintenanceConfigurationResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupMaintenanceConfigurationResultOutput{})
 }

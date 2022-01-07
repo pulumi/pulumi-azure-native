@@ -4,6 +4,9 @@
 package resourceconnector
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -66,4 +69,110 @@ func (val *LookupApplianceResult) Defaults() *LookupApplianceResult {
 		tmp.Distro = &distro_
 	}
 	return &tmp
+}
+
+func LookupApplianceOutput(ctx *pulumi.Context, args LookupApplianceOutputArgs, opts ...pulumi.InvokeOption) LookupApplianceResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupApplianceResult, error) {
+			args := v.(LookupApplianceArgs)
+			r, err := LookupAppliance(ctx, &args, opts...)
+			return *r, err
+		}).(LookupApplianceResultOutput)
+}
+
+type LookupApplianceOutputArgs struct {
+	// The name of the resource group. The name is case insensitive.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// Appliances name.
+	ResourceName pulumi.StringInput `pulumi:"resourceName"`
+}
+
+func (LookupApplianceOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupApplianceArgs)(nil)).Elem()
+}
+
+// Appliances definition.
+type LookupApplianceResultOutput struct{ *pulumi.OutputState }
+
+func (LookupApplianceResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupApplianceResult)(nil)).Elem()
+}
+
+func (o LookupApplianceResultOutput) ToLookupApplianceResultOutput() LookupApplianceResultOutput {
+	return o
+}
+
+func (o LookupApplianceResultOutput) ToLookupApplianceResultOutputWithContext(ctx context.Context) LookupApplianceResultOutput {
+	return o
+}
+
+// Represents a supported Fabric/Infra. (AKSEdge etc...).
+func (o LookupApplianceResultOutput) Distro() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupApplianceResult) *string { return v.Distro }).(pulumi.StringPtrOutput)
+}
+
+// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+func (o LookupApplianceResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupApplianceResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Identity for the resource.
+func (o LookupApplianceResultOutput) Identity() IdentityResponsePtrOutput {
+	return o.ApplyT(func(v LookupApplianceResult) *IdentityResponse { return v.Identity }).(IdentityResponsePtrOutput)
+}
+
+// Contains infrastructure information about the Appliance
+func (o LookupApplianceResultOutput) InfrastructureConfig() AppliancePropertiesResponseInfrastructureConfigPtrOutput {
+	return o.ApplyT(func(v LookupApplianceResult) *AppliancePropertiesResponseInfrastructureConfig {
+		return v.InfrastructureConfig
+	}).(AppliancePropertiesResponseInfrastructureConfigPtrOutput)
+}
+
+// The geo-location where the resource lives
+func (o LookupApplianceResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupApplianceResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o LookupApplianceResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupApplianceResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The current deployment or provisioning state, which only appears in the response.
+func (o LookupApplianceResultOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupApplianceResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Certificates pair used to download MSI certificate from HIS
+func (o LookupApplianceResultOutput) PublicKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupApplianceResult) *string { return v.PublicKey }).(pulumi.StringPtrOutput)
+}
+
+// Appliance’s health and state of connection to on-prem
+func (o LookupApplianceResultOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupApplianceResult) string { return v.Status }).(pulumi.StringOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource
+func (o LookupApplianceResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupApplianceResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource tags.
+func (o LookupApplianceResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupApplianceResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o LookupApplianceResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupApplianceResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Version of the Appliance
+func (o LookupApplianceResultOutput) Version() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupApplianceResult) string { return v.Version }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupApplianceResultOutput{})
 }

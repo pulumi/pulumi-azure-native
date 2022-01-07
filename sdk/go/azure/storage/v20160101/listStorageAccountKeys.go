@@ -4,6 +4,9 @@
 package v20160101
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -28,4 +31,48 @@ type ListStorageAccountKeysArgs struct {
 type ListStorageAccountKeysResult struct {
 	// Gets the list of storage account keys and their properties for the specified storage account.
 	Keys []StorageAccountKeyResponse `pulumi:"keys"`
+}
+
+func ListStorageAccountKeysOutput(ctx *pulumi.Context, args ListStorageAccountKeysOutputArgs, opts ...pulumi.InvokeOption) ListStorageAccountKeysResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (ListStorageAccountKeysResult, error) {
+			args := v.(ListStorageAccountKeysArgs)
+			r, err := ListStorageAccountKeys(ctx, &args, opts...)
+			return *r, err
+		}).(ListStorageAccountKeysResultOutput)
+}
+
+type ListStorageAccountKeysOutputArgs struct {
+	// The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
+	AccountName pulumi.StringInput `pulumi:"accountName"`
+	// The name of the resource group within the user's subscription.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (ListStorageAccountKeysOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListStorageAccountKeysArgs)(nil)).Elem()
+}
+
+// The response from the ListKeys operation.
+type ListStorageAccountKeysResultOutput struct{ *pulumi.OutputState }
+
+func (ListStorageAccountKeysResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListStorageAccountKeysResult)(nil)).Elem()
+}
+
+func (o ListStorageAccountKeysResultOutput) ToListStorageAccountKeysResultOutput() ListStorageAccountKeysResultOutput {
+	return o
+}
+
+func (o ListStorageAccountKeysResultOutput) ToListStorageAccountKeysResultOutputWithContext(ctx context.Context) ListStorageAccountKeysResultOutput {
+	return o
+}
+
+// Gets the list of storage account keys and their properties for the specified storage account.
+func (o ListStorageAccountKeysResultOutput) Keys() StorageAccountKeyResponseArrayOutput {
+	return o.ApplyT(func(v ListStorageAccountKeysResult) []StorageAccountKeyResponse { return v.Keys }).(StorageAccountKeyResponseArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(ListStorageAccountKeysResultOutput{})
 }

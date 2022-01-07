@@ -4,6 +4,9 @@
 package v20200201preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -32,4 +35,62 @@ type GetMonitorDefaultKeyResult struct {
 	Key string `pulumi:"key"`
 	// The name of the API key.
 	Name *string `pulumi:"name"`
+}
+
+func GetMonitorDefaultKeyOutput(ctx *pulumi.Context, args GetMonitorDefaultKeyOutputArgs, opts ...pulumi.InvokeOption) GetMonitorDefaultKeyResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetMonitorDefaultKeyResult, error) {
+			args := v.(GetMonitorDefaultKeyArgs)
+			r, err := GetMonitorDefaultKey(ctx, &args, opts...)
+			return *r, err
+		}).(GetMonitorDefaultKeyResultOutput)
+}
+
+type GetMonitorDefaultKeyOutputArgs struct {
+	// Monitor resource name
+	MonitorName pulumi.StringInput `pulumi:"monitorName"`
+	// The name of the resource group to which the Datadog resource belongs.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (GetMonitorDefaultKeyOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetMonitorDefaultKeyArgs)(nil)).Elem()
+}
+
+type GetMonitorDefaultKeyResultOutput struct{ *pulumi.OutputState }
+
+func (GetMonitorDefaultKeyResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetMonitorDefaultKeyResult)(nil)).Elem()
+}
+
+func (o GetMonitorDefaultKeyResultOutput) ToGetMonitorDefaultKeyResultOutput() GetMonitorDefaultKeyResultOutput {
+	return o
+}
+
+func (o GetMonitorDefaultKeyResultOutput) ToGetMonitorDefaultKeyResultOutputWithContext(ctx context.Context) GetMonitorDefaultKeyResultOutput {
+	return o
+}
+
+// The time of creation of the API key.
+func (o GetMonitorDefaultKeyResultOutput) Created() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetMonitorDefaultKeyResult) *string { return v.Created }).(pulumi.StringPtrOutput)
+}
+
+// The user that created the API key.
+func (o GetMonitorDefaultKeyResultOutput) CreatedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetMonitorDefaultKeyResult) *string { return v.CreatedBy }).(pulumi.StringPtrOutput)
+}
+
+// The value of the API key.
+func (o GetMonitorDefaultKeyResultOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetMonitorDefaultKeyResult) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The name of the API key.
+func (o GetMonitorDefaultKeyResultOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetMonitorDefaultKeyResult) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetMonitorDefaultKeyResultOutput{})
 }

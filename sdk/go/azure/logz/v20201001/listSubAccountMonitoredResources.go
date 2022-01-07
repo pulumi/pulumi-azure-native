@@ -4,6 +4,9 @@
 package v20201001
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -32,4 +35,55 @@ type ListSubAccountMonitoredResourcesResult struct {
 	NextLink *string `pulumi:"nextLink"`
 	// Results of a list operation.
 	Value []MonitoredResourceResponse `pulumi:"value"`
+}
+
+func ListSubAccountMonitoredResourcesOutput(ctx *pulumi.Context, args ListSubAccountMonitoredResourcesOutputArgs, opts ...pulumi.InvokeOption) ListSubAccountMonitoredResourcesResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (ListSubAccountMonitoredResourcesResult, error) {
+			args := v.(ListSubAccountMonitoredResourcesArgs)
+			r, err := ListSubAccountMonitoredResources(ctx, &args, opts...)
+			return *r, err
+		}).(ListSubAccountMonitoredResourcesResultOutput)
+}
+
+type ListSubAccountMonitoredResourcesOutputArgs struct {
+	// Monitor resource name
+	MonitorName pulumi.StringInput `pulumi:"monitorName"`
+	// The name of the resource group. The name is case insensitive.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// Sub Account resource name
+	SubAccountName pulumi.StringInput `pulumi:"subAccountName"`
+}
+
+func (ListSubAccountMonitoredResourcesOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListSubAccountMonitoredResourcesArgs)(nil)).Elem()
+}
+
+// Response of a list operation.
+type ListSubAccountMonitoredResourcesResultOutput struct{ *pulumi.OutputState }
+
+func (ListSubAccountMonitoredResourcesResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListSubAccountMonitoredResourcesResult)(nil)).Elem()
+}
+
+func (o ListSubAccountMonitoredResourcesResultOutput) ToListSubAccountMonitoredResourcesResultOutput() ListSubAccountMonitoredResourcesResultOutput {
+	return o
+}
+
+func (o ListSubAccountMonitoredResourcesResultOutput) ToListSubAccountMonitoredResourcesResultOutputWithContext(ctx context.Context) ListSubAccountMonitoredResourcesResultOutput {
+	return o
+}
+
+// Link to the next set of results, if any.
+func (o ListSubAccountMonitoredResourcesResultOutput) NextLink() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListSubAccountMonitoredResourcesResult) *string { return v.NextLink }).(pulumi.StringPtrOutput)
+}
+
+// Results of a list operation.
+func (o ListSubAccountMonitoredResourcesResultOutput) Value() MonitoredResourceResponseArrayOutput {
+	return o.ApplyT(func(v ListSubAccountMonitoredResourcesResult) []MonitoredResourceResponse { return v.Value }).(MonitoredResourceResponseArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(ListSubAccountMonitoredResourcesResultOutput{})
 }

@@ -4,6 +4,9 @@
 package v20200601preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -50,4 +53,100 @@ type ListProductDetailsResult struct {
 	VmOsType string `pulumi:"vmOsType"`
 	// Indicates if virtual machine Scale Set is enabled in the specified product.
 	VmScaleSetEnabled bool `pulumi:"vmScaleSetEnabled"`
+}
+
+func ListProductDetailsOutput(ctx *pulumi.Context, args ListProductDetailsOutputArgs, opts ...pulumi.InvokeOption) ListProductDetailsResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (ListProductDetailsResult, error) {
+			args := v.(ListProductDetailsArgs)
+			r, err := ListProductDetails(ctx, &args, opts...)
+			return *r, err
+		}).(ListProductDetailsResultOutput)
+}
+
+type ListProductDetailsOutputArgs struct {
+	// Name of the product.
+	ProductName pulumi.StringInput `pulumi:"productName"`
+	// Name of the Azure Stack registration.
+	RegistrationName pulumi.StringInput `pulumi:"registrationName"`
+	// Name of the resource group.
+	ResourceGroup pulumi.StringInput `pulumi:"resourceGroup"`
+}
+
+func (ListProductDetailsOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListProductDetailsArgs)(nil)).Elem()
+}
+
+// Extended description about the product required for installing it into Azure Stack.
+type ListProductDetailsResultOutput struct{ *pulumi.OutputState }
+
+func (ListProductDetailsResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListProductDetailsResult)(nil)).Elem()
+}
+
+func (o ListProductDetailsResultOutput) ToListProductDetailsResultOutput() ListProductDetailsResultOutput {
+	return o
+}
+
+func (o ListProductDetailsResultOutput) ToListProductDetailsResultOutputWithContext(ctx context.Context) ListProductDetailsResultOutput {
+	return o
+}
+
+// Specifies kind of compute role included in the package.
+func (o ListProductDetailsResultOutput) ComputeRole() pulumi.StringOutput {
+	return o.ApplyT(func(v ListProductDetailsResult) string { return v.ComputeRole }).(pulumi.StringOutput)
+}
+
+// List of attached data disks.
+func (o ListProductDetailsResultOutput) DataDiskImages() DataDiskImageResponseArrayOutput {
+	return o.ApplyT(func(v ListProductDetailsResult) []DataDiskImageResponse { return v.DataDiskImages }).(DataDiskImageResponseArrayOutput)
+}
+
+// The URI to the .azpkg file that provides information required for showing product in the gallery.
+func (o ListProductDetailsResultOutput) GalleryPackageBlobSasUri() pulumi.StringOutput {
+	return o.ApplyT(func(v ListProductDetailsResult) string { return v.GalleryPackageBlobSasUri }).(pulumi.StringOutput)
+}
+
+// Specifies if product is a Virtual Machine Extension.
+func (o ListProductDetailsResultOutput) IsSystemExtension() pulumi.BoolOutput {
+	return o.ApplyT(func(v ListProductDetailsResult) bool { return v.IsSystemExtension }).(pulumi.BoolOutput)
+}
+
+// OS disk image used by product.
+func (o ListProductDetailsResultOutput) OsDiskImage() OsDiskImageResponseOutput {
+	return o.ApplyT(func(v ListProductDetailsResult) OsDiskImageResponse { return v.OsDiskImage }).(OsDiskImageResponseOutput)
+}
+
+// Specifies the kind of the product (virtualMachine or virtualMachineExtension).
+func (o ListProductDetailsResultOutput) ProductKind() pulumi.StringOutput {
+	return o.ApplyT(func(v ListProductDetailsResult) string { return v.ProductKind }).(pulumi.StringOutput)
+}
+
+// Indicates if specified product supports multiple extensions.
+func (o ListProductDetailsResultOutput) SupportMultipleExtensions() pulumi.BoolOutput {
+	return o.ApplyT(func(v ListProductDetailsResult) bool { return v.SupportMultipleExtensions }).(pulumi.BoolOutput)
+}
+
+// The URI.
+func (o ListProductDetailsResultOutput) Uri() pulumi.StringOutput {
+	return o.ApplyT(func(v ListProductDetailsResult) string { return v.Uri }).(pulumi.StringOutput)
+}
+
+// Specifies product version.
+func (o ListProductDetailsResultOutput) Version() pulumi.StringOutput {
+	return o.ApplyT(func(v ListProductDetailsResult) string { return v.Version }).(pulumi.StringOutput)
+}
+
+// Specifies operating system used by the product.
+func (o ListProductDetailsResultOutput) VmOsType() pulumi.StringOutput {
+	return o.ApplyT(func(v ListProductDetailsResult) string { return v.VmOsType }).(pulumi.StringOutput)
+}
+
+// Indicates if virtual machine Scale Set is enabled in the specified product.
+func (o ListProductDetailsResultOutput) VmScaleSetEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v ListProductDetailsResult) bool { return v.VmScaleSetEnabled }).(pulumi.BoolOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(ListProductDetailsResultOutput{})
 }

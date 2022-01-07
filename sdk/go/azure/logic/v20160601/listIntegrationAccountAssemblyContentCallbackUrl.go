@@ -4,6 +4,9 @@
 package v20160601
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -40,4 +43,79 @@ type ListIntegrationAccountAssemblyContentCallbackUrlResult struct {
 	RelativePathParameters []string `pulumi:"relativePathParameters"`
 	// Gets the workflow trigger callback URL.
 	Value string `pulumi:"value"`
+}
+
+func ListIntegrationAccountAssemblyContentCallbackUrlOutput(ctx *pulumi.Context, args ListIntegrationAccountAssemblyContentCallbackUrlOutputArgs, opts ...pulumi.InvokeOption) ListIntegrationAccountAssemblyContentCallbackUrlResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (ListIntegrationAccountAssemblyContentCallbackUrlResult, error) {
+			args := v.(ListIntegrationAccountAssemblyContentCallbackUrlArgs)
+			r, err := ListIntegrationAccountAssemblyContentCallbackUrl(ctx, &args, opts...)
+			return *r, err
+		}).(ListIntegrationAccountAssemblyContentCallbackUrlResultOutput)
+}
+
+type ListIntegrationAccountAssemblyContentCallbackUrlOutputArgs struct {
+	// The assembly artifact name.
+	AssemblyArtifactName pulumi.StringInput `pulumi:"assemblyArtifactName"`
+	// The integration account name.
+	IntegrationAccountName pulumi.StringInput `pulumi:"integrationAccountName"`
+	// The resource group name.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (ListIntegrationAccountAssemblyContentCallbackUrlOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListIntegrationAccountAssemblyContentCallbackUrlArgs)(nil)).Elem()
+}
+
+// The workflow trigger callback URL.
+type ListIntegrationAccountAssemblyContentCallbackUrlResultOutput struct{ *pulumi.OutputState }
+
+func (ListIntegrationAccountAssemblyContentCallbackUrlResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListIntegrationAccountAssemblyContentCallbackUrlResult)(nil)).Elem()
+}
+
+func (o ListIntegrationAccountAssemblyContentCallbackUrlResultOutput) ToListIntegrationAccountAssemblyContentCallbackUrlResultOutput() ListIntegrationAccountAssemblyContentCallbackUrlResultOutput {
+	return o
+}
+
+func (o ListIntegrationAccountAssemblyContentCallbackUrlResultOutput) ToListIntegrationAccountAssemblyContentCallbackUrlResultOutputWithContext(ctx context.Context) ListIntegrationAccountAssemblyContentCallbackUrlResultOutput {
+	return o
+}
+
+// Gets the workflow trigger callback URL base path.
+func (o ListIntegrationAccountAssemblyContentCallbackUrlResultOutput) BasePath() pulumi.StringOutput {
+	return o.ApplyT(func(v ListIntegrationAccountAssemblyContentCallbackUrlResult) string { return v.BasePath }).(pulumi.StringOutput)
+}
+
+// Gets the workflow trigger callback URL HTTP method.
+func (o ListIntegrationAccountAssemblyContentCallbackUrlResultOutput) Method() pulumi.StringOutput {
+	return o.ApplyT(func(v ListIntegrationAccountAssemblyContentCallbackUrlResult) string { return v.Method }).(pulumi.StringOutput)
+}
+
+// Gets the workflow trigger callback URL query parameters.
+func (o ListIntegrationAccountAssemblyContentCallbackUrlResultOutput) Queries() WorkflowTriggerListCallbackUrlQueriesResponsePtrOutput {
+	return o.ApplyT(func(v ListIntegrationAccountAssemblyContentCallbackUrlResult) *WorkflowTriggerListCallbackUrlQueriesResponse {
+		return v.Queries
+	}).(WorkflowTriggerListCallbackUrlQueriesResponsePtrOutput)
+}
+
+// Gets the workflow trigger callback URL relative path.
+func (o ListIntegrationAccountAssemblyContentCallbackUrlResultOutput) RelativePath() pulumi.StringOutput {
+	return o.ApplyT(func(v ListIntegrationAccountAssemblyContentCallbackUrlResult) string { return v.RelativePath }).(pulumi.StringOutput)
+}
+
+// Gets the workflow trigger callback URL relative path parameters.
+func (o ListIntegrationAccountAssemblyContentCallbackUrlResultOutput) RelativePathParameters() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ListIntegrationAccountAssemblyContentCallbackUrlResult) []string {
+		return v.RelativePathParameters
+	}).(pulumi.StringArrayOutput)
+}
+
+// Gets the workflow trigger callback URL.
+func (o ListIntegrationAccountAssemblyContentCallbackUrlResultOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v ListIntegrationAccountAssemblyContentCallbackUrlResult) string { return v.Value }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(ListIntegrationAccountAssemblyContentCallbackUrlResultOutput{})
 }

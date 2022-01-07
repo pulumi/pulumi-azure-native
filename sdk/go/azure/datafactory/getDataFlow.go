@@ -4,6 +4,9 @@
 package datafactory
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -39,4 +42,70 @@ type LookupDataFlowResult struct {
 	Properties interface{} `pulumi:"properties"`
 	// The resource type.
 	Type string `pulumi:"type"`
+}
+
+func LookupDataFlowOutput(ctx *pulumi.Context, args LookupDataFlowOutputArgs, opts ...pulumi.InvokeOption) LookupDataFlowResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupDataFlowResult, error) {
+			args := v.(LookupDataFlowArgs)
+			r, err := LookupDataFlow(ctx, &args, opts...)
+			return *r, err
+		}).(LookupDataFlowResultOutput)
+}
+
+type LookupDataFlowOutputArgs struct {
+	// The data flow name.
+	DataFlowName pulumi.StringInput `pulumi:"dataFlowName"`
+	// The factory name.
+	FactoryName pulumi.StringInput `pulumi:"factoryName"`
+	// The resource group name.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupDataFlowOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupDataFlowArgs)(nil)).Elem()
+}
+
+// Data flow resource type.
+type LookupDataFlowResultOutput struct{ *pulumi.OutputState }
+
+func (LookupDataFlowResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupDataFlowResult)(nil)).Elem()
+}
+
+func (o LookupDataFlowResultOutput) ToLookupDataFlowResultOutput() LookupDataFlowResultOutput {
+	return o
+}
+
+func (o LookupDataFlowResultOutput) ToLookupDataFlowResultOutputWithContext(ctx context.Context) LookupDataFlowResultOutput {
+	return o
+}
+
+// Etag identifies change in the resource.
+func (o LookupDataFlowResultOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDataFlowResult) string { return v.Etag }).(pulumi.StringOutput)
+}
+
+// The resource identifier.
+func (o LookupDataFlowResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDataFlowResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The resource name.
+func (o LookupDataFlowResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDataFlowResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Data flow properties.
+func (o LookupDataFlowResultOutput) Properties() pulumi.AnyOutput {
+	return o.ApplyT(func(v LookupDataFlowResult) interface{} { return v.Properties }).(pulumi.AnyOutput)
+}
+
+// The resource type.
+func (o LookupDataFlowResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDataFlowResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupDataFlowResultOutput{})
 }

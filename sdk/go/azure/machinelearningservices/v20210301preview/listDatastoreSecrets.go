@@ -4,6 +4,9 @@
 package v20210301preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -30,4 +33,50 @@ type ListDatastoreSecretsArgs struct {
 type ListDatastoreSecretsResult struct {
 	// Credential type used to authentication with storage.
 	SecretsType string `pulumi:"secretsType"`
+}
+
+func ListDatastoreSecretsOutput(ctx *pulumi.Context, args ListDatastoreSecretsOutputArgs, opts ...pulumi.InvokeOption) ListDatastoreSecretsResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (ListDatastoreSecretsResult, error) {
+			args := v.(ListDatastoreSecretsArgs)
+			r, err := ListDatastoreSecrets(ctx, &args, opts...)
+			return *r, err
+		}).(ListDatastoreSecretsResultOutput)
+}
+
+type ListDatastoreSecretsOutputArgs struct {
+	// Datastore name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The name of the resource group. The name is case insensitive.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// Name of Azure Machine Learning workspace.
+	WorkspaceName pulumi.StringInput `pulumi:"workspaceName"`
+}
+
+func (ListDatastoreSecretsOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListDatastoreSecretsArgs)(nil)).Elem()
+}
+
+// Base definition for datastore secrets.
+type ListDatastoreSecretsResultOutput struct{ *pulumi.OutputState }
+
+func (ListDatastoreSecretsResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListDatastoreSecretsResult)(nil)).Elem()
+}
+
+func (o ListDatastoreSecretsResultOutput) ToListDatastoreSecretsResultOutput() ListDatastoreSecretsResultOutput {
+	return o
+}
+
+func (o ListDatastoreSecretsResultOutput) ToListDatastoreSecretsResultOutputWithContext(ctx context.Context) ListDatastoreSecretsResultOutput {
+	return o
+}
+
+// Credential type used to authentication with storage.
+func (o ListDatastoreSecretsResultOutput) SecretsType() pulumi.StringOutput {
+	return o.ApplyT(func(v ListDatastoreSecretsResult) string { return v.SecretsType }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(ListDatastoreSecretsResultOutput{})
 }

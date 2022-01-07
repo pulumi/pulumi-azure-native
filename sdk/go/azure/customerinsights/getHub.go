@@ -4,6 +4,9 @@
 package customerinsights
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -47,4 +50,93 @@ type LookupHubResult struct {
 	Type string `pulumi:"type"`
 	// Web endpoint URL of the hub.
 	WebEndpoint string `pulumi:"webEndpoint"`
+}
+
+func LookupHubOutput(ctx *pulumi.Context, args LookupHubOutputArgs, opts ...pulumi.InvokeOption) LookupHubResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupHubResult, error) {
+			args := v.(LookupHubArgs)
+			r, err := LookupHub(ctx, &args, opts...)
+			return *r, err
+		}).(LookupHubResultOutput)
+}
+
+type LookupHubOutputArgs struct {
+	// The name of the hub.
+	HubName pulumi.StringInput `pulumi:"hubName"`
+	// The name of the resource group.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupHubOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupHubArgs)(nil)).Elem()
+}
+
+// Hub resource.
+type LookupHubResultOutput struct{ *pulumi.OutputState }
+
+func (LookupHubResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupHubResult)(nil)).Elem()
+}
+
+func (o LookupHubResultOutput) ToLookupHubResultOutput() LookupHubResultOutput {
+	return o
+}
+
+func (o LookupHubResultOutput) ToLookupHubResultOutputWithContext(ctx context.Context) LookupHubResultOutput {
+	return o
+}
+
+// API endpoint URL of the hub.
+func (o LookupHubResultOutput) ApiEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupHubResult) string { return v.ApiEndpoint }).(pulumi.StringOutput)
+}
+
+// Billing settings of the hub.
+func (o LookupHubResultOutput) HubBillingInfo() HubBillingInfoFormatResponsePtrOutput {
+	return o.ApplyT(func(v LookupHubResult) *HubBillingInfoFormatResponse { return v.HubBillingInfo }).(HubBillingInfoFormatResponsePtrOutput)
+}
+
+// Resource ID.
+func (o LookupHubResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupHubResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Resource location.
+func (o LookupHubResultOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupHubResult) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Resource name.
+func (o LookupHubResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupHubResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Provisioning state of the hub.
+func (o LookupHubResultOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupHubResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Resource tags.
+func (o LookupHubResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupHubResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The bit flags for enabled hub features. Bit 0 is set to 1 indicates graph is enabled, or disabled if set to 0. Bit 1 is set to 1 indicates the hub is disabled, or enabled if set to 0.
+func (o LookupHubResultOutput) TenantFeatures() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupHubResult) *int { return v.TenantFeatures }).(pulumi.IntPtrOutput)
+}
+
+// Resource type.
+func (o LookupHubResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupHubResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Web endpoint URL of the hub.
+func (o LookupHubResultOutput) WebEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupHubResult) string { return v.WebEndpoint }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupHubResultOutput{})
 }

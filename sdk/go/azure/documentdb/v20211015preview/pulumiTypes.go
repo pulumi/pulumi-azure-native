@@ -5542,6 +5542,51 @@ type DatabaseAccountConnectionStringResponse struct {
 	Description string `pulumi:"description"`
 }
 
+// Connection string for the Cosmos DB account
+type DatabaseAccountConnectionStringResponseOutput struct{ *pulumi.OutputState }
+
+func (DatabaseAccountConnectionStringResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabaseAccountConnectionStringResponse)(nil)).Elem()
+}
+
+func (o DatabaseAccountConnectionStringResponseOutput) ToDatabaseAccountConnectionStringResponseOutput() DatabaseAccountConnectionStringResponseOutput {
+	return o
+}
+
+func (o DatabaseAccountConnectionStringResponseOutput) ToDatabaseAccountConnectionStringResponseOutputWithContext(ctx context.Context) DatabaseAccountConnectionStringResponseOutput {
+	return o
+}
+
+// Value of the connection string
+func (o DatabaseAccountConnectionStringResponseOutput) ConnectionString() pulumi.StringOutput {
+	return o.ApplyT(func(v DatabaseAccountConnectionStringResponse) string { return v.ConnectionString }).(pulumi.StringOutput)
+}
+
+// Description of the connection string
+func (o DatabaseAccountConnectionStringResponseOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v DatabaseAccountConnectionStringResponse) string { return v.Description }).(pulumi.StringOutput)
+}
+
+type DatabaseAccountConnectionStringResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (DatabaseAccountConnectionStringResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DatabaseAccountConnectionStringResponse)(nil)).Elem()
+}
+
+func (o DatabaseAccountConnectionStringResponseArrayOutput) ToDatabaseAccountConnectionStringResponseArrayOutput() DatabaseAccountConnectionStringResponseArrayOutput {
+	return o
+}
+
+func (o DatabaseAccountConnectionStringResponseArrayOutput) ToDatabaseAccountConnectionStringResponseArrayOutputWithContext(ctx context.Context) DatabaseAccountConnectionStringResponseArrayOutput {
+	return o
+}
+
+func (o DatabaseAccountConnectionStringResponseArrayOutput) Index(i pulumi.IntInput) DatabaseAccountConnectionStringResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DatabaseAccountConnectionStringResponse {
+		return vs[0].([]DatabaseAccountConnectionStringResponse)[vs[1].(int)]
+	}).(DatabaseAccountConnectionStringResponseOutput)
+}
+
 // Specific Databases to restore.
 type DatabaseRestoreResource struct {
 	// The names of the collections available for restore.
@@ -14189,6 +14234,8 @@ func init() {
 	pulumi.RegisterOutputType(DataCenterResourcePropertiesOutput{})
 	pulumi.RegisterOutputType(DataCenterResourcePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(DataCenterResourceResponsePropertiesOutput{})
+	pulumi.RegisterOutputType(DatabaseAccountConnectionStringResponseOutput{})
+	pulumi.RegisterOutputType(DatabaseAccountConnectionStringResponseArrayOutput{})
 	pulumi.RegisterOutputType(DatabaseRestoreResourceOutput{})
 	pulumi.RegisterOutputType(DatabaseRestoreResourceArrayOutput{})
 	pulumi.RegisterOutputType(DatabaseRestoreResourceResponseOutput{})

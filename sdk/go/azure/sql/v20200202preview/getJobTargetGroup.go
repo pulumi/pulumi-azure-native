@@ -4,6 +4,9 @@
 package v20200202preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -38,4 +41,67 @@ type LookupJobTargetGroupResult struct {
 	Name string `pulumi:"name"`
 	// Resource type.
 	Type string `pulumi:"type"`
+}
+
+func LookupJobTargetGroupOutput(ctx *pulumi.Context, args LookupJobTargetGroupOutputArgs, opts ...pulumi.InvokeOption) LookupJobTargetGroupResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupJobTargetGroupResult, error) {
+			args := v.(LookupJobTargetGroupArgs)
+			r, err := LookupJobTargetGroup(ctx, &args, opts...)
+			return *r, err
+		}).(LookupJobTargetGroupResultOutput)
+}
+
+type LookupJobTargetGroupOutputArgs struct {
+	// The name of the job agent.
+	JobAgentName pulumi.StringInput `pulumi:"jobAgentName"`
+	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the server.
+	ServerName pulumi.StringInput `pulumi:"serverName"`
+	// The name of the target group.
+	TargetGroupName pulumi.StringInput `pulumi:"targetGroupName"`
+}
+
+func (LookupJobTargetGroupOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupJobTargetGroupArgs)(nil)).Elem()
+}
+
+// A group of job targets.
+type LookupJobTargetGroupResultOutput struct{ *pulumi.OutputState }
+
+func (LookupJobTargetGroupResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupJobTargetGroupResult)(nil)).Elem()
+}
+
+func (o LookupJobTargetGroupResultOutput) ToLookupJobTargetGroupResultOutput() LookupJobTargetGroupResultOutput {
+	return o
+}
+
+func (o LookupJobTargetGroupResultOutput) ToLookupJobTargetGroupResultOutputWithContext(ctx context.Context) LookupJobTargetGroupResultOutput {
+	return o
+}
+
+// Resource ID.
+func (o LookupJobTargetGroupResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupJobTargetGroupResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Members of the target group.
+func (o LookupJobTargetGroupResultOutput) Members() JobTargetResponseArrayOutput {
+	return o.ApplyT(func(v LookupJobTargetGroupResult) []JobTargetResponse { return v.Members }).(JobTargetResponseArrayOutput)
+}
+
+// Resource name.
+func (o LookupJobTargetGroupResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupJobTargetGroupResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Resource type.
+func (o LookupJobTargetGroupResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupJobTargetGroupResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupJobTargetGroupResultOutput{})
 }

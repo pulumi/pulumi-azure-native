@@ -4,6 +4,9 @@
 package v20190801
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -38,4 +41,73 @@ type GetDeviceExtendedInformationResult struct {
 	ResourceKey string `pulumi:"resourceKey"`
 	// The hierarchical type of the object.
 	Type string `pulumi:"type"`
+}
+
+func GetDeviceExtendedInformationOutput(ctx *pulumi.Context, args GetDeviceExtendedInformationOutputArgs, opts ...pulumi.InvokeOption) GetDeviceExtendedInformationResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetDeviceExtendedInformationResult, error) {
+			args := v.(GetDeviceExtendedInformationArgs)
+			r, err := GetDeviceExtendedInformation(ctx, &args, opts...)
+			return *r, err
+		}).(GetDeviceExtendedInformationResultOutput)
+}
+
+type GetDeviceExtendedInformationOutputArgs struct {
+	// The device name.
+	DeviceName pulumi.StringInput `pulumi:"deviceName"`
+	// The resource group name.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (GetDeviceExtendedInformationOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDeviceExtendedInformationArgs)(nil)).Elem()
+}
+
+// The extended Info of the Data Box Edge/Gateway device.
+type GetDeviceExtendedInformationResultOutput struct{ *pulumi.OutputState }
+
+func (GetDeviceExtendedInformationResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDeviceExtendedInformationResult)(nil)).Elem()
+}
+
+func (o GetDeviceExtendedInformationResultOutput) ToGetDeviceExtendedInformationResultOutput() GetDeviceExtendedInformationResultOutput {
+	return o
+}
+
+func (o GetDeviceExtendedInformationResultOutput) ToGetDeviceExtendedInformationResultOutputWithContext(ctx context.Context) GetDeviceExtendedInformationResultOutput {
+	return o
+}
+
+// The public part of the encryption certificate. Client uses this to encrypt any secret.
+func (o GetDeviceExtendedInformationResultOutput) EncryptionKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetDeviceExtendedInformationResult) *string { return v.EncryptionKey }).(pulumi.StringPtrOutput)
+}
+
+// The digital signature of encrypted certificate.
+func (o GetDeviceExtendedInformationResultOutput) EncryptionKeyThumbprint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetDeviceExtendedInformationResult) *string { return v.EncryptionKeyThumbprint }).(pulumi.StringPtrOutput)
+}
+
+// The path ID that uniquely identifies the object.
+func (o GetDeviceExtendedInformationResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDeviceExtendedInformationResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The object name.
+func (o GetDeviceExtendedInformationResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDeviceExtendedInformationResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The Resource ID of the Resource.
+func (o GetDeviceExtendedInformationResultOutput) ResourceKey() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDeviceExtendedInformationResult) string { return v.ResourceKey }).(pulumi.StringOutput)
+}
+
+// The hierarchical type of the object.
+func (o GetDeviceExtendedInformationResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDeviceExtendedInformationResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetDeviceExtendedInformationResultOutput{})
 }

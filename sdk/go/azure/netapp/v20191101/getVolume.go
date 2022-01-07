@@ -4,6 +4,9 @@
 package v20191101
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -86,4 +89,147 @@ func (val *LookupVolumeResult) Defaults() *LookupVolumeResult {
 		tmp.UsageThreshold = 107374182400.0
 	}
 	return &tmp
+}
+
+func LookupVolumeOutput(ctx *pulumi.Context, args LookupVolumeOutputArgs, opts ...pulumi.InvokeOption) LookupVolumeResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupVolumeResult, error) {
+			args := v.(LookupVolumeArgs)
+			r, err := LookupVolume(ctx, &args, opts...)
+			return *r, err
+		}).(LookupVolumeResultOutput)
+}
+
+type LookupVolumeOutputArgs struct {
+	// The name of the NetApp account
+	AccountName pulumi.StringInput `pulumi:"accountName"`
+	// The name of the capacity pool
+	PoolName pulumi.StringInput `pulumi:"poolName"`
+	// The name of the resource group.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the volume
+	VolumeName pulumi.StringInput `pulumi:"volumeName"`
+}
+
+func (LookupVolumeOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupVolumeArgs)(nil)).Elem()
+}
+
+// Volume resource
+type LookupVolumeResultOutput struct{ *pulumi.OutputState }
+
+func (LookupVolumeResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupVolumeResult)(nil)).Elem()
+}
+
+func (o LookupVolumeResultOutput) ToLookupVolumeResultOutput() LookupVolumeResultOutput {
+	return o
+}
+
+func (o LookupVolumeResultOutput) ToLookupVolumeResultOutputWithContext(ctx context.Context) LookupVolumeResultOutput {
+	return o
+}
+
+// Unique Baremetal Tenant Identifier.
+func (o LookupVolumeResultOutput) BaremetalTenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVolumeResult) string { return v.BaremetalTenantId }).(pulumi.StringOutput)
+}
+
+// A unique file path for the volume. Used when creating mount targets
+func (o LookupVolumeResultOutput) CreationToken() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVolumeResult) string { return v.CreationToken }).(pulumi.StringOutput)
+}
+
+// DataProtection type volumes include an object containing details of the replication
+func (o LookupVolumeResultOutput) DataProtection() VolumePropertiesResponseDataProtectionPtrOutput {
+	return o.ApplyT(func(v LookupVolumeResult) *VolumePropertiesResponseDataProtection { return v.DataProtection }).(VolumePropertiesResponseDataProtectionPtrOutput)
+}
+
+// Set of export policy rules
+func (o LookupVolumeResultOutput) ExportPolicy() VolumePropertiesResponseExportPolicyPtrOutput {
+	return o.ApplyT(func(v LookupVolumeResult) *VolumePropertiesResponseExportPolicy { return v.ExportPolicy }).(VolumePropertiesResponseExportPolicyPtrOutput)
+}
+
+// Unique FileSystem Identifier.
+func (o LookupVolumeResultOutput) FileSystemId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVolumeResult) string { return v.FileSystemId }).(pulumi.StringOutput)
+}
+
+// Resource Id
+func (o LookupVolumeResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVolumeResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Restoring
+func (o LookupVolumeResultOutput) IsRestoring() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupVolumeResult) *bool { return v.IsRestoring }).(pulumi.BoolPtrOutput)
+}
+
+// Resource location
+func (o LookupVolumeResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVolumeResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// List of mount targets
+func (o LookupVolumeResultOutput) MountTargets() MountTargetPropertiesResponseArrayOutput {
+	return o.ApplyT(func(v LookupVolumeResult) []MountTargetPropertiesResponse { return v.MountTargets }).(MountTargetPropertiesResponseArrayOutput)
+}
+
+// Resource name
+func (o LookupVolumeResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVolumeResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Set of protocol types, default NFSv3, CIFS for SMB protocol
+func (o LookupVolumeResultOutput) ProtocolTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupVolumeResult) []string { return v.ProtocolTypes }).(pulumi.StringArrayOutput)
+}
+
+// Azure lifecycle management
+func (o LookupVolumeResultOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVolumeResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The service level of the file system
+func (o LookupVolumeResultOutput) ServiceLevel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVolumeResult) *string { return v.ServiceLevel }).(pulumi.StringPtrOutput)
+}
+
+// UUID v4 or resource identifier used to identify the Snapshot.
+func (o LookupVolumeResultOutput) SnapshotId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVolumeResult) *string { return v.SnapshotId }).(pulumi.StringPtrOutput)
+}
+
+// The Azure Resource URI for a delegated subnet. Must have the delegation Microsoft.NetApp/volumes
+func (o LookupVolumeResultOutput) SubnetId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVolumeResult) string { return v.SubnetId }).(pulumi.StringOutput)
+}
+
+// Resource tags
+func (o LookupVolumeResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupVolumeResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type
+func (o LookupVolumeResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVolumeResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB. Specified in bytes.
+func (o LookupVolumeResultOutput) UsageThreshold() pulumi.Float64Output {
+	return o.ApplyT(func(v LookupVolumeResult) float64 { return v.UsageThreshold }).(pulumi.Float64Output)
+}
+
+// Resource size in bytes, current storage usage for the volume in bytes
+func (o LookupVolumeResultOutput) UsedBytes() pulumi.Float64Output {
+	return o.ApplyT(func(v LookupVolumeResult) float64 { return v.UsedBytes }).(pulumi.Float64Output)
+}
+
+// What type of volume is this
+func (o LookupVolumeResultOutput) VolumeType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVolumeResult) *string { return v.VolumeType }).(pulumi.StringPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupVolumeResultOutput{})
 }

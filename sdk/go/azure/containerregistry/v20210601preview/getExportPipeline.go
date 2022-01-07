@@ -4,6 +4,9 @@
 package v20210601preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -46,4 +49,90 @@ type LookupExportPipelineResult struct {
 	Target ExportPipelineTargetPropertiesResponse `pulumi:"target"`
 	// The type of the resource.
 	Type string `pulumi:"type"`
+}
+
+func LookupExportPipelineOutput(ctx *pulumi.Context, args LookupExportPipelineOutputArgs, opts ...pulumi.InvokeOption) LookupExportPipelineResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupExportPipelineResult, error) {
+			args := v.(LookupExportPipelineArgs)
+			r, err := LookupExportPipeline(ctx, &args, opts...)
+			return *r, err
+		}).(LookupExportPipelineResultOutput)
+}
+
+type LookupExportPipelineOutputArgs struct {
+	// The name of the export pipeline.
+	ExportPipelineName pulumi.StringInput `pulumi:"exportPipelineName"`
+	// The name of the container registry.
+	RegistryName pulumi.StringInput `pulumi:"registryName"`
+	// The name of the resource group to which the container registry belongs.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupExportPipelineOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupExportPipelineArgs)(nil)).Elem()
+}
+
+// An object that represents an export pipeline for a container registry.
+type LookupExportPipelineResultOutput struct{ *pulumi.OutputState }
+
+func (LookupExportPipelineResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupExportPipelineResult)(nil)).Elem()
+}
+
+func (o LookupExportPipelineResultOutput) ToLookupExportPipelineResultOutput() LookupExportPipelineResultOutput {
+	return o
+}
+
+func (o LookupExportPipelineResultOutput) ToLookupExportPipelineResultOutputWithContext(ctx context.Context) LookupExportPipelineResultOutput {
+	return o
+}
+
+// The resource ID.
+func (o LookupExportPipelineResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupExportPipelineResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The identity of the export pipeline.
+func (o LookupExportPipelineResultOutput) Identity() IdentityPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v LookupExportPipelineResult) *IdentityPropertiesResponse { return v.Identity }).(IdentityPropertiesResponsePtrOutput)
+}
+
+// The location of the export pipeline.
+func (o LookupExportPipelineResultOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupExportPipelineResult) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource.
+func (o LookupExportPipelineResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupExportPipelineResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The list of all options configured for the pipeline.
+func (o LookupExportPipelineResultOutput) Options() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupExportPipelineResult) []string { return v.Options }).(pulumi.StringArrayOutput)
+}
+
+// The provisioning state of the pipeline at the time the operation was called.
+func (o LookupExportPipelineResultOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupExportPipelineResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o LookupExportPipelineResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupExportPipelineResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The target properties of the export pipeline.
+func (o LookupExportPipelineResultOutput) Target() ExportPipelineTargetPropertiesResponseOutput {
+	return o.ApplyT(func(v LookupExportPipelineResult) ExportPipelineTargetPropertiesResponse { return v.Target }).(ExportPipelineTargetPropertiesResponseOutput)
+}
+
+// The type of the resource.
+func (o LookupExportPipelineResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupExportPipelineResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupExportPipelineResultOutput{})
 }

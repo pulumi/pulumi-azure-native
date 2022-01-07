@@ -4,6 +4,9 @@
 package azureactivedirectory
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -41,4 +44,84 @@ type LookupB2CTenantResult struct {
 	TenantId *string `pulumi:"tenantId"`
 	// The type of the B2C tenant resource.
 	Type string `pulumi:"type"`
+}
+
+func LookupB2CTenantOutput(ctx *pulumi.Context, args LookupB2CTenantOutputArgs, opts ...pulumi.InvokeOption) LookupB2CTenantResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupB2CTenantResult, error) {
+			args := v.(LookupB2CTenantArgs)
+			r, err := LookupB2CTenant(ctx, &args, opts...)
+			return *r, err
+		}).(LookupB2CTenantResultOutput)
+}
+
+type LookupB2CTenantOutputArgs struct {
+	// The name of the resource group.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The initial domain name of the B2C tenant.
+	ResourceName pulumi.StringInput `pulumi:"resourceName"`
+}
+
+func (LookupB2CTenantOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupB2CTenantArgs)(nil)).Elem()
+}
+
+type LookupB2CTenantResultOutput struct{ *pulumi.OutputState }
+
+func (LookupB2CTenantResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupB2CTenantResult)(nil)).Elem()
+}
+
+func (o LookupB2CTenantResultOutput) ToLookupB2CTenantResultOutput() LookupB2CTenantResultOutput {
+	return o
+}
+
+func (o LookupB2CTenantResultOutput) ToLookupB2CTenantResultOutputWithContext(ctx context.Context) LookupB2CTenantResultOutput {
+	return o
+}
+
+// The billing configuration for the tenant.
+func (o LookupB2CTenantResultOutput) BillingConfig() B2CTenantResourcePropertiesResponseBillingConfigPtrOutput {
+	return o.ApplyT(func(v LookupB2CTenantResult) *B2CTenantResourcePropertiesResponseBillingConfig {
+		return v.BillingConfig
+	}).(B2CTenantResourcePropertiesResponseBillingConfigPtrOutput)
+}
+
+// An identifier that represents the B2C tenant resource.
+func (o LookupB2CTenantResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupB2CTenantResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The location in which the resource is hosted and data resides. Can be one of 'United States', 'Europe', 'Asia Pacific', or 'Australia' (preview). Refer to [this documentation](https://aka.ms/B2CDataResidency) for more information.
+func (o LookupB2CTenantResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupB2CTenantResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the B2C tenant resource.
+func (o LookupB2CTenantResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupB2CTenantResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// SKU properties of the Azure AD B2C tenant. Learn more about Azure AD B2C billing at [aka.ms/b2cBilling](https://aka.ms/b2cBilling).
+func (o LookupB2CTenantResultOutput) Sku() B2CResourceSKUResponseOutput {
+	return o.ApplyT(func(v LookupB2CTenantResult) B2CResourceSKUResponse { return v.Sku }).(B2CResourceSKUResponseOutput)
+}
+
+// Resource Tags
+func (o LookupB2CTenantResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupB2CTenantResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// An identifier of the B2C tenant.
+func (o LookupB2CTenantResultOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupB2CTenantResult) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+}
+
+// The type of the B2C tenant resource.
+func (o LookupB2CTenantResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupB2CTenantResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupB2CTenantResultOutput{})
 }

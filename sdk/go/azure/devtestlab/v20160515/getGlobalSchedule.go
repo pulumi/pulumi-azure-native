@@ -4,6 +4,9 @@
 package v20160515
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -60,4 +63,125 @@ type LookupGlobalScheduleResult struct {
 	UniqueIdentifier *string `pulumi:"uniqueIdentifier"`
 	// If the schedule will occur only some days of the week, specify the weekly recurrence.
 	WeeklyRecurrence *WeekDetailsResponse `pulumi:"weeklyRecurrence"`
+}
+
+func LookupGlobalScheduleOutput(ctx *pulumi.Context, args LookupGlobalScheduleOutputArgs, opts ...pulumi.InvokeOption) LookupGlobalScheduleResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupGlobalScheduleResult, error) {
+			args := v.(LookupGlobalScheduleArgs)
+			r, err := LookupGlobalSchedule(ctx, &args, opts...)
+			return *r, err
+		}).(LookupGlobalScheduleResultOutput)
+}
+
+type LookupGlobalScheduleOutputArgs struct {
+	// Specify the $expand query. Example: 'properties($select=status)'
+	Expand pulumi.StringPtrInput `pulumi:"expand"`
+	// The name of the schedule.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The name of the resource group.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupGlobalScheduleOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupGlobalScheduleArgs)(nil)).Elem()
+}
+
+// A schedule.
+type LookupGlobalScheduleResultOutput struct{ *pulumi.OutputState }
+
+func (LookupGlobalScheduleResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupGlobalScheduleResult)(nil)).Elem()
+}
+
+func (o LookupGlobalScheduleResultOutput) ToLookupGlobalScheduleResultOutput() LookupGlobalScheduleResultOutput {
+	return o
+}
+
+func (o LookupGlobalScheduleResultOutput) ToLookupGlobalScheduleResultOutputWithContext(ctx context.Context) LookupGlobalScheduleResultOutput {
+	return o
+}
+
+// The creation date of the schedule.
+func (o LookupGlobalScheduleResultOutput) CreatedDate() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupGlobalScheduleResult) string { return v.CreatedDate }).(pulumi.StringOutput)
+}
+
+// If the schedule will occur once each day of the week, specify the daily recurrence.
+func (o LookupGlobalScheduleResultOutput) DailyRecurrence() DayDetailsResponsePtrOutput {
+	return o.ApplyT(func(v LookupGlobalScheduleResult) *DayDetailsResponse { return v.DailyRecurrence }).(DayDetailsResponsePtrOutput)
+}
+
+// If the schedule will occur multiple times a day, specify the hourly recurrence.
+func (o LookupGlobalScheduleResultOutput) HourlyRecurrence() HourDetailsResponsePtrOutput {
+	return o.ApplyT(func(v LookupGlobalScheduleResult) *HourDetailsResponse { return v.HourlyRecurrence }).(HourDetailsResponsePtrOutput)
+}
+
+// The identifier of the resource.
+func (o LookupGlobalScheduleResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupGlobalScheduleResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The location of the resource.
+func (o LookupGlobalScheduleResultOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupGlobalScheduleResult) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource.
+func (o LookupGlobalScheduleResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupGlobalScheduleResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Notification settings.
+func (o LookupGlobalScheduleResultOutput) NotificationSettings() NotificationSettingsResponsePtrOutput {
+	return o.ApplyT(func(v LookupGlobalScheduleResult) *NotificationSettingsResponse { return v.NotificationSettings }).(NotificationSettingsResponsePtrOutput)
+}
+
+// The provisioning status of the resource.
+func (o LookupGlobalScheduleResultOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupGlobalScheduleResult) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+}
+
+// The status of the schedule (i.e. Enabled, Disabled)
+func (o LookupGlobalScheduleResultOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupGlobalScheduleResult) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+// The tags of the resource.
+func (o LookupGlobalScheduleResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupGlobalScheduleResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The resource ID to which the schedule belongs
+func (o LookupGlobalScheduleResultOutput) TargetResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupGlobalScheduleResult) *string { return v.TargetResourceId }).(pulumi.StringPtrOutput)
+}
+
+// The task type of the schedule (e.g. LabVmsShutdownTask, LabVmAutoStart).
+func (o LookupGlobalScheduleResultOutput) TaskType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupGlobalScheduleResult) *string { return v.TaskType }).(pulumi.StringPtrOutput)
+}
+
+// The time zone ID (e.g. Pacific Standard time).
+func (o LookupGlobalScheduleResultOutput) TimeZoneId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupGlobalScheduleResult) *string { return v.TimeZoneId }).(pulumi.StringPtrOutput)
+}
+
+// The type of the resource.
+func (o LookupGlobalScheduleResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupGlobalScheduleResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The unique immutable identifier of a resource (Guid).
+func (o LookupGlobalScheduleResultOutput) UniqueIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupGlobalScheduleResult) *string { return v.UniqueIdentifier }).(pulumi.StringPtrOutput)
+}
+
+// If the schedule will occur only some days of the week, specify the weekly recurrence.
+func (o LookupGlobalScheduleResultOutput) WeeklyRecurrence() WeekDetailsResponsePtrOutput {
+	return o.ApplyT(func(v LookupGlobalScheduleResult) *WeekDetailsResponse { return v.WeeklyRecurrence }).(WeekDetailsResponsePtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupGlobalScheduleResultOutput{})
 }

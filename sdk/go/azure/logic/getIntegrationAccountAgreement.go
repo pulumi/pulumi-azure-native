@@ -4,6 +4,9 @@
 package logic
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -57,4 +60,115 @@ type LookupIntegrationAccountAgreementResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Gets the resource type.
 	Type string `pulumi:"type"`
+}
+
+func LookupIntegrationAccountAgreementOutput(ctx *pulumi.Context, args LookupIntegrationAccountAgreementOutputArgs, opts ...pulumi.InvokeOption) LookupIntegrationAccountAgreementResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupIntegrationAccountAgreementResult, error) {
+			args := v.(LookupIntegrationAccountAgreementArgs)
+			r, err := LookupIntegrationAccountAgreement(ctx, &args, opts...)
+			return *r, err
+		}).(LookupIntegrationAccountAgreementResultOutput)
+}
+
+type LookupIntegrationAccountAgreementOutputArgs struct {
+	// The integration account agreement name.
+	AgreementName pulumi.StringInput `pulumi:"agreementName"`
+	// The integration account name.
+	IntegrationAccountName pulumi.StringInput `pulumi:"integrationAccountName"`
+	// The resource group name.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupIntegrationAccountAgreementOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupIntegrationAccountAgreementArgs)(nil)).Elem()
+}
+
+// The integration account agreement.
+type LookupIntegrationAccountAgreementResultOutput struct{ *pulumi.OutputState }
+
+func (LookupIntegrationAccountAgreementResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupIntegrationAccountAgreementResult)(nil)).Elem()
+}
+
+func (o LookupIntegrationAccountAgreementResultOutput) ToLookupIntegrationAccountAgreementResultOutput() LookupIntegrationAccountAgreementResultOutput {
+	return o
+}
+
+func (o LookupIntegrationAccountAgreementResultOutput) ToLookupIntegrationAccountAgreementResultOutputWithContext(ctx context.Context) LookupIntegrationAccountAgreementResultOutput {
+	return o
+}
+
+// The agreement type.
+func (o LookupIntegrationAccountAgreementResultOutput) AgreementType() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupIntegrationAccountAgreementResult) string { return v.AgreementType }).(pulumi.StringOutput)
+}
+
+// The changed time.
+func (o LookupIntegrationAccountAgreementResultOutput) ChangedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupIntegrationAccountAgreementResult) string { return v.ChangedTime }).(pulumi.StringOutput)
+}
+
+// The agreement content.
+func (o LookupIntegrationAccountAgreementResultOutput) Content() AgreementContentResponseOutput {
+	return o.ApplyT(func(v LookupIntegrationAccountAgreementResult) AgreementContentResponse { return v.Content }).(AgreementContentResponseOutput)
+}
+
+// The created time.
+func (o LookupIntegrationAccountAgreementResultOutput) CreatedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupIntegrationAccountAgreementResult) string { return v.CreatedTime }).(pulumi.StringOutput)
+}
+
+// The business identity of the guest partner.
+func (o LookupIntegrationAccountAgreementResultOutput) GuestIdentity() BusinessIdentityResponseOutput {
+	return o.ApplyT(func(v LookupIntegrationAccountAgreementResult) BusinessIdentityResponse { return v.GuestIdentity }).(BusinessIdentityResponseOutput)
+}
+
+// The integration account partner that is set as guest partner for this agreement.
+func (o LookupIntegrationAccountAgreementResultOutput) GuestPartner() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupIntegrationAccountAgreementResult) string { return v.GuestPartner }).(pulumi.StringOutput)
+}
+
+// The business identity of the host partner.
+func (o LookupIntegrationAccountAgreementResultOutput) HostIdentity() BusinessIdentityResponseOutput {
+	return o.ApplyT(func(v LookupIntegrationAccountAgreementResult) BusinessIdentityResponse { return v.HostIdentity }).(BusinessIdentityResponseOutput)
+}
+
+// The integration account partner that is set as host partner for this agreement.
+func (o LookupIntegrationAccountAgreementResultOutput) HostPartner() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupIntegrationAccountAgreementResult) string { return v.HostPartner }).(pulumi.StringOutput)
+}
+
+// The resource id.
+func (o LookupIntegrationAccountAgreementResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupIntegrationAccountAgreementResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The resource location.
+func (o LookupIntegrationAccountAgreementResultOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupIntegrationAccountAgreementResult) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The metadata.
+func (o LookupIntegrationAccountAgreementResultOutput) Metadata() pulumi.AnyOutput {
+	return o.ApplyT(func(v LookupIntegrationAccountAgreementResult) interface{} { return v.Metadata }).(pulumi.AnyOutput)
+}
+
+// Gets the resource name.
+func (o LookupIntegrationAccountAgreementResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupIntegrationAccountAgreementResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The resource tags.
+func (o LookupIntegrationAccountAgreementResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupIntegrationAccountAgreementResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Gets the resource type.
+func (o LookupIntegrationAccountAgreementResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupIntegrationAccountAgreementResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupIntegrationAccountAgreementResultOutput{})
 }

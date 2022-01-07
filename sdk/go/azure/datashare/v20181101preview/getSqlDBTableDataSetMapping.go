@@ -4,6 +4,9 @@
 package v20181101preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -53,4 +56,103 @@ type LookupSqlDBTableDataSetMappingResult struct {
 	TableName string `pulumi:"tableName"`
 	// Type of the azure resource
 	Type string `pulumi:"type"`
+}
+
+func LookupSqlDBTableDataSetMappingOutput(ctx *pulumi.Context, args LookupSqlDBTableDataSetMappingOutputArgs, opts ...pulumi.InvokeOption) LookupSqlDBTableDataSetMappingResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupSqlDBTableDataSetMappingResult, error) {
+			args := v.(LookupSqlDBTableDataSetMappingArgs)
+			r, err := LookupSqlDBTableDataSetMapping(ctx, &args, opts...)
+			return *r, err
+		}).(LookupSqlDBTableDataSetMappingResultOutput)
+}
+
+type LookupSqlDBTableDataSetMappingOutputArgs struct {
+	// The name of the share account.
+	AccountName pulumi.StringInput `pulumi:"accountName"`
+	// The name of the dataSetMapping.
+	DataSetMappingName pulumi.StringInput `pulumi:"dataSetMappingName"`
+	// The resource group name.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the shareSubscription.
+	ShareSubscriptionName pulumi.StringInput `pulumi:"shareSubscriptionName"`
+}
+
+func (LookupSqlDBTableDataSetMappingOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupSqlDBTableDataSetMappingArgs)(nil)).Elem()
+}
+
+// A SQL DB Table data set mapping.
+type LookupSqlDBTableDataSetMappingResultOutput struct{ *pulumi.OutputState }
+
+func (LookupSqlDBTableDataSetMappingResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupSqlDBTableDataSetMappingResult)(nil)).Elem()
+}
+
+func (o LookupSqlDBTableDataSetMappingResultOutput) ToLookupSqlDBTableDataSetMappingResultOutput() LookupSqlDBTableDataSetMappingResultOutput {
+	return o
+}
+
+func (o LookupSqlDBTableDataSetMappingResultOutput) ToLookupSqlDBTableDataSetMappingResultOutputWithContext(ctx context.Context) LookupSqlDBTableDataSetMappingResultOutput {
+	return o
+}
+
+// The id of the source data set.
+func (o LookupSqlDBTableDataSetMappingResultOutput) DataSetId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSqlDBTableDataSetMappingResult) string { return v.DataSetId }).(pulumi.StringOutput)
+}
+
+// Gets the status of the data set mapping.
+func (o LookupSqlDBTableDataSetMappingResultOutput) DataSetMappingStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSqlDBTableDataSetMappingResult) string { return v.DataSetMappingStatus }).(pulumi.StringOutput)
+}
+
+// DatabaseName name of the sink data set
+func (o LookupSqlDBTableDataSetMappingResultOutput) DatabaseName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSqlDBTableDataSetMappingResult) string { return v.DatabaseName }).(pulumi.StringOutput)
+}
+
+// The resource id of the azure resource
+func (o LookupSqlDBTableDataSetMappingResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSqlDBTableDataSetMappingResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Kind of data set mapping.
+// Expected value is 'SqlDBTable'.
+func (o LookupSqlDBTableDataSetMappingResultOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSqlDBTableDataSetMappingResult) string { return v.Kind }).(pulumi.StringOutput)
+}
+
+// Name of the azure resource
+func (o LookupSqlDBTableDataSetMappingResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSqlDBTableDataSetMappingResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Provisioning state of the data set mapping.
+func (o LookupSqlDBTableDataSetMappingResultOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSqlDBTableDataSetMappingResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Schema of the table. Default value is dbo.
+func (o LookupSqlDBTableDataSetMappingResultOutput) SchemaName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSqlDBTableDataSetMappingResult) string { return v.SchemaName }).(pulumi.StringOutput)
+}
+
+// Resource id of SQL server
+func (o LookupSqlDBTableDataSetMappingResultOutput) SqlServerResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSqlDBTableDataSetMappingResult) string { return v.SqlServerResourceId }).(pulumi.StringOutput)
+}
+
+// SQL DB table name.
+func (o LookupSqlDBTableDataSetMappingResultOutput) TableName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSqlDBTableDataSetMappingResult) string { return v.TableName }).(pulumi.StringOutput)
+}
+
+// Type of the azure resource
+func (o LookupSqlDBTableDataSetMappingResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSqlDBTableDataSetMappingResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupSqlDBTableDataSetMappingResultOutput{})
 }

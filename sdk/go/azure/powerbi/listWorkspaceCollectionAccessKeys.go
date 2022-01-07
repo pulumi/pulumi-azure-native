@@ -4,6 +4,9 @@
 package powerbi
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -29,4 +32,52 @@ type ListWorkspaceCollectionAccessKeysResult struct {
 	Key1 *string `pulumi:"key1"`
 	// Access key 2
 	Key2 *string `pulumi:"key2"`
+}
+
+func ListWorkspaceCollectionAccessKeysOutput(ctx *pulumi.Context, args ListWorkspaceCollectionAccessKeysOutputArgs, opts ...pulumi.InvokeOption) ListWorkspaceCollectionAccessKeysResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (ListWorkspaceCollectionAccessKeysResult, error) {
+			args := v.(ListWorkspaceCollectionAccessKeysArgs)
+			r, err := ListWorkspaceCollectionAccessKeys(ctx, &args, opts...)
+			return *r, err
+		}).(ListWorkspaceCollectionAccessKeysResultOutput)
+}
+
+type ListWorkspaceCollectionAccessKeysOutputArgs struct {
+	// Azure resource group
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// Power BI Embedded Workspace Collection name
+	WorkspaceCollectionName pulumi.StringInput `pulumi:"workspaceCollectionName"`
+}
+
+func (ListWorkspaceCollectionAccessKeysOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListWorkspaceCollectionAccessKeysArgs)(nil)).Elem()
+}
+
+type ListWorkspaceCollectionAccessKeysResultOutput struct{ *pulumi.OutputState }
+
+func (ListWorkspaceCollectionAccessKeysResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListWorkspaceCollectionAccessKeysResult)(nil)).Elem()
+}
+
+func (o ListWorkspaceCollectionAccessKeysResultOutput) ToListWorkspaceCollectionAccessKeysResultOutput() ListWorkspaceCollectionAccessKeysResultOutput {
+	return o
+}
+
+func (o ListWorkspaceCollectionAccessKeysResultOutput) ToListWorkspaceCollectionAccessKeysResultOutputWithContext(ctx context.Context) ListWorkspaceCollectionAccessKeysResultOutput {
+	return o
+}
+
+// Access key 1
+func (o ListWorkspaceCollectionAccessKeysResultOutput) Key1() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListWorkspaceCollectionAccessKeysResult) *string { return v.Key1 }).(pulumi.StringPtrOutput)
+}
+
+// Access key 2
+func (o ListWorkspaceCollectionAccessKeysResultOutput) Key2() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListWorkspaceCollectionAccessKeysResult) *string { return v.Key2 }).(pulumi.StringPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(ListWorkspaceCollectionAccessKeysResultOutput{})
 }

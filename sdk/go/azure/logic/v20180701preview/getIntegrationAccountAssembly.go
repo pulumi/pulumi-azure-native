@@ -4,6 +4,9 @@
 package v20180701preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -40,4 +43,75 @@ type LookupIntegrationAccountAssemblyResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Gets the resource type.
 	Type string `pulumi:"type"`
+}
+
+func LookupIntegrationAccountAssemblyOutput(ctx *pulumi.Context, args LookupIntegrationAccountAssemblyOutputArgs, opts ...pulumi.InvokeOption) LookupIntegrationAccountAssemblyResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupIntegrationAccountAssemblyResult, error) {
+			args := v.(LookupIntegrationAccountAssemblyArgs)
+			r, err := LookupIntegrationAccountAssembly(ctx, &args, opts...)
+			return *r, err
+		}).(LookupIntegrationAccountAssemblyResultOutput)
+}
+
+type LookupIntegrationAccountAssemblyOutputArgs struct {
+	// The assembly artifact name.
+	AssemblyArtifactName pulumi.StringInput `pulumi:"assemblyArtifactName"`
+	// The integration account name.
+	IntegrationAccountName pulumi.StringInput `pulumi:"integrationAccountName"`
+	// The resource group name.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupIntegrationAccountAssemblyOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupIntegrationAccountAssemblyArgs)(nil)).Elem()
+}
+
+// The assembly definition.
+type LookupIntegrationAccountAssemblyResultOutput struct{ *pulumi.OutputState }
+
+func (LookupIntegrationAccountAssemblyResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupIntegrationAccountAssemblyResult)(nil)).Elem()
+}
+
+func (o LookupIntegrationAccountAssemblyResultOutput) ToLookupIntegrationAccountAssemblyResultOutput() LookupIntegrationAccountAssemblyResultOutput {
+	return o
+}
+
+func (o LookupIntegrationAccountAssemblyResultOutput) ToLookupIntegrationAccountAssemblyResultOutputWithContext(ctx context.Context) LookupIntegrationAccountAssemblyResultOutput {
+	return o
+}
+
+// The resource id.
+func (o LookupIntegrationAccountAssemblyResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupIntegrationAccountAssemblyResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The resource location.
+func (o LookupIntegrationAccountAssemblyResultOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupIntegrationAccountAssemblyResult) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Gets the resource name.
+func (o LookupIntegrationAccountAssemblyResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupIntegrationAccountAssemblyResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The assembly properties.
+func (o LookupIntegrationAccountAssemblyResultOutput) Properties() AssemblyPropertiesResponseOutput {
+	return o.ApplyT(func(v LookupIntegrationAccountAssemblyResult) AssemblyPropertiesResponse { return v.Properties }).(AssemblyPropertiesResponseOutput)
+}
+
+// The resource tags.
+func (o LookupIntegrationAccountAssemblyResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupIntegrationAccountAssemblyResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Gets the resource type.
+func (o LookupIntegrationAccountAssemblyResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupIntegrationAccountAssemblyResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupIntegrationAccountAssemblyResultOutput{})
 }

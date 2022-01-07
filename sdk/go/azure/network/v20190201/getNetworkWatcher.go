@@ -4,6 +4,9 @@
 package v20190201
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -40,4 +43,78 @@ type LookupNetworkWatcherResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.
 	Type string `pulumi:"type"`
+}
+
+func LookupNetworkWatcherOutput(ctx *pulumi.Context, args LookupNetworkWatcherOutputArgs, opts ...pulumi.InvokeOption) LookupNetworkWatcherResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupNetworkWatcherResult, error) {
+			args := v.(LookupNetworkWatcherArgs)
+			r, err := LookupNetworkWatcher(ctx, &args, opts...)
+			return *r, err
+		}).(LookupNetworkWatcherResultOutput)
+}
+
+type LookupNetworkWatcherOutputArgs struct {
+	// The name of the network watcher.
+	NetworkWatcherName pulumi.StringInput `pulumi:"networkWatcherName"`
+	// The name of the resource group.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupNetworkWatcherOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupNetworkWatcherArgs)(nil)).Elem()
+}
+
+// Network watcher in a resource group.
+type LookupNetworkWatcherResultOutput struct{ *pulumi.OutputState }
+
+func (LookupNetworkWatcherResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupNetworkWatcherResult)(nil)).Elem()
+}
+
+func (o LookupNetworkWatcherResultOutput) ToLookupNetworkWatcherResultOutput() LookupNetworkWatcherResultOutput {
+	return o
+}
+
+func (o LookupNetworkWatcherResultOutput) ToLookupNetworkWatcherResultOutputWithContext(ctx context.Context) LookupNetworkWatcherResultOutput {
+	return o
+}
+
+// A unique read-only string that changes whenever the resource is updated.
+func (o LookupNetworkWatcherResultOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupNetworkWatcherResult) *string { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// Resource ID.
+func (o LookupNetworkWatcherResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupNetworkWatcherResult) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// Resource location.
+func (o LookupNetworkWatcherResultOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupNetworkWatcherResult) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Resource name.
+func (o LookupNetworkWatcherResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupNetworkWatcherResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The provisioning state of the resource.
+func (o LookupNetworkWatcherResultOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupNetworkWatcherResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Resource tags.
+func (o LookupNetworkWatcherResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupNetworkWatcherResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type.
+func (o LookupNetworkWatcherResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupNetworkWatcherResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupNetworkWatcherResultOutput{})
 }

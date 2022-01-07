@@ -4,6 +4,9 @@
 package v20180601preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -44,4 +47,79 @@ type LookupApiIssueAttachmentResult struct {
 	Title string `pulumi:"title"`
 	// Resource type for API Management resource.
 	Type string `pulumi:"type"`
+}
+
+func LookupApiIssueAttachmentOutput(ctx *pulumi.Context, args LookupApiIssueAttachmentOutputArgs, opts ...pulumi.InvokeOption) LookupApiIssueAttachmentResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupApiIssueAttachmentResult, error) {
+			args := v.(LookupApiIssueAttachmentArgs)
+			r, err := LookupApiIssueAttachment(ctx, &args, opts...)
+			return *r, err
+		}).(LookupApiIssueAttachmentResultOutput)
+}
+
+type LookupApiIssueAttachmentOutputArgs struct {
+	// API identifier. Must be unique in the current API Management service instance.
+	ApiId pulumi.StringInput `pulumi:"apiId"`
+	// Attachment identifier within an Issue. Must be unique in the current Issue.
+	AttachmentId pulumi.StringInput `pulumi:"attachmentId"`
+	// Issue identifier. Must be unique in the current API Management service instance.
+	IssueId pulumi.StringInput `pulumi:"issueId"`
+	// The name of the resource group.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the API Management service.
+	ServiceName pulumi.StringInput `pulumi:"serviceName"`
+}
+
+func (LookupApiIssueAttachmentOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupApiIssueAttachmentArgs)(nil)).Elem()
+}
+
+// Issue Attachment Contract details.
+type LookupApiIssueAttachmentResultOutput struct{ *pulumi.OutputState }
+
+func (LookupApiIssueAttachmentResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupApiIssueAttachmentResult)(nil)).Elem()
+}
+
+func (o LookupApiIssueAttachmentResultOutput) ToLookupApiIssueAttachmentResultOutput() LookupApiIssueAttachmentResultOutput {
+	return o
+}
+
+func (o LookupApiIssueAttachmentResultOutput) ToLookupApiIssueAttachmentResultOutputWithContext(ctx context.Context) LookupApiIssueAttachmentResultOutput {
+	return o
+}
+
+// An HTTP link or Base64-encoded binary data.
+func (o LookupApiIssueAttachmentResultOutput) Content() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupApiIssueAttachmentResult) string { return v.Content }).(pulumi.StringOutput)
+}
+
+// Either 'link' if content is provided via an HTTP link or the MIME type of the Base64-encoded binary data provided in the 'content' property.
+func (o LookupApiIssueAttachmentResultOutput) ContentFormat() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupApiIssueAttachmentResult) string { return v.ContentFormat }).(pulumi.StringOutput)
+}
+
+// Resource ID.
+func (o LookupApiIssueAttachmentResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupApiIssueAttachmentResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o LookupApiIssueAttachmentResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupApiIssueAttachmentResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Filename by which the binary data will be saved.
+func (o LookupApiIssueAttachmentResultOutput) Title() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupApiIssueAttachmentResult) string { return v.Title }).(pulumi.StringOutput)
+}
+
+// Resource type for API Management resource.
+func (o LookupApiIssueAttachmentResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupApiIssueAttachmentResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupApiIssueAttachmentResultOutput{})
 }

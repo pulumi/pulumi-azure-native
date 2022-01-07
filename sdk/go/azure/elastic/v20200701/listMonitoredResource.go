@@ -4,6 +4,9 @@
 package v20200701
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -30,4 +33,53 @@ type ListMonitoredResourceResult struct {
 	NextLink *string `pulumi:"nextLink"`
 	// Results of a list operation.
 	Value []MonitoredResourceResponse `pulumi:"value"`
+}
+
+func ListMonitoredResourceOutput(ctx *pulumi.Context, args ListMonitoredResourceOutputArgs, opts ...pulumi.InvokeOption) ListMonitoredResourceResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (ListMonitoredResourceResult, error) {
+			args := v.(ListMonitoredResourceArgs)
+			r, err := ListMonitoredResource(ctx, &args, opts...)
+			return *r, err
+		}).(ListMonitoredResourceResultOutput)
+}
+
+type ListMonitoredResourceOutputArgs struct {
+	// Monitor resource name
+	MonitorName pulumi.StringInput `pulumi:"monitorName"`
+	// The name of the resource group to which the Elastic resource belongs.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (ListMonitoredResourceOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListMonitoredResourceArgs)(nil)).Elem()
+}
+
+// Response of a list operation.
+type ListMonitoredResourceResultOutput struct{ *pulumi.OutputState }
+
+func (ListMonitoredResourceResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListMonitoredResourceResult)(nil)).Elem()
+}
+
+func (o ListMonitoredResourceResultOutput) ToListMonitoredResourceResultOutput() ListMonitoredResourceResultOutput {
+	return o
+}
+
+func (o ListMonitoredResourceResultOutput) ToListMonitoredResourceResultOutputWithContext(ctx context.Context) ListMonitoredResourceResultOutput {
+	return o
+}
+
+// Link to the next set of results, if any.
+func (o ListMonitoredResourceResultOutput) NextLink() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListMonitoredResourceResult) *string { return v.NextLink }).(pulumi.StringPtrOutput)
+}
+
+// Results of a list operation.
+func (o ListMonitoredResourceResultOutput) Value() MonitoredResourceResponseArrayOutput {
+	return o.ApplyT(func(v ListMonitoredResourceResult) []MonitoredResourceResponse { return v.Value }).(MonitoredResourceResponseArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(ListMonitoredResourceResultOutput{})
 }

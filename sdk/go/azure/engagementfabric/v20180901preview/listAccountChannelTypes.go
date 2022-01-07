@@ -4,6 +4,9 @@
 package v20180901preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -28,4 +31,48 @@ type ListAccountChannelTypesArgs struct {
 type ListAccountChannelTypesResult struct {
 	// Channel descriptions
 	Value []ChannelTypeDescriptionResponse `pulumi:"value"`
+}
+
+func ListAccountChannelTypesOutput(ctx *pulumi.Context, args ListAccountChannelTypesOutputArgs, opts ...pulumi.InvokeOption) ListAccountChannelTypesResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (ListAccountChannelTypesResult, error) {
+			args := v.(ListAccountChannelTypesArgs)
+			r, err := ListAccountChannelTypes(ctx, &args, opts...)
+			return *r, err
+		}).(ListAccountChannelTypesResultOutput)
+}
+
+type ListAccountChannelTypesOutputArgs struct {
+	// Account Name
+	AccountName pulumi.StringInput `pulumi:"accountName"`
+	// Resource Group Name
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (ListAccountChannelTypesOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListAccountChannelTypesArgs)(nil)).Elem()
+}
+
+// List of the EngagementFabric channel descriptions
+type ListAccountChannelTypesResultOutput struct{ *pulumi.OutputState }
+
+func (ListAccountChannelTypesResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListAccountChannelTypesResult)(nil)).Elem()
+}
+
+func (o ListAccountChannelTypesResultOutput) ToListAccountChannelTypesResultOutput() ListAccountChannelTypesResultOutput {
+	return o
+}
+
+func (o ListAccountChannelTypesResultOutput) ToListAccountChannelTypesResultOutputWithContext(ctx context.Context) ListAccountChannelTypesResultOutput {
+	return o
+}
+
+// Channel descriptions
+func (o ListAccountChannelTypesResultOutput) Value() ChannelTypeDescriptionResponseArrayOutput {
+	return o.ApplyT(func(v ListAccountChannelTypesResult) []ChannelTypeDescriptionResponse { return v.Value }).(ChannelTypeDescriptionResponseArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(ListAccountChannelTypesResultOutput{})
 }

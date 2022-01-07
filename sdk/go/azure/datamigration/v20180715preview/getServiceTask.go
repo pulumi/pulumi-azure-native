@@ -4,6 +4,9 @@
 package v20180715preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -40,4 +43,72 @@ type LookupServiceTaskResult struct {
 	Properties interface{} `pulumi:"properties"`
 	// Resource type.
 	Type string `pulumi:"type"`
+}
+
+func LookupServiceTaskOutput(ctx *pulumi.Context, args LookupServiceTaskOutputArgs, opts ...pulumi.InvokeOption) LookupServiceTaskResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupServiceTaskResult, error) {
+			args := v.(LookupServiceTaskArgs)
+			r, err := LookupServiceTask(ctx, &args, opts...)
+			return *r, err
+		}).(LookupServiceTaskResultOutput)
+}
+
+type LookupServiceTaskOutputArgs struct {
+	// Expand the response
+	Expand pulumi.StringPtrInput `pulumi:"expand"`
+	// Name of the resource group
+	GroupName pulumi.StringInput `pulumi:"groupName"`
+	// Name of the service
+	ServiceName pulumi.StringInput `pulumi:"serviceName"`
+	// Name of the Task
+	TaskName pulumi.StringInput `pulumi:"taskName"`
+}
+
+func (LookupServiceTaskOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupServiceTaskArgs)(nil)).Elem()
+}
+
+// A task resource
+type LookupServiceTaskResultOutput struct{ *pulumi.OutputState }
+
+func (LookupServiceTaskResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupServiceTaskResult)(nil)).Elem()
+}
+
+func (o LookupServiceTaskResultOutput) ToLookupServiceTaskResultOutput() LookupServiceTaskResultOutput {
+	return o
+}
+
+func (o LookupServiceTaskResultOutput) ToLookupServiceTaskResultOutputWithContext(ctx context.Context) LookupServiceTaskResultOutput {
+	return o
+}
+
+// HTTP strong entity tag value. This is ignored if submitted.
+func (o LookupServiceTaskResultOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupServiceTaskResult) *string { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// Resource ID.
+func (o LookupServiceTaskResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServiceTaskResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o LookupServiceTaskResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServiceTaskResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Custom task properties
+func (o LookupServiceTaskResultOutput) Properties() pulumi.AnyOutput {
+	return o.ApplyT(func(v LookupServiceTaskResult) interface{} { return v.Properties }).(pulumi.AnyOutput)
+}
+
+// Resource type.
+func (o LookupServiceTaskResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServiceTaskResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupServiceTaskResultOutput{})
 }

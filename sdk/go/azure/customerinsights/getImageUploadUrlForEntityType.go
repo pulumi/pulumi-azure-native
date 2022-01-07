@@ -4,6 +4,9 @@
 package customerinsights
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -39,4 +42,64 @@ type GetImageUploadUrlForEntityTypeResult struct {
 	ImageExists *bool `pulumi:"imageExists"`
 	// Relative path of the image.
 	RelativePath *string `pulumi:"relativePath"`
+}
+
+func GetImageUploadUrlForEntityTypeOutput(ctx *pulumi.Context, args GetImageUploadUrlForEntityTypeOutputArgs, opts ...pulumi.InvokeOption) GetImageUploadUrlForEntityTypeResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetImageUploadUrlForEntityTypeResult, error) {
+			args := v.(GetImageUploadUrlForEntityTypeArgs)
+			r, err := GetImageUploadUrlForEntityType(ctx, &args, opts...)
+			return *r, err
+		}).(GetImageUploadUrlForEntityTypeResultOutput)
+}
+
+type GetImageUploadUrlForEntityTypeOutputArgs struct {
+	// Type of entity. Can be Profile or Interaction.
+	EntityType pulumi.StringPtrInput `pulumi:"entityType"`
+	// Name of the entity type.
+	EntityTypeName pulumi.StringPtrInput `pulumi:"entityTypeName"`
+	// The name of the hub.
+	HubName pulumi.StringInput `pulumi:"hubName"`
+	// Relative path of the image.
+	RelativePath pulumi.StringPtrInput `pulumi:"relativePath"`
+	// The name of the resource group.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (GetImageUploadUrlForEntityTypeOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetImageUploadUrlForEntityTypeArgs)(nil)).Elem()
+}
+
+// The image definition.
+type GetImageUploadUrlForEntityTypeResultOutput struct{ *pulumi.OutputState }
+
+func (GetImageUploadUrlForEntityTypeResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetImageUploadUrlForEntityTypeResult)(nil)).Elem()
+}
+
+func (o GetImageUploadUrlForEntityTypeResultOutput) ToGetImageUploadUrlForEntityTypeResultOutput() GetImageUploadUrlForEntityTypeResultOutput {
+	return o
+}
+
+func (o GetImageUploadUrlForEntityTypeResultOutput) ToGetImageUploadUrlForEntityTypeResultOutputWithContext(ctx context.Context) GetImageUploadUrlForEntityTypeResultOutput {
+	return o
+}
+
+// Content URL for the image blob.
+func (o GetImageUploadUrlForEntityTypeResultOutput) ContentUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetImageUploadUrlForEntityTypeResult) *string { return v.ContentUrl }).(pulumi.StringPtrOutput)
+}
+
+// Whether image exists already.
+func (o GetImageUploadUrlForEntityTypeResultOutput) ImageExists() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetImageUploadUrlForEntityTypeResult) *bool { return v.ImageExists }).(pulumi.BoolPtrOutput)
+}
+
+// Relative path of the image.
+func (o GetImageUploadUrlForEntityTypeResultOutput) RelativePath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetImageUploadUrlForEntityTypeResult) *string { return v.RelativePath }).(pulumi.StringPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetImageUploadUrlForEntityTypeResultOutput{})
 }

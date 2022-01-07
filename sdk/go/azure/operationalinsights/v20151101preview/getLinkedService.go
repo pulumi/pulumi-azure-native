@@ -4,6 +4,9 @@
 package v20151101preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -36,4 +39,65 @@ type LookupLinkedServiceResult struct {
 	ResourceId string `pulumi:"resourceId"`
 	// Resource type.
 	Type string `pulumi:"type"`
+}
+
+func LookupLinkedServiceOutput(ctx *pulumi.Context, args LookupLinkedServiceOutputArgs, opts ...pulumi.InvokeOption) LookupLinkedServiceResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupLinkedServiceResult, error) {
+			args := v.(LookupLinkedServiceArgs)
+			r, err := LookupLinkedService(ctx, &args, opts...)
+			return *r, err
+		}).(LookupLinkedServiceResultOutput)
+}
+
+type LookupLinkedServiceOutputArgs struct {
+	// Name of the linked service.
+	LinkedServiceName pulumi.StringInput `pulumi:"linkedServiceName"`
+	// The name of the resource group to get. The name is case insensitive.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// Name of the Log Analytics Workspace that contains the linkedServices resource
+	WorkspaceName pulumi.StringInput `pulumi:"workspaceName"`
+}
+
+func (LookupLinkedServiceOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupLinkedServiceArgs)(nil)).Elem()
+}
+
+// The top level Linked service resource container.
+type LookupLinkedServiceResultOutput struct{ *pulumi.OutputState }
+
+func (LookupLinkedServiceResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupLinkedServiceResult)(nil)).Elem()
+}
+
+func (o LookupLinkedServiceResultOutput) ToLookupLinkedServiceResultOutput() LookupLinkedServiceResultOutput {
+	return o
+}
+
+func (o LookupLinkedServiceResultOutput) ToLookupLinkedServiceResultOutputWithContext(ctx context.Context) LookupLinkedServiceResultOutput {
+	return o
+}
+
+// Resource ID.
+func (o LookupLinkedServiceResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupLinkedServiceResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o LookupLinkedServiceResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupLinkedServiceResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The resource id of the resource that will be linked to the workspace.
+func (o LookupLinkedServiceResultOutput) ResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupLinkedServiceResult) string { return v.ResourceId }).(pulumi.StringOutput)
+}
+
+// Resource type.
+func (o LookupLinkedServiceResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupLinkedServiceResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupLinkedServiceResultOutput{})
 }

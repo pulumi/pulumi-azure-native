@@ -4,6 +4,9 @@
 package v20170401preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -36,4 +39,65 @@ type LookupFunctionResult struct {
 	Properties interface{} `pulumi:"properties"`
 	// Resource type
 	Type string `pulumi:"type"`
+}
+
+func LookupFunctionOutput(ctx *pulumi.Context, args LookupFunctionOutputArgs, opts ...pulumi.InvokeOption) LookupFunctionResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupFunctionResult, error) {
+			args := v.(LookupFunctionArgs)
+			r, err := LookupFunction(ctx, &args, opts...)
+			return *r, err
+		}).(LookupFunctionResultOutput)
+}
+
+type LookupFunctionOutputArgs struct {
+	// The name of the function.
+	FunctionName pulumi.StringInput `pulumi:"functionName"`
+	// The name of the streaming job.
+	JobName pulumi.StringInput `pulumi:"jobName"`
+	// The name of the resource group. The name is case insensitive.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupFunctionOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupFunctionArgs)(nil)).Elem()
+}
+
+// A function object, containing all information associated with the named function. All functions are contained under a streaming job.
+type LookupFunctionResultOutput struct{ *pulumi.OutputState }
+
+func (LookupFunctionResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupFunctionResult)(nil)).Elem()
+}
+
+func (o LookupFunctionResultOutput) ToLookupFunctionResultOutput() LookupFunctionResultOutput {
+	return o
+}
+
+func (o LookupFunctionResultOutput) ToLookupFunctionResultOutputWithContext(ctx context.Context) LookupFunctionResultOutput {
+	return o
+}
+
+// Resource Id
+func (o LookupFunctionResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupFunctionResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Resource name
+func (o LookupFunctionResultOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupFunctionResult) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The properties that are associated with a function.
+func (o LookupFunctionResultOutput) Properties() pulumi.AnyOutput {
+	return o.ApplyT(func(v LookupFunctionResult) interface{} { return v.Properties }).(pulumi.AnyOutput)
+}
+
+// Resource type
+func (o LookupFunctionResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupFunctionResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupFunctionResultOutput{})
 }

@@ -4,6 +4,9 @@
 package v20180402
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -54,4 +57,107 @@ type LookupServerEndpointResult struct {
 	Type string `pulumi:"type"`
 	// Level of free space to be maintained by Cloud Tiering if it is enabled.
 	VolumeFreeSpacePercent *int `pulumi:"volumeFreeSpacePercent"`
+}
+
+func LookupServerEndpointOutput(ctx *pulumi.Context, args LookupServerEndpointOutputArgs, opts ...pulumi.InvokeOption) LookupServerEndpointResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupServerEndpointResult, error) {
+			args := v.(LookupServerEndpointArgs)
+			r, err := LookupServerEndpoint(ctx, &args, opts...)
+			return *r, err
+		}).(LookupServerEndpointResultOutput)
+}
+
+type LookupServerEndpointOutputArgs struct {
+	// The name of the resource group. The name is case insensitive.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// Name of Server Endpoint object.
+	ServerEndpointName pulumi.StringInput `pulumi:"serverEndpointName"`
+	// Name of Storage Sync Service resource.
+	StorageSyncServiceName pulumi.StringInput `pulumi:"storageSyncServiceName"`
+	// Name of Sync Group resource.
+	SyncGroupName pulumi.StringInput `pulumi:"syncGroupName"`
+}
+
+func (LookupServerEndpointOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupServerEndpointArgs)(nil)).Elem()
+}
+
+// Server Endpoint object.
+type LookupServerEndpointResultOutput struct{ *pulumi.OutputState }
+
+func (LookupServerEndpointResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupServerEndpointResult)(nil)).Elem()
+}
+
+func (o LookupServerEndpointResultOutput) ToLookupServerEndpointResultOutput() LookupServerEndpointResultOutput {
+	return o
+}
+
+func (o LookupServerEndpointResultOutput) ToLookupServerEndpointResultOutputWithContext(ctx context.Context) LookupServerEndpointResultOutput {
+	return o
+}
+
+// Cloud Tiering.
+func (o LookupServerEndpointResultOutput) CloudTiering() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupServerEndpointResult) *string { return v.CloudTiering }).(pulumi.StringPtrOutput)
+}
+
+// Friendly Name
+func (o LookupServerEndpointResultOutput) FriendlyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupServerEndpointResult) *string { return v.FriendlyName }).(pulumi.StringPtrOutput)
+}
+
+// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+func (o LookupServerEndpointResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServerEndpointResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Resource Last Operation Name
+func (o LookupServerEndpointResultOutput) LastOperationName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupServerEndpointResult) *string { return v.LastOperationName }).(pulumi.StringPtrOutput)
+}
+
+// ServerEndpoint lastWorkflowId
+func (o LookupServerEndpointResultOutput) LastWorkflowId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupServerEndpointResult) *string { return v.LastWorkflowId }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource
+func (o LookupServerEndpointResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServerEndpointResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// ServerEndpoint Provisioning State
+func (o LookupServerEndpointResultOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupServerEndpointResult) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+}
+
+// Server Local path.
+func (o LookupServerEndpointResultOutput) ServerLocalPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupServerEndpointResult) *string { return v.ServerLocalPath }).(pulumi.StringPtrOutput)
+}
+
+// Server Resource Id.
+func (o LookupServerEndpointResultOutput) ServerResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupServerEndpointResult) *string { return v.ServerResourceId }).(pulumi.StringPtrOutput)
+}
+
+// Sync Health Status
+func (o LookupServerEndpointResultOutput) SyncStatus() pulumi.AnyOutput {
+	return o.ApplyT(func(v LookupServerEndpointResult) interface{} { return v.SyncStatus }).(pulumi.AnyOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o LookupServerEndpointResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServerEndpointResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Level of free space to be maintained by Cloud Tiering if it is enabled.
+func (o LookupServerEndpointResultOutput) VolumeFreeSpacePercent() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupServerEndpointResult) *int { return v.VolumeFreeSpacePercent }).(pulumi.IntPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupServerEndpointResultOutput{})
 }

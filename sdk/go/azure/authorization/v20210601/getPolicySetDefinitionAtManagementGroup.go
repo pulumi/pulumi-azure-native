@@ -4,6 +4,9 @@
 package v20210601
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -48,4 +51,104 @@ type LookupPolicySetDefinitionAtManagementGroupResult struct {
 	SystemData SystemDataResponse `pulumi:"systemData"`
 	// The type of the resource (Microsoft.Authorization/policySetDefinitions).
 	Type string `pulumi:"type"`
+}
+
+func LookupPolicySetDefinitionAtManagementGroupOutput(ctx *pulumi.Context, args LookupPolicySetDefinitionAtManagementGroupOutputArgs, opts ...pulumi.InvokeOption) LookupPolicySetDefinitionAtManagementGroupResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupPolicySetDefinitionAtManagementGroupResult, error) {
+			args := v.(LookupPolicySetDefinitionAtManagementGroupArgs)
+			r, err := LookupPolicySetDefinitionAtManagementGroup(ctx, &args, opts...)
+			return *r, err
+		}).(LookupPolicySetDefinitionAtManagementGroupResultOutput)
+}
+
+type LookupPolicySetDefinitionAtManagementGroupOutputArgs struct {
+	// The ID of the management group.
+	ManagementGroupId pulumi.StringInput `pulumi:"managementGroupId"`
+	// The name of the policy set definition to get.
+	PolicySetDefinitionName pulumi.StringInput `pulumi:"policySetDefinitionName"`
+}
+
+func (LookupPolicySetDefinitionAtManagementGroupOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupPolicySetDefinitionAtManagementGroupArgs)(nil)).Elem()
+}
+
+// The policy set definition.
+type LookupPolicySetDefinitionAtManagementGroupResultOutput struct{ *pulumi.OutputState }
+
+func (LookupPolicySetDefinitionAtManagementGroupResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupPolicySetDefinitionAtManagementGroupResult)(nil)).Elem()
+}
+
+func (o LookupPolicySetDefinitionAtManagementGroupResultOutput) ToLookupPolicySetDefinitionAtManagementGroupResultOutput() LookupPolicySetDefinitionAtManagementGroupResultOutput {
+	return o
+}
+
+func (o LookupPolicySetDefinitionAtManagementGroupResultOutput) ToLookupPolicySetDefinitionAtManagementGroupResultOutputWithContext(ctx context.Context) LookupPolicySetDefinitionAtManagementGroupResultOutput {
+	return o
+}
+
+// The policy set definition description.
+func (o LookupPolicySetDefinitionAtManagementGroupResultOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupPolicySetDefinitionAtManagementGroupResult) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The display name of the policy set definition.
+func (o LookupPolicySetDefinitionAtManagementGroupResultOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupPolicySetDefinitionAtManagementGroupResult) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the policy set definition.
+func (o LookupPolicySetDefinitionAtManagementGroupResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPolicySetDefinitionAtManagementGroupResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The policy set definition metadata.  Metadata is an open ended object and is typically a collection of key value pairs.
+func (o LookupPolicySetDefinitionAtManagementGroupResultOutput) Metadata() pulumi.AnyOutput {
+	return o.ApplyT(func(v LookupPolicySetDefinitionAtManagementGroupResult) interface{} { return v.Metadata }).(pulumi.AnyOutput)
+}
+
+// The name of the policy set definition.
+func (o LookupPolicySetDefinitionAtManagementGroupResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPolicySetDefinitionAtManagementGroupResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The policy set definition parameters that can be used in policy definition references.
+func (o LookupPolicySetDefinitionAtManagementGroupResultOutput) Parameters() ParameterDefinitionsValueResponseMapOutput {
+	return o.ApplyT(func(v LookupPolicySetDefinitionAtManagementGroupResult) map[string]ParameterDefinitionsValueResponse {
+		return v.Parameters
+	}).(ParameterDefinitionsValueResponseMapOutput)
+}
+
+// The metadata describing groups of policy definition references within the policy set definition.
+func (o LookupPolicySetDefinitionAtManagementGroupResultOutput) PolicyDefinitionGroups() PolicyDefinitionGroupResponseArrayOutput {
+	return o.ApplyT(func(v LookupPolicySetDefinitionAtManagementGroupResult) []PolicyDefinitionGroupResponse {
+		return v.PolicyDefinitionGroups
+	}).(PolicyDefinitionGroupResponseArrayOutput)
+}
+
+// An array of policy definition references.
+func (o LookupPolicySetDefinitionAtManagementGroupResultOutput) PolicyDefinitions() PolicyDefinitionReferenceResponseArrayOutput {
+	return o.ApplyT(func(v LookupPolicySetDefinitionAtManagementGroupResult) []PolicyDefinitionReferenceResponse {
+		return v.PolicyDefinitions
+	}).(PolicyDefinitionReferenceResponseArrayOutput)
+}
+
+// The type of policy definition. Possible values are NotSpecified, BuiltIn, Custom, and Static.
+func (o LookupPolicySetDefinitionAtManagementGroupResultOutput) PolicyType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupPolicySetDefinitionAtManagementGroupResult) *string { return v.PolicyType }).(pulumi.StringPtrOutput)
+}
+
+// The system metadata relating to this resource.
+func (o LookupPolicySetDefinitionAtManagementGroupResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupPolicySetDefinitionAtManagementGroupResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the resource (Microsoft.Authorization/policySetDefinitions).
+func (o LookupPolicySetDefinitionAtManagementGroupResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPolicySetDefinitionAtManagementGroupResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupPolicySetDefinitionAtManagementGroupResultOutput{})
 }

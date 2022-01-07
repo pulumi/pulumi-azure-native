@@ -4,6 +4,9 @@
 package v20210601
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -51,4 +54,104 @@ type LookupAFDEndpointResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.
 	Type string `pulumi:"type"`
+}
+
+func LookupAFDEndpointOutput(ctx *pulumi.Context, args LookupAFDEndpointOutputArgs, opts ...pulumi.InvokeOption) LookupAFDEndpointResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupAFDEndpointResult, error) {
+			args := v.(LookupAFDEndpointArgs)
+			r, err := LookupAFDEndpoint(ctx, &args, opts...)
+			return *r, err
+		}).(LookupAFDEndpointResultOutput)
+}
+
+type LookupAFDEndpointOutputArgs struct {
+	// Name of the endpoint under the profile which is unique globally.
+	EndpointName pulumi.StringInput `pulumi:"endpointName"`
+	// Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
+	ProfileName pulumi.StringInput `pulumi:"profileName"`
+	// Name of the Resource group within the Azure subscription.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupAFDEndpointOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupAFDEndpointArgs)(nil)).Elem()
+}
+
+// CDN endpoint is the entity within a CDN profile containing configuration information such as origin, protocol, content caching and delivery behavior. The AzureFrontDoor endpoint uses the URL format <endpointname>.azureedge.net.
+type LookupAFDEndpointResultOutput struct{ *pulumi.OutputState }
+
+func (LookupAFDEndpointResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupAFDEndpointResult)(nil)).Elem()
+}
+
+func (o LookupAFDEndpointResultOutput) ToLookupAFDEndpointResultOutput() LookupAFDEndpointResultOutput {
+	return o
+}
+
+func (o LookupAFDEndpointResultOutput) ToLookupAFDEndpointResultOutputWithContext(ctx context.Context) LookupAFDEndpointResultOutput {
+	return o
+}
+
+func (o LookupAFDEndpointResultOutput) DeploymentStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAFDEndpointResult) string { return v.DeploymentStatus }).(pulumi.StringOutput)
+}
+
+// Whether to enable use of this rule. Permitted values are 'Enabled' or 'Disabled'
+func (o LookupAFDEndpointResultOutput) EnabledState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupAFDEndpointResult) *string { return v.EnabledState }).(pulumi.StringPtrOutput)
+}
+
+// The host name of the endpoint structured as {endpointName}.{DNSZone}, e.g. contoso.azureedge.net
+func (o LookupAFDEndpointResultOutput) HostName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAFDEndpointResult) string { return v.HostName }).(pulumi.StringOutput)
+}
+
+// Resource ID.
+func (o LookupAFDEndpointResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAFDEndpointResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Resource location.
+func (o LookupAFDEndpointResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAFDEndpointResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o LookupAFDEndpointResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAFDEndpointResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Send and receive timeout on forwarding request to the origin. When timeout is reached, the request fails and returns.
+func (o LookupAFDEndpointResultOutput) OriginResponseTimeoutSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupAFDEndpointResult) *int { return v.OriginResponseTimeoutSeconds }).(pulumi.IntPtrOutput)
+}
+
+// The name of the profile which holds the endpoint.
+func (o LookupAFDEndpointResultOutput) ProfileName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAFDEndpointResult) string { return v.ProfileName }).(pulumi.StringOutput)
+}
+
+// Provisioning status
+func (o LookupAFDEndpointResultOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAFDEndpointResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Read only system data
+func (o LookupAFDEndpointResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupAFDEndpointResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource tags.
+func (o LookupAFDEndpointResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupAFDEndpointResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type.
+func (o LookupAFDEndpointResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAFDEndpointResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupAFDEndpointResultOutput{})
 }

@@ -4,6 +4,9 @@
 package v20200601
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -32,4 +35,55 @@ type ListWebAppSyncFunctionTriggersSlotResult struct {
 	Key *string `pulumi:"key"`
 	// Trigger URL.
 	TriggerUrl *string `pulumi:"triggerUrl"`
+}
+
+func ListWebAppSyncFunctionTriggersSlotOutput(ctx *pulumi.Context, args ListWebAppSyncFunctionTriggersSlotOutputArgs, opts ...pulumi.InvokeOption) ListWebAppSyncFunctionTriggersSlotResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (ListWebAppSyncFunctionTriggersSlotResult, error) {
+			args := v.(ListWebAppSyncFunctionTriggersSlotArgs)
+			r, err := ListWebAppSyncFunctionTriggersSlot(ctx, &args, opts...)
+			return *r, err
+		}).(ListWebAppSyncFunctionTriggersSlotResultOutput)
+}
+
+type ListWebAppSyncFunctionTriggersSlotOutputArgs struct {
+	// Name of the app.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Name of the resource group to which the resource belongs.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// Name of the deployment slot.
+	Slot pulumi.StringInput `pulumi:"slot"`
+}
+
+func (ListWebAppSyncFunctionTriggersSlotOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListWebAppSyncFunctionTriggersSlotArgs)(nil)).Elem()
+}
+
+// Function secrets.
+type ListWebAppSyncFunctionTriggersSlotResultOutput struct{ *pulumi.OutputState }
+
+func (ListWebAppSyncFunctionTriggersSlotResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListWebAppSyncFunctionTriggersSlotResult)(nil)).Elem()
+}
+
+func (o ListWebAppSyncFunctionTriggersSlotResultOutput) ToListWebAppSyncFunctionTriggersSlotResultOutput() ListWebAppSyncFunctionTriggersSlotResultOutput {
+	return o
+}
+
+func (o ListWebAppSyncFunctionTriggersSlotResultOutput) ToListWebAppSyncFunctionTriggersSlotResultOutputWithContext(ctx context.Context) ListWebAppSyncFunctionTriggersSlotResultOutput {
+	return o
+}
+
+// Secret key.
+func (o ListWebAppSyncFunctionTriggersSlotResultOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListWebAppSyncFunctionTriggersSlotResult) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// Trigger URL.
+func (o ListWebAppSyncFunctionTriggersSlotResultOutput) TriggerUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListWebAppSyncFunctionTriggersSlotResult) *string { return v.TriggerUrl }).(pulumi.StringPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(ListWebAppSyncFunctionTriggersSlotResultOutput{})
 }

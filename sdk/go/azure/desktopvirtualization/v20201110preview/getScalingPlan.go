@@ -4,6 +4,9 @@
 package v20201110preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -50,4 +53,103 @@ type LookupScalingPlanResult struct {
 	TimeZone *string `pulumi:"timeZone"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
+}
+
+func LookupScalingPlanOutput(ctx *pulumi.Context, args LookupScalingPlanOutputArgs, opts ...pulumi.InvokeOption) LookupScalingPlanResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupScalingPlanResult, error) {
+			args := v.(LookupScalingPlanArgs)
+			r, err := LookupScalingPlan(ctx, &args, opts...)
+			return *r, err
+		}).(LookupScalingPlanResultOutput)
+}
+
+type LookupScalingPlanOutputArgs struct {
+	// The name of the resource group. The name is case insensitive.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the scaling plan.
+	ScalingPlanName pulumi.StringInput `pulumi:"scalingPlanName"`
+}
+
+func (LookupScalingPlanOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupScalingPlanArgs)(nil)).Elem()
+}
+
+// Represents a scaling plan definition.
+type LookupScalingPlanResultOutput struct{ *pulumi.OutputState }
+
+func (LookupScalingPlanResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupScalingPlanResult)(nil)).Elem()
+}
+
+func (o LookupScalingPlanResultOutput) ToLookupScalingPlanResultOutput() LookupScalingPlanResultOutput {
+	return o
+}
+
+func (o LookupScalingPlanResultOutput) ToLookupScalingPlanResultOutputWithContext(ctx context.Context) LookupScalingPlanResultOutput {
+	return o
+}
+
+// Description of scaling plan.
+func (o LookupScalingPlanResultOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupScalingPlanResult) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Exclusion tag for scaling plan.
+func (o LookupScalingPlanResultOutput) ExclusionTag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupScalingPlanResult) *string { return v.ExclusionTag }).(pulumi.StringPtrOutput)
+}
+
+// User friendly name of scaling plan.
+func (o LookupScalingPlanResultOutput) FriendlyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupScalingPlanResult) *string { return v.FriendlyName }).(pulumi.StringPtrOutput)
+}
+
+// List of ScalingHostPoolReference definitions.
+func (o LookupScalingPlanResultOutput) HostPoolReferences() ScalingHostPoolReferenceResponseArrayOutput {
+	return o.ApplyT(func(v LookupScalingPlanResult) []ScalingHostPoolReferenceResponse { return v.HostPoolReferences }).(ScalingHostPoolReferenceResponseArrayOutput)
+}
+
+// HostPool type for scaling plan.
+func (o LookupScalingPlanResultOutput) HostPoolType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupScalingPlanResult) *string { return v.HostPoolType }).(pulumi.StringPtrOutput)
+}
+
+// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+func (o LookupScalingPlanResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupScalingPlanResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The geo-location where the resource lives
+func (o LookupScalingPlanResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupScalingPlanResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o LookupScalingPlanResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupScalingPlanResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// List of ScalingSchedule definitions.
+func (o LookupScalingPlanResultOutput) Schedules() ScalingScheduleResponseArrayOutput {
+	return o.ApplyT(func(v LookupScalingPlanResult) []ScalingScheduleResponse { return v.Schedules }).(ScalingScheduleResponseArrayOutput)
+}
+
+// Resource tags.
+func (o LookupScalingPlanResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupScalingPlanResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Timezone of the scaling plan.
+func (o LookupScalingPlanResultOutput) TimeZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupScalingPlanResult) *string { return v.TimeZone }).(pulumi.StringPtrOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o LookupScalingPlanResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupScalingPlanResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupScalingPlanResultOutput{})
 }

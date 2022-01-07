@@ -4,6 +4,9 @@
 package machinelearning
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -52,4 +55,75 @@ func (val *LookupWebServiceResult) Defaults() *LookupWebServiceResult {
 	tmp.Properties = *tmp.Properties.Defaults()
 
 	return &tmp
+}
+
+func LookupWebServiceOutput(ctx *pulumi.Context, args LookupWebServiceOutputArgs, opts ...pulumi.InvokeOption) LookupWebServiceResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupWebServiceResult, error) {
+			args := v.(LookupWebServiceArgs)
+			r, err := LookupWebService(ctx, &args, opts...)
+			return *r, err
+		}).(LookupWebServiceResultOutput)
+}
+
+type LookupWebServiceOutputArgs struct {
+	// The region for which encrypted credential parameters are valid.
+	Region pulumi.StringPtrInput `pulumi:"region"`
+	// Name of the resource group in which the web service is located.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the web service.
+	WebServiceName pulumi.StringInput `pulumi:"webServiceName"`
+}
+
+func (LookupWebServiceOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupWebServiceArgs)(nil)).Elem()
+}
+
+// Instance of an Azure ML web service resource.
+type LookupWebServiceResultOutput struct{ *pulumi.OutputState }
+
+func (LookupWebServiceResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupWebServiceResult)(nil)).Elem()
+}
+
+func (o LookupWebServiceResultOutput) ToLookupWebServiceResultOutput() LookupWebServiceResultOutput {
+	return o
+}
+
+func (o LookupWebServiceResultOutput) ToLookupWebServiceResultOutputWithContext(ctx context.Context) LookupWebServiceResultOutput {
+	return o
+}
+
+// Specifies the resource ID.
+func (o LookupWebServiceResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWebServiceResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Specifies the location of the resource.
+func (o LookupWebServiceResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWebServiceResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// Specifies the name of the resource.
+func (o LookupWebServiceResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWebServiceResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Contains the property payload that describes the web service.
+func (o LookupWebServiceResultOutput) Properties() WebServicePropertiesForGraphResponseOutput {
+	return o.ApplyT(func(v LookupWebServiceResult) WebServicePropertiesForGraphResponse { return v.Properties }).(WebServicePropertiesForGraphResponseOutput)
+}
+
+// Contains resource tags defined as key/value pairs.
+func (o LookupWebServiceResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupWebServiceResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Specifies the type of the resource.
+func (o LookupWebServiceResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWebServiceResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupWebServiceResultOutput{})
 }

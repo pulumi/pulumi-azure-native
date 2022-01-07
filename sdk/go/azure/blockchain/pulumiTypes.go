@@ -18,6 +18,51 @@ type ApiKeyResponse struct {
 	Value *string `pulumi:"value"`
 }
 
+// API key payload which is exposed in the request/response of the resource provider.
+type ApiKeyResponseOutput struct{ *pulumi.OutputState }
+
+func (ApiKeyResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiKeyResponse)(nil)).Elem()
+}
+
+func (o ApiKeyResponseOutput) ToApiKeyResponseOutput() ApiKeyResponseOutput {
+	return o
+}
+
+func (o ApiKeyResponseOutput) ToApiKeyResponseOutputWithContext(ctx context.Context) ApiKeyResponseOutput {
+	return o
+}
+
+// Gets or sets the API key name.
+func (o ApiKeyResponseOutput) KeyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApiKeyResponse) *string { return v.KeyName }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the API key value.
+func (o ApiKeyResponseOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApiKeyResponse) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type ApiKeyResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ApiKeyResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApiKeyResponse)(nil)).Elem()
+}
+
+func (o ApiKeyResponseArrayOutput) ToApiKeyResponseArrayOutput() ApiKeyResponseArrayOutput {
+	return o
+}
+
+func (o ApiKeyResponseArrayOutput) ToApiKeyResponseArrayOutputWithContext(ctx context.Context) ApiKeyResponseArrayOutput {
+	return o
+}
+
+func (o ApiKeyResponseArrayOutput) Index(i pulumi.IntInput) ApiKeyResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApiKeyResponse {
+		return vs[0].([]ApiKeyResponse)[vs[1].(int)]
+	}).(ApiKeyResponseOutput)
+}
+
 // Payload of the blockchain member nodes Sku for a blockchain member.
 type BlockchainMemberNodesSku struct {
 	// Gets or sets the nodes capacity.
@@ -224,6 +269,51 @@ type ConsortiumResponse struct {
 	Name *string `pulumi:"name"`
 	// Gets or sets the protocol for the consortium.
 	Protocol *string `pulumi:"protocol"`
+}
+
+// Consortium payload
+type ConsortiumResponseOutput struct{ *pulumi.OutputState }
+
+func (ConsortiumResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConsortiumResponse)(nil)).Elem()
+}
+
+func (o ConsortiumResponseOutput) ToConsortiumResponseOutput() ConsortiumResponseOutput {
+	return o
+}
+
+func (o ConsortiumResponseOutput) ToConsortiumResponseOutputWithContext(ctx context.Context) ConsortiumResponseOutput {
+	return o
+}
+
+// Gets or sets the blockchain member name.
+func (o ConsortiumResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConsortiumResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the protocol for the consortium.
+func (o ConsortiumResponseOutput) Protocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConsortiumResponse) *string { return v.Protocol }).(pulumi.StringPtrOutput)
+}
+
+type ConsortiumResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ConsortiumResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ConsortiumResponse)(nil)).Elem()
+}
+
+func (o ConsortiumResponseArrayOutput) ToConsortiumResponseArrayOutput() ConsortiumResponseArrayOutput {
+	return o
+}
+
+func (o ConsortiumResponseArrayOutput) ToConsortiumResponseArrayOutputWithContext(ctx context.Context) ConsortiumResponseArrayOutput {
+	return o
+}
+
+func (o ConsortiumResponseArrayOutput) Index(i pulumi.IntInput) ConsortiumResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ConsortiumResponse {
+		return vs[0].([]ConsortiumResponse)[vs[1].(int)]
+	}).(ConsortiumResponseOutput)
 }
 
 // Ip range for firewall rules
@@ -641,10 +731,14 @@ func (o SkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 }
 
 func init() {
+	pulumi.RegisterOutputType(ApiKeyResponseOutput{})
+	pulumi.RegisterOutputType(ApiKeyResponseArrayOutput{})
 	pulumi.RegisterOutputType(BlockchainMemberNodesSkuOutput{})
 	pulumi.RegisterOutputType(BlockchainMemberNodesSkuPtrOutput{})
 	pulumi.RegisterOutputType(BlockchainMemberNodesSkuResponseOutput{})
 	pulumi.RegisterOutputType(BlockchainMemberNodesSkuResponsePtrOutput{})
+	pulumi.RegisterOutputType(ConsortiumResponseOutput{})
+	pulumi.RegisterOutputType(ConsortiumResponseArrayOutput{})
 	pulumi.RegisterOutputType(FirewallRuleOutput{})
 	pulumi.RegisterOutputType(FirewallRuleArrayOutput{})
 	pulumi.RegisterOutputType(FirewallRuleResponseOutput{})

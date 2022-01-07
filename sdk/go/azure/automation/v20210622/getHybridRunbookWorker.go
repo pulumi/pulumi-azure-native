@@ -4,6 +4,9 @@
 package v20210622
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -50,4 +53,97 @@ type LookupHybridRunbookWorkerResult struct {
 	WorkerName *string `pulumi:"workerName"`
 	// Type of the HybridWorker.
 	WorkerType *string `pulumi:"workerType"`
+}
+
+func LookupHybridRunbookWorkerOutput(ctx *pulumi.Context, args LookupHybridRunbookWorkerOutputArgs, opts ...pulumi.InvokeOption) LookupHybridRunbookWorkerResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupHybridRunbookWorkerResult, error) {
+			args := v.(LookupHybridRunbookWorkerArgs)
+			r, err := LookupHybridRunbookWorker(ctx, &args, opts...)
+			return *r, err
+		}).(LookupHybridRunbookWorkerResultOutput)
+}
+
+type LookupHybridRunbookWorkerOutputArgs struct {
+	// The name of the automation account.
+	AutomationAccountName pulumi.StringInput `pulumi:"automationAccountName"`
+	// The hybrid runbook worker group name
+	HybridRunbookWorkerGroupName pulumi.StringInput `pulumi:"hybridRunbookWorkerGroupName"`
+	// The hybrid runbook worker id
+	HybridRunbookWorkerId pulumi.StringInput `pulumi:"hybridRunbookWorkerId"`
+	// Name of an Azure Resource group.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupHybridRunbookWorkerOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupHybridRunbookWorkerArgs)(nil)).Elem()
+}
+
+// Definition of hybrid runbook worker.
+type LookupHybridRunbookWorkerResultOutput struct{ *pulumi.OutputState }
+
+func (LookupHybridRunbookWorkerResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupHybridRunbookWorkerResult)(nil)).Elem()
+}
+
+func (o LookupHybridRunbookWorkerResultOutput) ToLookupHybridRunbookWorkerResultOutput() LookupHybridRunbookWorkerResultOutput {
+	return o
+}
+
+func (o LookupHybridRunbookWorkerResultOutput) ToLookupHybridRunbookWorkerResultOutputWithContext(ctx context.Context) LookupHybridRunbookWorkerResultOutput {
+	return o
+}
+
+// Fully qualified resource Id for the resource
+func (o LookupHybridRunbookWorkerResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupHybridRunbookWorkerResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Gets or sets the assigned machine IP address.
+func (o LookupHybridRunbookWorkerResultOutput) Ip() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupHybridRunbookWorkerResult) *string { return v.Ip }).(pulumi.StringPtrOutput)
+}
+
+// Last Heartbeat from the Worker
+func (o LookupHybridRunbookWorkerResultOutput) LastSeenDateTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupHybridRunbookWorkerResult) *string { return v.LastSeenDateTime }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource
+func (o LookupHybridRunbookWorkerResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupHybridRunbookWorkerResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Gets or sets the registration time of the worker machine.
+func (o LookupHybridRunbookWorkerResultOutput) RegisteredDateTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupHybridRunbookWorkerResult) *string { return v.RegisteredDateTime }).(pulumi.StringPtrOutput)
+}
+
+// Resource system metadata.
+func (o LookupHybridRunbookWorkerResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupHybridRunbookWorkerResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the resource.
+func (o LookupHybridRunbookWorkerResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupHybridRunbookWorkerResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Azure Resource Manager Id for a virtual machine.
+func (o LookupHybridRunbookWorkerResultOutput) VmResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupHybridRunbookWorkerResult) *string { return v.VmResourceId }).(pulumi.StringPtrOutput)
+}
+
+// Name of the HybridWorker.
+func (o LookupHybridRunbookWorkerResultOutput) WorkerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupHybridRunbookWorkerResult) *string { return v.WorkerName }).(pulumi.StringPtrOutput)
+}
+
+// Type of the HybridWorker.
+func (o LookupHybridRunbookWorkerResultOutput) WorkerType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupHybridRunbookWorkerResult) *string { return v.WorkerType }).(pulumi.StringPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupHybridRunbookWorkerResultOutput{})
 }

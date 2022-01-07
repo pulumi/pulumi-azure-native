@@ -4,6 +4,9 @@
 package v20201005privatepreview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -74,4 +77,167 @@ type LookupServerGroupResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
+}
+
+func LookupServerGroupOutput(ctx *pulumi.Context, args LookupServerGroupOutputArgs, opts ...pulumi.InvokeOption) LookupServerGroupResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupServerGroupResult, error) {
+			args := v.(LookupServerGroupArgs)
+			r, err := LookupServerGroup(ctx, &args, opts...)
+			return *r, err
+		}).(LookupServerGroupResultOutput)
+}
+
+type LookupServerGroupOutputArgs struct {
+	// The name of the resource group. The name is case insensitive.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the server group.
+	ServerGroupName pulumi.StringInput `pulumi:"serverGroupName"`
+}
+
+func (LookupServerGroupOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupServerGroupArgs)(nil)).Elem()
+}
+
+// Represents a server group for create.
+type LookupServerGroupResultOutput struct{ *pulumi.OutputState }
+
+func (LookupServerGroupResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupServerGroupResult)(nil)).Elem()
+}
+
+func (o LookupServerGroupResultOutput) ToLookupServerGroupResultOutput() LookupServerGroupResultOutput {
+	return o
+}
+
+func (o LookupServerGroupResultOutput) ToLookupServerGroupResultOutputWithContext(ctx context.Context) LookupServerGroupResultOutput {
+	return o
+}
+
+// The administrator's login name of servers in server group. Can only be specified when the server is being created (and is required for creation).
+func (o LookupServerGroupResultOutput) AdministratorLogin() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupServerGroupResult) *string { return v.AdministratorLogin }).(pulumi.StringPtrOutput)
+}
+
+// Availability Zone information of the server group.
+func (o LookupServerGroupResultOutput) AvailabilityZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupServerGroupResult) *string { return v.AvailabilityZone }).(pulumi.StringPtrOutput)
+}
+
+// The backup retention days for server group.
+func (o LookupServerGroupResultOutput) BackupRetentionDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupServerGroupResult) *int { return v.BackupRetentionDays }).(pulumi.IntPtrOutput)
+}
+
+// The Citus version of server group.
+func (o LookupServerGroupResultOutput) CitusVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupServerGroupResult) *string { return v.CitusVersion }).(pulumi.StringPtrOutput)
+}
+
+// The delegated subnet arguments for a server group.
+func (o LookupServerGroupResultOutput) DelegatedSubnetArguments() ServerGroupPropertiesResponseDelegatedSubnetArgumentsPtrOutput {
+	return o.ApplyT(func(v LookupServerGroupResult) *ServerGroupPropertiesResponseDelegatedSubnetArguments {
+		return v.DelegatedSubnetArguments
+	}).(ServerGroupPropertiesResponseDelegatedSubnetArgumentsPtrOutput)
+}
+
+// The earliest restore point time (ISO8601 format) for server group.
+func (o LookupServerGroupResultOutput) EarliestRestoreTime() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServerGroupResult) string { return v.EarliestRestoreTime }).(pulumi.StringOutput)
+}
+
+// If Citus MX is enabled or not for the server group.
+func (o LookupServerGroupResultOutput) EnableMx() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupServerGroupResult) *bool { return v.EnableMx }).(pulumi.BoolPtrOutput)
+}
+
+// If shards on coordinator is enabled or not for the server group.
+func (o LookupServerGroupResultOutput) EnableShardsOnCoordinator() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupServerGroupResult) *bool { return v.EnableShardsOnCoordinator }).(pulumi.BoolPtrOutput)
+}
+
+// If ZFS compression is enabled or not for the server group.
+func (o LookupServerGroupResultOutput) EnableZfs() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupServerGroupResult) *bool { return v.EnableZfs }).(pulumi.BoolPtrOutput)
+}
+
+// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+func (o LookupServerGroupResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServerGroupResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The geo-location where the resource lives
+func (o LookupServerGroupResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServerGroupResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// Maintenance window of a server group.
+func (o LookupServerGroupResultOutput) MaintenanceWindow() MaintenanceWindowResponsePtrOutput {
+	return o.ApplyT(func(v LookupServerGroupResult) *MaintenanceWindowResponse { return v.MaintenanceWindow }).(MaintenanceWindowResponsePtrOutput)
+}
+
+// The name of the resource
+func (o LookupServerGroupResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServerGroupResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The PostgreSQL version of server group.
+func (o LookupServerGroupResultOutput) PostgresqlVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupServerGroupResult) *string { return v.PostgresqlVersion }).(pulumi.StringPtrOutput)
+}
+
+// The private dns zone arguments for a server group.
+func (o LookupServerGroupResultOutput) PrivateDnsZoneArguments() ServerGroupPropertiesResponsePrivateDnsZoneArgumentsPtrOutput {
+	return o.ApplyT(func(v LookupServerGroupResult) *ServerGroupPropertiesResponsePrivateDnsZoneArguments {
+		return v.PrivateDnsZoneArguments
+	}).(ServerGroupPropertiesResponsePrivateDnsZoneArgumentsPtrOutput)
+}
+
+// The array of read replica server groups.
+func (o LookupServerGroupResultOutput) ReadReplicas() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupServerGroupResult) []string { return v.ReadReplicas }).(pulumi.StringArrayOutput)
+}
+
+// The resource provider type of server group.
+func (o LookupServerGroupResultOutput) ResourceProviderType() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServerGroupResult) string { return v.ResourceProviderType }).(pulumi.StringOutput)
+}
+
+// The list of server role groups.
+func (o LookupServerGroupResultOutput) ServerRoleGroups() ServerRoleGroupResponseArrayOutput {
+	return o.ApplyT(func(v LookupServerGroupResult) []ServerRoleGroupResponse { return v.ServerRoleGroups }).(ServerRoleGroupResponseArrayOutput)
+}
+
+// The source server group id for read replica server groups.
+func (o LookupServerGroupResultOutput) SourceServerGroup() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServerGroupResult) string { return v.SourceServerGroup }).(pulumi.StringOutput)
+}
+
+// Standby Availability Zone information of the server group.
+func (o LookupServerGroupResultOutput) StandbyAvailabilityZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupServerGroupResult) *string { return v.StandbyAvailabilityZone }).(pulumi.StringPtrOutput)
+}
+
+// A state of a server group that is visible to user.
+func (o LookupServerGroupResultOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServerGroupResult) string { return v.State }).(pulumi.StringOutput)
+}
+
+// The system metadata relating to this resource
+func (o LookupServerGroupResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupServerGroupResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource tags.
+func (o LookupServerGroupResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupServerGroupResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o LookupServerGroupResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServerGroupResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupServerGroupResultOutput{})
 }

@@ -4,6 +4,9 @@
 package logic
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -32,4 +35,51 @@ type ListWorkflowRunActionExpressionTracesArgs struct {
 // The expression traces.
 type ListWorkflowRunActionExpressionTracesResult struct {
 	Inputs []ExpressionRootResponse `pulumi:"inputs"`
+}
+
+func ListWorkflowRunActionExpressionTracesOutput(ctx *pulumi.Context, args ListWorkflowRunActionExpressionTracesOutputArgs, opts ...pulumi.InvokeOption) ListWorkflowRunActionExpressionTracesResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (ListWorkflowRunActionExpressionTracesResult, error) {
+			args := v.(ListWorkflowRunActionExpressionTracesArgs)
+			r, err := ListWorkflowRunActionExpressionTraces(ctx, &args, opts...)
+			return *r, err
+		}).(ListWorkflowRunActionExpressionTracesResultOutput)
+}
+
+type ListWorkflowRunActionExpressionTracesOutputArgs struct {
+	// The workflow action name.
+	ActionName pulumi.StringInput `pulumi:"actionName"`
+	// The resource group name.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The workflow run name.
+	RunName pulumi.StringInput `pulumi:"runName"`
+	// The workflow name.
+	WorkflowName pulumi.StringInput `pulumi:"workflowName"`
+}
+
+func (ListWorkflowRunActionExpressionTracesOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListWorkflowRunActionExpressionTracesArgs)(nil)).Elem()
+}
+
+// The expression traces.
+type ListWorkflowRunActionExpressionTracesResultOutput struct{ *pulumi.OutputState }
+
+func (ListWorkflowRunActionExpressionTracesResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListWorkflowRunActionExpressionTracesResult)(nil)).Elem()
+}
+
+func (o ListWorkflowRunActionExpressionTracesResultOutput) ToListWorkflowRunActionExpressionTracesResultOutput() ListWorkflowRunActionExpressionTracesResultOutput {
+	return o
+}
+
+func (o ListWorkflowRunActionExpressionTracesResultOutput) ToListWorkflowRunActionExpressionTracesResultOutputWithContext(ctx context.Context) ListWorkflowRunActionExpressionTracesResultOutput {
+	return o
+}
+
+func (o ListWorkflowRunActionExpressionTracesResultOutput) Inputs() ExpressionRootResponseArrayOutput {
+	return o.ApplyT(func(v ListWorkflowRunActionExpressionTracesResult) []ExpressionRootResponse { return v.Inputs }).(ExpressionRootResponseArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(ListWorkflowRunActionExpressionTracesResultOutput{})
 }

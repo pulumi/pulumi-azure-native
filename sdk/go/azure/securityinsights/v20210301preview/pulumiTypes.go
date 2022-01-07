@@ -8058,6 +8058,56 @@ type RepoResponse struct {
 	Url *string `pulumi:"url"`
 }
 
+// Represents a repository.
+type RepoResponseOutput struct{ *pulumi.OutputState }
+
+func (RepoResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RepoResponse)(nil)).Elem()
+}
+
+func (o RepoResponseOutput) ToRepoResponseOutput() RepoResponseOutput {
+	return o
+}
+
+func (o RepoResponseOutput) ToRepoResponseOutputWithContext(ctx context.Context) RepoResponseOutput {
+	return o
+}
+
+// Array of branches.
+func (o RepoResponseOutput) Branches() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RepoResponse) []string { return v.Branches }).(pulumi.StringArrayOutput)
+}
+
+// The name of the repository.
+func (o RepoResponseOutput) FullName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RepoResponse) *string { return v.FullName }).(pulumi.StringPtrOutput)
+}
+
+// The url to access the repository.
+func (o RepoResponseOutput) Url() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RepoResponse) *string { return v.Url }).(pulumi.StringPtrOutput)
+}
+
+type RepoResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (RepoResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RepoResponse)(nil)).Elem()
+}
+
+func (o RepoResponseArrayOutput) ToRepoResponseArrayOutput() RepoResponseArrayOutput {
+	return o
+}
+
+func (o RepoResponseArrayOutput) ToRepoResponseArrayOutputWithContext(ctx context.Context) RepoResponseArrayOutput {
+	return o
+}
+
+func (o RepoResponseArrayOutput) Index(i pulumi.IntInput) RepoResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RepoResponse {
+		return vs[0].([]RepoResponse)[vs[1].(int)]
+	}).(RepoResponseOutput)
+}
+
 // metadata of a repository.
 type Repository struct {
 	// Branch name of repository.
@@ -9407,6 +9457,8 @@ func init() {
 	pulumi.RegisterOutputType(PermissionsResponseCustomsArrayOutput{})
 	pulumi.RegisterOutputType(PermissionsResponseResourceProviderOutput{})
 	pulumi.RegisterOutputType(PermissionsResponseResourceProviderArrayOutput{})
+	pulumi.RegisterOutputType(RepoResponseOutput{})
+	pulumi.RegisterOutputType(RepoResponseArrayOutput{})
 	pulumi.RegisterOutputType(RepositoryOutput{})
 	pulumi.RegisterOutputType(RepositoryResponseOutput{})
 	pulumi.RegisterOutputType(RequiredPermissionsOutput{})

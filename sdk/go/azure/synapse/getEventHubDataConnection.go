@@ -4,6 +4,9 @@
 package synapse
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -62,4 +65,120 @@ type LookupEventHubDataConnectionResult struct {
 	TableName *string `pulumi:"tableName"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
+}
+
+func LookupEventHubDataConnectionOutput(ctx *pulumi.Context, args LookupEventHubDataConnectionOutputArgs, opts ...pulumi.InvokeOption) LookupEventHubDataConnectionResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupEventHubDataConnectionResult, error) {
+			args := v.(LookupEventHubDataConnectionArgs)
+			r, err := LookupEventHubDataConnection(ctx, &args, opts...)
+			return *r, err
+		}).(LookupEventHubDataConnectionResultOutput)
+}
+
+type LookupEventHubDataConnectionOutputArgs struct {
+	// The name of the data connection.
+	DataConnectionName pulumi.StringInput `pulumi:"dataConnectionName"`
+	// The name of the database in the Kusto pool.
+	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
+	// The name of the Kusto pool.
+	KustoPoolName pulumi.StringInput `pulumi:"kustoPoolName"`
+	// The name of the resource group. The name is case insensitive.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the workspace
+	WorkspaceName pulumi.StringInput `pulumi:"workspaceName"`
+}
+
+func (LookupEventHubDataConnectionOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupEventHubDataConnectionArgs)(nil)).Elem()
+}
+
+// Class representing an event hub data connection.
+type LookupEventHubDataConnectionResultOutput struct{ *pulumi.OutputState }
+
+func (LookupEventHubDataConnectionResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupEventHubDataConnectionResult)(nil)).Elem()
+}
+
+func (o LookupEventHubDataConnectionResultOutput) ToLookupEventHubDataConnectionResultOutput() LookupEventHubDataConnectionResultOutput {
+	return o
+}
+
+func (o LookupEventHubDataConnectionResultOutput) ToLookupEventHubDataConnectionResultOutputWithContext(ctx context.Context) LookupEventHubDataConnectionResultOutput {
+	return o
+}
+
+// The event hub messages compression type
+func (o LookupEventHubDataConnectionResultOutput) Compression() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupEventHubDataConnectionResult) *string { return v.Compression }).(pulumi.StringPtrOutput)
+}
+
+// The event hub consumer group.
+func (o LookupEventHubDataConnectionResultOutput) ConsumerGroup() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupEventHubDataConnectionResult) string { return v.ConsumerGroup }).(pulumi.StringOutput)
+}
+
+// The data format of the message. Optionally the data format can be added to each message.
+func (o LookupEventHubDataConnectionResultOutput) DataFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupEventHubDataConnectionResult) *string { return v.DataFormat }).(pulumi.StringPtrOutput)
+}
+
+// The resource ID of the event hub to be used to create a data connection.
+func (o LookupEventHubDataConnectionResultOutput) EventHubResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupEventHubDataConnectionResult) string { return v.EventHubResourceId }).(pulumi.StringOutput)
+}
+
+// System properties of the event hub
+func (o LookupEventHubDataConnectionResultOutput) EventSystemProperties() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupEventHubDataConnectionResult) []string { return v.EventSystemProperties }).(pulumi.StringArrayOutput)
+}
+
+// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+func (o LookupEventHubDataConnectionResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupEventHubDataConnectionResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Kind of the endpoint for the data connection
+// Expected value is 'EventHub'.
+func (o LookupEventHubDataConnectionResultOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupEventHubDataConnectionResult) string { return v.Kind }).(pulumi.StringOutput)
+}
+
+// Resource location.
+func (o LookupEventHubDataConnectionResultOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupEventHubDataConnectionResult) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The mapping rule to be used to ingest the data. Optionally the mapping information can be added to each message.
+func (o LookupEventHubDataConnectionResultOutput) MappingRuleName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupEventHubDataConnectionResult) *string { return v.MappingRuleName }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource
+func (o LookupEventHubDataConnectionResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupEventHubDataConnectionResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The provisioned state of the resource.
+func (o LookupEventHubDataConnectionResultOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupEventHubDataConnectionResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+func (o LookupEventHubDataConnectionResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupEventHubDataConnectionResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The table where the data should be ingested. Optionally the table information can be added to each message.
+func (o LookupEventHubDataConnectionResultOutput) TableName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupEventHubDataConnectionResult) *string { return v.TableName }).(pulumi.StringPtrOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o LookupEventHubDataConnectionResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupEventHubDataConnectionResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupEventHubDataConnectionResultOutput{})
 }

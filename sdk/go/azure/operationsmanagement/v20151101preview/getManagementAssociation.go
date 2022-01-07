@@ -4,6 +4,9 @@
 package v20151101preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -42,4 +45,74 @@ type LookupManagementAssociationResult struct {
 	Properties ManagementAssociationPropertiesResponse `pulumi:"properties"`
 	// Resource type.
 	Type string `pulumi:"type"`
+}
+
+func LookupManagementAssociationOutput(ctx *pulumi.Context, args LookupManagementAssociationOutputArgs, opts ...pulumi.InvokeOption) LookupManagementAssociationResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupManagementAssociationResult, error) {
+			args := v.(LookupManagementAssociationArgs)
+			r, err := LookupManagementAssociation(ctx, &args, opts...)
+			return *r, err
+		}).(LookupManagementAssociationResultOutput)
+}
+
+type LookupManagementAssociationOutputArgs struct {
+	// User ManagementAssociation Name.
+	ManagementAssociationName pulumi.StringInput `pulumi:"managementAssociationName"`
+	// Provider name for the parent resource.
+	ProviderName pulumi.StringInput `pulumi:"providerName"`
+	// The name of the resource group to get. The name is case insensitive.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// Parent resource name.
+	ResourceName pulumi.StringInput `pulumi:"resourceName"`
+	// Resource type for the parent resource
+	ResourceType pulumi.StringInput `pulumi:"resourceType"`
+}
+
+func (LookupManagementAssociationOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupManagementAssociationArgs)(nil)).Elem()
+}
+
+// The container for solution.
+type LookupManagementAssociationResultOutput struct{ *pulumi.OutputState }
+
+func (LookupManagementAssociationResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupManagementAssociationResult)(nil)).Elem()
+}
+
+func (o LookupManagementAssociationResultOutput) ToLookupManagementAssociationResultOutput() LookupManagementAssociationResultOutput {
+	return o
+}
+
+func (o LookupManagementAssociationResultOutput) ToLookupManagementAssociationResultOutputWithContext(ctx context.Context) LookupManagementAssociationResultOutput {
+	return o
+}
+
+// Resource ID.
+func (o LookupManagementAssociationResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupManagementAssociationResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Resource location
+func (o LookupManagementAssociationResultOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupManagementAssociationResult) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Resource name.
+func (o LookupManagementAssociationResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupManagementAssociationResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Properties for ManagementAssociation object supported by the OperationsManagement resource provider.
+func (o LookupManagementAssociationResultOutput) Properties() ManagementAssociationPropertiesResponseOutput {
+	return o.ApplyT(func(v LookupManagementAssociationResult) ManagementAssociationPropertiesResponse { return v.Properties }).(ManagementAssociationPropertiesResponseOutput)
+}
+
+// Resource type.
+func (o LookupManagementAssociationResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupManagementAssociationResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupManagementAssociationResultOutput{})
 }

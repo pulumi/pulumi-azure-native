@@ -4,6 +4,9 @@
 package v20190930preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -71,4 +74,136 @@ func (val *LookupOpenShiftManagedClusterResult) Defaults() *LookupOpenShiftManag
 	tmp.NetworkProfile = tmp.NetworkProfile.Defaults()
 
 	return &tmp
+}
+
+func LookupOpenShiftManagedClusterOutput(ctx *pulumi.Context, args LookupOpenShiftManagedClusterOutputArgs, opts ...pulumi.InvokeOption) LookupOpenShiftManagedClusterResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupOpenShiftManagedClusterResult, error) {
+			args := v.(LookupOpenShiftManagedClusterArgs)
+			r, err := LookupOpenShiftManagedCluster(ctx, &args, opts...)
+			return *r, err
+		}).(LookupOpenShiftManagedClusterResultOutput)
+}
+
+type LookupOpenShiftManagedClusterOutputArgs struct {
+	// The name of the resource group.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the OpenShift managed cluster resource.
+	ResourceName pulumi.StringInput `pulumi:"resourceName"`
+}
+
+func (LookupOpenShiftManagedClusterOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupOpenShiftManagedClusterArgs)(nil)).Elem()
+}
+
+// OpenShift Managed cluster.
+type LookupOpenShiftManagedClusterResultOutput struct{ *pulumi.OutputState }
+
+func (LookupOpenShiftManagedClusterResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupOpenShiftManagedClusterResult)(nil)).Elem()
+}
+
+func (o LookupOpenShiftManagedClusterResultOutput) ToLookupOpenShiftManagedClusterResultOutput() LookupOpenShiftManagedClusterResultOutput {
+	return o
+}
+
+func (o LookupOpenShiftManagedClusterResultOutput) ToLookupOpenShiftManagedClusterResultOutputWithContext(ctx context.Context) LookupOpenShiftManagedClusterResultOutput {
+	return o
+}
+
+// Configuration of OpenShift cluster VMs.
+func (o LookupOpenShiftManagedClusterResultOutput) AgentPoolProfiles() OpenShiftManagedClusterAgentPoolProfileResponseArrayOutput {
+	return o.ApplyT(func(v LookupOpenShiftManagedClusterResult) []OpenShiftManagedClusterAgentPoolProfileResponse {
+		return v.AgentPoolProfiles
+	}).(OpenShiftManagedClusterAgentPoolProfileResponseArrayOutput)
+}
+
+// Configures OpenShift authentication.
+func (o LookupOpenShiftManagedClusterResultOutput) AuthProfile() OpenShiftManagedClusterAuthProfileResponsePtrOutput {
+	return o.ApplyT(func(v LookupOpenShiftManagedClusterResult) *OpenShiftManagedClusterAuthProfileResponse {
+		return v.AuthProfile
+	}).(OpenShiftManagedClusterAuthProfileResponsePtrOutput)
+}
+
+// Version of OpenShift specified when creating the cluster.
+func (o LookupOpenShiftManagedClusterResultOutput) ClusterVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupOpenShiftManagedClusterResult) string { return v.ClusterVersion }).(pulumi.StringOutput)
+}
+
+// Service generated FQDN for OpenShift API server loadbalancer internal hostname.
+func (o LookupOpenShiftManagedClusterResultOutput) Fqdn() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupOpenShiftManagedClusterResult) string { return v.Fqdn }).(pulumi.StringOutput)
+}
+
+// Resource Id
+func (o LookupOpenShiftManagedClusterResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupOpenShiftManagedClusterResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Resource location
+func (o LookupOpenShiftManagedClusterResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupOpenShiftManagedClusterResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// Configuration for OpenShift master VMs.
+func (o LookupOpenShiftManagedClusterResultOutput) MasterPoolProfile() OpenShiftManagedClusterMasterPoolProfileResponsePtrOutput {
+	return o.ApplyT(func(v LookupOpenShiftManagedClusterResult) *OpenShiftManagedClusterMasterPoolProfileResponse {
+		return v.MasterPoolProfile
+	}).(OpenShiftManagedClusterMasterPoolProfileResponsePtrOutput)
+}
+
+// Configures Log Analytics integration.
+func (o LookupOpenShiftManagedClusterResultOutput) MonitorProfile() OpenShiftManagedClusterMonitorProfileResponsePtrOutput {
+	return o.ApplyT(func(v LookupOpenShiftManagedClusterResult) *OpenShiftManagedClusterMonitorProfileResponse {
+		return v.MonitorProfile
+	}).(OpenShiftManagedClusterMonitorProfileResponsePtrOutput)
+}
+
+// Resource name
+func (o LookupOpenShiftManagedClusterResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupOpenShiftManagedClusterResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Configuration for OpenShift networking.
+func (o LookupOpenShiftManagedClusterResultOutput) NetworkProfile() NetworkProfileResponsePtrOutput {
+	return o.ApplyT(func(v LookupOpenShiftManagedClusterResult) *NetworkProfileResponse { return v.NetworkProfile }).(NetworkProfileResponsePtrOutput)
+}
+
+// Version of OpenShift specified when creating the cluster.
+func (o LookupOpenShiftManagedClusterResultOutput) OpenShiftVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupOpenShiftManagedClusterResult) string { return v.OpenShiftVersion }).(pulumi.StringOutput)
+}
+
+// Define the resource plan as required by ARM for billing purposes
+func (o LookupOpenShiftManagedClusterResultOutput) Plan() PurchasePlanResponsePtrOutput {
+	return o.ApplyT(func(v LookupOpenShiftManagedClusterResult) *PurchasePlanResponse { return v.Plan }).(PurchasePlanResponsePtrOutput)
+}
+
+// The current deployment or provisioning state, which only appears in the response.
+func (o LookupOpenShiftManagedClusterResultOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupOpenShiftManagedClusterResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Service generated FQDN for OpenShift API server.
+func (o LookupOpenShiftManagedClusterResultOutput) PublicHostname() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupOpenShiftManagedClusterResult) string { return v.PublicHostname }).(pulumi.StringOutput)
+}
+
+// Configuration for OpenShift router(s).
+func (o LookupOpenShiftManagedClusterResultOutput) RouterProfiles() OpenShiftRouterProfileResponseArrayOutput {
+	return o.ApplyT(func(v LookupOpenShiftManagedClusterResult) []OpenShiftRouterProfileResponse { return v.RouterProfiles }).(OpenShiftRouterProfileResponseArrayOutput)
+}
+
+// Resource tags
+func (o LookupOpenShiftManagedClusterResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupOpenShiftManagedClusterResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type
+func (o LookupOpenShiftManagedClusterResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupOpenShiftManagedClusterResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupOpenShiftManagedClusterResultOutput{})
 }

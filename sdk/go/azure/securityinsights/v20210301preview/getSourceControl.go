@@ -4,6 +4,9 @@
 package v20210301preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -62,4 +65,127 @@ type LookupSourceControlResult struct {
 	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Azure resource type
 	Type string `pulumi:"type"`
+}
+
+func LookupSourceControlOutput(ctx *pulumi.Context, args LookupSourceControlOutputArgs, opts ...pulumi.InvokeOption) LookupSourceControlResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupSourceControlResult, error) {
+			args := v.(LookupSourceControlArgs)
+			r, err := LookupSourceControl(ctx, &args, opts...)
+			return *r, err
+		}).(LookupSourceControlResultOutput)
+}
+
+type LookupSourceControlOutputArgs struct {
+	// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
+	OperationalInsightsResourceProvider pulumi.StringInput `pulumi:"operationalInsightsResourceProvider"`
+	// The name of the resource group. The name is case insensitive.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// Source control Id
+	SourceControlId pulumi.StringInput `pulumi:"sourceControlId"`
+	// The name of the workspace.
+	WorkspaceName pulumi.StringInput `pulumi:"workspaceName"`
+}
+
+func (LookupSourceControlOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupSourceControlArgs)(nil)).Elem()
+}
+
+// Represents a SourceControl in Azure Security Insights.
+type LookupSourceControlResultOutput struct{ *pulumi.OutputState }
+
+func (LookupSourceControlResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupSourceControlResult)(nil)).Elem()
+}
+
+func (o LookupSourceControlResultOutput) ToLookupSourceControlResultOutput() LookupSourceControlResultOutput {
+	return o
+}
+
+func (o LookupSourceControlResultOutput) ToLookupSourceControlResultOutputWithContext(ctx context.Context) LookupSourceControlResultOutput {
+	return o
+}
+
+// Array of source control content types.
+func (o LookupSourceControlResultOutput) ContentTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupSourceControlResult) []string { return v.ContentTypes }).(pulumi.StringArrayOutput)
+}
+
+// The timestamp of resource creation (UTC).
+func (o LookupSourceControlResultOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSourceControlResult) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
+}
+
+// The identity that created the resource.
+func (o LookupSourceControlResultOutput) CreatedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSourceControlResult) *string { return v.CreatedBy }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that created the resource.
+func (o LookupSourceControlResultOutput) CreatedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSourceControlResult) *string { return v.CreatedByType }).(pulumi.StringPtrOutput)
+}
+
+// A description of the source control
+func (o LookupSourceControlResultOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSourceControlResult) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The display name of the source control
+func (o LookupSourceControlResultOutput) DisplayName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSourceControlResult) string { return v.DisplayName }).(pulumi.StringOutput)
+}
+
+// Etag of the azure resource
+func (o LookupSourceControlResultOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSourceControlResult) *string { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// Azure resource Id
+func (o LookupSourceControlResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSourceControlResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The timestamp of resource last modification (UTC)
+func (o LookupSourceControlResultOutput) LastModifiedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSourceControlResult) *string { return v.LastModifiedAt }).(pulumi.StringPtrOutput)
+}
+
+// The identity that last modified the resource.
+func (o LookupSourceControlResultOutput) LastModifiedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSourceControlResult) *string { return v.LastModifiedBy }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that last modified the resource.
+func (o LookupSourceControlResultOutput) LastModifiedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSourceControlResult) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
+}
+
+// Azure resource name
+func (o LookupSourceControlResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSourceControlResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The repository type of the source control
+func (o LookupSourceControlResultOutput) RepoType() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSourceControlResult) string { return v.RepoType }).(pulumi.StringOutput)
+}
+
+// Repository metadata.
+func (o LookupSourceControlResultOutput) Repository() RepositoryResponseOutput {
+	return o.ApplyT(func(v LookupSourceControlResult) RepositoryResponse { return v.Repository }).(RepositoryResponseOutput)
+}
+
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+func (o LookupSourceControlResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupSourceControlResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Azure resource type
+func (o LookupSourceControlResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSourceControlResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupSourceControlResultOutput{})
 }

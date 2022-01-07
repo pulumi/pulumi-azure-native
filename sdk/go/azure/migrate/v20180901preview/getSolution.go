@@ -4,6 +4,9 @@
 package v20180901preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -38,4 +41,70 @@ type LookupSolutionResult struct {
 	Properties SolutionPropertiesResponse `pulumi:"properties"`
 	// Gets the type of this REST resource.
 	Type string `pulumi:"type"`
+}
+
+func LookupSolutionOutput(ctx *pulumi.Context, args LookupSolutionOutputArgs, opts ...pulumi.InvokeOption) LookupSolutionResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupSolutionResult, error) {
+			args := v.(LookupSolutionArgs)
+			r, err := LookupSolution(ctx, &args, opts...)
+			return *r, err
+		}).(LookupSolutionResultOutput)
+}
+
+type LookupSolutionOutputArgs struct {
+	// Name of the Azure Migrate project.
+	MigrateProjectName pulumi.StringInput `pulumi:"migrateProjectName"`
+	// Name of the Azure Resource Group that migrate project is part of.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// Unique name of a migration solution within a migrate project.
+	SolutionName pulumi.StringInput `pulumi:"solutionName"`
+}
+
+func (LookupSolutionOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupSolutionArgs)(nil)).Elem()
+}
+
+// Solution REST Resource.
+type LookupSolutionResultOutput struct{ *pulumi.OutputState }
+
+func (LookupSolutionResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupSolutionResult)(nil)).Elem()
+}
+
+func (o LookupSolutionResultOutput) ToLookupSolutionResultOutput() LookupSolutionResultOutput {
+	return o
+}
+
+func (o LookupSolutionResultOutput) ToLookupSolutionResultOutputWithContext(ctx context.Context) LookupSolutionResultOutput {
+	return o
+}
+
+// Gets or sets the ETAG for optimistic concurrency control.
+func (o LookupSolutionResultOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSolutionResult) *string { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// Gets the relative URL to get to this REST resource.
+func (o LookupSolutionResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSolutionResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Gets the name of this REST resource.
+func (o LookupSolutionResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSolutionResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Gets or sets the properties of the solution.
+func (o LookupSolutionResultOutput) Properties() SolutionPropertiesResponseOutput {
+	return o.ApplyT(func(v LookupSolutionResult) SolutionPropertiesResponse { return v.Properties }).(SolutionPropertiesResponseOutput)
+}
+
+// Gets the type of this REST resource.
+func (o LookupSolutionResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSolutionResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupSolutionResultOutput{})
 }

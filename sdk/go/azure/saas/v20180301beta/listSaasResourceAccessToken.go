@@ -4,6 +4,9 @@
 package v20180301beta
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -28,4 +31,51 @@ type ListSaasResourceAccessTokenResult struct {
 	PublisherOfferBaseUri *string `pulumi:"publisherOfferBaseUri"`
 	// The generated token
 	Token *string `pulumi:"token"`
+}
+
+func ListSaasResourceAccessTokenOutput(ctx *pulumi.Context, args ListSaasResourceAccessTokenOutputArgs, opts ...pulumi.InvokeOption) ListSaasResourceAccessTokenResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (ListSaasResourceAccessTokenResult, error) {
+			args := v.(ListSaasResourceAccessTokenArgs)
+			r, err := ListSaasResourceAccessToken(ctx, &args, opts...)
+			return *r, err
+		}).(ListSaasResourceAccessTokenResultOutput)
+}
+
+type ListSaasResourceAccessTokenOutputArgs struct {
+	// The Saas resource ID. This is a GUID-formatted string (e.g. 00000000-0000-0000-0000-000000000000)
+	ResourceId pulumi.StringInput `pulumi:"resourceId"`
+}
+
+func (ListSaasResourceAccessTokenOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListSaasResourceAccessTokenArgs)(nil)).Elem()
+}
+
+// the ISV access token result response.
+type ListSaasResourceAccessTokenResultOutput struct{ *pulumi.OutputState }
+
+func (ListSaasResourceAccessTokenResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListSaasResourceAccessTokenResult)(nil)).Elem()
+}
+
+func (o ListSaasResourceAccessTokenResultOutput) ToListSaasResourceAccessTokenResultOutput() ListSaasResourceAccessTokenResultOutput {
+	return o
+}
+
+func (o ListSaasResourceAccessTokenResultOutput) ToListSaasResourceAccessTokenResultOutputWithContext(ctx context.Context) ListSaasResourceAccessTokenResultOutput {
+	return o
+}
+
+// The Publisher Offer Base Uri
+func (o ListSaasResourceAccessTokenResultOutput) PublisherOfferBaseUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListSaasResourceAccessTokenResult) *string { return v.PublisherOfferBaseUri }).(pulumi.StringPtrOutput)
+}
+
+// The generated token
+func (o ListSaasResourceAccessTokenResultOutput) Token() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListSaasResourceAccessTokenResult) *string { return v.Token }).(pulumi.StringPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(ListSaasResourceAccessTokenResultOutput{})
 }

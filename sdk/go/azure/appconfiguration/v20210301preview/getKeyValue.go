@@ -4,6 +4,9 @@
 package v20210301preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -54,4 +57,104 @@ type LookupKeyValueResult struct {
 	Type string `pulumi:"type"`
 	// The value of the key-value.
 	Value *string `pulumi:"value"`
+}
+
+func LookupKeyValueOutput(ctx *pulumi.Context, args LookupKeyValueOutputArgs, opts ...pulumi.InvokeOption) LookupKeyValueResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupKeyValueResult, error) {
+			args := v.(LookupKeyValueArgs)
+			r, err := LookupKeyValue(ctx, &args, opts...)
+			return *r, err
+		}).(LookupKeyValueResultOutput)
+}
+
+type LookupKeyValueOutputArgs struct {
+	// The name of the configuration store.
+	ConfigStoreName pulumi.StringInput `pulumi:"configStoreName"`
+	// Identifier of key and label combination. Key and label are joined by $ character. Label is optional.
+	KeyValueName pulumi.StringInput `pulumi:"keyValueName"`
+	// The name of the resource group to which the container registry belongs.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupKeyValueOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupKeyValueArgs)(nil)).Elem()
+}
+
+// The key-value resource along with all resource properties.
+type LookupKeyValueResultOutput struct{ *pulumi.OutputState }
+
+func (LookupKeyValueResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupKeyValueResult)(nil)).Elem()
+}
+
+func (o LookupKeyValueResultOutput) ToLookupKeyValueResultOutput() LookupKeyValueResultOutput {
+	return o
+}
+
+func (o LookupKeyValueResultOutput) ToLookupKeyValueResultOutputWithContext(ctx context.Context) LookupKeyValueResultOutput {
+	return o
+}
+
+// The content type of the key-value's value.
+// Providing a proper content-type can enable transformations of values when they are retrieved by applications.
+func (o LookupKeyValueResultOutput) ContentType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupKeyValueResult) *string { return v.ContentType }).(pulumi.StringPtrOutput)
+}
+
+// An ETag indicating the state of a key-value within a configuration store.
+func (o LookupKeyValueResultOutput) ETag() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupKeyValueResult) string { return v.ETag }).(pulumi.StringOutput)
+}
+
+// The resource ID.
+func (o LookupKeyValueResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupKeyValueResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The primary identifier of a key-value.
+// The key is used in unison with the label to uniquely identify a key-value.
+func (o LookupKeyValueResultOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupKeyValueResult) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// A value used to group key-values.
+// The label is used in unison with the key to uniquely identify a key-value.
+func (o LookupKeyValueResultOutput) Label() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupKeyValueResult) string { return v.Label }).(pulumi.StringOutput)
+}
+
+// The last time a modifying operation was performed on the given key-value.
+func (o LookupKeyValueResultOutput) LastModified() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupKeyValueResult) string { return v.LastModified }).(pulumi.StringOutput)
+}
+
+// A value indicating whether the key-value is locked.
+// A locked key-value may not be modified until it is unlocked.
+func (o LookupKeyValueResultOutput) Locked() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupKeyValueResult) bool { return v.Locked }).(pulumi.BoolOutput)
+}
+
+// The name of the resource.
+func (o LookupKeyValueResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupKeyValueResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// A dictionary of tags that can help identify what a key-value may be applicable for.
+func (o LookupKeyValueResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupKeyValueResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource.
+func (o LookupKeyValueResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupKeyValueResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The value of the key-value.
+func (o LookupKeyValueResultOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupKeyValueResult) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupKeyValueResultOutput{})
 }

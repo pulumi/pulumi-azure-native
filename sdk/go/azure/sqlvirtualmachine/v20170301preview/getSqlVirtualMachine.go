@@ -4,6 +4,9 @@
 package v20170301preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -66,4 +69,146 @@ type LookupSqlVirtualMachineResult struct {
 	VirtualMachineResourceId *string `pulumi:"virtualMachineResourceId"`
 	// Domain credentials for setting up Windows Server Failover Cluster for SQL availability group.
 	WsfcDomainCredentials *WsfcDomainCredentialsResponse `pulumi:"wsfcDomainCredentials"`
+}
+
+func LookupSqlVirtualMachineOutput(ctx *pulumi.Context, args LookupSqlVirtualMachineOutputArgs, opts ...pulumi.InvokeOption) LookupSqlVirtualMachineResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupSqlVirtualMachineResult, error) {
+			args := v.(LookupSqlVirtualMachineArgs)
+			r, err := LookupSqlVirtualMachine(ctx, &args, opts...)
+			return *r, err
+		}).(LookupSqlVirtualMachineResultOutput)
+}
+
+type LookupSqlVirtualMachineOutputArgs struct {
+	// The child resources to include in the response.
+	Expand pulumi.StringPtrInput `pulumi:"expand"`
+	// Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// Name of the SQL virtual machine.
+	SqlVirtualMachineName pulumi.StringInput `pulumi:"sqlVirtualMachineName"`
+}
+
+func (LookupSqlVirtualMachineOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupSqlVirtualMachineArgs)(nil)).Elem()
+}
+
+// A SQL virtual machine.
+type LookupSqlVirtualMachineResultOutput struct{ *pulumi.OutputState }
+
+func (LookupSqlVirtualMachineResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupSqlVirtualMachineResult)(nil)).Elem()
+}
+
+func (o LookupSqlVirtualMachineResultOutput) ToLookupSqlVirtualMachineResultOutput() LookupSqlVirtualMachineResultOutput {
+	return o
+}
+
+func (o LookupSqlVirtualMachineResultOutput) ToLookupSqlVirtualMachineResultOutputWithContext(ctx context.Context) LookupSqlVirtualMachineResultOutput {
+	return o
+}
+
+// Auto backup settings for SQL Server.
+func (o LookupSqlVirtualMachineResultOutput) AutoBackupSettings() AutoBackupSettingsResponsePtrOutput {
+	return o.ApplyT(func(v LookupSqlVirtualMachineResult) *AutoBackupSettingsResponse { return v.AutoBackupSettings }).(AutoBackupSettingsResponsePtrOutput)
+}
+
+// Auto patching settings for applying critical security updates to SQL virtual machine.
+func (o LookupSqlVirtualMachineResultOutput) AutoPatchingSettings() AutoPatchingSettingsResponsePtrOutput {
+	return o.ApplyT(func(v LookupSqlVirtualMachineResult) *AutoPatchingSettingsResponse { return v.AutoPatchingSettings }).(AutoPatchingSettingsResponsePtrOutput)
+}
+
+// Resource ID.
+func (o LookupSqlVirtualMachineResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSqlVirtualMachineResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Azure Active Directory identity of the server.
+func (o LookupSqlVirtualMachineResultOutput) Identity() ResourceIdentityResponsePtrOutput {
+	return o.ApplyT(func(v LookupSqlVirtualMachineResult) *ResourceIdentityResponse { return v.Identity }).(ResourceIdentityResponsePtrOutput)
+}
+
+// Key vault credential settings.
+func (o LookupSqlVirtualMachineResultOutput) KeyVaultCredentialSettings() KeyVaultCredentialSettingsResponsePtrOutput {
+	return o.ApplyT(func(v LookupSqlVirtualMachineResult) *KeyVaultCredentialSettingsResponse {
+		return v.KeyVaultCredentialSettings
+	}).(KeyVaultCredentialSettingsResponsePtrOutput)
+}
+
+// Resource location.
+func (o LookupSqlVirtualMachineResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSqlVirtualMachineResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o LookupSqlVirtualMachineResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSqlVirtualMachineResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Provisioning state to track the async operation status.
+func (o LookupSqlVirtualMachineResultOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSqlVirtualMachineResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// SQL Server configuration management settings.
+func (o LookupSqlVirtualMachineResultOutput) ServerConfigurationsManagementSettings() ServerConfigurationsManagementSettingsResponsePtrOutput {
+	return o.ApplyT(func(v LookupSqlVirtualMachineResult) *ServerConfigurationsManagementSettingsResponse {
+		return v.ServerConfigurationsManagementSettings
+	}).(ServerConfigurationsManagementSettingsResponsePtrOutput)
+}
+
+// SQL image offer. Examples include SQL2016-WS2016, SQL2017-WS2016.
+func (o LookupSqlVirtualMachineResultOutput) SqlImageOffer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSqlVirtualMachineResult) *string { return v.SqlImageOffer }).(pulumi.StringPtrOutput)
+}
+
+// SQL Server edition type.
+func (o LookupSqlVirtualMachineResultOutput) SqlImageSku() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSqlVirtualMachineResult) *string { return v.SqlImageSku }).(pulumi.StringPtrOutput)
+}
+
+// SQL Server Management type.
+func (o LookupSqlVirtualMachineResultOutput) SqlManagement() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSqlVirtualMachineResult) *string { return v.SqlManagement }).(pulumi.StringPtrOutput)
+}
+
+// SQL Server license type.
+func (o LookupSqlVirtualMachineResultOutput) SqlServerLicenseType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSqlVirtualMachineResult) *string { return v.SqlServerLicenseType }).(pulumi.StringPtrOutput)
+}
+
+// ARM resource id of the SQL virtual machine group this SQL virtual machine is or will be part of.
+func (o LookupSqlVirtualMachineResultOutput) SqlVirtualMachineGroupResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSqlVirtualMachineResult) *string { return v.SqlVirtualMachineGroupResourceId }).(pulumi.StringPtrOutput)
+}
+
+// Storage Configuration Settings.
+func (o LookupSqlVirtualMachineResultOutput) StorageConfigurationSettings() StorageConfigurationSettingsResponsePtrOutput {
+	return o.ApplyT(func(v LookupSqlVirtualMachineResult) *StorageConfigurationSettingsResponse {
+		return v.StorageConfigurationSettings
+	}).(StorageConfigurationSettingsResponsePtrOutput)
+}
+
+// Resource tags.
+func (o LookupSqlVirtualMachineResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupSqlVirtualMachineResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type.
+func (o LookupSqlVirtualMachineResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSqlVirtualMachineResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// ARM Resource id of underlying virtual machine created from SQL marketplace image.
+func (o LookupSqlVirtualMachineResultOutput) VirtualMachineResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSqlVirtualMachineResult) *string { return v.VirtualMachineResourceId }).(pulumi.StringPtrOutput)
+}
+
+// Domain credentials for setting up Windows Server Failover Cluster for SQL availability group.
+func (o LookupSqlVirtualMachineResultOutput) WsfcDomainCredentials() WsfcDomainCredentialsResponsePtrOutput {
+	return o.ApplyT(func(v LookupSqlVirtualMachineResult) *WsfcDomainCredentialsResponse { return v.WsfcDomainCredentials }).(WsfcDomainCredentialsResponsePtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupSqlVirtualMachineResultOutput{})
 }

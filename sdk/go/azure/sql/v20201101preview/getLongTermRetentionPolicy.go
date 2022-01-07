@@ -4,6 +4,9 @@
 package v20201101preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -44,4 +47,82 @@ type LookupLongTermRetentionPolicyResult struct {
 	WeeklyRetention *string `pulumi:"weeklyRetention"`
 	// The yearly retention policy for an LTR backup in an ISO 8601 format.
 	YearlyRetention *string `pulumi:"yearlyRetention"`
+}
+
+func LookupLongTermRetentionPolicyOutput(ctx *pulumi.Context, args LookupLongTermRetentionPolicyOutputArgs, opts ...pulumi.InvokeOption) LookupLongTermRetentionPolicyResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupLongTermRetentionPolicyResult, error) {
+			args := v.(LookupLongTermRetentionPolicyArgs)
+			r, err := LookupLongTermRetentionPolicy(ctx, &args, opts...)
+			return *r, err
+		}).(LookupLongTermRetentionPolicyResultOutput)
+}
+
+type LookupLongTermRetentionPolicyOutputArgs struct {
+	// The name of the database.
+	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
+	// The policy name. Should always be Default.
+	PolicyName pulumi.StringInput `pulumi:"policyName"`
+	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the server.
+	ServerName pulumi.StringInput `pulumi:"serverName"`
+}
+
+func (LookupLongTermRetentionPolicyOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupLongTermRetentionPolicyArgs)(nil)).Elem()
+}
+
+// A long term retention policy.
+type LookupLongTermRetentionPolicyResultOutput struct{ *pulumi.OutputState }
+
+func (LookupLongTermRetentionPolicyResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupLongTermRetentionPolicyResult)(nil)).Elem()
+}
+
+func (o LookupLongTermRetentionPolicyResultOutput) ToLookupLongTermRetentionPolicyResultOutput() LookupLongTermRetentionPolicyResultOutput {
+	return o
+}
+
+func (o LookupLongTermRetentionPolicyResultOutput) ToLookupLongTermRetentionPolicyResultOutputWithContext(ctx context.Context) LookupLongTermRetentionPolicyResultOutput {
+	return o
+}
+
+// Resource ID.
+func (o LookupLongTermRetentionPolicyResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupLongTermRetentionPolicyResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The monthly retention policy for an LTR backup in an ISO 8601 format.
+func (o LookupLongTermRetentionPolicyResultOutput) MonthlyRetention() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupLongTermRetentionPolicyResult) *string { return v.MonthlyRetention }).(pulumi.StringPtrOutput)
+}
+
+// Resource name.
+func (o LookupLongTermRetentionPolicyResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupLongTermRetentionPolicyResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Resource type.
+func (o LookupLongTermRetentionPolicyResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupLongTermRetentionPolicyResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The week of year to take the yearly backup in an ISO 8601 format.
+func (o LookupLongTermRetentionPolicyResultOutput) WeekOfYear() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupLongTermRetentionPolicyResult) *int { return v.WeekOfYear }).(pulumi.IntPtrOutput)
+}
+
+// The weekly retention policy for an LTR backup in an ISO 8601 format.
+func (o LookupLongTermRetentionPolicyResultOutput) WeeklyRetention() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupLongTermRetentionPolicyResult) *string { return v.WeeklyRetention }).(pulumi.StringPtrOutput)
+}
+
+// The yearly retention policy for an LTR backup in an ISO 8601 format.
+func (o LookupLongTermRetentionPolicyResultOutput) YearlyRetention() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupLongTermRetentionPolicyResult) *string { return v.YearlyRetention }).(pulumi.StringPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupLongTermRetentionPolicyResultOutput{})
 }

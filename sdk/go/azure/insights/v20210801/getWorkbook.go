@@ -4,6 +4,9 @@
 package v20210801
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -64,4 +67,138 @@ type LookupWorkbookResult struct {
 	UserId string `pulumi:"userId"`
 	// Workbook schema version format, like 'Notebook/1.0', which should match the workbook in serializedData
 	Version *string `pulumi:"version"`
+}
+
+func LookupWorkbookOutput(ctx *pulumi.Context, args LookupWorkbookOutputArgs, opts ...pulumi.InvokeOption) LookupWorkbookResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupWorkbookResult, error) {
+			args := v.(LookupWorkbookArgs)
+			r, err := LookupWorkbook(ctx, &args, opts...)
+			return *r, err
+		}).(LookupWorkbookResultOutput)
+}
+
+type LookupWorkbookOutputArgs struct {
+	// The name of the resource group. The name is case insensitive.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the Application Insights component resource.
+	ResourceName pulumi.StringInput `pulumi:"resourceName"`
+}
+
+func (LookupWorkbookOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupWorkbookArgs)(nil)).Elem()
+}
+
+// An Application Insights workbook definition.
+type LookupWorkbookResultOutput struct{ *pulumi.OutputState }
+
+func (LookupWorkbookResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupWorkbookResult)(nil)).Elem()
+}
+
+func (o LookupWorkbookResultOutput) ToLookupWorkbookResultOutput() LookupWorkbookResultOutput {
+	return o
+}
+
+func (o LookupWorkbookResultOutput) ToLookupWorkbookResultOutputWithContext(ctx context.Context) LookupWorkbookResultOutput {
+	return o
+}
+
+// Workbook category, as defined by the user at creation time.
+func (o LookupWorkbookResultOutput) Category() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWorkbookResult) string { return v.Category }).(pulumi.StringOutput)
+}
+
+// The description of the workbook.
+func (o LookupWorkbookResultOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupWorkbookResult) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The user-defined name (display name) of the workbook.
+func (o LookupWorkbookResultOutput) DisplayName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWorkbookResult) string { return v.DisplayName }).(pulumi.StringOutput)
+}
+
+// Resource etag
+func (o LookupWorkbookResultOutput) Etag() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupWorkbookResult) map[string]string { return v.Etag }).(pulumi.StringMapOutput)
+}
+
+// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+func (o LookupWorkbookResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWorkbookResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Identity used for BYOS
+func (o LookupWorkbookResultOutput) Identity() WorkbookResourceResponseIdentityPtrOutput {
+	return o.ApplyT(func(v LookupWorkbookResult) *WorkbookResourceResponseIdentity { return v.Identity }).(WorkbookResourceResponseIdentityPtrOutput)
+}
+
+// The kind of workbook. Choices are user and shared.
+func (o LookupWorkbookResultOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupWorkbookResult) *string { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// The geo-location where the resource lives
+func (o LookupWorkbookResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWorkbookResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o LookupWorkbookResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWorkbookResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The unique revision id for this workbook definition
+func (o LookupWorkbookResultOutput) Revision() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWorkbookResult) string { return v.Revision }).(pulumi.StringOutput)
+}
+
+// Configuration of this particular workbook. Configuration data is a string containing valid JSON
+func (o LookupWorkbookResultOutput) SerializedData() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWorkbookResult) string { return v.SerializedData }).(pulumi.StringOutput)
+}
+
+// ResourceId for a source resource.
+func (o LookupWorkbookResultOutput) SourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupWorkbookResult) *string { return v.SourceId }).(pulumi.StringPtrOutput)
+}
+
+// The resourceId to the storage account when bring your own storage is used
+func (o LookupWorkbookResultOutput) StorageUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupWorkbookResult) *string { return v.StorageUri }).(pulumi.StringPtrOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o LookupWorkbookResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupWorkbookResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource tags.
+func (o LookupWorkbookResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupWorkbookResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Date and time in UTC of the last modification that was made to this workbook definition.
+func (o LookupWorkbookResultOutput) TimeModified() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWorkbookResult) string { return v.TimeModified }).(pulumi.StringOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o LookupWorkbookResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWorkbookResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Unique user id of the specific user that owns this workbook.
+func (o LookupWorkbookResultOutput) UserId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWorkbookResult) string { return v.UserId }).(pulumi.StringOutput)
+}
+
+// Workbook schema version format, like 'Notebook/1.0', which should match the workbook in serializedData
+func (o LookupWorkbookResultOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupWorkbookResult) *string { return v.Version }).(pulumi.StringPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupWorkbookResultOutput{})
 }

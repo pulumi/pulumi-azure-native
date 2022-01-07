@@ -4,6 +4,9 @@
 package v20200401
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -28,4 +31,48 @@ type GetVirtualNetworkGatewayLearnedRoutesArgs struct {
 type GetVirtualNetworkGatewayLearnedRoutesResult struct {
 	// List of gateway routes.
 	Value []GatewayRouteResponse `pulumi:"value"`
+}
+
+func GetVirtualNetworkGatewayLearnedRoutesOutput(ctx *pulumi.Context, args GetVirtualNetworkGatewayLearnedRoutesOutputArgs, opts ...pulumi.InvokeOption) GetVirtualNetworkGatewayLearnedRoutesResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetVirtualNetworkGatewayLearnedRoutesResult, error) {
+			args := v.(GetVirtualNetworkGatewayLearnedRoutesArgs)
+			r, err := GetVirtualNetworkGatewayLearnedRoutes(ctx, &args, opts...)
+			return *r, err
+		}).(GetVirtualNetworkGatewayLearnedRoutesResultOutput)
+}
+
+type GetVirtualNetworkGatewayLearnedRoutesOutputArgs struct {
+	// The name of the resource group.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the virtual network gateway.
+	VirtualNetworkGatewayName pulumi.StringInput `pulumi:"virtualNetworkGatewayName"`
+}
+
+func (GetVirtualNetworkGatewayLearnedRoutesOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVirtualNetworkGatewayLearnedRoutesArgs)(nil)).Elem()
+}
+
+// List of virtual network gateway routes.
+type GetVirtualNetworkGatewayLearnedRoutesResultOutput struct{ *pulumi.OutputState }
+
+func (GetVirtualNetworkGatewayLearnedRoutesResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVirtualNetworkGatewayLearnedRoutesResult)(nil)).Elem()
+}
+
+func (o GetVirtualNetworkGatewayLearnedRoutesResultOutput) ToGetVirtualNetworkGatewayLearnedRoutesResultOutput() GetVirtualNetworkGatewayLearnedRoutesResultOutput {
+	return o
+}
+
+func (o GetVirtualNetworkGatewayLearnedRoutesResultOutput) ToGetVirtualNetworkGatewayLearnedRoutesResultOutputWithContext(ctx context.Context) GetVirtualNetworkGatewayLearnedRoutesResultOutput {
+	return o
+}
+
+// List of gateway routes.
+func (o GetVirtualNetworkGatewayLearnedRoutesResultOutput) Value() GatewayRouteResponseArrayOutput {
+	return o.ApplyT(func(v GetVirtualNetworkGatewayLearnedRoutesResult) []GatewayRouteResponse { return v.Value }).(GatewayRouteResponseArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetVirtualNetworkGatewayLearnedRoutesResultOutput{})
 }

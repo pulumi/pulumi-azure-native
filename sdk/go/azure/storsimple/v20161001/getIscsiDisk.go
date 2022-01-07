@@ -4,6 +4,9 @@
 package v20161001
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -54,4 +57,104 @@ type LookupIscsiDiskResult struct {
 	Type string `pulumi:"type"`
 	// The used capacity in bytes.
 	UsedCapacityInBytes float64 `pulumi:"usedCapacityInBytes"`
+}
+
+func LookupIscsiDiskOutput(ctx *pulumi.Context, args LookupIscsiDiskOutputArgs, opts ...pulumi.InvokeOption) LookupIscsiDiskResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupIscsiDiskResult, error) {
+			args := v.(LookupIscsiDiskArgs)
+			r, err := LookupIscsiDisk(ctx, &args, opts...)
+			return *r, err
+		}).(LookupIscsiDiskResultOutput)
+}
+
+type LookupIscsiDiskOutputArgs struct {
+	// The device name.
+	DeviceName pulumi.StringInput `pulumi:"deviceName"`
+	// The disk name.
+	DiskName pulumi.StringInput `pulumi:"diskName"`
+	// The iSCSI server name.
+	IscsiServerName pulumi.StringInput `pulumi:"iscsiServerName"`
+	// The manager name
+	ManagerName pulumi.StringInput `pulumi:"managerName"`
+	// The resource group name
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupIscsiDiskOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupIscsiDiskArgs)(nil)).Elem()
+}
+
+// The iSCSI disk.
+type LookupIscsiDiskResultOutput struct{ *pulumi.OutputState }
+
+func (LookupIscsiDiskResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupIscsiDiskResult)(nil)).Elem()
+}
+
+func (o LookupIscsiDiskResultOutput) ToLookupIscsiDiskResultOutput() LookupIscsiDiskResultOutput {
+	return o
+}
+
+func (o LookupIscsiDiskResultOutput) ToLookupIscsiDiskResultOutputWithContext(ctx context.Context) LookupIscsiDiskResultOutput {
+	return o
+}
+
+// The access control records.
+func (o LookupIscsiDiskResultOutput) AccessControlRecords() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupIscsiDiskResult) []string { return v.AccessControlRecords }).(pulumi.StringArrayOutput)
+}
+
+// The data policy.
+func (o LookupIscsiDiskResultOutput) DataPolicy() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupIscsiDiskResult) string { return v.DataPolicy }).(pulumi.StringOutput)
+}
+
+// The description.
+func (o LookupIscsiDiskResultOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupIscsiDiskResult) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The disk status.
+func (o LookupIscsiDiskResultOutput) DiskStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupIscsiDiskResult) string { return v.DiskStatus }).(pulumi.StringOutput)
+}
+
+// The identifier.
+func (o LookupIscsiDiskResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupIscsiDiskResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The local used capacity in bytes.
+func (o LookupIscsiDiskResultOutput) LocalUsedCapacityInBytes() pulumi.Float64Output {
+	return o.ApplyT(func(v LookupIscsiDiskResult) float64 { return v.LocalUsedCapacityInBytes }).(pulumi.Float64Output)
+}
+
+// The monitoring.
+func (o LookupIscsiDiskResultOutput) MonitoringStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupIscsiDiskResult) string { return v.MonitoringStatus }).(pulumi.StringOutput)
+}
+
+// The name.
+func (o LookupIscsiDiskResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupIscsiDiskResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The provisioned capacity in bytes.
+func (o LookupIscsiDiskResultOutput) ProvisionedCapacityInBytes() pulumi.Float64Output {
+	return o.ApplyT(func(v LookupIscsiDiskResult) float64 { return v.ProvisionedCapacityInBytes }).(pulumi.Float64Output)
+}
+
+// The type.
+func (o LookupIscsiDiskResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupIscsiDiskResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The used capacity in bytes.
+func (o LookupIscsiDiskResultOutput) UsedCapacityInBytes() pulumi.Float64Output {
+	return o.ApplyT(func(v LookupIscsiDiskResult) float64 { return v.UsedCapacityInBytes }).(pulumi.Float64Output)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupIscsiDiskResultOutput{})
 }

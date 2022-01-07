@@ -4,6 +4,9 @@
 package v20210301preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -44,4 +47,85 @@ type LookupWorkspaceConnectionResult struct {
 	Value *string `pulumi:"value"`
 	// format for the workspace connection value
 	ValueFormat *string `pulumi:"valueFormat"`
+}
+
+func LookupWorkspaceConnectionOutput(ctx *pulumi.Context, args LookupWorkspaceConnectionOutputArgs, opts ...pulumi.InvokeOption) LookupWorkspaceConnectionResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupWorkspaceConnectionResult, error) {
+			args := v.(LookupWorkspaceConnectionArgs)
+			r, err := LookupWorkspaceConnection(ctx, &args, opts...)
+			return *r, err
+		}).(LookupWorkspaceConnectionResultOutput)
+}
+
+type LookupWorkspaceConnectionOutputArgs struct {
+	// Friendly name of the workspace connection
+	ConnectionName pulumi.StringInput `pulumi:"connectionName"`
+	// The name of the resource group. The name is case insensitive.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// Name of Azure Machine Learning workspace.
+	WorkspaceName pulumi.StringInput `pulumi:"workspaceName"`
+}
+
+func (LookupWorkspaceConnectionOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupWorkspaceConnectionArgs)(nil)).Elem()
+}
+
+// Workspace connection.
+type LookupWorkspaceConnectionResultOutput struct{ *pulumi.OutputState }
+
+func (LookupWorkspaceConnectionResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupWorkspaceConnectionResult)(nil)).Elem()
+}
+
+func (o LookupWorkspaceConnectionResultOutput) ToLookupWorkspaceConnectionResultOutput() LookupWorkspaceConnectionResultOutput {
+	return o
+}
+
+func (o LookupWorkspaceConnectionResultOutput) ToLookupWorkspaceConnectionResultOutputWithContext(ctx context.Context) LookupWorkspaceConnectionResultOutput {
+	return o
+}
+
+// Authorization type of the workspace connection.
+func (o LookupWorkspaceConnectionResultOutput) AuthType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupWorkspaceConnectionResult) *string { return v.AuthType }).(pulumi.StringPtrOutput)
+}
+
+// Category of the workspace connection.
+func (o LookupWorkspaceConnectionResultOutput) Category() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupWorkspaceConnectionResult) *string { return v.Category }).(pulumi.StringPtrOutput)
+}
+
+// ResourceId of the workspace connection.
+func (o LookupWorkspaceConnectionResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWorkspaceConnectionResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Friendly name of the workspace connection.
+func (o LookupWorkspaceConnectionResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWorkspaceConnectionResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Target of the workspace connection.
+func (o LookupWorkspaceConnectionResultOutput) Target() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupWorkspaceConnectionResult) *string { return v.Target }).(pulumi.StringPtrOutput)
+}
+
+// Resource type of workspace connection.
+func (o LookupWorkspaceConnectionResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWorkspaceConnectionResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Value details of the workspace connection.
+func (o LookupWorkspaceConnectionResultOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupWorkspaceConnectionResult) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+// format for the workspace connection value
+func (o LookupWorkspaceConnectionResultOutput) ValueFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupWorkspaceConnectionResult) *string { return v.ValueFormat }).(pulumi.StringPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupWorkspaceConnectionResultOutput{})
 }

@@ -4,6 +4,9 @@
 package v20210301
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -63,4 +66,109 @@ func (val *LookupVirtualNetworkTapResult) Defaults() *LookupVirtualNetworkTapRes
 	tmp.DestinationNetworkInterfaceIPConfiguration = tmp.DestinationNetworkInterfaceIPConfiguration.Defaults()
 
 	return &tmp
+}
+
+func LookupVirtualNetworkTapOutput(ctx *pulumi.Context, args LookupVirtualNetworkTapOutputArgs, opts ...pulumi.InvokeOption) LookupVirtualNetworkTapResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupVirtualNetworkTapResult, error) {
+			args := v.(LookupVirtualNetworkTapArgs)
+			r, err := LookupVirtualNetworkTap(ctx, &args, opts...)
+			return *r, err
+		}).(LookupVirtualNetworkTapResultOutput)
+}
+
+type LookupVirtualNetworkTapOutputArgs struct {
+	// The name of the resource group.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of virtual network tap.
+	TapName pulumi.StringInput `pulumi:"tapName"`
+}
+
+func (LookupVirtualNetworkTapOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupVirtualNetworkTapArgs)(nil)).Elem()
+}
+
+// Virtual Network Tap resource.
+type LookupVirtualNetworkTapResultOutput struct{ *pulumi.OutputState }
+
+func (LookupVirtualNetworkTapResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupVirtualNetworkTapResult)(nil)).Elem()
+}
+
+func (o LookupVirtualNetworkTapResultOutput) ToLookupVirtualNetworkTapResultOutput() LookupVirtualNetworkTapResultOutput {
+	return o
+}
+
+func (o LookupVirtualNetworkTapResultOutput) ToLookupVirtualNetworkTapResultOutputWithContext(ctx context.Context) LookupVirtualNetworkTapResultOutput {
+	return o
+}
+
+// The reference to the private IP address on the internal Load Balancer that will receive the tap.
+func (o LookupVirtualNetworkTapResultOutput) DestinationLoadBalancerFrontEndIPConfiguration() FrontendIPConfigurationResponsePtrOutput {
+	return o.ApplyT(func(v LookupVirtualNetworkTapResult) *FrontendIPConfigurationResponse {
+		return v.DestinationLoadBalancerFrontEndIPConfiguration
+	}).(FrontendIPConfigurationResponsePtrOutput)
+}
+
+// The reference to the private IP Address of the collector nic that will receive the tap.
+func (o LookupVirtualNetworkTapResultOutput) DestinationNetworkInterfaceIPConfiguration() NetworkInterfaceIPConfigurationResponsePtrOutput {
+	return o.ApplyT(func(v LookupVirtualNetworkTapResult) *NetworkInterfaceIPConfigurationResponse {
+		return v.DestinationNetworkInterfaceIPConfiguration
+	}).(NetworkInterfaceIPConfigurationResponsePtrOutput)
+}
+
+// The VXLAN destination port that will receive the tapped traffic.
+func (o LookupVirtualNetworkTapResultOutput) DestinationPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupVirtualNetworkTapResult) *int { return v.DestinationPort }).(pulumi.IntPtrOutput)
+}
+
+// A unique read-only string that changes whenever the resource is updated.
+func (o LookupVirtualNetworkTapResultOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVirtualNetworkTapResult) string { return v.Etag }).(pulumi.StringOutput)
+}
+
+// Resource ID.
+func (o LookupVirtualNetworkTapResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVirtualNetworkTapResult) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// Resource location.
+func (o LookupVirtualNetworkTapResultOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVirtualNetworkTapResult) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Resource name.
+func (o LookupVirtualNetworkTapResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVirtualNetworkTapResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Specifies the list of resource IDs for the network interface IP configuration that needs to be tapped.
+func (o LookupVirtualNetworkTapResultOutput) NetworkInterfaceTapConfigurations() NetworkInterfaceTapConfigurationResponseArrayOutput {
+	return o.ApplyT(func(v LookupVirtualNetworkTapResult) []NetworkInterfaceTapConfigurationResponse {
+		return v.NetworkInterfaceTapConfigurations
+	}).(NetworkInterfaceTapConfigurationResponseArrayOutput)
+}
+
+// The provisioning state of the virtual network tap resource.
+func (o LookupVirtualNetworkTapResultOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVirtualNetworkTapResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The resource GUID property of the virtual network tap resource.
+func (o LookupVirtualNetworkTapResultOutput) ResourceGuid() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVirtualNetworkTapResult) string { return v.ResourceGuid }).(pulumi.StringOutput)
+}
+
+// Resource tags.
+func (o LookupVirtualNetworkTapResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupVirtualNetworkTapResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type.
+func (o LookupVirtualNetworkTapResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVirtualNetworkTapResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupVirtualNetworkTapResultOutput{})
 }

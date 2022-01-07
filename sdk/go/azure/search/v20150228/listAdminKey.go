@@ -4,6 +4,9 @@
 package v20150228
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -30,4 +33,53 @@ type ListAdminKeyResult struct {
 	PrimaryKey string `pulumi:"primaryKey"`
 	// The secondary API key of the Search service.
 	SecondaryKey string `pulumi:"secondaryKey"`
+}
+
+func ListAdminKeyOutput(ctx *pulumi.Context, args ListAdminKeyOutputArgs, opts ...pulumi.InvokeOption) ListAdminKeyResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (ListAdminKeyResult, error) {
+			args := v.(ListAdminKeyArgs)
+			r, err := ListAdminKey(ctx, &args, opts...)
+			return *r, err
+		}).(ListAdminKeyResultOutput)
+}
+
+type ListAdminKeyOutputArgs struct {
+	// The name of the resource group within the current subscription.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the Search service for which to list admin keys.
+	ServiceName pulumi.StringInput `pulumi:"serviceName"`
+}
+
+func (ListAdminKeyOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListAdminKeyArgs)(nil)).Elem()
+}
+
+// Response containing the primary and secondary API keys for a given Azure Search service.
+type ListAdminKeyResultOutput struct{ *pulumi.OutputState }
+
+func (ListAdminKeyResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListAdminKeyResult)(nil)).Elem()
+}
+
+func (o ListAdminKeyResultOutput) ToListAdminKeyResultOutput() ListAdminKeyResultOutput {
+	return o
+}
+
+func (o ListAdminKeyResultOutput) ToListAdminKeyResultOutputWithContext(ctx context.Context) ListAdminKeyResultOutput {
+	return o
+}
+
+// The primary API key of the Search service.
+func (o ListAdminKeyResultOutput) PrimaryKey() pulumi.StringOutput {
+	return o.ApplyT(func(v ListAdminKeyResult) string { return v.PrimaryKey }).(pulumi.StringOutput)
+}
+
+// The secondary API key of the Search service.
+func (o ListAdminKeyResultOutput) SecondaryKey() pulumi.StringOutput {
+	return o.ApplyT(func(v ListAdminKeyResult) string { return v.SecondaryKey }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(ListAdminKeyResultOutput{})
 }

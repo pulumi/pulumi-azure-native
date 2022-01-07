@@ -16,6 +16,55 @@ type AuthenticationDetailsValue struct {
 	Token *string `pulumi:"token"`
 }
 
+// AuthenticationDetailsValueInput is an input type that accepts AuthenticationDetailsValueArgs and AuthenticationDetailsValueOutput values.
+// You can construct a concrete instance of `AuthenticationDetailsValueInput` via:
+//
+//          AuthenticationDetailsValueArgs{...}
+type AuthenticationDetailsValueInput interface {
+	pulumi.Input
+
+	ToAuthenticationDetailsValueOutput() AuthenticationDetailsValueOutput
+	ToAuthenticationDetailsValueOutputWithContext(context.Context) AuthenticationDetailsValueOutput
+}
+
+// Authentication token value.
+type AuthenticationDetailsValueArgs struct {
+	// Authentication token.
+	Token pulumi.StringPtrInput `pulumi:"token"`
+}
+
+func (AuthenticationDetailsValueArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AuthenticationDetailsValue)(nil)).Elem()
+}
+
+func (i AuthenticationDetailsValueArgs) ToAuthenticationDetailsValueOutput() AuthenticationDetailsValueOutput {
+	return i.ToAuthenticationDetailsValueOutputWithContext(context.Background())
+}
+
+func (i AuthenticationDetailsValueArgs) ToAuthenticationDetailsValueOutputWithContext(ctx context.Context) AuthenticationDetailsValueOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AuthenticationDetailsValueOutput)
+}
+
+// Authentication token value.
+type AuthenticationDetailsValueOutput struct{ *pulumi.OutputState }
+
+func (AuthenticationDetailsValueOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AuthenticationDetailsValue)(nil)).Elem()
+}
+
+func (o AuthenticationDetailsValueOutput) ToAuthenticationDetailsValueOutput() AuthenticationDetailsValueOutput {
+	return o
+}
+
+func (o AuthenticationDetailsValueOutput) ToAuthenticationDetailsValueOutputWithContext(ctx context.Context) AuthenticationDetailsValueOutput {
+	return o
+}
+
+// Authentication token.
+func (o AuthenticationDetailsValueOutput) Token() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AuthenticationDetailsValue) *string { return v.Token }).(pulumi.StringPtrOutput)
+}
+
 // AAD profile of the connected cluster
 type ConnectedClusterAADProfile struct {
 	// The client app id configured on target K8 cluster
@@ -232,6 +281,51 @@ type CredentialResultResponse struct {
 	Value string `pulumi:"value"`
 }
 
+// The credential result response.
+type CredentialResultResponseOutput struct{ *pulumi.OutputState }
+
+func (CredentialResultResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CredentialResultResponse)(nil)).Elem()
+}
+
+func (o CredentialResultResponseOutput) ToCredentialResultResponseOutput() CredentialResultResponseOutput {
+	return o
+}
+
+func (o CredentialResultResponseOutput) ToCredentialResultResponseOutputWithContext(ctx context.Context) CredentialResultResponseOutput {
+	return o
+}
+
+// The name of the credential.
+func (o CredentialResultResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v CredentialResultResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Base64-encoded Kubernetes configuration file.
+func (o CredentialResultResponseOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v CredentialResultResponse) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type CredentialResultResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (CredentialResultResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CredentialResultResponse)(nil)).Elem()
+}
+
+func (o CredentialResultResponseArrayOutput) ToCredentialResultResponseArrayOutput() CredentialResultResponseArrayOutput {
+	return o
+}
+
+func (o CredentialResultResponseArrayOutput) ToCredentialResultResponseArrayOutputWithContext(ctx context.Context) CredentialResultResponseArrayOutput {
+	return o
+}
+
+func (o CredentialResultResponseArrayOutput) Index(i pulumi.IntInput) CredentialResultResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CredentialResultResponse {
+		return vs[0].([]CredentialResultResponse)[vs[1].(int)]
+	}).(CredentialResultResponseOutput)
+}
+
 // Contains the REP (rendezvous endpoint) and “Sender” access token.
 type HybridConnectionConfigResponse struct {
 	// Timestamp when this token will be expired.
@@ -244,9 +338,48 @@ type HybridConnectionConfigResponse struct {
 	Token string `pulumi:"token"`
 }
 
+// Contains the REP (rendezvous endpoint) and “Sender” access token.
+type HybridConnectionConfigResponseOutput struct{ *pulumi.OutputState }
+
+func (HybridConnectionConfigResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HybridConnectionConfigResponse)(nil)).Elem()
+}
+
+func (o HybridConnectionConfigResponseOutput) ToHybridConnectionConfigResponseOutput() HybridConnectionConfigResponseOutput {
+	return o
+}
+
+func (o HybridConnectionConfigResponseOutput) ToHybridConnectionConfigResponseOutputWithContext(ctx context.Context) HybridConnectionConfigResponseOutput {
+	return o
+}
+
+// Timestamp when this token will be expired.
+func (o HybridConnectionConfigResponseOutput) ExpirationTime() pulumi.Float64Output {
+	return o.ApplyT(func(v HybridConnectionConfigResponse) float64 { return v.ExpirationTime }).(pulumi.Float64Output)
+}
+
+// Name of the connection
+func (o HybridConnectionConfigResponseOutput) HybridConnectionName() pulumi.StringOutput {
+	return o.ApplyT(func(v HybridConnectionConfigResponse) string { return v.HybridConnectionName }).(pulumi.StringOutput)
+}
+
+// Name of the relay.
+func (o HybridConnectionConfigResponseOutput) Relay() pulumi.StringOutput {
+	return o.ApplyT(func(v HybridConnectionConfigResponse) string { return v.Relay }).(pulumi.StringOutput)
+}
+
+// Sender access token
+func (o HybridConnectionConfigResponseOutput) Token() pulumi.StringOutput {
+	return o.ApplyT(func(v HybridConnectionConfigResponse) string { return v.Token }).(pulumi.StringOutput)
+}
+
 func init() {
+	pulumi.RegisterOutputType(AuthenticationDetailsValueOutput{})
 	pulumi.RegisterOutputType(ConnectedClusterAADProfileOutput{})
 	pulumi.RegisterOutputType(ConnectedClusterAADProfileResponseOutput{})
 	pulumi.RegisterOutputType(ConnectedClusterIdentityOutput{})
 	pulumi.RegisterOutputType(ConnectedClusterIdentityResponseOutput{})
+	pulumi.RegisterOutputType(CredentialResultResponseOutput{})
+	pulumi.RegisterOutputType(CredentialResultResponseArrayOutput{})
+	pulumi.RegisterOutputType(HybridConnectionConfigResponseOutput{})
 }

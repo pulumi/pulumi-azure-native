@@ -4,6 +4,9 @@
 package v20190801
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -40,4 +43,75 @@ type LookupWebAppSwiftVirtualNetworkConnectionSlotResult struct {
 	SwiftSupported *bool `pulumi:"swiftSupported"`
 	// Resource type.
 	Type string `pulumi:"type"`
+}
+
+func LookupWebAppSwiftVirtualNetworkConnectionSlotOutput(ctx *pulumi.Context, args LookupWebAppSwiftVirtualNetworkConnectionSlotOutputArgs, opts ...pulumi.InvokeOption) LookupWebAppSwiftVirtualNetworkConnectionSlotResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupWebAppSwiftVirtualNetworkConnectionSlotResult, error) {
+			args := v.(LookupWebAppSwiftVirtualNetworkConnectionSlotArgs)
+			r, err := LookupWebAppSwiftVirtualNetworkConnectionSlot(ctx, &args, opts...)
+			return *r, err
+		}).(LookupWebAppSwiftVirtualNetworkConnectionSlotResultOutput)
+}
+
+type LookupWebAppSwiftVirtualNetworkConnectionSlotOutputArgs struct {
+	// Name of the app.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Name of the resource group to which the resource belongs.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// Name of the deployment slot. If a slot is not specified, the API will get a gateway for the production slot's Virtual Network.
+	Slot pulumi.StringInput `pulumi:"slot"`
+}
+
+func (LookupWebAppSwiftVirtualNetworkConnectionSlotOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupWebAppSwiftVirtualNetworkConnectionSlotArgs)(nil)).Elem()
+}
+
+// Swift Virtual Network Contract. This is used to enable the new Swift way of doing virtual network integration.
+type LookupWebAppSwiftVirtualNetworkConnectionSlotResultOutput struct{ *pulumi.OutputState }
+
+func (LookupWebAppSwiftVirtualNetworkConnectionSlotResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupWebAppSwiftVirtualNetworkConnectionSlotResult)(nil)).Elem()
+}
+
+func (o LookupWebAppSwiftVirtualNetworkConnectionSlotResultOutput) ToLookupWebAppSwiftVirtualNetworkConnectionSlotResultOutput() LookupWebAppSwiftVirtualNetworkConnectionSlotResultOutput {
+	return o
+}
+
+func (o LookupWebAppSwiftVirtualNetworkConnectionSlotResultOutput) ToLookupWebAppSwiftVirtualNetworkConnectionSlotResultOutputWithContext(ctx context.Context) LookupWebAppSwiftVirtualNetworkConnectionSlotResultOutput {
+	return o
+}
+
+// Resource Id.
+func (o LookupWebAppSwiftVirtualNetworkConnectionSlotResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWebAppSwiftVirtualNetworkConnectionSlotResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Kind of resource.
+func (o LookupWebAppSwiftVirtualNetworkConnectionSlotResultOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupWebAppSwiftVirtualNetworkConnectionSlotResult) *string { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Resource Name.
+func (o LookupWebAppSwiftVirtualNetworkConnectionSlotResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWebAppSwiftVirtualNetworkConnectionSlotResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The Virtual Network subnet's resource ID. This is the subnet that this Web App will join. This subnet must have a delegation to Microsoft.Web/serverFarms defined first.
+func (o LookupWebAppSwiftVirtualNetworkConnectionSlotResultOutput) SubnetResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupWebAppSwiftVirtualNetworkConnectionSlotResult) *string { return v.SubnetResourceId }).(pulumi.StringPtrOutput)
+}
+
+// A flag that specifies if the scale unit this Web App is on supports Swift integration.
+func (o LookupWebAppSwiftVirtualNetworkConnectionSlotResultOutput) SwiftSupported() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupWebAppSwiftVirtualNetworkConnectionSlotResult) *bool { return v.SwiftSupported }).(pulumi.BoolPtrOutput)
+}
+
+// Resource type.
+func (o LookupWebAppSwiftVirtualNetworkConnectionSlotResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWebAppSwiftVirtualNetworkConnectionSlotResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupWebAppSwiftVirtualNetworkConnectionSlotResultOutput{})
 }

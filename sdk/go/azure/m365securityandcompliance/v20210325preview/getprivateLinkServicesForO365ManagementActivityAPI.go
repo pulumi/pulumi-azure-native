@@ -4,6 +4,9 @@
 package v20210325preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -46,4 +49,99 @@ type GetprivateLinkServicesForO365ManagementActivityAPIResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// The resource type.
 	Type string `pulumi:"type"`
+}
+
+func GetprivateLinkServicesForO365ManagementActivityAPIOutput(ctx *pulumi.Context, args GetprivateLinkServicesForO365ManagementActivityAPIOutputArgs, opts ...pulumi.InvokeOption) GetprivateLinkServicesForO365ManagementActivityAPIResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetprivateLinkServicesForO365ManagementActivityAPIResult, error) {
+			args := v.(GetprivateLinkServicesForO365ManagementActivityAPIArgs)
+			r, err := GetprivateLinkServicesForO365ManagementActivityAPI(ctx, &args, opts...)
+			return *r, err
+		}).(GetprivateLinkServicesForO365ManagementActivityAPIResultOutput)
+}
+
+type GetprivateLinkServicesForO365ManagementActivityAPIOutputArgs struct {
+	// The name of the resource group that contains the service instance.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the service instance.
+	ResourceName pulumi.StringInput `pulumi:"resourceName"`
+}
+
+func (GetprivateLinkServicesForO365ManagementActivityAPIOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetprivateLinkServicesForO365ManagementActivityAPIArgs)(nil)).Elem()
+}
+
+// The description of the service.
+type GetprivateLinkServicesForO365ManagementActivityAPIResultOutput struct{ *pulumi.OutputState }
+
+func (GetprivateLinkServicesForO365ManagementActivityAPIResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetprivateLinkServicesForO365ManagementActivityAPIResult)(nil)).Elem()
+}
+
+func (o GetprivateLinkServicesForO365ManagementActivityAPIResultOutput) ToGetprivateLinkServicesForO365ManagementActivityAPIResultOutput() GetprivateLinkServicesForO365ManagementActivityAPIResultOutput {
+	return o
+}
+
+func (o GetprivateLinkServicesForO365ManagementActivityAPIResultOutput) ToGetprivateLinkServicesForO365ManagementActivityAPIResultOutputWithContext(ctx context.Context) GetprivateLinkServicesForO365ManagementActivityAPIResultOutput {
+	return o
+}
+
+// An etag associated with the resource, used for optimistic concurrency when editing it.
+func (o GetprivateLinkServicesForO365ManagementActivityAPIResultOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetprivateLinkServicesForO365ManagementActivityAPIResult) *string { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// The resource identifier.
+func (o GetprivateLinkServicesForO365ManagementActivityAPIResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetprivateLinkServicesForO365ManagementActivityAPIResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Setting indicating whether the service has a managed identity associated with it.
+func (o GetprivateLinkServicesForO365ManagementActivityAPIResultOutput) Identity() ServicesResourceResponseIdentityPtrOutput {
+	return o.ApplyT(func(v GetprivateLinkServicesForO365ManagementActivityAPIResult) *ServicesResourceResponseIdentity {
+		return v.Identity
+	}).(ServicesResourceResponseIdentityPtrOutput)
+}
+
+// The kind of the service.
+func (o GetprivateLinkServicesForO365ManagementActivityAPIResultOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v GetprivateLinkServicesForO365ManagementActivityAPIResult) string { return v.Kind }).(pulumi.StringOutput)
+}
+
+// The resource location.
+func (o GetprivateLinkServicesForO365ManagementActivityAPIResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v GetprivateLinkServicesForO365ManagementActivityAPIResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// The resource name.
+func (o GetprivateLinkServicesForO365ManagementActivityAPIResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetprivateLinkServicesForO365ManagementActivityAPIResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The common properties of a service.
+func (o GetprivateLinkServicesForO365ManagementActivityAPIResultOutput) Properties() ServicesPropertiesResponseOutput {
+	return o.ApplyT(func(v GetprivateLinkServicesForO365ManagementActivityAPIResult) ServicesPropertiesResponse {
+		return v.Properties
+	}).(ServicesPropertiesResponseOutput)
+}
+
+// Required property for system data
+func (o GetprivateLinkServicesForO365ManagementActivityAPIResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v GetprivateLinkServicesForO365ManagementActivityAPIResult) SystemDataResponse {
+		return v.SystemData
+	}).(SystemDataResponseOutput)
+}
+
+// The resource tags.
+func (o GetprivateLinkServicesForO365ManagementActivityAPIResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetprivateLinkServicesForO365ManagementActivityAPIResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The resource type.
+func (o GetprivateLinkServicesForO365ManagementActivityAPIResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetprivateLinkServicesForO365ManagementActivityAPIResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetprivateLinkServicesForO365ManagementActivityAPIResultOutput{})
 }

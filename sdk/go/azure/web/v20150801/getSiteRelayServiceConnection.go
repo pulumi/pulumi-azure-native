@@ -4,6 +4,9 @@
 package v20150801
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -47,4 +50,103 @@ type LookupSiteRelayServiceConnectionResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type
 	Type *string `pulumi:"type"`
+}
+
+func LookupSiteRelayServiceConnectionOutput(ctx *pulumi.Context, args LookupSiteRelayServiceConnectionOutputArgs, opts ...pulumi.InvokeOption) LookupSiteRelayServiceConnectionResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupSiteRelayServiceConnectionResult, error) {
+			args := v.(LookupSiteRelayServiceConnectionArgs)
+			r, err := LookupSiteRelayServiceConnection(ctx, &args, opts...)
+			return *r, err
+		}).(LookupSiteRelayServiceConnectionResultOutput)
+}
+
+type LookupSiteRelayServiceConnectionOutputArgs struct {
+	// The name by which the Hybrid Connection is identified
+	EntityName pulumi.StringInput `pulumi:"entityName"`
+	// The name of the web app
+	Name pulumi.StringInput `pulumi:"name"`
+	// The resource group name
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupSiteRelayServiceConnectionOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupSiteRelayServiceConnectionArgs)(nil)).Elem()
+}
+
+// Class that represents a BizTalk Hybrid Connection
+type LookupSiteRelayServiceConnectionResultOutput struct{ *pulumi.OutputState }
+
+func (LookupSiteRelayServiceConnectionResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupSiteRelayServiceConnectionResult)(nil)).Elem()
+}
+
+func (o LookupSiteRelayServiceConnectionResultOutput) ToLookupSiteRelayServiceConnectionResultOutput() LookupSiteRelayServiceConnectionResultOutput {
+	return o
+}
+
+func (o LookupSiteRelayServiceConnectionResultOutput) ToLookupSiteRelayServiceConnectionResultOutputWithContext(ctx context.Context) LookupSiteRelayServiceConnectionResultOutput {
+	return o
+}
+
+func (o LookupSiteRelayServiceConnectionResultOutput) BiztalkUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSiteRelayServiceConnectionResult) *string { return v.BiztalkUri }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupSiteRelayServiceConnectionResultOutput) EntityConnectionString() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSiteRelayServiceConnectionResult) *string { return v.EntityConnectionString }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupSiteRelayServiceConnectionResultOutput) EntityName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSiteRelayServiceConnectionResult) *string { return v.EntityName }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupSiteRelayServiceConnectionResultOutput) Hostname() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSiteRelayServiceConnectionResult) *string { return v.Hostname }).(pulumi.StringPtrOutput)
+}
+
+// Resource Id
+func (o LookupSiteRelayServiceConnectionResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSiteRelayServiceConnectionResult) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// Kind of resource
+func (o LookupSiteRelayServiceConnectionResultOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSiteRelayServiceConnectionResult) *string { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Resource Location
+func (o LookupSiteRelayServiceConnectionResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSiteRelayServiceConnectionResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource Name
+func (o LookupSiteRelayServiceConnectionResultOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSiteRelayServiceConnectionResult) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupSiteRelayServiceConnectionResultOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupSiteRelayServiceConnectionResult) *int { return v.Port }).(pulumi.IntPtrOutput)
+}
+
+func (o LookupSiteRelayServiceConnectionResultOutput) ResourceConnectionString() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSiteRelayServiceConnectionResult) *string { return v.ResourceConnectionString }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupSiteRelayServiceConnectionResultOutput) ResourceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSiteRelayServiceConnectionResult) *string { return v.ResourceType }).(pulumi.StringPtrOutput)
+}
+
+// Resource tags
+func (o LookupSiteRelayServiceConnectionResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupSiteRelayServiceConnectionResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type
+func (o LookupSiteRelayServiceConnectionResultOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSiteRelayServiceConnectionResult) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupSiteRelayServiceConnectionResultOutput{})
 }

@@ -1591,6 +1591,51 @@ type CredentialResultResponse struct {
 	Value string `pulumi:"value"`
 }
 
+// The credential result response.
+type CredentialResultResponseOutput struct{ *pulumi.OutputState }
+
+func (CredentialResultResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CredentialResultResponse)(nil)).Elem()
+}
+
+func (o CredentialResultResponseOutput) ToCredentialResultResponseOutput() CredentialResultResponseOutput {
+	return o
+}
+
+func (o CredentialResultResponseOutput) ToCredentialResultResponseOutputWithContext(ctx context.Context) CredentialResultResponseOutput {
+	return o
+}
+
+// The name of the credential.
+func (o CredentialResultResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v CredentialResultResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Base64-encoded Kubernetes configuration file.
+func (o CredentialResultResponseOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v CredentialResultResponse) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type CredentialResultResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (CredentialResultResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CredentialResultResponse)(nil)).Elem()
+}
+
+func (o CredentialResultResponseArrayOutput) ToCredentialResultResponseArrayOutput() CredentialResultResponseArrayOutput {
+	return o
+}
+
+func (o CredentialResultResponseArrayOutput) ToCredentialResultResponseArrayOutputWithContext(ctx context.Context) CredentialResultResponseArrayOutput {
+	return o
+}
+
+func (o CredentialResultResponseArrayOutput) Index(i pulumi.IntInput) CredentialResultResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CredentialResultResponse {
+		return vs[0].([]CredentialResultResponse)[vs[1].(int)]
+	}).(CredentialResultResponseOutput)
+}
+
 // The complex type of the extended location.
 type ExtendedLocation struct {
 	// The name of the extended location.
@@ -10863,6 +10908,8 @@ func init() {
 	pulumi.RegisterOutputType(ContainerServiceSshPublicKeyArrayOutput{})
 	pulumi.RegisterOutputType(ContainerServiceSshPublicKeyResponseOutput{})
 	pulumi.RegisterOutputType(ContainerServiceSshPublicKeyResponseArrayOutput{})
+	pulumi.RegisterOutputType(CredentialResultResponseOutput{})
+	pulumi.RegisterOutputType(CredentialResultResponseArrayOutput{})
 	pulumi.RegisterOutputType(ExtendedLocationOutput{})
 	pulumi.RegisterOutputType(ExtendedLocationPtrOutput{})
 	pulumi.RegisterOutputType(ExtendedLocationResponseOutput{})

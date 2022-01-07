@@ -4,6 +4,9 @@
 package authorization
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -26,4 +29,46 @@ type GetClientTokenArgs struct {
 type GetClientTokenResult struct {
 	// OAuth token for Azure Management API and SDK authentication.
 	Token string `pulumi:"token"`
+}
+
+func GetClientTokenOutput(ctx *pulumi.Context, args GetClientTokenOutputArgs, opts ...pulumi.InvokeOption) GetClientTokenResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetClientTokenResult, error) {
+			args := v.(GetClientTokenArgs)
+			r, err := GetClientToken(ctx, &args, opts...)
+			return *r, err
+		}).(GetClientTokenResultOutput)
+}
+
+type GetClientTokenOutputArgs struct {
+	// Optional authentication endpoint. Defaults to the endpoint of Azure Resource Manager.
+	Endpoint pulumi.StringPtrInput `pulumi:"endpoint"`
+}
+
+func (GetClientTokenOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClientTokenArgs)(nil)).Elem()
+}
+
+// Configuration values returned by getClientToken.
+type GetClientTokenResultOutput struct{ *pulumi.OutputState }
+
+func (GetClientTokenResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClientTokenResult)(nil)).Elem()
+}
+
+func (o GetClientTokenResultOutput) ToGetClientTokenResultOutput() GetClientTokenResultOutput {
+	return o
+}
+
+func (o GetClientTokenResultOutput) ToGetClientTokenResultOutputWithContext(ctx context.Context) GetClientTokenResultOutput {
+	return o
+}
+
+// OAuth token for Azure Management API and SDK authentication.
+func (o GetClientTokenResultOutput) Token() pulumi.StringOutput {
+	return o.ApplyT(func(v GetClientTokenResult) string { return v.Token }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetClientTokenResultOutput{})
 }

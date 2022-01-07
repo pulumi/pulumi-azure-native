@@ -4,6 +4,9 @@
 package v20211001
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -34,4 +37,66 @@ type LookupAliasResult struct {
 	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource type, Microsoft.Subscription/aliases.
 	Type string `pulumi:"type"`
+}
+
+func LookupAliasOutput(ctx *pulumi.Context, args LookupAliasOutputArgs, opts ...pulumi.InvokeOption) LookupAliasResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupAliasResult, error) {
+			args := v.(LookupAliasArgs)
+			r, err := LookupAlias(ctx, &args, opts...)
+			return *r, err
+		}).(LookupAliasResultOutput)
+}
+
+type LookupAliasOutputArgs struct {
+	// AliasName is the name for the subscription creation request. Note that this is not the same as subscription name and this doesn’t have any other lifecycle need beyond the request for subscription creation.
+	AliasName pulumi.StringInput `pulumi:"aliasName"`
+}
+
+func (LookupAliasOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupAliasArgs)(nil)).Elem()
+}
+
+// Subscription Information with the alias.
+type LookupAliasResultOutput struct{ *pulumi.OutputState }
+
+func (LookupAliasResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupAliasResult)(nil)).Elem()
+}
+
+func (o LookupAliasResultOutput) ToLookupAliasResultOutput() LookupAliasResultOutput {
+	return o
+}
+
+func (o LookupAliasResultOutput) ToLookupAliasResultOutputWithContext(ctx context.Context) LookupAliasResultOutput {
+	return o
+}
+
+// Fully qualified ID for the alias resource.
+func (o LookupAliasResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAliasResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Alias ID.
+func (o LookupAliasResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAliasResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Subscription Alias response properties.
+func (o LookupAliasResultOutput) Properties() SubscriptionAliasResponsePropertiesResponseOutput {
+	return o.ApplyT(func(v LookupAliasResult) SubscriptionAliasResponsePropertiesResponse { return v.Properties }).(SubscriptionAliasResponsePropertiesResponseOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o LookupAliasResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupAliasResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource type, Microsoft.Subscription/aliases.
+func (o LookupAliasResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAliasResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupAliasResultOutput{})
 }

@@ -4,6 +4,9 @@
 package v20201110preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -56,4 +59,115 @@ type LookupMSIXPackageResult struct {
 	Type string `pulumi:"type"`
 	// Package Version found in the appxmanifest.xml.
 	Version *string `pulumi:"version"`
+}
+
+func LookupMSIXPackageOutput(ctx *pulumi.Context, args LookupMSIXPackageOutputArgs, opts ...pulumi.InvokeOption) LookupMSIXPackageResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupMSIXPackageResult, error) {
+			args := v.(LookupMSIXPackageArgs)
+			r, err := LookupMSIXPackage(ctx, &args, opts...)
+			return *r, err
+		}).(LookupMSIXPackageResultOutput)
+}
+
+type LookupMSIXPackageOutputArgs struct {
+	// The name of the host pool within the specified resource group
+	HostPoolName pulumi.StringInput `pulumi:"hostPoolName"`
+	// The version specific package full name of the MSIX package within specified hostpool
+	MsixPackageFullName pulumi.StringInput `pulumi:"msixPackageFullName"`
+	// The name of the resource group. The name is case insensitive.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupMSIXPackageOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupMSIXPackageArgs)(nil)).Elem()
+}
+
+// Schema for MSIX Package properties.
+type LookupMSIXPackageResultOutput struct{ *pulumi.OutputState }
+
+func (LookupMSIXPackageResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupMSIXPackageResult)(nil)).Elem()
+}
+
+func (o LookupMSIXPackageResultOutput) ToLookupMSIXPackageResultOutput() LookupMSIXPackageResultOutput {
+	return o
+}
+
+func (o LookupMSIXPackageResultOutput) ToLookupMSIXPackageResultOutputWithContext(ctx context.Context) LookupMSIXPackageResultOutput {
+	return o
+}
+
+// User friendly Name to be displayed in the portal.
+func (o LookupMSIXPackageResultOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupMSIXPackageResult) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+func (o LookupMSIXPackageResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupMSIXPackageResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// VHD/CIM image path on Network Share.
+func (o LookupMSIXPackageResultOutput) ImagePath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupMSIXPackageResult) *string { return v.ImagePath }).(pulumi.StringPtrOutput)
+}
+
+// Make this version of the package the active one across the hostpool.
+func (o LookupMSIXPackageResultOutput) IsActive() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupMSIXPackageResult) *bool { return v.IsActive }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies how to register Package in feed.
+func (o LookupMSIXPackageResultOutput) IsRegularRegistration() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupMSIXPackageResult) *bool { return v.IsRegularRegistration }).(pulumi.BoolPtrOutput)
+}
+
+// Date Package was last updated, found in the appxmanifest.xml.
+func (o LookupMSIXPackageResultOutput) LastUpdated() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupMSIXPackageResult) *string { return v.LastUpdated }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource
+func (o LookupMSIXPackageResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupMSIXPackageResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// List of package applications.
+func (o LookupMSIXPackageResultOutput) PackageApplications() MsixPackageApplicationsResponseArrayOutput {
+	return o.ApplyT(func(v LookupMSIXPackageResult) []MsixPackageApplicationsResponse { return v.PackageApplications }).(MsixPackageApplicationsResponseArrayOutput)
+}
+
+// List of package dependencies.
+func (o LookupMSIXPackageResultOutput) PackageDependencies() MsixPackageDependenciesResponseArrayOutput {
+	return o.ApplyT(func(v LookupMSIXPackageResult) []MsixPackageDependenciesResponse { return v.PackageDependencies }).(MsixPackageDependenciesResponseArrayOutput)
+}
+
+// Package Family Name from appxmanifest.xml. Contains Package Name and Publisher name.
+func (o LookupMSIXPackageResultOutput) PackageFamilyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupMSIXPackageResult) *string { return v.PackageFamilyName }).(pulumi.StringPtrOutput)
+}
+
+// Package Name from appxmanifest.xml.
+func (o LookupMSIXPackageResultOutput) PackageName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupMSIXPackageResult) *string { return v.PackageName }).(pulumi.StringPtrOutput)
+}
+
+// Relative Path to the package inside the image.
+func (o LookupMSIXPackageResultOutput) PackageRelativePath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupMSIXPackageResult) *string { return v.PackageRelativePath }).(pulumi.StringPtrOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o LookupMSIXPackageResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupMSIXPackageResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Package Version found in the appxmanifest.xml.
+func (o LookupMSIXPackageResultOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupMSIXPackageResult) *string { return v.Version }).(pulumi.StringPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupMSIXPackageResultOutput{})
 }

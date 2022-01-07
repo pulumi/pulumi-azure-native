@@ -4,6 +4,9 @@
 package v20210601
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -46,4 +49,90 @@ type LookupContentKeyPolicyResult struct {
 	SystemData SystemDataResponse `pulumi:"systemData"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
+}
+
+func LookupContentKeyPolicyOutput(ctx *pulumi.Context, args LookupContentKeyPolicyOutputArgs, opts ...pulumi.InvokeOption) LookupContentKeyPolicyResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupContentKeyPolicyResult, error) {
+			args := v.(LookupContentKeyPolicyArgs)
+			r, err := LookupContentKeyPolicy(ctx, &args, opts...)
+			return *r, err
+		}).(LookupContentKeyPolicyResultOutput)
+}
+
+type LookupContentKeyPolicyOutputArgs struct {
+	// The Media Services account name.
+	AccountName pulumi.StringInput `pulumi:"accountName"`
+	// The Content Key Policy name.
+	ContentKeyPolicyName pulumi.StringInput `pulumi:"contentKeyPolicyName"`
+	// The name of the resource group within the Azure subscription.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupContentKeyPolicyOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupContentKeyPolicyArgs)(nil)).Elem()
+}
+
+// A Content Key Policy resource.
+type LookupContentKeyPolicyResultOutput struct{ *pulumi.OutputState }
+
+func (LookupContentKeyPolicyResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupContentKeyPolicyResult)(nil)).Elem()
+}
+
+func (o LookupContentKeyPolicyResultOutput) ToLookupContentKeyPolicyResultOutput() LookupContentKeyPolicyResultOutput {
+	return o
+}
+
+func (o LookupContentKeyPolicyResultOutput) ToLookupContentKeyPolicyResultOutputWithContext(ctx context.Context) LookupContentKeyPolicyResultOutput {
+	return o
+}
+
+// The creation date of the Policy
+func (o LookupContentKeyPolicyResultOutput) Created() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupContentKeyPolicyResult) string { return v.Created }).(pulumi.StringOutput)
+}
+
+// A description for the Policy.
+func (o LookupContentKeyPolicyResultOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupContentKeyPolicyResult) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+func (o LookupContentKeyPolicyResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupContentKeyPolicyResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The last modified date of the Policy
+func (o LookupContentKeyPolicyResultOutput) LastModified() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupContentKeyPolicyResult) string { return v.LastModified }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o LookupContentKeyPolicyResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupContentKeyPolicyResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The Key Policy options.
+func (o LookupContentKeyPolicyResultOutput) Options() ContentKeyPolicyOptionResponseArrayOutput {
+	return o.ApplyT(func(v LookupContentKeyPolicyResult) []ContentKeyPolicyOptionResponse { return v.Options }).(ContentKeyPolicyOptionResponseArrayOutput)
+}
+
+// The legacy Policy ID.
+func (o LookupContentKeyPolicyResultOutput) PolicyId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupContentKeyPolicyResult) string { return v.PolicyId }).(pulumi.StringOutput)
+}
+
+// The system metadata relating to this resource.
+func (o LookupContentKeyPolicyResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupContentKeyPolicyResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o LookupContentKeyPolicyResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupContentKeyPolicyResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupContentKeyPolicyResultOutput{})
 }

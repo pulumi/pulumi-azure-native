@@ -4,6 +4,9 @@
 package v20170605preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -40,4 +43,78 @@ type LookupStorageSyncServiceResult struct {
 	Tags interface{} `pulumi:"tags"`
 	// The type of the resource
 	Type string `pulumi:"type"`
+}
+
+func LookupStorageSyncServiceOutput(ctx *pulumi.Context, args LookupStorageSyncServiceOutputArgs, opts ...pulumi.InvokeOption) LookupStorageSyncServiceResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupStorageSyncServiceResult, error) {
+			args := v.(LookupStorageSyncServiceArgs)
+			r, err := LookupStorageSyncService(ctx, &args, opts...)
+			return *r, err
+		}).(LookupStorageSyncServiceResultOutput)
+}
+
+type LookupStorageSyncServiceOutputArgs struct {
+	// The name of the resource group within the user's subscription. The name is case insensitive.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// Name of Storage Sync Service resource.
+	StorageSyncServiceName pulumi.StringInput `pulumi:"storageSyncServiceName"`
+}
+
+func (LookupStorageSyncServiceOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupStorageSyncServiceArgs)(nil)).Elem()
+}
+
+// Storage Sync Service object.
+type LookupStorageSyncServiceResultOutput struct{ *pulumi.OutputState }
+
+func (LookupStorageSyncServiceResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupStorageSyncServiceResult)(nil)).Elem()
+}
+
+func (o LookupStorageSyncServiceResultOutput) ToLookupStorageSyncServiceResultOutput() LookupStorageSyncServiceResultOutput {
+	return o
+}
+
+func (o LookupStorageSyncServiceResultOutput) ToLookupStorageSyncServiceResultOutputWithContext(ctx context.Context) LookupStorageSyncServiceResultOutput {
+	return o
+}
+
+// The id of the resource.
+func (o LookupStorageSyncServiceResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupStorageSyncServiceResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The location of the resource.
+func (o LookupStorageSyncServiceResultOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupStorageSyncServiceResult) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource.
+func (o LookupStorageSyncServiceResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupStorageSyncServiceResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Storage Sync service status.
+func (o LookupStorageSyncServiceResultOutput) StorageSyncServiceStatus() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupStorageSyncServiceResult) int { return v.StorageSyncServiceStatus }).(pulumi.IntOutput)
+}
+
+// Storage Sync service Uid
+func (o LookupStorageSyncServiceResultOutput) StorageSyncServiceUid() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupStorageSyncServiceResult) string { return v.StorageSyncServiceUid }).(pulumi.StringOutput)
+}
+
+// The tags of the resource.
+func (o LookupStorageSyncServiceResultOutput) Tags() pulumi.AnyOutput {
+	return o.ApplyT(func(v LookupStorageSyncServiceResult) interface{} { return v.Tags }).(pulumi.AnyOutput)
+}
+
+// The type of the resource
+func (o LookupStorageSyncServiceResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupStorageSyncServiceResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupStorageSyncServiceResultOutput{})
 }

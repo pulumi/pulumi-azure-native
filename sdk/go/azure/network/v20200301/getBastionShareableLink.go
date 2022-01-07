@@ -4,6 +4,9 @@
 package v20200301
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -32,4 +35,55 @@ type GetBastionShareableLinkResult struct {
 	NextLink *string `pulumi:"nextLink"`
 	// List of Bastion Shareable Links for the request.
 	Value []BastionShareableLinkResponse `pulumi:"value"`
+}
+
+func GetBastionShareableLinkOutput(ctx *pulumi.Context, args GetBastionShareableLinkOutputArgs, opts ...pulumi.InvokeOption) GetBastionShareableLinkResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetBastionShareableLinkResult, error) {
+			args := v.(GetBastionShareableLinkArgs)
+			r, err := GetBastionShareableLink(ctx, &args, opts...)
+			return *r, err
+		}).(GetBastionShareableLinkResultOutput)
+}
+
+type GetBastionShareableLinkOutputArgs struct {
+	// The name of the Bastion Host.
+	BastionHostName pulumi.StringInput `pulumi:"bastionHostName"`
+	// The name of the resource group.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// List of VM references.
+	Vms BastionShareableLinkArrayInput `pulumi:"vms"`
+}
+
+func (GetBastionShareableLinkOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBastionShareableLinkArgs)(nil)).Elem()
+}
+
+// Response for all the Bastion Shareable Link endpoints.
+type GetBastionShareableLinkResultOutput struct{ *pulumi.OutputState }
+
+func (GetBastionShareableLinkResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBastionShareableLinkResult)(nil)).Elem()
+}
+
+func (o GetBastionShareableLinkResultOutput) ToGetBastionShareableLinkResultOutput() GetBastionShareableLinkResultOutput {
+	return o
+}
+
+func (o GetBastionShareableLinkResultOutput) ToGetBastionShareableLinkResultOutputWithContext(ctx context.Context) GetBastionShareableLinkResultOutput {
+	return o
+}
+
+// The URL to get the next set of results.
+func (o GetBastionShareableLinkResultOutput) NextLink() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetBastionShareableLinkResult) *string { return v.NextLink }).(pulumi.StringPtrOutput)
+}
+
+// List of Bastion Shareable Links for the request.
+func (o GetBastionShareableLinkResultOutput) Value() BastionShareableLinkResponseArrayOutput {
+	return o.ApplyT(func(v GetBastionShareableLinkResult) []BastionShareableLinkResponse { return v.Value }).(BastionShareableLinkResponseArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetBastionShareableLinkResultOutput{})
 }

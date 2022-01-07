@@ -4,6 +4,9 @@
 package v20201001preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -32,4 +35,55 @@ type ListDatabaseKeysResult struct {
 	PrimaryKey string `pulumi:"primaryKey"`
 	// The current secondary key that clients can use to authenticate
 	SecondaryKey string `pulumi:"secondaryKey"`
+}
+
+func ListDatabaseKeysOutput(ctx *pulumi.Context, args ListDatabaseKeysOutputArgs, opts ...pulumi.InvokeOption) ListDatabaseKeysResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (ListDatabaseKeysResult, error) {
+			args := v.(ListDatabaseKeysArgs)
+			r, err := ListDatabaseKeys(ctx, &args, opts...)
+			return *r, err
+		}).(ListDatabaseKeysResultOutput)
+}
+
+type ListDatabaseKeysOutputArgs struct {
+	// The name of the RedisEnterprise cluster.
+	ClusterName pulumi.StringInput `pulumi:"clusterName"`
+	// The name of the database.
+	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
+	// The name of the resource group.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (ListDatabaseKeysOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListDatabaseKeysArgs)(nil)).Elem()
+}
+
+// The secret access keys used for authenticating connections to redis
+type ListDatabaseKeysResultOutput struct{ *pulumi.OutputState }
+
+func (ListDatabaseKeysResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListDatabaseKeysResult)(nil)).Elem()
+}
+
+func (o ListDatabaseKeysResultOutput) ToListDatabaseKeysResultOutput() ListDatabaseKeysResultOutput {
+	return o
+}
+
+func (o ListDatabaseKeysResultOutput) ToListDatabaseKeysResultOutputWithContext(ctx context.Context) ListDatabaseKeysResultOutput {
+	return o
+}
+
+// The current primary key that clients can use to authenticate
+func (o ListDatabaseKeysResultOutput) PrimaryKey() pulumi.StringOutput {
+	return o.ApplyT(func(v ListDatabaseKeysResult) string { return v.PrimaryKey }).(pulumi.StringOutput)
+}
+
+// The current secondary key that clients can use to authenticate
+func (o ListDatabaseKeysResultOutput) SecondaryKey() pulumi.StringOutput {
+	return o.ApplyT(func(v ListDatabaseKeysResult) string { return v.SecondaryKey }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(ListDatabaseKeysResultOutput{})
 }

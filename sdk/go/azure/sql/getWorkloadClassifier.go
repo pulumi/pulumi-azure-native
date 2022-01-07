@@ -4,6 +4,9 @@
 package sql
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -51,4 +54,94 @@ type LookupWorkloadClassifierResult struct {
 	StartTime *string `pulumi:"startTime"`
 	// Resource type.
 	Type string `pulumi:"type"`
+}
+
+func LookupWorkloadClassifierOutput(ctx *pulumi.Context, args LookupWorkloadClassifierOutputArgs, opts ...pulumi.InvokeOption) LookupWorkloadClassifierResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupWorkloadClassifierResult, error) {
+			args := v.(LookupWorkloadClassifierArgs)
+			r, err := LookupWorkloadClassifier(ctx, &args, opts...)
+			return *r, err
+		}).(LookupWorkloadClassifierResultOutput)
+}
+
+type LookupWorkloadClassifierOutputArgs struct {
+	// The name of the database.
+	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
+	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the server.
+	ServerName pulumi.StringInput `pulumi:"serverName"`
+	// The name of the workload classifier.
+	WorkloadClassifierName pulumi.StringInput `pulumi:"workloadClassifierName"`
+	// The name of the workload group from which to receive the classifier from.
+	WorkloadGroupName pulumi.StringInput `pulumi:"workloadGroupName"`
+}
+
+func (LookupWorkloadClassifierOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupWorkloadClassifierArgs)(nil)).Elem()
+}
+
+// Workload classifier operations for a data warehouse
+type LookupWorkloadClassifierResultOutput struct{ *pulumi.OutputState }
+
+func (LookupWorkloadClassifierResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupWorkloadClassifierResult)(nil)).Elem()
+}
+
+func (o LookupWorkloadClassifierResultOutput) ToLookupWorkloadClassifierResultOutput() LookupWorkloadClassifierResultOutput {
+	return o
+}
+
+func (o LookupWorkloadClassifierResultOutput) ToLookupWorkloadClassifierResultOutputWithContext(ctx context.Context) LookupWorkloadClassifierResultOutput {
+	return o
+}
+
+// The workload classifier context.
+func (o LookupWorkloadClassifierResultOutput) Context() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupWorkloadClassifierResult) *string { return v.Context }).(pulumi.StringPtrOutput)
+}
+
+// The workload classifier end time for classification.
+func (o LookupWorkloadClassifierResultOutput) EndTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupWorkloadClassifierResult) *string { return v.EndTime }).(pulumi.StringPtrOutput)
+}
+
+// Resource ID.
+func (o LookupWorkloadClassifierResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWorkloadClassifierResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The workload classifier importance.
+func (o LookupWorkloadClassifierResultOutput) Importance() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupWorkloadClassifierResult) *string { return v.Importance }).(pulumi.StringPtrOutput)
+}
+
+// The workload classifier label.
+func (o LookupWorkloadClassifierResultOutput) Label() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupWorkloadClassifierResult) *string { return v.Label }).(pulumi.StringPtrOutput)
+}
+
+// The workload classifier member name.
+func (o LookupWorkloadClassifierResultOutput) MemberName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWorkloadClassifierResult) string { return v.MemberName }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o LookupWorkloadClassifierResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWorkloadClassifierResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The workload classifier start time for classification.
+func (o LookupWorkloadClassifierResultOutput) StartTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupWorkloadClassifierResult) *string { return v.StartTime }).(pulumi.StringPtrOutput)
+}
+
+// Resource type.
+func (o LookupWorkloadClassifierResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWorkloadClassifierResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupWorkloadClassifierResultOutput{})
 }

@@ -4,6 +4,9 @@
 package iotsecurity
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -33,4 +36,61 @@ type LookupOnPremiseSensorResult struct {
 	SystemData SystemDataResponse `pulumi:"systemData"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
+}
+
+func LookupOnPremiseSensorOutput(ctx *pulumi.Context, args LookupOnPremiseSensorOutputArgs, opts ...pulumi.InvokeOption) LookupOnPremiseSensorResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupOnPremiseSensorResult, error) {
+			args := v.(LookupOnPremiseSensorArgs)
+			r, err := LookupOnPremiseSensor(ctx, &args, opts...)
+			return *r, err
+		}).(LookupOnPremiseSensorResultOutput)
+}
+
+type LookupOnPremiseSensorOutputArgs struct {
+	// Name of the on-premise IoT sensor
+	OnPremiseSensorName pulumi.StringInput `pulumi:"onPremiseSensorName"`
+}
+
+func (LookupOnPremiseSensorOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupOnPremiseSensorArgs)(nil)).Elem()
+}
+
+// On-premise IoT sensor
+type LookupOnPremiseSensorResultOutput struct{ *pulumi.OutputState }
+
+func (LookupOnPremiseSensorResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupOnPremiseSensorResult)(nil)).Elem()
+}
+
+func (o LookupOnPremiseSensorResultOutput) ToLookupOnPremiseSensorResultOutput() LookupOnPremiseSensorResultOutput {
+	return o
+}
+
+func (o LookupOnPremiseSensorResultOutput) ToLookupOnPremiseSensorResultOutputWithContext(ctx context.Context) LookupOnPremiseSensorResultOutput {
+	return o
+}
+
+// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+func (o LookupOnPremiseSensorResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupOnPremiseSensorResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o LookupOnPremiseSensorResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupOnPremiseSensorResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+func (o LookupOnPremiseSensorResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupOnPremiseSensorResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o LookupOnPremiseSensorResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupOnPremiseSensorResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupOnPremiseSensorResultOutput{})
 }

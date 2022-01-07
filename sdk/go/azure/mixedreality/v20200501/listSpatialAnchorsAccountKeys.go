@@ -4,6 +4,9 @@
 package v20200501
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -30,4 +33,53 @@ type ListSpatialAnchorsAccountKeysResult struct {
 	PrimaryKey string `pulumi:"primaryKey"`
 	// value of secondary key.
 	SecondaryKey string `pulumi:"secondaryKey"`
+}
+
+func ListSpatialAnchorsAccountKeysOutput(ctx *pulumi.Context, args ListSpatialAnchorsAccountKeysOutputArgs, opts ...pulumi.InvokeOption) ListSpatialAnchorsAccountKeysResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (ListSpatialAnchorsAccountKeysResult, error) {
+			args := v.(ListSpatialAnchorsAccountKeysArgs)
+			r, err := ListSpatialAnchorsAccountKeys(ctx, &args, opts...)
+			return *r, err
+		}).(ListSpatialAnchorsAccountKeysResultOutput)
+}
+
+type ListSpatialAnchorsAccountKeysOutputArgs struct {
+	// Name of an Mixed Reality Account.
+	AccountName pulumi.StringInput `pulumi:"accountName"`
+	// Name of an Azure resource group.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (ListSpatialAnchorsAccountKeysOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListSpatialAnchorsAccountKeysArgs)(nil)).Elem()
+}
+
+// Developer Keys of account
+type ListSpatialAnchorsAccountKeysResultOutput struct{ *pulumi.OutputState }
+
+func (ListSpatialAnchorsAccountKeysResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListSpatialAnchorsAccountKeysResult)(nil)).Elem()
+}
+
+func (o ListSpatialAnchorsAccountKeysResultOutput) ToListSpatialAnchorsAccountKeysResultOutput() ListSpatialAnchorsAccountKeysResultOutput {
+	return o
+}
+
+func (o ListSpatialAnchorsAccountKeysResultOutput) ToListSpatialAnchorsAccountKeysResultOutputWithContext(ctx context.Context) ListSpatialAnchorsAccountKeysResultOutput {
+	return o
+}
+
+// value of primary key.
+func (o ListSpatialAnchorsAccountKeysResultOutput) PrimaryKey() pulumi.StringOutput {
+	return o.ApplyT(func(v ListSpatialAnchorsAccountKeysResult) string { return v.PrimaryKey }).(pulumi.StringOutput)
+}
+
+// value of secondary key.
+func (o ListSpatialAnchorsAccountKeysResultOutput) SecondaryKey() pulumi.StringOutput {
+	return o.ApplyT(func(v ListSpatialAnchorsAccountKeysResult) string { return v.SecondaryKey }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(ListSpatialAnchorsAccountKeysResultOutput{})
 }

@@ -4,6 +4,9 @@
 package v20190801
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -57,4 +60,90 @@ func (val *ListWebAppBackupConfigurationSlotResult) Defaults() *ListWebAppBackup
 	tmp.BackupSchedule = tmp.BackupSchedule.Defaults()
 
 	return &tmp
+}
+
+func ListWebAppBackupConfigurationSlotOutput(ctx *pulumi.Context, args ListWebAppBackupConfigurationSlotOutputArgs, opts ...pulumi.InvokeOption) ListWebAppBackupConfigurationSlotResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (ListWebAppBackupConfigurationSlotResult, error) {
+			args := v.(ListWebAppBackupConfigurationSlotArgs)
+			r, err := ListWebAppBackupConfigurationSlot(ctx, &args, opts...)
+			return *r, err
+		}).(ListWebAppBackupConfigurationSlotResultOutput)
+}
+
+type ListWebAppBackupConfigurationSlotOutputArgs struct {
+	// Name of the app.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Name of the resource group to which the resource belongs.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// Name of the deployment slot. If a slot is not specified, the API will get the backup configuration for the production slot.
+	Slot pulumi.StringInput `pulumi:"slot"`
+}
+
+func (ListWebAppBackupConfigurationSlotOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListWebAppBackupConfigurationSlotArgs)(nil)).Elem()
+}
+
+// Description of a backup which will be performed.
+type ListWebAppBackupConfigurationSlotResultOutput struct{ *pulumi.OutputState }
+
+func (ListWebAppBackupConfigurationSlotResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListWebAppBackupConfigurationSlotResult)(nil)).Elem()
+}
+
+func (o ListWebAppBackupConfigurationSlotResultOutput) ToListWebAppBackupConfigurationSlotResultOutput() ListWebAppBackupConfigurationSlotResultOutput {
+	return o
+}
+
+func (o ListWebAppBackupConfigurationSlotResultOutput) ToListWebAppBackupConfigurationSlotResultOutputWithContext(ctx context.Context) ListWebAppBackupConfigurationSlotResultOutput {
+	return o
+}
+
+// Name of the backup.
+func (o ListWebAppBackupConfigurationSlotResultOutput) BackupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListWebAppBackupConfigurationSlotResult) *string { return v.BackupName }).(pulumi.StringPtrOutput)
+}
+
+// Schedule for the backup if it is executed periodically.
+func (o ListWebAppBackupConfigurationSlotResultOutput) BackupSchedule() BackupScheduleResponsePtrOutput {
+	return o.ApplyT(func(v ListWebAppBackupConfigurationSlotResult) *BackupScheduleResponse { return v.BackupSchedule }).(BackupScheduleResponsePtrOutput)
+}
+
+// Databases included in the backup.
+func (o ListWebAppBackupConfigurationSlotResultOutput) Databases() DatabaseBackupSettingResponseArrayOutput {
+	return o.ApplyT(func(v ListWebAppBackupConfigurationSlotResult) []DatabaseBackupSettingResponse { return v.Databases }).(DatabaseBackupSettingResponseArrayOutput)
+}
+
+// True if the backup schedule is enabled (must be included in that case), false if the backup schedule should be disabled.
+func (o ListWebAppBackupConfigurationSlotResultOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ListWebAppBackupConfigurationSlotResult) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// Resource Id.
+func (o ListWebAppBackupConfigurationSlotResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v ListWebAppBackupConfigurationSlotResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Kind of resource.
+func (o ListWebAppBackupConfigurationSlotResultOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListWebAppBackupConfigurationSlotResult) *string { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Resource Name.
+func (o ListWebAppBackupConfigurationSlotResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ListWebAppBackupConfigurationSlotResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// SAS URL to the container.
+func (o ListWebAppBackupConfigurationSlotResultOutput) StorageAccountUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v ListWebAppBackupConfigurationSlotResult) string { return v.StorageAccountUrl }).(pulumi.StringOutput)
+}
+
+// Resource type.
+func (o ListWebAppBackupConfigurationSlotResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ListWebAppBackupConfigurationSlotResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(ListWebAppBackupConfigurationSlotResultOutput{})
 }

@@ -4,6 +4,9 @@
 package insights
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -27,4 +30,46 @@ type GetLiveTokenArgs struct {
 type GetLiveTokenResult struct {
 	// JWT token for accessing live metrics stream data.
 	LiveToken string `pulumi:"liveToken"`
+}
+
+func GetLiveTokenOutput(ctx *pulumi.Context, args GetLiveTokenOutputArgs, opts ...pulumi.InvokeOption) GetLiveTokenResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetLiveTokenResult, error) {
+			args := v.(GetLiveTokenArgs)
+			r, err := GetLiveToken(ctx, &args, opts...)
+			return *r, err
+		}).(GetLiveTokenResultOutput)
+}
+
+type GetLiveTokenOutputArgs struct {
+	// The identifier of the resource.
+	ResourceUri pulumi.StringInput `pulumi:"resourceUri"`
+}
+
+func (GetLiveTokenOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLiveTokenArgs)(nil)).Elem()
+}
+
+// The response to a live token query.
+type GetLiveTokenResultOutput struct{ *pulumi.OutputState }
+
+func (GetLiveTokenResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLiveTokenResult)(nil)).Elem()
+}
+
+func (o GetLiveTokenResultOutput) ToGetLiveTokenResultOutput() GetLiveTokenResultOutput {
+	return o
+}
+
+func (o GetLiveTokenResultOutput) ToGetLiveTokenResultOutputWithContext(ctx context.Context) GetLiveTokenResultOutput {
+	return o
+}
+
+// JWT token for accessing live metrics stream data.
+func (o GetLiveTokenResultOutput) LiveToken() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLiveTokenResult) string { return v.LiveToken }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetLiveTokenResultOutput{})
 }

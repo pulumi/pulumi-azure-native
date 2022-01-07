@@ -4,6 +4,9 @@
 package v20151031
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -70,4 +73,150 @@ type LookupRunbookResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource.
 	Type string `pulumi:"type"`
+}
+
+func LookupRunbookOutput(ctx *pulumi.Context, args LookupRunbookOutputArgs, opts ...pulumi.InvokeOption) LookupRunbookResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupRunbookResult, error) {
+			args := v.(LookupRunbookArgs)
+			r, err := LookupRunbook(ctx, &args, opts...)
+			return *r, err
+		}).(LookupRunbookResultOutput)
+}
+
+type LookupRunbookOutputArgs struct {
+	// The name of the automation account.
+	AutomationAccountName pulumi.StringInput `pulumi:"automationAccountName"`
+	// Name of an Azure Resource group.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The runbook name.
+	RunbookName pulumi.StringInput `pulumi:"runbookName"`
+}
+
+func (LookupRunbookOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupRunbookArgs)(nil)).Elem()
+}
+
+// Definition of the runbook type.
+type LookupRunbookResultOutput struct{ *pulumi.OutputState }
+
+func (LookupRunbookResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupRunbookResult)(nil)).Elem()
+}
+
+func (o LookupRunbookResultOutput) ToLookupRunbookResultOutput() LookupRunbookResultOutput {
+	return o
+}
+
+func (o LookupRunbookResultOutput) ToLookupRunbookResultOutputWithContext(ctx context.Context) LookupRunbookResultOutput {
+	return o
+}
+
+// Gets or sets the creation time.
+func (o LookupRunbookResultOutput) CreationTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupRunbookResult) *string { return v.CreationTime }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the description.
+func (o LookupRunbookResultOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupRunbookResult) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the draft runbook properties.
+func (o LookupRunbookResultOutput) Draft() RunbookDraftResponsePtrOutput {
+	return o.ApplyT(func(v LookupRunbookResult) *RunbookDraftResponse { return v.Draft }).(RunbookDraftResponsePtrOutput)
+}
+
+// Gets or sets the etag of the resource.
+func (o LookupRunbookResultOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupRunbookResult) *string { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// Fully qualified resource Id for the resource
+func (o LookupRunbookResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRunbookResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Gets or sets the job count of the runbook.
+func (o LookupRunbookResultOutput) JobCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupRunbookResult) *int { return v.JobCount }).(pulumi.IntPtrOutput)
+}
+
+// Gets or sets the last modified by.
+func (o LookupRunbookResultOutput) LastModifiedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupRunbookResult) *string { return v.LastModifiedBy }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the last modified time.
+func (o LookupRunbookResultOutput) LastModifiedTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupRunbookResult) *string { return v.LastModifiedTime }).(pulumi.StringPtrOutput)
+}
+
+// The Azure Region where the resource lives
+func (o LookupRunbookResultOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupRunbookResult) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the option to log activity trace of the runbook.
+func (o LookupRunbookResultOutput) LogActivityTrace() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupRunbookResult) *int { return v.LogActivityTrace }).(pulumi.IntPtrOutput)
+}
+
+// Gets or sets progress log option.
+func (o LookupRunbookResultOutput) LogProgress() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupRunbookResult) *bool { return v.LogProgress }).(pulumi.BoolPtrOutput)
+}
+
+// Gets or sets verbose log option.
+func (o LookupRunbookResultOutput) LogVerbose() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupRunbookResult) *bool { return v.LogVerbose }).(pulumi.BoolPtrOutput)
+}
+
+// The name of the resource
+func (o LookupRunbookResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRunbookResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Gets or sets the runbook output types.
+func (o LookupRunbookResultOutput) OutputTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupRunbookResult) []string { return v.OutputTypes }).(pulumi.StringArrayOutput)
+}
+
+// Gets or sets the runbook parameters.
+func (o LookupRunbookResultOutput) Parameters() RunbookParameterResponseMapOutput {
+	return o.ApplyT(func(v LookupRunbookResult) map[string]RunbookParameterResponse { return v.Parameters }).(RunbookParameterResponseMapOutput)
+}
+
+// Gets or sets the provisioning state of the runbook.
+func (o LookupRunbookResultOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupRunbookResult) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the published runbook content link.
+func (o LookupRunbookResultOutput) PublishContentLink() ContentLinkResponsePtrOutput {
+	return o.ApplyT(func(v LookupRunbookResult) *ContentLinkResponse { return v.PublishContentLink }).(ContentLinkResponsePtrOutput)
+}
+
+// Gets or sets the type of the runbook.
+func (o LookupRunbookResultOutput) RunbookType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupRunbookResult) *string { return v.RunbookType }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the state of the runbook.
+func (o LookupRunbookResultOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupRunbookResult) *string { return v.State }).(pulumi.StringPtrOutput)
+}
+
+// Resource tags.
+func (o LookupRunbookResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupRunbookResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource.
+func (o LookupRunbookResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRunbookResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupRunbookResultOutput{})
 }

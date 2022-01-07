@@ -4,6 +4,9 @@
 package v20180601preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -38,4 +41,73 @@ type LookupGuestDiagnosticsSettingsAssociationResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Azure resource type
 	Type string `pulumi:"type"`
+}
+
+func LookupGuestDiagnosticsSettingsAssociationOutput(ctx *pulumi.Context, args LookupGuestDiagnosticsSettingsAssociationOutputArgs, opts ...pulumi.InvokeOption) LookupGuestDiagnosticsSettingsAssociationResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupGuestDiagnosticsSettingsAssociationResult, error) {
+			args := v.(LookupGuestDiagnosticsSettingsAssociationArgs)
+			r, err := LookupGuestDiagnosticsSettingsAssociation(ctx, &args, opts...)
+			return *r, err
+		}).(LookupGuestDiagnosticsSettingsAssociationResultOutput)
+}
+
+type LookupGuestDiagnosticsSettingsAssociationOutputArgs struct {
+	// The name of the diagnostic settings association.
+	AssociationName pulumi.StringInput `pulumi:"associationName"`
+	// The fully qualified ID of the resource, including the resource name and resource type.
+	ResourceUri pulumi.StringInput `pulumi:"resourceUri"`
+}
+
+func (LookupGuestDiagnosticsSettingsAssociationOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupGuestDiagnosticsSettingsAssociationArgs)(nil)).Elem()
+}
+
+// Virtual machine guest diagnostic settings resource.
+type LookupGuestDiagnosticsSettingsAssociationResultOutput struct{ *pulumi.OutputState }
+
+func (LookupGuestDiagnosticsSettingsAssociationResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupGuestDiagnosticsSettingsAssociationResult)(nil)).Elem()
+}
+
+func (o LookupGuestDiagnosticsSettingsAssociationResultOutput) ToLookupGuestDiagnosticsSettingsAssociationResultOutput() LookupGuestDiagnosticsSettingsAssociationResultOutput {
+	return o
+}
+
+func (o LookupGuestDiagnosticsSettingsAssociationResultOutput) ToLookupGuestDiagnosticsSettingsAssociationResultOutputWithContext(ctx context.Context) LookupGuestDiagnosticsSettingsAssociationResultOutput {
+	return o
+}
+
+// The guest diagnostic settings name.
+func (o LookupGuestDiagnosticsSettingsAssociationResultOutput) GuestDiagnosticSettingsName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupGuestDiagnosticsSettingsAssociationResult) string { return v.GuestDiagnosticSettingsName }).(pulumi.StringOutput)
+}
+
+// Azure resource Id
+func (o LookupGuestDiagnosticsSettingsAssociationResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupGuestDiagnosticsSettingsAssociationResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Resource location
+func (o LookupGuestDiagnosticsSettingsAssociationResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupGuestDiagnosticsSettingsAssociationResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// Azure resource name
+func (o LookupGuestDiagnosticsSettingsAssociationResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupGuestDiagnosticsSettingsAssociationResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Resource tags
+func (o LookupGuestDiagnosticsSettingsAssociationResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupGuestDiagnosticsSettingsAssociationResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Azure resource type
+func (o LookupGuestDiagnosticsSettingsAssociationResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupGuestDiagnosticsSettingsAssociationResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupGuestDiagnosticsSettingsAssociationResultOutput{})
 }

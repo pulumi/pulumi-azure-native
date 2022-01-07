@@ -4,6 +4,9 @@
 package v20200701preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -68,4 +71,139 @@ type LookupExtensionResult struct {
 	Type string `pulumi:"type"`
 	// Version of the extension for this extension instance, if it is 'pinned' to a specific version. autoUpgradeMinorVersion must be 'false'.
 	Version *string `pulumi:"version"`
+}
+
+func LookupExtensionOutput(ctx *pulumi.Context, args LookupExtensionOutputArgs, opts ...pulumi.InvokeOption) LookupExtensionResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupExtensionResult, error) {
+			args := v.(LookupExtensionArgs)
+			r, err := LookupExtension(ctx, &args, opts...)
+			return *r, err
+		}).(LookupExtensionResultOutput)
+}
+
+type LookupExtensionOutputArgs struct {
+	// The name of the kubernetes cluster.
+	ClusterName pulumi.StringInput `pulumi:"clusterName"`
+	// The Kubernetes cluster resource name - either managedClusters (for AKS clusters) or connectedClusters (for OnPrem K8S clusters).
+	ClusterResourceName pulumi.StringInput `pulumi:"clusterResourceName"`
+	// The Kubernetes cluster RP - either Microsoft.ContainerService (for AKS clusters) or Microsoft.Kubernetes (for OnPrem K8S clusters).
+	ClusterRp pulumi.StringInput `pulumi:"clusterRp"`
+	// Name of an instance of the Extension.
+	ExtensionInstanceName pulumi.StringInput `pulumi:"extensionInstanceName"`
+	// The name of the resource group.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupExtensionOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupExtensionArgs)(nil)).Elem()
+}
+
+// The Extension Instance object.
+type LookupExtensionResultOutput struct{ *pulumi.OutputState }
+
+func (LookupExtensionResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupExtensionResult)(nil)).Elem()
+}
+
+func (o LookupExtensionResultOutput) ToLookupExtensionResultOutput() LookupExtensionResultOutput {
+	return o
+}
+
+func (o LookupExtensionResultOutput) ToLookupExtensionResultOutputWithContext(ctx context.Context) LookupExtensionResultOutput {
+	return o
+}
+
+// Flag to note if this instance participates in auto upgrade of minor version, or not.
+func (o LookupExtensionResultOutput) AutoUpgradeMinorVersion() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupExtensionResult) *bool { return v.AutoUpgradeMinorVersion }).(pulumi.BoolPtrOutput)
+}
+
+// Configuration settings that are sensitive, as name-value pairs for configuring this instance of the extension.
+func (o LookupExtensionResultOutput) ConfigurationProtectedSettings() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupExtensionResult) map[string]string { return v.ConfigurationProtectedSettings }).(pulumi.StringMapOutput)
+}
+
+// Configuration settings, as name-value pairs for configuring this instance of the extension.
+func (o LookupExtensionResultOutput) ConfigurationSettings() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupExtensionResult) map[string]string { return v.ConfigurationSettings }).(pulumi.StringMapOutput)
+}
+
+// DateLiteral (per ISO8601) noting the time the resource was created by the client (user).
+func (o LookupExtensionResultOutput) CreationTime() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupExtensionResult) string { return v.CreationTime }).(pulumi.StringOutput)
+}
+
+// Error information from the Agent - e.g. errors during installation.
+func (o LookupExtensionResultOutput) ErrorInfo() ErrorDefinitionResponseOutput {
+	return o.ApplyT(func(v LookupExtensionResult) ErrorDefinitionResponse { return v.ErrorInfo }).(ErrorDefinitionResponseOutput)
+}
+
+// Type of the Extension, of which this resource is an instance of.  It must be one of the Extension Types registered with Microsoft.KubernetesConfiguration by the Extension publisher.
+func (o LookupExtensionResultOutput) ExtensionType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupExtensionResult) *string { return v.ExtensionType }).(pulumi.StringPtrOutput)
+}
+
+// Resource Id
+func (o LookupExtensionResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupExtensionResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The identity of the configuration.
+func (o LookupExtensionResultOutput) Identity() ConfigurationIdentityResponsePtrOutput {
+	return o.ApplyT(func(v LookupExtensionResult) *ConfigurationIdentityResponse { return v.Identity }).(ConfigurationIdentityResponsePtrOutput)
+}
+
+// Status of installation of this instance of the extension.
+func (o LookupExtensionResultOutput) InstallState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupExtensionResult) string { return v.InstallState }).(pulumi.StringOutput)
+}
+
+// DateLiteral (per ISO8601) noting the time the resource was modified by the client (user).
+func (o LookupExtensionResultOutput) LastModifiedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupExtensionResult) string { return v.LastModifiedTime }).(pulumi.StringOutput)
+}
+
+// DateLiteral (per ISO8601) noting the time of last status from the agent.
+func (o LookupExtensionResultOutput) LastStatusTime() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupExtensionResult) string { return v.LastStatusTime }).(pulumi.StringOutput)
+}
+
+// Resource name
+func (o LookupExtensionResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupExtensionResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// ReleaseTrain this extension instance participates in for auto-upgrade (e.g. Stable, Preview, etc.) - only if autoUpgradeMinorVersion is 'true'.
+func (o LookupExtensionResultOutput) ReleaseTrain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupExtensionResult) *string { return v.ReleaseTrain }).(pulumi.StringPtrOutput)
+}
+
+// Scope at which the extension instance is installed.
+func (o LookupExtensionResultOutput) Scope() ScopeResponsePtrOutput {
+	return o.ApplyT(func(v LookupExtensionResult) *ScopeResponse { return v.Scope }).(ScopeResponsePtrOutput)
+}
+
+// Status from this instance of the extension.
+func (o LookupExtensionResultOutput) Statuses() ExtensionStatusResponseArrayOutput {
+	return o.ApplyT(func(v LookupExtensionResult) []ExtensionStatusResponse { return v.Statuses }).(ExtensionStatusResponseArrayOutput)
+}
+
+// Top level metadata https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/common-api-contracts.md#system-metadata-for-all-azure-resources
+func (o LookupExtensionResultOutput) SystemData() SystemDataResponsePtrOutput {
+	return o.ApplyT(func(v LookupExtensionResult) *SystemDataResponse { return v.SystemData }).(SystemDataResponsePtrOutput)
+}
+
+// Resource type
+func (o LookupExtensionResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupExtensionResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Version of the extension for this extension instance, if it is 'pinned' to a specific version. autoUpgradeMinorVersion must be 'false'.
+func (o LookupExtensionResultOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupExtensionResult) *string { return v.Version }).(pulumi.StringPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupExtensionResultOutput{})
 }

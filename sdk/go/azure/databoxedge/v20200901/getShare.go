@@ -4,6 +4,9 @@
 package v20200901
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -56,4 +59,115 @@ type LookupShareResult struct {
 	Type string `pulumi:"type"`
 	// Mapping of users and corresponding access rights on the share (required for SMB protocol).
 	UserAccessRights []UserAccessRightResponse `pulumi:"userAccessRights"`
+}
+
+func LookupShareOutput(ctx *pulumi.Context, args LookupShareOutputArgs, opts ...pulumi.InvokeOption) LookupShareResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupShareResult, error) {
+			args := v.(LookupShareArgs)
+			r, err := LookupShare(ctx, &args, opts...)
+			return *r, err
+		}).(LookupShareResultOutput)
+}
+
+type LookupShareOutputArgs struct {
+	// The device name.
+	DeviceName pulumi.StringInput `pulumi:"deviceName"`
+	// The share name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The resource group name.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupShareOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupShareArgs)(nil)).Elem()
+}
+
+// Represents a share on the  Data Box Edge/Gateway device.
+type LookupShareResultOutput struct{ *pulumi.OutputState }
+
+func (LookupShareResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupShareResult)(nil)).Elem()
+}
+
+func (o LookupShareResultOutput) ToLookupShareResultOutput() LookupShareResultOutput {
+	return o
+}
+
+func (o LookupShareResultOutput) ToLookupShareResultOutputWithContext(ctx context.Context) LookupShareResultOutput {
+	return o
+}
+
+// Access protocol to be used by the share.
+func (o LookupShareResultOutput) AccessProtocol() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupShareResult) string { return v.AccessProtocol }).(pulumi.StringOutput)
+}
+
+// Azure container mapping for the share.
+func (o LookupShareResultOutput) AzureContainerInfo() AzureContainerInfoResponsePtrOutput {
+	return o.ApplyT(func(v LookupShareResult) *AzureContainerInfoResponse { return v.AzureContainerInfo }).(AzureContainerInfoResponsePtrOutput)
+}
+
+// List of IP addresses and corresponding access rights on the share(required for NFS protocol).
+func (o LookupShareResultOutput) ClientAccessRights() ClientAccessRightResponseArrayOutput {
+	return o.ApplyT(func(v LookupShareResult) []ClientAccessRightResponse { return v.ClientAccessRights }).(ClientAccessRightResponseArrayOutput)
+}
+
+// Data policy of the share.
+func (o LookupShareResultOutput) DataPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupShareResult) *string { return v.DataPolicy }).(pulumi.StringPtrOutput)
+}
+
+// Description for the share.
+func (o LookupShareResultOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupShareResult) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The path ID that uniquely identifies the object.
+func (o LookupShareResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupShareResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Current monitoring status of the share.
+func (o LookupShareResultOutput) MonitoringStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupShareResult) string { return v.MonitoringStatus }).(pulumi.StringOutput)
+}
+
+// The object name.
+func (o LookupShareResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupShareResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Details of the refresh job on this share.
+func (o LookupShareResultOutput) RefreshDetails() RefreshDetailsResponsePtrOutput {
+	return o.ApplyT(func(v LookupShareResult) *RefreshDetailsResponse { return v.RefreshDetails }).(RefreshDetailsResponsePtrOutput)
+}
+
+// Share mount point to the role.
+func (o LookupShareResultOutput) ShareMappings() MountPointMapResponseArrayOutput {
+	return o.ApplyT(func(v LookupShareResult) []MountPointMapResponse { return v.ShareMappings }).(MountPointMapResponseArrayOutput)
+}
+
+// Current status of the share.
+func (o LookupShareResultOutput) ShareStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupShareResult) string { return v.ShareStatus }).(pulumi.StringOutput)
+}
+
+// Share on ASE device
+func (o LookupShareResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupShareResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The hierarchical type of the object.
+func (o LookupShareResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupShareResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Mapping of users and corresponding access rights on the share (required for SMB protocol).
+func (o LookupShareResultOutput) UserAccessRights() UserAccessRightResponseArrayOutput {
+	return o.ApplyT(func(v LookupShareResult) []UserAccessRightResponse { return v.UserAccessRights }).(UserAccessRightResponseArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupShareResultOutput{})
 }
