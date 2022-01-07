@@ -4,6 +4,9 @@
 package v20190201
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -40,4 +43,75 @@ type ListManagedClusterAccessProfileResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type
 	Type string `pulumi:"type"`
+}
+
+func ListManagedClusterAccessProfileOutput(ctx *pulumi.Context, args ListManagedClusterAccessProfileOutputArgs, opts ...pulumi.InvokeOption) ListManagedClusterAccessProfileResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (ListManagedClusterAccessProfileResult, error) {
+			args := v.(ListManagedClusterAccessProfileArgs)
+			r, err := ListManagedClusterAccessProfile(ctx, &args, opts...)
+			return *r, err
+		}).(ListManagedClusterAccessProfileResultOutput)
+}
+
+type ListManagedClusterAccessProfileOutputArgs struct {
+	// The name of the resource group.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the managed cluster resource.
+	ResourceName pulumi.StringInput `pulumi:"resourceName"`
+	// The name of the role for managed cluster accessProfile resource.
+	RoleName pulumi.StringInput `pulumi:"roleName"`
+}
+
+func (ListManagedClusterAccessProfileOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListManagedClusterAccessProfileArgs)(nil)).Elem()
+}
+
+// Managed cluster Access Profile.
+type ListManagedClusterAccessProfileResultOutput struct{ *pulumi.OutputState }
+
+func (ListManagedClusterAccessProfileResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListManagedClusterAccessProfileResult)(nil)).Elem()
+}
+
+func (o ListManagedClusterAccessProfileResultOutput) ToListManagedClusterAccessProfileResultOutput() ListManagedClusterAccessProfileResultOutput {
+	return o
+}
+
+func (o ListManagedClusterAccessProfileResultOutput) ToListManagedClusterAccessProfileResultOutputWithContext(ctx context.Context) ListManagedClusterAccessProfileResultOutput {
+	return o
+}
+
+// Resource Id
+func (o ListManagedClusterAccessProfileResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v ListManagedClusterAccessProfileResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Base64-encoded Kubernetes configuration file.
+func (o ListManagedClusterAccessProfileResultOutput) KubeConfig() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListManagedClusterAccessProfileResult) *string { return v.KubeConfig }).(pulumi.StringPtrOutput)
+}
+
+// Resource location
+func (o ListManagedClusterAccessProfileResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v ListManagedClusterAccessProfileResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource name
+func (o ListManagedClusterAccessProfileResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ListManagedClusterAccessProfileResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Resource tags
+func (o ListManagedClusterAccessProfileResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ListManagedClusterAccessProfileResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type
+func (o ListManagedClusterAccessProfileResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ListManagedClusterAccessProfileResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(ListManagedClusterAccessProfileResultOutput{})
 }

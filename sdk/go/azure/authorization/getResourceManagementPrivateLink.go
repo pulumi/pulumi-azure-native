@@ -4,6 +4,9 @@
 package authorization
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -34,4 +37,68 @@ type LookupResourceManagementPrivateLinkResult struct {
 	Properties ResourceManagementPrivateLinkEndpointConnectionsResponse `pulumi:"properties"`
 	// The operation type.
 	Type string `pulumi:"type"`
+}
+
+func LookupResourceManagementPrivateLinkOutput(ctx *pulumi.Context, args LookupResourceManagementPrivateLinkOutputArgs, opts ...pulumi.InvokeOption) LookupResourceManagementPrivateLinkResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupResourceManagementPrivateLinkResult, error) {
+			args := v.(LookupResourceManagementPrivateLinkArgs)
+			r, err := LookupResourceManagementPrivateLink(ctx, &args, opts...)
+			return *r, err
+		}).(LookupResourceManagementPrivateLinkResultOutput)
+}
+
+type LookupResourceManagementPrivateLinkOutputArgs struct {
+	// The name of the resource group the template will be deployed to. The name is case insensitive.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the resource management private link.
+	RmplName pulumi.StringInput `pulumi:"rmplName"`
+}
+
+func (LookupResourceManagementPrivateLinkOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupResourceManagementPrivateLinkArgs)(nil)).Elem()
+}
+
+type LookupResourceManagementPrivateLinkResultOutput struct{ *pulumi.OutputState }
+
+func (LookupResourceManagementPrivateLinkResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupResourceManagementPrivateLinkResult)(nil)).Elem()
+}
+
+func (o LookupResourceManagementPrivateLinkResultOutput) ToLookupResourceManagementPrivateLinkResultOutput() LookupResourceManagementPrivateLinkResultOutput {
+	return o
+}
+
+func (o LookupResourceManagementPrivateLinkResultOutput) ToLookupResourceManagementPrivateLinkResultOutputWithContext(ctx context.Context) LookupResourceManagementPrivateLinkResultOutput {
+	return o
+}
+
+// The rmplResourceID.
+func (o LookupResourceManagementPrivateLinkResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupResourceManagementPrivateLinkResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// the region of the rmpl
+func (o LookupResourceManagementPrivateLinkResultOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupResourceManagementPrivateLinkResult) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The rmpl Name.
+func (o LookupResourceManagementPrivateLinkResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupResourceManagementPrivateLinkResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupResourceManagementPrivateLinkResultOutput) Properties() ResourceManagementPrivateLinkEndpointConnectionsResponseOutput {
+	return o.ApplyT(func(v LookupResourceManagementPrivateLinkResult) ResourceManagementPrivateLinkEndpointConnectionsResponse {
+		return v.Properties
+	}).(ResourceManagementPrivateLinkEndpointConnectionsResponseOutput)
+}
+
+// The operation type.
+func (o LookupResourceManagementPrivateLinkResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupResourceManagementPrivateLinkResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupResourceManagementPrivateLinkResultOutput{})
 }

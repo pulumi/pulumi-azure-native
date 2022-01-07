@@ -4,6 +4,9 @@
 package v20161201
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -79,4 +82,143 @@ func (val *LookupStorageAccountResult) Defaults() *LookupStorageAccountResult {
 		tmp.EnableHttpsTrafficOnly = &enableHttpsTrafficOnly_
 	}
 	return &tmp
+}
+
+func LookupStorageAccountOutput(ctx *pulumi.Context, args LookupStorageAccountOutputArgs, opts ...pulumi.InvokeOption) LookupStorageAccountResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupStorageAccountResult, error) {
+			args := v.(LookupStorageAccountArgs)
+			r, err := LookupStorageAccount(ctx, &args, opts...)
+			return *r, err
+		}).(LookupStorageAccountResultOutput)
+}
+
+type LookupStorageAccountOutputArgs struct {
+	// The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
+	AccountName pulumi.StringInput `pulumi:"accountName"`
+	// The name of the resource group within the user's subscription. The name is case insensitive.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupStorageAccountOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupStorageAccountArgs)(nil)).Elem()
+}
+
+// The storage account.
+type LookupStorageAccountResultOutput struct{ *pulumi.OutputState }
+
+func (LookupStorageAccountResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupStorageAccountResult)(nil)).Elem()
+}
+
+func (o LookupStorageAccountResultOutput) ToLookupStorageAccountResultOutput() LookupStorageAccountResultOutput {
+	return o
+}
+
+func (o LookupStorageAccountResultOutput) ToLookupStorageAccountResultOutputWithContext(ctx context.Context) LookupStorageAccountResultOutput {
+	return o
+}
+
+// Required for storage accounts where kind = BlobStorage. The access tier used for billing.
+func (o LookupStorageAccountResultOutput) AccessTier() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupStorageAccountResult) string { return v.AccessTier }).(pulumi.StringOutput)
+}
+
+// Gets the creation date and time of the storage account in UTC.
+func (o LookupStorageAccountResultOutput) CreationTime() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupStorageAccountResult) string { return v.CreationTime }).(pulumi.StringOutput)
+}
+
+// Gets the custom domain the user assigned to this storage account.
+func (o LookupStorageAccountResultOutput) CustomDomain() CustomDomainResponseOutput {
+	return o.ApplyT(func(v LookupStorageAccountResult) CustomDomainResponse { return v.CustomDomain }).(CustomDomainResponseOutput)
+}
+
+// Allows https traffic only to storage service if sets to true.
+func (o LookupStorageAccountResultOutput) EnableHttpsTrafficOnly() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupStorageAccountResult) *bool { return v.EnableHttpsTrafficOnly }).(pulumi.BoolPtrOutput)
+}
+
+// Gets the encryption settings on the account. If unspecified, the account is unencrypted.
+func (o LookupStorageAccountResultOutput) Encryption() EncryptionResponseOutput {
+	return o.ApplyT(func(v LookupStorageAccountResult) EncryptionResponse { return v.Encryption }).(EncryptionResponseOutput)
+}
+
+// Resource Id
+func (o LookupStorageAccountResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupStorageAccountResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Gets the Kind.
+func (o LookupStorageAccountResultOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupStorageAccountResult) string { return v.Kind }).(pulumi.StringOutput)
+}
+
+// Gets the timestamp of the most recent instance of a failover to the secondary location. Only the most recent timestamp is retained. This element is not returned if there has never been a failover instance. Only available if the accountType is Standard_GRS or Standard_RAGRS.
+func (o LookupStorageAccountResultOutput) LastGeoFailoverTime() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupStorageAccountResult) string { return v.LastGeoFailoverTime }).(pulumi.StringOutput)
+}
+
+// Resource location
+func (o LookupStorageAccountResultOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupStorageAccountResult) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Resource name
+func (o LookupStorageAccountResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupStorageAccountResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Gets the URLs that are used to perform a retrieval of a public blob, queue, or table object. Note that Standard_ZRS and Premium_LRS accounts only return the blob endpoint.
+func (o LookupStorageAccountResultOutput) PrimaryEndpoints() EndpointsResponseOutput {
+	return o.ApplyT(func(v LookupStorageAccountResult) EndpointsResponse { return v.PrimaryEndpoints }).(EndpointsResponseOutput)
+}
+
+// Gets the location of the primary data center for the storage account.
+func (o LookupStorageAccountResultOutput) PrimaryLocation() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupStorageAccountResult) string { return v.PrimaryLocation }).(pulumi.StringOutput)
+}
+
+// Gets the status of the storage account at the time the operation was called.
+func (o LookupStorageAccountResultOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupStorageAccountResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Gets the URLs that are used to perform a retrieval of a public blob, queue, or table object from the secondary location of the storage account. Only available if the SKU name is Standard_RAGRS.
+func (o LookupStorageAccountResultOutput) SecondaryEndpoints() EndpointsResponseOutput {
+	return o.ApplyT(func(v LookupStorageAccountResult) EndpointsResponse { return v.SecondaryEndpoints }).(EndpointsResponseOutput)
+}
+
+// Gets the location of the geo-replicated secondary for the storage account. Only available if the accountType is Standard_GRS or Standard_RAGRS.
+func (o LookupStorageAccountResultOutput) SecondaryLocation() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupStorageAccountResult) string { return v.SecondaryLocation }).(pulumi.StringOutput)
+}
+
+// Gets the SKU.
+func (o LookupStorageAccountResultOutput) Sku() SkuResponseOutput {
+	return o.ApplyT(func(v LookupStorageAccountResult) SkuResponse { return v.Sku }).(SkuResponseOutput)
+}
+
+// Gets the status indicating whether the primary location of the storage account is available or unavailable.
+func (o LookupStorageAccountResultOutput) StatusOfPrimary() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupStorageAccountResult) string { return v.StatusOfPrimary }).(pulumi.StringOutput)
+}
+
+// Gets the status indicating whether the secondary location of the storage account is available or unavailable. Only available if the SKU name is Standard_GRS or Standard_RAGRS.
+func (o LookupStorageAccountResultOutput) StatusOfSecondary() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupStorageAccountResult) string { return v.StatusOfSecondary }).(pulumi.StringOutput)
+}
+
+// Tags assigned to a resource; can be used for viewing and grouping a resource (across resource groups).
+func (o LookupStorageAccountResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupStorageAccountResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type
+func (o LookupStorageAccountResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupStorageAccountResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupStorageAccountResultOutput{})
 }

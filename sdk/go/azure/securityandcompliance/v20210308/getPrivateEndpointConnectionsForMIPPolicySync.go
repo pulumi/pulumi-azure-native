@@ -4,6 +4,9 @@
 package v20210308
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -42,4 +45,84 @@ type LookupPrivateEndpointConnectionsForMIPPolicySyncResult struct {
 	SystemData SystemDataResponse `pulumi:"systemData"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
+}
+
+func LookupPrivateEndpointConnectionsForMIPPolicySyncOutput(ctx *pulumi.Context, args LookupPrivateEndpointConnectionsForMIPPolicySyncOutputArgs, opts ...pulumi.InvokeOption) LookupPrivateEndpointConnectionsForMIPPolicySyncResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupPrivateEndpointConnectionsForMIPPolicySyncResult, error) {
+			args := v.(LookupPrivateEndpointConnectionsForMIPPolicySyncArgs)
+			r, err := LookupPrivateEndpointConnectionsForMIPPolicySync(ctx, &args, opts...)
+			return *r, err
+		}).(LookupPrivateEndpointConnectionsForMIPPolicySyncResultOutput)
+}
+
+type LookupPrivateEndpointConnectionsForMIPPolicySyncOutputArgs struct {
+	// The name of the private endpoint connection associated with the Azure resource
+	PrivateEndpointConnectionName pulumi.StringInput `pulumi:"privateEndpointConnectionName"`
+	// The name of the resource group that contains the service instance.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the service instance.
+	ResourceName pulumi.StringInput `pulumi:"resourceName"`
+}
+
+func (LookupPrivateEndpointConnectionsForMIPPolicySyncOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupPrivateEndpointConnectionsForMIPPolicySyncArgs)(nil)).Elem()
+}
+
+// The Private Endpoint Connection resource.
+type LookupPrivateEndpointConnectionsForMIPPolicySyncResultOutput struct{ *pulumi.OutputState }
+
+func (LookupPrivateEndpointConnectionsForMIPPolicySyncResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupPrivateEndpointConnectionsForMIPPolicySyncResult)(nil)).Elem()
+}
+
+func (o LookupPrivateEndpointConnectionsForMIPPolicySyncResultOutput) ToLookupPrivateEndpointConnectionsForMIPPolicySyncResultOutput() LookupPrivateEndpointConnectionsForMIPPolicySyncResultOutput {
+	return o
+}
+
+func (o LookupPrivateEndpointConnectionsForMIPPolicySyncResultOutput) ToLookupPrivateEndpointConnectionsForMIPPolicySyncResultOutputWithContext(ctx context.Context) LookupPrivateEndpointConnectionsForMIPPolicySyncResultOutput {
+	return o
+}
+
+// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+func (o LookupPrivateEndpointConnectionsForMIPPolicySyncResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPrivateEndpointConnectionsForMIPPolicySyncResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o LookupPrivateEndpointConnectionsForMIPPolicySyncResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPrivateEndpointConnectionsForMIPPolicySyncResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The resource of private end point.
+func (o LookupPrivateEndpointConnectionsForMIPPolicySyncResultOutput) PrivateEndpoint() PrivateEndpointResponsePtrOutput {
+	return o.ApplyT(func(v LookupPrivateEndpointConnectionsForMIPPolicySyncResult) *PrivateEndpointResponse {
+		return v.PrivateEndpoint
+	}).(PrivateEndpointResponsePtrOutput)
+}
+
+// A collection of information about the state of the connection between service consumer and provider.
+func (o LookupPrivateEndpointConnectionsForMIPPolicySyncResultOutput) PrivateLinkServiceConnectionState() PrivateLinkServiceConnectionStateResponseOutput {
+	return o.ApplyT(func(v LookupPrivateEndpointConnectionsForMIPPolicySyncResult) PrivateLinkServiceConnectionStateResponse {
+		return v.PrivateLinkServiceConnectionState
+	}).(PrivateLinkServiceConnectionStateResponseOutput)
+}
+
+// The provisioning state of the private endpoint connection resource.
+func (o LookupPrivateEndpointConnectionsForMIPPolicySyncResultOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPrivateEndpointConnectionsForMIPPolicySyncResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Required property for system data
+func (o LookupPrivateEndpointConnectionsForMIPPolicySyncResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupPrivateEndpointConnectionsForMIPPolicySyncResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o LookupPrivateEndpointConnectionsForMIPPolicySyncResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPrivateEndpointConnectionsForMIPPolicySyncResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupPrivateEndpointConnectionsForMIPPolicySyncResultOutput{})
 }

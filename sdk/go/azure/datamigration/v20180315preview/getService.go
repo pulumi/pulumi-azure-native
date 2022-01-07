@@ -4,6 +4,9 @@
 package v20180315preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -48,4 +51,98 @@ type LookupServiceResult struct {
 	Type string `pulumi:"type"`
 	// The ID of the Microsoft.Network/virtualNetworks/subnets resource to which the service should be joined
 	VirtualSubnetId string `pulumi:"virtualSubnetId"`
+}
+
+func LookupServiceOutput(ctx *pulumi.Context, args LookupServiceOutputArgs, opts ...pulumi.InvokeOption) LookupServiceResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupServiceResult, error) {
+			args := v.(LookupServiceArgs)
+			r, err := LookupService(ctx, &args, opts...)
+			return *r, err
+		}).(LookupServiceResultOutput)
+}
+
+type LookupServiceOutputArgs struct {
+	// Name of the resource group
+	GroupName pulumi.StringInput `pulumi:"groupName"`
+	// Name of the service
+	ServiceName pulumi.StringInput `pulumi:"serviceName"`
+}
+
+func (LookupServiceOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupServiceArgs)(nil)).Elem()
+}
+
+// A Data Migration Service resource
+type LookupServiceResultOutput struct{ *pulumi.OutputState }
+
+func (LookupServiceResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupServiceResult)(nil)).Elem()
+}
+
+func (o LookupServiceResultOutput) ToLookupServiceResultOutput() LookupServiceResultOutput {
+	return o
+}
+
+func (o LookupServiceResultOutput) ToLookupServiceResultOutputWithContext(ctx context.Context) LookupServiceResultOutput {
+	return o
+}
+
+// HTTP strong entity tag value. Ignored if submitted
+func (o LookupServiceResultOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupServiceResult) *string { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// Resource ID.
+func (o LookupServiceResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServiceResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The resource kind. Only 'vm' (the default) is supported.
+func (o LookupServiceResultOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupServiceResult) *string { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Resource location.
+func (o LookupServiceResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServiceResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o LookupServiceResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServiceResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The resource's provisioning state
+func (o LookupServiceResultOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServiceResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The public key of the service, used to encrypt secrets sent to the service
+func (o LookupServiceResultOutput) PublicKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupServiceResult) *string { return v.PublicKey }).(pulumi.StringPtrOutput)
+}
+
+// Service SKU
+func (o LookupServiceResultOutput) Sku() ServiceSkuResponsePtrOutput {
+	return o.ApplyT(func(v LookupServiceResult) *ServiceSkuResponse { return v.Sku }).(ServiceSkuResponsePtrOutput)
+}
+
+// Resource tags.
+func (o LookupServiceResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupServiceResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type.
+func (o LookupServiceResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServiceResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The ID of the Microsoft.Network/virtualNetworks/subnets resource to which the service should be joined
+func (o LookupServiceResultOutput) VirtualSubnetId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServiceResult) string { return v.VirtualSubnetId }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupServiceResultOutput{})
 }

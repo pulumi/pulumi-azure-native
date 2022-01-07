@@ -2181,6 +2181,51 @@ type QueryKeyResponse struct {
 	Name string `pulumi:"name"`
 }
 
+// Describes an API key for a given Azure Cognitive Search service that has permissions for query operations only.
+type QueryKeyResponseOutput struct{ *pulumi.OutputState }
+
+func (QueryKeyResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*QueryKeyResponse)(nil)).Elem()
+}
+
+func (o QueryKeyResponseOutput) ToQueryKeyResponseOutput() QueryKeyResponseOutput {
+	return o
+}
+
+func (o QueryKeyResponseOutput) ToQueryKeyResponseOutputWithContext(ctx context.Context) QueryKeyResponseOutput {
+	return o
+}
+
+// The value of the query API key.
+func (o QueryKeyResponseOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v QueryKeyResponse) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The name of the query API key; may be empty.
+func (o QueryKeyResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v QueryKeyResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type QueryKeyResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (QueryKeyResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]QueryKeyResponse)(nil)).Elem()
+}
+
+func (o QueryKeyResponseArrayOutput) ToQueryKeyResponseArrayOutput() QueryKeyResponseArrayOutput {
+	return o
+}
+
+func (o QueryKeyResponseArrayOutput) ToQueryKeyResponseArrayOutputWithContext(ctx context.Context) QueryKeyResponseArrayOutput {
+	return o
+}
+
+func (o QueryKeyResponseArrayOutput) Index(i pulumi.IntInput) QueryKeyResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) QueryKeyResponse {
+		return vs[0].([]QueryKeyResponse)[vs[1].(int)]
+	}).(QueryKeyResponseOutput)
+}
+
 // Describes the properties of an existing Shared Private Link Resource managed by the Azure Cognitive Search service.
 type SharedPrivateLinkResourceProperties struct {
 	// The group id from the provider of resource the shared private link resource is for.
@@ -2922,6 +2967,8 @@ func init() {
 	pulumi.RegisterOutputType(PrivateEndpointConnectionPropertiesResponsePrivateLinkServiceConnectionStatePtrOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionResponseOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionResponseArrayOutput{})
+	pulumi.RegisterOutputType(QueryKeyResponseOutput{})
+	pulumi.RegisterOutputType(QueryKeyResponseArrayOutput{})
 	pulumi.RegisterOutputType(SharedPrivateLinkResourcePropertiesOutput{})
 	pulumi.RegisterOutputType(SharedPrivateLinkResourcePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(SharedPrivateLinkResourcePropertiesResponseOutput{})

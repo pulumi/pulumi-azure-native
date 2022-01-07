@@ -4,6 +4,9 @@
 package v20210401
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -48,4 +51,92 @@ type LookupIncidentRelationResult struct {
 	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Azure resource type
 	Type string `pulumi:"type"`
+}
+
+func LookupIncidentRelationOutput(ctx *pulumi.Context, args LookupIncidentRelationOutputArgs, opts ...pulumi.InvokeOption) LookupIncidentRelationResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupIncidentRelationResult, error) {
+			args := v.(LookupIncidentRelationArgs)
+			r, err := LookupIncidentRelation(ctx, &args, opts...)
+			return *r, err
+		}).(LookupIncidentRelationResultOutput)
+}
+
+type LookupIncidentRelationOutputArgs struct {
+	// Incident ID
+	IncidentId pulumi.StringInput `pulumi:"incidentId"`
+	// Relation Name
+	RelationName pulumi.StringInput `pulumi:"relationName"`
+	// The name of the resource group within the user's subscription. The name is case insensitive.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the workspace.
+	WorkspaceName pulumi.StringInput `pulumi:"workspaceName"`
+}
+
+func (LookupIncidentRelationOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupIncidentRelationArgs)(nil)).Elem()
+}
+
+// Represents a relation between two resources
+type LookupIncidentRelationResultOutput struct{ *pulumi.OutputState }
+
+func (LookupIncidentRelationResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupIncidentRelationResult)(nil)).Elem()
+}
+
+func (o LookupIncidentRelationResultOutput) ToLookupIncidentRelationResultOutput() LookupIncidentRelationResultOutput {
+	return o
+}
+
+func (o LookupIncidentRelationResultOutput) ToLookupIncidentRelationResultOutputWithContext(ctx context.Context) LookupIncidentRelationResultOutput {
+	return o
+}
+
+// Etag of the azure resource
+func (o LookupIncidentRelationResultOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupIncidentRelationResult) *string { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// Azure resource Id
+func (o LookupIncidentRelationResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupIncidentRelationResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Azure resource name
+func (o LookupIncidentRelationResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupIncidentRelationResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The resource ID of the related resource
+func (o LookupIncidentRelationResultOutput) RelatedResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupIncidentRelationResult) string { return v.RelatedResourceId }).(pulumi.StringOutput)
+}
+
+// The resource kind of the related resource
+func (o LookupIncidentRelationResultOutput) RelatedResourceKind() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupIncidentRelationResult) string { return v.RelatedResourceKind }).(pulumi.StringOutput)
+}
+
+// The name of the related resource
+func (o LookupIncidentRelationResultOutput) RelatedResourceName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupIncidentRelationResult) string { return v.RelatedResourceName }).(pulumi.StringOutput)
+}
+
+// The resource type of the related resource
+func (o LookupIncidentRelationResultOutput) RelatedResourceType() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupIncidentRelationResult) string { return v.RelatedResourceType }).(pulumi.StringOutput)
+}
+
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+func (o LookupIncidentRelationResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupIncidentRelationResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Azure resource type
+func (o LookupIncidentRelationResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupIncidentRelationResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupIncidentRelationResultOutput{})
 }

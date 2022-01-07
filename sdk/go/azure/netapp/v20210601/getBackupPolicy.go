@@ -4,6 +4,9 @@
 package v20210601
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -56,4 +59,115 @@ type LookupBackupPolicyResult struct {
 	VolumesAssigned int `pulumi:"volumesAssigned"`
 	// Weekly backups count to keep
 	WeeklyBackupsToKeep *int `pulumi:"weeklyBackupsToKeep"`
+}
+
+func LookupBackupPolicyOutput(ctx *pulumi.Context, args LookupBackupPolicyOutputArgs, opts ...pulumi.InvokeOption) LookupBackupPolicyResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupBackupPolicyResult, error) {
+			args := v.(LookupBackupPolicyArgs)
+			r, err := LookupBackupPolicy(ctx, &args, opts...)
+			return *r, err
+		}).(LookupBackupPolicyResultOutput)
+}
+
+type LookupBackupPolicyOutputArgs struct {
+	// The name of the NetApp account
+	AccountName pulumi.StringInput `pulumi:"accountName"`
+	// Backup policy Name which uniquely identify backup policy.
+	BackupPolicyName pulumi.StringInput `pulumi:"backupPolicyName"`
+	// The name of the resource group.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupBackupPolicyOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupBackupPolicyArgs)(nil)).Elem()
+}
+
+// Backup policy information
+type LookupBackupPolicyResultOutput struct{ *pulumi.OutputState }
+
+func (LookupBackupPolicyResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupBackupPolicyResult)(nil)).Elem()
+}
+
+func (o LookupBackupPolicyResultOutput) ToLookupBackupPolicyResultOutput() LookupBackupPolicyResultOutput {
+	return o
+}
+
+func (o LookupBackupPolicyResultOutput) ToLookupBackupPolicyResultOutputWithContext(ctx context.Context) LookupBackupPolicyResultOutput {
+	return o
+}
+
+// Backup Policy Resource ID
+func (o LookupBackupPolicyResultOutput) BackupPolicyId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBackupPolicyResult) string { return v.BackupPolicyId }).(pulumi.StringOutput)
+}
+
+// Daily backups count to keep
+func (o LookupBackupPolicyResultOutput) DailyBackupsToKeep() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupBackupPolicyResult) *int { return v.DailyBackupsToKeep }).(pulumi.IntPtrOutput)
+}
+
+// The property to decide policy is enabled or not
+func (o LookupBackupPolicyResultOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupBackupPolicyResult) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// A unique read-only string that changes whenever the resource is updated.
+func (o LookupBackupPolicyResultOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBackupPolicyResult) string { return v.Etag }).(pulumi.StringOutput)
+}
+
+// Resource Id
+func (o LookupBackupPolicyResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBackupPolicyResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Resource location
+func (o LookupBackupPolicyResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBackupPolicyResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// Monthly backups count to keep
+func (o LookupBackupPolicyResultOutput) MonthlyBackupsToKeep() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupBackupPolicyResult) *int { return v.MonthlyBackupsToKeep }).(pulumi.IntPtrOutput)
+}
+
+// Name of backup policy
+func (o LookupBackupPolicyResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBackupPolicyResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Azure lifecycle management
+func (o LookupBackupPolicyResultOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBackupPolicyResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Resource tags
+func (o LookupBackupPolicyResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupBackupPolicyResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type
+func (o LookupBackupPolicyResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBackupPolicyResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// A list of volumes assigned to this policy
+func (o LookupBackupPolicyResultOutput) VolumeBackups() VolumeBackupsResponseArrayOutput {
+	return o.ApplyT(func(v LookupBackupPolicyResult) []VolumeBackupsResponse { return v.VolumeBackups }).(VolumeBackupsResponseArrayOutput)
+}
+
+// Volumes using current backup policy
+func (o LookupBackupPolicyResultOutput) VolumesAssigned() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupBackupPolicyResult) int { return v.VolumesAssigned }).(pulumi.IntOutput)
+}
+
+// Weekly backups count to keep
+func (o LookupBackupPolicyResultOutput) WeeklyBackupsToKeep() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupBackupPolicyResult) *int { return v.WeeklyBackupsToKeep }).(pulumi.IntPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupBackupPolicyResultOutput{})
 }

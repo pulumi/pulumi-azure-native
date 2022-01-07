@@ -4,6 +4,9 @@
 package orbital
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -51,4 +54,103 @@ type LookupContactProfileResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
+}
+
+func LookupContactProfileOutput(ctx *pulumi.Context, args LookupContactProfileOutputArgs, opts ...pulumi.InvokeOption) LookupContactProfileResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupContactProfileResult, error) {
+			args := v.(LookupContactProfileArgs)
+			r, err := LookupContactProfile(ctx, &args, opts...)
+			return *r, err
+		}).(LookupContactProfileResultOutput)
+}
+
+type LookupContactProfileOutputArgs struct {
+	// Contact Profile Name
+	ContactProfileName pulumi.StringInput `pulumi:"contactProfileName"`
+	// The name of the resource group. The name is case insensitive.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupContactProfileOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupContactProfileArgs)(nil)).Elem()
+}
+
+// Customer creates a Contact Profile Resource, which will contain all of the configurations required for scheduling a contact.
+type LookupContactProfileResultOutput struct{ *pulumi.OutputState }
+
+func (LookupContactProfileResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupContactProfileResult)(nil)).Elem()
+}
+
+func (o LookupContactProfileResultOutput) ToLookupContactProfileResultOutput() LookupContactProfileResultOutput {
+	return o
+}
+
+func (o LookupContactProfileResultOutput) ToLookupContactProfileResultOutputWithContext(ctx context.Context) LookupContactProfileResultOutput {
+	return o
+}
+
+// Auto track configuration.
+func (o LookupContactProfileResultOutput) AutoTrackingConfiguration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupContactProfileResult) *string { return v.AutoTrackingConfiguration }).(pulumi.StringPtrOutput)
+}
+
+// A unique read-only string that changes whenever the resource is updated.
+func (o LookupContactProfileResultOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupContactProfileResult) string { return v.Etag }).(pulumi.StringOutput)
+}
+
+// The URI of the Event Hub used for telemetry
+func (o LookupContactProfileResultOutput) EventHubUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupContactProfileResult) *string { return v.EventHubUri }).(pulumi.StringPtrOutput)
+}
+
+// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+func (o LookupContactProfileResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupContactProfileResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Links of the Contact Profile
+func (o LookupContactProfileResultOutput) Links() ContactProfileLinkResponseArrayOutput {
+	return o.ApplyT(func(v LookupContactProfileResult) []ContactProfileLinkResponse { return v.Links }).(ContactProfileLinkResponseArrayOutput)
+}
+
+// The geo-location where the resource lives
+func (o LookupContactProfileResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupContactProfileResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// Minimum viable elevation for the contact in decimal degrees.
+func (o LookupContactProfileResultOutput) MinimumElevationDegrees() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v LookupContactProfileResult) *float64 { return v.MinimumElevationDegrees }).(pulumi.Float64PtrOutput)
+}
+
+// Minimum viable contact duration in ISO 8601 format.
+func (o LookupContactProfileResultOutput) MinimumViableContactDuration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupContactProfileResult) *string { return v.MinimumViableContactDuration }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource
+func (o LookupContactProfileResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupContactProfileResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+func (o LookupContactProfileResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupContactProfileResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource tags.
+func (o LookupContactProfileResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupContactProfileResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o LookupContactProfileResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupContactProfileResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupContactProfileResultOutput{})
 }

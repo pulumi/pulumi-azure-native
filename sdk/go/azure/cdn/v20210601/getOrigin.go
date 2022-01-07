@@ -4,6 +4,9 @@
 package v20210601
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -66,4 +69,137 @@ type LookupOriginResult struct {
 	Type string `pulumi:"type"`
 	// Weight of the origin in given origin group for load balancing. Must be between 1 and 1000
 	Weight *int `pulumi:"weight"`
+}
+
+func LookupOriginOutput(ctx *pulumi.Context, args LookupOriginOutputArgs, opts ...pulumi.InvokeOption) LookupOriginResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupOriginResult, error) {
+			args := v.(LookupOriginArgs)
+			r, err := LookupOrigin(ctx, &args, opts...)
+			return *r, err
+		}).(LookupOriginResultOutput)
+}
+
+type LookupOriginOutputArgs struct {
+	// Name of the endpoint under the profile which is unique globally.
+	EndpointName pulumi.StringInput `pulumi:"endpointName"`
+	// Name of the origin which is unique within the endpoint.
+	OriginName pulumi.StringInput `pulumi:"originName"`
+	// Name of the CDN profile which is unique within the resource group.
+	ProfileName pulumi.StringInput `pulumi:"profileName"`
+	// Name of the Resource group within the Azure subscription.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupOriginOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupOriginArgs)(nil)).Elem()
+}
+
+// CDN origin is the source of the content being delivered via CDN. When the edge nodes represented by an endpoint do not have the requested content cached, they attempt to fetch it from one or more of the configured origins.
+type LookupOriginResultOutput struct{ *pulumi.OutputState }
+
+func (LookupOriginResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupOriginResult)(nil)).Elem()
+}
+
+func (o LookupOriginResultOutput) ToLookupOriginResultOutput() LookupOriginResultOutput {
+	return o
+}
+
+func (o LookupOriginResultOutput) ToLookupOriginResultOutputWithContext(ctx context.Context) LookupOriginResultOutput {
+	return o
+}
+
+// Origin is enabled for load balancing or not
+func (o LookupOriginResultOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupOriginResult) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// The address of the origin. Domain names, IPv4 addresses, and IPv6 addresses are supported.This should be unique across all origins in an endpoint.
+func (o LookupOriginResultOutput) HostName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupOriginResult) string { return v.HostName }).(pulumi.StringOutput)
+}
+
+// The value of the HTTP port. Must be between 1 and 65535.
+func (o LookupOriginResultOutput) HttpPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupOriginResult) *int { return v.HttpPort }).(pulumi.IntPtrOutput)
+}
+
+// The value of the HTTPS port. Must be between 1 and 65535.
+func (o LookupOriginResultOutput) HttpsPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupOriginResult) *int { return v.HttpsPort }).(pulumi.IntPtrOutput)
+}
+
+// Resource ID.
+func (o LookupOriginResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupOriginResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o LookupOriginResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupOriginResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The host header value sent to the origin with each request. If you leave this blank, the request hostname determines this value. Azure CDN origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin hostname by default. This overrides the host header defined at Endpoint
+func (o LookupOriginResultOutput) OriginHostHeader() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupOriginResult) *string { return v.OriginHostHeader }).(pulumi.StringPtrOutput)
+}
+
+// Priority of origin in given origin group for load balancing. Higher priorities will not be used for load balancing if any lower priority origin is healthy.Must be between 1 and 5
+func (o LookupOriginResultOutput) Priority() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupOriginResult) *int { return v.Priority }).(pulumi.IntPtrOutput)
+}
+
+// The approval status for the connection to the Private Link
+func (o LookupOriginResultOutput) PrivateEndpointStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupOriginResult) string { return v.PrivateEndpointStatus }).(pulumi.StringOutput)
+}
+
+// The Alias of the Private Link resource. Populating this optional field indicates that this origin is 'Private'
+func (o LookupOriginResultOutput) PrivateLinkAlias() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupOriginResult) *string { return v.PrivateLinkAlias }).(pulumi.StringPtrOutput)
+}
+
+// A custom message to be included in the approval request to connect to the Private Link.
+func (o LookupOriginResultOutput) PrivateLinkApprovalMessage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupOriginResult) *string { return v.PrivateLinkApprovalMessage }).(pulumi.StringPtrOutput)
+}
+
+// The location of the Private Link resource. Required only if 'privateLinkResourceId' is populated
+func (o LookupOriginResultOutput) PrivateLinkLocation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupOriginResult) *string { return v.PrivateLinkLocation }).(pulumi.StringPtrOutput)
+}
+
+// The Resource Id of the Private Link resource. Populating this optional field indicates that this backend is 'Private'
+func (o LookupOriginResultOutput) PrivateLinkResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupOriginResult) *string { return v.PrivateLinkResourceId }).(pulumi.StringPtrOutput)
+}
+
+// Provisioning status of the origin.
+func (o LookupOriginResultOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupOriginResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Resource status of the origin.
+func (o LookupOriginResultOutput) ResourceState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupOriginResult) string { return v.ResourceState }).(pulumi.StringOutput)
+}
+
+// Read only system data
+func (o LookupOriginResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupOriginResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource type.
+func (o LookupOriginResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupOriginResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Weight of the origin in given origin group for load balancing. Must be between 1 and 1000
+func (o LookupOriginResultOutput) Weight() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupOriginResult) *int { return v.Weight }).(pulumi.IntPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupOriginResultOutput{})
 }

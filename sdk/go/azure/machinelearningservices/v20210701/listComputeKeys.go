@@ -4,6 +4,9 @@
 package v20210701
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -30,4 +33,50 @@ type ListComputeKeysArgs struct {
 type ListComputeKeysResult struct {
 	// The type of compute
 	ComputeType string `pulumi:"computeType"`
+}
+
+func ListComputeKeysOutput(ctx *pulumi.Context, args ListComputeKeysOutputArgs, opts ...pulumi.InvokeOption) ListComputeKeysResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (ListComputeKeysResult, error) {
+			args := v.(ListComputeKeysArgs)
+			r, err := ListComputeKeys(ctx, &args, opts...)
+			return *r, err
+		}).(ListComputeKeysResultOutput)
+}
+
+type ListComputeKeysOutputArgs struct {
+	// Name of the Azure Machine Learning compute.
+	ComputeName pulumi.StringInput `pulumi:"computeName"`
+	// The name of the resource group. The name is case insensitive.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// Name of Azure Machine Learning workspace.
+	WorkspaceName pulumi.StringInput `pulumi:"workspaceName"`
+}
+
+func (ListComputeKeysOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListComputeKeysArgs)(nil)).Elem()
+}
+
+// Secrets related to a Machine Learning compute. Might differ for every type of compute.
+type ListComputeKeysResultOutput struct{ *pulumi.OutputState }
+
+func (ListComputeKeysResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListComputeKeysResult)(nil)).Elem()
+}
+
+func (o ListComputeKeysResultOutput) ToListComputeKeysResultOutput() ListComputeKeysResultOutput {
+	return o
+}
+
+func (o ListComputeKeysResultOutput) ToListComputeKeysResultOutputWithContext(ctx context.Context) ListComputeKeysResultOutput {
+	return o
+}
+
+// The type of compute
+func (o ListComputeKeysResultOutput) ComputeType() pulumi.StringOutput {
+	return o.ApplyT(func(v ListComputeKeysResult) string { return v.ComputeType }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(ListComputeKeysResultOutput{})
 }

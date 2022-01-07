@@ -4,6 +4,9 @@
 package machinelearningservices
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -47,4 +50,91 @@ type LookupOnlineDeploymentResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
+}
+
+func LookupOnlineDeploymentOutput(ctx *pulumi.Context, args LookupOnlineDeploymentOutputArgs, opts ...pulumi.InvokeOption) LookupOnlineDeploymentResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupOnlineDeploymentResult, error) {
+			args := v.(LookupOnlineDeploymentArgs)
+			r, err := LookupOnlineDeployment(ctx, &args, opts...)
+			return *r, err
+		}).(LookupOnlineDeploymentResultOutput)
+}
+
+type LookupOnlineDeploymentOutputArgs struct {
+	// Inference Endpoint Deployment name.
+	DeploymentName pulumi.StringInput `pulumi:"deploymentName"`
+	// Inference endpoint name.
+	EndpointName pulumi.StringInput `pulumi:"endpointName"`
+	// The name of the resource group. The name is case insensitive.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// Name of Azure Machine Learning workspace.
+	WorkspaceName pulumi.StringInput `pulumi:"workspaceName"`
+}
+
+func (LookupOnlineDeploymentOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupOnlineDeploymentArgs)(nil)).Elem()
+}
+
+type LookupOnlineDeploymentResultOutput struct{ *pulumi.OutputState }
+
+func (LookupOnlineDeploymentResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupOnlineDeploymentResult)(nil)).Elem()
+}
+
+func (o LookupOnlineDeploymentResultOutput) ToLookupOnlineDeploymentResultOutput() LookupOnlineDeploymentResultOutput {
+	return o
+}
+
+func (o LookupOnlineDeploymentResultOutput) ToLookupOnlineDeploymentResultOutputWithContext(ctx context.Context) LookupOnlineDeploymentResultOutput {
+	return o
+}
+
+// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+func (o LookupOnlineDeploymentResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupOnlineDeploymentResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Service identity associated with a resource.
+func (o LookupOnlineDeploymentResultOutput) Identity() ResourceIdentityResponsePtrOutput {
+	return o.ApplyT(func(v LookupOnlineDeploymentResult) *ResourceIdentityResponse { return v.Identity }).(ResourceIdentityResponsePtrOutput)
+}
+
+// Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type.
+func (o LookupOnlineDeploymentResultOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupOnlineDeploymentResult) *string { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// The geo-location where the resource lives
+func (o LookupOnlineDeploymentResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupOnlineDeploymentResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o LookupOnlineDeploymentResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupOnlineDeploymentResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Additional attributes of the entity.
+func (o LookupOnlineDeploymentResultOutput) Properties() pulumi.AnyOutput {
+	return o.ApplyT(func(v LookupOnlineDeploymentResult) interface{} { return v.Properties }).(pulumi.AnyOutput)
+}
+
+// System data associated with resource provider
+func (o LookupOnlineDeploymentResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupOnlineDeploymentResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource tags.
+func (o LookupOnlineDeploymentResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupOnlineDeploymentResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o LookupOnlineDeploymentResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupOnlineDeploymentResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupOnlineDeploymentResultOutput{})
 }

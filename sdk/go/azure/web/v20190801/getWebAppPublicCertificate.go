@@ -4,6 +4,9 @@
 package v20190801
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -42,4 +45,80 @@ type LookupWebAppPublicCertificateResult struct {
 	Thumbprint string `pulumi:"thumbprint"`
 	// Resource type.
 	Type string `pulumi:"type"`
+}
+
+func LookupWebAppPublicCertificateOutput(ctx *pulumi.Context, args LookupWebAppPublicCertificateOutputArgs, opts ...pulumi.InvokeOption) LookupWebAppPublicCertificateResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupWebAppPublicCertificateResult, error) {
+			args := v.(LookupWebAppPublicCertificateArgs)
+			r, err := LookupWebAppPublicCertificate(ctx, &args, opts...)
+			return *r, err
+		}).(LookupWebAppPublicCertificateResultOutput)
+}
+
+type LookupWebAppPublicCertificateOutputArgs struct {
+	// Name of the app.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Public certificate name.
+	PublicCertificateName pulumi.StringInput `pulumi:"publicCertificateName"`
+	// Name of the resource group to which the resource belongs.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupWebAppPublicCertificateOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupWebAppPublicCertificateArgs)(nil)).Elem()
+}
+
+// Public certificate object
+type LookupWebAppPublicCertificateResultOutput struct{ *pulumi.OutputState }
+
+func (LookupWebAppPublicCertificateResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupWebAppPublicCertificateResult)(nil)).Elem()
+}
+
+func (o LookupWebAppPublicCertificateResultOutput) ToLookupWebAppPublicCertificateResultOutput() LookupWebAppPublicCertificateResultOutput {
+	return o
+}
+
+func (o LookupWebAppPublicCertificateResultOutput) ToLookupWebAppPublicCertificateResultOutputWithContext(ctx context.Context) LookupWebAppPublicCertificateResultOutput {
+	return o
+}
+
+// Public Certificate byte array
+func (o LookupWebAppPublicCertificateResultOutput) Blob() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupWebAppPublicCertificateResult) *string { return v.Blob }).(pulumi.StringPtrOutput)
+}
+
+// Resource Id.
+func (o LookupWebAppPublicCertificateResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWebAppPublicCertificateResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Kind of resource.
+func (o LookupWebAppPublicCertificateResultOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupWebAppPublicCertificateResult) *string { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Resource Name.
+func (o LookupWebAppPublicCertificateResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWebAppPublicCertificateResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Public Certificate Location
+func (o LookupWebAppPublicCertificateResultOutput) PublicCertificateLocation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupWebAppPublicCertificateResult) *string { return v.PublicCertificateLocation }).(pulumi.StringPtrOutput)
+}
+
+// Certificate Thumbprint
+func (o LookupWebAppPublicCertificateResultOutput) Thumbprint() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWebAppPublicCertificateResult) string { return v.Thumbprint }).(pulumi.StringOutput)
+}
+
+// Resource type.
+func (o LookupWebAppPublicCertificateResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWebAppPublicCertificateResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupWebAppPublicCertificateResultOutput{})
 }

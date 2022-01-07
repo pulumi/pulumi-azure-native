@@ -4,6 +4,9 @@
 package customerinsights
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -51,4 +54,100 @@ type GetPredictionModelStatusResult struct {
 	TrainingSetCount int `pulumi:"trainingSetCount"`
 	// Count of the validation set.
 	ValidationSetCount int `pulumi:"validationSetCount"`
+}
+
+func GetPredictionModelStatusOutput(ctx *pulumi.Context, args GetPredictionModelStatusOutputArgs, opts ...pulumi.InvokeOption) GetPredictionModelStatusResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetPredictionModelStatusResult, error) {
+			args := v.(GetPredictionModelStatusArgs)
+			r, err := GetPredictionModelStatus(ctx, &args, opts...)
+			return *r, err
+		}).(GetPredictionModelStatusResultOutput)
+}
+
+type GetPredictionModelStatusOutputArgs struct {
+	// The name of the hub.
+	HubName pulumi.StringInput `pulumi:"hubName"`
+	// The name of the Prediction.
+	PredictionName pulumi.StringInput `pulumi:"predictionName"`
+	// The name of the resource group.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (GetPredictionModelStatusOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPredictionModelStatusArgs)(nil)).Elem()
+}
+
+// The prediction model status.
+type GetPredictionModelStatusResultOutput struct{ *pulumi.OutputState }
+
+func (GetPredictionModelStatusResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPredictionModelStatusResult)(nil)).Elem()
+}
+
+func (o GetPredictionModelStatusResultOutput) ToGetPredictionModelStatusResultOutput() GetPredictionModelStatusResultOutput {
+	return o
+}
+
+func (o GetPredictionModelStatusResultOutput) ToGetPredictionModelStatusResultOutputWithContext(ctx context.Context) GetPredictionModelStatusResultOutput {
+	return o
+}
+
+// The model status message.
+func (o GetPredictionModelStatusResultOutput) Message() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPredictionModelStatusResult) string { return v.Message }).(pulumi.StringOutput)
+}
+
+// Version of the model.
+func (o GetPredictionModelStatusResultOutput) ModelVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPredictionModelStatusResult) string { return v.ModelVersion }).(pulumi.StringOutput)
+}
+
+// The prediction GUID ID.
+func (o GetPredictionModelStatusResultOutput) PredictionGuidId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPredictionModelStatusResult) string { return v.PredictionGuidId }).(pulumi.StringOutput)
+}
+
+// The prediction name.
+func (o GetPredictionModelStatusResultOutput) PredictionName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPredictionModelStatusResult) string { return v.PredictionName }).(pulumi.StringOutput)
+}
+
+// The signals used.
+func (o GetPredictionModelStatusResultOutput) SignalsUsed() pulumi.IntOutput {
+	return o.ApplyT(func(v GetPredictionModelStatusResult) int { return v.SignalsUsed }).(pulumi.IntOutput)
+}
+
+// Prediction model life cycle.  When prediction is in PendingModelConfirmation status, it is allowed to update the status to PendingFeaturing or Active through API.
+func (o GetPredictionModelStatusResultOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPredictionModelStatusResult) string { return v.Status }).(pulumi.StringOutput)
+}
+
+// The hub name.
+func (o GetPredictionModelStatusResultOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPredictionModelStatusResult) string { return v.TenantId }).(pulumi.StringOutput)
+}
+
+// Count of the test set.
+func (o GetPredictionModelStatusResultOutput) TestSetCount() pulumi.IntOutput {
+	return o.ApplyT(func(v GetPredictionModelStatusResult) int { return v.TestSetCount }).(pulumi.IntOutput)
+}
+
+// The training accuracy.
+func (o GetPredictionModelStatusResultOutput) TrainingAccuracy() pulumi.IntOutput {
+	return o.ApplyT(func(v GetPredictionModelStatusResult) int { return v.TrainingAccuracy }).(pulumi.IntOutput)
+}
+
+// Count of the training set.
+func (o GetPredictionModelStatusResultOutput) TrainingSetCount() pulumi.IntOutput {
+	return o.ApplyT(func(v GetPredictionModelStatusResult) int { return v.TrainingSetCount }).(pulumi.IntOutput)
+}
+
+// Count of the validation set.
+func (o GetPredictionModelStatusResultOutput) ValidationSetCount() pulumi.IntOutput {
+	return o.ApplyT(func(v GetPredictionModelStatusResult) int { return v.ValidationSetCount }).(pulumi.IntOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetPredictionModelStatusResultOutput{})
 }

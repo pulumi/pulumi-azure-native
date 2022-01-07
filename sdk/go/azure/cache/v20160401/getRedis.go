@@ -4,6 +4,9 @@
 package v20160401
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -62,4 +65,133 @@ type LookupRedisResult struct {
 	TenantSettings map[string]string `pulumi:"tenantSettings"`
 	// Resource type.
 	Type string `pulumi:"type"`
+}
+
+func LookupRedisOutput(ctx *pulumi.Context, args LookupRedisOutputArgs, opts ...pulumi.InvokeOption) LookupRedisResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupRedisResult, error) {
+			args := v.(LookupRedisArgs)
+			r, err := LookupRedis(ctx, &args, opts...)
+			return *r, err
+		}).(LookupRedisResultOutput)
+}
+
+type LookupRedisOutputArgs struct {
+	// The name of the Redis cache.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The name of the resource group.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupRedisOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupRedisArgs)(nil)).Elem()
+}
+
+// A single Redis item in List or Get Operation.
+type LookupRedisResultOutput struct{ *pulumi.OutputState }
+
+func (LookupRedisResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupRedisResult)(nil)).Elem()
+}
+
+func (o LookupRedisResultOutput) ToLookupRedisResultOutput() LookupRedisResultOutput {
+	return o
+}
+
+func (o LookupRedisResultOutput) ToLookupRedisResultOutputWithContext(ctx context.Context) LookupRedisResultOutput {
+	return o
+}
+
+// The keys of the Redis cache - not set if this object is not the response to Create or Update redis cache
+func (o LookupRedisResultOutput) AccessKeys() RedisAccessKeysResponseOutput {
+	return o.ApplyT(func(v LookupRedisResult) RedisAccessKeysResponse { return v.AccessKeys }).(RedisAccessKeysResponseOutput)
+}
+
+// Specifies whether the non-ssl Redis server port (6379) is enabled.
+func (o LookupRedisResultOutput) EnableNonSslPort() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupRedisResult) *bool { return v.EnableNonSslPort }).(pulumi.BoolPtrOutput)
+}
+
+// Redis host name.
+func (o LookupRedisResultOutput) HostName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRedisResult) string { return v.HostName }).(pulumi.StringOutput)
+}
+
+// Resource ID.
+func (o LookupRedisResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRedisResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Resource location.
+func (o LookupRedisResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRedisResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o LookupRedisResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRedisResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Redis non-SSL port.
+func (o LookupRedisResultOutput) Port() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupRedisResult) int { return v.Port }).(pulumi.IntOutput)
+}
+
+// Redis instance provisioning status.
+func (o LookupRedisResultOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRedisResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// All Redis Settings. Few possible keys: rdb-backup-enabled,rdb-storage-connection-string,rdb-backup-frequency,maxmemory-delta,maxmemory-policy,notify-keyspace-events,maxmemory-samples,slowlog-log-slower-than,slowlog-max-len,list-max-ziplist-entries,list-max-ziplist-value,hash-max-ziplist-entries,hash-max-ziplist-value,set-max-intset-entries,zset-max-ziplist-entries,zset-max-ziplist-value etc.
+func (o LookupRedisResultOutput) RedisConfiguration() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupRedisResult) map[string]string { return v.RedisConfiguration }).(pulumi.StringMapOutput)
+}
+
+// Redis version.
+func (o LookupRedisResultOutput) RedisVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRedisResult) string { return v.RedisVersion }).(pulumi.StringOutput)
+}
+
+// The number of shards to be created on a Premium Cluster Cache.
+func (o LookupRedisResultOutput) ShardCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupRedisResult) *int { return v.ShardCount }).(pulumi.IntPtrOutput)
+}
+
+// The SKU of the Redis cache to deploy.
+func (o LookupRedisResultOutput) Sku() SkuResponsePtrOutput {
+	return o.ApplyT(func(v LookupRedisResult) *SkuResponse { return v.Sku }).(SkuResponsePtrOutput)
+}
+
+// Redis SSL port.
+func (o LookupRedisResultOutput) SslPort() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupRedisResult) int { return v.SslPort }).(pulumi.IntOutput)
+}
+
+// Static IP address. Required when deploying a Redis cache inside an existing Azure Virtual Network.
+func (o LookupRedisResultOutput) StaticIP() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupRedisResult) *string { return v.StaticIP }).(pulumi.StringPtrOutput)
+}
+
+// The full resource ID of a subnet in a virtual network to deploy the Redis cache in. Example format: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/Microsoft.{Network|ClassicNetwork}/VirtualNetworks/vnet1/subnets/subnet1
+func (o LookupRedisResultOutput) SubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupRedisResult) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
+}
+
+// Resource tags.
+func (o LookupRedisResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupRedisResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// tenantSettings
+func (o LookupRedisResultOutput) TenantSettings() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupRedisResult) map[string]string { return v.TenantSettings }).(pulumi.StringMapOutput)
+}
+
+// Resource type.
+func (o LookupRedisResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRedisResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupRedisResultOutput{})
 }

@@ -4,6 +4,9 @@
 package v20201001preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -62,4 +65,133 @@ type LookupClusterResult struct {
 	Uuid string `pulumi:"uuid"`
 	// Gets or sets the ARM Id of the vCenter resource in which this cluster resides.
 	VCenterId *string `pulumi:"vCenterId"`
+}
+
+func LookupClusterOutput(ctx *pulumi.Context, args LookupClusterOutputArgs, opts ...pulumi.InvokeOption) LookupClusterResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupClusterResult, error) {
+			args := v.(LookupClusterArgs)
+			r, err := LookupCluster(ctx, &args, opts...)
+			return *r, err
+		}).(LookupClusterResultOutput)
+}
+
+type LookupClusterOutputArgs struct {
+	// Name of the cluster.
+	ClusterName pulumi.StringInput `pulumi:"clusterName"`
+	// The Resource Group Name.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupClusterOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupClusterArgs)(nil)).Elem()
+}
+
+// Define the cluster.
+type LookupClusterResultOutput struct{ *pulumi.OutputState }
+
+func (LookupClusterResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupClusterResult)(nil)).Elem()
+}
+
+func (o LookupClusterResultOutput) ToLookupClusterResultOutput() LookupClusterResultOutput {
+	return o
+}
+
+func (o LookupClusterResultOutput) ToLookupClusterResultOutputWithContext(ctx context.Context) LookupClusterResultOutput {
+	return o
+}
+
+// Gets the name of the corresponding resource in Kubernetes.
+func (o LookupClusterResultOutput) CustomResourceName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupClusterResult) string { return v.CustomResourceName }).(pulumi.StringOutput)
+}
+
+// Gets or sets the datastore ARM ids.
+func (o LookupClusterResultOutput) DatastoreIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupClusterResult) []string { return v.DatastoreIds }).(pulumi.StringArrayOutput)
+}
+
+// Gets or sets the extended location.
+func (o LookupClusterResultOutput) ExtendedLocation() ExtendedLocationResponsePtrOutput {
+	return o.ApplyT(func(v LookupClusterResult) *ExtendedLocationResponse { return v.ExtendedLocation }).(ExtendedLocationResponsePtrOutput)
+}
+
+// Gets or sets the Id.
+func (o LookupClusterResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupClusterResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Gets or sets the inventory Item ID for the cluster.
+func (o LookupClusterResultOutput) InventoryItemId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupClusterResult) *string { return v.InventoryItemId }).(pulumi.StringPtrOutput)
+}
+
+// Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
+func (o LookupClusterResultOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupClusterResult) *string { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the location.
+func (o LookupClusterResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupClusterResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// Gets or sets the vCenter Managed Object name for the cluster.
+func (o LookupClusterResultOutput) MoName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupClusterResult) string { return v.MoName }).(pulumi.StringOutput)
+}
+
+// Gets or sets the vCenter MoRef (Managed Object Reference) ID for the cluster.
+func (o LookupClusterResultOutput) MoRefId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupClusterResult) *string { return v.MoRefId }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the name.
+func (o LookupClusterResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupClusterResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Gets or sets the network ARM ids.
+func (o LookupClusterResultOutput) NetworkIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupClusterResult) []string { return v.NetworkIds }).(pulumi.StringArrayOutput)
+}
+
+// Gets or sets the provisioning state.
+func (o LookupClusterResultOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupClusterResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The resource status information.
+func (o LookupClusterResultOutput) Statuses() ResourceStatusResponseArrayOutput {
+	return o.ApplyT(func(v LookupClusterResult) []ResourceStatusResponse { return v.Statuses }).(ResourceStatusResponseArrayOutput)
+}
+
+// The system data.
+func (o LookupClusterResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupClusterResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Gets or sets the Resource tags.
+func (o LookupClusterResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupClusterResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Gets or sets the type of the resource.
+func (o LookupClusterResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupClusterResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Gets or sets a unique identifier for this resource.
+func (o LookupClusterResultOutput) Uuid() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupClusterResult) string { return v.Uuid }).(pulumi.StringOutput)
+}
+
+// Gets or sets the ARM Id of the vCenter resource in which this cluster resides.
+func (o LookupClusterResultOutput) VCenterId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupClusterResult) *string { return v.VCenterId }).(pulumi.StringPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupClusterResultOutput{})
 }

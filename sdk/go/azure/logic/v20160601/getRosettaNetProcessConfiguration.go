@@ -4,6 +4,9 @@
 package v20160601
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -58,4 +61,126 @@ type LookupRosettaNetProcessConfigurationResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Gets the resource type.
 	Type string `pulumi:"type"`
+}
+
+func LookupRosettaNetProcessConfigurationOutput(ctx *pulumi.Context, args LookupRosettaNetProcessConfigurationOutputArgs, opts ...pulumi.InvokeOption) LookupRosettaNetProcessConfigurationResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupRosettaNetProcessConfigurationResult, error) {
+			args := v.(LookupRosettaNetProcessConfigurationArgs)
+			r, err := LookupRosettaNetProcessConfiguration(ctx, &args, opts...)
+			return *r, err
+		}).(LookupRosettaNetProcessConfigurationResultOutput)
+}
+
+type LookupRosettaNetProcessConfigurationOutputArgs struct {
+	// The integration account name.
+	IntegrationAccountName pulumi.StringInput `pulumi:"integrationAccountName"`
+	// The resource group name.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The integration account RosettaNetProcessConfiguration name.
+	RosettaNetProcessConfigurationName pulumi.StringInput `pulumi:"rosettaNetProcessConfigurationName"`
+}
+
+func (LookupRosettaNetProcessConfigurationOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupRosettaNetProcessConfigurationArgs)(nil)).Elem()
+}
+
+// The integration account RosettaNet process configuration.
+type LookupRosettaNetProcessConfigurationResultOutput struct{ *pulumi.OutputState }
+
+func (LookupRosettaNetProcessConfigurationResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupRosettaNetProcessConfigurationResult)(nil)).Elem()
+}
+
+func (o LookupRosettaNetProcessConfigurationResultOutput) ToLookupRosettaNetProcessConfigurationResultOutput() LookupRosettaNetProcessConfigurationResultOutput {
+	return o
+}
+
+func (o LookupRosettaNetProcessConfigurationResultOutput) ToLookupRosettaNetProcessConfigurationResultOutputWithContext(ctx context.Context) LookupRosettaNetProcessConfigurationResultOutput {
+	return o
+}
+
+// The RosettaNet process configuration activity settings.
+func (o LookupRosettaNetProcessConfigurationResultOutput) ActivitySettings() RosettaNetPipActivitySettingsResponseOutput {
+	return o.ApplyT(func(v LookupRosettaNetProcessConfigurationResult) RosettaNetPipActivitySettingsResponse {
+		return v.ActivitySettings
+	}).(RosettaNetPipActivitySettingsResponseOutput)
+}
+
+// The changed time.
+func (o LookupRosettaNetProcessConfigurationResultOutput) ChangedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRosettaNetProcessConfigurationResult) string { return v.ChangedTime }).(pulumi.StringOutput)
+}
+
+// The created time.
+func (o LookupRosettaNetProcessConfigurationResultOutput) CreatedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRosettaNetProcessConfigurationResult) string { return v.CreatedTime }).(pulumi.StringOutput)
+}
+
+// The integration account RosettaNet ProcessConfiguration properties.
+func (o LookupRosettaNetProcessConfigurationResultOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupRosettaNetProcessConfigurationResult) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The resource id.
+func (o LookupRosettaNetProcessConfigurationResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRosettaNetProcessConfigurationResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The RosettaNet initiator role settings.
+func (o LookupRosettaNetProcessConfigurationResultOutput) InitiatorRoleSettings() RosettaNetPipRoleSettingsResponseOutput {
+	return o.ApplyT(func(v LookupRosettaNetProcessConfigurationResult) RosettaNetPipRoleSettingsResponse {
+		return v.InitiatorRoleSettings
+	}).(RosettaNetPipRoleSettingsResponseOutput)
+}
+
+// The resource location.
+func (o LookupRosettaNetProcessConfigurationResultOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupRosettaNetProcessConfigurationResult) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The metadata.
+func (o LookupRosettaNetProcessConfigurationResultOutput) Metadata() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupRosettaNetProcessConfigurationResult) map[string]string { return v.Metadata }).(pulumi.StringMapOutput)
+}
+
+// Gets the resource name.
+func (o LookupRosettaNetProcessConfigurationResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRosettaNetProcessConfigurationResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The integration account RosettaNet process code.
+func (o LookupRosettaNetProcessConfigurationResultOutput) ProcessCode() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRosettaNetProcessConfigurationResult) string { return v.ProcessCode }).(pulumi.StringOutput)
+}
+
+// The integration account RosettaNet process name.
+func (o LookupRosettaNetProcessConfigurationResultOutput) ProcessName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRosettaNetProcessConfigurationResult) string { return v.ProcessName }).(pulumi.StringOutput)
+}
+
+// The integration account RosettaNet process version.
+func (o LookupRosettaNetProcessConfigurationResultOutput) ProcessVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRosettaNetProcessConfigurationResult) string { return v.ProcessVersion }).(pulumi.StringOutput)
+}
+
+// The RosettaNet responder role settings.
+func (o LookupRosettaNetProcessConfigurationResultOutput) ResponderRoleSettings() RosettaNetPipRoleSettingsResponseOutput {
+	return o.ApplyT(func(v LookupRosettaNetProcessConfigurationResult) RosettaNetPipRoleSettingsResponse {
+		return v.ResponderRoleSettings
+	}).(RosettaNetPipRoleSettingsResponseOutput)
+}
+
+// The resource tags.
+func (o LookupRosettaNetProcessConfigurationResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupRosettaNetProcessConfigurationResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Gets the resource type.
+func (o LookupRosettaNetProcessConfigurationResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRosettaNetProcessConfigurationResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupRosettaNetProcessConfigurationResultOutput{})
 }

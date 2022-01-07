@@ -4,6 +4,9 @@
 package v20210601preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -81,4 +84,135 @@ func (val *LookupKustoPoolResult) Defaults() *LookupKustoPoolResult {
 		tmp.EnableStreamingIngest = &enableStreamingIngest_
 	}
 	return &tmp
+}
+
+func LookupKustoPoolOutput(ctx *pulumi.Context, args LookupKustoPoolOutputArgs, opts ...pulumi.InvokeOption) LookupKustoPoolResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupKustoPoolResult, error) {
+			args := v.(LookupKustoPoolArgs)
+			r, err := LookupKustoPool(ctx, &args, opts...)
+			return *r, err
+		}).(LookupKustoPoolResultOutput)
+}
+
+type LookupKustoPoolOutputArgs struct {
+	// The name of the Kusto pool.
+	KustoPoolName pulumi.StringInput `pulumi:"kustoPoolName"`
+	// The name of the resource group. The name is case insensitive.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the workspace.
+	WorkspaceName pulumi.StringInput `pulumi:"workspaceName"`
+}
+
+func (LookupKustoPoolOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupKustoPoolArgs)(nil)).Elem()
+}
+
+// Class representing a Kusto kusto pool.
+type LookupKustoPoolResultOutput struct{ *pulumi.OutputState }
+
+func (LookupKustoPoolResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupKustoPoolResult)(nil)).Elem()
+}
+
+func (o LookupKustoPoolResultOutput) ToLookupKustoPoolResultOutput() LookupKustoPoolResultOutput {
+	return o
+}
+
+func (o LookupKustoPoolResultOutput) ToLookupKustoPoolResultOutputWithContext(ctx context.Context) LookupKustoPoolResultOutput {
+	return o
+}
+
+// The Kusto Pool data ingestion URI.
+func (o LookupKustoPoolResultOutput) DataIngestionUri() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupKustoPoolResult) string { return v.DataIngestionUri }).(pulumi.StringOutput)
+}
+
+// A boolean value that indicates if the purge operations are enabled.
+func (o LookupKustoPoolResultOutput) EnablePurge() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupKustoPoolResult) *bool { return v.EnablePurge }).(pulumi.BoolPtrOutput)
+}
+
+// A boolean value that indicates if the streaming ingest is enabled.
+func (o LookupKustoPoolResultOutput) EnableStreamingIngest() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupKustoPoolResult) *bool { return v.EnableStreamingIngest }).(pulumi.BoolPtrOutput)
+}
+
+// A unique read-only string that changes whenever the resource is updated.
+func (o LookupKustoPoolResultOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupKustoPoolResult) string { return v.Etag }).(pulumi.StringOutput)
+}
+
+// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+func (o LookupKustoPoolResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupKustoPoolResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// List of the Kusto Pool's language extensions.
+func (o LookupKustoPoolResultOutput) LanguageExtensions() LanguageExtensionsListResponseOutput {
+	return o.ApplyT(func(v LookupKustoPoolResult) LanguageExtensionsListResponse { return v.LanguageExtensions }).(LanguageExtensionsListResponseOutput)
+}
+
+// The geo-location where the resource lives
+func (o LookupKustoPoolResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupKustoPoolResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o LookupKustoPoolResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupKustoPoolResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Optimized auto scale definition.
+func (o LookupKustoPoolResultOutput) OptimizedAutoscale() OptimizedAutoscaleResponsePtrOutput {
+	return o.ApplyT(func(v LookupKustoPoolResult) *OptimizedAutoscaleResponse { return v.OptimizedAutoscale }).(OptimizedAutoscaleResponsePtrOutput)
+}
+
+// The provisioned state of the resource.
+func (o LookupKustoPoolResultOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupKustoPoolResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The SKU of the kusto pool.
+func (o LookupKustoPoolResultOutput) Sku() AzureSkuResponseOutput {
+	return o.ApplyT(func(v LookupKustoPoolResult) AzureSkuResponse { return v.Sku }).(AzureSkuResponseOutput)
+}
+
+// The state of the resource.
+func (o LookupKustoPoolResultOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupKustoPoolResult) string { return v.State }).(pulumi.StringOutput)
+}
+
+// The reason for the Kusto Pool's current state.
+func (o LookupKustoPoolResultOutput) StateReason() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupKustoPoolResult) string { return v.StateReason }).(pulumi.StringOutput)
+}
+
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+func (o LookupKustoPoolResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupKustoPoolResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource tags.
+func (o LookupKustoPoolResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupKustoPoolResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o LookupKustoPoolResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupKustoPoolResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The Kusto Pool URI.
+func (o LookupKustoPoolResultOutput) Uri() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupKustoPoolResult) string { return v.Uri }).(pulumi.StringOutput)
+}
+
+// The workspace unique identifier.
+func (o LookupKustoPoolResultOutput) WorkspaceUID() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupKustoPoolResult) *string { return v.WorkspaceUID }).(pulumi.StringPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupKustoPoolResultOutput{})
 }

@@ -666,6 +666,163 @@ const (
 	KeyTypeSecondary = KeyType("secondary")
 )
 
+func (KeyType) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyType)(nil)).Elem()
+}
+
+func (e KeyType) ToKeyTypeOutput() KeyTypeOutput {
+	return pulumi.ToOutput(e).(KeyTypeOutput)
+}
+
+func (e KeyType) ToKeyTypeOutputWithContext(ctx context.Context) KeyTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(KeyTypeOutput)
+}
+
+func (e KeyType) ToKeyTypePtrOutput() KeyTypePtrOutput {
+	return e.ToKeyTypePtrOutputWithContext(context.Background())
+}
+
+func (e KeyType) ToKeyTypePtrOutputWithContext(ctx context.Context) KeyTypePtrOutput {
+	return KeyType(e).ToKeyTypeOutputWithContext(ctx).ToKeyTypePtrOutputWithContext(ctx)
+}
+
+func (e KeyType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e KeyType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e KeyType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e KeyType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type KeyTypeOutput struct{ *pulumi.OutputState }
+
+func (KeyTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyType)(nil)).Elem()
+}
+
+func (o KeyTypeOutput) ToKeyTypeOutput() KeyTypeOutput {
+	return o
+}
+
+func (o KeyTypeOutput) ToKeyTypeOutputWithContext(ctx context.Context) KeyTypeOutput {
+	return o
+}
+
+func (o KeyTypeOutput) ToKeyTypePtrOutput() KeyTypePtrOutput {
+	return o.ToKeyTypePtrOutputWithContext(context.Background())
+}
+
+func (o KeyTypeOutput) ToKeyTypePtrOutputWithContext(ctx context.Context) KeyTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeyType) *KeyType {
+		return &v
+	}).(KeyTypePtrOutput)
+}
+
+func (o KeyTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o KeyTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e KeyType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o KeyTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o KeyTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e KeyType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type KeyTypePtrOutput struct{ *pulumi.OutputState }
+
+func (KeyTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KeyType)(nil)).Elem()
+}
+
+func (o KeyTypePtrOutput) ToKeyTypePtrOutput() KeyTypePtrOutput {
+	return o
+}
+
+func (o KeyTypePtrOutput) ToKeyTypePtrOutputWithContext(ctx context.Context) KeyTypePtrOutput {
+	return o
+}
+
+func (o KeyTypePtrOutput) Elem() KeyTypeOutput {
+	return o.ApplyT(func(v *KeyType) KeyType {
+		if v != nil {
+			return *v
+		}
+		var ret KeyType
+		return ret
+	}).(KeyTypeOutput)
+}
+
+func (o KeyTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o KeyTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *KeyType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// KeyTypeInput is an input type that accepts KeyTypeArgs and KeyTypeOutput values.
+// You can construct a concrete instance of `KeyTypeInput` via:
+//
+//          KeyTypeArgs{...}
+type KeyTypeInput interface {
+	pulumi.Input
+
+	ToKeyTypeOutput() KeyTypeOutput
+	ToKeyTypeOutputWithContext(context.Context) KeyTypeOutput
+}
+
+var keyTypePtrType = reflect.TypeOf((**KeyType)(nil)).Elem()
+
+type KeyTypePtrInput interface {
+	pulumi.Input
+
+	ToKeyTypePtrOutput() KeyTypePtrOutput
+	ToKeyTypePtrOutputWithContext(context.Context) KeyTypePtrOutput
+}
+
+type keyTypePtr string
+
+func KeyTypePtr(v string) KeyTypePtrInput {
+	return (*keyTypePtr)(&v)
+}
+
+func (*keyTypePtr) ElementType() reflect.Type {
+	return keyTypePtrType
+}
+
+func (in *keyTypePtr) ToKeyTypePtrOutput() KeyTypePtrOutput {
+	return pulumi.ToOutput(in).(KeyTypePtrOutput)
+}
+
+func (in *keyTypePtr) ToKeyTypePtrOutputWithContext(ctx context.Context) KeyTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(KeyTypePtrOutput)
+}
+
 // Logger type.
 type LoggerType string
 
@@ -1305,6 +1462,8 @@ func init() {
 	pulumi.RegisterOutputType(GroupTypePtrOutput{})
 	pulumi.RegisterOutputType(HostnameTypeOutput{})
 	pulumi.RegisterOutputType(HostnameTypePtrOutput{})
+	pulumi.RegisterOutputType(KeyTypeOutput{})
+	pulumi.RegisterOutputType(KeyTypePtrOutput{})
 	pulumi.RegisterOutputType(ProductStateEnumOutput{})
 	pulumi.RegisterOutputType(ProductStateEnumPtrOutput{})
 	pulumi.RegisterOutputType(ProtocolOutput{})

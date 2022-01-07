@@ -4,6 +4,9 @@
 package v20200601preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -42,4 +45,80 @@ type LookupCacheResult struct {
 	Type string `pulumi:"type"`
 	// Location identifier to use cache from (should be either 'default' or valid Azure region identifier)
 	UseFromLocation string `pulumi:"useFromLocation"`
+}
+
+func LookupCacheOutput(ctx *pulumi.Context, args LookupCacheOutputArgs, opts ...pulumi.InvokeOption) LookupCacheResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupCacheResult, error) {
+			args := v.(LookupCacheArgs)
+			r, err := LookupCache(ctx, &args, opts...)
+			return *r, err
+		}).(LookupCacheResultOutput)
+}
+
+type LookupCacheOutputArgs struct {
+	// Identifier of the Cache entity. Cache identifier (should be either 'default' or valid Azure region identifier).
+	CacheId pulumi.StringInput `pulumi:"cacheId"`
+	// The name of the resource group.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the API Management service.
+	ServiceName pulumi.StringInput `pulumi:"serviceName"`
+}
+
+func (LookupCacheOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupCacheArgs)(nil)).Elem()
+}
+
+// Cache details.
+type LookupCacheResultOutput struct{ *pulumi.OutputState }
+
+func (LookupCacheResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupCacheResult)(nil)).Elem()
+}
+
+func (o LookupCacheResultOutput) ToLookupCacheResultOutput() LookupCacheResultOutput {
+	return o
+}
+
+func (o LookupCacheResultOutput) ToLookupCacheResultOutputWithContext(ctx context.Context) LookupCacheResultOutput {
+	return o
+}
+
+// Runtime connection string to cache
+func (o LookupCacheResultOutput) ConnectionString() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCacheResult) string { return v.ConnectionString }).(pulumi.StringOutput)
+}
+
+// Cache description
+func (o LookupCacheResultOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupCacheResult) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Resource ID.
+func (o LookupCacheResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCacheResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o LookupCacheResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCacheResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Original uri of entity in external system cache points to
+func (o LookupCacheResultOutput) ResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupCacheResult) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
+}
+
+// Resource type for API Management resource.
+func (o LookupCacheResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCacheResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Location identifier to use cache from (should be either 'default' or valid Azure region identifier)
+func (o LookupCacheResultOutput) UseFromLocation() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCacheResult) string { return v.UseFromLocation }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupCacheResultOutput{})
 }

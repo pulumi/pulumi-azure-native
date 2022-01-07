@@ -4,6 +4,9 @@
 package v20171111preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -48,4 +51,98 @@ type LookupBlueprintResult struct {
 	Type string `pulumi:"type"`
 	// Published versions of this blueprint.
 	Versions interface{} `pulumi:"versions"`
+}
+
+func LookupBlueprintOutput(ctx *pulumi.Context, args LookupBlueprintOutputArgs, opts ...pulumi.InvokeOption) LookupBlueprintResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupBlueprintResult, error) {
+			args := v.(LookupBlueprintArgs)
+			r, err := LookupBlueprint(ctx, &args, opts...)
+			return *r, err
+		}).(LookupBlueprintResultOutput)
+}
+
+type LookupBlueprintOutputArgs struct {
+	// name of the blueprint.
+	BlueprintName pulumi.StringInput `pulumi:"blueprintName"`
+	// ManagementGroup where blueprint stores.
+	ManagementGroupName pulumi.StringInput `pulumi:"managementGroupName"`
+}
+
+func (LookupBlueprintOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupBlueprintArgs)(nil)).Elem()
+}
+
+// Represents a Blueprint definition.
+type LookupBlueprintResultOutput struct{ *pulumi.OutputState }
+
+func (LookupBlueprintResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupBlueprintResult)(nil)).Elem()
+}
+
+func (o LookupBlueprintResultOutput) ToLookupBlueprintResultOutput() LookupBlueprintResultOutput {
+	return o
+}
+
+func (o LookupBlueprintResultOutput) ToLookupBlueprintResultOutputWithContext(ctx context.Context) LookupBlueprintResultOutput {
+	return o
+}
+
+// Multi-line explain this resource.
+func (o LookupBlueprintResultOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupBlueprintResult) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// One-liner string explain this resource.
+func (o LookupBlueprintResultOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupBlueprintResult) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+// String Id used to locate any resource on Azure.
+func (o LookupBlueprintResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBlueprintResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Layout view of the blueprint, for UI reference.
+func (o LookupBlueprintResultOutput) Layout() pulumi.AnyOutput {
+	return o.ApplyT(func(v LookupBlueprintResult) interface{} { return v.Layout }).(pulumi.AnyOutput)
+}
+
+// Name of this resource.
+func (o LookupBlueprintResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBlueprintResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Parameters required by this Blueprint definition.
+func (o LookupBlueprintResultOutput) Parameters() ParameterDefinitionResponseMapOutput {
+	return o.ApplyT(func(v LookupBlueprintResult) map[string]ParameterDefinitionResponse { return v.Parameters }).(ParameterDefinitionResponseMapOutput)
+}
+
+// Resource group placeholders defined by this Blueprint definition.
+func (o LookupBlueprintResultOutput) ResourceGroups() ResourceGroupDefinitionResponseMapOutput {
+	return o.ApplyT(func(v LookupBlueprintResult) map[string]ResourceGroupDefinitionResponse { return v.ResourceGroups }).(ResourceGroupDefinitionResponseMapOutput)
+}
+
+// Status of the Blueprint. This field is readonly.
+func (o LookupBlueprintResultOutput) Status() BlueprintStatusResponseOutput {
+	return o.ApplyT(func(v LookupBlueprintResult) BlueprintStatusResponse { return v.Status }).(BlueprintStatusResponseOutput)
+}
+
+// The scope where this Blueprint can be applied.
+func (o LookupBlueprintResultOutput) TargetScope() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBlueprintResult) string { return v.TargetScope }).(pulumi.StringOutput)
+}
+
+// Type of this resource.
+func (o LookupBlueprintResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBlueprintResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Published versions of this blueprint.
+func (o LookupBlueprintResultOutput) Versions() pulumi.AnyOutput {
+	return o.ApplyT(func(v LookupBlueprintResult) interface{} { return v.Versions }).(pulumi.AnyOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupBlueprintResultOutput{})
 }

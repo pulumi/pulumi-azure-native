@@ -4,6 +4,9 @@
 package v20200301preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -36,4 +39,65 @@ type LookupDigitalTwinsEndpointResult struct {
 	Properties interface{} `pulumi:"properties"`
 	// The resource type.
 	Type string `pulumi:"type"`
+}
+
+func LookupDigitalTwinsEndpointOutput(ctx *pulumi.Context, args LookupDigitalTwinsEndpointOutputArgs, opts ...pulumi.InvokeOption) LookupDigitalTwinsEndpointResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupDigitalTwinsEndpointResult, error) {
+			args := v.(LookupDigitalTwinsEndpointArgs)
+			r, err := LookupDigitalTwinsEndpoint(ctx, &args, opts...)
+			return *r, err
+		}).(LookupDigitalTwinsEndpointResultOutput)
+}
+
+type LookupDigitalTwinsEndpointOutputArgs struct {
+	// Name of Endpoint Resource.
+	EndpointName pulumi.StringInput `pulumi:"endpointName"`
+	// The name of the resource group that contains the DigitalTwinsInstance.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the DigitalTwinsInstance.
+	ResourceName pulumi.StringInput `pulumi:"resourceName"`
+}
+
+func (LookupDigitalTwinsEndpointOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupDigitalTwinsEndpointArgs)(nil)).Elem()
+}
+
+// DigitalTwinsInstance endpoint resource.
+type LookupDigitalTwinsEndpointResultOutput struct{ *pulumi.OutputState }
+
+func (LookupDigitalTwinsEndpointResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupDigitalTwinsEndpointResult)(nil)).Elem()
+}
+
+func (o LookupDigitalTwinsEndpointResultOutput) ToLookupDigitalTwinsEndpointResultOutput() LookupDigitalTwinsEndpointResultOutput {
+	return o
+}
+
+func (o LookupDigitalTwinsEndpointResultOutput) ToLookupDigitalTwinsEndpointResultOutputWithContext(ctx context.Context) LookupDigitalTwinsEndpointResultOutput {
+	return o
+}
+
+// The resource identifier.
+func (o LookupDigitalTwinsEndpointResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDigitalTwinsEndpointResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Extension resource name.
+func (o LookupDigitalTwinsEndpointResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDigitalTwinsEndpointResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// DigitalTwinsInstance endpoint resource properties.
+func (o LookupDigitalTwinsEndpointResultOutput) Properties() pulumi.AnyOutput {
+	return o.ApplyT(func(v LookupDigitalTwinsEndpointResult) interface{} { return v.Properties }).(pulumi.AnyOutput)
+}
+
+// The resource type.
+func (o LookupDigitalTwinsEndpointResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDigitalTwinsEndpointResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupDigitalTwinsEndpointResultOutput{})
 }

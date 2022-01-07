@@ -4,6 +4,9 @@
 package v20210701
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -40,4 +43,72 @@ type LookupReplicationvCenterResult struct {
 	Properties VCenterPropertiesResponse `pulumi:"properties"`
 	// Resource Type
 	Type string `pulumi:"type"`
+}
+
+func LookupReplicationvCenterOutput(ctx *pulumi.Context, args LookupReplicationvCenterOutputArgs, opts ...pulumi.InvokeOption) LookupReplicationvCenterResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupReplicationvCenterResult, error) {
+			args := v.(LookupReplicationvCenterArgs)
+			r, err := LookupReplicationvCenter(ctx, &args, opts...)
+			return *r, err
+		}).(LookupReplicationvCenterResultOutput)
+}
+
+type LookupReplicationvCenterOutputArgs struct {
+	// Fabric name.
+	FabricName pulumi.StringInput `pulumi:"fabricName"`
+	// The name of the resource group where the recovery services vault is present.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the recovery services vault.
+	ResourceName pulumi.StringInput `pulumi:"resourceName"`
+	// vcenter name.
+	VcenterName pulumi.StringInput `pulumi:"vcenterName"`
+}
+
+func (LookupReplicationvCenterOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupReplicationvCenterArgs)(nil)).Elem()
+}
+
+// vCenter definition.
+type LookupReplicationvCenterResultOutput struct{ *pulumi.OutputState }
+
+func (LookupReplicationvCenterResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupReplicationvCenterResult)(nil)).Elem()
+}
+
+func (o LookupReplicationvCenterResultOutput) ToLookupReplicationvCenterResultOutput() LookupReplicationvCenterResultOutput {
+	return o
+}
+
+func (o LookupReplicationvCenterResultOutput) ToLookupReplicationvCenterResultOutputWithContext(ctx context.Context) LookupReplicationvCenterResultOutput {
+	return o
+}
+
+// Resource Id
+func (o LookupReplicationvCenterResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupReplicationvCenterResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Resource Location
+func (o LookupReplicationvCenterResultOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupReplicationvCenterResult) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Resource Name
+func (o LookupReplicationvCenterResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupReplicationvCenterResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// VCenter related data.
+func (o LookupReplicationvCenterResultOutput) Properties() VCenterPropertiesResponseOutput {
+	return o.ApplyT(func(v LookupReplicationvCenterResult) VCenterPropertiesResponse { return v.Properties }).(VCenterPropertiesResponseOutput)
+}
+
+// Resource Type
+func (o LookupReplicationvCenterResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupReplicationvCenterResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupReplicationvCenterResultOutput{})
 }

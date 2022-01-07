@@ -4,6 +4,9 @@
 package v20200501
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -40,4 +43,79 @@ type LookupPrivateEndpointConnectionControllerPrivateEndpointConnectionResult st
 	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Gets the resource type.
 	Type string `pulumi:"type"`
+}
+
+func LookupPrivateEndpointConnectionControllerPrivateEndpointConnectionOutput(ctx *pulumi.Context, args LookupPrivateEndpointConnectionControllerPrivateEndpointConnectionOutputArgs, opts ...pulumi.InvokeOption) LookupPrivateEndpointConnectionControllerPrivateEndpointConnectionResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupPrivateEndpointConnectionControllerPrivateEndpointConnectionResult, error) {
+			args := v.(LookupPrivateEndpointConnectionControllerPrivateEndpointConnectionArgs)
+			r, err := LookupPrivateEndpointConnectionControllerPrivateEndpointConnection(ctx, &args, opts...)
+			return *r, err
+		}).(LookupPrivateEndpointConnectionControllerPrivateEndpointConnectionResultOutput)
+}
+
+type LookupPrivateEndpointConnectionControllerPrivateEndpointConnectionOutputArgs struct {
+	// Migrate project name.
+	MigrateProjectName pulumi.StringInput `pulumi:"migrateProjectName"`
+	// Private endpoint connection name.
+	PeConnectionName pulumi.StringInput `pulumi:"peConnectionName"`
+	// Name of the Azure Resource Group that project is part of.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupPrivateEndpointConnectionControllerPrivateEndpointConnectionOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupPrivateEndpointConnectionControllerPrivateEndpointConnectionArgs)(nil)).Elem()
+}
+
+// REST model used to encapsulate the user visible state of a PrivateEndpoint.
+type LookupPrivateEndpointConnectionControllerPrivateEndpointConnectionResultOutput struct{ *pulumi.OutputState }
+
+func (LookupPrivateEndpointConnectionControllerPrivateEndpointConnectionResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupPrivateEndpointConnectionControllerPrivateEndpointConnectionResult)(nil)).Elem()
+}
+
+func (o LookupPrivateEndpointConnectionControllerPrivateEndpointConnectionResultOutput) ToLookupPrivateEndpointConnectionControllerPrivateEndpointConnectionResultOutput() LookupPrivateEndpointConnectionControllerPrivateEndpointConnectionResultOutput {
+	return o
+}
+
+func (o LookupPrivateEndpointConnectionControllerPrivateEndpointConnectionResultOutput) ToLookupPrivateEndpointConnectionControllerPrivateEndpointConnectionResultOutputWithContext(ctx context.Context) LookupPrivateEndpointConnectionControllerPrivateEndpointConnectionResultOutput {
+	return o
+}
+
+// Gets the tag for optimistic concurrency control.
+func (o LookupPrivateEndpointConnectionControllerPrivateEndpointConnectionResultOutput) ETag() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPrivateEndpointConnectionControllerPrivateEndpointConnectionResult) string { return v.ETag }).(pulumi.StringOutput)
+}
+
+// Relative URL to get this Sites.
+func (o LookupPrivateEndpointConnectionControllerPrivateEndpointConnectionResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPrivateEndpointConnectionControllerPrivateEndpointConnectionResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Gets the name of the resource.
+func (o LookupPrivateEndpointConnectionControllerPrivateEndpointConnectionResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPrivateEndpointConnectionControllerPrivateEndpointConnectionResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Gets the properties of the object.
+func (o LookupPrivateEndpointConnectionControllerPrivateEndpointConnectionResultOutput) Properties() PrivateEndpointConnectionPropertiesResponseOutput {
+	return o.ApplyT(func(v LookupPrivateEndpointConnectionControllerPrivateEndpointConnectionResult) PrivateEndpointConnectionPropertiesResponse {
+		return v.Properties
+	}).(PrivateEndpointConnectionPropertiesResponseOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o LookupPrivateEndpointConnectionControllerPrivateEndpointConnectionResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupPrivateEndpointConnectionControllerPrivateEndpointConnectionResult) SystemDataResponse {
+		return v.SystemData
+	}).(SystemDataResponseOutput)
+}
+
+// Gets the resource type.
+func (o LookupPrivateEndpointConnectionControllerPrivateEndpointConnectionResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPrivateEndpointConnectionControllerPrivateEndpointConnectionResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupPrivateEndpointConnectionControllerPrivateEndpointConnectionResultOutput{})
 }

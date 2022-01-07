@@ -4,6 +4,9 @@
 package v20210801
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -48,4 +51,98 @@ type LookupAccountResult struct {
 	UserEmail string `pulumi:"userEmail"`
 	// Name of the user who created the resource
 	UserName string `pulumi:"userName"`
+}
+
+func LookupAccountOutput(ctx *pulumi.Context, args LookupAccountOutputArgs, opts ...pulumi.InvokeOption) LookupAccountResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupAccountResult, error) {
+			args := v.(LookupAccountArgs)
+			r, err := LookupAccount(ctx, &args, opts...)
+			return *r, err
+		}).(LookupAccountResultOutput)
+}
+
+type LookupAccountOutputArgs struct {
+	// The name of the share account.
+	AccountName pulumi.StringInput `pulumi:"accountName"`
+	// The resource group name.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupAccountOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupAccountArgs)(nil)).Elem()
+}
+
+// An account data transfer object.
+type LookupAccountResultOutput struct{ *pulumi.OutputState }
+
+func (LookupAccountResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupAccountResult)(nil)).Elem()
+}
+
+func (o LookupAccountResultOutput) ToLookupAccountResultOutput() LookupAccountResultOutput {
+	return o
+}
+
+func (o LookupAccountResultOutput) ToLookupAccountResultOutputWithContext(ctx context.Context) LookupAccountResultOutput {
+	return o
+}
+
+// Time at which the account was created.
+func (o LookupAccountResultOutput) CreatedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAccountResult) string { return v.CreatedAt }).(pulumi.StringOutput)
+}
+
+// The resource id of the azure resource
+func (o LookupAccountResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAccountResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Identity Info on the Account
+func (o LookupAccountResultOutput) Identity() IdentityResponseOutput {
+	return o.ApplyT(func(v LookupAccountResult) IdentityResponse { return v.Identity }).(IdentityResponseOutput)
+}
+
+// Location of the azure resource.
+func (o LookupAccountResultOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupAccountResult) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Name of the azure resource
+func (o LookupAccountResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAccountResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Provisioning state of the Account
+func (o LookupAccountResultOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAccountResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// System Data of the Azure resource.
+func (o LookupAccountResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupAccountResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Tags on the azure resource.
+func (o LookupAccountResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupAccountResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Type of the azure resource
+func (o LookupAccountResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAccountResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Email of the user who created the resource
+func (o LookupAccountResultOutput) UserEmail() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAccountResult) string { return v.UserEmail }).(pulumi.StringOutput)
+}
+
+// Name of the user who created the resource
+func (o LookupAccountResultOutput) UserName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAccountResult) string { return v.UserName }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupAccountResultOutput{})
 }

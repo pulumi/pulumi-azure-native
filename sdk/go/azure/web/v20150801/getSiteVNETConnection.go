@@ -4,6 +4,9 @@
 package v20150801
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -53,4 +56,106 @@ type LookupSiteVNETConnectionResult struct {
 	Type *string `pulumi:"type"`
 	// The vnet resource id
 	VnetResourceId *string `pulumi:"vnetResourceId"`
+}
+
+func LookupSiteVNETConnectionOutput(ctx *pulumi.Context, args LookupSiteVNETConnectionOutputArgs, opts ...pulumi.InvokeOption) LookupSiteVNETConnectionResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupSiteVNETConnectionResult, error) {
+			args := v.(LookupSiteVNETConnectionArgs)
+			r, err := LookupSiteVNETConnection(ctx, &args, opts...)
+			return *r, err
+		}).(LookupSiteVNETConnectionResultOutput)
+}
+
+type LookupSiteVNETConnectionOutputArgs struct {
+	// The name of the web app
+	Name pulumi.StringInput `pulumi:"name"`
+	// The resource group name
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the Virtual Network
+	VnetName pulumi.StringInput `pulumi:"vnetName"`
+}
+
+func (LookupSiteVNETConnectionOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupSiteVNETConnectionArgs)(nil)).Elem()
+}
+
+// VNETInfo contract. This contract is public and is a stripped down version of VNETInfoInternal
+type LookupSiteVNETConnectionResultOutput struct{ *pulumi.OutputState }
+
+func (LookupSiteVNETConnectionResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupSiteVNETConnectionResult)(nil)).Elem()
+}
+
+func (o LookupSiteVNETConnectionResultOutput) ToLookupSiteVNETConnectionResultOutput() LookupSiteVNETConnectionResultOutput {
+	return o
+}
+
+func (o LookupSiteVNETConnectionResultOutput) ToLookupSiteVNETConnectionResultOutputWithContext(ctx context.Context) LookupSiteVNETConnectionResultOutput {
+	return o
+}
+
+// A certificate file (.cer) blob containing the public key of the private key used to authenticate a
+//             Point-To-Site VPN connection.
+func (o LookupSiteVNETConnectionResultOutput) CertBlob() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSiteVNETConnectionResult) *string { return v.CertBlob }).(pulumi.StringPtrOutput)
+}
+
+// The client certificate thumbprint
+func (o LookupSiteVNETConnectionResultOutput) CertThumbprint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSiteVNETConnectionResult) *string { return v.CertThumbprint }).(pulumi.StringPtrOutput)
+}
+
+// Dns servers to be used by this VNET. This should be a comma-separated list of IP addresses.
+func (o LookupSiteVNETConnectionResultOutput) DnsServers() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSiteVNETConnectionResult) *string { return v.DnsServers }).(pulumi.StringPtrOutput)
+}
+
+// Resource Id
+func (o LookupSiteVNETConnectionResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSiteVNETConnectionResult) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// Kind of resource
+func (o LookupSiteVNETConnectionResultOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSiteVNETConnectionResult) *string { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Resource Location
+func (o LookupSiteVNETConnectionResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSiteVNETConnectionResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource Name
+func (o LookupSiteVNETConnectionResultOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSiteVNETConnectionResult) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Flag to determine if a resync is required
+func (o LookupSiteVNETConnectionResultOutput) ResyncRequired() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupSiteVNETConnectionResult) *bool { return v.ResyncRequired }).(pulumi.BoolPtrOutput)
+}
+
+// The routes that this virtual network connection uses.
+func (o LookupSiteVNETConnectionResultOutput) Routes() VnetRouteResponseArrayOutput {
+	return o.ApplyT(func(v LookupSiteVNETConnectionResult) []VnetRouteResponse { return v.Routes }).(VnetRouteResponseArrayOutput)
+}
+
+// Resource tags
+func (o LookupSiteVNETConnectionResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupSiteVNETConnectionResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type
+func (o LookupSiteVNETConnectionResultOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSiteVNETConnectionResult) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+// The vnet resource id
+func (o LookupSiteVNETConnectionResultOutput) VnetResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSiteVNETConnectionResult) *string { return v.VnetResourceId }).(pulumi.StringPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupSiteVNETConnectionResultOutput{})
 }

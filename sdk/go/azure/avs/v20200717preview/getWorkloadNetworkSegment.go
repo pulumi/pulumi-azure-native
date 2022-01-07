@@ -4,6 +4,9 @@
 package v20200717preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -48,4 +51,95 @@ type LookupWorkloadNetworkSegmentResult struct {
 	Subnet *WorkloadNetworkSegmentSubnetResponse `pulumi:"subnet"`
 	// Resource type.
 	Type string `pulumi:"type"`
+}
+
+func LookupWorkloadNetworkSegmentOutput(ctx *pulumi.Context, args LookupWorkloadNetworkSegmentOutputArgs, opts ...pulumi.InvokeOption) LookupWorkloadNetworkSegmentResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupWorkloadNetworkSegmentResult, error) {
+			args := v.(LookupWorkloadNetworkSegmentArgs)
+			r, err := LookupWorkloadNetworkSegment(ctx, &args, opts...)
+			return *r, err
+		}).(LookupWorkloadNetworkSegmentResultOutput)
+}
+
+type LookupWorkloadNetworkSegmentOutputArgs struct {
+	// Name of the private cloud
+	PrivateCloudName pulumi.StringInput `pulumi:"privateCloudName"`
+	// The name of the resource group. The name is case insensitive.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// NSX Segment identifier. Generally the same as the Segment's display name
+	SegmentId pulumi.StringInput `pulumi:"segmentId"`
+}
+
+func (LookupWorkloadNetworkSegmentOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupWorkloadNetworkSegmentArgs)(nil)).Elem()
+}
+
+// NSX Segment
+type LookupWorkloadNetworkSegmentResultOutput struct{ *pulumi.OutputState }
+
+func (LookupWorkloadNetworkSegmentResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupWorkloadNetworkSegmentResult)(nil)).Elem()
+}
+
+func (o LookupWorkloadNetworkSegmentResultOutput) ToLookupWorkloadNetworkSegmentResultOutput() LookupWorkloadNetworkSegmentResultOutput {
+	return o
+}
+
+func (o LookupWorkloadNetworkSegmentResultOutput) ToLookupWorkloadNetworkSegmentResultOutputWithContext(ctx context.Context) LookupWorkloadNetworkSegmentResultOutput {
+	return o
+}
+
+// Gateway which to connect segment to.
+func (o LookupWorkloadNetworkSegmentResultOutput) ConnectedGateway() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupWorkloadNetworkSegmentResult) *string { return v.ConnectedGateway }).(pulumi.StringPtrOutput)
+}
+
+// Display name of the segment.
+func (o LookupWorkloadNetworkSegmentResultOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupWorkloadNetworkSegmentResult) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+// Resource ID.
+func (o LookupWorkloadNetworkSegmentResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWorkloadNetworkSegmentResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o LookupWorkloadNetworkSegmentResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWorkloadNetworkSegmentResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Port Vif which segment is associated with.
+func (o LookupWorkloadNetworkSegmentResultOutput) PortVif() WorkloadNetworkSegmentPortVifResponseArrayOutput {
+	return o.ApplyT(func(v LookupWorkloadNetworkSegmentResult) []WorkloadNetworkSegmentPortVifResponse { return v.PortVif }).(WorkloadNetworkSegmentPortVifResponseArrayOutput)
+}
+
+// The provisioning state
+func (o LookupWorkloadNetworkSegmentResultOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWorkloadNetworkSegmentResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// NSX revision number.
+func (o LookupWorkloadNetworkSegmentResultOutput) Revision() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v LookupWorkloadNetworkSegmentResult) *float64 { return v.Revision }).(pulumi.Float64PtrOutput)
+}
+
+// Segment status.
+func (o LookupWorkloadNetworkSegmentResultOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWorkloadNetworkSegmentResult) string { return v.Status }).(pulumi.StringOutput)
+}
+
+// Subnet which to connect segment to.
+func (o LookupWorkloadNetworkSegmentResultOutput) Subnet() WorkloadNetworkSegmentSubnetResponsePtrOutput {
+	return o.ApplyT(func(v LookupWorkloadNetworkSegmentResult) *WorkloadNetworkSegmentSubnetResponse { return v.Subnet }).(WorkloadNetworkSegmentSubnetResponsePtrOutput)
+}
+
+// Resource type.
+func (o LookupWorkloadNetworkSegmentResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWorkloadNetworkSegmentResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupWorkloadNetworkSegmentResultOutput{})
 }

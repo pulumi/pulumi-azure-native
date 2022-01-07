@@ -4,6 +4,9 @@
 package servicebus
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -39,4 +42,75 @@ type LookupNamespaceNetworkRuleSetResult struct {
 	Type string `pulumi:"type"`
 	// List VirtualNetwork Rules
 	VirtualNetworkRules []NWRuleSetVirtualNetworkRulesResponse `pulumi:"virtualNetworkRules"`
+}
+
+func LookupNamespaceNetworkRuleSetOutput(ctx *pulumi.Context, args LookupNamespaceNetworkRuleSetOutputArgs, opts ...pulumi.InvokeOption) LookupNamespaceNetworkRuleSetResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupNamespaceNetworkRuleSetResult, error) {
+			args := v.(LookupNamespaceNetworkRuleSetArgs)
+			r, err := LookupNamespaceNetworkRuleSet(ctx, &args, opts...)
+			return *r, err
+		}).(LookupNamespaceNetworkRuleSetResultOutput)
+}
+
+type LookupNamespaceNetworkRuleSetOutputArgs struct {
+	// The namespace name
+	NamespaceName pulumi.StringInput `pulumi:"namespaceName"`
+	// Name of the Resource group within the Azure subscription.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupNamespaceNetworkRuleSetOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupNamespaceNetworkRuleSetArgs)(nil)).Elem()
+}
+
+// Description of NetworkRuleSet resource.
+type LookupNamespaceNetworkRuleSetResultOutput struct{ *pulumi.OutputState }
+
+func (LookupNamespaceNetworkRuleSetResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupNamespaceNetworkRuleSetResult)(nil)).Elem()
+}
+
+func (o LookupNamespaceNetworkRuleSetResultOutput) ToLookupNamespaceNetworkRuleSetResultOutput() LookupNamespaceNetworkRuleSetResultOutput {
+	return o
+}
+
+func (o LookupNamespaceNetworkRuleSetResultOutput) ToLookupNamespaceNetworkRuleSetResultOutputWithContext(ctx context.Context) LookupNamespaceNetworkRuleSetResultOutput {
+	return o
+}
+
+// Default Action for Network Rule Set
+func (o LookupNamespaceNetworkRuleSetResultOutput) DefaultAction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupNamespaceNetworkRuleSetResult) *string { return v.DefaultAction }).(pulumi.StringPtrOutput)
+}
+
+// Resource Id
+func (o LookupNamespaceNetworkRuleSetResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupNamespaceNetworkRuleSetResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// List of IpRules
+func (o LookupNamespaceNetworkRuleSetResultOutput) IpRules() NWRuleSetIpRulesResponseArrayOutput {
+	return o.ApplyT(func(v LookupNamespaceNetworkRuleSetResult) []NWRuleSetIpRulesResponse { return v.IpRules }).(NWRuleSetIpRulesResponseArrayOutput)
+}
+
+// Resource name
+func (o LookupNamespaceNetworkRuleSetResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupNamespaceNetworkRuleSetResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Resource type
+func (o LookupNamespaceNetworkRuleSetResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupNamespaceNetworkRuleSetResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// List VirtualNetwork Rules
+func (o LookupNamespaceNetworkRuleSetResultOutput) VirtualNetworkRules() NWRuleSetVirtualNetworkRulesResponseArrayOutput {
+	return o.ApplyT(func(v LookupNamespaceNetworkRuleSetResult) []NWRuleSetVirtualNetworkRulesResponse {
+		return v.VirtualNetworkRules
+	}).(NWRuleSetVirtualNetworkRulesResponseArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupNamespaceNetworkRuleSetResultOutput{})
 }

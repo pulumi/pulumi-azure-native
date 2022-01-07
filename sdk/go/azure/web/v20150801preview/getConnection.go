@@ -4,6 +4,9 @@
 package v20150801preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -60,4 +63,133 @@ type LookupConnectionResult struct {
 	TenantId *string           `pulumi:"tenantId"`
 	// Resource type
 	Type *string `pulumi:"type"`
+}
+
+func LookupConnectionOutput(ctx *pulumi.Context, args LookupConnectionOutputArgs, opts ...pulumi.InvokeOption) LookupConnectionResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupConnectionResult, error) {
+			args := v.(LookupConnectionArgs)
+			r, err := LookupConnection(ctx, &args, opts...)
+			return *r, err
+		}).(LookupConnectionResultOutput)
+}
+
+type LookupConnectionOutputArgs struct {
+	// The connection name.
+	ConnectionName pulumi.StringInput `pulumi:"connectionName"`
+	// The resource group name.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupConnectionOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupConnectionArgs)(nil)).Elem()
+}
+
+// API Connection
+type LookupConnectionResultOutput struct{ *pulumi.OutputState }
+
+func (LookupConnectionResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupConnectionResult)(nil)).Elem()
+}
+
+func (o LookupConnectionResultOutput) ToLookupConnectionResultOutput() LookupConnectionResultOutput {
+	return o
+}
+
+func (o LookupConnectionResultOutput) ToLookupConnectionResultOutputWithContext(ctx context.Context) LookupConnectionResultOutput {
+	return o
+}
+
+// expanded connection provider name
+func (o LookupConnectionResultOutput) Api() ExpandedParentApiEntityResponsePtrOutput {
+	return o.ApplyT(func(v LookupConnectionResult) *ExpandedParentApiEntityResponse { return v.Api }).(ExpandedParentApiEntityResponsePtrOutput)
+}
+
+// Timestamp of last connection change.
+func (o LookupConnectionResultOutput) ChangedTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupConnectionResult) *string { return v.ChangedTime }).(pulumi.StringPtrOutput)
+}
+
+// Timestamp of the connection creation
+func (o LookupConnectionResultOutput) CreatedTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupConnectionResult) *string { return v.CreatedTime }).(pulumi.StringPtrOutput)
+}
+
+// Custom login setting values.
+func (o LookupConnectionResultOutput) CustomParameterValues() ParameterCustomLoginSettingValuesResponseMapOutput {
+	return o.ApplyT(func(v LookupConnectionResult) map[string]ParameterCustomLoginSettingValuesResponse {
+		return v.CustomParameterValues
+	}).(ParameterCustomLoginSettingValuesResponseMapOutput)
+}
+
+// display name
+func (o LookupConnectionResultOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupConnectionResult) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+// Time in UTC when the first expiration of OAuth tokens
+func (o LookupConnectionResultOutput) FirstExpirationTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupConnectionResult) *string { return v.FirstExpirationTime }).(pulumi.StringPtrOutput)
+}
+
+// Resource Id
+func (o LookupConnectionResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupConnectionResult) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// List of Keywords that tag the acl
+func (o LookupConnectionResultOutput) Keywords() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupConnectionResult) []string { return v.Keywords }).(pulumi.StringArrayOutput)
+}
+
+// Kind of resource
+func (o LookupConnectionResultOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupConnectionResult) *string { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Resource Location
+func (o LookupConnectionResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupConnectionResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+func (o LookupConnectionResultOutput) Metadata() pulumi.AnyOutput {
+	return o.ApplyT(func(v LookupConnectionResult) interface{} { return v.Metadata }).(pulumi.AnyOutput)
+}
+
+// Resource Name
+func (o LookupConnectionResultOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupConnectionResult) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Tokens/Claim
+func (o LookupConnectionResultOutput) NonSecretParameterValues() pulumi.MapOutput {
+	return o.ApplyT(func(v LookupConnectionResult) map[string]interface{} { return v.NonSecretParameterValues }).(pulumi.MapOutput)
+}
+
+// Tokens/Claim
+func (o LookupConnectionResultOutput) ParameterValues() pulumi.MapOutput {
+	return o.ApplyT(func(v LookupConnectionResult) map[string]interface{} { return v.ParameterValues }).(pulumi.MapOutput)
+}
+
+// Status of the connection
+func (o LookupConnectionResultOutput) Statuses() ConnectionStatusResponseArrayOutput {
+	return o.ApplyT(func(v LookupConnectionResult) []ConnectionStatusResponse { return v.Statuses }).(ConnectionStatusResponseArrayOutput)
+}
+
+// Resource tags
+func (o LookupConnectionResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupConnectionResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+func (o LookupConnectionResultOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupConnectionResult) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+}
+
+// Resource type
+func (o LookupConnectionResultOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupConnectionResult) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupConnectionResultOutput{})
 }

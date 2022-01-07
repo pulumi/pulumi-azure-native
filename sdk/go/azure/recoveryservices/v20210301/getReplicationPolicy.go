@@ -4,6 +4,9 @@
 package v20210301
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -38,4 +41,70 @@ type LookupReplicationPolicyResult struct {
 	Properties PolicyPropertiesResponse `pulumi:"properties"`
 	// Resource Type
 	Type string `pulumi:"type"`
+}
+
+func LookupReplicationPolicyOutput(ctx *pulumi.Context, args LookupReplicationPolicyOutputArgs, opts ...pulumi.InvokeOption) LookupReplicationPolicyResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupReplicationPolicyResult, error) {
+			args := v.(LookupReplicationPolicyArgs)
+			r, err := LookupReplicationPolicy(ctx, &args, opts...)
+			return *r, err
+		}).(LookupReplicationPolicyResultOutput)
+}
+
+type LookupReplicationPolicyOutputArgs struct {
+	// Replication policy name.
+	PolicyName pulumi.StringInput `pulumi:"policyName"`
+	// The name of the resource group where the recovery services vault is present.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the recovery services vault.
+	ResourceName pulumi.StringInput `pulumi:"resourceName"`
+}
+
+func (LookupReplicationPolicyOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupReplicationPolicyArgs)(nil)).Elem()
+}
+
+// Protection profile details.
+type LookupReplicationPolicyResultOutput struct{ *pulumi.OutputState }
+
+func (LookupReplicationPolicyResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupReplicationPolicyResult)(nil)).Elem()
+}
+
+func (o LookupReplicationPolicyResultOutput) ToLookupReplicationPolicyResultOutput() LookupReplicationPolicyResultOutput {
+	return o
+}
+
+func (o LookupReplicationPolicyResultOutput) ToLookupReplicationPolicyResultOutputWithContext(ctx context.Context) LookupReplicationPolicyResultOutput {
+	return o
+}
+
+// Resource Id
+func (o LookupReplicationPolicyResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupReplicationPolicyResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Resource Location
+func (o LookupReplicationPolicyResultOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupReplicationPolicyResult) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Resource Name
+func (o LookupReplicationPolicyResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupReplicationPolicyResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The custom data.
+func (o LookupReplicationPolicyResultOutput) Properties() PolicyPropertiesResponseOutput {
+	return o.ApplyT(func(v LookupReplicationPolicyResult) PolicyPropertiesResponse { return v.Properties }).(PolicyPropertiesResponseOutput)
+}
+
+// Resource Type
+func (o LookupReplicationPolicyResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupReplicationPolicyResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupReplicationPolicyResultOutput{})
 }

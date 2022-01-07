@@ -4,6 +4,9 @@
 package v20211101
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -42,4 +45,77 @@ type LookupTopicAuthorizationRuleResult struct {
 	SystemData SystemDataResponse `pulumi:"systemData"`
 	// The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs"
 	Type string `pulumi:"type"`
+}
+
+func LookupTopicAuthorizationRuleOutput(ctx *pulumi.Context, args LookupTopicAuthorizationRuleOutputArgs, opts ...pulumi.InvokeOption) LookupTopicAuthorizationRuleResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupTopicAuthorizationRuleResult, error) {
+			args := v.(LookupTopicAuthorizationRuleArgs)
+			r, err := LookupTopicAuthorizationRule(ctx, &args, opts...)
+			return *r, err
+		}).(LookupTopicAuthorizationRuleResultOutput)
+}
+
+type LookupTopicAuthorizationRuleOutputArgs struct {
+	// The authorization rule name.
+	AuthorizationRuleName pulumi.StringInput `pulumi:"authorizationRuleName"`
+	// The namespace name
+	NamespaceName pulumi.StringInput `pulumi:"namespaceName"`
+	// Name of the Resource group within the Azure subscription.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The topic name.
+	TopicName pulumi.StringInput `pulumi:"topicName"`
+}
+
+func (LookupTopicAuthorizationRuleOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupTopicAuthorizationRuleArgs)(nil)).Elem()
+}
+
+// Description of a namespace authorization rule.
+type LookupTopicAuthorizationRuleResultOutput struct{ *pulumi.OutputState }
+
+func (LookupTopicAuthorizationRuleResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupTopicAuthorizationRuleResult)(nil)).Elem()
+}
+
+func (o LookupTopicAuthorizationRuleResultOutput) ToLookupTopicAuthorizationRuleResultOutput() LookupTopicAuthorizationRuleResultOutput {
+	return o
+}
+
+func (o LookupTopicAuthorizationRuleResultOutput) ToLookupTopicAuthorizationRuleResultOutputWithContext(ctx context.Context) LookupTopicAuthorizationRuleResultOutput {
+	return o
+}
+
+// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+func (o LookupTopicAuthorizationRuleResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTopicAuthorizationRuleResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The geo-location where the resource lives
+func (o LookupTopicAuthorizationRuleResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTopicAuthorizationRuleResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o LookupTopicAuthorizationRuleResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTopicAuthorizationRuleResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The rights associated with the rule.
+func (o LookupTopicAuthorizationRuleResultOutput) Rights() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupTopicAuthorizationRuleResult) []string { return v.Rights }).(pulumi.StringArrayOutput)
+}
+
+// The system meta data relating to this resource.
+func (o LookupTopicAuthorizationRuleResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupTopicAuthorizationRuleResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs"
+func (o LookupTopicAuthorizationRuleResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTopicAuthorizationRuleResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupTopicAuthorizationRuleResultOutput{})
 }

@@ -4,6 +4,9 @@
 package securityinsights
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -44,4 +47,81 @@ type LookupMDATPDataConnectorResult struct {
 	TenantId *string `pulumi:"tenantId"`
 	// Azure resource type
 	Type string `pulumi:"type"`
+}
+
+func LookupMDATPDataConnectorOutput(ctx *pulumi.Context, args LookupMDATPDataConnectorOutputArgs, opts ...pulumi.InvokeOption) LookupMDATPDataConnectorResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupMDATPDataConnectorResult, error) {
+			args := v.(LookupMDATPDataConnectorArgs)
+			r, err := LookupMDATPDataConnector(ctx, &args, opts...)
+			return *r, err
+		}).(LookupMDATPDataConnectorResultOutput)
+}
+
+type LookupMDATPDataConnectorOutputArgs struct {
+	// Connector ID
+	DataConnectorId pulumi.StringInput `pulumi:"dataConnectorId"`
+	// The name of the resource group within the user's subscription. The name is case insensitive.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the workspace.
+	WorkspaceName pulumi.StringInput `pulumi:"workspaceName"`
+}
+
+func (LookupMDATPDataConnectorOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupMDATPDataConnectorArgs)(nil)).Elem()
+}
+
+// Represents MDATP (Microsoft Defender Advanced Threat Protection) data connector.
+type LookupMDATPDataConnectorResultOutput struct{ *pulumi.OutputState }
+
+func (LookupMDATPDataConnectorResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupMDATPDataConnectorResult)(nil)).Elem()
+}
+
+func (o LookupMDATPDataConnectorResultOutput) ToLookupMDATPDataConnectorResultOutput() LookupMDATPDataConnectorResultOutput {
+	return o
+}
+
+func (o LookupMDATPDataConnectorResultOutput) ToLookupMDATPDataConnectorResultOutputWithContext(ctx context.Context) LookupMDATPDataConnectorResultOutput {
+	return o
+}
+
+// The available data types for the connector.
+func (o LookupMDATPDataConnectorResultOutput) DataTypes() AlertsDataTypeOfDataConnectorResponsePtrOutput {
+	return o.ApplyT(func(v LookupMDATPDataConnectorResult) *AlertsDataTypeOfDataConnectorResponse { return v.DataTypes }).(AlertsDataTypeOfDataConnectorResponsePtrOutput)
+}
+
+// Etag of the azure resource
+func (o LookupMDATPDataConnectorResultOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupMDATPDataConnectorResult) *string { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// Azure resource Id
+func (o LookupMDATPDataConnectorResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupMDATPDataConnectorResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The kind of the data connector
+// Expected value is 'MicrosoftDefenderAdvancedThreatProtection'.
+func (o LookupMDATPDataConnectorResultOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupMDATPDataConnectorResult) string { return v.Kind }).(pulumi.StringOutput)
+}
+
+// Azure resource name
+func (o LookupMDATPDataConnectorResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupMDATPDataConnectorResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The tenant id to connect to, and get the data from.
+func (o LookupMDATPDataConnectorResultOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupMDATPDataConnectorResult) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+}
+
+// Azure resource type
+func (o LookupMDATPDataConnectorResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupMDATPDataConnectorResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupMDATPDataConnectorResultOutput{})
 }

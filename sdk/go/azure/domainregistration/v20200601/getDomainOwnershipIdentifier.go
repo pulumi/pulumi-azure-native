@@ -4,6 +4,9 @@
 package v20200601
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -38,4 +41,70 @@ type LookupDomainOwnershipIdentifierResult struct {
 	OwnershipId *string `pulumi:"ownershipId"`
 	// Resource type.
 	Type string `pulumi:"type"`
+}
+
+func LookupDomainOwnershipIdentifierOutput(ctx *pulumi.Context, args LookupDomainOwnershipIdentifierOutputArgs, opts ...pulumi.InvokeOption) LookupDomainOwnershipIdentifierResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupDomainOwnershipIdentifierResult, error) {
+			args := v.(LookupDomainOwnershipIdentifierArgs)
+			r, err := LookupDomainOwnershipIdentifier(ctx, &args, opts...)
+			return *r, err
+		}).(LookupDomainOwnershipIdentifierResultOutput)
+}
+
+type LookupDomainOwnershipIdentifierOutputArgs struct {
+	// Name of domain.
+	DomainName pulumi.StringInput `pulumi:"domainName"`
+	// Name of identifier.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Name of the resource group to which the resource belongs.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupDomainOwnershipIdentifierOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupDomainOwnershipIdentifierArgs)(nil)).Elem()
+}
+
+// Domain ownership Identifier.
+type LookupDomainOwnershipIdentifierResultOutput struct{ *pulumi.OutputState }
+
+func (LookupDomainOwnershipIdentifierResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupDomainOwnershipIdentifierResult)(nil)).Elem()
+}
+
+func (o LookupDomainOwnershipIdentifierResultOutput) ToLookupDomainOwnershipIdentifierResultOutput() LookupDomainOwnershipIdentifierResultOutput {
+	return o
+}
+
+func (o LookupDomainOwnershipIdentifierResultOutput) ToLookupDomainOwnershipIdentifierResultOutputWithContext(ctx context.Context) LookupDomainOwnershipIdentifierResultOutput {
+	return o
+}
+
+// Resource Id.
+func (o LookupDomainOwnershipIdentifierResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDomainOwnershipIdentifierResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Kind of resource.
+func (o LookupDomainOwnershipIdentifierResultOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDomainOwnershipIdentifierResult) *string { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Resource Name.
+func (o LookupDomainOwnershipIdentifierResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDomainOwnershipIdentifierResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Ownership Id.
+func (o LookupDomainOwnershipIdentifierResultOutput) OwnershipId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDomainOwnershipIdentifierResult) *string { return v.OwnershipId }).(pulumi.StringPtrOutput)
+}
+
+// Resource type.
+func (o LookupDomainOwnershipIdentifierResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDomainOwnershipIdentifierResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupDomainOwnershipIdentifierResultOutput{})
 }

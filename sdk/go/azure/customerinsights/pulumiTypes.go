@@ -196,6 +196,53 @@ type CanonicalProfileDefinitionResponse struct {
 	Properties []CanonicalProfileDefinitionResponseProperties `pulumi:"properties"`
 }
 
+// Definition of canonical profile.
+type CanonicalProfileDefinitionResponseOutput struct{ *pulumi.OutputState }
+
+func (CanonicalProfileDefinitionResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CanonicalProfileDefinitionResponse)(nil)).Elem()
+}
+
+func (o CanonicalProfileDefinitionResponseOutput) ToCanonicalProfileDefinitionResponseOutput() CanonicalProfileDefinitionResponseOutput {
+	return o
+}
+
+func (o CanonicalProfileDefinitionResponseOutput) ToCanonicalProfileDefinitionResponseOutputWithContext(ctx context.Context) CanonicalProfileDefinitionResponseOutput {
+	return o
+}
+
+// Canonical profile ID.
+func (o CanonicalProfileDefinitionResponseOutput) CanonicalProfileId() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v CanonicalProfileDefinitionResponse) *int { return v.CanonicalProfileId }).(pulumi.IntPtrOutput)
+}
+
+// Properties of the canonical profile.
+func (o CanonicalProfileDefinitionResponseOutput) Properties() CanonicalProfileDefinitionResponsePropertiesArrayOutput {
+	return o.ApplyT(func(v CanonicalProfileDefinitionResponse) []CanonicalProfileDefinitionResponseProperties {
+		return v.Properties
+	}).(CanonicalProfileDefinitionResponsePropertiesArrayOutput)
+}
+
+type CanonicalProfileDefinitionResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (CanonicalProfileDefinitionResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CanonicalProfileDefinitionResponse)(nil)).Elem()
+}
+
+func (o CanonicalProfileDefinitionResponseArrayOutput) ToCanonicalProfileDefinitionResponseArrayOutput() CanonicalProfileDefinitionResponseArrayOutput {
+	return o
+}
+
+func (o CanonicalProfileDefinitionResponseArrayOutput) ToCanonicalProfileDefinitionResponseArrayOutputWithContext(ctx context.Context) CanonicalProfileDefinitionResponseArrayOutput {
+	return o
+}
+
+func (o CanonicalProfileDefinitionResponseArrayOutput) Index(i pulumi.IntInput) CanonicalProfileDefinitionResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CanonicalProfileDefinitionResponse {
+		return vs[0].([]CanonicalProfileDefinitionResponse)[vs[1].(int)]
+	}).(CanonicalProfileDefinitionResponseOutput)
+}
+
 // The definition of a canonical profile property.
 type CanonicalProfileDefinitionResponseProperties struct {
 	// Profile name.
@@ -208,6 +255,66 @@ type CanonicalProfileDefinitionResponseProperties struct {
 	Type *string `pulumi:"type"`
 	// Value of the canonical property.
 	Value *string `pulumi:"value"`
+}
+
+// The definition of a canonical profile property.
+type CanonicalProfileDefinitionResponsePropertiesOutput struct{ *pulumi.OutputState }
+
+func (CanonicalProfileDefinitionResponsePropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CanonicalProfileDefinitionResponseProperties)(nil)).Elem()
+}
+
+func (o CanonicalProfileDefinitionResponsePropertiesOutput) ToCanonicalProfileDefinitionResponsePropertiesOutput() CanonicalProfileDefinitionResponsePropertiesOutput {
+	return o
+}
+
+func (o CanonicalProfileDefinitionResponsePropertiesOutput) ToCanonicalProfileDefinitionResponsePropertiesOutputWithContext(ctx context.Context) CanonicalProfileDefinitionResponsePropertiesOutput {
+	return o
+}
+
+// Profile name.
+func (o CanonicalProfileDefinitionResponsePropertiesOutput) ProfileName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CanonicalProfileDefinitionResponseProperties) *string { return v.ProfileName }).(pulumi.StringPtrOutput)
+}
+
+// Property name of profile.
+func (o CanonicalProfileDefinitionResponsePropertiesOutput) ProfilePropertyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CanonicalProfileDefinitionResponseProperties) *string { return v.ProfilePropertyName }).(pulumi.StringPtrOutput)
+}
+
+// The rank.
+func (o CanonicalProfileDefinitionResponsePropertiesOutput) Rank() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v CanonicalProfileDefinitionResponseProperties) *int { return v.Rank }).(pulumi.IntPtrOutput)
+}
+
+// Type of canonical property value.
+func (o CanonicalProfileDefinitionResponsePropertiesOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CanonicalProfileDefinitionResponseProperties) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+// Value of the canonical property.
+func (o CanonicalProfileDefinitionResponsePropertiesOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CanonicalProfileDefinitionResponseProperties) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type CanonicalProfileDefinitionResponsePropertiesArrayOutput struct{ *pulumi.OutputState }
+
+func (CanonicalProfileDefinitionResponsePropertiesArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CanonicalProfileDefinitionResponseProperties)(nil)).Elem()
+}
+
+func (o CanonicalProfileDefinitionResponsePropertiesArrayOutput) ToCanonicalProfileDefinitionResponsePropertiesArrayOutput() CanonicalProfileDefinitionResponsePropertiesArrayOutput {
+	return o
+}
+
+func (o CanonicalProfileDefinitionResponsePropertiesArrayOutput) ToCanonicalProfileDefinitionResponsePropertiesArrayOutputWithContext(ctx context.Context) CanonicalProfileDefinitionResponsePropertiesArrayOutput {
+	return o
+}
+
+func (o CanonicalProfileDefinitionResponsePropertiesArrayOutput) Index(i pulumi.IntInput) CanonicalProfileDefinitionResponsePropertiesOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CanonicalProfileDefinitionResponseProperties {
+		return vs[0].([]CanonicalProfileDefinitionResponseProperties)[vs[1].(int)]
+	}).(CanonicalProfileDefinitionResponsePropertiesOutput)
 }
 
 // Connector mapping property availability.
@@ -2442,6 +2549,38 @@ type PredictionDistributionDefinitionResponse struct {
 	TotalPositives *float64 `pulumi:"totalPositives"`
 }
 
+// The definition of the prediction distribution.
+type PredictionDistributionDefinitionResponseOutput struct{ *pulumi.OutputState }
+
+func (PredictionDistributionDefinitionResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PredictionDistributionDefinitionResponse)(nil)).Elem()
+}
+
+func (o PredictionDistributionDefinitionResponseOutput) ToPredictionDistributionDefinitionResponseOutput() PredictionDistributionDefinitionResponseOutput {
+	return o
+}
+
+func (o PredictionDistributionDefinitionResponseOutput) ToPredictionDistributionDefinitionResponseOutputWithContext(ctx context.Context) PredictionDistributionDefinitionResponseOutput {
+	return o
+}
+
+// Distributions of the prediction.
+func (o PredictionDistributionDefinitionResponseOutput) Distributions() PredictionDistributionDefinitionResponseDistributionsArrayOutput {
+	return o.ApplyT(func(v PredictionDistributionDefinitionResponse) []PredictionDistributionDefinitionResponseDistributions {
+		return v.Distributions
+	}).(PredictionDistributionDefinitionResponseDistributionsArrayOutput)
+}
+
+// Total negatives in the distribution.
+func (o PredictionDistributionDefinitionResponseOutput) TotalNegatives() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v PredictionDistributionDefinitionResponse) *float64 { return v.TotalNegatives }).(pulumi.Float64PtrOutput)
+}
+
+// Total positive in the distribution.
+func (o PredictionDistributionDefinitionResponseOutput) TotalPositives() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v PredictionDistributionDefinitionResponse) *float64 { return v.TotalPositives }).(pulumi.Float64PtrOutput)
+}
+
 // The definition of a prediction distribution.
 type PredictionDistributionDefinitionResponseDistributions struct {
 	// Number of negatives.
@@ -2454,6 +2593,70 @@ type PredictionDistributionDefinitionResponseDistributions struct {
 	PositivesAboveThreshold *float64 `pulumi:"positivesAboveThreshold"`
 	// Score threshold.
 	ScoreThreshold *int `pulumi:"scoreThreshold"`
+}
+
+// The definition of a prediction distribution.
+type PredictionDistributionDefinitionResponseDistributionsOutput struct{ *pulumi.OutputState }
+
+func (PredictionDistributionDefinitionResponseDistributionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PredictionDistributionDefinitionResponseDistributions)(nil)).Elem()
+}
+
+func (o PredictionDistributionDefinitionResponseDistributionsOutput) ToPredictionDistributionDefinitionResponseDistributionsOutput() PredictionDistributionDefinitionResponseDistributionsOutput {
+	return o
+}
+
+func (o PredictionDistributionDefinitionResponseDistributionsOutput) ToPredictionDistributionDefinitionResponseDistributionsOutputWithContext(ctx context.Context) PredictionDistributionDefinitionResponseDistributionsOutput {
+	return o
+}
+
+// Number of negatives.
+func (o PredictionDistributionDefinitionResponseDistributionsOutput) Negatives() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v PredictionDistributionDefinitionResponseDistributions) *float64 { return v.Negatives }).(pulumi.Float64PtrOutput)
+}
+
+// Number of negatives above threshold.
+func (o PredictionDistributionDefinitionResponseDistributionsOutput) NegativesAboveThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v PredictionDistributionDefinitionResponseDistributions) *float64 {
+		return v.NegativesAboveThreshold
+	}).(pulumi.Float64PtrOutput)
+}
+
+// Number of positives.
+func (o PredictionDistributionDefinitionResponseDistributionsOutput) Positives() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v PredictionDistributionDefinitionResponseDistributions) *float64 { return v.Positives }).(pulumi.Float64PtrOutput)
+}
+
+// Number of positives above threshold.
+func (o PredictionDistributionDefinitionResponseDistributionsOutput) PositivesAboveThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v PredictionDistributionDefinitionResponseDistributions) *float64 {
+		return v.PositivesAboveThreshold
+	}).(pulumi.Float64PtrOutput)
+}
+
+// Score threshold.
+func (o PredictionDistributionDefinitionResponseDistributionsOutput) ScoreThreshold() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PredictionDistributionDefinitionResponseDistributions) *int { return v.ScoreThreshold }).(pulumi.IntPtrOutput)
+}
+
+type PredictionDistributionDefinitionResponseDistributionsArrayOutput struct{ *pulumi.OutputState }
+
+func (PredictionDistributionDefinitionResponseDistributionsArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PredictionDistributionDefinitionResponseDistributions)(nil)).Elem()
+}
+
+func (o PredictionDistributionDefinitionResponseDistributionsArrayOutput) ToPredictionDistributionDefinitionResponseDistributionsArrayOutput() PredictionDistributionDefinitionResponseDistributionsArrayOutput {
+	return o
+}
+
+func (o PredictionDistributionDefinitionResponseDistributionsArrayOutput) ToPredictionDistributionDefinitionResponseDistributionsArrayOutputWithContext(ctx context.Context) PredictionDistributionDefinitionResponseDistributionsArrayOutput {
+	return o
+}
+
+func (o PredictionDistributionDefinitionResponseDistributionsArrayOutput) Index(i pulumi.IntInput) PredictionDistributionDefinitionResponseDistributionsOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PredictionDistributionDefinitionResponseDistributions {
+		return vs[0].([]PredictionDistributionDefinitionResponseDistributions)[vs[1].(int)]
+	}).(PredictionDistributionDefinitionResponseDistributionsOutput)
 }
 
 // The definition of a prediction grade.
@@ -4425,6 +4628,10 @@ func init() {
 	pulumi.RegisterOutputType(AssignmentPrincipalArrayOutput{})
 	pulumi.RegisterOutputType(AssignmentPrincipalResponseOutput{})
 	pulumi.RegisterOutputType(AssignmentPrincipalResponseArrayOutput{})
+	pulumi.RegisterOutputType(CanonicalProfileDefinitionResponseOutput{})
+	pulumi.RegisterOutputType(CanonicalProfileDefinitionResponseArrayOutput{})
+	pulumi.RegisterOutputType(CanonicalProfileDefinitionResponsePropertiesOutput{})
+	pulumi.RegisterOutputType(CanonicalProfileDefinitionResponsePropertiesArrayOutput{})
 	pulumi.RegisterOutputType(ConnectorMappingAvailabilityOutput{})
 	pulumi.RegisterOutputType(ConnectorMappingAvailabilityResponseOutput{})
 	pulumi.RegisterOutputType(ConnectorMappingCompleteOperationOutput{})
@@ -4469,6 +4676,9 @@ func init() {
 	pulumi.RegisterOutputType(ParticipantPropertyReferenceArrayOutput{})
 	pulumi.RegisterOutputType(ParticipantPropertyReferenceResponseOutput{})
 	pulumi.RegisterOutputType(ParticipantPropertyReferenceResponseArrayOutput{})
+	pulumi.RegisterOutputType(PredictionDistributionDefinitionResponseOutput{})
+	pulumi.RegisterOutputType(PredictionDistributionDefinitionResponseDistributionsOutput{})
+	pulumi.RegisterOutputType(PredictionDistributionDefinitionResponseDistributionsArrayOutput{})
 	pulumi.RegisterOutputType(PredictionGradesOutput{})
 	pulumi.RegisterOutputType(PredictionGradesArrayOutput{})
 	pulumi.RegisterOutputType(PredictionMappingsOutput{})

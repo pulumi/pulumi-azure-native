@@ -4,6 +4,9 @@
 package appplatform
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -41,4 +44,72 @@ type LookupGatewayRouteConfigResult struct {
 	SystemData SystemDataResponse `pulumi:"systemData"`
 	// The type of the resource.
 	Type string `pulumi:"type"`
+}
+
+func LookupGatewayRouteConfigOutput(ctx *pulumi.Context, args LookupGatewayRouteConfigOutputArgs, opts ...pulumi.InvokeOption) LookupGatewayRouteConfigResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupGatewayRouteConfigResult, error) {
+			args := v.(LookupGatewayRouteConfigArgs)
+			r, err := LookupGatewayRouteConfig(ctx, &args, opts...)
+			return *r, err
+		}).(LookupGatewayRouteConfigResultOutput)
+}
+
+type LookupGatewayRouteConfigOutputArgs struct {
+	// The name of Spring Cloud Gateway.
+	GatewayName pulumi.StringInput `pulumi:"gatewayName"`
+	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the Spring Cloud Gateway route config.
+	RouteConfigName pulumi.StringInput `pulumi:"routeConfigName"`
+	// The name of the Service resource.
+	ServiceName pulumi.StringInput `pulumi:"serviceName"`
+}
+
+func (LookupGatewayRouteConfigOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupGatewayRouteConfigArgs)(nil)).Elem()
+}
+
+// Spring Cloud Gateway route config resource
+type LookupGatewayRouteConfigResultOutput struct{ *pulumi.OutputState }
+
+func (LookupGatewayRouteConfigResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupGatewayRouteConfigResult)(nil)).Elem()
+}
+
+func (o LookupGatewayRouteConfigResultOutput) ToLookupGatewayRouteConfigResultOutput() LookupGatewayRouteConfigResultOutput {
+	return o
+}
+
+func (o LookupGatewayRouteConfigResultOutput) ToLookupGatewayRouteConfigResultOutputWithContext(ctx context.Context) LookupGatewayRouteConfigResultOutput {
+	return o
+}
+
+// Fully qualified resource Id for the resource.
+func (o LookupGatewayRouteConfigResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupGatewayRouteConfigResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The name of the resource.
+func (o LookupGatewayRouteConfigResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupGatewayRouteConfigResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// API route config of the Spring Cloud Gateway
+func (o LookupGatewayRouteConfigResultOutput) Properties() GatewayRouteConfigPropertiesResponseOutput {
+	return o.ApplyT(func(v LookupGatewayRouteConfigResult) GatewayRouteConfigPropertiesResponse { return v.Properties }).(GatewayRouteConfigPropertiesResponseOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o LookupGatewayRouteConfigResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupGatewayRouteConfigResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the resource.
+func (o LookupGatewayRouteConfigResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupGatewayRouteConfigResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupGatewayRouteConfigResultOutput{})
 }

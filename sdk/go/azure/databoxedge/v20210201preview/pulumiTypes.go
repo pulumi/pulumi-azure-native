@@ -5223,6 +5223,51 @@ type SecretResponse struct {
 	KeyVaultId *string `pulumi:"keyVaultId"`
 }
 
+// Holds device secret either as a KeyVault reference or as an encrypted value.
+type SecretResponseOutput struct{ *pulumi.OutputState }
+
+func (SecretResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecretResponse)(nil)).Elem()
+}
+
+func (o SecretResponseOutput) ToSecretResponseOutput() SecretResponseOutput {
+	return o
+}
+
+func (o SecretResponseOutput) ToSecretResponseOutputWithContext(ctx context.Context) SecretResponseOutput {
+	return o
+}
+
+// Encrypted (using device public key) secret value.
+func (o SecretResponseOutput) EncryptedSecret() AsymmetricEncryptedSecretResponsePtrOutput {
+	return o.ApplyT(func(v SecretResponse) *AsymmetricEncryptedSecretResponse { return v.EncryptedSecret }).(AsymmetricEncryptedSecretResponsePtrOutput)
+}
+
+// Id of the Key-Vault where secret is stored (ex: secrets/AuthClientSecret/82ef4346187a4033a10d629cde07d740).
+func (o SecretResponseOutput) KeyVaultId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecretResponse) *string { return v.KeyVaultId }).(pulumi.StringPtrOutput)
+}
+
+type SecretResponseMapOutput struct{ *pulumi.OutputState }
+
+func (SecretResponseMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]SecretResponse)(nil)).Elem()
+}
+
+func (o SecretResponseMapOutput) ToSecretResponseMapOutput() SecretResponseMapOutput {
+	return o
+}
+
+func (o SecretResponseMapOutput) ToSecretResponseMapOutputWithContext(ctx context.Context) SecretResponseMapOutput {
+	return o
+}
+
+func (o SecretResponseMapOutput) MapIndex(k pulumi.StringInput) SecretResponseOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) SecretResponse {
+		return vs[0].(map[string]SecretResponse)[vs[1].(string)]
+	}).(SecretResponseOutput)
+}
+
 // Specifies the mapping between this particular user and the type of access he has on shares on this device.
 type ShareAccessRightResponse struct {
 	// Type of access to be allowed on the share for this user.
@@ -6146,6 +6191,8 @@ func init() {
 	pulumi.RegisterOutputType(ResourceMoveDetailsResponseOutput{})
 	pulumi.RegisterOutputType(RoleSinkInfoOutput{})
 	pulumi.RegisterOutputType(RoleSinkInfoResponseOutput{})
+	pulumi.RegisterOutputType(SecretResponseOutput{})
+	pulumi.RegisterOutputType(SecretResponseMapOutput{})
 	pulumi.RegisterOutputType(ShareAccessRightResponseOutput{})
 	pulumi.RegisterOutputType(ShareAccessRightResponseArrayOutput{})
 	pulumi.RegisterOutputType(SkuOutput{})

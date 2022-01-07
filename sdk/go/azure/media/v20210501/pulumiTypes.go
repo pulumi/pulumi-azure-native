@@ -483,6 +483,104 @@ type EdgeUsageDataCollectionPolicyResponse struct {
 	MaxAllowedUnreportedUsageDuration *string `pulumi:"maxAllowedUnreportedUsageDuration"`
 }
 
+type EdgeUsageDataCollectionPolicyResponseOutput struct{ *pulumi.OutputState }
+
+func (EdgeUsageDataCollectionPolicyResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EdgeUsageDataCollectionPolicyResponse)(nil)).Elem()
+}
+
+func (o EdgeUsageDataCollectionPolicyResponseOutput) ToEdgeUsageDataCollectionPolicyResponseOutput() EdgeUsageDataCollectionPolicyResponseOutput {
+	return o
+}
+
+func (o EdgeUsageDataCollectionPolicyResponseOutput) ToEdgeUsageDataCollectionPolicyResponseOutputWithContext(ctx context.Context) EdgeUsageDataCollectionPolicyResponseOutput {
+	return o
+}
+
+// Usage data collection frequency in ISO 8601 duration format e.g. PT10M , PT5H.
+func (o EdgeUsageDataCollectionPolicyResponseOutput) DataCollectionFrequency() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EdgeUsageDataCollectionPolicyResponse) *string { return v.DataCollectionFrequency }).(pulumi.StringPtrOutput)
+}
+
+// Usage data reporting frequency in ISO 8601 duration format e.g. PT10M , PT5H.
+func (o EdgeUsageDataCollectionPolicyResponseOutput) DataReportingFrequency() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EdgeUsageDataCollectionPolicyResponse) *string { return v.DataReportingFrequency }).(pulumi.StringPtrOutput)
+}
+
+// Details of Event Hub where the usage will be reported.
+func (o EdgeUsageDataCollectionPolicyResponseOutput) EventHubDetails() EdgeUsageDataEventHubResponsePtrOutput {
+	return o.ApplyT(func(v EdgeUsageDataCollectionPolicyResponse) *EdgeUsageDataEventHubResponse { return v.EventHubDetails }).(EdgeUsageDataEventHubResponsePtrOutput)
+}
+
+// Maximum time for which the functionality of the device will not be hampered for not reporting the usage data.
+func (o EdgeUsageDataCollectionPolicyResponseOutput) MaxAllowedUnreportedUsageDuration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EdgeUsageDataCollectionPolicyResponse) *string { return v.MaxAllowedUnreportedUsageDuration }).(pulumi.StringPtrOutput)
+}
+
+type EdgeUsageDataCollectionPolicyResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (EdgeUsageDataCollectionPolicyResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EdgeUsageDataCollectionPolicyResponse)(nil)).Elem()
+}
+
+func (o EdgeUsageDataCollectionPolicyResponsePtrOutput) ToEdgeUsageDataCollectionPolicyResponsePtrOutput() EdgeUsageDataCollectionPolicyResponsePtrOutput {
+	return o
+}
+
+func (o EdgeUsageDataCollectionPolicyResponsePtrOutput) ToEdgeUsageDataCollectionPolicyResponsePtrOutputWithContext(ctx context.Context) EdgeUsageDataCollectionPolicyResponsePtrOutput {
+	return o
+}
+
+func (o EdgeUsageDataCollectionPolicyResponsePtrOutput) Elem() EdgeUsageDataCollectionPolicyResponseOutput {
+	return o.ApplyT(func(v *EdgeUsageDataCollectionPolicyResponse) EdgeUsageDataCollectionPolicyResponse {
+		if v != nil {
+			return *v
+		}
+		var ret EdgeUsageDataCollectionPolicyResponse
+		return ret
+	}).(EdgeUsageDataCollectionPolicyResponseOutput)
+}
+
+// Usage data collection frequency in ISO 8601 duration format e.g. PT10M , PT5H.
+func (o EdgeUsageDataCollectionPolicyResponsePtrOutput) DataCollectionFrequency() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EdgeUsageDataCollectionPolicyResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DataCollectionFrequency
+	}).(pulumi.StringPtrOutput)
+}
+
+// Usage data reporting frequency in ISO 8601 duration format e.g. PT10M , PT5H.
+func (o EdgeUsageDataCollectionPolicyResponsePtrOutput) DataReportingFrequency() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EdgeUsageDataCollectionPolicyResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DataReportingFrequency
+	}).(pulumi.StringPtrOutput)
+}
+
+// Details of Event Hub where the usage will be reported.
+func (o EdgeUsageDataCollectionPolicyResponsePtrOutput) EventHubDetails() EdgeUsageDataEventHubResponsePtrOutput {
+	return o.ApplyT(func(v *EdgeUsageDataCollectionPolicyResponse) *EdgeUsageDataEventHubResponse {
+		if v == nil {
+			return nil
+		}
+		return v.EventHubDetails
+	}).(EdgeUsageDataEventHubResponsePtrOutput)
+}
+
+// Maximum time for which the functionality of the device will not be hampered for not reporting the usage data.
+func (o EdgeUsageDataCollectionPolicyResponsePtrOutput) MaxAllowedUnreportedUsageDuration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EdgeUsageDataCollectionPolicyResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MaxAllowedUnreportedUsageDuration
+	}).(pulumi.StringPtrOutput)
+}
+
 type EdgeUsageDataEventHubResponse struct {
 	// Name of the Event Hub where usage will be reported.
 	Name *string `pulumi:"name"`
@@ -490,6 +588,89 @@ type EdgeUsageDataEventHubResponse struct {
 	Namespace *string `pulumi:"namespace"`
 	// SAS token needed to interact with Event Hub.
 	Token *string `pulumi:"token"`
+}
+
+type EdgeUsageDataEventHubResponseOutput struct{ *pulumi.OutputState }
+
+func (EdgeUsageDataEventHubResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EdgeUsageDataEventHubResponse)(nil)).Elem()
+}
+
+func (o EdgeUsageDataEventHubResponseOutput) ToEdgeUsageDataEventHubResponseOutput() EdgeUsageDataEventHubResponseOutput {
+	return o
+}
+
+func (o EdgeUsageDataEventHubResponseOutput) ToEdgeUsageDataEventHubResponseOutputWithContext(ctx context.Context) EdgeUsageDataEventHubResponseOutput {
+	return o
+}
+
+// Name of the Event Hub where usage will be reported.
+func (o EdgeUsageDataEventHubResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EdgeUsageDataEventHubResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Namespace of the Event Hub where usage will be reported.
+func (o EdgeUsageDataEventHubResponseOutput) Namespace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EdgeUsageDataEventHubResponse) *string { return v.Namespace }).(pulumi.StringPtrOutput)
+}
+
+// SAS token needed to interact with Event Hub.
+func (o EdgeUsageDataEventHubResponseOutput) Token() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EdgeUsageDataEventHubResponse) *string { return v.Token }).(pulumi.StringPtrOutput)
+}
+
+type EdgeUsageDataEventHubResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (EdgeUsageDataEventHubResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EdgeUsageDataEventHubResponse)(nil)).Elem()
+}
+
+func (o EdgeUsageDataEventHubResponsePtrOutput) ToEdgeUsageDataEventHubResponsePtrOutput() EdgeUsageDataEventHubResponsePtrOutput {
+	return o
+}
+
+func (o EdgeUsageDataEventHubResponsePtrOutput) ToEdgeUsageDataEventHubResponsePtrOutputWithContext(ctx context.Context) EdgeUsageDataEventHubResponsePtrOutput {
+	return o
+}
+
+func (o EdgeUsageDataEventHubResponsePtrOutput) Elem() EdgeUsageDataEventHubResponseOutput {
+	return o.ApplyT(func(v *EdgeUsageDataEventHubResponse) EdgeUsageDataEventHubResponse {
+		if v != nil {
+			return *v
+		}
+		var ret EdgeUsageDataEventHubResponse
+		return ret
+	}).(EdgeUsageDataEventHubResponseOutput)
+}
+
+// Name of the Event Hub where usage will be reported.
+func (o EdgeUsageDataEventHubResponsePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EdgeUsageDataEventHubResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// Namespace of the Event Hub where usage will be reported.
+func (o EdgeUsageDataEventHubResponsePtrOutput) Namespace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EdgeUsageDataEventHubResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Namespace
+	}).(pulumi.StringPtrOutput)
+}
+
+// SAS token needed to interact with Event Hub.
+func (o EdgeUsageDataEventHubResponsePtrOutput) Token() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EdgeUsageDataEventHubResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Token
+	}).(pulumi.StringPtrOutput)
 }
 
 type KeyDelivery struct {
@@ -1533,6 +1714,10 @@ func init() {
 	pulumi.RegisterOutputType(AccountEncryptionPtrOutput{})
 	pulumi.RegisterOutputType(AccountEncryptionResponseOutput{})
 	pulumi.RegisterOutputType(AccountEncryptionResponsePtrOutput{})
+	pulumi.RegisterOutputType(EdgeUsageDataCollectionPolicyResponseOutput{})
+	pulumi.RegisterOutputType(EdgeUsageDataCollectionPolicyResponsePtrOutput{})
+	pulumi.RegisterOutputType(EdgeUsageDataEventHubResponseOutput{})
+	pulumi.RegisterOutputType(EdgeUsageDataEventHubResponsePtrOutput{})
 	pulumi.RegisterOutputType(KeyDeliveryOutput{})
 	pulumi.RegisterOutputType(KeyDeliveryPtrOutput{})
 	pulumi.RegisterOutputType(KeyDeliveryResponseOutput{})

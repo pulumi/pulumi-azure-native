@@ -4,6 +4,9 @@
 package v20181102privatepreview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -38,4 +41,73 @@ type LookupActionRuleByNameResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Azure resource type
 	Type string `pulumi:"type"`
+}
+
+func LookupActionRuleByNameOutput(ctx *pulumi.Context, args LookupActionRuleByNameOutputArgs, opts ...pulumi.InvokeOption) LookupActionRuleByNameResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupActionRuleByNameResult, error) {
+			args := v.(LookupActionRuleByNameArgs)
+			r, err := LookupActionRuleByName(ctx, &args, opts...)
+			return *r, err
+		}).(LookupActionRuleByNameResultOutput)
+}
+
+type LookupActionRuleByNameOutputArgs struct {
+	// The name of action rule that needs to be fetched
+	ActionRuleName pulumi.StringInput `pulumi:"actionRuleName"`
+	// Resource group name where the resource is created.
+	ResourceGroup pulumi.StringInput `pulumi:"resourceGroup"`
+}
+
+func (LookupActionRuleByNameOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupActionRuleByNameArgs)(nil)).Elem()
+}
+
+// Action rule object containing target scope, conditions and suppression logic
+type LookupActionRuleByNameResultOutput struct{ *pulumi.OutputState }
+
+func (LookupActionRuleByNameResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupActionRuleByNameResult)(nil)).Elem()
+}
+
+func (o LookupActionRuleByNameResultOutput) ToLookupActionRuleByNameResultOutput() LookupActionRuleByNameResultOutput {
+	return o
+}
+
+func (o LookupActionRuleByNameResultOutput) ToLookupActionRuleByNameResultOutputWithContext(ctx context.Context) LookupActionRuleByNameResultOutput {
+	return o
+}
+
+// Azure resource Id
+func (o LookupActionRuleByNameResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupActionRuleByNameResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Resource location
+func (o LookupActionRuleByNameResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupActionRuleByNameResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// Azure resource name
+func (o LookupActionRuleByNameResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupActionRuleByNameResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Action rule properties defining scope, conditions, suppression logic for action rule
+func (o LookupActionRuleByNameResultOutput) Properties() ActionRulePropertiesResponseOutput {
+	return o.ApplyT(func(v LookupActionRuleByNameResult) ActionRulePropertiesResponse { return v.Properties }).(ActionRulePropertiesResponseOutput)
+}
+
+// Resource tags
+func (o LookupActionRuleByNameResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupActionRuleByNameResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Azure resource type
+func (o LookupActionRuleByNameResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupActionRuleByNameResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupActionRuleByNameResultOutput{})
 }

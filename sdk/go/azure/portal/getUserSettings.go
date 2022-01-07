@@ -4,6 +4,9 @@
 package portal
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -27,4 +30,46 @@ type LookupUserSettingsArgs struct {
 type LookupUserSettingsResult struct {
 	// The cloud shell user settings properties.
 	Properties UserPropertiesResponse `pulumi:"properties"`
+}
+
+func LookupUserSettingsOutput(ctx *pulumi.Context, args LookupUserSettingsOutputArgs, opts ...pulumi.InvokeOption) LookupUserSettingsResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupUserSettingsResult, error) {
+			args := v.(LookupUserSettingsArgs)
+			r, err := LookupUserSettings(ctx, &args, opts...)
+			return *r, err
+		}).(LookupUserSettingsResultOutput)
+}
+
+type LookupUserSettingsOutputArgs struct {
+	// The name of the user settings
+	UserSettingsName pulumi.StringInput `pulumi:"userSettingsName"`
+}
+
+func (LookupUserSettingsOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupUserSettingsArgs)(nil)).Elem()
+}
+
+// Response to get user settings
+type LookupUserSettingsResultOutput struct{ *pulumi.OutputState }
+
+func (LookupUserSettingsResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupUserSettingsResult)(nil)).Elem()
+}
+
+func (o LookupUserSettingsResultOutput) ToLookupUserSettingsResultOutput() LookupUserSettingsResultOutput {
+	return o
+}
+
+func (o LookupUserSettingsResultOutput) ToLookupUserSettingsResultOutputWithContext(ctx context.Context) LookupUserSettingsResultOutput {
+	return o
+}
+
+// The cloud shell user settings properties.
+func (o LookupUserSettingsResultOutput) Properties() UserPropertiesResponseOutput {
+	return o.ApplyT(func(v LookupUserSettingsResult) UserPropertiesResponse { return v.Properties }).(UserPropertiesResponseOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupUserSettingsResultOutput{})
 }

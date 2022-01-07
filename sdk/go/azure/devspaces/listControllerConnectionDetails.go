@@ -4,6 +4,9 @@
 package devspaces
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -29,4 +32,51 @@ type ListControllerConnectionDetailsArgs struct {
 type ListControllerConnectionDetailsResult struct {
 	// List of Azure Dev Spaces Controller connection details.
 	ConnectionDetailsList []ControllerConnectionDetailsResponse `pulumi:"connectionDetailsList"`
+}
+
+func ListControllerConnectionDetailsOutput(ctx *pulumi.Context, args ListControllerConnectionDetailsOutputArgs, opts ...pulumi.InvokeOption) ListControllerConnectionDetailsResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (ListControllerConnectionDetailsResult, error) {
+			args := v.(ListControllerConnectionDetailsArgs)
+			r, err := ListControllerConnectionDetails(ctx, &args, opts...)
+			return *r, err
+		}).(ListControllerConnectionDetailsResultOutput)
+}
+
+type ListControllerConnectionDetailsOutputArgs struct {
+	// Name of the resource.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Resource group to which the resource belongs.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// Resource ID of the target container host mapped to the Azure Dev Spaces Controller.
+	TargetContainerHostResourceId pulumi.StringInput `pulumi:"targetContainerHostResourceId"`
+}
+
+func (ListControllerConnectionDetailsOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListControllerConnectionDetailsArgs)(nil)).Elem()
+}
+
+type ListControllerConnectionDetailsResultOutput struct{ *pulumi.OutputState }
+
+func (ListControllerConnectionDetailsResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListControllerConnectionDetailsResult)(nil)).Elem()
+}
+
+func (o ListControllerConnectionDetailsResultOutput) ToListControllerConnectionDetailsResultOutput() ListControllerConnectionDetailsResultOutput {
+	return o
+}
+
+func (o ListControllerConnectionDetailsResultOutput) ToListControllerConnectionDetailsResultOutputWithContext(ctx context.Context) ListControllerConnectionDetailsResultOutput {
+	return o
+}
+
+// List of Azure Dev Spaces Controller connection details.
+func (o ListControllerConnectionDetailsResultOutput) ConnectionDetailsList() ControllerConnectionDetailsResponseArrayOutput {
+	return o.ApplyT(func(v ListControllerConnectionDetailsResult) []ControllerConnectionDetailsResponse {
+		return v.ConnectionDetailsList
+	}).(ControllerConnectionDetailsResponseArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(ListControllerConnectionDetailsResultOutput{})
 }

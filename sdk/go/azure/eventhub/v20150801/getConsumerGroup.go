@@ -4,6 +4,9 @@
 package v20150801
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -46,4 +49,87 @@ type LookupConsumerGroupResult struct {
 	UpdatedAt string `pulumi:"updatedAt"`
 	// The user metadata.
 	UserMetadata *string `pulumi:"userMetadata"`
+}
+
+func LookupConsumerGroupOutput(ctx *pulumi.Context, args LookupConsumerGroupOutputArgs, opts ...pulumi.InvokeOption) LookupConsumerGroupResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupConsumerGroupResult, error) {
+			args := v.(LookupConsumerGroupArgs)
+			r, err := LookupConsumerGroup(ctx, &args, opts...)
+			return *r, err
+		}).(LookupConsumerGroupResultOutput)
+}
+
+type LookupConsumerGroupOutputArgs struct {
+	// The consumer group name
+	ConsumerGroupName pulumi.StringInput `pulumi:"consumerGroupName"`
+	// The Event Hub name
+	EventHubName pulumi.StringInput `pulumi:"eventHubName"`
+	// The Namespace name
+	NamespaceName pulumi.StringInput `pulumi:"namespaceName"`
+	// Name of the resource group within the azure subscription.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupConsumerGroupOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupConsumerGroupArgs)(nil)).Elem()
+}
+
+// Single item in List or Get Consumer group operation
+type LookupConsumerGroupResultOutput struct{ *pulumi.OutputState }
+
+func (LookupConsumerGroupResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupConsumerGroupResult)(nil)).Elem()
+}
+
+func (o LookupConsumerGroupResultOutput) ToLookupConsumerGroupResultOutput() LookupConsumerGroupResultOutput {
+	return o
+}
+
+func (o LookupConsumerGroupResultOutput) ToLookupConsumerGroupResultOutputWithContext(ctx context.Context) LookupConsumerGroupResultOutput {
+	return o
+}
+
+// Exact time the message was created.
+func (o LookupConsumerGroupResultOutput) CreatedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupConsumerGroupResult) string { return v.CreatedAt }).(pulumi.StringOutput)
+}
+
+// The path of the Event Hub.
+func (o LookupConsumerGroupResultOutput) EventHubPath() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupConsumerGroupResult) string { return v.EventHubPath }).(pulumi.StringOutput)
+}
+
+// Resource Id
+func (o LookupConsumerGroupResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupConsumerGroupResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Resource location
+func (o LookupConsumerGroupResultOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupConsumerGroupResult) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Resource name
+func (o LookupConsumerGroupResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupConsumerGroupResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Resource type
+func (o LookupConsumerGroupResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupConsumerGroupResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The exact time the message was updated.
+func (o LookupConsumerGroupResultOutput) UpdatedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupConsumerGroupResult) string { return v.UpdatedAt }).(pulumi.StringOutput)
+}
+
+// The user metadata.
+func (o LookupConsumerGroupResultOutput) UserMetadata() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupConsumerGroupResult) *string { return v.UserMetadata }).(pulumi.StringPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupConsumerGroupResultOutput{})
 }

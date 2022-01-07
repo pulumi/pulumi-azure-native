@@ -4,6 +4,9 @@
 package v20211101
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -48,4 +51,98 @@ type LookupSchemaRegistryResult struct {
 	Type string `pulumi:"type"`
 	// Exact time the Schema Group was updated
 	UpdatedAtUtc string `pulumi:"updatedAtUtc"`
+}
+
+func LookupSchemaRegistryOutput(ctx *pulumi.Context, args LookupSchemaRegistryOutputArgs, opts ...pulumi.InvokeOption) LookupSchemaRegistryResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupSchemaRegistryResult, error) {
+			args := v.(LookupSchemaRegistryArgs)
+			r, err := LookupSchemaRegistry(ctx, &args, opts...)
+			return *r, err
+		}).(LookupSchemaRegistryResultOutput)
+}
+
+type LookupSchemaRegistryOutputArgs struct {
+	// The Namespace name
+	NamespaceName pulumi.StringInput `pulumi:"namespaceName"`
+	// Name of the resource group within the azure subscription.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The Schema Group name
+	SchemaGroupName pulumi.StringInput `pulumi:"schemaGroupName"`
+}
+
+func (LookupSchemaRegistryOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupSchemaRegistryArgs)(nil)).Elem()
+}
+
+// Single item in List or Get Schema Group operation
+type LookupSchemaRegistryResultOutput struct{ *pulumi.OutputState }
+
+func (LookupSchemaRegistryResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupSchemaRegistryResult)(nil)).Elem()
+}
+
+func (o LookupSchemaRegistryResultOutput) ToLookupSchemaRegistryResultOutput() LookupSchemaRegistryResultOutput {
+	return o
+}
+
+func (o LookupSchemaRegistryResultOutput) ToLookupSchemaRegistryResultOutputWithContext(ctx context.Context) LookupSchemaRegistryResultOutput {
+	return o
+}
+
+// Exact time the Schema Group was created.
+func (o LookupSchemaRegistryResultOutput) CreatedAtUtc() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSchemaRegistryResult) string { return v.CreatedAtUtc }).(pulumi.StringOutput)
+}
+
+// The ETag value.
+func (o LookupSchemaRegistryResultOutput) ETag() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSchemaRegistryResult) string { return v.ETag }).(pulumi.StringOutput)
+}
+
+// dictionary object for SchemaGroup group properties
+func (o LookupSchemaRegistryResultOutput) GroupProperties() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupSchemaRegistryResult) map[string]string { return v.GroupProperties }).(pulumi.StringMapOutput)
+}
+
+// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+func (o LookupSchemaRegistryResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSchemaRegistryResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The geo-location where the resource lives
+func (o LookupSchemaRegistryResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSchemaRegistryResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o LookupSchemaRegistryResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSchemaRegistryResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupSchemaRegistryResultOutput) SchemaCompatibility() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSchemaRegistryResult) *string { return v.SchemaCompatibility }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupSchemaRegistryResultOutput) SchemaType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSchemaRegistryResult) *string { return v.SchemaType }).(pulumi.StringPtrOutput)
+}
+
+// The system meta data relating to this resource.
+func (o LookupSchemaRegistryResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupSchemaRegistryResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs"
+func (o LookupSchemaRegistryResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSchemaRegistryResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Exact time the Schema Group was updated
+func (o LookupSchemaRegistryResultOutput) UpdatedAtUtc() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSchemaRegistryResult) string { return v.UpdatedAtUtc }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupSchemaRegistryResultOutput{})
 }

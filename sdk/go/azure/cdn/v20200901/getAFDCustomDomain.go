@@ -4,6 +4,9 @@
 package v20200901
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -49,4 +52,99 @@ type LookupAFDCustomDomainResult struct {
 	Type string `pulumi:"type"`
 	// Values the customer needs to validate domain ownership
 	ValidationProperties DomainValidationPropertiesResponse `pulumi:"validationProperties"`
+}
+
+func LookupAFDCustomDomainOutput(ctx *pulumi.Context, args LookupAFDCustomDomainOutputArgs, opts ...pulumi.InvokeOption) LookupAFDCustomDomainResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupAFDCustomDomainResult, error) {
+			args := v.(LookupAFDCustomDomainArgs)
+			r, err := LookupAFDCustomDomain(ctx, &args, opts...)
+			return *r, err
+		}).(LookupAFDCustomDomainResultOutput)
+}
+
+type LookupAFDCustomDomainOutputArgs struct {
+	// Name of the domain under the profile which is unique globally.
+	CustomDomainName pulumi.StringInput `pulumi:"customDomainName"`
+	// Name of the CDN profile which is unique within the resource group.
+	ProfileName pulumi.StringInput `pulumi:"profileName"`
+	// Name of the Resource group within the Azure subscription.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupAFDCustomDomainOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupAFDCustomDomainArgs)(nil)).Elem()
+}
+
+// Friendly domain name mapping to the endpoint hostname that the customer provides for branding purposes, e.g. www.contoso.com.
+type LookupAFDCustomDomainResultOutput struct{ *pulumi.OutputState }
+
+func (LookupAFDCustomDomainResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupAFDCustomDomainResult)(nil)).Elem()
+}
+
+func (o LookupAFDCustomDomainResultOutput) ToLookupAFDCustomDomainResultOutput() LookupAFDCustomDomainResultOutput {
+	return o
+}
+
+func (o LookupAFDCustomDomainResultOutput) ToLookupAFDCustomDomainResultOutputWithContext(ctx context.Context) LookupAFDCustomDomainResultOutput {
+	return o
+}
+
+// Resource reference to the Azure DNS zone
+func (o LookupAFDCustomDomainResultOutput) AzureDnsZone() ResourceReferenceResponsePtrOutput {
+	return o.ApplyT(func(v LookupAFDCustomDomainResult) *ResourceReferenceResponse { return v.AzureDnsZone }).(ResourceReferenceResponsePtrOutput)
+}
+
+func (o LookupAFDCustomDomainResultOutput) DeploymentStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAFDCustomDomainResult) string { return v.DeploymentStatus }).(pulumi.StringOutput)
+}
+
+// Provisioning substate shows the progress of custom HTTPS enabling/disabling process step by step. DCV stands for DomainControlValidation.
+func (o LookupAFDCustomDomainResultOutput) DomainValidationState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAFDCustomDomainResult) string { return v.DomainValidationState }).(pulumi.StringOutput)
+}
+
+// The host name of the domain. Must be a domain name.
+func (o LookupAFDCustomDomainResultOutput) HostName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAFDCustomDomainResult) string { return v.HostName }).(pulumi.StringOutput)
+}
+
+// Resource ID.
+func (o LookupAFDCustomDomainResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAFDCustomDomainResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o LookupAFDCustomDomainResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAFDCustomDomainResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Provisioning status
+func (o LookupAFDCustomDomainResultOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAFDCustomDomainResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Read only system data
+func (o LookupAFDCustomDomainResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupAFDCustomDomainResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The configuration specifying how to enable HTTPS for the domain - using AzureFrontDoor managed certificate or user's own certificate. If not specified, enabling ssl uses AzureFrontDoor managed certificate by default.
+func (o LookupAFDCustomDomainResultOutput) TlsSettings() AFDDomainHttpsParametersResponsePtrOutput {
+	return o.ApplyT(func(v LookupAFDCustomDomainResult) *AFDDomainHttpsParametersResponse { return v.TlsSettings }).(AFDDomainHttpsParametersResponsePtrOutput)
+}
+
+// Resource type.
+func (o LookupAFDCustomDomainResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAFDCustomDomainResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Values the customer needs to validate domain ownership
+func (o LookupAFDCustomDomainResultOutput) ValidationProperties() DomainValidationPropertiesResponseOutput {
+	return o.ApplyT(func(v LookupAFDCustomDomainResult) DomainValidationPropertiesResponse { return v.ValidationProperties }).(DomainValidationPropertiesResponseOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupAFDCustomDomainResultOutput{})
 }

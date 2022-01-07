@@ -4,6 +4,9 @@
 package v20170801preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -38,4 +41,76 @@ type LookupSecurityContactResult struct {
 	Phone *string `pulumi:"phone"`
 	// Resource type
 	Type string `pulumi:"type"`
+}
+
+func LookupSecurityContactOutput(ctx *pulumi.Context, args LookupSecurityContactOutputArgs, opts ...pulumi.InvokeOption) LookupSecurityContactResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupSecurityContactResult, error) {
+			args := v.(LookupSecurityContactArgs)
+			r, err := LookupSecurityContact(ctx, &args, opts...)
+			return *r, err
+		}).(LookupSecurityContactResultOutput)
+}
+
+type LookupSecurityContactOutputArgs struct {
+	// Name of the security contact object
+	SecurityContactName pulumi.StringInput `pulumi:"securityContactName"`
+}
+
+func (LookupSecurityContactOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupSecurityContactArgs)(nil)).Elem()
+}
+
+// Contact details for security issues
+type LookupSecurityContactResultOutput struct{ *pulumi.OutputState }
+
+func (LookupSecurityContactResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupSecurityContactResult)(nil)).Elem()
+}
+
+func (o LookupSecurityContactResultOutput) ToLookupSecurityContactResultOutput() LookupSecurityContactResultOutput {
+	return o
+}
+
+func (o LookupSecurityContactResultOutput) ToLookupSecurityContactResultOutputWithContext(ctx context.Context) LookupSecurityContactResultOutput {
+	return o
+}
+
+// Whether to send security alerts notifications to the security contact
+func (o LookupSecurityContactResultOutput) AlertNotifications() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSecurityContactResult) string { return v.AlertNotifications }).(pulumi.StringOutput)
+}
+
+// Whether to send security alerts notifications to subscription admins
+func (o LookupSecurityContactResultOutput) AlertsToAdmins() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSecurityContactResult) string { return v.AlertsToAdmins }).(pulumi.StringOutput)
+}
+
+// The email of this security contact
+func (o LookupSecurityContactResultOutput) Email() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSecurityContactResult) string { return v.Email }).(pulumi.StringOutput)
+}
+
+// Resource Id
+func (o LookupSecurityContactResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSecurityContactResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Resource name
+func (o LookupSecurityContactResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSecurityContactResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The phone number of this security contact
+func (o LookupSecurityContactResultOutput) Phone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSecurityContactResult) *string { return v.Phone }).(pulumi.StringPtrOutput)
+}
+
+// Resource type
+func (o LookupSecurityContactResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSecurityContactResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupSecurityContactResultOutput{})
 }

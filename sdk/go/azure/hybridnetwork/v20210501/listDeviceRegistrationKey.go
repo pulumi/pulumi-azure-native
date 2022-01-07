@@ -4,6 +4,9 @@
 package v20210501
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -28,4 +31,48 @@ type ListDeviceRegistrationKeyArgs struct {
 type ListDeviceRegistrationKeyResult struct {
 	// The registration key for the device.
 	RegistrationKey string `pulumi:"registrationKey"`
+}
+
+func ListDeviceRegistrationKeyOutput(ctx *pulumi.Context, args ListDeviceRegistrationKeyOutputArgs, opts ...pulumi.InvokeOption) ListDeviceRegistrationKeyResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (ListDeviceRegistrationKeyResult, error) {
+			args := v.(ListDeviceRegistrationKeyArgs)
+			r, err := ListDeviceRegistrationKey(ctx, &args, opts...)
+			return *r, err
+		}).(ListDeviceRegistrationKeyResultOutput)
+}
+
+type ListDeviceRegistrationKeyOutputArgs struct {
+	// The name of the device resource.
+	DeviceName pulumi.StringInput `pulumi:"deviceName"`
+	// The name of the resource group. The name is case insensitive.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (ListDeviceRegistrationKeyOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListDeviceRegistrationKeyArgs)(nil)).Elem()
+}
+
+// The device registration key.
+type ListDeviceRegistrationKeyResultOutput struct{ *pulumi.OutputState }
+
+func (ListDeviceRegistrationKeyResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListDeviceRegistrationKeyResult)(nil)).Elem()
+}
+
+func (o ListDeviceRegistrationKeyResultOutput) ToListDeviceRegistrationKeyResultOutput() ListDeviceRegistrationKeyResultOutput {
+	return o
+}
+
+func (o ListDeviceRegistrationKeyResultOutput) ToListDeviceRegistrationKeyResultOutputWithContext(ctx context.Context) ListDeviceRegistrationKeyResultOutput {
+	return o
+}
+
+// The registration key for the device.
+func (o ListDeviceRegistrationKeyResultOutput) RegistrationKey() pulumi.StringOutput {
+	return o.ApplyT(func(v ListDeviceRegistrationKeyResult) string { return v.RegistrationKey }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(ListDeviceRegistrationKeyResultOutput{})
 }

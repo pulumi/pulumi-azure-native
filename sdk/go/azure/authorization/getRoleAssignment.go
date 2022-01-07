@@ -4,6 +4,9 @@
 package authorization
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -72,4 +75,120 @@ func (val *LookupRoleAssignmentResult) Defaults() *LookupRoleAssignmentResult {
 		tmp.PrincipalType = &principalType_
 	}
 	return &tmp
+}
+
+func LookupRoleAssignmentOutput(ctx *pulumi.Context, args LookupRoleAssignmentOutputArgs, opts ...pulumi.InvokeOption) LookupRoleAssignmentResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupRoleAssignmentResult, error) {
+			args := v.(LookupRoleAssignmentArgs)
+			r, err := LookupRoleAssignment(ctx, &args, opts...)
+			return *r, err
+		}).(LookupRoleAssignmentResultOutput)
+}
+
+type LookupRoleAssignmentOutputArgs struct {
+	// The name of the role assignment. It can be any valid GUID.
+	RoleAssignmentName pulumi.StringInput `pulumi:"roleAssignmentName"`
+	// The scope of the operation or resource. Valid scopes are: subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}', or resource (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}'
+	Scope pulumi.StringInput `pulumi:"scope"`
+	// Tenant ID for cross-tenant request
+	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
+}
+
+func (LookupRoleAssignmentOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupRoleAssignmentArgs)(nil)).Elem()
+}
+
+// Role Assignments
+type LookupRoleAssignmentResultOutput struct{ *pulumi.OutputState }
+
+func (LookupRoleAssignmentResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupRoleAssignmentResult)(nil)).Elem()
+}
+
+func (o LookupRoleAssignmentResultOutput) ToLookupRoleAssignmentResultOutput() LookupRoleAssignmentResultOutput {
+	return o
+}
+
+func (o LookupRoleAssignmentResultOutput) ToLookupRoleAssignmentResultOutputWithContext(ctx context.Context) LookupRoleAssignmentResultOutput {
+	return o
+}
+
+// The conditions on the role assignment. This limits the resources it can be assigned to. e.g.: @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:ContainerName] StringEqualsIgnoreCase 'foo_storage_container'
+func (o LookupRoleAssignmentResultOutput) Condition() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupRoleAssignmentResult) *string { return v.Condition }).(pulumi.StringPtrOutput)
+}
+
+// Version of the condition. Currently accepted value is '2.0'
+func (o LookupRoleAssignmentResultOutput) ConditionVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupRoleAssignmentResult) *string { return v.ConditionVersion }).(pulumi.StringPtrOutput)
+}
+
+// Id of the user who created the assignment
+func (o LookupRoleAssignmentResultOutput) CreatedBy() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRoleAssignmentResult) string { return v.CreatedBy }).(pulumi.StringOutput)
+}
+
+// Time it was created
+func (o LookupRoleAssignmentResultOutput) CreatedOn() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRoleAssignmentResult) string { return v.CreatedOn }).(pulumi.StringOutput)
+}
+
+// Id of the delegated managed identity resource
+func (o LookupRoleAssignmentResultOutput) DelegatedManagedIdentityResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupRoleAssignmentResult) *string { return v.DelegatedManagedIdentityResourceId }).(pulumi.StringPtrOutput)
+}
+
+// Description of role assignment
+func (o LookupRoleAssignmentResultOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupRoleAssignmentResult) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The role assignment ID.
+func (o LookupRoleAssignmentResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRoleAssignmentResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The role assignment name.
+func (o LookupRoleAssignmentResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRoleAssignmentResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The principal ID.
+func (o LookupRoleAssignmentResultOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRoleAssignmentResult) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+// The principal type of the assigned principal ID.
+func (o LookupRoleAssignmentResultOutput) PrincipalType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupRoleAssignmentResult) *string { return v.PrincipalType }).(pulumi.StringPtrOutput)
+}
+
+// The role definition ID.
+func (o LookupRoleAssignmentResultOutput) RoleDefinitionId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRoleAssignmentResult) string { return v.RoleDefinitionId }).(pulumi.StringOutput)
+}
+
+// The role assignment scope.
+func (o LookupRoleAssignmentResultOutput) Scope() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRoleAssignmentResult) string { return v.Scope }).(pulumi.StringOutput)
+}
+
+// The role assignment type.
+func (o LookupRoleAssignmentResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRoleAssignmentResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Id of the user who updated the assignment
+func (o LookupRoleAssignmentResultOutput) UpdatedBy() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRoleAssignmentResult) string { return v.UpdatedBy }).(pulumi.StringOutput)
+}
+
+// Time it was updated
+func (o LookupRoleAssignmentResultOutput) UpdatedOn() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRoleAssignmentResult) string { return v.UpdatedOn }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupRoleAssignmentResultOutput{})
 }

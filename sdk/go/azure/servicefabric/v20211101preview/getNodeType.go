@@ -4,6 +4,9 @@
 package v20211101preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -115,4 +118,210 @@ func (val *LookupNodeTypeResult) Defaults() *LookupNodeTypeResult {
 		tmp.MultiplePlacementGroups = &multiplePlacementGroups_
 	}
 	return &tmp
+}
+
+func LookupNodeTypeOutput(ctx *pulumi.Context, args LookupNodeTypeOutputArgs, opts ...pulumi.InvokeOption) LookupNodeTypeResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupNodeTypeResult, error) {
+			args := v.(LookupNodeTypeArgs)
+			r, err := LookupNodeType(ctx, &args, opts...)
+			return *r, err
+		}).(LookupNodeTypeResultOutput)
+}
+
+type LookupNodeTypeOutputArgs struct {
+	// The name of the cluster resource.
+	ClusterName pulumi.StringInput `pulumi:"clusterName"`
+	// The name of the node type.
+	NodeTypeName pulumi.StringInput `pulumi:"nodeTypeName"`
+	// The name of the resource group.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupNodeTypeOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupNodeTypeArgs)(nil)).Elem()
+}
+
+// Describes a node type in the cluster, each node type represents sub set of nodes in the cluster.
+type LookupNodeTypeResultOutput struct{ *pulumi.OutputState }
+
+func (LookupNodeTypeResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupNodeTypeResult)(nil)).Elem()
+}
+
+func (o LookupNodeTypeResultOutput) ToLookupNodeTypeResultOutput() LookupNodeTypeResultOutput {
+	return o
+}
+
+func (o LookupNodeTypeResultOutput) ToLookupNodeTypeResultOutputWithContext(ctx context.Context) LookupNodeTypeResultOutput {
+	return o
+}
+
+// Additional managed data disks.
+func (o LookupNodeTypeResultOutput) AdditionalDataDisks() VmssDataDiskResponseArrayOutput {
+	return o.ApplyT(func(v LookupNodeTypeResult) []VmssDataDiskResponse { return v.AdditionalDataDisks }).(VmssDataDiskResponseArrayOutput)
+}
+
+// The range of ports from which cluster assigned port to Service Fabric applications.
+func (o LookupNodeTypeResultOutput) ApplicationPorts() EndpointRangeDescriptionResponsePtrOutput {
+	return o.ApplyT(func(v LookupNodeTypeResult) *EndpointRangeDescriptionResponse { return v.ApplicationPorts }).(EndpointRangeDescriptionResponsePtrOutput)
+}
+
+// The capacity tags applied to the nodes in the node type, the cluster resource manager uses these tags to understand how much resource a node has.
+func (o LookupNodeTypeResultOutput) Capacities() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupNodeTypeResult) map[string]string { return v.Capacities }).(pulumi.StringMapOutput)
+}
+
+// Managed data disk letter. It can not use the reserved letter C or D and it can not change after created.
+func (o LookupNodeTypeResultOutput) DataDiskLetter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupNodeTypeResult) *string { return v.DataDiskLetter }).(pulumi.StringPtrOutput)
+}
+
+// Disk size for the managed disk attached to the vms on the node type in GBs.
+func (o LookupNodeTypeResultOutput) DataDiskSizeGB() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupNodeTypeResult) *int { return v.DataDiskSizeGB }).(pulumi.IntPtrOutput)
+}
+
+// Managed data disk type. Specifies the storage account type for the managed disk
+func (o LookupNodeTypeResultOutput) DataDiskType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupNodeTypeResult) *string { return v.DataDiskType }).(pulumi.StringPtrOutput)
+}
+
+// Specifies whether the network interface is accelerated networking-enabled.
+func (o LookupNodeTypeResultOutput) EnableAcceleratedNetworking() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupNodeTypeResult) *bool { return v.EnableAcceleratedNetworking }).(pulumi.BoolPtrOutput)
+}
+
+// Enable or disable the Host Encryption for the virtual machines on the node type. This will enable the encryption for all the disks including Resource/Temp disk at host itself. Default: The Encryption at host will be disabled unless this property is set to true for the resource.
+func (o LookupNodeTypeResultOutput) EnableEncryptionAtHost() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupNodeTypeResult) *bool { return v.EnableEncryptionAtHost }).(pulumi.BoolPtrOutput)
+}
+
+// The range of ephemeral ports that nodes in this node type should be configured with.
+func (o LookupNodeTypeResultOutput) EphemeralPorts() EndpointRangeDescriptionResponsePtrOutput {
+	return o.ApplyT(func(v LookupNodeTypeResult) *EndpointRangeDescriptionResponse { return v.EphemeralPorts }).(EndpointRangeDescriptionResponsePtrOutput)
+}
+
+// Indicates the node type uses its own frontend configurations instead of the default one for the cluster. This setting can only be specified for non-primary node types and can not be added or removed after the node type is created.
+func (o LookupNodeTypeResultOutput) FrontendConfigurations() FrontendConfigurationResponseArrayOutput {
+	return o.ApplyT(func(v LookupNodeTypeResult) []FrontendConfigurationResponse { return v.FrontendConfigurations }).(FrontendConfigurationResponseArrayOutput)
+}
+
+// Azure resource identifier.
+func (o LookupNodeTypeResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupNodeTypeResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Indicates the Service Fabric system services for the cluster will run on this node type. This setting cannot be changed once the node type is created.
+func (o LookupNodeTypeResultOutput) IsPrimary() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupNodeTypeResult) bool { return v.IsPrimary }).(pulumi.BoolOutput)
+}
+
+// Indicates if the node type can only host Stateless workloads.
+func (o LookupNodeTypeResultOutput) IsStateless() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupNodeTypeResult) *bool { return v.IsStateless }).(pulumi.BoolPtrOutput)
+}
+
+// Indicates if scale set associated with the node type can be composed of multiple placement groups.
+func (o LookupNodeTypeResultOutput) MultiplePlacementGroups() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupNodeTypeResult) *bool { return v.MultiplePlacementGroups }).(pulumi.BoolPtrOutput)
+}
+
+// Azure resource name.
+func (o LookupNodeTypeResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupNodeTypeResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The Network Security Rules for this node type. This setting can only be specified for node types that are configured with frontend configurations.
+func (o LookupNodeTypeResultOutput) NetworkSecurityRules() NetworkSecurityRuleResponseArrayOutput {
+	return o.ApplyT(func(v LookupNodeTypeResult) []NetworkSecurityRuleResponse { return v.NetworkSecurityRules }).(NetworkSecurityRuleResponseArrayOutput)
+}
+
+// The placement tags applied to nodes in the node type, which can be used to indicate where certain services (workload) should run.
+func (o LookupNodeTypeResultOutput) PlacementProperties() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupNodeTypeResult) map[string]string { return v.PlacementProperties }).(pulumi.StringMapOutput)
+}
+
+// The provisioning state of the node type resource.
+func (o LookupNodeTypeResultOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupNodeTypeResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The node type sku.
+func (o LookupNodeTypeResultOutput) Sku() NodeTypeSkuResponsePtrOutput {
+	return o.ApplyT(func(v LookupNodeTypeResult) *NodeTypeSkuResponse { return v.Sku }).(NodeTypeSkuResponsePtrOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o LookupNodeTypeResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupNodeTypeResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Azure resource tags.
+func (o LookupNodeTypeResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupNodeTypeResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Azure resource type.
+func (o LookupNodeTypeResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupNodeTypeResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Specifies whether the use public load balancer. If not specified and the node type doesn't have its own frontend configuration, it will be attached to the default load balancer. If the node type uses its own Load balancer and useDefaultPublicLoadBalancer is true, then the frontend has to be an Internal Load Balancer. If the node type uses its own Load balancer and useDefaultPublicLoadBalancer is false or not set, then the custom load balancer must include a public load balancer to provide outbound connectivity.
+func (o LookupNodeTypeResultOutput) UseDefaultPublicLoadBalancer() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupNodeTypeResult) *bool { return v.UseDefaultPublicLoadBalancer }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies whether to use the temporary disk for the service fabric data root, in which case no managed data disk will be attached and the temporary disk will be used. It is only allowed for stateless node types.
+func (o LookupNodeTypeResultOutput) UseTempDataDisk() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupNodeTypeResult) *bool { return v.UseTempDataDisk }).(pulumi.BoolPtrOutput)
+}
+
+// Set of extensions that should be installed onto the virtual machines.
+func (o LookupNodeTypeResultOutput) VmExtensions() VMSSExtensionResponseArrayOutput {
+	return o.ApplyT(func(v LookupNodeTypeResult) []VMSSExtensionResponse { return v.VmExtensions }).(VMSSExtensionResponseArrayOutput)
+}
+
+// The offer type of the Azure Virtual Machines Marketplace image. For example, UbuntuServer or WindowsServer.
+func (o LookupNodeTypeResultOutput) VmImageOffer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupNodeTypeResult) *string { return v.VmImageOffer }).(pulumi.StringPtrOutput)
+}
+
+// The publisher of the Azure Virtual Machines Marketplace image. For example, Canonical or MicrosoftWindowsServer.
+func (o LookupNodeTypeResultOutput) VmImagePublisher() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupNodeTypeResult) *string { return v.VmImagePublisher }).(pulumi.StringPtrOutput)
+}
+
+// The SKU of the Azure Virtual Machines Marketplace image. For example, 14.04.0-LTS or 2012-R2-Datacenter.
+func (o LookupNodeTypeResultOutput) VmImageSku() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupNodeTypeResult) *string { return v.VmImageSku }).(pulumi.StringPtrOutput)
+}
+
+// The version of the Azure Virtual Machines Marketplace image. A value of 'latest' can be specified to select the latest version of an image. If omitted, the default is 'latest'.
+func (o LookupNodeTypeResultOutput) VmImageVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupNodeTypeResult) *string { return v.VmImageVersion }).(pulumi.StringPtrOutput)
+}
+
+// The number of nodes in the node type. <br /><br />**Values:** <br />-1 - Use when auto scale rules are configured or sku.capacity is defined <br /> 0 - Not supported <br /> >0 - Use for manual scale.
+func (o LookupNodeTypeResultOutput) VmInstanceCount() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupNodeTypeResult) int { return v.VmInstanceCount }).(pulumi.IntOutput)
+}
+
+// Identities to assign to the virtual machine scale set under the node type.
+func (o LookupNodeTypeResultOutput) VmManagedIdentity() VmManagedIdentityResponsePtrOutput {
+	return o.ApplyT(func(v LookupNodeTypeResult) *VmManagedIdentityResponse { return v.VmManagedIdentity }).(VmManagedIdentityResponsePtrOutput)
+}
+
+// The secrets to install in the virtual machines.
+func (o LookupNodeTypeResultOutput) VmSecrets() VaultSecretGroupResponseArrayOutput {
+	return o.ApplyT(func(v LookupNodeTypeResult) []VaultSecretGroupResponse { return v.VmSecrets }).(VaultSecretGroupResponseArrayOutput)
+}
+
+// The size of virtual machines in the pool. All virtual machines in a pool are the same size. For example, Standard_D3.
+func (o LookupNodeTypeResultOutput) VmSize() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupNodeTypeResult) *string { return v.VmSize }).(pulumi.StringPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupNodeTypeResultOutput{})
 }

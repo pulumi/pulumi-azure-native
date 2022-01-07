@@ -4,6 +4,9 @@
 package migrate
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -32,4 +35,64 @@ type LookupServerCollectorResult struct {
 	Name       string                      `pulumi:"name"`
 	Properties CollectorPropertiesResponse `pulumi:"properties"`
 	Type       string                      `pulumi:"type"`
+}
+
+func LookupServerCollectorOutput(ctx *pulumi.Context, args LookupServerCollectorOutputArgs, opts ...pulumi.InvokeOption) LookupServerCollectorResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupServerCollectorResult, error) {
+			args := v.(LookupServerCollectorArgs)
+			r, err := LookupServerCollector(ctx, &args, opts...)
+			return *r, err
+		}).(LookupServerCollectorResultOutput)
+}
+
+type LookupServerCollectorOutputArgs struct {
+	// Name of the Azure Migrate project.
+	ProjectName pulumi.StringInput `pulumi:"projectName"`
+	// Name of the Azure Resource Group that project is part of.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// Unique name of a Server collector within a project.
+	ServerCollectorName pulumi.StringInput `pulumi:"serverCollectorName"`
+}
+
+func (LookupServerCollectorOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupServerCollectorArgs)(nil)).Elem()
+}
+
+type LookupServerCollectorResultOutput struct{ *pulumi.OutputState }
+
+func (LookupServerCollectorResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupServerCollectorResult)(nil)).Elem()
+}
+
+func (o LookupServerCollectorResultOutput) ToLookupServerCollectorResultOutput() LookupServerCollectorResultOutput {
+	return o
+}
+
+func (o LookupServerCollectorResultOutput) ToLookupServerCollectorResultOutputWithContext(ctx context.Context) LookupServerCollectorResultOutput {
+	return o
+}
+
+func (o LookupServerCollectorResultOutput) ETag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupServerCollectorResult) *string { return v.ETag }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupServerCollectorResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServerCollectorResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o LookupServerCollectorResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServerCollectorResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupServerCollectorResultOutput) Properties() CollectorPropertiesResponseOutput {
+	return o.ApplyT(func(v LookupServerCollectorResult) CollectorPropertiesResponse { return v.Properties }).(CollectorPropertiesResponseOutput)
+}
+
+func (o LookupServerCollectorResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServerCollectorResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupServerCollectorResultOutput{})
 }

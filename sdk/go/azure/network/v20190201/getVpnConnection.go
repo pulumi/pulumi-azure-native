@@ -4,6 +4,9 @@
 package v20190201
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -62,4 +65,130 @@ type LookupVpnConnectionResult struct {
 	UseLocalAzureIpAddress *bool `pulumi:"useLocalAzureIpAddress"`
 	// Connection protocol used for this connection
 	VpnConnectionProtocolType *string `pulumi:"vpnConnectionProtocolType"`
+}
+
+func LookupVpnConnectionOutput(ctx *pulumi.Context, args LookupVpnConnectionOutputArgs, opts ...pulumi.InvokeOption) LookupVpnConnectionResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupVpnConnectionResult, error) {
+			args := v.(LookupVpnConnectionArgs)
+			r, err := LookupVpnConnection(ctx, &args, opts...)
+			return *r, err
+		}).(LookupVpnConnectionResultOutput)
+}
+
+type LookupVpnConnectionOutputArgs struct {
+	// The name of the vpn connection.
+	ConnectionName pulumi.StringInput `pulumi:"connectionName"`
+	// The name of the gateway.
+	GatewayName pulumi.StringInput `pulumi:"gatewayName"`
+	// The resource group name of the VpnGateway.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupVpnConnectionOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupVpnConnectionArgs)(nil)).Elem()
+}
+
+// VpnConnection Resource.
+type LookupVpnConnectionResultOutput struct{ *pulumi.OutputState }
+
+func (LookupVpnConnectionResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupVpnConnectionResult)(nil)).Elem()
+}
+
+func (o LookupVpnConnectionResultOutput) ToLookupVpnConnectionResultOutput() LookupVpnConnectionResultOutput {
+	return o
+}
+
+func (o LookupVpnConnectionResultOutput) ToLookupVpnConnectionResultOutputWithContext(ctx context.Context) LookupVpnConnectionResultOutput {
+	return o
+}
+
+// Expected bandwidth in MBPS.
+func (o LookupVpnConnectionResultOutput) ConnectionBandwidth() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupVpnConnectionResult) *int { return v.ConnectionBandwidth }).(pulumi.IntPtrOutput)
+}
+
+// The connection status.
+func (o LookupVpnConnectionResultOutput) ConnectionStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVpnConnectionResult) string { return v.ConnectionStatus }).(pulumi.StringOutput)
+}
+
+// Egress bytes transferred.
+func (o LookupVpnConnectionResultOutput) EgressBytesTransferred() pulumi.Float64Output {
+	return o.ApplyT(func(v LookupVpnConnectionResult) float64 { return v.EgressBytesTransferred }).(pulumi.Float64Output)
+}
+
+// EnableBgp flag
+func (o LookupVpnConnectionResultOutput) EnableBgp() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupVpnConnectionResult) *bool { return v.EnableBgp }).(pulumi.BoolPtrOutput)
+}
+
+// Enable internet security
+func (o LookupVpnConnectionResultOutput) EnableInternetSecurity() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupVpnConnectionResult) *bool { return v.EnableInternetSecurity }).(pulumi.BoolPtrOutput)
+}
+
+// EnableBgp flag
+func (o LookupVpnConnectionResultOutput) EnableRateLimiting() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupVpnConnectionResult) *bool { return v.EnableRateLimiting }).(pulumi.BoolPtrOutput)
+}
+
+// Gets a unique read-only string that changes whenever the resource is updated.
+func (o LookupVpnConnectionResultOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVpnConnectionResult) string { return v.Etag }).(pulumi.StringOutput)
+}
+
+// Resource ID.
+func (o LookupVpnConnectionResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVpnConnectionResult) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// Ingress bytes transferred.
+func (o LookupVpnConnectionResultOutput) IngressBytesTransferred() pulumi.Float64Output {
+	return o.ApplyT(func(v LookupVpnConnectionResult) float64 { return v.IngressBytesTransferred }).(pulumi.Float64Output)
+}
+
+// The IPSec Policies to be considered by this connection.
+func (o LookupVpnConnectionResultOutput) IpsecPolicies() IpsecPolicyResponseArrayOutput {
+	return o.ApplyT(func(v LookupVpnConnectionResult) []IpsecPolicyResponse { return v.IpsecPolicies }).(IpsecPolicyResponseArrayOutput)
+}
+
+// The name of the resource that is unique within a resource group. This name can be used to access the resource.
+func (o LookupVpnConnectionResultOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVpnConnectionResult) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The provisioning state of the resource.
+func (o LookupVpnConnectionResultOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVpnConnectionResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Id of the connected vpn site.
+func (o LookupVpnConnectionResultOutput) RemoteVpnSite() SubResourceResponsePtrOutput {
+	return o.ApplyT(func(v LookupVpnConnectionResult) *SubResourceResponse { return v.RemoteVpnSite }).(SubResourceResponsePtrOutput)
+}
+
+// Routing weight for vpn connection.
+func (o LookupVpnConnectionResultOutput) RoutingWeight() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupVpnConnectionResult) *int { return v.RoutingWeight }).(pulumi.IntPtrOutput)
+}
+
+// SharedKey for the vpn connection.
+func (o LookupVpnConnectionResultOutput) SharedKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVpnConnectionResult) *string { return v.SharedKey }).(pulumi.StringPtrOutput)
+}
+
+// Use local azure ip to initiate connection
+func (o LookupVpnConnectionResultOutput) UseLocalAzureIpAddress() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupVpnConnectionResult) *bool { return v.UseLocalAzureIpAddress }).(pulumi.BoolPtrOutput)
+}
+
+// Connection protocol used for this connection
+func (o LookupVpnConnectionResultOutput) VpnConnectionProtocolType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVpnConnectionResult) *string { return v.VpnConnectionProtocolType }).(pulumi.StringPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupVpnConnectionResultOutput{})
 }

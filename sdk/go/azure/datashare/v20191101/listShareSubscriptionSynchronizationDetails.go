@@ -4,6 +4,9 @@
 package v20191101
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -40,4 +43,65 @@ type ListShareSubscriptionSynchronizationDetailsResult struct {
 	NextLink *string `pulumi:"nextLink"`
 	// Collection of items of type DataTransferObjects.
 	Value []SynchronizationDetailsResponse `pulumi:"value"`
+}
+
+func ListShareSubscriptionSynchronizationDetailsOutput(ctx *pulumi.Context, args ListShareSubscriptionSynchronizationDetailsOutputArgs, opts ...pulumi.InvokeOption) ListShareSubscriptionSynchronizationDetailsResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (ListShareSubscriptionSynchronizationDetailsResult, error) {
+			args := v.(ListShareSubscriptionSynchronizationDetailsArgs)
+			r, err := ListShareSubscriptionSynchronizationDetails(ctx, &args, opts...)
+			return *r, err
+		}).(ListShareSubscriptionSynchronizationDetailsResultOutput)
+}
+
+type ListShareSubscriptionSynchronizationDetailsOutputArgs struct {
+	// The name of the share account.
+	AccountName pulumi.StringInput `pulumi:"accountName"`
+	// Filters the results using OData syntax.
+	Filter pulumi.StringPtrInput `pulumi:"filter"`
+	// Sorts the results using OData syntax.
+	Orderby pulumi.StringPtrInput `pulumi:"orderby"`
+	// The resource group name.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the share subscription.
+	ShareSubscriptionName pulumi.StringInput `pulumi:"shareSubscriptionName"`
+	// Continuation token
+	SkipToken pulumi.StringPtrInput `pulumi:"skipToken"`
+	// Synchronization id
+	SynchronizationId pulumi.StringInput `pulumi:"synchronizationId"`
+}
+
+func (ListShareSubscriptionSynchronizationDetailsOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListShareSubscriptionSynchronizationDetailsArgs)(nil)).Elem()
+}
+
+// details of synchronization
+type ListShareSubscriptionSynchronizationDetailsResultOutput struct{ *pulumi.OutputState }
+
+func (ListShareSubscriptionSynchronizationDetailsResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListShareSubscriptionSynchronizationDetailsResult)(nil)).Elem()
+}
+
+func (o ListShareSubscriptionSynchronizationDetailsResultOutput) ToListShareSubscriptionSynchronizationDetailsResultOutput() ListShareSubscriptionSynchronizationDetailsResultOutput {
+	return o
+}
+
+func (o ListShareSubscriptionSynchronizationDetailsResultOutput) ToListShareSubscriptionSynchronizationDetailsResultOutputWithContext(ctx context.Context) ListShareSubscriptionSynchronizationDetailsResultOutput {
+	return o
+}
+
+// The Url of next result page.
+func (o ListShareSubscriptionSynchronizationDetailsResultOutput) NextLink() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListShareSubscriptionSynchronizationDetailsResult) *string { return v.NextLink }).(pulumi.StringPtrOutput)
+}
+
+// Collection of items of type DataTransferObjects.
+func (o ListShareSubscriptionSynchronizationDetailsResultOutput) Value() SynchronizationDetailsResponseArrayOutput {
+	return o.ApplyT(func(v ListShareSubscriptionSynchronizationDetailsResult) []SynchronizationDetailsResponse {
+		return v.Value
+	}).(SynchronizationDetailsResponseArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(ListShareSubscriptionSynchronizationDetailsResultOutput{})
 }

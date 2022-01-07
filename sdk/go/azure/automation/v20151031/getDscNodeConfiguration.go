@@ -4,6 +4,9 @@
 package v20151031
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -40,4 +43,77 @@ type LookupDscNodeConfigurationResult struct {
 	Name string `pulumi:"name"`
 	// The type of the resource.
 	Type string `pulumi:"type"`
+}
+
+func LookupDscNodeConfigurationOutput(ctx *pulumi.Context, args LookupDscNodeConfigurationOutputArgs, opts ...pulumi.InvokeOption) LookupDscNodeConfigurationResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupDscNodeConfigurationResult, error) {
+			args := v.(LookupDscNodeConfigurationArgs)
+			r, err := LookupDscNodeConfiguration(ctx, &args, opts...)
+			return *r, err
+		}).(LookupDscNodeConfigurationResultOutput)
+}
+
+type LookupDscNodeConfigurationOutputArgs struct {
+	// The name of the automation account.
+	AutomationAccountName pulumi.StringInput `pulumi:"automationAccountName"`
+	// The Dsc node configuration name.
+	NodeConfigurationName pulumi.StringInput `pulumi:"nodeConfigurationName"`
+	// Name of an Azure Resource group.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupDscNodeConfigurationOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupDscNodeConfigurationArgs)(nil)).Elem()
+}
+
+// Definition of the dsc node configuration.
+type LookupDscNodeConfigurationResultOutput struct{ *pulumi.OutputState }
+
+func (LookupDscNodeConfigurationResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupDscNodeConfigurationResult)(nil)).Elem()
+}
+
+func (o LookupDscNodeConfigurationResultOutput) ToLookupDscNodeConfigurationResultOutput() LookupDscNodeConfigurationResultOutput {
+	return o
+}
+
+func (o LookupDscNodeConfigurationResultOutput) ToLookupDscNodeConfigurationResultOutputWithContext(ctx context.Context) LookupDscNodeConfigurationResultOutput {
+	return o
+}
+
+// Gets or sets the configuration of the node.
+func (o LookupDscNodeConfigurationResultOutput) Configuration() DscConfigurationAssociationPropertyResponsePtrOutput {
+	return o.ApplyT(func(v LookupDscNodeConfigurationResult) *DscConfigurationAssociationPropertyResponse {
+		return v.Configuration
+	}).(DscConfigurationAssociationPropertyResponsePtrOutput)
+}
+
+// Gets or sets creation time.
+func (o LookupDscNodeConfigurationResultOutput) CreationTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDscNodeConfigurationResult) *string { return v.CreationTime }).(pulumi.StringPtrOutput)
+}
+
+// Fully qualified resource Id for the resource
+func (o LookupDscNodeConfigurationResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDscNodeConfigurationResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Gets or sets the last modified time.
+func (o LookupDscNodeConfigurationResultOutput) LastModifiedTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDscNodeConfigurationResult) *string { return v.LastModifiedTime }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource
+func (o LookupDscNodeConfigurationResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDscNodeConfigurationResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The type of the resource.
+func (o LookupDscNodeConfigurationResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDscNodeConfigurationResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupDscNodeConfigurationResultOutput{})
 }

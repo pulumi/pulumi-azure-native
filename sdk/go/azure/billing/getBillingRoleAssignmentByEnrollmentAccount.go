@@ -4,6 +4,9 @@
 package billing
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -55,4 +58,114 @@ type LookupBillingRoleAssignmentByEnrollmentAccountResult struct {
 	UserAuthenticationType *string `pulumi:"userAuthenticationType"`
 	// The email address of the user to whom the role was assigned. This is supported only for billing accounts with agreement type Enterprise Agreement.
 	UserEmailAddress *string `pulumi:"userEmailAddress"`
+}
+
+func LookupBillingRoleAssignmentByEnrollmentAccountOutput(ctx *pulumi.Context, args LookupBillingRoleAssignmentByEnrollmentAccountOutputArgs, opts ...pulumi.InvokeOption) LookupBillingRoleAssignmentByEnrollmentAccountResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupBillingRoleAssignmentByEnrollmentAccountResult, error) {
+			args := v.(LookupBillingRoleAssignmentByEnrollmentAccountArgs)
+			r, err := LookupBillingRoleAssignmentByEnrollmentAccount(ctx, &args, opts...)
+			return *r, err
+		}).(LookupBillingRoleAssignmentByEnrollmentAccountResultOutput)
+}
+
+type LookupBillingRoleAssignmentByEnrollmentAccountOutputArgs struct {
+	// The ID that uniquely identifies a billing account.
+	BillingAccountName pulumi.StringInput `pulumi:"billingAccountName"`
+	// The ID that uniquely identifies a role assignment.
+	BillingRoleAssignmentName pulumi.StringInput `pulumi:"billingRoleAssignmentName"`
+	// The ID that uniquely identifies an enrollment account.
+	EnrollmentAccountName pulumi.StringInput `pulumi:"enrollmentAccountName"`
+}
+
+func (LookupBillingRoleAssignmentByEnrollmentAccountOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupBillingRoleAssignmentByEnrollmentAccountArgs)(nil)).Elem()
+}
+
+// The role assignment
+type LookupBillingRoleAssignmentByEnrollmentAccountResultOutput struct{ *pulumi.OutputState }
+
+func (LookupBillingRoleAssignmentByEnrollmentAccountResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupBillingRoleAssignmentByEnrollmentAccountResult)(nil)).Elem()
+}
+
+func (o LookupBillingRoleAssignmentByEnrollmentAccountResultOutput) ToLookupBillingRoleAssignmentByEnrollmentAccountResultOutput() LookupBillingRoleAssignmentByEnrollmentAccountResultOutput {
+	return o
+}
+
+func (o LookupBillingRoleAssignmentByEnrollmentAccountResultOutput) ToLookupBillingRoleAssignmentByEnrollmentAccountResultOutputWithContext(ctx context.Context) LookupBillingRoleAssignmentByEnrollmentAccountResultOutput {
+	return o
+}
+
+// The principal Id of the user who created the role assignment.
+func (o LookupBillingRoleAssignmentByEnrollmentAccountResultOutput) CreatedByPrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBillingRoleAssignmentByEnrollmentAccountResult) string { return v.CreatedByPrincipalId }).(pulumi.StringOutput)
+}
+
+// The tenant Id of the user who created the role assignment.
+func (o LookupBillingRoleAssignmentByEnrollmentAccountResultOutput) CreatedByPrincipalTenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBillingRoleAssignmentByEnrollmentAccountResult) string {
+		return v.CreatedByPrincipalTenantId
+	}).(pulumi.StringOutput)
+}
+
+// The email address of the user who created the role assignment. This is supported only for billing accounts with agreement type Enterprise Agreement.
+func (o LookupBillingRoleAssignmentByEnrollmentAccountResultOutput) CreatedByUserEmailAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBillingRoleAssignmentByEnrollmentAccountResult) string {
+		return v.CreatedByUserEmailAddress
+	}).(pulumi.StringOutput)
+}
+
+// The date the role assignment was created.
+func (o LookupBillingRoleAssignmentByEnrollmentAccountResultOutput) CreatedOn() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBillingRoleAssignmentByEnrollmentAccountResult) string { return v.CreatedOn }).(pulumi.StringOutput)
+}
+
+// Resource Id.
+func (o LookupBillingRoleAssignmentByEnrollmentAccountResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBillingRoleAssignmentByEnrollmentAccountResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o LookupBillingRoleAssignmentByEnrollmentAccountResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBillingRoleAssignmentByEnrollmentAccountResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The principal id of the user to whom the role was assigned.
+func (o LookupBillingRoleAssignmentByEnrollmentAccountResultOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupBillingRoleAssignmentByEnrollmentAccountResult) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
+}
+
+// The principal tenant id of the user to whom the role was assigned.
+func (o LookupBillingRoleAssignmentByEnrollmentAccountResultOutput) PrincipalTenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupBillingRoleAssignmentByEnrollmentAccountResult) *string { return v.PrincipalTenantId }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the role definition.
+func (o LookupBillingRoleAssignmentByEnrollmentAccountResultOutput) RoleDefinitionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupBillingRoleAssignmentByEnrollmentAccountResult) *string { return v.RoleDefinitionId }).(pulumi.StringPtrOutput)
+}
+
+// The scope at which the role was assigned.
+func (o LookupBillingRoleAssignmentByEnrollmentAccountResultOutput) Scope() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBillingRoleAssignmentByEnrollmentAccountResult) string { return v.Scope }).(pulumi.StringOutput)
+}
+
+// Resource type.
+func (o LookupBillingRoleAssignmentByEnrollmentAccountResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBillingRoleAssignmentByEnrollmentAccountResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The authentication type of the user, whether Organization or MSA, of the user to whom the role was assigned. This is supported only for billing accounts with agreement type Enterprise Agreement.
+func (o LookupBillingRoleAssignmentByEnrollmentAccountResultOutput) UserAuthenticationType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupBillingRoleAssignmentByEnrollmentAccountResult) *string { return v.UserAuthenticationType }).(pulumi.StringPtrOutput)
+}
+
+// The email address of the user to whom the role was assigned. This is supported only for billing accounts with agreement type Enterprise Agreement.
+func (o LookupBillingRoleAssignmentByEnrollmentAccountResultOutput) UserEmailAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupBillingRoleAssignmentByEnrollmentAccountResult) *string { return v.UserEmailAddress }).(pulumi.StringPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupBillingRoleAssignmentByEnrollmentAccountResultOutput{})
 }

@@ -4,6 +4,9 @@
 package v20190101preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -54,4 +57,107 @@ type LookupThreatIntelligenceAlertRuleResult struct {
 	Tactics []string `pulumi:"tactics"`
 	// Azure resource type
 	Type string `pulumi:"type"`
+}
+
+func LookupThreatIntelligenceAlertRuleOutput(ctx *pulumi.Context, args LookupThreatIntelligenceAlertRuleOutputArgs, opts ...pulumi.InvokeOption) LookupThreatIntelligenceAlertRuleResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupThreatIntelligenceAlertRuleResult, error) {
+			args := v.(LookupThreatIntelligenceAlertRuleArgs)
+			r, err := LookupThreatIntelligenceAlertRule(ctx, &args, opts...)
+			return *r, err
+		}).(LookupThreatIntelligenceAlertRuleResultOutput)
+}
+
+type LookupThreatIntelligenceAlertRuleOutputArgs struct {
+	// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
+	OperationalInsightsResourceProvider pulumi.StringInput `pulumi:"operationalInsightsResourceProvider"`
+	// The name of the resource group within the user's subscription. The name is case insensitive.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// Alert rule ID
+	RuleId pulumi.StringInput `pulumi:"ruleId"`
+	// The name of the workspace.
+	WorkspaceName pulumi.StringInput `pulumi:"workspaceName"`
+}
+
+func (LookupThreatIntelligenceAlertRuleOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupThreatIntelligenceAlertRuleArgs)(nil)).Elem()
+}
+
+// Represents Threat Intelligence alert rule.
+type LookupThreatIntelligenceAlertRuleResultOutput struct{ *pulumi.OutputState }
+
+func (LookupThreatIntelligenceAlertRuleResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupThreatIntelligenceAlertRuleResult)(nil)).Elem()
+}
+
+func (o LookupThreatIntelligenceAlertRuleResultOutput) ToLookupThreatIntelligenceAlertRuleResultOutput() LookupThreatIntelligenceAlertRuleResultOutput {
+	return o
+}
+
+func (o LookupThreatIntelligenceAlertRuleResultOutput) ToLookupThreatIntelligenceAlertRuleResultOutputWithContext(ctx context.Context) LookupThreatIntelligenceAlertRuleResultOutput {
+	return o
+}
+
+// The Name of the alert rule template used to create this rule.
+func (o LookupThreatIntelligenceAlertRuleResultOutput) AlertRuleTemplateName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupThreatIntelligenceAlertRuleResult) string { return v.AlertRuleTemplateName }).(pulumi.StringOutput)
+}
+
+// The description of the alert rule.
+func (o LookupThreatIntelligenceAlertRuleResultOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupThreatIntelligenceAlertRuleResult) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// The display name for alerts created by this alert rule.
+func (o LookupThreatIntelligenceAlertRuleResultOutput) DisplayName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupThreatIntelligenceAlertRuleResult) string { return v.DisplayName }).(pulumi.StringOutput)
+}
+
+// Determines whether this alert rule is enabled or disabled.
+func (o LookupThreatIntelligenceAlertRuleResultOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupThreatIntelligenceAlertRuleResult) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// Etag of the azure resource
+func (o LookupThreatIntelligenceAlertRuleResultOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupThreatIntelligenceAlertRuleResult) *string { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// Azure resource Id
+func (o LookupThreatIntelligenceAlertRuleResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupThreatIntelligenceAlertRuleResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Expected value is 'ThreatIntelligence'.
+func (o LookupThreatIntelligenceAlertRuleResultOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupThreatIntelligenceAlertRuleResult) string { return v.Kind }).(pulumi.StringOutput)
+}
+
+// The last time that this alert has been modified.
+func (o LookupThreatIntelligenceAlertRuleResultOutput) LastModifiedUtc() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupThreatIntelligenceAlertRuleResult) string { return v.LastModifiedUtc }).(pulumi.StringOutput)
+}
+
+// Azure resource name
+func (o LookupThreatIntelligenceAlertRuleResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupThreatIntelligenceAlertRuleResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The severity for alerts created by this alert rule.
+func (o LookupThreatIntelligenceAlertRuleResultOutput) Severity() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupThreatIntelligenceAlertRuleResult) string { return v.Severity }).(pulumi.StringOutput)
+}
+
+// The tactics of the alert rule
+func (o LookupThreatIntelligenceAlertRuleResultOutput) Tactics() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupThreatIntelligenceAlertRuleResult) []string { return v.Tactics }).(pulumi.StringArrayOutput)
+}
+
+// Azure resource type
+func (o LookupThreatIntelligenceAlertRuleResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupThreatIntelligenceAlertRuleResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupThreatIntelligenceAlertRuleResultOutput{})
 }

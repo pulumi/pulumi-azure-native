@@ -4,6 +4,9 @@
 package v20210901preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -33,4 +36,68 @@ type LookupResourceTypeRegistrationResult struct {
 	SystemData SystemDataResponse `pulumi:"systemData"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
+}
+
+func LookupResourceTypeRegistrationOutput(ctx *pulumi.Context, args LookupResourceTypeRegistrationOutputArgs, opts ...pulumi.InvokeOption) LookupResourceTypeRegistrationResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupResourceTypeRegistrationResult, error) {
+			args := v.(LookupResourceTypeRegistrationArgs)
+			r, err := LookupResourceTypeRegistration(ctx, &args, opts...)
+			return *r, err
+		}).(LookupResourceTypeRegistrationResultOutput)
+}
+
+type LookupResourceTypeRegistrationOutputArgs struct {
+	// The name of the resource provider hosted within ProviderHub.
+	ProviderNamespace pulumi.StringInput `pulumi:"providerNamespace"`
+	// The resource type.
+	ResourceType pulumi.StringInput `pulumi:"resourceType"`
+}
+
+func (LookupResourceTypeRegistrationOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupResourceTypeRegistrationArgs)(nil)).Elem()
+}
+
+type LookupResourceTypeRegistrationResultOutput struct{ *pulumi.OutputState }
+
+func (LookupResourceTypeRegistrationResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupResourceTypeRegistrationResult)(nil)).Elem()
+}
+
+func (o LookupResourceTypeRegistrationResultOutput) ToLookupResourceTypeRegistrationResultOutput() LookupResourceTypeRegistrationResultOutput {
+	return o
+}
+
+func (o LookupResourceTypeRegistrationResultOutput) ToLookupResourceTypeRegistrationResultOutputWithContext(ctx context.Context) LookupResourceTypeRegistrationResultOutput {
+	return o
+}
+
+// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+func (o LookupResourceTypeRegistrationResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupResourceTypeRegistrationResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o LookupResourceTypeRegistrationResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupResourceTypeRegistrationResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupResourceTypeRegistrationResultOutput) Properties() ResourceTypeRegistrationResponsePropertiesOutput {
+	return o.ApplyT(func(v LookupResourceTypeRegistrationResult) ResourceTypeRegistrationResponseProperties {
+		return v.Properties
+	}).(ResourceTypeRegistrationResponsePropertiesOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o LookupResourceTypeRegistrationResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupResourceTypeRegistrationResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o LookupResourceTypeRegistrationResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupResourceTypeRegistrationResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupResourceTypeRegistrationResultOutput{})
 }

@@ -4,6 +4,9 @@
 package machinelearningservices
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -35,4 +38,55 @@ type GetOnlineDeploymentLogsArgs struct {
 type GetOnlineDeploymentLogsResult struct {
 	// The retrieved online deployment logs.
 	Content *string `pulumi:"content"`
+}
+
+func GetOnlineDeploymentLogsOutput(ctx *pulumi.Context, args GetOnlineDeploymentLogsOutputArgs, opts ...pulumi.InvokeOption) GetOnlineDeploymentLogsResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetOnlineDeploymentLogsResult, error) {
+			args := v.(GetOnlineDeploymentLogsArgs)
+			r, err := GetOnlineDeploymentLogs(ctx, &args, opts...)
+			return *r, err
+		}).(GetOnlineDeploymentLogsResultOutput)
+}
+
+type GetOnlineDeploymentLogsOutputArgs struct {
+	// The type of container to retrieve logs from.
+	ContainerType pulumi.StringPtrInput `pulumi:"containerType"`
+	// The name and identifier for the endpoint.
+	DeploymentName pulumi.StringInput `pulumi:"deploymentName"`
+	// Inference endpoint name.
+	EndpointName pulumi.StringInput `pulumi:"endpointName"`
+	// The name of the resource group. The name is case insensitive.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The maximum number of lines to tail.
+	Tail pulumi.IntPtrInput `pulumi:"tail"`
+	// Name of Azure Machine Learning workspace.
+	WorkspaceName pulumi.StringInput `pulumi:"workspaceName"`
+}
+
+func (GetOnlineDeploymentLogsOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetOnlineDeploymentLogsArgs)(nil)).Elem()
+}
+
+type GetOnlineDeploymentLogsResultOutput struct{ *pulumi.OutputState }
+
+func (GetOnlineDeploymentLogsResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetOnlineDeploymentLogsResult)(nil)).Elem()
+}
+
+func (o GetOnlineDeploymentLogsResultOutput) ToGetOnlineDeploymentLogsResultOutput() GetOnlineDeploymentLogsResultOutput {
+	return o
+}
+
+func (o GetOnlineDeploymentLogsResultOutput) ToGetOnlineDeploymentLogsResultOutputWithContext(ctx context.Context) GetOnlineDeploymentLogsResultOutput {
+	return o
+}
+
+// The retrieved online deployment logs.
+func (o GetOnlineDeploymentLogsResultOutput) Content() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetOnlineDeploymentLogsResult) *string { return v.Content }).(pulumi.StringPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetOnlineDeploymentLogsResultOutput{})
 }

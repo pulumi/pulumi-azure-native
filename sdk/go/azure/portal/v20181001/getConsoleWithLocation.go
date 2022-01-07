@@ -4,6 +4,9 @@
 package v20181001
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -28,4 +31,48 @@ type LookupConsoleWithLocationArgs struct {
 type LookupConsoleWithLocationResult struct {
 	// Cloud shell console properties.
 	Properties ConsolePropertiesResponse `pulumi:"properties"`
+}
+
+func LookupConsoleWithLocationOutput(ctx *pulumi.Context, args LookupConsoleWithLocationOutputArgs, opts ...pulumi.InvokeOption) LookupConsoleWithLocationResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupConsoleWithLocationResult, error) {
+			args := v.(LookupConsoleWithLocationArgs)
+			r, err := LookupConsoleWithLocation(ctx, &args, opts...)
+			return *r, err
+		}).(LookupConsoleWithLocationResultOutput)
+}
+
+type LookupConsoleWithLocationOutputArgs struct {
+	// The name of the console
+	ConsoleName pulumi.StringInput `pulumi:"consoleName"`
+	// The provider location
+	Location pulumi.StringInput `pulumi:"location"`
+}
+
+func (LookupConsoleWithLocationOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupConsoleWithLocationArgs)(nil)).Elem()
+}
+
+// Cloud shell console
+type LookupConsoleWithLocationResultOutput struct{ *pulumi.OutputState }
+
+func (LookupConsoleWithLocationResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupConsoleWithLocationResult)(nil)).Elem()
+}
+
+func (o LookupConsoleWithLocationResultOutput) ToLookupConsoleWithLocationResultOutput() LookupConsoleWithLocationResultOutput {
+	return o
+}
+
+func (o LookupConsoleWithLocationResultOutput) ToLookupConsoleWithLocationResultOutputWithContext(ctx context.Context) LookupConsoleWithLocationResultOutput {
+	return o
+}
+
+// Cloud shell console properties.
+func (o LookupConsoleWithLocationResultOutput) Properties() ConsolePropertiesResponseOutput {
+	return o.ApplyT(func(v LookupConsoleWithLocationResult) ConsolePropertiesResponse { return v.Properties }).(ConsolePropertiesResponseOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupConsoleWithLocationResultOutput{})
 }

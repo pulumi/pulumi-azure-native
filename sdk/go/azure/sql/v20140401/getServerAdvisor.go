@@ -4,6 +4,9 @@
 package v20140401
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -46,4 +49,90 @@ type LookupServerAdvisorResult struct {
 	RecommendationsStatus string `pulumi:"recommendationsStatus"`
 	// Resource type.
 	Type string `pulumi:"type"`
+}
+
+func LookupServerAdvisorOutput(ctx *pulumi.Context, args LookupServerAdvisorOutputArgs, opts ...pulumi.InvokeOption) LookupServerAdvisorResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupServerAdvisorResult, error) {
+			args := v.(LookupServerAdvisorArgs)
+			r, err := LookupServerAdvisor(ctx, &args, opts...)
+			return *r, err
+		}).(LookupServerAdvisorResultOutput)
+}
+
+type LookupServerAdvisorOutputArgs struct {
+	// The name of the Server Advisor.
+	AdvisorName pulumi.StringInput `pulumi:"advisorName"`
+	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the server.
+	ServerName pulumi.StringInput `pulumi:"serverName"`
+}
+
+func (LookupServerAdvisorOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupServerAdvisorArgs)(nil)).Elem()
+}
+
+// Database Advisor.
+type LookupServerAdvisorResultOutput struct{ *pulumi.OutputState }
+
+func (LookupServerAdvisorResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupServerAdvisorResult)(nil)).Elem()
+}
+
+func (o LookupServerAdvisorResultOutput) ToLookupServerAdvisorResultOutput() LookupServerAdvisorResultOutput {
+	return o
+}
+
+func (o LookupServerAdvisorResultOutput) ToLookupServerAdvisorResultOutputWithContext(ctx context.Context) LookupServerAdvisorResultOutput {
+	return o
+}
+
+// Gets the status of availability of this advisor to customers. Possible values are 'GA', 'PublicPreview', 'LimitedPublicPreview' and 'PrivatePreview'.
+func (o LookupServerAdvisorResultOutput) AdvisorStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServerAdvisorResult) string { return v.AdvisorStatus }).(pulumi.StringOutput)
+}
+
+// Gets the auto-execute status (whether to let the system execute the recommendations) of this advisor. Possible values are 'Enabled' and 'Disabled'
+func (o LookupServerAdvisorResultOutput) AutoExecuteValue() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServerAdvisorResult) string { return v.AutoExecuteValue }).(pulumi.StringOutput)
+}
+
+// Resource ID.
+func (o LookupServerAdvisorResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServerAdvisorResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Resource kind.
+func (o LookupServerAdvisorResultOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServerAdvisorResult) string { return v.Kind }).(pulumi.StringOutput)
+}
+
+// Gets the time when the current resource was analyzed for recommendations by this advisor.
+func (o LookupServerAdvisorResultOutput) LastChecked() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServerAdvisorResult) string { return v.LastChecked }).(pulumi.StringOutput)
+}
+
+// Resource location.
+func (o LookupServerAdvisorResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServerAdvisorResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o LookupServerAdvisorResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServerAdvisorResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Gets that status of recommendations for this advisor and reason for not having any recommendations. Possible values include, but are not limited to, 'Ok' (Recommendations available), LowActivity (not enough workload to analyze), 'DbSeemsTuned' (Database is doing well), etc.
+func (o LookupServerAdvisorResultOutput) RecommendationsStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServerAdvisorResult) string { return v.RecommendationsStatus }).(pulumi.StringOutput)
+}
+
+// Resource type.
+func (o LookupServerAdvisorResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServerAdvisorResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupServerAdvisorResultOutput{})
 }

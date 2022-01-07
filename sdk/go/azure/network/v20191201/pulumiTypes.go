@@ -1218,6 +1218,100 @@ func (o ApplicationGatewayBackendAddressPoolResponseOutput) Type() pulumi.String
 	return o.ApplyT(func(v ApplicationGatewayBackendAddressPoolResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
+type ApplicationGatewayBackendAddressPoolResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ApplicationGatewayBackendAddressPoolResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationGatewayBackendAddressPoolResponse)(nil)).Elem()
+}
+
+func (o ApplicationGatewayBackendAddressPoolResponsePtrOutput) ToApplicationGatewayBackendAddressPoolResponsePtrOutput() ApplicationGatewayBackendAddressPoolResponsePtrOutput {
+	return o
+}
+
+func (o ApplicationGatewayBackendAddressPoolResponsePtrOutput) ToApplicationGatewayBackendAddressPoolResponsePtrOutputWithContext(ctx context.Context) ApplicationGatewayBackendAddressPoolResponsePtrOutput {
+	return o
+}
+
+func (o ApplicationGatewayBackendAddressPoolResponsePtrOutput) Elem() ApplicationGatewayBackendAddressPoolResponseOutput {
+	return o.ApplyT(func(v *ApplicationGatewayBackendAddressPoolResponse) ApplicationGatewayBackendAddressPoolResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationGatewayBackendAddressPoolResponse
+		return ret
+	}).(ApplicationGatewayBackendAddressPoolResponseOutput)
+}
+
+// Backend addresses.
+func (o ApplicationGatewayBackendAddressPoolResponsePtrOutput) BackendAddresses() ApplicationGatewayBackendAddressResponseArrayOutput {
+	return o.ApplyT(func(v *ApplicationGatewayBackendAddressPoolResponse) []ApplicationGatewayBackendAddressResponse {
+		if v == nil {
+			return nil
+		}
+		return v.BackendAddresses
+	}).(ApplicationGatewayBackendAddressResponseArrayOutput)
+}
+
+// Collection of references to IPs defined in network interfaces.
+func (o ApplicationGatewayBackendAddressPoolResponsePtrOutput) BackendIPConfigurations() NetworkInterfaceIPConfigurationResponseArrayOutput {
+	return o.ApplyT(func(v *ApplicationGatewayBackendAddressPoolResponse) []NetworkInterfaceIPConfigurationResponse {
+		if v == nil {
+			return nil
+		}
+		return v.BackendIPConfigurations
+	}).(NetworkInterfaceIPConfigurationResponseArrayOutput)
+}
+
+// A unique read-only string that changes whenever the resource is updated.
+func (o ApplicationGatewayBackendAddressPoolResponsePtrOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationGatewayBackendAddressPoolResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Etag
+	}).(pulumi.StringPtrOutput)
+}
+
+// Resource ID.
+func (o ApplicationGatewayBackendAddressPoolResponsePtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationGatewayBackendAddressPoolResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of the backend address pool that is unique within an Application Gateway.
+func (o ApplicationGatewayBackendAddressPoolResponsePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationGatewayBackendAddressPoolResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// The provisioning state of the backend address pool resource.
+func (o ApplicationGatewayBackendAddressPoolResponsePtrOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationGatewayBackendAddressPoolResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ProvisioningState
+	}).(pulumi.StringPtrOutput)
+}
+
+// Type of the resource.
+func (o ApplicationGatewayBackendAddressPoolResponsePtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationGatewayBackendAddressPoolResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
 type ApplicationGatewayBackendAddressPoolResponseArrayOutput struct{ *pulumi.OutputState }
 
 func (ApplicationGatewayBackendAddressPoolResponseArrayOutput) ElementType() reflect.Type {
@@ -1299,6 +1393,79 @@ type ApplicationGatewayBackendHealthHttpSettingsResponse struct {
 	Servers []ApplicationGatewayBackendHealthServerResponse `pulumi:"servers"`
 }
 
+// Application gateway BackendHealthHttp settings.
+type ApplicationGatewayBackendHealthHttpSettingsResponseOutput struct{ *pulumi.OutputState }
+
+func (ApplicationGatewayBackendHealthHttpSettingsResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationGatewayBackendHealthHttpSettingsResponse)(nil)).Elem()
+}
+
+func (o ApplicationGatewayBackendHealthHttpSettingsResponseOutput) ToApplicationGatewayBackendHealthHttpSettingsResponseOutput() ApplicationGatewayBackendHealthHttpSettingsResponseOutput {
+	return o
+}
+
+func (o ApplicationGatewayBackendHealthHttpSettingsResponseOutput) ToApplicationGatewayBackendHealthHttpSettingsResponseOutputWithContext(ctx context.Context) ApplicationGatewayBackendHealthHttpSettingsResponseOutput {
+	return o
+}
+
+// Reference to an ApplicationGatewayBackendHttpSettings resource.
+func (o ApplicationGatewayBackendHealthHttpSettingsResponseOutput) BackendHttpSettings() ApplicationGatewayBackendHttpSettingsResponsePtrOutput {
+	return o.ApplyT(func(v ApplicationGatewayBackendHealthHttpSettingsResponse) *ApplicationGatewayBackendHttpSettingsResponse {
+		return v.BackendHttpSettings
+	}).(ApplicationGatewayBackendHttpSettingsResponsePtrOutput)
+}
+
+// List of ApplicationGatewayBackendHealthServer resources.
+func (o ApplicationGatewayBackendHealthHttpSettingsResponseOutput) Servers() ApplicationGatewayBackendHealthServerResponseArrayOutput {
+	return o.ApplyT(func(v ApplicationGatewayBackendHealthHttpSettingsResponse) []ApplicationGatewayBackendHealthServerResponse {
+		return v.Servers
+	}).(ApplicationGatewayBackendHealthServerResponseArrayOutput)
+}
+
+type ApplicationGatewayBackendHealthHttpSettingsResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ApplicationGatewayBackendHealthHttpSettingsResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationGatewayBackendHealthHttpSettingsResponse)(nil)).Elem()
+}
+
+func (o ApplicationGatewayBackendHealthHttpSettingsResponsePtrOutput) ToApplicationGatewayBackendHealthHttpSettingsResponsePtrOutput() ApplicationGatewayBackendHealthHttpSettingsResponsePtrOutput {
+	return o
+}
+
+func (o ApplicationGatewayBackendHealthHttpSettingsResponsePtrOutput) ToApplicationGatewayBackendHealthHttpSettingsResponsePtrOutputWithContext(ctx context.Context) ApplicationGatewayBackendHealthHttpSettingsResponsePtrOutput {
+	return o
+}
+
+func (o ApplicationGatewayBackendHealthHttpSettingsResponsePtrOutput) Elem() ApplicationGatewayBackendHealthHttpSettingsResponseOutput {
+	return o.ApplyT(func(v *ApplicationGatewayBackendHealthHttpSettingsResponse) ApplicationGatewayBackendHealthHttpSettingsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationGatewayBackendHealthHttpSettingsResponse
+		return ret
+	}).(ApplicationGatewayBackendHealthHttpSettingsResponseOutput)
+}
+
+// Reference to an ApplicationGatewayBackendHttpSettings resource.
+func (o ApplicationGatewayBackendHealthHttpSettingsResponsePtrOutput) BackendHttpSettings() ApplicationGatewayBackendHttpSettingsResponsePtrOutput {
+	return o.ApplyT(func(v *ApplicationGatewayBackendHealthHttpSettingsResponse) *ApplicationGatewayBackendHttpSettingsResponse {
+		if v == nil {
+			return nil
+		}
+		return v.BackendHttpSettings
+	}).(ApplicationGatewayBackendHttpSettingsResponsePtrOutput)
+}
+
+// List of ApplicationGatewayBackendHealthServer resources.
+func (o ApplicationGatewayBackendHealthHttpSettingsResponsePtrOutput) Servers() ApplicationGatewayBackendHealthServerResponseArrayOutput {
+	return o.ApplyT(func(v *ApplicationGatewayBackendHealthHttpSettingsResponse) []ApplicationGatewayBackendHealthServerResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Servers
+	}).(ApplicationGatewayBackendHealthServerResponseArrayOutput)
+}
+
 // Application gateway backendhealth http settings.
 type ApplicationGatewayBackendHealthServerResponse struct {
 	// IP address or FQDN of backend server.
@@ -1309,6 +1476,63 @@ type ApplicationGatewayBackendHealthServerResponse struct {
 	HealthProbeLog *string `pulumi:"healthProbeLog"`
 	// Reference to IP configuration of backend server.
 	IpConfiguration *NetworkInterfaceIPConfigurationResponse `pulumi:"ipConfiguration"`
+}
+
+// Application gateway backendhealth http settings.
+type ApplicationGatewayBackendHealthServerResponseOutput struct{ *pulumi.OutputState }
+
+func (ApplicationGatewayBackendHealthServerResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationGatewayBackendHealthServerResponse)(nil)).Elem()
+}
+
+func (o ApplicationGatewayBackendHealthServerResponseOutput) ToApplicationGatewayBackendHealthServerResponseOutput() ApplicationGatewayBackendHealthServerResponseOutput {
+	return o
+}
+
+func (o ApplicationGatewayBackendHealthServerResponseOutput) ToApplicationGatewayBackendHealthServerResponseOutputWithContext(ctx context.Context) ApplicationGatewayBackendHealthServerResponseOutput {
+	return o
+}
+
+// IP address or FQDN of backend server.
+func (o ApplicationGatewayBackendHealthServerResponseOutput) Address() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationGatewayBackendHealthServerResponse) *string { return v.Address }).(pulumi.StringPtrOutput)
+}
+
+// Health of backend server.
+func (o ApplicationGatewayBackendHealthServerResponseOutput) Health() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationGatewayBackendHealthServerResponse) *string { return v.Health }).(pulumi.StringPtrOutput)
+}
+
+// Health Probe Log.
+func (o ApplicationGatewayBackendHealthServerResponseOutput) HealthProbeLog() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationGatewayBackendHealthServerResponse) *string { return v.HealthProbeLog }).(pulumi.StringPtrOutput)
+}
+
+// Reference to IP configuration of backend server.
+func (o ApplicationGatewayBackendHealthServerResponseOutput) IpConfiguration() NetworkInterfaceIPConfigurationResponsePtrOutput {
+	return o.ApplyT(func(v ApplicationGatewayBackendHealthServerResponse) *NetworkInterfaceIPConfigurationResponse {
+		return v.IpConfiguration
+	}).(NetworkInterfaceIPConfigurationResponsePtrOutput)
+}
+
+type ApplicationGatewayBackendHealthServerResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ApplicationGatewayBackendHealthServerResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApplicationGatewayBackendHealthServerResponse)(nil)).Elem()
+}
+
+func (o ApplicationGatewayBackendHealthServerResponseArrayOutput) ToApplicationGatewayBackendHealthServerResponseArrayOutput() ApplicationGatewayBackendHealthServerResponseArrayOutput {
+	return o
+}
+
+func (o ApplicationGatewayBackendHealthServerResponseArrayOutput) ToApplicationGatewayBackendHealthServerResponseArrayOutputWithContext(ctx context.Context) ApplicationGatewayBackendHealthServerResponseArrayOutput {
+	return o
+}
+
+func (o ApplicationGatewayBackendHealthServerResponseArrayOutput) Index(i pulumi.IntInput) ApplicationGatewayBackendHealthServerResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApplicationGatewayBackendHealthServerResponse {
+		return vs[0].([]ApplicationGatewayBackendHealthServerResponse)[vs[1].(int)]
+	}).(ApplicationGatewayBackendHealthServerResponseOutput)
 }
 
 // Backend address pool settings of an application gateway.
@@ -1688,6 +1912,210 @@ func (o ApplicationGatewayBackendHttpSettingsResponseOutput) TrustedRootCertific
 // Type of the resource.
 func (o ApplicationGatewayBackendHttpSettingsResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationGatewayBackendHttpSettingsResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type ApplicationGatewayBackendHttpSettingsResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ApplicationGatewayBackendHttpSettingsResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationGatewayBackendHttpSettingsResponse)(nil)).Elem()
+}
+
+func (o ApplicationGatewayBackendHttpSettingsResponsePtrOutput) ToApplicationGatewayBackendHttpSettingsResponsePtrOutput() ApplicationGatewayBackendHttpSettingsResponsePtrOutput {
+	return o
+}
+
+func (o ApplicationGatewayBackendHttpSettingsResponsePtrOutput) ToApplicationGatewayBackendHttpSettingsResponsePtrOutputWithContext(ctx context.Context) ApplicationGatewayBackendHttpSettingsResponsePtrOutput {
+	return o
+}
+
+func (o ApplicationGatewayBackendHttpSettingsResponsePtrOutput) Elem() ApplicationGatewayBackendHttpSettingsResponseOutput {
+	return o.ApplyT(func(v *ApplicationGatewayBackendHttpSettingsResponse) ApplicationGatewayBackendHttpSettingsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationGatewayBackendHttpSettingsResponse
+		return ret
+	}).(ApplicationGatewayBackendHttpSettingsResponseOutput)
+}
+
+// Cookie name to use for the affinity cookie.
+func (o ApplicationGatewayBackendHttpSettingsResponsePtrOutput) AffinityCookieName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationGatewayBackendHttpSettingsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AffinityCookieName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Array of references to application gateway authentication certificates.
+func (o ApplicationGatewayBackendHttpSettingsResponsePtrOutput) AuthenticationCertificates() SubResourceResponseArrayOutput {
+	return o.ApplyT(func(v *ApplicationGatewayBackendHttpSettingsResponse) []SubResourceResponse {
+		if v == nil {
+			return nil
+		}
+		return v.AuthenticationCertificates
+	}).(SubResourceResponseArrayOutput)
+}
+
+// Connection draining of the backend http settings resource.
+func (o ApplicationGatewayBackendHttpSettingsResponsePtrOutput) ConnectionDraining() ApplicationGatewayConnectionDrainingResponsePtrOutput {
+	return o.ApplyT(func(v *ApplicationGatewayBackendHttpSettingsResponse) *ApplicationGatewayConnectionDrainingResponse {
+		if v == nil {
+			return nil
+		}
+		return v.ConnectionDraining
+	}).(ApplicationGatewayConnectionDrainingResponsePtrOutput)
+}
+
+// Cookie based affinity.
+func (o ApplicationGatewayBackendHttpSettingsResponsePtrOutput) CookieBasedAffinity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationGatewayBackendHttpSettingsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CookieBasedAffinity
+	}).(pulumi.StringPtrOutput)
+}
+
+// A unique read-only string that changes whenever the resource is updated.
+func (o ApplicationGatewayBackendHttpSettingsResponsePtrOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationGatewayBackendHttpSettingsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Etag
+	}).(pulumi.StringPtrOutput)
+}
+
+// Host header to be sent to the backend servers.
+func (o ApplicationGatewayBackendHttpSettingsResponsePtrOutput) HostName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationGatewayBackendHttpSettingsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HostName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Resource ID.
+func (o ApplicationGatewayBackendHttpSettingsResponsePtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationGatewayBackendHttpSettingsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of the backend http settings that is unique within an Application Gateway.
+func (o ApplicationGatewayBackendHttpSettingsResponsePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationGatewayBackendHttpSettingsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// Path which should be used as a prefix for all HTTP requests. Null means no path will be prefixed. Default value is null.
+func (o ApplicationGatewayBackendHttpSettingsResponsePtrOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationGatewayBackendHttpSettingsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Path
+	}).(pulumi.StringPtrOutput)
+}
+
+// Whether to pick host header should be picked from the host name of the backend server. Default value is false.
+func (o ApplicationGatewayBackendHttpSettingsResponsePtrOutput) PickHostNameFromBackendAddress() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ApplicationGatewayBackendHttpSettingsResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.PickHostNameFromBackendAddress
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The destination port on the backend.
+func (o ApplicationGatewayBackendHttpSettingsResponsePtrOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ApplicationGatewayBackendHttpSettingsResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Port
+	}).(pulumi.IntPtrOutput)
+}
+
+// Probe resource of an application gateway.
+func (o ApplicationGatewayBackendHttpSettingsResponsePtrOutput) Probe() SubResourceResponsePtrOutput {
+	return o.ApplyT(func(v *ApplicationGatewayBackendHttpSettingsResponse) *SubResourceResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Probe
+	}).(SubResourceResponsePtrOutput)
+}
+
+// Whether the probe is enabled. Default value is false.
+func (o ApplicationGatewayBackendHttpSettingsResponsePtrOutput) ProbeEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ApplicationGatewayBackendHttpSettingsResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ProbeEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The protocol used to communicate with the backend.
+func (o ApplicationGatewayBackendHttpSettingsResponsePtrOutput) Protocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationGatewayBackendHttpSettingsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Protocol
+	}).(pulumi.StringPtrOutput)
+}
+
+// The provisioning state of the backend HTTP settings resource.
+func (o ApplicationGatewayBackendHttpSettingsResponsePtrOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationGatewayBackendHttpSettingsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ProvisioningState
+	}).(pulumi.StringPtrOutput)
+}
+
+// Request timeout in seconds. Application Gateway will fail the request if response is not received within RequestTimeout. Acceptable values are from 1 second to 86400 seconds.
+func (o ApplicationGatewayBackendHttpSettingsResponsePtrOutput) RequestTimeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ApplicationGatewayBackendHttpSettingsResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.RequestTimeout
+	}).(pulumi.IntPtrOutput)
+}
+
+// Array of references to application gateway trusted root certificates.
+func (o ApplicationGatewayBackendHttpSettingsResponsePtrOutput) TrustedRootCertificates() SubResourceResponseArrayOutput {
+	return o.ApplyT(func(v *ApplicationGatewayBackendHttpSettingsResponse) []SubResourceResponse {
+		if v == nil {
+			return nil
+		}
+		return v.TrustedRootCertificates
+	}).(SubResourceResponseArrayOutput)
+}
+
+// Type of the resource.
+func (o ApplicationGatewayBackendHttpSettingsResponsePtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationGatewayBackendHttpSettingsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
 }
 
 type ApplicationGatewayBackendHttpSettingsResponseArrayOutput struct{ *pulumi.OutputState }
@@ -11697,6 +12125,96 @@ type BastionActiveSessionResponse struct {
 	UserName string `pulumi:"userName"`
 }
 
+// The session detail for a target.
+type BastionActiveSessionResponseOutput struct{ *pulumi.OutputState }
+
+func (BastionActiveSessionResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BastionActiveSessionResponse)(nil)).Elem()
+}
+
+func (o BastionActiveSessionResponseOutput) ToBastionActiveSessionResponseOutput() BastionActiveSessionResponseOutput {
+	return o
+}
+
+func (o BastionActiveSessionResponseOutput) ToBastionActiveSessionResponseOutputWithContext(ctx context.Context) BastionActiveSessionResponseOutput {
+	return o
+}
+
+// The protocol used to connect to the target.
+func (o BastionActiveSessionResponseOutput) Protocol() pulumi.StringOutput {
+	return o.ApplyT(func(v BastionActiveSessionResponse) string { return v.Protocol }).(pulumi.StringOutput)
+}
+
+// The type of the resource.
+func (o BastionActiveSessionResponseOutput) ResourceType() pulumi.StringOutput {
+	return o.ApplyT(func(v BastionActiveSessionResponse) string { return v.ResourceType }).(pulumi.StringOutput)
+}
+
+// Duration in mins the session has been active.
+func (o BastionActiveSessionResponseOutput) SessionDurationInMins() pulumi.Float64Output {
+	return o.ApplyT(func(v BastionActiveSessionResponse) float64 { return v.SessionDurationInMins }).(pulumi.Float64Output)
+}
+
+// A unique id for the session.
+func (o BastionActiveSessionResponseOutput) SessionId() pulumi.StringOutput {
+	return o.ApplyT(func(v BastionActiveSessionResponse) string { return v.SessionId }).(pulumi.StringOutput)
+}
+
+// The time when the session started.
+func (o BastionActiveSessionResponseOutput) StartTime() pulumi.AnyOutput {
+	return o.ApplyT(func(v BastionActiveSessionResponse) interface{} { return v.StartTime }).(pulumi.AnyOutput)
+}
+
+// The host name of the target.
+func (o BastionActiveSessionResponseOutput) TargetHostName() pulumi.StringOutput {
+	return o.ApplyT(func(v BastionActiveSessionResponse) string { return v.TargetHostName }).(pulumi.StringOutput)
+}
+
+// The IP Address of the target.
+func (o BastionActiveSessionResponseOutput) TargetIpAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v BastionActiveSessionResponse) string { return v.TargetIpAddress }).(pulumi.StringOutput)
+}
+
+// The resource group of the target.
+func (o BastionActiveSessionResponseOutput) TargetResourceGroup() pulumi.StringOutput {
+	return o.ApplyT(func(v BastionActiveSessionResponse) string { return v.TargetResourceGroup }).(pulumi.StringOutput)
+}
+
+// The resource id of the target.
+func (o BastionActiveSessionResponseOutput) TargetResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v BastionActiveSessionResponse) string { return v.TargetResourceId }).(pulumi.StringOutput)
+}
+
+// The subscription id for the target virtual machine.
+func (o BastionActiveSessionResponseOutput) TargetSubscriptionId() pulumi.StringOutput {
+	return o.ApplyT(func(v BastionActiveSessionResponse) string { return v.TargetSubscriptionId }).(pulumi.StringOutput)
+}
+
+// The user name who is active on this session.
+func (o BastionActiveSessionResponseOutput) UserName() pulumi.StringOutput {
+	return o.ApplyT(func(v BastionActiveSessionResponse) string { return v.UserName }).(pulumi.StringOutput)
+}
+
+type BastionActiveSessionResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (BastionActiveSessionResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BastionActiveSessionResponse)(nil)).Elem()
+}
+
+func (o BastionActiveSessionResponseArrayOutput) ToBastionActiveSessionResponseArrayOutput() BastionActiveSessionResponseArrayOutput {
+	return o
+}
+
+func (o BastionActiveSessionResponseArrayOutput) ToBastionActiveSessionResponseArrayOutputWithContext(ctx context.Context) BastionActiveSessionResponseArrayOutput {
+	return o
+}
+
+func (o BastionActiveSessionResponseArrayOutput) Index(i pulumi.IntInput) BastionActiveSessionResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BastionActiveSessionResponse {
+		return vs[0].([]BastionActiveSessionResponse)[vs[1].(int)]
+	}).(BastionActiveSessionResponseOutput)
+}
+
 // IP configuration of an Bastion Host.
 type BastionHostIPConfiguration struct {
 	// Resource ID.
@@ -11934,6 +12452,100 @@ type BastionShareableLink struct {
 	Vm VM `pulumi:"vm"`
 }
 
+// BastionShareableLinkInput is an input type that accepts BastionShareableLinkArgs and BastionShareableLinkOutput values.
+// You can construct a concrete instance of `BastionShareableLinkInput` via:
+//
+//          BastionShareableLinkArgs{...}
+type BastionShareableLinkInput interface {
+	pulumi.Input
+
+	ToBastionShareableLinkOutput() BastionShareableLinkOutput
+	ToBastionShareableLinkOutputWithContext(context.Context) BastionShareableLinkOutput
+}
+
+// Bastion Shareable Link.
+type BastionShareableLinkArgs struct {
+	// Reference of the virtual machine resource.
+	Vm VMInput `pulumi:"vm"`
+}
+
+func (BastionShareableLinkArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BastionShareableLink)(nil)).Elem()
+}
+
+func (i BastionShareableLinkArgs) ToBastionShareableLinkOutput() BastionShareableLinkOutput {
+	return i.ToBastionShareableLinkOutputWithContext(context.Background())
+}
+
+func (i BastionShareableLinkArgs) ToBastionShareableLinkOutputWithContext(ctx context.Context) BastionShareableLinkOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BastionShareableLinkOutput)
+}
+
+// BastionShareableLinkArrayInput is an input type that accepts BastionShareableLinkArray and BastionShareableLinkArrayOutput values.
+// You can construct a concrete instance of `BastionShareableLinkArrayInput` via:
+//
+//          BastionShareableLinkArray{ BastionShareableLinkArgs{...} }
+type BastionShareableLinkArrayInput interface {
+	pulumi.Input
+
+	ToBastionShareableLinkArrayOutput() BastionShareableLinkArrayOutput
+	ToBastionShareableLinkArrayOutputWithContext(context.Context) BastionShareableLinkArrayOutput
+}
+
+type BastionShareableLinkArray []BastionShareableLinkInput
+
+func (BastionShareableLinkArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BastionShareableLink)(nil)).Elem()
+}
+
+func (i BastionShareableLinkArray) ToBastionShareableLinkArrayOutput() BastionShareableLinkArrayOutput {
+	return i.ToBastionShareableLinkArrayOutputWithContext(context.Background())
+}
+
+func (i BastionShareableLinkArray) ToBastionShareableLinkArrayOutputWithContext(ctx context.Context) BastionShareableLinkArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BastionShareableLinkArrayOutput)
+}
+
+// Bastion Shareable Link.
+type BastionShareableLinkOutput struct{ *pulumi.OutputState }
+
+func (BastionShareableLinkOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BastionShareableLink)(nil)).Elem()
+}
+
+func (o BastionShareableLinkOutput) ToBastionShareableLinkOutput() BastionShareableLinkOutput {
+	return o
+}
+
+func (o BastionShareableLinkOutput) ToBastionShareableLinkOutputWithContext(ctx context.Context) BastionShareableLinkOutput {
+	return o
+}
+
+// Reference of the virtual machine resource.
+func (o BastionShareableLinkOutput) Vm() VMOutput {
+	return o.ApplyT(func(v BastionShareableLink) VM { return v.Vm }).(VMOutput)
+}
+
+type BastionShareableLinkArrayOutput struct{ *pulumi.OutputState }
+
+func (BastionShareableLinkArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BastionShareableLink)(nil)).Elem()
+}
+
+func (o BastionShareableLinkArrayOutput) ToBastionShareableLinkArrayOutput() BastionShareableLinkArrayOutput {
+	return o
+}
+
+func (o BastionShareableLinkArrayOutput) ToBastionShareableLinkArrayOutputWithContext(ctx context.Context) BastionShareableLinkArrayOutput {
+	return o
+}
+
+func (o BastionShareableLinkArrayOutput) Index(i pulumi.IntInput) BastionShareableLinkOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BastionShareableLink {
+		return vs[0].([]BastionShareableLink)[vs[1].(int)]
+	}).(BastionShareableLinkOutput)
+}
+
 // Bastion Shareable Link.
 type BastionShareableLinkResponse struct {
 	// The unique Bastion Shareable Link to the virtual machine.
@@ -11944,6 +12556,61 @@ type BastionShareableLinkResponse struct {
 	Message string `pulumi:"message"`
 	// Reference of the virtual machine resource.
 	Vm VMResponse `pulumi:"vm"`
+}
+
+// Bastion Shareable Link.
+type BastionShareableLinkResponseOutput struct{ *pulumi.OutputState }
+
+func (BastionShareableLinkResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BastionShareableLinkResponse)(nil)).Elem()
+}
+
+func (o BastionShareableLinkResponseOutput) ToBastionShareableLinkResponseOutput() BastionShareableLinkResponseOutput {
+	return o
+}
+
+func (o BastionShareableLinkResponseOutput) ToBastionShareableLinkResponseOutputWithContext(ctx context.Context) BastionShareableLinkResponseOutput {
+	return o
+}
+
+// The unique Bastion Shareable Link to the virtual machine.
+func (o BastionShareableLinkResponseOutput) Bsl() pulumi.StringOutput {
+	return o.ApplyT(func(v BastionShareableLinkResponse) string { return v.Bsl }).(pulumi.StringOutput)
+}
+
+// The time when the link was created.
+func (o BastionShareableLinkResponseOutput) CreatedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v BastionShareableLinkResponse) string { return v.CreatedAt }).(pulumi.StringOutput)
+}
+
+// Optional field indicating the warning or error message related to the vm in case of partial failure.
+func (o BastionShareableLinkResponseOutput) Message() pulumi.StringOutput {
+	return o.ApplyT(func(v BastionShareableLinkResponse) string { return v.Message }).(pulumi.StringOutput)
+}
+
+// Reference of the virtual machine resource.
+func (o BastionShareableLinkResponseOutput) Vm() VMResponseOutput {
+	return o.ApplyT(func(v BastionShareableLinkResponse) VMResponse { return v.Vm }).(VMResponseOutput)
+}
+
+type BastionShareableLinkResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (BastionShareableLinkResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BastionShareableLinkResponse)(nil)).Elem()
+}
+
+func (o BastionShareableLinkResponseArrayOutput) ToBastionShareableLinkResponseArrayOutput() BastionShareableLinkResponseArrayOutput {
+	return o
+}
+
+func (o BastionShareableLinkResponseArrayOutput) ToBastionShareableLinkResponseArrayOutputWithContext(ctx context.Context) BastionShareableLinkResponseArrayOutput {
+	return o
+}
+
+func (o BastionShareableLinkResponseArrayOutput) Index(i pulumi.IntInput) BastionShareableLinkResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BastionShareableLinkResponse {
+		return vs[0].([]BastionShareableLinkResponse)[vs[1].(int)]
+	}).(BastionShareableLinkResponseOutput)
 }
 
 // BGP peer status details.
@@ -11964,6 +12631,81 @@ type BgpPeerStatusResponse struct {
 	RoutesReceived float64 `pulumi:"routesReceived"`
 	// The BGP peer state.
 	State string `pulumi:"state"`
+}
+
+// BGP peer status details.
+type BgpPeerStatusResponseOutput struct{ *pulumi.OutputState }
+
+func (BgpPeerStatusResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BgpPeerStatusResponse)(nil)).Elem()
+}
+
+func (o BgpPeerStatusResponseOutput) ToBgpPeerStatusResponseOutput() BgpPeerStatusResponseOutput {
+	return o
+}
+
+func (o BgpPeerStatusResponseOutput) ToBgpPeerStatusResponseOutputWithContext(ctx context.Context) BgpPeerStatusResponseOutput {
+	return o
+}
+
+// The autonomous system number of the remote BGP peer.
+func (o BgpPeerStatusResponseOutput) Asn() pulumi.IntOutput {
+	return o.ApplyT(func(v BgpPeerStatusResponse) int { return v.Asn }).(pulumi.IntOutput)
+}
+
+// For how long the peering has been up.
+func (o BgpPeerStatusResponseOutput) ConnectedDuration() pulumi.StringOutput {
+	return o.ApplyT(func(v BgpPeerStatusResponse) string { return v.ConnectedDuration }).(pulumi.StringOutput)
+}
+
+// The virtual network gateway's local address.
+func (o BgpPeerStatusResponseOutput) LocalAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v BgpPeerStatusResponse) string { return v.LocalAddress }).(pulumi.StringOutput)
+}
+
+// The number of BGP messages received.
+func (o BgpPeerStatusResponseOutput) MessagesReceived() pulumi.Float64Output {
+	return o.ApplyT(func(v BgpPeerStatusResponse) float64 { return v.MessagesReceived }).(pulumi.Float64Output)
+}
+
+// The number of BGP messages sent.
+func (o BgpPeerStatusResponseOutput) MessagesSent() pulumi.Float64Output {
+	return o.ApplyT(func(v BgpPeerStatusResponse) float64 { return v.MessagesSent }).(pulumi.Float64Output)
+}
+
+// The remote BGP peer.
+func (o BgpPeerStatusResponseOutput) Neighbor() pulumi.StringOutput {
+	return o.ApplyT(func(v BgpPeerStatusResponse) string { return v.Neighbor }).(pulumi.StringOutput)
+}
+
+// The number of routes learned from this peer.
+func (o BgpPeerStatusResponseOutput) RoutesReceived() pulumi.Float64Output {
+	return o.ApplyT(func(v BgpPeerStatusResponse) float64 { return v.RoutesReceived }).(pulumi.Float64Output)
+}
+
+// The BGP peer state.
+func (o BgpPeerStatusResponseOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v BgpPeerStatusResponse) string { return v.State }).(pulumi.StringOutput)
+}
+
+type BgpPeerStatusResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (BgpPeerStatusResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BgpPeerStatusResponse)(nil)).Elem()
+}
+
+func (o BgpPeerStatusResponseArrayOutput) ToBgpPeerStatusResponseArrayOutput() BgpPeerStatusResponseArrayOutput {
+	return o
+}
+
+func (o BgpPeerStatusResponseArrayOutput) ToBgpPeerStatusResponseArrayOutputWithContext(ctx context.Context) BgpPeerStatusResponseArrayOutput {
+	return o
+}
+
+func (o BgpPeerStatusResponseArrayOutput) Index(i pulumi.IntInput) BgpPeerStatusResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BgpPeerStatusResponse {
+		return vs[0].([]BgpPeerStatusResponse)[vs[1].(int)]
+	}).(BgpPeerStatusResponseOutput)
 }
 
 // BGP settings details.
@@ -21238,6 +21980,76 @@ type GatewayRouteResponse struct {
 	SourcePeer string `pulumi:"sourcePeer"`
 	// The route's weight.
 	Weight int `pulumi:"weight"`
+}
+
+// Gateway routing details.
+type GatewayRouteResponseOutput struct{ *pulumi.OutputState }
+
+func (GatewayRouteResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayRouteResponse)(nil)).Elem()
+}
+
+func (o GatewayRouteResponseOutput) ToGatewayRouteResponseOutput() GatewayRouteResponseOutput {
+	return o
+}
+
+func (o GatewayRouteResponseOutput) ToGatewayRouteResponseOutputWithContext(ctx context.Context) GatewayRouteResponseOutput {
+	return o
+}
+
+// The route's AS path sequence.
+func (o GatewayRouteResponseOutput) AsPath() pulumi.StringOutput {
+	return o.ApplyT(func(v GatewayRouteResponse) string { return v.AsPath }).(pulumi.StringOutput)
+}
+
+// The gateway's local address.
+func (o GatewayRouteResponseOutput) LocalAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v GatewayRouteResponse) string { return v.LocalAddress }).(pulumi.StringOutput)
+}
+
+// The route's network prefix.
+func (o GatewayRouteResponseOutput) Network() pulumi.StringOutput {
+	return o.ApplyT(func(v GatewayRouteResponse) string { return v.Network }).(pulumi.StringOutput)
+}
+
+// The route's next hop.
+func (o GatewayRouteResponseOutput) NextHop() pulumi.StringOutput {
+	return o.ApplyT(func(v GatewayRouteResponse) string { return v.NextHop }).(pulumi.StringOutput)
+}
+
+// The source this route was learned from.
+func (o GatewayRouteResponseOutput) Origin() pulumi.StringOutput {
+	return o.ApplyT(func(v GatewayRouteResponse) string { return v.Origin }).(pulumi.StringOutput)
+}
+
+// The peer this route was learned from.
+func (o GatewayRouteResponseOutput) SourcePeer() pulumi.StringOutput {
+	return o.ApplyT(func(v GatewayRouteResponse) string { return v.SourcePeer }).(pulumi.StringOutput)
+}
+
+// The route's weight.
+func (o GatewayRouteResponseOutput) Weight() pulumi.IntOutput {
+	return o.ApplyT(func(v GatewayRouteResponse) int { return v.Weight }).(pulumi.IntOutput)
+}
+
+type GatewayRouteResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (GatewayRouteResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GatewayRouteResponse)(nil)).Elem()
+}
+
+func (o GatewayRouteResponseArrayOutput) ToGatewayRouteResponseArrayOutput() GatewayRouteResponseArrayOutput {
+	return o
+}
+
+func (o GatewayRouteResponseArrayOutput) ToGatewayRouteResponseArrayOutputWithContext(ctx context.Context) GatewayRouteResponseArrayOutput {
+	return o
+}
+
+func (o GatewayRouteResponseArrayOutput) Index(i pulumi.IntInput) GatewayRouteResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GatewayRouteResponse {
+		return vs[0].([]GatewayRouteResponse)[vs[1].(int)]
+	}).(GatewayRouteResponseOutput)
 }
 
 // The HTTP header.
@@ -37528,6 +38340,69 @@ type VM struct {
 	Tags map[string]string `pulumi:"tags"`
 }
 
+// VMInput is an input type that accepts VMArgs and VMOutput values.
+// You can construct a concrete instance of `VMInput` via:
+//
+//          VMArgs{...}
+type VMInput interface {
+	pulumi.Input
+
+	ToVMOutput() VMOutput
+	ToVMOutputWithContext(context.Context) VMOutput
+}
+
+// Describes a Virtual Machine.
+type VMArgs struct {
+	// Resource ID.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Resource location.
+	Location pulumi.StringPtrInput `pulumi:"location"`
+	// Resource tags.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+}
+
+func (VMArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VM)(nil)).Elem()
+}
+
+func (i VMArgs) ToVMOutput() VMOutput {
+	return i.ToVMOutputWithContext(context.Background())
+}
+
+func (i VMArgs) ToVMOutputWithContext(ctx context.Context) VMOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VMOutput)
+}
+
+// Describes a Virtual Machine.
+type VMOutput struct{ *pulumi.OutputState }
+
+func (VMOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VM)(nil)).Elem()
+}
+
+func (o VMOutput) ToVMOutput() VMOutput {
+	return o
+}
+
+func (o VMOutput) ToVMOutputWithContext(ctx context.Context) VMOutput {
+	return o
+}
+
+// Resource ID.
+func (o VMOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VM) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// Resource location.
+func (o VMOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VM) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Resource tags.
+func (o VMOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v VM) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
 // Describes a Virtual Machine.
 type VMResponse struct {
 	// Resource ID.
@@ -37540,6 +38415,46 @@ type VMResponse struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.
 	Type string `pulumi:"type"`
+}
+
+// Describes a Virtual Machine.
+type VMResponseOutput struct{ *pulumi.OutputState }
+
+func (VMResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VMResponse)(nil)).Elem()
+}
+
+func (o VMResponseOutput) ToVMResponseOutput() VMResponseOutput {
+	return o
+}
+
+func (o VMResponseOutput) ToVMResponseOutputWithContext(ctx context.Context) VMResponseOutput {
+	return o
+}
+
+// Resource ID.
+func (o VMResponseOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VMResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// Resource location.
+func (o VMResponseOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VMResponse) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Resource name.
+func (o VMResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v VMResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Resource tags.
+func (o VMResponseOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v VMResponse) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type.
+func (o VMResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v VMResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // Network Virtual Appliance NIC properties.
@@ -41665,6 +42580,101 @@ type VpnClientConnectionHealthDetailResponse struct {
 	VpnUserName string `pulumi:"vpnUserName"`
 }
 
+// VPN client connection health detail.
+type VpnClientConnectionHealthDetailResponseOutput struct{ *pulumi.OutputState }
+
+func (VpnClientConnectionHealthDetailResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpnClientConnectionHealthDetailResponse)(nil)).Elem()
+}
+
+func (o VpnClientConnectionHealthDetailResponseOutput) ToVpnClientConnectionHealthDetailResponseOutput() VpnClientConnectionHealthDetailResponseOutput {
+	return o
+}
+
+func (o VpnClientConnectionHealthDetailResponseOutput) ToVpnClientConnectionHealthDetailResponseOutputWithContext(ctx context.Context) VpnClientConnectionHealthDetailResponseOutput {
+	return o
+}
+
+// The egress bytes per second.
+func (o VpnClientConnectionHealthDetailResponseOutput) EgressBytesTransferred() pulumi.Float64Output {
+	return o.ApplyT(func(v VpnClientConnectionHealthDetailResponse) float64 { return v.EgressBytesTransferred }).(pulumi.Float64Output)
+}
+
+// The egress packets per second.
+func (o VpnClientConnectionHealthDetailResponseOutput) EgressPacketsTransferred() pulumi.Float64Output {
+	return o.ApplyT(func(v VpnClientConnectionHealthDetailResponse) float64 { return v.EgressPacketsTransferred }).(pulumi.Float64Output)
+}
+
+// The ingress bytes per second.
+func (o VpnClientConnectionHealthDetailResponseOutput) IngressBytesTransferred() pulumi.Float64Output {
+	return o.ApplyT(func(v VpnClientConnectionHealthDetailResponse) float64 { return v.IngressBytesTransferred }).(pulumi.Float64Output)
+}
+
+// The ingress packets per second.
+func (o VpnClientConnectionHealthDetailResponseOutput) IngressPacketsTransferred() pulumi.Float64Output {
+	return o.ApplyT(func(v VpnClientConnectionHealthDetailResponse) float64 { return v.IngressPacketsTransferred }).(pulumi.Float64Output)
+}
+
+// The max band width.
+func (o VpnClientConnectionHealthDetailResponseOutput) MaxBandwidth() pulumi.Float64Output {
+	return o.ApplyT(func(v VpnClientConnectionHealthDetailResponse) float64 { return v.MaxBandwidth }).(pulumi.Float64Output)
+}
+
+// The max packets transferred per second.
+func (o VpnClientConnectionHealthDetailResponseOutput) MaxPacketsPerSecond() pulumi.Float64Output {
+	return o.ApplyT(func(v VpnClientConnectionHealthDetailResponse) float64 { return v.MaxPacketsPerSecond }).(pulumi.Float64Output)
+}
+
+// The assigned private Ip of a connected vpn client.
+func (o VpnClientConnectionHealthDetailResponseOutput) PrivateIpAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v VpnClientConnectionHealthDetailResponse) string { return v.PrivateIpAddress }).(pulumi.StringOutput)
+}
+
+// The public Ip of a connected vpn client.
+func (o VpnClientConnectionHealthDetailResponseOutput) PublicIpAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v VpnClientConnectionHealthDetailResponse) string { return v.PublicIpAddress }).(pulumi.StringOutput)
+}
+
+// The duration time of a connected vpn client.
+func (o VpnClientConnectionHealthDetailResponseOutput) VpnConnectionDuration() pulumi.Float64Output {
+	return o.ApplyT(func(v VpnClientConnectionHealthDetailResponse) float64 { return v.VpnConnectionDuration }).(pulumi.Float64Output)
+}
+
+// The vpn client Id.
+func (o VpnClientConnectionHealthDetailResponseOutput) VpnConnectionId() pulumi.StringOutput {
+	return o.ApplyT(func(v VpnClientConnectionHealthDetailResponse) string { return v.VpnConnectionId }).(pulumi.StringOutput)
+}
+
+// The start time of a connected vpn client.
+func (o VpnClientConnectionHealthDetailResponseOutput) VpnConnectionTime() pulumi.StringOutput {
+	return o.ApplyT(func(v VpnClientConnectionHealthDetailResponse) string { return v.VpnConnectionTime }).(pulumi.StringOutput)
+}
+
+// The user name of a connected vpn client.
+func (o VpnClientConnectionHealthDetailResponseOutput) VpnUserName() pulumi.StringOutput {
+	return o.ApplyT(func(v VpnClientConnectionHealthDetailResponse) string { return v.VpnUserName }).(pulumi.StringOutput)
+}
+
+type VpnClientConnectionHealthDetailResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (VpnClientConnectionHealthDetailResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VpnClientConnectionHealthDetailResponse)(nil)).Elem()
+}
+
+func (o VpnClientConnectionHealthDetailResponseArrayOutput) ToVpnClientConnectionHealthDetailResponseArrayOutput() VpnClientConnectionHealthDetailResponseArrayOutput {
+	return o
+}
+
+func (o VpnClientConnectionHealthDetailResponseArrayOutput) ToVpnClientConnectionHealthDetailResponseArrayOutputWithContext(ctx context.Context) VpnClientConnectionHealthDetailResponseArrayOutput {
+	return o
+}
+
+func (o VpnClientConnectionHealthDetailResponseArrayOutput) Index(i pulumi.IntInput) VpnClientConnectionHealthDetailResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VpnClientConnectionHealthDetailResponse {
+		return vs[0].([]VpnClientConnectionHealthDetailResponse)[vs[1].(int)]
+	}).(VpnClientConnectionHealthDetailResponseOutput)
+}
+
 // VpnClientConnectionHealth properties.
 type VpnClientConnectionHealthResponse struct {
 	// List of allocated ip addresses to the connected p2s vpn clients.
@@ -44455,12 +45465,18 @@ func init() {
 	pulumi.RegisterOutputType(ApplicationGatewayBackendAddressPoolOutput{})
 	pulumi.RegisterOutputType(ApplicationGatewayBackendAddressPoolArrayOutput{})
 	pulumi.RegisterOutputType(ApplicationGatewayBackendAddressPoolResponseOutput{})
+	pulumi.RegisterOutputType(ApplicationGatewayBackendAddressPoolResponsePtrOutput{})
 	pulumi.RegisterOutputType(ApplicationGatewayBackendAddressPoolResponseArrayOutput{})
 	pulumi.RegisterOutputType(ApplicationGatewayBackendAddressResponseOutput{})
 	pulumi.RegisterOutputType(ApplicationGatewayBackendAddressResponseArrayOutput{})
+	pulumi.RegisterOutputType(ApplicationGatewayBackendHealthHttpSettingsResponseOutput{})
+	pulumi.RegisterOutputType(ApplicationGatewayBackendHealthHttpSettingsResponsePtrOutput{})
+	pulumi.RegisterOutputType(ApplicationGatewayBackendHealthServerResponseOutput{})
+	pulumi.RegisterOutputType(ApplicationGatewayBackendHealthServerResponseArrayOutput{})
 	pulumi.RegisterOutputType(ApplicationGatewayBackendHttpSettingsOutput{})
 	pulumi.RegisterOutputType(ApplicationGatewayBackendHttpSettingsArrayOutput{})
 	pulumi.RegisterOutputType(ApplicationGatewayBackendHttpSettingsResponseOutput{})
+	pulumi.RegisterOutputType(ApplicationGatewayBackendHttpSettingsResponsePtrOutput{})
 	pulumi.RegisterOutputType(ApplicationGatewayBackendHttpSettingsResponseArrayOutput{})
 	pulumi.RegisterOutputType(ApplicationGatewayConnectionDrainingOutput{})
 	pulumi.RegisterOutputType(ApplicationGatewayConnectionDrainingPtrOutput{})
@@ -44622,10 +45638,18 @@ func init() {
 	pulumi.RegisterOutputType(BackendAddressPoolArrayOutput{})
 	pulumi.RegisterOutputType(BackendAddressPoolResponseOutput{})
 	pulumi.RegisterOutputType(BackendAddressPoolResponseArrayOutput{})
+	pulumi.RegisterOutputType(BastionActiveSessionResponseOutput{})
+	pulumi.RegisterOutputType(BastionActiveSessionResponseArrayOutput{})
 	pulumi.RegisterOutputType(BastionHostIPConfigurationOutput{})
 	pulumi.RegisterOutputType(BastionHostIPConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(BastionHostIPConfigurationResponseOutput{})
 	pulumi.RegisterOutputType(BastionHostIPConfigurationResponseArrayOutput{})
+	pulumi.RegisterOutputType(BastionShareableLinkOutput{})
+	pulumi.RegisterOutputType(BastionShareableLinkArrayOutput{})
+	pulumi.RegisterOutputType(BastionShareableLinkResponseOutput{})
+	pulumi.RegisterOutputType(BastionShareableLinkResponseArrayOutput{})
+	pulumi.RegisterOutputType(BgpPeerStatusResponseOutput{})
+	pulumi.RegisterOutputType(BgpPeerStatusResponseArrayOutput{})
 	pulumi.RegisterOutputType(BgpSettingsOutput{})
 	pulumi.RegisterOutputType(BgpSettingsPtrOutput{})
 	pulumi.RegisterOutputType(BgpSettingsResponseOutput{})
@@ -44770,6 +45794,8 @@ func init() {
 	pulumi.RegisterOutputType(FrontendIPConfigurationResponseOutput{})
 	pulumi.RegisterOutputType(FrontendIPConfigurationResponsePtrOutput{})
 	pulumi.RegisterOutputType(FrontendIPConfigurationResponseArrayOutput{})
+	pulumi.RegisterOutputType(GatewayRouteResponseOutput{})
+	pulumi.RegisterOutputType(GatewayRouteResponseArrayOutput{})
 	pulumi.RegisterOutputType(HTTPHeaderOutput{})
 	pulumi.RegisterOutputType(HTTPHeaderArrayOutput{})
 	pulumi.RegisterOutputType(HTTPHeaderResponseOutput{})
@@ -45016,6 +46042,8 @@ func init() {
 	pulumi.RegisterOutputType(TrafficSelectorPolicyResponseArrayOutput{})
 	pulumi.RegisterOutputType(TunnelConnectionHealthResponseOutput{})
 	pulumi.RegisterOutputType(TunnelConnectionHealthResponseArrayOutput{})
+	pulumi.RegisterOutputType(VMOutput{})
+	pulumi.RegisterOutputType(VMResponseOutput{})
 	pulumi.RegisterOutputType(VirtualApplianceNicPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(VirtualApplianceNicPropertiesResponseArrayOutput{})
 	pulumi.RegisterOutputType(VirtualApplianceSkuPropertiesOutput{})
@@ -45070,6 +46098,8 @@ func init() {
 	pulumi.RegisterOutputType(VpnClientConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(VpnClientConfigurationResponseOutput{})
 	pulumi.RegisterOutputType(VpnClientConfigurationResponsePtrOutput{})
+	pulumi.RegisterOutputType(VpnClientConnectionHealthDetailResponseOutput{})
+	pulumi.RegisterOutputType(VpnClientConnectionHealthDetailResponseArrayOutput{})
 	pulumi.RegisterOutputType(VpnClientConnectionHealthResponseOutput{})
 	pulumi.RegisterOutputType(VpnClientRevokedCertificateOutput{})
 	pulumi.RegisterOutputType(VpnClientRevokedCertificateArrayOutput{})

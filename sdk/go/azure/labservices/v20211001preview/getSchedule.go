@@ -4,6 +4,9 @@
 package v20211001preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -48,4 +51,95 @@ type LookupScheduleResult struct {
 	TimeZoneId string `pulumi:"timeZoneId"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
+}
+
+func LookupScheduleOutput(ctx *pulumi.Context, args LookupScheduleOutputArgs, opts ...pulumi.InvokeOption) LookupScheduleResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupScheduleResult, error) {
+			args := v.(LookupScheduleArgs)
+			r, err := LookupSchedule(ctx, &args, opts...)
+			return *r, err
+		}).(LookupScheduleResultOutput)
+}
+
+type LookupScheduleOutputArgs struct {
+	// The name of the lab that uniquely identifies it within containing lab account. Used in resource URIs.
+	LabName pulumi.StringInput `pulumi:"labName"`
+	// The name of the resource group. The name is case insensitive.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the schedule that uniquely identifies it within containing lab. Used in resource URIs.
+	ScheduleName pulumi.StringInput `pulumi:"scheduleName"`
+}
+
+func (LookupScheduleOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupScheduleArgs)(nil)).Elem()
+}
+
+// Schedule for automatically turning virtual machines in a lab on and off at specified times.
+type LookupScheduleResultOutput struct{ *pulumi.OutputState }
+
+func (LookupScheduleResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupScheduleResult)(nil)).Elem()
+}
+
+func (o LookupScheduleResultOutput) ToLookupScheduleResultOutput() LookupScheduleResultOutput {
+	return o
+}
+
+func (o LookupScheduleResultOutput) ToLookupScheduleResultOutputWithContext(ctx context.Context) LookupScheduleResultOutput {
+	return o
+}
+
+// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+func (o LookupScheduleResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupScheduleResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o LookupScheduleResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupScheduleResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Notes for this schedule.
+func (o LookupScheduleResultOutput) Notes() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupScheduleResult) *string { return v.Notes }).(pulumi.StringPtrOutput)
+}
+
+// Current provisioning state of the schedule.
+func (o LookupScheduleResultOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupScheduleResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The recurrence pattern of the scheduled actions.
+func (o LookupScheduleResultOutput) RecurrencePattern() RecurrencePatternResponsePtrOutput {
+	return o.ApplyT(func(v LookupScheduleResult) *RecurrencePatternResponse { return v.RecurrencePattern }).(RecurrencePatternResponsePtrOutput)
+}
+
+// When lab user virtual machines will be started. Timestamp offsets will be ignored and timeZoneId is used instead.
+func (o LookupScheduleResultOutput) StartAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupScheduleResult) *string { return v.StartAt }).(pulumi.StringPtrOutput)
+}
+
+// When lab user virtual machines will be stopped. Timestamp offsets will be ignored and timeZoneId is used instead.
+func (o LookupScheduleResultOutput) StopAt() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupScheduleResult) string { return v.StopAt }).(pulumi.StringOutput)
+}
+
+// Metadata pertaining to creation and last modification of the schedule.
+func (o LookupScheduleResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupScheduleResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The IANA timezone id for the schedule.
+func (o LookupScheduleResultOutput) TimeZoneId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupScheduleResult) string { return v.TimeZoneId }).(pulumi.StringOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o LookupScheduleResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupScheduleResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupScheduleResultOutput{})
 }

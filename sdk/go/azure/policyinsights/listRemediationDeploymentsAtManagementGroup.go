@@ -4,6 +4,9 @@
 package policyinsights
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -35,4 +38,59 @@ type ListRemediationDeploymentsAtManagementGroupResult struct {
 	NextLink string `pulumi:"nextLink"`
 	// Array of deployments for the remediation.
 	Value []RemediationDeploymentResponse `pulumi:"value"`
+}
+
+func ListRemediationDeploymentsAtManagementGroupOutput(ctx *pulumi.Context, args ListRemediationDeploymentsAtManagementGroupOutputArgs, opts ...pulumi.InvokeOption) ListRemediationDeploymentsAtManagementGroupResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (ListRemediationDeploymentsAtManagementGroupResult, error) {
+			args := v.(ListRemediationDeploymentsAtManagementGroupArgs)
+			r, err := ListRemediationDeploymentsAtManagementGroup(ctx, &args, opts...)
+			return *r, err
+		}).(ListRemediationDeploymentsAtManagementGroupResultOutput)
+}
+
+type ListRemediationDeploymentsAtManagementGroupOutputArgs struct {
+	// Management group ID.
+	ManagementGroupId pulumi.StringInput `pulumi:"managementGroupId"`
+	// The namespace for Microsoft Management RP; only "Microsoft.Management" is allowed.
+	ManagementGroupsNamespace pulumi.StringInput `pulumi:"managementGroupsNamespace"`
+	// The name of the remediation.
+	RemediationName pulumi.StringInput `pulumi:"remediationName"`
+	// Maximum number of records to return.
+	Top pulumi.IntPtrInput `pulumi:"top"`
+}
+
+func (ListRemediationDeploymentsAtManagementGroupOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListRemediationDeploymentsAtManagementGroupArgs)(nil)).Elem()
+}
+
+// List of deployments for a remediation.
+type ListRemediationDeploymentsAtManagementGroupResultOutput struct{ *pulumi.OutputState }
+
+func (ListRemediationDeploymentsAtManagementGroupResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListRemediationDeploymentsAtManagementGroupResult)(nil)).Elem()
+}
+
+func (o ListRemediationDeploymentsAtManagementGroupResultOutput) ToListRemediationDeploymentsAtManagementGroupResultOutput() ListRemediationDeploymentsAtManagementGroupResultOutput {
+	return o
+}
+
+func (o ListRemediationDeploymentsAtManagementGroupResultOutput) ToListRemediationDeploymentsAtManagementGroupResultOutputWithContext(ctx context.Context) ListRemediationDeploymentsAtManagementGroupResultOutput {
+	return o
+}
+
+// The URL to get the next set of results.
+func (o ListRemediationDeploymentsAtManagementGroupResultOutput) NextLink() pulumi.StringOutput {
+	return o.ApplyT(func(v ListRemediationDeploymentsAtManagementGroupResult) string { return v.NextLink }).(pulumi.StringOutput)
+}
+
+// Array of deployments for the remediation.
+func (o ListRemediationDeploymentsAtManagementGroupResultOutput) Value() RemediationDeploymentResponseArrayOutput {
+	return o.ApplyT(func(v ListRemediationDeploymentsAtManagementGroupResult) []RemediationDeploymentResponse {
+		return v.Value
+	}).(RemediationDeploymentResponseArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(ListRemediationDeploymentsAtManagementGroupResultOutput{})
 }

@@ -4,6 +4,9 @@
 package v20201015preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -78,4 +81,124 @@ func (val *LookupDomainResult) Defaults() *LookupDomainResult {
 	tmp.Sku = tmp.Sku.Defaults()
 
 	return &tmp
+}
+
+func LookupDomainOutput(ctx *pulumi.Context, args LookupDomainOutputArgs, opts ...pulumi.InvokeOption) LookupDomainResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupDomainResult, error) {
+			args := v.(LookupDomainArgs)
+			r, err := LookupDomain(ctx, &args, opts...)
+			return *r, err
+		}).(LookupDomainResultOutput)
+}
+
+type LookupDomainOutputArgs struct {
+	// Name of the domain.
+	DomainName pulumi.StringInput `pulumi:"domainName"`
+	// The name of the resource group within the user's subscription.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupDomainOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupDomainArgs)(nil)).Elem()
+}
+
+// EventGrid Domain.
+type LookupDomainResultOutput struct{ *pulumi.OutputState }
+
+func (LookupDomainResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupDomainResult)(nil)).Elem()
+}
+
+func (o LookupDomainResultOutput) ToLookupDomainResultOutput() LookupDomainResultOutput {
+	return o
+}
+
+func (o LookupDomainResultOutput) ToLookupDomainResultOutputWithContext(ctx context.Context) LookupDomainResultOutput {
+	return o
+}
+
+// Endpoint for the domain.
+func (o LookupDomainResultOutput) Endpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDomainResult) string { return v.Endpoint }).(pulumi.StringOutput)
+}
+
+// Fully qualified identifier of the resource.
+func (o LookupDomainResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDomainResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Identity information for the resource.
+func (o LookupDomainResultOutput) Identity() IdentityInfoResponsePtrOutput {
+	return o.ApplyT(func(v LookupDomainResult) *IdentityInfoResponse { return v.Identity }).(IdentityInfoResponsePtrOutput)
+}
+
+// This can be used to restrict traffic from specific IPs instead of all IPs. Note: These are considered only if PublicNetworkAccess is enabled.
+func (o LookupDomainResultOutput) InboundIpRules() InboundIpRuleResponseArrayOutput {
+	return o.ApplyT(func(v LookupDomainResult) []InboundIpRuleResponse { return v.InboundIpRules }).(InboundIpRuleResponseArrayOutput)
+}
+
+// This determines the format that Event Grid should expect for incoming events published to the domain.
+func (o LookupDomainResultOutput) InputSchema() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDomainResult) *string { return v.InputSchema }).(pulumi.StringPtrOutput)
+}
+
+// Information about the InputSchemaMapping which specified the info about mapping event payload.
+func (o LookupDomainResultOutput) InputSchemaMapping() JsonInputSchemaMappingResponsePtrOutput {
+	return o.ApplyT(func(v LookupDomainResult) *JsonInputSchemaMappingResponse { return v.InputSchemaMapping }).(JsonInputSchemaMappingResponsePtrOutput)
+}
+
+// Location of the resource.
+func (o LookupDomainResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDomainResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// Metric resource id for the domain.
+func (o LookupDomainResultOutput) MetricResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDomainResult) string { return v.MetricResourceId }).(pulumi.StringOutput)
+}
+
+// Name of the resource.
+func (o LookupDomainResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDomainResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// List of private endpoint connections.
+func (o LookupDomainResultOutput) PrivateEndpointConnections() PrivateEndpointConnectionResponseArrayOutput {
+	return o.ApplyT(func(v LookupDomainResult) []PrivateEndpointConnectionResponse { return v.PrivateEndpointConnections }).(PrivateEndpointConnectionResponseArrayOutput)
+}
+
+// Provisioning state of the domain.
+func (o LookupDomainResultOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDomainResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// This determines if traffic is allowed over public network. By default it is enabled.
+// You can further restrict to specific IPs by configuring <seealso cref="P:Microsoft.Azure.Events.ResourceProvider.Common.Contracts.DomainProperties.InboundIpRules" />
+func (o LookupDomainResultOutput) PublicNetworkAccess() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDomainResult) *string { return v.PublicNetworkAccess }).(pulumi.StringPtrOutput)
+}
+
+// The Sku pricing tier for the domain.
+func (o LookupDomainResultOutput) Sku() ResourceSkuResponsePtrOutput {
+	return o.ApplyT(func(v LookupDomainResult) *ResourceSkuResponse { return v.Sku }).(ResourceSkuResponsePtrOutput)
+}
+
+// The system metadata relating to Domain resource.
+func (o LookupDomainResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupDomainResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Tags of the resource.
+func (o LookupDomainResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupDomainResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Type of the resource.
+func (o LookupDomainResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDomainResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupDomainResultOutput{})
 }

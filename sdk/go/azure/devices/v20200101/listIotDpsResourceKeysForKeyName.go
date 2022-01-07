@@ -4,6 +4,9 @@
 package v20200101
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -36,4 +39,65 @@ type ListIotDpsResourceKeysForKeyNameResult struct {
 	Rights string `pulumi:"rights"`
 	// Secondary SAS key value.
 	SecondaryKey *string `pulumi:"secondaryKey"`
+}
+
+func ListIotDpsResourceKeysForKeyNameOutput(ctx *pulumi.Context, args ListIotDpsResourceKeysForKeyNameOutputArgs, opts ...pulumi.InvokeOption) ListIotDpsResourceKeysForKeyNameResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (ListIotDpsResourceKeysForKeyNameResult, error) {
+			args := v.(ListIotDpsResourceKeysForKeyNameArgs)
+			r, err := ListIotDpsResourceKeysForKeyName(ctx, &args, opts...)
+			return *r, err
+		}).(ListIotDpsResourceKeysForKeyNameResultOutput)
+}
+
+type ListIotDpsResourceKeysForKeyNameOutputArgs struct {
+	// Logical key name to get key-values for.
+	KeyName pulumi.StringInput `pulumi:"keyName"`
+	// Name of the provisioning service.
+	ProvisioningServiceName pulumi.StringInput `pulumi:"provisioningServiceName"`
+	// The name of the resource group that contains the provisioning service.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (ListIotDpsResourceKeysForKeyNameOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListIotDpsResourceKeysForKeyNameArgs)(nil)).Elem()
+}
+
+// Description of the shared access key.
+type ListIotDpsResourceKeysForKeyNameResultOutput struct{ *pulumi.OutputState }
+
+func (ListIotDpsResourceKeysForKeyNameResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListIotDpsResourceKeysForKeyNameResult)(nil)).Elem()
+}
+
+func (o ListIotDpsResourceKeysForKeyNameResultOutput) ToListIotDpsResourceKeysForKeyNameResultOutput() ListIotDpsResourceKeysForKeyNameResultOutput {
+	return o
+}
+
+func (o ListIotDpsResourceKeysForKeyNameResultOutput) ToListIotDpsResourceKeysForKeyNameResultOutputWithContext(ctx context.Context) ListIotDpsResourceKeysForKeyNameResultOutput {
+	return o
+}
+
+// Name of the key.
+func (o ListIotDpsResourceKeysForKeyNameResultOutput) KeyName() pulumi.StringOutput {
+	return o.ApplyT(func(v ListIotDpsResourceKeysForKeyNameResult) string { return v.KeyName }).(pulumi.StringOutput)
+}
+
+// Primary SAS key value.
+func (o ListIotDpsResourceKeysForKeyNameResultOutput) PrimaryKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListIotDpsResourceKeysForKeyNameResult) *string { return v.PrimaryKey }).(pulumi.StringPtrOutput)
+}
+
+// Rights that this key has.
+func (o ListIotDpsResourceKeysForKeyNameResultOutput) Rights() pulumi.StringOutput {
+	return o.ApplyT(func(v ListIotDpsResourceKeysForKeyNameResult) string { return v.Rights }).(pulumi.StringOutput)
+}
+
+// Secondary SAS key value.
+func (o ListIotDpsResourceKeysForKeyNameResultOutput) SecondaryKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListIotDpsResourceKeysForKeyNameResult) *string { return v.SecondaryKey }).(pulumi.StringPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(ListIotDpsResourceKeysForKeyNameResultOutput{})
 }

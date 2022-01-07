@@ -4,6 +4,9 @@
 package appplatform
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -41,4 +44,72 @@ type LookupGatewayCustomDomainResult struct {
 	SystemData SystemDataResponse `pulumi:"systemData"`
 	// The type of the resource.
 	Type string `pulumi:"type"`
+}
+
+func LookupGatewayCustomDomainOutput(ctx *pulumi.Context, args LookupGatewayCustomDomainOutputArgs, opts ...pulumi.InvokeOption) LookupGatewayCustomDomainResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupGatewayCustomDomainResult, error) {
+			args := v.(LookupGatewayCustomDomainArgs)
+			r, err := LookupGatewayCustomDomain(ctx, &args, opts...)
+			return *r, err
+		}).(LookupGatewayCustomDomainResultOutput)
+}
+
+type LookupGatewayCustomDomainOutputArgs struct {
+	// The name of the Spring Cloud Gateway custom domain.
+	DomainName pulumi.StringInput `pulumi:"domainName"`
+	// The name of Spring Cloud Gateway.
+	GatewayName pulumi.StringInput `pulumi:"gatewayName"`
+	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the Service resource.
+	ServiceName pulumi.StringInput `pulumi:"serviceName"`
+}
+
+func (LookupGatewayCustomDomainOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupGatewayCustomDomainArgs)(nil)).Elem()
+}
+
+// Custom domain of the Spring Cloud Gateway
+type LookupGatewayCustomDomainResultOutput struct{ *pulumi.OutputState }
+
+func (LookupGatewayCustomDomainResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupGatewayCustomDomainResult)(nil)).Elem()
+}
+
+func (o LookupGatewayCustomDomainResultOutput) ToLookupGatewayCustomDomainResultOutput() LookupGatewayCustomDomainResultOutput {
+	return o
+}
+
+func (o LookupGatewayCustomDomainResultOutput) ToLookupGatewayCustomDomainResultOutputWithContext(ctx context.Context) LookupGatewayCustomDomainResultOutput {
+	return o
+}
+
+// Fully qualified resource Id for the resource.
+func (o LookupGatewayCustomDomainResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupGatewayCustomDomainResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The name of the resource.
+func (o LookupGatewayCustomDomainResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupGatewayCustomDomainResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The properties of custom domain for Spring Cloud Gateway
+func (o LookupGatewayCustomDomainResultOutput) Properties() GatewayCustomDomainPropertiesResponseOutput {
+	return o.ApplyT(func(v LookupGatewayCustomDomainResult) GatewayCustomDomainPropertiesResponse { return v.Properties }).(GatewayCustomDomainPropertiesResponseOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o LookupGatewayCustomDomainResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupGatewayCustomDomainResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the resource.
+func (o LookupGatewayCustomDomainResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupGatewayCustomDomainResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupGatewayCustomDomainResultOutput{})
 }

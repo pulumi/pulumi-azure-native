@@ -4,6 +4,9 @@
 package v20210201preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -36,4 +39,61 @@ type ListEffectiveVirtualNetworkByNetworkManagerResult struct {
 	SkipToken *string `pulumi:"skipToken"`
 	// Gets a page of EffectiveVirtualNetwork
 	Value []EffectiveVirtualNetworkResponse `pulumi:"value"`
+}
+
+func ListEffectiveVirtualNetworkByNetworkManagerOutput(ctx *pulumi.Context, args ListEffectiveVirtualNetworkByNetworkManagerOutputArgs, opts ...pulumi.InvokeOption) ListEffectiveVirtualNetworkByNetworkManagerResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (ListEffectiveVirtualNetworkByNetworkManagerResult, error) {
+			args := v.(ListEffectiveVirtualNetworkByNetworkManagerArgs)
+			r, err := ListEffectiveVirtualNetworkByNetworkManager(ctx, &args, opts...)
+			return *r, err
+		}).(ListEffectiveVirtualNetworkByNetworkManagerResultOutput)
+}
+
+type ListEffectiveVirtualNetworkByNetworkManagerOutputArgs struct {
+	// Conditional Members.
+	ConditionalMembers pulumi.StringPtrInput `pulumi:"conditionalMembers"`
+	// The name of the network manager.
+	NetworkManagerName pulumi.StringInput `pulumi:"networkManagerName"`
+	// The name of the resource group.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// Continuation token for pagination, capturing the next page size and offset, as well as the context of the query.
+	SkipToken pulumi.StringPtrInput `pulumi:"skipToken"`
+	// An optional query parameter which specifies the maximum number of records to be returned by the server.
+	Top pulumi.IntPtrInput `pulumi:"top"`
+}
+
+func (ListEffectiveVirtualNetworkByNetworkManagerOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListEffectiveVirtualNetworkByNetworkManagerArgs)(nil)).Elem()
+}
+
+// Result of the request to list Effective Virtual Network. It contains a list of groups and a URL link to get the next set of results.
+type ListEffectiveVirtualNetworkByNetworkManagerResultOutput struct{ *pulumi.OutputState }
+
+func (ListEffectiveVirtualNetworkByNetworkManagerResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListEffectiveVirtualNetworkByNetworkManagerResult)(nil)).Elem()
+}
+
+func (o ListEffectiveVirtualNetworkByNetworkManagerResultOutput) ToListEffectiveVirtualNetworkByNetworkManagerResultOutput() ListEffectiveVirtualNetworkByNetworkManagerResultOutput {
+	return o
+}
+
+func (o ListEffectiveVirtualNetworkByNetworkManagerResultOutput) ToListEffectiveVirtualNetworkByNetworkManagerResultOutputWithContext(ctx context.Context) ListEffectiveVirtualNetworkByNetworkManagerResultOutput {
+	return o
+}
+
+// When present, the value can be passed to a subsequent query call (together with the same query and scopes used in the current request) to retrieve the next page of data.
+func (o ListEffectiveVirtualNetworkByNetworkManagerResultOutput) SkipToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListEffectiveVirtualNetworkByNetworkManagerResult) *string { return v.SkipToken }).(pulumi.StringPtrOutput)
+}
+
+// Gets a page of EffectiveVirtualNetwork
+func (o ListEffectiveVirtualNetworkByNetworkManagerResultOutput) Value() EffectiveVirtualNetworkResponseArrayOutput {
+	return o.ApplyT(func(v ListEffectiveVirtualNetworkByNetworkManagerResult) []EffectiveVirtualNetworkResponse {
+		return v.Value
+	}).(EffectiveVirtualNetworkResponseArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(ListEffectiveVirtualNetworkByNetworkManagerResultOutput{})
 }

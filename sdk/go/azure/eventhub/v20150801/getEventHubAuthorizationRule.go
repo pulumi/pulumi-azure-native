@@ -4,6 +4,9 @@
 package v20150801
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -40,4 +43,72 @@ type LookupEventHubAuthorizationRuleResult struct {
 	Rights []string `pulumi:"rights"`
 	// Resource type
 	Type string `pulumi:"type"`
+}
+
+func LookupEventHubAuthorizationRuleOutput(ctx *pulumi.Context, args LookupEventHubAuthorizationRuleOutputArgs, opts ...pulumi.InvokeOption) LookupEventHubAuthorizationRuleResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupEventHubAuthorizationRuleResult, error) {
+			args := v.(LookupEventHubAuthorizationRuleArgs)
+			r, err := LookupEventHubAuthorizationRule(ctx, &args, opts...)
+			return *r, err
+		}).(LookupEventHubAuthorizationRuleResultOutput)
+}
+
+type LookupEventHubAuthorizationRuleOutputArgs struct {
+	// The authorization rule name.
+	AuthorizationRuleName pulumi.StringInput `pulumi:"authorizationRuleName"`
+	// The Event Hub name
+	EventHubName pulumi.StringInput `pulumi:"eventHubName"`
+	// The Namespace name
+	NamespaceName pulumi.StringInput `pulumi:"namespaceName"`
+	// Name of the resource group within the azure subscription.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupEventHubAuthorizationRuleOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupEventHubAuthorizationRuleArgs)(nil)).Elem()
+}
+
+// Single item in a List or Get AuthorizationRule operation
+type LookupEventHubAuthorizationRuleResultOutput struct{ *pulumi.OutputState }
+
+func (LookupEventHubAuthorizationRuleResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupEventHubAuthorizationRuleResult)(nil)).Elem()
+}
+
+func (o LookupEventHubAuthorizationRuleResultOutput) ToLookupEventHubAuthorizationRuleResultOutput() LookupEventHubAuthorizationRuleResultOutput {
+	return o
+}
+
+func (o LookupEventHubAuthorizationRuleResultOutput) ToLookupEventHubAuthorizationRuleResultOutputWithContext(ctx context.Context) LookupEventHubAuthorizationRuleResultOutput {
+	return o
+}
+
+// Resource Id
+func (o LookupEventHubAuthorizationRuleResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupEventHubAuthorizationRuleResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Resource location
+func (o LookupEventHubAuthorizationRuleResultOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupEventHubAuthorizationRuleResult) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Resource name
+func (o LookupEventHubAuthorizationRuleResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupEventHubAuthorizationRuleResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The rights associated with the rule.
+func (o LookupEventHubAuthorizationRuleResultOutput) Rights() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupEventHubAuthorizationRuleResult) []string { return v.Rights }).(pulumi.StringArrayOutput)
+}
+
+// Resource type
+func (o LookupEventHubAuthorizationRuleResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupEventHubAuthorizationRuleResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupEventHubAuthorizationRuleResultOutput{})
 }

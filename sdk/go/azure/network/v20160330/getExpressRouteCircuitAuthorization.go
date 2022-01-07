@@ -4,6 +4,9 @@
 package v20160330
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -40,4 +43,75 @@ type LookupExpressRouteCircuitAuthorizationResult struct {
 	Name *string `pulumi:"name"`
 	// Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
 	ProvisioningState *string `pulumi:"provisioningState"`
+}
+
+func LookupExpressRouteCircuitAuthorizationOutput(ctx *pulumi.Context, args LookupExpressRouteCircuitAuthorizationOutputArgs, opts ...pulumi.InvokeOption) LookupExpressRouteCircuitAuthorizationResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupExpressRouteCircuitAuthorizationResult, error) {
+			args := v.(LookupExpressRouteCircuitAuthorizationArgs)
+			r, err := LookupExpressRouteCircuitAuthorization(ctx, &args, opts...)
+			return *r, err
+		}).(LookupExpressRouteCircuitAuthorizationResultOutput)
+}
+
+type LookupExpressRouteCircuitAuthorizationOutputArgs struct {
+	// The name of the authorization.
+	AuthorizationName pulumi.StringInput `pulumi:"authorizationName"`
+	// The name of the express route circuit.
+	CircuitName pulumi.StringInput `pulumi:"circuitName"`
+	// The name of the resource group.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupExpressRouteCircuitAuthorizationOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupExpressRouteCircuitAuthorizationArgs)(nil)).Elem()
+}
+
+// Authorization in a ExpressRouteCircuit resource
+type LookupExpressRouteCircuitAuthorizationResultOutput struct{ *pulumi.OutputState }
+
+func (LookupExpressRouteCircuitAuthorizationResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupExpressRouteCircuitAuthorizationResult)(nil)).Elem()
+}
+
+func (o LookupExpressRouteCircuitAuthorizationResultOutput) ToLookupExpressRouteCircuitAuthorizationResultOutput() LookupExpressRouteCircuitAuthorizationResultOutput {
+	return o
+}
+
+func (o LookupExpressRouteCircuitAuthorizationResultOutput) ToLookupExpressRouteCircuitAuthorizationResultOutputWithContext(ctx context.Context) LookupExpressRouteCircuitAuthorizationResultOutput {
+	return o
+}
+
+// Gets or sets the authorization key
+func (o LookupExpressRouteCircuitAuthorizationResultOutput) AuthorizationKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupExpressRouteCircuitAuthorizationResult) *string { return v.AuthorizationKey }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets AuthorizationUseStatus
+func (o LookupExpressRouteCircuitAuthorizationResultOutput) AuthorizationUseStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupExpressRouteCircuitAuthorizationResult) *string { return v.AuthorizationUseStatus }).(pulumi.StringPtrOutput)
+}
+
+// A unique read-only string that changes whenever the resource is updated
+func (o LookupExpressRouteCircuitAuthorizationResultOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupExpressRouteCircuitAuthorizationResult) *string { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// Resource Id
+func (o LookupExpressRouteCircuitAuthorizationResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupExpressRouteCircuitAuthorizationResult) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
+func (o LookupExpressRouteCircuitAuthorizationResultOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupExpressRouteCircuitAuthorizationResult) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
+func (o LookupExpressRouteCircuitAuthorizationResultOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupExpressRouteCircuitAuthorizationResult) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupExpressRouteCircuitAuthorizationResultOutput{})
 }

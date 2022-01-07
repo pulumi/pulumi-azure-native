@@ -4,6 +4,9 @@
 package v20200401
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -82,4 +85,193 @@ type LookupVirtualNetworkGatewayConnectionResult struct {
 	VirtualNetworkGateway1 VirtualNetworkGatewayResponse `pulumi:"virtualNetworkGateway1"`
 	// The reference to virtual network gateway resource.
 	VirtualNetworkGateway2 *VirtualNetworkGatewayResponse `pulumi:"virtualNetworkGateway2"`
+}
+
+func LookupVirtualNetworkGatewayConnectionOutput(ctx *pulumi.Context, args LookupVirtualNetworkGatewayConnectionOutputArgs, opts ...pulumi.InvokeOption) LookupVirtualNetworkGatewayConnectionResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupVirtualNetworkGatewayConnectionResult, error) {
+			args := v.(LookupVirtualNetworkGatewayConnectionArgs)
+			r, err := LookupVirtualNetworkGatewayConnection(ctx, &args, opts...)
+			return *r, err
+		}).(LookupVirtualNetworkGatewayConnectionResultOutput)
+}
+
+type LookupVirtualNetworkGatewayConnectionOutputArgs struct {
+	// The name of the resource group.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the virtual network gateway connection.
+	VirtualNetworkGatewayConnectionName pulumi.StringInput `pulumi:"virtualNetworkGatewayConnectionName"`
+}
+
+func (LookupVirtualNetworkGatewayConnectionOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupVirtualNetworkGatewayConnectionArgs)(nil)).Elem()
+}
+
+// A common class for general resource information.
+type LookupVirtualNetworkGatewayConnectionResultOutput struct{ *pulumi.OutputState }
+
+func (LookupVirtualNetworkGatewayConnectionResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupVirtualNetworkGatewayConnectionResult)(nil)).Elem()
+}
+
+func (o LookupVirtualNetworkGatewayConnectionResultOutput) ToLookupVirtualNetworkGatewayConnectionResultOutput() LookupVirtualNetworkGatewayConnectionResultOutput {
+	return o
+}
+
+func (o LookupVirtualNetworkGatewayConnectionResultOutput) ToLookupVirtualNetworkGatewayConnectionResultOutputWithContext(ctx context.Context) LookupVirtualNetworkGatewayConnectionResultOutput {
+	return o
+}
+
+// The authorizationKey.
+func (o LookupVirtualNetworkGatewayConnectionResultOutput) AuthorizationKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVirtualNetworkGatewayConnectionResult) *string { return v.AuthorizationKey }).(pulumi.StringPtrOutput)
+}
+
+// Connection protocol used for this connection.
+func (o LookupVirtualNetworkGatewayConnectionResultOutput) ConnectionProtocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVirtualNetworkGatewayConnectionResult) *string { return v.ConnectionProtocol }).(pulumi.StringPtrOutput)
+}
+
+// Virtual Network Gateway connection status.
+func (o LookupVirtualNetworkGatewayConnectionResultOutput) ConnectionStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVirtualNetworkGatewayConnectionResult) string { return v.ConnectionStatus }).(pulumi.StringOutput)
+}
+
+// Gateway connection type.
+func (o LookupVirtualNetworkGatewayConnectionResultOutput) ConnectionType() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVirtualNetworkGatewayConnectionResult) string { return v.ConnectionType }).(pulumi.StringOutput)
+}
+
+// The dead peer detection timeout of this connection in seconds.
+func (o LookupVirtualNetworkGatewayConnectionResultOutput) DpdTimeoutSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupVirtualNetworkGatewayConnectionResult) *int { return v.DpdTimeoutSeconds }).(pulumi.IntPtrOutput)
+}
+
+// The egress bytes transferred in this connection.
+func (o LookupVirtualNetworkGatewayConnectionResultOutput) EgressBytesTransferred() pulumi.Float64Output {
+	return o.ApplyT(func(v LookupVirtualNetworkGatewayConnectionResult) float64 { return v.EgressBytesTransferred }).(pulumi.Float64Output)
+}
+
+// EnableBgp flag.
+func (o LookupVirtualNetworkGatewayConnectionResultOutput) EnableBgp() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupVirtualNetworkGatewayConnectionResult) *bool { return v.EnableBgp }).(pulumi.BoolPtrOutput)
+}
+
+// A unique read-only string that changes whenever the resource is updated.
+func (o LookupVirtualNetworkGatewayConnectionResultOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVirtualNetworkGatewayConnectionResult) string { return v.Etag }).(pulumi.StringOutput)
+}
+
+// Bypass ExpressRoute Gateway for data forwarding.
+func (o LookupVirtualNetworkGatewayConnectionResultOutput) ExpressRouteGatewayBypass() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupVirtualNetworkGatewayConnectionResult) *bool { return v.ExpressRouteGatewayBypass }).(pulumi.BoolPtrOutput)
+}
+
+// Resource ID.
+func (o LookupVirtualNetworkGatewayConnectionResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVirtualNetworkGatewayConnectionResult) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// The ingress bytes transferred in this connection.
+func (o LookupVirtualNetworkGatewayConnectionResultOutput) IngressBytesTransferred() pulumi.Float64Output {
+	return o.ApplyT(func(v LookupVirtualNetworkGatewayConnectionResult) float64 { return v.IngressBytesTransferred }).(pulumi.Float64Output)
+}
+
+// The IPSec Policies to be considered by this connection.
+func (o LookupVirtualNetworkGatewayConnectionResultOutput) IpsecPolicies() IpsecPolicyResponseArrayOutput {
+	return o.ApplyT(func(v LookupVirtualNetworkGatewayConnectionResult) []IpsecPolicyResponse { return v.IpsecPolicies }).(IpsecPolicyResponseArrayOutput)
+}
+
+// The reference to local network gateway resource.
+func (o LookupVirtualNetworkGatewayConnectionResultOutput) LocalNetworkGateway2() LocalNetworkGatewayResponsePtrOutput {
+	return o.ApplyT(func(v LookupVirtualNetworkGatewayConnectionResult) *LocalNetworkGatewayResponse {
+		return v.LocalNetworkGateway2
+	}).(LocalNetworkGatewayResponsePtrOutput)
+}
+
+// Resource location.
+func (o LookupVirtualNetworkGatewayConnectionResultOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVirtualNetworkGatewayConnectionResult) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Resource name.
+func (o LookupVirtualNetworkGatewayConnectionResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVirtualNetworkGatewayConnectionResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The reference to peerings resource.
+func (o LookupVirtualNetworkGatewayConnectionResultOutput) Peer() SubResourceResponsePtrOutput {
+	return o.ApplyT(func(v LookupVirtualNetworkGatewayConnectionResult) *SubResourceResponse { return v.Peer }).(SubResourceResponsePtrOutput)
+}
+
+// The provisioning state of the virtual network gateway connection resource.
+func (o LookupVirtualNetworkGatewayConnectionResultOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVirtualNetworkGatewayConnectionResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The resource GUID property of the virtual network gateway connection resource.
+func (o LookupVirtualNetworkGatewayConnectionResultOutput) ResourceGuid() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVirtualNetworkGatewayConnectionResult) string { return v.ResourceGuid }).(pulumi.StringOutput)
+}
+
+// The routing weight.
+func (o LookupVirtualNetworkGatewayConnectionResultOutput) RoutingWeight() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupVirtualNetworkGatewayConnectionResult) *int { return v.RoutingWeight }).(pulumi.IntPtrOutput)
+}
+
+// The IPSec shared key.
+func (o LookupVirtualNetworkGatewayConnectionResultOutput) SharedKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVirtualNetworkGatewayConnectionResult) *string { return v.SharedKey }).(pulumi.StringPtrOutput)
+}
+
+// Resource tags.
+func (o LookupVirtualNetworkGatewayConnectionResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupVirtualNetworkGatewayConnectionResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The Traffic Selector Policies to be considered by this connection.
+func (o LookupVirtualNetworkGatewayConnectionResultOutput) TrafficSelectorPolicies() TrafficSelectorPolicyResponseArrayOutput {
+	return o.ApplyT(func(v LookupVirtualNetworkGatewayConnectionResult) []TrafficSelectorPolicyResponse {
+		return v.TrafficSelectorPolicies
+	}).(TrafficSelectorPolicyResponseArrayOutput)
+}
+
+// Collection of all tunnels' connection health status.
+func (o LookupVirtualNetworkGatewayConnectionResultOutput) TunnelConnectionStatus() TunnelConnectionHealthResponseArrayOutput {
+	return o.ApplyT(func(v LookupVirtualNetworkGatewayConnectionResult) []TunnelConnectionHealthResponse {
+		return v.TunnelConnectionStatus
+	}).(TunnelConnectionHealthResponseArrayOutput)
+}
+
+// Resource type.
+func (o LookupVirtualNetworkGatewayConnectionResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVirtualNetworkGatewayConnectionResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Use private local Azure IP for the connection.
+func (o LookupVirtualNetworkGatewayConnectionResultOutput) UseLocalAzureIpAddress() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupVirtualNetworkGatewayConnectionResult) *bool { return v.UseLocalAzureIpAddress }).(pulumi.BoolPtrOutput)
+}
+
+// Enable policy-based traffic selectors.
+func (o LookupVirtualNetworkGatewayConnectionResultOutput) UsePolicyBasedTrafficSelectors() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupVirtualNetworkGatewayConnectionResult) *bool { return v.UsePolicyBasedTrafficSelectors }).(pulumi.BoolPtrOutput)
+}
+
+// The reference to virtual network gateway resource.
+func (o LookupVirtualNetworkGatewayConnectionResultOutput) VirtualNetworkGateway1() VirtualNetworkGatewayResponseOutput {
+	return o.ApplyT(func(v LookupVirtualNetworkGatewayConnectionResult) VirtualNetworkGatewayResponse {
+		return v.VirtualNetworkGateway1
+	}).(VirtualNetworkGatewayResponseOutput)
+}
+
+// The reference to virtual network gateway resource.
+func (o LookupVirtualNetworkGatewayConnectionResultOutput) VirtualNetworkGateway2() VirtualNetworkGatewayResponsePtrOutput {
+	return o.ApplyT(func(v LookupVirtualNetworkGatewayConnectionResult) *VirtualNetworkGatewayResponse {
+		return v.VirtualNetworkGateway2
+	}).(VirtualNetworkGatewayResponsePtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupVirtualNetworkGatewayConnectionResultOutput{})
 }

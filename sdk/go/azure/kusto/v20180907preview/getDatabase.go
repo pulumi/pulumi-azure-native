@@ -4,6 +4,9 @@
 package v20180907preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -48,4 +51,95 @@ type LookupDatabaseResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
+}
+
+func LookupDatabaseOutput(ctx *pulumi.Context, args LookupDatabaseOutputArgs, opts ...pulumi.InvokeOption) LookupDatabaseResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupDatabaseResult, error) {
+			args := v.(LookupDatabaseArgs)
+			r, err := LookupDatabase(ctx, &args, opts...)
+			return *r, err
+		}).(LookupDatabaseResultOutput)
+}
+
+type LookupDatabaseOutputArgs struct {
+	// The name of the Kusto cluster.
+	ClusterName pulumi.StringInput `pulumi:"clusterName"`
+	// The name of the database in the Kusto cluster.
+	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
+	// The name of the resource group containing the Kusto cluster.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupDatabaseOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupDatabaseArgs)(nil)).Elem()
+}
+
+// Class representing a Kusto database.
+type LookupDatabaseResultOutput struct{ *pulumi.OutputState }
+
+func (LookupDatabaseResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupDatabaseResult)(nil)).Elem()
+}
+
+func (o LookupDatabaseResultOutput) ToLookupDatabaseResultOutput() LookupDatabaseResultOutput {
+	return o
+}
+
+func (o LookupDatabaseResultOutput) ToLookupDatabaseResultOutputWithContext(ctx context.Context) LookupDatabaseResultOutput {
+	return o
+}
+
+// An ETag of the resource created.
+func (o LookupDatabaseResultOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDatabaseResult) string { return v.Etag }).(pulumi.StringOutput)
+}
+
+// The number of days of data that should be kept in cache for fast queries.
+func (o LookupDatabaseResultOutput) HotCachePeriodInDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupDatabaseResult) *int { return v.HotCachePeriodInDays }).(pulumi.IntPtrOutput)
+}
+
+// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+func (o LookupDatabaseResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDatabaseResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The geo-location where the resource lives
+func (o LookupDatabaseResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDatabaseResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o LookupDatabaseResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDatabaseResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The provisioned state of the resource.
+func (o LookupDatabaseResultOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDatabaseResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The number of days data should be kept before it stops being accessible to queries.
+func (o LookupDatabaseResultOutput) SoftDeletePeriodInDays() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupDatabaseResult) int { return v.SoftDeletePeriodInDays }).(pulumi.IntOutput)
+}
+
+// The statistics of the database.
+func (o LookupDatabaseResultOutput) Statistics() DatabaseStatisticsResponseOutput {
+	return o.ApplyT(func(v LookupDatabaseResult) DatabaseStatisticsResponse { return v.Statistics }).(DatabaseStatisticsResponseOutput)
+}
+
+// Resource tags.
+func (o LookupDatabaseResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupDatabaseResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o LookupDatabaseResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDatabaseResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupDatabaseResultOutput{})
 }

@@ -4,6 +4,9 @@
 package v20210111
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -46,4 +49,93 @@ type GetprivateLinkServicesForEDMUploadResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// The resource type.
 	Type string `pulumi:"type"`
+}
+
+func GetprivateLinkServicesForEDMUploadOutput(ctx *pulumi.Context, args GetprivateLinkServicesForEDMUploadOutputArgs, opts ...pulumi.InvokeOption) GetprivateLinkServicesForEDMUploadResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetprivateLinkServicesForEDMUploadResult, error) {
+			args := v.(GetprivateLinkServicesForEDMUploadArgs)
+			r, err := GetprivateLinkServicesForEDMUpload(ctx, &args, opts...)
+			return *r, err
+		}).(GetprivateLinkServicesForEDMUploadResultOutput)
+}
+
+type GetprivateLinkServicesForEDMUploadOutputArgs struct {
+	// The name of the resource group that contains the service instance.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the service instance.
+	ResourceName pulumi.StringInput `pulumi:"resourceName"`
+}
+
+func (GetprivateLinkServicesForEDMUploadOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetprivateLinkServicesForEDMUploadArgs)(nil)).Elem()
+}
+
+// The description of the service.
+type GetprivateLinkServicesForEDMUploadResultOutput struct{ *pulumi.OutputState }
+
+func (GetprivateLinkServicesForEDMUploadResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetprivateLinkServicesForEDMUploadResult)(nil)).Elem()
+}
+
+func (o GetprivateLinkServicesForEDMUploadResultOutput) ToGetprivateLinkServicesForEDMUploadResultOutput() GetprivateLinkServicesForEDMUploadResultOutput {
+	return o
+}
+
+func (o GetprivateLinkServicesForEDMUploadResultOutput) ToGetprivateLinkServicesForEDMUploadResultOutputWithContext(ctx context.Context) GetprivateLinkServicesForEDMUploadResultOutput {
+	return o
+}
+
+// An etag associated with the resource, used for optimistic concurrency when editing it.
+func (o GetprivateLinkServicesForEDMUploadResultOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetprivateLinkServicesForEDMUploadResult) *string { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// The resource identifier.
+func (o GetprivateLinkServicesForEDMUploadResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetprivateLinkServicesForEDMUploadResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Setting indicating whether the service has a managed identity associated with it.
+func (o GetprivateLinkServicesForEDMUploadResultOutput) Identity() ServicesResourceResponseIdentityPtrOutput {
+	return o.ApplyT(func(v GetprivateLinkServicesForEDMUploadResult) *ServicesResourceResponseIdentity { return v.Identity }).(ServicesResourceResponseIdentityPtrOutput)
+}
+
+// The kind of the service.
+func (o GetprivateLinkServicesForEDMUploadResultOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v GetprivateLinkServicesForEDMUploadResult) string { return v.Kind }).(pulumi.StringOutput)
+}
+
+// The resource location.
+func (o GetprivateLinkServicesForEDMUploadResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v GetprivateLinkServicesForEDMUploadResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// The resource name.
+func (o GetprivateLinkServicesForEDMUploadResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetprivateLinkServicesForEDMUploadResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The common properties of a service.
+func (o GetprivateLinkServicesForEDMUploadResultOutput) Properties() ServicesPropertiesResponseOutput {
+	return o.ApplyT(func(v GetprivateLinkServicesForEDMUploadResult) ServicesPropertiesResponse { return v.Properties }).(ServicesPropertiesResponseOutput)
+}
+
+// Required property for system data
+func (o GetprivateLinkServicesForEDMUploadResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v GetprivateLinkServicesForEDMUploadResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The resource tags.
+func (o GetprivateLinkServicesForEDMUploadResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetprivateLinkServicesForEDMUploadResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The resource type.
+func (o GetprivateLinkServicesForEDMUploadResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetprivateLinkServicesForEDMUploadResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetprivateLinkServicesForEDMUploadResultOutput{})
 }

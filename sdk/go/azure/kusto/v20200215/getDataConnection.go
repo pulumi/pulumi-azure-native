@@ -4,6 +4,9 @@
 package v20200215
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -42,4 +45,72 @@ type LookupDataConnectionResult struct {
 	Name string `pulumi:"name"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
+}
+
+func LookupDataConnectionOutput(ctx *pulumi.Context, args LookupDataConnectionOutputArgs, opts ...pulumi.InvokeOption) LookupDataConnectionResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupDataConnectionResult, error) {
+			args := v.(LookupDataConnectionArgs)
+			r, err := LookupDataConnection(ctx, &args, opts...)
+			return *r, err
+		}).(LookupDataConnectionResultOutput)
+}
+
+type LookupDataConnectionOutputArgs struct {
+	// The name of the Kusto cluster.
+	ClusterName pulumi.StringInput `pulumi:"clusterName"`
+	// The name of the data connection.
+	DataConnectionName pulumi.StringInput `pulumi:"dataConnectionName"`
+	// The name of the database in the Kusto cluster.
+	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
+	// The name of the resource group containing the Kusto cluster.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupDataConnectionOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupDataConnectionArgs)(nil)).Elem()
+}
+
+// Class representing an data connection.
+type LookupDataConnectionResultOutput struct{ *pulumi.OutputState }
+
+func (LookupDataConnectionResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupDataConnectionResult)(nil)).Elem()
+}
+
+func (o LookupDataConnectionResultOutput) ToLookupDataConnectionResultOutput() LookupDataConnectionResultOutput {
+	return o
+}
+
+func (o LookupDataConnectionResultOutput) ToLookupDataConnectionResultOutputWithContext(ctx context.Context) LookupDataConnectionResultOutput {
+	return o
+}
+
+// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+func (o LookupDataConnectionResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDataConnectionResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Kind of the endpoint for the data connection
+func (o LookupDataConnectionResultOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDataConnectionResult) string { return v.Kind }).(pulumi.StringOutput)
+}
+
+// Resource location.
+func (o LookupDataConnectionResultOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDataConnectionResult) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource
+func (o LookupDataConnectionResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDataConnectionResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o LookupDataConnectionResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDataConnectionResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupDataConnectionResultOutput{})
 }

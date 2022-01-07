@@ -4,6 +4,9 @@
 package v20170601preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -49,4 +52,81 @@ func (val *ListOperationalizationClusterKeysResult) Defaults() *ListOperationali
 	tmp.SslConfiguration = tmp.SslConfiguration.Defaults()
 
 	return &tmp
+}
+
+func ListOperationalizationClusterKeysOutput(ctx *pulumi.Context, args ListOperationalizationClusterKeysOutputArgs, opts ...pulumi.InvokeOption) ListOperationalizationClusterKeysResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (ListOperationalizationClusterKeysResult, error) {
+			args := v.(ListOperationalizationClusterKeysArgs)
+			r, err := ListOperationalizationClusterKeys(ctx, &args, opts...)
+			return *r, err
+		}).(ListOperationalizationClusterKeysResultOutput)
+}
+
+type ListOperationalizationClusterKeysOutputArgs struct {
+	// The name of the cluster.
+	ClusterName pulumi.StringInput `pulumi:"clusterName"`
+	// Name of the resource group in which the cluster is located.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (ListOperationalizationClusterKeysOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListOperationalizationClusterKeysArgs)(nil)).Elem()
+}
+
+// Credentials to resources in the cluster.
+type ListOperationalizationClusterKeysResultOutput struct{ *pulumi.OutputState }
+
+func (ListOperationalizationClusterKeysResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListOperationalizationClusterKeysResult)(nil)).Elem()
+}
+
+func (o ListOperationalizationClusterKeysResultOutput) ToListOperationalizationClusterKeysResultOutput() ListOperationalizationClusterKeysResultOutput {
+	return o
+}
+
+func (o ListOperationalizationClusterKeysResultOutput) ToListOperationalizationClusterKeysResultOutputWithContext(ctx context.Context) ListOperationalizationClusterKeysResultOutput {
+	return o
+}
+
+// Credentials for Azure AppInsights.
+func (o ListOperationalizationClusterKeysResultOutput) AppInsights() AppInsightsCredentialsResponsePtrOutput {
+	return o.ApplyT(func(v ListOperationalizationClusterKeysResult) *AppInsightsCredentialsResponse { return v.AppInsights }).(AppInsightsCredentialsResponsePtrOutput)
+}
+
+// Credentials for Azure Container Registry.
+func (o ListOperationalizationClusterKeysResultOutput) ContainerRegistry() ContainerRegistryCredentialsResponsePtrOutput {
+	return o.ApplyT(func(v ListOperationalizationClusterKeysResult) *ContainerRegistryCredentialsResponse {
+		return v.ContainerRegistry
+	}).(ContainerRegistryCredentialsResponsePtrOutput)
+}
+
+// Credentials for Azure Container Service.
+func (o ListOperationalizationClusterKeysResultOutput) ContainerService() ContainerServiceCredentialsResponsePtrOutput {
+	return o.ApplyT(func(v ListOperationalizationClusterKeysResult) *ContainerServiceCredentialsResponse {
+		return v.ContainerService
+	}).(ContainerServiceCredentialsResponsePtrOutput)
+}
+
+// Global authorization keys for all user services deployed in cluster. These are used if the service does not have auth keys.
+func (o ListOperationalizationClusterKeysResultOutput) ServiceAuthConfiguration() ServiceAuthConfigurationResponsePtrOutput {
+	return o.ApplyT(func(v ListOperationalizationClusterKeysResult) *ServiceAuthConfigurationResponse {
+		return v.ServiceAuthConfiguration
+	}).(ServiceAuthConfigurationResponsePtrOutput)
+}
+
+// The SSL configuration for the services.
+func (o ListOperationalizationClusterKeysResultOutput) SslConfiguration() SslConfigurationResponsePtrOutput {
+	return o.ApplyT(func(v ListOperationalizationClusterKeysResult) *SslConfigurationResponse { return v.SslConfiguration }).(SslConfigurationResponsePtrOutput)
+}
+
+// Credentials for the Storage Account.
+func (o ListOperationalizationClusterKeysResultOutput) StorageAccount() StorageAccountCredentialsResponsePtrOutput {
+	return o.ApplyT(func(v ListOperationalizationClusterKeysResult) *StorageAccountCredentialsResponse {
+		return v.StorageAccount
+	}).(StorageAccountCredentialsResponsePtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(ListOperationalizationClusterKeysResultOutput{})
 }

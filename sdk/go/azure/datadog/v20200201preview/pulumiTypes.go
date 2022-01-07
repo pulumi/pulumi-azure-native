@@ -21,11 +21,144 @@ type DatadogApiKeyResponse struct {
 	Name *string `pulumi:"name"`
 }
 
+type DatadogApiKeyResponseOutput struct{ *pulumi.OutputState }
+
+func (DatadogApiKeyResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatadogApiKeyResponse)(nil)).Elem()
+}
+
+func (o DatadogApiKeyResponseOutput) ToDatadogApiKeyResponseOutput() DatadogApiKeyResponseOutput {
+	return o
+}
+
+func (o DatadogApiKeyResponseOutput) ToDatadogApiKeyResponseOutputWithContext(ctx context.Context) DatadogApiKeyResponseOutput {
+	return o
+}
+
+// The time of creation of the API key.
+func (o DatadogApiKeyResponseOutput) Created() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatadogApiKeyResponse) *string { return v.Created }).(pulumi.StringPtrOutput)
+}
+
+// The user that created the API key.
+func (o DatadogApiKeyResponseOutput) CreatedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatadogApiKeyResponse) *string { return v.CreatedBy }).(pulumi.StringPtrOutput)
+}
+
+// The value of the API key.
+func (o DatadogApiKeyResponseOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v DatadogApiKeyResponse) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The name of the API key.
+func (o DatadogApiKeyResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatadogApiKeyResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+type DatadogApiKeyResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (DatadogApiKeyResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DatadogApiKeyResponse)(nil)).Elem()
+}
+
+func (o DatadogApiKeyResponseArrayOutput) ToDatadogApiKeyResponseArrayOutput() DatadogApiKeyResponseArrayOutput {
+	return o
+}
+
+func (o DatadogApiKeyResponseArrayOutput) ToDatadogApiKeyResponseArrayOutputWithContext(ctx context.Context) DatadogApiKeyResponseArrayOutput {
+	return o
+}
+
+func (o DatadogApiKeyResponseArrayOutput) Index(i pulumi.IntInput) DatadogApiKeyResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DatadogApiKeyResponse {
+		return vs[0].([]DatadogApiKeyResponse)[vs[1].(int)]
+	}).(DatadogApiKeyResponseOutput)
+}
+
 type DatadogHostMetadataResponse struct {
 	// The agent version.
 	AgentVersion  *string                       `pulumi:"agentVersion"`
 	InstallMethod *DatadogInstallMethodResponse `pulumi:"installMethod"`
 	LogsAgent     *DatadogLogsAgentResponse     `pulumi:"logsAgent"`
+}
+
+type DatadogHostMetadataResponseOutput struct{ *pulumi.OutputState }
+
+func (DatadogHostMetadataResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatadogHostMetadataResponse)(nil)).Elem()
+}
+
+func (o DatadogHostMetadataResponseOutput) ToDatadogHostMetadataResponseOutput() DatadogHostMetadataResponseOutput {
+	return o
+}
+
+func (o DatadogHostMetadataResponseOutput) ToDatadogHostMetadataResponseOutputWithContext(ctx context.Context) DatadogHostMetadataResponseOutput {
+	return o
+}
+
+// The agent version.
+func (o DatadogHostMetadataResponseOutput) AgentVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatadogHostMetadataResponse) *string { return v.AgentVersion }).(pulumi.StringPtrOutput)
+}
+
+func (o DatadogHostMetadataResponseOutput) InstallMethod() DatadogInstallMethodResponsePtrOutput {
+	return o.ApplyT(func(v DatadogHostMetadataResponse) *DatadogInstallMethodResponse { return v.InstallMethod }).(DatadogInstallMethodResponsePtrOutput)
+}
+
+func (o DatadogHostMetadataResponseOutput) LogsAgent() DatadogLogsAgentResponsePtrOutput {
+	return o.ApplyT(func(v DatadogHostMetadataResponse) *DatadogLogsAgentResponse { return v.LogsAgent }).(DatadogLogsAgentResponsePtrOutput)
+}
+
+type DatadogHostMetadataResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (DatadogHostMetadataResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatadogHostMetadataResponse)(nil)).Elem()
+}
+
+func (o DatadogHostMetadataResponsePtrOutput) ToDatadogHostMetadataResponsePtrOutput() DatadogHostMetadataResponsePtrOutput {
+	return o
+}
+
+func (o DatadogHostMetadataResponsePtrOutput) ToDatadogHostMetadataResponsePtrOutputWithContext(ctx context.Context) DatadogHostMetadataResponsePtrOutput {
+	return o
+}
+
+func (o DatadogHostMetadataResponsePtrOutput) Elem() DatadogHostMetadataResponseOutput {
+	return o.ApplyT(func(v *DatadogHostMetadataResponse) DatadogHostMetadataResponse {
+		if v != nil {
+			return *v
+		}
+		var ret DatadogHostMetadataResponse
+		return ret
+	}).(DatadogHostMetadataResponseOutput)
+}
+
+// The agent version.
+func (o DatadogHostMetadataResponsePtrOutput) AgentVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatadogHostMetadataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AgentVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DatadogHostMetadataResponsePtrOutput) InstallMethod() DatadogInstallMethodResponsePtrOutput {
+	return o.ApplyT(func(v *DatadogHostMetadataResponse) *DatadogInstallMethodResponse {
+		if v == nil {
+			return nil
+		}
+		return v.InstallMethod
+	}).(DatadogInstallMethodResponsePtrOutput)
+}
+
+func (o DatadogHostMetadataResponsePtrOutput) LogsAgent() DatadogLogsAgentResponsePtrOutput {
+	return o.ApplyT(func(v *DatadogHostMetadataResponse) *DatadogLogsAgentResponse {
+		if v == nil {
+			return nil
+		}
+		return v.LogsAgent
+	}).(DatadogLogsAgentResponsePtrOutput)
 }
 
 type DatadogHostResponse struct {
@@ -38,6 +171,59 @@ type DatadogHostResponse struct {
 	Name *string `pulumi:"name"`
 }
 
+type DatadogHostResponseOutput struct{ *pulumi.OutputState }
+
+func (DatadogHostResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatadogHostResponse)(nil)).Elem()
+}
+
+func (o DatadogHostResponseOutput) ToDatadogHostResponseOutput() DatadogHostResponseOutput {
+	return o
+}
+
+func (o DatadogHostResponseOutput) ToDatadogHostResponseOutputWithContext(ctx context.Context) DatadogHostResponseOutput {
+	return o
+}
+
+// The aliases for the host.
+func (o DatadogHostResponseOutput) Aliases() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DatadogHostResponse) []string { return v.Aliases }).(pulumi.StringArrayOutput)
+}
+
+// The Datadog integrations reporting metrics for the host.
+func (o DatadogHostResponseOutput) Apps() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DatadogHostResponse) []string { return v.Apps }).(pulumi.StringArrayOutput)
+}
+
+func (o DatadogHostResponseOutput) Meta() DatadogHostMetadataResponsePtrOutput {
+	return o.ApplyT(func(v DatadogHostResponse) *DatadogHostMetadataResponse { return v.Meta }).(DatadogHostMetadataResponsePtrOutput)
+}
+
+// The name of the host.
+func (o DatadogHostResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatadogHostResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+type DatadogHostResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (DatadogHostResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DatadogHostResponse)(nil)).Elem()
+}
+
+func (o DatadogHostResponseArrayOutput) ToDatadogHostResponseArrayOutput() DatadogHostResponseArrayOutput {
+	return o
+}
+
+func (o DatadogHostResponseArrayOutput) ToDatadogHostResponseArrayOutputWithContext(ctx context.Context) DatadogHostResponseArrayOutput {
+	return o
+}
+
+func (o DatadogHostResponseArrayOutput) Index(i pulumi.IntInput) DatadogHostResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DatadogHostResponse {
+		return vs[0].([]DatadogHostResponse)[vs[1].(int)]
+	}).(DatadogHostResponseOutput)
+}
+
 type DatadogInstallMethodResponse struct {
 	// The installer version.
 	InstallerVersion *string `pulumi:"installerVersion"`
@@ -47,9 +233,145 @@ type DatadogInstallMethodResponse struct {
 	ToolVersion *string `pulumi:"toolVersion"`
 }
 
+type DatadogInstallMethodResponseOutput struct{ *pulumi.OutputState }
+
+func (DatadogInstallMethodResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatadogInstallMethodResponse)(nil)).Elem()
+}
+
+func (o DatadogInstallMethodResponseOutput) ToDatadogInstallMethodResponseOutput() DatadogInstallMethodResponseOutput {
+	return o
+}
+
+func (o DatadogInstallMethodResponseOutput) ToDatadogInstallMethodResponseOutputWithContext(ctx context.Context) DatadogInstallMethodResponseOutput {
+	return o
+}
+
+// The installer version.
+func (o DatadogInstallMethodResponseOutput) InstallerVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatadogInstallMethodResponse) *string { return v.InstallerVersion }).(pulumi.StringPtrOutput)
+}
+
+// The tool.
+func (o DatadogInstallMethodResponseOutput) Tool() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatadogInstallMethodResponse) *string { return v.Tool }).(pulumi.StringPtrOutput)
+}
+
+// The tool version.
+func (o DatadogInstallMethodResponseOutput) ToolVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatadogInstallMethodResponse) *string { return v.ToolVersion }).(pulumi.StringPtrOutput)
+}
+
+type DatadogInstallMethodResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (DatadogInstallMethodResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatadogInstallMethodResponse)(nil)).Elem()
+}
+
+func (o DatadogInstallMethodResponsePtrOutput) ToDatadogInstallMethodResponsePtrOutput() DatadogInstallMethodResponsePtrOutput {
+	return o
+}
+
+func (o DatadogInstallMethodResponsePtrOutput) ToDatadogInstallMethodResponsePtrOutputWithContext(ctx context.Context) DatadogInstallMethodResponsePtrOutput {
+	return o
+}
+
+func (o DatadogInstallMethodResponsePtrOutput) Elem() DatadogInstallMethodResponseOutput {
+	return o.ApplyT(func(v *DatadogInstallMethodResponse) DatadogInstallMethodResponse {
+		if v != nil {
+			return *v
+		}
+		var ret DatadogInstallMethodResponse
+		return ret
+	}).(DatadogInstallMethodResponseOutput)
+}
+
+// The installer version.
+func (o DatadogInstallMethodResponsePtrOutput) InstallerVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatadogInstallMethodResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.InstallerVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+// The tool.
+func (o DatadogInstallMethodResponsePtrOutput) Tool() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatadogInstallMethodResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Tool
+	}).(pulumi.StringPtrOutput)
+}
+
+// The tool version.
+func (o DatadogInstallMethodResponsePtrOutput) ToolVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatadogInstallMethodResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ToolVersion
+	}).(pulumi.StringPtrOutput)
+}
+
 type DatadogLogsAgentResponse struct {
 	// The transport.
 	Transport *string `pulumi:"transport"`
+}
+
+type DatadogLogsAgentResponseOutput struct{ *pulumi.OutputState }
+
+func (DatadogLogsAgentResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatadogLogsAgentResponse)(nil)).Elem()
+}
+
+func (o DatadogLogsAgentResponseOutput) ToDatadogLogsAgentResponseOutput() DatadogLogsAgentResponseOutput {
+	return o
+}
+
+func (o DatadogLogsAgentResponseOutput) ToDatadogLogsAgentResponseOutputWithContext(ctx context.Context) DatadogLogsAgentResponseOutput {
+	return o
+}
+
+// The transport.
+func (o DatadogLogsAgentResponseOutput) Transport() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatadogLogsAgentResponse) *string { return v.Transport }).(pulumi.StringPtrOutput)
+}
+
+type DatadogLogsAgentResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (DatadogLogsAgentResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatadogLogsAgentResponse)(nil)).Elem()
+}
+
+func (o DatadogLogsAgentResponsePtrOutput) ToDatadogLogsAgentResponsePtrOutput() DatadogLogsAgentResponsePtrOutput {
+	return o
+}
+
+func (o DatadogLogsAgentResponsePtrOutput) ToDatadogLogsAgentResponsePtrOutputWithContext(ctx context.Context) DatadogLogsAgentResponsePtrOutput {
+	return o
+}
+
+func (o DatadogLogsAgentResponsePtrOutput) Elem() DatadogLogsAgentResponseOutput {
+	return o.ApplyT(func(v *DatadogLogsAgentResponse) DatadogLogsAgentResponse {
+		if v != nil {
+			return *v
+		}
+		var ret DatadogLogsAgentResponse
+		return ret
+	}).(DatadogLogsAgentResponseOutput)
+}
+
+// The transport.
+func (o DatadogLogsAgentResponsePtrOutput) Transport() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatadogLogsAgentResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Transport
+	}).(pulumi.StringPtrOutput)
 }
 
 // Datadog organization properties
@@ -599,6 +921,46 @@ type LinkedResourceResponse struct {
 	Id *string `pulumi:"id"`
 }
 
+// The definition of a linked resource.
+type LinkedResourceResponseOutput struct{ *pulumi.OutputState }
+
+func (LinkedResourceResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkedResourceResponse)(nil)).Elem()
+}
+
+func (o LinkedResourceResponseOutput) ToLinkedResourceResponseOutput() LinkedResourceResponseOutput {
+	return o
+}
+
+func (o LinkedResourceResponseOutput) ToLinkedResourceResponseOutputWithContext(ctx context.Context) LinkedResourceResponseOutput {
+	return o
+}
+
+// The ARM id of the linked resource.
+func (o LinkedResourceResponseOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LinkedResourceResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+type LinkedResourceResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (LinkedResourceResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LinkedResourceResponse)(nil)).Elem()
+}
+
+func (o LinkedResourceResponseArrayOutput) ToLinkedResourceResponseArrayOutput() LinkedResourceResponseArrayOutput {
+	return o
+}
+
+func (o LinkedResourceResponseArrayOutput) ToLinkedResourceResponseArrayOutputWithContext(ctx context.Context) LinkedResourceResponseArrayOutput {
+	return o
+}
+
+func (o LinkedResourceResponseArrayOutput) Index(i pulumi.IntInput) LinkedResourceResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LinkedResourceResponse {
+		return vs[0].([]LinkedResourceResponse)[vs[1].(int)]
+	}).(LinkedResourceResponseOutput)
+}
+
 // Properties specific to the monitor resource.
 type MonitorProperties struct {
 	// Datadog organization properties
@@ -855,6 +1217,66 @@ type MonitoredResourceResponse struct {
 	SendingLogs *bool `pulumi:"sendingLogs"`
 	// Flag indicating if resource is sending metrics to Datadog.
 	SendingMetrics *bool `pulumi:"sendingMetrics"`
+}
+
+// The properties of a resource currently being monitored by the Datadog monitor resource.
+type MonitoredResourceResponseOutput struct{ *pulumi.OutputState }
+
+func (MonitoredResourceResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MonitoredResourceResponse)(nil)).Elem()
+}
+
+func (o MonitoredResourceResponseOutput) ToMonitoredResourceResponseOutput() MonitoredResourceResponseOutput {
+	return o
+}
+
+func (o MonitoredResourceResponseOutput) ToMonitoredResourceResponseOutputWithContext(ctx context.Context) MonitoredResourceResponseOutput {
+	return o
+}
+
+// The ARM id of the resource.
+func (o MonitoredResourceResponseOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MonitoredResourceResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// Reason for why the resource is sending logs (or why it is not sending).
+func (o MonitoredResourceResponseOutput) ReasonForLogsStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MonitoredResourceResponse) *string { return v.ReasonForLogsStatus }).(pulumi.StringPtrOutput)
+}
+
+// Reason for why the resource is sending metrics (or why it is not sending).
+func (o MonitoredResourceResponseOutput) ReasonForMetricsStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MonitoredResourceResponse) *string { return v.ReasonForMetricsStatus }).(pulumi.StringPtrOutput)
+}
+
+// Flag indicating if resource is sending logs to Datadog.
+func (o MonitoredResourceResponseOutput) SendingLogs() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v MonitoredResourceResponse) *bool { return v.SendingLogs }).(pulumi.BoolPtrOutput)
+}
+
+// Flag indicating if resource is sending metrics to Datadog.
+func (o MonitoredResourceResponseOutput) SendingMetrics() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v MonitoredResourceResponse) *bool { return v.SendingMetrics }).(pulumi.BoolPtrOutput)
+}
+
+type MonitoredResourceResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (MonitoredResourceResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MonitoredResourceResponse)(nil)).Elem()
+}
+
+func (o MonitoredResourceResponseArrayOutput) ToMonitoredResourceResponseArrayOutput() MonitoredResourceResponseArrayOutput {
+	return o
+}
+
+func (o MonitoredResourceResponseArrayOutput) ToMonitoredResourceResponseArrayOutputWithContext(ctx context.Context) MonitoredResourceResponseArrayOutput {
+	return o
+}
+
+func (o MonitoredResourceResponseArrayOutput) Index(i pulumi.IntInput) MonitoredResourceResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MonitoredResourceResponse {
+		return vs[0].([]MonitoredResourceResponse)[vs[1].(int)]
+	}).(MonitoredResourceResponseOutput)
 }
 
 type ResourceSku struct {
@@ -1325,6 +1747,16 @@ func (o UserInfoResponsePtrOutput) PhoneNumber() pulumi.StringPtrOutput {
 }
 
 func init() {
+	pulumi.RegisterOutputType(DatadogApiKeyResponseOutput{})
+	pulumi.RegisterOutputType(DatadogApiKeyResponseArrayOutput{})
+	pulumi.RegisterOutputType(DatadogHostMetadataResponseOutput{})
+	pulumi.RegisterOutputType(DatadogHostMetadataResponsePtrOutput{})
+	pulumi.RegisterOutputType(DatadogHostResponseOutput{})
+	pulumi.RegisterOutputType(DatadogHostResponseArrayOutput{})
+	pulumi.RegisterOutputType(DatadogInstallMethodResponseOutput{})
+	pulumi.RegisterOutputType(DatadogInstallMethodResponsePtrOutput{})
+	pulumi.RegisterOutputType(DatadogLogsAgentResponseOutput{})
+	pulumi.RegisterOutputType(DatadogLogsAgentResponsePtrOutput{})
 	pulumi.RegisterOutputType(DatadogOrganizationPropertiesOutput{})
 	pulumi.RegisterOutputType(DatadogOrganizationPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(DatadogOrganizationPropertiesResponseOutput{})
@@ -1333,9 +1765,13 @@ func init() {
 	pulumi.RegisterOutputType(IdentityPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(IdentityPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(IdentityPropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(LinkedResourceResponseOutput{})
+	pulumi.RegisterOutputType(LinkedResourceResponseArrayOutput{})
 	pulumi.RegisterOutputType(MonitorPropertiesOutput{})
 	pulumi.RegisterOutputType(MonitorPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(MonitorPropertiesResponseOutput{})
+	pulumi.RegisterOutputType(MonitoredResourceResponseOutput{})
+	pulumi.RegisterOutputType(MonitoredResourceResponseArrayOutput{})
 	pulumi.RegisterOutputType(ResourceSkuOutput{})
 	pulumi.RegisterOutputType(ResourceSkuPtrOutput{})
 	pulumi.RegisterOutputType(ResourceSkuResponseOutput{})

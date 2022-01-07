@@ -4,6 +4,9 @@
 package v20211201
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -32,4 +35,55 @@ type ListConfigurationsResult struct {
 	NextLink *string `pulumi:"nextLink"`
 	// List of configurations.
 	Value []ConfigurationResponse `pulumi:"value"`
+}
+
+func ListConfigurationsOutput(ctx *pulumi.Context, args ListConfigurationsOutputArgs, opts ...pulumi.InvokeOption) ListConfigurationsResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (ListConfigurationsResult, error) {
+			args := v.(ListConfigurationsArgs)
+			r, err := ListConfigurations(ctx, &args, opts...)
+			return *r, err
+		}).(ListConfigurationsResultOutput)
+}
+
+type ListConfigurationsOutputArgs struct {
+	// Holds details about product hierarchy information and filterable property.
+	ConfigurationFilters ConfigurationFiltersArrayInput `pulumi:"configurationFilters"`
+	// Customer subscription properties. Clients can display available products to unregistered customers by explicitly passing subscription details
+	CustomerSubscriptionDetails CustomerSubscriptionDetailsPtrInput `pulumi:"customerSubscriptionDetails"`
+	// $skipToken is supported on list of configurations, which provides the next page in the list of configurations.
+	SkipToken pulumi.StringPtrInput `pulumi:"skipToken"`
+}
+
+func (ListConfigurationsOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListConfigurationsArgs)(nil)).Elem()
+}
+
+// The list of configurations.
+type ListConfigurationsResultOutput struct{ *pulumi.OutputState }
+
+func (ListConfigurationsResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListConfigurationsResult)(nil)).Elem()
+}
+
+func (o ListConfigurationsResultOutput) ToListConfigurationsResultOutput() ListConfigurationsResultOutput {
+	return o
+}
+
+func (o ListConfigurationsResultOutput) ToListConfigurationsResultOutputWithContext(ctx context.Context) ListConfigurationsResultOutput {
+	return o
+}
+
+// Link for the next set of configurations.
+func (o ListConfigurationsResultOutput) NextLink() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListConfigurationsResult) *string { return v.NextLink }).(pulumi.StringPtrOutput)
+}
+
+// List of configurations.
+func (o ListConfigurationsResultOutput) Value() ConfigurationResponseArrayOutput {
+	return o.ApplyT(func(v ListConfigurationsResult) []ConfigurationResponse { return v.Value }).(ConfigurationResponseArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(ListConfigurationsResultOutput{})
 }

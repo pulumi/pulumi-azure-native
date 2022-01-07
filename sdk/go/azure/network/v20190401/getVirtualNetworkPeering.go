@@ -4,6 +4,9 @@
 package v20190401
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -50,4 +53,100 @@ type LookupVirtualNetworkPeeringResult struct {
 	RemoteVirtualNetwork *SubResourceResponse `pulumi:"remoteVirtualNetwork"`
 	// If remote gateways can be used on this virtual network. If the flag is set to true, and allowGatewayTransit on remote peering is also true, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to true. This flag cannot be set if virtual network already has a gateway.
 	UseRemoteGateways *bool `pulumi:"useRemoteGateways"`
+}
+
+func LookupVirtualNetworkPeeringOutput(ctx *pulumi.Context, args LookupVirtualNetworkPeeringOutputArgs, opts ...pulumi.InvokeOption) LookupVirtualNetworkPeeringResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupVirtualNetworkPeeringResult, error) {
+			args := v.(LookupVirtualNetworkPeeringArgs)
+			r, err := LookupVirtualNetworkPeering(ctx, &args, opts...)
+			return *r, err
+		}).(LookupVirtualNetworkPeeringResultOutput)
+}
+
+type LookupVirtualNetworkPeeringOutputArgs struct {
+	// The name of the resource group.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the virtual network.
+	VirtualNetworkName pulumi.StringInput `pulumi:"virtualNetworkName"`
+	// The name of the virtual network peering.
+	VirtualNetworkPeeringName pulumi.StringInput `pulumi:"virtualNetworkPeeringName"`
+}
+
+func (LookupVirtualNetworkPeeringOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupVirtualNetworkPeeringArgs)(nil)).Elem()
+}
+
+// Peerings in a virtual network resource.
+type LookupVirtualNetworkPeeringResultOutput struct{ *pulumi.OutputState }
+
+func (LookupVirtualNetworkPeeringResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupVirtualNetworkPeeringResult)(nil)).Elem()
+}
+
+func (o LookupVirtualNetworkPeeringResultOutput) ToLookupVirtualNetworkPeeringResultOutput() LookupVirtualNetworkPeeringResultOutput {
+	return o
+}
+
+func (o LookupVirtualNetworkPeeringResultOutput) ToLookupVirtualNetworkPeeringResultOutputWithContext(ctx context.Context) LookupVirtualNetworkPeeringResultOutput {
+	return o
+}
+
+// Whether the forwarded traffic from the VMs in the local virtual network will be allowed/disallowed in remote virtual network.
+func (o LookupVirtualNetworkPeeringResultOutput) AllowForwardedTraffic() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupVirtualNetworkPeeringResult) *bool { return v.AllowForwardedTraffic }).(pulumi.BoolPtrOutput)
+}
+
+// If gateway links can be used in remote virtual networking to link to this virtual network.
+func (o LookupVirtualNetworkPeeringResultOutput) AllowGatewayTransit() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupVirtualNetworkPeeringResult) *bool { return v.AllowGatewayTransit }).(pulumi.BoolPtrOutput)
+}
+
+// Whether the VMs in the local virtual network space would be able to access the VMs in remote virtual network space.
+func (o LookupVirtualNetworkPeeringResultOutput) AllowVirtualNetworkAccess() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupVirtualNetworkPeeringResult) *bool { return v.AllowVirtualNetworkAccess }).(pulumi.BoolPtrOutput)
+}
+
+// A unique read-only string that changes whenever the resource is updated.
+func (o LookupVirtualNetworkPeeringResultOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVirtualNetworkPeeringResult) *string { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// Resource ID.
+func (o LookupVirtualNetworkPeeringResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVirtualNetworkPeeringResult) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource that is unique within a resource group. This name can be used to access the resource.
+func (o LookupVirtualNetworkPeeringResultOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVirtualNetworkPeeringResult) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The status of the virtual network peering.
+func (o LookupVirtualNetworkPeeringResultOutput) PeeringState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVirtualNetworkPeeringResult) *string { return v.PeeringState }).(pulumi.StringPtrOutput)
+}
+
+// The provisioning state of the resource.
+func (o LookupVirtualNetworkPeeringResultOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVirtualNetworkPeeringResult) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+}
+
+// The reference of the remote virtual network address space.
+func (o LookupVirtualNetworkPeeringResultOutput) RemoteAddressSpace() AddressSpaceResponsePtrOutput {
+	return o.ApplyT(func(v LookupVirtualNetworkPeeringResult) *AddressSpaceResponse { return v.RemoteAddressSpace }).(AddressSpaceResponsePtrOutput)
+}
+
+// The reference of the remote virtual network. The remote virtual network can be in the same or different region (preview). See here to register for the preview and learn more (https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-create-peering).
+func (o LookupVirtualNetworkPeeringResultOutput) RemoteVirtualNetwork() SubResourceResponsePtrOutput {
+	return o.ApplyT(func(v LookupVirtualNetworkPeeringResult) *SubResourceResponse { return v.RemoteVirtualNetwork }).(SubResourceResponsePtrOutput)
+}
+
+// If remote gateways can be used on this virtual network. If the flag is set to true, and allowGatewayTransit on remote peering is also true, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to true. This flag cannot be set if virtual network already has a gateway.
+func (o LookupVirtualNetworkPeeringResultOutput) UseRemoteGateways() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupVirtualNetworkPeeringResult) *bool { return v.UseRemoteGateways }).(pulumi.BoolPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupVirtualNetworkPeeringResultOutput{})
 }

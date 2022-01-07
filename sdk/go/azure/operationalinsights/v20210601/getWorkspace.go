@@ -4,6 +4,9 @@
 package v20210601
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -62,4 +65,133 @@ type LookupWorkspaceResult struct {
 	Type string `pulumi:"type"`
 	// The daily volume cap for ingestion.
 	WorkspaceCapping *WorkspaceCappingResponse `pulumi:"workspaceCapping"`
+}
+
+func LookupWorkspaceOutput(ctx *pulumi.Context, args LookupWorkspaceOutputArgs, opts ...pulumi.InvokeOption) LookupWorkspaceResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupWorkspaceResult, error) {
+			args := v.(LookupWorkspaceArgs)
+			r, err := LookupWorkspace(ctx, &args, opts...)
+			return *r, err
+		}).(LookupWorkspaceResultOutput)
+}
+
+type LookupWorkspaceOutputArgs struct {
+	// The name of the resource group. The name is case insensitive.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the workspace.
+	WorkspaceName pulumi.StringInput `pulumi:"workspaceName"`
+}
+
+func (LookupWorkspaceOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupWorkspaceArgs)(nil)).Elem()
+}
+
+// The top level Workspace resource container.
+type LookupWorkspaceResultOutput struct{ *pulumi.OutputState }
+
+func (LookupWorkspaceResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupWorkspaceResult)(nil)).Elem()
+}
+
+func (o LookupWorkspaceResultOutput) ToLookupWorkspaceResultOutput() LookupWorkspaceResultOutput {
+	return o
+}
+
+func (o LookupWorkspaceResultOutput) ToLookupWorkspaceResultOutputWithContext(ctx context.Context) LookupWorkspaceResultOutput {
+	return o
+}
+
+// Workspace creation date.
+func (o LookupWorkspaceResultOutput) CreatedDate() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWorkspaceResult) string { return v.CreatedDate }).(pulumi.StringOutput)
+}
+
+// This is a read-only property. Represents the ID associated with the workspace.
+func (o LookupWorkspaceResultOutput) CustomerId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWorkspaceResult) string { return v.CustomerId }).(pulumi.StringOutput)
+}
+
+// The ETag of the workspace.
+func (o LookupWorkspaceResultOutput) ETag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupWorkspaceResult) *string { return v.ETag }).(pulumi.StringPtrOutput)
+}
+
+// Workspace features.
+func (o LookupWorkspaceResultOutput) Features() WorkspaceFeaturesResponsePtrOutput {
+	return o.ApplyT(func(v LookupWorkspaceResult) *WorkspaceFeaturesResponse { return v.Features }).(WorkspaceFeaturesResponsePtrOutput)
+}
+
+// Indicates whether customer managed storage is mandatory for query management.
+func (o LookupWorkspaceResultOutput) ForceCmkForQuery() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupWorkspaceResult) *bool { return v.ForceCmkForQuery }).(pulumi.BoolPtrOutput)
+}
+
+// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+func (o LookupWorkspaceResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWorkspaceResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The geo-location where the resource lives
+func (o LookupWorkspaceResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWorkspaceResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// Workspace modification date.
+func (o LookupWorkspaceResultOutput) ModifiedDate() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWorkspaceResult) string { return v.ModifiedDate }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o LookupWorkspaceResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWorkspaceResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// List of linked private link scope resources.
+func (o LookupWorkspaceResultOutput) PrivateLinkScopedResources() PrivateLinkScopedResourceResponseArrayOutput {
+	return o.ApplyT(func(v LookupWorkspaceResult) []PrivateLinkScopedResourceResponse { return v.PrivateLinkScopedResources }).(PrivateLinkScopedResourceResponseArrayOutput)
+}
+
+// The provisioning state of the workspace.
+func (o LookupWorkspaceResultOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupWorkspaceResult) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+}
+
+// The network access type for accessing Log Analytics ingestion.
+func (o LookupWorkspaceResultOutput) PublicNetworkAccessForIngestion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupWorkspaceResult) *string { return v.PublicNetworkAccessForIngestion }).(pulumi.StringPtrOutput)
+}
+
+// The network access type for accessing Log Analytics query.
+func (o LookupWorkspaceResultOutput) PublicNetworkAccessForQuery() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupWorkspaceResult) *string { return v.PublicNetworkAccessForQuery }).(pulumi.StringPtrOutput)
+}
+
+// The workspace data retention in days. Allowed values are per pricing plan. See pricing tiers documentation for details.
+func (o LookupWorkspaceResultOutput) RetentionInDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupWorkspaceResult) *int { return v.RetentionInDays }).(pulumi.IntPtrOutput)
+}
+
+// The SKU of the workspace.
+func (o LookupWorkspaceResultOutput) Sku() WorkspaceSkuResponsePtrOutput {
+	return o.ApplyT(func(v LookupWorkspaceResult) *WorkspaceSkuResponse { return v.Sku }).(WorkspaceSkuResponsePtrOutput)
+}
+
+// Resource tags.
+func (o LookupWorkspaceResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupWorkspaceResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o LookupWorkspaceResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWorkspaceResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The daily volume cap for ingestion.
+func (o LookupWorkspaceResultOutput) WorkspaceCapping() WorkspaceCappingResponsePtrOutput {
+	return o.ApplyT(func(v LookupWorkspaceResult) *WorkspaceCappingResponse { return v.WorkspaceCapping }).(WorkspaceCappingResponsePtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupWorkspaceResultOutput{})
 }

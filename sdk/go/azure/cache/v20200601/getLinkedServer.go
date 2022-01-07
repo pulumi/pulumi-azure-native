@@ -4,6 +4,9 @@
 package v20200601
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -42,4 +45,80 @@ type LookupLinkedServerResult struct {
 	ServerRole string `pulumi:"serverRole"`
 	// Resource type.
 	Type string `pulumi:"type"`
+}
+
+func LookupLinkedServerOutput(ctx *pulumi.Context, args LookupLinkedServerOutputArgs, opts ...pulumi.InvokeOption) LookupLinkedServerResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupLinkedServerResult, error) {
+			args := v.(LookupLinkedServerArgs)
+			r, err := LookupLinkedServer(ctx, &args, opts...)
+			return *r, err
+		}).(LookupLinkedServerResultOutput)
+}
+
+type LookupLinkedServerOutputArgs struct {
+	// The name of the linked server.
+	LinkedServerName pulumi.StringInput `pulumi:"linkedServerName"`
+	// The name of the redis cache.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The name of the resource group.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupLinkedServerOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupLinkedServerArgs)(nil)).Elem()
+}
+
+// Response to put/get linked server (with properties) for Redis cache.
+type LookupLinkedServerResultOutput struct{ *pulumi.OutputState }
+
+func (LookupLinkedServerResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupLinkedServerResult)(nil)).Elem()
+}
+
+func (o LookupLinkedServerResultOutput) ToLookupLinkedServerResultOutput() LookupLinkedServerResultOutput {
+	return o
+}
+
+func (o LookupLinkedServerResultOutput) ToLookupLinkedServerResultOutputWithContext(ctx context.Context) LookupLinkedServerResultOutput {
+	return o
+}
+
+// Resource ID.
+func (o LookupLinkedServerResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupLinkedServerResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Fully qualified resourceId of the linked redis cache.
+func (o LookupLinkedServerResultOutput) LinkedRedisCacheId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupLinkedServerResult) string { return v.LinkedRedisCacheId }).(pulumi.StringOutput)
+}
+
+// Location of the linked redis cache.
+func (o LookupLinkedServerResultOutput) LinkedRedisCacheLocation() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupLinkedServerResult) string { return v.LinkedRedisCacheLocation }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o LookupLinkedServerResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupLinkedServerResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Terminal state of the link between primary and secondary redis cache.
+func (o LookupLinkedServerResultOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupLinkedServerResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Role of the linked server.
+func (o LookupLinkedServerResultOutput) ServerRole() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupLinkedServerResult) string { return v.ServerRole }).(pulumi.StringOutput)
+}
+
+// Resource type.
+func (o LookupLinkedServerResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupLinkedServerResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupLinkedServerResultOutput{})
 }

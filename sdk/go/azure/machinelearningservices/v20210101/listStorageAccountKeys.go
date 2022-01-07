@@ -4,6 +4,9 @@
 package v20210101
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -25,4 +28,46 @@ type ListStorageAccountKeysArgs struct {
 
 type ListStorageAccountKeysResult struct {
 	UserStorageKey string `pulumi:"userStorageKey"`
+}
+
+func ListStorageAccountKeysOutput(ctx *pulumi.Context, args ListStorageAccountKeysOutputArgs, opts ...pulumi.InvokeOption) ListStorageAccountKeysResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (ListStorageAccountKeysResult, error) {
+			args := v.(ListStorageAccountKeysArgs)
+			r, err := ListStorageAccountKeys(ctx, &args, opts...)
+			return *r, err
+		}).(ListStorageAccountKeysResultOutput)
+}
+
+type ListStorageAccountKeysOutputArgs struct {
+	// Name of the resource group in which workspace is located.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// Name of Azure Machine Learning workspace.
+	WorkspaceName pulumi.StringInput `pulumi:"workspaceName"`
+}
+
+func (ListStorageAccountKeysOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListStorageAccountKeysArgs)(nil)).Elem()
+}
+
+type ListStorageAccountKeysResultOutput struct{ *pulumi.OutputState }
+
+func (ListStorageAccountKeysResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListStorageAccountKeysResult)(nil)).Elem()
+}
+
+func (o ListStorageAccountKeysResultOutput) ToListStorageAccountKeysResultOutput() ListStorageAccountKeysResultOutput {
+	return o
+}
+
+func (o ListStorageAccountKeysResultOutput) ToListStorageAccountKeysResultOutputWithContext(ctx context.Context) ListStorageAccountKeysResultOutput {
+	return o
+}
+
+func (o ListStorageAccountKeysResultOutput) UserStorageKey() pulumi.StringOutput {
+	return o.ApplyT(func(v ListStorageAccountKeysResult) string { return v.UserStorageKey }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(ListStorageAccountKeysResultOutput{})
 }

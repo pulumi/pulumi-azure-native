@@ -92,6 +92,51 @@ type SourceConfigurationResponse struct {
 	Value *string `pulumi:"value"`
 }
 
+// A configuration item for source resource
+type SourceConfigurationResponseOutput struct{ *pulumi.OutputState }
+
+func (SourceConfigurationResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SourceConfigurationResponse)(nil)).Elem()
+}
+
+func (o SourceConfigurationResponseOutput) ToSourceConfigurationResponseOutput() SourceConfigurationResponseOutput {
+	return o
+}
+
+func (o SourceConfigurationResponseOutput) ToSourceConfigurationResponseOutputWithContext(ctx context.Context) SourceConfigurationResponseOutput {
+	return o
+}
+
+// The name of setting.
+func (o SourceConfigurationResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SourceConfigurationResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The value of setting
+func (o SourceConfigurationResponseOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SourceConfigurationResponse) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type SourceConfigurationResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (SourceConfigurationResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SourceConfigurationResponse)(nil)).Elem()
+}
+
+func (o SourceConfigurationResponseArrayOutput) ToSourceConfigurationResponseArrayOutput() SourceConfigurationResponseArrayOutput {
+	return o
+}
+
+func (o SourceConfigurationResponseArrayOutput) ToSourceConfigurationResponseArrayOutputWithContext(ctx context.Context) SourceConfigurationResponseArrayOutput {
+	return o
+}
+
+func (o SourceConfigurationResponseArrayOutput) Index(i pulumi.IntInput) SourceConfigurationResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SourceConfigurationResponse {
+		return vs[0].([]SourceConfigurationResponse)[vs[1].(int)]
+	}).(SourceConfigurationResponseOutput)
+}
+
 // The authentication info when authType is systemAssignedIdentity
 type SystemAssignedIdentityAuthInfo struct {
 	// The authentication type.
@@ -190,5 +235,7 @@ type UserAssignedIdentityAuthInfoResponse struct {
 }
 
 func init() {
+	pulumi.RegisterOutputType(SourceConfigurationResponseOutput{})
+	pulumi.RegisterOutputType(SourceConfigurationResponseArrayOutput{})
 	pulumi.RegisterOutputType(SystemDataResponseOutput{})
 }

@@ -4,6 +4,9 @@
 package v20181101preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -40,4 +43,67 @@ type LookupSynchronizationSettingResult struct {
 	Name string `pulumi:"name"`
 	// Type of the azure resource
 	Type string `pulumi:"type"`
+}
+
+func LookupSynchronizationSettingOutput(ctx *pulumi.Context, args LookupSynchronizationSettingOutputArgs, opts ...pulumi.InvokeOption) LookupSynchronizationSettingResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupSynchronizationSettingResult, error) {
+			args := v.(LookupSynchronizationSettingArgs)
+			r, err := LookupSynchronizationSetting(ctx, &args, opts...)
+			return *r, err
+		}).(LookupSynchronizationSettingResultOutput)
+}
+
+type LookupSynchronizationSettingOutputArgs struct {
+	// The name of the share account.
+	AccountName pulumi.StringInput `pulumi:"accountName"`
+	// The resource group name.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the share.
+	ShareName pulumi.StringInput `pulumi:"shareName"`
+	// The name of the synchronizationSetting.
+	SynchronizationSettingName pulumi.StringInput `pulumi:"synchronizationSettingName"`
+}
+
+func (LookupSynchronizationSettingOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupSynchronizationSettingArgs)(nil)).Elem()
+}
+
+// A Synchronization Setting data transfer object.
+type LookupSynchronizationSettingResultOutput struct{ *pulumi.OutputState }
+
+func (LookupSynchronizationSettingResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupSynchronizationSettingResult)(nil)).Elem()
+}
+
+func (o LookupSynchronizationSettingResultOutput) ToLookupSynchronizationSettingResultOutput() LookupSynchronizationSettingResultOutput {
+	return o
+}
+
+func (o LookupSynchronizationSettingResultOutput) ToLookupSynchronizationSettingResultOutputWithContext(ctx context.Context) LookupSynchronizationSettingResultOutput {
+	return o
+}
+
+// The resource id of the azure resource
+func (o LookupSynchronizationSettingResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSynchronizationSettingResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Kind of synchronization setting.
+func (o LookupSynchronizationSettingResultOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSynchronizationSettingResult) string { return v.Kind }).(pulumi.StringOutput)
+}
+
+// Name of the azure resource
+func (o LookupSynchronizationSettingResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSynchronizationSettingResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Type of the azure resource
+func (o LookupSynchronizationSettingResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSynchronizationSettingResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupSynchronizationSettingResultOutput{})
 }

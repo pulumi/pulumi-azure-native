@@ -4,6 +4,9 @@
 package v20200202preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -48,4 +51,95 @@ type LookupEncryptionProtectorResult struct {
 	Type string `pulumi:"type"`
 	// The URI of the server key.
 	Uri string `pulumi:"uri"`
+}
+
+func LookupEncryptionProtectorOutput(ctx *pulumi.Context, args LookupEncryptionProtectorOutputArgs, opts ...pulumi.InvokeOption) LookupEncryptionProtectorResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupEncryptionProtectorResult, error) {
+			args := v.(LookupEncryptionProtectorArgs)
+			r, err := LookupEncryptionProtector(ctx, &args, opts...)
+			return *r, err
+		}).(LookupEncryptionProtectorResultOutput)
+}
+
+type LookupEncryptionProtectorOutputArgs struct {
+	// The name of the encryption protector to be retrieved.
+	EncryptionProtectorName pulumi.StringInput `pulumi:"encryptionProtectorName"`
+	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the server.
+	ServerName pulumi.StringInput `pulumi:"serverName"`
+}
+
+func (LookupEncryptionProtectorOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupEncryptionProtectorArgs)(nil)).Elem()
+}
+
+// The server encryption protector.
+type LookupEncryptionProtectorResultOutput struct{ *pulumi.OutputState }
+
+func (LookupEncryptionProtectorResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupEncryptionProtectorResult)(nil)).Elem()
+}
+
+func (o LookupEncryptionProtectorResultOutput) ToLookupEncryptionProtectorResultOutput() LookupEncryptionProtectorResultOutput {
+	return o
+}
+
+func (o LookupEncryptionProtectorResultOutput) ToLookupEncryptionProtectorResultOutputWithContext(ctx context.Context) LookupEncryptionProtectorResultOutput {
+	return o
+}
+
+// Resource ID.
+func (o LookupEncryptionProtectorResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupEncryptionProtectorResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Kind of encryption protector. This is metadata used for the Azure portal experience.
+func (o LookupEncryptionProtectorResultOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupEncryptionProtectorResult) string { return v.Kind }).(pulumi.StringOutput)
+}
+
+// Resource location.
+func (o LookupEncryptionProtectorResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupEncryptionProtectorResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o LookupEncryptionProtectorResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupEncryptionProtectorResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The name of the server key.
+func (o LookupEncryptionProtectorResultOutput) ServerKeyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupEncryptionProtectorResult) *string { return v.ServerKeyName }).(pulumi.StringPtrOutput)
+}
+
+// The encryption protector type like 'ServiceManaged', 'AzureKeyVault'.
+func (o LookupEncryptionProtectorResultOutput) ServerKeyType() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupEncryptionProtectorResult) string { return v.ServerKeyType }).(pulumi.StringOutput)
+}
+
+// Subregion of the encryption protector.
+func (o LookupEncryptionProtectorResultOutput) Subregion() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupEncryptionProtectorResult) string { return v.Subregion }).(pulumi.StringOutput)
+}
+
+// Thumbprint of the server key.
+func (o LookupEncryptionProtectorResultOutput) Thumbprint() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupEncryptionProtectorResult) string { return v.Thumbprint }).(pulumi.StringOutput)
+}
+
+// Resource type.
+func (o LookupEncryptionProtectorResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupEncryptionProtectorResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The URI of the server key.
+func (o LookupEncryptionProtectorResultOutput) Uri() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupEncryptionProtectorResult) string { return v.Uri }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupEncryptionProtectorResultOutput{})
 }

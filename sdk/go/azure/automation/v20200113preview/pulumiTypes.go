@@ -2144,6 +2144,56 @@ type KeyResponse struct {
 	Value string `pulumi:"value"`
 }
 
+// Automation key which is used to register a DSC Node
+type KeyResponseOutput struct{ *pulumi.OutputState }
+
+func (KeyResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyResponse)(nil)).Elem()
+}
+
+func (o KeyResponseOutput) ToKeyResponseOutput() KeyResponseOutput {
+	return o
+}
+
+func (o KeyResponseOutput) ToKeyResponseOutputWithContext(ctx context.Context) KeyResponseOutput {
+	return o
+}
+
+// Automation key name.
+func (o KeyResponseOutput) KeyName() pulumi.StringOutput {
+	return o.ApplyT(func(v KeyResponse) string { return v.KeyName }).(pulumi.StringOutput)
+}
+
+// Automation key permissions.
+func (o KeyResponseOutput) Permissions() pulumi.StringOutput {
+	return o.ApplyT(func(v KeyResponse) string { return v.Permissions }).(pulumi.StringOutput)
+}
+
+// Value of the Automation Key used for registration.
+func (o KeyResponseOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v KeyResponse) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type KeyResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (KeyResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]KeyResponse)(nil)).Elem()
+}
+
+func (o KeyResponseArrayOutput) ToKeyResponseArrayOutput() KeyResponseArrayOutput {
+	return o
+}
+
+func (o KeyResponseArrayOutput) ToKeyResponseArrayOutputWithContext(ctx context.Context) KeyResponseArrayOutput {
+	return o
+}
+
+func (o KeyResponseArrayOutput) Index(i pulumi.IntInput) KeyResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) KeyResponse {
+		return vs[0].([]KeyResponse)[vs[1].(int)]
+	}).(KeyResponseOutput)
+}
+
 // Settings concerning key vault encryption for a configuration store.
 type KeyVaultProperties struct {
 	// The name of key used to encrypt data.
@@ -3740,6 +3790,8 @@ func init() {
 	pulumi.RegisterOutputType(IdentityResponsePtrOutput{})
 	pulumi.RegisterOutputType(IdentityResponseUserAssignedIdentitiesOutput{})
 	pulumi.RegisterOutputType(IdentityResponseUserAssignedIdentitiesMapOutput{})
+	pulumi.RegisterOutputType(KeyResponseOutput{})
+	pulumi.RegisterOutputType(KeyResponseArrayOutput{})
 	pulumi.RegisterOutputType(KeyVaultPropertiesOutput{})
 	pulumi.RegisterOutputType(KeyVaultPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(KeyVaultPropertiesResponseOutput{})

@@ -1376,12 +1376,138 @@ type EntityInsightItemResponse struct {
 	TableQueryResults *InsightsTableResultResponse `pulumi:"tableQueryResults"`
 }
 
+// Entity insight Item.
+type EntityInsightItemResponseOutput struct{ *pulumi.OutputState }
+
+func (EntityInsightItemResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EntityInsightItemResponse)(nil)).Elem()
+}
+
+func (o EntityInsightItemResponseOutput) ToEntityInsightItemResponseOutput() EntityInsightItemResponseOutput {
+	return o
+}
+
+func (o EntityInsightItemResponseOutput) ToEntityInsightItemResponseOutputWithContext(ctx context.Context) EntityInsightItemResponseOutput {
+	return o
+}
+
+// Query results for table insights query.
+func (o EntityInsightItemResponseOutput) ChartQueryResults() InsightsTableResultResponseArrayOutput {
+	return o.ApplyT(func(v EntityInsightItemResponse) []InsightsTableResultResponse { return v.ChartQueryResults }).(InsightsTableResultResponseArrayOutput)
+}
+
+// The query id of the insight
+func (o EntityInsightItemResponseOutput) QueryId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EntityInsightItemResponse) *string { return v.QueryId }).(pulumi.StringPtrOutput)
+}
+
+// The Time interval that the query actually executed on.
+func (o EntityInsightItemResponseOutput) QueryTimeInterval() EntityInsightItemResponseQueryTimeIntervalPtrOutput {
+	return o.ApplyT(func(v EntityInsightItemResponse) *EntityInsightItemResponseQueryTimeInterval {
+		return v.QueryTimeInterval
+	}).(EntityInsightItemResponseQueryTimeIntervalPtrOutput)
+}
+
+// Query results for table insights query.
+func (o EntityInsightItemResponseOutput) TableQueryResults() InsightsTableResultResponsePtrOutput {
+	return o.ApplyT(func(v EntityInsightItemResponse) *InsightsTableResultResponse { return v.TableQueryResults }).(InsightsTableResultResponsePtrOutput)
+}
+
+type EntityInsightItemResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (EntityInsightItemResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EntityInsightItemResponse)(nil)).Elem()
+}
+
+func (o EntityInsightItemResponseArrayOutput) ToEntityInsightItemResponseArrayOutput() EntityInsightItemResponseArrayOutput {
+	return o
+}
+
+func (o EntityInsightItemResponseArrayOutput) ToEntityInsightItemResponseArrayOutputWithContext(ctx context.Context) EntityInsightItemResponseArrayOutput {
+	return o
+}
+
+func (o EntityInsightItemResponseArrayOutput) Index(i pulumi.IntInput) EntityInsightItemResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EntityInsightItemResponse {
+		return vs[0].([]EntityInsightItemResponse)[vs[1].(int)]
+	}).(EntityInsightItemResponseOutput)
+}
+
 // The Time interval that the query actually executed on.
 type EntityInsightItemResponseQueryTimeInterval struct {
 	// Insight query end time
 	EndTime *string `pulumi:"endTime"`
 	// Insight query start time
 	StartTime *string `pulumi:"startTime"`
+}
+
+// The Time interval that the query actually executed on.
+type EntityInsightItemResponseQueryTimeIntervalOutput struct{ *pulumi.OutputState }
+
+func (EntityInsightItemResponseQueryTimeIntervalOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EntityInsightItemResponseQueryTimeInterval)(nil)).Elem()
+}
+
+func (o EntityInsightItemResponseQueryTimeIntervalOutput) ToEntityInsightItemResponseQueryTimeIntervalOutput() EntityInsightItemResponseQueryTimeIntervalOutput {
+	return o
+}
+
+func (o EntityInsightItemResponseQueryTimeIntervalOutput) ToEntityInsightItemResponseQueryTimeIntervalOutputWithContext(ctx context.Context) EntityInsightItemResponseQueryTimeIntervalOutput {
+	return o
+}
+
+// Insight query end time
+func (o EntityInsightItemResponseQueryTimeIntervalOutput) EndTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EntityInsightItemResponseQueryTimeInterval) *string { return v.EndTime }).(pulumi.StringPtrOutput)
+}
+
+// Insight query start time
+func (o EntityInsightItemResponseQueryTimeIntervalOutput) StartTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EntityInsightItemResponseQueryTimeInterval) *string { return v.StartTime }).(pulumi.StringPtrOutput)
+}
+
+type EntityInsightItemResponseQueryTimeIntervalPtrOutput struct{ *pulumi.OutputState }
+
+func (EntityInsightItemResponseQueryTimeIntervalPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EntityInsightItemResponseQueryTimeInterval)(nil)).Elem()
+}
+
+func (o EntityInsightItemResponseQueryTimeIntervalPtrOutput) ToEntityInsightItemResponseQueryTimeIntervalPtrOutput() EntityInsightItemResponseQueryTimeIntervalPtrOutput {
+	return o
+}
+
+func (o EntityInsightItemResponseQueryTimeIntervalPtrOutput) ToEntityInsightItemResponseQueryTimeIntervalPtrOutputWithContext(ctx context.Context) EntityInsightItemResponseQueryTimeIntervalPtrOutput {
+	return o
+}
+
+func (o EntityInsightItemResponseQueryTimeIntervalPtrOutput) Elem() EntityInsightItemResponseQueryTimeIntervalOutput {
+	return o.ApplyT(func(v *EntityInsightItemResponseQueryTimeInterval) EntityInsightItemResponseQueryTimeInterval {
+		if v != nil {
+			return *v
+		}
+		var ret EntityInsightItemResponseQueryTimeInterval
+		return ret
+	}).(EntityInsightItemResponseQueryTimeIntervalOutput)
+}
+
+// Insight query end time
+func (o EntityInsightItemResponseQueryTimeIntervalPtrOutput) EndTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EntityInsightItemResponseQueryTimeInterval) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EndTime
+	}).(pulumi.StringPtrOutput)
+}
+
+// Insight query start time
+func (o EntityInsightItemResponseQueryTimeIntervalPtrOutput) StartTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EntityInsightItemResponseQueryTimeInterval) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StartTime
+	}).(pulumi.StringPtrOutput)
 }
 
 // Event grouping settings property bag.
@@ -1594,12 +1720,131 @@ type GetInsightsErrorResponse struct {
 	QueryId *string `pulumi:"queryId"`
 }
 
+// GetInsights Query Errors.
+type GetInsightsErrorResponseOutput struct{ *pulumi.OutputState }
+
+func (GetInsightsErrorResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetInsightsErrorResponse)(nil)).Elem()
+}
+
+func (o GetInsightsErrorResponseOutput) ToGetInsightsErrorResponseOutput() GetInsightsErrorResponseOutput {
+	return o
+}
+
+func (o GetInsightsErrorResponseOutput) ToGetInsightsErrorResponseOutputWithContext(ctx context.Context) GetInsightsErrorResponseOutput {
+	return o
+}
+
+// the error message
+func (o GetInsightsErrorResponseOutput) ErrorMessage() pulumi.StringOutput {
+	return o.ApplyT(func(v GetInsightsErrorResponse) string { return v.ErrorMessage }).(pulumi.StringOutput)
+}
+
+// the query kind
+func (o GetInsightsErrorResponseOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v GetInsightsErrorResponse) string { return v.Kind }).(pulumi.StringOutput)
+}
+
+// the query id
+func (o GetInsightsErrorResponseOutput) QueryId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetInsightsErrorResponse) *string { return v.QueryId }).(pulumi.StringPtrOutput)
+}
+
+type GetInsightsErrorResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (GetInsightsErrorResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetInsightsErrorResponse)(nil)).Elem()
+}
+
+func (o GetInsightsErrorResponseArrayOutput) ToGetInsightsErrorResponseArrayOutput() GetInsightsErrorResponseArrayOutput {
+	return o
+}
+
+func (o GetInsightsErrorResponseArrayOutput) ToGetInsightsErrorResponseArrayOutputWithContext(ctx context.Context) GetInsightsErrorResponseArrayOutput {
+	return o
+}
+
+func (o GetInsightsErrorResponseArrayOutput) Index(i pulumi.IntInput) GetInsightsErrorResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetInsightsErrorResponse {
+		return vs[0].([]GetInsightsErrorResponse)[vs[1].(int)]
+	}).(GetInsightsErrorResponseOutput)
+}
+
 // Get Insights result metadata.
 type GetInsightsResultsMetadataResponse struct {
 	// information about the failed queries
 	Errors []GetInsightsErrorResponse `pulumi:"errors"`
 	// the total items found for the insights request
 	TotalCount int `pulumi:"totalCount"`
+}
+
+// Get Insights result metadata.
+type GetInsightsResultsMetadataResponseOutput struct{ *pulumi.OutputState }
+
+func (GetInsightsResultsMetadataResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetInsightsResultsMetadataResponse)(nil)).Elem()
+}
+
+func (o GetInsightsResultsMetadataResponseOutput) ToGetInsightsResultsMetadataResponseOutput() GetInsightsResultsMetadataResponseOutput {
+	return o
+}
+
+func (o GetInsightsResultsMetadataResponseOutput) ToGetInsightsResultsMetadataResponseOutputWithContext(ctx context.Context) GetInsightsResultsMetadataResponseOutput {
+	return o
+}
+
+// information about the failed queries
+func (o GetInsightsResultsMetadataResponseOutput) Errors() GetInsightsErrorResponseArrayOutput {
+	return o.ApplyT(func(v GetInsightsResultsMetadataResponse) []GetInsightsErrorResponse { return v.Errors }).(GetInsightsErrorResponseArrayOutput)
+}
+
+// the total items found for the insights request
+func (o GetInsightsResultsMetadataResponseOutput) TotalCount() pulumi.IntOutput {
+	return o.ApplyT(func(v GetInsightsResultsMetadataResponse) int { return v.TotalCount }).(pulumi.IntOutput)
+}
+
+type GetInsightsResultsMetadataResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (GetInsightsResultsMetadataResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetInsightsResultsMetadataResponse)(nil)).Elem()
+}
+
+func (o GetInsightsResultsMetadataResponsePtrOutput) ToGetInsightsResultsMetadataResponsePtrOutput() GetInsightsResultsMetadataResponsePtrOutput {
+	return o
+}
+
+func (o GetInsightsResultsMetadataResponsePtrOutput) ToGetInsightsResultsMetadataResponsePtrOutputWithContext(ctx context.Context) GetInsightsResultsMetadataResponsePtrOutput {
+	return o
+}
+
+func (o GetInsightsResultsMetadataResponsePtrOutput) Elem() GetInsightsResultsMetadataResponseOutput {
+	return o.ApplyT(func(v *GetInsightsResultsMetadataResponse) GetInsightsResultsMetadataResponse {
+		if v != nil {
+			return *v
+		}
+		var ret GetInsightsResultsMetadataResponse
+		return ret
+	}).(GetInsightsResultsMetadataResponseOutput)
+}
+
+// information about the failed queries
+func (o GetInsightsResultsMetadataResponsePtrOutput) Errors() GetInsightsErrorResponseArrayOutput {
+	return o.ApplyT(func(v *GetInsightsResultsMetadataResponse) []GetInsightsErrorResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Errors
+	}).(GetInsightsErrorResponseArrayOutput)
+}
+
+// the total items found for the insights request
+func (o GetInsightsResultsMetadataResponsePtrOutput) TotalCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GetInsightsResultsMetadataResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.TotalCount
+	}).(pulumi.IntPtrOutput)
 }
 
 // Grouping configuration property bag.
@@ -3013,11 +3258,144 @@ type InsightsTableResultResponse struct {
 	Rows [][]string `pulumi:"rows"`
 }
 
+// Query results for table insights query.
+type InsightsTableResultResponseOutput struct{ *pulumi.OutputState }
+
+func (InsightsTableResultResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InsightsTableResultResponse)(nil)).Elem()
+}
+
+func (o InsightsTableResultResponseOutput) ToInsightsTableResultResponseOutput() InsightsTableResultResponseOutput {
+	return o
+}
+
+func (o InsightsTableResultResponseOutput) ToInsightsTableResultResponseOutputWithContext(ctx context.Context) InsightsTableResultResponseOutput {
+	return o
+}
+
+// Columns Metadata of the table
+func (o InsightsTableResultResponseOutput) Columns() InsightsTableResultResponseColumnsArrayOutput {
+	return o.ApplyT(func(v InsightsTableResultResponse) []InsightsTableResultResponseColumns { return v.Columns }).(InsightsTableResultResponseColumnsArrayOutput)
+}
+
+// Rows data of the table
+func (o InsightsTableResultResponseOutput) Rows() pulumi.StringArrayArrayOutput {
+	return o.ApplyT(func(v InsightsTableResultResponse) [][]string { return v.Rows }).(pulumi.StringArrayArrayOutput)
+}
+
+type InsightsTableResultResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (InsightsTableResultResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InsightsTableResultResponse)(nil)).Elem()
+}
+
+func (o InsightsTableResultResponsePtrOutput) ToInsightsTableResultResponsePtrOutput() InsightsTableResultResponsePtrOutput {
+	return o
+}
+
+func (o InsightsTableResultResponsePtrOutput) ToInsightsTableResultResponsePtrOutputWithContext(ctx context.Context) InsightsTableResultResponsePtrOutput {
+	return o
+}
+
+func (o InsightsTableResultResponsePtrOutput) Elem() InsightsTableResultResponseOutput {
+	return o.ApplyT(func(v *InsightsTableResultResponse) InsightsTableResultResponse {
+		if v != nil {
+			return *v
+		}
+		var ret InsightsTableResultResponse
+		return ret
+	}).(InsightsTableResultResponseOutput)
+}
+
+// Columns Metadata of the table
+func (o InsightsTableResultResponsePtrOutput) Columns() InsightsTableResultResponseColumnsArrayOutput {
+	return o.ApplyT(func(v *InsightsTableResultResponse) []InsightsTableResultResponseColumns {
+		if v == nil {
+			return nil
+		}
+		return v.Columns
+	}).(InsightsTableResultResponseColumnsArrayOutput)
+}
+
+// Rows data of the table
+func (o InsightsTableResultResponsePtrOutput) Rows() pulumi.StringArrayArrayOutput {
+	return o.ApplyT(func(v *InsightsTableResultResponse) [][]string {
+		if v == nil {
+			return nil
+		}
+		return v.Rows
+	}).(pulumi.StringArrayArrayOutput)
+}
+
+type InsightsTableResultResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (InsightsTableResultResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InsightsTableResultResponse)(nil)).Elem()
+}
+
+func (o InsightsTableResultResponseArrayOutput) ToInsightsTableResultResponseArrayOutput() InsightsTableResultResponseArrayOutput {
+	return o
+}
+
+func (o InsightsTableResultResponseArrayOutput) ToInsightsTableResultResponseArrayOutputWithContext(ctx context.Context) InsightsTableResultResponseArrayOutput {
+	return o
+}
+
+func (o InsightsTableResultResponseArrayOutput) Index(i pulumi.IntInput) InsightsTableResultResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) InsightsTableResultResponse {
+		return vs[0].([]InsightsTableResultResponse)[vs[1].(int)]
+	}).(InsightsTableResultResponseOutput)
+}
+
 type InsightsTableResultResponseColumns struct {
 	// the name of the colum
 	Name *string `pulumi:"name"`
 	// the type of the colum
 	Type *string `pulumi:"type"`
+}
+
+type InsightsTableResultResponseColumnsOutput struct{ *pulumi.OutputState }
+
+func (InsightsTableResultResponseColumnsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InsightsTableResultResponseColumns)(nil)).Elem()
+}
+
+func (o InsightsTableResultResponseColumnsOutput) ToInsightsTableResultResponseColumnsOutput() InsightsTableResultResponseColumnsOutput {
+	return o
+}
+
+func (o InsightsTableResultResponseColumnsOutput) ToInsightsTableResultResponseColumnsOutputWithContext(ctx context.Context) InsightsTableResultResponseColumnsOutput {
+	return o
+}
+
+// the name of the colum
+func (o InsightsTableResultResponseColumnsOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InsightsTableResultResponseColumns) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// the type of the colum
+func (o InsightsTableResultResponseColumnsOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InsightsTableResultResponseColumns) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type InsightsTableResultResponseColumnsArrayOutput struct{ *pulumi.OutputState }
+
+func (InsightsTableResultResponseColumnsArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InsightsTableResultResponseColumns)(nil)).Elem()
+}
+
+func (o InsightsTableResultResponseColumnsArrayOutput) ToInsightsTableResultResponseColumnsArrayOutput() InsightsTableResultResponseColumnsArrayOutput {
+	return o
+}
+
+func (o InsightsTableResultResponseColumnsArrayOutput) ToInsightsTableResultResponseColumnsArrayOutputWithContext(ctx context.Context) InsightsTableResultResponseColumnsArrayOutput {
+	return o
+}
+
+func (o InsightsTableResultResponseColumnsArrayOutput) Index(i pulumi.IntInput) InsightsTableResultResponseColumnsOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) InsightsTableResultResponseColumns {
+		return vs[0].([]InsightsTableResultResponseColumns)[vs[1].(int)]
+	}).(InsightsTableResultResponseColumnsOutput)
 }
 
 // The available data types for MCAS (Microsoft Cloud App Security) data connector.
@@ -5088,6 +5466,51 @@ type TimelineAggregationResponse struct {
 	Kind string `pulumi:"kind"`
 }
 
+// timeline aggregation information per kind
+type TimelineAggregationResponseOutput struct{ *pulumi.OutputState }
+
+func (TimelineAggregationResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TimelineAggregationResponse)(nil)).Elem()
+}
+
+func (o TimelineAggregationResponseOutput) ToTimelineAggregationResponseOutput() TimelineAggregationResponseOutput {
+	return o
+}
+
+func (o TimelineAggregationResponseOutput) ToTimelineAggregationResponseOutputWithContext(ctx context.Context) TimelineAggregationResponseOutput {
+	return o
+}
+
+// the total items found for a kind
+func (o TimelineAggregationResponseOutput) Count() pulumi.IntOutput {
+	return o.ApplyT(func(v TimelineAggregationResponse) int { return v.Count }).(pulumi.IntOutput)
+}
+
+// the query kind
+func (o TimelineAggregationResponseOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v TimelineAggregationResponse) string { return v.Kind }).(pulumi.StringOutput)
+}
+
+type TimelineAggregationResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (TimelineAggregationResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TimelineAggregationResponse)(nil)).Elem()
+}
+
+func (o TimelineAggregationResponseArrayOutput) ToTimelineAggregationResponseArrayOutput() TimelineAggregationResponseArrayOutput {
+	return o
+}
+
+func (o TimelineAggregationResponseArrayOutput) ToTimelineAggregationResponseArrayOutputWithContext(ctx context.Context) TimelineAggregationResponseArrayOutput {
+	return o
+}
+
+func (o TimelineAggregationResponseArrayOutput) Index(i pulumi.IntInput) TimelineAggregationResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TimelineAggregationResponse {
+		return vs[0].([]TimelineAggregationResponse)[vs[1].(int)]
+	}).(TimelineAggregationResponseOutput)
+}
+
 // Timeline Query Errors.
 type TimelineErrorResponse struct {
 	// the error message
@@ -5098,6 +5521,56 @@ type TimelineErrorResponse struct {
 	QueryId *string `pulumi:"queryId"`
 }
 
+// Timeline Query Errors.
+type TimelineErrorResponseOutput struct{ *pulumi.OutputState }
+
+func (TimelineErrorResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TimelineErrorResponse)(nil)).Elem()
+}
+
+func (o TimelineErrorResponseOutput) ToTimelineErrorResponseOutput() TimelineErrorResponseOutput {
+	return o
+}
+
+func (o TimelineErrorResponseOutput) ToTimelineErrorResponseOutputWithContext(ctx context.Context) TimelineErrorResponseOutput {
+	return o
+}
+
+// the error message
+func (o TimelineErrorResponseOutput) ErrorMessage() pulumi.StringOutput {
+	return o.ApplyT(func(v TimelineErrorResponse) string { return v.ErrorMessage }).(pulumi.StringOutput)
+}
+
+// the query kind
+func (o TimelineErrorResponseOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v TimelineErrorResponse) string { return v.Kind }).(pulumi.StringOutput)
+}
+
+// the query id
+func (o TimelineErrorResponseOutput) QueryId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TimelineErrorResponse) *string { return v.QueryId }).(pulumi.StringPtrOutput)
+}
+
+type TimelineErrorResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (TimelineErrorResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TimelineErrorResponse)(nil)).Elem()
+}
+
+func (o TimelineErrorResponseArrayOutput) ToTimelineErrorResponseArrayOutput() TimelineErrorResponseArrayOutput {
+	return o
+}
+
+func (o TimelineErrorResponseArrayOutput) ToTimelineErrorResponseArrayOutputWithContext(ctx context.Context) TimelineErrorResponseArrayOutput {
+	return o
+}
+
+func (o TimelineErrorResponseArrayOutput) Index(i pulumi.IntInput) TimelineErrorResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TimelineErrorResponse {
+		return vs[0].([]TimelineErrorResponse)[vs[1].(int)]
+	}).(TimelineErrorResponseOutput)
+}
+
 // Expansion result metadata.
 type TimelineResultsMetadataResponse struct {
 	// timeline aggregation per kind
@@ -5106,6 +5579,90 @@ type TimelineResultsMetadataResponse struct {
 	Errors []TimelineErrorResponse `pulumi:"errors"`
 	// the total items found for the timeline request
 	TotalCount int `pulumi:"totalCount"`
+}
+
+// Expansion result metadata.
+type TimelineResultsMetadataResponseOutput struct{ *pulumi.OutputState }
+
+func (TimelineResultsMetadataResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TimelineResultsMetadataResponse)(nil)).Elem()
+}
+
+func (o TimelineResultsMetadataResponseOutput) ToTimelineResultsMetadataResponseOutput() TimelineResultsMetadataResponseOutput {
+	return o
+}
+
+func (o TimelineResultsMetadataResponseOutput) ToTimelineResultsMetadataResponseOutputWithContext(ctx context.Context) TimelineResultsMetadataResponseOutput {
+	return o
+}
+
+// timeline aggregation per kind
+func (o TimelineResultsMetadataResponseOutput) Aggregations() TimelineAggregationResponseArrayOutput {
+	return o.ApplyT(func(v TimelineResultsMetadataResponse) []TimelineAggregationResponse { return v.Aggregations }).(TimelineAggregationResponseArrayOutput)
+}
+
+// information about the failure queries
+func (o TimelineResultsMetadataResponseOutput) Errors() TimelineErrorResponseArrayOutput {
+	return o.ApplyT(func(v TimelineResultsMetadataResponse) []TimelineErrorResponse { return v.Errors }).(TimelineErrorResponseArrayOutput)
+}
+
+// the total items found for the timeline request
+func (o TimelineResultsMetadataResponseOutput) TotalCount() pulumi.IntOutput {
+	return o.ApplyT(func(v TimelineResultsMetadataResponse) int { return v.TotalCount }).(pulumi.IntOutput)
+}
+
+type TimelineResultsMetadataResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (TimelineResultsMetadataResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TimelineResultsMetadataResponse)(nil)).Elem()
+}
+
+func (o TimelineResultsMetadataResponsePtrOutput) ToTimelineResultsMetadataResponsePtrOutput() TimelineResultsMetadataResponsePtrOutput {
+	return o
+}
+
+func (o TimelineResultsMetadataResponsePtrOutput) ToTimelineResultsMetadataResponsePtrOutputWithContext(ctx context.Context) TimelineResultsMetadataResponsePtrOutput {
+	return o
+}
+
+func (o TimelineResultsMetadataResponsePtrOutput) Elem() TimelineResultsMetadataResponseOutput {
+	return o.ApplyT(func(v *TimelineResultsMetadataResponse) TimelineResultsMetadataResponse {
+		if v != nil {
+			return *v
+		}
+		var ret TimelineResultsMetadataResponse
+		return ret
+	}).(TimelineResultsMetadataResponseOutput)
+}
+
+// timeline aggregation per kind
+func (o TimelineResultsMetadataResponsePtrOutput) Aggregations() TimelineAggregationResponseArrayOutput {
+	return o.ApplyT(func(v *TimelineResultsMetadataResponse) []TimelineAggregationResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Aggregations
+	}).(TimelineAggregationResponseArrayOutput)
+}
+
+// information about the failure queries
+func (o TimelineResultsMetadataResponsePtrOutput) Errors() TimelineErrorResponseArrayOutput {
+	return o.ApplyT(func(v *TimelineResultsMetadataResponse) []TimelineErrorResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Errors
+	}).(TimelineErrorResponseArrayOutput)
+}
+
+// the total items found for the timeline request
+func (o TimelineResultsMetadataResponsePtrOutput) TotalCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *TimelineResultsMetadataResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.TotalCount
+	}).(pulumi.IntPtrOutput)
 }
 
 // User information that made some action
@@ -5602,10 +6159,18 @@ func init() {
 	pulumi.RegisterOutputType(Dynamics365DataConnectorDataTypesDynamics365CdsActivitiesOutput{})
 	pulumi.RegisterOutputType(Dynamics365DataConnectorDataTypesResponseOutput{})
 	pulumi.RegisterOutputType(Dynamics365DataConnectorDataTypesResponseDynamics365CdsActivitiesOutput{})
+	pulumi.RegisterOutputType(EntityInsightItemResponseOutput{})
+	pulumi.RegisterOutputType(EntityInsightItemResponseArrayOutput{})
+	pulumi.RegisterOutputType(EntityInsightItemResponseQueryTimeIntervalOutput{})
+	pulumi.RegisterOutputType(EntityInsightItemResponseQueryTimeIntervalPtrOutput{})
 	pulumi.RegisterOutputType(EventGroupingSettingsOutput{})
 	pulumi.RegisterOutputType(EventGroupingSettingsPtrOutput{})
 	pulumi.RegisterOutputType(EventGroupingSettingsResponseOutput{})
 	pulumi.RegisterOutputType(EventGroupingSettingsResponsePtrOutput{})
+	pulumi.RegisterOutputType(GetInsightsErrorResponseOutput{})
+	pulumi.RegisterOutputType(GetInsightsErrorResponseArrayOutput{})
+	pulumi.RegisterOutputType(GetInsightsResultsMetadataResponseOutput{})
+	pulumi.RegisterOutputType(GetInsightsResultsMetadataResponsePtrOutput{})
 	pulumi.RegisterOutputType(GroupingConfigurationOutput{})
 	pulumi.RegisterOutputType(GroupingConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(GroupingConfigurationResponseOutput{})
@@ -5627,6 +6192,11 @@ func init() {
 	pulumi.RegisterOutputType(IncidentOwnerInfoPtrOutput{})
 	pulumi.RegisterOutputType(IncidentOwnerInfoResponseOutput{})
 	pulumi.RegisterOutputType(IncidentOwnerInfoResponsePtrOutput{})
+	pulumi.RegisterOutputType(InsightsTableResultResponseOutput{})
+	pulumi.RegisterOutputType(InsightsTableResultResponsePtrOutput{})
+	pulumi.RegisterOutputType(InsightsTableResultResponseArrayOutput{})
+	pulumi.RegisterOutputType(InsightsTableResultResponseColumnsOutput{})
+	pulumi.RegisterOutputType(InsightsTableResultResponseColumnsArrayOutput{})
 	pulumi.RegisterOutputType(MCASDataConnectorDataTypesOutput{})
 	pulumi.RegisterOutputType(MCASDataConnectorDataTypesDiscoveryLogsOutput{})
 	pulumi.RegisterOutputType(MCASDataConnectorDataTypesDiscoveryLogsPtrOutput{})
@@ -5669,6 +6239,12 @@ func init() {
 	pulumi.RegisterOutputType(TiTaxiiDataConnectorDataTypesResponseOutput{})
 	pulumi.RegisterOutputType(TiTaxiiDataConnectorDataTypesResponseTaxiiClientOutput{})
 	pulumi.RegisterOutputType(TiTaxiiDataConnectorDataTypesTaxiiClientOutput{})
+	pulumi.RegisterOutputType(TimelineAggregationResponseOutput{})
+	pulumi.RegisterOutputType(TimelineAggregationResponseArrayOutput{})
+	pulumi.RegisterOutputType(TimelineErrorResponseOutput{})
+	pulumi.RegisterOutputType(TimelineErrorResponseArrayOutput{})
+	pulumi.RegisterOutputType(TimelineResultsMetadataResponseOutput{})
+	pulumi.RegisterOutputType(TimelineResultsMetadataResponsePtrOutput{})
 	pulumi.RegisterOutputType(UserInfoOutput{})
 	pulumi.RegisterOutputType(UserInfoPtrOutput{})
 	pulumi.RegisterOutputType(UserInfoResponseOutput{})

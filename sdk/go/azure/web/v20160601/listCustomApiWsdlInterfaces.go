@@ -4,6 +4,9 @@
 package v20160601
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -36,4 +39,56 @@ type ListCustomApiWsdlInterfacesArgs struct {
 type ListCustomApiWsdlInterfacesResult struct {
 	// Collection of WSDL interfaces
 	Value []WsdlServiceResponse `pulumi:"value"`
+}
+
+func ListCustomApiWsdlInterfacesOutput(ctx *pulumi.Context, args ListCustomApiWsdlInterfacesOutputArgs, opts ...pulumi.InvokeOption) ListCustomApiWsdlInterfacesResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (ListCustomApiWsdlInterfacesResult, error) {
+			args := v.(ListCustomApiWsdlInterfacesArgs)
+			r, err := ListCustomApiWsdlInterfaces(ctx, &args, opts...)
+			return *r, err
+		}).(ListCustomApiWsdlInterfacesResultOutput)
+}
+
+type ListCustomApiWsdlInterfacesOutputArgs struct {
+	// The WSDL content
+	Content pulumi.StringPtrInput `pulumi:"content"`
+	// The WSDL import method
+	ImportMethod pulumi.StringPtrInput `pulumi:"importMethod"`
+	// The location
+	Location pulumi.StringInput `pulumi:"location"`
+	// The service with name and endpoint names
+	Service WsdlServicePtrInput `pulumi:"service"`
+	// Subscription Id
+	SubscriptionId pulumi.StringPtrInput `pulumi:"subscriptionId"`
+	// The WSDL URL
+	Url pulumi.StringPtrInput `pulumi:"url"`
+}
+
+func (ListCustomApiWsdlInterfacesOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListCustomApiWsdlInterfacesArgs)(nil)).Elem()
+}
+
+// A list of custom API WSDL interfaces
+type ListCustomApiWsdlInterfacesResultOutput struct{ *pulumi.OutputState }
+
+func (ListCustomApiWsdlInterfacesResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListCustomApiWsdlInterfacesResult)(nil)).Elem()
+}
+
+func (o ListCustomApiWsdlInterfacesResultOutput) ToListCustomApiWsdlInterfacesResultOutput() ListCustomApiWsdlInterfacesResultOutput {
+	return o
+}
+
+func (o ListCustomApiWsdlInterfacesResultOutput) ToListCustomApiWsdlInterfacesResultOutputWithContext(ctx context.Context) ListCustomApiWsdlInterfacesResultOutput {
+	return o
+}
+
+// Collection of WSDL interfaces
+func (o ListCustomApiWsdlInterfacesResultOutput) Value() WsdlServiceResponseArrayOutput {
+	return o.ApplyT(func(v ListCustomApiWsdlInterfacesResult) []WsdlServiceResponse { return v.Value }).(WsdlServiceResponseArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(ListCustomApiWsdlInterfacesResultOutput{})
 }

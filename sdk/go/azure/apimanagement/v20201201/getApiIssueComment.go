@@ -4,6 +4,9 @@
 package v20201201
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -44,4 +47,79 @@ type LookupApiIssueCommentResult struct {
 	Type string `pulumi:"type"`
 	// A resource identifier for the user who left the comment.
 	UserId string `pulumi:"userId"`
+}
+
+func LookupApiIssueCommentOutput(ctx *pulumi.Context, args LookupApiIssueCommentOutputArgs, opts ...pulumi.InvokeOption) LookupApiIssueCommentResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupApiIssueCommentResult, error) {
+			args := v.(LookupApiIssueCommentArgs)
+			r, err := LookupApiIssueComment(ctx, &args, opts...)
+			return *r, err
+		}).(LookupApiIssueCommentResultOutput)
+}
+
+type LookupApiIssueCommentOutputArgs struct {
+	// API identifier. Must be unique in the current API Management service instance.
+	ApiId pulumi.StringInput `pulumi:"apiId"`
+	// Comment identifier within an Issue. Must be unique in the current Issue.
+	CommentId pulumi.StringInput `pulumi:"commentId"`
+	// Issue identifier. Must be unique in the current API Management service instance.
+	IssueId pulumi.StringInput `pulumi:"issueId"`
+	// The name of the resource group.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the API Management service.
+	ServiceName pulumi.StringInput `pulumi:"serviceName"`
+}
+
+func (LookupApiIssueCommentOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupApiIssueCommentArgs)(nil)).Elem()
+}
+
+// Issue Comment Contract details.
+type LookupApiIssueCommentResultOutput struct{ *pulumi.OutputState }
+
+func (LookupApiIssueCommentResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupApiIssueCommentResult)(nil)).Elem()
+}
+
+func (o LookupApiIssueCommentResultOutput) ToLookupApiIssueCommentResultOutput() LookupApiIssueCommentResultOutput {
+	return o
+}
+
+func (o LookupApiIssueCommentResultOutput) ToLookupApiIssueCommentResultOutputWithContext(ctx context.Context) LookupApiIssueCommentResultOutput {
+	return o
+}
+
+// Date and time when the comment was created.
+func (o LookupApiIssueCommentResultOutput) CreatedDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupApiIssueCommentResult) *string { return v.CreatedDate }).(pulumi.StringPtrOutput)
+}
+
+// Resource ID.
+func (o LookupApiIssueCommentResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupApiIssueCommentResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o LookupApiIssueCommentResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupApiIssueCommentResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Comment text.
+func (o LookupApiIssueCommentResultOutput) Text() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupApiIssueCommentResult) string { return v.Text }).(pulumi.StringOutput)
+}
+
+// Resource type for API Management resource.
+func (o LookupApiIssueCommentResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupApiIssueCommentResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// A resource identifier for the user who left the comment.
+func (o LookupApiIssueCommentResultOutput) UserId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupApiIssueCommentResult) string { return v.UserId }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupApiIssueCommentResultOutput{})
 }

@@ -4,6 +4,9 @@
 package v20160515
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -42,4 +45,80 @@ type ListVirtualMachineApplicableSchedulesResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource.
 	Type string `pulumi:"type"`
+}
+
+func ListVirtualMachineApplicableSchedulesOutput(ctx *pulumi.Context, args ListVirtualMachineApplicableSchedulesOutputArgs, opts ...pulumi.InvokeOption) ListVirtualMachineApplicableSchedulesResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (ListVirtualMachineApplicableSchedulesResult, error) {
+			args := v.(ListVirtualMachineApplicableSchedulesArgs)
+			r, err := ListVirtualMachineApplicableSchedules(ctx, &args, opts...)
+			return *r, err
+		}).(ListVirtualMachineApplicableSchedulesResultOutput)
+}
+
+type ListVirtualMachineApplicableSchedulesOutputArgs struct {
+	// The name of the lab.
+	LabName pulumi.StringInput `pulumi:"labName"`
+	// The name of the virtual machine.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The name of the resource group.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (ListVirtualMachineApplicableSchedulesOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListVirtualMachineApplicableSchedulesArgs)(nil)).Elem()
+}
+
+// Schedules applicable to a virtual machine. The schedules may have been defined on a VM or on lab level.
+type ListVirtualMachineApplicableSchedulesResultOutput struct{ *pulumi.OutputState }
+
+func (ListVirtualMachineApplicableSchedulesResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListVirtualMachineApplicableSchedulesResult)(nil)).Elem()
+}
+
+func (o ListVirtualMachineApplicableSchedulesResultOutput) ToListVirtualMachineApplicableSchedulesResultOutput() ListVirtualMachineApplicableSchedulesResultOutput {
+	return o
+}
+
+func (o ListVirtualMachineApplicableSchedulesResultOutput) ToListVirtualMachineApplicableSchedulesResultOutputWithContext(ctx context.Context) ListVirtualMachineApplicableSchedulesResultOutput {
+	return o
+}
+
+// The identifier of the resource.
+func (o ListVirtualMachineApplicableSchedulesResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v ListVirtualMachineApplicableSchedulesResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The auto-shutdown schedule, if one has been set at the lab or lab resource level.
+func (o ListVirtualMachineApplicableSchedulesResultOutput) LabVmsShutdown() ScheduleResponsePtrOutput {
+	return o.ApplyT(func(v ListVirtualMachineApplicableSchedulesResult) *ScheduleResponse { return v.LabVmsShutdown }).(ScheduleResponsePtrOutput)
+}
+
+// The auto-startup schedule, if one has been set at the lab or lab resource level.
+func (o ListVirtualMachineApplicableSchedulesResultOutput) LabVmsStartup() ScheduleResponsePtrOutput {
+	return o.ApplyT(func(v ListVirtualMachineApplicableSchedulesResult) *ScheduleResponse { return v.LabVmsStartup }).(ScheduleResponsePtrOutput)
+}
+
+// The location of the resource.
+func (o ListVirtualMachineApplicableSchedulesResultOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListVirtualMachineApplicableSchedulesResult) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource.
+func (o ListVirtualMachineApplicableSchedulesResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ListVirtualMachineApplicableSchedulesResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The tags of the resource.
+func (o ListVirtualMachineApplicableSchedulesResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ListVirtualMachineApplicableSchedulesResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource.
+func (o ListVirtualMachineApplicableSchedulesResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ListVirtualMachineApplicableSchedulesResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(ListVirtualMachineApplicableSchedulesResultOutput{})
 }

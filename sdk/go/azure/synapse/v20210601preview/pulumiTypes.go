@@ -2003,6 +2003,56 @@ type FollowerDatabaseDefinitionResponse struct {
 	KustoPoolResourceId string `pulumi:"kustoPoolResourceId"`
 }
 
+// A class representing follower database request.
+type FollowerDatabaseDefinitionResponseOutput struct{ *pulumi.OutputState }
+
+func (FollowerDatabaseDefinitionResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FollowerDatabaseDefinitionResponse)(nil)).Elem()
+}
+
+func (o FollowerDatabaseDefinitionResponseOutput) ToFollowerDatabaseDefinitionResponseOutput() FollowerDatabaseDefinitionResponseOutput {
+	return o
+}
+
+func (o FollowerDatabaseDefinitionResponseOutput) ToFollowerDatabaseDefinitionResponseOutputWithContext(ctx context.Context) FollowerDatabaseDefinitionResponseOutput {
+	return o
+}
+
+// Resource name of the attached database configuration in the follower cluster.
+func (o FollowerDatabaseDefinitionResponseOutput) AttachedDatabaseConfigurationName() pulumi.StringOutput {
+	return o.ApplyT(func(v FollowerDatabaseDefinitionResponse) string { return v.AttachedDatabaseConfigurationName }).(pulumi.StringOutput)
+}
+
+// The database name owned by this cluster that was followed. * in case following all databases.
+func (o FollowerDatabaseDefinitionResponseOutput) DatabaseName() pulumi.StringOutput {
+	return o.ApplyT(func(v FollowerDatabaseDefinitionResponse) string { return v.DatabaseName }).(pulumi.StringOutput)
+}
+
+// Resource id of the cluster that follows a database owned by this cluster.
+func (o FollowerDatabaseDefinitionResponseOutput) KustoPoolResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v FollowerDatabaseDefinitionResponse) string { return v.KustoPoolResourceId }).(pulumi.StringOutput)
+}
+
+type FollowerDatabaseDefinitionResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (FollowerDatabaseDefinitionResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FollowerDatabaseDefinitionResponse)(nil)).Elem()
+}
+
+func (o FollowerDatabaseDefinitionResponseArrayOutput) ToFollowerDatabaseDefinitionResponseArrayOutput() FollowerDatabaseDefinitionResponseArrayOutput {
+	return o
+}
+
+func (o FollowerDatabaseDefinitionResponseArrayOutput) ToFollowerDatabaseDefinitionResponseArrayOutputWithContext(ctx context.Context) FollowerDatabaseDefinitionResponseArrayOutput {
+	return o
+}
+
+func (o FollowerDatabaseDefinitionResponseArrayOutput) Index(i pulumi.IntInput) FollowerDatabaseDefinitionResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FollowerDatabaseDefinitionResponse {
+		return vs[0].([]FollowerDatabaseDefinitionResponse)[vs[1].(int)]
+	}).(FollowerDatabaseDefinitionResponseOutput)
+}
+
 // The compute resource properties for managed integration runtime.
 type IntegrationRuntimeComputeProperties struct {
 	// Data flow properties for managed integration runtime.
@@ -7440,6 +7490,8 @@ func init() {
 	pulumi.RegisterOutputType(EncryptionDetailsPtrOutput{})
 	pulumi.RegisterOutputType(EncryptionDetailsResponseOutput{})
 	pulumi.RegisterOutputType(EncryptionDetailsResponsePtrOutput{})
+	pulumi.RegisterOutputType(FollowerDatabaseDefinitionResponseOutput{})
+	pulumi.RegisterOutputType(FollowerDatabaseDefinitionResponseArrayOutput{})
 	pulumi.RegisterOutputType(KekIdentityPropertiesOutput{})
 	pulumi.RegisterOutputType(KekIdentityPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(KekIdentityPropertiesResponseOutput{})

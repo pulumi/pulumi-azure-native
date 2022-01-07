@@ -4,6 +4,9 @@
 package network
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -56,4 +59,117 @@ type LookupPolicyResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.
 	Type string `pulumi:"type"`
+}
+
+func LookupPolicyOutput(ctx *pulumi.Context, args LookupPolicyOutputArgs, opts ...pulumi.InvokeOption) LookupPolicyResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupPolicyResult, error) {
+			args := v.(LookupPolicyArgs)
+			r, err := LookupPolicy(ctx, &args, opts...)
+			return *r, err
+		}).(LookupPolicyResultOutput)
+}
+
+type LookupPolicyOutputArgs struct {
+	// The name of the Web Application Firewall Policy.
+	PolicyName pulumi.StringInput `pulumi:"policyName"`
+	// Name of the Resource group within the Azure subscription.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupPolicyOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupPolicyArgs)(nil)).Elem()
+}
+
+// Defines web application firewall policy.
+type LookupPolicyResultOutput struct{ *pulumi.OutputState }
+
+func (LookupPolicyResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupPolicyResult)(nil)).Elem()
+}
+
+func (o LookupPolicyResultOutput) ToLookupPolicyResultOutput() LookupPolicyResultOutput {
+	return o
+}
+
+func (o LookupPolicyResultOutput) ToLookupPolicyResultOutputWithContext(ctx context.Context) LookupPolicyResultOutput {
+	return o
+}
+
+// Describes custom rules inside the policy.
+func (o LookupPolicyResultOutput) CustomRules() CustomRuleListResponsePtrOutput {
+	return o.ApplyT(func(v LookupPolicyResult) *CustomRuleListResponse { return v.CustomRules }).(CustomRuleListResponsePtrOutput)
+}
+
+// Gets a unique read-only string that changes whenever the resource is updated.
+func (o LookupPolicyResultOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupPolicyResult) *string { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// Describes Frontend Endpoints associated with this Web Application Firewall policy.
+func (o LookupPolicyResultOutput) FrontendEndpointLinks() FrontendEndpointLinkResponseArrayOutput {
+	return o.ApplyT(func(v LookupPolicyResult) []FrontendEndpointLinkResponse { return v.FrontendEndpointLinks }).(FrontendEndpointLinkResponseArrayOutput)
+}
+
+// Resource ID.
+func (o LookupPolicyResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPolicyResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Resource location.
+func (o LookupPolicyResultOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupPolicyResult) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Describes managed rules inside the policy.
+func (o LookupPolicyResultOutput) ManagedRules() ManagedRuleSetListResponsePtrOutput {
+	return o.ApplyT(func(v LookupPolicyResult) *ManagedRuleSetListResponse { return v.ManagedRules }).(ManagedRuleSetListResponsePtrOutput)
+}
+
+// Resource name.
+func (o LookupPolicyResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPolicyResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Describes settings for the policy.
+func (o LookupPolicyResultOutput) PolicySettings() FrontDoorPolicySettingsResponsePtrOutput {
+	return o.ApplyT(func(v LookupPolicyResult) *FrontDoorPolicySettingsResponse { return v.PolicySettings }).(FrontDoorPolicySettingsResponsePtrOutput)
+}
+
+// Provisioning state of the policy.
+func (o LookupPolicyResultOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPolicyResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+func (o LookupPolicyResultOutput) ResourceState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPolicyResult) string { return v.ResourceState }).(pulumi.StringOutput)
+}
+
+// Describes Routing Rules associated with this Web Application Firewall policy.
+func (o LookupPolicyResultOutput) RoutingRuleLinks() RoutingRuleLinkResponseArrayOutput {
+	return o.ApplyT(func(v LookupPolicyResult) []RoutingRuleLinkResponse { return v.RoutingRuleLinks }).(RoutingRuleLinkResponseArrayOutput)
+}
+
+// Describes Security Policy associated with this Web Application Firewall policy.
+func (o LookupPolicyResultOutput) SecurityPolicyLinks() SecurityPolicyLinkResponseArrayOutput {
+	return o.ApplyT(func(v LookupPolicyResult) []SecurityPolicyLinkResponse { return v.SecurityPolicyLinks }).(SecurityPolicyLinkResponseArrayOutput)
+}
+
+// The pricing tier of web application firewall policy. Defaults to Classic_AzureFrontDoor if not specified.
+func (o LookupPolicyResultOutput) Sku() SkuResponsePtrOutput {
+	return o.ApplyT(func(v LookupPolicyResult) *SkuResponse { return v.Sku }).(SkuResponsePtrOutput)
+}
+
+// Resource tags.
+func (o LookupPolicyResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupPolicyResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type.
+func (o LookupPolicyResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPolicyResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupPolicyResultOutput{})
 }

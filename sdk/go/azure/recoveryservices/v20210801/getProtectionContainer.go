@@ -4,6 +4,9 @@
 package v20210801
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -44,4 +47,82 @@ type LookupProtectionContainerResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...
 	Type string `pulumi:"type"`
+}
+
+func LookupProtectionContainerOutput(ctx *pulumi.Context, args LookupProtectionContainerOutputArgs, opts ...pulumi.InvokeOption) LookupProtectionContainerResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupProtectionContainerResult, error) {
+			args := v.(LookupProtectionContainerArgs)
+			r, err := LookupProtectionContainer(ctx, &args, opts...)
+			return *r, err
+		}).(LookupProtectionContainerResultOutput)
+}
+
+type LookupProtectionContainerOutputArgs struct {
+	// Name of the container whose details need to be fetched.
+	ContainerName pulumi.StringInput `pulumi:"containerName"`
+	// Name of the fabric where the container belongs.
+	FabricName pulumi.StringInput `pulumi:"fabricName"`
+	// The name of the resource group where the recovery services vault is present.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the recovery services vault.
+	VaultName pulumi.StringInput `pulumi:"vaultName"`
+}
+
+func (LookupProtectionContainerOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupProtectionContainerArgs)(nil)).Elem()
+}
+
+// Base class for container with backup items. Containers with specific workloads are derived from this class.
+type LookupProtectionContainerResultOutput struct{ *pulumi.OutputState }
+
+func (LookupProtectionContainerResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupProtectionContainerResult)(nil)).Elem()
+}
+
+func (o LookupProtectionContainerResultOutput) ToLookupProtectionContainerResultOutput() LookupProtectionContainerResultOutput {
+	return o
+}
+
+func (o LookupProtectionContainerResultOutput) ToLookupProtectionContainerResultOutputWithContext(ctx context.Context) LookupProtectionContainerResultOutput {
+	return o
+}
+
+// Optional ETag.
+func (o LookupProtectionContainerResultOutput) ETag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupProtectionContainerResult) *string { return v.ETag }).(pulumi.StringPtrOutput)
+}
+
+// Resource Id represents the complete path to the resource.
+func (o LookupProtectionContainerResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupProtectionContainerResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Resource location.
+func (o LookupProtectionContainerResultOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupProtectionContainerResult) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Resource name associated with the resource.
+func (o LookupProtectionContainerResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupProtectionContainerResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// ProtectionContainerResource properties
+func (o LookupProtectionContainerResultOutput) Properties() pulumi.AnyOutput {
+	return o.ApplyT(func(v LookupProtectionContainerResult) interface{} { return v.Properties }).(pulumi.AnyOutput)
+}
+
+// Resource tags.
+func (o LookupProtectionContainerResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupProtectionContainerResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...
+func (o LookupProtectionContainerResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupProtectionContainerResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupProtectionContainerResultOutput{})
 }

@@ -4,6 +4,9 @@
 package v20171115preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -65,4 +68,105 @@ func (val *LookupProjectResult) Defaults() *LookupProjectResult {
 	tmp.TargetConnectionInfo = tmp.TargetConnectionInfo.Defaults()
 
 	return &tmp
+}
+
+func LookupProjectOutput(ctx *pulumi.Context, args LookupProjectOutputArgs, opts ...pulumi.InvokeOption) LookupProjectResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupProjectResult, error) {
+			args := v.(LookupProjectArgs)
+			r, err := LookupProject(ctx, &args, opts...)
+			return *r, err
+		}).(LookupProjectResultOutput)
+}
+
+type LookupProjectOutputArgs struct {
+	// Name of the resource group
+	GroupName pulumi.StringInput `pulumi:"groupName"`
+	// Name of the project
+	ProjectName pulumi.StringInput `pulumi:"projectName"`
+	// Name of the service
+	ServiceName pulumi.StringInput `pulumi:"serviceName"`
+}
+
+func (LookupProjectOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupProjectArgs)(nil)).Elem()
+}
+
+// A project resource
+type LookupProjectResultOutput struct{ *pulumi.OutputState }
+
+func (LookupProjectResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupProjectResult)(nil)).Elem()
+}
+
+func (o LookupProjectResultOutput) ToLookupProjectResultOutput() LookupProjectResultOutput {
+	return o
+}
+
+func (o LookupProjectResultOutput) ToLookupProjectResultOutputWithContext(ctx context.Context) LookupProjectResultOutput {
+	return o
+}
+
+// UTC Date and time when project was created
+func (o LookupProjectResultOutput) CreationTime() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupProjectResult) string { return v.CreationTime }).(pulumi.StringOutput)
+}
+
+// List of DatabaseInfo
+func (o LookupProjectResultOutput) DatabasesInfo() DatabaseInfoResponseArrayOutput {
+	return o.ApplyT(func(v LookupProjectResult) []DatabaseInfoResponse { return v.DatabasesInfo }).(DatabaseInfoResponseArrayOutput)
+}
+
+// Resource ID.
+func (o LookupProjectResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupProjectResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Resource location.
+func (o LookupProjectResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupProjectResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o LookupProjectResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupProjectResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The project's provisioning state
+func (o LookupProjectResultOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupProjectResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Information for connecting to source
+func (o LookupProjectResultOutput) SourceConnectionInfo() SqlConnectionInfoResponsePtrOutput {
+	return o.ApplyT(func(v LookupProjectResult) *SqlConnectionInfoResponse { return v.SourceConnectionInfo }).(SqlConnectionInfoResponsePtrOutput)
+}
+
+// Source platform for the project
+func (o LookupProjectResultOutput) SourcePlatform() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupProjectResult) string { return v.SourcePlatform }).(pulumi.StringOutput)
+}
+
+// Resource tags.
+func (o LookupProjectResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupProjectResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Information for connecting to target
+func (o LookupProjectResultOutput) TargetConnectionInfo() SqlConnectionInfoResponsePtrOutput {
+	return o.ApplyT(func(v LookupProjectResult) *SqlConnectionInfoResponse { return v.TargetConnectionInfo }).(SqlConnectionInfoResponsePtrOutput)
+}
+
+// Target platform for the project
+func (o LookupProjectResultOutput) TargetPlatform() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupProjectResult) string { return v.TargetPlatform }).(pulumi.StringOutput)
+}
+
+// Resource type.
+func (o LookupProjectResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupProjectResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupProjectResultOutput{})
 }

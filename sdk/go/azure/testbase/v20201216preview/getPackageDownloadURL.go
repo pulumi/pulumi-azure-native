@@ -4,6 +4,9 @@
 package v20201216preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -32,4 +35,55 @@ type GetPackageDownloadURLResult struct {
 	DownloadUrl string `pulumi:"downloadUrl"`
 	// Expiry date of the download URL.
 	ExpirationTime string `pulumi:"expirationTime"`
+}
+
+func GetPackageDownloadURLOutput(ctx *pulumi.Context, args GetPackageDownloadURLOutputArgs, opts ...pulumi.InvokeOption) GetPackageDownloadURLResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetPackageDownloadURLResult, error) {
+			args := v.(GetPackageDownloadURLArgs)
+			r, err := GetPackageDownloadURL(ctx, &args, opts...)
+			return *r, err
+		}).(GetPackageDownloadURLResultOutput)
+}
+
+type GetPackageDownloadURLOutputArgs struct {
+	// The resource name of the Test Base Package.
+	PackageName pulumi.StringInput `pulumi:"packageName"`
+	// The name of the resource group that contains the resource.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The resource name of the Test Base Account.
+	TestBaseAccountName pulumi.StringInput `pulumi:"testBaseAccountName"`
+}
+
+func (GetPackageDownloadURLOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPackageDownloadURLArgs)(nil)).Elem()
+}
+
+// The response of getting a download URL.
+type GetPackageDownloadURLResultOutput struct{ *pulumi.OutputState }
+
+func (GetPackageDownloadURLResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPackageDownloadURLResult)(nil)).Elem()
+}
+
+func (o GetPackageDownloadURLResultOutput) ToGetPackageDownloadURLResultOutput() GetPackageDownloadURLResultOutput {
+	return o
+}
+
+func (o GetPackageDownloadURLResultOutput) ToGetPackageDownloadURLResultOutputWithContext(ctx context.Context) GetPackageDownloadURLResultOutput {
+	return o
+}
+
+// The download URL.
+func (o GetPackageDownloadURLResultOutput) DownloadUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPackageDownloadURLResult) string { return v.DownloadUrl }).(pulumi.StringOutput)
+}
+
+// Expiry date of the download URL.
+func (o GetPackageDownloadURLResultOutput) ExpirationTime() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPackageDownloadURLResult) string { return v.ExpirationTime }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetPackageDownloadURLResultOutput{})
 }

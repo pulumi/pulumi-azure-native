@@ -4,6 +4,9 @@
 package v20180330preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -56,4 +59,112 @@ type LookupLiveOutputResult struct {
 	ResourceState string `pulumi:"resourceState"`
 	// The type of the resource.
 	Type string `pulumi:"type"`
+}
+
+func LookupLiveOutputOutput(ctx *pulumi.Context, args LookupLiveOutputOutputArgs, opts ...pulumi.InvokeOption) LookupLiveOutputResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupLiveOutputResult, error) {
+			args := v.(LookupLiveOutputArgs)
+			r, err := LookupLiveOutput(ctx, &args, opts...)
+			return *r, err
+		}).(LookupLiveOutputResultOutput)
+}
+
+type LookupLiveOutputOutputArgs struct {
+	// The Media Services account name.
+	AccountName pulumi.StringInput `pulumi:"accountName"`
+	// The name of the Live Event.
+	LiveEventName pulumi.StringInput `pulumi:"liveEventName"`
+	// The name of the Live Output.
+	LiveOutputName pulumi.StringInput `pulumi:"liveOutputName"`
+	// The name of the resource group within the Azure subscription.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupLiveOutputOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupLiveOutputArgs)(nil)).Elem()
+}
+
+// The Live Output.
+type LookupLiveOutputResultOutput struct{ *pulumi.OutputState }
+
+func (LookupLiveOutputResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupLiveOutputResult)(nil)).Elem()
+}
+
+func (o LookupLiveOutputResultOutput) ToLookupLiveOutputResultOutput() LookupLiveOutputResultOutput {
+	return o
+}
+
+func (o LookupLiveOutputResultOutput) ToLookupLiveOutputResultOutputWithContext(ctx context.Context) LookupLiveOutputResultOutput {
+	return o
+}
+
+// ISO 8601 timespan duration of the archive window length. This is duration that customer want to retain the recorded content.
+func (o LookupLiveOutputResultOutput) ArchiveWindowLength() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupLiveOutputResult) string { return v.ArchiveWindowLength }).(pulumi.StringOutput)
+}
+
+// The asset name.
+func (o LookupLiveOutputResultOutput) AssetName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupLiveOutputResult) string { return v.AssetName }).(pulumi.StringOutput)
+}
+
+// The exact time the Live Output was created.
+func (o LookupLiveOutputResultOutput) Created() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupLiveOutputResult) string { return v.Created }).(pulumi.StringOutput)
+}
+
+// The description of the Live Output.
+func (o LookupLiveOutputResultOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupLiveOutputResult) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The HLS configuration.
+func (o LookupLiveOutputResultOutput) Hls() HlsResponsePtrOutput {
+	return o.ApplyT(func(v LookupLiveOutputResult) *HlsResponse { return v.Hls }).(HlsResponsePtrOutput)
+}
+
+// Fully qualified resource ID for the resource.
+func (o LookupLiveOutputResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupLiveOutputResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The exact time the Live Output was last modified.
+func (o LookupLiveOutputResultOutput) LastModified() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupLiveOutputResult) string { return v.LastModified }).(pulumi.StringOutput)
+}
+
+// The manifest file name.
+func (o LookupLiveOutputResultOutput) ManifestName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupLiveOutputResult) *string { return v.ManifestName }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource.
+func (o LookupLiveOutputResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupLiveOutputResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The output snapshot time.
+func (o LookupLiveOutputResultOutput) OutputSnapTime() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v LookupLiveOutputResult) *float64 { return v.OutputSnapTime }).(pulumi.Float64PtrOutput)
+}
+
+// The provisioning state of the Live Output.
+func (o LookupLiveOutputResultOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupLiveOutputResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The resource state of the Live Output.
+func (o LookupLiveOutputResultOutput) ResourceState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupLiveOutputResult) string { return v.ResourceState }).(pulumi.StringOutput)
+}
+
+// The type of the resource.
+func (o LookupLiveOutputResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupLiveOutputResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupLiveOutputResultOutput{})
 }

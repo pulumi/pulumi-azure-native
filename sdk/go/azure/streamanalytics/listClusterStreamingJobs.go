@@ -4,6 +4,9 @@
 package streamanalytics
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -31,4 +34,53 @@ type ListClusterStreamingJobsResult struct {
 	NextLink string `pulumi:"nextLink"`
 	// A list of streaming jobs.
 	Value []ClusterJobResponse `pulumi:"value"`
+}
+
+func ListClusterStreamingJobsOutput(ctx *pulumi.Context, args ListClusterStreamingJobsOutputArgs, opts ...pulumi.InvokeOption) ListClusterStreamingJobsResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (ListClusterStreamingJobsResult, error) {
+			args := v.(ListClusterStreamingJobsArgs)
+			r, err := ListClusterStreamingJobs(ctx, &args, opts...)
+			return *r, err
+		}).(ListClusterStreamingJobsResultOutput)
+}
+
+type ListClusterStreamingJobsOutputArgs struct {
+	// The name of the cluster.
+	ClusterName pulumi.StringInput `pulumi:"clusterName"`
+	// The name of the resource group. The name is case insensitive.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (ListClusterStreamingJobsOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListClusterStreamingJobsArgs)(nil)).Elem()
+}
+
+// A list of streaming jobs. Populated by a List operation.
+type ListClusterStreamingJobsResultOutput struct{ *pulumi.OutputState }
+
+func (ListClusterStreamingJobsResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListClusterStreamingJobsResult)(nil)).Elem()
+}
+
+func (o ListClusterStreamingJobsResultOutput) ToListClusterStreamingJobsResultOutput() ListClusterStreamingJobsResultOutput {
+	return o
+}
+
+func (o ListClusterStreamingJobsResultOutput) ToListClusterStreamingJobsResultOutputWithContext(ctx context.Context) ListClusterStreamingJobsResultOutput {
+	return o
+}
+
+// The URL to fetch the next set of streaming jobs.
+func (o ListClusterStreamingJobsResultOutput) NextLink() pulumi.StringOutput {
+	return o.ApplyT(func(v ListClusterStreamingJobsResult) string { return v.NextLink }).(pulumi.StringOutput)
+}
+
+// A list of streaming jobs.
+func (o ListClusterStreamingJobsResultOutput) Value() ClusterJobResponseArrayOutput {
+	return o.ApplyT(func(v ListClusterStreamingJobsResult) []ClusterJobResponse { return v.Value }).(ClusterJobResponseArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(ListClusterStreamingJobsResultOutput{})
 }

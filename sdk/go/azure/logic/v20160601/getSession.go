@@ -4,6 +4,9 @@
 package v20160601
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -44,4 +47,85 @@ type LookupSessionResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Gets the resource type.
 	Type string `pulumi:"type"`
+}
+
+func LookupSessionOutput(ctx *pulumi.Context, args LookupSessionOutputArgs, opts ...pulumi.InvokeOption) LookupSessionResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupSessionResult, error) {
+			args := v.(LookupSessionArgs)
+			r, err := LookupSession(ctx, &args, opts...)
+			return *r, err
+		}).(LookupSessionResultOutput)
+}
+
+type LookupSessionOutputArgs struct {
+	// The integration account name.
+	IntegrationAccountName pulumi.StringInput `pulumi:"integrationAccountName"`
+	// The resource group name.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The integration account session name.
+	SessionName pulumi.StringInput `pulumi:"sessionName"`
+}
+
+func (LookupSessionOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupSessionArgs)(nil)).Elem()
+}
+
+// The integration account session.
+type LookupSessionResultOutput struct{ *pulumi.OutputState }
+
+func (LookupSessionResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupSessionResult)(nil)).Elem()
+}
+
+func (o LookupSessionResultOutput) ToLookupSessionResultOutput() LookupSessionResultOutput {
+	return o
+}
+
+func (o LookupSessionResultOutput) ToLookupSessionResultOutputWithContext(ctx context.Context) LookupSessionResultOutput {
+	return o
+}
+
+// The changed time.
+func (o LookupSessionResultOutput) ChangedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSessionResult) string { return v.ChangedTime }).(pulumi.StringOutput)
+}
+
+// The session content.
+func (o LookupSessionResultOutput) Content() pulumi.AnyOutput {
+	return o.ApplyT(func(v LookupSessionResult) interface{} { return v.Content }).(pulumi.AnyOutput)
+}
+
+// The created time.
+func (o LookupSessionResultOutput) CreatedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSessionResult) string { return v.CreatedTime }).(pulumi.StringOutput)
+}
+
+// The resource id.
+func (o LookupSessionResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSessionResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The resource location.
+func (o LookupSessionResultOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSessionResult) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Gets the resource name.
+func (o LookupSessionResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSessionResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The resource tags.
+func (o LookupSessionResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupSessionResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Gets the resource type.
+func (o LookupSessionResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSessionResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupSessionResultOutput{})
 }

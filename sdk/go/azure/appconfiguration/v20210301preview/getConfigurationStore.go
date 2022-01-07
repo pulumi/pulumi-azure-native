@@ -4,6 +4,9 @@
 package v20210301preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -56,4 +59,120 @@ type LookupConfigurationStoreResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
+}
+
+func LookupConfigurationStoreOutput(ctx *pulumi.Context, args LookupConfigurationStoreOutputArgs, opts ...pulumi.InvokeOption) LookupConfigurationStoreResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupConfigurationStoreResult, error) {
+			args := v.(LookupConfigurationStoreArgs)
+			r, err := LookupConfigurationStore(ctx, &args, opts...)
+			return *r, err
+		}).(LookupConfigurationStoreResultOutput)
+}
+
+type LookupConfigurationStoreOutputArgs struct {
+	// The name of the configuration store.
+	ConfigStoreName pulumi.StringInput `pulumi:"configStoreName"`
+	// The name of the resource group to which the container registry belongs.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupConfigurationStoreOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupConfigurationStoreArgs)(nil)).Elem()
+}
+
+// The configuration store along with all resource properties. The Configuration Store will have all information to begin utilizing it.
+type LookupConfigurationStoreResultOutput struct{ *pulumi.OutputState }
+
+func (LookupConfigurationStoreResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupConfigurationStoreResult)(nil)).Elem()
+}
+
+func (o LookupConfigurationStoreResultOutput) ToLookupConfigurationStoreResultOutput() LookupConfigurationStoreResultOutput {
+	return o
+}
+
+func (o LookupConfigurationStoreResultOutput) ToLookupConfigurationStoreResultOutputWithContext(ctx context.Context) LookupConfigurationStoreResultOutput {
+	return o
+}
+
+// The creation date of configuration store.
+func (o LookupConfigurationStoreResultOutput) CreationDate() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupConfigurationStoreResult) string { return v.CreationDate }).(pulumi.StringOutput)
+}
+
+// Disables all authentication methods other than AAD authentication.
+func (o LookupConfigurationStoreResultOutput) DisableLocalAuth() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupConfigurationStoreResult) *bool { return v.DisableLocalAuth }).(pulumi.BoolPtrOutput)
+}
+
+// The encryption settings of the configuration store.
+func (o LookupConfigurationStoreResultOutput) Encryption() EncryptionPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v LookupConfigurationStoreResult) *EncryptionPropertiesResponse { return v.Encryption }).(EncryptionPropertiesResponsePtrOutput)
+}
+
+// The DNS endpoint where the configuration store API will be available.
+func (o LookupConfigurationStoreResultOutput) Endpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupConfigurationStoreResult) string { return v.Endpoint }).(pulumi.StringOutput)
+}
+
+// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+func (o LookupConfigurationStoreResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupConfigurationStoreResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The managed identity information, if configured.
+func (o LookupConfigurationStoreResultOutput) Identity() ResourceIdentityResponsePtrOutput {
+	return o.ApplyT(func(v LookupConfigurationStoreResult) *ResourceIdentityResponse { return v.Identity }).(ResourceIdentityResponsePtrOutput)
+}
+
+// The geo-location where the resource lives
+func (o LookupConfigurationStoreResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupConfigurationStoreResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o LookupConfigurationStoreResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupConfigurationStoreResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The list of private endpoint connections that are set up for this resource.
+func (o LookupConfigurationStoreResultOutput) PrivateEndpointConnections() PrivateEndpointConnectionReferenceResponseArrayOutput {
+	return o.ApplyT(func(v LookupConfigurationStoreResult) []PrivateEndpointConnectionReferenceResponse {
+		return v.PrivateEndpointConnections
+	}).(PrivateEndpointConnectionReferenceResponseArrayOutput)
+}
+
+// The provisioning state of the configuration store.
+func (o LookupConfigurationStoreResultOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupConfigurationStoreResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Control permission for data plane traffic coming from public networks while private endpoint is enabled.
+func (o LookupConfigurationStoreResultOutput) PublicNetworkAccess() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupConfigurationStoreResult) *string { return v.PublicNetworkAccess }).(pulumi.StringPtrOutput)
+}
+
+// The sku of the configuration store.
+func (o LookupConfigurationStoreResultOutput) Sku() SkuResponseOutput {
+	return o.ApplyT(func(v LookupConfigurationStoreResult) SkuResponse { return v.Sku }).(SkuResponseOutput)
+}
+
+// Resource system metadata.
+func (o LookupConfigurationStoreResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupConfigurationStoreResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource tags.
+func (o LookupConfigurationStoreResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupConfigurationStoreResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o LookupConfigurationStoreResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupConfigurationStoreResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupConfigurationStoreResultOutput{})
 }

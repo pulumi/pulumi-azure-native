@@ -4,6 +4,9 @@
 package v20200401preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -73,4 +76,118 @@ func (val *LookupTopicResult) Defaults() *LookupTopicResult {
 		tmp.PublicNetworkAccess = &publicNetworkAccess_
 	}
 	return &tmp
+}
+
+func LookupTopicOutput(ctx *pulumi.Context, args LookupTopicOutputArgs, opts ...pulumi.InvokeOption) LookupTopicResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupTopicResult, error) {
+			args := v.(LookupTopicArgs)
+			r, err := LookupTopic(ctx, &args, opts...)
+			return *r, err
+		}).(LookupTopicResultOutput)
+}
+
+type LookupTopicOutputArgs struct {
+	// The name of the resource group within the user's subscription.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// Name of the topic.
+	TopicName pulumi.StringInput `pulumi:"topicName"`
+}
+
+func (LookupTopicOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupTopicArgs)(nil)).Elem()
+}
+
+// EventGrid Topic
+type LookupTopicResultOutput struct{ *pulumi.OutputState }
+
+func (LookupTopicResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupTopicResult)(nil)).Elem()
+}
+
+func (o LookupTopicResultOutput) ToLookupTopicResultOutput() LookupTopicResultOutput {
+	return o
+}
+
+func (o LookupTopicResultOutput) ToLookupTopicResultOutputWithContext(ctx context.Context) LookupTopicResultOutput {
+	return o
+}
+
+// Endpoint for the topic.
+func (o LookupTopicResultOutput) Endpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTopicResult) string { return v.Endpoint }).(pulumi.StringOutput)
+}
+
+// Fully qualified identifier of the resource.
+func (o LookupTopicResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTopicResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Identity information for the resource.
+func (o LookupTopicResultOutput) Identity() IdentityInfoResponsePtrOutput {
+	return o.ApplyT(func(v LookupTopicResult) *IdentityInfoResponse { return v.Identity }).(IdentityInfoResponsePtrOutput)
+}
+
+// This can be used to restrict traffic from specific IPs instead of all IPs. Note: These are considered only if PublicNetworkAccess is enabled.
+func (o LookupTopicResultOutput) InboundIpRules() InboundIpRuleResponseArrayOutput {
+	return o.ApplyT(func(v LookupTopicResult) []InboundIpRuleResponse { return v.InboundIpRules }).(InboundIpRuleResponseArrayOutput)
+}
+
+// This determines the format that Event Grid should expect for incoming events published to the topic.
+func (o LookupTopicResultOutput) InputSchema() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupTopicResult) *string { return v.InputSchema }).(pulumi.StringPtrOutput)
+}
+
+// This enables publishing using custom event schemas. An InputSchemaMapping can be specified to map various properties of a source schema to various required properties of the EventGridEvent schema.
+func (o LookupTopicResultOutput) InputSchemaMapping() JsonInputSchemaMappingResponsePtrOutput {
+	return o.ApplyT(func(v LookupTopicResult) *JsonInputSchemaMappingResponse { return v.InputSchemaMapping }).(JsonInputSchemaMappingResponsePtrOutput)
+}
+
+// Location of the resource.
+func (o LookupTopicResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTopicResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// Metric resource id for the topic.
+func (o LookupTopicResultOutput) MetricResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTopicResult) string { return v.MetricResourceId }).(pulumi.StringOutput)
+}
+
+// Name of the resource.
+func (o LookupTopicResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTopicResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupTopicResultOutput) PrivateEndpointConnections() PrivateEndpointConnectionResponseArrayOutput {
+	return o.ApplyT(func(v LookupTopicResult) []PrivateEndpointConnectionResponse { return v.PrivateEndpointConnections }).(PrivateEndpointConnectionResponseArrayOutput)
+}
+
+// Provisioning state of the topic.
+func (o LookupTopicResultOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTopicResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// This determines if traffic is allowed over public network. By default it is enabled.
+// You can further restrict to specific IPs by configuring <seealso cref="P:Microsoft.Azure.Events.ResourceProvider.Common.Contracts.TopicProperties.InboundIpRules" />
+func (o LookupTopicResultOutput) PublicNetworkAccess() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupTopicResult) *string { return v.PublicNetworkAccess }).(pulumi.StringPtrOutput)
+}
+
+// The Sku pricing tier for the topic.
+func (o LookupTopicResultOutput) Sku() ResourceSkuResponsePtrOutput {
+	return o.ApplyT(func(v LookupTopicResult) *ResourceSkuResponse { return v.Sku }).(ResourceSkuResponsePtrOutput)
+}
+
+// Tags of the resource.
+func (o LookupTopicResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupTopicResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Type of the resource.
+func (o LookupTopicResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTopicResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupTopicResultOutput{})
 }

@@ -4,6 +4,9 @@
 package v20150521preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -30,4 +33,53 @@ type ListLabVhdsResult struct {
 	NextLink *string `pulumi:"nextLink"`
 	// Results of the list operation.
 	Value []LabVhdResponse `pulumi:"value"`
+}
+
+func ListLabVhdsOutput(ctx *pulumi.Context, args ListLabVhdsOutputArgs, opts ...pulumi.InvokeOption) ListLabVhdsResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (ListLabVhdsResult, error) {
+			args := v.(ListLabVhdsArgs)
+			r, err := ListLabVhds(ctx, &args, opts...)
+			return *r, err
+		}).(ListLabVhdsResultOutput)
+}
+
+type ListLabVhdsOutputArgs struct {
+	// The name of the lab.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The name of the resource group.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (ListLabVhdsOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListLabVhdsArgs)(nil)).Elem()
+}
+
+// The response of a list operation.
+type ListLabVhdsResultOutput struct{ *pulumi.OutputState }
+
+func (ListLabVhdsResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListLabVhdsResult)(nil)).Elem()
+}
+
+func (o ListLabVhdsResultOutput) ToListLabVhdsResultOutput() ListLabVhdsResultOutput {
+	return o
+}
+
+func (o ListLabVhdsResultOutput) ToListLabVhdsResultOutputWithContext(ctx context.Context) ListLabVhdsResultOutput {
+	return o
+}
+
+// Link for next set of results.
+func (o ListLabVhdsResultOutput) NextLink() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListLabVhdsResult) *string { return v.NextLink }).(pulumi.StringPtrOutput)
+}
+
+// Results of the list operation.
+func (o ListLabVhdsResultOutput) Value() LabVhdResponseArrayOutput {
+	return o.ApplyT(func(v ListLabVhdsResult) []LabVhdResponse { return v.Value }).(LabVhdResponseArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(ListLabVhdsResultOutput{})
 }

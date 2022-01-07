@@ -4,6 +4,9 @@
 package v20170601
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -30,4 +33,50 @@ type ListDeviceFailoverSetsArgs struct {
 type ListDeviceFailoverSetsResult struct {
 	// The list of failover sets.
 	Value []FailoverSetResponse `pulumi:"value"`
+}
+
+func ListDeviceFailoverSetsOutput(ctx *pulumi.Context, args ListDeviceFailoverSetsOutputArgs, opts ...pulumi.InvokeOption) ListDeviceFailoverSetsResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (ListDeviceFailoverSetsResult, error) {
+			args := v.(ListDeviceFailoverSetsArgs)
+			r, err := ListDeviceFailoverSets(ctx, &args, opts...)
+			return *r, err
+		}).(ListDeviceFailoverSetsResultOutput)
+}
+
+type ListDeviceFailoverSetsOutputArgs struct {
+	// The device name
+	DeviceName pulumi.StringInput `pulumi:"deviceName"`
+	// The manager name
+	ManagerName pulumi.StringInput `pulumi:"managerName"`
+	// The resource group name
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (ListDeviceFailoverSetsOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListDeviceFailoverSetsArgs)(nil)).Elem()
+}
+
+// The list of failover sets.
+type ListDeviceFailoverSetsResultOutput struct{ *pulumi.OutputState }
+
+func (ListDeviceFailoverSetsResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListDeviceFailoverSetsResult)(nil)).Elem()
+}
+
+func (o ListDeviceFailoverSetsResultOutput) ToListDeviceFailoverSetsResultOutput() ListDeviceFailoverSetsResultOutput {
+	return o
+}
+
+func (o ListDeviceFailoverSetsResultOutput) ToListDeviceFailoverSetsResultOutputWithContext(ctx context.Context) ListDeviceFailoverSetsResultOutput {
+	return o
+}
+
+// The list of failover sets.
+func (o ListDeviceFailoverSetsResultOutput) Value() FailoverSetResponseArrayOutput {
+	return o.ApplyT(func(v ListDeviceFailoverSetsResult) []FailoverSetResponse { return v.Value }).(FailoverSetResponseArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(ListDeviceFailoverSetsResultOutput{})
 }

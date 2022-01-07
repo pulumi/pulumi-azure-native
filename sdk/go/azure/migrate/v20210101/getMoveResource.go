@@ -4,6 +4,9 @@
 package v20210101
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -36,4 +39,65 @@ type LookupMoveResourceResult struct {
 	Properties MoveResourcePropertiesResponse `pulumi:"properties"`
 	// The type of the resource.
 	Type string `pulumi:"type"`
+}
+
+func LookupMoveResourceOutput(ctx *pulumi.Context, args LookupMoveResourceOutputArgs, opts ...pulumi.InvokeOption) LookupMoveResourceResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupMoveResourceResult, error) {
+			args := v.(LookupMoveResourceArgs)
+			r, err := LookupMoveResource(ctx, &args, opts...)
+			return *r, err
+		}).(LookupMoveResourceResultOutput)
+}
+
+type LookupMoveResourceOutputArgs struct {
+	// The Move Collection Name.
+	MoveCollectionName pulumi.StringInput `pulumi:"moveCollectionName"`
+	// The Move Resource Name.
+	MoveResourceName pulumi.StringInput `pulumi:"moveResourceName"`
+	// The Resource Group Name.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupMoveResourceOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupMoveResourceArgs)(nil)).Elem()
+}
+
+// Defines the move resource.
+type LookupMoveResourceResultOutput struct{ *pulumi.OutputState }
+
+func (LookupMoveResourceResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupMoveResourceResult)(nil)).Elem()
+}
+
+func (o LookupMoveResourceResultOutput) ToLookupMoveResourceResultOutput() LookupMoveResourceResultOutput {
+	return o
+}
+
+func (o LookupMoveResourceResultOutput) ToLookupMoveResourceResultOutputWithContext(ctx context.Context) LookupMoveResourceResultOutput {
+	return o
+}
+
+// Fully qualified resource Id for the resource.
+func (o LookupMoveResourceResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupMoveResourceResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o LookupMoveResourceResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupMoveResourceResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Defines the move resource properties.
+func (o LookupMoveResourceResultOutput) Properties() MoveResourcePropertiesResponseOutput {
+	return o.ApplyT(func(v LookupMoveResourceResult) MoveResourcePropertiesResponse { return v.Properties }).(MoveResourcePropertiesResponseOutput)
+}
+
+// The type of the resource.
+func (o LookupMoveResourceResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupMoveResourceResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupMoveResourceResultOutput{})
 }

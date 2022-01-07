@@ -4,6 +4,9 @@
 package v20160601
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -54,4 +57,112 @@ type LookupMapResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Gets the resource type.
 	Type string `pulumi:"type"`
+}
+
+func LookupMapOutput(ctx *pulumi.Context, args LookupMapOutputArgs, opts ...pulumi.InvokeOption) LookupMapResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupMapResult, error) {
+			args := v.(LookupMapArgs)
+			r, err := LookupMap(ctx, &args, opts...)
+			return *r, err
+		}).(LookupMapResultOutput)
+}
+
+type LookupMapOutputArgs struct {
+	// The integration account name.
+	IntegrationAccountName pulumi.StringInput `pulumi:"integrationAccountName"`
+	// The integration account map name.
+	MapName pulumi.StringInput `pulumi:"mapName"`
+	// The resource group name.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupMapOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupMapArgs)(nil)).Elem()
+}
+
+// The integration account map.
+type LookupMapResultOutput struct{ *pulumi.OutputState }
+
+func (LookupMapResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupMapResult)(nil)).Elem()
+}
+
+func (o LookupMapResultOutput) ToLookupMapResultOutput() LookupMapResultOutput {
+	return o
+}
+
+func (o LookupMapResultOutput) ToLookupMapResultOutputWithContext(ctx context.Context) LookupMapResultOutput {
+	return o
+}
+
+// The changed time.
+func (o LookupMapResultOutput) ChangedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupMapResult) string { return v.ChangedTime }).(pulumi.StringOutput)
+}
+
+// The content.
+func (o LookupMapResultOutput) Content() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupMapResult) *string { return v.Content }).(pulumi.StringPtrOutput)
+}
+
+// The content link.
+func (o LookupMapResultOutput) ContentLink() ContentLinkResponseOutput {
+	return o.ApplyT(func(v LookupMapResult) ContentLinkResponse { return v.ContentLink }).(ContentLinkResponseOutput)
+}
+
+// The content type.
+func (o LookupMapResultOutput) ContentType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupMapResult) *string { return v.ContentType }).(pulumi.StringPtrOutput)
+}
+
+// The created time.
+func (o LookupMapResultOutput) CreatedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupMapResult) string { return v.CreatedTime }).(pulumi.StringOutput)
+}
+
+// The resource id.
+func (o LookupMapResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupMapResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The resource location.
+func (o LookupMapResultOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupMapResult) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The map type.
+func (o LookupMapResultOutput) MapType() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupMapResult) string { return v.MapType }).(pulumi.StringOutput)
+}
+
+// The metadata.
+func (o LookupMapResultOutput) Metadata() pulumi.AnyOutput {
+	return o.ApplyT(func(v LookupMapResult) interface{} { return v.Metadata }).(pulumi.AnyOutput)
+}
+
+// Gets the resource name.
+func (o LookupMapResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupMapResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The parameters schema of integration account map.
+func (o LookupMapResultOutput) ParametersSchema() IntegrationAccountMapPropertiesResponseParametersSchemaPtrOutput {
+	return o.ApplyT(func(v LookupMapResult) *IntegrationAccountMapPropertiesResponseParametersSchema {
+		return v.ParametersSchema
+	}).(IntegrationAccountMapPropertiesResponseParametersSchemaPtrOutput)
+}
+
+// The resource tags.
+func (o LookupMapResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupMapResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Gets the resource type.
+func (o LookupMapResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupMapResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupMapResultOutput{})
 }

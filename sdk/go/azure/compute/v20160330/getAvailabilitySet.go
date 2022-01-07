@@ -4,6 +4,9 @@
 package v20160330
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -44,4 +47,88 @@ type LookupAvailabilitySetResult struct {
 	Type string `pulumi:"type"`
 	// A list of references to all virtual machines in the availability set.
 	VirtualMachines []SubResourceResponse `pulumi:"virtualMachines"`
+}
+
+func LookupAvailabilitySetOutput(ctx *pulumi.Context, args LookupAvailabilitySetOutputArgs, opts ...pulumi.InvokeOption) LookupAvailabilitySetResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupAvailabilitySetResult, error) {
+			args := v.(LookupAvailabilitySetArgs)
+			r, err := LookupAvailabilitySet(ctx, &args, opts...)
+			return *r, err
+		}).(LookupAvailabilitySetResultOutput)
+}
+
+type LookupAvailabilitySetOutputArgs struct {
+	// The name of the availability set.
+	AvailabilitySetName pulumi.StringInput `pulumi:"availabilitySetName"`
+	// The name of the resource group.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupAvailabilitySetOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupAvailabilitySetArgs)(nil)).Elem()
+}
+
+// Specifies information about the availability set that the virtual machine should be assigned to. Virtual machines specified in the same availability set are allocated to different nodes to maximize availability. For more information about availability sets, see [Manage the availability of virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-manage-availability?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). <br><br> For more information on Azure planned maintenance, see [Planned maintenance for virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-planned-maintenance?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) <br><br> Currently, a VM can only be added to availability set at creation time. An existing VM cannot be added to an availability set.
+type LookupAvailabilitySetResultOutput struct{ *pulumi.OutputState }
+
+func (LookupAvailabilitySetResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupAvailabilitySetResult)(nil)).Elem()
+}
+
+func (o LookupAvailabilitySetResultOutput) ToLookupAvailabilitySetResultOutput() LookupAvailabilitySetResultOutput {
+	return o
+}
+
+func (o LookupAvailabilitySetResultOutput) ToLookupAvailabilitySetResultOutputWithContext(ctx context.Context) LookupAvailabilitySetResultOutput {
+	return o
+}
+
+// Resource Id
+func (o LookupAvailabilitySetResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAvailabilitySetResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Resource location
+func (o LookupAvailabilitySetResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAvailabilitySetResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource name
+func (o LookupAvailabilitySetResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAvailabilitySetResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Fault Domain count.
+func (o LookupAvailabilitySetResultOutput) PlatformFaultDomainCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupAvailabilitySetResult) *int { return v.PlatformFaultDomainCount }).(pulumi.IntPtrOutput)
+}
+
+// Update Domain count.
+func (o LookupAvailabilitySetResultOutput) PlatformUpdateDomainCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupAvailabilitySetResult) *int { return v.PlatformUpdateDomainCount }).(pulumi.IntPtrOutput)
+}
+
+// The resource status information.
+func (o LookupAvailabilitySetResultOutput) Statuses() InstanceViewStatusResponseArrayOutput {
+	return o.ApplyT(func(v LookupAvailabilitySetResult) []InstanceViewStatusResponse { return v.Statuses }).(InstanceViewStatusResponseArrayOutput)
+}
+
+// Resource tags
+func (o LookupAvailabilitySetResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupAvailabilitySetResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type
+func (o LookupAvailabilitySetResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAvailabilitySetResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// A list of references to all virtual machines in the availability set.
+func (o LookupAvailabilitySetResultOutput) VirtualMachines() SubResourceResponseArrayOutput {
+	return o.ApplyT(func(v LookupAvailabilitySetResult) []SubResourceResponse { return v.VirtualMachines }).(SubResourceResponseArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupAvailabilitySetResultOutput{})
 }

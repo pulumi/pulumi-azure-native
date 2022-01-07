@@ -4,6 +4,9 @@
 package devices
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -43,4 +46,83 @@ type LookupIotDpsResourceResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// The resource type.
 	Type string `pulumi:"type"`
+}
+
+func LookupIotDpsResourceOutput(ctx *pulumi.Context, args LookupIotDpsResourceOutputArgs, opts ...pulumi.InvokeOption) LookupIotDpsResourceResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupIotDpsResourceResult, error) {
+			args := v.(LookupIotDpsResourceArgs)
+			r, err := LookupIotDpsResource(ctx, &args, opts...)
+			return *r, err
+		}).(LookupIotDpsResourceResultOutput)
+}
+
+type LookupIotDpsResourceOutputArgs struct {
+	// Name of the provisioning service to retrieve.
+	ProvisioningServiceName pulumi.StringInput `pulumi:"provisioningServiceName"`
+	// Resource group name.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupIotDpsResourceOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupIotDpsResourceArgs)(nil)).Elem()
+}
+
+// The description of the provisioning service.
+type LookupIotDpsResourceResultOutput struct{ *pulumi.OutputState }
+
+func (LookupIotDpsResourceResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupIotDpsResourceResult)(nil)).Elem()
+}
+
+func (o LookupIotDpsResourceResultOutput) ToLookupIotDpsResourceResultOutput() LookupIotDpsResourceResultOutput {
+	return o
+}
+
+func (o LookupIotDpsResourceResultOutput) ToLookupIotDpsResourceResultOutputWithContext(ctx context.Context) LookupIotDpsResourceResultOutput {
+	return o
+}
+
+// The Etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal ETag convention.
+func (o LookupIotDpsResourceResultOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupIotDpsResourceResult) *string { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// The resource identifier.
+func (o LookupIotDpsResourceResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupIotDpsResourceResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The resource location.
+func (o LookupIotDpsResourceResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupIotDpsResourceResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// The resource name.
+func (o LookupIotDpsResourceResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupIotDpsResourceResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Service specific properties for a provisioning service
+func (o LookupIotDpsResourceResultOutput) Properties() IotDpsPropertiesDescriptionResponseOutput {
+	return o.ApplyT(func(v LookupIotDpsResourceResult) IotDpsPropertiesDescriptionResponse { return v.Properties }).(IotDpsPropertiesDescriptionResponseOutput)
+}
+
+// Sku info for a provisioning Service.
+func (o LookupIotDpsResourceResultOutput) Sku() IotDpsSkuInfoResponseOutput {
+	return o.ApplyT(func(v LookupIotDpsResourceResult) IotDpsSkuInfoResponse { return v.Sku }).(IotDpsSkuInfoResponseOutput)
+}
+
+// The resource tags.
+func (o LookupIotDpsResourceResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupIotDpsResourceResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The resource type.
+func (o LookupIotDpsResourceResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupIotDpsResourceResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupIotDpsResourceResultOutput{})
 }

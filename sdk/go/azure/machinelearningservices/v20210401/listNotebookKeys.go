@@ -4,6 +4,9 @@
 package v20210401
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -26,4 +29,50 @@ type ListNotebookKeysArgs struct {
 type ListNotebookKeysResult struct {
 	PrimaryAccessKey   string `pulumi:"primaryAccessKey"`
 	SecondaryAccessKey string `pulumi:"secondaryAccessKey"`
+}
+
+func ListNotebookKeysOutput(ctx *pulumi.Context, args ListNotebookKeysOutputArgs, opts ...pulumi.InvokeOption) ListNotebookKeysResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (ListNotebookKeysResult, error) {
+			args := v.(ListNotebookKeysArgs)
+			r, err := ListNotebookKeys(ctx, &args, opts...)
+			return *r, err
+		}).(ListNotebookKeysResultOutput)
+}
+
+type ListNotebookKeysOutputArgs struct {
+	// Name of the resource group in which workspace is located.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// Name of Azure Machine Learning workspace.
+	WorkspaceName pulumi.StringInput `pulumi:"workspaceName"`
+}
+
+func (ListNotebookKeysOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListNotebookKeysArgs)(nil)).Elem()
+}
+
+type ListNotebookKeysResultOutput struct{ *pulumi.OutputState }
+
+func (ListNotebookKeysResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListNotebookKeysResult)(nil)).Elem()
+}
+
+func (o ListNotebookKeysResultOutput) ToListNotebookKeysResultOutput() ListNotebookKeysResultOutput {
+	return o
+}
+
+func (o ListNotebookKeysResultOutput) ToListNotebookKeysResultOutputWithContext(ctx context.Context) ListNotebookKeysResultOutput {
+	return o
+}
+
+func (o ListNotebookKeysResultOutput) PrimaryAccessKey() pulumi.StringOutput {
+	return o.ApplyT(func(v ListNotebookKeysResult) string { return v.PrimaryAccessKey }).(pulumi.StringOutput)
+}
+
+func (o ListNotebookKeysResultOutput) SecondaryAccessKey() pulumi.StringOutput {
+	return o.ApplyT(func(v ListNotebookKeysResult) string { return v.SecondaryAccessKey }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(ListNotebookKeysResultOutput{})
 }

@@ -4,6 +4,9 @@
 package v20190401
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -52,4 +55,110 @@ type LookupP2sVpnGatewayResult struct {
 	VpnClientConnectionHealth VpnClientConnectionHealthResponse `pulumi:"vpnClientConnectionHealth"`
 	// The scale unit for this p2s vpn gateway.
 	VpnGatewayScaleUnit *int `pulumi:"vpnGatewayScaleUnit"`
+}
+
+func LookupP2sVpnGatewayOutput(ctx *pulumi.Context, args LookupP2sVpnGatewayOutputArgs, opts ...pulumi.InvokeOption) LookupP2sVpnGatewayResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupP2sVpnGatewayResult, error) {
+			args := v.(LookupP2sVpnGatewayArgs)
+			r, err := LookupP2sVpnGateway(ctx, &args, opts...)
+			return *r, err
+		}).(LookupP2sVpnGatewayResultOutput)
+}
+
+type LookupP2sVpnGatewayOutputArgs struct {
+	// The name of the gateway.
+	GatewayName pulumi.StringInput `pulumi:"gatewayName"`
+	// The resource group name of the P2SVpnGateway.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupP2sVpnGatewayOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupP2sVpnGatewayArgs)(nil)).Elem()
+}
+
+// P2SVpnGateway Resource.
+type LookupP2sVpnGatewayResultOutput struct{ *pulumi.OutputState }
+
+func (LookupP2sVpnGatewayResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupP2sVpnGatewayResult)(nil)).Elem()
+}
+
+func (o LookupP2sVpnGatewayResultOutput) ToLookupP2sVpnGatewayResultOutput() LookupP2sVpnGatewayResultOutput {
+	return o
+}
+
+func (o LookupP2sVpnGatewayResultOutput) ToLookupP2sVpnGatewayResultOutputWithContext(ctx context.Context) LookupP2sVpnGatewayResultOutput {
+	return o
+}
+
+// The reference of the address space resource which represents the custom routes specified by the customer for P2SVpnGateway and P2S VpnClient.
+func (o LookupP2sVpnGatewayResultOutput) CustomRoutes() AddressSpaceResponsePtrOutput {
+	return o.ApplyT(func(v LookupP2sVpnGatewayResult) *AddressSpaceResponse { return v.CustomRoutes }).(AddressSpaceResponsePtrOutput)
+}
+
+// Gets a unique read-only string that changes whenever the resource is updated.
+func (o LookupP2sVpnGatewayResultOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupP2sVpnGatewayResult) string { return v.Etag }).(pulumi.StringOutput)
+}
+
+// Resource ID.
+func (o LookupP2sVpnGatewayResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupP2sVpnGatewayResult) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// Resource location.
+func (o LookupP2sVpnGatewayResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupP2sVpnGatewayResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o LookupP2sVpnGatewayResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupP2sVpnGatewayResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The P2SVpnServerConfiguration to which the p2sVpnGateway is attached to.
+func (o LookupP2sVpnGatewayResultOutput) P2SVpnServerConfiguration() SubResourceResponsePtrOutput {
+	return o.ApplyT(func(v LookupP2sVpnGatewayResult) *SubResourceResponse { return v.P2SVpnServerConfiguration }).(SubResourceResponsePtrOutput)
+}
+
+// The provisioning state of the resource.
+func (o LookupP2sVpnGatewayResultOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupP2sVpnGatewayResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Resource tags.
+func (o LookupP2sVpnGatewayResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupP2sVpnGatewayResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type.
+func (o LookupP2sVpnGatewayResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupP2sVpnGatewayResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The VirtualHub to which the gateway belongs.
+func (o LookupP2sVpnGatewayResultOutput) VirtualHub() SubResourceResponsePtrOutput {
+	return o.ApplyT(func(v LookupP2sVpnGatewayResult) *SubResourceResponse { return v.VirtualHub }).(SubResourceResponsePtrOutput)
+}
+
+// The reference of the address space resource which represents Address space for P2S VpnClient.
+func (o LookupP2sVpnGatewayResultOutput) VpnClientAddressPool() AddressSpaceResponsePtrOutput {
+	return o.ApplyT(func(v LookupP2sVpnGatewayResult) *AddressSpaceResponse { return v.VpnClientAddressPool }).(AddressSpaceResponsePtrOutput)
+}
+
+// All P2S VPN clients' connection health status.
+func (o LookupP2sVpnGatewayResultOutput) VpnClientConnectionHealth() VpnClientConnectionHealthResponseOutput {
+	return o.ApplyT(func(v LookupP2sVpnGatewayResult) VpnClientConnectionHealthResponse {
+		return v.VpnClientConnectionHealth
+	}).(VpnClientConnectionHealthResponseOutput)
+}
+
+// The scale unit for this p2s vpn gateway.
+func (o LookupP2sVpnGatewayResultOutput) VpnGatewayScaleUnit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupP2sVpnGatewayResult) *int { return v.VpnGatewayScaleUnit }).(pulumi.IntPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupP2sVpnGatewayResultOutput{})
 }

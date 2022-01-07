@@ -4,6 +4,9 @@
 package v20211201preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -42,4 +45,83 @@ type LookupScannerResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type
 	Type string `pulumi:"type"`
+}
+
+func LookupScannerOutput(ctx *pulumi.Context, args LookupScannerOutputArgs, opts ...pulumi.InvokeOption) LookupScannerResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupScannerResult, error) {
+			args := v.(LookupScannerArgs)
+			r, err := LookupScanner(ctx, &args, opts...)
+			return *r, err
+		}).(LookupScannerResultOutput)
+}
+
+type LookupScannerOutputArgs struct {
+	// The name of the resource group within the user's subscription. The name is case insensitive.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// Security scanner name
+	ScannerName pulumi.StringInput `pulumi:"scannerName"`
+}
+
+func (LookupScannerOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupScannerArgs)(nil)).Elem()
+}
+
+// Security Scanner resource
+type LookupScannerResultOutput struct{ *pulumi.OutputState }
+
+func (LookupScannerResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupScannerResult)(nil)).Elem()
+}
+
+func (o LookupScannerResultOutput) ToLookupScannerResultOutput() LookupScannerResultOutput {
+	return o
+}
+
+func (o LookupScannerResultOutput) ToLookupScannerResultOutputWithContext(ctx context.Context) LookupScannerResultOutput {
+	return o
+}
+
+// Entity tag is used for comparing two or more entities from the same requested resource.
+func (o LookupScannerResultOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupScannerResult) *string { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// Resource Id
+func (o LookupScannerResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupScannerResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Kind of the resource
+func (o LookupScannerResultOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupScannerResult) *string { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Location where the resource is stored
+func (o LookupScannerResultOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupScannerResult) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Resource name
+func (o LookupScannerResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupScannerResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+func (o LookupScannerResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupScannerResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// A list of key value pairs that describe the resource.
+func (o LookupScannerResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupScannerResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type
+func (o LookupScannerResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupScannerResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupScannerResultOutput{})
 }

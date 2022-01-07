@@ -4,6 +4,9 @@
 package v20171101
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -42,4 +45,83 @@ type LookupApplicationSecurityGroupResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.
 	Type string `pulumi:"type"`
+}
+
+func LookupApplicationSecurityGroupOutput(ctx *pulumi.Context, args LookupApplicationSecurityGroupOutputArgs, opts ...pulumi.InvokeOption) LookupApplicationSecurityGroupResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupApplicationSecurityGroupResult, error) {
+			args := v.(LookupApplicationSecurityGroupArgs)
+			r, err := LookupApplicationSecurityGroup(ctx, &args, opts...)
+			return *r, err
+		}).(LookupApplicationSecurityGroupResultOutput)
+}
+
+type LookupApplicationSecurityGroupOutputArgs struct {
+	// The name of the application security group.
+	ApplicationSecurityGroupName pulumi.StringInput `pulumi:"applicationSecurityGroupName"`
+	// The name of the resource group.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupApplicationSecurityGroupOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupApplicationSecurityGroupArgs)(nil)).Elem()
+}
+
+// An application security group in a resource group.
+type LookupApplicationSecurityGroupResultOutput struct{ *pulumi.OutputState }
+
+func (LookupApplicationSecurityGroupResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupApplicationSecurityGroupResult)(nil)).Elem()
+}
+
+func (o LookupApplicationSecurityGroupResultOutput) ToLookupApplicationSecurityGroupResultOutput() LookupApplicationSecurityGroupResultOutput {
+	return o
+}
+
+func (o LookupApplicationSecurityGroupResultOutput) ToLookupApplicationSecurityGroupResultOutputWithContext(ctx context.Context) LookupApplicationSecurityGroupResultOutput {
+	return o
+}
+
+// A unique read-only string that changes whenever the resource is updated.
+func (o LookupApplicationSecurityGroupResultOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupApplicationSecurityGroupResult) string { return v.Etag }).(pulumi.StringOutput)
+}
+
+// Resource ID.
+func (o LookupApplicationSecurityGroupResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupApplicationSecurityGroupResult) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// Resource location.
+func (o LookupApplicationSecurityGroupResultOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupApplicationSecurityGroupResult) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Resource name.
+func (o LookupApplicationSecurityGroupResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupApplicationSecurityGroupResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The provisioning state of the application security group resource. Possible values are: 'Succeeded', 'Updating', 'Deleting', and 'Failed'.
+func (o LookupApplicationSecurityGroupResultOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupApplicationSecurityGroupResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The resource GUID property of the application security group resource. It uniquely identifies a resource, even if the user changes its name or migrate the resource across subscriptions or resource groups.
+func (o LookupApplicationSecurityGroupResultOutput) ResourceGuid() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupApplicationSecurityGroupResult) string { return v.ResourceGuid }).(pulumi.StringOutput)
+}
+
+// Resource tags.
+func (o LookupApplicationSecurityGroupResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupApplicationSecurityGroupResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type.
+func (o LookupApplicationSecurityGroupResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupApplicationSecurityGroupResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupApplicationSecurityGroupResultOutput{})
 }

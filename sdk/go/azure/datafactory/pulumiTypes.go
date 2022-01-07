@@ -10809,6 +10809,157 @@ type GitHubClientSecret struct {
 	ByoaSecretName *string `pulumi:"byoaSecretName"`
 }
 
+// GitHubClientSecretInput is an input type that accepts GitHubClientSecretArgs and GitHubClientSecretOutput values.
+// You can construct a concrete instance of `GitHubClientSecretInput` via:
+//
+//          GitHubClientSecretArgs{...}
+type GitHubClientSecretInput interface {
+	pulumi.Input
+
+	ToGitHubClientSecretOutput() GitHubClientSecretOutput
+	ToGitHubClientSecretOutputWithContext(context.Context) GitHubClientSecretOutput
+}
+
+// Client secret information for factory's bring your own app repository configuration.
+type GitHubClientSecretArgs struct {
+	// Bring your own app client secret AKV URL.
+	ByoaSecretAkvUrl pulumi.StringPtrInput `pulumi:"byoaSecretAkvUrl"`
+	// Bring your own app client secret name in AKV.
+	ByoaSecretName pulumi.StringPtrInput `pulumi:"byoaSecretName"`
+}
+
+func (GitHubClientSecretArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GitHubClientSecret)(nil)).Elem()
+}
+
+func (i GitHubClientSecretArgs) ToGitHubClientSecretOutput() GitHubClientSecretOutput {
+	return i.ToGitHubClientSecretOutputWithContext(context.Background())
+}
+
+func (i GitHubClientSecretArgs) ToGitHubClientSecretOutputWithContext(ctx context.Context) GitHubClientSecretOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GitHubClientSecretOutput)
+}
+
+func (i GitHubClientSecretArgs) ToGitHubClientSecretPtrOutput() GitHubClientSecretPtrOutput {
+	return i.ToGitHubClientSecretPtrOutputWithContext(context.Background())
+}
+
+func (i GitHubClientSecretArgs) ToGitHubClientSecretPtrOutputWithContext(ctx context.Context) GitHubClientSecretPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GitHubClientSecretOutput).ToGitHubClientSecretPtrOutputWithContext(ctx)
+}
+
+// GitHubClientSecretPtrInput is an input type that accepts GitHubClientSecretArgs, GitHubClientSecretPtr and GitHubClientSecretPtrOutput values.
+// You can construct a concrete instance of `GitHubClientSecretPtrInput` via:
+//
+//          GitHubClientSecretArgs{...}
+//
+//  or:
+//
+//          nil
+type GitHubClientSecretPtrInput interface {
+	pulumi.Input
+
+	ToGitHubClientSecretPtrOutput() GitHubClientSecretPtrOutput
+	ToGitHubClientSecretPtrOutputWithContext(context.Context) GitHubClientSecretPtrOutput
+}
+
+type gitHubClientSecretPtrType GitHubClientSecretArgs
+
+func GitHubClientSecretPtr(v *GitHubClientSecretArgs) GitHubClientSecretPtrInput {
+	return (*gitHubClientSecretPtrType)(v)
+}
+
+func (*gitHubClientSecretPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GitHubClientSecret)(nil)).Elem()
+}
+
+func (i *gitHubClientSecretPtrType) ToGitHubClientSecretPtrOutput() GitHubClientSecretPtrOutput {
+	return i.ToGitHubClientSecretPtrOutputWithContext(context.Background())
+}
+
+func (i *gitHubClientSecretPtrType) ToGitHubClientSecretPtrOutputWithContext(ctx context.Context) GitHubClientSecretPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GitHubClientSecretPtrOutput)
+}
+
+// Client secret information for factory's bring your own app repository configuration.
+type GitHubClientSecretOutput struct{ *pulumi.OutputState }
+
+func (GitHubClientSecretOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GitHubClientSecret)(nil)).Elem()
+}
+
+func (o GitHubClientSecretOutput) ToGitHubClientSecretOutput() GitHubClientSecretOutput {
+	return o
+}
+
+func (o GitHubClientSecretOutput) ToGitHubClientSecretOutputWithContext(ctx context.Context) GitHubClientSecretOutput {
+	return o
+}
+
+func (o GitHubClientSecretOutput) ToGitHubClientSecretPtrOutput() GitHubClientSecretPtrOutput {
+	return o.ToGitHubClientSecretPtrOutputWithContext(context.Background())
+}
+
+func (o GitHubClientSecretOutput) ToGitHubClientSecretPtrOutputWithContext(ctx context.Context) GitHubClientSecretPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GitHubClientSecret) *GitHubClientSecret {
+		return &v
+	}).(GitHubClientSecretPtrOutput)
+}
+
+// Bring your own app client secret AKV URL.
+func (o GitHubClientSecretOutput) ByoaSecretAkvUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GitHubClientSecret) *string { return v.ByoaSecretAkvUrl }).(pulumi.StringPtrOutput)
+}
+
+// Bring your own app client secret name in AKV.
+func (o GitHubClientSecretOutput) ByoaSecretName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GitHubClientSecret) *string { return v.ByoaSecretName }).(pulumi.StringPtrOutput)
+}
+
+type GitHubClientSecretPtrOutput struct{ *pulumi.OutputState }
+
+func (GitHubClientSecretPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GitHubClientSecret)(nil)).Elem()
+}
+
+func (o GitHubClientSecretPtrOutput) ToGitHubClientSecretPtrOutput() GitHubClientSecretPtrOutput {
+	return o
+}
+
+func (o GitHubClientSecretPtrOutput) ToGitHubClientSecretPtrOutputWithContext(ctx context.Context) GitHubClientSecretPtrOutput {
+	return o
+}
+
+func (o GitHubClientSecretPtrOutput) Elem() GitHubClientSecretOutput {
+	return o.ApplyT(func(v *GitHubClientSecret) GitHubClientSecret {
+		if v != nil {
+			return *v
+		}
+		var ret GitHubClientSecret
+		return ret
+	}).(GitHubClientSecretOutput)
+}
+
+// Bring your own app client secret AKV URL.
+func (o GitHubClientSecretPtrOutput) ByoaSecretAkvUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GitHubClientSecret) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ByoaSecretAkvUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+// Bring your own app client secret name in AKV.
+func (o GitHubClientSecretPtrOutput) ByoaSecretName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GitHubClientSecret) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ByoaSecretName
+	}).(pulumi.StringPtrOutput)
+}
+
 // Client secret information for factory's bring your own app repository configuration.
 type GitHubClientSecretResponse struct {
 	// Bring your own app client secret AKV URL.
@@ -25007,6 +25158,120 @@ type UserAccessPolicyResponse struct {
 	StartTime *string `pulumi:"startTime"`
 }
 
+// Get Data Plane read only token request definition.
+type UserAccessPolicyResponseOutput struct{ *pulumi.OutputState }
+
+func (UserAccessPolicyResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserAccessPolicyResponse)(nil)).Elem()
+}
+
+func (o UserAccessPolicyResponseOutput) ToUserAccessPolicyResponseOutput() UserAccessPolicyResponseOutput {
+	return o
+}
+
+func (o UserAccessPolicyResponseOutput) ToUserAccessPolicyResponseOutputWithContext(ctx context.Context) UserAccessPolicyResponseOutput {
+	return o
+}
+
+// The resource path to get access relative to factory. Currently only empty string is supported which corresponds to the factory resource.
+func (o UserAccessPolicyResponseOutput) AccessResourcePath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserAccessPolicyResponse) *string { return v.AccessResourcePath }).(pulumi.StringPtrOutput)
+}
+
+// Expiration time for the token. Maximum duration for the token is eight hours and by default the token will expire in eight hours.
+func (o UserAccessPolicyResponseOutput) ExpireTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserAccessPolicyResponse) *string { return v.ExpireTime }).(pulumi.StringPtrOutput)
+}
+
+// The string with permissions for Data Plane access. Currently only 'r' is supported which grants read only access.
+func (o UserAccessPolicyResponseOutput) Permissions() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserAccessPolicyResponse) *string { return v.Permissions }).(pulumi.StringPtrOutput)
+}
+
+// The name of the profile. Currently only the default is supported. The default value is DefaultProfile.
+func (o UserAccessPolicyResponseOutput) ProfileName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserAccessPolicyResponse) *string { return v.ProfileName }).(pulumi.StringPtrOutput)
+}
+
+// Start time for the token. If not specified the current time will be used.
+func (o UserAccessPolicyResponseOutput) StartTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserAccessPolicyResponse) *string { return v.StartTime }).(pulumi.StringPtrOutput)
+}
+
+type UserAccessPolicyResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (UserAccessPolicyResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserAccessPolicyResponse)(nil)).Elem()
+}
+
+func (o UserAccessPolicyResponsePtrOutput) ToUserAccessPolicyResponsePtrOutput() UserAccessPolicyResponsePtrOutput {
+	return o
+}
+
+func (o UserAccessPolicyResponsePtrOutput) ToUserAccessPolicyResponsePtrOutputWithContext(ctx context.Context) UserAccessPolicyResponsePtrOutput {
+	return o
+}
+
+func (o UserAccessPolicyResponsePtrOutput) Elem() UserAccessPolicyResponseOutput {
+	return o.ApplyT(func(v *UserAccessPolicyResponse) UserAccessPolicyResponse {
+		if v != nil {
+			return *v
+		}
+		var ret UserAccessPolicyResponse
+		return ret
+	}).(UserAccessPolicyResponseOutput)
+}
+
+// The resource path to get access relative to factory. Currently only empty string is supported which corresponds to the factory resource.
+func (o UserAccessPolicyResponsePtrOutput) AccessResourcePath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserAccessPolicyResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AccessResourcePath
+	}).(pulumi.StringPtrOutput)
+}
+
+// Expiration time for the token. Maximum duration for the token is eight hours and by default the token will expire in eight hours.
+func (o UserAccessPolicyResponsePtrOutput) ExpireTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserAccessPolicyResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ExpireTime
+	}).(pulumi.StringPtrOutput)
+}
+
+// The string with permissions for Data Plane access. Currently only 'r' is supported which grants read only access.
+func (o UserAccessPolicyResponsePtrOutput) Permissions() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserAccessPolicyResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Permissions
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the profile. Currently only the default is supported. The default value is DefaultProfile.
+func (o UserAccessPolicyResponsePtrOutput) ProfileName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserAccessPolicyResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ProfileName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Start time for the token. If not specified the current time will be used.
+func (o UserAccessPolicyResponsePtrOutput) StartTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserAccessPolicyResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StartTime
+	}).(pulumi.StringPtrOutput)
+}
+
 // User property.
 type UserProperty struct {
 	// User property name.
@@ -26260,6 +26525,8 @@ func init() {
 	pulumi.RegisterOutputType(FactoryIdentityPtrOutput{})
 	pulumi.RegisterOutputType(FactoryIdentityResponseOutput{})
 	pulumi.RegisterOutputType(FactoryIdentityResponsePtrOutput{})
+	pulumi.RegisterOutputType(GitHubClientSecretOutput{})
+	pulumi.RegisterOutputType(GitHubClientSecretPtrOutput{})
 	pulumi.RegisterOutputType(GlobalParameterSpecificationOutput{})
 	pulumi.RegisterOutputType(GlobalParameterSpecificationMapOutput{})
 	pulumi.RegisterOutputType(GlobalParameterSpecificationResponseOutput{})
@@ -26289,6 +26556,8 @@ func init() {
 	pulumi.RegisterOutputType(PrivateLinkConnectionStateResponseOutput{})
 	pulumi.RegisterOutputType(PrivateLinkConnectionStateResponsePtrOutput{})
 	pulumi.RegisterOutputType(RemotePrivateEndpointConnectionResponseOutput{})
+	pulumi.RegisterOutputType(UserAccessPolicyResponseOutput{})
+	pulumi.RegisterOutputType(UserAccessPolicyResponsePtrOutput{})
 	pulumi.RegisterOutputType(VariableSpecificationOutput{})
 	pulumi.RegisterOutputType(VariableSpecificationMapOutput{})
 	pulumi.RegisterOutputType(VariableSpecificationResponseOutput{})

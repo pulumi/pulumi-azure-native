@@ -4,6 +4,9 @@
 package appplatform
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -39,4 +42,70 @@ type LookupStorageResult struct {
 	SystemData SystemDataResponse `pulumi:"systemData"`
 	// The type of the resource.
 	Type string `pulumi:"type"`
+}
+
+func LookupStorageOutput(ctx *pulumi.Context, args LookupStorageOutputArgs, opts ...pulumi.InvokeOption) LookupStorageResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupStorageResult, error) {
+			args := v.(LookupStorageArgs)
+			r, err := LookupStorage(ctx, &args, opts...)
+			return *r, err
+		}).(LookupStorageResultOutput)
+}
+
+type LookupStorageOutputArgs struct {
+	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the Service resource.
+	ServiceName pulumi.StringInput `pulumi:"serviceName"`
+	// The name of the storage resource.
+	StorageName pulumi.StringInput `pulumi:"storageName"`
+}
+
+func (LookupStorageOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupStorageArgs)(nil)).Elem()
+}
+
+// Storage resource payload.
+type LookupStorageResultOutput struct{ *pulumi.OutputState }
+
+func (LookupStorageResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupStorageResult)(nil)).Elem()
+}
+
+func (o LookupStorageResultOutput) ToLookupStorageResultOutput() LookupStorageResultOutput {
+	return o
+}
+
+func (o LookupStorageResultOutput) ToLookupStorageResultOutputWithContext(ctx context.Context) LookupStorageResultOutput {
+	return o
+}
+
+// Fully qualified resource Id for the resource.
+func (o LookupStorageResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupStorageResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The name of the resource.
+func (o LookupStorageResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupStorageResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Properties of the storage resource payload.
+func (o LookupStorageResultOutput) Properties() StorageAccountResponseOutput {
+	return o.ApplyT(func(v LookupStorageResult) StorageAccountResponse { return v.Properties }).(StorageAccountResponseOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o LookupStorageResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupStorageResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the resource.
+func (o LookupStorageResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupStorageResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupStorageResultOutput{})
 }

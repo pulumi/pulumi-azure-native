@@ -4,6 +4,9 @@
 package v20150801preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -42,4 +45,62 @@ type ListConnectionConsentLinksArgs struct {
 type ListConnectionConsentLinksResult struct {
 	// Collection of resources
 	Value []ConsentLinkResponse `pulumi:"value"`
+}
+
+func ListConnectionConsentLinksOutput(ctx *pulumi.Context, args ListConnectionConsentLinksOutputArgs, opts ...pulumi.InvokeOption) ListConnectionConsentLinksResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (ListConnectionConsentLinksResult, error) {
+			args := v.(ListConnectionConsentLinksArgs)
+			r, err := ListConnectionConsentLinks(ctx, &args, opts...)
+			return *r, err
+		}).(ListConnectionConsentLinksResultOutput)
+}
+
+type ListConnectionConsentLinksOutputArgs struct {
+	// The connection name.
+	ConnectionName pulumi.StringInput `pulumi:"connectionName"`
+	// Resource Id
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Kind of resource
+	Kind pulumi.StringPtrInput `pulumi:"kind"`
+	// Resource Location
+	Location pulumi.StringPtrInput `pulumi:"location"`
+	// Resource Name
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Array of links
+	Parameters ConsentLinkInputParameterArrayInput `pulumi:"parameters"`
+	// The resource group name.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// Resource tags
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+	// Resource type
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (ListConnectionConsentLinksOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListConnectionConsentLinksArgs)(nil)).Elem()
+}
+
+// Collection of consent links
+type ListConnectionConsentLinksResultOutput struct{ *pulumi.OutputState }
+
+func (ListConnectionConsentLinksResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListConnectionConsentLinksResult)(nil)).Elem()
+}
+
+func (o ListConnectionConsentLinksResultOutput) ToListConnectionConsentLinksResultOutput() ListConnectionConsentLinksResultOutput {
+	return o
+}
+
+func (o ListConnectionConsentLinksResultOutput) ToListConnectionConsentLinksResultOutputWithContext(ctx context.Context) ListConnectionConsentLinksResultOutput {
+	return o
+}
+
+// Collection of resources
+func (o ListConnectionConsentLinksResultOutput) Value() ConsentLinkResponseArrayOutput {
+	return o.ApplyT(func(v ListConnectionConsentLinksResult) []ConsentLinkResponse { return v.Value }).(ConsentLinkResponseArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(ListConnectionConsentLinksResultOutput{})
 }

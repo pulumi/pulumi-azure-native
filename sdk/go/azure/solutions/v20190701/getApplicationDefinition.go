@@ -4,6 +4,9 @@
 package v20190701
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -68,4 +71,156 @@ type LookupApplicationDefinitionResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type
 	Type string `pulumi:"type"`
+}
+
+func LookupApplicationDefinitionOutput(ctx *pulumi.Context, args LookupApplicationDefinitionOutputArgs, opts ...pulumi.InvokeOption) LookupApplicationDefinitionResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupApplicationDefinitionResult, error) {
+			args := v.(LookupApplicationDefinitionArgs)
+			r, err := LookupApplicationDefinition(ctx, &args, opts...)
+			return *r, err
+		}).(LookupApplicationDefinitionResultOutput)
+}
+
+type LookupApplicationDefinitionOutputArgs struct {
+	// The name of the managed application definition.
+	ApplicationDefinitionName pulumi.StringInput `pulumi:"applicationDefinitionName"`
+	// The name of the resource group. The name is case insensitive.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupApplicationDefinitionOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupApplicationDefinitionArgs)(nil)).Elem()
+}
+
+// Information about managed application definition.
+type LookupApplicationDefinitionResultOutput struct{ *pulumi.OutputState }
+
+func (LookupApplicationDefinitionResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupApplicationDefinitionResult)(nil)).Elem()
+}
+
+func (o LookupApplicationDefinitionResultOutput) ToLookupApplicationDefinitionResultOutput() LookupApplicationDefinitionResultOutput {
+	return o
+}
+
+func (o LookupApplicationDefinitionResultOutput) ToLookupApplicationDefinitionResultOutputWithContext(ctx context.Context) LookupApplicationDefinitionResultOutput {
+	return o
+}
+
+// The collection of managed application artifacts. The portal will use the files specified as artifacts to construct the user experience of creating a managed application from a managed application definition.
+func (o LookupApplicationDefinitionResultOutput) Artifacts() ApplicationDefinitionArtifactResponseArrayOutput {
+	return o.ApplyT(func(v LookupApplicationDefinitionResult) []ApplicationDefinitionArtifactResponse { return v.Artifacts }).(ApplicationDefinitionArtifactResponseArrayOutput)
+}
+
+// The managed application provider authorizations.
+func (o LookupApplicationDefinitionResultOutput) Authorizations() ApplicationAuthorizationResponseArrayOutput {
+	return o.ApplyT(func(v LookupApplicationDefinitionResult) []ApplicationAuthorizationResponse { return v.Authorizations }).(ApplicationAuthorizationResponseArrayOutput)
+}
+
+// The createUiDefinition json for the backing template with Microsoft.Solutions/applications resource. It can be a JObject or well-formed JSON string.
+func (o LookupApplicationDefinitionResultOutput) CreateUiDefinition() pulumi.AnyOutput {
+	return o.ApplyT(func(v LookupApplicationDefinitionResult) interface{} { return v.CreateUiDefinition }).(pulumi.AnyOutput)
+}
+
+// The managed application deployment policy.
+func (o LookupApplicationDefinitionResultOutput) DeploymentPolicy() ApplicationDeploymentPolicyResponsePtrOutput {
+	return o.ApplyT(func(v LookupApplicationDefinitionResult) *ApplicationDeploymentPolicyResponse {
+		return v.DeploymentPolicy
+	}).(ApplicationDeploymentPolicyResponsePtrOutput)
+}
+
+// The managed application definition description.
+func (o LookupApplicationDefinitionResultOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupApplicationDefinitionResult) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The managed application definition display name.
+func (o LookupApplicationDefinitionResultOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupApplicationDefinitionResult) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+// Resource ID
+func (o LookupApplicationDefinitionResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupApplicationDefinitionResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// A value indicating whether the package is enabled or not.
+func (o LookupApplicationDefinitionResultOutput) IsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupApplicationDefinitionResult) *bool { return v.IsEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Resource location
+func (o LookupApplicationDefinitionResultOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupApplicationDefinitionResult) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The managed application lock level.
+func (o LookupApplicationDefinitionResultOutput) LockLevel() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupApplicationDefinitionResult) string { return v.LockLevel }).(pulumi.StringOutput)
+}
+
+// The managed application locking policy.
+func (o LookupApplicationDefinitionResultOutput) LockingPolicy() ApplicationPackageLockingPolicyDefinitionResponsePtrOutput {
+	return o.ApplyT(func(v LookupApplicationDefinitionResult) *ApplicationPackageLockingPolicyDefinitionResponse {
+		return v.LockingPolicy
+	}).(ApplicationPackageLockingPolicyDefinitionResponsePtrOutput)
+}
+
+// The inline main template json which has resources to be provisioned. It can be a JObject or well-formed JSON string.
+func (o LookupApplicationDefinitionResultOutput) MainTemplate() pulumi.AnyOutput {
+	return o.ApplyT(func(v LookupApplicationDefinitionResult) interface{} { return v.MainTemplate }).(pulumi.AnyOutput)
+}
+
+// ID of the resource that manages this resource.
+func (o LookupApplicationDefinitionResultOutput) ManagedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupApplicationDefinitionResult) *string { return v.ManagedBy }).(pulumi.StringPtrOutput)
+}
+
+// The managed application management policy that determines publisher's access to the managed resource group.
+func (o LookupApplicationDefinitionResultOutput) ManagementPolicy() ApplicationManagementPolicyResponsePtrOutput {
+	return o.ApplyT(func(v LookupApplicationDefinitionResult) *ApplicationManagementPolicyResponse {
+		return v.ManagementPolicy
+	}).(ApplicationManagementPolicyResponsePtrOutput)
+}
+
+// Resource name
+func (o LookupApplicationDefinitionResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupApplicationDefinitionResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The managed application notification policy.
+func (o LookupApplicationDefinitionResultOutput) NotificationPolicy() ApplicationNotificationPolicyResponsePtrOutput {
+	return o.ApplyT(func(v LookupApplicationDefinitionResult) *ApplicationNotificationPolicyResponse {
+		return v.NotificationPolicy
+	}).(ApplicationNotificationPolicyResponsePtrOutput)
+}
+
+// The managed application definition package file Uri. Use this element
+func (o LookupApplicationDefinitionResultOutput) PackageFileUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupApplicationDefinitionResult) *string { return v.PackageFileUri }).(pulumi.StringPtrOutput)
+}
+
+// The managed application provider policies.
+func (o LookupApplicationDefinitionResultOutput) Policies() ApplicationPolicyResponseArrayOutput {
+	return o.ApplyT(func(v LookupApplicationDefinitionResult) []ApplicationPolicyResponse { return v.Policies }).(ApplicationPolicyResponseArrayOutput)
+}
+
+// The SKU of the resource.
+func (o LookupApplicationDefinitionResultOutput) Sku() SkuResponsePtrOutput {
+	return o.ApplyT(func(v LookupApplicationDefinitionResult) *SkuResponse { return v.Sku }).(SkuResponsePtrOutput)
+}
+
+// Resource tags
+func (o LookupApplicationDefinitionResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupApplicationDefinitionResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type
+func (o LookupApplicationDefinitionResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupApplicationDefinitionResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupApplicationDefinitionResultOutput{})
 }

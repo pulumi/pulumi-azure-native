@@ -4,6 +4,9 @@
 package network
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -55,4 +58,110 @@ type LookupCustomIPPrefixResult struct {
 	Type string `pulumi:"type"`
 	// A list of availability zones denoting the IP allocated for the resource needs to come from.
 	Zones []string `pulumi:"zones"`
+}
+
+func LookupCustomIPPrefixOutput(ctx *pulumi.Context, args LookupCustomIPPrefixOutputArgs, opts ...pulumi.InvokeOption) LookupCustomIPPrefixResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupCustomIPPrefixResult, error) {
+			args := v.(LookupCustomIPPrefixArgs)
+			r, err := LookupCustomIPPrefix(ctx, &args, opts...)
+			return *r, err
+		}).(LookupCustomIPPrefixResultOutput)
+}
+
+type LookupCustomIPPrefixOutputArgs struct {
+	// The name of the custom IP prefix.
+	CustomIpPrefixName pulumi.StringInput `pulumi:"customIpPrefixName"`
+	// Expands referenced resources.
+	Expand pulumi.StringPtrInput `pulumi:"expand"`
+	// The name of the resource group.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupCustomIPPrefixOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupCustomIPPrefixArgs)(nil)).Elem()
+}
+
+// Custom IP prefix resource.
+type LookupCustomIPPrefixResultOutput struct{ *pulumi.OutputState }
+
+func (LookupCustomIPPrefixResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupCustomIPPrefixResult)(nil)).Elem()
+}
+
+func (o LookupCustomIPPrefixResultOutput) ToLookupCustomIPPrefixResultOutput() LookupCustomIPPrefixResultOutput {
+	return o
+}
+
+func (o LookupCustomIPPrefixResultOutput) ToLookupCustomIPPrefixResultOutputWithContext(ctx context.Context) LookupCustomIPPrefixResultOutput {
+	return o
+}
+
+// The prefix range in CIDR notation. Should include the start address and the prefix length.
+func (o LookupCustomIPPrefixResultOutput) Cidr() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupCustomIPPrefixResult) *string { return v.Cidr }).(pulumi.StringPtrOutput)
+}
+
+// The commissioned state of the Custom IP Prefix.
+func (o LookupCustomIPPrefixResultOutput) CommissionedState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupCustomIPPrefixResult) *string { return v.CommissionedState }).(pulumi.StringPtrOutput)
+}
+
+// A unique read-only string that changes whenever the resource is updated.
+func (o LookupCustomIPPrefixResultOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCustomIPPrefixResult) string { return v.Etag }).(pulumi.StringOutput)
+}
+
+// The extended location of the custom IP prefix.
+func (o LookupCustomIPPrefixResultOutput) ExtendedLocation() ExtendedLocationResponsePtrOutput {
+	return o.ApplyT(func(v LookupCustomIPPrefixResult) *ExtendedLocationResponse { return v.ExtendedLocation }).(ExtendedLocationResponsePtrOutput)
+}
+
+// Resource ID.
+func (o LookupCustomIPPrefixResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupCustomIPPrefixResult) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// Resource location.
+func (o LookupCustomIPPrefixResultOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupCustomIPPrefixResult) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Resource name.
+func (o LookupCustomIPPrefixResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCustomIPPrefixResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The provisioning state of the custom IP prefix resource.
+func (o LookupCustomIPPrefixResultOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCustomIPPrefixResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The list of all referenced PublicIpPrefixes.
+func (o LookupCustomIPPrefixResultOutput) PublicIpPrefixes() SubResourceResponseArrayOutput {
+	return o.ApplyT(func(v LookupCustomIPPrefixResult) []SubResourceResponse { return v.PublicIpPrefixes }).(SubResourceResponseArrayOutput)
+}
+
+// The resource GUID property of the custom IP prefix resource.
+func (o LookupCustomIPPrefixResultOutput) ResourceGuid() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCustomIPPrefixResult) string { return v.ResourceGuid }).(pulumi.StringOutput)
+}
+
+// Resource tags.
+func (o LookupCustomIPPrefixResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupCustomIPPrefixResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type.
+func (o LookupCustomIPPrefixResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCustomIPPrefixResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// A list of availability zones denoting the IP allocated for the resource needs to come from.
+func (o LookupCustomIPPrefixResultOutput) Zones() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupCustomIPPrefixResult) []string { return v.Zones }).(pulumi.StringArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupCustomIPPrefixResultOutput{})
 }

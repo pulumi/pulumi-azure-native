@@ -4,6 +4,9 @@
 package v20180901preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -30,4 +33,50 @@ type GetSolutionConfigArgs struct {
 type GetSolutionConfigResult struct {
 	// Gets or sets the publisher sas uri for the solution.
 	PublisherSasUri *string `pulumi:"publisherSasUri"`
+}
+
+func GetSolutionConfigOutput(ctx *pulumi.Context, args GetSolutionConfigOutputArgs, opts ...pulumi.InvokeOption) GetSolutionConfigResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetSolutionConfigResult, error) {
+			args := v.(GetSolutionConfigArgs)
+			r, err := GetSolutionConfig(ctx, &args, opts...)
+			return *r, err
+		}).(GetSolutionConfigResultOutput)
+}
+
+type GetSolutionConfigOutputArgs struct {
+	// Name of the Azure Migrate project.
+	MigrateProjectName pulumi.StringInput `pulumi:"migrateProjectName"`
+	// Name of the Azure Resource Group that migrate project is part of.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// Unique name of a migration solution within a migrate project.
+	SolutionName pulumi.StringInput `pulumi:"solutionName"`
+}
+
+func (GetSolutionConfigOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSolutionConfigArgs)(nil)).Elem()
+}
+
+// Class representing the config for the solution in the migrate project.
+type GetSolutionConfigResultOutput struct{ *pulumi.OutputState }
+
+func (GetSolutionConfigResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSolutionConfigResult)(nil)).Elem()
+}
+
+func (o GetSolutionConfigResultOutput) ToGetSolutionConfigResultOutput() GetSolutionConfigResultOutput {
+	return o
+}
+
+func (o GetSolutionConfigResultOutput) ToGetSolutionConfigResultOutputWithContext(ctx context.Context) GetSolutionConfigResultOutput {
+	return o
+}
+
+// Gets or sets the publisher sas uri for the solution.
+func (o GetSolutionConfigResultOutput) PublisherSasUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetSolutionConfigResult) *string { return v.PublisherSasUri }).(pulumi.StringPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetSolutionConfigResultOutput{})
 }

@@ -4,6 +4,9 @@
 package videoanalyzer
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -61,4 +64,105 @@ type LookupPipelineTopologyResult struct {
 	SystemData SystemDataResponse `pulumi:"systemData"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
+}
+
+func LookupPipelineTopologyOutput(ctx *pulumi.Context, args LookupPipelineTopologyOutputArgs, opts ...pulumi.InvokeOption) LookupPipelineTopologyResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupPipelineTopologyResult, error) {
+			args := v.(LookupPipelineTopologyArgs)
+			r, err := LookupPipelineTopology(ctx, &args, opts...)
+			return *r, err
+		}).(LookupPipelineTopologyResultOutput)
+}
+
+type LookupPipelineTopologyOutputArgs struct {
+	// The Azure Video Analyzer account name.
+	AccountName pulumi.StringInput `pulumi:"accountName"`
+	// Pipeline topology unique identifier.
+	PipelineTopologyName pulumi.StringInput `pulumi:"pipelineTopologyName"`
+	// The name of the resource group. The name is case insensitive.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupPipelineTopologyOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupPipelineTopologyArgs)(nil)).Elem()
+}
+
+// Pipeline topology describes the processing steps to be applied when processing content for a particular outcome. The topology should be defined according to the scenario to be achieved and can be reused across many pipeline instances which share the same processing characteristics. For instance, a pipeline topology which captures content from a RTSP camera and archives the content can be reused across many different cameras, as long as the same processing is to be applied across all the cameras. Individual instance properties can be defined through the use of user-defined parameters, which allow for a topology to be parameterized. This allows  individual pipelines refer to different values, such as individual cameras' RTSP endpoints and credentials. Overall a topology is composed of the following:
+//
+//   - Parameters: list of user defined parameters that can be references across the topology nodes.
+//   - Sources: list of one or more data sources nodes such as an RTSP source which allows for content to be ingested from cameras.
+//   - Processors: list of nodes which perform data analysis or transformations.
+//   - Sinks: list of one or more data sinks which allow for data to be stored or exported to other destinations.
+type LookupPipelineTopologyResultOutput struct{ *pulumi.OutputState }
+
+func (LookupPipelineTopologyResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupPipelineTopologyResult)(nil)).Elem()
+}
+
+func (o LookupPipelineTopologyResultOutput) ToLookupPipelineTopologyResultOutput() LookupPipelineTopologyResultOutput {
+	return o
+}
+
+func (o LookupPipelineTopologyResultOutput) ToLookupPipelineTopologyResultOutputWithContext(ctx context.Context) LookupPipelineTopologyResultOutput {
+	return o
+}
+
+// An optional description of the pipeline topology. It is recommended that the expected use of the topology to be described here.
+func (o LookupPipelineTopologyResultOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupPipelineTopologyResult) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+func (o LookupPipelineTopologyResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPipelineTopologyResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Topology kind.
+func (o LookupPipelineTopologyResultOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPipelineTopologyResult) string { return v.Kind }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o LookupPipelineTopologyResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPipelineTopologyResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// List of the topology parameter declarations. Parameters declared here can be referenced throughout the topology nodes through the use of "${PARAMETER_NAME}" string pattern. Parameters can have optional default values and can later be defined in individual instances of the pipeline.
+func (o LookupPipelineTopologyResultOutput) Parameters() ParameterDeclarationResponseArrayOutput {
+	return o.ApplyT(func(v LookupPipelineTopologyResult) []ParameterDeclarationResponse { return v.Parameters }).(ParameterDeclarationResponseArrayOutput)
+}
+
+// List of the topology processor nodes. Processor nodes enable pipeline data to be analyzed, processed or transformed.
+func (o LookupPipelineTopologyResultOutput) Processors() EncoderProcessorResponseArrayOutput {
+	return o.ApplyT(func(v LookupPipelineTopologyResult) []EncoderProcessorResponse { return v.Processors }).(EncoderProcessorResponseArrayOutput)
+}
+
+// List of the topology sink nodes. Sink nodes allow pipeline data to be stored or exported.
+func (o LookupPipelineTopologyResultOutput) Sinks() VideoSinkResponseArrayOutput {
+	return o.ApplyT(func(v LookupPipelineTopologyResult) []VideoSinkResponse { return v.Sinks }).(VideoSinkResponseArrayOutput)
+}
+
+// Describes the properties of a SKU.
+func (o LookupPipelineTopologyResultOutput) Sku() SkuResponseOutput {
+	return o.ApplyT(func(v LookupPipelineTopologyResult) SkuResponse { return v.Sku }).(SkuResponseOutput)
+}
+
+// List of the topology source nodes. Source nodes enable external data to be ingested by the pipeline.
+func (o LookupPipelineTopologyResultOutput) Sources() pulumi.ArrayOutput {
+	return o.ApplyT(func(v LookupPipelineTopologyResult) []interface{} { return v.Sources }).(pulumi.ArrayOutput)
+}
+
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+func (o LookupPipelineTopologyResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupPipelineTopologyResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o LookupPipelineTopologyResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPipelineTopologyResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupPipelineTopologyResultOutput{})
 }

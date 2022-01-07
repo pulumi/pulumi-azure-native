@@ -812,6 +812,86 @@ type EnvironmentDetailsResponse struct {
 	VirtualMachineDetails VirtualMachineDetailsResponse `pulumi:"virtualMachineDetails"`
 }
 
+// This represents the details about a User's environment and its state.
+type EnvironmentDetailsResponseOutput struct{ *pulumi.OutputState }
+
+func (EnvironmentDetailsResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EnvironmentDetailsResponse)(nil)).Elem()
+}
+
+func (o EnvironmentDetailsResponseOutput) ToEnvironmentDetailsResponseOutput() EnvironmentDetailsResponseOutput {
+	return o
+}
+
+func (o EnvironmentDetailsResponseOutput) ToEnvironmentDetailsResponseOutputWithContext(ctx context.Context) EnvironmentDetailsResponseOutput {
+	return o
+}
+
+// Description of the Environment
+func (o EnvironmentDetailsResponseOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v EnvironmentDetailsResponse) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// Publishing state of the environment setting Possible values are Creating, Created, Failed
+func (o EnvironmentDetailsResponseOutput) EnvironmentState() pulumi.StringOutput {
+	return o.ApplyT(func(v EnvironmentDetailsResponse) string { return v.EnvironmentState }).(pulumi.StringOutput)
+}
+
+// Resource Id of the environment
+func (o EnvironmentDetailsResponseOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v EnvironmentDetailsResponse) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The details of the latest operation. ex: status, error
+func (o EnvironmentDetailsResponseOutput) LatestOperationResult() LatestOperationResultResponseOutput {
+	return o.ApplyT(func(v EnvironmentDetailsResponse) LatestOperationResultResponse { return v.LatestOperationResult }).(LatestOperationResultResponseOutput)
+}
+
+// Name of the Environment
+func (o EnvironmentDetailsResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v EnvironmentDetailsResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// When the password was last reset on the environment.
+func (o EnvironmentDetailsResponseOutput) PasswordLastReset() pulumi.StringOutput {
+	return o.ApplyT(func(v EnvironmentDetailsResponse) string { return v.PasswordLastReset }).(pulumi.StringOutput)
+}
+
+// The provisioning state of the environment. This also includes LabIsFull and NotYetProvisioned status.
+func (o EnvironmentDetailsResponseOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v EnvironmentDetailsResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// How long the environment has been used by a lab user
+func (o EnvironmentDetailsResponseOutput) TotalUsage() pulumi.StringOutput {
+	return o.ApplyT(func(v EnvironmentDetailsResponse) string { return v.TotalUsage }).(pulumi.StringOutput)
+}
+
+// Details of backing DTL virtual machine with compute and network details.
+func (o EnvironmentDetailsResponseOutput) VirtualMachineDetails() VirtualMachineDetailsResponseOutput {
+	return o.ApplyT(func(v EnvironmentDetailsResponse) VirtualMachineDetailsResponse { return v.VirtualMachineDetails }).(VirtualMachineDetailsResponseOutput)
+}
+
+type EnvironmentDetailsResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (EnvironmentDetailsResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EnvironmentDetailsResponse)(nil)).Elem()
+}
+
+func (o EnvironmentDetailsResponseArrayOutput) ToEnvironmentDetailsResponseArrayOutput() EnvironmentDetailsResponseArrayOutput {
+	return o
+}
+
+func (o EnvironmentDetailsResponseArrayOutput) ToEnvironmentDetailsResponseArrayOutputWithContext(ctx context.Context) EnvironmentDetailsResponseArrayOutput {
+	return o
+}
+
+func (o EnvironmentDetailsResponseArrayOutput) Index(i pulumi.IntInput) EnvironmentDetailsResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EnvironmentDetailsResponse {
+		return vs[0].([]EnvironmentDetailsResponse)[vs[1].(int)]
+	}).(EnvironmentDetailsResponseOutput)
+}
+
 // Represents a size category supported by this Lab Account (small, medium or large)
 type EnvironmentSizeResponse struct {
 	// The pay-as-you-go dollar price per hour this size will cost. It does not include discounts and may not reflect the actual price the size will cost. This is the maximum price of all prices within this tier.
@@ -950,6 +1030,61 @@ type LabDetailsResponse struct {
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// The maximum duration a user can use a VM in this lab.
 	UsageQuota string `pulumi:"usageQuota"`
+}
+
+// This represents the details about a lab that the User is in, and its state.
+type LabDetailsResponseOutput struct{ *pulumi.OutputState }
+
+func (LabDetailsResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LabDetailsResponse)(nil)).Elem()
+}
+
+func (o LabDetailsResponseOutput) ToLabDetailsResponseOutput() LabDetailsResponseOutput {
+	return o
+}
+
+func (o LabDetailsResponseOutput) ToLabDetailsResponseOutputWithContext(ctx context.Context) LabDetailsResponseOutput {
+	return o
+}
+
+// The Id of the lab.
+func (o LabDetailsResponseOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LabDetailsResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// Name of the lab
+func (o LabDetailsResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LabDetailsResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The provisioning state of the lab.
+func (o LabDetailsResponseOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LabDetailsResponse) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+}
+
+// The maximum duration a user can use a VM in this lab.
+func (o LabDetailsResponseOutput) UsageQuota() pulumi.StringOutput {
+	return o.ApplyT(func(v LabDetailsResponse) string { return v.UsageQuota }).(pulumi.StringOutput)
+}
+
+type LabDetailsResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (LabDetailsResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LabDetailsResponse)(nil)).Elem()
+}
+
+func (o LabDetailsResponseArrayOutput) ToLabDetailsResponseArrayOutput() LabDetailsResponseArrayOutput {
+	return o
+}
+
+func (o LabDetailsResponseArrayOutput) ToLabDetailsResponseArrayOutputWithContext(ctx context.Context) LabDetailsResponseArrayOutput {
+	return o
+}
+
+func (o LabDetailsResponseArrayOutput) Index(i pulumi.IntInput) LabDetailsResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LabDetailsResponse {
+		return vs[0].([]LabDetailsResponse)[vs[1].(int)]
+	}).(LabDetailsResponseOutput)
 }
 
 // Profile for how to handle networking for Lab Plans.
@@ -1266,6 +1401,51 @@ type OperationBatchStatusResponseItemResponse struct {
 	OperationUrl string `pulumi:"operationUrl"`
 	// status of the long running operation for an environment
 	Status string `pulumi:"status"`
+}
+
+// Represents the status of an operation that used the batch API.
+type OperationBatchStatusResponseItemResponseOutput struct{ *pulumi.OutputState }
+
+func (OperationBatchStatusResponseItemResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OperationBatchStatusResponseItemResponse)(nil)).Elem()
+}
+
+func (o OperationBatchStatusResponseItemResponseOutput) ToOperationBatchStatusResponseItemResponseOutput() OperationBatchStatusResponseItemResponseOutput {
+	return o
+}
+
+func (o OperationBatchStatusResponseItemResponseOutput) ToOperationBatchStatusResponseItemResponseOutputWithContext(ctx context.Context) OperationBatchStatusResponseItemResponseOutput {
+	return o
+}
+
+// status of the long running operation for an environment
+func (o OperationBatchStatusResponseItemResponseOutput) OperationUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v OperationBatchStatusResponseItemResponse) string { return v.OperationUrl }).(pulumi.StringOutput)
+}
+
+// status of the long running operation for an environment
+func (o OperationBatchStatusResponseItemResponseOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v OperationBatchStatusResponseItemResponse) string { return v.Status }).(pulumi.StringOutput)
+}
+
+type OperationBatchStatusResponseItemResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (OperationBatchStatusResponseItemResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OperationBatchStatusResponseItemResponse)(nil)).Elem()
+}
+
+func (o OperationBatchStatusResponseItemResponseArrayOutput) ToOperationBatchStatusResponseItemResponseArrayOutput() OperationBatchStatusResponseItemResponseArrayOutput {
+	return o
+}
+
+func (o OperationBatchStatusResponseItemResponseArrayOutput) ToOperationBatchStatusResponseItemResponseArrayOutputWithContext(ctx context.Context) OperationBatchStatusResponseItemResponseArrayOutput {
+	return o
+}
+
+func (o OperationBatchStatusResponseItemResponseArrayOutput) Index(i pulumi.IntInput) OperationBatchStatusResponseItemResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OperationBatchStatusResponseItemResponse {
+		return vs[0].([]OperationBatchStatusResponseItemResponse)[vs[1].(int)]
+	}).(OperationBatchStatusResponseItemResponseOutput)
 }
 
 // Recurrence pattern of a lab schedule.
@@ -1695,6 +1875,51 @@ type RegionalAvailabilityResponse struct {
 	SizeAvailabilities []SizeAvailabilityResponse `pulumi:"sizeAvailabilities"`
 }
 
+// The availability information of sizes across regions
+type RegionalAvailabilityResponseOutput struct{ *pulumi.OutputState }
+
+func (RegionalAvailabilityResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegionalAvailabilityResponse)(nil)).Elem()
+}
+
+func (o RegionalAvailabilityResponseOutput) ToRegionalAvailabilityResponseOutput() RegionalAvailabilityResponseOutput {
+	return o
+}
+
+func (o RegionalAvailabilityResponseOutput) ToRegionalAvailabilityResponseOutputWithContext(ctx context.Context) RegionalAvailabilityResponseOutput {
+	return o
+}
+
+// Corresponding region
+func (o RegionalAvailabilityResponseOutput) Region() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RegionalAvailabilityResponse) *string { return v.Region }).(pulumi.StringPtrOutput)
+}
+
+// List of all the size information for the region
+func (o RegionalAvailabilityResponseOutput) SizeAvailabilities() SizeAvailabilityResponseArrayOutput {
+	return o.ApplyT(func(v RegionalAvailabilityResponse) []SizeAvailabilityResponse { return v.SizeAvailabilities }).(SizeAvailabilityResponseArrayOutput)
+}
+
+type RegionalAvailabilityResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (RegionalAvailabilityResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RegionalAvailabilityResponse)(nil)).Elem()
+}
+
+func (o RegionalAvailabilityResponseArrayOutput) ToRegionalAvailabilityResponseArrayOutput() RegionalAvailabilityResponseArrayOutput {
+	return o
+}
+
+func (o RegionalAvailabilityResponseArrayOutput) ToRegionalAvailabilityResponseArrayOutputWithContext(ctx context.Context) RegionalAvailabilityResponseArrayOutput {
+	return o
+}
+
+func (o RegionalAvailabilityResponseArrayOutput) Index(i pulumi.IntInput) RegionalAvailabilityResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RegionalAvailabilityResponse {
+		return vs[0].([]RegionalAvailabilityResponse)[vs[1].(int)]
+	}).(RegionalAvailabilityResponseOutput)
+}
+
 // Represents a VM and the setting Id it was created for.
 type ResourceSet struct {
 	// resourceSettingId for the environment
@@ -2071,6 +2296,51 @@ type SizeAvailabilityResponse struct {
 	IsAvailable *bool `pulumi:"isAvailable"`
 	// The category of the size (Basic, Standard, Performance).
 	SizeCategory *string `pulumi:"sizeCategory"`
+}
+
+// Represents the size information
+type SizeAvailabilityResponseOutput struct{ *pulumi.OutputState }
+
+func (SizeAvailabilityResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SizeAvailabilityResponse)(nil)).Elem()
+}
+
+func (o SizeAvailabilityResponseOutput) ToSizeAvailabilityResponseOutput() SizeAvailabilityResponseOutput {
+	return o
+}
+
+func (o SizeAvailabilityResponseOutput) ToSizeAvailabilityResponseOutputWithContext(ctx context.Context) SizeAvailabilityResponseOutput {
+	return o
+}
+
+// Whether or not this size category is available
+func (o SizeAvailabilityResponseOutput) IsAvailable() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SizeAvailabilityResponse) *bool { return v.IsAvailable }).(pulumi.BoolPtrOutput)
+}
+
+// The category of the size (Basic, Standard, Performance).
+func (o SizeAvailabilityResponseOutput) SizeCategory() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SizeAvailabilityResponse) *string { return v.SizeCategory }).(pulumi.StringPtrOutput)
+}
+
+type SizeAvailabilityResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (SizeAvailabilityResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SizeAvailabilityResponse)(nil)).Elem()
+}
+
+func (o SizeAvailabilityResponseArrayOutput) ToSizeAvailabilityResponseArrayOutput() SizeAvailabilityResponseArrayOutput {
+	return o
+}
+
+func (o SizeAvailabilityResponseArrayOutput) ToSizeAvailabilityResponseArrayOutputWithContext(ctx context.Context) SizeAvailabilityResponseArrayOutput {
+	return o
+}
+
+func (o SizeAvailabilityResponseArrayOutput) Index(i pulumi.IntInput) SizeAvailabilityResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SizeAvailabilityResponse {
+		return vs[0].([]SizeAvailabilityResponse)[vs[1].(int)]
+	}).(SizeAvailabilityResponseOutput)
 }
 
 // Represents the size configuration under the lab account
@@ -2551,6 +2821,51 @@ type VirtualMachineDetailsResponse struct {
 	UserName string `pulumi:"userName"`
 }
 
+// Details of the backing virtual machine.
+type VirtualMachineDetailsResponseOutput struct{ *pulumi.OutputState }
+
+func (VirtualMachineDetailsResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualMachineDetailsResponse)(nil)).Elem()
+}
+
+func (o VirtualMachineDetailsResponseOutput) ToVirtualMachineDetailsResponseOutput() VirtualMachineDetailsResponseOutput {
+	return o
+}
+
+func (o VirtualMachineDetailsResponseOutput) ToVirtualMachineDetailsResponseOutputWithContext(ctx context.Context) VirtualMachineDetailsResponseOutput {
+	return o
+}
+
+// Last known compute power state captured in DTL
+func (o VirtualMachineDetailsResponseOutput) LastKnownPowerState() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualMachineDetailsResponse) string { return v.LastKnownPowerState }).(pulumi.StringOutput)
+}
+
+// PrivateIp address of the compute VM
+func (o VirtualMachineDetailsResponseOutput) PrivateIpAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualMachineDetailsResponse) string { return v.PrivateIpAddress }).(pulumi.StringOutput)
+}
+
+// Provisioning state of the Dtl VM
+func (o VirtualMachineDetailsResponseOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualMachineDetailsResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Connection information for Windows
+func (o VirtualMachineDetailsResponseOutput) RdpAuthority() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualMachineDetailsResponse) string { return v.RdpAuthority }).(pulumi.StringOutput)
+}
+
+// Connection information for Linux
+func (o VirtualMachineDetailsResponseOutput) SshAuthority() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualMachineDetailsResponse) string { return v.SshAuthority }).(pulumi.StringOutput)
+}
+
+// Compute VM login user name
+func (o VirtualMachineDetailsResponseOutput) UserName() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualMachineDetailsResponse) string { return v.UserName }).(pulumi.StringOutput)
+}
+
 // Details about the state of the reference virtual machine.
 type VmStateDetailsResponse struct {
 	// Last known compute power state captured in DTL
@@ -2607,27 +2922,37 @@ func init() {
 	pulumi.RegisterOutputType(ConnectionProfilePtrOutput{})
 	pulumi.RegisterOutputType(ConnectionProfileResponseOutput{})
 	pulumi.RegisterOutputType(ConnectionProfileResponsePtrOutput{})
+	pulumi.RegisterOutputType(EnvironmentDetailsResponseOutput{})
+	pulumi.RegisterOutputType(EnvironmentDetailsResponseArrayOutput{})
 	pulumi.RegisterOutputType(EnvironmentSizeResponseOutput{})
 	pulumi.RegisterOutputType(EnvironmentSizeResponseArrayOutput{})
 	pulumi.RegisterOutputType(GalleryImageReferenceResponseOutput{})
+	pulumi.RegisterOutputType(LabDetailsResponseOutput{})
+	pulumi.RegisterOutputType(LabDetailsResponseArrayOutput{})
 	pulumi.RegisterOutputType(LabPlanNetworkProfileOutput{})
 	pulumi.RegisterOutputType(LabPlanNetworkProfilePtrOutput{})
 	pulumi.RegisterOutputType(LabPlanNetworkProfileResponseOutput{})
 	pulumi.RegisterOutputType(LabPlanNetworkProfileResponsePtrOutput{})
 	pulumi.RegisterOutputType(LatestOperationResultResponseOutput{})
 	pulumi.RegisterOutputType(NetworkInterfaceResponseOutput{})
+	pulumi.RegisterOutputType(OperationBatchStatusResponseItemResponseOutput{})
+	pulumi.RegisterOutputType(OperationBatchStatusResponseItemResponseArrayOutput{})
 	pulumi.RegisterOutputType(RecurrencePatternOutput{})
 	pulumi.RegisterOutputType(RecurrencePatternPtrOutput{})
 	pulumi.RegisterOutputType(RecurrencePatternResponseOutput{})
 	pulumi.RegisterOutputType(RecurrencePatternResponsePtrOutput{})
 	pulumi.RegisterOutputType(ReferenceVmOutput{})
 	pulumi.RegisterOutputType(ReferenceVmResponseOutput{})
+	pulumi.RegisterOutputType(RegionalAvailabilityResponseOutput{})
+	pulumi.RegisterOutputType(RegionalAvailabilityResponseArrayOutput{})
 	pulumi.RegisterOutputType(ResourceSetOutput{})
 	pulumi.RegisterOutputType(ResourceSetPtrOutput{})
 	pulumi.RegisterOutputType(ResourceSetResponseOutput{})
 	pulumi.RegisterOutputType(ResourceSetResponsePtrOutput{})
 	pulumi.RegisterOutputType(ResourceSettingsOutput{})
 	pulumi.RegisterOutputType(ResourceSettingsResponseOutput{})
+	pulumi.RegisterOutputType(SizeAvailabilityResponseOutput{})
+	pulumi.RegisterOutputType(SizeAvailabilityResponseArrayOutput{})
 	pulumi.RegisterOutputType(SizeConfigurationPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(SizeInfoResponseOutput{})
 	pulumi.RegisterOutputType(SizeInfoResponseArrayOutput{})
@@ -2636,5 +2961,6 @@ func init() {
 	pulumi.RegisterOutputType(SupportInfoResponseOutput{})
 	pulumi.RegisterOutputType(SupportInfoResponsePtrOutput{})
 	pulumi.RegisterOutputType(SystemDataResponseOutput{})
+	pulumi.RegisterOutputType(VirtualMachineDetailsResponseOutput{})
 	pulumi.RegisterOutputType(VmStateDetailsResponseOutput{})
 }

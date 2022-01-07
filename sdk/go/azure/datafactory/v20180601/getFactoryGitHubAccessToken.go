@@ -4,6 +4,9 @@
 package v20180601
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -36,4 +39,56 @@ type GetFactoryGitHubAccessTokenArgs struct {
 type GetFactoryGitHubAccessTokenResult struct {
 	// GitHub access token.
 	GitHubAccessToken *string `pulumi:"gitHubAccessToken"`
+}
+
+func GetFactoryGitHubAccessTokenOutput(ctx *pulumi.Context, args GetFactoryGitHubAccessTokenOutputArgs, opts ...pulumi.InvokeOption) GetFactoryGitHubAccessTokenResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetFactoryGitHubAccessTokenResult, error) {
+			args := v.(GetFactoryGitHubAccessTokenArgs)
+			r, err := GetFactoryGitHubAccessToken(ctx, &args, opts...)
+			return *r, err
+		}).(GetFactoryGitHubAccessTokenResultOutput)
+}
+
+type GetFactoryGitHubAccessTokenOutputArgs struct {
+	// The factory name.
+	FactoryName pulumi.StringInput `pulumi:"factoryName"`
+	// GitHub access code.
+	GitHubAccessCode pulumi.StringInput `pulumi:"gitHubAccessCode"`
+	// GitHub access token base URL.
+	GitHubAccessTokenBaseUrl pulumi.StringInput `pulumi:"gitHubAccessTokenBaseUrl"`
+	// GitHub application client ID.
+	GitHubClientId pulumi.StringPtrInput `pulumi:"gitHubClientId"`
+	// GitHub bring your own app client secret information.
+	GitHubClientSecret GitHubClientSecretPtrInput `pulumi:"gitHubClientSecret"`
+	// The resource group name.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (GetFactoryGitHubAccessTokenOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFactoryGitHubAccessTokenArgs)(nil)).Elem()
+}
+
+// Get GitHub access token response definition.
+type GetFactoryGitHubAccessTokenResultOutput struct{ *pulumi.OutputState }
+
+func (GetFactoryGitHubAccessTokenResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFactoryGitHubAccessTokenResult)(nil)).Elem()
+}
+
+func (o GetFactoryGitHubAccessTokenResultOutput) ToGetFactoryGitHubAccessTokenResultOutput() GetFactoryGitHubAccessTokenResultOutput {
+	return o
+}
+
+func (o GetFactoryGitHubAccessTokenResultOutput) ToGetFactoryGitHubAccessTokenResultOutputWithContext(ctx context.Context) GetFactoryGitHubAccessTokenResultOutput {
+	return o
+}
+
+// GitHub access token.
+func (o GetFactoryGitHubAccessTokenResultOutput) GitHubAccessToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetFactoryGitHubAccessTokenResult) *string { return v.GitHubAccessToken }).(pulumi.StringPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetFactoryGitHubAccessTokenResultOutput{})
 }

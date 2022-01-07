@@ -4,6 +4,9 @@
 package v20201216preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -66,4 +69,140 @@ type LookupPackageResult struct {
 	ValidationResults []PackageValidationResultResponse `pulumi:"validationResults"`
 	// Application version
 	Version string `pulumi:"version"`
+}
+
+func LookupPackageOutput(ctx *pulumi.Context, args LookupPackageOutputArgs, opts ...pulumi.InvokeOption) LookupPackageResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupPackageResult, error) {
+			args := v.(LookupPackageArgs)
+			r, err := LookupPackage(ctx, &args, opts...)
+			return *r, err
+		}).(LookupPackageResultOutput)
+}
+
+type LookupPackageOutputArgs struct {
+	// The resource name of the Test Base Package.
+	PackageName pulumi.StringInput `pulumi:"packageName"`
+	// The name of the resource group that contains the resource.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The resource name of the Test Base Account.
+	TestBaseAccountName pulumi.StringInput `pulumi:"testBaseAccountName"`
+}
+
+func (LookupPackageOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupPackageArgs)(nil)).Elem()
+}
+
+// The Test Base Package resource.
+type LookupPackageResultOutput struct{ *pulumi.OutputState }
+
+func (LookupPackageResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupPackageResult)(nil)).Elem()
+}
+
+func (o LookupPackageResultOutput) ToLookupPackageResultOutput() LookupPackageResultOutput {
+	return o
+}
+
+func (o LookupPackageResultOutput) ToLookupPackageResultOutputWithContext(ctx context.Context) LookupPackageResultOutput {
+	return o
+}
+
+// Application name
+func (o LookupPackageResultOutput) ApplicationName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPackageResult) string { return v.ApplicationName }).(pulumi.StringOutput)
+}
+
+// The file path of the package.
+func (o LookupPackageResultOutput) BlobPath() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPackageResult) string { return v.BlobPath }).(pulumi.StringOutput)
+}
+
+// Resource Etag.
+func (o LookupPackageResultOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPackageResult) string { return v.Etag }).(pulumi.StringOutput)
+}
+
+// The flighting ring for feature update.
+func (o LookupPackageResultOutput) FlightingRing() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPackageResult) string { return v.FlightingRing }).(pulumi.StringOutput)
+}
+
+// Resource ID.
+func (o LookupPackageResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPackageResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Flag showing that whether the package is enabled. It doesn't schedule test for package which is not enabled.
+func (o LookupPackageResultOutput) IsEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupPackageResult) bool { return v.IsEnabled }).(pulumi.BoolOutput)
+}
+
+// The UTC timestamp when the package was last modified.
+func (o LookupPackageResultOutput) LastModifiedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPackageResult) string { return v.LastModifiedTime }).(pulumi.StringOutput)
+}
+
+// The geo-location where the resource lives
+func (o LookupPackageResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPackageResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o LookupPackageResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPackageResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The status of the package.
+func (o LookupPackageResultOutput) PackageStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPackageResult) string { return v.PackageStatus }).(pulumi.StringOutput)
+}
+
+// The provisioning state of the resource.
+func (o LookupPackageResultOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPackageResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The system metadata relating to this resource
+func (o LookupPackageResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupPackageResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The tags of the resource.
+func (o LookupPackageResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupPackageResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Specifies the target OSs of specific OS Update types.
+func (o LookupPackageResultOutput) TargetOSList() TargetOSInfoResponseArrayOutput {
+	return o.ApplyT(func(v LookupPackageResult) []TargetOSInfoResponse { return v.TargetOSList }).(TargetOSInfoResponseArrayOutput)
+}
+
+// OOB, functional or both. Mapped to the data in 'tests' property.
+func (o LookupPackageResultOutput) TestTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupPackageResult) []string { return v.TestTypes }).(pulumi.StringArrayOutput)
+}
+
+// The detailed test information.
+func (o LookupPackageResultOutput) Tests() TestResponseArrayOutput {
+	return o.ApplyT(func(v LookupPackageResult) []TestResponse { return v.Tests }).(TestResponseArrayOutput)
+}
+
+// Resource type.
+func (o LookupPackageResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPackageResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The validation results. There's validation on package when it's created or updated.
+func (o LookupPackageResultOutput) ValidationResults() PackageValidationResultResponseArrayOutput {
+	return o.ApplyT(func(v LookupPackageResult) []PackageValidationResultResponse { return v.ValidationResults }).(PackageValidationResultResponseArrayOutput)
+}
+
+// Application version
+func (o LookupPackageResultOutput) Version() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPackageResult) string { return v.Version }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupPackageResultOutput{})
 }

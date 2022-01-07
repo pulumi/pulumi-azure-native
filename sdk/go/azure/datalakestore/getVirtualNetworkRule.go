@@ -4,6 +4,9 @@
 package datalakestore
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -37,4 +40,65 @@ type LookupVirtualNetworkRuleResult struct {
 	SubnetId string `pulumi:"subnetId"`
 	// The resource type.
 	Type string `pulumi:"type"`
+}
+
+func LookupVirtualNetworkRuleOutput(ctx *pulumi.Context, args LookupVirtualNetworkRuleOutputArgs, opts ...pulumi.InvokeOption) LookupVirtualNetworkRuleResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupVirtualNetworkRuleResult, error) {
+			args := v.(LookupVirtualNetworkRuleArgs)
+			r, err := LookupVirtualNetworkRule(ctx, &args, opts...)
+			return *r, err
+		}).(LookupVirtualNetworkRuleResultOutput)
+}
+
+type LookupVirtualNetworkRuleOutputArgs struct {
+	// The name of the Data Lake Store account.
+	AccountName pulumi.StringInput `pulumi:"accountName"`
+	// The name of the Azure resource group.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the virtual network rule to retrieve.
+	VirtualNetworkRuleName pulumi.StringInput `pulumi:"virtualNetworkRuleName"`
+}
+
+func (LookupVirtualNetworkRuleOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupVirtualNetworkRuleArgs)(nil)).Elem()
+}
+
+// Data Lake Store virtual network rule information.
+type LookupVirtualNetworkRuleResultOutput struct{ *pulumi.OutputState }
+
+func (LookupVirtualNetworkRuleResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupVirtualNetworkRuleResult)(nil)).Elem()
+}
+
+func (o LookupVirtualNetworkRuleResultOutput) ToLookupVirtualNetworkRuleResultOutput() LookupVirtualNetworkRuleResultOutput {
+	return o
+}
+
+func (o LookupVirtualNetworkRuleResultOutput) ToLookupVirtualNetworkRuleResultOutputWithContext(ctx context.Context) LookupVirtualNetworkRuleResultOutput {
+	return o
+}
+
+// The resource identifier.
+func (o LookupVirtualNetworkRuleResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVirtualNetworkRuleResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The resource name.
+func (o LookupVirtualNetworkRuleResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVirtualNetworkRuleResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The resource identifier for the subnet.
+func (o LookupVirtualNetworkRuleResultOutput) SubnetId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVirtualNetworkRuleResult) string { return v.SubnetId }).(pulumi.StringOutput)
+}
+
+// The resource type.
+func (o LookupVirtualNetworkRuleResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVirtualNetworkRuleResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupVirtualNetworkRuleResultOutput{})
 }

@@ -4,6 +4,9 @@
 package devtestlab
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -31,4 +34,50 @@ type GetVirtualMachineRdpFileContentsArgs struct {
 type GetVirtualMachineRdpFileContentsResult struct {
 	// The contents of the .rdp file
 	Contents *string `pulumi:"contents"`
+}
+
+func GetVirtualMachineRdpFileContentsOutput(ctx *pulumi.Context, args GetVirtualMachineRdpFileContentsOutputArgs, opts ...pulumi.InvokeOption) GetVirtualMachineRdpFileContentsResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetVirtualMachineRdpFileContentsResult, error) {
+			args := v.(GetVirtualMachineRdpFileContentsArgs)
+			r, err := GetVirtualMachineRdpFileContents(ctx, &args, opts...)
+			return *r, err
+		}).(GetVirtualMachineRdpFileContentsResultOutput)
+}
+
+type GetVirtualMachineRdpFileContentsOutputArgs struct {
+	// The name of the lab.
+	LabName pulumi.StringInput `pulumi:"labName"`
+	// The name of the virtual machine.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The name of the resource group.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (GetVirtualMachineRdpFileContentsOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVirtualMachineRdpFileContentsArgs)(nil)).Elem()
+}
+
+// Represents a .rdp file
+type GetVirtualMachineRdpFileContentsResultOutput struct{ *pulumi.OutputState }
+
+func (GetVirtualMachineRdpFileContentsResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVirtualMachineRdpFileContentsResult)(nil)).Elem()
+}
+
+func (o GetVirtualMachineRdpFileContentsResultOutput) ToGetVirtualMachineRdpFileContentsResultOutput() GetVirtualMachineRdpFileContentsResultOutput {
+	return o
+}
+
+func (o GetVirtualMachineRdpFileContentsResultOutput) ToGetVirtualMachineRdpFileContentsResultOutputWithContext(ctx context.Context) GetVirtualMachineRdpFileContentsResultOutput {
+	return o
+}
+
+// The contents of the .rdp file
+func (o GetVirtualMachineRdpFileContentsResultOutput) Contents() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetVirtualMachineRdpFileContentsResult) *string { return v.Contents }).(pulumi.StringPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetVirtualMachineRdpFileContentsResultOutput{})
 }

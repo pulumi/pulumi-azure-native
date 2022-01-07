@@ -4,6 +4,9 @@
 package v20180201preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -30,4 +33,53 @@ type GetRegistryBuildSourceUploadUrlResult struct {
 	RelativePath *string `pulumi:"relativePath"`
 	// The URL where the client can upload the source.
 	UploadUrl *string `pulumi:"uploadUrl"`
+}
+
+func GetRegistryBuildSourceUploadUrlOutput(ctx *pulumi.Context, args GetRegistryBuildSourceUploadUrlOutputArgs, opts ...pulumi.InvokeOption) GetRegistryBuildSourceUploadUrlResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetRegistryBuildSourceUploadUrlResult, error) {
+			args := v.(GetRegistryBuildSourceUploadUrlArgs)
+			r, err := GetRegistryBuildSourceUploadUrl(ctx, &args, opts...)
+			return *r, err
+		}).(GetRegistryBuildSourceUploadUrlResultOutput)
+}
+
+type GetRegistryBuildSourceUploadUrlOutputArgs struct {
+	// The name of the container registry.
+	RegistryName pulumi.StringInput `pulumi:"registryName"`
+	// The name of the resource group to which the container registry belongs.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (GetRegistryBuildSourceUploadUrlOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRegistryBuildSourceUploadUrlArgs)(nil)).Elem()
+}
+
+// The properties of a response to source upload request.
+type GetRegistryBuildSourceUploadUrlResultOutput struct{ *pulumi.OutputState }
+
+func (GetRegistryBuildSourceUploadUrlResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRegistryBuildSourceUploadUrlResult)(nil)).Elem()
+}
+
+func (o GetRegistryBuildSourceUploadUrlResultOutput) ToGetRegistryBuildSourceUploadUrlResultOutput() GetRegistryBuildSourceUploadUrlResultOutput {
+	return o
+}
+
+func (o GetRegistryBuildSourceUploadUrlResultOutput) ToGetRegistryBuildSourceUploadUrlResultOutputWithContext(ctx context.Context) GetRegistryBuildSourceUploadUrlResultOutput {
+	return o
+}
+
+// The relative path to the source. This is used to submit the subsequent queue build request.
+func (o GetRegistryBuildSourceUploadUrlResultOutput) RelativePath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetRegistryBuildSourceUploadUrlResult) *string { return v.RelativePath }).(pulumi.StringPtrOutput)
+}
+
+// The URL where the client can upload the source.
+func (o GetRegistryBuildSourceUploadUrlResultOutput) UploadUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetRegistryBuildSourceUploadUrlResult) *string { return v.UploadUrl }).(pulumi.StringPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetRegistryBuildSourceUploadUrlResultOutput{})
 }

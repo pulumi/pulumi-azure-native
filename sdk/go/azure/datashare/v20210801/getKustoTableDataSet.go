@@ -4,6 +4,9 @@
 package v20210801
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -51,4 +54,100 @@ type LookupKustoTableDataSetResult struct {
 	TableLevelSharingProperties TableLevelSharingPropertiesResponse `pulumi:"tableLevelSharingProperties"`
 	// Type of the azure resource
 	Type string `pulumi:"type"`
+}
+
+func LookupKustoTableDataSetOutput(ctx *pulumi.Context, args LookupKustoTableDataSetOutputArgs, opts ...pulumi.InvokeOption) LookupKustoTableDataSetResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupKustoTableDataSetResult, error) {
+			args := v.(LookupKustoTableDataSetArgs)
+			r, err := LookupKustoTableDataSet(ctx, &args, opts...)
+			return *r, err
+		}).(LookupKustoTableDataSetResultOutput)
+}
+
+type LookupKustoTableDataSetOutputArgs struct {
+	// The name of the share account.
+	AccountName pulumi.StringInput `pulumi:"accountName"`
+	// The name of the dataSet.
+	DataSetName pulumi.StringInput `pulumi:"dataSetName"`
+	// The resource group name.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the share.
+	ShareName pulumi.StringInput `pulumi:"shareName"`
+}
+
+func (LookupKustoTableDataSetOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupKustoTableDataSetArgs)(nil)).Elem()
+}
+
+// A kusto table data set.
+type LookupKustoTableDataSetResultOutput struct{ *pulumi.OutputState }
+
+func (LookupKustoTableDataSetResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupKustoTableDataSetResult)(nil)).Elem()
+}
+
+func (o LookupKustoTableDataSetResultOutput) ToLookupKustoTableDataSetResultOutput() LookupKustoTableDataSetResultOutput {
+	return o
+}
+
+func (o LookupKustoTableDataSetResultOutput) ToLookupKustoTableDataSetResultOutputWithContext(ctx context.Context) LookupKustoTableDataSetResultOutput {
+	return o
+}
+
+// Unique id for identifying a data set resource
+func (o LookupKustoTableDataSetResultOutput) DataSetId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupKustoTableDataSetResult) string { return v.DataSetId }).(pulumi.StringOutput)
+}
+
+// The resource id of the azure resource
+func (o LookupKustoTableDataSetResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupKustoTableDataSetResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Kind of data set.
+// Expected value is 'KustoTable'.
+func (o LookupKustoTableDataSetResultOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupKustoTableDataSetResult) string { return v.Kind }).(pulumi.StringOutput)
+}
+
+// Resource id of the kusto database.
+func (o LookupKustoTableDataSetResultOutput) KustoDatabaseResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupKustoTableDataSetResult) string { return v.KustoDatabaseResourceId }).(pulumi.StringOutput)
+}
+
+// Location of the kusto cluster.
+func (o LookupKustoTableDataSetResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupKustoTableDataSetResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// Name of the azure resource
+func (o LookupKustoTableDataSetResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupKustoTableDataSetResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Provisioning state of the kusto table data set.
+func (o LookupKustoTableDataSetResultOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupKustoTableDataSetResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// System Data of the Azure resource.
+func (o LookupKustoTableDataSetResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupKustoTableDataSetResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Table level sharing properties for kusto database
+func (o LookupKustoTableDataSetResultOutput) TableLevelSharingProperties() TableLevelSharingPropertiesResponseOutput {
+	return o.ApplyT(func(v LookupKustoTableDataSetResult) TableLevelSharingPropertiesResponse {
+		return v.TableLevelSharingProperties
+	}).(TableLevelSharingPropertiesResponseOutput)
+}
+
+// Type of the azure resource
+func (o LookupKustoTableDataSetResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupKustoTableDataSetResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupKustoTableDataSetResultOutput{})
 }

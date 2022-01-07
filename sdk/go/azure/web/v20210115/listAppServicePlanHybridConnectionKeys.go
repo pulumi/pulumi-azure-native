@@ -4,6 +4,9 @@
 package v20210115
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -42,4 +45,77 @@ type ListAppServicePlanHybridConnectionKeysResult struct {
 	SendKeyValue string `pulumi:"sendKeyValue"`
 	// Resource type.
 	Type string `pulumi:"type"`
+}
+
+func ListAppServicePlanHybridConnectionKeysOutput(ctx *pulumi.Context, args ListAppServicePlanHybridConnectionKeysOutputArgs, opts ...pulumi.InvokeOption) ListAppServicePlanHybridConnectionKeysResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (ListAppServicePlanHybridConnectionKeysResult, error) {
+			args := v.(ListAppServicePlanHybridConnectionKeysArgs)
+			r, err := ListAppServicePlanHybridConnectionKeys(ctx, &args, opts...)
+			return *r, err
+		}).(ListAppServicePlanHybridConnectionKeysResultOutput)
+}
+
+type ListAppServicePlanHybridConnectionKeysOutputArgs struct {
+	// Name of the App Service plan.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The name of the Service Bus namespace.
+	NamespaceName pulumi.StringInput `pulumi:"namespaceName"`
+	// The name of the Service Bus relay.
+	RelayName pulumi.StringInput `pulumi:"relayName"`
+	// Name of the resource group to which the resource belongs.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (ListAppServicePlanHybridConnectionKeysOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListAppServicePlanHybridConnectionKeysArgs)(nil)).Elem()
+}
+
+// Hybrid Connection key contract. This has the send key name and value for a Hybrid Connection.
+type ListAppServicePlanHybridConnectionKeysResultOutput struct{ *pulumi.OutputState }
+
+func (ListAppServicePlanHybridConnectionKeysResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListAppServicePlanHybridConnectionKeysResult)(nil)).Elem()
+}
+
+func (o ListAppServicePlanHybridConnectionKeysResultOutput) ToListAppServicePlanHybridConnectionKeysResultOutput() ListAppServicePlanHybridConnectionKeysResultOutput {
+	return o
+}
+
+func (o ListAppServicePlanHybridConnectionKeysResultOutput) ToListAppServicePlanHybridConnectionKeysResultOutputWithContext(ctx context.Context) ListAppServicePlanHybridConnectionKeysResultOutput {
+	return o
+}
+
+// Resource Id.
+func (o ListAppServicePlanHybridConnectionKeysResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v ListAppServicePlanHybridConnectionKeysResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Kind of resource.
+func (o ListAppServicePlanHybridConnectionKeysResultOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListAppServicePlanHybridConnectionKeysResult) *string { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Resource Name.
+func (o ListAppServicePlanHybridConnectionKeysResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ListAppServicePlanHybridConnectionKeysResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The name of the send key.
+func (o ListAppServicePlanHybridConnectionKeysResultOutput) SendKeyName() pulumi.StringOutput {
+	return o.ApplyT(func(v ListAppServicePlanHybridConnectionKeysResult) string { return v.SendKeyName }).(pulumi.StringOutput)
+}
+
+// The value of the send key.
+func (o ListAppServicePlanHybridConnectionKeysResultOutput) SendKeyValue() pulumi.StringOutput {
+	return o.ApplyT(func(v ListAppServicePlanHybridConnectionKeysResult) string { return v.SendKeyValue }).(pulumi.StringOutput)
+}
+
+// Resource type.
+func (o ListAppServicePlanHybridConnectionKeysResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ListAppServicePlanHybridConnectionKeysResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(ListAppServicePlanHybridConnectionKeysResultOutput{})
 }

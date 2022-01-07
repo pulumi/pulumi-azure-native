@@ -4,6 +4,9 @@
 package v20180301
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -42,4 +45,88 @@ type LookupPolicySetDefinitionResult struct {
 	PolicyType *string `pulumi:"policyType"`
 	// The type of the resource (Microsoft.Authorization/policySetDefinitions).
 	Type string `pulumi:"type"`
+}
+
+func LookupPolicySetDefinitionOutput(ctx *pulumi.Context, args LookupPolicySetDefinitionOutputArgs, opts ...pulumi.InvokeOption) LookupPolicySetDefinitionResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupPolicySetDefinitionResult, error) {
+			args := v.(LookupPolicySetDefinitionArgs)
+			r, err := LookupPolicySetDefinition(ctx, &args, opts...)
+			return *r, err
+		}).(LookupPolicySetDefinitionResultOutput)
+}
+
+type LookupPolicySetDefinitionOutputArgs struct {
+	// The name of the policy set definition to get.
+	PolicySetDefinitionName pulumi.StringInput `pulumi:"policySetDefinitionName"`
+}
+
+func (LookupPolicySetDefinitionOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupPolicySetDefinitionArgs)(nil)).Elem()
+}
+
+// The policy set definition.
+type LookupPolicySetDefinitionResultOutput struct{ *pulumi.OutputState }
+
+func (LookupPolicySetDefinitionResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupPolicySetDefinitionResult)(nil)).Elem()
+}
+
+func (o LookupPolicySetDefinitionResultOutput) ToLookupPolicySetDefinitionResultOutput() LookupPolicySetDefinitionResultOutput {
+	return o
+}
+
+func (o LookupPolicySetDefinitionResultOutput) ToLookupPolicySetDefinitionResultOutputWithContext(ctx context.Context) LookupPolicySetDefinitionResultOutput {
+	return o
+}
+
+// The policy set definition description.
+func (o LookupPolicySetDefinitionResultOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupPolicySetDefinitionResult) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The display name of the policy set definition.
+func (o LookupPolicySetDefinitionResultOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupPolicySetDefinitionResult) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the policy set definition.
+func (o LookupPolicySetDefinitionResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPolicySetDefinitionResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The policy set definition metadata.
+func (o LookupPolicySetDefinitionResultOutput) Metadata() pulumi.AnyOutput {
+	return o.ApplyT(func(v LookupPolicySetDefinitionResult) interface{} { return v.Metadata }).(pulumi.AnyOutput)
+}
+
+// The name of the policy set definition.
+func (o LookupPolicySetDefinitionResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPolicySetDefinitionResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The policy set definition parameters that can be used in policy definition references.
+func (o LookupPolicySetDefinitionResultOutput) Parameters() pulumi.AnyOutput {
+	return o.ApplyT(func(v LookupPolicySetDefinitionResult) interface{} { return v.Parameters }).(pulumi.AnyOutput)
+}
+
+// An array of policy definition references.
+func (o LookupPolicySetDefinitionResultOutput) PolicyDefinitions() PolicyDefinitionReferenceResponseArrayOutput {
+	return o.ApplyT(func(v LookupPolicySetDefinitionResult) []PolicyDefinitionReferenceResponse {
+		return v.PolicyDefinitions
+	}).(PolicyDefinitionReferenceResponseArrayOutput)
+}
+
+// The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.
+func (o LookupPolicySetDefinitionResultOutput) PolicyType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupPolicySetDefinitionResult) *string { return v.PolicyType }).(pulumi.StringPtrOutput)
+}
+
+// The type of the resource (Microsoft.Authorization/policySetDefinitions).
+func (o LookupPolicySetDefinitionResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPolicySetDefinitionResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupPolicySetDefinitionResultOutput{})
 }

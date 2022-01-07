@@ -4,6 +4,9 @@
 package operationalinsights
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -47,4 +50,90 @@ type LookupStorageInsightConfigResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
+}
+
+func LookupStorageInsightConfigOutput(ctx *pulumi.Context, args LookupStorageInsightConfigOutputArgs, opts ...pulumi.InvokeOption) LookupStorageInsightConfigResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupStorageInsightConfigResult, error) {
+			args := v.(LookupStorageInsightConfigArgs)
+			r, err := LookupStorageInsightConfig(ctx, &args, opts...)
+			return *r, err
+		}).(LookupStorageInsightConfigResultOutput)
+}
+
+type LookupStorageInsightConfigOutputArgs struct {
+	// The name of the resource group. The name is case insensitive.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// Name of the storageInsightsConfigs resource
+	StorageInsightName pulumi.StringInput `pulumi:"storageInsightName"`
+	// The name of the workspace.
+	WorkspaceName pulumi.StringInput `pulumi:"workspaceName"`
+}
+
+func (LookupStorageInsightConfigOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupStorageInsightConfigArgs)(nil)).Elem()
+}
+
+// The top level storage insight resource container.
+type LookupStorageInsightConfigResultOutput struct{ *pulumi.OutputState }
+
+func (LookupStorageInsightConfigResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupStorageInsightConfigResult)(nil)).Elem()
+}
+
+func (o LookupStorageInsightConfigResultOutput) ToLookupStorageInsightConfigResultOutput() LookupStorageInsightConfigResultOutput {
+	return o
+}
+
+func (o LookupStorageInsightConfigResultOutput) ToLookupStorageInsightConfigResultOutputWithContext(ctx context.Context) LookupStorageInsightConfigResultOutput {
+	return o
+}
+
+// The names of the blob containers that the workspace should read
+func (o LookupStorageInsightConfigResultOutput) Containers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupStorageInsightConfigResult) []string { return v.Containers }).(pulumi.StringArrayOutput)
+}
+
+// The ETag of the storage insight.
+func (o LookupStorageInsightConfigResultOutput) ETag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupStorageInsightConfigResult) *string { return v.ETag }).(pulumi.StringPtrOutput)
+}
+
+// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+func (o LookupStorageInsightConfigResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupStorageInsightConfigResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o LookupStorageInsightConfigResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupStorageInsightConfigResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The status of the storage insight
+func (o LookupStorageInsightConfigResultOutput) Status() StorageInsightStatusResponseOutput {
+	return o.ApplyT(func(v LookupStorageInsightConfigResult) StorageInsightStatusResponse { return v.Status }).(StorageInsightStatusResponseOutput)
+}
+
+// The storage account connection details
+func (o LookupStorageInsightConfigResultOutput) StorageAccount() StorageAccountResponseOutput {
+	return o.ApplyT(func(v LookupStorageInsightConfigResult) StorageAccountResponse { return v.StorageAccount }).(StorageAccountResponseOutput)
+}
+
+// The names of the Azure tables that the workspace should read
+func (o LookupStorageInsightConfigResultOutput) Tables() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupStorageInsightConfigResult) []string { return v.Tables }).(pulumi.StringArrayOutput)
+}
+
+// Resource tags.
+func (o LookupStorageInsightConfigResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupStorageInsightConfigResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o LookupStorageInsightConfigResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupStorageInsightConfigResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupStorageInsightConfigResultOutput{})
 }

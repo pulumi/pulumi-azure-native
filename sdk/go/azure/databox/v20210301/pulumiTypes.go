@@ -2065,6 +2065,51 @@ type UnencryptedCredentialsResponse struct {
 	JobSecrets interface{} `pulumi:"jobSecrets"`
 }
 
+// Unencrypted credentials for accessing device.
+type UnencryptedCredentialsResponseOutput struct{ *pulumi.OutputState }
+
+func (UnencryptedCredentialsResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UnencryptedCredentialsResponse)(nil)).Elem()
+}
+
+func (o UnencryptedCredentialsResponseOutput) ToUnencryptedCredentialsResponseOutput() UnencryptedCredentialsResponseOutput {
+	return o
+}
+
+func (o UnencryptedCredentialsResponseOutput) ToUnencryptedCredentialsResponseOutputWithContext(ctx context.Context) UnencryptedCredentialsResponseOutput {
+	return o
+}
+
+// Name of the job.
+func (o UnencryptedCredentialsResponseOutput) JobName() pulumi.StringOutput {
+	return o.ApplyT(func(v UnencryptedCredentialsResponse) string { return v.JobName }).(pulumi.StringOutput)
+}
+
+// Secrets related to this job.
+func (o UnencryptedCredentialsResponseOutput) JobSecrets() pulumi.AnyOutput {
+	return o.ApplyT(func(v UnencryptedCredentialsResponse) interface{} { return v.JobSecrets }).(pulumi.AnyOutput)
+}
+
+type UnencryptedCredentialsResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (UnencryptedCredentialsResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UnencryptedCredentialsResponse)(nil)).Elem()
+}
+
+func (o UnencryptedCredentialsResponseArrayOutput) ToUnencryptedCredentialsResponseArrayOutput() UnencryptedCredentialsResponseArrayOutput {
+	return o
+}
+
+func (o UnencryptedCredentialsResponseArrayOutput) ToUnencryptedCredentialsResponseArrayOutputWithContext(ctx context.Context) UnencryptedCredentialsResponseArrayOutput {
+	return o
+}
+
+func (o UnencryptedCredentialsResponseArrayOutput) Index(i pulumi.IntInput) UnencryptedCredentialsResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) UnencryptedCredentialsResponse {
+		return vs[0].([]UnencryptedCredentialsResponse)[vs[1].(int)]
+	}).(UnencryptedCredentialsResponseOutput)
+}
+
 // Class defining User assigned identity details.
 type UserAssignedIdentityResponse struct {
 	// The client id of user assigned identity.
@@ -2146,6 +2191,8 @@ func init() {
 	pulumi.RegisterOutputType(SkuOutput{})
 	pulumi.RegisterOutputType(SkuResponseOutput{})
 	pulumi.RegisterOutputType(SystemDataResponseOutput{})
+	pulumi.RegisterOutputType(UnencryptedCredentialsResponseOutput{})
+	pulumi.RegisterOutputType(UnencryptedCredentialsResponseArrayOutput{})
 	pulumi.RegisterOutputType(UserAssignedIdentityResponseOutput{})
 	pulumi.RegisterOutputType(UserAssignedIdentityResponseMapOutput{})
 }

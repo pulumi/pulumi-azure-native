@@ -4,6 +4,9 @@
 package v20200301preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -36,4 +39,65 @@ type LookupComponentLinkedStorageAccountResult struct {
 	Name string `pulumi:"name"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
+}
+
+func LookupComponentLinkedStorageAccountOutput(ctx *pulumi.Context, args LookupComponentLinkedStorageAccountOutputArgs, opts ...pulumi.InvokeOption) LookupComponentLinkedStorageAccountResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupComponentLinkedStorageAccountResult, error) {
+			args := v.(LookupComponentLinkedStorageAccountArgs)
+			r, err := LookupComponentLinkedStorageAccount(ctx, &args, opts...)
+			return *r, err
+		}).(LookupComponentLinkedStorageAccountResultOutput)
+}
+
+type LookupComponentLinkedStorageAccountOutputArgs struct {
+	// The name of the resource group. The name is case insensitive.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the Application Insights component resource.
+	ResourceName pulumi.StringInput `pulumi:"resourceName"`
+	// The type of the Application Insights component data source for the linked storage account.
+	StorageType pulumi.StringInput `pulumi:"storageType"`
+}
+
+func (LookupComponentLinkedStorageAccountOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupComponentLinkedStorageAccountArgs)(nil)).Elem()
+}
+
+// An Application Insights component linked storage accounts
+type LookupComponentLinkedStorageAccountResultOutput struct{ *pulumi.OutputState }
+
+func (LookupComponentLinkedStorageAccountResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupComponentLinkedStorageAccountResult)(nil)).Elem()
+}
+
+func (o LookupComponentLinkedStorageAccountResultOutput) ToLookupComponentLinkedStorageAccountResultOutput() LookupComponentLinkedStorageAccountResultOutput {
+	return o
+}
+
+func (o LookupComponentLinkedStorageAccountResultOutput) ToLookupComponentLinkedStorageAccountResultOutputWithContext(ctx context.Context) LookupComponentLinkedStorageAccountResultOutput {
+	return o
+}
+
+// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+func (o LookupComponentLinkedStorageAccountResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupComponentLinkedStorageAccountResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Linked storage account resource ID
+func (o LookupComponentLinkedStorageAccountResultOutput) LinkedStorageAccount() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupComponentLinkedStorageAccountResult) *string { return v.LinkedStorageAccount }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource
+func (o LookupComponentLinkedStorageAccountResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupComponentLinkedStorageAccountResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o LookupComponentLinkedStorageAccountResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupComponentLinkedStorageAccountResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupComponentLinkedStorageAccountResultOutput{})
 }

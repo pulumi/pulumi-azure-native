@@ -4,6 +4,9 @@
 package iotcentral
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -47,4 +50,93 @@ type LookupAppResult struct {
 	Template *string `pulumi:"template"`
 	// The resource type.
 	Type string `pulumi:"type"`
+}
+
+func LookupAppOutput(ctx *pulumi.Context, args LookupAppOutputArgs, opts ...pulumi.InvokeOption) LookupAppResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupAppResult, error) {
+			args := v.(LookupAppArgs)
+			r, err := LookupApp(ctx, &args, opts...)
+			return *r, err
+		}).(LookupAppResultOutput)
+}
+
+type LookupAppOutputArgs struct {
+	// The name of the resource group that contains the IoT Central application.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The ARM resource name of the IoT Central application.
+	ResourceName pulumi.StringInput `pulumi:"resourceName"`
+}
+
+func (LookupAppOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupAppArgs)(nil)).Elem()
+}
+
+// The IoT Central application.
+type LookupAppResultOutput struct{ *pulumi.OutputState }
+
+func (LookupAppResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupAppResult)(nil)).Elem()
+}
+
+func (o LookupAppResultOutput) ToLookupAppResultOutput() LookupAppResultOutput {
+	return o
+}
+
+func (o LookupAppResultOutput) ToLookupAppResultOutputWithContext(ctx context.Context) LookupAppResultOutput {
+	return o
+}
+
+// The ID of the application.
+func (o LookupAppResultOutput) ApplicationId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAppResult) string { return v.ApplicationId }).(pulumi.StringOutput)
+}
+
+// The display name of the application.
+func (o LookupAppResultOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupAppResult) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+// The ARM resource identifier.
+func (o LookupAppResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAppResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The resource location.
+func (o LookupAppResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAppResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// The ARM resource name.
+func (o LookupAppResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAppResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// A valid instance SKU.
+func (o LookupAppResultOutput) Sku() AppSkuInfoResponseOutput {
+	return o.ApplyT(func(v LookupAppResult) AppSkuInfoResponse { return v.Sku }).(AppSkuInfoResponseOutput)
+}
+
+// The subdomain of the application.
+func (o LookupAppResultOutput) Subdomain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupAppResult) *string { return v.Subdomain }).(pulumi.StringPtrOutput)
+}
+
+// The resource tags.
+func (o LookupAppResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupAppResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The ID of the application template, which is a blueprint that defines the characteristics and behaviors of an application. Optional; if not specified, defaults to a blank blueprint and allows the application to be defined from scratch.
+func (o LookupAppResultOutput) Template() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupAppResult) *string { return v.Template }).(pulumi.StringPtrOutput)
+}
+
+// The resource type.
+func (o LookupAppResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAppResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupAppResultOutput{})
 }

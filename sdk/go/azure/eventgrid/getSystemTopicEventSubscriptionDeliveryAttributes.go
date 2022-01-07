@@ -4,6 +4,9 @@
 package eventgrid
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -31,4 +34,50 @@ type GetSystemTopicEventSubscriptionDeliveryAttributesArgs struct {
 type GetSystemTopicEventSubscriptionDeliveryAttributesResult struct {
 	// A collection of DeliveryAttributeMapping
 	Value []interface{} `pulumi:"value"`
+}
+
+func GetSystemTopicEventSubscriptionDeliveryAttributesOutput(ctx *pulumi.Context, args GetSystemTopicEventSubscriptionDeliveryAttributesOutputArgs, opts ...pulumi.InvokeOption) GetSystemTopicEventSubscriptionDeliveryAttributesResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetSystemTopicEventSubscriptionDeliveryAttributesResult, error) {
+			args := v.(GetSystemTopicEventSubscriptionDeliveryAttributesArgs)
+			r, err := GetSystemTopicEventSubscriptionDeliveryAttributes(ctx, &args, opts...)
+			return *r, err
+		}).(GetSystemTopicEventSubscriptionDeliveryAttributesResultOutput)
+}
+
+type GetSystemTopicEventSubscriptionDeliveryAttributesOutputArgs struct {
+	// Name of the event subscription to be created. Event subscription names must be between 3 and 100 characters in length and use alphanumeric letters only.
+	EventSubscriptionName pulumi.StringInput `pulumi:"eventSubscriptionName"`
+	// The name of the resource group within the user's subscription.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// Name of the system topic.
+	SystemTopicName pulumi.StringInput `pulumi:"systemTopicName"`
+}
+
+func (GetSystemTopicEventSubscriptionDeliveryAttributesOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSystemTopicEventSubscriptionDeliveryAttributesArgs)(nil)).Elem()
+}
+
+// Result of the Get delivery attributes operation.
+type GetSystemTopicEventSubscriptionDeliveryAttributesResultOutput struct{ *pulumi.OutputState }
+
+func (GetSystemTopicEventSubscriptionDeliveryAttributesResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSystemTopicEventSubscriptionDeliveryAttributesResult)(nil)).Elem()
+}
+
+func (o GetSystemTopicEventSubscriptionDeliveryAttributesResultOutput) ToGetSystemTopicEventSubscriptionDeliveryAttributesResultOutput() GetSystemTopicEventSubscriptionDeliveryAttributesResultOutput {
+	return o
+}
+
+func (o GetSystemTopicEventSubscriptionDeliveryAttributesResultOutput) ToGetSystemTopicEventSubscriptionDeliveryAttributesResultOutputWithContext(ctx context.Context) GetSystemTopicEventSubscriptionDeliveryAttributesResultOutput {
+	return o
+}
+
+// A collection of DeliveryAttributeMapping
+func (o GetSystemTopicEventSubscriptionDeliveryAttributesResultOutput) Value() pulumi.ArrayOutput {
+	return o.ApplyT(func(v GetSystemTopicEventSubscriptionDeliveryAttributesResult) []interface{} { return v.Value }).(pulumi.ArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetSystemTopicEventSubscriptionDeliveryAttributesResultOutput{})
 }

@@ -4,6 +4,9 @@
 package v20160601
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -44,4 +47,81 @@ type ListAgreementContentCallbackUrlResult struct {
 	RelativePathParameters []string `pulumi:"relativePathParameters"`
 	// Gets the workflow trigger callback URL.
 	Value string `pulumi:"value"`
+}
+
+func ListAgreementContentCallbackUrlOutput(ctx *pulumi.Context, args ListAgreementContentCallbackUrlOutputArgs, opts ...pulumi.InvokeOption) ListAgreementContentCallbackUrlResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (ListAgreementContentCallbackUrlResult, error) {
+			args := v.(ListAgreementContentCallbackUrlArgs)
+			r, err := ListAgreementContentCallbackUrl(ctx, &args, opts...)
+			return *r, err
+		}).(ListAgreementContentCallbackUrlResultOutput)
+}
+
+type ListAgreementContentCallbackUrlOutputArgs struct {
+	// The integration account agreement name.
+	AgreementName pulumi.StringInput `pulumi:"agreementName"`
+	// The integration account name.
+	IntegrationAccountName pulumi.StringInput `pulumi:"integrationAccountName"`
+	// The key type.
+	KeyType KeyTypePtrInput `pulumi:"keyType"`
+	// The expiry time.
+	NotAfter pulumi.StringPtrInput `pulumi:"notAfter"`
+	// The resource group name.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (ListAgreementContentCallbackUrlOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListAgreementContentCallbackUrlArgs)(nil)).Elem()
+}
+
+// The workflow trigger callback URL.
+type ListAgreementContentCallbackUrlResultOutput struct{ *pulumi.OutputState }
+
+func (ListAgreementContentCallbackUrlResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListAgreementContentCallbackUrlResult)(nil)).Elem()
+}
+
+func (o ListAgreementContentCallbackUrlResultOutput) ToListAgreementContentCallbackUrlResultOutput() ListAgreementContentCallbackUrlResultOutput {
+	return o
+}
+
+func (o ListAgreementContentCallbackUrlResultOutput) ToListAgreementContentCallbackUrlResultOutputWithContext(ctx context.Context) ListAgreementContentCallbackUrlResultOutput {
+	return o
+}
+
+// Gets the workflow trigger callback URL base path.
+func (o ListAgreementContentCallbackUrlResultOutput) BasePath() pulumi.StringOutput {
+	return o.ApplyT(func(v ListAgreementContentCallbackUrlResult) string { return v.BasePath }).(pulumi.StringOutput)
+}
+
+// Gets the workflow trigger callback URL HTTP method.
+func (o ListAgreementContentCallbackUrlResultOutput) Method() pulumi.StringOutput {
+	return o.ApplyT(func(v ListAgreementContentCallbackUrlResult) string { return v.Method }).(pulumi.StringOutput)
+}
+
+// Gets the workflow trigger callback URL query parameters.
+func (o ListAgreementContentCallbackUrlResultOutput) Queries() WorkflowTriggerListCallbackUrlQueriesResponsePtrOutput {
+	return o.ApplyT(func(v ListAgreementContentCallbackUrlResult) *WorkflowTriggerListCallbackUrlQueriesResponse {
+		return v.Queries
+	}).(WorkflowTriggerListCallbackUrlQueriesResponsePtrOutput)
+}
+
+// Gets the workflow trigger callback URL relative path.
+func (o ListAgreementContentCallbackUrlResultOutput) RelativePath() pulumi.StringOutput {
+	return o.ApplyT(func(v ListAgreementContentCallbackUrlResult) string { return v.RelativePath }).(pulumi.StringOutput)
+}
+
+// Gets the workflow trigger callback URL relative path parameters.
+func (o ListAgreementContentCallbackUrlResultOutput) RelativePathParameters() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ListAgreementContentCallbackUrlResult) []string { return v.RelativePathParameters }).(pulumi.StringArrayOutput)
+}
+
+// Gets the workflow trigger callback URL.
+func (o ListAgreementContentCallbackUrlResultOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v ListAgreementContentCallbackUrlResult) string { return v.Value }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(ListAgreementContentCallbackUrlResultOutput{})
 }

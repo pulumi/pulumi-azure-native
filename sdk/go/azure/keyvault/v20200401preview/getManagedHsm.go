@@ -4,6 +4,9 @@
 package v20200401preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -51,4 +54,78 @@ func (val *LookupManagedHsmResult) Defaults() *LookupManagedHsmResult {
 	tmp.Properties = *tmp.Properties.Defaults()
 
 	return &tmp
+}
+
+func LookupManagedHsmOutput(ctx *pulumi.Context, args LookupManagedHsmOutputArgs, opts ...pulumi.InvokeOption) LookupManagedHsmResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupManagedHsmResult, error) {
+			args := v.(LookupManagedHsmArgs)
+			r, err := LookupManagedHsm(ctx, &args, opts...)
+			return *r, err
+		}).(LookupManagedHsmResultOutput)
+}
+
+type LookupManagedHsmOutputArgs struct {
+	// The name of the managed HSM Pool.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Name of the resource group that contains the managed HSM pool.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupManagedHsmOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupManagedHsmArgs)(nil)).Elem()
+}
+
+// Resource information with extended details.
+type LookupManagedHsmResultOutput struct{ *pulumi.OutputState }
+
+func (LookupManagedHsmResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupManagedHsmResult)(nil)).Elem()
+}
+
+func (o LookupManagedHsmResultOutput) ToLookupManagedHsmResultOutput() LookupManagedHsmResultOutput {
+	return o
+}
+
+func (o LookupManagedHsmResultOutput) ToLookupManagedHsmResultOutputWithContext(ctx context.Context) LookupManagedHsmResultOutput {
+	return o
+}
+
+// The Azure Resource Manager resource ID for the managed HSM Pool.
+func (o LookupManagedHsmResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupManagedHsmResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The supported Azure location where the managed HSM Pool should be created.
+func (o LookupManagedHsmResultOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupManagedHsmResult) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The name of the managed HSM Pool.
+func (o LookupManagedHsmResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupManagedHsmResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Properties of the managed HSM
+func (o LookupManagedHsmResultOutput) Properties() ManagedHsmPropertiesResponseOutput {
+	return o.ApplyT(func(v LookupManagedHsmResult) ManagedHsmPropertiesResponse { return v.Properties }).(ManagedHsmPropertiesResponseOutput)
+}
+
+// SKU details
+func (o LookupManagedHsmResultOutput) Sku() ManagedHsmSkuResponsePtrOutput {
+	return o.ApplyT(func(v LookupManagedHsmResult) *ManagedHsmSkuResponse { return v.Sku }).(ManagedHsmSkuResponsePtrOutput)
+}
+
+// Resource tags
+func (o LookupManagedHsmResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupManagedHsmResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The resource type of the managed HSM Pool.
+func (o LookupManagedHsmResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupManagedHsmResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupManagedHsmResultOutput{})
 }

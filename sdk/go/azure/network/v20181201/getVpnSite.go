@@ -4,6 +4,9 @@
 package v20181201
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -54,4 +57,113 @@ type LookupVpnSiteResult struct {
 	Type string `pulumi:"type"`
 	// The VirtualWAN to which the vpnSite belongs
 	VirtualWan *SubResourceResponse `pulumi:"virtualWan"`
+}
+
+func LookupVpnSiteOutput(ctx *pulumi.Context, args LookupVpnSiteOutputArgs, opts ...pulumi.InvokeOption) LookupVpnSiteResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupVpnSiteResult, error) {
+			args := v.(LookupVpnSiteArgs)
+			r, err := LookupVpnSite(ctx, &args, opts...)
+			return *r, err
+		}).(LookupVpnSiteResultOutput)
+}
+
+type LookupVpnSiteOutputArgs struct {
+	// The resource group name of the VpnSite.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the VpnSite being retrieved.
+	VpnSiteName pulumi.StringInput `pulumi:"vpnSiteName"`
+}
+
+func (LookupVpnSiteOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupVpnSiteArgs)(nil)).Elem()
+}
+
+// VpnSite Resource.
+type LookupVpnSiteResultOutput struct{ *pulumi.OutputState }
+
+func (LookupVpnSiteResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupVpnSiteResult)(nil)).Elem()
+}
+
+func (o LookupVpnSiteResultOutput) ToLookupVpnSiteResultOutput() LookupVpnSiteResultOutput {
+	return o
+}
+
+func (o LookupVpnSiteResultOutput) ToLookupVpnSiteResultOutputWithContext(ctx context.Context) LookupVpnSiteResultOutput {
+	return o
+}
+
+// The AddressSpace that contains an array of IP address ranges.
+func (o LookupVpnSiteResultOutput) AddressSpace() AddressSpaceResponsePtrOutput {
+	return o.ApplyT(func(v LookupVpnSiteResult) *AddressSpaceResponse { return v.AddressSpace }).(AddressSpaceResponsePtrOutput)
+}
+
+// The set of bgp properties.
+func (o LookupVpnSiteResultOutput) BgpProperties() BgpSettingsResponsePtrOutput {
+	return o.ApplyT(func(v LookupVpnSiteResult) *BgpSettingsResponse { return v.BgpProperties }).(BgpSettingsResponsePtrOutput)
+}
+
+// The device properties
+func (o LookupVpnSiteResultOutput) DeviceProperties() DevicePropertiesResponsePtrOutput {
+	return o.ApplyT(func(v LookupVpnSiteResult) *DevicePropertiesResponse { return v.DeviceProperties }).(DevicePropertiesResponsePtrOutput)
+}
+
+// Gets a unique read-only string that changes whenever the resource is updated.
+func (o LookupVpnSiteResultOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVpnSiteResult) string { return v.Etag }).(pulumi.StringOutput)
+}
+
+// Resource ID.
+func (o LookupVpnSiteResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVpnSiteResult) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// The ip-address for the vpn-site.
+func (o LookupVpnSiteResultOutput) IpAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVpnSiteResult) *string { return v.IpAddress }).(pulumi.StringPtrOutput)
+}
+
+// IsSecuritySite flag
+func (o LookupVpnSiteResultOutput) IsSecuritySite() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupVpnSiteResult) *bool { return v.IsSecuritySite }).(pulumi.BoolPtrOutput)
+}
+
+// Resource location.
+func (o LookupVpnSiteResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVpnSiteResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o LookupVpnSiteResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVpnSiteResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The provisioning state of the resource.
+func (o LookupVpnSiteResultOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVpnSiteResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The key for vpn-site that can be used for connections.
+func (o LookupVpnSiteResultOutput) SiteKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVpnSiteResult) *string { return v.SiteKey }).(pulumi.StringPtrOutput)
+}
+
+// Resource tags.
+func (o LookupVpnSiteResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupVpnSiteResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type.
+func (o LookupVpnSiteResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVpnSiteResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The VirtualWAN to which the vpnSite belongs
+func (o LookupVpnSiteResultOutput) VirtualWan() SubResourceResponsePtrOutput {
+	return o.ApplyT(func(v LookupVpnSiteResult) *SubResourceResponse { return v.VirtualWan }).(SubResourceResponsePtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupVpnSiteResultOutput{})
 }

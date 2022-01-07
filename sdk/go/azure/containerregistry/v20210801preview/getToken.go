@@ -4,6 +4,9 @@
 package v20210801preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -46,4 +49,90 @@ type LookupTokenResult struct {
 	SystemData SystemDataResponse `pulumi:"systemData"`
 	// The type of the resource.
 	Type string `pulumi:"type"`
+}
+
+func LookupTokenOutput(ctx *pulumi.Context, args LookupTokenOutputArgs, opts ...pulumi.InvokeOption) LookupTokenResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupTokenResult, error) {
+			args := v.(LookupTokenArgs)
+			r, err := LookupToken(ctx, &args, opts...)
+			return *r, err
+		}).(LookupTokenResultOutput)
+}
+
+type LookupTokenOutputArgs struct {
+	// The name of the container registry.
+	RegistryName pulumi.StringInput `pulumi:"registryName"`
+	// The name of the resource group to which the container registry belongs.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the token.
+	TokenName pulumi.StringInput `pulumi:"tokenName"`
+}
+
+func (LookupTokenOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupTokenArgs)(nil)).Elem()
+}
+
+// An object that represents a token for a container registry.
+type LookupTokenResultOutput struct{ *pulumi.OutputState }
+
+func (LookupTokenResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupTokenResult)(nil)).Elem()
+}
+
+func (o LookupTokenResultOutput) ToLookupTokenResultOutput() LookupTokenResultOutput {
+	return o
+}
+
+func (o LookupTokenResultOutput) ToLookupTokenResultOutputWithContext(ctx context.Context) LookupTokenResultOutput {
+	return o
+}
+
+// The creation date of scope map.
+func (o LookupTokenResultOutput) CreationDate() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTokenResult) string { return v.CreationDate }).(pulumi.StringOutput)
+}
+
+// The credentials that can be used for authenticating the token.
+func (o LookupTokenResultOutput) Credentials() TokenCredentialsPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v LookupTokenResult) *TokenCredentialsPropertiesResponse { return v.Credentials }).(TokenCredentialsPropertiesResponsePtrOutput)
+}
+
+// The resource ID.
+func (o LookupTokenResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTokenResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The name of the resource.
+func (o LookupTokenResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTokenResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Provisioning state of the resource.
+func (o LookupTokenResultOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTokenResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The resource ID of the scope map to which the token will be associated with.
+func (o LookupTokenResultOutput) ScopeMapId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupTokenResult) *string { return v.ScopeMapId }).(pulumi.StringPtrOutput)
+}
+
+// The status of the token example enabled or disabled.
+func (o LookupTokenResultOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupTokenResult) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o LookupTokenResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupTokenResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the resource.
+func (o LookupTokenResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTokenResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupTokenResultOutput{})
 }

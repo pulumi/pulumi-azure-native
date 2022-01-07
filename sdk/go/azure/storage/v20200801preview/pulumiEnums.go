@@ -562,6 +562,163 @@ const (
 	HttpProtocolHttps       = HttpProtocol("https")
 )
 
+func (HttpProtocol) ElementType() reflect.Type {
+	return reflect.TypeOf((*HttpProtocol)(nil)).Elem()
+}
+
+func (e HttpProtocol) ToHttpProtocolOutput() HttpProtocolOutput {
+	return pulumi.ToOutput(e).(HttpProtocolOutput)
+}
+
+func (e HttpProtocol) ToHttpProtocolOutputWithContext(ctx context.Context) HttpProtocolOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(HttpProtocolOutput)
+}
+
+func (e HttpProtocol) ToHttpProtocolPtrOutput() HttpProtocolPtrOutput {
+	return e.ToHttpProtocolPtrOutputWithContext(context.Background())
+}
+
+func (e HttpProtocol) ToHttpProtocolPtrOutputWithContext(ctx context.Context) HttpProtocolPtrOutput {
+	return HttpProtocol(e).ToHttpProtocolOutputWithContext(ctx).ToHttpProtocolPtrOutputWithContext(ctx)
+}
+
+func (e HttpProtocol) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e HttpProtocol) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e HttpProtocol) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e HttpProtocol) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type HttpProtocolOutput struct{ *pulumi.OutputState }
+
+func (HttpProtocolOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HttpProtocol)(nil)).Elem()
+}
+
+func (o HttpProtocolOutput) ToHttpProtocolOutput() HttpProtocolOutput {
+	return o
+}
+
+func (o HttpProtocolOutput) ToHttpProtocolOutputWithContext(ctx context.Context) HttpProtocolOutput {
+	return o
+}
+
+func (o HttpProtocolOutput) ToHttpProtocolPtrOutput() HttpProtocolPtrOutput {
+	return o.ToHttpProtocolPtrOutputWithContext(context.Background())
+}
+
+func (o HttpProtocolOutput) ToHttpProtocolPtrOutputWithContext(ctx context.Context) HttpProtocolPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HttpProtocol) *HttpProtocol {
+		return &v
+	}).(HttpProtocolPtrOutput)
+}
+
+func (o HttpProtocolOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o HttpProtocolOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e HttpProtocol) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o HttpProtocolOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o HttpProtocolOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e HttpProtocol) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type HttpProtocolPtrOutput struct{ *pulumi.OutputState }
+
+func (HttpProtocolPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**HttpProtocol)(nil)).Elem()
+}
+
+func (o HttpProtocolPtrOutput) ToHttpProtocolPtrOutput() HttpProtocolPtrOutput {
+	return o
+}
+
+func (o HttpProtocolPtrOutput) ToHttpProtocolPtrOutputWithContext(ctx context.Context) HttpProtocolPtrOutput {
+	return o
+}
+
+func (o HttpProtocolPtrOutput) Elem() HttpProtocolOutput {
+	return o.ApplyT(func(v *HttpProtocol) HttpProtocol {
+		if v != nil {
+			return *v
+		}
+		var ret HttpProtocol
+		return ret
+	}).(HttpProtocolOutput)
+}
+
+func (o HttpProtocolPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o HttpProtocolPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *HttpProtocol) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// HttpProtocolInput is an input type that accepts HttpProtocolArgs and HttpProtocolOutput values.
+// You can construct a concrete instance of `HttpProtocolInput` via:
+//
+//          HttpProtocolArgs{...}
+type HttpProtocolInput interface {
+	pulumi.Input
+
+	ToHttpProtocolOutput() HttpProtocolOutput
+	ToHttpProtocolOutputWithContext(context.Context) HttpProtocolOutput
+}
+
+var httpProtocolPtrType = reflect.TypeOf((**HttpProtocol)(nil)).Elem()
+
+type HttpProtocolPtrInput interface {
+	pulumi.Input
+
+	ToHttpProtocolPtrOutput() HttpProtocolPtrOutput
+	ToHttpProtocolPtrOutputWithContext(context.Context) HttpProtocolPtrOutput
+}
+
+type httpProtocolPtr string
+
+func HttpProtocolPtr(v string) HttpProtocolPtrInput {
+	return (*httpProtocolPtr)(&v)
+}
+
+func (*httpProtocolPtr) ElementType() reflect.Type {
+	return httpProtocolPtrType
+}
+
+func (in *httpProtocolPtr) ToHttpProtocolPtrOutput() HttpProtocolPtrOutput {
+	return pulumi.ToOutput(in).(HttpProtocolPtrOutput)
+}
+
+func (in *httpProtocolPtr) ToHttpProtocolPtrOutputWithContext(ctx context.Context) HttpProtocolPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(HttpProtocolPtrOutput)
+}
+
 // The identity type.
 type IdentityType string
 
@@ -1225,6 +1382,8 @@ func init() {
 	pulumi.RegisterOutputType(ActionPtrOutput{})
 	pulumi.RegisterOutputType(DefaultActionOutput{})
 	pulumi.RegisterOutputType(DefaultActionPtrOutput{})
+	pulumi.RegisterOutputType(HttpProtocolOutput{})
+	pulumi.RegisterOutputType(HttpProtocolPtrOutput{})
 	pulumi.RegisterOutputType(IdentityTypeOutput{})
 	pulumi.RegisterOutputType(IdentityTypePtrOutput{})
 	pulumi.RegisterOutputType(PublicAccessOutput{})

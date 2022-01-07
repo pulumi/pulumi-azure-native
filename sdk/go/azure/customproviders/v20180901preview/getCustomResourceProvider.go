@@ -4,6 +4,9 @@
 package v20180901preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -44,4 +47,90 @@ type LookupCustomResourceProviderResult struct {
 	Type string `pulumi:"type"`
 	// A list of validations to run on the custom resource provider's requests.
 	Validations []CustomRPValidationsResponse `pulumi:"validations"`
+}
+
+func LookupCustomResourceProviderOutput(ctx *pulumi.Context, args LookupCustomResourceProviderOutputArgs, opts ...pulumi.InvokeOption) LookupCustomResourceProviderResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupCustomResourceProviderResult, error) {
+			args := v.(LookupCustomResourceProviderArgs)
+			r, err := LookupCustomResourceProvider(ctx, &args, opts...)
+			return *r, err
+		}).(LookupCustomResourceProviderResultOutput)
+}
+
+type LookupCustomResourceProviderOutputArgs struct {
+	// The name of the resource group.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the resource provider.
+	ResourceProviderName pulumi.StringInput `pulumi:"resourceProviderName"`
+}
+
+func (LookupCustomResourceProviderOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupCustomResourceProviderArgs)(nil)).Elem()
+}
+
+// A manifest file that defines the custom resource provider resources.
+type LookupCustomResourceProviderResultOutput struct{ *pulumi.OutputState }
+
+func (LookupCustomResourceProviderResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupCustomResourceProviderResult)(nil)).Elem()
+}
+
+func (o LookupCustomResourceProviderResultOutput) ToLookupCustomResourceProviderResultOutput() LookupCustomResourceProviderResultOutput {
+	return o
+}
+
+func (o LookupCustomResourceProviderResultOutput) ToLookupCustomResourceProviderResultOutputWithContext(ctx context.Context) LookupCustomResourceProviderResultOutput {
+	return o
+}
+
+// A list of actions that the custom resource provider implements.
+func (o LookupCustomResourceProviderResultOutput) Actions() CustomRPActionRouteDefinitionResponseArrayOutput {
+	return o.ApplyT(func(v LookupCustomResourceProviderResult) []CustomRPActionRouteDefinitionResponse { return v.Actions }).(CustomRPActionRouteDefinitionResponseArrayOutput)
+}
+
+// Resource Id
+func (o LookupCustomResourceProviderResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCustomResourceProviderResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Resource location
+func (o LookupCustomResourceProviderResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCustomResourceProviderResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource name
+func (o LookupCustomResourceProviderResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCustomResourceProviderResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The provisioning state of the resource provider.
+func (o LookupCustomResourceProviderResultOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCustomResourceProviderResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// A list of resource types that the custom resource provider implements.
+func (o LookupCustomResourceProviderResultOutput) ResourceTypes() CustomRPResourceTypeRouteDefinitionResponseArrayOutput {
+	return o.ApplyT(func(v LookupCustomResourceProviderResult) []CustomRPResourceTypeRouteDefinitionResponse {
+		return v.ResourceTypes
+	}).(CustomRPResourceTypeRouteDefinitionResponseArrayOutput)
+}
+
+// Resource tags
+func (o LookupCustomResourceProviderResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupCustomResourceProviderResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type
+func (o LookupCustomResourceProviderResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCustomResourceProviderResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// A list of validations to run on the custom resource provider's requests.
+func (o LookupCustomResourceProviderResultOutput) Validations() CustomRPValidationsResponseArrayOutput {
+	return o.ApplyT(func(v LookupCustomResourceProviderResult) []CustomRPValidationsResponse { return v.Validations }).(CustomRPValidationsResponseArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupCustomResourceProviderResultOutput{})
 }

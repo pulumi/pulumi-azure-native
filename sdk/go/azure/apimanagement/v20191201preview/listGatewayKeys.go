@@ -4,6 +4,9 @@
 package v20191201preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -32,4 +35,55 @@ type ListGatewayKeysResult struct {
 	Primary *string `pulumi:"primary"`
 	// Secondary gateway key.
 	Secondary *string `pulumi:"secondary"`
+}
+
+func ListGatewayKeysOutput(ctx *pulumi.Context, args ListGatewayKeysOutputArgs, opts ...pulumi.InvokeOption) ListGatewayKeysResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (ListGatewayKeysResult, error) {
+			args := v.(ListGatewayKeysArgs)
+			r, err := ListGatewayKeys(ctx, &args, opts...)
+			return *r, err
+		}).(ListGatewayKeysResultOutput)
+}
+
+type ListGatewayKeysOutputArgs struct {
+	// Gateway entity identifier. Must be unique in the current API Management service instance. Must not have value 'managed'
+	GatewayId pulumi.StringInput `pulumi:"gatewayId"`
+	// The name of the resource group.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the API Management service.
+	ServiceName pulumi.StringInput `pulumi:"serviceName"`
+}
+
+func (ListGatewayKeysOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListGatewayKeysArgs)(nil)).Elem()
+}
+
+// Gateway authentication keys.
+type ListGatewayKeysResultOutput struct{ *pulumi.OutputState }
+
+func (ListGatewayKeysResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListGatewayKeysResult)(nil)).Elem()
+}
+
+func (o ListGatewayKeysResultOutput) ToListGatewayKeysResultOutput() ListGatewayKeysResultOutput {
+	return o
+}
+
+func (o ListGatewayKeysResultOutput) ToListGatewayKeysResultOutputWithContext(ctx context.Context) ListGatewayKeysResultOutput {
+	return o
+}
+
+// Primary gateway key.
+func (o ListGatewayKeysResultOutput) Primary() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListGatewayKeysResult) *string { return v.Primary }).(pulumi.StringPtrOutput)
+}
+
+// Secondary gateway key.
+func (o ListGatewayKeysResultOutput) Secondary() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListGatewayKeysResult) *string { return v.Secondary }).(pulumi.StringPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(ListGatewayKeysResultOutput{})
 }

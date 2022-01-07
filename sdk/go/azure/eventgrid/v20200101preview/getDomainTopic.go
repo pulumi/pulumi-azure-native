@@ -4,6 +4,9 @@
 package v20200101preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -36,4 +39,65 @@ type LookupDomainTopicResult struct {
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// Type of the resource
 	Type string `pulumi:"type"`
+}
+
+func LookupDomainTopicOutput(ctx *pulumi.Context, args LookupDomainTopicOutputArgs, opts ...pulumi.InvokeOption) LookupDomainTopicResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupDomainTopicResult, error) {
+			args := v.(LookupDomainTopicArgs)
+			r, err := LookupDomainTopic(ctx, &args, opts...)
+			return *r, err
+		}).(LookupDomainTopicResultOutput)
+}
+
+type LookupDomainTopicOutputArgs struct {
+	// Name of the domain
+	DomainName pulumi.StringInput `pulumi:"domainName"`
+	// Name of the topic
+	DomainTopicName pulumi.StringInput `pulumi:"domainTopicName"`
+	// The name of the resource group within the user's subscription.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupDomainTopicOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupDomainTopicArgs)(nil)).Elem()
+}
+
+// Domain Topic
+type LookupDomainTopicResultOutput struct{ *pulumi.OutputState }
+
+func (LookupDomainTopicResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupDomainTopicResult)(nil)).Elem()
+}
+
+func (o LookupDomainTopicResultOutput) ToLookupDomainTopicResultOutput() LookupDomainTopicResultOutput {
+	return o
+}
+
+func (o LookupDomainTopicResultOutput) ToLookupDomainTopicResultOutputWithContext(ctx context.Context) LookupDomainTopicResultOutput {
+	return o
+}
+
+// Fully qualified identifier of the resource
+func (o LookupDomainTopicResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDomainTopicResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Name of the resource
+func (o LookupDomainTopicResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDomainTopicResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Provisioning state of the domain topic.
+func (o LookupDomainTopicResultOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDomainTopicResult) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+}
+
+// Type of the resource
+func (o LookupDomainTopicResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDomainTopicResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupDomainTopicResultOutput{})
 }

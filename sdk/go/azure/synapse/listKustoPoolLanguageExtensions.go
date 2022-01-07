@@ -4,6 +4,9 @@
 package synapse
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -31,4 +34,50 @@ type ListKustoPoolLanguageExtensionsArgs struct {
 type ListKustoPoolLanguageExtensionsResult struct {
 	// The list of language extensions.
 	Value []LanguageExtensionResponse `pulumi:"value"`
+}
+
+func ListKustoPoolLanguageExtensionsOutput(ctx *pulumi.Context, args ListKustoPoolLanguageExtensionsOutputArgs, opts ...pulumi.InvokeOption) ListKustoPoolLanguageExtensionsResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (ListKustoPoolLanguageExtensionsResult, error) {
+			args := v.(ListKustoPoolLanguageExtensionsArgs)
+			r, err := ListKustoPoolLanguageExtensions(ctx, &args, opts...)
+			return *r, err
+		}).(ListKustoPoolLanguageExtensionsResultOutput)
+}
+
+type ListKustoPoolLanguageExtensionsOutputArgs struct {
+	// The name of the Kusto pool.
+	KustoPoolName pulumi.StringInput `pulumi:"kustoPoolName"`
+	// The name of the resource group. The name is case insensitive.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the workspace.
+	WorkspaceName pulumi.StringInput `pulumi:"workspaceName"`
+}
+
+func (ListKustoPoolLanguageExtensionsOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListKustoPoolLanguageExtensionsArgs)(nil)).Elem()
+}
+
+// The list of language extension objects.
+type ListKustoPoolLanguageExtensionsResultOutput struct{ *pulumi.OutputState }
+
+func (ListKustoPoolLanguageExtensionsResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListKustoPoolLanguageExtensionsResult)(nil)).Elem()
+}
+
+func (o ListKustoPoolLanguageExtensionsResultOutput) ToListKustoPoolLanguageExtensionsResultOutput() ListKustoPoolLanguageExtensionsResultOutput {
+	return o
+}
+
+func (o ListKustoPoolLanguageExtensionsResultOutput) ToListKustoPoolLanguageExtensionsResultOutputWithContext(ctx context.Context) ListKustoPoolLanguageExtensionsResultOutput {
+	return o
+}
+
+// The list of language extensions.
+func (o ListKustoPoolLanguageExtensionsResultOutput) Value() LanguageExtensionResponseArrayOutput {
+	return o.ApplyT(func(v ListKustoPoolLanguageExtensionsResult) []LanguageExtensionResponse { return v.Value }).(LanguageExtensionResponseArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(ListKustoPoolLanguageExtensionsResultOutput{})
 }

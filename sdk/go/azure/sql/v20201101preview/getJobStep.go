@@ -4,6 +4,9 @@
 package v20201101preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -65,4 +68,94 @@ func (val *LookupJobStepResult) Defaults() *LookupJobStepResult {
 	tmp.Output = tmp.Output.Defaults()
 
 	return &tmp
+}
+
+func LookupJobStepOutput(ctx *pulumi.Context, args LookupJobStepOutputArgs, opts ...pulumi.InvokeOption) LookupJobStepResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupJobStepResult, error) {
+			args := v.(LookupJobStepArgs)
+			r, err := LookupJobStep(ctx, &args, opts...)
+			return *r, err
+		}).(LookupJobStepResultOutput)
+}
+
+type LookupJobStepOutputArgs struct {
+	// The name of the job agent.
+	JobAgentName pulumi.StringInput `pulumi:"jobAgentName"`
+	// The name of the job.
+	JobName pulumi.StringInput `pulumi:"jobName"`
+	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the server.
+	ServerName pulumi.StringInput `pulumi:"serverName"`
+	// The name of the job step.
+	StepName pulumi.StringInput `pulumi:"stepName"`
+}
+
+func (LookupJobStepOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupJobStepArgs)(nil)).Elem()
+}
+
+// A job step.
+type LookupJobStepResultOutput struct{ *pulumi.OutputState }
+
+func (LookupJobStepResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupJobStepResult)(nil)).Elem()
+}
+
+func (o LookupJobStepResultOutput) ToLookupJobStepResultOutput() LookupJobStepResultOutput {
+	return o
+}
+
+func (o LookupJobStepResultOutput) ToLookupJobStepResultOutputWithContext(ctx context.Context) LookupJobStepResultOutput {
+	return o
+}
+
+// The action payload of the job step.
+func (o LookupJobStepResultOutput) Action() JobStepActionResponseOutput {
+	return o.ApplyT(func(v LookupJobStepResult) JobStepActionResponse { return v.Action }).(JobStepActionResponseOutput)
+}
+
+// The resource ID of the job credential that will be used to connect to the targets.
+func (o LookupJobStepResultOutput) Credential() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupJobStepResult) string { return v.Credential }).(pulumi.StringOutput)
+}
+
+// Execution options for the job step.
+func (o LookupJobStepResultOutput) ExecutionOptions() JobStepExecutionOptionsResponsePtrOutput {
+	return o.ApplyT(func(v LookupJobStepResult) *JobStepExecutionOptionsResponse { return v.ExecutionOptions }).(JobStepExecutionOptionsResponsePtrOutput)
+}
+
+// Resource ID.
+func (o LookupJobStepResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupJobStepResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o LookupJobStepResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupJobStepResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Output destination properties of the job step.
+func (o LookupJobStepResultOutput) Output() JobStepOutputResponsePtrOutput {
+	return o.ApplyT(func(v LookupJobStepResult) *JobStepOutputResponse { return v.Output }).(JobStepOutputResponsePtrOutput)
+}
+
+// The job step's index within the job. If not specified when creating the job step, it will be created as the last step. If not specified when updating the job step, the step id is not modified.
+func (o LookupJobStepResultOutput) StepId() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupJobStepResult) *int { return v.StepId }).(pulumi.IntPtrOutput)
+}
+
+// The resource ID of the target group that the job step will be executed on.
+func (o LookupJobStepResultOutput) TargetGroup() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupJobStepResult) string { return v.TargetGroup }).(pulumi.StringOutput)
+}
+
+// Resource type.
+func (o LookupJobStepResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupJobStepResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupJobStepResultOutput{})
 }

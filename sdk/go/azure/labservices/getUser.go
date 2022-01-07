@@ -4,6 +4,9 @@
 package labservices
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -59,4 +62,114 @@ type LookupUserResult struct {
 	Type string `pulumi:"type"`
 	// The unique immutable identifier of a resource (Guid).
 	UniqueIdentifier *string `pulumi:"uniqueIdentifier"`
+}
+
+func LookupUserOutput(ctx *pulumi.Context, args LookupUserOutputArgs, opts ...pulumi.InvokeOption) LookupUserResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupUserResult, error) {
+			args := v.(LookupUserArgs)
+			r, err := LookupUser(ctx, &args, opts...)
+			return *r, err
+		}).(LookupUserResultOutput)
+}
+
+type LookupUserOutputArgs struct {
+	// Specify the $expand query. Example: 'properties($select=email)'
+	Expand pulumi.StringPtrInput `pulumi:"expand"`
+	// The name of the lab Account.
+	LabAccountName pulumi.StringInput `pulumi:"labAccountName"`
+	// The name of the lab.
+	LabName pulumi.StringInput `pulumi:"labName"`
+	// The name of the resource group.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the user.
+	UserName pulumi.StringInput `pulumi:"userName"`
+}
+
+func (LookupUserOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupUserArgs)(nil)).Elem()
+}
+
+// The User registered to a lab
+type LookupUserResultOutput struct{ *pulumi.OutputState }
+
+func (LookupUserResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupUserResult)(nil)).Elem()
+}
+
+func (o LookupUserResultOutput) ToLookupUserResultOutput() LookupUserResultOutput {
+	return o
+}
+
+func (o LookupUserResultOutput) ToLookupUserResultOutputWithContext(ctx context.Context) LookupUserResultOutput {
+	return o
+}
+
+// The user email address, as it was specified during registration.
+func (o LookupUserResultOutput) Email() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupUserResult) string { return v.Email }).(pulumi.StringOutput)
+}
+
+// The user family name, as it was specified during registration.
+func (o LookupUserResultOutput) FamilyName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupUserResult) string { return v.FamilyName }).(pulumi.StringOutput)
+}
+
+// The user given name, as it was specified during registration.
+func (o LookupUserResultOutput) GivenName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupUserResult) string { return v.GivenName }).(pulumi.StringOutput)
+}
+
+// The identifier of the resource.
+func (o LookupUserResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupUserResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The details of the latest operation. ex: status, error
+func (o LookupUserResultOutput) LatestOperationResult() LatestOperationResultResponseOutput {
+	return o.ApplyT(func(v LookupUserResult) LatestOperationResultResponse { return v.LatestOperationResult }).(LatestOperationResultResponseOutput)
+}
+
+// The location of the resource.
+func (o LookupUserResultOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupUserResult) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource.
+func (o LookupUserResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupUserResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The provisioning status of the resource.
+func (o LookupUserResultOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupUserResult) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+}
+
+// The tags of the resource.
+func (o LookupUserResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupUserResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The user tenant ID, as it was specified during registration.
+func (o LookupUserResultOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupUserResult) string { return v.TenantId }).(pulumi.StringOutput)
+}
+
+// How long the user has used his VMs in this lab
+func (o LookupUserResultOutput) TotalUsage() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupUserResult) string { return v.TotalUsage }).(pulumi.StringOutput)
+}
+
+// The type of the resource.
+func (o LookupUserResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupUserResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The unique immutable identifier of a resource (Guid).
+func (o LookupUserResultOutput) UniqueIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupUserResult) *string { return v.UniqueIdentifier }).(pulumi.StringPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupUserResultOutput{})
 }

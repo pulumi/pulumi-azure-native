@@ -4,6 +4,9 @@
 package v20180501preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -106,4 +109,173 @@ func (val *LookupComponentResult) Defaults() *LookupComponentResult {
 		tmp.RetentionInDays = &retentionInDays_
 	}
 	return &tmp
+}
+
+func LookupComponentOutput(ctx *pulumi.Context, args LookupComponentOutputArgs, opts ...pulumi.InvokeOption) LookupComponentResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupComponentResult, error) {
+			args := v.(LookupComponentArgs)
+			r, err := LookupComponent(ctx, &args, opts...)
+			return *r, err
+		}).(LookupComponentResultOutput)
+}
+
+type LookupComponentOutputArgs struct {
+	// The name of the resource group. The name is case insensitive.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the Application Insights component resource.
+	ResourceName pulumi.StringInput `pulumi:"resourceName"`
+}
+
+func (LookupComponentOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupComponentArgs)(nil)).Elem()
+}
+
+// An Application Insights component definition.
+type LookupComponentResultOutput struct{ *pulumi.OutputState }
+
+func (LookupComponentResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupComponentResult)(nil)).Elem()
+}
+
+func (o LookupComponentResultOutput) ToLookupComponentResultOutput() LookupComponentResultOutput {
+	return o
+}
+
+func (o LookupComponentResultOutput) ToLookupComponentResultOutputWithContext(ctx context.Context) LookupComponentResultOutput {
+	return o
+}
+
+// Application Insights Unique ID for your Application.
+func (o LookupComponentResultOutput) AppId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupComponentResult) string { return v.AppId }).(pulumi.StringOutput)
+}
+
+// The unique ID of your application. This field mirrors the 'Name' field and cannot be changed.
+func (o LookupComponentResultOutput) ApplicationId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupComponentResult) string { return v.ApplicationId }).(pulumi.StringOutput)
+}
+
+// Type of application being monitored.
+func (o LookupComponentResultOutput) ApplicationType() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupComponentResult) string { return v.ApplicationType }).(pulumi.StringOutput)
+}
+
+// Application Insights component connection string.
+func (o LookupComponentResultOutput) ConnectionString() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupComponentResult) string { return v.ConnectionString }).(pulumi.StringOutput)
+}
+
+// Creation Date for the Application Insights component, in ISO 8601 format.
+func (o LookupComponentResultOutput) CreationDate() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupComponentResult) string { return v.CreationDate }).(pulumi.StringOutput)
+}
+
+// Disable IP masking.
+func (o LookupComponentResultOutput) DisableIpMasking() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupComponentResult) *bool { return v.DisableIpMasking }).(pulumi.BoolPtrOutput)
+}
+
+// Used by the Application Insights system to determine what kind of flow this component was created by. This is to be set to 'Bluefield' when creating/updating a component via the REST API.
+func (o LookupComponentResultOutput) FlowType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupComponentResult) *string { return v.FlowType }).(pulumi.StringPtrOutput)
+}
+
+// The unique application ID created when a new application is added to HockeyApp, used for communications with HockeyApp.
+func (o LookupComponentResultOutput) HockeyAppId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupComponentResult) *string { return v.HockeyAppId }).(pulumi.StringPtrOutput)
+}
+
+// Token used to authenticate communications with between Application Insights and HockeyApp.
+func (o LookupComponentResultOutput) HockeyAppToken() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupComponentResult) string { return v.HockeyAppToken }).(pulumi.StringOutput)
+}
+
+// Azure resource Id
+func (o LookupComponentResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupComponentResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Purge data immediately after 30 days.
+func (o LookupComponentResultOutput) ImmediatePurgeDataOn30Days() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupComponentResult) *bool { return v.ImmediatePurgeDataOn30Days }).(pulumi.BoolPtrOutput)
+}
+
+// Indicates the flow of the ingestion.
+func (o LookupComponentResultOutput) IngestionMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupComponentResult) *string { return v.IngestionMode }).(pulumi.StringPtrOutput)
+}
+
+// Application Insights Instrumentation key. A read-only value that applications can use to identify the destination for all telemetry sent to Azure Application Insights. This value will be supplied upon construction of each new Application Insights component.
+func (o LookupComponentResultOutput) InstrumentationKey() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupComponentResult) string { return v.InstrumentationKey }).(pulumi.StringOutput)
+}
+
+// The kind of application that this component refers to, used to customize UI. This value is a freeform string, values should typically be one of the following: web, ios, other, store, java, phone.
+func (o LookupComponentResultOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupComponentResult) string { return v.Kind }).(pulumi.StringOutput)
+}
+
+// Resource location
+func (o LookupComponentResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupComponentResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// Azure resource name
+func (o LookupComponentResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupComponentResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// List of linked private link scope resources.
+func (o LookupComponentResultOutput) PrivateLinkScopedResources() PrivateLinkScopedResourceResponseArrayOutput {
+	return o.ApplyT(func(v LookupComponentResult) []PrivateLinkScopedResourceResponse { return v.PrivateLinkScopedResources }).(PrivateLinkScopedResourceResponseArrayOutput)
+}
+
+// Current state of this component: whether or not is has been provisioned within the resource group it is defined. Users cannot change this value but are able to read from it. Values will include Succeeded, Deploying, Canceled, and Failed.
+func (o LookupComponentResultOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupComponentResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The network access type for accessing Application Insights ingestion.
+func (o LookupComponentResultOutput) PublicNetworkAccessForIngestion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupComponentResult) *string { return v.PublicNetworkAccessForIngestion }).(pulumi.StringPtrOutput)
+}
+
+// The network access type for accessing Application Insights query.
+func (o LookupComponentResultOutput) PublicNetworkAccessForQuery() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupComponentResult) *string { return v.PublicNetworkAccessForQuery }).(pulumi.StringPtrOutput)
+}
+
+// Describes what tool created this Application Insights component. Customers using this API should set this to the default 'rest'.
+func (o LookupComponentResultOutput) RequestSource() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupComponentResult) *string { return v.RequestSource }).(pulumi.StringPtrOutput)
+}
+
+// Retention period in days.
+func (o LookupComponentResultOutput) RetentionInDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupComponentResult) *int { return v.RetentionInDays }).(pulumi.IntPtrOutput)
+}
+
+// Percentage of the data produced by the application being monitored that is being sampled for Application Insights telemetry.
+func (o LookupComponentResultOutput) SamplingPercentage() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v LookupComponentResult) *float64 { return v.SamplingPercentage }).(pulumi.Float64PtrOutput)
+}
+
+// Resource tags
+func (o LookupComponentResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupComponentResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Azure Tenant Id.
+func (o LookupComponentResultOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupComponentResult) string { return v.TenantId }).(pulumi.StringOutput)
+}
+
+// Azure resource type
+func (o LookupComponentResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupComponentResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupComponentResultOutput{})
 }

@@ -4,6 +4,9 @@
 package agfoodplatform
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -49,4 +52,95 @@ type LookupExtensionResult struct {
 	SystemData SystemDataResponse `pulumi:"systemData"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
+}
+
+func LookupExtensionOutput(ctx *pulumi.Context, args LookupExtensionOutputArgs, opts ...pulumi.InvokeOption) LookupExtensionResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupExtensionResult, error) {
+			args := v.(LookupExtensionArgs)
+			r, err := LookupExtension(ctx, &args, opts...)
+			return *r, err
+		}).(LookupExtensionResultOutput)
+}
+
+type LookupExtensionOutputArgs struct {
+	// Id of extension resource.
+	ExtensionId pulumi.StringInput `pulumi:"extensionId"`
+	// FarmBeats resource name.
+	FarmBeatsResourceName pulumi.StringInput `pulumi:"farmBeatsResourceName"`
+	// The name of the resource group. The name is case insensitive.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupExtensionOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupExtensionArgs)(nil)).Elem()
+}
+
+// Extension resource.
+type LookupExtensionResultOutput struct{ *pulumi.OutputState }
+
+func (LookupExtensionResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupExtensionResult)(nil)).Elem()
+}
+
+func (o LookupExtensionResultOutput) ToLookupExtensionResultOutput() LookupExtensionResultOutput {
+	return o
+}
+
+func (o LookupExtensionResultOutput) ToLookupExtensionResultOutputWithContext(ctx context.Context) LookupExtensionResultOutput {
+	return o
+}
+
+// The ETag value to implement optimistic concurrency.
+func (o LookupExtensionResultOutput) ETag() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupExtensionResult) string { return v.ETag }).(pulumi.StringOutput)
+}
+
+// Extension api docs link.
+func (o LookupExtensionResultOutput) ExtensionApiDocsLink() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupExtensionResult) string { return v.ExtensionApiDocsLink }).(pulumi.StringOutput)
+}
+
+// Extension auth link.
+func (o LookupExtensionResultOutput) ExtensionAuthLink() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupExtensionResult) string { return v.ExtensionAuthLink }).(pulumi.StringOutput)
+}
+
+// Extension category. e.g. weather/sensor/satellite.
+func (o LookupExtensionResultOutput) ExtensionCategory() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupExtensionResult) string { return v.ExtensionCategory }).(pulumi.StringOutput)
+}
+
+// Extension Id.
+func (o LookupExtensionResultOutput) ExtensionId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupExtensionResult) string { return v.ExtensionId }).(pulumi.StringOutput)
+}
+
+// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+func (o LookupExtensionResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupExtensionResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Installed extension version.
+func (o LookupExtensionResultOutput) InstalledExtensionVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupExtensionResult) string { return v.InstalledExtensionVersion }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o LookupExtensionResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupExtensionResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o LookupExtensionResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupExtensionResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o LookupExtensionResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupExtensionResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupExtensionResultOutput{})
 }

@@ -4,6 +4,9 @@
 package v20161001
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -46,4 +49,87 @@ type LookupIscsiServerResult struct {
 	StorageDomainId string `pulumi:"storageDomainId"`
 	// The type.
 	Type string `pulumi:"type"`
+}
+
+func LookupIscsiServerOutput(ctx *pulumi.Context, args LookupIscsiServerOutputArgs, opts ...pulumi.InvokeOption) LookupIscsiServerResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupIscsiServerResult, error) {
+			args := v.(LookupIscsiServerArgs)
+			r, err := LookupIscsiServer(ctx, &args, opts...)
+			return *r, err
+		}).(LookupIscsiServerResultOutput)
+}
+
+type LookupIscsiServerOutputArgs struct {
+	// The device name.
+	DeviceName pulumi.StringInput `pulumi:"deviceName"`
+	// The iSCSI server name.
+	IscsiServerName pulumi.StringInput `pulumi:"iscsiServerName"`
+	// The manager name
+	ManagerName pulumi.StringInput `pulumi:"managerName"`
+	// The resource group name
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupIscsiServerOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupIscsiServerArgs)(nil)).Elem()
+}
+
+// The iSCSI server.
+type LookupIscsiServerResultOutput struct{ *pulumi.OutputState }
+
+func (LookupIscsiServerResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupIscsiServerResult)(nil)).Elem()
+}
+
+func (o LookupIscsiServerResultOutput) ToLookupIscsiServerResultOutput() LookupIscsiServerResultOutput {
+	return o
+}
+
+func (o LookupIscsiServerResultOutput) ToLookupIscsiServerResultOutputWithContext(ctx context.Context) LookupIscsiServerResultOutput {
+	return o
+}
+
+// The backup policy id.
+func (o LookupIscsiServerResultOutput) BackupScheduleGroupId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupIscsiServerResult) string { return v.BackupScheduleGroupId }).(pulumi.StringOutput)
+}
+
+// The chap id.
+func (o LookupIscsiServerResultOutput) ChapId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupIscsiServerResult) *string { return v.ChapId }).(pulumi.StringPtrOutput)
+}
+
+// The description.
+func (o LookupIscsiServerResultOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupIscsiServerResult) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The identifier.
+func (o LookupIscsiServerResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupIscsiServerResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The name.
+func (o LookupIscsiServerResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupIscsiServerResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The reverse chap id.
+func (o LookupIscsiServerResultOutput) ReverseChapId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupIscsiServerResult) *string { return v.ReverseChapId }).(pulumi.StringPtrOutput)
+}
+
+// The storage domain id.
+func (o LookupIscsiServerResultOutput) StorageDomainId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupIscsiServerResult) string { return v.StorageDomainId }).(pulumi.StringOutput)
+}
+
+// The type.
+func (o LookupIscsiServerResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupIscsiServerResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupIscsiServerResultOutput{})
 }

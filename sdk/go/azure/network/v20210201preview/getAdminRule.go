@@ -4,6 +4,9 @@
 package v20210201preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -46,4 +49,79 @@ type LookupAdminRuleResult struct {
 	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource type.
 	Type string `pulumi:"type"`
+}
+
+func LookupAdminRuleOutput(ctx *pulumi.Context, args LookupAdminRuleOutputArgs, opts ...pulumi.InvokeOption) LookupAdminRuleResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupAdminRuleResult, error) {
+			args := v.(LookupAdminRuleArgs)
+			r, err := LookupAdminRule(ctx, &args, opts...)
+			return *r, err
+		}).(LookupAdminRuleResultOutput)
+}
+
+type LookupAdminRuleOutputArgs struct {
+	// The name of the network manager security Configuration.
+	ConfigurationName pulumi.StringInput `pulumi:"configurationName"`
+	// The name of the network manager.
+	NetworkManagerName pulumi.StringInput `pulumi:"networkManagerName"`
+	// The name of the resource group.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the network manager security Configuration rule collection.
+	RuleCollectionName pulumi.StringInput `pulumi:"ruleCollectionName"`
+	// The name of the rule.
+	RuleName pulumi.StringInput `pulumi:"ruleName"`
+}
+
+func (LookupAdminRuleOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupAdminRuleArgs)(nil)).Elem()
+}
+
+// Network base admin rule.
+type LookupAdminRuleResultOutput struct{ *pulumi.OutputState }
+
+func (LookupAdminRuleResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupAdminRuleResult)(nil)).Elem()
+}
+
+func (o LookupAdminRuleResultOutput) ToLookupAdminRuleResultOutput() LookupAdminRuleResultOutput {
+	return o
+}
+
+func (o LookupAdminRuleResultOutput) ToLookupAdminRuleResultOutputWithContext(ctx context.Context) LookupAdminRuleResultOutput {
+	return o
+}
+
+// A unique read-only string that changes whenever the resource is updated.
+func (o LookupAdminRuleResultOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAdminRuleResult) string { return v.Etag }).(pulumi.StringOutput)
+}
+
+// Resource ID.
+func (o LookupAdminRuleResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAdminRuleResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Whether the rule is custom or default.
+func (o LookupAdminRuleResultOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAdminRuleResult) string { return v.Kind }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o LookupAdminRuleResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAdminRuleResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The system metadata related to this resource.
+func (o LookupAdminRuleResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupAdminRuleResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource type.
+func (o LookupAdminRuleResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAdminRuleResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupAdminRuleResultOutput{})
 }

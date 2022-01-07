@@ -4,6 +4,9 @@
 package v20200101preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -34,4 +37,66 @@ type LookupVendorResult struct {
 	Skus []SubResourceResponse `pulumi:"skus"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
+}
+
+func LookupVendorOutput(ctx *pulumi.Context, args LookupVendorOutputArgs, opts ...pulumi.InvokeOption) LookupVendorResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupVendorResult, error) {
+			args := v.(LookupVendorArgs)
+			r, err := LookupVendor(ctx, &args, opts...)
+			return *r, err
+		}).(LookupVendorResultOutput)
+}
+
+type LookupVendorOutputArgs struct {
+	// The name of the vendor.
+	VendorName pulumi.StringInput `pulumi:"vendorName"`
+}
+
+func (LookupVendorOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupVendorArgs)(nil)).Elem()
+}
+
+// Vendor resource.
+type LookupVendorResultOutput struct{ *pulumi.OutputState }
+
+func (LookupVendorResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupVendorResult)(nil)).Elem()
+}
+
+func (o LookupVendorResultOutput) ToLookupVendorResultOutput() LookupVendorResultOutput {
+	return o
+}
+
+func (o LookupVendorResultOutput) ToLookupVendorResultOutputWithContext(ctx context.Context) LookupVendorResultOutput {
+	return o
+}
+
+// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+func (o LookupVendorResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVendorResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o LookupVendorResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVendorResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The provisioning state of the vendor resource.
+func (o LookupVendorResultOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVendorResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// A list of IDs of the vendor skus offered by the vendor.
+func (o LookupVendorResultOutput) Skus() SubResourceResponseArrayOutput {
+	return o.ApplyT(func(v LookupVendorResult) []SubResourceResponse { return v.Skus }).(SubResourceResponseArrayOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o LookupVendorResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVendorResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupVendorResultOutput{})
 }

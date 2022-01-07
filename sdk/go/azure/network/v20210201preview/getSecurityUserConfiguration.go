@@ -4,6 +4,9 @@
 package v20210201preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -48,4 +51,95 @@ type LookupSecurityUserConfigurationResult struct {
 	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource type.
 	Type string `pulumi:"type"`
+}
+
+func LookupSecurityUserConfigurationOutput(ctx *pulumi.Context, args LookupSecurityUserConfigurationOutputArgs, opts ...pulumi.InvokeOption) LookupSecurityUserConfigurationResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupSecurityUserConfigurationResult, error) {
+			args := v.(LookupSecurityUserConfigurationArgs)
+			r, err := LookupSecurityUserConfiguration(ctx, &args, opts...)
+			return *r, err
+		}).(LookupSecurityUserConfigurationResultOutput)
+}
+
+type LookupSecurityUserConfigurationOutputArgs struct {
+	// The name of the network manager security Configuration.
+	ConfigurationName pulumi.StringInput `pulumi:"configurationName"`
+	// The name of the network manager.
+	NetworkManagerName pulumi.StringInput `pulumi:"networkManagerName"`
+	// The name of the resource group.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupSecurityUserConfigurationOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupSecurityUserConfigurationArgs)(nil)).Elem()
+}
+
+// Defines the security configuration
+type LookupSecurityUserConfigurationResultOutput struct{ *pulumi.OutputState }
+
+func (LookupSecurityUserConfigurationResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupSecurityUserConfigurationResult)(nil)).Elem()
+}
+
+func (o LookupSecurityUserConfigurationResultOutput) ToLookupSecurityUserConfigurationResultOutput() LookupSecurityUserConfigurationResultOutput {
+	return o
+}
+
+func (o LookupSecurityUserConfigurationResultOutput) ToLookupSecurityUserConfigurationResultOutputWithContext(ctx context.Context) LookupSecurityUserConfigurationResultOutput {
+	return o
+}
+
+// Flag if need to delete existing network security groups.
+func (o LookupSecurityUserConfigurationResultOutput) DeleteExistingNSGs() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSecurityUserConfigurationResult) *string { return v.DeleteExistingNSGs }).(pulumi.StringPtrOutput)
+}
+
+// A description of the security configuration.
+func (o LookupSecurityUserConfigurationResultOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSecurityUserConfigurationResult) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// A display name of the security configuration.
+func (o LookupSecurityUserConfigurationResultOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSecurityUserConfigurationResult) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+// A unique read-only string that changes whenever the resource is updated.
+func (o LookupSecurityUserConfigurationResultOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSecurityUserConfigurationResult) string { return v.Etag }).(pulumi.StringOutput)
+}
+
+// Resource ID.
+func (o LookupSecurityUserConfigurationResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSecurityUserConfigurationResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o LookupSecurityUserConfigurationResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSecurityUserConfigurationResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The provisioning state of the resource.
+func (o LookupSecurityUserConfigurationResultOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSecurityUserConfigurationResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Security Type.
+func (o LookupSecurityUserConfigurationResultOutput) SecurityType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSecurityUserConfigurationResult) *string { return v.SecurityType }).(pulumi.StringPtrOutput)
+}
+
+// The system metadata related to this resource.
+func (o LookupSecurityUserConfigurationResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupSecurityUserConfigurationResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource type.
+func (o LookupSecurityUserConfigurationResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSecurityUserConfigurationResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupSecurityUserConfigurationResultOutput{})
 }

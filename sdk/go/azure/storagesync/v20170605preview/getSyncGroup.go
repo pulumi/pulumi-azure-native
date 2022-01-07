@@ -4,6 +4,9 @@
 package v20170605preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -38,4 +41,70 @@ type LookupSyncGroupResult struct {
 	Type string `pulumi:"type"`
 	// Unique Id
 	UniqueId *string `pulumi:"uniqueId"`
+}
+
+func LookupSyncGroupOutput(ctx *pulumi.Context, args LookupSyncGroupOutputArgs, opts ...pulumi.InvokeOption) LookupSyncGroupResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupSyncGroupResult, error) {
+			args := v.(LookupSyncGroupArgs)
+			r, err := LookupSyncGroup(ctx, &args, opts...)
+			return *r, err
+		}).(LookupSyncGroupResultOutput)
+}
+
+type LookupSyncGroupOutputArgs struct {
+	// The name of the resource group within the user's subscription. The name is case insensitive.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// Name of Storage Sync Service resource.
+	StorageSyncServiceName pulumi.StringInput `pulumi:"storageSyncServiceName"`
+	// Name of Sync Group resource.
+	SyncGroupName pulumi.StringInput `pulumi:"syncGroupName"`
+}
+
+func (LookupSyncGroupOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupSyncGroupArgs)(nil)).Elem()
+}
+
+// Sync Group object.
+type LookupSyncGroupResultOutput struct{ *pulumi.OutputState }
+
+func (LookupSyncGroupResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupSyncGroupResult)(nil)).Elem()
+}
+
+func (o LookupSyncGroupResultOutput) ToLookupSyncGroupResultOutput() LookupSyncGroupResultOutput {
+	return o
+}
+
+func (o LookupSyncGroupResultOutput) ToLookupSyncGroupResultOutputWithContext(ctx context.Context) LookupSyncGroupResultOutput {
+	return o
+}
+
+// The id of the resource.
+func (o LookupSyncGroupResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSyncGroupResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The name of the resource.
+func (o LookupSyncGroupResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSyncGroupResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Sync group status
+func (o LookupSyncGroupResultOutput) SyncGroupStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSyncGroupResult) string { return v.SyncGroupStatus }).(pulumi.StringOutput)
+}
+
+// The type of the resource
+func (o LookupSyncGroupResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSyncGroupResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Unique Id
+func (o LookupSyncGroupResultOutput) UniqueId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSyncGroupResult) *string { return v.UniqueId }).(pulumi.StringPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupSyncGroupResultOutput{})
 }

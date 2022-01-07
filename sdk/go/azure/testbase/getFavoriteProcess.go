@@ -4,6 +4,9 @@
 package testbase
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -41,4 +44,72 @@ type LookupFavoriteProcessResult struct {
 	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource type.
 	Type string `pulumi:"type"`
+}
+
+func LookupFavoriteProcessOutput(ctx *pulumi.Context, args LookupFavoriteProcessOutputArgs, opts ...pulumi.InvokeOption) LookupFavoriteProcessResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupFavoriteProcessResult, error) {
+			args := v.(LookupFavoriteProcessArgs)
+			r, err := LookupFavoriteProcess(ctx, &args, opts...)
+			return *r, err
+		}).(LookupFavoriteProcessResultOutput)
+}
+
+type LookupFavoriteProcessOutputArgs struct {
+	// The resource name of a favorite process in a package. If the process name contains characters that are not allowed in Azure Resource Name, we use 'actualProcessName' in request body to submit the name.
+	FavoriteProcessResourceName pulumi.StringInput `pulumi:"favoriteProcessResourceName"`
+	// The resource name of the Test Base Package.
+	PackageName pulumi.StringInput `pulumi:"packageName"`
+	// The name of the resource group that contains the resource.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The resource name of the Test Base Account.
+	TestBaseAccountName pulumi.StringInput `pulumi:"testBaseAccountName"`
+}
+
+func (LookupFavoriteProcessOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupFavoriteProcessArgs)(nil)).Elem()
+}
+
+// A favorite process identifier.
+type LookupFavoriteProcessResultOutput struct{ *pulumi.OutputState }
+
+func (LookupFavoriteProcessResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupFavoriteProcessResult)(nil)).Elem()
+}
+
+func (o LookupFavoriteProcessResultOutput) ToLookupFavoriteProcessResultOutput() LookupFavoriteProcessResultOutput {
+	return o
+}
+
+func (o LookupFavoriteProcessResultOutput) ToLookupFavoriteProcessResultOutputWithContext(ctx context.Context) LookupFavoriteProcessResultOutput {
+	return o
+}
+
+// The actual name of the favorite process. It will be equal to resource name except for the scenario that the process name contains characters that are not allowed in the resource name.
+func (o LookupFavoriteProcessResultOutput) ActualProcessName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupFavoriteProcessResult) string { return v.ActualProcessName }).(pulumi.StringOutput)
+}
+
+// Resource ID.
+func (o LookupFavoriteProcessResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupFavoriteProcessResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o LookupFavoriteProcessResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupFavoriteProcessResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The system metadata relating to this resource
+func (o LookupFavoriteProcessResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupFavoriteProcessResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource type.
+func (o LookupFavoriteProcessResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupFavoriteProcessResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupFavoriteProcessResultOutput{})
 }

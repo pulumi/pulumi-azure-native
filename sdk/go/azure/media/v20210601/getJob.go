@@ -4,6 +4,9 @@
 package v20210601
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -58,4 +61,117 @@ type LookupJobResult struct {
 	SystemData SystemDataResponse `pulumi:"systemData"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
+}
+
+func LookupJobOutput(ctx *pulumi.Context, args LookupJobOutputArgs, opts ...pulumi.InvokeOption) LookupJobResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupJobResult, error) {
+			args := v.(LookupJobArgs)
+			r, err := LookupJob(ctx, &args, opts...)
+			return *r, err
+		}).(LookupJobResultOutput)
+}
+
+type LookupJobOutputArgs struct {
+	// The Media Services account name.
+	AccountName pulumi.StringInput `pulumi:"accountName"`
+	// The Job name.
+	JobName pulumi.StringInput `pulumi:"jobName"`
+	// The name of the resource group within the Azure subscription.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The Transform name.
+	TransformName pulumi.StringInput `pulumi:"transformName"`
+}
+
+func (LookupJobOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupJobArgs)(nil)).Elem()
+}
+
+// A Job resource type. The progress and state can be obtained by polling a Job or subscribing to events using EventGrid.
+type LookupJobResultOutput struct{ *pulumi.OutputState }
+
+func (LookupJobResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupJobResult)(nil)).Elem()
+}
+
+func (o LookupJobResultOutput) ToLookupJobResultOutput() LookupJobResultOutput {
+	return o
+}
+
+func (o LookupJobResultOutput) ToLookupJobResultOutputWithContext(ctx context.Context) LookupJobResultOutput {
+	return o
+}
+
+// Customer provided key, value pairs that will be returned in Job and JobOutput state events.
+func (o LookupJobResultOutput) CorrelationData() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupJobResult) map[string]string { return v.CorrelationData }).(pulumi.StringMapOutput)
+}
+
+// The UTC date and time when the customer has created the Job, in 'YYYY-MM-DDThh:mm:ssZ' format.
+func (o LookupJobResultOutput) Created() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupJobResult) string { return v.Created }).(pulumi.StringOutput)
+}
+
+// Optional customer supplied description of the Job.
+func (o LookupJobResultOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupJobResult) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The UTC date and time at which this Job finished processing.
+func (o LookupJobResultOutput) EndTime() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupJobResult) string { return v.EndTime }).(pulumi.StringOutput)
+}
+
+// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+func (o LookupJobResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupJobResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The inputs for the Job.
+func (o LookupJobResultOutput) Input() pulumi.AnyOutput {
+	return o.ApplyT(func(v LookupJobResult) interface{} { return v.Input }).(pulumi.AnyOutput)
+}
+
+// The UTC date and time when the customer has last updated the Job, in 'YYYY-MM-DDThh:mm:ssZ' format.
+func (o LookupJobResultOutput) LastModified() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupJobResult) string { return v.LastModified }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o LookupJobResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupJobResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The outputs for the Job.
+func (o LookupJobResultOutput) Outputs() JobOutputAssetResponseArrayOutput {
+	return o.ApplyT(func(v LookupJobResult) []JobOutputAssetResponse { return v.Outputs }).(JobOutputAssetResponseArrayOutput)
+}
+
+// Priority with which the job should be processed. Higher priority jobs are processed before lower priority jobs. If not set, the default is normal.
+func (o LookupJobResultOutput) Priority() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupJobResult) *string { return v.Priority }).(pulumi.StringPtrOutput)
+}
+
+// The UTC date and time at which this Job began processing.
+func (o LookupJobResultOutput) StartTime() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupJobResult) string { return v.StartTime }).(pulumi.StringOutput)
+}
+
+// The current state of the job.
+func (o LookupJobResultOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupJobResult) string { return v.State }).(pulumi.StringOutput)
+}
+
+// The system metadata relating to this resource.
+func (o LookupJobResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupJobResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o LookupJobResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupJobResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupJobResultOutput{})
 }

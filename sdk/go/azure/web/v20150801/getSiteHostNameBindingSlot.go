@@ -4,6 +4,9 @@
 package v20150801
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -54,4 +57,107 @@ type LookupSiteHostNameBindingSlotResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type
 	Type *string `pulumi:"type"`
+}
+
+func LookupSiteHostNameBindingSlotOutput(ctx *pulumi.Context, args LookupSiteHostNameBindingSlotOutputArgs, opts ...pulumi.InvokeOption) LookupSiteHostNameBindingSlotResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupSiteHostNameBindingSlotResult, error) {
+			args := v.(LookupSiteHostNameBindingSlotArgs)
+			r, err := LookupSiteHostNameBindingSlot(ctx, &args, opts...)
+			return *r, err
+		}).(LookupSiteHostNameBindingSlotResultOutput)
+}
+
+type LookupSiteHostNameBindingSlotOutputArgs struct {
+	// Name of host
+	HostName pulumi.StringInput `pulumi:"hostName"`
+	// Name of web app
+	Name pulumi.StringInput `pulumi:"name"`
+	// Name of resource group
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// Name of web app slot. If not specified then will default to production slot.
+	Slot pulumi.StringInput `pulumi:"slot"`
+}
+
+func (LookupSiteHostNameBindingSlotOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupSiteHostNameBindingSlotArgs)(nil)).Elem()
+}
+
+// A host name binding object
+type LookupSiteHostNameBindingSlotResultOutput struct{ *pulumi.OutputState }
+
+func (LookupSiteHostNameBindingSlotResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupSiteHostNameBindingSlotResult)(nil)).Elem()
+}
+
+func (o LookupSiteHostNameBindingSlotResultOutput) ToLookupSiteHostNameBindingSlotResultOutput() LookupSiteHostNameBindingSlotResultOutput {
+	return o
+}
+
+func (o LookupSiteHostNameBindingSlotResultOutput) ToLookupSiteHostNameBindingSlotResultOutputWithContext(ctx context.Context) LookupSiteHostNameBindingSlotResultOutput {
+	return o
+}
+
+// Azure resource name
+func (o LookupSiteHostNameBindingSlotResultOutput) AzureResourceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSiteHostNameBindingSlotResult) *string { return v.AzureResourceName }).(pulumi.StringPtrOutput)
+}
+
+// Azure resource type
+func (o LookupSiteHostNameBindingSlotResultOutput) AzureResourceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSiteHostNameBindingSlotResult) *string { return v.AzureResourceType }).(pulumi.StringPtrOutput)
+}
+
+// Custom DNS record type
+func (o LookupSiteHostNameBindingSlotResultOutput) CustomHostNameDnsRecordType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSiteHostNameBindingSlotResult) *string { return v.CustomHostNameDnsRecordType }).(pulumi.StringPtrOutput)
+}
+
+// Fully qualified ARM domain resource URI
+func (o LookupSiteHostNameBindingSlotResultOutput) DomainId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSiteHostNameBindingSlotResult) *string { return v.DomainId }).(pulumi.StringPtrOutput)
+}
+
+// Host name type
+func (o LookupSiteHostNameBindingSlotResultOutput) HostNameType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSiteHostNameBindingSlotResult) *string { return v.HostNameType }).(pulumi.StringPtrOutput)
+}
+
+// Resource Id
+func (o LookupSiteHostNameBindingSlotResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSiteHostNameBindingSlotResult) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// Kind of resource
+func (o LookupSiteHostNameBindingSlotResultOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSiteHostNameBindingSlotResult) *string { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Resource Location
+func (o LookupSiteHostNameBindingSlotResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSiteHostNameBindingSlotResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource Name
+func (o LookupSiteHostNameBindingSlotResultOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSiteHostNameBindingSlotResult) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Web app name
+func (o LookupSiteHostNameBindingSlotResultOutput) SiteName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSiteHostNameBindingSlotResult) *string { return v.SiteName }).(pulumi.StringPtrOutput)
+}
+
+// Resource tags
+func (o LookupSiteHostNameBindingSlotResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupSiteHostNameBindingSlotResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type
+func (o LookupSiteHostNameBindingSlotResultOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSiteHostNameBindingSlotResult) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupSiteHostNameBindingSlotResultOutput{})
 }

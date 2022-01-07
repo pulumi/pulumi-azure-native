@@ -4,6 +4,9 @@
 package network
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -51,4 +54,105 @@ type LookupNetworkManagerResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.
 	Type string `pulumi:"type"`
+}
+
+func LookupNetworkManagerOutput(ctx *pulumi.Context, args LookupNetworkManagerOutputArgs, opts ...pulumi.InvokeOption) LookupNetworkManagerResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupNetworkManagerResult, error) {
+			args := v.(LookupNetworkManagerArgs)
+			r, err := LookupNetworkManager(ctx, &args, opts...)
+			return *r, err
+		}).(LookupNetworkManagerResultOutput)
+}
+
+type LookupNetworkManagerOutputArgs struct {
+	// The name of the network manager.
+	NetworkManagerName pulumi.StringInput `pulumi:"networkManagerName"`
+	// The name of the resource group.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupNetworkManagerOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupNetworkManagerArgs)(nil)).Elem()
+}
+
+// The Managed Network resource
+type LookupNetworkManagerResultOutput struct{ *pulumi.OutputState }
+
+func (LookupNetworkManagerResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupNetworkManagerResult)(nil)).Elem()
+}
+
+func (o LookupNetworkManagerResultOutput) ToLookupNetworkManagerResultOutput() LookupNetworkManagerResultOutput {
+	return o
+}
+
+func (o LookupNetworkManagerResultOutput) ToLookupNetworkManagerResultOutputWithContext(ctx context.Context) LookupNetworkManagerResultOutput {
+	return o
+}
+
+// A description of the network manager.
+func (o LookupNetworkManagerResultOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupNetworkManagerResult) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// A friendly name for the network manager.
+func (o LookupNetworkManagerResultOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupNetworkManagerResult) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+// A unique read-only string that changes whenever the resource is updated.
+func (o LookupNetworkManagerResultOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupNetworkManagerResult) string { return v.Etag }).(pulumi.StringOutput)
+}
+
+// Resource ID.
+func (o LookupNetworkManagerResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupNetworkManagerResult) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// Resource location.
+func (o LookupNetworkManagerResultOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupNetworkManagerResult) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Resource name.
+func (o LookupNetworkManagerResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupNetworkManagerResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Scope Access.
+func (o LookupNetworkManagerResultOutput) NetworkManagerScopeAccesses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupNetworkManagerResult) []string { return v.NetworkManagerScopeAccesses }).(pulumi.StringArrayOutput)
+}
+
+// Scope of Network Manager.
+func (o LookupNetworkManagerResultOutput) NetworkManagerScopes() NetworkManagerPropertiesResponseNetworkManagerScopesPtrOutput {
+	return o.ApplyT(func(v LookupNetworkManagerResult) *NetworkManagerPropertiesResponseNetworkManagerScopes {
+		return v.NetworkManagerScopes
+	}).(NetworkManagerPropertiesResponseNetworkManagerScopesPtrOutput)
+}
+
+// The provisioning state of the scope assignment resource.
+func (o LookupNetworkManagerResultOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupNetworkManagerResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The system metadata related to this resource.
+func (o LookupNetworkManagerResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupNetworkManagerResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource tags.
+func (o LookupNetworkManagerResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupNetworkManagerResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type.
+func (o LookupNetworkManagerResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupNetworkManagerResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupNetworkManagerResultOutput{})
 }

@@ -4,6 +4,9 @@
 package media
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -45,4 +48,85 @@ type LookupTransformResult struct {
 	SystemData SystemDataResponse `pulumi:"systemData"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
+}
+
+func LookupTransformOutput(ctx *pulumi.Context, args LookupTransformOutputArgs, opts ...pulumi.InvokeOption) LookupTransformResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupTransformResult, error) {
+			args := v.(LookupTransformArgs)
+			r, err := LookupTransform(ctx, &args, opts...)
+			return *r, err
+		}).(LookupTransformResultOutput)
+}
+
+type LookupTransformOutputArgs struct {
+	// The Media Services account name.
+	AccountName pulumi.StringInput `pulumi:"accountName"`
+	// The name of the resource group within the Azure subscription.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The Transform name.
+	TransformName pulumi.StringInput `pulumi:"transformName"`
+}
+
+func (LookupTransformOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupTransformArgs)(nil)).Elem()
+}
+
+// A Transform encapsulates the rules or instructions for generating desired outputs from input media, such as by transcoding or by extracting insights. After the Transform is created, it can be applied to input media by creating Jobs.
+type LookupTransformResultOutput struct{ *pulumi.OutputState }
+
+func (LookupTransformResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupTransformResult)(nil)).Elem()
+}
+
+func (o LookupTransformResultOutput) ToLookupTransformResultOutput() LookupTransformResultOutput {
+	return o
+}
+
+func (o LookupTransformResultOutput) ToLookupTransformResultOutputWithContext(ctx context.Context) LookupTransformResultOutput {
+	return o
+}
+
+// The UTC date and time when the Transform was created, in 'YYYY-MM-DDThh:mm:ssZ' format.
+func (o LookupTransformResultOutput) Created() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTransformResult) string { return v.Created }).(pulumi.StringOutput)
+}
+
+// An optional verbose description of the Transform.
+func (o LookupTransformResultOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupTransformResult) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+func (o LookupTransformResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTransformResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The UTC date and time when the Transform was last updated, in 'YYYY-MM-DDThh:mm:ssZ' format.
+func (o LookupTransformResultOutput) LastModified() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTransformResult) string { return v.LastModified }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o LookupTransformResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTransformResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// An array of one or more TransformOutputs that the Transform should generate.
+func (o LookupTransformResultOutput) Outputs() TransformOutputResponseArrayOutput {
+	return o.ApplyT(func(v LookupTransformResult) []TransformOutputResponse { return v.Outputs }).(TransformOutputResponseArrayOutput)
+}
+
+// The system metadata relating to this resource.
+func (o LookupTransformResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupTransformResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o LookupTransformResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTransformResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupTransformResultOutput{})
 }

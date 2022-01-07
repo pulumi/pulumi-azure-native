@@ -4,6 +4,9 @@
 package v20160330
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -50,4 +53,103 @@ type LookupADCCatalogResult struct {
 	Units *int `pulumi:"units"`
 	// Azure data catalog user list.
 	Users []PrincipalsResponse `pulumi:"users"`
+}
+
+func LookupADCCatalogOutput(ctx *pulumi.Context, args LookupADCCatalogOutputArgs, opts ...pulumi.InvokeOption) LookupADCCatalogResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupADCCatalogResult, error) {
+			args := v.(LookupADCCatalogArgs)
+			r, err := LookupADCCatalog(ctx, &args, opts...)
+			return *r, err
+		}).(LookupADCCatalogResultOutput)
+}
+
+type LookupADCCatalogOutputArgs struct {
+	// The name of the data catalog in the specified subscription and resource group.
+	CatalogName pulumi.StringInput `pulumi:"catalogName"`
+	// The name of the resource group within the user's subscription. The name is case insensitive.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupADCCatalogOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupADCCatalogArgs)(nil)).Elem()
+}
+
+// Azure Data Catalog.
+type LookupADCCatalogResultOutput struct{ *pulumi.OutputState }
+
+func (LookupADCCatalogResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupADCCatalogResult)(nil)).Elem()
+}
+
+func (o LookupADCCatalogResultOutput) ToLookupADCCatalogResultOutput() LookupADCCatalogResultOutput {
+	return o
+}
+
+func (o LookupADCCatalogResultOutput) ToLookupADCCatalogResultOutputWithContext(ctx context.Context) LookupADCCatalogResultOutput {
+	return o
+}
+
+// Azure data catalog admin list.
+func (o LookupADCCatalogResultOutput) Admins() PrincipalsResponseArrayOutput {
+	return o.ApplyT(func(v LookupADCCatalogResult) []PrincipalsResponse { return v.Admins }).(PrincipalsResponseArrayOutput)
+}
+
+// Automatic unit adjustment enabled or not.
+func (o LookupADCCatalogResultOutput) EnableAutomaticUnitAdjustment() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupADCCatalogResult) *bool { return v.EnableAutomaticUnitAdjustment }).(pulumi.BoolPtrOutput)
+}
+
+// Resource etag
+func (o LookupADCCatalogResultOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupADCCatalogResult) *string { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// Resource Id
+func (o LookupADCCatalogResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupADCCatalogResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Resource location
+func (o LookupADCCatalogResultOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupADCCatalogResult) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Resource name
+func (o LookupADCCatalogResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupADCCatalogResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Azure data catalog SKU.
+func (o LookupADCCatalogResultOutput) Sku() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupADCCatalogResult) *string { return v.Sku }).(pulumi.StringPtrOutput)
+}
+
+// Azure data catalog provision status.
+func (o LookupADCCatalogResultOutput) SuccessfullyProvisioned() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupADCCatalogResult) *bool { return v.SuccessfullyProvisioned }).(pulumi.BoolPtrOutput)
+}
+
+// Resource tags
+func (o LookupADCCatalogResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupADCCatalogResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type
+func (o LookupADCCatalogResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupADCCatalogResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Azure data catalog units.
+func (o LookupADCCatalogResultOutput) Units() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupADCCatalogResult) *int { return v.Units }).(pulumi.IntPtrOutput)
+}
+
+// Azure data catalog user list.
+func (o LookupADCCatalogResultOutput) Users() PrincipalsResponseArrayOutput {
+	return o.ApplyT(func(v LookupADCCatalogResult) []PrincipalsResponse { return v.Users }).(PrincipalsResponseArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupADCCatalogResultOutput{})
 }

@@ -4,6 +4,9 @@
 package v20210101
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -50,4 +53,92 @@ type LookupMachineLearningServiceResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Specifies the type of the resource.
 	Type string `pulumi:"type"`
+}
+
+func LookupMachineLearningServiceOutput(ctx *pulumi.Context, args LookupMachineLearningServiceOutputArgs, opts ...pulumi.InvokeOption) LookupMachineLearningServiceResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupMachineLearningServiceResult, error) {
+			args := v.(LookupMachineLearningServiceArgs)
+			r, err := LookupMachineLearningService(ctx, &args, opts...)
+			return *r, err
+		}).(LookupMachineLearningServiceResultOutput)
+}
+
+type LookupMachineLearningServiceOutputArgs struct {
+	// Set to True to include Model details.
+	Expand pulumi.BoolPtrInput `pulumi:"expand"`
+	// Name of the resource group in which workspace is located.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// Name of the Azure Machine Learning service.
+	ServiceName pulumi.StringInput `pulumi:"serviceName"`
+	// Name of Azure Machine Learning workspace.
+	WorkspaceName pulumi.StringInput `pulumi:"workspaceName"`
+}
+
+func (LookupMachineLearningServiceOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupMachineLearningServiceArgs)(nil)).Elem()
+}
+
+// Machine Learning service object wrapped into ARM resource envelope.
+type LookupMachineLearningServiceResultOutput struct{ *pulumi.OutputState }
+
+func (LookupMachineLearningServiceResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupMachineLearningServiceResult)(nil)).Elem()
+}
+
+func (o LookupMachineLearningServiceResultOutput) ToLookupMachineLearningServiceResultOutput() LookupMachineLearningServiceResultOutput {
+	return o
+}
+
+func (o LookupMachineLearningServiceResultOutput) ToLookupMachineLearningServiceResultOutputWithContext(ctx context.Context) LookupMachineLearningServiceResultOutput {
+	return o
+}
+
+// Specifies the resource ID.
+func (o LookupMachineLearningServiceResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupMachineLearningServiceResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The identity of the resource.
+func (o LookupMachineLearningServiceResultOutput) Identity() IdentityResponsePtrOutput {
+	return o.ApplyT(func(v LookupMachineLearningServiceResult) *IdentityResponse { return v.Identity }).(IdentityResponsePtrOutput)
+}
+
+// Specifies the location of the resource.
+func (o LookupMachineLearningServiceResultOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupMachineLearningServiceResult) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the name of the resource.
+func (o LookupMachineLearningServiceResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupMachineLearningServiceResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Service properties
+func (o LookupMachineLearningServiceResultOutput) Properties() pulumi.AnyOutput {
+	return o.ApplyT(func(v LookupMachineLearningServiceResult) interface{} { return v.Properties }).(pulumi.AnyOutput)
+}
+
+// The sku of the workspace.
+func (o LookupMachineLearningServiceResultOutput) Sku() SkuResponsePtrOutput {
+	return o.ApplyT(func(v LookupMachineLearningServiceResult) *SkuResponse { return v.Sku }).(SkuResponsePtrOutput)
+}
+
+// Read only system data
+func (o LookupMachineLearningServiceResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupMachineLearningServiceResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Contains resource tags defined as key/value pairs.
+func (o LookupMachineLearningServiceResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupMachineLearningServiceResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Specifies the type of the resource.
+func (o LookupMachineLearningServiceResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupMachineLearningServiceResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupMachineLearningServiceResultOutput{})
 }

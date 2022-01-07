@@ -4,6 +4,9 @@
 package v20150501preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -56,4 +59,120 @@ type LookupNetworkInterfaceResult struct {
 	Type string `pulumi:"type"`
 	// Gets or sets the reference of a VirtualMachine
 	VirtualMachine *SubResourceResponse `pulumi:"virtualMachine"`
+}
+
+func LookupNetworkInterfaceOutput(ctx *pulumi.Context, args LookupNetworkInterfaceOutputArgs, opts ...pulumi.InvokeOption) LookupNetworkInterfaceResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupNetworkInterfaceResult, error) {
+			args := v.(LookupNetworkInterfaceArgs)
+			r, err := LookupNetworkInterface(ctx, &args, opts...)
+			return *r, err
+		}).(LookupNetworkInterfaceResultOutput)
+}
+
+type LookupNetworkInterfaceOutputArgs struct {
+	// The name of the network interface.
+	NetworkInterfaceName pulumi.StringInput `pulumi:"networkInterfaceName"`
+	// The name of the resource group.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupNetworkInterfaceOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupNetworkInterfaceArgs)(nil)).Elem()
+}
+
+// A NetworkInterface in a resource group
+type LookupNetworkInterfaceResultOutput struct{ *pulumi.OutputState }
+
+func (LookupNetworkInterfaceResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupNetworkInterfaceResult)(nil)).Elem()
+}
+
+func (o LookupNetworkInterfaceResultOutput) ToLookupNetworkInterfaceResultOutput() LookupNetworkInterfaceResultOutput {
+	return o
+}
+
+func (o LookupNetworkInterfaceResultOutput) ToLookupNetworkInterfaceResultOutputWithContext(ctx context.Context) LookupNetworkInterfaceResultOutput {
+	return o
+}
+
+// Gets or sets DNS Settings in  NetworkInterface
+func (o LookupNetworkInterfaceResultOutput) DnsSettings() NetworkInterfaceDnsSettingsResponsePtrOutput {
+	return o.ApplyT(func(v LookupNetworkInterfaceResult) *NetworkInterfaceDnsSettingsResponse { return v.DnsSettings }).(NetworkInterfaceDnsSettingsResponsePtrOutput)
+}
+
+// Gets or sets whether IPForwarding is enabled on the NIC
+func (o LookupNetworkInterfaceResultOutput) EnableIPForwarding() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupNetworkInterfaceResult) *bool { return v.EnableIPForwarding }).(pulumi.BoolPtrOutput)
+}
+
+// Gets a unique read-only string that changes whenever the resource is updated
+func (o LookupNetworkInterfaceResultOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupNetworkInterfaceResult) *string { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// Resource Id
+func (o LookupNetworkInterfaceResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupNetworkInterfaceResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Gets or sets list of IPConfigurations of the NetworkInterface
+func (o LookupNetworkInterfaceResultOutput) IpConfigurations() NetworkInterfaceIpConfigurationResponseArrayOutput {
+	return o.ApplyT(func(v LookupNetworkInterfaceResult) []NetworkInterfaceIpConfigurationResponse {
+		return v.IpConfigurations
+	}).(NetworkInterfaceIpConfigurationResponseArrayOutput)
+}
+
+// Resource location
+func (o LookupNetworkInterfaceResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupNetworkInterfaceResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// Gets the MAC Address of the network interface
+func (o LookupNetworkInterfaceResultOutput) MacAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupNetworkInterfaceResult) *string { return v.MacAddress }).(pulumi.StringPtrOutput)
+}
+
+// Resource name
+func (o LookupNetworkInterfaceResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupNetworkInterfaceResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Gets or sets the reference of the NetworkSecurityGroup resource
+func (o LookupNetworkInterfaceResultOutput) NetworkSecurityGroup() SubResourceResponsePtrOutput {
+	return o.ApplyT(func(v LookupNetworkInterfaceResult) *SubResourceResponse { return v.NetworkSecurityGroup }).(SubResourceResponsePtrOutput)
+}
+
+// Gets whether this is a primary NIC on a virtual machine
+func (o LookupNetworkInterfaceResultOutput) Primary() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupNetworkInterfaceResult) *bool { return v.Primary }).(pulumi.BoolPtrOutput)
+}
+
+// Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
+func (o LookupNetworkInterfaceResultOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupNetworkInterfaceResult) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets resource guid property of the network interface resource
+func (o LookupNetworkInterfaceResultOutput) ResourceGuid() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupNetworkInterfaceResult) *string { return v.ResourceGuid }).(pulumi.StringPtrOutput)
+}
+
+// Resource tags
+func (o LookupNetworkInterfaceResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupNetworkInterfaceResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type
+func (o LookupNetworkInterfaceResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupNetworkInterfaceResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Gets or sets the reference of a VirtualMachine
+func (o LookupNetworkInterfaceResultOutput) VirtualMachine() SubResourceResponsePtrOutput {
+	return o.ApplyT(func(v LookupNetworkInterfaceResult) *SubResourceResponse { return v.VirtualMachine }).(SubResourceResponsePtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupNetworkInterfaceResultOutput{})
 }

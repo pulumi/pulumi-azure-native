@@ -4,6 +4,9 @@
 package v20210801
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -40,4 +43,75 @@ type LookupContentTypeResult struct {
 	Type string `pulumi:"type"`
 	// Content type version.
 	Version *string `pulumi:"version"`
+}
+
+func LookupContentTypeOutput(ctx *pulumi.Context, args LookupContentTypeOutputArgs, opts ...pulumi.InvokeOption) LookupContentTypeResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupContentTypeResult, error) {
+			args := v.(LookupContentTypeArgs)
+			r, err := LookupContentType(ctx, &args, opts...)
+			return *r, err
+		}).(LookupContentTypeResultOutput)
+}
+
+type LookupContentTypeOutputArgs struct {
+	// Content type identifier.
+	ContentTypeId pulumi.StringInput `pulumi:"contentTypeId"`
+	// The name of the resource group.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the API Management service.
+	ServiceName pulumi.StringInput `pulumi:"serviceName"`
+}
+
+func (LookupContentTypeOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupContentTypeArgs)(nil)).Elem()
+}
+
+// Content type contract details.
+type LookupContentTypeResultOutput struct{ *pulumi.OutputState }
+
+func (LookupContentTypeResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupContentTypeResult)(nil)).Elem()
+}
+
+func (o LookupContentTypeResultOutput) ToLookupContentTypeResultOutput() LookupContentTypeResultOutput {
+	return o
+}
+
+func (o LookupContentTypeResultOutput) ToLookupContentTypeResultOutputWithContext(ctx context.Context) LookupContentTypeResultOutput {
+	return o
+}
+
+// Content type description.
+func (o LookupContentTypeResultOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupContentTypeResult) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+func (o LookupContentTypeResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupContentTypeResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o LookupContentTypeResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupContentTypeResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Content type schema.
+func (o LookupContentTypeResultOutput) Schema() pulumi.AnyOutput {
+	return o.ApplyT(func(v LookupContentTypeResult) interface{} { return v.Schema }).(pulumi.AnyOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o LookupContentTypeResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupContentTypeResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Content type version.
+func (o LookupContentTypeResultOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupContentTypeResult) *string { return v.Version }).(pulumi.StringPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupContentTypeResultOutput{})
 }

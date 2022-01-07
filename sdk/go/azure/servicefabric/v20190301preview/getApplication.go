@@ -4,6 +4,9 @@
 package v20190301preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -73,4 +76,120 @@ func (val *LookupApplicationResult) Defaults() *LookupApplicationResult {
 	tmp.UpgradePolicy = tmp.UpgradePolicy.Defaults()
 
 	return &tmp
+}
+
+func LookupApplicationOutput(ctx *pulumi.Context, args LookupApplicationOutputArgs, opts ...pulumi.InvokeOption) LookupApplicationResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupApplicationResult, error) {
+			args := v.(LookupApplicationArgs)
+			r, err := LookupApplication(ctx, &args, opts...)
+			return *r, err
+		}).(LookupApplicationResultOutput)
+}
+
+type LookupApplicationOutputArgs struct {
+	// The name of the application resource.
+	ApplicationName pulumi.StringInput `pulumi:"applicationName"`
+	// The name of the cluster resource.
+	ClusterName pulumi.StringInput `pulumi:"clusterName"`
+	// The name of the resource group.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupApplicationOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupApplicationArgs)(nil)).Elem()
+}
+
+// The application resource.
+type LookupApplicationResultOutput struct{ *pulumi.OutputState }
+
+func (LookupApplicationResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupApplicationResult)(nil)).Elem()
+}
+
+func (o LookupApplicationResultOutput) ToLookupApplicationResultOutput() LookupApplicationResultOutput {
+	return o
+}
+
+func (o LookupApplicationResultOutput) ToLookupApplicationResultOutputWithContext(ctx context.Context) LookupApplicationResultOutput {
+	return o
+}
+
+// Azure resource etag.
+func (o LookupApplicationResultOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupApplicationResult) string { return v.Etag }).(pulumi.StringOutput)
+}
+
+// Azure resource identifier.
+func (o LookupApplicationResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupApplicationResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Azure resource location.
+func (o LookupApplicationResultOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupApplicationResult) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The maximum number of nodes where Service Fabric will reserve capacity for this application. Note that this does not mean that the services of this application will be placed on all of those nodes. By default, the value of this property is zero and it means that the services can be placed on any node.
+func (o LookupApplicationResultOutput) MaximumNodes() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v LookupApplicationResult) *float64 { return v.MaximumNodes }).(pulumi.Float64PtrOutput)
+}
+
+// List of application capacity metric description.
+func (o LookupApplicationResultOutput) Metrics() ApplicationMetricDescriptionResponseArrayOutput {
+	return o.ApplyT(func(v LookupApplicationResult) []ApplicationMetricDescriptionResponse { return v.Metrics }).(ApplicationMetricDescriptionResponseArrayOutput)
+}
+
+// The minimum number of nodes where Service Fabric will reserve capacity for this application. Note that this does not mean that the services of this application will be placed on all of those nodes. If this property is set to zero, no capacity will be reserved. The value of this property cannot be more than the value of the MaximumNodes property.
+func (o LookupApplicationResultOutput) MinimumNodes() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v LookupApplicationResult) *float64 { return v.MinimumNodes }).(pulumi.Float64PtrOutput)
+}
+
+// Azure resource name.
+func (o LookupApplicationResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupApplicationResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// List of application parameters with overridden values from their default values specified in the application manifest.
+func (o LookupApplicationResultOutput) Parameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupApplicationResult) map[string]string { return v.Parameters }).(pulumi.StringMapOutput)
+}
+
+// The current deployment or provisioning state, which only appears in the response
+func (o LookupApplicationResultOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupApplicationResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Remove the current application capacity settings.
+func (o LookupApplicationResultOutput) RemoveApplicationCapacity() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupApplicationResult) *bool { return v.RemoveApplicationCapacity }).(pulumi.BoolPtrOutput)
+}
+
+// Azure resource tags.
+func (o LookupApplicationResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupApplicationResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Azure resource type.
+func (o LookupApplicationResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupApplicationResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The application type name as defined in the application manifest.
+func (o LookupApplicationResultOutput) TypeName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupApplicationResult) *string { return v.TypeName }).(pulumi.StringPtrOutput)
+}
+
+// The version of the application type as defined in the application manifest.
+func (o LookupApplicationResultOutput) TypeVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupApplicationResult) *string { return v.TypeVersion }).(pulumi.StringPtrOutput)
+}
+
+// Describes the policy for a monitored application upgrade.
+func (o LookupApplicationResultOutput) UpgradePolicy() ApplicationUpgradePolicyResponsePtrOutput {
+	return o.ApplyT(func(v LookupApplicationResult) *ApplicationUpgradePolicyResponse { return v.UpgradePolicy }).(ApplicationUpgradePolicyResponsePtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupApplicationResultOutput{})
 }

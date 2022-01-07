@@ -4,6 +4,9 @@
 package containerregistry
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -33,4 +36,55 @@ type ListRunLogSasUrlResult struct {
 	LogArtifactLink *string `pulumi:"logArtifactLink"`
 	// The link to logs for a run on a azure container registry.
 	LogLink *string `pulumi:"logLink"`
+}
+
+func ListRunLogSasUrlOutput(ctx *pulumi.Context, args ListRunLogSasUrlOutputArgs, opts ...pulumi.InvokeOption) ListRunLogSasUrlResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (ListRunLogSasUrlResult, error) {
+			args := v.(ListRunLogSasUrlArgs)
+			r, err := ListRunLogSasUrl(ctx, &args, opts...)
+			return *r, err
+		}).(ListRunLogSasUrlResultOutput)
+}
+
+type ListRunLogSasUrlOutputArgs struct {
+	// The name of the container registry.
+	RegistryName pulumi.StringInput `pulumi:"registryName"`
+	// The name of the resource group to which the container registry belongs.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The run ID.
+	RunId pulumi.StringInput `pulumi:"runId"`
+}
+
+func (ListRunLogSasUrlOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListRunLogSasUrlArgs)(nil)).Elem()
+}
+
+// The result of get log link operation.
+type ListRunLogSasUrlResultOutput struct{ *pulumi.OutputState }
+
+func (ListRunLogSasUrlResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListRunLogSasUrlResult)(nil)).Elem()
+}
+
+func (o ListRunLogSasUrlResultOutput) ToListRunLogSasUrlResultOutput() ListRunLogSasUrlResultOutput {
+	return o
+}
+
+func (o ListRunLogSasUrlResultOutput) ToListRunLogSasUrlResultOutputWithContext(ctx context.Context) ListRunLogSasUrlResultOutput {
+	return o
+}
+
+// The link to logs in registry for a run on a azure container registry.
+func (o ListRunLogSasUrlResultOutput) LogArtifactLink() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListRunLogSasUrlResult) *string { return v.LogArtifactLink }).(pulumi.StringPtrOutput)
+}
+
+// The link to logs for a run on a azure container registry.
+func (o ListRunLogSasUrlResultOutput) LogLink() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListRunLogSasUrlResult) *string { return v.LogLink }).(pulumi.StringPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(ListRunLogSasUrlResultOutput{})
 }

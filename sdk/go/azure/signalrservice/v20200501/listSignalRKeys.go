@@ -4,6 +4,9 @@
 package v20200501
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -34,4 +37,63 @@ type ListSignalRKeysResult struct {
 	SecondaryConnectionString *string `pulumi:"secondaryConnectionString"`
 	// The secondary access key.
 	SecondaryKey *string `pulumi:"secondaryKey"`
+}
+
+func ListSignalRKeysOutput(ctx *pulumi.Context, args ListSignalRKeysOutputArgs, opts ...pulumi.InvokeOption) ListSignalRKeysResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (ListSignalRKeysResult, error) {
+			args := v.(ListSignalRKeysArgs)
+			r, err := ListSignalRKeys(ctx, &args, opts...)
+			return *r, err
+		}).(ListSignalRKeysResultOutput)
+}
+
+type ListSignalRKeysOutputArgs struct {
+	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the SignalR resource.
+	ResourceName pulumi.StringInput `pulumi:"resourceName"`
+}
+
+func (ListSignalRKeysOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListSignalRKeysArgs)(nil)).Elem()
+}
+
+// A class represents the access keys of SignalR service.
+type ListSignalRKeysResultOutput struct{ *pulumi.OutputState }
+
+func (ListSignalRKeysResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListSignalRKeysResult)(nil)).Elem()
+}
+
+func (o ListSignalRKeysResultOutput) ToListSignalRKeysResultOutput() ListSignalRKeysResultOutput {
+	return o
+}
+
+func (o ListSignalRKeysResultOutput) ToListSignalRKeysResultOutputWithContext(ctx context.Context) ListSignalRKeysResultOutput {
+	return o
+}
+
+// SignalR connection string constructed via the primaryKey
+func (o ListSignalRKeysResultOutput) PrimaryConnectionString() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListSignalRKeysResult) *string { return v.PrimaryConnectionString }).(pulumi.StringPtrOutput)
+}
+
+// The primary access key.
+func (o ListSignalRKeysResultOutput) PrimaryKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListSignalRKeysResult) *string { return v.PrimaryKey }).(pulumi.StringPtrOutput)
+}
+
+// SignalR connection string constructed via the secondaryKey
+func (o ListSignalRKeysResultOutput) SecondaryConnectionString() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListSignalRKeysResult) *string { return v.SecondaryConnectionString }).(pulumi.StringPtrOutput)
+}
+
+// The secondary access key.
+func (o ListSignalRKeysResultOutput) SecondaryKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListSignalRKeysResult) *string { return v.SecondaryKey }).(pulumi.StringPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(ListSignalRKeysResultOutput{})
 }

@@ -4,6 +4,9 @@
 package windowsiot
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -49,4 +52,98 @@ type LookupServiceResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource.
 	Type string `pulumi:"type"`
+}
+
+func LookupServiceOutput(ctx *pulumi.Context, args LookupServiceOutputArgs, opts ...pulumi.InvokeOption) LookupServiceResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupServiceResult, error) {
+			args := v.(LookupServiceArgs)
+			r, err := LookupService(ctx, &args, opts...)
+			return *r, err
+		}).(LookupServiceResultOutput)
+}
+
+type LookupServiceOutputArgs struct {
+	// The name of the Windows IoT Device Service.
+	DeviceName pulumi.StringInput `pulumi:"deviceName"`
+	// The name of the resource group that contains the Windows IoT Device Service.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupServiceOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupServiceArgs)(nil)).Elem()
+}
+
+// The description of the Windows IoT Device Service.
+type LookupServiceResultOutput struct{ *pulumi.OutputState }
+
+func (LookupServiceResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupServiceResult)(nil)).Elem()
+}
+
+func (o LookupServiceResultOutput) ToLookupServiceResultOutput() LookupServiceResultOutput {
+	return o
+}
+
+func (o LookupServiceResultOutput) ToLookupServiceResultOutputWithContext(ctx context.Context) LookupServiceResultOutput {
+	return o
+}
+
+// Windows IoT Device Service OEM AAD domain
+func (o LookupServiceResultOutput) AdminDomainName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupServiceResult) *string { return v.AdminDomainName }).(pulumi.StringPtrOutput)
+}
+
+// Windows IoT Device Service ODM AAD domain
+func (o LookupServiceResultOutput) BillingDomainName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupServiceResult) *string { return v.BillingDomainName }).(pulumi.StringPtrOutput)
+}
+
+// The Etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal ETag convention.
+func (o LookupServiceResultOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupServiceResult) *string { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// Fully qualified resource Id for the resource
+func (o LookupServiceResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServiceResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The Azure Region where the resource lives
+func (o LookupServiceResultOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupServiceResult) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource
+func (o LookupServiceResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServiceResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Windows IoT Device Service notes.
+func (o LookupServiceResultOutput) Notes() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupServiceResult) *string { return v.Notes }).(pulumi.StringPtrOutput)
+}
+
+// Windows IoT Device Service device allocation,
+func (o LookupServiceResultOutput) Quantity() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v LookupServiceResult) *float64 { return v.Quantity }).(pulumi.Float64PtrOutput)
+}
+
+// Windows IoT Device Service start date,
+func (o LookupServiceResultOutput) StartDate() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServiceResult) string { return v.StartDate }).(pulumi.StringOutput)
+}
+
+// Resource tags.
+func (o LookupServiceResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupServiceResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource.
+func (o LookupServiceResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServiceResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupServiceResultOutput{})
 }

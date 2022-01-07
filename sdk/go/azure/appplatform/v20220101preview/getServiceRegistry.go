@@ -4,6 +4,9 @@
 package v20220101preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -38,4 +41,70 @@ type LookupServiceRegistryResult struct {
 	SystemData SystemDataResponse `pulumi:"systemData"`
 	// The type of the resource.
 	Type string `pulumi:"type"`
+}
+
+func LookupServiceRegistryOutput(ctx *pulumi.Context, args LookupServiceRegistryOutputArgs, opts ...pulumi.InvokeOption) LookupServiceRegistryResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupServiceRegistryResult, error) {
+			args := v.(LookupServiceRegistryArgs)
+			r, err := LookupServiceRegistry(ctx, &args, opts...)
+			return *r, err
+		}).(LookupServiceRegistryResultOutput)
+}
+
+type LookupServiceRegistryOutputArgs struct {
+	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the Service resource.
+	ServiceName pulumi.StringInput `pulumi:"serviceName"`
+	// The name of Service Registry.
+	ServiceRegistryName pulumi.StringInput `pulumi:"serviceRegistryName"`
+}
+
+func (LookupServiceRegistryOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupServiceRegistryArgs)(nil)).Elem()
+}
+
+// Service Registry resource
+type LookupServiceRegistryResultOutput struct{ *pulumi.OutputState }
+
+func (LookupServiceRegistryResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupServiceRegistryResult)(nil)).Elem()
+}
+
+func (o LookupServiceRegistryResultOutput) ToLookupServiceRegistryResultOutput() LookupServiceRegistryResultOutput {
+	return o
+}
+
+func (o LookupServiceRegistryResultOutput) ToLookupServiceRegistryResultOutputWithContext(ctx context.Context) LookupServiceRegistryResultOutput {
+	return o
+}
+
+// Fully qualified resource Id for the resource.
+func (o LookupServiceRegistryResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServiceRegistryResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The name of the resource.
+func (o LookupServiceRegistryResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServiceRegistryResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Service Registry properties payload
+func (o LookupServiceRegistryResultOutput) Properties() ServiceRegistryPropertiesResponseOutput {
+	return o.ApplyT(func(v LookupServiceRegistryResult) ServiceRegistryPropertiesResponse { return v.Properties }).(ServiceRegistryPropertiesResponseOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o LookupServiceRegistryResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupServiceRegistryResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the resource.
+func (o LookupServiceRegistryResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServiceRegistryResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupServiceRegistryResultOutput{})
 }

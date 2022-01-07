@@ -4,6 +4,9 @@
 package v20210801
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -56,4 +59,79 @@ type ListShareSynchronizationDetailsResult struct {
 	NextLink *string `pulumi:"nextLink"`
 	// Collection of items of type DataTransferObjects.
 	Value []SynchronizationDetailsResponse `pulumi:"value"`
+}
+
+func ListShareSynchronizationDetailsOutput(ctx *pulumi.Context, args ListShareSynchronizationDetailsOutputArgs, opts ...pulumi.InvokeOption) ListShareSynchronizationDetailsResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (ListShareSynchronizationDetailsResult, error) {
+			args := v.(ListShareSynchronizationDetailsArgs)
+			r, err := ListShareSynchronizationDetails(ctx, &args, opts...)
+			return *r, err
+		}).(ListShareSynchronizationDetailsResultOutput)
+}
+
+type ListShareSynchronizationDetailsOutputArgs struct {
+	// The name of the share account.
+	AccountName pulumi.StringInput `pulumi:"accountName"`
+	// Email of the user who created the synchronization
+	ConsumerEmail pulumi.StringPtrInput `pulumi:"consumerEmail"`
+	// Name of the user who created the synchronization
+	ConsumerName pulumi.StringPtrInput `pulumi:"consumerName"`
+	// Tenant name of the consumer who created the synchronization
+	ConsumerTenantName pulumi.StringPtrInput `pulumi:"consumerTenantName"`
+	// synchronization duration
+	DurationMs pulumi.IntPtrInput `pulumi:"durationMs"`
+	// End time of synchronization
+	EndTime pulumi.StringPtrInput `pulumi:"endTime"`
+	// Filters the results using OData syntax.
+	Filter pulumi.StringPtrInput `pulumi:"filter"`
+	// message of synchronization
+	Message pulumi.StringPtrInput `pulumi:"message"`
+	// Sorts the results using OData syntax.
+	Orderby pulumi.StringPtrInput `pulumi:"orderby"`
+	// The resource group name.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the share.
+	ShareName pulumi.StringInput `pulumi:"shareName"`
+	// Continuation token
+	SkipToken pulumi.StringPtrInput `pulumi:"skipToken"`
+	// start time of synchronization
+	StartTime pulumi.StringPtrInput `pulumi:"startTime"`
+	// Raw Status
+	Status pulumi.StringPtrInput `pulumi:"status"`
+	// Synchronization id
+	SynchronizationId pulumi.StringPtrInput `pulumi:"synchronizationId"`
+}
+
+func (ListShareSynchronizationDetailsOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListShareSynchronizationDetailsArgs)(nil)).Elem()
+}
+
+// details of synchronization
+type ListShareSynchronizationDetailsResultOutput struct{ *pulumi.OutputState }
+
+func (ListShareSynchronizationDetailsResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListShareSynchronizationDetailsResult)(nil)).Elem()
+}
+
+func (o ListShareSynchronizationDetailsResultOutput) ToListShareSynchronizationDetailsResultOutput() ListShareSynchronizationDetailsResultOutput {
+	return o
+}
+
+func (o ListShareSynchronizationDetailsResultOutput) ToListShareSynchronizationDetailsResultOutputWithContext(ctx context.Context) ListShareSynchronizationDetailsResultOutput {
+	return o
+}
+
+// The Url of next result page.
+func (o ListShareSynchronizationDetailsResultOutput) NextLink() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListShareSynchronizationDetailsResult) *string { return v.NextLink }).(pulumi.StringPtrOutput)
+}
+
+// Collection of items of type DataTransferObjects.
+func (o ListShareSynchronizationDetailsResultOutput) Value() SynchronizationDetailsResponseArrayOutput {
+	return o.ApplyT(func(v ListShareSynchronizationDetailsResult) []SynchronizationDetailsResponse { return v.Value }).(SynchronizationDetailsResponseArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(ListShareSynchronizationDetailsResultOutput{})
 }

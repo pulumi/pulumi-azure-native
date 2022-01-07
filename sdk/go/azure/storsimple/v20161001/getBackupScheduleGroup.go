@@ -4,6 +4,9 @@
 package v20161001
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -38,4 +41,67 @@ type LookupBackupScheduleGroupResult struct {
 	StartTime TimeResponse `pulumi:"startTime"`
 	// The type.
 	Type string `pulumi:"type"`
+}
+
+func LookupBackupScheduleGroupOutput(ctx *pulumi.Context, args LookupBackupScheduleGroupOutputArgs, opts ...pulumi.InvokeOption) LookupBackupScheduleGroupResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupBackupScheduleGroupResult, error) {
+			args := v.(LookupBackupScheduleGroupArgs)
+			r, err := LookupBackupScheduleGroup(ctx, &args, opts...)
+			return *r, err
+		}).(LookupBackupScheduleGroupResultOutput)
+}
+
+type LookupBackupScheduleGroupOutputArgs struct {
+	// The name of the device.
+	DeviceName pulumi.StringInput `pulumi:"deviceName"`
+	// The manager name
+	ManagerName pulumi.StringInput `pulumi:"managerName"`
+	// The resource group name
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the schedule group.
+	ScheduleGroupName pulumi.StringInput `pulumi:"scheduleGroupName"`
+}
+
+func (LookupBackupScheduleGroupOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupBackupScheduleGroupArgs)(nil)).Elem()
+}
+
+// The Backup Schedule Group
+type LookupBackupScheduleGroupResultOutput struct{ *pulumi.OutputState }
+
+func (LookupBackupScheduleGroupResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupBackupScheduleGroupResult)(nil)).Elem()
+}
+
+func (o LookupBackupScheduleGroupResultOutput) ToLookupBackupScheduleGroupResultOutput() LookupBackupScheduleGroupResultOutput {
+	return o
+}
+
+func (o LookupBackupScheduleGroupResultOutput) ToLookupBackupScheduleGroupResultOutputWithContext(ctx context.Context) LookupBackupScheduleGroupResultOutput {
+	return o
+}
+
+// The identifier.
+func (o LookupBackupScheduleGroupResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBackupScheduleGroupResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The name.
+func (o LookupBackupScheduleGroupResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBackupScheduleGroupResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The start time. When this field is specified we will generate Default GrandFather Father Son Backup Schedules.
+func (o LookupBackupScheduleGroupResultOutput) StartTime() TimeResponseOutput {
+	return o.ApplyT(func(v LookupBackupScheduleGroupResult) TimeResponse { return v.StartTime }).(TimeResponseOutput)
+}
+
+// The type.
+func (o LookupBackupScheduleGroupResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBackupScheduleGroupResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupBackupScheduleGroupResultOutput{})
 }

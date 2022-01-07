@@ -4,6 +4,9 @@
 package v20150801preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -36,4 +39,72 @@ type LookupIntegrationAccountResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// The resource type.
 	Type *string `pulumi:"type"`
+}
+
+func LookupIntegrationAccountOutput(ctx *pulumi.Context, args LookupIntegrationAccountOutputArgs, opts ...pulumi.InvokeOption) LookupIntegrationAccountResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupIntegrationAccountResult, error) {
+			args := v.(LookupIntegrationAccountArgs)
+			r, err := LookupIntegrationAccount(ctx, &args, opts...)
+			return *r, err
+		}).(LookupIntegrationAccountResultOutput)
+}
+
+type LookupIntegrationAccountOutputArgs struct {
+	// The integration account name.
+	IntegrationAccountName pulumi.StringInput `pulumi:"integrationAccountName"`
+	// The resource group name.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupIntegrationAccountOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupIntegrationAccountArgs)(nil)).Elem()
+}
+
+type LookupIntegrationAccountResultOutput struct{ *pulumi.OutputState }
+
+func (LookupIntegrationAccountResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupIntegrationAccountResult)(nil)).Elem()
+}
+
+func (o LookupIntegrationAccountResultOutput) ToLookupIntegrationAccountResultOutput() LookupIntegrationAccountResultOutput {
+	return o
+}
+
+func (o LookupIntegrationAccountResultOutput) ToLookupIntegrationAccountResultOutputWithContext(ctx context.Context) LookupIntegrationAccountResultOutput {
+	return o
+}
+
+// The resource id.
+func (o LookupIntegrationAccountResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupIntegrationAccountResult) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// The resource location.
+func (o LookupIntegrationAccountResultOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupIntegrationAccountResult) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The resource name.
+func (o LookupIntegrationAccountResultOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupIntegrationAccountResult) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The sku.
+func (o LookupIntegrationAccountResultOutput) Sku() IntegrationAccountSkuResponsePtrOutput {
+	return o.ApplyT(func(v LookupIntegrationAccountResult) *IntegrationAccountSkuResponse { return v.Sku }).(IntegrationAccountSkuResponsePtrOutput)
+}
+
+// The resource tags.
+func (o LookupIntegrationAccountResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupIntegrationAccountResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The resource type.
+func (o LookupIntegrationAccountResultOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupIntegrationAccountResult) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupIntegrationAccountResultOutput{})
 }

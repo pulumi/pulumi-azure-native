@@ -4,6 +4,9 @@
 package v20190601
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -67,4 +70,110 @@ func (val *LookupSmartDetectorAlertRuleResult) Defaults() *LookupSmartDetectorAl
 		tmp.Location = &location_
 	}
 	return &tmp
+}
+
+func LookupSmartDetectorAlertRuleOutput(ctx *pulumi.Context, args LookupSmartDetectorAlertRuleOutputArgs, opts ...pulumi.InvokeOption) LookupSmartDetectorAlertRuleResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupSmartDetectorAlertRuleResult, error) {
+			args := v.(LookupSmartDetectorAlertRuleArgs)
+			r, err := LookupSmartDetectorAlertRule(ctx, &args, opts...)
+			return *r, err
+		}).(LookupSmartDetectorAlertRuleResultOutput)
+}
+
+type LookupSmartDetectorAlertRuleOutputArgs struct {
+	// The name of the alert rule.
+	AlertRuleName pulumi.StringInput `pulumi:"alertRuleName"`
+	// Indicates if Smart Detector should be expanded.
+	ExpandDetector pulumi.BoolPtrInput `pulumi:"expandDetector"`
+	// The name of the resource group.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupSmartDetectorAlertRuleOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupSmartDetectorAlertRuleArgs)(nil)).Elem()
+}
+
+// The alert rule information
+type LookupSmartDetectorAlertRuleResultOutput struct{ *pulumi.OutputState }
+
+func (LookupSmartDetectorAlertRuleResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupSmartDetectorAlertRuleResult)(nil)).Elem()
+}
+
+func (o LookupSmartDetectorAlertRuleResultOutput) ToLookupSmartDetectorAlertRuleResultOutput() LookupSmartDetectorAlertRuleResultOutput {
+	return o
+}
+
+func (o LookupSmartDetectorAlertRuleResultOutput) ToLookupSmartDetectorAlertRuleResultOutputWithContext(ctx context.Context) LookupSmartDetectorAlertRuleResultOutput {
+	return o
+}
+
+// The alert rule actions.
+func (o LookupSmartDetectorAlertRuleResultOutput) ActionGroups() ActionGroupsInformationResponseOutput {
+	return o.ApplyT(func(v LookupSmartDetectorAlertRuleResult) ActionGroupsInformationResponse { return v.ActionGroups }).(ActionGroupsInformationResponseOutput)
+}
+
+// The alert rule description.
+func (o LookupSmartDetectorAlertRuleResultOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSmartDetectorAlertRuleResult) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The alert rule's detector.
+func (o LookupSmartDetectorAlertRuleResultOutput) Detector() DetectorResponseOutput {
+	return o.ApplyT(func(v LookupSmartDetectorAlertRuleResult) DetectorResponse { return v.Detector }).(DetectorResponseOutput)
+}
+
+// The alert rule frequency in ISO8601 format. The time granularity must be in minutes and minimum value is 5 minutes.
+func (o LookupSmartDetectorAlertRuleResultOutput) Frequency() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSmartDetectorAlertRuleResult) string { return v.Frequency }).(pulumi.StringOutput)
+}
+
+// The resource ID.
+func (o LookupSmartDetectorAlertRuleResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSmartDetectorAlertRuleResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The resource location.
+func (o LookupSmartDetectorAlertRuleResultOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSmartDetectorAlertRuleResult) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The resource name.
+func (o LookupSmartDetectorAlertRuleResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSmartDetectorAlertRuleResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The alert rule resources scope.
+func (o LookupSmartDetectorAlertRuleResultOutput) Scope() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupSmartDetectorAlertRuleResult) []string { return v.Scope }).(pulumi.StringArrayOutput)
+}
+
+// The alert rule severity.
+func (o LookupSmartDetectorAlertRuleResultOutput) Severity() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSmartDetectorAlertRuleResult) string { return v.Severity }).(pulumi.StringOutput)
+}
+
+// The alert rule state.
+func (o LookupSmartDetectorAlertRuleResultOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSmartDetectorAlertRuleResult) string { return v.State }).(pulumi.StringOutput)
+}
+
+// The resource tags.
+func (o LookupSmartDetectorAlertRuleResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupSmartDetectorAlertRuleResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The alert rule throttling information.
+func (o LookupSmartDetectorAlertRuleResultOutput) Throttling() ThrottlingInformationResponsePtrOutput {
+	return o.ApplyT(func(v LookupSmartDetectorAlertRuleResult) *ThrottlingInformationResponse { return v.Throttling }).(ThrottlingInformationResponsePtrOutput)
+}
+
+// The resource type.
+func (o LookupSmartDetectorAlertRuleResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSmartDetectorAlertRuleResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupSmartDetectorAlertRuleResultOutput{})
 }

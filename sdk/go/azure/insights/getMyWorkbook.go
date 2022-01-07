@@ -4,6 +4,9 @@
 package insights
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -59,4 +62,123 @@ type LookupMyWorkbookResult struct {
 	UserId string `pulumi:"userId"`
 	// This instance's version of the data model. This can change as new features are added that can be marked private workbook.
 	Version *string `pulumi:"version"`
+}
+
+func LookupMyWorkbookOutput(ctx *pulumi.Context, args LookupMyWorkbookOutputArgs, opts ...pulumi.InvokeOption) LookupMyWorkbookResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupMyWorkbookResult, error) {
+			args := v.(LookupMyWorkbookArgs)
+			r, err := LookupMyWorkbook(ctx, &args, opts...)
+			return *r, err
+		}).(LookupMyWorkbookResultOutput)
+}
+
+type LookupMyWorkbookOutputArgs struct {
+	// The name of the resource group. The name is case insensitive.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the Application Insights component resource.
+	ResourceName pulumi.StringInput `pulumi:"resourceName"`
+}
+
+func (LookupMyWorkbookOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupMyWorkbookArgs)(nil)).Elem()
+}
+
+// An Application Insights private workbook definition.
+type LookupMyWorkbookResultOutput struct{ *pulumi.OutputState }
+
+func (LookupMyWorkbookResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupMyWorkbookResult)(nil)).Elem()
+}
+
+func (o LookupMyWorkbookResultOutput) ToLookupMyWorkbookResultOutput() LookupMyWorkbookResultOutput {
+	return o
+}
+
+func (o LookupMyWorkbookResultOutput) ToLookupMyWorkbookResultOutputWithContext(ctx context.Context) LookupMyWorkbookResultOutput {
+	return o
+}
+
+// Workbook category, as defined by the user at creation time.
+func (o LookupMyWorkbookResultOutput) Category() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupMyWorkbookResult) string { return v.Category }).(pulumi.StringOutput)
+}
+
+// The user-defined name of the private workbook.
+func (o LookupMyWorkbookResultOutput) DisplayName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupMyWorkbookResult) string { return v.DisplayName }).(pulumi.StringOutput)
+}
+
+// Resource etag
+func (o LookupMyWorkbookResultOutput) Etag() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupMyWorkbookResult) map[string]string { return v.Etag }).(pulumi.StringMapOutput)
+}
+
+// Azure resource Id
+func (o LookupMyWorkbookResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupMyWorkbookResult) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// Identity used for BYOS
+func (o LookupMyWorkbookResultOutput) Identity() MyWorkbookManagedIdentityResponsePtrOutput {
+	return o.ApplyT(func(v LookupMyWorkbookResult) *MyWorkbookManagedIdentityResponse { return v.Identity }).(MyWorkbookManagedIdentityResponsePtrOutput)
+}
+
+// The kind of workbook. Choices are user and shared.
+func (o LookupMyWorkbookResultOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupMyWorkbookResult) *string { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Resource location
+func (o LookupMyWorkbookResultOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupMyWorkbookResult) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Azure resource name
+func (o LookupMyWorkbookResultOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupMyWorkbookResult) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Configuration of this particular private workbook. Configuration data is a string containing valid JSON
+func (o LookupMyWorkbookResultOutput) SerializedData() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupMyWorkbookResult) string { return v.SerializedData }).(pulumi.StringOutput)
+}
+
+// Optional resourceId for a source resource.
+func (o LookupMyWorkbookResultOutput) SourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupMyWorkbookResult) *string { return v.SourceId }).(pulumi.StringPtrOutput)
+}
+
+// BYOS Storage Account URI
+func (o LookupMyWorkbookResultOutput) StorageUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupMyWorkbookResult) *string { return v.StorageUri }).(pulumi.StringPtrOutput)
+}
+
+// Resource tags
+func (o LookupMyWorkbookResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupMyWorkbookResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Date and time in UTC of the last modification that was made to this private workbook definition.
+func (o LookupMyWorkbookResultOutput) TimeModified() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupMyWorkbookResult) string { return v.TimeModified }).(pulumi.StringOutput)
+}
+
+// Azure resource type
+func (o LookupMyWorkbookResultOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupMyWorkbookResult) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+// Unique user id of the specific user that owns this private workbook.
+func (o LookupMyWorkbookResultOutput) UserId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupMyWorkbookResult) string { return v.UserId }).(pulumi.StringOutput)
+}
+
+// This instance's version of the data model. This can change as new features are added that can be marked private workbook.
+func (o LookupMyWorkbookResultOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupMyWorkbookResult) *string { return v.Version }).(pulumi.StringPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupMyWorkbookResultOutput{})
 }

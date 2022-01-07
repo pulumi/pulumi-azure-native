@@ -4,6 +4,9 @@
 package v20180201preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -46,4 +49,101 @@ type LookupVirtualMachineImageTemplateResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type
 	Type string `pulumi:"type"`
+}
+
+func LookupVirtualMachineImageTemplateOutput(ctx *pulumi.Context, args LookupVirtualMachineImageTemplateOutputArgs, opts ...pulumi.InvokeOption) LookupVirtualMachineImageTemplateResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupVirtualMachineImageTemplateResult, error) {
+			args := v.(LookupVirtualMachineImageTemplateArgs)
+			r, err := LookupVirtualMachineImageTemplate(ctx, &args, opts...)
+			return *r, err
+		}).(LookupVirtualMachineImageTemplateResultOutput)
+}
+
+type LookupVirtualMachineImageTemplateOutputArgs struct {
+	// The name of the image Template
+	ImageTemplateName pulumi.StringInput `pulumi:"imageTemplateName"`
+	// The name of the resource group.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupVirtualMachineImageTemplateOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupVirtualMachineImageTemplateArgs)(nil)).Elem()
+}
+
+type LookupVirtualMachineImageTemplateResultOutput struct{ *pulumi.OutputState }
+
+func (LookupVirtualMachineImageTemplateResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupVirtualMachineImageTemplateResult)(nil)).Elem()
+}
+
+func (o LookupVirtualMachineImageTemplateResultOutput) ToLookupVirtualMachineImageTemplateResultOutput() LookupVirtualMachineImageTemplateResultOutput {
+	return o
+}
+
+func (o LookupVirtualMachineImageTemplateResultOutput) ToLookupVirtualMachineImageTemplateResultOutputWithContext(ctx context.Context) LookupVirtualMachineImageTemplateResultOutput {
+	return o
+}
+
+// Specifies the properties used to describe the customization steps of the image, like Image source etc
+func (o LookupVirtualMachineImageTemplateResultOutput) Customize() ImageTemplateShellCustomizerResponseArrayOutput {
+	return o.ApplyT(func(v LookupVirtualMachineImageTemplateResult) []ImageTemplateShellCustomizerResponse {
+		return v.Customize
+	}).(ImageTemplateShellCustomizerResponseArrayOutput)
+}
+
+// The distribution targets where the image output needs to go to.
+func (o LookupVirtualMachineImageTemplateResultOutput) Distribute() pulumi.ArrayOutput {
+	return o.ApplyT(func(v LookupVirtualMachineImageTemplateResult) []interface{} { return v.Distribute }).(pulumi.ArrayOutput)
+}
+
+// Resource Id
+func (o LookupVirtualMachineImageTemplateResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVirtualMachineImageTemplateResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// State of 'run' that is currently executing or was last executed.
+func (o LookupVirtualMachineImageTemplateResultOutput) LastRunStatus() ImageTemplateLastRunStatusResponseOutput {
+	return o.ApplyT(func(v LookupVirtualMachineImageTemplateResult) ImageTemplateLastRunStatusResponse {
+		return v.LastRunStatus
+	}).(ImageTemplateLastRunStatusResponseOutput)
+}
+
+// Resource location
+func (o LookupVirtualMachineImageTemplateResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVirtualMachineImageTemplateResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource name
+func (o LookupVirtualMachineImageTemplateResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVirtualMachineImageTemplateResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Provisioning error, if any
+func (o LookupVirtualMachineImageTemplateResultOutput) ProvisioningError() ProvisioningErrorResponseOutput {
+	return o.ApplyT(func(v LookupVirtualMachineImageTemplateResult) ProvisioningErrorResponse { return v.ProvisioningError }).(ProvisioningErrorResponseOutput)
+}
+
+// Provisioning state of the resource
+func (o LookupVirtualMachineImageTemplateResultOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVirtualMachineImageTemplateResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Specifies the properties used to describe the source image.
+func (o LookupVirtualMachineImageTemplateResultOutput) Source() pulumi.AnyOutput {
+	return o.ApplyT(func(v LookupVirtualMachineImageTemplateResult) interface{} { return v.Source }).(pulumi.AnyOutput)
+}
+
+// Resource tags
+func (o LookupVirtualMachineImageTemplateResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupVirtualMachineImageTemplateResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type
+func (o LookupVirtualMachineImageTemplateResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVirtualMachineImageTemplateResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupVirtualMachineImageTemplateResultOutput{})
 }

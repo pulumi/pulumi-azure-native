@@ -4,6 +4,9 @@
 package v20211201
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -38,4 +41,67 @@ type LookupPlacementPolicyResult struct {
 	Properties interface{} `pulumi:"properties"`
 	// Resource type.
 	Type string `pulumi:"type"`
+}
+
+func LookupPlacementPolicyOutput(ctx *pulumi.Context, args LookupPlacementPolicyOutputArgs, opts ...pulumi.InvokeOption) LookupPlacementPolicyResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupPlacementPolicyResult, error) {
+			args := v.(LookupPlacementPolicyArgs)
+			r, err := LookupPlacementPolicy(ctx, &args, opts...)
+			return *r, err
+		}).(LookupPlacementPolicyResultOutput)
+}
+
+type LookupPlacementPolicyOutputArgs struct {
+	// Name of the cluster in the private cloud
+	ClusterName pulumi.StringInput `pulumi:"clusterName"`
+	// Name of the VMware vSphere Distributed Resource Scheduler (DRS) placement policy
+	PlacementPolicyName pulumi.StringInput `pulumi:"placementPolicyName"`
+	// Name of the private cloud
+	PrivateCloudName pulumi.StringInput `pulumi:"privateCloudName"`
+	// The name of the resource group. The name is case insensitive.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupPlacementPolicyOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupPlacementPolicyArgs)(nil)).Elem()
+}
+
+// A vSphere Distributed Resource Scheduler (DRS) placement policy
+type LookupPlacementPolicyResultOutput struct{ *pulumi.OutputState }
+
+func (LookupPlacementPolicyResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupPlacementPolicyResult)(nil)).Elem()
+}
+
+func (o LookupPlacementPolicyResultOutput) ToLookupPlacementPolicyResultOutput() LookupPlacementPolicyResultOutput {
+	return o
+}
+
+func (o LookupPlacementPolicyResultOutput) ToLookupPlacementPolicyResultOutputWithContext(ctx context.Context) LookupPlacementPolicyResultOutput {
+	return o
+}
+
+// Resource ID.
+func (o LookupPlacementPolicyResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPlacementPolicyResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o LookupPlacementPolicyResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPlacementPolicyResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// placement policy properties
+func (o LookupPlacementPolicyResultOutput) Properties() pulumi.AnyOutput {
+	return o.ApplyT(func(v LookupPlacementPolicyResult) interface{} { return v.Properties }).(pulumi.AnyOutput)
+}
+
+// Resource type.
+func (o LookupPlacementPolicyResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPlacementPolicyResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupPlacementPolicyResultOutput{})
 }

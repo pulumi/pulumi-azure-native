@@ -48,6 +48,125 @@ type CloudErrorBodyResponse struct {
 	Target *string `pulumi:"target"`
 }
 
+// Detailed error information of any failure.
+type CloudErrorBodyResponseOutput struct{ *pulumi.OutputState }
+
+func (CloudErrorBodyResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CloudErrorBodyResponse)(nil)).Elem()
+}
+
+func (o CloudErrorBodyResponseOutput) ToCloudErrorBodyResponseOutput() CloudErrorBodyResponseOutput {
+	return o
+}
+
+func (o CloudErrorBodyResponseOutput) ToCloudErrorBodyResponseOutputWithContext(ctx context.Context) CloudErrorBodyResponseOutput {
+	return o
+}
+
+// Error code string.
+func (o CloudErrorBodyResponseOutput) Code() pulumi.StringOutput {
+	return o.ApplyT(func(v CloudErrorBodyResponse) string { return v.Code }).(pulumi.StringOutput)
+}
+
+// More detailed error information.
+func (o CloudErrorBodyResponseOutput) Details() CloudErrorBodyResponseArrayOutput {
+	return o.ApplyT(func(v CloudErrorBodyResponse) []CloudErrorBodyResponse { return v.Details }).(CloudErrorBodyResponseArrayOutput)
+}
+
+// Descriptive error information.
+func (o CloudErrorBodyResponseOutput) Message() pulumi.StringOutput {
+	return o.ApplyT(func(v CloudErrorBodyResponse) string { return v.Message }).(pulumi.StringOutput)
+}
+
+// Error target
+func (o CloudErrorBodyResponseOutput) Target() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CloudErrorBodyResponse) *string { return v.Target }).(pulumi.StringPtrOutput)
+}
+
+type CloudErrorBodyResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (CloudErrorBodyResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CloudErrorBodyResponse)(nil)).Elem()
+}
+
+func (o CloudErrorBodyResponsePtrOutput) ToCloudErrorBodyResponsePtrOutput() CloudErrorBodyResponsePtrOutput {
+	return o
+}
+
+func (o CloudErrorBodyResponsePtrOutput) ToCloudErrorBodyResponsePtrOutputWithContext(ctx context.Context) CloudErrorBodyResponsePtrOutput {
+	return o
+}
+
+func (o CloudErrorBodyResponsePtrOutput) Elem() CloudErrorBodyResponseOutput {
+	return o.ApplyT(func(v *CloudErrorBodyResponse) CloudErrorBodyResponse {
+		if v != nil {
+			return *v
+		}
+		var ret CloudErrorBodyResponse
+		return ret
+	}).(CloudErrorBodyResponseOutput)
+}
+
+// Error code string.
+func (o CloudErrorBodyResponsePtrOutput) Code() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CloudErrorBodyResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Code
+	}).(pulumi.StringPtrOutput)
+}
+
+// More detailed error information.
+func (o CloudErrorBodyResponsePtrOutput) Details() CloudErrorBodyResponseArrayOutput {
+	return o.ApplyT(func(v *CloudErrorBodyResponse) []CloudErrorBodyResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Details
+	}).(CloudErrorBodyResponseArrayOutput)
+}
+
+// Descriptive error information.
+func (o CloudErrorBodyResponsePtrOutput) Message() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CloudErrorBodyResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Message
+	}).(pulumi.StringPtrOutput)
+}
+
+// Error target
+func (o CloudErrorBodyResponsePtrOutput) Target() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CloudErrorBodyResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Target
+	}).(pulumi.StringPtrOutput)
+}
+
+type CloudErrorBodyResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (CloudErrorBodyResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CloudErrorBodyResponse)(nil)).Elem()
+}
+
+func (o CloudErrorBodyResponseArrayOutput) ToCloudErrorBodyResponseArrayOutput() CloudErrorBodyResponseArrayOutput {
+	return o
+}
+
+func (o CloudErrorBodyResponseArrayOutput) ToCloudErrorBodyResponseArrayOutputWithContext(ctx context.Context) CloudErrorBodyResponseArrayOutput {
+	return o
+}
+
+func (o CloudErrorBodyResponseArrayOutput) Index(i pulumi.IntInput) CloudErrorBodyResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CloudErrorBodyResponse {
+		return vs[0].([]CloudErrorBodyResponse)[vs[1].(int)]
+	}).(CloudErrorBodyResponseOutput)
+}
+
 // Defines the properties of a health check step.
 type HealthCheckStepProperties struct {
 	// The health check step attributes
@@ -163,12 +282,101 @@ func (o IdentityResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v IdentityResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
+type IdentityResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (IdentityResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IdentityResponse)(nil)).Elem()
+}
+
+func (o IdentityResponsePtrOutput) ToIdentityResponsePtrOutput() IdentityResponsePtrOutput {
+	return o
+}
+
+func (o IdentityResponsePtrOutput) ToIdentityResponsePtrOutputWithContext(ctx context.Context) IdentityResponsePtrOutput {
+	return o
+}
+
+func (o IdentityResponsePtrOutput) Elem() IdentityResponseOutput {
+	return o.ApplyT(func(v *IdentityResponse) IdentityResponse {
+		if v != nil {
+			return *v
+		}
+		var ret IdentityResponse
+		return ret
+	}).(IdentityResponseOutput)
+}
+
+// The list of identities.
+func (o IdentityResponsePtrOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *IdentityResponse) []string {
+		if v == nil {
+			return nil
+		}
+		return v.IdentityIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// The identity type.
+func (o IdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IdentityResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
 // Supplementary contextual messages during a rollout.
 type MessageResponse struct {
 	// The actual message text.
 	Message string `pulumi:"message"`
 	// Time in UTC this message was provided.
 	TimeStamp string `pulumi:"timeStamp"`
+}
+
+// Supplementary contextual messages during a rollout.
+type MessageResponseOutput struct{ *pulumi.OutputState }
+
+func (MessageResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MessageResponse)(nil)).Elem()
+}
+
+func (o MessageResponseOutput) ToMessageResponseOutput() MessageResponseOutput {
+	return o
+}
+
+func (o MessageResponseOutput) ToMessageResponseOutputWithContext(ctx context.Context) MessageResponseOutput {
+	return o
+}
+
+// The actual message text.
+func (o MessageResponseOutput) Message() pulumi.StringOutput {
+	return o.ApplyT(func(v MessageResponse) string { return v.Message }).(pulumi.StringOutput)
+}
+
+// Time in UTC this message was provided.
+func (o MessageResponseOutput) TimeStamp() pulumi.StringOutput {
+	return o.ApplyT(func(v MessageResponse) string { return v.TimeStamp }).(pulumi.StringOutput)
+}
+
+type MessageResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (MessageResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MessageResponse)(nil)).Elem()
+}
+
+func (o MessageResponseArrayOutput) ToMessageResponseArrayOutput() MessageResponseArrayOutput {
+	return o
+}
+
+func (o MessageResponseArrayOutput) ToMessageResponseArrayOutputWithContext(ctx context.Context) MessageResponseArrayOutput {
+	return o
+}
+
+func (o MessageResponseArrayOutput) Index(i pulumi.IntInput) MessageResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MessageResponse {
+		return vs[0].([]MessageResponse)[vs[1].(int)]
+	}).(MessageResponseOutput)
 }
 
 // The properties that define a step.
@@ -333,6 +541,71 @@ type ResourceOperationResponse struct {
 	StatusMessage string `pulumi:"statusMessage"`
 }
 
+// Individual resource operation information.
+type ResourceOperationResponseOutput struct{ *pulumi.OutputState }
+
+func (ResourceOperationResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceOperationResponse)(nil)).Elem()
+}
+
+func (o ResourceOperationResponseOutput) ToResourceOperationResponseOutput() ResourceOperationResponseOutput {
+	return o
+}
+
+func (o ResourceOperationResponseOutput) ToResourceOperationResponseOutputWithContext(ctx context.Context) ResourceOperationResponseOutput {
+	return o
+}
+
+// Unique identifier of the operation. For ARM resources, this is the operationId obtained from ARM service.
+func (o ResourceOperationResponseOutput) OperationId() pulumi.StringOutput {
+	return o.ApplyT(func(v ResourceOperationResponse) string { return v.OperationId }).(pulumi.StringOutput)
+}
+
+// State of the resource deployment. For ARM resources, this is the current provisioning state of the resource.
+func (o ResourceOperationResponseOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v ResourceOperationResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Name of the resource as specified in the artifacts. For ARM resources, this is the name of the resource specified in the template.
+func (o ResourceOperationResponseOutput) ResourceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceOperationResponse) *string { return v.ResourceName }).(pulumi.StringPtrOutput)
+}
+
+// Type of the resource as specified in the artifacts. For ARM resources, this is the type of the resource specified in the template.
+func (o ResourceOperationResponseOutput) ResourceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceOperationResponse) *string { return v.ResourceType }).(pulumi.StringPtrOutput)
+}
+
+// Http status code of the operation.
+func (o ResourceOperationResponseOutput) StatusCode() pulumi.StringOutput {
+	return o.ApplyT(func(v ResourceOperationResponse) string { return v.StatusCode }).(pulumi.StringOutput)
+}
+
+// Descriptive information of the resource operation.
+func (o ResourceOperationResponseOutput) StatusMessage() pulumi.StringOutput {
+	return o.ApplyT(func(v ResourceOperationResponse) string { return v.StatusMessage }).(pulumi.StringOutput)
+}
+
+type ResourceOperationResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ResourceOperationResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ResourceOperationResponse)(nil)).Elem()
+}
+
+func (o ResourceOperationResponseArrayOutput) ToResourceOperationResponseArrayOutput() ResourceOperationResponseArrayOutput {
+	return o
+}
+
+func (o ResourceOperationResponseArrayOutput) ToResourceOperationResponseArrayOutputWithContext(ctx context.Context) ResourceOperationResponseArrayOutput {
+	return o
+}
+
+func (o ResourceOperationResponseArrayOutput) Index(i pulumi.IntInput) ResourceOperationResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ResourceOperationResponse {
+		return vs[0].([]ResourceOperationResponse)[vs[1].(int)]
+	}).(ResourceOperationResponseOutput)
+}
+
 // A REST based health check
 type RestHealthCheck struct {
 	// A unique name for this check.
@@ -463,6 +736,46 @@ type RolloutOperationInfoResponse struct {
 	StartTime string `pulumi:"startTime"`
 }
 
+// Detailed runtime information of the rollout.
+type RolloutOperationInfoResponseOutput struct{ *pulumi.OutputState }
+
+func (RolloutOperationInfoResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RolloutOperationInfoResponse)(nil)).Elem()
+}
+
+func (o RolloutOperationInfoResponseOutput) ToRolloutOperationInfoResponseOutput() RolloutOperationInfoResponseOutput {
+	return o
+}
+
+func (o RolloutOperationInfoResponseOutput) ToRolloutOperationInfoResponseOutputWithContext(ctx context.Context) RolloutOperationInfoResponseOutput {
+	return o
+}
+
+// The start time of the rollout in UTC. This property will not be set if the rollout has not completed yet.
+func (o RolloutOperationInfoResponseOutput) EndTime() pulumi.StringOutput {
+	return o.ApplyT(func(v RolloutOperationInfoResponse) string { return v.EndTime }).(pulumi.StringOutput)
+}
+
+// The detailed error information for any failure.
+func (o RolloutOperationInfoResponseOutput) Error() CloudErrorBodyResponseOutput {
+	return o.ApplyT(func(v RolloutOperationInfoResponse) CloudErrorBodyResponse { return v.Error }).(CloudErrorBodyResponseOutput)
+}
+
+// The ordinal count of the number of retry attempts on a rollout. 0 if no retries of the rollout have been performed. If the rollout is updated with a PUT, this count is reset to 0.
+func (o RolloutOperationInfoResponseOutput) RetryAttempt() pulumi.IntOutput {
+	return o.ApplyT(func(v RolloutOperationInfoResponse) int { return v.RetryAttempt }).(pulumi.IntOutput)
+}
+
+// True, if all steps that succeeded on the previous run/attempt were chosen to be skipped in this retry attempt. False, otherwise.
+func (o RolloutOperationInfoResponseOutput) SkipSucceededOnRetry() pulumi.BoolOutput {
+	return o.ApplyT(func(v RolloutOperationInfoResponse) bool { return v.SkipSucceededOnRetry }).(pulumi.BoolOutput)
+}
+
+// The start time of the rollout in UTC.
+func (o RolloutOperationInfoResponseOutput) StartTime() pulumi.StringOutput {
+	return o.ApplyT(func(v RolloutOperationInfoResponse) string { return v.StartTime }).(pulumi.StringOutput)
+}
+
 // Defines a specific step on a target service unit.
 type RolloutStepResponse struct {
 	// Supplementary informative messages during rollout.
@@ -477,6 +790,71 @@ type RolloutStepResponse struct {
 	Status string `pulumi:"status"`
 	// The step group the current step is part of.
 	StepGroup *string `pulumi:"stepGroup"`
+}
+
+// Defines a specific step on a target service unit.
+type RolloutStepResponseOutput struct{ *pulumi.OutputState }
+
+func (RolloutStepResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RolloutStepResponse)(nil)).Elem()
+}
+
+func (o RolloutStepResponseOutput) ToRolloutStepResponseOutput() RolloutStepResponseOutput {
+	return o
+}
+
+func (o RolloutStepResponseOutput) ToRolloutStepResponseOutputWithContext(ctx context.Context) RolloutStepResponseOutput {
+	return o
+}
+
+// Supplementary informative messages during rollout.
+func (o RolloutStepResponseOutput) Messages() MessageResponseArrayOutput {
+	return o.ApplyT(func(v RolloutStepResponse) []MessageResponse { return v.Messages }).(MessageResponseArrayOutput)
+}
+
+// Name of the step.
+func (o RolloutStepResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v RolloutStepResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Detailed information of specific action execution.
+func (o RolloutStepResponseOutput) OperationInfo() StepOperationInfoResponseOutput {
+	return o.ApplyT(func(v RolloutStepResponse) StepOperationInfoResponse { return v.OperationInfo }).(StepOperationInfoResponseOutput)
+}
+
+// Set of resource operations that were performed, if any, on an Azure resource.
+func (o RolloutStepResponseOutput) ResourceOperations() ResourceOperationResponseArrayOutput {
+	return o.ApplyT(func(v RolloutStepResponse) []ResourceOperationResponse { return v.ResourceOperations }).(ResourceOperationResponseArrayOutput)
+}
+
+// Current state of the step.
+func (o RolloutStepResponseOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v RolloutStepResponse) string { return v.Status }).(pulumi.StringOutput)
+}
+
+// The step group the current step is part of.
+func (o RolloutStepResponseOutput) StepGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RolloutStepResponse) *string { return v.StepGroup }).(pulumi.StringPtrOutput)
+}
+
+type RolloutStepResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (RolloutStepResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RolloutStepResponse)(nil)).Elem()
+}
+
+func (o RolloutStepResponseArrayOutput) ToRolloutStepResponseArrayOutput() RolloutStepResponseArrayOutput {
+	return o
+}
+
+func (o RolloutStepResponseArrayOutput) ToRolloutStepResponseArrayOutputWithContext(ctx context.Context) RolloutStepResponseArrayOutput {
+	return o
+}
+
+func (o RolloutStepResponseArrayOutput) Index(i pulumi.IntInput) RolloutStepResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RolloutStepResponse {
+		return vs[0].([]RolloutStepResponse)[vs[1].(int)]
+	}).(RolloutStepResponseOutput)
 }
 
 // Defines the properties to access the artifacts using an Azure Storage SAS URI.
@@ -591,6 +969,61 @@ type ServiceResponse struct {
 	TargetLocation string `pulumi:"targetLocation"`
 	// The subscription to which the resources in the service belong to or should be deployed to.
 	TargetSubscriptionId string `pulumi:"targetSubscriptionId"`
+}
+
+// Defines a service.
+type ServiceResponseOutput struct{ *pulumi.OutputState }
+
+func (ServiceResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceResponse)(nil)).Elem()
+}
+
+func (o ServiceResponseOutput) ToServiceResponseOutput() ServiceResponseOutput {
+	return o
+}
+
+func (o ServiceResponseOutput) ToServiceResponseOutputWithContext(ctx context.Context) ServiceResponseOutput {
+	return o
+}
+
+// Name of the service.
+func (o ServiceResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The detailed information about the units that make up the service.
+func (o ServiceResponseOutput) ServiceUnits() ServiceUnitResponseArrayOutput {
+	return o.ApplyT(func(v ServiceResponse) []ServiceUnitResponse { return v.ServiceUnits }).(ServiceUnitResponseArrayOutput)
+}
+
+// The Azure location to which the resources in the service belong to or should be deployed to.
+func (o ServiceResponseOutput) TargetLocation() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceResponse) string { return v.TargetLocation }).(pulumi.StringOutput)
+}
+
+// The subscription to which the resources in the service belong to or should be deployed to.
+func (o ServiceResponseOutput) TargetSubscriptionId() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceResponse) string { return v.TargetSubscriptionId }).(pulumi.StringOutput)
+}
+
+type ServiceResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ServiceResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceResponse)(nil)).Elem()
+}
+
+func (o ServiceResponseArrayOutput) ToServiceResponseArrayOutput() ServiceResponseArrayOutput {
+	return o
+}
+
+func (o ServiceResponseArrayOutput) ToServiceResponseArrayOutputWithContext(ctx context.Context) ServiceResponseArrayOutput {
+	return o
+}
+
+func (o ServiceResponseArrayOutput) Index(i pulumi.IntInput) ServiceResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceResponse {
+		return vs[0].([]ServiceResponse)[vs[1].(int)]
+	}).(ServiceResponseOutput)
 }
 
 // Defines the artifacts of a service unit.
@@ -915,6 +1348,66 @@ type ServiceUnitResponse struct {
 	TargetResourceGroup string `pulumi:"targetResourceGroup"`
 }
 
+// Defines a service unit.
+type ServiceUnitResponseOutput struct{ *pulumi.OutputState }
+
+func (ServiceUnitResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceUnitResponse)(nil)).Elem()
+}
+
+func (o ServiceUnitResponseOutput) ToServiceUnitResponseOutput() ServiceUnitResponseOutput {
+	return o
+}
+
+func (o ServiceUnitResponseOutput) ToServiceUnitResponseOutputWithContext(ctx context.Context) ServiceUnitResponseOutput {
+	return o
+}
+
+// The artifacts for the service unit.
+func (o ServiceUnitResponseOutput) Artifacts() ServiceUnitArtifactsResponsePtrOutput {
+	return o.ApplyT(func(v ServiceUnitResponse) *ServiceUnitArtifactsResponse { return v.Artifacts }).(ServiceUnitArtifactsResponsePtrOutput)
+}
+
+// Describes the type of ARM deployment to be performed on the resource.
+func (o ServiceUnitResponseOutput) DeploymentMode() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceUnitResponse) string { return v.DeploymentMode }).(pulumi.StringOutput)
+}
+
+// Name of the service unit.
+func (o ServiceUnitResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceUnitResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Detailed step information, if present.
+func (o ServiceUnitResponseOutput) Steps() RolloutStepResponseArrayOutput {
+	return o.ApplyT(func(v ServiceUnitResponse) []RolloutStepResponse { return v.Steps }).(RolloutStepResponseArrayOutput)
+}
+
+// The Azure Resource Group to which the resources in the service unit belong to or should be deployed to.
+func (o ServiceUnitResponseOutput) TargetResourceGroup() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceUnitResponse) string { return v.TargetResourceGroup }).(pulumi.StringOutput)
+}
+
+type ServiceUnitResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ServiceUnitResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceUnitResponse)(nil)).Elem()
+}
+
+func (o ServiceUnitResponseArrayOutput) ToServiceUnitResponseArrayOutput() ServiceUnitResponseArrayOutput {
+	return o
+}
+
+func (o ServiceUnitResponseArrayOutput) ToServiceUnitResponseArrayOutputWithContext(ctx context.Context) ServiceUnitResponseArrayOutput {
+	return o
+}
+
+func (o ServiceUnitResponseArrayOutput) Index(i pulumi.IntInput) ServiceUnitResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceUnitResponse {
+		return vs[0].([]ServiceUnitResponse)[vs[1].(int)]
+	}).(ServiceUnitResponseOutput)
+}
+
 // The properties that define a Step group in a rollout.
 type StepGroup struct {
 	// The list of step group names on which this step group depends on.
@@ -1141,6 +1634,51 @@ type StepOperationInfoResponse struct {
 	StartTime string `pulumi:"startTime"`
 }
 
+// Detailed information of a specific step run.
+type StepOperationInfoResponseOutput struct{ *pulumi.OutputState }
+
+func (StepOperationInfoResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StepOperationInfoResponse)(nil)).Elem()
+}
+
+func (o StepOperationInfoResponseOutput) ToStepOperationInfoResponseOutput() StepOperationInfoResponseOutput {
+	return o
+}
+
+func (o StepOperationInfoResponseOutput) ToStepOperationInfoResponseOutputWithContext(ctx context.Context) StepOperationInfoResponseOutput {
+	return o
+}
+
+// Unique identifier to track the request for ARM-based resources.
+func (o StepOperationInfoResponseOutput) CorrelationId() pulumi.StringOutput {
+	return o.ApplyT(func(v StepOperationInfoResponse) string { return v.CorrelationId }).(pulumi.StringOutput)
+}
+
+// The name of the ARM deployment initiated as part of the step.
+func (o StepOperationInfoResponseOutput) DeploymentName() pulumi.StringOutput {
+	return o.ApplyT(func(v StepOperationInfoResponse) string { return v.DeploymentName }).(pulumi.StringOutput)
+}
+
+// End time of the action in UTC.
+func (o StepOperationInfoResponseOutput) EndTime() pulumi.StringOutput {
+	return o.ApplyT(func(v StepOperationInfoResponse) string { return v.EndTime }).(pulumi.StringOutput)
+}
+
+// The errors, if any, for the action.
+func (o StepOperationInfoResponseOutput) Error() CloudErrorBodyResponsePtrOutput {
+	return o.ApplyT(func(v StepOperationInfoResponse) *CloudErrorBodyResponse { return v.Error }).(CloudErrorBodyResponsePtrOutput)
+}
+
+// Last time in UTC this operation was updated.
+func (o StepOperationInfoResponseOutput) LastUpdatedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v StepOperationInfoResponse) string { return v.LastUpdatedTime }).(pulumi.StringOutput)
+}
+
+// Start time of the action in UTC.
+func (o StepOperationInfoResponseOutput) StartTime() pulumi.StringOutput {
+	return o.ApplyT(func(v StepOperationInfoResponse) string { return v.StartTime }).(pulumi.StringOutput)
+}
+
 // The parameters for the wait step.
 type WaitStepAttributes struct {
 	// The duration in ISO 8601 format of how long the wait should be.
@@ -1172,20 +1710,36 @@ type WaitStepPropertiesResponse struct {
 }
 
 func init() {
+	pulumi.RegisterOutputType(CloudErrorBodyResponseOutput{})
+	pulumi.RegisterOutputType(CloudErrorBodyResponsePtrOutput{})
+	pulumi.RegisterOutputType(CloudErrorBodyResponseArrayOutput{})
 	pulumi.RegisterOutputType(IdentityOutput{})
 	pulumi.RegisterOutputType(IdentityResponseOutput{})
+	pulumi.RegisterOutputType(IdentityResponsePtrOutput{})
+	pulumi.RegisterOutputType(MessageResponseOutput{})
+	pulumi.RegisterOutputType(MessageResponseArrayOutput{})
 	pulumi.RegisterOutputType(PrePostStepOutput{})
 	pulumi.RegisterOutputType(PrePostStepArrayOutput{})
 	pulumi.RegisterOutputType(PrePostStepResponseOutput{})
 	pulumi.RegisterOutputType(PrePostStepResponseArrayOutput{})
+	pulumi.RegisterOutputType(ResourceOperationResponseOutput{})
+	pulumi.RegisterOutputType(ResourceOperationResponseArrayOutput{})
+	pulumi.RegisterOutputType(RolloutOperationInfoResponseOutput{})
+	pulumi.RegisterOutputType(RolloutStepResponseOutput{})
+	pulumi.RegisterOutputType(RolloutStepResponseArrayOutput{})
 	pulumi.RegisterOutputType(SasAuthenticationOutput{})
 	pulumi.RegisterOutputType(SasAuthenticationResponseOutput{})
+	pulumi.RegisterOutputType(ServiceResponseOutput{})
+	pulumi.RegisterOutputType(ServiceResponseArrayOutput{})
 	pulumi.RegisterOutputType(ServiceUnitArtifactsOutput{})
 	pulumi.RegisterOutputType(ServiceUnitArtifactsPtrOutput{})
 	pulumi.RegisterOutputType(ServiceUnitArtifactsResponseOutput{})
 	pulumi.RegisterOutputType(ServiceUnitArtifactsResponsePtrOutput{})
+	pulumi.RegisterOutputType(ServiceUnitResponseOutput{})
+	pulumi.RegisterOutputType(ServiceUnitResponseArrayOutput{})
 	pulumi.RegisterOutputType(StepGroupOutput{})
 	pulumi.RegisterOutputType(StepGroupArrayOutput{})
 	pulumi.RegisterOutputType(StepGroupResponseOutput{})
 	pulumi.RegisterOutputType(StepGroupResponseArrayOutput{})
+	pulumi.RegisterOutputType(StepOperationInfoResponseOutput{})
 }

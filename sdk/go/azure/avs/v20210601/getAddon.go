@@ -4,6 +4,9 @@
 package v20210601
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -36,4 +39,65 @@ type LookupAddonResult struct {
 	Properties interface{} `pulumi:"properties"`
 	// Resource type.
 	Type string `pulumi:"type"`
+}
+
+func LookupAddonOutput(ctx *pulumi.Context, args LookupAddonOutputArgs, opts ...pulumi.InvokeOption) LookupAddonResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupAddonResult, error) {
+			args := v.(LookupAddonArgs)
+			r, err := LookupAddon(ctx, &args, opts...)
+			return *r, err
+		}).(LookupAddonResultOutput)
+}
+
+type LookupAddonOutputArgs struct {
+	// Name of the addon for the private cloud
+	AddonName pulumi.StringInput `pulumi:"addonName"`
+	// Name of the private cloud
+	PrivateCloudName pulumi.StringInput `pulumi:"privateCloudName"`
+	// The name of the resource group. The name is case insensitive.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupAddonOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupAddonArgs)(nil)).Elem()
+}
+
+// An addon resource
+type LookupAddonResultOutput struct{ *pulumi.OutputState }
+
+func (LookupAddonResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupAddonResult)(nil)).Elem()
+}
+
+func (o LookupAddonResultOutput) ToLookupAddonResultOutput() LookupAddonResultOutput {
+	return o
+}
+
+func (o LookupAddonResultOutput) ToLookupAddonResultOutputWithContext(ctx context.Context) LookupAddonResultOutput {
+	return o
+}
+
+// Resource ID.
+func (o LookupAddonResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAddonResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o LookupAddonResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAddonResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The properties of an addon resource
+func (o LookupAddonResultOutput) Properties() pulumi.AnyOutput {
+	return o.ApplyT(func(v LookupAddonResult) interface{} { return v.Properties }).(pulumi.AnyOutput)
+}
+
+// Resource type.
+func (o LookupAddonResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAddonResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupAddonResultOutput{})
 }

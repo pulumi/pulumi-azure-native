@@ -4,6 +4,9 @@
 package v20210301
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -38,4 +41,73 @@ type LookupCloudServiceResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.
 	Type string `pulumi:"type"`
+}
+
+func LookupCloudServiceOutput(ctx *pulumi.Context, args LookupCloudServiceOutputArgs, opts ...pulumi.InvokeOption) LookupCloudServiceResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupCloudServiceResult, error) {
+			args := v.(LookupCloudServiceArgs)
+			r, err := LookupCloudService(ctx, &args, opts...)
+			return *r, err
+		}).(LookupCloudServiceResultOutput)
+}
+
+type LookupCloudServiceOutputArgs struct {
+	// Name of the cloud service.
+	CloudServiceName pulumi.StringInput `pulumi:"cloudServiceName"`
+	// Name of the resource group.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupCloudServiceOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupCloudServiceArgs)(nil)).Elem()
+}
+
+// Describes the cloud service.
+type LookupCloudServiceResultOutput struct{ *pulumi.OutputState }
+
+func (LookupCloudServiceResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupCloudServiceResult)(nil)).Elem()
+}
+
+func (o LookupCloudServiceResultOutput) ToLookupCloudServiceResultOutput() LookupCloudServiceResultOutput {
+	return o
+}
+
+func (o LookupCloudServiceResultOutput) ToLookupCloudServiceResultOutputWithContext(ctx context.Context) LookupCloudServiceResultOutput {
+	return o
+}
+
+// Resource Id.
+func (o LookupCloudServiceResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCloudServiceResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Resource location.
+func (o LookupCloudServiceResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCloudServiceResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o LookupCloudServiceResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCloudServiceResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Cloud service properties
+func (o LookupCloudServiceResultOutput) Properties() CloudServicePropertiesResponseOutput {
+	return o.ApplyT(func(v LookupCloudServiceResult) CloudServicePropertiesResponse { return v.Properties }).(CloudServicePropertiesResponseOutput)
+}
+
+// Resource tags.
+func (o LookupCloudServiceResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupCloudServiceResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type.
+func (o LookupCloudServiceResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCloudServiceResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupCloudServiceResultOutput{})
 }

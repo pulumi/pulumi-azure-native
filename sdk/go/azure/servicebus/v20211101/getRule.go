@@ -4,6 +4,9 @@
 package v20211101
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -65,4 +68,94 @@ func (val *LookupRuleResult) Defaults() *LookupRuleResult {
 	tmp.SqlFilter = tmp.SqlFilter.Defaults()
 
 	return &tmp
+}
+
+func LookupRuleOutput(ctx *pulumi.Context, args LookupRuleOutputArgs, opts ...pulumi.InvokeOption) LookupRuleResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupRuleResult, error) {
+			args := v.(LookupRuleArgs)
+			r, err := LookupRule(ctx, &args, opts...)
+			return *r, err
+		}).(LookupRuleResultOutput)
+}
+
+type LookupRuleOutputArgs struct {
+	// The namespace name
+	NamespaceName pulumi.StringInput `pulumi:"namespaceName"`
+	// Name of the Resource group within the Azure subscription.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The rule name.
+	RuleName pulumi.StringInput `pulumi:"ruleName"`
+	// The subscription name.
+	SubscriptionName pulumi.StringInput `pulumi:"subscriptionName"`
+	// The topic name.
+	TopicName pulumi.StringInput `pulumi:"topicName"`
+}
+
+func (LookupRuleOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupRuleArgs)(nil)).Elem()
+}
+
+// Description of Rule Resource.
+type LookupRuleResultOutput struct{ *pulumi.OutputState }
+
+func (LookupRuleResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupRuleResult)(nil)).Elem()
+}
+
+func (o LookupRuleResultOutput) ToLookupRuleResultOutput() LookupRuleResultOutput {
+	return o
+}
+
+func (o LookupRuleResultOutput) ToLookupRuleResultOutputWithContext(ctx context.Context) LookupRuleResultOutput {
+	return o
+}
+
+// Represents the filter actions which are allowed for the transformation of a message that have been matched by a filter expression.
+func (o LookupRuleResultOutput) Action() ActionResponsePtrOutput {
+	return o.ApplyT(func(v LookupRuleResult) *ActionResponse { return v.Action }).(ActionResponsePtrOutput)
+}
+
+// Properties of correlationFilter
+func (o LookupRuleResultOutput) CorrelationFilter() CorrelationFilterResponsePtrOutput {
+	return o.ApplyT(func(v LookupRuleResult) *CorrelationFilterResponse { return v.CorrelationFilter }).(CorrelationFilterResponsePtrOutput)
+}
+
+// Filter type that is evaluated against a BrokeredMessage.
+func (o LookupRuleResultOutput) FilterType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupRuleResult) *string { return v.FilterType }).(pulumi.StringPtrOutput)
+}
+
+// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+func (o LookupRuleResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRuleResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The geo-location where the resource lives
+func (o LookupRuleResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRuleResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o LookupRuleResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRuleResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Properties of sqlFilter
+func (o LookupRuleResultOutput) SqlFilter() SqlFilterResponsePtrOutput {
+	return o.ApplyT(func(v LookupRuleResult) *SqlFilterResponse { return v.SqlFilter }).(SqlFilterResponsePtrOutput)
+}
+
+// The system meta data relating to this resource.
+func (o LookupRuleResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupRuleResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs"
+func (o LookupRuleResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRuleResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupRuleResultOutput{})
 }

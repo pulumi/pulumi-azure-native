@@ -4,6 +4,9 @@
 package v20210115preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -26,4 +29,46 @@ type ListIngestionSettingTokensArgs struct {
 type ListIngestionSettingTokensResult struct {
 	// The token is used for correlating security data and logs with the resources in the subscription.
 	Token string `pulumi:"token"`
+}
+
+func ListIngestionSettingTokensOutput(ctx *pulumi.Context, args ListIngestionSettingTokensOutputArgs, opts ...pulumi.InvokeOption) ListIngestionSettingTokensResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (ListIngestionSettingTokensResult, error) {
+			args := v.(ListIngestionSettingTokensArgs)
+			r, err := ListIngestionSettingTokens(ctx, &args, opts...)
+			return *r, err
+		}).(ListIngestionSettingTokensResultOutput)
+}
+
+type ListIngestionSettingTokensOutputArgs struct {
+	// Name of the ingestion setting
+	IngestionSettingName pulumi.StringInput `pulumi:"ingestionSettingName"`
+}
+
+func (ListIngestionSettingTokensOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListIngestionSettingTokensArgs)(nil)).Elem()
+}
+
+// Configures how to correlate scan data and logs with resources associated with the subscription.
+type ListIngestionSettingTokensResultOutput struct{ *pulumi.OutputState }
+
+func (ListIngestionSettingTokensResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListIngestionSettingTokensResult)(nil)).Elem()
+}
+
+func (o ListIngestionSettingTokensResultOutput) ToListIngestionSettingTokensResultOutput() ListIngestionSettingTokensResultOutput {
+	return o
+}
+
+func (o ListIngestionSettingTokensResultOutput) ToListIngestionSettingTokensResultOutputWithContext(ctx context.Context) ListIngestionSettingTokensResultOutput {
+	return o
+}
+
+// The token is used for correlating security data and logs with the resources in the subscription.
+func (o ListIngestionSettingTokensResultOutput) Token() pulumi.StringOutput {
+	return o.ApplyT(func(v ListIngestionSettingTokensResult) string { return v.Token }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(ListIngestionSettingTokensResultOutput{})
 }

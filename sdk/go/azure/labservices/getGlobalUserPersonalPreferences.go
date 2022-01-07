@@ -4,6 +4,9 @@
 package labservices
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -35,4 +38,57 @@ type GetGlobalUserPersonalPreferencesResult struct {
 	FavoriteLabResourceIds []string `pulumi:"favoriteLabResourceIds"`
 	// Id to be used by the cache orchestrator
 	Id *string `pulumi:"id"`
+}
+
+func GetGlobalUserPersonalPreferencesOutput(ctx *pulumi.Context, args GetGlobalUserPersonalPreferencesOutputArgs, opts ...pulumi.InvokeOption) GetGlobalUserPersonalPreferencesResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetGlobalUserPersonalPreferencesResult, error) {
+			args := v.(GetGlobalUserPersonalPreferencesArgs)
+			r, err := GetGlobalUserPersonalPreferences(ctx, &args, opts...)
+			return *r, err
+		}).(GetGlobalUserPersonalPreferencesResultOutput)
+}
+
+type GetGlobalUserPersonalPreferencesOutputArgs struct {
+	// Enum indicating if user is adding or removing a favorite lab
+	AddRemove pulumi.StringPtrInput `pulumi:"addRemove"`
+	// Resource Id of the lab account
+	LabAccountResourceId pulumi.StringPtrInput `pulumi:"labAccountResourceId"`
+	// Resource Id of the lab to add/remove from the favorites list
+	LabResourceId pulumi.StringPtrInput `pulumi:"labResourceId"`
+	// The name of the user.
+	UserName pulumi.StringInput `pulumi:"userName"`
+}
+
+func (GetGlobalUserPersonalPreferencesOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetGlobalUserPersonalPreferencesArgs)(nil)).Elem()
+}
+
+// Represents the PersonalPreferences for the user
+type GetGlobalUserPersonalPreferencesResultOutput struct{ *pulumi.OutputState }
+
+func (GetGlobalUserPersonalPreferencesResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetGlobalUserPersonalPreferencesResult)(nil)).Elem()
+}
+
+func (o GetGlobalUserPersonalPreferencesResultOutput) ToGetGlobalUserPersonalPreferencesResultOutput() GetGlobalUserPersonalPreferencesResultOutput {
+	return o
+}
+
+func (o GetGlobalUserPersonalPreferencesResultOutput) ToGetGlobalUserPersonalPreferencesResultOutputWithContext(ctx context.Context) GetGlobalUserPersonalPreferencesResultOutput {
+	return o
+}
+
+// Array of favorite lab resource ids
+func (o GetGlobalUserPersonalPreferencesResultOutput) FavoriteLabResourceIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetGlobalUserPersonalPreferencesResult) []string { return v.FavoriteLabResourceIds }).(pulumi.StringArrayOutput)
+}
+
+// Id to be used by the cache orchestrator
+func (o GetGlobalUserPersonalPreferencesResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetGlobalUserPersonalPreferencesResult) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetGlobalUserPersonalPreferencesResultOutput{})
 }

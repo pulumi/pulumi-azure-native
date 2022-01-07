@@ -4,6 +4,9 @@
 package v20180122
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -42,4 +45,83 @@ type LookupIotHubResourceResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// The resource type.
 	Type string `pulumi:"type"`
+}
+
+func LookupIotHubResourceOutput(ctx *pulumi.Context, args LookupIotHubResourceOutputArgs, opts ...pulumi.InvokeOption) LookupIotHubResourceResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupIotHubResourceResult, error) {
+			args := v.(LookupIotHubResourceArgs)
+			r, err := LookupIotHubResource(ctx, &args, opts...)
+			return *r, err
+		}).(LookupIotHubResourceResultOutput)
+}
+
+type LookupIotHubResourceOutputArgs struct {
+	// The name of the resource group that contains the IoT hub.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the IoT hub.
+	ResourceName pulumi.StringInput `pulumi:"resourceName"`
+}
+
+func (LookupIotHubResourceOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupIotHubResourceArgs)(nil)).Elem()
+}
+
+// The description of the IoT hub.
+type LookupIotHubResourceResultOutput struct{ *pulumi.OutputState }
+
+func (LookupIotHubResourceResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupIotHubResourceResult)(nil)).Elem()
+}
+
+func (o LookupIotHubResourceResultOutput) ToLookupIotHubResourceResultOutput() LookupIotHubResourceResultOutput {
+	return o
+}
+
+func (o LookupIotHubResourceResultOutput) ToLookupIotHubResourceResultOutputWithContext(ctx context.Context) LookupIotHubResourceResultOutput {
+	return o
+}
+
+// The Etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal ETag convention.
+func (o LookupIotHubResourceResultOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupIotHubResourceResult) *string { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// The resource identifier.
+func (o LookupIotHubResourceResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupIotHubResourceResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The resource location.
+func (o LookupIotHubResourceResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupIotHubResourceResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// The resource name.
+func (o LookupIotHubResourceResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupIotHubResourceResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The properties of an IoT hub.
+func (o LookupIotHubResourceResultOutput) Properties() IotHubPropertiesResponseOutput {
+	return o.ApplyT(func(v LookupIotHubResourceResult) IotHubPropertiesResponse { return v.Properties }).(IotHubPropertiesResponseOutput)
+}
+
+// Information about the SKU of the IoT hub.
+func (o LookupIotHubResourceResultOutput) Sku() IotHubSkuInfoResponseOutput {
+	return o.ApplyT(func(v LookupIotHubResourceResult) IotHubSkuInfoResponse { return v.Sku }).(IotHubSkuInfoResponseOutput)
+}
+
+// The resource tags.
+func (o LookupIotHubResourceResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupIotHubResourceResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The resource type.
+func (o LookupIotHubResourceResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupIotHubResourceResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupIotHubResourceResultOutput{})
 }

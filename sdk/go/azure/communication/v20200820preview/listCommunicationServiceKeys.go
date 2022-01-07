@@ -4,6 +4,9 @@
 package v20200820preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -34,4 +37,63 @@ type ListCommunicationServiceKeysResult struct {
 	SecondaryConnectionString *string `pulumi:"secondaryConnectionString"`
 	// The secondary access key.
 	SecondaryKey *string `pulumi:"secondaryKey"`
+}
+
+func ListCommunicationServiceKeysOutput(ctx *pulumi.Context, args ListCommunicationServiceKeysOutputArgs, opts ...pulumi.InvokeOption) ListCommunicationServiceKeysResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (ListCommunicationServiceKeysResult, error) {
+			args := v.(ListCommunicationServiceKeysArgs)
+			r, err := ListCommunicationServiceKeys(ctx, &args, opts...)
+			return *r, err
+		}).(ListCommunicationServiceKeysResultOutput)
+}
+
+type ListCommunicationServiceKeysOutputArgs struct {
+	// The name of the CommunicationService resource.
+	CommunicationServiceName pulumi.StringInput `pulumi:"communicationServiceName"`
+	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (ListCommunicationServiceKeysOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListCommunicationServiceKeysArgs)(nil)).Elem()
+}
+
+// A class representing the access keys of a CommunicationService.
+type ListCommunicationServiceKeysResultOutput struct{ *pulumi.OutputState }
+
+func (ListCommunicationServiceKeysResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListCommunicationServiceKeysResult)(nil)).Elem()
+}
+
+func (o ListCommunicationServiceKeysResultOutput) ToListCommunicationServiceKeysResultOutput() ListCommunicationServiceKeysResultOutput {
+	return o
+}
+
+func (o ListCommunicationServiceKeysResultOutput) ToListCommunicationServiceKeysResultOutputWithContext(ctx context.Context) ListCommunicationServiceKeysResultOutput {
+	return o
+}
+
+// CommunicationService connection string constructed via the primaryKey
+func (o ListCommunicationServiceKeysResultOutput) PrimaryConnectionString() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListCommunicationServiceKeysResult) *string { return v.PrimaryConnectionString }).(pulumi.StringPtrOutput)
+}
+
+// The primary access key.
+func (o ListCommunicationServiceKeysResultOutput) PrimaryKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListCommunicationServiceKeysResult) *string { return v.PrimaryKey }).(pulumi.StringPtrOutput)
+}
+
+// CommunicationService connection string constructed via the secondaryKey
+func (o ListCommunicationServiceKeysResultOutput) SecondaryConnectionString() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListCommunicationServiceKeysResult) *string { return v.SecondaryConnectionString }).(pulumi.StringPtrOutput)
+}
+
+// The secondary access key.
+func (o ListCommunicationServiceKeysResultOutput) SecondaryKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListCommunicationServiceKeysResult) *string { return v.SecondaryKey }).(pulumi.StringPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(ListCommunicationServiceKeysResultOutput{})
 }

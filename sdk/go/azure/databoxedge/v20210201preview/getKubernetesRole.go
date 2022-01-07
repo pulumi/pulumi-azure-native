@@ -4,6 +4,9 @@
 package v20210201preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -51,4 +54,101 @@ type LookupKubernetesRoleResult struct {
 	SystemData SystemDataResponse `pulumi:"systemData"`
 	// The hierarchical type of the object.
 	Type string `pulumi:"type"`
+}
+
+func LookupKubernetesRoleOutput(ctx *pulumi.Context, args LookupKubernetesRoleOutputArgs, opts ...pulumi.InvokeOption) LookupKubernetesRoleResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupKubernetesRoleResult, error) {
+			args := v.(LookupKubernetesRoleArgs)
+			r, err := LookupKubernetesRole(ctx, &args, opts...)
+			return *r, err
+		}).(LookupKubernetesRoleResultOutput)
+}
+
+type LookupKubernetesRoleOutputArgs struct {
+	// The device name.
+	DeviceName pulumi.StringInput `pulumi:"deviceName"`
+	// The role name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The resource group name.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupKubernetesRoleOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupKubernetesRoleArgs)(nil)).Elem()
+}
+
+// Kubernetes role.
+type LookupKubernetesRoleResultOutput struct{ *pulumi.OutputState }
+
+func (LookupKubernetesRoleResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupKubernetesRoleResult)(nil)).Elem()
+}
+
+func (o LookupKubernetesRoleResultOutput) ToLookupKubernetesRoleResultOutput() LookupKubernetesRoleResultOutput {
+	return o
+}
+
+func (o LookupKubernetesRoleResultOutput) ToLookupKubernetesRoleResultOutputWithContext(ctx context.Context) LookupKubernetesRoleResultOutput {
+	return o
+}
+
+// Host OS supported by the Kubernetes role.
+func (o LookupKubernetesRoleResultOutput) HostPlatform() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupKubernetesRoleResult) string { return v.HostPlatform }).(pulumi.StringOutput)
+}
+
+// Platform where the runtime is hosted.
+func (o LookupKubernetesRoleResultOutput) HostPlatformType() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupKubernetesRoleResult) string { return v.HostPlatformType }).(pulumi.StringOutput)
+}
+
+// The path ID that uniquely identifies the object.
+func (o LookupKubernetesRoleResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupKubernetesRoleResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Role type.
+// Expected value is 'Kubernetes'.
+func (o LookupKubernetesRoleResultOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupKubernetesRoleResult) string { return v.Kind }).(pulumi.StringOutput)
+}
+
+// Kubernetes cluster configuration
+func (o LookupKubernetesRoleResultOutput) KubernetesClusterInfo() KubernetesClusterInfoResponseOutput {
+	return o.ApplyT(func(v LookupKubernetesRoleResult) KubernetesClusterInfoResponse { return v.KubernetesClusterInfo }).(KubernetesClusterInfoResponseOutput)
+}
+
+// Kubernetes role resources
+func (o LookupKubernetesRoleResultOutput) KubernetesRoleResources() KubernetesRoleResourcesResponseOutput {
+	return o.ApplyT(func(v LookupKubernetesRoleResult) KubernetesRoleResourcesResponse { return v.KubernetesRoleResources }).(KubernetesRoleResourcesResponseOutput)
+}
+
+// The object name.
+func (o LookupKubernetesRoleResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupKubernetesRoleResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// State of Kubernetes deployment
+func (o LookupKubernetesRoleResultOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupKubernetesRoleResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Role status.
+func (o LookupKubernetesRoleResultOutput) RoleStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupKubernetesRoleResult) string { return v.RoleStatus }).(pulumi.StringOutput)
+}
+
+// Role configured on ASE resource
+func (o LookupKubernetesRoleResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupKubernetesRoleResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The hierarchical type of the object.
+func (o LookupKubernetesRoleResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupKubernetesRoleResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupKubernetesRoleResultOutput{})
 }

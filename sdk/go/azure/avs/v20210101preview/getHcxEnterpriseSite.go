@@ -4,6 +4,9 @@
 package v20210101preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -38,4 +41,70 @@ type LookupHcxEnterpriseSiteResult struct {
 	Status string `pulumi:"status"`
 	// Resource type.
 	Type string `pulumi:"type"`
+}
+
+func LookupHcxEnterpriseSiteOutput(ctx *pulumi.Context, args LookupHcxEnterpriseSiteOutputArgs, opts ...pulumi.InvokeOption) LookupHcxEnterpriseSiteResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupHcxEnterpriseSiteResult, error) {
+			args := v.(LookupHcxEnterpriseSiteArgs)
+			r, err := LookupHcxEnterpriseSite(ctx, &args, opts...)
+			return *r, err
+		}).(LookupHcxEnterpriseSiteResultOutput)
+}
+
+type LookupHcxEnterpriseSiteOutputArgs struct {
+	// Name of the HCX Enterprise Site in the private cloud
+	HcxEnterpriseSiteName pulumi.StringInput `pulumi:"hcxEnterpriseSiteName"`
+	// Name of the private cloud
+	PrivateCloudName pulumi.StringInput `pulumi:"privateCloudName"`
+	// The name of the resource group. The name is case insensitive.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupHcxEnterpriseSiteOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupHcxEnterpriseSiteArgs)(nil)).Elem()
+}
+
+// An HCX Enterprise Site resource
+type LookupHcxEnterpriseSiteResultOutput struct{ *pulumi.OutputState }
+
+func (LookupHcxEnterpriseSiteResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupHcxEnterpriseSiteResult)(nil)).Elem()
+}
+
+func (o LookupHcxEnterpriseSiteResultOutput) ToLookupHcxEnterpriseSiteResultOutput() LookupHcxEnterpriseSiteResultOutput {
+	return o
+}
+
+func (o LookupHcxEnterpriseSiteResultOutput) ToLookupHcxEnterpriseSiteResultOutputWithContext(ctx context.Context) LookupHcxEnterpriseSiteResultOutput {
+	return o
+}
+
+// The activation key
+func (o LookupHcxEnterpriseSiteResultOutput) ActivationKey() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupHcxEnterpriseSiteResult) string { return v.ActivationKey }).(pulumi.StringOutput)
+}
+
+// Resource ID.
+func (o LookupHcxEnterpriseSiteResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupHcxEnterpriseSiteResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o LookupHcxEnterpriseSiteResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupHcxEnterpriseSiteResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The status of the HCX Enterprise Site
+func (o LookupHcxEnterpriseSiteResultOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupHcxEnterpriseSiteResult) string { return v.Status }).(pulumi.StringOutput)
+}
+
+// Resource type.
+func (o LookupHcxEnterpriseSiteResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupHcxEnterpriseSiteResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupHcxEnterpriseSiteResultOutput{})
 }

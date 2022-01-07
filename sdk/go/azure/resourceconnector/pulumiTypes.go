@@ -18,6 +18,51 @@ type ApplianceCredentialKubeconfigResponse struct {
 	Value string `pulumi:"value"`
 }
 
+// Cluster User Credential appliance.
+type ApplianceCredentialKubeconfigResponseOutput struct{ *pulumi.OutputState }
+
+func (ApplianceCredentialKubeconfigResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplianceCredentialKubeconfigResponse)(nil)).Elem()
+}
+
+func (o ApplianceCredentialKubeconfigResponseOutput) ToApplianceCredentialKubeconfigResponseOutput() ApplianceCredentialKubeconfigResponseOutput {
+	return o
+}
+
+func (o ApplianceCredentialKubeconfigResponseOutput) ToApplianceCredentialKubeconfigResponseOutputWithContext(ctx context.Context) ApplianceCredentialKubeconfigResponseOutput {
+	return o
+}
+
+// Name which contains the role of the kubeconfig.
+func (o ApplianceCredentialKubeconfigResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplianceCredentialKubeconfigResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Contains the kubeconfig value.
+func (o ApplianceCredentialKubeconfigResponseOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplianceCredentialKubeconfigResponse) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type ApplianceCredentialKubeconfigResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ApplianceCredentialKubeconfigResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApplianceCredentialKubeconfigResponse)(nil)).Elem()
+}
+
+func (o ApplianceCredentialKubeconfigResponseArrayOutput) ToApplianceCredentialKubeconfigResponseArrayOutput() ApplianceCredentialKubeconfigResponseArrayOutput {
+	return o
+}
+
+func (o ApplianceCredentialKubeconfigResponseArrayOutput) ToApplianceCredentialKubeconfigResponseArrayOutputWithContext(ctx context.Context) ApplianceCredentialKubeconfigResponseArrayOutput {
+	return o
+}
+
+func (o ApplianceCredentialKubeconfigResponseArrayOutput) Index(i pulumi.IntInput) ApplianceCredentialKubeconfigResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApplianceCredentialKubeconfigResponse {
+		return vs[0].([]ApplianceCredentialKubeconfigResponse)[vs[1].(int)]
+	}).(ApplianceCredentialKubeconfigResponseOutput)
+}
+
 // Contains infrastructure information about the Appliance
 type AppliancePropertiesInfrastructureConfig struct {
 	// Information about the connected appliance.
@@ -228,6 +273,41 @@ type HybridConnectionConfigResponse struct {
 	Relay string `pulumi:"relay"`
 	// Listener access token
 	Token string `pulumi:"token"`
+}
+
+// Contains the REP (rendezvous endpoint) and “Listener” access token from notification service (NS).
+type HybridConnectionConfigResponseOutput struct{ *pulumi.OutputState }
+
+func (HybridConnectionConfigResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HybridConnectionConfigResponse)(nil)).Elem()
+}
+
+func (o HybridConnectionConfigResponseOutput) ToHybridConnectionConfigResponseOutput() HybridConnectionConfigResponseOutput {
+	return o
+}
+
+func (o HybridConnectionConfigResponseOutput) ToHybridConnectionConfigResponseOutputWithContext(ctx context.Context) HybridConnectionConfigResponseOutput {
+	return o
+}
+
+// Timestamp when this token will be expired.
+func (o HybridConnectionConfigResponseOutput) ExpirationTime() pulumi.Float64Output {
+	return o.ApplyT(func(v HybridConnectionConfigResponse) float64 { return v.ExpirationTime }).(pulumi.Float64Output)
+}
+
+// Name of the connection
+func (o HybridConnectionConfigResponseOutput) HybridConnectionName() pulumi.StringOutput {
+	return o.ApplyT(func(v HybridConnectionConfigResponse) string { return v.HybridConnectionName }).(pulumi.StringOutput)
+}
+
+// Name of the notification service.
+func (o HybridConnectionConfigResponseOutput) Relay() pulumi.StringOutput {
+	return o.ApplyT(func(v HybridConnectionConfigResponse) string { return v.Relay }).(pulumi.StringOutput)
+}
+
+// Listener access token
+func (o HybridConnectionConfigResponseOutput) Token() pulumi.StringOutput {
+	return o.ApplyT(func(v HybridConnectionConfigResponse) string { return v.Token }).(pulumi.StringOutput)
 }
 
 // Identity for the resource.
@@ -526,10 +606,13 @@ func (o SystemDataResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
 }
 
 func init() {
+	pulumi.RegisterOutputType(ApplianceCredentialKubeconfigResponseOutput{})
+	pulumi.RegisterOutputType(ApplianceCredentialKubeconfigResponseArrayOutput{})
 	pulumi.RegisterOutputType(AppliancePropertiesInfrastructureConfigOutput{})
 	pulumi.RegisterOutputType(AppliancePropertiesInfrastructureConfigPtrOutput{})
 	pulumi.RegisterOutputType(AppliancePropertiesResponseInfrastructureConfigOutput{})
 	pulumi.RegisterOutputType(AppliancePropertiesResponseInfrastructureConfigPtrOutput{})
+	pulumi.RegisterOutputType(HybridConnectionConfigResponseOutput{})
 	pulumi.RegisterOutputType(IdentityOutput{})
 	pulumi.RegisterOutputType(IdentityPtrOutput{})
 	pulumi.RegisterOutputType(IdentityResponseOutput{})

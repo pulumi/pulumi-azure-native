@@ -4,6 +4,9 @@
 package containerregistry
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -62,4 +65,96 @@ func (val *LookupTaskRunResult) Defaults() *LookupTaskRunResult {
 	tmp.RunResult = *tmp.RunResult.Defaults()
 
 	return &tmp
+}
+
+func LookupTaskRunOutput(ctx *pulumi.Context, args LookupTaskRunOutputArgs, opts ...pulumi.InvokeOption) LookupTaskRunResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupTaskRunResult, error) {
+			args := v.(LookupTaskRunArgs)
+			r, err := LookupTaskRun(ctx, &args, opts...)
+			return *r, err
+		}).(LookupTaskRunResultOutput)
+}
+
+type LookupTaskRunOutputArgs struct {
+	// The name of the container registry.
+	RegistryName pulumi.StringInput `pulumi:"registryName"`
+	// The name of the resource group to which the container registry belongs.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the task run.
+	TaskRunName pulumi.StringInput `pulumi:"taskRunName"`
+}
+
+func (LookupTaskRunOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupTaskRunArgs)(nil)).Elem()
+}
+
+// The task run that has the ARM resource and properties.
+// The task run will have the information of request and result of a run.
+type LookupTaskRunResultOutput struct{ *pulumi.OutputState }
+
+func (LookupTaskRunResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupTaskRunResult)(nil)).Elem()
+}
+
+func (o LookupTaskRunResultOutput) ToLookupTaskRunResultOutput() LookupTaskRunResultOutput {
+	return o
+}
+
+func (o LookupTaskRunResultOutput) ToLookupTaskRunResultOutputWithContext(ctx context.Context) LookupTaskRunResultOutput {
+	return o
+}
+
+// How the run should be forced to rerun even if the run request configuration has not changed
+func (o LookupTaskRunResultOutput) ForceUpdateTag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupTaskRunResult) *string { return v.ForceUpdateTag }).(pulumi.StringPtrOutput)
+}
+
+// The resource ID.
+func (o LookupTaskRunResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTaskRunResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Identity for the resource.
+func (o LookupTaskRunResultOutput) Identity() IdentityPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v LookupTaskRunResult) *IdentityPropertiesResponse { return v.Identity }).(IdentityPropertiesResponsePtrOutput)
+}
+
+// The location of the resource
+func (o LookupTaskRunResultOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupTaskRunResult) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource.
+func (o LookupTaskRunResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTaskRunResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The provisioning state of this task run
+func (o LookupTaskRunResultOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTaskRunResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The request (parameters) for the run
+func (o LookupTaskRunResultOutput) RunRequest() pulumi.AnyOutput {
+	return o.ApplyT(func(v LookupTaskRunResult) interface{} { return v.RunRequest }).(pulumi.AnyOutput)
+}
+
+// The result of this task run
+func (o LookupTaskRunResultOutput) RunResult() RunResponseOutput {
+	return o.ApplyT(func(v LookupTaskRunResult) RunResponse { return v.RunResult }).(RunResponseOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o LookupTaskRunResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupTaskRunResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the resource.
+func (o LookupTaskRunResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTaskRunResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupTaskRunResultOutput{})
 }

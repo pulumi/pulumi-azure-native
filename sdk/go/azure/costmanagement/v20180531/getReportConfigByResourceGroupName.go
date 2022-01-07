@@ -4,6 +4,9 @@
 package v20180531
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -42,4 +45,87 @@ type LookupReportConfigByResourceGroupNameResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.
 	Type string `pulumi:"type"`
+}
+
+func LookupReportConfigByResourceGroupNameOutput(ctx *pulumi.Context, args LookupReportConfigByResourceGroupNameOutputArgs, opts ...pulumi.InvokeOption) LookupReportConfigByResourceGroupNameResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupReportConfigByResourceGroupNameResult, error) {
+			args := v.(LookupReportConfigByResourceGroupNameArgs)
+			r, err := LookupReportConfigByResourceGroupName(ctx, &args, opts...)
+			return *r, err
+		}).(LookupReportConfigByResourceGroupNameResultOutput)
+}
+
+type LookupReportConfigByResourceGroupNameOutputArgs struct {
+	// Report Config Name.
+	ReportConfigName pulumi.StringInput `pulumi:"reportConfigName"`
+	// Azure Resource Group Name.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupReportConfigByResourceGroupNameOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupReportConfigByResourceGroupNameArgs)(nil)).Elem()
+}
+
+// A report config resource.
+type LookupReportConfigByResourceGroupNameResultOutput struct{ *pulumi.OutputState }
+
+func (LookupReportConfigByResourceGroupNameResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupReportConfigByResourceGroupNameResult)(nil)).Elem()
+}
+
+func (o LookupReportConfigByResourceGroupNameResultOutput) ToLookupReportConfigByResourceGroupNameResultOutput() LookupReportConfigByResourceGroupNameResultOutput {
+	return o
+}
+
+func (o LookupReportConfigByResourceGroupNameResultOutput) ToLookupReportConfigByResourceGroupNameResultOutputWithContext(ctx context.Context) LookupReportConfigByResourceGroupNameResultOutput {
+	return o
+}
+
+// Has definition for the report config.
+func (o LookupReportConfigByResourceGroupNameResultOutput) Definition() ReportConfigDefinitionResponseOutput {
+	return o.ApplyT(func(v LookupReportConfigByResourceGroupNameResult) ReportConfigDefinitionResponse {
+		return v.Definition
+	}).(ReportConfigDefinitionResponseOutput)
+}
+
+// Has delivery information for the report config.
+func (o LookupReportConfigByResourceGroupNameResultOutput) DeliveryInfo() ReportConfigDeliveryInfoResponseOutput {
+	return o.ApplyT(func(v LookupReportConfigByResourceGroupNameResult) ReportConfigDeliveryInfoResponse {
+		return v.DeliveryInfo
+	}).(ReportConfigDeliveryInfoResponseOutput)
+}
+
+// The format of the report being delivered.
+func (o LookupReportConfigByResourceGroupNameResultOutput) Format() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupReportConfigByResourceGroupNameResult) *string { return v.Format }).(pulumi.StringPtrOutput)
+}
+
+// Resource Id.
+func (o LookupReportConfigByResourceGroupNameResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupReportConfigByResourceGroupNameResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o LookupReportConfigByResourceGroupNameResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupReportConfigByResourceGroupNameResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Has schedule information for the report config.
+func (o LookupReportConfigByResourceGroupNameResultOutput) Schedule() ReportConfigScheduleResponsePtrOutput {
+	return o.ApplyT(func(v LookupReportConfigByResourceGroupNameResult) *ReportConfigScheduleResponse { return v.Schedule }).(ReportConfigScheduleResponsePtrOutput)
+}
+
+// Resource tags.
+func (o LookupReportConfigByResourceGroupNameResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupReportConfigByResourceGroupNameResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type.
+func (o LookupReportConfigByResourceGroupNameResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupReportConfigByResourceGroupNameResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupReportConfigByResourceGroupNameResultOutput{})
 }

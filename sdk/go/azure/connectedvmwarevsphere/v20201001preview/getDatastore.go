@@ -4,6 +4,9 @@
 package v20201001preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -58,4 +61,123 @@ type LookupDatastoreResult struct {
 	Uuid string `pulumi:"uuid"`
 	// Gets or sets the ARM Id of the vCenter resource in which this datastore resides.
 	VCenterId *string `pulumi:"vCenterId"`
+}
+
+func LookupDatastoreOutput(ctx *pulumi.Context, args LookupDatastoreOutputArgs, opts ...pulumi.InvokeOption) LookupDatastoreResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupDatastoreResult, error) {
+			args := v.(LookupDatastoreArgs)
+			r, err := LookupDatastore(ctx, &args, opts...)
+			return *r, err
+		}).(LookupDatastoreResultOutput)
+}
+
+type LookupDatastoreOutputArgs struct {
+	// Name of the datastore.
+	DatastoreName pulumi.StringInput `pulumi:"datastoreName"`
+	// The Resource Group Name.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupDatastoreOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupDatastoreArgs)(nil)).Elem()
+}
+
+// Define the datastore.
+type LookupDatastoreResultOutput struct{ *pulumi.OutputState }
+
+func (LookupDatastoreResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupDatastoreResult)(nil)).Elem()
+}
+
+func (o LookupDatastoreResultOutput) ToLookupDatastoreResultOutput() LookupDatastoreResultOutput {
+	return o
+}
+
+func (o LookupDatastoreResultOutput) ToLookupDatastoreResultOutputWithContext(ctx context.Context) LookupDatastoreResultOutput {
+	return o
+}
+
+// Gets the name of the corresponding resource in Kubernetes.
+func (o LookupDatastoreResultOutput) CustomResourceName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDatastoreResult) string { return v.CustomResourceName }).(pulumi.StringOutput)
+}
+
+// Gets or sets the extended location.
+func (o LookupDatastoreResultOutput) ExtendedLocation() ExtendedLocationResponsePtrOutput {
+	return o.ApplyT(func(v LookupDatastoreResult) *ExtendedLocationResponse { return v.ExtendedLocation }).(ExtendedLocationResponsePtrOutput)
+}
+
+// Gets or sets the Id.
+func (o LookupDatastoreResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDatastoreResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Gets or sets the inventory Item ID for the datastore.
+func (o LookupDatastoreResultOutput) InventoryItemId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDatastoreResult) *string { return v.InventoryItemId }).(pulumi.StringPtrOutput)
+}
+
+// Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
+func (o LookupDatastoreResultOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDatastoreResult) *string { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the location.
+func (o LookupDatastoreResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDatastoreResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// Gets or sets the vCenter Managed Object name for the datastore.
+func (o LookupDatastoreResultOutput) MoName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDatastoreResult) string { return v.MoName }).(pulumi.StringOutput)
+}
+
+// Gets or sets the vCenter MoRef (Managed Object Reference) ID for the datastore.
+func (o LookupDatastoreResultOutput) MoRefId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDatastoreResult) *string { return v.MoRefId }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the name.
+func (o LookupDatastoreResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDatastoreResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Provisioning state of the resource.
+func (o LookupDatastoreResultOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDatastoreResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The resource status information.
+func (o LookupDatastoreResultOutput) Statuses() ResourceStatusResponseArrayOutput {
+	return o.ApplyT(func(v LookupDatastoreResult) []ResourceStatusResponse { return v.Statuses }).(ResourceStatusResponseArrayOutput)
+}
+
+// The system data.
+func (o LookupDatastoreResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupDatastoreResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Gets or sets the Resource tags.
+func (o LookupDatastoreResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupDatastoreResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Gets or sets the type of the resource.
+func (o LookupDatastoreResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDatastoreResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Gets or sets a unique identifier for this resource.
+func (o LookupDatastoreResultOutput) Uuid() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDatastoreResult) string { return v.Uuid }).(pulumi.StringOutput)
+}
+
+// Gets or sets the ARM Id of the vCenter resource in which this datastore resides.
+func (o LookupDatastoreResultOutput) VCenterId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDatastoreResult) *string { return v.VCenterId }).(pulumi.StringPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupDatastoreResultOutput{})
 }

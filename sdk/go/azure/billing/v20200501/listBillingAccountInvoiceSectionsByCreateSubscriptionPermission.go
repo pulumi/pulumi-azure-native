@@ -4,6 +4,9 @@
 package v20200501
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -28,4 +31,55 @@ type ListBillingAccountInvoiceSectionsByCreateSubscriptionPermissionResult struc
 	NextLink string `pulumi:"nextLink"`
 	// The list of invoice section properties with create subscription permission.
 	Value []InvoiceSectionWithCreateSubPermissionResponse `pulumi:"value"`
+}
+
+func ListBillingAccountInvoiceSectionsByCreateSubscriptionPermissionOutput(ctx *pulumi.Context, args ListBillingAccountInvoiceSectionsByCreateSubscriptionPermissionOutputArgs, opts ...pulumi.InvokeOption) ListBillingAccountInvoiceSectionsByCreateSubscriptionPermissionResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (ListBillingAccountInvoiceSectionsByCreateSubscriptionPermissionResult, error) {
+			args := v.(ListBillingAccountInvoiceSectionsByCreateSubscriptionPermissionArgs)
+			r, err := ListBillingAccountInvoiceSectionsByCreateSubscriptionPermission(ctx, &args, opts...)
+			return *r, err
+		}).(ListBillingAccountInvoiceSectionsByCreateSubscriptionPermissionResultOutput)
+}
+
+type ListBillingAccountInvoiceSectionsByCreateSubscriptionPermissionOutputArgs struct {
+	// The ID that uniquely identifies a billing account.
+	BillingAccountName pulumi.StringInput `pulumi:"billingAccountName"`
+}
+
+func (ListBillingAccountInvoiceSectionsByCreateSubscriptionPermissionOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListBillingAccountInvoiceSectionsByCreateSubscriptionPermissionArgs)(nil)).Elem()
+}
+
+// The list of invoice section properties with create subscription permission.
+type ListBillingAccountInvoiceSectionsByCreateSubscriptionPermissionResultOutput struct{ *pulumi.OutputState }
+
+func (ListBillingAccountInvoiceSectionsByCreateSubscriptionPermissionResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListBillingAccountInvoiceSectionsByCreateSubscriptionPermissionResult)(nil)).Elem()
+}
+
+func (o ListBillingAccountInvoiceSectionsByCreateSubscriptionPermissionResultOutput) ToListBillingAccountInvoiceSectionsByCreateSubscriptionPermissionResultOutput() ListBillingAccountInvoiceSectionsByCreateSubscriptionPermissionResultOutput {
+	return o
+}
+
+func (o ListBillingAccountInvoiceSectionsByCreateSubscriptionPermissionResultOutput) ToListBillingAccountInvoiceSectionsByCreateSubscriptionPermissionResultOutputWithContext(ctx context.Context) ListBillingAccountInvoiceSectionsByCreateSubscriptionPermissionResultOutput {
+	return o
+}
+
+// The link (url) to the next page of results.
+func (o ListBillingAccountInvoiceSectionsByCreateSubscriptionPermissionResultOutput) NextLink() pulumi.StringOutput {
+	return o.ApplyT(func(v ListBillingAccountInvoiceSectionsByCreateSubscriptionPermissionResult) string {
+		return v.NextLink
+	}).(pulumi.StringOutput)
+}
+
+// The list of invoice section properties with create subscription permission.
+func (o ListBillingAccountInvoiceSectionsByCreateSubscriptionPermissionResultOutput) Value() InvoiceSectionWithCreateSubPermissionResponseArrayOutput {
+	return o.ApplyT(func(v ListBillingAccountInvoiceSectionsByCreateSubscriptionPermissionResult) []InvoiceSectionWithCreateSubPermissionResponse {
+		return v.Value
+	}).(InvoiceSectionWithCreateSubPermissionResponseArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(ListBillingAccountInvoiceSectionsByCreateSubscriptionPermissionResultOutput{})
 }

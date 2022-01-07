@@ -4,6 +4,9 @@
 package v20210630
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -44,4 +47,79 @@ type LookupTaskResult struct {
 	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource type.
 	Type string `pulumi:"type"`
+}
+
+func LookupTaskOutput(ctx *pulumi.Context, args LookupTaskOutputArgs, opts ...pulumi.InvokeOption) LookupTaskResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupTaskResult, error) {
+			args := v.(LookupTaskArgs)
+			r, err := LookupTask(ctx, &args, opts...)
+			return *r, err
+		}).(LookupTaskResultOutput)
+}
+
+type LookupTaskOutputArgs struct {
+	// Expand the response
+	Expand pulumi.StringPtrInput `pulumi:"expand"`
+	// Name of the resource group
+	GroupName pulumi.StringInput `pulumi:"groupName"`
+	// Name of the project
+	ProjectName pulumi.StringInput `pulumi:"projectName"`
+	// Name of the service
+	ServiceName pulumi.StringInput `pulumi:"serviceName"`
+	// Name of the Task
+	TaskName pulumi.StringInput `pulumi:"taskName"`
+}
+
+func (LookupTaskOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupTaskArgs)(nil)).Elem()
+}
+
+// A task resource
+type LookupTaskResultOutput struct{ *pulumi.OutputState }
+
+func (LookupTaskResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupTaskResult)(nil)).Elem()
+}
+
+func (o LookupTaskResultOutput) ToLookupTaskResultOutput() LookupTaskResultOutput {
+	return o
+}
+
+func (o LookupTaskResultOutput) ToLookupTaskResultOutputWithContext(ctx context.Context) LookupTaskResultOutput {
+	return o
+}
+
+// HTTP strong entity tag value. This is ignored if submitted.
+func (o LookupTaskResultOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupTaskResult) *string { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// Resource ID.
+func (o LookupTaskResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTaskResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o LookupTaskResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTaskResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Custom task properties
+func (o LookupTaskResultOutput) Properties() pulumi.AnyOutput {
+	return o.ApplyT(func(v LookupTaskResult) interface{} { return v.Properties }).(pulumi.AnyOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o LookupTaskResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupTaskResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource type.
+func (o LookupTaskResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTaskResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupTaskResultOutput{})
 }

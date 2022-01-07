@@ -4,6 +4,9 @@
 package v20200701
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -46,4 +49,93 @@ type LookupSecurityPartnerProviderResult struct {
 	Type string `pulumi:"type"`
 	// The virtualHub to which the Security Partner Provider belongs.
 	VirtualHub *SubResourceResponse `pulumi:"virtualHub"`
+}
+
+func LookupSecurityPartnerProviderOutput(ctx *pulumi.Context, args LookupSecurityPartnerProviderOutputArgs, opts ...pulumi.InvokeOption) LookupSecurityPartnerProviderResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupSecurityPartnerProviderResult, error) {
+			args := v.(LookupSecurityPartnerProviderArgs)
+			r, err := LookupSecurityPartnerProvider(ctx, &args, opts...)
+			return *r, err
+		}).(LookupSecurityPartnerProviderResultOutput)
+}
+
+type LookupSecurityPartnerProviderOutputArgs struct {
+	// The name of the resource group.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the Security Partner Provider.
+	SecurityPartnerProviderName pulumi.StringInput `pulumi:"securityPartnerProviderName"`
+}
+
+func (LookupSecurityPartnerProviderOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupSecurityPartnerProviderArgs)(nil)).Elem()
+}
+
+// Security Partner Provider resource.
+type LookupSecurityPartnerProviderResultOutput struct{ *pulumi.OutputState }
+
+func (LookupSecurityPartnerProviderResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupSecurityPartnerProviderResult)(nil)).Elem()
+}
+
+func (o LookupSecurityPartnerProviderResultOutput) ToLookupSecurityPartnerProviderResultOutput() LookupSecurityPartnerProviderResultOutput {
+	return o
+}
+
+func (o LookupSecurityPartnerProviderResultOutput) ToLookupSecurityPartnerProviderResultOutputWithContext(ctx context.Context) LookupSecurityPartnerProviderResultOutput {
+	return o
+}
+
+// The connection status with the Security Partner Provider.
+func (o LookupSecurityPartnerProviderResultOutput) ConnectionStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSecurityPartnerProviderResult) string { return v.ConnectionStatus }).(pulumi.StringOutput)
+}
+
+// A unique read-only string that changes whenever the resource is updated.
+func (o LookupSecurityPartnerProviderResultOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSecurityPartnerProviderResult) string { return v.Etag }).(pulumi.StringOutput)
+}
+
+// Resource ID.
+func (o LookupSecurityPartnerProviderResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSecurityPartnerProviderResult) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// Resource location.
+func (o LookupSecurityPartnerProviderResultOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSecurityPartnerProviderResult) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Resource name.
+func (o LookupSecurityPartnerProviderResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSecurityPartnerProviderResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The provisioning state of the Security Partner Provider resource.
+func (o LookupSecurityPartnerProviderResultOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSecurityPartnerProviderResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The security provider name.
+func (o LookupSecurityPartnerProviderResultOutput) SecurityProviderName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSecurityPartnerProviderResult) *string { return v.SecurityProviderName }).(pulumi.StringPtrOutput)
+}
+
+// Resource tags.
+func (o LookupSecurityPartnerProviderResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupSecurityPartnerProviderResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type.
+func (o LookupSecurityPartnerProviderResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSecurityPartnerProviderResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The virtualHub to which the Security Partner Provider belongs.
+func (o LookupSecurityPartnerProviderResultOutput) VirtualHub() SubResourceResponsePtrOutput {
+	return o.ApplyT(func(v LookupSecurityPartnerProviderResult) *SubResourceResponse { return v.VirtualHub }).(SubResourceResponsePtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupSecurityPartnerProviderResultOutput{})
 }

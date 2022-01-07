@@ -4,6 +4,9 @@
 package v20150320
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -30,4 +33,53 @@ type ListWorkspaceKeysResult struct {
 	PrimarySharedKey *string `pulumi:"primarySharedKey"`
 	// The secondary shared key of a workspace.
 	SecondarySharedKey *string `pulumi:"secondarySharedKey"`
+}
+
+func ListWorkspaceKeysOutput(ctx *pulumi.Context, args ListWorkspaceKeysOutputArgs, opts ...pulumi.InvokeOption) ListWorkspaceKeysResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (ListWorkspaceKeysResult, error) {
+			args := v.(ListWorkspaceKeysArgs)
+			r, err := ListWorkspaceKeys(ctx, &args, opts...)
+			return *r, err
+		}).(ListWorkspaceKeysResultOutput)
+}
+
+type ListWorkspaceKeysOutputArgs struct {
+	// The Resource Group name.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The Log Analytics Workspace name.
+	WorkspaceName pulumi.StringInput `pulumi:"workspaceName"`
+}
+
+func (ListWorkspaceKeysOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListWorkspaceKeysArgs)(nil)).Elem()
+}
+
+// The shared keys for a workspace.
+type ListWorkspaceKeysResultOutput struct{ *pulumi.OutputState }
+
+func (ListWorkspaceKeysResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListWorkspaceKeysResult)(nil)).Elem()
+}
+
+func (o ListWorkspaceKeysResultOutput) ToListWorkspaceKeysResultOutput() ListWorkspaceKeysResultOutput {
+	return o
+}
+
+func (o ListWorkspaceKeysResultOutput) ToListWorkspaceKeysResultOutputWithContext(ctx context.Context) ListWorkspaceKeysResultOutput {
+	return o
+}
+
+// The primary shared key of a workspace.
+func (o ListWorkspaceKeysResultOutput) PrimarySharedKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListWorkspaceKeysResult) *string { return v.PrimarySharedKey }).(pulumi.StringPtrOutput)
+}
+
+// The secondary shared key of a workspace.
+func (o ListWorkspaceKeysResultOutput) SecondarySharedKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListWorkspaceKeysResult) *string { return v.SecondarySharedKey }).(pulumi.StringPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(ListWorkspaceKeysResultOutput{})
 }

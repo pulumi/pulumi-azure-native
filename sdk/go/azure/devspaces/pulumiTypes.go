@@ -15,6 +15,47 @@ type ControllerConnectionDetailsResponse struct {
 	OrchestratorSpecificConnectionDetails *KubernetesConnectionDetailsResponse `pulumi:"orchestratorSpecificConnectionDetails"`
 }
 
+type ControllerConnectionDetailsResponseOutput struct{ *pulumi.OutputState }
+
+func (ControllerConnectionDetailsResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ControllerConnectionDetailsResponse)(nil)).Elem()
+}
+
+func (o ControllerConnectionDetailsResponseOutput) ToControllerConnectionDetailsResponseOutput() ControllerConnectionDetailsResponseOutput {
+	return o
+}
+
+func (o ControllerConnectionDetailsResponseOutput) ToControllerConnectionDetailsResponseOutputWithContext(ctx context.Context) ControllerConnectionDetailsResponseOutput {
+	return o
+}
+
+// Base class for types that supply values used to connect to container orchestrators
+func (o ControllerConnectionDetailsResponseOutput) OrchestratorSpecificConnectionDetails() KubernetesConnectionDetailsResponsePtrOutput {
+	return o.ApplyT(func(v ControllerConnectionDetailsResponse) *KubernetesConnectionDetailsResponse {
+		return v.OrchestratorSpecificConnectionDetails
+	}).(KubernetesConnectionDetailsResponsePtrOutput)
+}
+
+type ControllerConnectionDetailsResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ControllerConnectionDetailsResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ControllerConnectionDetailsResponse)(nil)).Elem()
+}
+
+func (o ControllerConnectionDetailsResponseArrayOutput) ToControllerConnectionDetailsResponseArrayOutput() ControllerConnectionDetailsResponseArrayOutput {
+	return o
+}
+
+func (o ControllerConnectionDetailsResponseArrayOutput) ToControllerConnectionDetailsResponseArrayOutputWithContext(ctx context.Context) ControllerConnectionDetailsResponseArrayOutput {
+	return o
+}
+
+func (o ControllerConnectionDetailsResponseArrayOutput) Index(i pulumi.IntInput) ControllerConnectionDetailsResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ControllerConnectionDetailsResponse {
+		return vs[0].([]ControllerConnectionDetailsResponse)[vs[1].(int)]
+	}).(ControllerConnectionDetailsResponseOutput)
+}
+
 // Contains information used to connect to a Kubernetes cluster
 type KubernetesConnectionDetailsResponse struct {
 	// Gets the Instance type.
@@ -22,6 +63,77 @@ type KubernetesConnectionDetailsResponse struct {
 	InstanceType string `pulumi:"instanceType"`
 	// Gets the kubeconfig for the cluster.
 	KubeConfig *string `pulumi:"kubeConfig"`
+}
+
+// Contains information used to connect to a Kubernetes cluster
+type KubernetesConnectionDetailsResponseOutput struct{ *pulumi.OutputState }
+
+func (KubernetesConnectionDetailsResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KubernetesConnectionDetailsResponse)(nil)).Elem()
+}
+
+func (o KubernetesConnectionDetailsResponseOutput) ToKubernetesConnectionDetailsResponseOutput() KubernetesConnectionDetailsResponseOutput {
+	return o
+}
+
+func (o KubernetesConnectionDetailsResponseOutput) ToKubernetesConnectionDetailsResponseOutputWithContext(ctx context.Context) KubernetesConnectionDetailsResponseOutput {
+	return o
+}
+
+// Gets the Instance type.
+// Expected value is 'Kubernetes'.
+func (o KubernetesConnectionDetailsResponseOutput) InstanceType() pulumi.StringOutput {
+	return o.ApplyT(func(v KubernetesConnectionDetailsResponse) string { return v.InstanceType }).(pulumi.StringOutput)
+}
+
+// Gets the kubeconfig for the cluster.
+func (o KubernetesConnectionDetailsResponseOutput) KubeConfig() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KubernetesConnectionDetailsResponse) *string { return v.KubeConfig }).(pulumi.StringPtrOutput)
+}
+
+type KubernetesConnectionDetailsResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (KubernetesConnectionDetailsResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KubernetesConnectionDetailsResponse)(nil)).Elem()
+}
+
+func (o KubernetesConnectionDetailsResponsePtrOutput) ToKubernetesConnectionDetailsResponsePtrOutput() KubernetesConnectionDetailsResponsePtrOutput {
+	return o
+}
+
+func (o KubernetesConnectionDetailsResponsePtrOutput) ToKubernetesConnectionDetailsResponsePtrOutputWithContext(ctx context.Context) KubernetesConnectionDetailsResponsePtrOutput {
+	return o
+}
+
+func (o KubernetesConnectionDetailsResponsePtrOutput) Elem() KubernetesConnectionDetailsResponseOutput {
+	return o.ApplyT(func(v *KubernetesConnectionDetailsResponse) KubernetesConnectionDetailsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret KubernetesConnectionDetailsResponse
+		return ret
+	}).(KubernetesConnectionDetailsResponseOutput)
+}
+
+// Gets the Instance type.
+// Expected value is 'Kubernetes'.
+func (o KubernetesConnectionDetailsResponsePtrOutput) InstanceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KubernetesConnectionDetailsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.InstanceType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Gets the kubeconfig for the cluster.
+func (o KubernetesConnectionDetailsResponsePtrOutput) KubeConfig() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KubernetesConnectionDetailsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KubeConfig
+	}).(pulumi.StringPtrOutput)
 }
 
 // Model representing SKU for Azure Dev Spaces Controller.
@@ -122,6 +234,10 @@ func (o SkuResponseOutput) Tier() pulumi.StringPtrOutput {
 }
 
 func init() {
+	pulumi.RegisterOutputType(ControllerConnectionDetailsResponseOutput{})
+	pulumi.RegisterOutputType(ControllerConnectionDetailsResponseArrayOutput{})
+	pulumi.RegisterOutputType(KubernetesConnectionDetailsResponseOutput{})
+	pulumi.RegisterOutputType(KubernetesConnectionDetailsResponsePtrOutput{})
 	pulumi.RegisterOutputType(SkuOutput{})
 	pulumi.RegisterOutputType(SkuResponseOutput{})
 }

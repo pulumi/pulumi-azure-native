@@ -4,6 +4,9 @@
 package portal
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -29,4 +32,48 @@ type LookupUserSettingsWithLocationArgs struct {
 type LookupUserSettingsWithLocationResult struct {
 	// The cloud shell user settings properties.
 	Properties UserPropertiesResponse `pulumi:"properties"`
+}
+
+func LookupUserSettingsWithLocationOutput(ctx *pulumi.Context, args LookupUserSettingsWithLocationOutputArgs, opts ...pulumi.InvokeOption) LookupUserSettingsWithLocationResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupUserSettingsWithLocationResult, error) {
+			args := v.(LookupUserSettingsWithLocationArgs)
+			r, err := LookupUserSettingsWithLocation(ctx, &args, opts...)
+			return *r, err
+		}).(LookupUserSettingsWithLocationResultOutput)
+}
+
+type LookupUserSettingsWithLocationOutputArgs struct {
+	// The provider location
+	Location pulumi.StringInput `pulumi:"location"`
+	// The name of the user settings
+	UserSettingsName pulumi.StringInput `pulumi:"userSettingsName"`
+}
+
+func (LookupUserSettingsWithLocationOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupUserSettingsWithLocationArgs)(nil)).Elem()
+}
+
+// Response to get user settings
+type LookupUserSettingsWithLocationResultOutput struct{ *pulumi.OutputState }
+
+func (LookupUserSettingsWithLocationResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupUserSettingsWithLocationResult)(nil)).Elem()
+}
+
+func (o LookupUserSettingsWithLocationResultOutput) ToLookupUserSettingsWithLocationResultOutput() LookupUserSettingsWithLocationResultOutput {
+	return o
+}
+
+func (o LookupUserSettingsWithLocationResultOutput) ToLookupUserSettingsWithLocationResultOutputWithContext(ctx context.Context) LookupUserSettingsWithLocationResultOutput {
+	return o
+}
+
+// The cloud shell user settings properties.
+func (o LookupUserSettingsWithLocationResultOutput) Properties() UserPropertiesResponseOutput {
+	return o.ApplyT(func(v LookupUserSettingsWithLocationResult) UserPropertiesResponse { return v.Properties }).(UserPropertiesResponseOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupUserSettingsWithLocationResultOutput{})
 }

@@ -688,6 +688,51 @@ type DnsResourceReferenceResponse struct {
 	TargetResource *SubResourceResponse `pulumi:"targetResource"`
 }
 
+// Represents a single Azure resource and its referencing DNS records.
+type DnsResourceReferenceResponseOutput struct{ *pulumi.OutputState }
+
+func (DnsResourceReferenceResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DnsResourceReferenceResponse)(nil)).Elem()
+}
+
+func (o DnsResourceReferenceResponseOutput) ToDnsResourceReferenceResponseOutput() DnsResourceReferenceResponseOutput {
+	return o
+}
+
+func (o DnsResourceReferenceResponseOutput) ToDnsResourceReferenceResponseOutputWithContext(ctx context.Context) DnsResourceReferenceResponseOutput {
+	return o
+}
+
+// A list of dns Records
+func (o DnsResourceReferenceResponseOutput) DnsResources() SubResourceResponseArrayOutput {
+	return o.ApplyT(func(v DnsResourceReferenceResponse) []SubResourceResponse { return v.DnsResources }).(SubResourceResponseArrayOutput)
+}
+
+// A reference to an azure resource from where the dns resource value is taken.
+func (o DnsResourceReferenceResponseOutput) TargetResource() SubResourceResponsePtrOutput {
+	return o.ApplyT(func(v DnsResourceReferenceResponse) *SubResourceResponse { return v.TargetResource }).(SubResourceResponsePtrOutput)
+}
+
+type DnsResourceReferenceResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (DnsResourceReferenceResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DnsResourceReferenceResponse)(nil)).Elem()
+}
+
+func (o DnsResourceReferenceResponseArrayOutput) ToDnsResourceReferenceResponseArrayOutput() DnsResourceReferenceResponseArrayOutput {
+	return o
+}
+
+func (o DnsResourceReferenceResponseArrayOutput) ToDnsResourceReferenceResponseArrayOutputWithContext(ctx context.Context) DnsResourceReferenceResponseArrayOutput {
+	return o
+}
+
+func (o DnsResourceReferenceResponseArrayOutput) Index(i pulumi.IntInput) DnsResourceReferenceResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DnsResourceReferenceResponse {
+		return vs[0].([]DnsResourceReferenceResponse)[vs[1].(int)]
+	}).(DnsResourceReferenceResponseOutput)
+}
+
 // An MX record.
 type MxRecord struct {
 	// The domain name of the mail host for this MX record.
@@ -2180,6 +2225,8 @@ func init() {
 	pulumi.RegisterOutputType(CnameRecordPtrOutput{})
 	pulumi.RegisterOutputType(CnameRecordResponseOutput{})
 	pulumi.RegisterOutputType(CnameRecordResponsePtrOutput{})
+	pulumi.RegisterOutputType(DnsResourceReferenceResponseOutput{})
+	pulumi.RegisterOutputType(DnsResourceReferenceResponseArrayOutput{})
 	pulumi.RegisterOutputType(MxRecordOutput{})
 	pulumi.RegisterOutputType(MxRecordArrayOutput{})
 	pulumi.RegisterOutputType(MxRecordResponseOutput{})

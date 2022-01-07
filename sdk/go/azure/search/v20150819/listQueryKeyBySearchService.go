@@ -4,6 +4,9 @@
 package v20150819
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -28,4 +31,48 @@ type ListQueryKeyBySearchServiceArgs struct {
 type ListQueryKeyBySearchServiceResult struct {
 	// The query keys for the Azure Cognitive Search service.
 	Value []QueryKeyResponse `pulumi:"value"`
+}
+
+func ListQueryKeyBySearchServiceOutput(ctx *pulumi.Context, args ListQueryKeyBySearchServiceOutputArgs, opts ...pulumi.InvokeOption) ListQueryKeyBySearchServiceResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (ListQueryKeyBySearchServiceResult, error) {
+			args := v.(ListQueryKeyBySearchServiceArgs)
+			r, err := ListQueryKeyBySearchService(ctx, &args, opts...)
+			return *r, err
+		}).(ListQueryKeyBySearchServiceResultOutput)
+}
+
+type ListQueryKeyBySearchServiceOutputArgs struct {
+	// The name of the resource group within the current subscription. You can obtain this value from the Azure Resource Manager API or the portal.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the Azure Cognitive Search service associated with the specified resource group.
+	SearchServiceName pulumi.StringInput `pulumi:"searchServiceName"`
+}
+
+func (ListQueryKeyBySearchServiceOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListQueryKeyBySearchServiceArgs)(nil)).Elem()
+}
+
+// Response containing the query API keys for a given Azure Cognitive Search service.
+type ListQueryKeyBySearchServiceResultOutput struct{ *pulumi.OutputState }
+
+func (ListQueryKeyBySearchServiceResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListQueryKeyBySearchServiceResult)(nil)).Elem()
+}
+
+func (o ListQueryKeyBySearchServiceResultOutput) ToListQueryKeyBySearchServiceResultOutput() ListQueryKeyBySearchServiceResultOutput {
+	return o
+}
+
+func (o ListQueryKeyBySearchServiceResultOutput) ToListQueryKeyBySearchServiceResultOutputWithContext(ctx context.Context) ListQueryKeyBySearchServiceResultOutput {
+	return o
+}
+
+// The query keys for the Azure Cognitive Search service.
+func (o ListQueryKeyBySearchServiceResultOutput) Value() QueryKeyResponseArrayOutput {
+	return o.ApplyT(func(v ListQueryKeyBySearchServiceResult) []QueryKeyResponse { return v.Value }).(QueryKeyResponseArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(ListQueryKeyBySearchServiceResultOutput{})
 }

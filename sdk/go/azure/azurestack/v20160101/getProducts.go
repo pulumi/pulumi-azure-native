@@ -4,6 +4,9 @@
 package v20160101
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -32,4 +35,55 @@ type GetProductsResult struct {
 	NextLink *string `pulumi:"nextLink"`
 	// List of products.
 	Value []ProductResponse `pulumi:"value"`
+}
+
+func GetProductsOutput(ctx *pulumi.Context, args GetProductsOutputArgs, opts ...pulumi.InvokeOption) GetProductsResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetProductsResult, error) {
+			args := v.(GetProductsArgs)
+			r, err := GetProducts(ctx, &args, opts...)
+			return *r, err
+		}).(GetProductsResultOutput)
+}
+
+type GetProductsOutputArgs struct {
+	// Name of the product.
+	ProductName pulumi.StringInput `pulumi:"productName"`
+	// Name of the Azure Stack registration.
+	RegistrationName pulumi.StringInput `pulumi:"registrationName"`
+	// Name of the resource group.
+	ResourceGroup pulumi.StringInput `pulumi:"resourceGroup"`
+}
+
+func (GetProductsOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetProductsArgs)(nil)).Elem()
+}
+
+// Pageable list of products.
+type GetProductsResultOutput struct{ *pulumi.OutputState }
+
+func (GetProductsResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetProductsResult)(nil)).Elem()
+}
+
+func (o GetProductsResultOutput) ToGetProductsResultOutput() GetProductsResultOutput {
+	return o
+}
+
+func (o GetProductsResultOutput) ToGetProductsResultOutputWithContext(ctx context.Context) GetProductsResultOutput {
+	return o
+}
+
+// URI to the next page.
+func (o GetProductsResultOutput) NextLink() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetProductsResult) *string { return v.NextLink }).(pulumi.StringPtrOutput)
+}
+
+// List of products.
+func (o GetProductsResultOutput) Value() ProductResponseArrayOutput {
+	return o.ApplyT(func(v GetProductsResult) []ProductResponse { return v.Value }).(ProductResponseArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetProductsResultOutput{})
 }

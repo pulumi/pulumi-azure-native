@@ -4,6 +4,9 @@
 package v20210115preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -30,4 +33,56 @@ type LookupIngestionSettingResult struct {
 	Name string `pulumi:"name"`
 	// Resource type
 	Type string `pulumi:"type"`
+}
+
+func LookupIngestionSettingOutput(ctx *pulumi.Context, args LookupIngestionSettingOutputArgs, opts ...pulumi.InvokeOption) LookupIngestionSettingResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupIngestionSettingResult, error) {
+			args := v.(LookupIngestionSettingArgs)
+			r, err := LookupIngestionSetting(ctx, &args, opts...)
+			return *r, err
+		}).(LookupIngestionSettingResultOutput)
+}
+
+type LookupIngestionSettingOutputArgs struct {
+	// Name of the ingestion setting
+	IngestionSettingName pulumi.StringInput `pulumi:"ingestionSettingName"`
+}
+
+func (LookupIngestionSettingOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupIngestionSettingArgs)(nil)).Elem()
+}
+
+// Configures how to correlate scan data and logs with resources associated with the subscription.
+type LookupIngestionSettingResultOutput struct{ *pulumi.OutputState }
+
+func (LookupIngestionSettingResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupIngestionSettingResult)(nil)).Elem()
+}
+
+func (o LookupIngestionSettingResultOutput) ToLookupIngestionSettingResultOutput() LookupIngestionSettingResultOutput {
+	return o
+}
+
+func (o LookupIngestionSettingResultOutput) ToLookupIngestionSettingResultOutputWithContext(ctx context.Context) LookupIngestionSettingResultOutput {
+	return o
+}
+
+// Resource Id
+func (o LookupIngestionSettingResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupIngestionSettingResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Resource name
+func (o LookupIngestionSettingResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupIngestionSettingResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Resource type
+func (o LookupIngestionSettingResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupIngestionSettingResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupIngestionSettingResultOutput{})
 }

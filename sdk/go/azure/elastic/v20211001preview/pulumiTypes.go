@@ -1545,6 +1545,56 @@ type MonitoredResourceResponse struct {
 	SendingLogs *string `pulumi:"sendingLogs"`
 }
 
+// The properties of a resource currently being monitored by the Elastic monitor resource.
+type MonitoredResourceResponseOutput struct{ *pulumi.OutputState }
+
+func (MonitoredResourceResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MonitoredResourceResponse)(nil)).Elem()
+}
+
+func (o MonitoredResourceResponseOutput) ToMonitoredResourceResponseOutput() MonitoredResourceResponseOutput {
+	return o
+}
+
+func (o MonitoredResourceResponseOutput) ToMonitoredResourceResponseOutputWithContext(ctx context.Context) MonitoredResourceResponseOutput {
+	return o
+}
+
+// The ARM id of the resource.
+func (o MonitoredResourceResponseOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MonitoredResourceResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// Reason for why the resource is sending logs (or why it is not sending).
+func (o MonitoredResourceResponseOutput) ReasonForLogsStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MonitoredResourceResponse) *string { return v.ReasonForLogsStatus }).(pulumi.StringPtrOutput)
+}
+
+// Flag indicating the status of the resource for sending logs operation to Elastic.
+func (o MonitoredResourceResponseOutput) SendingLogs() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MonitoredResourceResponse) *string { return v.SendingLogs }).(pulumi.StringPtrOutput)
+}
+
+type MonitoredResourceResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (MonitoredResourceResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MonitoredResourceResponse)(nil)).Elem()
+}
+
+func (o MonitoredResourceResponseArrayOutput) ToMonitoredResourceResponseArrayOutput() MonitoredResourceResponseArrayOutput {
+	return o
+}
+
+func (o MonitoredResourceResponseArrayOutput) ToMonitoredResourceResponseArrayOutputWithContext(ctx context.Context) MonitoredResourceResponseArrayOutput {
+	return o
+}
+
+func (o MonitoredResourceResponseArrayOutput) Index(i pulumi.IntInput) MonitoredResourceResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MonitoredResourceResponse {
+		return vs[0].([]MonitoredResourceResponse)[vs[1].(int)]
+	}).(MonitoredResourceResponseOutput)
+}
+
 // Definition of the properties for a TagRules resource.
 type MonitoringTagRulesProperties struct {
 	// Rules for sending logs.
@@ -2220,6 +2270,46 @@ type VMResourcesResponse struct {
 	VmResourceId *string `pulumi:"vmResourceId"`
 }
 
+// The vm resource properties that is currently being monitored by the Elastic monitor resource.
+type VMResourcesResponseOutput struct{ *pulumi.OutputState }
+
+func (VMResourcesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VMResourcesResponse)(nil)).Elem()
+}
+
+func (o VMResourcesResponseOutput) ToVMResourcesResponseOutput() VMResourcesResponseOutput {
+	return o
+}
+
+func (o VMResourcesResponseOutput) ToVMResourcesResponseOutputWithContext(ctx context.Context) VMResourcesResponseOutput {
+	return o
+}
+
+// The ARM id of the VM resource.
+func (o VMResourcesResponseOutput) VmResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VMResourcesResponse) *string { return v.VmResourceId }).(pulumi.StringPtrOutput)
+}
+
+type VMResourcesResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (VMResourcesResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VMResourcesResponse)(nil)).Elem()
+}
+
+func (o VMResourcesResponseArrayOutput) ToVMResourcesResponseArrayOutput() VMResourcesResponseArrayOutput {
+	return o
+}
+
+func (o VMResourcesResponseArrayOutput) ToVMResourcesResponseArrayOutputWithContext(ctx context.Context) VMResourcesResponseArrayOutput {
+	return o
+}
+
+func (o VMResourcesResponseArrayOutput) Index(i pulumi.IntInput) VMResourcesResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VMResourcesResponse {
+		return vs[0].([]VMResourcesResponse)[vs[1].(int)]
+	}).(VMResourcesResponseOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(CompanyInfoOutput{})
 	pulumi.RegisterOutputType(CompanyInfoPtrOutput{})
@@ -2244,6 +2334,8 @@ func init() {
 	pulumi.RegisterOutputType(MonitorPropertiesOutput{})
 	pulumi.RegisterOutputType(MonitorPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(MonitorPropertiesResponseOutput{})
+	pulumi.RegisterOutputType(MonitoredResourceResponseOutput{})
+	pulumi.RegisterOutputType(MonitoredResourceResponseArrayOutput{})
 	pulumi.RegisterOutputType(MonitoringTagRulesPropertiesOutput{})
 	pulumi.RegisterOutputType(MonitoringTagRulesPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(MonitoringTagRulesPropertiesResponseOutput{})
@@ -2254,4 +2346,6 @@ func init() {
 	pulumi.RegisterOutputType(SystemDataResponseOutput{})
 	pulumi.RegisterOutputType(UserInfoOutput{})
 	pulumi.RegisterOutputType(UserInfoPtrOutput{})
+	pulumi.RegisterOutputType(VMResourcesResponseOutput{})
+	pulumi.RegisterOutputType(VMResourcesResponseArrayOutput{})
 }

@@ -4,6 +4,9 @@
 package machinelearningservices
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -33,4 +36,55 @@ type ListBatchEndpointKeysResult struct {
 	PrimaryKey *string `pulumi:"primaryKey"`
 	// The secondary key.
 	SecondaryKey *string `pulumi:"secondaryKey"`
+}
+
+func ListBatchEndpointKeysOutput(ctx *pulumi.Context, args ListBatchEndpointKeysOutputArgs, opts ...pulumi.InvokeOption) ListBatchEndpointKeysResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (ListBatchEndpointKeysResult, error) {
+			args := v.(ListBatchEndpointKeysArgs)
+			r, err := ListBatchEndpointKeys(ctx, &args, opts...)
+			return *r, err
+		}).(ListBatchEndpointKeysResultOutput)
+}
+
+type ListBatchEndpointKeysOutputArgs struct {
+	// Inference Endpoint name.
+	EndpointName pulumi.StringInput `pulumi:"endpointName"`
+	// The name of the resource group. The name is case insensitive.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// Name of Azure Machine Learning workspace.
+	WorkspaceName pulumi.StringInput `pulumi:"workspaceName"`
+}
+
+func (ListBatchEndpointKeysOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListBatchEndpointKeysArgs)(nil)).Elem()
+}
+
+// Keys for endpoint authentication.
+type ListBatchEndpointKeysResultOutput struct{ *pulumi.OutputState }
+
+func (ListBatchEndpointKeysResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListBatchEndpointKeysResult)(nil)).Elem()
+}
+
+func (o ListBatchEndpointKeysResultOutput) ToListBatchEndpointKeysResultOutput() ListBatchEndpointKeysResultOutput {
+	return o
+}
+
+func (o ListBatchEndpointKeysResultOutput) ToListBatchEndpointKeysResultOutputWithContext(ctx context.Context) ListBatchEndpointKeysResultOutput {
+	return o
+}
+
+// The primary key.
+func (o ListBatchEndpointKeysResultOutput) PrimaryKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListBatchEndpointKeysResult) *string { return v.PrimaryKey }).(pulumi.StringPtrOutput)
+}
+
+// The secondary key.
+func (o ListBatchEndpointKeysResultOutput) SecondaryKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListBatchEndpointKeysResult) *string { return v.SecondaryKey }).(pulumi.StringPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(ListBatchEndpointKeysResultOutput{})
 }

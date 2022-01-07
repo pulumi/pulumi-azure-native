@@ -4,6 +4,9 @@
 package v20210301preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -45,4 +48,83 @@ type LookupAnomaliesResult struct {
 	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Azure resource type
 	Type string `pulumi:"type"`
+}
+
+func LookupAnomaliesOutput(ctx *pulumi.Context, args LookupAnomaliesOutputArgs, opts ...pulumi.InvokeOption) LookupAnomaliesResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupAnomaliesResult, error) {
+			args := v.(LookupAnomaliesArgs)
+			r, err := LookupAnomalies(ctx, &args, opts...)
+			return *r, err
+		}).(LookupAnomaliesResultOutput)
+}
+
+type LookupAnomaliesOutputArgs struct {
+	// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
+	OperationalInsightsResourceProvider pulumi.StringInput `pulumi:"operationalInsightsResourceProvider"`
+	// The name of the resource group. The name is case insensitive.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The setting name. Supports - Anomalies, EyesOn, EntityAnalytics, Ueba
+	SettingsName pulumi.StringInput `pulumi:"settingsName"`
+	// The name of the workspace.
+	WorkspaceName pulumi.StringInput `pulumi:"workspaceName"`
+}
+
+func (LookupAnomaliesOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupAnomaliesArgs)(nil)).Elem()
+}
+
+// Settings with single toggle.
+type LookupAnomaliesResultOutput struct{ *pulumi.OutputState }
+
+func (LookupAnomaliesResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupAnomaliesResult)(nil)).Elem()
+}
+
+func (o LookupAnomaliesResultOutput) ToLookupAnomaliesResultOutput() LookupAnomaliesResultOutput {
+	return o
+}
+
+func (o LookupAnomaliesResultOutput) ToLookupAnomaliesResultOutputWithContext(ctx context.Context) LookupAnomaliesResultOutput {
+	return o
+}
+
+// Etag of the azure resource
+func (o LookupAnomaliesResultOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupAnomaliesResult) *string { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// Azure resource Id
+func (o LookupAnomaliesResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAnomaliesResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Determines whether the setting is enable or disabled.
+func (o LookupAnomaliesResultOutput) IsEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupAnomaliesResult) bool { return v.IsEnabled }).(pulumi.BoolOutput)
+}
+
+// The kind of the setting
+// Expected value is 'Anomalies'.
+func (o LookupAnomaliesResultOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAnomaliesResult) string { return v.Kind }).(pulumi.StringOutput)
+}
+
+// Azure resource name
+func (o LookupAnomaliesResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAnomaliesResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+func (o LookupAnomaliesResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupAnomaliesResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Azure resource type
+func (o LookupAnomaliesResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAnomaliesResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupAnomaliesResultOutput{})
 }

@@ -4,6 +4,9 @@
 package v20181015
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -28,4 +31,50 @@ type GetLabAccountRegionalAvailabilityArgs struct {
 type GetLabAccountRegionalAvailabilityResult struct {
 	// Availability information for different size categories per region
 	RegionalAvailability []RegionalAvailabilityResponse `pulumi:"regionalAvailability"`
+}
+
+func GetLabAccountRegionalAvailabilityOutput(ctx *pulumi.Context, args GetLabAccountRegionalAvailabilityOutputArgs, opts ...pulumi.InvokeOption) GetLabAccountRegionalAvailabilityResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetLabAccountRegionalAvailabilityResult, error) {
+			args := v.(GetLabAccountRegionalAvailabilityArgs)
+			r, err := GetLabAccountRegionalAvailability(ctx, &args, opts...)
+			return *r, err
+		}).(GetLabAccountRegionalAvailabilityResultOutput)
+}
+
+type GetLabAccountRegionalAvailabilityOutputArgs struct {
+	// The name of the lab Account.
+	LabAccountName pulumi.StringInput `pulumi:"labAccountName"`
+	// The name of the resource group.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (GetLabAccountRegionalAvailabilityOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLabAccountRegionalAvailabilityArgs)(nil)).Elem()
+}
+
+// The response model from the GetRegionalAvailability action
+type GetLabAccountRegionalAvailabilityResultOutput struct{ *pulumi.OutputState }
+
+func (GetLabAccountRegionalAvailabilityResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLabAccountRegionalAvailabilityResult)(nil)).Elem()
+}
+
+func (o GetLabAccountRegionalAvailabilityResultOutput) ToGetLabAccountRegionalAvailabilityResultOutput() GetLabAccountRegionalAvailabilityResultOutput {
+	return o
+}
+
+func (o GetLabAccountRegionalAvailabilityResultOutput) ToGetLabAccountRegionalAvailabilityResultOutputWithContext(ctx context.Context) GetLabAccountRegionalAvailabilityResultOutput {
+	return o
+}
+
+// Availability information for different size categories per region
+func (o GetLabAccountRegionalAvailabilityResultOutput) RegionalAvailability() RegionalAvailabilityResponseArrayOutput {
+	return o.ApplyT(func(v GetLabAccountRegionalAvailabilityResult) []RegionalAvailabilityResponse {
+		return v.RegionalAvailability
+	}).(RegionalAvailabilityResponseArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetLabAccountRegionalAvailabilityResultOutput{})
 }

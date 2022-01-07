@@ -5165,6 +5165,126 @@ type BackupItemResponse struct {
 	WebsiteSizeInBytes float64 `pulumi:"websiteSizeInBytes"`
 }
 
+// Backup description.
+type BackupItemResponseOutput struct{ *pulumi.OutputState }
+
+func (BackupItemResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BackupItemResponse)(nil)).Elem()
+}
+
+func (o BackupItemResponseOutput) ToBackupItemResponseOutput() BackupItemResponseOutput {
+	return o
+}
+
+func (o BackupItemResponseOutput) ToBackupItemResponseOutputWithContext(ctx context.Context) BackupItemResponseOutput {
+	return o
+}
+
+// Id of the backup.
+func (o BackupItemResponseOutput) BackupId() pulumi.IntOutput {
+	return o.ApplyT(func(v BackupItemResponse) int { return v.BackupId }).(pulumi.IntOutput)
+}
+
+// Name of the blob which contains data for this backup.
+func (o BackupItemResponseOutput) BlobName() pulumi.StringOutput {
+	return o.ApplyT(func(v BackupItemResponse) string { return v.BlobName }).(pulumi.StringOutput)
+}
+
+// Unique correlation identifier. Please use this along with the timestamp while communicating with Azure support.
+func (o BackupItemResponseOutput) CorrelationId() pulumi.StringOutput {
+	return o.ApplyT(func(v BackupItemResponse) string { return v.CorrelationId }).(pulumi.StringOutput)
+}
+
+// Timestamp of the backup creation.
+func (o BackupItemResponseOutput) Created() pulumi.StringOutput {
+	return o.ApplyT(func(v BackupItemResponse) string { return v.Created }).(pulumi.StringOutput)
+}
+
+// List of databases included in the backup.
+func (o BackupItemResponseOutput) Databases() DatabaseBackupSettingResponseArrayOutput {
+	return o.ApplyT(func(v BackupItemResponse) []DatabaseBackupSettingResponse { return v.Databases }).(DatabaseBackupSettingResponseArrayOutput)
+}
+
+// Timestamp when this backup finished.
+func (o BackupItemResponseOutput) FinishedTimeStamp() pulumi.StringOutput {
+	return o.ApplyT(func(v BackupItemResponse) string { return v.FinishedTimeStamp }).(pulumi.StringOutput)
+}
+
+// Resource Id.
+func (o BackupItemResponseOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v BackupItemResponse) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Kind of resource.
+func (o BackupItemResponseOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BackupItemResponse) *string { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Timestamp of a last restore operation which used this backup.
+func (o BackupItemResponseOutput) LastRestoreTimeStamp() pulumi.StringOutput {
+	return o.ApplyT(func(v BackupItemResponse) string { return v.LastRestoreTimeStamp }).(pulumi.StringOutput)
+}
+
+// Details regarding this backup. Might contain an error message.
+func (o BackupItemResponseOutput) Log() pulumi.StringOutput {
+	return o.ApplyT(func(v BackupItemResponse) string { return v.Log }).(pulumi.StringOutput)
+}
+
+// Resource Name.
+func (o BackupItemResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v BackupItemResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// True if this backup has been created due to a schedule being triggered.
+func (o BackupItemResponseOutput) Scheduled() pulumi.BoolOutput {
+	return o.ApplyT(func(v BackupItemResponse) bool { return v.Scheduled }).(pulumi.BoolOutput)
+}
+
+// Size of the backup in bytes.
+func (o BackupItemResponseOutput) SizeInBytes() pulumi.Float64Output {
+	return o.ApplyT(func(v BackupItemResponse) float64 { return v.SizeInBytes }).(pulumi.Float64Output)
+}
+
+// Backup status.
+func (o BackupItemResponseOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v BackupItemResponse) string { return v.Status }).(pulumi.StringOutput)
+}
+
+// SAS URL for the storage account container which contains this backup.
+func (o BackupItemResponseOutput) StorageAccountUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v BackupItemResponse) string { return v.StorageAccountUrl }).(pulumi.StringOutput)
+}
+
+// Resource type.
+func (o BackupItemResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v BackupItemResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Size of the original web app which has been backed up.
+func (o BackupItemResponseOutput) WebsiteSizeInBytes() pulumi.Float64Output {
+	return o.ApplyT(func(v BackupItemResponse) float64 { return v.WebsiteSizeInBytes }).(pulumi.Float64Output)
+}
+
+type BackupItemResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (BackupItemResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BackupItemResponse)(nil)).Elem()
+}
+
+func (o BackupItemResponseArrayOutput) ToBackupItemResponseArrayOutput() BackupItemResponseArrayOutput {
+	return o
+}
+
+func (o BackupItemResponseArrayOutput) ToBackupItemResponseArrayOutputWithContext(ctx context.Context) BackupItemResponseArrayOutput {
+	return o
+}
+
+func (o BackupItemResponseArrayOutput) Index(i pulumi.IntInput) BackupItemResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BackupItemResponse {
+		return vs[0].([]BackupItemResponse)[vs[1].(int)]
+	}).(BackupItemResponseOutput)
+}
+
 // Description of a backup schedule. Describes how often should be the backup performed and what should be the retention policy.
 type BackupSchedule struct {
 	// How often the backup should be executed (e.g. for weekly backup, this should be set to 7 and FrequencyUnit should be set to Day)
@@ -12417,6 +12537,66 @@ type IdentifierResponse struct {
 	Type string `pulumi:"type"`
 	// String representation of the identity.
 	Value *string `pulumi:"value"`
+}
+
+// A domain specific resource identifier.
+type IdentifierResponseOutput struct{ *pulumi.OutputState }
+
+func (IdentifierResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentifierResponse)(nil)).Elem()
+}
+
+func (o IdentifierResponseOutput) ToIdentifierResponseOutput() IdentifierResponseOutput {
+	return o
+}
+
+func (o IdentifierResponseOutput) ToIdentifierResponseOutputWithContext(ctx context.Context) IdentifierResponseOutput {
+	return o
+}
+
+// Resource Id.
+func (o IdentifierResponseOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v IdentifierResponse) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Kind of resource.
+func (o IdentifierResponseOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IdentifierResponse) *string { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Resource Name.
+func (o IdentifierResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v IdentifierResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Resource type.
+func (o IdentifierResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v IdentifierResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// String representation of the identity.
+func (o IdentifierResponseOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IdentifierResponse) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type IdentifierResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (IdentifierResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IdentifierResponse)(nil)).Elem()
+}
+
+func (o IdentifierResponseArrayOutput) ToIdentifierResponseArrayOutput() IdentifierResponseArrayOutput {
+	return o
+}
+
+func (o IdentifierResponseArrayOutput) ToIdentifierResponseArrayOutputWithContext(ctx context.Context) IdentifierResponseArrayOutput {
+	return o
+}
+
+func (o IdentifierResponseArrayOutput) Index(i pulumi.IntInput) IdentifierResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IdentifierResponse {
+		return vs[0].([]IdentifierResponse)[vs[1].(int)]
+	}).(IdentifierResponseOutput)
 }
 
 type IdentityProviders struct {
@@ -22254,6 +22434,81 @@ type StaticSiteUserARMResourceResponse struct {
 	UserId string `pulumi:"userId"`
 }
 
+// Static Site User ARM resource.
+type StaticSiteUserARMResourceResponseOutput struct{ *pulumi.OutputState }
+
+func (StaticSiteUserARMResourceResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StaticSiteUserARMResourceResponse)(nil)).Elem()
+}
+
+func (o StaticSiteUserARMResourceResponseOutput) ToStaticSiteUserARMResourceResponseOutput() StaticSiteUserARMResourceResponseOutput {
+	return o
+}
+
+func (o StaticSiteUserARMResourceResponseOutput) ToStaticSiteUserARMResourceResponseOutputWithContext(ctx context.Context) StaticSiteUserARMResourceResponseOutput {
+	return o
+}
+
+// The display name for the static site user.
+func (o StaticSiteUserARMResourceResponseOutput) DisplayName() pulumi.StringOutput {
+	return o.ApplyT(func(v StaticSiteUserARMResourceResponse) string { return v.DisplayName }).(pulumi.StringOutput)
+}
+
+// Resource Id.
+func (o StaticSiteUserARMResourceResponseOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v StaticSiteUserARMResourceResponse) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Kind of resource.
+func (o StaticSiteUserARMResourceResponseOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StaticSiteUserARMResourceResponse) *string { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Resource Name.
+func (o StaticSiteUserARMResourceResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v StaticSiteUserARMResourceResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The identity provider for the static site user.
+func (o StaticSiteUserARMResourceResponseOutput) Provider() pulumi.StringOutput {
+	return o.ApplyT(func(v StaticSiteUserARMResourceResponse) string { return v.Provider }).(pulumi.StringOutput)
+}
+
+// The roles for the static site user, in free-form string format
+func (o StaticSiteUserARMResourceResponseOutput) Roles() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StaticSiteUserARMResourceResponse) *string { return v.Roles }).(pulumi.StringPtrOutput)
+}
+
+// Resource type.
+func (o StaticSiteUserARMResourceResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v StaticSiteUserARMResourceResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The user id for the static site user.
+func (o StaticSiteUserARMResourceResponseOutput) UserId() pulumi.StringOutput {
+	return o.ApplyT(func(v StaticSiteUserARMResourceResponse) string { return v.UserId }).(pulumi.StringOutput)
+}
+
+type StaticSiteUserARMResourceResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (StaticSiteUserARMResourceResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StaticSiteUserARMResourceResponse)(nil)).Elem()
+}
+
+func (o StaticSiteUserARMResourceResponseArrayOutput) ToStaticSiteUserARMResourceResponseArrayOutput() StaticSiteUserARMResourceResponseArrayOutput {
+	return o
+}
+
+func (o StaticSiteUserARMResourceResponseArrayOutput) ToStaticSiteUserARMResourceResponseArrayOutputWithContext(ctx context.Context) StaticSiteUserARMResourceResponseArrayOutput {
+	return o
+}
+
+func (o StaticSiteUserARMResourceResponseArrayOutput) Index(i pulumi.IntInput) StaticSiteUserARMResourceResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StaticSiteUserARMResourceResponse {
+		return vs[0].([]StaticSiteUserARMResourceResponse)[vs[1].(int)]
+	}).(StaticSiteUserARMResourceResponseOutput)
+}
+
 // Trigger based on status code.
 type StatusCodesBasedTrigger struct {
 	// Request Count.
@@ -24349,6 +24604,8 @@ func init() {
 	pulumi.RegisterOutputType(AzureTableStorageApplicationLogsConfigPtrOutput{})
 	pulumi.RegisterOutputType(AzureTableStorageApplicationLogsConfigResponseOutput{})
 	pulumi.RegisterOutputType(AzureTableStorageApplicationLogsConfigResponsePtrOutput{})
+	pulumi.RegisterOutputType(BackupItemResponseOutput{})
+	pulumi.RegisterOutputType(BackupItemResponseArrayOutput{})
 	pulumi.RegisterOutputType(BackupScheduleOutput{})
 	pulumi.RegisterOutputType(BackupSchedulePtrOutput{})
 	pulumi.RegisterOutputType(BackupScheduleResponseOutput{})
@@ -24455,6 +24712,8 @@ func init() {
 	pulumi.RegisterOutputType(HttpSettingsRoutesPtrOutput{})
 	pulumi.RegisterOutputType(HttpSettingsRoutesResponseOutput{})
 	pulumi.RegisterOutputType(HttpSettingsRoutesResponsePtrOutput{})
+	pulumi.RegisterOutputType(IdentifierResponseOutput{})
+	pulumi.RegisterOutputType(IdentifierResponseArrayOutput{})
 	pulumi.RegisterOutputType(IdentityProvidersOutput{})
 	pulumi.RegisterOutputType(IdentityProvidersPtrOutput{})
 	pulumi.RegisterOutputType(IdentityProvidersResponseOutput{})
@@ -24558,6 +24817,8 @@ func init() {
 	pulumi.RegisterOutputType(StaticSiteBuildPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(StaticSiteBuildPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(StaticSiteBuildPropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(StaticSiteUserARMResourceResponseOutput{})
+	pulumi.RegisterOutputType(StaticSiteUserARMResourceResponseArrayOutput{})
 	pulumi.RegisterOutputType(StatusCodesBasedTriggerOutput{})
 	pulumi.RegisterOutputType(StatusCodesBasedTriggerArrayOutput{})
 	pulumi.RegisterOutputType(StatusCodesBasedTriggerResponseOutput{})

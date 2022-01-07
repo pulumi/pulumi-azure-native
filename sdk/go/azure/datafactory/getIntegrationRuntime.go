@@ -4,6 +4,9 @@
 package datafactory
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -39,4 +42,70 @@ type LookupIntegrationRuntimeResult struct {
 	Properties interface{} `pulumi:"properties"`
 	// The resource type.
 	Type string `pulumi:"type"`
+}
+
+func LookupIntegrationRuntimeOutput(ctx *pulumi.Context, args LookupIntegrationRuntimeOutputArgs, opts ...pulumi.InvokeOption) LookupIntegrationRuntimeResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupIntegrationRuntimeResult, error) {
+			args := v.(LookupIntegrationRuntimeArgs)
+			r, err := LookupIntegrationRuntime(ctx, &args, opts...)
+			return *r, err
+		}).(LookupIntegrationRuntimeResultOutput)
+}
+
+type LookupIntegrationRuntimeOutputArgs struct {
+	// The factory name.
+	FactoryName pulumi.StringInput `pulumi:"factoryName"`
+	// The integration runtime name.
+	IntegrationRuntimeName pulumi.StringInput `pulumi:"integrationRuntimeName"`
+	// The resource group name.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupIntegrationRuntimeOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupIntegrationRuntimeArgs)(nil)).Elem()
+}
+
+// Integration runtime resource type.
+type LookupIntegrationRuntimeResultOutput struct{ *pulumi.OutputState }
+
+func (LookupIntegrationRuntimeResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupIntegrationRuntimeResult)(nil)).Elem()
+}
+
+func (o LookupIntegrationRuntimeResultOutput) ToLookupIntegrationRuntimeResultOutput() LookupIntegrationRuntimeResultOutput {
+	return o
+}
+
+func (o LookupIntegrationRuntimeResultOutput) ToLookupIntegrationRuntimeResultOutputWithContext(ctx context.Context) LookupIntegrationRuntimeResultOutput {
+	return o
+}
+
+// Etag identifies change in the resource.
+func (o LookupIntegrationRuntimeResultOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupIntegrationRuntimeResult) string { return v.Etag }).(pulumi.StringOutput)
+}
+
+// The resource identifier.
+func (o LookupIntegrationRuntimeResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupIntegrationRuntimeResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The resource name.
+func (o LookupIntegrationRuntimeResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupIntegrationRuntimeResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Integration runtime properties.
+func (o LookupIntegrationRuntimeResultOutput) Properties() pulumi.AnyOutput {
+	return o.ApplyT(func(v LookupIntegrationRuntimeResult) interface{} { return v.Properties }).(pulumi.AnyOutput)
+}
+
+// The resource type.
+func (o LookupIntegrationRuntimeResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupIntegrationRuntimeResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupIntegrationRuntimeResultOutput{})
 }

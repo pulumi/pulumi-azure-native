@@ -4,6 +4,9 @@
 package v20201015preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -30,4 +33,53 @@ type ListPartnerNamespaceSharedAccessKeysResult struct {
 	Key1 *string `pulumi:"key1"`
 	// Shared access key2 for the partner namespace.
 	Key2 *string `pulumi:"key2"`
+}
+
+func ListPartnerNamespaceSharedAccessKeysOutput(ctx *pulumi.Context, args ListPartnerNamespaceSharedAccessKeysOutputArgs, opts ...pulumi.InvokeOption) ListPartnerNamespaceSharedAccessKeysResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (ListPartnerNamespaceSharedAccessKeysResult, error) {
+			args := v.(ListPartnerNamespaceSharedAccessKeysArgs)
+			r, err := ListPartnerNamespaceSharedAccessKeys(ctx, &args, opts...)
+			return *r, err
+		}).(ListPartnerNamespaceSharedAccessKeysResultOutput)
+}
+
+type ListPartnerNamespaceSharedAccessKeysOutputArgs struct {
+	// Name of the partner namespace.
+	PartnerNamespaceName pulumi.StringInput `pulumi:"partnerNamespaceName"`
+	// The name of the resource group within the user's subscription.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (ListPartnerNamespaceSharedAccessKeysOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListPartnerNamespaceSharedAccessKeysArgs)(nil)).Elem()
+}
+
+// Shared access keys of the partner namespace.
+type ListPartnerNamespaceSharedAccessKeysResultOutput struct{ *pulumi.OutputState }
+
+func (ListPartnerNamespaceSharedAccessKeysResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListPartnerNamespaceSharedAccessKeysResult)(nil)).Elem()
+}
+
+func (o ListPartnerNamespaceSharedAccessKeysResultOutput) ToListPartnerNamespaceSharedAccessKeysResultOutput() ListPartnerNamespaceSharedAccessKeysResultOutput {
+	return o
+}
+
+func (o ListPartnerNamespaceSharedAccessKeysResultOutput) ToListPartnerNamespaceSharedAccessKeysResultOutputWithContext(ctx context.Context) ListPartnerNamespaceSharedAccessKeysResultOutput {
+	return o
+}
+
+// Shared access key1 for the partner namespace.
+func (o ListPartnerNamespaceSharedAccessKeysResultOutput) Key1() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListPartnerNamespaceSharedAccessKeysResult) *string { return v.Key1 }).(pulumi.StringPtrOutput)
+}
+
+// Shared access key2 for the partner namespace.
+func (o ListPartnerNamespaceSharedAccessKeysResultOutput) Key2() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListPartnerNamespaceSharedAccessKeysResult) *string { return v.Key2 }).(pulumi.StringPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(ListPartnerNamespaceSharedAccessKeysResultOutput{})
 }

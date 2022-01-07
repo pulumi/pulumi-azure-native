@@ -4,6 +4,9 @@
 package v20210201preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -50,4 +53,103 @@ type LookupOrderResult struct {
 	SystemData SystemDataResponse `pulumi:"systemData"`
 	// The hierarchical type of the object.
 	Type string `pulumi:"type"`
+}
+
+func LookupOrderOutput(ctx *pulumi.Context, args LookupOrderOutputArgs, opts ...pulumi.InvokeOption) LookupOrderResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupOrderResult, error) {
+			args := v.(LookupOrderArgs)
+			r, err := LookupOrder(ctx, &args, opts...)
+			return *r, err
+		}).(LookupOrderResultOutput)
+}
+
+type LookupOrderOutputArgs struct {
+	// The device name.
+	DeviceName pulumi.StringInput `pulumi:"deviceName"`
+	// The resource group name.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupOrderOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupOrderArgs)(nil)).Elem()
+}
+
+// The order details.
+type LookupOrderResultOutput struct{ *pulumi.OutputState }
+
+func (LookupOrderResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupOrderResult)(nil)).Elem()
+}
+
+func (o LookupOrderResultOutput) ToLookupOrderResultOutput() LookupOrderResultOutput {
+	return o
+}
+
+func (o LookupOrderResultOutput) ToLookupOrderResultOutputWithContext(ctx context.Context) LookupOrderResultOutput {
+	return o
+}
+
+// The contact details.
+func (o LookupOrderResultOutput) ContactInformation() ContactDetailsResponseOutput {
+	return o.ApplyT(func(v LookupOrderResult) ContactDetailsResponse { return v.ContactInformation }).(ContactDetailsResponseOutput)
+}
+
+// Current status of the order.
+func (o LookupOrderResultOutput) CurrentStatus() OrderStatusResponseOutput {
+	return o.ApplyT(func(v LookupOrderResult) OrderStatusResponse { return v.CurrentStatus }).(OrderStatusResponseOutput)
+}
+
+// Tracking information for the package delivered to the customer whether it has an original or a replacement device.
+func (o LookupOrderResultOutput) DeliveryTrackingInfo() TrackingInfoResponseArrayOutput {
+	return o.ApplyT(func(v LookupOrderResult) []TrackingInfoResponse { return v.DeliveryTrackingInfo }).(TrackingInfoResponseArrayOutput)
+}
+
+// The path ID that uniquely identifies the object.
+func (o LookupOrderResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupOrderResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The object name.
+func (o LookupOrderResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupOrderResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// List of status changes in the order.
+func (o LookupOrderResultOutput) OrderHistory() OrderStatusResponseArrayOutput {
+	return o.ApplyT(func(v LookupOrderResult) []OrderStatusResponse { return v.OrderHistory }).(OrderStatusResponseArrayOutput)
+}
+
+// Tracking information for the package returned from the customer whether it has an original or a replacement device.
+func (o LookupOrderResultOutput) ReturnTrackingInfo() TrackingInfoResponseArrayOutput {
+	return o.ApplyT(func(v LookupOrderResult) []TrackingInfoResponse { return v.ReturnTrackingInfo }).(TrackingInfoResponseArrayOutput)
+}
+
+// Serial number of the device.
+func (o LookupOrderResultOutput) SerialNumber() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupOrderResult) string { return v.SerialNumber }).(pulumi.StringOutput)
+}
+
+// ShipmentType of the order
+func (o LookupOrderResultOutput) ShipmentType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupOrderResult) *string { return v.ShipmentType }).(pulumi.StringPtrOutput)
+}
+
+// The shipping address.
+func (o LookupOrderResultOutput) ShippingAddress() AddressResponsePtrOutput {
+	return o.ApplyT(func(v LookupOrderResult) *AddressResponse { return v.ShippingAddress }).(AddressResponsePtrOutput)
+}
+
+// Order configured on ASE resource
+func (o LookupOrderResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupOrderResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The hierarchical type of the object.
+func (o LookupOrderResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupOrderResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupOrderResultOutput{})
 }

@@ -4,6 +4,9 @@
 package v20181015
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -26,4 +29,46 @@ type ListGlobalUserLabsArgs struct {
 type ListGlobalUserLabsResult struct {
 	// List of all the labs
 	Labs []LabDetailsResponse `pulumi:"labs"`
+}
+
+func ListGlobalUserLabsOutput(ctx *pulumi.Context, args ListGlobalUserLabsOutputArgs, opts ...pulumi.InvokeOption) ListGlobalUserLabsResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (ListGlobalUserLabsResult, error) {
+			args := v.(ListGlobalUserLabsArgs)
+			r, err := ListGlobalUserLabs(ctx, &args, opts...)
+			return *r, err
+		}).(ListGlobalUserLabsResultOutput)
+}
+
+type ListGlobalUserLabsOutputArgs struct {
+	// The name of the user.
+	UserName pulumi.StringInput `pulumi:"userName"`
+}
+
+func (ListGlobalUserLabsOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListGlobalUserLabsArgs)(nil)).Elem()
+}
+
+// Lists the labs owned by a user
+type ListGlobalUserLabsResultOutput struct{ *pulumi.OutputState }
+
+func (ListGlobalUserLabsResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListGlobalUserLabsResult)(nil)).Elem()
+}
+
+func (o ListGlobalUserLabsResultOutput) ToListGlobalUserLabsResultOutput() ListGlobalUserLabsResultOutput {
+	return o
+}
+
+func (o ListGlobalUserLabsResultOutput) ToListGlobalUserLabsResultOutputWithContext(ctx context.Context) ListGlobalUserLabsResultOutput {
+	return o
+}
+
+// List of all the labs
+func (o ListGlobalUserLabsResultOutput) Labs() LabDetailsResponseArrayOutput {
+	return o.ApplyT(func(v ListGlobalUserLabsResult) []LabDetailsResponse { return v.Labs }).(LabDetailsResponseArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(ListGlobalUserLabsResultOutput{})
 }

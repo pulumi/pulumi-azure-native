@@ -4,6 +4,9 @@
 package sql
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -45,4 +48,82 @@ type LookupGeoBackupPolicyResult struct {
 	StorageType string `pulumi:"storageType"`
 	// Resource type.
 	Type string `pulumi:"type"`
+}
+
+func LookupGeoBackupPolicyOutput(ctx *pulumi.Context, args LookupGeoBackupPolicyOutputArgs, opts ...pulumi.InvokeOption) LookupGeoBackupPolicyResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupGeoBackupPolicyResult, error) {
+			args := v.(LookupGeoBackupPolicyArgs)
+			r, err := LookupGeoBackupPolicy(ctx, &args, opts...)
+			return *r, err
+		}).(LookupGeoBackupPolicyResultOutput)
+}
+
+type LookupGeoBackupPolicyOutputArgs struct {
+	// The name of the database.
+	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
+	// The name of the geo backup policy.
+	GeoBackupPolicyName pulumi.StringInput `pulumi:"geoBackupPolicyName"`
+	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the server.
+	ServerName pulumi.StringInput `pulumi:"serverName"`
+}
+
+func (LookupGeoBackupPolicyOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupGeoBackupPolicyArgs)(nil)).Elem()
+}
+
+// A database geo backup policy.
+type LookupGeoBackupPolicyResultOutput struct{ *pulumi.OutputState }
+
+func (LookupGeoBackupPolicyResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupGeoBackupPolicyResult)(nil)).Elem()
+}
+
+func (o LookupGeoBackupPolicyResultOutput) ToLookupGeoBackupPolicyResultOutput() LookupGeoBackupPolicyResultOutput {
+	return o
+}
+
+func (o LookupGeoBackupPolicyResultOutput) ToLookupGeoBackupPolicyResultOutputWithContext(ctx context.Context) LookupGeoBackupPolicyResultOutput {
+	return o
+}
+
+// Resource ID.
+func (o LookupGeoBackupPolicyResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupGeoBackupPolicyResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Kind of geo backup policy.  This is metadata used for the Azure portal experience.
+func (o LookupGeoBackupPolicyResultOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupGeoBackupPolicyResult) string { return v.Kind }).(pulumi.StringOutput)
+}
+
+// Backup policy location.
+func (o LookupGeoBackupPolicyResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupGeoBackupPolicyResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o LookupGeoBackupPolicyResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupGeoBackupPolicyResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The state of the geo backup policy.
+func (o LookupGeoBackupPolicyResultOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupGeoBackupPolicyResult) string { return v.State }).(pulumi.StringOutput)
+}
+
+// The storage type of the geo backup policy.
+func (o LookupGeoBackupPolicyResultOutput) StorageType() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupGeoBackupPolicyResult) string { return v.StorageType }).(pulumi.StringOutput)
+}
+
+// Resource type.
+func (o LookupGeoBackupPolicyResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupGeoBackupPolicyResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupGeoBackupPolicyResultOutput{})
 }

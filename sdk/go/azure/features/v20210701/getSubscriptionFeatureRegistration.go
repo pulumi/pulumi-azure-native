@@ -4,6 +4,9 @@
 package v20210701
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -44,4 +47,64 @@ func (val *LookupSubscriptionFeatureRegistrationResult) Defaults() *LookupSubscr
 	tmp.Properties = *tmp.Properties.Defaults()
 
 	return &tmp
+}
+
+func LookupSubscriptionFeatureRegistrationOutput(ctx *pulumi.Context, args LookupSubscriptionFeatureRegistrationOutputArgs, opts ...pulumi.InvokeOption) LookupSubscriptionFeatureRegistrationResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupSubscriptionFeatureRegistrationResult, error) {
+			args := v.(LookupSubscriptionFeatureRegistrationArgs)
+			r, err := LookupSubscriptionFeatureRegistration(ctx, &args, opts...)
+			return *r, err
+		}).(LookupSubscriptionFeatureRegistrationResultOutput)
+}
+
+type LookupSubscriptionFeatureRegistrationOutputArgs struct {
+	// The feature name.
+	FeatureName pulumi.StringInput `pulumi:"featureName"`
+	// The provider namespace.
+	ProviderNamespace pulumi.StringInput `pulumi:"providerNamespace"`
+}
+
+func (LookupSubscriptionFeatureRegistrationOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupSubscriptionFeatureRegistrationArgs)(nil)).Elem()
+}
+
+// Subscription feature registration details
+type LookupSubscriptionFeatureRegistrationResultOutput struct{ *pulumi.OutputState }
+
+func (LookupSubscriptionFeatureRegistrationResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupSubscriptionFeatureRegistrationResult)(nil)).Elem()
+}
+
+func (o LookupSubscriptionFeatureRegistrationResultOutput) ToLookupSubscriptionFeatureRegistrationResultOutput() LookupSubscriptionFeatureRegistrationResultOutput {
+	return o
+}
+
+func (o LookupSubscriptionFeatureRegistrationResultOutput) ToLookupSubscriptionFeatureRegistrationResultOutputWithContext(ctx context.Context) LookupSubscriptionFeatureRegistrationResultOutput {
+	return o
+}
+
+// Azure resource Id.
+func (o LookupSubscriptionFeatureRegistrationResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSubscriptionFeatureRegistrationResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Azure resource name.
+func (o LookupSubscriptionFeatureRegistrationResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSubscriptionFeatureRegistrationResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupSubscriptionFeatureRegistrationResultOutput) Properties() SubscriptionFeatureRegistrationResponsePropertiesOutput {
+	return o.ApplyT(func(v LookupSubscriptionFeatureRegistrationResult) SubscriptionFeatureRegistrationResponseProperties {
+		return v.Properties
+	}).(SubscriptionFeatureRegistrationResponsePropertiesOutput)
+}
+
+// Azure resource type.
+func (o LookupSubscriptionFeatureRegistrationResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSubscriptionFeatureRegistrationResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupSubscriptionFeatureRegistrationResultOutput{})
 }

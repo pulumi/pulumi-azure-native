@@ -4,6 +4,9 @@
 package v20180501
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -26,4 +29,48 @@ type GetDnsResourceReferenceByTarResourcesArgs struct {
 type GetDnsResourceReferenceByTarResourcesResult struct {
 	// The result of dns resource reference request. A list of dns resource references for each of the azure resource in the request
 	DnsResourceReferences []DnsResourceReferenceResponse `pulumi:"dnsResourceReferences"`
+}
+
+func GetDnsResourceReferenceByTarResourcesOutput(ctx *pulumi.Context, args GetDnsResourceReferenceByTarResourcesOutputArgs, opts ...pulumi.InvokeOption) GetDnsResourceReferenceByTarResourcesResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetDnsResourceReferenceByTarResourcesResult, error) {
+			args := v.(GetDnsResourceReferenceByTarResourcesArgs)
+			r, err := GetDnsResourceReferenceByTarResources(ctx, &args, opts...)
+			return *r, err
+		}).(GetDnsResourceReferenceByTarResourcesResultOutput)
+}
+
+type GetDnsResourceReferenceByTarResourcesOutputArgs struct {
+	// A list of references to azure resources for which referencing dns records need to be queried.
+	TargetResources SubResourceArrayInput `pulumi:"targetResources"`
+}
+
+func (GetDnsResourceReferenceByTarResourcesOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDnsResourceReferenceByTarResourcesArgs)(nil)).Elem()
+}
+
+// Represents the properties of the Dns Resource Reference Result.
+type GetDnsResourceReferenceByTarResourcesResultOutput struct{ *pulumi.OutputState }
+
+func (GetDnsResourceReferenceByTarResourcesResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDnsResourceReferenceByTarResourcesResult)(nil)).Elem()
+}
+
+func (o GetDnsResourceReferenceByTarResourcesResultOutput) ToGetDnsResourceReferenceByTarResourcesResultOutput() GetDnsResourceReferenceByTarResourcesResultOutput {
+	return o
+}
+
+func (o GetDnsResourceReferenceByTarResourcesResultOutput) ToGetDnsResourceReferenceByTarResourcesResultOutputWithContext(ctx context.Context) GetDnsResourceReferenceByTarResourcesResultOutput {
+	return o
+}
+
+// The result of dns resource reference request. A list of dns resource references for each of the azure resource in the request
+func (o GetDnsResourceReferenceByTarResourcesResultOutput) DnsResourceReferences() DnsResourceReferenceResponseArrayOutput {
+	return o.ApplyT(func(v GetDnsResourceReferenceByTarResourcesResult) []DnsResourceReferenceResponse {
+		return v.DnsResourceReferences
+	}).(DnsResourceReferenceResponseArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetDnsResourceReferenceByTarResourcesResultOutput{})
 }

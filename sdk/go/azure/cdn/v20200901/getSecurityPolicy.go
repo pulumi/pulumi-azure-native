@@ -4,6 +4,9 @@
 package v20200901
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -41,4 +44,81 @@ type LookupSecurityPolicyResult struct {
 	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource type.
 	Type string `pulumi:"type"`
+}
+
+func LookupSecurityPolicyOutput(ctx *pulumi.Context, args LookupSecurityPolicyOutputArgs, opts ...pulumi.InvokeOption) LookupSecurityPolicyResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupSecurityPolicyResult, error) {
+			args := v.(LookupSecurityPolicyArgs)
+			r, err := LookupSecurityPolicy(ctx, &args, opts...)
+			return *r, err
+		}).(LookupSecurityPolicyResultOutput)
+}
+
+type LookupSecurityPolicyOutputArgs struct {
+	// Name of the CDN profile which is unique within the resource group.
+	ProfileName pulumi.StringInput `pulumi:"profileName"`
+	// Name of the Resource group within the Azure subscription.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// Name of the security policy under the profile.
+	SecurityPolicyName pulumi.StringInput `pulumi:"securityPolicyName"`
+}
+
+func (LookupSecurityPolicyOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupSecurityPolicyArgs)(nil)).Elem()
+}
+
+// SecurityPolicy association for AzureFrontDoor profile
+type LookupSecurityPolicyResultOutput struct{ *pulumi.OutputState }
+
+func (LookupSecurityPolicyResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupSecurityPolicyResult)(nil)).Elem()
+}
+
+func (o LookupSecurityPolicyResultOutput) ToLookupSecurityPolicyResultOutput() LookupSecurityPolicyResultOutput {
+	return o
+}
+
+func (o LookupSecurityPolicyResultOutput) ToLookupSecurityPolicyResultOutputWithContext(ctx context.Context) LookupSecurityPolicyResultOutput {
+	return o
+}
+
+func (o LookupSecurityPolicyResultOutput) DeploymentStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSecurityPolicyResult) string { return v.DeploymentStatus }).(pulumi.StringOutput)
+}
+
+// Resource ID.
+func (o LookupSecurityPolicyResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSecurityPolicyResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o LookupSecurityPolicyResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSecurityPolicyResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// object which contains security policy parameters
+func (o LookupSecurityPolicyResultOutput) Parameters() SecurityPolicyWebApplicationFirewallParametersResponsePtrOutput {
+	return o.ApplyT(func(v LookupSecurityPolicyResult) *SecurityPolicyWebApplicationFirewallParametersResponse {
+		return v.Parameters
+	}).(SecurityPolicyWebApplicationFirewallParametersResponsePtrOutput)
+}
+
+// Provisioning status
+func (o LookupSecurityPolicyResultOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSecurityPolicyResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Read only system data
+func (o LookupSecurityPolicyResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupSecurityPolicyResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource type.
+func (o LookupSecurityPolicyResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSecurityPolicyResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupSecurityPolicyResultOutput{})
 }

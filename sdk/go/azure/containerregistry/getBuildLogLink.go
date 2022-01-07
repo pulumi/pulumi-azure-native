@@ -4,6 +4,9 @@
 package containerregistry
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -31,4 +34,50 @@ type GetBuildLogLinkArgs struct {
 type GetBuildLogLinkResult struct {
 	// The link to logs for a azure container registry build.
 	LogLink *string `pulumi:"logLink"`
+}
+
+func GetBuildLogLinkOutput(ctx *pulumi.Context, args GetBuildLogLinkOutputArgs, opts ...pulumi.InvokeOption) GetBuildLogLinkResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetBuildLogLinkResult, error) {
+			args := v.(GetBuildLogLinkArgs)
+			r, err := GetBuildLogLink(ctx, &args, opts...)
+			return *r, err
+		}).(GetBuildLogLinkResultOutput)
+}
+
+type GetBuildLogLinkOutputArgs struct {
+	// The build ID.
+	BuildId pulumi.StringInput `pulumi:"buildId"`
+	// The name of the container registry.
+	RegistryName pulumi.StringInput `pulumi:"registryName"`
+	// The name of the resource group to which the container registry belongs.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (GetBuildLogLinkOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBuildLogLinkArgs)(nil)).Elem()
+}
+
+// The result of get log link operation.
+type GetBuildLogLinkResultOutput struct{ *pulumi.OutputState }
+
+func (GetBuildLogLinkResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBuildLogLinkResult)(nil)).Elem()
+}
+
+func (o GetBuildLogLinkResultOutput) ToGetBuildLogLinkResultOutput() GetBuildLogLinkResultOutput {
+	return o
+}
+
+func (o GetBuildLogLinkResultOutput) ToGetBuildLogLinkResultOutputWithContext(ctx context.Context) GetBuildLogLinkResultOutput {
+	return o
+}
+
+// The link to logs for a azure container registry build.
+func (o GetBuildLogLinkResultOutput) LogLink() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetBuildLogLinkResult) *string { return v.LogLink }).(pulumi.StringPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetBuildLogLinkResultOutput{})
 }

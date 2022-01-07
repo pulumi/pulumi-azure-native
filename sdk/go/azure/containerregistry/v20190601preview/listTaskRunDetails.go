@@ -4,6 +4,9 @@
 package v20190601preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -61,4 +64,96 @@ func (val *ListTaskRunDetailsResult) Defaults() *ListTaskRunDetailsResult {
 	tmp.RunResult = *tmp.RunResult.Defaults()
 
 	return &tmp
+}
+
+func ListTaskRunDetailsOutput(ctx *pulumi.Context, args ListTaskRunDetailsOutputArgs, opts ...pulumi.InvokeOption) ListTaskRunDetailsResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (ListTaskRunDetailsResult, error) {
+			args := v.(ListTaskRunDetailsArgs)
+			r, err := ListTaskRunDetails(ctx, &args, opts...)
+			return *r, err
+		}).(ListTaskRunDetailsResultOutput)
+}
+
+type ListTaskRunDetailsOutputArgs struct {
+	// The name of the container registry.
+	RegistryName pulumi.StringInput `pulumi:"registryName"`
+	// The name of the resource group to which the container registry belongs.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the task run.
+	TaskRunName pulumi.StringInput `pulumi:"taskRunName"`
+}
+
+func (ListTaskRunDetailsOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListTaskRunDetailsArgs)(nil)).Elem()
+}
+
+// The task run that has the ARM resource and properties.
+// The task run will have the information of request and result of a run.
+type ListTaskRunDetailsResultOutput struct{ *pulumi.OutputState }
+
+func (ListTaskRunDetailsResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListTaskRunDetailsResult)(nil)).Elem()
+}
+
+func (o ListTaskRunDetailsResultOutput) ToListTaskRunDetailsResultOutput() ListTaskRunDetailsResultOutput {
+	return o
+}
+
+func (o ListTaskRunDetailsResultOutput) ToListTaskRunDetailsResultOutputWithContext(ctx context.Context) ListTaskRunDetailsResultOutput {
+	return o
+}
+
+// How the run should be forced to rerun even if the run request configuration has not changed
+func (o ListTaskRunDetailsResultOutput) ForceUpdateTag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListTaskRunDetailsResult) *string { return v.ForceUpdateTag }).(pulumi.StringPtrOutput)
+}
+
+// The resource ID.
+func (o ListTaskRunDetailsResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v ListTaskRunDetailsResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Identity for the resource.
+func (o ListTaskRunDetailsResultOutput) Identity() IdentityPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v ListTaskRunDetailsResult) *IdentityPropertiesResponse { return v.Identity }).(IdentityPropertiesResponsePtrOutput)
+}
+
+// The location of the resource
+func (o ListTaskRunDetailsResultOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListTaskRunDetailsResult) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource.
+func (o ListTaskRunDetailsResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ListTaskRunDetailsResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The provisioning state of this task run
+func (o ListTaskRunDetailsResultOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v ListTaskRunDetailsResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The request (parameters) for the run
+func (o ListTaskRunDetailsResultOutput) RunRequest() pulumi.AnyOutput {
+	return o.ApplyT(func(v ListTaskRunDetailsResult) interface{} { return v.RunRequest }).(pulumi.AnyOutput)
+}
+
+// The result of this task run
+func (o ListTaskRunDetailsResultOutput) RunResult() RunResponseOutput {
+	return o.ApplyT(func(v ListTaskRunDetailsResult) RunResponse { return v.RunResult }).(RunResponseOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o ListTaskRunDetailsResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v ListTaskRunDetailsResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the resource.
+func (o ListTaskRunDetailsResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ListTaskRunDetailsResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(ListTaskRunDetailsResultOutput{})
 }

@@ -4,6 +4,9 @@
 package v20190101
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -42,4 +45,80 @@ type LookupGroupResult struct {
 	Name string `pulumi:"name"`
 	// Resource type for API Management resource.
 	Type string `pulumi:"type"`
+}
+
+func LookupGroupOutput(ctx *pulumi.Context, args LookupGroupOutputArgs, opts ...pulumi.InvokeOption) LookupGroupResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupGroupResult, error) {
+			args := v.(LookupGroupArgs)
+			r, err := LookupGroup(ctx, &args, opts...)
+			return *r, err
+		}).(LookupGroupResultOutput)
+}
+
+type LookupGroupOutputArgs struct {
+	// Group identifier. Must be unique in the current API Management service instance.
+	GroupId pulumi.StringInput `pulumi:"groupId"`
+	// The name of the resource group.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the API Management service.
+	ServiceName pulumi.StringInput `pulumi:"serviceName"`
+}
+
+func (LookupGroupOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupGroupArgs)(nil)).Elem()
+}
+
+// Contract details.
+type LookupGroupResultOutput struct{ *pulumi.OutputState }
+
+func (LookupGroupResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupGroupResult)(nil)).Elem()
+}
+
+func (o LookupGroupResultOutput) ToLookupGroupResultOutput() LookupGroupResultOutput {
+	return o
+}
+
+func (o LookupGroupResultOutput) ToLookupGroupResultOutputWithContext(ctx context.Context) LookupGroupResultOutput {
+	return o
+}
+
+// true if the group is one of the three system groups (Administrators, Developers, or Guests); otherwise false.
+func (o LookupGroupResultOutput) BuiltIn() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupGroupResult) bool { return v.BuiltIn }).(pulumi.BoolOutput)
+}
+
+// Group description. Can contain HTML formatting tags.
+func (o LookupGroupResultOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupGroupResult) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Group name.
+func (o LookupGroupResultOutput) DisplayName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupGroupResult) string { return v.DisplayName }).(pulumi.StringOutput)
+}
+
+// For external groups, this property contains the id of the group from the external identity provider, e.g. for Azure Active Directory `aad://<tenant>.onmicrosoft.com/groups/<group object id>`; otherwise the value is null.
+func (o LookupGroupResultOutput) ExternalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupGroupResult) *string { return v.ExternalId }).(pulumi.StringPtrOutput)
+}
+
+// Resource ID.
+func (o LookupGroupResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupGroupResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o LookupGroupResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupGroupResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Resource type for API Management resource.
+func (o LookupGroupResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupGroupResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupGroupResultOutput{})
 }

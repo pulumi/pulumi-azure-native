@@ -4,6 +4,9 @@
 package v20170601
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -44,4 +47,85 @@ type LookupStorageAccountCredentialResult struct {
 	Type string `pulumi:"type"`
 	// The count of volumes using this storage account credential.
 	VolumesCount int `pulumi:"volumesCount"`
+}
+
+func LookupStorageAccountCredentialOutput(ctx *pulumi.Context, args LookupStorageAccountCredentialOutputArgs, opts ...pulumi.InvokeOption) LookupStorageAccountCredentialResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupStorageAccountCredentialResult, error) {
+			args := v.(LookupStorageAccountCredentialArgs)
+			r, err := LookupStorageAccountCredential(ctx, &args, opts...)
+			return *r, err
+		}).(LookupStorageAccountCredentialResultOutput)
+}
+
+type LookupStorageAccountCredentialOutputArgs struct {
+	// The manager name
+	ManagerName pulumi.StringInput `pulumi:"managerName"`
+	// The resource group name
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of storage account credential to be fetched.
+	StorageAccountCredentialName pulumi.StringInput `pulumi:"storageAccountCredentialName"`
+}
+
+func (LookupStorageAccountCredentialOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupStorageAccountCredentialArgs)(nil)).Elem()
+}
+
+// The storage account credential.
+type LookupStorageAccountCredentialResultOutput struct{ *pulumi.OutputState }
+
+func (LookupStorageAccountCredentialResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupStorageAccountCredentialResult)(nil)).Elem()
+}
+
+func (o LookupStorageAccountCredentialResultOutput) ToLookupStorageAccountCredentialResultOutput() LookupStorageAccountCredentialResultOutput {
+	return o
+}
+
+func (o LookupStorageAccountCredentialResultOutput) ToLookupStorageAccountCredentialResultOutputWithContext(ctx context.Context) LookupStorageAccountCredentialResultOutput {
+	return o
+}
+
+// The details of the storage account password.
+func (o LookupStorageAccountCredentialResultOutput) AccessKey() AsymmetricEncryptedSecretResponsePtrOutput {
+	return o.ApplyT(func(v LookupStorageAccountCredentialResult) *AsymmetricEncryptedSecretResponse { return v.AccessKey }).(AsymmetricEncryptedSecretResponsePtrOutput)
+}
+
+// The storage endpoint
+func (o LookupStorageAccountCredentialResultOutput) EndPoint() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupStorageAccountCredentialResult) string { return v.EndPoint }).(pulumi.StringOutput)
+}
+
+// The path ID that uniquely identifies the object.
+func (o LookupStorageAccountCredentialResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupStorageAccountCredentialResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The Kind of the object. Currently only Series8000 is supported
+func (o LookupStorageAccountCredentialResultOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupStorageAccountCredentialResult) *string { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// The name of the object.
+func (o LookupStorageAccountCredentialResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupStorageAccountCredentialResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Signifies whether SSL needs to be enabled or not.
+func (o LookupStorageAccountCredentialResultOutput) SslStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupStorageAccountCredentialResult) string { return v.SslStatus }).(pulumi.StringOutput)
+}
+
+// The hierarchical type of the object.
+func (o LookupStorageAccountCredentialResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupStorageAccountCredentialResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The count of volumes using this storage account credential.
+func (o LookupStorageAccountCredentialResultOutput) VolumesCount() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupStorageAccountCredentialResult) int { return v.VolumesCount }).(pulumi.IntOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupStorageAccountCredentialResultOutput{})
 }

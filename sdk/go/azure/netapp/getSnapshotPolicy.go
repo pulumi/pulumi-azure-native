@@ -4,6 +4,9 @@
 package netapp
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -51,4 +54,100 @@ type LookupSnapshotPolicyResult struct {
 	Type string `pulumi:"type"`
 	// Schedule for weekly snapshots
 	WeeklySchedule *WeeklyScheduleResponse `pulumi:"weeklySchedule"`
+}
+
+func LookupSnapshotPolicyOutput(ctx *pulumi.Context, args LookupSnapshotPolicyOutputArgs, opts ...pulumi.InvokeOption) LookupSnapshotPolicyResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupSnapshotPolicyResult, error) {
+			args := v.(LookupSnapshotPolicyArgs)
+			r, err := LookupSnapshotPolicy(ctx, &args, opts...)
+			return *r, err
+		}).(LookupSnapshotPolicyResultOutput)
+}
+
+type LookupSnapshotPolicyOutputArgs struct {
+	// The name of the NetApp account
+	AccountName pulumi.StringInput `pulumi:"accountName"`
+	// The name of the resource group.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the snapshot policy
+	SnapshotPolicyName pulumi.StringInput `pulumi:"snapshotPolicyName"`
+}
+
+func (LookupSnapshotPolicyOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupSnapshotPolicyArgs)(nil)).Elem()
+}
+
+// Snapshot policy information
+type LookupSnapshotPolicyResultOutput struct{ *pulumi.OutputState }
+
+func (LookupSnapshotPolicyResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupSnapshotPolicyResult)(nil)).Elem()
+}
+
+func (o LookupSnapshotPolicyResultOutput) ToLookupSnapshotPolicyResultOutput() LookupSnapshotPolicyResultOutput {
+	return o
+}
+
+func (o LookupSnapshotPolicyResultOutput) ToLookupSnapshotPolicyResultOutputWithContext(ctx context.Context) LookupSnapshotPolicyResultOutput {
+	return o
+}
+
+// Schedule for daily snapshots
+func (o LookupSnapshotPolicyResultOutput) DailySchedule() DailyScheduleResponsePtrOutput {
+	return o.ApplyT(func(v LookupSnapshotPolicyResult) *DailyScheduleResponse { return v.DailySchedule }).(DailyScheduleResponsePtrOutput)
+}
+
+// The property to decide policy is enabled or not
+func (o LookupSnapshotPolicyResultOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupSnapshotPolicyResult) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// Schedule for hourly snapshots
+func (o LookupSnapshotPolicyResultOutput) HourlySchedule() HourlyScheduleResponsePtrOutput {
+	return o.ApplyT(func(v LookupSnapshotPolicyResult) *HourlyScheduleResponse { return v.HourlySchedule }).(HourlyScheduleResponsePtrOutput)
+}
+
+// Resource Id
+func (o LookupSnapshotPolicyResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSnapshotPolicyResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Resource location
+func (o LookupSnapshotPolicyResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSnapshotPolicyResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// Schedule for monthly snapshots
+func (o LookupSnapshotPolicyResultOutput) MonthlySchedule() MonthlyScheduleResponsePtrOutput {
+	return o.ApplyT(func(v LookupSnapshotPolicyResult) *MonthlyScheduleResponse { return v.MonthlySchedule }).(MonthlyScheduleResponsePtrOutput)
+}
+
+// Resource name
+func (o LookupSnapshotPolicyResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSnapshotPolicyResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Azure lifecycle management
+func (o LookupSnapshotPolicyResultOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSnapshotPolicyResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Resource tags
+func (o LookupSnapshotPolicyResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupSnapshotPolicyResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type
+func (o LookupSnapshotPolicyResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSnapshotPolicyResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Schedule for weekly snapshots
+func (o LookupSnapshotPolicyResultOutput) WeeklySchedule() WeeklyScheduleResponsePtrOutput {
+	return o.ApplyT(func(v LookupSnapshotPolicyResult) *WeeklyScheduleResponse { return v.WeeklySchedule }).(WeeklyScheduleResponsePtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupSnapshotPolicyResultOutput{})
 }

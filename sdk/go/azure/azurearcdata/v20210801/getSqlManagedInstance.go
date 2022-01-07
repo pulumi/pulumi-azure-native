@@ -4,6 +4,9 @@
 package v20210801
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -57,4 +60,88 @@ func (val *LookupSqlManagedInstanceResult) Defaults() *LookupSqlManagedInstanceR
 	tmp.Sku = tmp.Sku.Defaults()
 
 	return &tmp
+}
+
+func LookupSqlManagedInstanceOutput(ctx *pulumi.Context, args LookupSqlManagedInstanceOutputArgs, opts ...pulumi.InvokeOption) LookupSqlManagedInstanceResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupSqlManagedInstanceResult, error) {
+			args := v.(LookupSqlManagedInstanceArgs)
+			r, err := LookupSqlManagedInstance(ctx, &args, opts...)
+			return *r, err
+		}).(LookupSqlManagedInstanceResultOutput)
+}
+
+type LookupSqlManagedInstanceOutputArgs struct {
+	// The name of the Azure resource group
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// Name of SQL Managed Instance
+	SqlManagedInstanceName pulumi.StringInput `pulumi:"sqlManagedInstanceName"`
+}
+
+func (LookupSqlManagedInstanceOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupSqlManagedInstanceArgs)(nil)).Elem()
+}
+
+// A SqlManagedInstance.
+type LookupSqlManagedInstanceResultOutput struct{ *pulumi.OutputState }
+
+func (LookupSqlManagedInstanceResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupSqlManagedInstanceResult)(nil)).Elem()
+}
+
+func (o LookupSqlManagedInstanceResultOutput) ToLookupSqlManagedInstanceResultOutput() LookupSqlManagedInstanceResultOutput {
+	return o
+}
+
+func (o LookupSqlManagedInstanceResultOutput) ToLookupSqlManagedInstanceResultOutputWithContext(ctx context.Context) LookupSqlManagedInstanceResultOutput {
+	return o
+}
+
+// The extendedLocation of the resource.
+func (o LookupSqlManagedInstanceResultOutput) ExtendedLocation() ExtendedLocationResponsePtrOutput {
+	return o.ApplyT(func(v LookupSqlManagedInstanceResult) *ExtendedLocationResponse { return v.ExtendedLocation }).(ExtendedLocationResponsePtrOutput)
+}
+
+// Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+func (o LookupSqlManagedInstanceResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSqlManagedInstanceResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The geo-location where the resource lives
+func (o LookupSqlManagedInstanceResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSqlManagedInstanceResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o LookupSqlManagedInstanceResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSqlManagedInstanceResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// null
+func (o LookupSqlManagedInstanceResultOutput) Properties() SqlManagedInstancePropertiesResponseOutput {
+	return o.ApplyT(func(v LookupSqlManagedInstanceResult) SqlManagedInstancePropertiesResponse { return v.Properties }).(SqlManagedInstancePropertiesResponseOutput)
+}
+
+// Resource sku.
+func (o LookupSqlManagedInstanceResultOutput) Sku() SqlManagedInstanceSkuResponsePtrOutput {
+	return o.ApplyT(func(v LookupSqlManagedInstanceResult) *SqlManagedInstanceSkuResponse { return v.Sku }).(SqlManagedInstanceSkuResponsePtrOutput)
+}
+
+// Read only system data
+func (o LookupSqlManagedInstanceResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupSqlManagedInstanceResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource tags.
+func (o LookupSqlManagedInstanceResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupSqlManagedInstanceResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+func (o LookupSqlManagedInstanceResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSqlManagedInstanceResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupSqlManagedInstanceResultOutput{})
 }

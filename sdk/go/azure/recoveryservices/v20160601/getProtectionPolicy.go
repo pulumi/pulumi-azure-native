@@ -4,6 +4,9 @@
 package v20160601
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -42,4 +45,80 @@ type LookupProtectionPolicyResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...
 	Type *string `pulumi:"type"`
+}
+
+func LookupProtectionPolicyOutput(ctx *pulumi.Context, args LookupProtectionPolicyOutputArgs, opts ...pulumi.InvokeOption) LookupProtectionPolicyResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupProtectionPolicyResult, error) {
+			args := v.(LookupProtectionPolicyArgs)
+			r, err := LookupProtectionPolicy(ctx, &args, opts...)
+			return *r, err
+		}).(LookupProtectionPolicyResultOutput)
+}
+
+type LookupProtectionPolicyOutputArgs struct {
+	// The backup policy name used in this GET operation.
+	PolicyName pulumi.StringInput `pulumi:"policyName"`
+	// The name of the resource group associated with the Recovery Services vault.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the Recovery Services vault.
+	VaultName pulumi.StringInput `pulumi:"vaultName"`
+}
+
+func (LookupProtectionPolicyOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupProtectionPolicyArgs)(nil)).Elem()
+}
+
+// The base class for backup policy. Workload-specific backup policies are derived from this class.
+type LookupProtectionPolicyResultOutput struct{ *pulumi.OutputState }
+
+func (LookupProtectionPolicyResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupProtectionPolicyResult)(nil)).Elem()
+}
+
+func (o LookupProtectionPolicyResultOutput) ToLookupProtectionPolicyResultOutput() LookupProtectionPolicyResultOutput {
+	return o
+}
+
+func (o LookupProtectionPolicyResultOutput) ToLookupProtectionPolicyResultOutputWithContext(ctx context.Context) LookupProtectionPolicyResultOutput {
+	return o
+}
+
+// Optional ETag.
+func (o LookupProtectionPolicyResultOutput) ETag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupProtectionPolicyResult) *string { return v.ETag }).(pulumi.StringPtrOutput)
+}
+
+// Resource ID represents the complete path to the resource.
+func (o LookupProtectionPolicyResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupProtectionPolicyResult) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// Resource location.
+func (o LookupProtectionPolicyResultOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupProtectionPolicyResult) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Resource name associated with the resource.
+func (o LookupProtectionPolicyResultOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupProtectionPolicyResult) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The base class for a backup policy. Workload-specific backup policies are derived from this class.
+func (o LookupProtectionPolicyResultOutput) Properties() pulumi.AnyOutput {
+	return o.ApplyT(func(v LookupProtectionPolicyResult) interface{} { return v.Properties }).(pulumi.AnyOutput)
+}
+
+// Resource tags.
+func (o LookupProtectionPolicyResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupProtectionPolicyResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...
+func (o LookupProtectionPolicyResultOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupProtectionPolicyResult) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupProtectionPolicyResultOutput{})
 }

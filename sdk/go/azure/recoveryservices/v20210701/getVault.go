@@ -4,6 +4,9 @@
 package v20210701
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -46,4 +49,93 @@ type LookupVaultResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...
 	Type string `pulumi:"type"`
+}
+
+func LookupVaultOutput(ctx *pulumi.Context, args LookupVaultOutputArgs, opts ...pulumi.InvokeOption) LookupVaultResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupVaultResult, error) {
+			args := v.(LookupVaultArgs)
+			r, err := LookupVault(ctx, &args, opts...)
+			return *r, err
+		}).(LookupVaultResultOutput)
+}
+
+type LookupVaultOutputArgs struct {
+	// The name of the resource group where the recovery services vault is present.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the recovery services vault.
+	VaultName pulumi.StringInput `pulumi:"vaultName"`
+}
+
+func (LookupVaultOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupVaultArgs)(nil)).Elem()
+}
+
+// Resource information, as returned by the resource provider.
+type LookupVaultResultOutput struct{ *pulumi.OutputState }
+
+func (LookupVaultResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupVaultResult)(nil)).Elem()
+}
+
+func (o LookupVaultResultOutput) ToLookupVaultResultOutput() LookupVaultResultOutput {
+	return o
+}
+
+func (o LookupVaultResultOutput) ToLookupVaultResultOutputWithContext(ctx context.Context) LookupVaultResultOutput {
+	return o
+}
+
+// Optional ETag.
+func (o LookupVaultResultOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVaultResult) *string { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// Resource Id represents the complete path to the resource.
+func (o LookupVaultResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVaultResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Identity for the resource.
+func (o LookupVaultResultOutput) Identity() IdentityDataResponsePtrOutput {
+	return o.ApplyT(func(v LookupVaultResult) *IdentityDataResponse { return v.Identity }).(IdentityDataResponsePtrOutput)
+}
+
+// Resource location.
+func (o LookupVaultResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVaultResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource name associated with the resource.
+func (o LookupVaultResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVaultResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Properties of the vault.
+func (o LookupVaultResultOutput) Properties() VaultPropertiesResponseOutput {
+	return o.ApplyT(func(v LookupVaultResult) VaultPropertiesResponse { return v.Properties }).(VaultPropertiesResponseOutput)
+}
+
+// Identifies the unique system identifier for each Azure resource.
+func (o LookupVaultResultOutput) Sku() SkuResponsePtrOutput {
+	return o.ApplyT(func(v LookupVaultResult) *SkuResponse { return v.Sku }).(SkuResponsePtrOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o LookupVaultResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupVaultResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource tags.
+func (o LookupVaultResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupVaultResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...
+func (o LookupVaultResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVaultResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupVaultResultOutput{})
 }

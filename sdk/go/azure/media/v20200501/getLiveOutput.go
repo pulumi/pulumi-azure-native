@@ -4,6 +4,9 @@
 package v20200501
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -56,4 +59,112 @@ type LookupLiveOutputResult struct {
 	ResourceState string `pulumi:"resourceState"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
+}
+
+func LookupLiveOutputOutput(ctx *pulumi.Context, args LookupLiveOutputOutputArgs, opts ...pulumi.InvokeOption) LookupLiveOutputResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupLiveOutputResult, error) {
+			args := v.(LookupLiveOutputArgs)
+			r, err := LookupLiveOutput(ctx, &args, opts...)
+			return *r, err
+		}).(LookupLiveOutputResultOutput)
+}
+
+type LookupLiveOutputOutputArgs struct {
+	// The Media Services account name.
+	AccountName pulumi.StringInput `pulumi:"accountName"`
+	// The name of the live event, maximum length is 32.
+	LiveEventName pulumi.StringInput `pulumi:"liveEventName"`
+	// The name of the live output.
+	LiveOutputName pulumi.StringInput `pulumi:"liveOutputName"`
+	// The name of the resource group within the Azure subscription.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupLiveOutputOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupLiveOutputArgs)(nil)).Elem()
+}
+
+// The Live Output.
+type LookupLiveOutputResultOutput struct{ *pulumi.OutputState }
+
+func (LookupLiveOutputResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupLiveOutputResult)(nil)).Elem()
+}
+
+func (o LookupLiveOutputResultOutput) ToLookupLiveOutputResultOutput() LookupLiveOutputResultOutput {
+	return o
+}
+
+func (o LookupLiveOutputResultOutput) ToLookupLiveOutputResultOutputWithContext(ctx context.Context) LookupLiveOutputResultOutput {
+	return o
+}
+
+// ISO 8601 time between 1 minute to 25 hours to indicate the maximum content length that can be archived in the asset for this live output. This also sets the maximum content length for the rewind window. For example, use PT1H30M to indicate 1 hour and 30 minutes of archive window.
+func (o LookupLiveOutputResultOutput) ArchiveWindowLength() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupLiveOutputResult) string { return v.ArchiveWindowLength }).(pulumi.StringOutput)
+}
+
+// The asset that the live output will write to.
+func (o LookupLiveOutputResultOutput) AssetName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupLiveOutputResult) string { return v.AssetName }).(pulumi.StringOutput)
+}
+
+// The creation time the live output.
+func (o LookupLiveOutputResultOutput) Created() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupLiveOutputResult) string { return v.Created }).(pulumi.StringOutput)
+}
+
+// The description of the live output.
+func (o LookupLiveOutputResultOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupLiveOutputResult) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// HTTP Live Streaming (HLS) packing setting for the live output.
+func (o LookupLiveOutputResultOutput) Hls() HlsResponsePtrOutput {
+	return o.ApplyT(func(v LookupLiveOutputResult) *HlsResponse { return v.Hls }).(HlsResponsePtrOutput)
+}
+
+// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+func (o LookupLiveOutputResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupLiveOutputResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The time the live output was last modified.
+func (o LookupLiveOutputResultOutput) LastModified() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupLiveOutputResult) string { return v.LastModified }).(pulumi.StringOutput)
+}
+
+// The manifest file name. If not provided, the service will generate one automatically.
+func (o LookupLiveOutputResultOutput) ManifestName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupLiveOutputResult) *string { return v.ManifestName }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource
+func (o LookupLiveOutputResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupLiveOutputResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The initial timestamp that the live output will start at, any content before this value will not be archived.
+func (o LookupLiveOutputResultOutput) OutputSnapTime() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v LookupLiveOutputResult) *float64 { return v.OutputSnapTime }).(pulumi.Float64PtrOutput)
+}
+
+// The provisioning state of the live output.
+func (o LookupLiveOutputResultOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupLiveOutputResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The resource state of the live output.
+func (o LookupLiveOutputResultOutput) ResourceState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupLiveOutputResult) string { return v.ResourceState }).(pulumi.StringOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o LookupLiveOutputResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupLiveOutputResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupLiveOutputResultOutput{})
 }

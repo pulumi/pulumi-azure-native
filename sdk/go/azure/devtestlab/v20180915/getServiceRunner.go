@@ -4,6 +4,9 @@
 package v20180915
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -40,4 +43,75 @@ type LookupServiceRunnerResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource.
 	Type string `pulumi:"type"`
+}
+
+func LookupServiceRunnerOutput(ctx *pulumi.Context, args LookupServiceRunnerOutputArgs, opts ...pulumi.InvokeOption) LookupServiceRunnerResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupServiceRunnerResult, error) {
+			args := v.(LookupServiceRunnerArgs)
+			r, err := LookupServiceRunner(ctx, &args, opts...)
+			return *r, err
+		}).(LookupServiceRunnerResultOutput)
+}
+
+type LookupServiceRunnerOutputArgs struct {
+	// The name of the lab.
+	LabName pulumi.StringInput `pulumi:"labName"`
+	// The name of the service runner.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The name of the resource group.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupServiceRunnerOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupServiceRunnerArgs)(nil)).Elem()
+}
+
+// A container for a managed identity to execute DevTest lab services.
+type LookupServiceRunnerResultOutput struct{ *pulumi.OutputState }
+
+func (LookupServiceRunnerResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupServiceRunnerResult)(nil)).Elem()
+}
+
+func (o LookupServiceRunnerResultOutput) ToLookupServiceRunnerResultOutput() LookupServiceRunnerResultOutput {
+	return o
+}
+
+func (o LookupServiceRunnerResultOutput) ToLookupServiceRunnerResultOutputWithContext(ctx context.Context) LookupServiceRunnerResultOutput {
+	return o
+}
+
+// The identifier of the resource.
+func (o LookupServiceRunnerResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServiceRunnerResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The identity of the resource.
+func (o LookupServiceRunnerResultOutput) Identity() IdentityPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v LookupServiceRunnerResult) *IdentityPropertiesResponse { return v.Identity }).(IdentityPropertiesResponsePtrOutput)
+}
+
+// The location of the resource.
+func (o LookupServiceRunnerResultOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupServiceRunnerResult) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource.
+func (o LookupServiceRunnerResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServiceRunnerResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The tags of the resource.
+func (o LookupServiceRunnerResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupServiceRunnerResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource.
+func (o LookupServiceRunnerResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServiceRunnerResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupServiceRunnerResultOutput{})
 }

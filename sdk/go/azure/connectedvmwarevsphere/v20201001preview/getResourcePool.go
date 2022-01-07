@@ -4,6 +4,9 @@
 package v20201001preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -76,4 +79,159 @@ type LookupResourcePoolResult struct {
 	Uuid string `pulumi:"uuid"`
 	// Gets or sets the ARM Id of the vCenter resource in which this resource pool resides.
 	VCenterId *string `pulumi:"vCenterId"`
+}
+
+func LookupResourcePoolOutput(ctx *pulumi.Context, args LookupResourcePoolOutputArgs, opts ...pulumi.InvokeOption) LookupResourcePoolResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupResourcePoolResult, error) {
+			args := v.(LookupResourcePoolArgs)
+			r, err := LookupResourcePool(ctx, &args, opts...)
+			return *r, err
+		}).(LookupResourcePoolResultOutput)
+}
+
+type LookupResourcePoolOutputArgs struct {
+	// The Resource Group Name.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// Name of the resourcePool.
+	ResourcePoolName pulumi.StringInput `pulumi:"resourcePoolName"`
+}
+
+func (LookupResourcePoolOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupResourcePoolArgs)(nil)).Elem()
+}
+
+// Define the resourcePool.
+type LookupResourcePoolResultOutput struct{ *pulumi.OutputState }
+
+func (LookupResourcePoolResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupResourcePoolResult)(nil)).Elem()
+}
+
+func (o LookupResourcePoolResultOutput) ToLookupResourcePoolResultOutput() LookupResourcePoolResultOutput {
+	return o
+}
+
+func (o LookupResourcePoolResultOutput) ToLookupResourcePoolResultOutputWithContext(ctx context.Context) LookupResourcePoolResultOutput {
+	return o
+}
+
+// Gets or sets CPULimitMHz which specifies a CPU usage limit in MHz.
+// Utilization will not exceed this limit even if there are available resources.
+func (o LookupResourcePoolResultOutput) CpuLimitMHz() pulumi.Float64Output {
+	return o.ApplyT(func(v LookupResourcePoolResult) float64 { return v.CpuLimitMHz }).(pulumi.Float64Output)
+}
+
+// Gets or sets CPUReservationMHz which specifies the CPU size in MHz that is guaranteed
+// to be available.
+func (o LookupResourcePoolResultOutput) CpuReservationMHz() pulumi.Float64Output {
+	return o.ApplyT(func(v LookupResourcePoolResult) float64 { return v.CpuReservationMHz }).(pulumi.Float64Output)
+}
+
+// Gets or sets CPUSharesLevel which specifies the CPU allocation level for this pool.
+// This property is used in relative allocation between resource consumers.
+func (o LookupResourcePoolResultOutput) CpuSharesLevel() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupResourcePoolResult) string { return v.CpuSharesLevel }).(pulumi.StringOutput)
+}
+
+// Gets the name of the corresponding resource in Kubernetes.
+func (o LookupResourcePoolResultOutput) CustomResourceName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupResourcePoolResult) string { return v.CustomResourceName }).(pulumi.StringOutput)
+}
+
+// Gets or sets the extended location.
+func (o LookupResourcePoolResultOutput) ExtendedLocation() ExtendedLocationResponsePtrOutput {
+	return o.ApplyT(func(v LookupResourcePoolResult) *ExtendedLocationResponse { return v.ExtendedLocation }).(ExtendedLocationResponsePtrOutput)
+}
+
+// Gets or sets the Id.
+func (o LookupResourcePoolResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupResourcePoolResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Gets or sets the inventory Item ID for the resource pool.
+func (o LookupResourcePoolResultOutput) InventoryItemId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupResourcePoolResult) *string { return v.InventoryItemId }).(pulumi.StringPtrOutput)
+}
+
+// Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
+func (o LookupResourcePoolResultOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupResourcePoolResult) *string { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the location.
+func (o LookupResourcePoolResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupResourcePoolResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// Gets or sets MemLimitMB specifies a memory usage limit in megabytes.
+// Utilization will not exceed the specified limit even if there are available resources.
+func (o LookupResourcePoolResultOutput) MemLimitMB() pulumi.Float64Output {
+	return o.ApplyT(func(v LookupResourcePoolResult) float64 { return v.MemLimitMB }).(pulumi.Float64Output)
+}
+
+// Gets or sets MemReservationMB which specifies the guaranteed available memory in
+// megabytes.
+func (o LookupResourcePoolResultOutput) MemReservationMB() pulumi.Float64Output {
+	return o.ApplyT(func(v LookupResourcePoolResult) float64 { return v.MemReservationMB }).(pulumi.Float64Output)
+}
+
+// Gets or sets CPUSharesLevel which specifies the memory allocation level for this pool.
+// This property is used in relative allocation between resource consumers.
+func (o LookupResourcePoolResultOutput) MemSharesLevel() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupResourcePoolResult) string { return v.MemSharesLevel }).(pulumi.StringOutput)
+}
+
+// Gets or sets the vCenter Managed Object name for the resource pool.
+func (o LookupResourcePoolResultOutput) MoName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupResourcePoolResult) string { return v.MoName }).(pulumi.StringOutput)
+}
+
+// Gets or sets the vCenter MoRef (Managed Object Reference) ID for the resource pool.
+func (o LookupResourcePoolResultOutput) MoRefId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupResourcePoolResult) *string { return v.MoRefId }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the name.
+func (o LookupResourcePoolResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupResourcePoolResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Gets or sets the provisioning state.
+func (o LookupResourcePoolResultOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupResourcePoolResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The resource status information.
+func (o LookupResourcePoolResultOutput) Statuses() ResourceStatusResponseArrayOutput {
+	return o.ApplyT(func(v LookupResourcePoolResult) []ResourceStatusResponse { return v.Statuses }).(ResourceStatusResponseArrayOutput)
+}
+
+// The system data.
+func (o LookupResourcePoolResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupResourcePoolResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Gets or sets the Resource tags.
+func (o LookupResourcePoolResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupResourcePoolResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Gets or sets the type of the resource.
+func (o LookupResourcePoolResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupResourcePoolResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Gets or sets a unique identifier for this resource.
+func (o LookupResourcePoolResultOutput) Uuid() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupResourcePoolResult) string { return v.Uuid }).(pulumi.StringOutput)
+}
+
+// Gets or sets the ARM Id of the vCenter resource in which this resource pool resides.
+func (o LookupResourcePoolResultOutput) VCenterId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupResourcePoolResult) *string { return v.VCenterId }).(pulumi.StringPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupResourcePoolResultOutput{})
 }

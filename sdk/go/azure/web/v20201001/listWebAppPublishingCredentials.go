@@ -4,6 +4,9 @@
 package v20201001
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -46,4 +49,93 @@ type ListWebAppPublishingCredentialsResult struct {
 	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource type.
 	Type string `pulumi:"type"`
+}
+
+func ListWebAppPublishingCredentialsOutput(ctx *pulumi.Context, args ListWebAppPublishingCredentialsOutputArgs, opts ...pulumi.InvokeOption) ListWebAppPublishingCredentialsResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (ListWebAppPublishingCredentialsResult, error) {
+			args := v.(ListWebAppPublishingCredentialsArgs)
+			r, err := ListWebAppPublishingCredentials(ctx, &args, opts...)
+			return *r, err
+		}).(ListWebAppPublishingCredentialsResultOutput)
+}
+
+type ListWebAppPublishingCredentialsOutputArgs struct {
+	// Name of the app.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Name of the resource group to which the resource belongs.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (ListWebAppPublishingCredentialsOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListWebAppPublishingCredentialsArgs)(nil)).Elem()
+}
+
+// User credentials used for publishing activity.
+type ListWebAppPublishingCredentialsResultOutput struct{ *pulumi.OutputState }
+
+func (ListWebAppPublishingCredentialsResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListWebAppPublishingCredentialsResult)(nil)).Elem()
+}
+
+func (o ListWebAppPublishingCredentialsResultOutput) ToListWebAppPublishingCredentialsResultOutput() ListWebAppPublishingCredentialsResultOutput {
+	return o
+}
+
+func (o ListWebAppPublishingCredentialsResultOutput) ToListWebAppPublishingCredentialsResultOutputWithContext(ctx context.Context) ListWebAppPublishingCredentialsResultOutput {
+	return o
+}
+
+// Resource Id.
+func (o ListWebAppPublishingCredentialsResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v ListWebAppPublishingCredentialsResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Kind of resource.
+func (o ListWebAppPublishingCredentialsResultOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListWebAppPublishingCredentialsResult) *string { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Resource Name.
+func (o ListWebAppPublishingCredentialsResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ListWebAppPublishingCredentialsResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Password used for publishing.
+func (o ListWebAppPublishingCredentialsResultOutput) PublishingPassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListWebAppPublishingCredentialsResult) *string { return v.PublishingPassword }).(pulumi.StringPtrOutput)
+}
+
+// Password hash used for publishing.
+func (o ListWebAppPublishingCredentialsResultOutput) PublishingPasswordHash() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListWebAppPublishingCredentialsResult) *string { return v.PublishingPasswordHash }).(pulumi.StringPtrOutput)
+}
+
+// Password hash salt used for publishing.
+func (o ListWebAppPublishingCredentialsResultOutput) PublishingPasswordHashSalt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListWebAppPublishingCredentialsResult) *string { return v.PublishingPasswordHashSalt }).(pulumi.StringPtrOutput)
+}
+
+// Username used for publishing.
+func (o ListWebAppPublishingCredentialsResultOutput) PublishingUserName() pulumi.StringOutput {
+	return o.ApplyT(func(v ListWebAppPublishingCredentialsResult) string { return v.PublishingUserName }).(pulumi.StringOutput)
+}
+
+// Url of SCM site.
+func (o ListWebAppPublishingCredentialsResultOutput) ScmUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListWebAppPublishingCredentialsResult) *string { return v.ScmUri }).(pulumi.StringPtrOutput)
+}
+
+// The system metadata relating to this resource.
+func (o ListWebAppPublishingCredentialsResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v ListWebAppPublishingCredentialsResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource type.
+func (o ListWebAppPublishingCredentialsResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ListWebAppPublishingCredentialsResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(ListWebAppPublishingCredentialsResultOutput{})
 }

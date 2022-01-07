@@ -4,6 +4,9 @@
 package v20181201
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -47,4 +50,101 @@ type LookupWebApplicationFirewallPolicyResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.
 	Type string `pulumi:"type"`
+}
+
+func LookupWebApplicationFirewallPolicyOutput(ctx *pulumi.Context, args LookupWebApplicationFirewallPolicyOutputArgs, opts ...pulumi.InvokeOption) LookupWebApplicationFirewallPolicyResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupWebApplicationFirewallPolicyResult, error) {
+			args := v.(LookupWebApplicationFirewallPolicyArgs)
+			r, err := LookupWebApplicationFirewallPolicy(ctx, &args, opts...)
+			return *r, err
+		}).(LookupWebApplicationFirewallPolicyResultOutput)
+}
+
+type LookupWebApplicationFirewallPolicyOutputArgs struct {
+	// The name of the policy
+	PolicyName pulumi.StringInput `pulumi:"policyName"`
+	// The name of the resource group.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupWebApplicationFirewallPolicyOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupWebApplicationFirewallPolicyArgs)(nil)).Elem()
+}
+
+// Defines web application firewall policy.
+type LookupWebApplicationFirewallPolicyResultOutput struct{ *pulumi.OutputState }
+
+func (LookupWebApplicationFirewallPolicyResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupWebApplicationFirewallPolicyResult)(nil)).Elem()
+}
+
+func (o LookupWebApplicationFirewallPolicyResultOutput) ToLookupWebApplicationFirewallPolicyResultOutput() LookupWebApplicationFirewallPolicyResultOutput {
+	return o
+}
+
+func (o LookupWebApplicationFirewallPolicyResultOutput) ToLookupWebApplicationFirewallPolicyResultOutputWithContext(ctx context.Context) LookupWebApplicationFirewallPolicyResultOutput {
+	return o
+}
+
+// A collection of references to application gateways.
+func (o LookupWebApplicationFirewallPolicyResultOutput) ApplicationGateways() ApplicationGatewayResponseArrayOutput {
+	return o.ApplyT(func(v LookupWebApplicationFirewallPolicyResult) []ApplicationGatewayResponse {
+		return v.ApplicationGateways
+	}).(ApplicationGatewayResponseArrayOutput)
+}
+
+// Describes custom rules inside the policy
+func (o LookupWebApplicationFirewallPolicyResultOutput) CustomRules() WebApplicationFirewallCustomRuleResponseArrayOutput {
+	return o.ApplyT(func(v LookupWebApplicationFirewallPolicyResult) []WebApplicationFirewallCustomRuleResponse {
+		return v.CustomRules
+	}).(WebApplicationFirewallCustomRuleResponseArrayOutput)
+}
+
+// Gets a unique read-only string that changes whenever the resource is updated.
+func (o LookupWebApplicationFirewallPolicyResultOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupWebApplicationFirewallPolicyResult) *string { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// Resource ID.
+func (o LookupWebApplicationFirewallPolicyResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupWebApplicationFirewallPolicyResult) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// Resource location.
+func (o LookupWebApplicationFirewallPolicyResultOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupWebApplicationFirewallPolicyResult) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Resource name.
+func (o LookupWebApplicationFirewallPolicyResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWebApplicationFirewallPolicyResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Describes  policySettings for policy
+func (o LookupWebApplicationFirewallPolicyResultOutput) PolicySettings() PolicySettingsResponsePtrOutput {
+	return o.ApplyT(func(v LookupWebApplicationFirewallPolicyResult) *PolicySettingsResponse { return v.PolicySettings }).(PolicySettingsResponsePtrOutput)
+}
+
+// Provisioning state of the WebApplicationFirewallPolicy.
+func (o LookupWebApplicationFirewallPolicyResultOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWebApplicationFirewallPolicyResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+func (o LookupWebApplicationFirewallPolicyResultOutput) ResourceState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWebApplicationFirewallPolicyResult) string { return v.ResourceState }).(pulumi.StringOutput)
+}
+
+// Resource tags.
+func (o LookupWebApplicationFirewallPolicyResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupWebApplicationFirewallPolicyResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type.
+func (o LookupWebApplicationFirewallPolicyResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWebApplicationFirewallPolicyResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupWebApplicationFirewallPolicyResultOutput{})
 }

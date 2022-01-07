@@ -4,6 +4,9 @@
 package azurestackhci
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -55,4 +58,110 @@ type LookupArcSettingResult struct {
 	ProvisioningState string `pulumi:"provisioningState"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
+}
+
+func LookupArcSettingOutput(ctx *pulumi.Context, args LookupArcSettingOutputArgs, opts ...pulumi.InvokeOption) LookupArcSettingResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupArcSettingResult, error) {
+			args := v.(LookupArcSettingArgs)
+			r, err := LookupArcSetting(ctx, &args, opts...)
+			return *r, err
+		}).(LookupArcSettingResultOutput)
+}
+
+type LookupArcSettingOutputArgs struct {
+	// The name of the proxy resource holding details of HCI ArcSetting information.
+	ArcSettingName pulumi.StringInput `pulumi:"arcSettingName"`
+	// The name of the cluster.
+	ClusterName pulumi.StringInput `pulumi:"clusterName"`
+	// The name of the resource group. The name is case insensitive.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupArcSettingOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupArcSettingArgs)(nil)).Elem()
+}
+
+// ArcSetting details.
+type LookupArcSettingResultOutput struct{ *pulumi.OutputState }
+
+func (LookupArcSettingResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupArcSettingResult)(nil)).Elem()
+}
+
+func (o LookupArcSettingResultOutput) ToLookupArcSettingResultOutput() LookupArcSettingResultOutput {
+	return o
+}
+
+func (o LookupArcSettingResultOutput) ToLookupArcSettingResultOutputWithContext(ctx context.Context) LookupArcSettingResultOutput {
+	return o
+}
+
+// Aggregate state of Arc agent across the nodes in this HCI cluster.
+func (o LookupArcSettingResultOutput) AggregateState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupArcSettingResult) string { return v.AggregateState }).(pulumi.StringOutput)
+}
+
+// The resource group that hosts the Arc agents, ie. Hybrid Compute Machine resources.
+func (o LookupArcSettingResultOutput) ArcInstanceResourceGroup() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupArcSettingResult) string { return v.ArcInstanceResourceGroup }).(pulumi.StringOutput)
+}
+
+// The timestamp of resource creation (UTC).
+func (o LookupArcSettingResultOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupArcSettingResult) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
+}
+
+// The identity that created the resource.
+func (o LookupArcSettingResultOutput) CreatedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupArcSettingResult) *string { return v.CreatedBy }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that created the resource.
+func (o LookupArcSettingResultOutput) CreatedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupArcSettingResult) *string { return v.CreatedByType }).(pulumi.StringPtrOutput)
+}
+
+// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+func (o LookupArcSettingResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupArcSettingResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The timestamp of resource last modification (UTC)
+func (o LookupArcSettingResultOutput) LastModifiedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupArcSettingResult) *string { return v.LastModifiedAt }).(pulumi.StringPtrOutput)
+}
+
+// The identity that last modified the resource.
+func (o LookupArcSettingResultOutput) LastModifiedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupArcSettingResult) *string { return v.LastModifiedBy }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that last modified the resource.
+func (o LookupArcSettingResultOutput) LastModifiedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupArcSettingResult) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource
+func (o LookupArcSettingResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupArcSettingResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// State of Arc agent in each of the nodes.
+func (o LookupArcSettingResultOutput) PerNodeDetails() PerNodeStateResponseArrayOutput {
+	return o.ApplyT(func(v LookupArcSettingResult) []PerNodeStateResponse { return v.PerNodeDetails }).(PerNodeStateResponseArrayOutput)
+}
+
+// Provisioning state of the ArcSetting proxy resource.
+func (o LookupArcSettingResultOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupArcSettingResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o LookupArcSettingResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupArcSettingResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupArcSettingResultOutput{})
 }

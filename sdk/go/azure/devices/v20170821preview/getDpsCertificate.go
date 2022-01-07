@@ -4,6 +4,9 @@
 package v20170821preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -38,4 +41,70 @@ type LookupDpsCertificateResult struct {
 	Properties CertificatePropertiesResponse `pulumi:"properties"`
 	// The resource type.
 	Type string `pulumi:"type"`
+}
+
+func LookupDpsCertificateOutput(ctx *pulumi.Context, args LookupDpsCertificateOutputArgs, opts ...pulumi.InvokeOption) LookupDpsCertificateResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupDpsCertificateResult, error) {
+			args := v.(LookupDpsCertificateArgs)
+			r, err := LookupDpsCertificate(ctx, &args, opts...)
+			return *r, err
+		}).(LookupDpsCertificateResultOutput)
+}
+
+type LookupDpsCertificateOutputArgs struct {
+	// Name of the certificate to retrieve.
+	CertificateName pulumi.StringInput `pulumi:"certificateName"`
+	// Name of the provisioning service the certificate is associated with.
+	ProvisioningServiceName pulumi.StringInput `pulumi:"provisioningServiceName"`
+	// Resource group identifier.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupDpsCertificateOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupDpsCertificateArgs)(nil)).Elem()
+}
+
+// The X509 Certificate.
+type LookupDpsCertificateResultOutput struct{ *pulumi.OutputState }
+
+func (LookupDpsCertificateResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupDpsCertificateResult)(nil)).Elem()
+}
+
+func (o LookupDpsCertificateResultOutput) ToLookupDpsCertificateResultOutput() LookupDpsCertificateResultOutput {
+	return o
+}
+
+func (o LookupDpsCertificateResultOutput) ToLookupDpsCertificateResultOutputWithContext(ctx context.Context) LookupDpsCertificateResultOutput {
+	return o
+}
+
+// The entity tag.
+func (o LookupDpsCertificateResultOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDpsCertificateResult) string { return v.Etag }).(pulumi.StringOutput)
+}
+
+// The resource identifier.
+func (o LookupDpsCertificateResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDpsCertificateResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The name of the certificate.
+func (o LookupDpsCertificateResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDpsCertificateResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The description of an X509 CA Certificate.
+func (o LookupDpsCertificateResultOutput) Properties() CertificatePropertiesResponseOutput {
+	return o.ApplyT(func(v LookupDpsCertificateResult) CertificatePropertiesResponse { return v.Properties }).(CertificatePropertiesResponseOutput)
+}
+
+// The resource type.
+func (o LookupDpsCertificateResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDpsCertificateResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupDpsCertificateResultOutput{})
 }

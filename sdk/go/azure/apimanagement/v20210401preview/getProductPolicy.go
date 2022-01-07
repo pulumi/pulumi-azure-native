@@ -4,6 +4,9 @@
 package v20210401preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -55,4 +58,74 @@ func (val *LookupProductPolicyResult) Defaults() *LookupProductPolicyResult {
 		tmp.Format = &format_
 	}
 	return &tmp
+}
+
+func LookupProductPolicyOutput(ctx *pulumi.Context, args LookupProductPolicyOutputArgs, opts ...pulumi.InvokeOption) LookupProductPolicyResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupProductPolicyResult, error) {
+			args := v.(LookupProductPolicyArgs)
+			r, err := LookupProductPolicy(ctx, &args, opts...)
+			return *r, err
+		}).(LookupProductPolicyResultOutput)
+}
+
+type LookupProductPolicyOutputArgs struct {
+	// Policy Export Format.
+	Format pulumi.StringPtrInput `pulumi:"format"`
+	// The identifier of the Policy.
+	PolicyId pulumi.StringInput `pulumi:"policyId"`
+	// Product identifier. Must be unique in the current API Management service instance.
+	ProductId pulumi.StringInput `pulumi:"productId"`
+	// The name of the resource group.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the API Management service.
+	ServiceName pulumi.StringInput `pulumi:"serviceName"`
+}
+
+func (LookupProductPolicyOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupProductPolicyArgs)(nil)).Elem()
+}
+
+// Policy Contract details.
+type LookupProductPolicyResultOutput struct{ *pulumi.OutputState }
+
+func (LookupProductPolicyResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupProductPolicyResult)(nil)).Elem()
+}
+
+func (o LookupProductPolicyResultOutput) ToLookupProductPolicyResultOutput() LookupProductPolicyResultOutput {
+	return o
+}
+
+func (o LookupProductPolicyResultOutput) ToLookupProductPolicyResultOutputWithContext(ctx context.Context) LookupProductPolicyResultOutput {
+	return o
+}
+
+// Format of the policyContent.
+func (o LookupProductPolicyResultOutput) Format() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupProductPolicyResult) *string { return v.Format }).(pulumi.StringPtrOutput)
+}
+
+// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+func (o LookupProductPolicyResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupProductPolicyResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o LookupProductPolicyResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupProductPolicyResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o LookupProductPolicyResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupProductPolicyResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Contents of the Policy as defined by the format.
+func (o LookupProductPolicyResultOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupProductPolicyResult) string { return v.Value }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupProductPolicyResultOutput{})
 }

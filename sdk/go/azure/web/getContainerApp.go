@@ -4,6 +4,9 @@
 package web
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -62,4 +65,103 @@ func (val *LookupContainerAppResult) Defaults() *LookupContainerAppResult {
 	tmp.Configuration = tmp.Configuration.Defaults()
 
 	return &tmp
+}
+
+func LookupContainerAppOutput(ctx *pulumi.Context, args LookupContainerAppOutputArgs, opts ...pulumi.InvokeOption) LookupContainerAppResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupContainerAppResult, error) {
+			args := v.(LookupContainerAppArgs)
+			r, err := LookupContainerApp(ctx, &args, opts...)
+			return *r, err
+		}).(LookupContainerAppResultOutput)
+}
+
+type LookupContainerAppOutputArgs struct {
+	// Name of the Container App.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Name of the resource group to which the resource belongs.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupContainerAppOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupContainerAppArgs)(nil)).Elem()
+}
+
+// Container App.
+type LookupContainerAppResultOutput struct{ *pulumi.OutputState }
+
+func (LookupContainerAppResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupContainerAppResult)(nil)).Elem()
+}
+
+func (o LookupContainerAppResultOutput) ToLookupContainerAppResultOutput() LookupContainerAppResultOutput {
+	return o
+}
+
+func (o LookupContainerAppResultOutput) ToLookupContainerAppResultOutputWithContext(ctx context.Context) LookupContainerAppResultOutput {
+	return o
+}
+
+// Non versioned Container App configuration properties.
+func (o LookupContainerAppResultOutput) Configuration() ConfigurationResponsePtrOutput {
+	return o.ApplyT(func(v LookupContainerAppResult) *ConfigurationResponse { return v.Configuration }).(ConfigurationResponsePtrOutput)
+}
+
+// Resource Id.
+func (o LookupContainerAppResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupContainerAppResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Kind of resource.
+func (o LookupContainerAppResultOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupContainerAppResult) *string { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Resource ID of the Container App's KubeEnvironment.
+func (o LookupContainerAppResultOutput) KubeEnvironmentId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupContainerAppResult) *string { return v.KubeEnvironmentId }).(pulumi.StringPtrOutput)
+}
+
+// Fully Qualified Domain Name of the latest revision of the Container App.
+func (o LookupContainerAppResultOutput) LatestRevisionFqdn() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupContainerAppResult) string { return v.LatestRevisionFqdn }).(pulumi.StringOutput)
+}
+
+// Name of the latest revision of the Container App.
+func (o LookupContainerAppResultOutput) LatestRevisionName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupContainerAppResult) string { return v.LatestRevisionName }).(pulumi.StringOutput)
+}
+
+// Resource Location.
+func (o LookupContainerAppResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupContainerAppResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource Name.
+func (o LookupContainerAppResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupContainerAppResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Provisioning state of the Container App.
+func (o LookupContainerAppResultOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupContainerAppResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Resource tags.
+func (o LookupContainerAppResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupContainerAppResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Container App versioned application definition.
+func (o LookupContainerAppResultOutput) Template() TemplateResponsePtrOutput {
+	return o.ApplyT(func(v LookupContainerAppResult) *TemplateResponse { return v.Template }).(TemplateResponsePtrOutput)
+}
+
+// Resource type.
+func (o LookupContainerAppResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupContainerAppResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupContainerAppResultOutput{})
 }

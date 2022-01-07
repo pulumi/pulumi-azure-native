@@ -4,6 +4,9 @@
 package v20180701preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -44,4 +47,83 @@ type ListIntegrationAccountPartnerContentCallbackUrlResult struct {
 	RelativePathParameters []string `pulumi:"relativePathParameters"`
 	// Gets the workflow trigger callback URL.
 	Value string `pulumi:"value"`
+}
+
+func ListIntegrationAccountPartnerContentCallbackUrlOutput(ctx *pulumi.Context, args ListIntegrationAccountPartnerContentCallbackUrlOutputArgs, opts ...pulumi.InvokeOption) ListIntegrationAccountPartnerContentCallbackUrlResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (ListIntegrationAccountPartnerContentCallbackUrlResult, error) {
+			args := v.(ListIntegrationAccountPartnerContentCallbackUrlArgs)
+			r, err := ListIntegrationAccountPartnerContentCallbackUrl(ctx, &args, opts...)
+			return *r, err
+		}).(ListIntegrationAccountPartnerContentCallbackUrlResultOutput)
+}
+
+type ListIntegrationAccountPartnerContentCallbackUrlOutputArgs struct {
+	// The integration account name.
+	IntegrationAccountName pulumi.StringInput `pulumi:"integrationAccountName"`
+	// The key type.
+	KeyType pulumi.StringPtrInput `pulumi:"keyType"`
+	// The expiry time.
+	NotAfter pulumi.StringPtrInput `pulumi:"notAfter"`
+	// The integration account partner name.
+	PartnerName pulumi.StringInput `pulumi:"partnerName"`
+	// The resource group name.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (ListIntegrationAccountPartnerContentCallbackUrlOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListIntegrationAccountPartnerContentCallbackUrlArgs)(nil)).Elem()
+}
+
+// The workflow trigger callback URL.
+type ListIntegrationAccountPartnerContentCallbackUrlResultOutput struct{ *pulumi.OutputState }
+
+func (ListIntegrationAccountPartnerContentCallbackUrlResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListIntegrationAccountPartnerContentCallbackUrlResult)(nil)).Elem()
+}
+
+func (o ListIntegrationAccountPartnerContentCallbackUrlResultOutput) ToListIntegrationAccountPartnerContentCallbackUrlResultOutput() ListIntegrationAccountPartnerContentCallbackUrlResultOutput {
+	return o
+}
+
+func (o ListIntegrationAccountPartnerContentCallbackUrlResultOutput) ToListIntegrationAccountPartnerContentCallbackUrlResultOutputWithContext(ctx context.Context) ListIntegrationAccountPartnerContentCallbackUrlResultOutput {
+	return o
+}
+
+// Gets the workflow trigger callback URL base path.
+func (o ListIntegrationAccountPartnerContentCallbackUrlResultOutput) BasePath() pulumi.StringOutput {
+	return o.ApplyT(func(v ListIntegrationAccountPartnerContentCallbackUrlResult) string { return v.BasePath }).(pulumi.StringOutput)
+}
+
+// Gets the workflow trigger callback URL HTTP method.
+func (o ListIntegrationAccountPartnerContentCallbackUrlResultOutput) Method() pulumi.StringOutput {
+	return o.ApplyT(func(v ListIntegrationAccountPartnerContentCallbackUrlResult) string { return v.Method }).(pulumi.StringOutput)
+}
+
+// Gets the workflow trigger callback URL query parameters.
+func (o ListIntegrationAccountPartnerContentCallbackUrlResultOutput) Queries() WorkflowTriggerListCallbackUrlQueriesResponsePtrOutput {
+	return o.ApplyT(func(v ListIntegrationAccountPartnerContentCallbackUrlResult) *WorkflowTriggerListCallbackUrlQueriesResponse {
+		return v.Queries
+	}).(WorkflowTriggerListCallbackUrlQueriesResponsePtrOutput)
+}
+
+// Gets the workflow trigger callback URL relative path.
+func (o ListIntegrationAccountPartnerContentCallbackUrlResultOutput) RelativePath() pulumi.StringOutput {
+	return o.ApplyT(func(v ListIntegrationAccountPartnerContentCallbackUrlResult) string { return v.RelativePath }).(pulumi.StringOutput)
+}
+
+// Gets the workflow trigger callback URL relative path parameters.
+func (o ListIntegrationAccountPartnerContentCallbackUrlResultOutput) RelativePathParameters() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ListIntegrationAccountPartnerContentCallbackUrlResult) []string {
+		return v.RelativePathParameters
+	}).(pulumi.StringArrayOutput)
+}
+
+// Gets the workflow trigger callback URL.
+func (o ListIntegrationAccountPartnerContentCallbackUrlResultOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v ListIntegrationAccountPartnerContentCallbackUrlResult) string { return v.Value }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(ListIntegrationAccountPartnerContentCallbackUrlResultOutput{})
 }

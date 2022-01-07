@@ -4,6 +4,9 @@
 package redhatopenshift
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -29,4 +32,48 @@ type ListOpenShiftClusterAdminCredentialsArgs struct {
 type ListOpenShiftClusterAdminCredentialsResult struct {
 	// The base64-encoded kubeconfig file.
 	Kubeconfig *string `pulumi:"kubeconfig"`
+}
+
+func ListOpenShiftClusterAdminCredentialsOutput(ctx *pulumi.Context, args ListOpenShiftClusterAdminCredentialsOutputArgs, opts ...pulumi.InvokeOption) ListOpenShiftClusterAdminCredentialsResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (ListOpenShiftClusterAdminCredentialsResult, error) {
+			args := v.(ListOpenShiftClusterAdminCredentialsArgs)
+			r, err := ListOpenShiftClusterAdminCredentials(ctx, &args, opts...)
+			return *r, err
+		}).(ListOpenShiftClusterAdminCredentialsResultOutput)
+}
+
+type ListOpenShiftClusterAdminCredentialsOutputArgs struct {
+	// The name of the resource group. The name is case insensitive.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the OpenShift cluster resource.
+	ResourceName pulumi.StringInput `pulumi:"resourceName"`
+}
+
+func (ListOpenShiftClusterAdminCredentialsOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListOpenShiftClusterAdminCredentialsArgs)(nil)).Elem()
+}
+
+// OpenShiftClusterAdminKubeconfig represents an OpenShift cluster's admin kubeconfig.
+type ListOpenShiftClusterAdminCredentialsResultOutput struct{ *pulumi.OutputState }
+
+func (ListOpenShiftClusterAdminCredentialsResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListOpenShiftClusterAdminCredentialsResult)(nil)).Elem()
+}
+
+func (o ListOpenShiftClusterAdminCredentialsResultOutput) ToListOpenShiftClusterAdminCredentialsResultOutput() ListOpenShiftClusterAdminCredentialsResultOutput {
+	return o
+}
+
+func (o ListOpenShiftClusterAdminCredentialsResultOutput) ToListOpenShiftClusterAdminCredentialsResultOutputWithContext(ctx context.Context) ListOpenShiftClusterAdminCredentialsResultOutput {
+	return o
+}
+
+// The base64-encoded kubeconfig file.
+func (o ListOpenShiftClusterAdminCredentialsResultOutput) Kubeconfig() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListOpenShiftClusterAdminCredentialsResult) *string { return v.Kubeconfig }).(pulumi.StringPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(ListOpenShiftClusterAdminCredentialsResultOutput{})
 }

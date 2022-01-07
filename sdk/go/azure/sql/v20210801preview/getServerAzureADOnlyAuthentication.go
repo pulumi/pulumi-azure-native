@@ -4,6 +4,9 @@
 package v20210801preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -36,4 +39,65 @@ type LookupServerAzureADOnlyAuthenticationResult struct {
 	Name string `pulumi:"name"`
 	// Resource type.
 	Type string `pulumi:"type"`
+}
+
+func LookupServerAzureADOnlyAuthenticationOutput(ctx *pulumi.Context, args LookupServerAzureADOnlyAuthenticationOutputArgs, opts ...pulumi.InvokeOption) LookupServerAzureADOnlyAuthenticationResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupServerAzureADOnlyAuthenticationResult, error) {
+			args := v.(LookupServerAzureADOnlyAuthenticationArgs)
+			r, err := LookupServerAzureADOnlyAuthentication(ctx, &args, opts...)
+			return *r, err
+		}).(LookupServerAzureADOnlyAuthenticationResultOutput)
+}
+
+type LookupServerAzureADOnlyAuthenticationOutputArgs struct {
+	// The name of server azure active directory only authentication.
+	AuthenticationName pulumi.StringInput `pulumi:"authenticationName"`
+	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the server.
+	ServerName pulumi.StringInput `pulumi:"serverName"`
+}
+
+func (LookupServerAzureADOnlyAuthenticationOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupServerAzureADOnlyAuthenticationArgs)(nil)).Elem()
+}
+
+// Azure Active Directory only authentication.
+type LookupServerAzureADOnlyAuthenticationResultOutput struct{ *pulumi.OutputState }
+
+func (LookupServerAzureADOnlyAuthenticationResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupServerAzureADOnlyAuthenticationResult)(nil)).Elem()
+}
+
+func (o LookupServerAzureADOnlyAuthenticationResultOutput) ToLookupServerAzureADOnlyAuthenticationResultOutput() LookupServerAzureADOnlyAuthenticationResultOutput {
+	return o
+}
+
+func (o LookupServerAzureADOnlyAuthenticationResultOutput) ToLookupServerAzureADOnlyAuthenticationResultOutputWithContext(ctx context.Context) LookupServerAzureADOnlyAuthenticationResultOutput {
+	return o
+}
+
+// Azure Active Directory only Authentication enabled.
+func (o LookupServerAzureADOnlyAuthenticationResultOutput) AzureADOnlyAuthentication() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupServerAzureADOnlyAuthenticationResult) bool { return v.AzureADOnlyAuthentication }).(pulumi.BoolOutput)
+}
+
+// Resource ID.
+func (o LookupServerAzureADOnlyAuthenticationResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServerAzureADOnlyAuthenticationResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o LookupServerAzureADOnlyAuthenticationResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServerAzureADOnlyAuthenticationResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Resource type.
+func (o LookupServerAzureADOnlyAuthenticationResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServerAzureADOnlyAuthenticationResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupServerAzureADOnlyAuthenticationResultOutput{})
 }

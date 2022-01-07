@@ -4,6 +4,9 @@
 package costmanagement
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -43,4 +46,83 @@ type LookupReportByDepartmentResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.
 	Type string `pulumi:"type"`
+}
+
+func LookupReportByDepartmentOutput(ctx *pulumi.Context, args LookupReportByDepartmentOutputArgs, opts ...pulumi.InvokeOption) LookupReportByDepartmentResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupReportByDepartmentResult, error) {
+			args := v.(LookupReportByDepartmentArgs)
+			r, err := LookupReportByDepartment(ctx, &args, opts...)
+			return *r, err
+		}).(LookupReportByDepartmentResultOutput)
+}
+
+type LookupReportByDepartmentOutputArgs struct {
+	// Department ID
+	DepartmentId pulumi.StringInput `pulumi:"departmentId"`
+	// Report Name.
+	ReportName pulumi.StringInput `pulumi:"reportName"`
+}
+
+func (LookupReportByDepartmentOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupReportByDepartmentArgs)(nil)).Elem()
+}
+
+// A report resource.
+type LookupReportByDepartmentResultOutput struct{ *pulumi.OutputState }
+
+func (LookupReportByDepartmentResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupReportByDepartmentResult)(nil)).Elem()
+}
+
+func (o LookupReportByDepartmentResultOutput) ToLookupReportByDepartmentResultOutput() LookupReportByDepartmentResultOutput {
+	return o
+}
+
+func (o LookupReportByDepartmentResultOutput) ToLookupReportByDepartmentResultOutputWithContext(ctx context.Context) LookupReportByDepartmentResultOutput {
+	return o
+}
+
+// Has definition for the report.
+func (o LookupReportByDepartmentResultOutput) Definition() ReportDefinitionResponseOutput {
+	return o.ApplyT(func(v LookupReportByDepartmentResult) ReportDefinitionResponse { return v.Definition }).(ReportDefinitionResponseOutput)
+}
+
+// Has delivery information for the report.
+func (o LookupReportByDepartmentResultOutput) DeliveryInfo() ReportDeliveryInfoResponseOutput {
+	return o.ApplyT(func(v LookupReportByDepartmentResult) ReportDeliveryInfoResponse { return v.DeliveryInfo }).(ReportDeliveryInfoResponseOutput)
+}
+
+// The format of the report being delivered.
+func (o LookupReportByDepartmentResultOutput) Format() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupReportByDepartmentResult) *string { return v.Format }).(pulumi.StringPtrOutput)
+}
+
+// Resource Id.
+func (o LookupReportByDepartmentResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupReportByDepartmentResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o LookupReportByDepartmentResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupReportByDepartmentResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Has schedule information for the report.
+func (o LookupReportByDepartmentResultOutput) Schedule() ReportScheduleResponsePtrOutput {
+	return o.ApplyT(func(v LookupReportByDepartmentResult) *ReportScheduleResponse { return v.Schedule }).(ReportScheduleResponsePtrOutput)
+}
+
+// Resource tags.
+func (o LookupReportByDepartmentResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupReportByDepartmentResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type.
+func (o LookupReportByDepartmentResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupReportByDepartmentResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupReportByDepartmentResultOutput{})
 }

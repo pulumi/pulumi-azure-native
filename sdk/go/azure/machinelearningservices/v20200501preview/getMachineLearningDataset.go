@@ -4,6 +4,9 @@
 package v20200501preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -44,4 +47,85 @@ type LookupMachineLearningDatasetResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Specifies the type of the resource.
 	Type string `pulumi:"type"`
+}
+
+func LookupMachineLearningDatasetOutput(ctx *pulumi.Context, args LookupMachineLearningDatasetOutputArgs, opts ...pulumi.InvokeOption) LookupMachineLearningDatasetResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupMachineLearningDatasetResult, error) {
+			args := v.(LookupMachineLearningDatasetArgs)
+			r, err := LookupMachineLearningDataset(ctx, &args, opts...)
+			return *r, err
+		}).(LookupMachineLearningDatasetResultOutput)
+}
+
+type LookupMachineLearningDatasetOutputArgs struct {
+	// The Dataset name.
+	DatasetName pulumi.StringInput `pulumi:"datasetName"`
+	// Name of the resource group in which workspace is located.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// Name of Azure Machine Learning workspace.
+	WorkspaceName pulumi.StringInput `pulumi:"workspaceName"`
+}
+
+func (LookupMachineLearningDatasetOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupMachineLearningDatasetArgs)(nil)).Elem()
+}
+
+// Machine Learning dataset object wrapped into ARM resource envelope.
+type LookupMachineLearningDatasetResultOutput struct{ *pulumi.OutputState }
+
+func (LookupMachineLearningDatasetResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupMachineLearningDatasetResult)(nil)).Elem()
+}
+
+func (o LookupMachineLearningDatasetResultOutput) ToLookupMachineLearningDatasetResultOutput() LookupMachineLearningDatasetResultOutput {
+	return o
+}
+
+func (o LookupMachineLearningDatasetResultOutput) ToLookupMachineLearningDatasetResultOutputWithContext(ctx context.Context) LookupMachineLearningDatasetResultOutput {
+	return o
+}
+
+// Specifies the resource ID.
+func (o LookupMachineLearningDatasetResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupMachineLearningDatasetResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The identity of the resource.
+func (o LookupMachineLearningDatasetResultOutput) Identity() IdentityResponsePtrOutput {
+	return o.ApplyT(func(v LookupMachineLearningDatasetResult) *IdentityResponse { return v.Identity }).(IdentityResponsePtrOutput)
+}
+
+// Specifies the location of the resource.
+func (o LookupMachineLearningDatasetResultOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupMachineLearningDatasetResult) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the name of the resource.
+func (o LookupMachineLearningDatasetResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupMachineLearningDatasetResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Dataset properties
+func (o LookupMachineLearningDatasetResultOutput) Properties() DatasetResponseOutput {
+	return o.ApplyT(func(v LookupMachineLearningDatasetResult) DatasetResponse { return v.Properties }).(DatasetResponseOutput)
+}
+
+// The sku of the workspace.
+func (o LookupMachineLearningDatasetResultOutput) Sku() SkuResponsePtrOutput {
+	return o.ApplyT(func(v LookupMachineLearningDatasetResult) *SkuResponse { return v.Sku }).(SkuResponsePtrOutput)
+}
+
+// Contains resource tags defined as key/value pairs.
+func (o LookupMachineLearningDatasetResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupMachineLearningDatasetResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Specifies the type of the resource.
+func (o LookupMachineLearningDatasetResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupMachineLearningDatasetResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupMachineLearningDatasetResultOutput{})
 }

@@ -4,6 +4,9 @@
 package v20170601
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -44,4 +47,88 @@ type LookupRegistrationResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Type of Resource.
 	Type string `pulumi:"type"`
+}
+
+func LookupRegistrationOutput(ctx *pulumi.Context, args LookupRegistrationOutputArgs, opts ...pulumi.InvokeOption) LookupRegistrationResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupRegistrationResult, error) {
+			args := v.(LookupRegistrationArgs)
+			r, err := LookupRegistration(ctx, &args, opts...)
+			return *r, err
+		}).(LookupRegistrationResultOutput)
+}
+
+type LookupRegistrationOutputArgs struct {
+	// Name of the Azure Stack registration.
+	RegistrationName pulumi.StringInput `pulumi:"registrationName"`
+	// Name of the resource group.
+	ResourceGroup pulumi.StringInput `pulumi:"resourceGroup"`
+}
+
+func (LookupRegistrationOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupRegistrationArgs)(nil)).Elem()
+}
+
+// Registration information.
+type LookupRegistrationResultOutput struct{ *pulumi.OutputState }
+
+func (LookupRegistrationResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupRegistrationResult)(nil)).Elem()
+}
+
+func (o LookupRegistrationResultOutput) ToLookupRegistrationResultOutput() LookupRegistrationResultOutput {
+	return o
+}
+
+func (o LookupRegistrationResultOutput) ToLookupRegistrationResultOutputWithContext(ctx context.Context) LookupRegistrationResultOutput {
+	return o
+}
+
+// Specifies the billing mode for the Azure Stack registration.
+func (o LookupRegistrationResultOutput) BillingModel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupRegistrationResult) *string { return v.BillingModel }).(pulumi.StringPtrOutput)
+}
+
+// The identifier of the registered Azure Stack.
+func (o LookupRegistrationResultOutput) CloudId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupRegistrationResult) *string { return v.CloudId }).(pulumi.StringPtrOutput)
+}
+
+// The entity tag used for optimistic concurrency when modifying the resource.
+func (o LookupRegistrationResultOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupRegistrationResult) *string { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// ID of the resource.
+func (o LookupRegistrationResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRegistrationResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Location of the resource.
+func (o LookupRegistrationResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRegistrationResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// Name of the resource.
+func (o LookupRegistrationResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRegistrationResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The object identifier associated with the Azure Stack connecting to Azure.
+func (o LookupRegistrationResultOutput) ObjectId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupRegistrationResult) *string { return v.ObjectId }).(pulumi.StringPtrOutput)
+}
+
+// Custom tags for the resource.
+func (o LookupRegistrationResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupRegistrationResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Type of Resource.
+func (o LookupRegistrationResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRegistrationResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupRegistrationResultOutput{})
 }

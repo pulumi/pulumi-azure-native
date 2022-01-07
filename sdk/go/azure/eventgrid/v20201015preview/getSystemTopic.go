@@ -4,6 +4,9 @@
 package v20201015preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -48,4 +51,98 @@ type LookupSystemTopicResult struct {
 	TopicType *string `pulumi:"topicType"`
 	// Type of the resource.
 	Type string `pulumi:"type"`
+}
+
+func LookupSystemTopicOutput(ctx *pulumi.Context, args LookupSystemTopicOutputArgs, opts ...pulumi.InvokeOption) LookupSystemTopicResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupSystemTopicResult, error) {
+			args := v.(LookupSystemTopicArgs)
+			r, err := LookupSystemTopic(ctx, &args, opts...)
+			return *r, err
+		}).(LookupSystemTopicResultOutput)
+}
+
+type LookupSystemTopicOutputArgs struct {
+	// The name of the resource group within the user's subscription.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// Name of the system topic.
+	SystemTopicName pulumi.StringInput `pulumi:"systemTopicName"`
+}
+
+func (LookupSystemTopicOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupSystemTopicArgs)(nil)).Elem()
+}
+
+// EventGrid System Topic.
+type LookupSystemTopicResultOutput struct{ *pulumi.OutputState }
+
+func (LookupSystemTopicResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupSystemTopicResult)(nil)).Elem()
+}
+
+func (o LookupSystemTopicResultOutput) ToLookupSystemTopicResultOutput() LookupSystemTopicResultOutput {
+	return o
+}
+
+func (o LookupSystemTopicResultOutput) ToLookupSystemTopicResultOutputWithContext(ctx context.Context) LookupSystemTopicResultOutput {
+	return o
+}
+
+// Fully qualified identifier of the resource.
+func (o LookupSystemTopicResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSystemTopicResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Identity information for the resource.
+func (o LookupSystemTopicResultOutput) Identity() IdentityInfoResponsePtrOutput {
+	return o.ApplyT(func(v LookupSystemTopicResult) *IdentityInfoResponse { return v.Identity }).(IdentityInfoResponsePtrOutput)
+}
+
+// Location of the resource.
+func (o LookupSystemTopicResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSystemTopicResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// Metric resource id for the system topic.
+func (o LookupSystemTopicResultOutput) MetricResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSystemTopicResult) string { return v.MetricResourceId }).(pulumi.StringOutput)
+}
+
+// Name of the resource.
+func (o LookupSystemTopicResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSystemTopicResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Provisioning state of the system topic.
+func (o LookupSystemTopicResultOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSystemTopicResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Source for the system topic.
+func (o LookupSystemTopicResultOutput) Source() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSystemTopicResult) *string { return v.Source }).(pulumi.StringPtrOutput)
+}
+
+// The system metadata relating to System Topic resource.
+func (o LookupSystemTopicResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupSystemTopicResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Tags of the resource.
+func (o LookupSystemTopicResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupSystemTopicResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// TopicType for the system topic.
+func (o LookupSystemTopicResultOutput) TopicType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSystemTopicResult) *string { return v.TopicType }).(pulumi.StringPtrOutput)
+}
+
+// Type of the resource.
+func (o LookupSystemTopicResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSystemTopicResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupSystemTopicResultOutput{})
 }

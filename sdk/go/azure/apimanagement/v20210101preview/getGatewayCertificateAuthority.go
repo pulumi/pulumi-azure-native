@@ -4,6 +4,9 @@
 package v20210101preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -38,4 +41,67 @@ type LookupGatewayCertificateAuthorityResult struct {
 	Name string `pulumi:"name"`
 	// Resource type for API Management resource.
 	Type string `pulumi:"type"`
+}
+
+func LookupGatewayCertificateAuthorityOutput(ctx *pulumi.Context, args LookupGatewayCertificateAuthorityOutputArgs, opts ...pulumi.InvokeOption) LookupGatewayCertificateAuthorityResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupGatewayCertificateAuthorityResult, error) {
+			args := v.(LookupGatewayCertificateAuthorityArgs)
+			r, err := LookupGatewayCertificateAuthority(ctx, &args, opts...)
+			return *r, err
+		}).(LookupGatewayCertificateAuthorityResultOutput)
+}
+
+type LookupGatewayCertificateAuthorityOutputArgs struct {
+	// Identifier of the certificate entity. Must be unique in the current API Management service instance.
+	CertificateId pulumi.StringInput `pulumi:"certificateId"`
+	// Gateway entity identifier. Must be unique in the current API Management service instance. Must not have value 'managed'
+	GatewayId pulumi.StringInput `pulumi:"gatewayId"`
+	// The name of the resource group.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the API Management service.
+	ServiceName pulumi.StringInput `pulumi:"serviceName"`
+}
+
+func (LookupGatewayCertificateAuthorityOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupGatewayCertificateAuthorityArgs)(nil)).Elem()
+}
+
+// Gateway certificate authority details.
+type LookupGatewayCertificateAuthorityResultOutput struct{ *pulumi.OutputState }
+
+func (LookupGatewayCertificateAuthorityResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupGatewayCertificateAuthorityResult)(nil)).Elem()
+}
+
+func (o LookupGatewayCertificateAuthorityResultOutput) ToLookupGatewayCertificateAuthorityResultOutput() LookupGatewayCertificateAuthorityResultOutput {
+	return o
+}
+
+func (o LookupGatewayCertificateAuthorityResultOutput) ToLookupGatewayCertificateAuthorityResultOutputWithContext(ctx context.Context) LookupGatewayCertificateAuthorityResultOutput {
+	return o
+}
+
+// Resource ID.
+func (o LookupGatewayCertificateAuthorityResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupGatewayCertificateAuthorityResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Determines whether certificate authority is trusted.
+func (o LookupGatewayCertificateAuthorityResultOutput) IsTrusted() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupGatewayCertificateAuthorityResult) *bool { return v.IsTrusted }).(pulumi.BoolPtrOutput)
+}
+
+// Resource name.
+func (o LookupGatewayCertificateAuthorityResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupGatewayCertificateAuthorityResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Resource type for API Management resource.
+func (o LookupGatewayCertificateAuthorityResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupGatewayCertificateAuthorityResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupGatewayCertificateAuthorityResultOutput{})
 }

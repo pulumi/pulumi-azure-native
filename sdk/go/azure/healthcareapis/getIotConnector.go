@@ -4,6 +4,9 @@
 package healthcareapis
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -51,4 +54,102 @@ type LookupIotConnectorResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// The resource type.
 	Type string `pulumi:"type"`
+}
+
+func LookupIotConnectorOutput(ctx *pulumi.Context, args LookupIotConnectorOutputArgs, opts ...pulumi.InvokeOption) LookupIotConnectorResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupIotConnectorResult, error) {
+			args := v.(LookupIotConnectorArgs)
+			r, err := LookupIotConnector(ctx, &args, opts...)
+			return *r, err
+		}).(LookupIotConnectorResultOutput)
+}
+
+type LookupIotConnectorOutputArgs struct {
+	// The name of IoT Connector resource.
+	IotConnectorName pulumi.StringInput `pulumi:"iotConnectorName"`
+	// The name of the resource group that contains the service instance.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of workspace resource.
+	WorkspaceName pulumi.StringInput `pulumi:"workspaceName"`
+}
+
+func (LookupIotConnectorOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupIotConnectorArgs)(nil)).Elem()
+}
+
+// IoT Connector definition.
+type LookupIotConnectorResultOutput struct{ *pulumi.OutputState }
+
+func (LookupIotConnectorResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupIotConnectorResult)(nil)).Elem()
+}
+
+func (o LookupIotConnectorResultOutput) ToLookupIotConnectorResultOutput() LookupIotConnectorResultOutput {
+	return o
+}
+
+func (o LookupIotConnectorResultOutput) ToLookupIotConnectorResultOutputWithContext(ctx context.Context) LookupIotConnectorResultOutput {
+	return o
+}
+
+// Device Mappings.
+func (o LookupIotConnectorResultOutput) DeviceMapping() IotMappingPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v LookupIotConnectorResult) *IotMappingPropertiesResponse { return v.DeviceMapping }).(IotMappingPropertiesResponsePtrOutput)
+}
+
+// An etag associated with the resource, used for optimistic concurrency when editing it.
+func (o LookupIotConnectorResultOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupIotConnectorResult) *string { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// The resource identifier.
+func (o LookupIotConnectorResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupIotConnectorResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Setting indicating whether the service has a managed identity associated with it.
+func (o LookupIotConnectorResultOutput) Identity() ServiceManagedIdentityResponseIdentityPtrOutput {
+	return o.ApplyT(func(v LookupIotConnectorResult) *ServiceManagedIdentityResponseIdentity { return v.Identity }).(ServiceManagedIdentityResponseIdentityPtrOutput)
+}
+
+// Source configuration.
+func (o LookupIotConnectorResultOutput) IngestionEndpointConfiguration() IotEventHubIngestionEndpointConfigurationResponsePtrOutput {
+	return o.ApplyT(func(v LookupIotConnectorResult) *IotEventHubIngestionEndpointConfigurationResponse {
+		return v.IngestionEndpointConfiguration
+	}).(IotEventHubIngestionEndpointConfigurationResponsePtrOutput)
+}
+
+// The resource location.
+func (o LookupIotConnectorResultOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupIotConnectorResult) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The resource name.
+func (o LookupIotConnectorResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupIotConnectorResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The provisioning state.
+func (o LookupIotConnectorResultOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupIotConnectorResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o LookupIotConnectorResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupIotConnectorResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource tags.
+func (o LookupIotConnectorResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupIotConnectorResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The resource type.
+func (o LookupIotConnectorResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupIotConnectorResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupIotConnectorResultOutput{})
 }
