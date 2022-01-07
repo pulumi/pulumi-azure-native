@@ -3,7 +3,16 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 
-(None)
+#### New resources:
+
+- `operationalinsights.Table`
+- `security.Scanner`
+
+#### New functions:
+
+- `operationalinsights.getTable`
+- `security.getScanner`
+- `web.listContainerAppSecrets`
 
 ---
 

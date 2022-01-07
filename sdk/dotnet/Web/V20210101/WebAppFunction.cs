@@ -147,6 +147,7 @@ namespace Pulumi.AzureNative.Web.V20210101
                     new Pulumi.Alias { Type = "azure-native:web/v20201201:WebAppFunction"},
                     new Pulumi.Alias { Type = "azure-native:web/v20210115:WebAppFunction"},
                     new Pulumi.Alias { Type = "azure-native:web/v20210201:WebAppFunction"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210301:WebAppFunction"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

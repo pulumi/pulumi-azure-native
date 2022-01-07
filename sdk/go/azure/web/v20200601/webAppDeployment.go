@@ -91,6 +91,9 @@ func NewWebAppDeployment(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:web/v20210201:WebAppDeployment"),
 		},
+		{
+			Type: pulumi.String("azure-native:web/v20210301:WebAppDeployment"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource WebAppDeployment

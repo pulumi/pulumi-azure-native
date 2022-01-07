@@ -92,6 +92,9 @@ func NewWebAppVnetConnectionSlot(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:web/v20210201:WebAppVnetConnectionSlot"),
 		},
+		{
+			Type: pulumi.String("azure-native:web/v20210301:WebAppVnetConnectionSlot"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource WebAppVnetConnectionSlot

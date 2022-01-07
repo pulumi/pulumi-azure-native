@@ -7,6 +7,7 @@ import * as v20200301preview from "./v20200301preview";
 import * as v20200801 from "./v20200801";
 import * as v20201001 from "./v20201001";
 import * as v20210601 from "./v20210601";
+import * as v20211201preview from "./v20211201preview";
 
 export {
     v20151101preview,
@@ -14,6 +15,7 @@ export {
     v20200801,
     v20201001,
     v20210601,
+    v20211201preview,
 };
 
 export const BillingType = {
@@ -34,6 +36,46 @@ export const ClusterSkuNameEnum = {
  * The name of the SKU.
  */
 export type ClusterSkuNameEnum = (typeof ClusterSkuNameEnum)[keyof typeof ClusterSkuNameEnum];
+
+export const ColumnDataTypeHintEnum = {
+    /**
+     * A string that matches the pattern of a URI, for example, scheme://username:password@host:1234/this/is/a/path?k1=v1&k2=v2#fragment
+     */
+    Uri: "uri",
+    /**
+     * A standard 128-bit GUID following the standard shape, xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+     */
+    Guid: "guid",
+    /**
+     * An Azure Resource Model (ARM) path: /subscriptions/{...}/resourceGroups/{...}/providers/Microsoft.{...}/{...}/{...}/{...}...
+     */
+    ArmPath: "armPath",
+    /**
+     * A standard V4/V6 ip address following the standard shape, x.x.x.x/y:y:y:y:y:y:y:y
+     */
+    Ip: "ip",
+} as const;
+
+/**
+ * Column data type logical hint.
+ */
+export type ColumnDataTypeHintEnum = (typeof ColumnDataTypeHintEnum)[keyof typeof ColumnDataTypeHintEnum];
+
+export const ColumnTypeEnum = {
+    String: "string",
+    Int: "int",
+    Long: "long",
+    Real: "real",
+    Boolean: "boolean",
+    DateTime: "dateTime",
+    Guid: "guid",
+    Dynamic: "dynamic",
+} as const;
+
+/**
+ * Column data type.
+ */
+export type ColumnTypeEnum = (typeof ColumnTypeEnum)[keyof typeof ColumnTypeEnum];
 
 export const DataSourceKind = {
     WindowsEvent: "WindowsEvent",
@@ -127,6 +169,22 @@ export const PublicNetworkAccessType = {
  * The network access type for accessing Log Analytics query.
  */
 export type PublicNetworkAccessType = (typeof PublicNetworkAccessType)[keyof typeof PublicNetworkAccessType];
+
+export const TablePlanEnum = {
+    /**
+     * Basic - logs that are adjusted to support high volume / low value verbose logs.
+     */
+    Basic: "Basic",
+    /**
+     * Analytics - logs that allow monitoring and analytics.
+     */
+    Analytics: "Analytics",
+} as const;
+
+/**
+ * The table plan.
+ */
+export type TablePlanEnum = (typeof TablePlanEnum)[keyof typeof TablePlanEnum];
 
 export const WorkspaceEntityStatus = {
     Creating: "Creating",

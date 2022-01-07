@@ -100,6 +100,7 @@ namespace Pulumi.AzureNative.Web.V20210101
                     new Pulumi.Alias { Type = "azure-native:web/v20201201:WebAppBackupConfiguration"},
                     new Pulumi.Alias { Type = "azure-native:web/v20210115:WebAppBackupConfiguration"},
                     new Pulumi.Alias { Type = "azure-native:web/v20210201:WebAppBackupConfiguration"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210301:WebAppBackupConfiguration"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

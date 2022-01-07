@@ -51,6 +51,10 @@ export interface GetKubeEnvironmentResult {
      */
     readonly arcConfiguration?: outputs.web.v20210301.ArcConfigurationResponse;
     /**
+     * Cluster configuration for Container Apps Environments to configure Dapr Instrumentation Key and VNET Configuration
+     */
+    readonly containerAppsConfiguration?: outputs.web.v20210301.ContainerAppsConfigurationResponse;
+    /**
      * Default Domain Name for the cluster
      */
     readonly defaultDomain: string;
@@ -58,6 +62,10 @@ export interface GetKubeEnvironmentResult {
      * Any errors that occurred during deployment or deployment validation
      */
     readonly deploymentErrors: string;
+    /**
+     * Type of Kubernetes Environment. Only supported for Container App Environments with value as Managed
+     */
+    readonly environmentType?: string;
     /**
      * Extended Location.
      */

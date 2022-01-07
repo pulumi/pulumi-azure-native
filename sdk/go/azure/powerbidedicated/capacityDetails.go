@@ -18,6 +18,8 @@ type CapacityDetails struct {
 
 	// A collection of Dedicated capacity administrators
 	Administration DedicatedCapacityAdministratorsResponsePtrOutput `pulumi:"administration"`
+	// Capacity name
+	FriendlyName pulumi.StringOutput `pulumi:"friendlyName"`
 	// Location of the PowerBI Dedicated resource.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Specifies the generation of the Power BI Embedded capacity. If no value is specified, the default value 'Gen2' is used. [Learn More](https://docs.microsoft.com/power-bi/developer/embedded/power-bi-embedded-generation-2)
@@ -34,6 +36,8 @@ type CapacityDetails struct {
 	SystemData SystemDataResponsePtrOutput `pulumi:"systemData"`
 	// Key-value pairs of additional resource provisioning properties.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// Tenant ID for the capacity. Used for creating Pro Plus capacity.
+	TenantId pulumi.StringOutput `pulumi:"tenantId"`
 	// The type of the PowerBI Dedicated resource.
 	Type pulumi.StringOutput `pulumi:"type"`
 }

@@ -75,13 +75,17 @@ class AutoScaleVCoreSkuArgs:
 class CapacitySkuArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
+                 capacity: Optional[pulumi.Input[int]] = None,
                  tier: Optional[pulumi.Input[Union[str, 'CapacitySkuTier']]] = None):
         """
         Represents the SKU name and Azure pricing tier for PowerBI Dedicated capacity resource.
         :param pulumi.Input[str] name: Name of the SKU level.
+        :param pulumi.Input[int] capacity: The capacity of the SKU.
         :param pulumi.Input[Union[str, 'CapacitySkuTier']] tier: The name of the Azure pricing tier to which the SKU applies.
         """
         pulumi.set(__self__, "name", name)
+        if capacity is not None:
+            pulumi.set(__self__, "capacity", capacity)
         if tier is not None:
             pulumi.set(__self__, "tier", tier)
 
@@ -96,6 +100,18 @@ class CapacitySkuArgs:
     @name.setter
     def name(self, value: pulumi.Input[str]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def capacity(self) -> Optional[pulumi.Input[int]]:
+        """
+        The capacity of the SKU.
+        """
+        return pulumi.get(self, "capacity")
+
+    @capacity.setter
+    def capacity(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "capacity", value)
 
     @property
     @pulumi.getter

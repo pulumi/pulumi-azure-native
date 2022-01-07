@@ -21,10 +21,13 @@ class GetCapacityDetailsResult:
     """
     Represents an instance of a Dedicated Capacity resource.
     """
-    def __init__(__self__, administration=None, id=None, location=None, mode=None, name=None, provisioning_state=None, sku=None, state=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, administration=None, friendly_name=None, id=None, location=None, mode=None, name=None, provisioning_state=None, sku=None, state=None, system_data=None, tags=None, tenant_id=None, type=None):
         if administration and not isinstance(administration, dict):
             raise TypeError("Expected argument 'administration' to be a dict")
         pulumi.set(__self__, "administration", administration)
+        if friendly_name and not isinstance(friendly_name, str):
+            raise TypeError("Expected argument 'friendly_name' to be a str")
+        pulumi.set(__self__, "friendly_name", friendly_name)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -52,6 +55,9 @@ class GetCapacityDetailsResult:
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
+        if tenant_id and not isinstance(tenant_id, str):
+            raise TypeError("Expected argument 'tenant_id' to be a str")
+        pulumi.set(__self__, "tenant_id", tenant_id)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -63,6 +69,14 @@ class GetCapacityDetailsResult:
         A collection of Dedicated capacity administrators
         """
         return pulumi.get(self, "administration")
+
+    @property
+    @pulumi.getter(name="friendlyName")
+    def friendly_name(self) -> str:
+        """
+        Capacity name
+        """
+        return pulumi.get(self, "friendly_name")
 
     @property
     @pulumi.getter
@@ -137,6 +151,14 @@ class GetCapacityDetailsResult:
         return pulumi.get(self, "tags")
 
     @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> str:
+        """
+        Tenant ID for the capacity. Used for creating Pro Plus capacity.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @property
     @pulumi.getter
     def type(self) -> str:
         """
@@ -152,6 +174,7 @@ class AwaitableGetCapacityDetailsResult(GetCapacityDetailsResult):
             yield self
         return GetCapacityDetailsResult(
             administration=self.administration,
+            friendly_name=self.friendly_name,
             id=self.id,
             location=self.location,
             mode=self.mode,
@@ -161,6 +184,7 @@ class AwaitableGetCapacityDetailsResult(GetCapacityDetailsResult):
             state=self.state,
             system_data=self.system_data,
             tags=self.tags,
+            tenant_id=self.tenant_id,
             type=self.type)
 
 
@@ -185,6 +209,7 @@ def get_capacity_details(dedicated_capacity_name: Optional[str] = None,
 
     return AwaitableGetCapacityDetailsResult(
         administration=__ret__.administration,
+        friendly_name=__ret__.friendly_name,
         id=__ret__.id,
         location=__ret__.location,
         mode=__ret__.mode,
@@ -194,6 +219,7 @@ def get_capacity_details(dedicated_capacity_name: Optional[str] = None,
         state=__ret__.state,
         system_data=__ret__.system_data,
         tags=__ret__.tags,
+        tenant_id=__ret__.tenant_id,
         type=__ret__.type)
 
 

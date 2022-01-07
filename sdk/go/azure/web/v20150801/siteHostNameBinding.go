@@ -89,6 +89,9 @@ func NewSiteHostNameBinding(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:web/v20210201:SiteHostNameBinding"),
 		},
+		{
+			Type: pulumi.String("azure-native:web/v20210301:SiteHostNameBinding"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource SiteHostNameBinding

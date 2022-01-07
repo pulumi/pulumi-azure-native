@@ -35,10 +35,14 @@ type LookupKubeEnvironmentResult struct {
 	// components types. Eg: Choosing between BuildService kind,
 	// FrontEnd Service ArtifactsStorageType etc.
 	ArcConfiguration *ArcConfigurationResponse `pulumi:"arcConfiguration"`
+	// Cluster configuration for Container Apps Environments to configure Dapr Instrumentation Key and VNET Configuration
+	ContainerAppsConfiguration *ContainerAppsConfigurationResponse `pulumi:"containerAppsConfiguration"`
 	// Default Domain Name for the cluster
 	DefaultDomain string `pulumi:"defaultDomain"`
 	// Any errors that occurred during deployment or deployment validation
 	DeploymentErrors string `pulumi:"deploymentErrors"`
+	// Type of Kubernetes Environment. Only supported for Container App Environments with value as Managed
+	EnvironmentType *string `pulumi:"environmentType"`
 	// Extended Location.
 	ExtendedLocation *ExtendedLocationResponse `pulumi:"extendedLocation"`
 	// Resource Id.

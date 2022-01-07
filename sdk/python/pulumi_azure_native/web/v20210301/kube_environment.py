@@ -20,14 +20,15 @@ class KubeEnvironmentArgs:
                  aks_resource_id: Optional[pulumi.Input[str]] = None,
                  app_logs_configuration: Optional[pulumi.Input['AppLogsConfigurationArgs']] = None,
                  arc_configuration: Optional[pulumi.Input['ArcConfigurationArgs']] = None,
+                 container_apps_configuration: Optional[pulumi.Input['ContainerAppsConfigurationArgs']] = None,
+                 environment_type: Optional[pulumi.Input[str]] = None,
                  extended_location: Optional[pulumi.Input['ExtendedLocationArgs']] = None,
                  internal_load_balancer_enabled: Optional[pulumi.Input[bool]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  static_ip: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 type: Optional[pulumi.Input[str]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a KubeEnvironment resource.
         :param pulumi.Input[str] resource_group_name: Name of the resource group to which the resource belongs.
@@ -37,6 +38,8 @@ class KubeEnvironmentArgs:
         :param pulumi.Input['ArcConfigurationArgs'] arc_configuration: Cluster configuration which determines the ARC cluster
                components types. Eg: Choosing between BuildService kind,
                FrontEnd Service ArtifactsStorageType etc.
+        :param pulumi.Input['ContainerAppsConfigurationArgs'] container_apps_configuration: Cluster configuration for Container Apps Environments to configure Dapr Instrumentation Key and VNET Configuration
+        :param pulumi.Input[str] environment_type: Type of Kubernetes Environment. Only supported for Container App Environments with value as Managed
         :param pulumi.Input['ExtendedLocationArgs'] extended_location: Extended Location.
         :param pulumi.Input[bool] internal_load_balancer_enabled: Only visible within Vnet/Subnet
         :param pulumi.Input[str] kind: Kind of resource.
@@ -52,6 +55,10 @@ class KubeEnvironmentArgs:
             pulumi.set(__self__, "app_logs_configuration", app_logs_configuration)
         if arc_configuration is not None:
             pulumi.set(__self__, "arc_configuration", arc_configuration)
+        if container_apps_configuration is not None:
+            pulumi.set(__self__, "container_apps_configuration", container_apps_configuration)
+        if environment_type is not None:
+            pulumi.set(__self__, "environment_type", environment_type)
         if extended_location is not None:
             pulumi.set(__self__, "extended_location", extended_location)
         if internal_load_balancer_enabled is not None:
@@ -66,8 +73,6 @@ class KubeEnvironmentArgs:
             pulumi.set(__self__, "static_ip", static_ip)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if type is not None:
-            pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -117,6 +122,30 @@ class KubeEnvironmentArgs:
     @arc_configuration.setter
     def arc_configuration(self, value: Optional[pulumi.Input['ArcConfigurationArgs']]):
         pulumi.set(self, "arc_configuration", value)
+
+    @property
+    @pulumi.getter(name="containerAppsConfiguration")
+    def container_apps_configuration(self) -> Optional[pulumi.Input['ContainerAppsConfigurationArgs']]:
+        """
+        Cluster configuration for Container Apps Environments to configure Dapr Instrumentation Key and VNET Configuration
+        """
+        return pulumi.get(self, "container_apps_configuration")
+
+    @container_apps_configuration.setter
+    def container_apps_configuration(self, value: Optional[pulumi.Input['ContainerAppsConfigurationArgs']]):
+        pulumi.set(self, "container_apps_configuration", value)
+
+    @property
+    @pulumi.getter(name="environmentType")
+    def environment_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Type of Kubernetes Environment. Only supported for Container App Environments with value as Managed
+        """
+        return pulumi.get(self, "environment_type")
+
+    @environment_type.setter
+    def environment_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "environment_type", value)
 
     @property
     @pulumi.getter(name="extendedLocation")
@@ -202,15 +231,6 @@ class KubeEnvironmentArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
-    @property
-    @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "type", value)
-
 
 class KubeEnvironment(pulumi.CustomResource):
     @overload
@@ -220,6 +240,8 @@ class KubeEnvironment(pulumi.CustomResource):
                  aks_resource_id: Optional[pulumi.Input[str]] = None,
                  app_logs_configuration: Optional[pulumi.Input[pulumi.InputType['AppLogsConfigurationArgs']]] = None,
                  arc_configuration: Optional[pulumi.Input[pulumi.InputType['ArcConfigurationArgs']]] = None,
+                 container_apps_configuration: Optional[pulumi.Input[pulumi.InputType['ContainerAppsConfigurationArgs']]] = None,
+                 environment_type: Optional[pulumi.Input[str]] = None,
                  extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationArgs']]] = None,
                  internal_load_balancer_enabled: Optional[pulumi.Input[bool]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
@@ -228,7 +250,6 @@ class KubeEnvironment(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  static_ip: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         A Kubernetes cluster specialized for web workloads by Azure App Service
@@ -241,6 +262,8 @@ class KubeEnvironment(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ArcConfigurationArgs']] arc_configuration: Cluster configuration which determines the ARC cluster
                components types. Eg: Choosing between BuildService kind,
                FrontEnd Service ArtifactsStorageType etc.
+        :param pulumi.Input[pulumi.InputType['ContainerAppsConfigurationArgs']] container_apps_configuration: Cluster configuration for Container Apps Environments to configure Dapr Instrumentation Key and VNET Configuration
+        :param pulumi.Input[str] environment_type: Type of Kubernetes Environment. Only supported for Container App Environments with value as Managed
         :param pulumi.Input[pulumi.InputType['ExtendedLocationArgs']] extended_location: Extended Location.
         :param pulumi.Input[bool] internal_load_balancer_enabled: Only visible within Vnet/Subnet
         :param pulumi.Input[str] kind: Kind of resource.
@@ -277,6 +300,8 @@ class KubeEnvironment(pulumi.CustomResource):
                  aks_resource_id: Optional[pulumi.Input[str]] = None,
                  app_logs_configuration: Optional[pulumi.Input[pulumi.InputType['AppLogsConfigurationArgs']]] = None,
                  arc_configuration: Optional[pulumi.Input[pulumi.InputType['ArcConfigurationArgs']]] = None,
+                 container_apps_configuration: Optional[pulumi.Input[pulumi.InputType['ContainerAppsConfigurationArgs']]] = None,
+                 environment_type: Optional[pulumi.Input[str]] = None,
                  extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationArgs']]] = None,
                  internal_load_balancer_enabled: Optional[pulumi.Input[bool]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
@@ -285,7 +310,6 @@ class KubeEnvironment(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  static_ip: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -301,6 +325,8 @@ class KubeEnvironment(pulumi.CustomResource):
             __props__.__dict__["aks_resource_id"] = aks_resource_id
             __props__.__dict__["app_logs_configuration"] = app_logs_configuration
             __props__.__dict__["arc_configuration"] = arc_configuration
+            __props__.__dict__["container_apps_configuration"] = container_apps_configuration
+            __props__.__dict__["environment_type"] = environment_type
             __props__.__dict__["extended_location"] = extended_location
             __props__.__dict__["internal_load_balancer_enabled"] = internal_load_balancer_enabled
             __props__.__dict__["kind"] = kind
@@ -311,10 +337,10 @@ class KubeEnvironment(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["static_ip"] = static_ip
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["type"] = type
             __props__.__dict__["default_domain"] = None
             __props__.__dict__["deployment_errors"] = None
             __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:web:KubeEnvironment"), pulumi.Alias(type_="azure-native:web/v20210101:KubeEnvironment"), pulumi.Alias(type_="azure-native:web/v20210115:KubeEnvironment"), pulumi.Alias(type_="azure-native:web/v20210201:KubeEnvironment")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(KubeEnvironment, __self__).__init__(
@@ -342,8 +368,10 @@ class KubeEnvironment(pulumi.CustomResource):
         __props__.__dict__["aks_resource_id"] = None
         __props__.__dict__["app_logs_configuration"] = None
         __props__.__dict__["arc_configuration"] = None
+        __props__.__dict__["container_apps_configuration"] = None
         __props__.__dict__["default_domain"] = None
         __props__.__dict__["deployment_errors"] = None
+        __props__.__dict__["environment_type"] = None
         __props__.__dict__["extended_location"] = None
         __props__.__dict__["internal_load_balancer_enabled"] = None
         __props__.__dict__["kind"] = None
@@ -381,6 +409,14 @@ class KubeEnvironment(pulumi.CustomResource):
         return pulumi.get(self, "arc_configuration")
 
     @property
+    @pulumi.getter(name="containerAppsConfiguration")
+    def container_apps_configuration(self) -> pulumi.Output[Optional['outputs.ContainerAppsConfigurationResponse']]:
+        """
+        Cluster configuration for Container Apps Environments to configure Dapr Instrumentation Key and VNET Configuration
+        """
+        return pulumi.get(self, "container_apps_configuration")
+
+    @property
     @pulumi.getter(name="defaultDomain")
     def default_domain(self) -> pulumi.Output[str]:
         """
@@ -395,6 +431,14 @@ class KubeEnvironment(pulumi.CustomResource):
         Any errors that occurred during deployment or deployment validation
         """
         return pulumi.get(self, "deployment_errors")
+
+    @property
+    @pulumi.getter(name="environmentType")
+    def environment_type(self) -> pulumi.Output[Optional[str]]:
+        """
+        Type of Kubernetes Environment. Only supported for Container App Environments with value as Managed
+        """
+        return pulumi.get(self, "environment_type")
 
     @property
     @pulumi.getter(name="extendedLocation")

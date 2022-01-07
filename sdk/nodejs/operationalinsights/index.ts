@@ -19,6 +19,7 @@ export * from "./getQueryPack";
 export * from "./getSavedSearch";
 export * from "./getSharedKeys";
 export * from "./getStorageInsightConfig";
+export * from "./getTable";
 export * from "./getWorkspace";
 export * from "./linkedService";
 export * from "./linkedStorageAccount";
@@ -27,6 +28,7 @@ export * from "./query";
 export * from "./queryPack";
 export * from "./savedSearch";
 export * from "./storageInsightConfig";
+export * from "./table";
 export * from "./workspace";
 
 // Export enums:
@@ -41,6 +43,7 @@ import * as v20200301preview from "./v20200301preview";
 import * as v20200801 from "./v20200801";
 import * as v20201001 from "./v20201001";
 import * as v20210601 from "./v20210601";
+import * as v20211201preview from "./v20211201preview";
 
 export {
     v20150320,
@@ -51,6 +54,7 @@ export {
     v20200801,
     v20201001,
     v20210601,
+    v20211201preview,
 };
 
 // Import resources to register:
@@ -64,6 +68,7 @@ import { Query } from "./query";
 import { QueryPack } from "./queryPack";
 import { SavedSearch } from "./savedSearch";
 import { StorageInsightConfig } from "./storageInsightConfig";
+import { Table } from "./table";
 import { Workspace } from "./workspace";
 
 const _module = {
@@ -90,6 +95,8 @@ const _module = {
                 return new SavedSearch(name, <any>undefined, { urn })
             case "azure-native:operationalinsights:StorageInsightConfig":
                 return new StorageInsightConfig(name, <any>undefined, { urn })
+            case "azure-native:operationalinsights:Table":
+                return new Table(name, <any>undefined, { urn })
             case "azure-native:operationalinsights:Workspace":
                 return new Workspace(name, <any>undefined, { urn })
             default:

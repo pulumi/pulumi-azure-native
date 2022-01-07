@@ -87,6 +87,9 @@ func NewWebAppSitePushSettingsSlot(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:web/v20210115:WebAppSitePushSettingsSlot"),
 		},
+		{
+			Type: pulumi.String("azure-native:web/v20210301:WebAppSitePushSettingsSlot"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource WebAppSitePushSettingsSlot

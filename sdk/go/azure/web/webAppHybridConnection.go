@@ -91,6 +91,9 @@ func NewWebAppHybridConnection(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:web/v20210201:WebAppHybridConnection"),
 		},
+		{
+			Type: pulumi.String("azure-native:web/v20210301:WebAppHybridConnection"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource WebAppHybridConnection

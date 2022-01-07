@@ -20,6 +20,7 @@ from .get_query_pack import *
 from .get_saved_search import *
 from .get_shared_keys import *
 from .get_storage_insight_config import *
+from .get_table import *
 from .get_workspace import *
 from .linked_service import *
 from .linked_storage_account import *
@@ -28,6 +29,7 @@ from .query import *
 from .query_pack import *
 from .saved_search import *
 from .storage_insight_config import *
+from .table import *
 from .workspace import *
 from ._inputs import *
 from . import outputs
@@ -50,6 +52,8 @@ if typing.TYPE_CHECKING:
     v20201001 = __v20201001
     import pulumi_azure_native.operationalinsights.v20210601 as __v20210601
     v20210601 = __v20210601
+    import pulumi_azure_native.operationalinsights.v20211201preview as __v20211201preview
+    v20211201preview = __v20211201preview
 else:
     v20150320 = _utilities.lazy_import('pulumi_azure_native.operationalinsights.v20150320')
     v20151101preview = _utilities.lazy_import('pulumi_azure_native.operationalinsights.v20151101preview')
@@ -59,4 +63,5 @@ else:
     v20200801 = _utilities.lazy_import('pulumi_azure_native.operationalinsights.v20200801')
     v20201001 = _utilities.lazy_import('pulumi_azure_native.operationalinsights.v20201001')
     v20210601 = _utilities.lazy_import('pulumi_azure_native.operationalinsights.v20210601')
+    v20211201preview = _utilities.lazy_import('pulumi_azure_native.operationalinsights.v20211201preview')
 

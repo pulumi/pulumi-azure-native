@@ -175,10 +175,10 @@ namespace Pulumi.AzureNative.Insights.V20150501
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        public static ItemType None { get; } = new ItemType("none");
         public static ItemType Query { get; } = new ItemType("query");
-        public static ItemType Function { get; } = new ItemType("function");
-        public static ItemType Folder { get; } = new ItemType("folder");
         public static ItemType Recent { get; } = new ItemType("recent");
+        public static ItemType Function { get; } = new ItemType("function");
 
         public static bool operator ==(ItemType left, ItemType right) => left.Equals(right);
         public static bool operator !=(ItemType left, ItemType right) => !left.Equals(right);

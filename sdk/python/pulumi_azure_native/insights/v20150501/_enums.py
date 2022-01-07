@@ -61,10 +61,10 @@ class ItemType(str, Enum):
     """
     Enum indicating the type of the Analytics item.
     """
+    NONE = "none"
     QUERY = "query"
-    FUNCTION = "function"
-    FOLDER = "folder"
     RECENT = "recent"
+    FUNCTION = "function"
 
 
 class RequestSource(str, Enum):

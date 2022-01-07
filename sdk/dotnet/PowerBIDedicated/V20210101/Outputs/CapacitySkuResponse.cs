@@ -17,6 +17,10 @@ namespace Pulumi.AzureNative.PowerBIDedicated.V20210101.Outputs
     public sealed class CapacitySkuResponse
     {
         /// <summary>
+        /// The capacity of the SKU.
+        /// </summary>
+        public readonly int? Capacity;
+        /// <summary>
         /// Name of the SKU level.
         /// </summary>
         public readonly string Name;
@@ -27,10 +31,13 @@ namespace Pulumi.AzureNative.PowerBIDedicated.V20210101.Outputs
 
         [OutputConstructor]
         private CapacitySkuResponse(
+            int? capacity,
+
             string name,
 
             string? tier)
         {
+            Capacity = capacity;
             Name = name;
             Tier = tier;
         }

@@ -32,6 +32,10 @@ namespace Pulumi.AzureNative.Subscription.V20211001.Outputs
         /// </summary>
         public readonly string? BillingScope;
         /// <summary>
+        /// Created Time
+        /// </summary>
+        public readonly string? CreatedTime;
+        /// <summary>
         /// The display name of the subscription.
         /// </summary>
         public readonly string? DisplayName;
@@ -72,6 +76,8 @@ namespace Pulumi.AzureNative.Subscription.V20211001.Outputs
 
             string? billingScope,
 
+            string? createdTime,
+
             string? displayName,
 
             string? managementGroupId,
@@ -91,6 +97,7 @@ namespace Pulumi.AzureNative.Subscription.V20211001.Outputs
             AcceptOwnershipState = acceptOwnershipState;
             AcceptOwnershipUrl = acceptOwnershipUrl;
             BillingScope = billingScope;
+            CreatedTime = createdTime;
             DisplayName = displayName;
             ManagementGroupId = managementGroupId;
             ProvisioningState = provisioningState;

@@ -211,10 +211,10 @@ const (
 type ItemType string
 
 const (
+	ItemTypeNone     = ItemType("none")
 	ItemTypeQuery    = ItemType("query")
-	ItemTypeFunction = ItemType("function")
-	ItemTypeFolder   = ItemType("folder")
 	ItemTypeRecent   = ItemType("recent")
+	ItemTypeFunction = ItemType("function")
 )
 
 // Describes what tool created this Application Insights component. Customers using this API should set this to the default 'rest'.

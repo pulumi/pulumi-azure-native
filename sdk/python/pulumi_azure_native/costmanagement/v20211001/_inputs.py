@@ -726,28 +726,28 @@ class ReportConfigDatasetArgs:
 class ReportConfigFilterArgs:
     def __init__(__self__, *,
                  and_: Optional[pulumi.Input[Sequence[pulumi.Input['ReportConfigFilterArgs']]]] = None,
-                 dimension: Optional[pulumi.Input['ReportConfigComparisonExpressionArgs']] = None,
+                 dimensions: Optional[pulumi.Input['ReportConfigComparisonExpressionArgs']] = None,
                  not_: Optional[pulumi.Input['ReportConfigFilterArgs']] = None,
                  or_: Optional[pulumi.Input[Sequence[pulumi.Input['ReportConfigFilterArgs']]]] = None,
-                 tag: Optional[pulumi.Input['ReportConfigComparisonExpressionArgs']] = None):
+                 tags: Optional[pulumi.Input['ReportConfigComparisonExpressionArgs']] = None):
         """
         The filter expression to be used in the report.
         :param pulumi.Input[Sequence[pulumi.Input['ReportConfigFilterArgs']]] and_: The logical "AND" expression. Must have at least 2 items.
-        :param pulumi.Input['ReportConfigComparisonExpressionArgs'] dimension: Has comparison expression for a dimension
+        :param pulumi.Input['ReportConfigComparisonExpressionArgs'] dimensions: Has comparison expression for a dimension
         :param pulumi.Input['ReportConfigFilterArgs'] not_: The logical "NOT" expression.
         :param pulumi.Input[Sequence[pulumi.Input['ReportConfigFilterArgs']]] or_: The logical "OR" expression. Must have at least 2 items.
-        :param pulumi.Input['ReportConfigComparisonExpressionArgs'] tag: Has comparison expression for a tag
+        :param pulumi.Input['ReportConfigComparisonExpressionArgs'] tags: Has comparison expression for a tag
         """
         if and_ is not None:
             pulumi.set(__self__, "and_", and_)
-        if dimension is not None:
-            pulumi.set(__self__, "dimension", dimension)
+        if dimensions is not None:
+            pulumi.set(__self__, "dimensions", dimensions)
         if not_ is not None:
             pulumi.set(__self__, "not_", not_)
         if or_ is not None:
             pulumi.set(__self__, "or_", or_)
-        if tag is not None:
-            pulumi.set(__self__, "tag", tag)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="and")
@@ -763,15 +763,15 @@ class ReportConfigFilterArgs:
 
     @property
     @pulumi.getter
-    def dimension(self) -> Optional[pulumi.Input['ReportConfigComparisonExpressionArgs']]:
+    def dimensions(self) -> Optional[pulumi.Input['ReportConfigComparisonExpressionArgs']]:
         """
         Has comparison expression for a dimension
         """
-        return pulumi.get(self, "dimension")
+        return pulumi.get(self, "dimensions")
 
-    @dimension.setter
-    def dimension(self, value: Optional[pulumi.Input['ReportConfigComparisonExpressionArgs']]):
-        pulumi.set(self, "dimension", value)
+    @dimensions.setter
+    def dimensions(self, value: Optional[pulumi.Input['ReportConfigComparisonExpressionArgs']]):
+        pulumi.set(self, "dimensions", value)
 
     @property
     @pulumi.getter(name="not")
@@ -799,15 +799,15 @@ class ReportConfigFilterArgs:
 
     @property
     @pulumi.getter
-    def tag(self) -> Optional[pulumi.Input['ReportConfigComparisonExpressionArgs']]:
+    def tags(self) -> Optional[pulumi.Input['ReportConfigComparisonExpressionArgs']]:
         """
         Has comparison expression for a tag
         """
-        return pulumi.get(self, "tag")
+        return pulumi.get(self, "tags")
 
-    @tag.setter
-    def tag(self, value: Optional[pulumi.Input['ReportConfigComparisonExpressionArgs']]):
-        pulumi.set(self, "tag", value)
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input['ReportConfigComparisonExpressionArgs']]):
+        pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type

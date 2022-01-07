@@ -35,6 +35,12 @@ namespace Pulumi.AzureNative.Web.V20210301
         public Output<Outputs.ArcConfigurationResponse?> ArcConfiguration { get; private set; } = null!;
 
         /// <summary>
+        /// Cluster configuration for Container Apps Environments to configure Dapr Instrumentation Key and VNET Configuration
+        /// </summary>
+        [Output("containerAppsConfiguration")]
+        public Output<Outputs.ContainerAppsConfigurationResponse?> ContainerAppsConfiguration { get; private set; } = null!;
+
+        /// <summary>
         /// Default Domain Name for the cluster
         /// </summary>
         [Output("defaultDomain")]
@@ -45,6 +51,12 @@ namespace Pulumi.AzureNative.Web.V20210301
         /// </summary>
         [Output("deploymentErrors")]
         public Output<string> DeploymentErrors { get; private set; } = null!;
+
+        /// <summary>
+        /// Type of Kubernetes Environment. Only supported for Container App Environments with value as Managed
+        /// </summary>
+        [Output("environmentType")]
+        public Output<string?> EnvironmentType { get; private set; } = null!;
 
         /// <summary>
         /// Extended Location.
@@ -172,6 +184,18 @@ namespace Pulumi.AzureNative.Web.V20210301
         public Input<Inputs.ArcConfigurationArgs>? ArcConfiguration { get; set; }
 
         /// <summary>
+        /// Cluster configuration for Container Apps Environments to configure Dapr Instrumentation Key and VNET Configuration
+        /// </summary>
+        [Input("containerAppsConfiguration")]
+        public Input<Inputs.ContainerAppsConfigurationArgs>? ContainerAppsConfiguration { get; set; }
+
+        /// <summary>
+        /// Type of Kubernetes Environment. Only supported for Container App Environments with value as Managed
+        /// </summary>
+        [Input("environmentType")]
+        public Input<string>? EnvironmentType { get; set; }
+
+        /// <summary>
         /// Extended Location.
         /// </summary>
         [Input("extendedLocation")]
@@ -224,9 +248,6 @@ namespace Pulumi.AzureNative.Web.V20210301
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
-
-        [Input("type")]
-        public Input<string>? Type { get; set; }
 
         public KubeEnvironmentArgs()
         {

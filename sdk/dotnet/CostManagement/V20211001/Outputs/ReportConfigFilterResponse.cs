@@ -23,7 +23,7 @@ namespace Pulumi.AzureNative.CostManagement.V20211001.Outputs
         /// <summary>
         /// Has comparison expression for a dimension
         /// </summary>
-        public readonly Outputs.ReportConfigComparisonExpressionResponse? Dimension;
+        public readonly Outputs.ReportConfigComparisonExpressionResponse? Dimensions;
         /// <summary>
         /// The logical "NOT" expression.
         /// </summary>
@@ -35,25 +35,25 @@ namespace Pulumi.AzureNative.CostManagement.V20211001.Outputs
         /// <summary>
         /// Has comparison expression for a tag
         /// </summary>
-        public readonly Outputs.ReportConfigComparisonExpressionResponse? Tag;
+        public readonly Outputs.ReportConfigComparisonExpressionResponse? Tags;
 
         [OutputConstructor]
         private ReportConfigFilterResponse(
             ImmutableArray<Outputs.ReportConfigFilterResponse> and,
 
-            Outputs.ReportConfigComparisonExpressionResponse? dimension,
+            Outputs.ReportConfigComparisonExpressionResponse? dimensions,
 
             Outputs.ReportConfigFilterResponse? not,
 
             ImmutableArray<Outputs.ReportConfigFilterResponse> or,
 
-            Outputs.ReportConfigComparisonExpressionResponse? tag)
+            Outputs.ReportConfigComparisonExpressionResponse? tags)
         {
             And = and;
-            Dimension = dimension;
+            Dimensions = dimensions;
             Not = not;
             Or = or;
-            Tag = tag;
+            Tags = tags;
         }
     }
 }

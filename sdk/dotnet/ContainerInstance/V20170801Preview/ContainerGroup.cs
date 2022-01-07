@@ -125,6 +125,7 @@ namespace Pulumi.AzureNative.ContainerInstance.V20170801Preview
                     new Pulumi.Alias { Type = "azure-native:containerinstance/v20210301:ContainerGroup"},
                     new Pulumi.Alias { Type = "azure-native:containerinstance/v20210701:ContainerGroup"},
                     new Pulumi.Alias { Type = "azure-native:containerinstance/v20210901:ContainerGroup"},
+                    new Pulumi.Alias { Type = "azure-native:containerinstance/v20211001:ContainerGroup"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -21,7 +21,7 @@ class GetKubeEnvironmentResult:
     """
     A Kubernetes cluster specialized for web workloads by Azure App Service
     """
-    def __init__(__self__, aks_resource_id=None, app_logs_configuration=None, arc_configuration=None, default_domain=None, deployment_errors=None, extended_location=None, id=None, internal_load_balancer_enabled=None, kind=None, location=None, name=None, provisioning_state=None, static_ip=None, tags=None, type=None):
+    def __init__(__self__, aks_resource_id=None, app_logs_configuration=None, arc_configuration=None, container_apps_configuration=None, default_domain=None, deployment_errors=None, environment_type=None, extended_location=None, id=None, internal_load_balancer_enabled=None, kind=None, location=None, name=None, provisioning_state=None, static_ip=None, tags=None, type=None):
         if aks_resource_id and not isinstance(aks_resource_id, str):
             raise TypeError("Expected argument 'aks_resource_id' to be a str")
         pulumi.set(__self__, "aks_resource_id", aks_resource_id)
@@ -31,12 +31,18 @@ class GetKubeEnvironmentResult:
         if arc_configuration and not isinstance(arc_configuration, dict):
             raise TypeError("Expected argument 'arc_configuration' to be a dict")
         pulumi.set(__self__, "arc_configuration", arc_configuration)
+        if container_apps_configuration and not isinstance(container_apps_configuration, dict):
+            raise TypeError("Expected argument 'container_apps_configuration' to be a dict")
+        pulumi.set(__self__, "container_apps_configuration", container_apps_configuration)
         if default_domain and not isinstance(default_domain, str):
             raise TypeError("Expected argument 'default_domain' to be a str")
         pulumi.set(__self__, "default_domain", default_domain)
         if deployment_errors and not isinstance(deployment_errors, str):
             raise TypeError("Expected argument 'deployment_errors' to be a str")
         pulumi.set(__self__, "deployment_errors", deployment_errors)
+        if environment_type and not isinstance(environment_type, str):
+            raise TypeError("Expected argument 'environment_type' to be a str")
+        pulumi.set(__self__, "environment_type", environment_type)
         if extended_location and not isinstance(extended_location, dict):
             raise TypeError("Expected argument 'extended_location' to be a dict")
         pulumi.set(__self__, "extended_location", extended_location)
@@ -94,6 +100,14 @@ class GetKubeEnvironmentResult:
         return pulumi.get(self, "arc_configuration")
 
     @property
+    @pulumi.getter(name="containerAppsConfiguration")
+    def container_apps_configuration(self) -> Optional['outputs.ContainerAppsConfigurationResponse']:
+        """
+        Cluster configuration for Container Apps Environments to configure Dapr Instrumentation Key and VNET Configuration
+        """
+        return pulumi.get(self, "container_apps_configuration")
+
+    @property
     @pulumi.getter(name="defaultDomain")
     def default_domain(self) -> str:
         """
@@ -108,6 +122,14 @@ class GetKubeEnvironmentResult:
         Any errors that occurred during deployment or deployment validation
         """
         return pulumi.get(self, "deployment_errors")
+
+    @property
+    @pulumi.getter(name="environmentType")
+    def environment_type(self) -> Optional[str]:
+        """
+        Type of Kubernetes Environment. Only supported for Container App Environments with value as Managed
+        """
+        return pulumi.get(self, "environment_type")
 
     @property
     @pulumi.getter(name="extendedLocation")
@@ -199,8 +221,10 @@ class AwaitableGetKubeEnvironmentResult(GetKubeEnvironmentResult):
             aks_resource_id=self.aks_resource_id,
             app_logs_configuration=self.app_logs_configuration,
             arc_configuration=self.arc_configuration,
+            container_apps_configuration=self.container_apps_configuration,
             default_domain=self.default_domain,
             deployment_errors=self.deployment_errors,
+            environment_type=self.environment_type,
             extended_location=self.extended_location,
             id=self.id,
             internal_load_balancer_enabled=self.internal_load_balancer_enabled,
@@ -236,8 +260,10 @@ def get_kube_environment(name: Optional[str] = None,
         aks_resource_id=__ret__.aks_resource_id,
         app_logs_configuration=__ret__.app_logs_configuration,
         arc_configuration=__ret__.arc_configuration,
+        container_apps_configuration=__ret__.container_apps_configuration,
         default_domain=__ret__.default_domain,
         deployment_errors=__ret__.deployment_errors,
+        environment_type=__ret__.environment_type,
         extended_location=__ret__.extended_location,
         id=__ret__.id,
         internal_load_balancer_enabled=__ret__.internal_load_balancer_enabled,

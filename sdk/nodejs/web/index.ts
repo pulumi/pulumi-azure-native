@@ -62,6 +62,7 @@ export * from "./kubeEnvironment";
 export * from "./listAppServicePlanHybridConnectionKeys";
 export * from "./listConnectionConsentLinks";
 export * from "./listConnectionKeys";
+export * from "./listContainerAppSecrets";
 export * from "./listCustomApiWsdlInterfaces";
 export * from "./listSiteIdentifiersAssignedToHostName";
 export * from "./listStaticSiteAppSettings";

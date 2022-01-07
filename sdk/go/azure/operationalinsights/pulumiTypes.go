@@ -390,6 +390,230 @@ func (o ClusterSkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Table column.
+type Column struct {
+	// Column data type logical hint.
+	DataTypeHint *string `pulumi:"dataTypeHint"`
+	// Column description.
+	Description *string `pulumi:"description"`
+	// Column display name.
+	DisplayName *string `pulumi:"displayName"`
+	// Column name.
+	Name *string `pulumi:"name"`
+	// Column data type.
+	Type *string `pulumi:"type"`
+}
+
+// ColumnInput is an input type that accepts ColumnArgs and ColumnOutput values.
+// You can construct a concrete instance of `ColumnInput` via:
+//
+//          ColumnArgs{...}
+type ColumnInput interface {
+	pulumi.Input
+
+	ToColumnOutput() ColumnOutput
+	ToColumnOutputWithContext(context.Context) ColumnOutput
+}
+
+// Table column.
+type ColumnArgs struct {
+	// Column data type logical hint.
+	DataTypeHint pulumi.StringPtrInput `pulumi:"dataTypeHint"`
+	// Column description.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// Column display name.
+	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
+	// Column name.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Column data type.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (ColumnArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*Column)(nil)).Elem()
+}
+
+func (i ColumnArgs) ToColumnOutput() ColumnOutput {
+	return i.ToColumnOutputWithContext(context.Background())
+}
+
+func (i ColumnArgs) ToColumnOutputWithContext(ctx context.Context) ColumnOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ColumnOutput)
+}
+
+// ColumnArrayInput is an input type that accepts ColumnArray and ColumnArrayOutput values.
+// You can construct a concrete instance of `ColumnArrayInput` via:
+//
+//          ColumnArray{ ColumnArgs{...} }
+type ColumnArrayInput interface {
+	pulumi.Input
+
+	ToColumnArrayOutput() ColumnArrayOutput
+	ToColumnArrayOutputWithContext(context.Context) ColumnArrayOutput
+}
+
+type ColumnArray []ColumnInput
+
+func (ColumnArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Column)(nil)).Elem()
+}
+
+func (i ColumnArray) ToColumnArrayOutput() ColumnArrayOutput {
+	return i.ToColumnArrayOutputWithContext(context.Background())
+}
+
+func (i ColumnArray) ToColumnArrayOutputWithContext(ctx context.Context) ColumnArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ColumnArrayOutput)
+}
+
+// Table column.
+type ColumnOutput struct{ *pulumi.OutputState }
+
+func (ColumnOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Column)(nil)).Elem()
+}
+
+func (o ColumnOutput) ToColumnOutput() ColumnOutput {
+	return o
+}
+
+func (o ColumnOutput) ToColumnOutputWithContext(ctx context.Context) ColumnOutput {
+	return o
+}
+
+// Column data type logical hint.
+func (o ColumnOutput) DataTypeHint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Column) *string { return v.DataTypeHint }).(pulumi.StringPtrOutput)
+}
+
+// Column description.
+func (o ColumnOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Column) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Column display name.
+func (o ColumnOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Column) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+// Column name.
+func (o ColumnOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Column) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Column data type.
+func (o ColumnOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Column) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type ColumnArrayOutput struct{ *pulumi.OutputState }
+
+func (ColumnArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Column)(nil)).Elem()
+}
+
+func (o ColumnArrayOutput) ToColumnArrayOutput() ColumnArrayOutput {
+	return o
+}
+
+func (o ColumnArrayOutput) ToColumnArrayOutputWithContext(ctx context.Context) ColumnArrayOutput {
+	return o
+}
+
+func (o ColumnArrayOutput) Index(i pulumi.IntInput) ColumnOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Column {
+		return vs[0].([]Column)[vs[1].(int)]
+	}).(ColumnOutput)
+}
+
+// Table column.
+type ColumnResponse struct {
+	// Column data type logical hint.
+	DataTypeHint *string `pulumi:"dataTypeHint"`
+	// Column description.
+	Description *string `pulumi:"description"`
+	// Column display name.
+	DisplayName *string `pulumi:"displayName"`
+	// Is displayed by default.
+	IsDefaultDisplay bool `pulumi:"isDefaultDisplay"`
+	// Is column hidden.
+	IsHidden bool `pulumi:"isHidden"`
+	// Column name.
+	Name *string `pulumi:"name"`
+	// Column data type.
+	Type *string `pulumi:"type"`
+}
+
+// Table column.
+type ColumnResponseOutput struct{ *pulumi.OutputState }
+
+func (ColumnResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ColumnResponse)(nil)).Elem()
+}
+
+func (o ColumnResponseOutput) ToColumnResponseOutput() ColumnResponseOutput {
+	return o
+}
+
+func (o ColumnResponseOutput) ToColumnResponseOutputWithContext(ctx context.Context) ColumnResponseOutput {
+	return o
+}
+
+// Column data type logical hint.
+func (o ColumnResponseOutput) DataTypeHint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ColumnResponse) *string { return v.DataTypeHint }).(pulumi.StringPtrOutput)
+}
+
+// Column description.
+func (o ColumnResponseOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ColumnResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Column display name.
+func (o ColumnResponseOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ColumnResponse) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+// Is displayed by default.
+func (o ColumnResponseOutput) IsDefaultDisplay() pulumi.BoolOutput {
+	return o.ApplyT(func(v ColumnResponse) bool { return v.IsDefaultDisplay }).(pulumi.BoolOutput)
+}
+
+// Is column hidden.
+func (o ColumnResponseOutput) IsHidden() pulumi.BoolOutput {
+	return o.ApplyT(func(v ColumnResponse) bool { return v.IsHidden }).(pulumi.BoolOutput)
+}
+
+// Column name.
+func (o ColumnResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ColumnResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Column data type.
+func (o ColumnResponseOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ColumnResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type ColumnResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ColumnResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ColumnResponse)(nil)).Elem()
+}
+
+func (o ColumnResponseArrayOutput) ToColumnResponseArrayOutput() ColumnResponseArrayOutput {
+	return o
+}
+
+func (o ColumnResponseArrayOutput) ToColumnResponseArrayOutputWithContext(ctx context.Context) ColumnResponseArrayOutput {
+	return o
+}
+
+func (o ColumnResponseArrayOutput) Index(i pulumi.IntInput) ColumnResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ColumnResponse {
+		return vs[0].([]ColumnResponse)[vs[1].(int)]
+	}).(ColumnResponseOutput)
+}
+
 // Identity for the resource.
 type Identity struct {
 	// Type of managed service identity.
@@ -1488,6 +1712,1139 @@ func (o PrivateLinkScopedResourceResponseArrayOutput) Index(i pulumi.IntInput) P
 	}).(PrivateLinkScopedResourceResponseOutput)
 }
 
+// Restore parameters.
+type RestoredLogs struct {
+	// The timestamp to end the restore by (UTC).
+	EndRestoreTime *string `pulumi:"endRestoreTime"`
+	// The timestamp to start the restore from (UTC).
+	StartRestoreTime *string `pulumi:"startRestoreTime"`
+}
+
+// RestoredLogsInput is an input type that accepts RestoredLogsArgs and RestoredLogsOutput values.
+// You can construct a concrete instance of `RestoredLogsInput` via:
+//
+//          RestoredLogsArgs{...}
+type RestoredLogsInput interface {
+	pulumi.Input
+
+	ToRestoredLogsOutput() RestoredLogsOutput
+	ToRestoredLogsOutputWithContext(context.Context) RestoredLogsOutput
+}
+
+// Restore parameters.
+type RestoredLogsArgs struct {
+	// The timestamp to end the restore by (UTC).
+	EndRestoreTime pulumi.StringPtrInput `pulumi:"endRestoreTime"`
+	// The timestamp to start the restore from (UTC).
+	StartRestoreTime pulumi.StringPtrInput `pulumi:"startRestoreTime"`
+}
+
+func (RestoredLogsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RestoredLogs)(nil)).Elem()
+}
+
+func (i RestoredLogsArgs) ToRestoredLogsOutput() RestoredLogsOutput {
+	return i.ToRestoredLogsOutputWithContext(context.Background())
+}
+
+func (i RestoredLogsArgs) ToRestoredLogsOutputWithContext(ctx context.Context) RestoredLogsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RestoredLogsOutput)
+}
+
+func (i RestoredLogsArgs) ToRestoredLogsPtrOutput() RestoredLogsPtrOutput {
+	return i.ToRestoredLogsPtrOutputWithContext(context.Background())
+}
+
+func (i RestoredLogsArgs) ToRestoredLogsPtrOutputWithContext(ctx context.Context) RestoredLogsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RestoredLogsOutput).ToRestoredLogsPtrOutputWithContext(ctx)
+}
+
+// RestoredLogsPtrInput is an input type that accepts RestoredLogsArgs, RestoredLogsPtr and RestoredLogsPtrOutput values.
+// You can construct a concrete instance of `RestoredLogsPtrInput` via:
+//
+//          RestoredLogsArgs{...}
+//
+//  or:
+//
+//          nil
+type RestoredLogsPtrInput interface {
+	pulumi.Input
+
+	ToRestoredLogsPtrOutput() RestoredLogsPtrOutput
+	ToRestoredLogsPtrOutputWithContext(context.Context) RestoredLogsPtrOutput
+}
+
+type restoredLogsPtrType RestoredLogsArgs
+
+func RestoredLogsPtr(v *RestoredLogsArgs) RestoredLogsPtrInput {
+	return (*restoredLogsPtrType)(v)
+}
+
+func (*restoredLogsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RestoredLogs)(nil)).Elem()
+}
+
+func (i *restoredLogsPtrType) ToRestoredLogsPtrOutput() RestoredLogsPtrOutput {
+	return i.ToRestoredLogsPtrOutputWithContext(context.Background())
+}
+
+func (i *restoredLogsPtrType) ToRestoredLogsPtrOutputWithContext(ctx context.Context) RestoredLogsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RestoredLogsPtrOutput)
+}
+
+// Restore parameters.
+type RestoredLogsOutput struct{ *pulumi.OutputState }
+
+func (RestoredLogsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RestoredLogs)(nil)).Elem()
+}
+
+func (o RestoredLogsOutput) ToRestoredLogsOutput() RestoredLogsOutput {
+	return o
+}
+
+func (o RestoredLogsOutput) ToRestoredLogsOutputWithContext(ctx context.Context) RestoredLogsOutput {
+	return o
+}
+
+func (o RestoredLogsOutput) ToRestoredLogsPtrOutput() RestoredLogsPtrOutput {
+	return o.ToRestoredLogsPtrOutputWithContext(context.Background())
+}
+
+func (o RestoredLogsOutput) ToRestoredLogsPtrOutputWithContext(ctx context.Context) RestoredLogsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RestoredLogs) *RestoredLogs {
+		return &v
+	}).(RestoredLogsPtrOutput)
+}
+
+// The timestamp to end the restore by (UTC).
+func (o RestoredLogsOutput) EndRestoreTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RestoredLogs) *string { return v.EndRestoreTime }).(pulumi.StringPtrOutput)
+}
+
+// The timestamp to start the restore from (UTC).
+func (o RestoredLogsOutput) StartRestoreTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RestoredLogs) *string { return v.StartRestoreTime }).(pulumi.StringPtrOutput)
+}
+
+type RestoredLogsPtrOutput struct{ *pulumi.OutputState }
+
+func (RestoredLogsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RestoredLogs)(nil)).Elem()
+}
+
+func (o RestoredLogsPtrOutput) ToRestoredLogsPtrOutput() RestoredLogsPtrOutput {
+	return o
+}
+
+func (o RestoredLogsPtrOutput) ToRestoredLogsPtrOutputWithContext(ctx context.Context) RestoredLogsPtrOutput {
+	return o
+}
+
+func (o RestoredLogsPtrOutput) Elem() RestoredLogsOutput {
+	return o.ApplyT(func(v *RestoredLogs) RestoredLogs {
+		if v != nil {
+			return *v
+		}
+		var ret RestoredLogs
+		return ret
+	}).(RestoredLogsOutput)
+}
+
+// The timestamp to end the restore by (UTC).
+func (o RestoredLogsPtrOutput) EndRestoreTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RestoredLogs) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EndRestoreTime
+	}).(pulumi.StringPtrOutput)
+}
+
+// The timestamp to start the restore from (UTC).
+func (o RestoredLogsPtrOutput) StartRestoreTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RestoredLogs) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StartRestoreTime
+	}).(pulumi.StringPtrOutput)
+}
+
+// Restore parameters.
+type RestoredLogsResponse struct {
+	// The timestamp to end the restore by (UTC).
+	EndRestoreTime *string `pulumi:"endRestoreTime"`
+	// The table to restore data from.
+	SourceTable string `pulumi:"sourceTable"`
+	// The timestamp to start the restore from (UTC).
+	StartRestoreTime *string `pulumi:"startRestoreTime"`
+}
+
+// Restore parameters.
+type RestoredLogsResponseOutput struct{ *pulumi.OutputState }
+
+func (RestoredLogsResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RestoredLogsResponse)(nil)).Elem()
+}
+
+func (o RestoredLogsResponseOutput) ToRestoredLogsResponseOutput() RestoredLogsResponseOutput {
+	return o
+}
+
+func (o RestoredLogsResponseOutput) ToRestoredLogsResponseOutputWithContext(ctx context.Context) RestoredLogsResponseOutput {
+	return o
+}
+
+// The timestamp to end the restore by (UTC).
+func (o RestoredLogsResponseOutput) EndRestoreTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RestoredLogsResponse) *string { return v.EndRestoreTime }).(pulumi.StringPtrOutput)
+}
+
+// The table to restore data from.
+func (o RestoredLogsResponseOutput) SourceTable() pulumi.StringOutput {
+	return o.ApplyT(func(v RestoredLogsResponse) string { return v.SourceTable }).(pulumi.StringOutput)
+}
+
+// The timestamp to start the restore from (UTC).
+func (o RestoredLogsResponseOutput) StartRestoreTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RestoredLogsResponse) *string { return v.StartRestoreTime }).(pulumi.StringPtrOutput)
+}
+
+type RestoredLogsResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (RestoredLogsResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RestoredLogsResponse)(nil)).Elem()
+}
+
+func (o RestoredLogsResponsePtrOutput) ToRestoredLogsResponsePtrOutput() RestoredLogsResponsePtrOutput {
+	return o
+}
+
+func (o RestoredLogsResponsePtrOutput) ToRestoredLogsResponsePtrOutputWithContext(ctx context.Context) RestoredLogsResponsePtrOutput {
+	return o
+}
+
+func (o RestoredLogsResponsePtrOutput) Elem() RestoredLogsResponseOutput {
+	return o.ApplyT(func(v *RestoredLogsResponse) RestoredLogsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret RestoredLogsResponse
+		return ret
+	}).(RestoredLogsResponseOutput)
+}
+
+// The timestamp to end the restore by (UTC).
+func (o RestoredLogsResponsePtrOutput) EndRestoreTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RestoredLogsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EndRestoreTime
+	}).(pulumi.StringPtrOutput)
+}
+
+// The table to restore data from.
+func (o RestoredLogsResponsePtrOutput) SourceTable() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RestoredLogsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SourceTable
+	}).(pulumi.StringPtrOutput)
+}
+
+// The timestamp to start the restore from (UTC).
+func (o RestoredLogsResponsePtrOutput) StartRestoreTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RestoredLogsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StartRestoreTime
+	}).(pulumi.StringPtrOutput)
+}
+
+// Search job execution statistics.
+type ResultStatisticsResponse struct {
+	// The number of rows that were returned by the search job.
+	IngestedRecords int `pulumi:"ingestedRecords"`
+	// Search job completion percentage.
+	Progress float64 `pulumi:"progress"`
+}
+
+// Search job execution statistics.
+type ResultStatisticsResponseOutput struct{ *pulumi.OutputState }
+
+func (ResultStatisticsResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResultStatisticsResponse)(nil)).Elem()
+}
+
+func (o ResultStatisticsResponseOutput) ToResultStatisticsResponseOutput() ResultStatisticsResponseOutput {
+	return o
+}
+
+func (o ResultStatisticsResponseOutput) ToResultStatisticsResponseOutputWithContext(ctx context.Context) ResultStatisticsResponseOutput {
+	return o
+}
+
+// The number of rows that were returned by the search job.
+func (o ResultStatisticsResponseOutput) IngestedRecords() pulumi.IntOutput {
+	return o.ApplyT(func(v ResultStatisticsResponse) int { return v.IngestedRecords }).(pulumi.IntOutput)
+}
+
+// Search job completion percentage.
+func (o ResultStatisticsResponseOutput) Progress() pulumi.Float64Output {
+	return o.ApplyT(func(v ResultStatisticsResponse) float64 { return v.Progress }).(pulumi.Float64Output)
+}
+
+type ResultStatisticsResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ResultStatisticsResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResultStatisticsResponse)(nil)).Elem()
+}
+
+func (o ResultStatisticsResponsePtrOutput) ToResultStatisticsResponsePtrOutput() ResultStatisticsResponsePtrOutput {
+	return o
+}
+
+func (o ResultStatisticsResponsePtrOutput) ToResultStatisticsResponsePtrOutputWithContext(ctx context.Context) ResultStatisticsResponsePtrOutput {
+	return o
+}
+
+func (o ResultStatisticsResponsePtrOutput) Elem() ResultStatisticsResponseOutput {
+	return o.ApplyT(func(v *ResultStatisticsResponse) ResultStatisticsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ResultStatisticsResponse
+		return ret
+	}).(ResultStatisticsResponseOutput)
+}
+
+// The number of rows that were returned by the search job.
+func (o ResultStatisticsResponsePtrOutput) IngestedRecords() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ResultStatisticsResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.IngestedRecords
+	}).(pulumi.IntPtrOutput)
+}
+
+// Search job completion percentage.
+func (o ResultStatisticsResponsePtrOutput) Progress() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ResultStatisticsResponse) *float64 {
+		if v == nil {
+			return nil
+		}
+		return &v.Progress
+	}).(pulumi.Float64PtrOutput)
+}
+
+// Table's schema.
+type Schema struct {
+	// A list of table custom columns.
+	Columns []Column `pulumi:"columns"`
+	// Table description.
+	Description *string `pulumi:"description"`
+	// Table display name.
+	DisplayName *string `pulumi:"displayName"`
+}
+
+// SchemaInput is an input type that accepts SchemaArgs and SchemaOutput values.
+// You can construct a concrete instance of `SchemaInput` via:
+//
+//          SchemaArgs{...}
+type SchemaInput interface {
+	pulumi.Input
+
+	ToSchemaOutput() SchemaOutput
+	ToSchemaOutputWithContext(context.Context) SchemaOutput
+}
+
+// Table's schema.
+type SchemaArgs struct {
+	// A list of table custom columns.
+	Columns ColumnArrayInput `pulumi:"columns"`
+	// Table description.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// Table display name.
+	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
+}
+
+func (SchemaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*Schema)(nil)).Elem()
+}
+
+func (i SchemaArgs) ToSchemaOutput() SchemaOutput {
+	return i.ToSchemaOutputWithContext(context.Background())
+}
+
+func (i SchemaArgs) ToSchemaOutputWithContext(ctx context.Context) SchemaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SchemaOutput)
+}
+
+func (i SchemaArgs) ToSchemaPtrOutput() SchemaPtrOutput {
+	return i.ToSchemaPtrOutputWithContext(context.Background())
+}
+
+func (i SchemaArgs) ToSchemaPtrOutputWithContext(ctx context.Context) SchemaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SchemaOutput).ToSchemaPtrOutputWithContext(ctx)
+}
+
+// SchemaPtrInput is an input type that accepts SchemaArgs, SchemaPtr and SchemaPtrOutput values.
+// You can construct a concrete instance of `SchemaPtrInput` via:
+//
+//          SchemaArgs{...}
+//
+//  or:
+//
+//          nil
+type SchemaPtrInput interface {
+	pulumi.Input
+
+	ToSchemaPtrOutput() SchemaPtrOutput
+	ToSchemaPtrOutputWithContext(context.Context) SchemaPtrOutput
+}
+
+type schemaPtrType SchemaArgs
+
+func SchemaPtr(v *SchemaArgs) SchemaPtrInput {
+	return (*schemaPtrType)(v)
+}
+
+func (*schemaPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Schema)(nil)).Elem()
+}
+
+func (i *schemaPtrType) ToSchemaPtrOutput() SchemaPtrOutput {
+	return i.ToSchemaPtrOutputWithContext(context.Background())
+}
+
+func (i *schemaPtrType) ToSchemaPtrOutputWithContext(ctx context.Context) SchemaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SchemaPtrOutput)
+}
+
+// Table's schema.
+type SchemaOutput struct{ *pulumi.OutputState }
+
+func (SchemaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Schema)(nil)).Elem()
+}
+
+func (o SchemaOutput) ToSchemaOutput() SchemaOutput {
+	return o
+}
+
+func (o SchemaOutput) ToSchemaOutputWithContext(ctx context.Context) SchemaOutput {
+	return o
+}
+
+func (o SchemaOutput) ToSchemaPtrOutput() SchemaPtrOutput {
+	return o.ToSchemaPtrOutputWithContext(context.Background())
+}
+
+func (o SchemaOutput) ToSchemaPtrOutputWithContext(ctx context.Context) SchemaPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Schema) *Schema {
+		return &v
+	}).(SchemaPtrOutput)
+}
+
+// A list of table custom columns.
+func (o SchemaOutput) Columns() ColumnArrayOutput {
+	return o.ApplyT(func(v Schema) []Column { return v.Columns }).(ColumnArrayOutput)
+}
+
+// Table description.
+func (o SchemaOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Schema) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Table display name.
+func (o SchemaOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Schema) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+type SchemaPtrOutput struct{ *pulumi.OutputState }
+
+func (SchemaPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Schema)(nil)).Elem()
+}
+
+func (o SchemaPtrOutput) ToSchemaPtrOutput() SchemaPtrOutput {
+	return o
+}
+
+func (o SchemaPtrOutput) ToSchemaPtrOutputWithContext(ctx context.Context) SchemaPtrOutput {
+	return o
+}
+
+func (o SchemaPtrOutput) Elem() SchemaOutput {
+	return o.ApplyT(func(v *Schema) Schema {
+		if v != nil {
+			return *v
+		}
+		var ret Schema
+		return ret
+	}).(SchemaOutput)
+}
+
+// A list of table custom columns.
+func (o SchemaPtrOutput) Columns() ColumnArrayOutput {
+	return o.ApplyT(func(v *Schema) []Column {
+		if v == nil {
+			return nil
+		}
+		return v.Columns
+	}).(ColumnArrayOutput)
+}
+
+// Table description.
+func (o SchemaPtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Schema) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+// Table display name.
+func (o SchemaPtrOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Schema) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DisplayName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Table's schema.
+type SchemaResponse struct {
+	// Table category.
+	Categories []string `pulumi:"categories"`
+	// A list of table custom columns.
+	Columns []ColumnResponse `pulumi:"columns"`
+	// Table description.
+	Description *string `pulumi:"description"`
+	// Table display name.
+	DisplayName *string `pulumi:"displayName"`
+	// Table labels.
+	Labels []string `pulumi:"labels"`
+	// Table name.
+	Name string `pulumi:"name"`
+	// Parameters of the restore operation that initiated this table.
+	RestoredLogs RestoredLogsResponse `pulumi:"restoredLogs"`
+	// Parameters of the search job that initiated this table.
+	SearchResults SearchResultsResponse `pulumi:"searchResults"`
+	// List of solutions the table is affiliated with
+	Solutions []string `pulumi:"solutions"`
+	// Table's creator.
+	Source string `pulumi:"source"`
+	// A list of table standard columns.
+	StandardColumns []ColumnResponse `pulumi:"standardColumns"`
+	// The subtype describes what APIs can be used to interact with the table, and what features are available against it.
+	TableSubType string `pulumi:"tableSubType"`
+	// Table's creator.
+	TableType string `pulumi:"tableType"`
+}
+
+// Table's schema.
+type SchemaResponseOutput struct{ *pulumi.OutputState }
+
+func (SchemaResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SchemaResponse)(nil)).Elem()
+}
+
+func (o SchemaResponseOutput) ToSchemaResponseOutput() SchemaResponseOutput {
+	return o
+}
+
+func (o SchemaResponseOutput) ToSchemaResponseOutputWithContext(ctx context.Context) SchemaResponseOutput {
+	return o
+}
+
+// Table category.
+func (o SchemaResponseOutput) Categories() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SchemaResponse) []string { return v.Categories }).(pulumi.StringArrayOutput)
+}
+
+// A list of table custom columns.
+func (o SchemaResponseOutput) Columns() ColumnResponseArrayOutput {
+	return o.ApplyT(func(v SchemaResponse) []ColumnResponse { return v.Columns }).(ColumnResponseArrayOutput)
+}
+
+// Table description.
+func (o SchemaResponseOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SchemaResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Table display name.
+func (o SchemaResponseOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SchemaResponse) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+// Table labels.
+func (o SchemaResponseOutput) Labels() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SchemaResponse) []string { return v.Labels }).(pulumi.StringArrayOutput)
+}
+
+// Table name.
+func (o SchemaResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v SchemaResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Parameters of the restore operation that initiated this table.
+func (o SchemaResponseOutput) RestoredLogs() RestoredLogsResponseOutput {
+	return o.ApplyT(func(v SchemaResponse) RestoredLogsResponse { return v.RestoredLogs }).(RestoredLogsResponseOutput)
+}
+
+// Parameters of the search job that initiated this table.
+func (o SchemaResponseOutput) SearchResults() SearchResultsResponseOutput {
+	return o.ApplyT(func(v SchemaResponse) SearchResultsResponse { return v.SearchResults }).(SearchResultsResponseOutput)
+}
+
+// List of solutions the table is affiliated with
+func (o SchemaResponseOutput) Solutions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SchemaResponse) []string { return v.Solutions }).(pulumi.StringArrayOutput)
+}
+
+// Table's creator.
+func (o SchemaResponseOutput) Source() pulumi.StringOutput {
+	return o.ApplyT(func(v SchemaResponse) string { return v.Source }).(pulumi.StringOutput)
+}
+
+// A list of table standard columns.
+func (o SchemaResponseOutput) StandardColumns() ColumnResponseArrayOutput {
+	return o.ApplyT(func(v SchemaResponse) []ColumnResponse { return v.StandardColumns }).(ColumnResponseArrayOutput)
+}
+
+// The subtype describes what APIs can be used to interact with the table, and what features are available against it.
+func (o SchemaResponseOutput) TableSubType() pulumi.StringOutput {
+	return o.ApplyT(func(v SchemaResponse) string { return v.TableSubType }).(pulumi.StringOutput)
+}
+
+// Table's creator.
+func (o SchemaResponseOutput) TableType() pulumi.StringOutput {
+	return o.ApplyT(func(v SchemaResponse) string { return v.TableType }).(pulumi.StringOutput)
+}
+
+type SchemaResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (SchemaResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SchemaResponse)(nil)).Elem()
+}
+
+func (o SchemaResponsePtrOutput) ToSchemaResponsePtrOutput() SchemaResponsePtrOutput {
+	return o
+}
+
+func (o SchemaResponsePtrOutput) ToSchemaResponsePtrOutputWithContext(ctx context.Context) SchemaResponsePtrOutput {
+	return o
+}
+
+func (o SchemaResponsePtrOutput) Elem() SchemaResponseOutput {
+	return o.ApplyT(func(v *SchemaResponse) SchemaResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SchemaResponse
+		return ret
+	}).(SchemaResponseOutput)
+}
+
+// Table category.
+func (o SchemaResponsePtrOutput) Categories() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SchemaResponse) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Categories
+	}).(pulumi.StringArrayOutput)
+}
+
+// A list of table custom columns.
+func (o SchemaResponsePtrOutput) Columns() ColumnResponseArrayOutput {
+	return o.ApplyT(func(v *SchemaResponse) []ColumnResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Columns
+	}).(ColumnResponseArrayOutput)
+}
+
+// Table description.
+func (o SchemaResponsePtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SchemaResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+// Table display name.
+func (o SchemaResponsePtrOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SchemaResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DisplayName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Table labels.
+func (o SchemaResponsePtrOutput) Labels() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SchemaResponse) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Labels
+	}).(pulumi.StringArrayOutput)
+}
+
+// Table name.
+func (o SchemaResponsePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SchemaResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// Parameters of the restore operation that initiated this table.
+func (o SchemaResponsePtrOutput) RestoredLogs() RestoredLogsResponsePtrOutput {
+	return o.ApplyT(func(v *SchemaResponse) *RestoredLogsResponse {
+		if v == nil {
+			return nil
+		}
+		return &v.RestoredLogs
+	}).(RestoredLogsResponsePtrOutput)
+}
+
+// Parameters of the search job that initiated this table.
+func (o SchemaResponsePtrOutput) SearchResults() SearchResultsResponsePtrOutput {
+	return o.ApplyT(func(v *SchemaResponse) *SearchResultsResponse {
+		if v == nil {
+			return nil
+		}
+		return &v.SearchResults
+	}).(SearchResultsResponsePtrOutput)
+}
+
+// List of solutions the table is affiliated with
+func (o SchemaResponsePtrOutput) Solutions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SchemaResponse) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Solutions
+	}).(pulumi.StringArrayOutput)
+}
+
+// Table's creator.
+func (o SchemaResponsePtrOutput) Source() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SchemaResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Source
+	}).(pulumi.StringPtrOutput)
+}
+
+// A list of table standard columns.
+func (o SchemaResponsePtrOutput) StandardColumns() ColumnResponseArrayOutput {
+	return o.ApplyT(func(v *SchemaResponse) []ColumnResponse {
+		if v == nil {
+			return nil
+		}
+		return v.StandardColumns
+	}).(ColumnResponseArrayOutput)
+}
+
+// The subtype describes what APIs can be used to interact with the table, and what features are available against it.
+func (o SchemaResponsePtrOutput) TableSubType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SchemaResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TableSubType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Table's creator.
+func (o SchemaResponsePtrOutput) TableType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SchemaResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TableType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Parameters of the search job that initiated this table.
+type SearchResults struct {
+	// Search results table's Description.
+	Description *string `pulumi:"description"`
+	// The timestamp to end the search by (UTC)
+	EndSearchTime *string `pulumi:"endSearchTime"`
+	// Limit the search job to return up to specified number of rows.
+	Limit *int `pulumi:"limit"`
+	// Search job query.
+	Query *string `pulumi:"query"`
+	// The timestamp to start the search from (UTC)
+	StartSearchTime *string `pulumi:"startSearchTime"`
+}
+
+// SearchResultsInput is an input type that accepts SearchResultsArgs and SearchResultsOutput values.
+// You can construct a concrete instance of `SearchResultsInput` via:
+//
+//          SearchResultsArgs{...}
+type SearchResultsInput interface {
+	pulumi.Input
+
+	ToSearchResultsOutput() SearchResultsOutput
+	ToSearchResultsOutputWithContext(context.Context) SearchResultsOutput
+}
+
+// Parameters of the search job that initiated this table.
+type SearchResultsArgs struct {
+	// Search results table's Description.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// The timestamp to end the search by (UTC)
+	EndSearchTime pulumi.StringPtrInput `pulumi:"endSearchTime"`
+	// Limit the search job to return up to specified number of rows.
+	Limit pulumi.IntPtrInput `pulumi:"limit"`
+	// Search job query.
+	Query pulumi.StringPtrInput `pulumi:"query"`
+	// The timestamp to start the search from (UTC)
+	StartSearchTime pulumi.StringPtrInput `pulumi:"startSearchTime"`
+}
+
+func (SearchResultsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SearchResults)(nil)).Elem()
+}
+
+func (i SearchResultsArgs) ToSearchResultsOutput() SearchResultsOutput {
+	return i.ToSearchResultsOutputWithContext(context.Background())
+}
+
+func (i SearchResultsArgs) ToSearchResultsOutputWithContext(ctx context.Context) SearchResultsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SearchResultsOutput)
+}
+
+func (i SearchResultsArgs) ToSearchResultsPtrOutput() SearchResultsPtrOutput {
+	return i.ToSearchResultsPtrOutputWithContext(context.Background())
+}
+
+func (i SearchResultsArgs) ToSearchResultsPtrOutputWithContext(ctx context.Context) SearchResultsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SearchResultsOutput).ToSearchResultsPtrOutputWithContext(ctx)
+}
+
+// SearchResultsPtrInput is an input type that accepts SearchResultsArgs, SearchResultsPtr and SearchResultsPtrOutput values.
+// You can construct a concrete instance of `SearchResultsPtrInput` via:
+//
+//          SearchResultsArgs{...}
+//
+//  or:
+//
+//          nil
+type SearchResultsPtrInput interface {
+	pulumi.Input
+
+	ToSearchResultsPtrOutput() SearchResultsPtrOutput
+	ToSearchResultsPtrOutputWithContext(context.Context) SearchResultsPtrOutput
+}
+
+type searchResultsPtrType SearchResultsArgs
+
+func SearchResultsPtr(v *SearchResultsArgs) SearchResultsPtrInput {
+	return (*searchResultsPtrType)(v)
+}
+
+func (*searchResultsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SearchResults)(nil)).Elem()
+}
+
+func (i *searchResultsPtrType) ToSearchResultsPtrOutput() SearchResultsPtrOutput {
+	return i.ToSearchResultsPtrOutputWithContext(context.Background())
+}
+
+func (i *searchResultsPtrType) ToSearchResultsPtrOutputWithContext(ctx context.Context) SearchResultsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SearchResultsPtrOutput)
+}
+
+// Parameters of the search job that initiated this table.
+type SearchResultsOutput struct{ *pulumi.OutputState }
+
+func (SearchResultsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SearchResults)(nil)).Elem()
+}
+
+func (o SearchResultsOutput) ToSearchResultsOutput() SearchResultsOutput {
+	return o
+}
+
+func (o SearchResultsOutput) ToSearchResultsOutputWithContext(ctx context.Context) SearchResultsOutput {
+	return o
+}
+
+func (o SearchResultsOutput) ToSearchResultsPtrOutput() SearchResultsPtrOutput {
+	return o.ToSearchResultsPtrOutputWithContext(context.Background())
+}
+
+func (o SearchResultsOutput) ToSearchResultsPtrOutputWithContext(ctx context.Context) SearchResultsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SearchResults) *SearchResults {
+		return &v
+	}).(SearchResultsPtrOutput)
+}
+
+// Search results table's Description.
+func (o SearchResultsOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SearchResults) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The timestamp to end the search by (UTC)
+func (o SearchResultsOutput) EndSearchTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SearchResults) *string { return v.EndSearchTime }).(pulumi.StringPtrOutput)
+}
+
+// Limit the search job to return up to specified number of rows.
+func (o SearchResultsOutput) Limit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SearchResults) *int { return v.Limit }).(pulumi.IntPtrOutput)
+}
+
+// Search job query.
+func (o SearchResultsOutput) Query() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SearchResults) *string { return v.Query }).(pulumi.StringPtrOutput)
+}
+
+// The timestamp to start the search from (UTC)
+func (o SearchResultsOutput) StartSearchTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SearchResults) *string { return v.StartSearchTime }).(pulumi.StringPtrOutput)
+}
+
+type SearchResultsPtrOutput struct{ *pulumi.OutputState }
+
+func (SearchResultsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SearchResults)(nil)).Elem()
+}
+
+func (o SearchResultsPtrOutput) ToSearchResultsPtrOutput() SearchResultsPtrOutput {
+	return o
+}
+
+func (o SearchResultsPtrOutput) ToSearchResultsPtrOutputWithContext(ctx context.Context) SearchResultsPtrOutput {
+	return o
+}
+
+func (o SearchResultsPtrOutput) Elem() SearchResultsOutput {
+	return o.ApplyT(func(v *SearchResults) SearchResults {
+		if v != nil {
+			return *v
+		}
+		var ret SearchResults
+		return ret
+	}).(SearchResultsOutput)
+}
+
+// Search results table's Description.
+func (o SearchResultsPtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SearchResults) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+// The timestamp to end the search by (UTC)
+func (o SearchResultsPtrOutput) EndSearchTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SearchResults) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EndSearchTime
+	}).(pulumi.StringPtrOutput)
+}
+
+// Limit the search job to return up to specified number of rows.
+func (o SearchResultsPtrOutput) Limit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SearchResults) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Limit
+	}).(pulumi.IntPtrOutput)
+}
+
+// Search job query.
+func (o SearchResultsPtrOutput) Query() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SearchResults) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Query
+	}).(pulumi.StringPtrOutput)
+}
+
+// The timestamp to start the search from (UTC)
+func (o SearchResultsPtrOutput) StartSearchTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SearchResults) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StartSearchTime
+	}).(pulumi.StringPtrOutput)
+}
+
+// Parameters of the search job that initiated this table.
+type SearchResultsResponse struct {
+	// Search results table's Description.
+	Description *string `pulumi:"description"`
+	// The timestamp to end the search by (UTC)
+	EndSearchTime *string `pulumi:"endSearchTime"`
+	// Limit the search job to return up to specified number of rows.
+	Limit *int `pulumi:"limit"`
+	// Search job query.
+	Query *string `pulumi:"query"`
+	// The table to search data from.
+	SourceTable string `pulumi:"sourceTable"`
+	// The timestamp to start the search from (UTC)
+	StartSearchTime *string `pulumi:"startSearchTime"`
+}
+
+// Parameters of the search job that initiated this table.
+type SearchResultsResponseOutput struct{ *pulumi.OutputState }
+
+func (SearchResultsResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SearchResultsResponse)(nil)).Elem()
+}
+
+func (o SearchResultsResponseOutput) ToSearchResultsResponseOutput() SearchResultsResponseOutput {
+	return o
+}
+
+func (o SearchResultsResponseOutput) ToSearchResultsResponseOutputWithContext(ctx context.Context) SearchResultsResponseOutput {
+	return o
+}
+
+// Search results table's Description.
+func (o SearchResultsResponseOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SearchResultsResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The timestamp to end the search by (UTC)
+func (o SearchResultsResponseOutput) EndSearchTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SearchResultsResponse) *string { return v.EndSearchTime }).(pulumi.StringPtrOutput)
+}
+
+// Limit the search job to return up to specified number of rows.
+func (o SearchResultsResponseOutput) Limit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SearchResultsResponse) *int { return v.Limit }).(pulumi.IntPtrOutput)
+}
+
+// Search job query.
+func (o SearchResultsResponseOutput) Query() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SearchResultsResponse) *string { return v.Query }).(pulumi.StringPtrOutput)
+}
+
+// The table to search data from.
+func (o SearchResultsResponseOutput) SourceTable() pulumi.StringOutput {
+	return o.ApplyT(func(v SearchResultsResponse) string { return v.SourceTable }).(pulumi.StringOutput)
+}
+
+// The timestamp to start the search from (UTC)
+func (o SearchResultsResponseOutput) StartSearchTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SearchResultsResponse) *string { return v.StartSearchTime }).(pulumi.StringPtrOutput)
+}
+
+type SearchResultsResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (SearchResultsResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SearchResultsResponse)(nil)).Elem()
+}
+
+func (o SearchResultsResponsePtrOutput) ToSearchResultsResponsePtrOutput() SearchResultsResponsePtrOutput {
+	return o
+}
+
+func (o SearchResultsResponsePtrOutput) ToSearchResultsResponsePtrOutputWithContext(ctx context.Context) SearchResultsResponsePtrOutput {
+	return o
+}
+
+func (o SearchResultsResponsePtrOutput) Elem() SearchResultsResponseOutput {
+	return o.ApplyT(func(v *SearchResultsResponse) SearchResultsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SearchResultsResponse
+		return ret
+	}).(SearchResultsResponseOutput)
+}
+
+// Search results table's Description.
+func (o SearchResultsResponsePtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SearchResultsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+// The timestamp to end the search by (UTC)
+func (o SearchResultsResponsePtrOutput) EndSearchTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SearchResultsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EndSearchTime
+	}).(pulumi.StringPtrOutput)
+}
+
+// Limit the search job to return up to specified number of rows.
+func (o SearchResultsResponsePtrOutput) Limit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SearchResultsResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Limit
+	}).(pulumi.IntPtrOutput)
+}
+
+// Search job query.
+func (o SearchResultsResponsePtrOutput) Query() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SearchResultsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Query
+	}).(pulumi.StringPtrOutput)
+}
+
+// The table to search data from.
+func (o SearchResultsResponsePtrOutput) SourceTable() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SearchResultsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SourceTable
+	}).(pulumi.StringPtrOutput)
+}
+
+// The timestamp to start the search from (UTC)
+func (o SearchResultsResponsePtrOutput) StartSearchTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SearchResultsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StartSearchTime
+	}).(pulumi.StringPtrOutput)
+}
+
 // Describes a storage account connection.
 type StorageAccount struct {
 	// The Azure Resource Manager ID of the storage account resource.
@@ -1618,23 +2975,23 @@ func (o StorageInsightStatusResponseOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v StorageInsightStatusResponse) string { return v.State }).(pulumi.StringOutput)
 }
 
-// Read only system data
+// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponse struct {
-	// The timestamp of resource creation (UTC)
+	// The timestamp of resource creation (UTC).
 	CreatedAt *string `pulumi:"createdAt"`
-	// An identifier for the identity that created the resource
+	// The identity that created the resource.
 	CreatedBy *string `pulumi:"createdBy"`
-	// The type of identity that created the resource
+	// The type of identity that created the resource.
 	CreatedByType *string `pulumi:"createdByType"`
 	// The timestamp of resource last modification (UTC)
 	LastModifiedAt *string `pulumi:"lastModifiedAt"`
-	// An identifier for the identity that last modified the resource
+	// The identity that last modified the resource.
 	LastModifiedBy *string `pulumi:"lastModifiedBy"`
-	// The type of identity that last modified the resource
+	// The type of identity that last modified the resource.
 	LastModifiedByType *string `pulumi:"lastModifiedByType"`
 }
 
-// Read only system data
+// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponseOutput struct{ *pulumi.OutputState }
 
 func (SystemDataResponseOutput) ElementType() reflect.Type {
@@ -1649,17 +3006,17 @@ func (o SystemDataResponseOutput) ToSystemDataResponseOutputWithContext(ctx cont
 	return o
 }
 
-// The timestamp of resource creation (UTC)
+// The timestamp of resource creation (UTC).
 func (o SystemDataResponseOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
 
-// An identifier for the identity that created the resource
+// The identity that created the resource.
 func (o SystemDataResponseOutput) CreatedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedBy }).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that created the resource
+// The type of identity that created the resource.
 func (o SystemDataResponseOutput) CreatedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedByType }).(pulumi.StringPtrOutput)
 }
@@ -1669,12 +3026,12 @@ func (o SystemDataResponseOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedAt }).(pulumi.StringPtrOutput)
 }
 
-// An identifier for the identity that last modified the resource
+// The identity that last modified the resource.
 func (o SystemDataResponseOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedBy }).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that last modified the resource
+// The type of identity that last modified the resource.
 func (o SystemDataResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
 }
@@ -2734,6 +4091,10 @@ func init() {
 	pulumi.RegisterOutputType(ClusterSkuPtrOutput{})
 	pulumi.RegisterOutputType(ClusterSkuResponseOutput{})
 	pulumi.RegisterOutputType(ClusterSkuResponsePtrOutput{})
+	pulumi.RegisterOutputType(ColumnOutput{})
+	pulumi.RegisterOutputType(ColumnArrayOutput{})
+	pulumi.RegisterOutputType(ColumnResponseOutput{})
+	pulumi.RegisterOutputType(ColumnResponseArrayOutput{})
 	pulumi.RegisterOutputType(IdentityOutput{})
 	pulumi.RegisterOutputType(IdentityPtrOutput{})
 	pulumi.RegisterOutputType(IdentityResponseOutput{})
@@ -2752,6 +4113,20 @@ func init() {
 	pulumi.RegisterOutputType(MachineReferenceWithHintsResponseArrayOutput{})
 	pulumi.RegisterOutputType(PrivateLinkScopedResourceResponseOutput{})
 	pulumi.RegisterOutputType(PrivateLinkScopedResourceResponseArrayOutput{})
+	pulumi.RegisterOutputType(RestoredLogsOutput{})
+	pulumi.RegisterOutputType(RestoredLogsPtrOutput{})
+	pulumi.RegisterOutputType(RestoredLogsResponseOutput{})
+	pulumi.RegisterOutputType(RestoredLogsResponsePtrOutput{})
+	pulumi.RegisterOutputType(ResultStatisticsResponseOutput{})
+	pulumi.RegisterOutputType(ResultStatisticsResponsePtrOutput{})
+	pulumi.RegisterOutputType(SchemaOutput{})
+	pulumi.RegisterOutputType(SchemaPtrOutput{})
+	pulumi.RegisterOutputType(SchemaResponseOutput{})
+	pulumi.RegisterOutputType(SchemaResponsePtrOutput{})
+	pulumi.RegisterOutputType(SearchResultsOutput{})
+	pulumi.RegisterOutputType(SearchResultsPtrOutput{})
+	pulumi.RegisterOutputType(SearchResultsResponseOutput{})
+	pulumi.RegisterOutputType(SearchResultsResponsePtrOutput{})
 	pulumi.RegisterOutputType(StorageAccountOutput{})
 	pulumi.RegisterOutputType(StorageAccountResponseOutput{})
 	pulumi.RegisterOutputType(StorageInsightStatusResponseOutput{})

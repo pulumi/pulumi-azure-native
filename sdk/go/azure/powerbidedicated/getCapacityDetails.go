@@ -29,6 +29,8 @@ type LookupCapacityDetailsArgs struct {
 type LookupCapacityDetailsResult struct {
 	// A collection of Dedicated capacity administrators
 	Administration *DedicatedCapacityAdministratorsResponse `pulumi:"administration"`
+	// Capacity name
+	FriendlyName string `pulumi:"friendlyName"`
 	// An identifier that represents the PowerBI Dedicated resource.
 	Id string `pulumi:"id"`
 	// Location of the PowerBI Dedicated resource.
@@ -47,6 +49,8 @@ type LookupCapacityDetailsResult struct {
 	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// Key-value pairs of additional resource provisioning properties.
 	Tags map[string]string `pulumi:"tags"`
+	// Tenant ID for the capacity. Used for creating Pro Plus capacity.
+	TenantId string `pulumi:"tenantId"`
 	// The type of the PowerBI Dedicated resource.
 	Type string `pulumi:"type"`
 }

@@ -125,6 +125,8 @@ func (o AutoScaleVCoreSkuResponseOutput) Tier() pulumi.StringPtrOutput {
 
 // Represents the SKU name and Azure pricing tier for PowerBI Dedicated capacity resource.
 type CapacitySku struct {
+	// The capacity of the SKU.
+	Capacity *int `pulumi:"capacity"`
 	// Name of the SKU level.
 	Name string `pulumi:"name"`
 	// The name of the Azure pricing tier to which the SKU applies.
@@ -144,6 +146,8 @@ type CapacitySkuInput interface {
 
 // Represents the SKU name and Azure pricing tier for PowerBI Dedicated capacity resource.
 type CapacitySkuArgs struct {
+	// The capacity of the SKU.
+	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
 	// Name of the SKU level.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the Azure pricing tier to which the SKU applies.
@@ -177,6 +181,11 @@ func (o CapacitySkuOutput) ToCapacitySkuOutputWithContext(ctx context.Context) C
 	return o
 }
 
+// The capacity of the SKU.
+func (o CapacitySkuOutput) Capacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v CapacitySku) *int { return v.Capacity }).(pulumi.IntPtrOutput)
+}
+
 // Name of the SKU level.
 func (o CapacitySkuOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v CapacitySku) string { return v.Name }).(pulumi.StringOutput)
@@ -189,6 +198,8 @@ func (o CapacitySkuOutput) Tier() pulumi.StringPtrOutput {
 
 // Represents the SKU name and Azure pricing tier for PowerBI Dedicated capacity resource.
 type CapacitySkuResponse struct {
+	// The capacity of the SKU.
+	Capacity *int `pulumi:"capacity"`
 	// Name of the SKU level.
 	Name string `pulumi:"name"`
 	// The name of the Azure pricing tier to which the SKU applies.
@@ -208,6 +219,11 @@ func (o CapacitySkuResponseOutput) ToCapacitySkuResponseOutput() CapacitySkuResp
 
 func (o CapacitySkuResponseOutput) ToCapacitySkuResponseOutputWithContext(ctx context.Context) CapacitySkuResponseOutput {
 	return o
+}
+
+// The capacity of the SKU.
+func (o CapacitySkuResponseOutput) Capacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v CapacitySkuResponse) *int { return v.Capacity }).(pulumi.IntPtrOutput)
 }
 
 // Name of the SKU level.

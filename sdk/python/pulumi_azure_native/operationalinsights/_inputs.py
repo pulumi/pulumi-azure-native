@@ -11,10 +11,14 @@ from ._enums import *
 
 __all__ = [
     'ClusterSkuArgs',
+    'ColumnArgs',
     'IdentityArgs',
     'KeyVaultPropertiesArgs',
     'LogAnalyticsQueryPackQueryPropertiesRelatedArgs',
     'MachineReferenceWithHintsArgs',
+    'RestoredLogsArgs',
+    'SchemaArgs',
+    'SearchResultsArgs',
     'StorageAccountArgs',
     'TagArgs',
     'WorkspaceCappingArgs',
@@ -60,6 +64,94 @@ class ClusterSkuArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[Union[str, 'ClusterSkuNameEnum']]]):
         pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class ColumnArgs:
+    def __init__(__self__, *,
+                 data_type_hint: Optional[pulumi.Input[Union[str, 'ColumnDataTypeHintEnum']]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 display_name: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input[Union[str, 'ColumnTypeEnum']]] = None):
+        """
+        Table column.
+        :param pulumi.Input[Union[str, 'ColumnDataTypeHintEnum']] data_type_hint: Column data type logical hint.
+        :param pulumi.Input[str] description: Column description.
+        :param pulumi.Input[str] display_name: Column display name.
+        :param pulumi.Input[str] name: Column name.
+        :param pulumi.Input[Union[str, 'ColumnTypeEnum']] type: Column data type.
+        """
+        if data_type_hint is not None:
+            pulumi.set(__self__, "data_type_hint", data_type_hint)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="dataTypeHint")
+    def data_type_hint(self) -> Optional[pulumi.Input[Union[str, 'ColumnDataTypeHintEnum']]]:
+        """
+        Column data type logical hint.
+        """
+        return pulumi.get(self, "data_type_hint")
+
+    @data_type_hint.setter
+    def data_type_hint(self, value: Optional[pulumi.Input[Union[str, 'ColumnDataTypeHintEnum']]]):
+        pulumi.set(self, "data_type_hint", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Column description.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Column display name.
+        """
+        return pulumi.get(self, "display_name")
+
+    @display_name.setter
+    def display_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "display_name", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Column name.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[Union[str, 'ColumnTypeEnum']]]:
+        """
+        Column data type.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[Union[str, 'ColumnTypeEnum']]]):
+        pulumi.set(self, "type", value)
 
 
 @pulumi.input_type
@@ -267,6 +359,190 @@ class MachineReferenceWithHintsArgs:
     @kind.setter
     def kind(self, value: pulumi.Input[str]):
         pulumi.set(self, "kind", value)
+
+
+@pulumi.input_type
+class RestoredLogsArgs:
+    def __init__(__self__, *,
+                 end_restore_time: Optional[pulumi.Input[str]] = None,
+                 start_restore_time: Optional[pulumi.Input[str]] = None):
+        """
+        Restore parameters.
+        :param pulumi.Input[str] end_restore_time: The timestamp to end the restore by (UTC).
+        :param pulumi.Input[str] start_restore_time: The timestamp to start the restore from (UTC).
+        """
+        if end_restore_time is not None:
+            pulumi.set(__self__, "end_restore_time", end_restore_time)
+        if start_restore_time is not None:
+            pulumi.set(__self__, "start_restore_time", start_restore_time)
+
+    @property
+    @pulumi.getter(name="endRestoreTime")
+    def end_restore_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        The timestamp to end the restore by (UTC).
+        """
+        return pulumi.get(self, "end_restore_time")
+
+    @end_restore_time.setter
+    def end_restore_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "end_restore_time", value)
+
+    @property
+    @pulumi.getter(name="startRestoreTime")
+    def start_restore_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        The timestamp to start the restore from (UTC).
+        """
+        return pulumi.get(self, "start_restore_time")
+
+    @start_restore_time.setter
+    def start_restore_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "start_restore_time", value)
+
+
+@pulumi.input_type
+class SchemaArgs:
+    def __init__(__self__, *,
+                 columns: Optional[pulumi.Input[Sequence[pulumi.Input['ColumnArgs']]]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 display_name: Optional[pulumi.Input[str]] = None):
+        """
+        Table's schema.
+        :param pulumi.Input[Sequence[pulumi.Input['ColumnArgs']]] columns: A list of table custom columns.
+        :param pulumi.Input[str] description: Table description.
+        :param pulumi.Input[str] display_name: Table display name.
+        """
+        if columns is not None:
+            pulumi.set(__self__, "columns", columns)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
+
+    @property
+    @pulumi.getter
+    def columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ColumnArgs']]]]:
+        """
+        A list of table custom columns.
+        """
+        return pulumi.get(self, "columns")
+
+    @columns.setter
+    def columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ColumnArgs']]]]):
+        pulumi.set(self, "columns", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Table description.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Table display name.
+        """
+        return pulumi.get(self, "display_name")
+
+    @display_name.setter
+    def display_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "display_name", value)
+
+
+@pulumi.input_type
+class SearchResultsArgs:
+    def __init__(__self__, *,
+                 description: Optional[pulumi.Input[str]] = None,
+                 end_search_time: Optional[pulumi.Input[str]] = None,
+                 limit: Optional[pulumi.Input[int]] = None,
+                 query: Optional[pulumi.Input[str]] = None,
+                 start_search_time: Optional[pulumi.Input[str]] = None):
+        """
+        Parameters of the search job that initiated this table.
+        :param pulumi.Input[str] description: Search results table's Description.
+        :param pulumi.Input[str] end_search_time: The timestamp to end the search by (UTC)
+        :param pulumi.Input[int] limit: Limit the search job to return up to specified number of rows.
+        :param pulumi.Input[str] query: Search job query.
+        :param pulumi.Input[str] start_search_time: The timestamp to start the search from (UTC)
+        """
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if end_search_time is not None:
+            pulumi.set(__self__, "end_search_time", end_search_time)
+        if limit is not None:
+            pulumi.set(__self__, "limit", limit)
+        if query is not None:
+            pulumi.set(__self__, "query", query)
+        if start_search_time is not None:
+            pulumi.set(__self__, "start_search_time", start_search_time)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Search results table's Description.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="endSearchTime")
+    def end_search_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        The timestamp to end the search by (UTC)
+        """
+        return pulumi.get(self, "end_search_time")
+
+    @end_search_time.setter
+    def end_search_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "end_search_time", value)
+
+    @property
+    @pulumi.getter
+    def limit(self) -> Optional[pulumi.Input[int]]:
+        """
+        Limit the search job to return up to specified number of rows.
+        """
+        return pulumi.get(self, "limit")
+
+    @limit.setter
+    def limit(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "limit", value)
+
+    @property
+    @pulumi.getter
+    def query(self) -> Optional[pulumi.Input[str]]:
+        """
+        Search job query.
+        """
+        return pulumi.get(self, "query")
+
+    @query.setter
+    def query(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "query", value)
+
+    @property
+    @pulumi.getter(name="startSearchTime")
+    def start_search_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        The timestamp to start the search from (UTC)
+        """
+        return pulumi.get(self, "start_search_time")
+
+    @start_search_time.setter
+    def start_search_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "start_search_time", value)
 
 
 @pulumi.input_type

@@ -204,10 +204,10 @@ export const ItemScope = {
 export type ItemScope = (typeof ItemScope)[keyof typeof ItemScope];
 
 export const ItemType = {
+    None: "none",
     Query: "query",
-    Function: "function",
-    Folder: "folder",
     Recent: "recent",
+    Function: "function",
 } as const;
 
 /**

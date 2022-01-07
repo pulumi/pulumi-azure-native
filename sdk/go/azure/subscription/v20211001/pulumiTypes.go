@@ -465,6 +465,8 @@ type SubscriptionAliasResponsePropertiesResponse struct {
 	// For PartnerLed - /billingAccounts/{billingAccountName}/customers/{customerName}
 	// For Legacy EA - /billingAccounts/{billingAccountName}/enrollmentAccounts/{enrollmentAccountName}
 	BillingScope *string `pulumi:"billingScope"`
+	// Created Time
+	CreatedTime *string `pulumi:"createdTime"`
 	// The display name of the subscription.
 	DisplayName *string `pulumi:"displayName"`
 	// The Management Group Id.
@@ -514,6 +516,11 @@ func (o SubscriptionAliasResponsePropertiesResponseOutput) AcceptOwnershipUrl() 
 // For Legacy EA - /billingAccounts/{billingAccountName}/enrollmentAccounts/{enrollmentAccountName}
 func (o SubscriptionAliasResponsePropertiesResponseOutput) BillingScope() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SubscriptionAliasResponsePropertiesResponse) *string { return v.BillingScope }).(pulumi.StringPtrOutput)
+}
+
+// Created Time
+func (o SubscriptionAliasResponsePropertiesResponseOutput) CreatedTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SubscriptionAliasResponsePropertiesResponse) *string { return v.CreatedTime }).(pulumi.StringPtrOutput)
 }
 
 // The display name of the subscription.

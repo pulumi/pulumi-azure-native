@@ -3207,6 +3207,15 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "certificateregistration/v20210301",
+  "fqn": "pulumi_azure_native.certificateregistration.v20210301",
+  "classes": {
+   "azure-native:certificateregistration/v20210301:AppServiceCertificateOrder": "AppServiceCertificateOrder",
+   "azure-native:certificateregistration/v20210301:AppServiceCertificateOrderCertificate": "AppServiceCertificateOrderCertificate"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "changeanalysis",
   "fqn": "pulumi_azure_native.changeanalysis",
   "classes": {
@@ -4094,6 +4103,14 @@ _utilities.register(
   "fqn": "pulumi_azure_native.containerinstance.v20210901",
   "classes": {
    "azure-native:containerinstance/v20210901:ContainerGroup": "ContainerGroup"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "containerinstance/v20211001",
+  "fqn": "pulumi_azure_native.containerinstance.v20211001",
+  "classes": {
+   "azure-native:containerinstance/v20211001:ContainerGroup": "ContainerGroup"
   }
  },
  {
@@ -7452,6 +7469,15 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "domainregistration/v20210301",
+  "fqn": "pulumi_azure_native.domainregistration.v20210301",
+  "classes": {
+   "azure-native:domainregistration/v20210301:Domain": "Domain",
+   "azure-native:domainregistration/v20210301:DomainOwnershipIdentifier": "DomainOwnershipIdentifier"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "dynamics365fraudprotection",
   "fqn": "pulumi_azure_native.dynamics365fraudprotection",
   "classes": {
@@ -9838,6 +9864,17 @@ _utilities.register(
    "azure-native:machinelearningservices/v20210701:PrivateEndpointConnection": "PrivateEndpointConnection",
    "azure-native:machinelearningservices/v20210701:Workspace": "Workspace",
    "azure-native:machinelearningservices/v20210701:WorkspaceConnection": "WorkspaceConnection"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "machinelearningservices/v20220101preview",
+  "fqn": "pulumi_azure_native.machinelearningservices.v20220101preview",
+  "classes": {
+   "azure-native:machinelearningservices/v20220101preview:Compute": "Compute",
+   "azure-native:machinelearningservices/v20220101preview:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:machinelearningservices/v20220101preview:Workspace": "Workspace",
+   "azure-native:machinelearningservices/v20220101preview:WorkspaceConnection": "WorkspaceConnection"
   }
  },
  {
@@ -13165,6 +13202,7 @@ _utilities.register(
    "azure-native:operationalinsights:QueryPack": "QueryPack",
    "azure-native:operationalinsights:SavedSearch": "SavedSearch",
    "azure-native:operationalinsights:StorageInsightConfig": "StorageInsightConfig",
+   "azure-native:operationalinsights:Table": "Table",
    "azure-native:operationalinsights:Workspace": "Workspace"
   }
  },
@@ -13253,6 +13291,15 @@ _utilities.register(
   "classes": {
    "azure-native:operationalinsights/v20210601:Cluster": "Cluster",
    "azure-native:operationalinsights/v20210601:Workspace": "Workspace"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "operationalinsights/v20211201preview",
+  "fqn": "pulumi_azure_native.operationalinsights.v20211201preview",
+  "classes": {
+   "azure-native:operationalinsights/v20211201preview:Table": "Table",
+   "azure-native:operationalinsights/v20211201preview:Workspace": "Workspace"
   }
  },
  {
@@ -14596,6 +14643,7 @@ _utilities.register(
    "azure-native:security:IngestionSetting": "IngestionSetting",
    "azure-native:security:IotSecuritySolution": "IotSecuritySolution",
    "azure-native:security:JitNetworkAccessPolicy": "JitNetworkAccessPolicy",
+   "azure-native:security:Scanner": "Scanner",
    "azure-native:security:SecurityConnector": "SecurityConnector",
    "azure-native:security:SecurityContact": "SecurityContact",
    "azure-native:security:ServerVulnerabilityAssessment": "ServerVulnerabilityAssessment",
@@ -14716,6 +14764,14 @@ _utilities.register(
   "classes": {
    "azure-native:security/v20210801preview:Assignment": "Assignment",
    "azure-native:security/v20210801preview:Standard": "Standard"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "security/v20211201preview",
+  "fqn": "pulumi_azure_native.security.v20211201preview",
+  "classes": {
+   "azure-native:security/v20211201preview:Scanner": "Scanner"
   }
  },
  {
@@ -18083,8 +18139,63 @@ _utilities.register(
   "mod": "web/v20210301",
   "fqn": "pulumi_azure_native.web.v20210301",
   "classes": {
+   "azure-native:web/v20210301:AppServiceEnvironment": "AppServiceEnvironment",
+   "azure-native:web/v20210301:AppServiceEnvironmentPrivateEndpointConnection": "AppServiceEnvironmentPrivateEndpointConnection",
+   "azure-native:web/v20210301:AppServicePlan": "AppServicePlan",
+   "azure-native:web/v20210301:AppServicePlanRouteForVnet": "AppServicePlanRouteForVnet",
+   "azure-native:web/v20210301:Certificate": "Certificate",
    "azure-native:web/v20210301:ContainerApp": "ContainerApp",
-   "azure-native:web/v20210301:KubeEnvironment": "KubeEnvironment"
+   "azure-native:web/v20210301:KubeEnvironment": "KubeEnvironment",
+   "azure-native:web/v20210301:StaticSite": "StaticSite",
+   "azure-native:web/v20210301:StaticSiteCustomDomain": "StaticSiteCustomDomain",
+   "azure-native:web/v20210301:StaticSitePrivateEndpointConnection": "StaticSitePrivateEndpointConnection",
+   "azure-native:web/v20210301:StaticSiteUserProvidedFunctionAppForStaticSite": "StaticSiteUserProvidedFunctionAppForStaticSite",
+   "azure-native:web/v20210301:StaticSiteUserProvidedFunctionAppForStaticSiteBuild": "StaticSiteUserProvidedFunctionAppForStaticSiteBuild",
+   "azure-native:web/v20210301:WebApp": "WebApp",
+   "azure-native:web/v20210301:WebAppApplicationSettings": "WebAppApplicationSettings",
+   "azure-native:web/v20210301:WebAppApplicationSettingsSlot": "WebAppApplicationSettingsSlot",
+   "azure-native:web/v20210301:WebAppAuthSettings": "WebAppAuthSettings",
+   "azure-native:web/v20210301:WebAppAuthSettingsSlot": "WebAppAuthSettingsSlot",
+   "azure-native:web/v20210301:WebAppAuthSettingsV2Slot": "WebAppAuthSettingsV2Slot",
+   "azure-native:web/v20210301:WebAppAzureStorageAccounts": "WebAppAzureStorageAccounts",
+   "azure-native:web/v20210301:WebAppAzureStorageAccountsSlot": "WebAppAzureStorageAccountsSlot",
+   "azure-native:web/v20210301:WebAppBackupConfiguration": "WebAppBackupConfiguration",
+   "azure-native:web/v20210301:WebAppBackupConfigurationSlot": "WebAppBackupConfigurationSlot",
+   "azure-native:web/v20210301:WebAppConnectionStrings": "WebAppConnectionStrings",
+   "azure-native:web/v20210301:WebAppConnectionStringsSlot": "WebAppConnectionStringsSlot",
+   "azure-native:web/v20210301:WebAppDeployment": "WebAppDeployment",
+   "azure-native:web/v20210301:WebAppDeploymentSlot": "WebAppDeploymentSlot",
+   "azure-native:web/v20210301:WebAppDiagnosticLogsConfiguration": "WebAppDiagnosticLogsConfiguration",
+   "azure-native:web/v20210301:WebAppDomainOwnershipIdentifier": "WebAppDomainOwnershipIdentifier",
+   "azure-native:web/v20210301:WebAppDomainOwnershipIdentifierSlot": "WebAppDomainOwnershipIdentifierSlot",
+   "azure-native:web/v20210301:WebAppFunction": "WebAppFunction",
+   "azure-native:web/v20210301:WebAppHostNameBinding": "WebAppHostNameBinding",
+   "azure-native:web/v20210301:WebAppHostNameBindingSlot": "WebAppHostNameBindingSlot",
+   "azure-native:web/v20210301:WebAppHybridConnection": "WebAppHybridConnection",
+   "azure-native:web/v20210301:WebAppHybridConnectionSlot": "WebAppHybridConnectionSlot",
+   "azure-native:web/v20210301:WebAppInstanceFunctionSlot": "WebAppInstanceFunctionSlot",
+   "azure-native:web/v20210301:WebAppMetadata": "WebAppMetadata",
+   "azure-native:web/v20210301:WebAppMetadataSlot": "WebAppMetadataSlot",
+   "azure-native:web/v20210301:WebAppPremierAddOn": "WebAppPremierAddOn",
+   "azure-native:web/v20210301:WebAppPremierAddOnSlot": "WebAppPremierAddOnSlot",
+   "azure-native:web/v20210301:WebAppPrivateEndpointConnection": "WebAppPrivateEndpointConnection",
+   "azure-native:web/v20210301:WebAppPrivateEndpointConnectionSlot": "WebAppPrivateEndpointConnectionSlot",
+   "azure-native:web/v20210301:WebAppPublicCertificate": "WebAppPublicCertificate",
+   "azure-native:web/v20210301:WebAppPublicCertificateSlot": "WebAppPublicCertificateSlot",
+   "azure-native:web/v20210301:WebAppRelayServiceConnection": "WebAppRelayServiceConnection",
+   "azure-native:web/v20210301:WebAppRelayServiceConnectionSlot": "WebAppRelayServiceConnectionSlot",
+   "azure-native:web/v20210301:WebAppSiteExtension": "WebAppSiteExtension",
+   "azure-native:web/v20210301:WebAppSiteExtensionSlot": "WebAppSiteExtensionSlot",
+   "azure-native:web/v20210301:WebAppSitePushSettings": "WebAppSitePushSettings",
+   "azure-native:web/v20210301:WebAppSitePushSettingsSlot": "WebAppSitePushSettingsSlot",
+   "azure-native:web/v20210301:WebAppSlot": "WebAppSlot",
+   "azure-native:web/v20210301:WebAppSlotConfigurationNames": "WebAppSlotConfigurationNames",
+   "azure-native:web/v20210301:WebAppSourceControl": "WebAppSourceControl",
+   "azure-native:web/v20210301:WebAppSourceControlSlot": "WebAppSourceControlSlot",
+   "azure-native:web/v20210301:WebAppSwiftVirtualNetworkConnection": "WebAppSwiftVirtualNetworkConnection",
+   "azure-native:web/v20210301:WebAppSwiftVirtualNetworkConnectionSlot": "WebAppSwiftVirtualNetworkConnectionSlot",
+   "azure-native:web/v20210301:WebAppVnetConnection": "WebAppVnetConnection",
+   "azure-native:web/v20210301:WebAppVnetConnectionSlot": "WebAppVnetConnectionSlot"
   }
  },
  {

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.PowerBIDedicated.V20210101
         public Output<Outputs.DedicatedCapacityAdministratorsResponse?> Administration { get; private set; } = null!;
 
         /// <summary>
+        /// Capacity name
+        /// </summary>
+        [Output("friendlyName")]
+        public Output<string> FriendlyName { get; private set; } = null!;
+
+        /// <summary>
         /// Location of the PowerBI Dedicated resource.
         /// </summary>
         [Output("location")]
@@ -68,6 +74,12 @@ namespace Pulumi.AzureNative.PowerBIDedicated.V20210101
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+
+        /// <summary>
+        /// Tenant ID for the capacity. Used for creating Pro Plus capacity.
+        /// </summary>
+        [Output("tenantId")]
+        public Output<string> TenantId { get; private set; } = null!;
 
         /// <summary>
         /// The type of the PowerBI Dedicated resource.

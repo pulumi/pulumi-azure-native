@@ -77,6 +77,7 @@ namespace Pulumi.AzureNative.Web
                     new Pulumi.Alias { Type = "azure-native:web/v20210101:WebAppMetadata"},
                     new Pulumi.Alias { Type = "azure-native:web/v20210115:WebAppMetadata"},
                     new Pulumi.Alias { Type = "azure-native:web/v20210201:WebAppMetadata"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210301:WebAppMetadata"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

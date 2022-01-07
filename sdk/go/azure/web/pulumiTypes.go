@@ -12192,6 +12192,14 @@ func (o ContainerArrayOutput) Index(i pulumi.IntInput) ContainerOutput {
 	}).(ContainerOutput)
 }
 
+// Container App Secret.
+type ContainerAppSecretResponse struct {
+	// Secret Name.
+	Name string `pulumi:"name"`
+	// Secret Value.
+	Value string `pulumi:"value"`
+}
+
 // Container App container resource requirements.
 type ContainerResources struct {
 	// Required CPU in cores, e.g. 0.5

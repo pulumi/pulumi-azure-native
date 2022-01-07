@@ -10131,6 +10131,44 @@ type FactoryVSTSConfigurationResponse struct {
 	Type string `pulumi:"type"`
 }
 
+// This activity will fail within its own scope and output a custom error message and error code. The error message and code can provided either as a string literal or as an expression that can be evaluated to a string at runtime. The activity scope can be the whole pipeline or a control activity (e.g. foreach, switch, until), if the fail activity is contained in it.
+type FailActivity struct {
+	// Activity depends on condition.
+	DependsOn []ActivityDependency `pulumi:"dependsOn"`
+	// Activity description.
+	Description *string `pulumi:"description"`
+	// The error code that categorizes the error type of the Fail activity. It can be dynamic content that's evaluated to a non empty/blank string at runtime. Type: string (or Expression with resultType string).
+	ErrorCode interface{} `pulumi:"errorCode"`
+	// The error message that surfaced in the Fail activity. It can be dynamic content that's evaluated to a non empty/blank string at runtime. Type: string (or Expression with resultType string).
+	Message interface{} `pulumi:"message"`
+	// Activity name.
+	Name string `pulumi:"name"`
+	// Type of activity.
+	// Expected value is 'Fail'.
+	Type string `pulumi:"type"`
+	// Activity user properties.
+	UserProperties []UserProperty `pulumi:"userProperties"`
+}
+
+// This activity will fail within its own scope and output a custom error message and error code. The error message and code can provided either as a string literal or as an expression that can be evaluated to a string at runtime. The activity scope can be the whole pipeline or a control activity (e.g. foreach, switch, until), if the fail activity is contained in it.
+type FailActivityResponse struct {
+	// Activity depends on condition.
+	DependsOn []ActivityDependencyResponse `pulumi:"dependsOn"`
+	// Activity description.
+	Description *string `pulumi:"description"`
+	// The error code that categorizes the error type of the Fail activity. It can be dynamic content that's evaluated to a non empty/blank string at runtime. Type: string (or Expression with resultType string).
+	ErrorCode interface{} `pulumi:"errorCode"`
+	// The error message that surfaced in the Fail activity. It can be dynamic content that's evaluated to a non empty/blank string at runtime. Type: string (or Expression with resultType string).
+	Message interface{} `pulumi:"message"`
+	// Activity name.
+	Name string `pulumi:"name"`
+	// Type of activity.
+	// Expected value is 'Fail'.
+	Type string `pulumi:"type"`
+	// Activity user properties.
+	UserProperties []UserPropertyResponse `pulumi:"userProperties"`
+}
+
 // File system linked service.
 type FileServerLinkedService struct {
 	// List of tags that can be used for describing the linked service.

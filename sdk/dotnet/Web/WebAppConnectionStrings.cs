@@ -77,6 +77,7 @@ namespace Pulumi.AzureNative.Web
                     new Pulumi.Alias { Type = "azure-native:web/v20210101:WebAppConnectionStrings"},
                     new Pulumi.Alias { Type = "azure-native:web/v20210115:WebAppConnectionStrings"},
                     new Pulumi.Alias { Type = "azure-native:web/v20210201:WebAppConnectionStrings"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210301:WebAppConnectionStrings"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

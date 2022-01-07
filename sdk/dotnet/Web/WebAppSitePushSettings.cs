@@ -97,6 +97,7 @@ namespace Pulumi.AzureNative.Web
                     new Pulumi.Alias { Type = "azure-native:web/v20210101:WebAppSitePushSettings"},
                     new Pulumi.Alias { Type = "azure-native:web/v20210115:WebAppSitePushSettings"},
                     new Pulumi.Alias { Type = "azure-native:web/v20210201:WebAppSitePushSettings"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210301:WebAppSitePushSettings"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

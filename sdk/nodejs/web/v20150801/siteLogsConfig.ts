@@ -114,7 +114,7 @@ export class SiteLogsConfig extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:web:SiteLogsConfig" }, { type: "azure-native:web/v20160801:SiteLogsConfig" }, { type: "azure-native:web/v20180201:SiteLogsConfig" }, { type: "azure-native:web/v20181101:SiteLogsConfig" }, { type: "azure-native:web/v20190801:SiteLogsConfig" }, { type: "azure-native:web/v20200601:SiteLogsConfig" }, { type: "azure-native:web/v20200901:SiteLogsConfig" }, { type: "azure-native:web/v20201001:SiteLogsConfig" }, { type: "azure-native:web/v20201201:SiteLogsConfig" }, { type: "azure-native:web/v20210101:SiteLogsConfig" }, { type: "azure-native:web/v20210115:SiteLogsConfig" }, { type: "azure-native:web/v20210201:SiteLogsConfig" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:web:SiteLogsConfig" }, { type: "azure-native:web/v20160801:SiteLogsConfig" }, { type: "azure-native:web/v20180201:SiteLogsConfig" }, { type: "azure-native:web/v20181101:SiteLogsConfig" }, { type: "azure-native:web/v20190801:SiteLogsConfig" }, { type: "azure-native:web/v20200601:SiteLogsConfig" }, { type: "azure-native:web/v20200901:SiteLogsConfig" }, { type: "azure-native:web/v20201001:SiteLogsConfig" }, { type: "azure-native:web/v20201201:SiteLogsConfig" }, { type: "azure-native:web/v20210101:SiteLogsConfig" }, { type: "azure-native:web/v20210115:SiteLogsConfig" }, { type: "azure-native:web/v20210201:SiteLogsConfig" }, { type: "azure-native:web/v20210301:SiteLogsConfig" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SiteLogsConfig.__pulumiType, name, resourceInputs, opts);
     }

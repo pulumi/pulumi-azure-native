@@ -77,6 +77,9 @@ func NewWebAppConnectionStrings(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:web/v20210201:WebAppConnectionStrings"),
 		},
+		{
+			Type: pulumi.String("azure-native:web/v20210301:WebAppConnectionStrings"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource WebAppConnectionStrings

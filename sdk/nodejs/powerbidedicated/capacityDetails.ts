@@ -41,6 +41,10 @@ export class CapacityDetails extends pulumi.CustomResource {
      */
     public readonly administration!: pulumi.Output<outputs.powerbidedicated.DedicatedCapacityAdministratorsResponse | undefined>;
     /**
+     * Capacity name
+     */
+    public /*out*/ readonly friendlyName!: pulumi.Output<string>;
+    /**
      * Location of the PowerBI Dedicated resource.
      */
     public readonly location!: pulumi.Output<string>;
@@ -73,6 +77,10 @@ export class CapacityDetails extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
+     * Tenant ID for the capacity. Used for creating Pro Plus capacity.
+     */
+    public /*out*/ readonly tenantId!: pulumi.Output<string>;
+    /**
      * The type of the PowerBI Dedicated resource.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
@@ -102,12 +110,15 @@ export class CapacityDetails extends pulumi.CustomResource {
             resourceInputs["sku"] = args ? args.sku : undefined;
             resourceInputs["systemData"] = args ? args.systemData : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["friendlyName"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;
+            resourceInputs["tenantId"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["administration"] = undefined /*out*/;
+            resourceInputs["friendlyName"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["mode"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -116,6 +127,7 @@ export class CapacityDetails extends pulumi.CustomResource {
             resourceInputs["state"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["tenantId"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {

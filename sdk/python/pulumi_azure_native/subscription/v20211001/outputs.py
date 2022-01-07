@@ -30,6 +30,8 @@ class SubscriptionAliasResponsePropertiesResponse(dict):
             suggest = "subscription_id"
         elif key == "billingScope":
             suggest = "billing_scope"
+        elif key == "createdTime":
+            suggest = "created_time"
         elif key == "displayName":
             suggest = "display_name"
         elif key == "managementGroupId":
@@ -57,6 +59,7 @@ class SubscriptionAliasResponsePropertiesResponse(dict):
                  accept_ownership_url: str,
                  subscription_id: str,
                  billing_scope: Optional[str] = None,
+                 created_time: Optional[str] = None,
                  display_name: Optional[str] = None,
                  management_group_id: Optional[str] = None,
                  provisioning_state: Optional[str] = None,
@@ -73,6 +76,7 @@ class SubscriptionAliasResponsePropertiesResponse(dict):
                For CustomerLed and FieldLed - /billingAccounts/{billingAccountName}/billingProfiles/{billingProfileName}/invoiceSections/{invoiceSectionName}
                For PartnerLed - /billingAccounts/{billingAccountName}/customers/{customerName}
                For Legacy EA - /billingAccounts/{billingAccountName}/enrollmentAccounts/{enrollmentAccountName}
+        :param str created_time: Created Time
         :param str display_name: The display name of the subscription.
         :param str management_group_id: The Management Group Id.
         :param str provisioning_state: The provisioning state of the resource.
@@ -86,6 +90,8 @@ class SubscriptionAliasResponsePropertiesResponse(dict):
         pulumi.set(__self__, "subscription_id", subscription_id)
         if billing_scope is not None:
             pulumi.set(__self__, "billing_scope", billing_scope)
+        if created_time is not None:
+            pulumi.set(__self__, "created_time", created_time)
         if display_name is not None:
             pulumi.set(__self__, "display_name", display_name)
         if management_group_id is not None:
@@ -135,6 +141,14 @@ class SubscriptionAliasResponsePropertiesResponse(dict):
         For Legacy EA - /billingAccounts/{billingAccountName}/enrollmentAccounts/{enrollmentAccountName}
         """
         return pulumi.get(self, "billing_scope")
+
+    @property
+    @pulumi.getter(name="createdTime")
+    def created_time(self) -> Optional[str]:
+        """
+        Created Time
+        """
+        return pulumi.get(self, "created_time")
 
     @property
     @pulumi.getter(name="displayName")

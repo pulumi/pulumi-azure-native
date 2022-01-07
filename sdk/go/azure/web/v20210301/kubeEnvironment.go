@@ -24,10 +24,14 @@ type KubeEnvironment struct {
 	// components types. Eg: Choosing between BuildService kind,
 	// FrontEnd Service ArtifactsStorageType etc.
 	ArcConfiguration ArcConfigurationResponsePtrOutput `pulumi:"arcConfiguration"`
+	// Cluster configuration for Container Apps Environments to configure Dapr Instrumentation Key and VNET Configuration
+	ContainerAppsConfiguration ContainerAppsConfigurationResponsePtrOutput `pulumi:"containerAppsConfiguration"`
 	// Default Domain Name for the cluster
 	DefaultDomain pulumi.StringOutput `pulumi:"defaultDomain"`
 	// Any errors that occurred during deployment or deployment validation
 	DeploymentErrors pulumi.StringOutput `pulumi:"deploymentErrors"`
+	// Type of Kubernetes Environment. Only supported for Container App Environments with value as Managed
+	EnvironmentType pulumi.StringPtrOutput `pulumi:"environmentType"`
 	// Extended Location.
 	ExtendedLocation ExtendedLocationResponsePtrOutput `pulumi:"extendedLocation"`
 	// Only visible within Vnet/Subnet
@@ -114,6 +118,10 @@ type kubeEnvironmentArgs struct {
 	// components types. Eg: Choosing between BuildService kind,
 	// FrontEnd Service ArtifactsStorageType etc.
 	ArcConfiguration *ArcConfiguration `pulumi:"arcConfiguration"`
+	// Cluster configuration for Container Apps Environments to configure Dapr Instrumentation Key and VNET Configuration
+	ContainerAppsConfiguration *ContainerAppsConfiguration `pulumi:"containerAppsConfiguration"`
+	// Type of Kubernetes Environment. Only supported for Container App Environments with value as Managed
+	EnvironmentType *string `pulumi:"environmentType"`
 	// Extended Location.
 	ExtendedLocation *ExtendedLocation `pulumi:"extendedLocation"`
 	// Only visible within Vnet/Subnet
@@ -130,7 +138,6 @@ type kubeEnvironmentArgs struct {
 	StaticIp *string `pulumi:"staticIp"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
-	Type *string           `pulumi:"type"`
 }
 
 // The set of arguments for constructing a KubeEnvironment resource.
@@ -144,6 +151,10 @@ type KubeEnvironmentArgs struct {
 	// components types. Eg: Choosing between BuildService kind,
 	// FrontEnd Service ArtifactsStorageType etc.
 	ArcConfiguration ArcConfigurationPtrInput
+	// Cluster configuration for Container Apps Environments to configure Dapr Instrumentation Key and VNET Configuration
+	ContainerAppsConfiguration ContainerAppsConfigurationPtrInput
+	// Type of Kubernetes Environment. Only supported for Container App Environments with value as Managed
+	EnvironmentType pulumi.StringPtrInput
 	// Extended Location.
 	ExtendedLocation ExtendedLocationPtrInput
 	// Only visible within Vnet/Subnet
@@ -160,7 +171,6 @@ type KubeEnvironmentArgs struct {
 	StaticIp pulumi.StringPtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
-	Type pulumi.StringPtrInput
 }
 
 func (KubeEnvironmentArgs) ElementType() reflect.Type {

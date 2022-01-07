@@ -232,7 +232,7 @@ export class AppServicePlan extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:web:AppServicePlan" }, { type: "azure-native:web/v20150801:AppServicePlan" }, { type: "azure-native:web/v20160901:AppServicePlan" }, { type: "azure-native:web/v20180201:AppServicePlan" }, { type: "azure-native:web/v20190801:AppServicePlan" }, { type: "azure-native:web/v20200601:AppServicePlan" }, { type: "azure-native:web/v20200901:AppServicePlan" }, { type: "azure-native:web/v20201001:AppServicePlan" }, { type: "azure-native:web/v20201201:AppServicePlan" }, { type: "azure-native:web/v20210101:AppServicePlan" }, { type: "azure-native:web/v20210115:AppServicePlan" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:web:AppServicePlan" }, { type: "azure-native:web/v20150801:AppServicePlan" }, { type: "azure-native:web/v20160901:AppServicePlan" }, { type: "azure-native:web/v20180201:AppServicePlan" }, { type: "azure-native:web/v20190801:AppServicePlan" }, { type: "azure-native:web/v20200601:AppServicePlan" }, { type: "azure-native:web/v20200901:AppServicePlan" }, { type: "azure-native:web/v20201001:AppServicePlan" }, { type: "azure-native:web/v20201201:AppServicePlan" }, { type: "azure-native:web/v20210101:AppServicePlan" }, { type: "azure-native:web/v20210115:AppServicePlan" }, { type: "azure-native:web/v20210301:AppServicePlan" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AppServicePlan.__pulumiType, name, resourceInputs, opts);
     }

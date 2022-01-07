@@ -16,6 +16,12 @@ namespace Pulumi.AzureNative.PowerBIDedicated.V20210101.Inputs
     public sealed class CapacitySkuArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The capacity of the SKU.
+        /// </summary>
+        [Input("capacity")]
+        public Input<int>? Capacity { get; set; }
+
+        /// <summary>
         /// Name of the SKU level.
         /// </summary>
         [Input("name", required: true)]

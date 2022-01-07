@@ -114,6 +114,9 @@ func NewWorkspace(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:machinelearningservices/v20210701:Workspace"),
 		},
+		{
+			Type: pulumi.String("azure-native:machinelearningservices/v20220101preview:Workspace"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Workspace

@@ -82,6 +82,9 @@ func NewSiteConnectionStringsSlot(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:web/v20210201:SiteConnectionStringsSlot"),
 		},
+		{
+			Type: pulumi.String("azure-native:web/v20210301:SiteConnectionStringsSlot"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource SiteConnectionStringsSlot

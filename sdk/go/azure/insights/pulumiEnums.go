@@ -457,10 +457,10 @@ const (
 type ItemType string
 
 const (
+	ItemTypeNone     = ItemType("none")
 	ItemTypeQuery    = ItemType("query")
-	ItemTypeFunction = ItemType("function")
-	ItemTypeFolder   = ItemType("folder")
 	ItemTypeRecent   = ItemType("recent")
+	ItemTypeFunction = ItemType("function")
 )
 
 // The kind of workbook. Choices are user and shared.

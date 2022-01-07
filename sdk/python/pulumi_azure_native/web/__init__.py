@@ -63,6 +63,7 @@ from .kube_environment import *
 from .list_app_service_plan_hybrid_connection_keys import *
 from .list_connection_consent_links import *
 from .list_connection_keys import *
+from .list_container_app_secrets import *
 from .list_custom_api_wsdl_interfaces import *
 from .list_site_identifiers_assigned_to_host_name import *
 from .list_static_site_app_settings import *

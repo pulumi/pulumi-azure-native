@@ -97,6 +97,9 @@ func NewWebAppFunction(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:web/v20210201:WebAppFunction"),
 		},
+		{
+			Type: pulumi.String("azure-native:web/v20210301:WebAppFunction"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource WebAppFunction

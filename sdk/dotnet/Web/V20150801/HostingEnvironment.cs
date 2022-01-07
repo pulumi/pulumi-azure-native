@@ -262,6 +262,7 @@ namespace Pulumi.AzureNative.Web.V20150801
                     new Pulumi.Alias { Type = "azure-native:web/v20210101:HostingEnvironment"},
                     new Pulumi.Alias { Type = "azure-native:web/v20210115:HostingEnvironment"},
                     new Pulumi.Alias { Type = "azure-native:web/v20210201:HostingEnvironment"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210301:HostingEnvironment"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

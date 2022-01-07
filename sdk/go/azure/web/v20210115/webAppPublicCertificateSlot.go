@@ -79,6 +79,9 @@ func NewWebAppPublicCertificateSlot(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:web/v20210201:WebAppPublicCertificateSlot"),
 		},
+		{
+			Type: pulumi.String("azure-native:web/v20210301:WebAppPublicCertificateSlot"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource WebAppPublicCertificateSlot

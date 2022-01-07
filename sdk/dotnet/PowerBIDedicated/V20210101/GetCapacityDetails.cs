@@ -73,6 +73,10 @@ namespace Pulumi.AzureNative.PowerBIDedicated.V20210101
         /// </summary>
         public readonly Outputs.DedicatedCapacityAdministratorsResponse? Administration;
         /// <summary>
+        /// Capacity name
+        /// </summary>
+        public readonly string FriendlyName;
+        /// <summary>
         /// An identifier that represents the PowerBI Dedicated resource.
         /// </summary>
         public readonly string Id;
@@ -109,6 +113,10 @@ namespace Pulumi.AzureNative.PowerBIDedicated.V20210101
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
+        /// Tenant ID for the capacity. Used for creating Pro Plus capacity.
+        /// </summary>
+        public readonly string TenantId;
+        /// <summary>
         /// The type of the PowerBI Dedicated resource.
         /// </summary>
         public readonly string Type;
@@ -116,6 +124,8 @@ namespace Pulumi.AzureNative.PowerBIDedicated.V20210101
         [OutputConstructor]
         private GetCapacityDetailsResult(
             Outputs.DedicatedCapacityAdministratorsResponse? administration,
+
+            string friendlyName,
 
             string id,
 
@@ -135,9 +145,12 @@ namespace Pulumi.AzureNative.PowerBIDedicated.V20210101
 
             ImmutableDictionary<string, string>? tags,
 
+            string tenantId,
+
             string type)
         {
             Administration = administration;
+            FriendlyName = friendlyName;
             Id = id;
             Location = location;
             Mode = mode;
@@ -147,6 +160,7 @@ namespace Pulumi.AzureNative.PowerBIDedicated.V20210101
             State = state;
             SystemData = systemData;
             Tags = tags;
+            TenantId = tenantId;
             Type = type;
         }
     }

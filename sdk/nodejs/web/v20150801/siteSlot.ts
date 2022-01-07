@@ -263,7 +263,7 @@ export class SiteSlot extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:web:SiteSlot" }, { type: "azure-native:web/v20160801:SiteSlot" }, { type: "azure-native:web/v20180201:SiteSlot" }, { type: "azure-native:web/v20181101:SiteSlot" }, { type: "azure-native:web/v20190801:SiteSlot" }, { type: "azure-native:web/v20200601:SiteSlot" }, { type: "azure-native:web/v20200901:SiteSlot" }, { type: "azure-native:web/v20201001:SiteSlot" }, { type: "azure-native:web/v20201201:SiteSlot" }, { type: "azure-native:web/v20210101:SiteSlot" }, { type: "azure-native:web/v20210115:SiteSlot" }, { type: "azure-native:web/v20210201:SiteSlot" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:web:SiteSlot" }, { type: "azure-native:web/v20160801:SiteSlot" }, { type: "azure-native:web/v20180201:SiteSlot" }, { type: "azure-native:web/v20181101:SiteSlot" }, { type: "azure-native:web/v20190801:SiteSlot" }, { type: "azure-native:web/v20200601:SiteSlot" }, { type: "azure-native:web/v20200901:SiteSlot" }, { type: "azure-native:web/v20201001:SiteSlot" }, { type: "azure-native:web/v20201201:SiteSlot" }, { type: "azure-native:web/v20210101:SiteSlot" }, { type: "azure-native:web/v20210115:SiteSlot" }, { type: "azure-native:web/v20210201:SiteSlot" }, { type: "azure-native:web/v20210301:SiteSlot" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SiteSlot.__pulumiType, name, resourceInputs, opts);
     }

@@ -49,6 +49,10 @@ export class KubeEnvironment extends pulumi.CustomResource {
      */
     public readonly arcConfiguration!: pulumi.Output<outputs.web.v20210301.ArcConfigurationResponse | undefined>;
     /**
+     * Cluster configuration for Container Apps Environments to configure Dapr Instrumentation Key and VNET Configuration
+     */
+    public readonly containerAppsConfiguration!: pulumi.Output<outputs.web.v20210301.ContainerAppsConfigurationResponse | undefined>;
+    /**
      * Default Domain Name for the cluster
      */
     public /*out*/ readonly defaultDomain!: pulumi.Output<string>;
@@ -56,6 +60,10 @@ export class KubeEnvironment extends pulumi.CustomResource {
      * Any errors that occurred during deployment or deployment validation
      */
     public /*out*/ readonly deploymentErrors!: pulumi.Output<string>;
+    /**
+     * Type of Kubernetes Environment. Only supported for Container App Environments with value as Managed
+     */
+    public readonly environmentType!: pulumi.Output<string | undefined>;
     /**
      * Extended Location.
      */
@@ -91,7 +99,7 @@ export class KubeEnvironment extends pulumi.CustomResource {
     /**
      * Resource type.
      */
-    public readonly type!: pulumi.Output<string>;
+    public /*out*/ readonly type!: pulumi.Output<string>;
 
     /**
      * Create a KubeEnvironment resource with the given unique name, arguments, and options.
@@ -110,6 +118,8 @@ export class KubeEnvironment extends pulumi.CustomResource {
             resourceInputs["aksResourceID"] = args ? args.aksResourceID : undefined;
             resourceInputs["appLogsConfiguration"] = args ? args.appLogsConfiguration : undefined;
             resourceInputs["arcConfiguration"] = args ? args.arcConfiguration : undefined;
+            resourceInputs["containerAppsConfiguration"] = args ? args.containerAppsConfiguration : undefined;
+            resourceInputs["environmentType"] = args ? args.environmentType : undefined;
             resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
             resourceInputs["internalLoadBalancerEnabled"] = args ? args.internalLoadBalancerEnabled : undefined;
             resourceInputs["kind"] = args ? args.kind : undefined;
@@ -118,16 +128,18 @@ export class KubeEnvironment extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["staticIp"] = args ? args.staticIp : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
             resourceInputs["defaultDomain"] = undefined /*out*/;
             resourceInputs["deploymentErrors"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["aksResourceID"] = undefined /*out*/;
             resourceInputs["appLogsConfiguration"] = undefined /*out*/;
             resourceInputs["arcConfiguration"] = undefined /*out*/;
+            resourceInputs["containerAppsConfiguration"] = undefined /*out*/;
             resourceInputs["defaultDomain"] = undefined /*out*/;
             resourceInputs["deploymentErrors"] = undefined /*out*/;
+            resourceInputs["environmentType"] = undefined /*out*/;
             resourceInputs["extendedLocation"] = undefined /*out*/;
             resourceInputs["internalLoadBalancerEnabled"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
@@ -165,6 +177,14 @@ export interface KubeEnvironmentArgs {
      */
     arcConfiguration?: pulumi.Input<inputs.web.v20210301.ArcConfigurationArgs>;
     /**
+     * Cluster configuration for Container Apps Environments to configure Dapr Instrumentation Key and VNET Configuration
+     */
+    containerAppsConfiguration?: pulumi.Input<inputs.web.v20210301.ContainerAppsConfigurationArgs>;
+    /**
+     * Type of Kubernetes Environment. Only supported for Container App Environments with value as Managed
+     */
+    environmentType?: pulumi.Input<string>;
+    /**
      * Extended Location.
      */
     extendedLocation?: pulumi.Input<inputs.web.v20210301.ExtendedLocationArgs>;
@@ -196,5 +216,4 @@ export interface KubeEnvironmentArgs {
      * Resource tags.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    type?: pulumi.Input<string>;
 }

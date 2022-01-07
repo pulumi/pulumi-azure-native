@@ -147,6 +147,7 @@ namespace Pulumi.AzureNative.OperationalInsights.V20210601
                     new Pulumi.Alias { Type = "azure-native:operationalinsights/v20200301preview:Workspace"},
                     new Pulumi.Alias { Type = "azure-native:operationalinsights/v20200801:Workspace"},
                     new Pulumi.Alias { Type = "azure-native:operationalinsights/v20201001:Workspace"},
+                    new Pulumi.Alias { Type = "azure-native:operationalinsights/v20211201preview:Workspace"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

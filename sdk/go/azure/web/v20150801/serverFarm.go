@@ -96,6 +96,9 @@ func NewServerFarm(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:web/v20210201:ServerFarm"),
 		},
+		{
+			Type: pulumi.String("azure-native:web/v20210301:ServerFarm"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource ServerFarm

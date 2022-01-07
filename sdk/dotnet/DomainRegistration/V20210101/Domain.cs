@@ -168,6 +168,7 @@ namespace Pulumi.AzureNative.DomainRegistration.V20210101
                     new Pulumi.Alias { Type = "azure-native:domainregistration/v20201201:Domain"},
                     new Pulumi.Alias { Type = "azure-native:domainregistration/v20210115:Domain"},
                     new Pulumi.Alias { Type = "azure-native:domainregistration/v20210201:Domain"},
+                    new Pulumi.Alias { Type = "azure-native:domainregistration/v20210301:Domain"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

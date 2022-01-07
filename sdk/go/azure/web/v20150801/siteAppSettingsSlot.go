@@ -82,6 +82,9 @@ func NewSiteAppSettingsSlot(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:web/v20210201:SiteAppSettingsSlot"),
 		},
+		{
+			Type: pulumi.String("azure-native:web/v20210301:SiteAppSettingsSlot"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource SiteAppSettingsSlot

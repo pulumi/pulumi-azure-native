@@ -87,6 +87,9 @@ func NewSiteRelayServiceConnectionSlot(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:web/v20210201:SiteRelayServiceConnectionSlot"),
 		},
+		{
+			Type: pulumi.String("azure-native:web/v20210301:SiteRelayServiceConnectionSlot"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource SiteRelayServiceConnectionSlot

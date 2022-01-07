@@ -135,6 +135,9 @@ func NewManagedHostingEnvironment(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:web/v20210201:ManagedHostingEnvironment"),
 		},
+		{
+			Type: pulumi.String("azure-native:web/v20210301:ManagedHostingEnvironment"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource ManagedHostingEnvironment
