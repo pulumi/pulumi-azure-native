@@ -342,8 +342,8 @@ class State(str, Enum):
     """
     Gets the state of virtual network rule.
     """
-    PROVISIONING = "provisioning"
-    DEPROVISIONING = "deprovisioning"
-    SUCCEEDED = "succeeded"
-    FAILED = "failed"
-    NETWORK_SOURCE_DELETED = "networkSourceDeleted"
+    PROVISIONING = "Provisioning"
+    DEPROVISIONING = "Deprovisioning"
+    SUCCEEDED = "Succeeded"
+    FAILED = "Failed"
+    NETWORK_SOURCE_DELETED = "NetworkSourceDeleted"
