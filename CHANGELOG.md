@@ -14,6 +14,10 @@ CHANGELOG
 - `security.getScanner`
 - `web.listContainerAppSecrets`
 
+#### Bug fixes:
+
+- Correct case of `storageaccount.VirtualNetworkRule.State` values 
+
 ---
 
 ## 1.52.0 (2021-12-29)
