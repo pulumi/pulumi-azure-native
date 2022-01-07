@@ -1243,11 +1243,11 @@ const (
 type State string
 
 const (
-	StateProvisioning         = State("provisioning")
-	StateDeprovisioning       = State("deprovisioning")
-	StateSucceeded            = State("succeeded")
-	StateFailed               = State("failed")
-	StateNetworkSourceDeleted = State("networkSourceDeleted")
+	StateProvisioning         = State("Provisioning")
+	StateDeprovisioning       = State("Deprovisioning")
+	StateSucceeded            = State("Succeeded")
+	StateFailed               = State("Failed")
+	StateNetworkSourceDeleted = State("NetworkSourceDeleted")
 )
 
 func init() {

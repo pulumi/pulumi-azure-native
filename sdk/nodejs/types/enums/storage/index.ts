@@ -404,11 +404,11 @@ export const SkuName = {
 export type SkuName = (typeof SkuName)[keyof typeof SkuName];
 
 export const State = {
-    Provisioning: "provisioning",
-    Deprovisioning: "deprovisioning",
-    Succeeded: "succeeded",
-    Failed: "failed",
-    NetworkSourceDeleted: "networkSourceDeleted",
+    Provisioning: "Provisioning",
+    Deprovisioning: "Deprovisioning",
+    Succeeded: "Succeeded",
+    Failed: "Failed",
+    NetworkSourceDeleted: "NetworkSourceDeleted",
 } as const;
 
 /**
