@@ -3,6 +3,12 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 
+(None)
+
+---
+
+## 1.53.0 (2022-01-10)
+
 #### New resources:
 
 - `operationalinsights.Table`
@@ -17,7 +23,9 @@ CHANGELOG
 - `storage.listLocalUserKeys`
 - `web.listContainerAppSecrets`
 
----
+#### Enhancements:
+
+- Input/output based functions API in Go SDK
 
 ## 1.52.0 (2021-12-29)
 
@@ -48,10 +56,6 @@ CHANGELOG
 - `appplatform.getGatewayRouteConfig`
 - `appplatform.getServiceRegistry`
 - `openenergyplatform.getEnergyService`
-
-#### Enhancements:
-
-- Input/output based functions API in Go SDK
 
 #### Bug fixes:
 
