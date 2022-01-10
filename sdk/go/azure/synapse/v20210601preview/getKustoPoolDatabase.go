@@ -12,7 +12,7 @@ import (
 
 // Class representing a Kusto database.
 //
-// Deprecated: Please use one of the variants: ReadWriteDatabase.
+// Deprecated: Please use one of the variants: ReadOnlyFollowingDatabase, ReadWriteDatabase.
 func LookupKustoPoolDatabase(ctx *pulumi.Context, args *LookupKustoPoolDatabaseArgs, opts ...pulumi.InvokeOption) (*LookupKustoPoolDatabaseResult, error) {
 	var rv LookupKustoPoolDatabaseResult
 	err := ctx.Invoke("azure-native:synapse/v20210601preview:getKustoPoolDatabase", args, &rv, opts...)

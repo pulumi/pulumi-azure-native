@@ -152,12 +152,14 @@ class SchemaArgs:
     def __init__(__self__, *,
                  columns: Optional[pulumi.Input[Sequence[pulumi.Input['ColumnArgs']]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 display_name: Optional[pulumi.Input[str]] = None):
+                 display_name: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None):
         """
         Table's schema.
         :param pulumi.Input[Sequence[pulumi.Input['ColumnArgs']]] columns: A list of table custom columns.
         :param pulumi.Input[str] description: Table description.
         :param pulumi.Input[str] display_name: Table display name.
+        :param pulumi.Input[str] name: Table name.
         """
         if columns is not None:
             pulumi.set(__self__, "columns", columns)
@@ -165,6 +167,8 @@ class SchemaArgs:
             pulumi.set(__self__, "description", description)
         if display_name is not None:
             pulumi.set(__self__, "display_name", display_name)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
@@ -201,6 +205,18 @@ class SchemaArgs:
     @display_name.setter
     def display_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "display_name", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Table name.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
 
 @pulumi.input_type

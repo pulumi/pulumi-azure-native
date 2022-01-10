@@ -88,7 +88,7 @@ export class Database extends pulumi.CustomResource {
      */
     public readonly federatedClientId!: pulumi.Output<string | undefined>;
     /**
-     * The number of secondary replicas associated with the database that are used to provide high availability.
+     * The number of secondary replicas associated with the database that are used to provide high availability. Not applicable to a Hyperscale database within an elastic pool.
      */
     public readonly highAvailabilityReplicaCount!: pulumi.Output<number | undefined>;
     /**
@@ -148,7 +148,7 @@ export class Database extends pulumi.CustomResource {
      */
     public readonly primaryDelegatedIdentityClientId!: pulumi.Output<string | undefined>;
     /**
-     * The state of read-only routing. If enabled, connections that have application intent set to readonly in their connection string may be routed to a readonly secondary replica in the same region.
+     * The state of read-only routing. If enabled, connections that have application intent set to readonly in their connection string may be routed to a readonly secondary replica in the same region. Not applicable to a Hyperscale database within an elastic pool.
      */
     public readonly readScale!: pulumi.Output<string | undefined>;
     /**
@@ -363,7 +363,7 @@ export interface DatabaseArgs {
      */
     federatedClientId?: pulumi.Input<string>;
     /**
-     * The number of secondary replicas associated with the database that are used to provide high availability.
+     * The number of secondary replicas associated with the database that are used to provide high availability. Not applicable to a Hyperscale database within an elastic pool.
      */
     highAvailabilityReplicaCount?: pulumi.Input<number>;
     /**
@@ -403,7 +403,7 @@ export interface DatabaseArgs {
      */
     primaryDelegatedIdentityClientId?: pulumi.Input<string>;
     /**
-     * The state of read-only routing. If enabled, connections that have application intent set to readonly in their connection string may be routed to a readonly secondary replica in the same region.
+     * The state of read-only routing. If enabled, connections that have application intent set to readonly in their connection string may be routed to a readonly secondary replica in the same region. Not applicable to a Hyperscale database within an elastic pool.
      */
     readScale?: pulumi.Input<string | enums.sql.v20210801preview.DatabaseReadScale>;
     /**

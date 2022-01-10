@@ -248,7 +248,7 @@ class GetDatabaseResult:
     @pulumi.getter(name="highAvailabilityReplicaCount")
     def high_availability_replica_count(self) -> Optional[int]:
         """
-        The number of secondary replicas associated with the database that are used to provide high availability.
+        The number of secondary replicas associated with the database that are used to provide high availability. Not applicable to a Hyperscale database within an elastic pool.
         """
         return pulumi.get(self, "high_availability_replica_count")
 
@@ -376,7 +376,7 @@ class GetDatabaseResult:
     @pulumi.getter(name="readScale")
     def read_scale(self) -> Optional[str]:
         """
-        The state of read-only routing. If enabled, connections that have application intent set to readonly in their connection string may be routed to a readonly secondary replica in the same region.
+        The state of read-only routing. If enabled, connections that have application intent set to readonly in their connection string may be routed to a readonly secondary replica in the same region. Not applicable to a Hyperscale database within an elastic pool.
         """
         return pulumi.get(self, "read_scale")
 

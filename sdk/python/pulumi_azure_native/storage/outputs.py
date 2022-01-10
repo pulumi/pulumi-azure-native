@@ -55,6 +55,7 @@ __all__ = [
     'NetworkRuleSetResponse',
     'ObjectReplicationPolicyFilterResponse',
     'ObjectReplicationPolicyRuleResponse',
+    'PermissionScopeResponse',
     'PrivateEndpointConnectionResponse',
     'PrivateEndpointResponse',
     'PrivateLinkServiceConnectionStateResponse',
@@ -65,6 +66,7 @@ __all__ = [
     'SasPolicyResponse',
     'SkuResponse',
     'SmbSettingResponse',
+    'SshPublicKeyResponse',
     'StorageAccountInternetEndpointsResponse',
     'StorageAccountKeyResponse',
     'StorageAccountMicrosoftEndpointsResponse',
@@ -2733,6 +2735,63 @@ class ObjectReplicationPolicyRuleResponse(dict):
 
 
 @pulumi.output_type
+class PermissionScopeResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceName":
+            suggest = "resource_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PermissionScopeResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PermissionScopeResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PermissionScopeResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 permissions: str,
+                 resource_name: str,
+                 service: str):
+        """
+        :param str permissions: The permissions for the local user. Possible values include: Read (r), Write (w), Delete (d), List (l), and Create (c).
+        :param str resource_name: The name of resource, normally the container name or the file share name, used by the local user.
+        :param str service: The service used by the local user, e.g. blob, file.
+        """
+        pulumi.set(__self__, "permissions", permissions)
+        pulumi.set(__self__, "resource_name", resource_name)
+        pulumi.set(__self__, "service", service)
+
+    @property
+    @pulumi.getter
+    def permissions(self) -> str:
+        """
+        The permissions for the local user. Possible values include: Read (r), Write (w), Delete (d), List (l), and Create (c).
+        """
+        return pulumi.get(self, "permissions")
+
+    @property
+    @pulumi.getter(name="resourceName")
+    def resource_name(self) -> str:
+        """
+        The name of resource, normally the container name or the file share name, used by the local user.
+        """
+        return pulumi.get(self, "resource_name")
+
+    @property
+    @pulumi.getter
+    def service(self) -> str:
+        """
+        The service used by the local user, e.g. blob, file.
+        """
+        return pulumi.get(self, "service")
+
+
+@pulumi.output_type
 class PrivateEndpointConnectionResponse(dict):
     """
     The Private Endpoint Connection resource.
@@ -3314,6 +3373,37 @@ class SmbSettingResponse(dict):
         SMB protocol versions supported by server. Valid values are SMB2.1, SMB3.0, SMB3.1.1. Should be passed as a string with delimiter ';'.
         """
         return pulumi.get(self, "versions")
+
+
+@pulumi.output_type
+class SshPublicKeyResponse(dict):
+    def __init__(__self__, *,
+                 description: Optional[str] = None,
+                 key: Optional[str] = None):
+        """
+        :param str description: Optional. It is used to store the function/usage of the key
+        :param str key: Ssh public key base64 encoded. The format should be: '<keyType> <keyData>', e.g. ssh-rsa AAAABBBB
+        """
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        Optional. It is used to store the function/usage of the key
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        """
+        Ssh public key base64 encoded. The format should be: '<keyType> <keyData>', e.g. ssh-rsa AAAABBBB
+        """
+        return pulumi.get(self, "key")
 
 
 @pulumi.output_type

@@ -10,7 +10,7 @@ using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Synapse.V20210601Preview
 {
-    [Obsolete(@"Please use one of the variants: ReadWriteDatabase.")]
+    [Obsolete(@"Please use one of the variants: ReadOnlyFollowingDatabase, ReadWriteDatabase.")]
     public static class GetKustoPoolDatabase
     {
         /// <summary>

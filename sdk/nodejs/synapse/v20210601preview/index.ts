@@ -26,6 +26,7 @@ export * from "./getKustoPoolDatabasePrincipalAssignment";
 export * from "./getKustoPoolPrincipalAssignment";
 export * from "./getPrivateEndpointConnection";
 export * from "./getPrivateLinkHub";
+export * from "./getReadOnlyFollowingDatabase";
 export * from "./getReadWriteDatabase";
 export * from "./getSqlPool";
 export * from "./getSqlPoolSensitivityLabel";
@@ -53,6 +54,7 @@ export * from "./listKustoPoolFollowerDatabases";
 export * from "./listKustoPoolLanguageExtensions";
 export * from "./privateEndpointConnection";
 export * from "./privateLinkHub";
+export * from "./readOnlyFollowingDatabase";
 export * from "./readWriteDatabase";
 export * from "./sqlPool";
 export * from "./sqlPoolSensitivityLabel";
@@ -85,6 +87,7 @@ import { KustoPoolDatabasePrincipalAssignment } from "./kustoPoolDatabasePrincip
 import { KustoPoolPrincipalAssignment } from "./kustoPoolPrincipalAssignment";
 import { PrivateEndpointConnection } from "./privateEndpointConnection";
 import { PrivateLinkHub } from "./privateLinkHub";
+import { ReadOnlyFollowingDatabase } from "./readOnlyFollowingDatabase";
 import { ReadWriteDatabase } from "./readWriteDatabase";
 import { SqlPool } from "./sqlPool";
 import { SqlPoolSensitivityLabel } from "./sqlPoolSensitivityLabel";
@@ -132,6 +135,8 @@ const _module = {
                 return new PrivateEndpointConnection(name, <any>undefined, { urn })
             case "azure-native:synapse/v20210601preview:PrivateLinkHub":
                 return new PrivateLinkHub(name, <any>undefined, { urn })
+            case "azure-native:synapse/v20210601preview:ReadOnlyFollowingDatabase":
+                return new ReadOnlyFollowingDatabase(name, <any>undefined, { urn })
             case "azure-native:synapse/v20210601preview:ReadWriteDatabase":
                 return new ReadWriteDatabase(name, <any>undefined, { urn })
             case "azure-native:synapse/v20210601preview:SqlPool":

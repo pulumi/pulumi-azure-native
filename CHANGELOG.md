@@ -7,11 +7,14 @@ CHANGELOG
 
 - `operationalinsights.Table`
 - `security.Scanner`
+- `storage.LocalUser`
 
 #### New functions:
 
 - `operationalinsights.getTable`
 - `security.getScanner`
+- `storage.getLocalUser`
+- `storage.listLocalUserKeys`
 - `web.listContainerAppSecrets`
 
 ---

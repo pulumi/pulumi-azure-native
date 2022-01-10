@@ -625,6 +625,8 @@ type Schema struct {
 	Description *string `pulumi:"description"`
 	// Table display name.
 	DisplayName *string `pulumi:"displayName"`
+	// Table name.
+	Name *string `pulumi:"name"`
 }
 
 // SchemaInput is an input type that accepts SchemaArgs and SchemaOutput values.
@@ -646,6 +648,8 @@ type SchemaArgs struct {
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// Table display name.
 	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
+	// Table name.
+	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
 func (SchemaArgs) ElementType() reflect.Type {
@@ -741,6 +745,11 @@ func (o SchemaOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Schema) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
 }
 
+// Table name.
+func (o SchemaOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Schema) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
 type SchemaPtrOutput struct{ *pulumi.OutputState }
 
 func (SchemaPtrOutput) ElementType() reflect.Type {
@@ -795,6 +804,16 @@ func (o SchemaPtrOutput) DisplayName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Table name.
+func (o SchemaPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Schema) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
 // Table's schema.
 type SchemaResponse struct {
 	// Table category.
@@ -808,7 +827,7 @@ type SchemaResponse struct {
 	// Table labels.
 	Labels []string `pulumi:"labels"`
 	// Table name.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// Parameters of the restore operation that initiated this table.
 	RestoredLogs RestoredLogsResponse `pulumi:"restoredLogs"`
 	// Parameters of the search job that initiated this table.
@@ -866,8 +885,8 @@ func (o SchemaResponseOutput) Labels() pulumi.StringArrayOutput {
 }
 
 // Table name.
-func (o SchemaResponseOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v SchemaResponse) string { return v.Name }).(pulumi.StringOutput)
+func (o SchemaResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SchemaResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 // Parameters of the restore operation that initiated this table.
@@ -985,7 +1004,7 @@ func (o SchemaResponsePtrOutput) Name() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return &v.Name
+		return v.Name
 	}).(pulumi.StringPtrOutput)
 }
 

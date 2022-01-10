@@ -39,6 +39,12 @@ namespace Pulumi.AzureNative.OperationalInsights.Inputs
         [Input("displayName")]
         public Input<string>? DisplayName { get; set; }
 
+        /// <summary>
+        /// Table name.
+        /// </summary>
+        [Input("name")]
+        public Input<string>? Name { get; set; }
+
         public SchemaArgs()
         {
         }

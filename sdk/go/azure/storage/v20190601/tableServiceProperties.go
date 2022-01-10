@@ -55,6 +55,9 @@ func NewTableServiceProperties(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:storage/v20210601:TableServiceProperties"),
 		},
+		{
+			Type: pulumi.String("azure-native:storage/v20210801:TableServiceProperties"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource TableServiceProperties

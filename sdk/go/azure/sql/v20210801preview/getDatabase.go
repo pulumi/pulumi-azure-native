@@ -57,7 +57,7 @@ type LookupDatabaseResult struct {
 	FailoverGroupId string `pulumi:"failoverGroupId"`
 	// The Client id used for cross tenant per database CMK scenario
 	FederatedClientId *string `pulumi:"federatedClientId"`
-	// The number of secondary replicas associated with the database that are used to provide high availability.
+	// The number of secondary replicas associated with the database that are used to provide high availability. Not applicable to a Hyperscale database within an elastic pool.
 	HighAvailabilityReplicaCount *int `pulumi:"highAvailabilityReplicaCount"`
 	// Resource ID.
 	Id string `pulumi:"id"`
@@ -89,7 +89,7 @@ type LookupDatabaseResult struct {
 	PausedDate string `pulumi:"pausedDate"`
 	// The Primary Delegated Identity Client id used for per database CMK - for internal use only
 	PrimaryDelegatedIdentityClientId *string `pulumi:"primaryDelegatedIdentityClientId"`
-	// The state of read-only routing. If enabled, connections that have application intent set to readonly in their connection string may be routed to a readonly secondary replica in the same region.
+	// The state of read-only routing. If enabled, connections that have application intent set to readonly in their connection string may be routed to a readonly secondary replica in the same region. Not applicable to a Hyperscale database within an elastic pool.
 	ReadScale *string `pulumi:"readScale"`
 	// The storage account type to be used to store backups for this database.
 	RequestedBackupStorageRedundancy *string `pulumi:"requestedBackupStorageRedundancy"`
@@ -215,7 +215,7 @@ func (o LookupDatabaseResultOutput) FederatedClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDatabaseResult) *string { return v.FederatedClientId }).(pulumi.StringPtrOutput)
 }
 
-// The number of secondary replicas associated with the database that are used to provide high availability.
+// The number of secondary replicas associated with the database that are used to provide high availability. Not applicable to a Hyperscale database within an elastic pool.
 func (o LookupDatabaseResultOutput) HighAvailabilityReplicaCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupDatabaseResult) *int { return v.HighAvailabilityReplicaCount }).(pulumi.IntPtrOutput)
 }
@@ -295,7 +295,7 @@ func (o LookupDatabaseResultOutput) PrimaryDelegatedIdentityClientId() pulumi.St
 	return o.ApplyT(func(v LookupDatabaseResult) *string { return v.PrimaryDelegatedIdentityClientId }).(pulumi.StringPtrOutput)
 }
 
-// The state of read-only routing. If enabled, connections that have application intent set to readonly in their connection string may be routed to a readonly secondary replica in the same region.
+// The state of read-only routing. If enabled, connections that have application intent set to readonly in their connection string may be routed to a readonly secondary replica in the same region. Not applicable to a Hyperscale database within an elastic pool.
 func (o LookupDatabaseResultOutput) ReadScale() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDatabaseResult) *string { return v.ReadScale }).(pulumi.StringPtrOutput)
 }

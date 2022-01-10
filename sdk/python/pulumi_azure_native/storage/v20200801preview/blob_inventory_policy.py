@@ -156,7 +156,7 @@ class BlobInventoryPolicy(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:storage:BlobInventoryPolicy"), pulumi.Alias(type_="azure-native:storage/v20190601:BlobInventoryPolicy"), pulumi.Alias(type_="azure-native:storage/v20210101:BlobInventoryPolicy"), pulumi.Alias(type_="azure-native:storage/v20210201:BlobInventoryPolicy"), pulumi.Alias(type_="azure-native:storage/v20210401:BlobInventoryPolicy"), pulumi.Alias(type_="azure-native:storage/v20210601:BlobInventoryPolicy")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:storage:BlobInventoryPolicy"), pulumi.Alias(type_="azure-native:storage/v20190601:BlobInventoryPolicy"), pulumi.Alias(type_="azure-native:storage/v20210101:BlobInventoryPolicy"), pulumi.Alias(type_="azure-native:storage/v20210201:BlobInventoryPolicy"), pulumi.Alias(type_="azure-native:storage/v20210401:BlobInventoryPolicy"), pulumi.Alias(type_="azure-native:storage/v20210601:BlobInventoryPolicy"), pulumi.Alias(type_="azure-native:storage/v20210801:BlobInventoryPolicy")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(BlobInventoryPolicy, __self__).__init__(
             'azure-native:storage/v20200801preview:BlobInventoryPolicy',

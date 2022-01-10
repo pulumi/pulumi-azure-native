@@ -39,7 +39,7 @@ namespace Pulumi.AzureNative.OperationalInsights.V20211201Preview.Outputs
         /// <summary>
         /// Table name.
         /// </summary>
-        public readonly string Name;
+        public readonly string? Name;
         /// <summary>
         /// Parameters of the restore operation that initiated this table.
         /// </summary>
@@ -81,7 +81,7 @@ namespace Pulumi.AzureNative.OperationalInsights.V20211201Preview.Outputs
 
             ImmutableArray<string> labels,
 
-            string name,
+            string? name,
 
             Outputs.RestoredLogsResponse restoredLogs,
 

@@ -112,11 +112,11 @@ class KustoPoolDatabaseArgs:
         pulumi.set(self, "location", value)
 
 
-warnings.warn("""Please use one of the variants: ReadWriteDatabase.""", DeprecationWarning)
+warnings.warn("""Please use one of the variants: ReadOnlyFollowingDatabase, ReadWriteDatabase.""", DeprecationWarning)
 
 
 class KustoPoolDatabase(pulumi.CustomResource):
-    warnings.warn("""Please use one of the variants: ReadWriteDatabase.""", DeprecationWarning)
+    warnings.warn("""Please use one of the variants: ReadOnlyFollowingDatabase, ReadWriteDatabase.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -172,7 +172,7 @@ class KustoPoolDatabase(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""KustoPoolDatabase is deprecated: Please use one of the variants: ReadWriteDatabase.""")
+        pulumi.log.warn("""KustoPoolDatabase is deprecated: Please use one of the variants: ReadOnlyFollowingDatabase, ReadWriteDatabase.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

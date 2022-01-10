@@ -16190,6 +16190,7 @@ _utilities.register(
    "azure-native:storage:EncryptionScope": "EncryptionScope",
    "azure-native:storage:FileServiceProperties": "FileServiceProperties",
    "azure-native:storage:FileShare": "FileShare",
+   "azure-native:storage:LocalUser": "LocalUser",
    "azure-native:storage:ManagementPolicy": "ManagementPolicy",
    "azure-native:storage:ObjectReplicationPolicy": "ObjectReplicationPolicy",
    "azure-native:storage:PrivateEndpointConnection": "PrivateEndpointConnection",
@@ -16446,6 +16447,29 @@ _utilities.register(
    "azure-native:storage/v20210601:StorageAccount": "StorageAccount",
    "azure-native:storage/v20210601:Table": "Table",
    "azure-native:storage/v20210601:TableServiceProperties": "TableServiceProperties"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "storage/v20210801",
+  "fqn": "pulumi_azure_native.storage.v20210801",
+  "classes": {
+   "azure-native:storage/v20210801:BlobContainer": "BlobContainer",
+   "azure-native:storage/v20210801:BlobContainerImmutabilityPolicy": "BlobContainerImmutabilityPolicy",
+   "azure-native:storage/v20210801:BlobInventoryPolicy": "BlobInventoryPolicy",
+   "azure-native:storage/v20210801:BlobServiceProperties": "BlobServiceProperties",
+   "azure-native:storage/v20210801:EncryptionScope": "EncryptionScope",
+   "azure-native:storage/v20210801:FileServiceProperties": "FileServiceProperties",
+   "azure-native:storage/v20210801:FileShare": "FileShare",
+   "azure-native:storage/v20210801:LocalUser": "LocalUser",
+   "azure-native:storage/v20210801:ManagementPolicy": "ManagementPolicy",
+   "azure-native:storage/v20210801:ObjectReplicationPolicy": "ObjectReplicationPolicy",
+   "azure-native:storage/v20210801:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:storage/v20210801:Queue": "Queue",
+   "azure-native:storage/v20210801:QueueServiceProperties": "QueueServiceProperties",
+   "azure-native:storage/v20210801:StorageAccount": "StorageAccount",
+   "azure-native:storage/v20210801:Table": "Table",
+   "azure-native:storage/v20210801:TableServiceProperties": "TableServiceProperties"
   }
  },
  {
@@ -17057,6 +17081,7 @@ _utilities.register(
    "azure-native:synapse/v20210601preview:KustoPoolPrincipalAssignment": "KustoPoolPrincipalAssignment",
    "azure-native:synapse/v20210601preview:PrivateEndpointConnection": "PrivateEndpointConnection",
    "azure-native:synapse/v20210601preview:PrivateLinkHub": "PrivateLinkHub",
+   "azure-native:synapse/v20210601preview:ReadOnlyFollowingDatabase": "ReadOnlyFollowingDatabase",
    "azure-native:synapse/v20210601preview:ReadWriteDatabase": "ReadWriteDatabase",
    "azure-native:synapse/v20210601preview:SqlPool": "SqlPool",
    "azure-native:synapse/v20210601preview:SqlPoolSensitivityLabel": "SqlPoolSensitivityLabel",

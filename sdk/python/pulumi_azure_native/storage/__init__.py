@@ -21,6 +21,7 @@ from .get_blob_service_properties import *
 from .get_encryption_scope import *
 from .get_file_service_properties import *
 from .get_file_share import *
+from .get_local_user import *
 from .get_management_policy import *
 from .get_object_replication_policy import *
 from .get_private_endpoint_connection import *
@@ -29,9 +30,11 @@ from .get_queue_service_properties import *
 from .get_storage_account import *
 from .get_table import *
 from .get_table_service_properties import *
+from .list_local_user_keys import *
 from .list_storage_account_keys import *
 from .list_storage_account_sas import *
 from .list_storage_account_service_sas import *
+from .local_user import *
 from .management_policy import *
 from .object_replication_policy import *
 from .private_endpoint_connection import *
@@ -82,6 +85,8 @@ if typing.TYPE_CHECKING:
     v20210401 = __v20210401
     import pulumi_azure_native.storage.v20210601 as __v20210601
     v20210601 = __v20210601
+    import pulumi_azure_native.storage.v20210801 as __v20210801
+    v20210801 = __v20210801
 else:
     v20150501preview = _utilities.lazy_import('pulumi_azure_native.storage.v20150501preview')
     v20150615 = _utilities.lazy_import('pulumi_azure_native.storage.v20150615')
@@ -101,4 +106,5 @@ else:
     v20210201 = _utilities.lazy_import('pulumi_azure_native.storage.v20210201')
     v20210401 = _utilities.lazy_import('pulumi_azure_native.storage.v20210401')
     v20210601 = _utilities.lazy_import('pulumi_azure_native.storage.v20210601')
+    v20210801 = _utilities.lazy_import('pulumi_azure_native.storage.v20210801')
 
