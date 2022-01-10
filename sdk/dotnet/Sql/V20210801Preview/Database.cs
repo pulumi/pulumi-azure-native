@@ -94,7 +94,7 @@ namespace Pulumi.AzureNative.Sql.V20210801Preview
         public Output<string?> FederatedClientId { get; private set; } = null!;
 
         /// <summary>
-        /// The number of secondary replicas associated with the database that are used to provide high availability.
+        /// The number of secondary replicas associated with the database that are used to provide high availability. Not applicable to a Hyperscale database within an elastic pool.
         /// </summary>
         [Output("highAvailabilityReplicaCount")]
         public Output<int?> HighAvailabilityReplicaCount { get; private set; } = null!;
@@ -184,7 +184,7 @@ namespace Pulumi.AzureNative.Sql.V20210801Preview
         public Output<string?> PrimaryDelegatedIdentityClientId { get; private set; } = null!;
 
         /// <summary>
-        /// The state of read-only routing. If enabled, connections that have application intent set to readonly in their connection string may be routed to a readonly secondary replica in the same region.
+        /// The state of read-only routing. If enabled, connections that have application intent set to readonly in their connection string may be routed to a readonly secondary replica in the same region. Not applicable to a Hyperscale database within an elastic pool.
         /// </summary>
         [Output("readScale")]
         public Output<string?> ReadScale { get; private set; } = null!;
@@ -370,7 +370,7 @@ namespace Pulumi.AzureNative.Sql.V20210801Preview
         public Input<string>? FederatedClientId { get; set; }
 
         /// <summary>
-        /// The number of secondary replicas associated with the database that are used to provide high availability.
+        /// The number of secondary replicas associated with the database that are used to provide high availability. Not applicable to a Hyperscale database within an elastic pool.
         /// </summary>
         [Input("highAvailabilityReplicaCount")]
         public Input<int>? HighAvailabilityReplicaCount { get; set; }
@@ -430,7 +430,7 @@ namespace Pulumi.AzureNative.Sql.V20210801Preview
         public Input<string>? PrimaryDelegatedIdentityClientId { get; set; }
 
         /// <summary>
-        /// The state of read-only routing. If enabled, connections that have application intent set to readonly in their connection string may be routed to a readonly secondary replica in the same region.
+        /// The state of read-only routing. If enabled, connections that have application intent set to readonly in their connection string may be routed to a readonly secondary replica in the same region. Not applicable to a Hyperscale database within an elastic pool.
         /// </summary>
         [Input("readScale")]
         public InputUnion<string, Pulumi.AzureNative.Sql.V20210801Preview.DatabaseReadScale>? ReadScale { get; set; }

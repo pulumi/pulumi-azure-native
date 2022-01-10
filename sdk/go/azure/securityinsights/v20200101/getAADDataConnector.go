@@ -4,6 +4,9 @@
 package v20200101
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -43,4 +46,81 @@ type LookupAADDataConnectorResult struct {
 	TenantId *string `pulumi:"tenantId"`
 	// Azure resource type
 	Type string `pulumi:"type"`
+}
+
+func LookupAADDataConnectorOutput(ctx *pulumi.Context, args LookupAADDataConnectorOutputArgs, opts ...pulumi.InvokeOption) LookupAADDataConnectorResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupAADDataConnectorResult, error) {
+			args := v.(LookupAADDataConnectorArgs)
+			r, err := LookupAADDataConnector(ctx, &args, opts...)
+			return *r, err
+		}).(LookupAADDataConnectorResultOutput)
+}
+
+type LookupAADDataConnectorOutputArgs struct {
+	// Connector ID
+	DataConnectorId pulumi.StringInput `pulumi:"dataConnectorId"`
+	// The name of the resource group within the user's subscription. The name is case insensitive.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the workspace.
+	WorkspaceName pulumi.StringInput `pulumi:"workspaceName"`
+}
+
+func (LookupAADDataConnectorOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupAADDataConnectorArgs)(nil)).Elem()
+}
+
+// Represents AAD (Azure Active Directory) data connector.
+type LookupAADDataConnectorResultOutput struct{ *pulumi.OutputState }
+
+func (LookupAADDataConnectorResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupAADDataConnectorResult)(nil)).Elem()
+}
+
+func (o LookupAADDataConnectorResultOutput) ToLookupAADDataConnectorResultOutput() LookupAADDataConnectorResultOutput {
+	return o
+}
+
+func (o LookupAADDataConnectorResultOutput) ToLookupAADDataConnectorResultOutputWithContext(ctx context.Context) LookupAADDataConnectorResultOutput {
+	return o
+}
+
+// The available data types for the connector.
+func (o LookupAADDataConnectorResultOutput) DataTypes() AlertsDataTypeOfDataConnectorResponsePtrOutput {
+	return o.ApplyT(func(v LookupAADDataConnectorResult) *AlertsDataTypeOfDataConnectorResponse { return v.DataTypes }).(AlertsDataTypeOfDataConnectorResponsePtrOutput)
+}
+
+// Etag of the azure resource
+func (o LookupAADDataConnectorResultOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupAADDataConnectorResult) *string { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// Azure resource Id
+func (o LookupAADDataConnectorResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAADDataConnectorResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The kind of the data connector
+// Expected value is 'AzureActiveDirectory'.
+func (o LookupAADDataConnectorResultOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAADDataConnectorResult) string { return v.Kind }).(pulumi.StringOutput)
+}
+
+// Azure resource name
+func (o LookupAADDataConnectorResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAADDataConnectorResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The tenant id to connect to, and get the data from.
+func (o LookupAADDataConnectorResultOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupAADDataConnectorResult) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+}
+
+// Azure resource type
+func (o LookupAADDataConnectorResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAADDataConnectorResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupAADDataConnectorResultOutput{})
 }

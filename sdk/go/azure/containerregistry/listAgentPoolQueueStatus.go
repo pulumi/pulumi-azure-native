@@ -4,6 +4,9 @@
 package containerregistry
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -31,4 +34,50 @@ type ListAgentPoolQueueStatusArgs struct {
 type ListAgentPoolQueueStatusResult struct {
 	// The number of pending runs in the queue
 	Count *int `pulumi:"count"`
+}
+
+func ListAgentPoolQueueStatusOutput(ctx *pulumi.Context, args ListAgentPoolQueueStatusOutputArgs, opts ...pulumi.InvokeOption) ListAgentPoolQueueStatusResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (ListAgentPoolQueueStatusResult, error) {
+			args := v.(ListAgentPoolQueueStatusArgs)
+			r, err := ListAgentPoolQueueStatus(ctx, &args, opts...)
+			return *r, err
+		}).(ListAgentPoolQueueStatusResultOutput)
+}
+
+type ListAgentPoolQueueStatusOutputArgs struct {
+	// The name of the agent pool.
+	AgentPoolName pulumi.StringInput `pulumi:"agentPoolName"`
+	// The name of the container registry.
+	RegistryName pulumi.StringInput `pulumi:"registryName"`
+	// The name of the resource group to which the container registry belongs.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (ListAgentPoolQueueStatusOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListAgentPoolQueueStatusArgs)(nil)).Elem()
+}
+
+// The QueueStatus of Agent Pool
+type ListAgentPoolQueueStatusResultOutput struct{ *pulumi.OutputState }
+
+func (ListAgentPoolQueueStatusResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListAgentPoolQueueStatusResult)(nil)).Elem()
+}
+
+func (o ListAgentPoolQueueStatusResultOutput) ToListAgentPoolQueueStatusResultOutput() ListAgentPoolQueueStatusResultOutput {
+	return o
+}
+
+func (o ListAgentPoolQueueStatusResultOutput) ToListAgentPoolQueueStatusResultOutputWithContext(ctx context.Context) ListAgentPoolQueueStatusResultOutput {
+	return o
+}
+
+// The number of pending runs in the queue
+func (o ListAgentPoolQueueStatusResultOutput) Count() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ListAgentPoolQueueStatusResult) *int { return v.Count }).(pulumi.IntPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(ListAgentPoolQueueStatusResultOutput{})
 }

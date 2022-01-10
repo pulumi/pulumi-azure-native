@@ -4,6 +4,9 @@
 package v20210601
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -52,4 +55,105 @@ type LookupAssetResult struct {
 	SystemData SystemDataResponse `pulumi:"systemData"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
+}
+
+func LookupAssetOutput(ctx *pulumi.Context, args LookupAssetOutputArgs, opts ...pulumi.InvokeOption) LookupAssetResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupAssetResult, error) {
+			args := v.(LookupAssetArgs)
+			r, err := LookupAsset(ctx, &args, opts...)
+			return *r, err
+		}).(LookupAssetResultOutput)
+}
+
+type LookupAssetOutputArgs struct {
+	// The Media Services account name.
+	AccountName pulumi.StringInput `pulumi:"accountName"`
+	// The Asset name.
+	AssetName pulumi.StringInput `pulumi:"assetName"`
+	// The name of the resource group within the Azure subscription.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupAssetOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupAssetArgs)(nil)).Elem()
+}
+
+// An Asset.
+type LookupAssetResultOutput struct{ *pulumi.OutputState }
+
+func (LookupAssetResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupAssetResult)(nil)).Elem()
+}
+
+func (o LookupAssetResultOutput) ToLookupAssetResultOutput() LookupAssetResultOutput {
+	return o
+}
+
+func (o LookupAssetResultOutput) ToLookupAssetResultOutputWithContext(ctx context.Context) LookupAssetResultOutput {
+	return o
+}
+
+// The alternate ID of the Asset.
+func (o LookupAssetResultOutput) AlternateId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupAssetResult) *string { return v.AlternateId }).(pulumi.StringPtrOutput)
+}
+
+// The Asset ID.
+func (o LookupAssetResultOutput) AssetId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAssetResult) string { return v.AssetId }).(pulumi.StringOutput)
+}
+
+// The name of the asset blob container.
+func (o LookupAssetResultOutput) Container() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupAssetResult) *string { return v.Container }).(pulumi.StringPtrOutput)
+}
+
+// The creation date of the Asset.
+func (o LookupAssetResultOutput) Created() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAssetResult) string { return v.Created }).(pulumi.StringOutput)
+}
+
+// The Asset description.
+func (o LookupAssetResultOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupAssetResult) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+func (o LookupAssetResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAssetResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The last modified date of the Asset.
+func (o LookupAssetResultOutput) LastModified() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAssetResult) string { return v.LastModified }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o LookupAssetResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAssetResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The name of the storage account.
+func (o LookupAssetResultOutput) StorageAccountName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupAssetResult) *string { return v.StorageAccountName }).(pulumi.StringPtrOutput)
+}
+
+// The Asset encryption format. One of None or MediaStorageEncryption.
+func (o LookupAssetResultOutput) StorageEncryptionFormat() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAssetResult) string { return v.StorageEncryptionFormat }).(pulumi.StringOutput)
+}
+
+// The system metadata relating to this resource.
+func (o LookupAssetResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupAssetResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o LookupAssetResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAssetResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupAssetResultOutput{})
 }

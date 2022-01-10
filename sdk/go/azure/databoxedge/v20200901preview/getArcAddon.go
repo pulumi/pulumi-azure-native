@@ -4,6 +4,9 @@
 package v20200901preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -57,4 +60,113 @@ type LookupArcAddonResult struct {
 	Type string `pulumi:"type"`
 	// Arc resource version
 	Version string `pulumi:"version"`
+}
+
+func LookupArcAddonOutput(ctx *pulumi.Context, args LookupArcAddonOutputArgs, opts ...pulumi.InvokeOption) LookupArcAddonResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupArcAddonResult, error) {
+			args := v.(LookupArcAddonArgs)
+			r, err := LookupArcAddon(ctx, &args, opts...)
+			return *r, err
+		}).(LookupArcAddonResultOutput)
+}
+
+type LookupArcAddonOutputArgs struct {
+	// The addon name.
+	AddonName pulumi.StringInput `pulumi:"addonName"`
+	// The device name.
+	DeviceName pulumi.StringInput `pulumi:"deviceName"`
+	// The resource group name.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The role name.
+	RoleName pulumi.StringInput `pulumi:"roleName"`
+}
+
+func (LookupArcAddonOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupArcAddonArgs)(nil)).Elem()
+}
+
+// Arc Addon.
+type LookupArcAddonResultOutput struct{ *pulumi.OutputState }
+
+func (LookupArcAddonResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupArcAddonResult)(nil)).Elem()
+}
+
+func (o LookupArcAddonResultOutput) ToLookupArcAddonResultOutput() LookupArcAddonResultOutput {
+	return o
+}
+
+func (o LookupArcAddonResultOutput) ToLookupArcAddonResultOutputWithContext(ctx context.Context) LookupArcAddonResultOutput {
+	return o
+}
+
+// Host OS supported by the Arc addon.
+func (o LookupArcAddonResultOutput) HostPlatform() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupArcAddonResult) string { return v.HostPlatform }).(pulumi.StringOutput)
+}
+
+// Platform where the runtime is hosted.
+func (o LookupArcAddonResultOutput) HostPlatformType() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupArcAddonResult) string { return v.HostPlatformType }).(pulumi.StringOutput)
+}
+
+// The path ID that uniquely identifies the object.
+func (o LookupArcAddonResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupArcAddonResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Addon type.
+// Expected value is 'ArcForKubernetes'.
+func (o LookupArcAddonResultOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupArcAddonResult) string { return v.Kind }).(pulumi.StringOutput)
+}
+
+// The object name.
+func (o LookupArcAddonResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupArcAddonResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Addon Provisioning State
+func (o LookupArcAddonResultOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupArcAddonResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Arc resource group name
+func (o LookupArcAddonResultOutput) ResourceGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupArcAddonResult) string { return v.ResourceGroupName }).(pulumi.StringOutput)
+}
+
+// Arc resource location
+func (o LookupArcAddonResultOutput) ResourceLocation() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupArcAddonResult) string { return v.ResourceLocation }).(pulumi.StringOutput)
+}
+
+// Arc resource Name
+func (o LookupArcAddonResultOutput) ResourceName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupArcAddonResult) string { return v.ResourceName }).(pulumi.StringOutput)
+}
+
+// Arc resource subscription Id
+func (o LookupArcAddonResultOutput) SubscriptionId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupArcAddonResult) string { return v.SubscriptionId }).(pulumi.StringOutput)
+}
+
+// Addon type
+func (o LookupArcAddonResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupArcAddonResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The hierarchical type of the object.
+func (o LookupArcAddonResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupArcAddonResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Arc resource version
+func (o LookupArcAddonResultOutput) Version() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupArcAddonResult) string { return v.Version }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupArcAddonResultOutput{})
 }

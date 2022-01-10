@@ -4,6 +4,9 @@
 package devtestlab
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -58,4 +61,82 @@ func (val *ListServiceFabricApplicableSchedulesResult) Defaults() *ListServiceFa
 	tmp.LabVmsStartup = tmp.LabVmsStartup.Defaults()
 
 	return &tmp
+}
+
+func ListServiceFabricApplicableSchedulesOutput(ctx *pulumi.Context, args ListServiceFabricApplicableSchedulesOutputArgs, opts ...pulumi.InvokeOption) ListServiceFabricApplicableSchedulesResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (ListServiceFabricApplicableSchedulesResult, error) {
+			args := v.(ListServiceFabricApplicableSchedulesArgs)
+			r, err := ListServiceFabricApplicableSchedules(ctx, &args, opts...)
+			return *r, err
+		}).(ListServiceFabricApplicableSchedulesResultOutput)
+}
+
+type ListServiceFabricApplicableSchedulesOutputArgs struct {
+	// The name of the lab.
+	LabName pulumi.StringInput `pulumi:"labName"`
+	// The name of the service fabric.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The name of the resource group.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the user profile.
+	UserName pulumi.StringInput `pulumi:"userName"`
+}
+
+func (ListServiceFabricApplicableSchedulesOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListServiceFabricApplicableSchedulesArgs)(nil)).Elem()
+}
+
+// Schedules applicable to a virtual machine. The schedules may have been defined on a VM or on lab level.
+type ListServiceFabricApplicableSchedulesResultOutput struct{ *pulumi.OutputState }
+
+func (ListServiceFabricApplicableSchedulesResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListServiceFabricApplicableSchedulesResult)(nil)).Elem()
+}
+
+func (o ListServiceFabricApplicableSchedulesResultOutput) ToListServiceFabricApplicableSchedulesResultOutput() ListServiceFabricApplicableSchedulesResultOutput {
+	return o
+}
+
+func (o ListServiceFabricApplicableSchedulesResultOutput) ToListServiceFabricApplicableSchedulesResultOutputWithContext(ctx context.Context) ListServiceFabricApplicableSchedulesResultOutput {
+	return o
+}
+
+// The identifier of the resource.
+func (o ListServiceFabricApplicableSchedulesResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v ListServiceFabricApplicableSchedulesResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The auto-shutdown schedule, if one has been set at the lab or lab resource level.
+func (o ListServiceFabricApplicableSchedulesResultOutput) LabVmsShutdown() ScheduleResponsePtrOutput {
+	return o.ApplyT(func(v ListServiceFabricApplicableSchedulesResult) *ScheduleResponse { return v.LabVmsShutdown }).(ScheduleResponsePtrOutput)
+}
+
+// The auto-startup schedule, if one has been set at the lab or lab resource level.
+func (o ListServiceFabricApplicableSchedulesResultOutput) LabVmsStartup() ScheduleResponsePtrOutput {
+	return o.ApplyT(func(v ListServiceFabricApplicableSchedulesResult) *ScheduleResponse { return v.LabVmsStartup }).(ScheduleResponsePtrOutput)
+}
+
+// The location of the resource.
+func (o ListServiceFabricApplicableSchedulesResultOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListServiceFabricApplicableSchedulesResult) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource.
+func (o ListServiceFabricApplicableSchedulesResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ListServiceFabricApplicableSchedulesResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The tags of the resource.
+func (o ListServiceFabricApplicableSchedulesResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ListServiceFabricApplicableSchedulesResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource.
+func (o ListServiceFabricApplicableSchedulesResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ListServiceFabricApplicableSchedulesResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(ListServiceFabricApplicableSchedulesResultOutput{})
 }

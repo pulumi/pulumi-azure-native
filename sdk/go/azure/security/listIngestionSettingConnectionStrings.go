@@ -4,6 +4,9 @@
 package security
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -27,4 +30,48 @@ type ListIngestionSettingConnectionStringsArgs struct {
 type ListIngestionSettingConnectionStringsResult struct {
 	// Connection strings
 	Value []IngestionConnectionStringResponse `pulumi:"value"`
+}
+
+func ListIngestionSettingConnectionStringsOutput(ctx *pulumi.Context, args ListIngestionSettingConnectionStringsOutputArgs, opts ...pulumi.InvokeOption) ListIngestionSettingConnectionStringsResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (ListIngestionSettingConnectionStringsResult, error) {
+			args := v.(ListIngestionSettingConnectionStringsArgs)
+			r, err := ListIngestionSettingConnectionStrings(ctx, &args, opts...)
+			return *r, err
+		}).(ListIngestionSettingConnectionStringsResultOutput)
+}
+
+type ListIngestionSettingConnectionStringsOutputArgs struct {
+	// Name of the ingestion setting
+	IngestionSettingName pulumi.StringInput `pulumi:"ingestionSettingName"`
+}
+
+func (ListIngestionSettingConnectionStringsOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListIngestionSettingConnectionStringsArgs)(nil)).Elem()
+}
+
+// Connection string for ingesting security data and logs
+type ListIngestionSettingConnectionStringsResultOutput struct{ *pulumi.OutputState }
+
+func (ListIngestionSettingConnectionStringsResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListIngestionSettingConnectionStringsResult)(nil)).Elem()
+}
+
+func (o ListIngestionSettingConnectionStringsResultOutput) ToListIngestionSettingConnectionStringsResultOutput() ListIngestionSettingConnectionStringsResultOutput {
+	return o
+}
+
+func (o ListIngestionSettingConnectionStringsResultOutput) ToListIngestionSettingConnectionStringsResultOutputWithContext(ctx context.Context) ListIngestionSettingConnectionStringsResultOutput {
+	return o
+}
+
+// Connection strings
+func (o ListIngestionSettingConnectionStringsResultOutput) Value() IngestionConnectionStringResponseArrayOutput {
+	return o.ApplyT(func(v ListIngestionSettingConnectionStringsResult) []IngestionConnectionStringResponse {
+		return v.Value
+	}).(IngestionConnectionStringResponseArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(ListIngestionSettingConnectionStringsResultOutput{})
 }

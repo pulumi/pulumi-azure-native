@@ -4,6 +4,9 @@
 package testbase
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -47,4 +50,93 @@ type LookupTestBaseAccountResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.
 	Type string `pulumi:"type"`
+}
+
+func LookupTestBaseAccountOutput(ctx *pulumi.Context, args LookupTestBaseAccountOutputArgs, opts ...pulumi.InvokeOption) LookupTestBaseAccountResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupTestBaseAccountResult, error) {
+			args := v.(LookupTestBaseAccountArgs)
+			r, err := LookupTestBaseAccount(ctx, &args, opts...)
+			return *r, err
+		}).(LookupTestBaseAccountResultOutput)
+}
+
+type LookupTestBaseAccountOutputArgs struct {
+	// The name of the resource group that contains the resource.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The resource name of the Test Base Account.
+	TestBaseAccountName pulumi.StringInput `pulumi:"testBaseAccountName"`
+}
+
+func (LookupTestBaseAccountOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupTestBaseAccountArgs)(nil)).Elem()
+}
+
+// The Test Base Account resource.
+type LookupTestBaseAccountResultOutput struct{ *pulumi.OutputState }
+
+func (LookupTestBaseAccountResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupTestBaseAccountResult)(nil)).Elem()
+}
+
+func (o LookupTestBaseAccountResultOutput) ToLookupTestBaseAccountResultOutput() LookupTestBaseAccountResultOutput {
+	return o
+}
+
+func (o LookupTestBaseAccountResultOutput) ToLookupTestBaseAccountResultOutputWithContext(ctx context.Context) LookupTestBaseAccountResultOutput {
+	return o
+}
+
+// The access level of the Test Base Account.
+func (o LookupTestBaseAccountResultOutput) AccessLevel() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTestBaseAccountResult) string { return v.AccessLevel }).(pulumi.StringOutput)
+}
+
+// Resource Etag.
+func (o LookupTestBaseAccountResultOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTestBaseAccountResult) string { return v.Etag }).(pulumi.StringOutput)
+}
+
+// Resource ID.
+func (o LookupTestBaseAccountResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTestBaseAccountResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The geo-location where the resource lives
+func (o LookupTestBaseAccountResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTestBaseAccountResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o LookupTestBaseAccountResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTestBaseAccountResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The provisioning state of the resource.
+func (o LookupTestBaseAccountResultOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTestBaseAccountResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The SKU of the Test Base Account.
+func (o LookupTestBaseAccountResultOutput) Sku() TestBaseAccountSKUResponseOutput {
+	return o.ApplyT(func(v LookupTestBaseAccountResult) TestBaseAccountSKUResponse { return v.Sku }).(TestBaseAccountSKUResponseOutput)
+}
+
+// The system metadata relating to this resource
+func (o LookupTestBaseAccountResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupTestBaseAccountResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The tags of the resource.
+func (o LookupTestBaseAccountResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupTestBaseAccountResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type.
+func (o LookupTestBaseAccountResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTestBaseAccountResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupTestBaseAccountResultOutput{})
 }

@@ -4,6 +4,9 @@
 package v20200601preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -28,4 +31,48 @@ type GetRegistrationActivationKeyArgs struct {
 type GetRegistrationActivationKeyResult struct {
 	// Azure Stack activation key.
 	ActivationKey *string `pulumi:"activationKey"`
+}
+
+func GetRegistrationActivationKeyOutput(ctx *pulumi.Context, args GetRegistrationActivationKeyOutputArgs, opts ...pulumi.InvokeOption) GetRegistrationActivationKeyResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetRegistrationActivationKeyResult, error) {
+			args := v.(GetRegistrationActivationKeyArgs)
+			r, err := GetRegistrationActivationKey(ctx, &args, opts...)
+			return *r, err
+		}).(GetRegistrationActivationKeyResultOutput)
+}
+
+type GetRegistrationActivationKeyOutputArgs struct {
+	// Name of the Azure Stack registration.
+	RegistrationName pulumi.StringInput `pulumi:"registrationName"`
+	// Name of the resource group.
+	ResourceGroup pulumi.StringInput `pulumi:"resourceGroup"`
+}
+
+func (GetRegistrationActivationKeyOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRegistrationActivationKeyArgs)(nil)).Elem()
+}
+
+// The resource containing the Azure Stack activation key.
+type GetRegistrationActivationKeyResultOutput struct{ *pulumi.OutputState }
+
+func (GetRegistrationActivationKeyResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRegistrationActivationKeyResult)(nil)).Elem()
+}
+
+func (o GetRegistrationActivationKeyResultOutput) ToGetRegistrationActivationKeyResultOutput() GetRegistrationActivationKeyResultOutput {
+	return o
+}
+
+func (o GetRegistrationActivationKeyResultOutput) ToGetRegistrationActivationKeyResultOutputWithContext(ctx context.Context) GetRegistrationActivationKeyResultOutput {
+	return o
+}
+
+// Azure Stack activation key.
+func (o GetRegistrationActivationKeyResultOutput) ActivationKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetRegistrationActivationKeyResult) *string { return v.ActivationKey }).(pulumi.StringPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetRegistrationActivationKeyResultOutput{})
 }

@@ -4,6 +4,9 @@
 package v20210801
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -58,4 +61,120 @@ type LookupIscsiTargetResult struct {
 	TargetIqn string `pulumi:"targetIqn"`
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type string `pulumi:"type"`
+}
+
+func LookupIscsiTargetOutput(ctx *pulumi.Context, args LookupIscsiTargetOutputArgs, opts ...pulumi.InvokeOption) LookupIscsiTargetResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupIscsiTargetResult, error) {
+			args := v.(LookupIscsiTargetArgs)
+			r, err := LookupIscsiTarget(ctx, &args, opts...)
+			return *r, err
+		}).(LookupIscsiTargetResultOutput)
+}
+
+type LookupIscsiTargetOutputArgs struct {
+	// The name of the Disk Pool.
+	DiskPoolName pulumi.StringInput `pulumi:"diskPoolName"`
+	// The name of the iSCSI Target.
+	IscsiTargetName pulumi.StringInput `pulumi:"iscsiTargetName"`
+	// The name of the resource group. The name is case insensitive.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupIscsiTargetOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupIscsiTargetArgs)(nil)).Elem()
+}
+
+// Response for iSCSI Target requests.
+type LookupIscsiTargetResultOutput struct{ *pulumi.OutputState }
+
+func (LookupIscsiTargetResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupIscsiTargetResult)(nil)).Elem()
+}
+
+func (o LookupIscsiTargetResultOutput) ToLookupIscsiTargetResultOutput() LookupIscsiTargetResultOutput {
+	return o
+}
+
+func (o LookupIscsiTargetResultOutput) ToLookupIscsiTargetResultOutputWithContext(ctx context.Context) LookupIscsiTargetResultOutput {
+	return o
+}
+
+// Mode for Target connectivity.
+func (o LookupIscsiTargetResultOutput) AclMode() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupIscsiTargetResult) string { return v.AclMode }).(pulumi.StringOutput)
+}
+
+// List of private IPv4 addresses to connect to the iSCSI Target.
+func (o LookupIscsiTargetResultOutput) Endpoints() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupIscsiTargetResult) []string { return v.Endpoints }).(pulumi.StringArrayOutput)
+}
+
+// Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+func (o LookupIscsiTargetResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupIscsiTargetResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// List of LUNs to be exposed through iSCSI Target.
+func (o LookupIscsiTargetResultOutput) Luns() IscsiLunResponseArrayOutput {
+	return o.ApplyT(func(v LookupIscsiTargetResult) []IscsiLunResponse { return v.Luns }).(IscsiLunResponseArrayOutput)
+}
+
+// Azure resource id. Indicates if this resource is managed by another Azure resource.
+func (o LookupIscsiTargetResultOutput) ManagedBy() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupIscsiTargetResult) string { return v.ManagedBy }).(pulumi.StringOutput)
+}
+
+// List of Azure resource ids that manage this resource.
+func (o LookupIscsiTargetResultOutput) ManagedByExtended() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupIscsiTargetResult) []string { return v.ManagedByExtended }).(pulumi.StringArrayOutput)
+}
+
+// The name of the resource
+func (o LookupIscsiTargetResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupIscsiTargetResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The port used by iSCSI Target portal group.
+func (o LookupIscsiTargetResultOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupIscsiTargetResult) *int { return v.Port }).(pulumi.IntPtrOutput)
+}
+
+// State of the operation on the resource.
+func (o LookupIscsiTargetResultOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupIscsiTargetResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// List of identifiers for active sessions on the iSCSI target
+func (o LookupIscsiTargetResultOutput) Sessions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupIscsiTargetResult) []string { return v.Sessions }).(pulumi.StringArrayOutput)
+}
+
+// Access Control List (ACL) for an iSCSI Target; defines LUN masking policy
+func (o LookupIscsiTargetResultOutput) StaticAcls() AclResponseArrayOutput {
+	return o.ApplyT(func(v LookupIscsiTargetResult) []AclResponse { return v.StaticAcls }).(AclResponseArrayOutput)
+}
+
+// Operational status of the iSCSI Target.
+func (o LookupIscsiTargetResultOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupIscsiTargetResult) string { return v.Status }).(pulumi.StringOutput)
+}
+
+// Resource metadata required by ARM RPC
+func (o LookupIscsiTargetResultOutput) SystemData() SystemMetadataResponseOutput {
+	return o.ApplyT(func(v LookupIscsiTargetResult) SystemMetadataResponse { return v.SystemData }).(SystemMetadataResponseOutput)
+}
+
+// iSCSI Target IQN (iSCSI Qualified Name); example: "iqn.2005-03.org.iscsi:server".
+func (o LookupIscsiTargetResultOutput) TargetIqn() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupIscsiTargetResult) string { return v.TargetIqn }).(pulumi.StringOutput)
+}
+
+// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+func (o LookupIscsiTargetResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupIscsiTargetResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupIscsiTargetResultOutput{})
 }

@@ -4,6 +4,9 @@
 package v20210801
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -42,4 +45,76 @@ type LookupReplicationStorageClassificationMappingResult struct {
 	Properties StorageClassificationMappingPropertiesResponse `pulumi:"properties"`
 	// Resource Type
 	Type string `pulumi:"type"`
+}
+
+func LookupReplicationStorageClassificationMappingOutput(ctx *pulumi.Context, args LookupReplicationStorageClassificationMappingOutputArgs, opts ...pulumi.InvokeOption) LookupReplicationStorageClassificationMappingResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupReplicationStorageClassificationMappingResult, error) {
+			args := v.(LookupReplicationStorageClassificationMappingArgs)
+			r, err := LookupReplicationStorageClassificationMapping(ctx, &args, opts...)
+			return *r, err
+		}).(LookupReplicationStorageClassificationMappingResultOutput)
+}
+
+type LookupReplicationStorageClassificationMappingOutputArgs struct {
+	// Fabric name.
+	FabricName pulumi.StringInput `pulumi:"fabricName"`
+	// The name of the resource group where the recovery services vault is present.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the recovery services vault.
+	ResourceName pulumi.StringInput `pulumi:"resourceName"`
+	// Storage classification mapping name.
+	StorageClassificationMappingName pulumi.StringInput `pulumi:"storageClassificationMappingName"`
+	// Storage classification name.
+	StorageClassificationName pulumi.StringInput `pulumi:"storageClassificationName"`
+}
+
+func (LookupReplicationStorageClassificationMappingOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupReplicationStorageClassificationMappingArgs)(nil)).Elem()
+}
+
+// Storage mapping object.
+type LookupReplicationStorageClassificationMappingResultOutput struct{ *pulumi.OutputState }
+
+func (LookupReplicationStorageClassificationMappingResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupReplicationStorageClassificationMappingResult)(nil)).Elem()
+}
+
+func (o LookupReplicationStorageClassificationMappingResultOutput) ToLookupReplicationStorageClassificationMappingResultOutput() LookupReplicationStorageClassificationMappingResultOutput {
+	return o
+}
+
+func (o LookupReplicationStorageClassificationMappingResultOutput) ToLookupReplicationStorageClassificationMappingResultOutputWithContext(ctx context.Context) LookupReplicationStorageClassificationMappingResultOutput {
+	return o
+}
+
+// Resource Id
+func (o LookupReplicationStorageClassificationMappingResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupReplicationStorageClassificationMappingResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Resource Location
+func (o LookupReplicationStorageClassificationMappingResultOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupReplicationStorageClassificationMappingResult) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Resource Name
+func (o LookupReplicationStorageClassificationMappingResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupReplicationStorageClassificationMappingResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Properties of the storage mapping object.
+func (o LookupReplicationStorageClassificationMappingResultOutput) Properties() StorageClassificationMappingPropertiesResponseOutput {
+	return o.ApplyT(func(v LookupReplicationStorageClassificationMappingResult) StorageClassificationMappingPropertiesResponse {
+		return v.Properties
+	}).(StorageClassificationMappingPropertiesResponseOutput)
+}
+
+// Resource Type
+func (o LookupReplicationStorageClassificationMappingResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupReplicationStorageClassificationMappingResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupReplicationStorageClassificationMappingResultOutput{})
 }

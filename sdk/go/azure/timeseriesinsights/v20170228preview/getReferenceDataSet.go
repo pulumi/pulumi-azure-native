@@ -4,6 +4,9 @@
 package v20170228preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -44,4 +47,85 @@ type LookupReferenceDataSetResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type
 	Type string `pulumi:"type"`
+}
+
+func LookupReferenceDataSetOutput(ctx *pulumi.Context, args LookupReferenceDataSetOutputArgs, opts ...pulumi.InvokeOption) LookupReferenceDataSetResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupReferenceDataSetResult, error) {
+			args := v.(LookupReferenceDataSetArgs)
+			r, err := LookupReferenceDataSet(ctx, &args, opts...)
+			return *r, err
+		}).(LookupReferenceDataSetResultOutput)
+}
+
+type LookupReferenceDataSetOutputArgs struct {
+	// The name of the Time Series Insights environment associated with the specified resource group.
+	EnvironmentName pulumi.StringInput `pulumi:"environmentName"`
+	// The name of the Time Series Insights reference data set associated with the specified environment.
+	ReferenceDataSetName pulumi.StringInput `pulumi:"referenceDataSetName"`
+	// Name of an Azure Resource group.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupReferenceDataSetOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupReferenceDataSetArgs)(nil)).Elem()
+}
+
+// A reference data set provides metadata about the events in an environment. Metadata in the reference data set will be joined with events as they are read from event sources. The metadata that makes up the reference data set is uploaded or modified through the Time Series Insights data plane APIs.
+type LookupReferenceDataSetResultOutput struct{ *pulumi.OutputState }
+
+func (LookupReferenceDataSetResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupReferenceDataSetResult)(nil)).Elem()
+}
+
+func (o LookupReferenceDataSetResultOutput) ToLookupReferenceDataSetResultOutput() LookupReferenceDataSetResultOutput {
+	return o
+}
+
+func (o LookupReferenceDataSetResultOutput) ToLookupReferenceDataSetResultOutputWithContext(ctx context.Context) LookupReferenceDataSetResultOutput {
+	return o
+}
+
+// The time the resource was created.
+func (o LookupReferenceDataSetResultOutput) CreationTime() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupReferenceDataSetResult) string { return v.CreationTime }).(pulumi.StringOutput)
+}
+
+// Resource Id
+func (o LookupReferenceDataSetResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupReferenceDataSetResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The list of key properties for the reference data set.
+func (o LookupReferenceDataSetResultOutput) KeyProperties() ReferenceDataSetKeyPropertyResponseArrayOutput {
+	return o.ApplyT(func(v LookupReferenceDataSetResult) []ReferenceDataSetKeyPropertyResponse { return v.KeyProperties }).(ReferenceDataSetKeyPropertyResponseArrayOutput)
+}
+
+// Resource location
+func (o LookupReferenceDataSetResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupReferenceDataSetResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource name
+func (o LookupReferenceDataSetResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupReferenceDataSetResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Provisioning state of the resource.
+func (o LookupReferenceDataSetResultOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupReferenceDataSetResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Resource tags
+func (o LookupReferenceDataSetResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupReferenceDataSetResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type
+func (o LookupReferenceDataSetResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupReferenceDataSetResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupReferenceDataSetResultOutput{})
 }

@@ -4,6 +4,9 @@
 package media
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -47,4 +50,90 @@ type LookupMediaGraphResult struct {
 	State string `pulumi:"state"`
 	// The type of the resource.
 	Type string `pulumi:"type"`
+}
+
+func LookupMediaGraphOutput(ctx *pulumi.Context, args LookupMediaGraphOutputArgs, opts ...pulumi.InvokeOption) LookupMediaGraphResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupMediaGraphResult, error) {
+			args := v.(LookupMediaGraphArgs)
+			r, err := LookupMediaGraph(ctx, &args, opts...)
+			return *r, err
+		}).(LookupMediaGraphResultOutput)
+}
+
+type LookupMediaGraphOutputArgs struct {
+	// The Media Services account name.
+	AccountName pulumi.StringInput `pulumi:"accountName"`
+	// The Media Graph name.
+	MediaGraphName pulumi.StringInput `pulumi:"mediaGraphName"`
+	// The name of the resource group within the Azure subscription.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupMediaGraphOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupMediaGraphArgs)(nil)).Elem()
+}
+
+// The Media Graph.
+type LookupMediaGraphResultOutput struct{ *pulumi.OutputState }
+
+func (LookupMediaGraphResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupMediaGraphResult)(nil)).Elem()
+}
+
+func (o LookupMediaGraphResultOutput) ToLookupMediaGraphResultOutput() LookupMediaGraphResultOutput {
+	return o
+}
+
+func (o LookupMediaGraphResultOutput) ToLookupMediaGraphResultOutputWithContext(ctx context.Context) LookupMediaGraphResultOutput {
+	return o
+}
+
+// Date the Media Graph was created.
+func (o LookupMediaGraphResultOutput) Created() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupMediaGraphResult) string { return v.Created }).(pulumi.StringOutput)
+}
+
+// Media Graph description.
+func (o LookupMediaGraphResultOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupMediaGraphResult) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Fully qualified resource ID for the resource.
+func (o LookupMediaGraphResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupMediaGraphResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Date the Media Graph was last modified.
+func (o LookupMediaGraphResultOutput) LastModified() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupMediaGraphResult) string { return v.LastModified }).(pulumi.StringOutput)
+}
+
+// The name of the resource.
+func (o LookupMediaGraphResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupMediaGraphResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Media Graph sinks.
+func (o LookupMediaGraphResultOutput) Sinks() MediaGraphAssetSinkResponseArrayOutput {
+	return o.ApplyT(func(v LookupMediaGraphResult) []MediaGraphAssetSinkResponse { return v.Sinks }).(MediaGraphAssetSinkResponseArrayOutput)
+}
+
+// Media Graph sources.
+func (o LookupMediaGraphResultOutput) Sources() MediaGraphRtspSourceResponseArrayOutput {
+	return o.ApplyT(func(v LookupMediaGraphResult) []MediaGraphRtspSourceResponse { return v.Sources }).(MediaGraphRtspSourceResponseArrayOutput)
+}
+
+// Media Graph state which indicates the resource allocation status for running the media graph pipeline.
+func (o LookupMediaGraphResultOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupMediaGraphResult) string { return v.State }).(pulumi.StringOutput)
+}
+
+// The type of the resource.
+func (o LookupMediaGraphResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupMediaGraphResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupMediaGraphResultOutput{})
 }

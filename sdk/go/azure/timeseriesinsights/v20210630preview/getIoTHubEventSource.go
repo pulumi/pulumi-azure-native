@@ -4,6 +4,9 @@
 package v20210630preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -59,4 +62,121 @@ type LookupIoTHubEventSourceResult struct {
 	TimestampPropertyName *string `pulumi:"timestampPropertyName"`
 	// Resource type
 	Type string `pulumi:"type"`
+}
+
+func LookupIoTHubEventSourceOutput(ctx *pulumi.Context, args LookupIoTHubEventSourceOutputArgs, opts ...pulumi.InvokeOption) LookupIoTHubEventSourceResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupIoTHubEventSourceResult, error) {
+			args := v.(LookupIoTHubEventSourceArgs)
+			r, err := LookupIoTHubEventSource(ctx, &args, opts...)
+			return *r, err
+		}).(LookupIoTHubEventSourceResultOutput)
+}
+
+type LookupIoTHubEventSourceOutputArgs struct {
+	// The name of the Time Series Insights environment associated with the specified resource group.
+	EnvironmentName pulumi.StringInput `pulumi:"environmentName"`
+	// The name of the Time Series Insights event source associated with the specified environment.
+	EventSourceName pulumi.StringInput `pulumi:"eventSourceName"`
+	// Name of an Azure Resource group.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupIoTHubEventSourceOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupIoTHubEventSourceArgs)(nil)).Elem()
+}
+
+// An event source that receives its data from an Azure IoTHub.
+type LookupIoTHubEventSourceResultOutput struct{ *pulumi.OutputState }
+
+func (LookupIoTHubEventSourceResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupIoTHubEventSourceResult)(nil)).Elem()
+}
+
+func (o LookupIoTHubEventSourceResultOutput) ToLookupIoTHubEventSourceResultOutput() LookupIoTHubEventSourceResultOutput {
+	return o
+}
+
+func (o LookupIoTHubEventSourceResultOutput) ToLookupIoTHubEventSourceResultOutputWithContext(ctx context.Context) LookupIoTHubEventSourceResultOutput {
+	return o
+}
+
+// The name of the iot hub's consumer group that holds the partitions from which events will be read.
+func (o LookupIoTHubEventSourceResultOutput) ConsumerGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupIoTHubEventSourceResult) string { return v.ConsumerGroupName }).(pulumi.StringOutput)
+}
+
+// The time the resource was created.
+func (o LookupIoTHubEventSourceResultOutput) CreationTime() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupIoTHubEventSourceResult) string { return v.CreationTime }).(pulumi.StringOutput)
+}
+
+// The resource id of the event source in Azure Resource Manager.
+func (o LookupIoTHubEventSourceResultOutput) EventSourceResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupIoTHubEventSourceResult) string { return v.EventSourceResourceId }).(pulumi.StringOutput)
+}
+
+// Resource Id
+func (o LookupIoTHubEventSourceResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupIoTHubEventSourceResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The name of the iot hub.
+func (o LookupIoTHubEventSourceResultOutput) IotHubName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupIoTHubEventSourceResult) string { return v.IotHubName }).(pulumi.StringOutput)
+}
+
+// The name of the Shared Access Policy key that grants the Time Series Insights service access to the iot hub. This shared access policy key must grant 'service connect' permissions to the iot hub.
+func (o LookupIoTHubEventSourceResultOutput) KeyName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupIoTHubEventSourceResult) string { return v.KeyName }).(pulumi.StringOutput)
+}
+
+// The kind of the event source.
+// Expected value is 'Microsoft.IoTHub'.
+func (o LookupIoTHubEventSourceResultOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupIoTHubEventSourceResult) string { return v.Kind }).(pulumi.StringOutput)
+}
+
+// An object that represents the local timestamp property. It contains the format of local timestamp that needs to be used and the corresponding timezone offset information. If a value isn't specified for localTimestamp, or if null, then the local timestamp will not be ingressed with the events.
+func (o LookupIoTHubEventSourceResultOutput) LocalTimestamp() LocalTimestampResponsePtrOutput {
+	return o.ApplyT(func(v LookupIoTHubEventSourceResult) *LocalTimestampResponse { return v.LocalTimestamp }).(LocalTimestampResponsePtrOutput)
+}
+
+// Resource location
+func (o LookupIoTHubEventSourceResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupIoTHubEventSourceResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource name
+func (o LookupIoTHubEventSourceResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupIoTHubEventSourceResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Provisioning state of the resource.
+func (o LookupIoTHubEventSourceResultOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupIoTHubEventSourceResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Resource tags
+func (o LookupIoTHubEventSourceResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupIoTHubEventSourceResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// ISO8601 UTC datetime with seconds precision (milliseconds are optional), specifying the date and time that will be the starting point for Events to be consumed.
+func (o LookupIoTHubEventSourceResultOutput) Time() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupIoTHubEventSourceResult) *string { return v.Time }).(pulumi.StringPtrOutput)
+}
+
+// The event property that will be used as the event source's timestamp. If a value isn't specified for timestampPropertyName, or if null or empty-string is specified, the event creation time will be used.
+func (o LookupIoTHubEventSourceResultOutput) TimestampPropertyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupIoTHubEventSourceResult) *string { return v.TimestampPropertyName }).(pulumi.StringPtrOutput)
+}
+
+// Resource type
+func (o LookupIoTHubEventSourceResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupIoTHubEventSourceResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupIoTHubEventSourceResultOutput{})
 }

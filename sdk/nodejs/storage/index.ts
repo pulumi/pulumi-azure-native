@@ -20,6 +20,7 @@ export * from "./getBlobServiceProperties";
 export * from "./getEncryptionScope";
 export * from "./getFileServiceProperties";
 export * from "./getFileShare";
+export * from "./getLocalUser";
 export * from "./getManagementPolicy";
 export * from "./getObjectReplicationPolicy";
 export * from "./getPrivateEndpointConnection";
@@ -28,9 +29,11 @@ export * from "./getQueueServiceProperties";
 export * from "./getStorageAccount";
 export * from "./getTable";
 export * from "./getTableServiceProperties";
+export * from "./listLocalUserKeys";
 export * from "./listStorageAccountKeys";
 export * from "./listStorageAccountSAS";
 export * from "./listStorageAccountServiceSAS";
+export * from "./localUser";
 export * from "./managementPolicy";
 export * from "./objectReplicationPolicy";
 export * from "./privateEndpointConnection";
@@ -63,6 +66,7 @@ import * as v20210101 from "./v20210101";
 import * as v20210201 from "./v20210201";
 import * as v20210401 from "./v20210401";
 import * as v20210601 from "./v20210601";
+import * as v20210801 from "./v20210801";
 
 export {
     v20150501preview,
@@ -83,6 +87,7 @@ export {
     v20210201,
     v20210401,
     v20210601,
+    v20210801,
 };
 
 // Import resources to register:
@@ -94,6 +99,7 @@ import { BlobServiceProperties } from "./blobServiceProperties";
 import { EncryptionScope } from "./encryptionScope";
 import { FileServiceProperties } from "./fileServiceProperties";
 import { FileShare } from "./fileShare";
+import { LocalUser } from "./localUser";
 import { ManagementPolicy } from "./managementPolicy";
 import { ObjectReplicationPolicy } from "./objectReplicationPolicy";
 import { PrivateEndpointConnection } from "./privateEndpointConnection";
@@ -124,6 +130,8 @@ const _module = {
                 return new FileServiceProperties(name, <any>undefined, { urn })
             case "azure-native:storage:FileShare":
                 return new FileShare(name, <any>undefined, { urn })
+            case "azure-native:storage:LocalUser":
+                return new LocalUser(name, <any>undefined, { urn })
             case "azure-native:storage:ManagementPolicy":
                 return new ManagementPolicy(name, <any>undefined, { urn })
             case "azure-native:storage:ObjectReplicationPolicy":

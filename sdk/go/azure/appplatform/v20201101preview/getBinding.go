@@ -4,6 +4,9 @@
 package v20201101preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -38,4 +41,67 @@ type LookupBindingResult struct {
 	Properties BindingResourcePropertiesResponse `pulumi:"properties"`
 	// The type of the resource.
 	Type string `pulumi:"type"`
+}
+
+func LookupBindingOutput(ctx *pulumi.Context, args LookupBindingOutputArgs, opts ...pulumi.InvokeOption) LookupBindingResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupBindingResult, error) {
+			args := v.(LookupBindingArgs)
+			r, err := LookupBinding(ctx, &args, opts...)
+			return *r, err
+		}).(LookupBindingResultOutput)
+}
+
+type LookupBindingOutputArgs struct {
+	// The name of the App resource.
+	AppName pulumi.StringInput `pulumi:"appName"`
+	// The name of the Binding resource.
+	BindingName pulumi.StringInput `pulumi:"bindingName"`
+	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the Service resource.
+	ServiceName pulumi.StringInput `pulumi:"serviceName"`
+}
+
+func (LookupBindingOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupBindingArgs)(nil)).Elem()
+}
+
+// Binding resource payload
+type LookupBindingResultOutput struct{ *pulumi.OutputState }
+
+func (LookupBindingResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupBindingResult)(nil)).Elem()
+}
+
+func (o LookupBindingResultOutput) ToLookupBindingResultOutput() LookupBindingResultOutput {
+	return o
+}
+
+func (o LookupBindingResultOutput) ToLookupBindingResultOutputWithContext(ctx context.Context) LookupBindingResultOutput {
+	return o
+}
+
+// Fully qualified resource Id for the resource.
+func (o LookupBindingResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBindingResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The name of the resource.
+func (o LookupBindingResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBindingResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Properties of the Binding resource
+func (o LookupBindingResultOutput) Properties() BindingResourcePropertiesResponseOutput {
+	return o.ApplyT(func(v LookupBindingResult) BindingResourcePropertiesResponse { return v.Properties }).(BindingResourcePropertiesResponseOutput)
+}
+
+// The type of the resource.
+func (o LookupBindingResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBindingResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupBindingResultOutput{})
 }

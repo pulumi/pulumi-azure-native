@@ -4,6 +4,9 @@
 package v20150615
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -66,4 +69,149 @@ type LookupVirtualNetworkGatewayConnectionResult struct {
 	VirtualNetworkGateway1 *VirtualNetworkGatewayResponse `pulumi:"virtualNetworkGateway1"`
 	// A common class for general resource information
 	VirtualNetworkGateway2 *VirtualNetworkGatewayResponse `pulumi:"virtualNetworkGateway2"`
+}
+
+func LookupVirtualNetworkGatewayConnectionOutput(ctx *pulumi.Context, args LookupVirtualNetworkGatewayConnectionOutputArgs, opts ...pulumi.InvokeOption) LookupVirtualNetworkGatewayConnectionResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupVirtualNetworkGatewayConnectionResult, error) {
+			args := v.(LookupVirtualNetworkGatewayConnectionArgs)
+			r, err := LookupVirtualNetworkGatewayConnection(ctx, &args, opts...)
+			return *r, err
+		}).(LookupVirtualNetworkGatewayConnectionResultOutput)
+}
+
+type LookupVirtualNetworkGatewayConnectionOutputArgs struct {
+	// The name of the resource group.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the virtual network gateway connection.
+	VirtualNetworkGatewayConnectionName pulumi.StringInput `pulumi:"virtualNetworkGatewayConnectionName"`
+}
+
+func (LookupVirtualNetworkGatewayConnectionOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupVirtualNetworkGatewayConnectionArgs)(nil)).Elem()
+}
+
+// A common class for general resource information
+type LookupVirtualNetworkGatewayConnectionResultOutput struct{ *pulumi.OutputState }
+
+func (LookupVirtualNetworkGatewayConnectionResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupVirtualNetworkGatewayConnectionResult)(nil)).Elem()
+}
+
+func (o LookupVirtualNetworkGatewayConnectionResultOutput) ToLookupVirtualNetworkGatewayConnectionResultOutput() LookupVirtualNetworkGatewayConnectionResultOutput {
+	return o
+}
+
+func (o LookupVirtualNetworkGatewayConnectionResultOutput) ToLookupVirtualNetworkGatewayConnectionResultOutputWithContext(ctx context.Context) LookupVirtualNetworkGatewayConnectionResultOutput {
+	return o
+}
+
+// The authorizationKey.
+func (o LookupVirtualNetworkGatewayConnectionResultOutput) AuthorizationKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVirtualNetworkGatewayConnectionResult) *string { return v.AuthorizationKey }).(pulumi.StringPtrOutput)
+}
+
+// Virtual network Gateway connection status. Possible values are 'Unknown', 'Connecting', 'Connected' and 'NotConnected'.
+func (o LookupVirtualNetworkGatewayConnectionResultOutput) ConnectionStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVirtualNetworkGatewayConnectionResult) *string { return v.ConnectionStatus }).(pulumi.StringPtrOutput)
+}
+
+// Gateway connection type. Possible values are: 'IPsec','Vnet2Vnet','ExpressRoute', and 'VPNClient.
+func (o LookupVirtualNetworkGatewayConnectionResultOutput) ConnectionType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVirtualNetworkGatewayConnectionResult) *string { return v.ConnectionType }).(pulumi.StringPtrOutput)
+}
+
+// The egress bytes transferred in this connection.
+func (o LookupVirtualNetworkGatewayConnectionResultOutput) EgressBytesTransferred() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v LookupVirtualNetworkGatewayConnectionResult) *float64 { return v.EgressBytesTransferred }).(pulumi.Float64PtrOutput)
+}
+
+// EnableBgp flag
+func (o LookupVirtualNetworkGatewayConnectionResultOutput) EnableBgp() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupVirtualNetworkGatewayConnectionResult) *bool { return v.EnableBgp }).(pulumi.BoolPtrOutput)
+}
+
+// Gets a unique read-only string that changes whenever the resource is updated.
+func (o LookupVirtualNetworkGatewayConnectionResultOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVirtualNetworkGatewayConnectionResult) *string { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// Resource Identifier.
+func (o LookupVirtualNetworkGatewayConnectionResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVirtualNetworkGatewayConnectionResult) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// The ingress bytes transferred in this connection.
+func (o LookupVirtualNetworkGatewayConnectionResultOutput) IngressBytesTransferred() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v LookupVirtualNetworkGatewayConnectionResult) *float64 { return v.IngressBytesTransferred }).(pulumi.Float64PtrOutput)
+}
+
+// A common class for general resource information
+func (o LookupVirtualNetworkGatewayConnectionResultOutput) LocalNetworkGateway2() LocalNetworkGatewayResponsePtrOutput {
+	return o.ApplyT(func(v LookupVirtualNetworkGatewayConnectionResult) *LocalNetworkGatewayResponse {
+		return v.LocalNetworkGateway2
+	}).(LocalNetworkGatewayResponsePtrOutput)
+}
+
+// Resource location.
+func (o LookupVirtualNetworkGatewayConnectionResultOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVirtualNetworkGatewayConnectionResult) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Resource name.
+func (o LookupVirtualNetworkGatewayConnectionResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVirtualNetworkGatewayConnectionResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The reference to peerings resource.
+func (o LookupVirtualNetworkGatewayConnectionResultOutput) Peer() SubResourceResponsePtrOutput {
+	return o.ApplyT(func(v LookupVirtualNetworkGatewayConnectionResult) *SubResourceResponse { return v.Peer }).(SubResourceResponsePtrOutput)
+}
+
+// The provisioning state of the VirtualNetworkGatewayConnection resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+func (o LookupVirtualNetworkGatewayConnectionResultOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVirtualNetworkGatewayConnectionResult) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+}
+
+// The resource GUID property of the VirtualNetworkGatewayConnection resource.
+func (o LookupVirtualNetworkGatewayConnectionResultOutput) ResourceGuid() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVirtualNetworkGatewayConnectionResult) *string { return v.ResourceGuid }).(pulumi.StringPtrOutput)
+}
+
+// The routing weight.
+func (o LookupVirtualNetworkGatewayConnectionResultOutput) RoutingWeight() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupVirtualNetworkGatewayConnectionResult) *int { return v.RoutingWeight }).(pulumi.IntPtrOutput)
+}
+
+// The IPSec shared key.
+func (o LookupVirtualNetworkGatewayConnectionResultOutput) SharedKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVirtualNetworkGatewayConnectionResult) *string { return v.SharedKey }).(pulumi.StringPtrOutput)
+}
+
+// Resource tags.
+func (o LookupVirtualNetworkGatewayConnectionResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupVirtualNetworkGatewayConnectionResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type.
+func (o LookupVirtualNetworkGatewayConnectionResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVirtualNetworkGatewayConnectionResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// A common class for general resource information
+func (o LookupVirtualNetworkGatewayConnectionResultOutput) VirtualNetworkGateway1() VirtualNetworkGatewayResponsePtrOutput {
+	return o.ApplyT(func(v LookupVirtualNetworkGatewayConnectionResult) *VirtualNetworkGatewayResponse {
+		return v.VirtualNetworkGateway1
+	}).(VirtualNetworkGatewayResponsePtrOutput)
+}
+
+// A common class for general resource information
+func (o LookupVirtualNetworkGatewayConnectionResultOutput) VirtualNetworkGateway2() VirtualNetworkGatewayResponsePtrOutput {
+	return o.ApplyT(func(v LookupVirtualNetworkGatewayConnectionResult) *VirtualNetworkGatewayResponse {
+		return v.VirtualNetworkGateway2
+	}).(VirtualNetworkGatewayResponsePtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupVirtualNetworkGatewayConnectionResultOutput{})
 }

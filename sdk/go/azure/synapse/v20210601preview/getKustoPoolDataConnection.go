@@ -4,6 +4,9 @@
 package v20210601preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -46,4 +49,79 @@ type LookupKustoPoolDataConnectionResult struct {
 	SystemData SystemDataResponse `pulumi:"systemData"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
+}
+
+func LookupKustoPoolDataConnectionOutput(ctx *pulumi.Context, args LookupKustoPoolDataConnectionOutputArgs, opts ...pulumi.InvokeOption) LookupKustoPoolDataConnectionResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupKustoPoolDataConnectionResult, error) {
+			args := v.(LookupKustoPoolDataConnectionArgs)
+			r, err := LookupKustoPoolDataConnection(ctx, &args, opts...)
+			return *r, err
+		}).(LookupKustoPoolDataConnectionResultOutput)
+}
+
+type LookupKustoPoolDataConnectionOutputArgs struct {
+	// The name of the data connection.
+	DataConnectionName pulumi.StringInput `pulumi:"dataConnectionName"`
+	// The name of the database in the Kusto pool.
+	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
+	// The name of the Kusto pool.
+	KustoPoolName pulumi.StringInput `pulumi:"kustoPoolName"`
+	// The name of the resource group. The name is case insensitive.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the workspace.
+	WorkspaceName pulumi.StringInput `pulumi:"workspaceName"`
+}
+
+func (LookupKustoPoolDataConnectionOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupKustoPoolDataConnectionArgs)(nil)).Elem()
+}
+
+// Class representing a data connection.
+type LookupKustoPoolDataConnectionResultOutput struct{ *pulumi.OutputState }
+
+func (LookupKustoPoolDataConnectionResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupKustoPoolDataConnectionResult)(nil)).Elem()
+}
+
+func (o LookupKustoPoolDataConnectionResultOutput) ToLookupKustoPoolDataConnectionResultOutput() LookupKustoPoolDataConnectionResultOutput {
+	return o
+}
+
+func (o LookupKustoPoolDataConnectionResultOutput) ToLookupKustoPoolDataConnectionResultOutputWithContext(ctx context.Context) LookupKustoPoolDataConnectionResultOutput {
+	return o
+}
+
+// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+func (o LookupKustoPoolDataConnectionResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupKustoPoolDataConnectionResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Kind of the endpoint for the data connection
+func (o LookupKustoPoolDataConnectionResultOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupKustoPoolDataConnectionResult) string { return v.Kind }).(pulumi.StringOutput)
+}
+
+// Resource location.
+func (o LookupKustoPoolDataConnectionResultOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupKustoPoolDataConnectionResult) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource
+func (o LookupKustoPoolDataConnectionResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupKustoPoolDataConnectionResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+func (o LookupKustoPoolDataConnectionResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupKustoPoolDataConnectionResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o LookupKustoPoolDataConnectionResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupKustoPoolDataConnectionResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupKustoPoolDataConnectionResultOutput{})
 }

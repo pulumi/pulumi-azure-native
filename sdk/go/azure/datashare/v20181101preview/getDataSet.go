@@ -4,6 +4,9 @@
 package v20181101preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -40,4 +43,67 @@ type LookupDataSetResult struct {
 	Name string `pulumi:"name"`
 	// Type of the azure resource
 	Type string `pulumi:"type"`
+}
+
+func LookupDataSetOutput(ctx *pulumi.Context, args LookupDataSetOutputArgs, opts ...pulumi.InvokeOption) LookupDataSetResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupDataSetResult, error) {
+			args := v.(LookupDataSetArgs)
+			r, err := LookupDataSet(ctx, &args, opts...)
+			return *r, err
+		}).(LookupDataSetResultOutput)
+}
+
+type LookupDataSetOutputArgs struct {
+	// The name of the share account.
+	AccountName pulumi.StringInput `pulumi:"accountName"`
+	// The name of the dataSet.
+	DataSetName pulumi.StringInput `pulumi:"dataSetName"`
+	// The resource group name.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the share.
+	ShareName pulumi.StringInput `pulumi:"shareName"`
+}
+
+func (LookupDataSetOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupDataSetArgs)(nil)).Elem()
+}
+
+// A DataSet data transfer object.
+type LookupDataSetResultOutput struct{ *pulumi.OutputState }
+
+func (LookupDataSetResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupDataSetResult)(nil)).Elem()
+}
+
+func (o LookupDataSetResultOutput) ToLookupDataSetResultOutput() LookupDataSetResultOutput {
+	return o
+}
+
+func (o LookupDataSetResultOutput) ToLookupDataSetResultOutputWithContext(ctx context.Context) LookupDataSetResultOutput {
+	return o
+}
+
+// The resource id of the azure resource
+func (o LookupDataSetResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDataSetResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Kind of data set.
+func (o LookupDataSetResultOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDataSetResult) string { return v.Kind }).(pulumi.StringOutput)
+}
+
+// Name of the azure resource
+func (o LookupDataSetResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDataSetResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Type of the azure resource
+func (o LookupDataSetResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDataSetResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupDataSetResultOutput{})
 }

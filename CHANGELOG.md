@@ -3,22 +3,33 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 
+(None)
+
+---
+
+## 1.53.0 (2022-01-10)
+
 #### New resources:
 
 - `operationalinsights.Table`
 - `security.Scanner`
+- `storage.LocalUser`
 
 #### New functions:
 
 - `operationalinsights.getTable`
 - `security.getScanner`
+- `storage.getLocalUser`
+- `storage.listLocalUserKeys`
 - `web.listContainerAppSecrets`
+
+#### Enhancements:
+
+- Input/output based functions API in Go SDK
 
 #### Bug fixes:
 
 - Correct case of `storageaccount.VirtualNetworkRule.State` values 
-
----
 
 ## 1.52.0 (2021-12-29)
 

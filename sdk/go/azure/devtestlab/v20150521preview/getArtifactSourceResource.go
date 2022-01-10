@@ -4,6 +4,9 @@
 package v20150521preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -54,4 +57,110 @@ type LookupArtifactSourceResourceResult struct {
 	Type *string `pulumi:"type"`
 	// The URI of the artifact source.
 	Uri *string `pulumi:"uri"`
+}
+
+func LookupArtifactSourceResourceOutput(ctx *pulumi.Context, args LookupArtifactSourceResourceOutputArgs, opts ...pulumi.InvokeOption) LookupArtifactSourceResourceResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupArtifactSourceResourceResult, error) {
+			args := v.(LookupArtifactSourceResourceArgs)
+			r, err := LookupArtifactSourceResource(ctx, &args, opts...)
+			return *r, err
+		}).(LookupArtifactSourceResourceResultOutput)
+}
+
+type LookupArtifactSourceResourceOutputArgs struct {
+	// The name of the lab.
+	LabName pulumi.StringInput `pulumi:"labName"`
+	// The name of the artifact source.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The name of the resource group.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupArtifactSourceResourceOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupArtifactSourceResourceArgs)(nil)).Elem()
+}
+
+// Properties of an artifact source.
+type LookupArtifactSourceResourceResultOutput struct{ *pulumi.OutputState }
+
+func (LookupArtifactSourceResourceResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupArtifactSourceResourceResult)(nil)).Elem()
+}
+
+func (o LookupArtifactSourceResourceResultOutput) ToLookupArtifactSourceResourceResultOutput() LookupArtifactSourceResourceResultOutput {
+	return o
+}
+
+func (o LookupArtifactSourceResourceResultOutput) ToLookupArtifactSourceResourceResultOutputWithContext(ctx context.Context) LookupArtifactSourceResourceResultOutput {
+	return o
+}
+
+// The branch reference of the artifact source.
+func (o LookupArtifactSourceResourceResultOutput) BranchRef() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupArtifactSourceResourceResult) *string { return v.BranchRef }).(pulumi.StringPtrOutput)
+}
+
+// The display name of the artifact source.
+func (o LookupArtifactSourceResourceResultOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupArtifactSourceResourceResult) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+// The folder path of the artifact source.
+func (o LookupArtifactSourceResourceResultOutput) FolderPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupArtifactSourceResourceResult) *string { return v.FolderPath }).(pulumi.StringPtrOutput)
+}
+
+// The identifier of the resource.
+func (o LookupArtifactSourceResourceResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupArtifactSourceResourceResult) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// The location of the resource.
+func (o LookupArtifactSourceResourceResultOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupArtifactSourceResourceResult) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource.
+func (o LookupArtifactSourceResourceResultOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupArtifactSourceResourceResult) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The provisioning status of the resource.
+func (o LookupArtifactSourceResourceResultOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupArtifactSourceResourceResult) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+}
+
+// The security token of the artifact source.
+func (o LookupArtifactSourceResourceResultOutput) SecurityToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupArtifactSourceResourceResult) *string { return v.SecurityToken }).(pulumi.StringPtrOutput)
+}
+
+// The type of the artifact source.
+func (o LookupArtifactSourceResourceResultOutput) SourceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupArtifactSourceResourceResult) *string { return v.SourceType }).(pulumi.StringPtrOutput)
+}
+
+// The status of the artifact source.
+func (o LookupArtifactSourceResourceResultOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupArtifactSourceResourceResult) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+// The tags of the resource.
+func (o LookupArtifactSourceResourceResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupArtifactSourceResourceResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource.
+func (o LookupArtifactSourceResourceResultOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupArtifactSourceResourceResult) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+// The URI of the artifact source.
+func (o LookupArtifactSourceResourceResultOutput) Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupArtifactSourceResourceResult) *string { return v.Uri }).(pulumi.StringPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupArtifactSourceResourceResultOutput{})
 }

@@ -4,6 +4,9 @@
 package v20180301beta
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -30,4 +33,53 @@ type ListSaasSubscriptionLevelAccessTokenResult struct {
 	PublisherOfferBaseUri *string `pulumi:"publisherOfferBaseUri"`
 	// The generated token
 	Token *string `pulumi:"token"`
+}
+
+func ListSaasSubscriptionLevelAccessTokenOutput(ctx *pulumi.Context, args ListSaasSubscriptionLevelAccessTokenOutputArgs, opts ...pulumi.InvokeOption) ListSaasSubscriptionLevelAccessTokenResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (ListSaasSubscriptionLevelAccessTokenResult, error) {
+			args := v.(ListSaasSubscriptionLevelAccessTokenArgs)
+			r, err := ListSaasSubscriptionLevelAccessToken(ctx, &args, opts...)
+			return *r, err
+		}).(ListSaasSubscriptionLevelAccessTokenResultOutput)
+}
+
+type ListSaasSubscriptionLevelAccessTokenOutputArgs struct {
+	// The name of the resource group.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the resource.
+	ResourceName pulumi.StringInput `pulumi:"resourceName"`
+}
+
+func (ListSaasSubscriptionLevelAccessTokenOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListSaasSubscriptionLevelAccessTokenArgs)(nil)).Elem()
+}
+
+// the ISV access token result response.
+type ListSaasSubscriptionLevelAccessTokenResultOutput struct{ *pulumi.OutputState }
+
+func (ListSaasSubscriptionLevelAccessTokenResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListSaasSubscriptionLevelAccessTokenResult)(nil)).Elem()
+}
+
+func (o ListSaasSubscriptionLevelAccessTokenResultOutput) ToListSaasSubscriptionLevelAccessTokenResultOutput() ListSaasSubscriptionLevelAccessTokenResultOutput {
+	return o
+}
+
+func (o ListSaasSubscriptionLevelAccessTokenResultOutput) ToListSaasSubscriptionLevelAccessTokenResultOutputWithContext(ctx context.Context) ListSaasSubscriptionLevelAccessTokenResultOutput {
+	return o
+}
+
+// The Publisher Offer Base Uri
+func (o ListSaasSubscriptionLevelAccessTokenResultOutput) PublisherOfferBaseUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListSaasSubscriptionLevelAccessTokenResult) *string { return v.PublisherOfferBaseUri }).(pulumi.StringPtrOutput)
+}
+
+// The generated token
+func (o ListSaasSubscriptionLevelAccessTokenResultOutput) Token() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListSaasSubscriptionLevelAccessTokenResult) *string { return v.Token }).(pulumi.StringPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(ListSaasSubscriptionLevelAccessTokenResultOutput{})
 }

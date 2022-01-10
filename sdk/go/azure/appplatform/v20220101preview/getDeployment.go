@@ -4,6 +4,9 @@
 package v20220101preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -53,4 +56,77 @@ func (val *LookupDeploymentResult) Defaults() *LookupDeploymentResult {
 	tmp.Sku = tmp.Sku.Defaults()
 
 	return &tmp
+}
+
+func LookupDeploymentOutput(ctx *pulumi.Context, args LookupDeploymentOutputArgs, opts ...pulumi.InvokeOption) LookupDeploymentResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupDeploymentResult, error) {
+			args := v.(LookupDeploymentArgs)
+			r, err := LookupDeployment(ctx, &args, opts...)
+			return *r, err
+		}).(LookupDeploymentResultOutput)
+}
+
+type LookupDeploymentOutputArgs struct {
+	// The name of the App resource.
+	AppName pulumi.StringInput `pulumi:"appName"`
+	// The name of the Deployment resource.
+	DeploymentName pulumi.StringInput `pulumi:"deploymentName"`
+	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the Service resource.
+	ServiceName pulumi.StringInput `pulumi:"serviceName"`
+}
+
+func (LookupDeploymentOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupDeploymentArgs)(nil)).Elem()
+}
+
+// Deployment resource payload
+type LookupDeploymentResultOutput struct{ *pulumi.OutputState }
+
+func (LookupDeploymentResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupDeploymentResult)(nil)).Elem()
+}
+
+func (o LookupDeploymentResultOutput) ToLookupDeploymentResultOutput() LookupDeploymentResultOutput {
+	return o
+}
+
+func (o LookupDeploymentResultOutput) ToLookupDeploymentResultOutputWithContext(ctx context.Context) LookupDeploymentResultOutput {
+	return o
+}
+
+// Fully qualified resource Id for the resource.
+func (o LookupDeploymentResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDeploymentResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The name of the resource.
+func (o LookupDeploymentResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDeploymentResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Properties of the Deployment resource
+func (o LookupDeploymentResultOutput) Properties() DeploymentResourcePropertiesResponseOutput {
+	return o.ApplyT(func(v LookupDeploymentResult) DeploymentResourcePropertiesResponse { return v.Properties }).(DeploymentResourcePropertiesResponseOutput)
+}
+
+// Sku of the Deployment resource
+func (o LookupDeploymentResultOutput) Sku() SkuResponsePtrOutput {
+	return o.ApplyT(func(v LookupDeploymentResult) *SkuResponse { return v.Sku }).(SkuResponsePtrOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o LookupDeploymentResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupDeploymentResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the resource.
+func (o LookupDeploymentResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDeploymentResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupDeploymentResultOutput{})
 }

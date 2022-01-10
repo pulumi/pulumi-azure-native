@@ -4,6 +4,9 @@
 package v20180601preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -46,4 +49,90 @@ type LookupStreamingPolicyResult struct {
 	NoEncryption *NoEncryptionResponse `pulumi:"noEncryption"`
 	// The type of the resource.
 	Type string `pulumi:"type"`
+}
+
+func LookupStreamingPolicyOutput(ctx *pulumi.Context, args LookupStreamingPolicyOutputArgs, opts ...pulumi.InvokeOption) LookupStreamingPolicyResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupStreamingPolicyResult, error) {
+			args := v.(LookupStreamingPolicyArgs)
+			r, err := LookupStreamingPolicy(ctx, &args, opts...)
+			return *r, err
+		}).(LookupStreamingPolicyResultOutput)
+}
+
+type LookupStreamingPolicyOutputArgs struct {
+	// The Media Services account name.
+	AccountName pulumi.StringInput `pulumi:"accountName"`
+	// The name of the resource group within the Azure subscription.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The Streaming Policy name.
+	StreamingPolicyName pulumi.StringInput `pulumi:"streamingPolicyName"`
+}
+
+func (LookupStreamingPolicyOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupStreamingPolicyArgs)(nil)).Elem()
+}
+
+// A Streaming Policy resource
+type LookupStreamingPolicyResultOutput struct{ *pulumi.OutputState }
+
+func (LookupStreamingPolicyResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupStreamingPolicyResult)(nil)).Elem()
+}
+
+func (o LookupStreamingPolicyResultOutput) ToLookupStreamingPolicyResultOutput() LookupStreamingPolicyResultOutput {
+	return o
+}
+
+func (o LookupStreamingPolicyResultOutput) ToLookupStreamingPolicyResultOutputWithContext(ctx context.Context) LookupStreamingPolicyResultOutput {
+	return o
+}
+
+// Configuration of CommonEncryptionCbcs
+func (o LookupStreamingPolicyResultOutput) CommonEncryptionCbcs() CommonEncryptionCbcsResponsePtrOutput {
+	return o.ApplyT(func(v LookupStreamingPolicyResult) *CommonEncryptionCbcsResponse { return v.CommonEncryptionCbcs }).(CommonEncryptionCbcsResponsePtrOutput)
+}
+
+// Configuration of CommonEncryptionCenc
+func (o LookupStreamingPolicyResultOutput) CommonEncryptionCenc() CommonEncryptionCencResponsePtrOutput {
+	return o.ApplyT(func(v LookupStreamingPolicyResult) *CommonEncryptionCencResponse { return v.CommonEncryptionCenc }).(CommonEncryptionCencResponsePtrOutput)
+}
+
+// Creation time of Streaming Policy
+func (o LookupStreamingPolicyResultOutput) Created() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupStreamingPolicyResult) string { return v.Created }).(pulumi.StringOutput)
+}
+
+// Default ContentKey used by current Streaming Policy
+func (o LookupStreamingPolicyResultOutput) DefaultContentKeyPolicyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupStreamingPolicyResult) *string { return v.DefaultContentKeyPolicyName }).(pulumi.StringPtrOutput)
+}
+
+// Configuration of EnvelopeEncryption
+func (o LookupStreamingPolicyResultOutput) EnvelopeEncryption() EnvelopeEncryptionResponsePtrOutput {
+	return o.ApplyT(func(v LookupStreamingPolicyResult) *EnvelopeEncryptionResponse { return v.EnvelopeEncryption }).(EnvelopeEncryptionResponsePtrOutput)
+}
+
+// Fully qualified resource ID for the resource.
+func (o LookupStreamingPolicyResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupStreamingPolicyResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The name of the resource.
+func (o LookupStreamingPolicyResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupStreamingPolicyResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Configurations of NoEncryption
+func (o LookupStreamingPolicyResultOutput) NoEncryption() NoEncryptionResponsePtrOutput {
+	return o.ApplyT(func(v LookupStreamingPolicyResult) *NoEncryptionResponse { return v.NoEncryption }).(NoEncryptionResponsePtrOutput)
+}
+
+// The type of the resource.
+func (o LookupStreamingPolicyResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupStreamingPolicyResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupStreamingPolicyResultOutput{})
 }

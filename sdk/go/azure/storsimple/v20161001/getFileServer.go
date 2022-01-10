@@ -4,6 +4,9 @@
 package v20161001
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -44,4 +47,82 @@ type LookupFileServerResult struct {
 	StorageDomainId string `pulumi:"storageDomainId"`
 	// The type.
 	Type string `pulumi:"type"`
+}
+
+func LookupFileServerOutput(ctx *pulumi.Context, args LookupFileServerOutputArgs, opts ...pulumi.InvokeOption) LookupFileServerResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupFileServerResult, error) {
+			args := v.(LookupFileServerArgs)
+			r, err := LookupFileServer(ctx, &args, opts...)
+			return *r, err
+		}).(LookupFileServerResultOutput)
+}
+
+type LookupFileServerOutputArgs struct {
+	// The device name.
+	DeviceName pulumi.StringInput `pulumi:"deviceName"`
+	// The file server name.
+	FileServerName pulumi.StringInput `pulumi:"fileServerName"`
+	// The manager name
+	ManagerName pulumi.StringInput `pulumi:"managerName"`
+	// The resource group name
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupFileServerOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupFileServerArgs)(nil)).Elem()
+}
+
+// The file server.
+type LookupFileServerResultOutput struct{ *pulumi.OutputState }
+
+func (LookupFileServerResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupFileServerResult)(nil)).Elem()
+}
+
+func (o LookupFileServerResultOutput) ToLookupFileServerResultOutput() LookupFileServerResultOutput {
+	return o
+}
+
+func (o LookupFileServerResultOutput) ToLookupFileServerResultOutputWithContext(ctx context.Context) LookupFileServerResultOutput {
+	return o
+}
+
+// The backup policy id.
+func (o LookupFileServerResultOutput) BackupScheduleGroupId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupFileServerResult) string { return v.BackupScheduleGroupId }).(pulumi.StringOutput)
+}
+
+// The description of the file server
+func (o LookupFileServerResultOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupFileServerResult) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Domain of the file server
+func (o LookupFileServerResultOutput) DomainName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupFileServerResult) string { return v.DomainName }).(pulumi.StringOutput)
+}
+
+// The identifier.
+func (o LookupFileServerResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupFileServerResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The name.
+func (o LookupFileServerResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupFileServerResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The storage domain id.
+func (o LookupFileServerResultOutput) StorageDomainId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupFileServerResult) string { return v.StorageDomainId }).(pulumi.StringOutput)
+}
+
+// The type.
+func (o LookupFileServerResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupFileServerResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupFileServerResultOutput{})
 }

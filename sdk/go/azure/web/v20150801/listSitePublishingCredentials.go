@@ -4,6 +4,9 @@
 package v20150801
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -44,4 +47,88 @@ type ListSitePublishingCredentialsResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type
 	Type *string `pulumi:"type"`
+}
+
+func ListSitePublishingCredentialsOutput(ctx *pulumi.Context, args ListSitePublishingCredentialsOutputArgs, opts ...pulumi.InvokeOption) ListSitePublishingCredentialsResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (ListSitePublishingCredentialsResult, error) {
+			args := v.(ListSitePublishingCredentialsArgs)
+			r, err := ListSitePublishingCredentials(ctx, &args, opts...)
+			return *r, err
+		}).(ListSitePublishingCredentialsResultOutput)
+}
+
+type ListSitePublishingCredentialsOutputArgs struct {
+	// Name of web app
+	Name pulumi.StringInput `pulumi:"name"`
+	// Name of resource group
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (ListSitePublishingCredentialsOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListSitePublishingCredentialsArgs)(nil)).Elem()
+}
+
+// Represents user credentials used for publishing activity
+type ListSitePublishingCredentialsResultOutput struct{ *pulumi.OutputState }
+
+func (ListSitePublishingCredentialsResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListSitePublishingCredentialsResult)(nil)).Elem()
+}
+
+func (o ListSitePublishingCredentialsResultOutput) ToListSitePublishingCredentialsResultOutput() ListSitePublishingCredentialsResultOutput {
+	return o
+}
+
+func (o ListSitePublishingCredentialsResultOutput) ToListSitePublishingCredentialsResultOutputWithContext(ctx context.Context) ListSitePublishingCredentialsResultOutput {
+	return o
+}
+
+// Resource Id
+func (o ListSitePublishingCredentialsResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListSitePublishingCredentialsResult) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// Kind of resource
+func (o ListSitePublishingCredentialsResultOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListSitePublishingCredentialsResult) *string { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Resource Location
+func (o ListSitePublishingCredentialsResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v ListSitePublishingCredentialsResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource Name
+func (o ListSitePublishingCredentialsResultOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListSitePublishingCredentialsResult) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Password used for publishing
+func (o ListSitePublishingCredentialsResultOutput) PublishingPassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListSitePublishingCredentialsResult) *string { return v.PublishingPassword }).(pulumi.StringPtrOutput)
+}
+
+// Username used for publishing
+func (o ListSitePublishingCredentialsResultOutput) PublishingUserName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListSitePublishingCredentialsResult) *string { return v.PublishingUserName }).(pulumi.StringPtrOutput)
+}
+
+// Service Control Manager URI, including username and password
+func (o ListSitePublishingCredentialsResultOutput) ScmUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListSitePublishingCredentialsResult) *string { return v.ScmUri }).(pulumi.StringPtrOutput)
+}
+
+// Resource tags
+func (o ListSitePublishingCredentialsResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ListSitePublishingCredentialsResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type
+func (o ListSitePublishingCredentialsResultOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListSitePublishingCredentialsResult) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(ListSitePublishingCredentialsResultOutput{})
 }

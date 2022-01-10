@@ -4,6 +4,9 @@
 package v20210315preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -52,4 +55,110 @@ type LookupCustomLocationResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
+}
+
+func LookupCustomLocationOutput(ctx *pulumi.Context, args LookupCustomLocationOutputArgs, opts ...pulumi.InvokeOption) LookupCustomLocationResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupCustomLocationResult, error) {
+			args := v.(LookupCustomLocationArgs)
+			r, err := LookupCustomLocation(ctx, &args, opts...)
+			return *r, err
+		}).(LookupCustomLocationResultOutput)
+}
+
+type LookupCustomLocationOutputArgs struct {
+	// The name of the resource group. The name is case insensitive.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// Custom Locations name.
+	ResourceName pulumi.StringInput `pulumi:"resourceName"`
+}
+
+func (LookupCustomLocationOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupCustomLocationArgs)(nil)).Elem()
+}
+
+// Custom Locations definition.
+type LookupCustomLocationResultOutput struct{ *pulumi.OutputState }
+
+func (LookupCustomLocationResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupCustomLocationResult)(nil)).Elem()
+}
+
+func (o LookupCustomLocationResultOutput) ToLookupCustomLocationResultOutput() LookupCustomLocationResultOutput {
+	return o
+}
+
+func (o LookupCustomLocationResultOutput) ToLookupCustomLocationResultOutputWithContext(ctx context.Context) LookupCustomLocationResultOutput {
+	return o
+}
+
+// This is optional input that contains the authentication that should be used to generate the namespace.
+func (o LookupCustomLocationResultOutput) Authentication() CustomLocationPropertiesResponseAuthenticationPtrOutput {
+	return o.ApplyT(func(v LookupCustomLocationResult) *CustomLocationPropertiesResponseAuthentication {
+		return v.Authentication
+	}).(CustomLocationPropertiesResponseAuthenticationPtrOutput)
+}
+
+// Contains the reference to the add-on that contains charts to deploy CRDs and operators.
+func (o LookupCustomLocationResultOutput) ClusterExtensionIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupCustomLocationResult) []string { return v.ClusterExtensionIds }).(pulumi.StringArrayOutput)
+}
+
+// Display name for the Custom Locations location.
+func (o LookupCustomLocationResultOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupCustomLocationResult) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+// Connected Cluster or AKS Cluster. The Custom Locations RP will perform a checkAccess API for listAdminCredentials permissions.
+func (o LookupCustomLocationResultOutput) HostResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupCustomLocationResult) *string { return v.HostResourceId }).(pulumi.StringPtrOutput)
+}
+
+// Type of host the Custom Locations is referencing (Kubernetes, etc...).
+func (o LookupCustomLocationResultOutput) HostType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupCustomLocationResult) *string { return v.HostType }).(pulumi.StringPtrOutput)
+}
+
+// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+func (o LookupCustomLocationResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCustomLocationResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The geo-location where the resource lives
+func (o LookupCustomLocationResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCustomLocationResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o LookupCustomLocationResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCustomLocationResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Kubernetes namespace that will be created on the specified cluster.
+func (o LookupCustomLocationResultOutput) Namespace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupCustomLocationResult) *string { return v.Namespace }).(pulumi.StringPtrOutput)
+}
+
+// Provisioning State for the Custom Location.
+func (o LookupCustomLocationResultOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupCustomLocationResult) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource
+func (o LookupCustomLocationResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupCustomLocationResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource tags.
+func (o LookupCustomLocationResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupCustomLocationResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o LookupCustomLocationResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCustomLocationResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupCustomLocationResultOutput{})
 }

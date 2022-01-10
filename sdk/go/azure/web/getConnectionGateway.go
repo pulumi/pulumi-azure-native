@@ -4,6 +4,9 @@
 package web
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -42,4 +45,81 @@ type LookupConnectionGatewayResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type
 	Type string `pulumi:"type"`
+}
+
+func LookupConnectionGatewayOutput(ctx *pulumi.Context, args LookupConnectionGatewayOutputArgs, opts ...pulumi.InvokeOption) LookupConnectionGatewayResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupConnectionGatewayResult, error) {
+			args := v.(LookupConnectionGatewayArgs)
+			r, err := LookupConnectionGateway(ctx, &args, opts...)
+			return *r, err
+		}).(LookupConnectionGatewayResultOutput)
+}
+
+type LookupConnectionGatewayOutputArgs struct {
+	// The connection gateway name
+	ConnectionGatewayName pulumi.StringInput `pulumi:"connectionGatewayName"`
+	// The resource group
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// Subscription Id
+	SubscriptionId pulumi.StringPtrInput `pulumi:"subscriptionId"`
+}
+
+func (LookupConnectionGatewayOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupConnectionGatewayArgs)(nil)).Elem()
+}
+
+// The gateway definition
+type LookupConnectionGatewayResultOutput struct{ *pulumi.OutputState }
+
+func (LookupConnectionGatewayResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupConnectionGatewayResult)(nil)).Elem()
+}
+
+func (o LookupConnectionGatewayResultOutput) ToLookupConnectionGatewayResultOutput() LookupConnectionGatewayResultOutput {
+	return o
+}
+
+func (o LookupConnectionGatewayResultOutput) ToLookupConnectionGatewayResultOutputWithContext(ctx context.Context) LookupConnectionGatewayResultOutput {
+	return o
+}
+
+// Resource ETag
+func (o LookupConnectionGatewayResultOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupConnectionGatewayResult) *string { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// Resource id
+func (o LookupConnectionGatewayResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupConnectionGatewayResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Resource location
+func (o LookupConnectionGatewayResultOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupConnectionGatewayResult) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Resource name
+func (o LookupConnectionGatewayResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupConnectionGatewayResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupConnectionGatewayResultOutput) Properties() ConnectionGatewayDefinitionResponsePropertiesOutput {
+	return o.ApplyT(func(v LookupConnectionGatewayResult) ConnectionGatewayDefinitionResponseProperties {
+		return v.Properties
+	}).(ConnectionGatewayDefinitionResponsePropertiesOutput)
+}
+
+// Resource tags
+func (o LookupConnectionGatewayResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupConnectionGatewayResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type
+func (o LookupConnectionGatewayResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupConnectionGatewayResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupConnectionGatewayResultOutput{})
 }

@@ -4,6 +4,9 @@
 package v20200401preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -30,4 +33,50 @@ type GetSystemTopicEventSubscriptionFullUrlArgs struct {
 type GetSystemTopicEventSubscriptionFullUrlResult struct {
 	// The URL that represents the endpoint of the destination of an event subscription.
 	EndpointUrl *string `pulumi:"endpointUrl"`
+}
+
+func GetSystemTopicEventSubscriptionFullUrlOutput(ctx *pulumi.Context, args GetSystemTopicEventSubscriptionFullUrlOutputArgs, opts ...pulumi.InvokeOption) GetSystemTopicEventSubscriptionFullUrlResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetSystemTopicEventSubscriptionFullUrlResult, error) {
+			args := v.(GetSystemTopicEventSubscriptionFullUrlArgs)
+			r, err := GetSystemTopicEventSubscriptionFullUrl(ctx, &args, opts...)
+			return *r, err
+		}).(GetSystemTopicEventSubscriptionFullUrlResultOutput)
+}
+
+type GetSystemTopicEventSubscriptionFullUrlOutputArgs struct {
+	// Name of the event subscription to be created. Event subscription names must be between 3 and 100 characters in length and use alphanumeric letters only.
+	EventSubscriptionName pulumi.StringInput `pulumi:"eventSubscriptionName"`
+	// The name of the resource group within the user's subscription.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// Name of the system topic.
+	SystemTopicName pulumi.StringInput `pulumi:"systemTopicName"`
+}
+
+func (GetSystemTopicEventSubscriptionFullUrlOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSystemTopicEventSubscriptionFullUrlArgs)(nil)).Elem()
+}
+
+// Full endpoint url of an event subscription
+type GetSystemTopicEventSubscriptionFullUrlResultOutput struct{ *pulumi.OutputState }
+
+func (GetSystemTopicEventSubscriptionFullUrlResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSystemTopicEventSubscriptionFullUrlResult)(nil)).Elem()
+}
+
+func (o GetSystemTopicEventSubscriptionFullUrlResultOutput) ToGetSystemTopicEventSubscriptionFullUrlResultOutput() GetSystemTopicEventSubscriptionFullUrlResultOutput {
+	return o
+}
+
+func (o GetSystemTopicEventSubscriptionFullUrlResultOutput) ToGetSystemTopicEventSubscriptionFullUrlResultOutputWithContext(ctx context.Context) GetSystemTopicEventSubscriptionFullUrlResultOutput {
+	return o
+}
+
+// The URL that represents the endpoint of the destination of an event subscription.
+func (o GetSystemTopicEventSubscriptionFullUrlResultOutput) EndpointUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetSystemTopicEventSubscriptionFullUrlResult) *string { return v.EndpointUrl }).(pulumi.StringPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetSystemTopicEventSubscriptionFullUrlResultOutput{})
 }

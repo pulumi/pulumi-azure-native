@@ -4,6 +4,9 @@
 package v20160627preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -57,4 +60,88 @@ func (val *LookupRegistryResult) Defaults() *LookupRegistryResult {
 		tmp.AdminUserEnabled = &adminUserEnabled_
 	}
 	return &tmp
+}
+
+func LookupRegistryOutput(ctx *pulumi.Context, args LookupRegistryOutputArgs, opts ...pulumi.InvokeOption) LookupRegistryResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupRegistryResult, error) {
+			args := v.(LookupRegistryArgs)
+			r, err := LookupRegistry(ctx, &args, opts...)
+			return *r, err
+		}).(LookupRegistryResultOutput)
+}
+
+type LookupRegistryOutputArgs struct {
+	// The name of the container registry.
+	RegistryName pulumi.StringInput `pulumi:"registryName"`
+	// The name of the resource group to which the container registry belongs.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupRegistryOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupRegistryArgs)(nil)).Elem()
+}
+
+// An object that represents a container registry.
+type LookupRegistryResultOutput struct{ *pulumi.OutputState }
+
+func (LookupRegistryResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupRegistryResult)(nil)).Elem()
+}
+
+func (o LookupRegistryResultOutput) ToLookupRegistryResultOutput() LookupRegistryResultOutput {
+	return o
+}
+
+func (o LookupRegistryResultOutput) ToLookupRegistryResultOutputWithContext(ctx context.Context) LookupRegistryResultOutput {
+	return o
+}
+
+// The value that indicates whether the admin user is enabled. This value is false by default.
+func (o LookupRegistryResultOutput) AdminUserEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupRegistryResult) *bool { return v.AdminUserEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// The creation date of the container registry in ISO8601 format.
+func (o LookupRegistryResultOutput) CreationDate() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRegistryResult) string { return v.CreationDate }).(pulumi.StringOutput)
+}
+
+// The resource ID.
+func (o LookupRegistryResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRegistryResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The location of the resource. This cannot be changed after the resource is created.
+func (o LookupRegistryResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRegistryResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// The URL that can be used to log into the container registry.
+func (o LookupRegistryResultOutput) LoginServer() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRegistryResult) string { return v.LoginServer }).(pulumi.StringOutput)
+}
+
+// The name of the resource.
+func (o LookupRegistryResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRegistryResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The properties of the storage account for the container registry. If specified, the storage account must be in the same physical location as the container registry.
+func (o LookupRegistryResultOutput) StorageAccount() StorageAccountPropertiesResponseOutput {
+	return o.ApplyT(func(v LookupRegistryResult) StorageAccountPropertiesResponse { return v.StorageAccount }).(StorageAccountPropertiesResponseOutput)
+}
+
+// The tags of the resource.
+func (o LookupRegistryResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupRegistryResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource.
+func (o LookupRegistryResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRegistryResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupRegistryResultOutput{})
 }

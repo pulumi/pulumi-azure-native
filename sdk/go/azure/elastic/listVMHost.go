@@ -4,6 +4,9 @@
 package elastic
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -31,4 +34,53 @@ type ListVMHostResult struct {
 	NextLink *string `pulumi:"nextLink"`
 	// Results of a list operation.
 	Value []VMResourcesResponse `pulumi:"value"`
+}
+
+func ListVMHostOutput(ctx *pulumi.Context, args ListVMHostOutputArgs, opts ...pulumi.InvokeOption) ListVMHostResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (ListVMHostResult, error) {
+			args := v.(ListVMHostArgs)
+			r, err := ListVMHost(ctx, &args, opts...)
+			return *r, err
+		}).(ListVMHostResultOutput)
+}
+
+type ListVMHostOutputArgs struct {
+	// Monitor resource name
+	MonitorName pulumi.StringInput `pulumi:"monitorName"`
+	// The name of the resource group to which the Elastic resource belongs.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (ListVMHostOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListVMHostArgs)(nil)).Elem()
+}
+
+// Response of a list operation.
+type ListVMHostResultOutput struct{ *pulumi.OutputState }
+
+func (ListVMHostResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListVMHostResult)(nil)).Elem()
+}
+
+func (o ListVMHostResultOutput) ToListVMHostResultOutput() ListVMHostResultOutput {
+	return o
+}
+
+func (o ListVMHostResultOutput) ToListVMHostResultOutputWithContext(ctx context.Context) ListVMHostResultOutput {
+	return o
+}
+
+// Link to the next Vm resource Id, if any.
+func (o ListVMHostResultOutput) NextLink() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListVMHostResult) *string { return v.NextLink }).(pulumi.StringPtrOutput)
+}
+
+// Results of a list operation.
+func (o ListVMHostResultOutput) Value() VMResourcesResponseArrayOutput {
+	return o.ApplyT(func(v ListVMHostResult) []VMResourcesResponse { return v.Value }).(VMResourcesResponseArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(ListVMHostResultOutput{})
 }

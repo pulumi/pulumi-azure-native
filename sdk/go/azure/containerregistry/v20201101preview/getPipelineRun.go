@@ -4,6 +4,9 @@
 package v20201101preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -57,4 +60,85 @@ func (val *LookupPipelineRunResult) Defaults() *LookupPipelineRunResult {
 	tmp.Response = *tmp.Response.Defaults()
 
 	return &tmp
+}
+
+func LookupPipelineRunOutput(ctx *pulumi.Context, args LookupPipelineRunOutputArgs, opts ...pulumi.InvokeOption) LookupPipelineRunResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupPipelineRunResult, error) {
+			args := v.(LookupPipelineRunArgs)
+			r, err := LookupPipelineRun(ctx, &args, opts...)
+			return *r, err
+		}).(LookupPipelineRunResultOutput)
+}
+
+type LookupPipelineRunOutputArgs struct {
+	// The name of the pipeline run.
+	PipelineRunName pulumi.StringInput `pulumi:"pipelineRunName"`
+	// The name of the container registry.
+	RegistryName pulumi.StringInput `pulumi:"registryName"`
+	// The name of the resource group to which the container registry belongs.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupPipelineRunOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupPipelineRunArgs)(nil)).Elem()
+}
+
+// An object that represents a pipeline run for a container registry.
+type LookupPipelineRunResultOutput struct{ *pulumi.OutputState }
+
+func (LookupPipelineRunResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupPipelineRunResult)(nil)).Elem()
+}
+
+func (o LookupPipelineRunResultOutput) ToLookupPipelineRunResultOutput() LookupPipelineRunResultOutput {
+	return o
+}
+
+func (o LookupPipelineRunResultOutput) ToLookupPipelineRunResultOutputWithContext(ctx context.Context) LookupPipelineRunResultOutput {
+	return o
+}
+
+// How the pipeline run should be forced to recreate even if the pipeline run configuration has not changed.
+func (o LookupPipelineRunResultOutput) ForceUpdateTag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupPipelineRunResult) *string { return v.ForceUpdateTag }).(pulumi.StringPtrOutput)
+}
+
+// The resource ID.
+func (o LookupPipelineRunResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPipelineRunResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The name of the resource.
+func (o LookupPipelineRunResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPipelineRunResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The provisioning state of a pipeline run.
+func (o LookupPipelineRunResultOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPipelineRunResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The request parameters for a pipeline run.
+func (o LookupPipelineRunResultOutput) Request() PipelineRunRequestResponsePtrOutput {
+	return o.ApplyT(func(v LookupPipelineRunResult) *PipelineRunRequestResponse { return v.Request }).(PipelineRunRequestResponsePtrOutput)
+}
+
+// The response of a pipeline run.
+func (o LookupPipelineRunResultOutput) Response() PipelineRunResponseResponseOutput {
+	return o.ApplyT(func(v LookupPipelineRunResult) PipelineRunResponseResponse { return v.Response }).(PipelineRunResponseResponseOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o LookupPipelineRunResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupPipelineRunResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the resource.
+func (o LookupPipelineRunResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPipelineRunResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupPipelineRunResultOutput{})
 }

@@ -4,6 +4,9 @@
 package v20170426
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -56,4 +59,115 @@ type LookupConnectorResult struct {
 	TenantId string `pulumi:"tenantId"`
 	// Resource type.
 	Type string `pulumi:"type"`
+}
+
+func LookupConnectorOutput(ctx *pulumi.Context, args LookupConnectorOutputArgs, opts ...pulumi.InvokeOption) LookupConnectorResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupConnectorResult, error) {
+			args := v.(LookupConnectorArgs)
+			r, err := LookupConnector(ctx, &args, opts...)
+			return *r, err
+		}).(LookupConnectorResultOutput)
+}
+
+type LookupConnectorOutputArgs struct {
+	// The name of the connector.
+	ConnectorName pulumi.StringInput `pulumi:"connectorName"`
+	// The name of the hub.
+	HubName pulumi.StringInput `pulumi:"hubName"`
+	// The name of the resource group.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupConnectorOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupConnectorArgs)(nil)).Elem()
+}
+
+// The connector resource format.
+type LookupConnectorResultOutput struct{ *pulumi.OutputState }
+
+func (LookupConnectorResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupConnectorResult)(nil)).Elem()
+}
+
+func (o LookupConnectorResultOutput) ToLookupConnectorResultOutput() LookupConnectorResultOutput {
+	return o
+}
+
+func (o LookupConnectorResultOutput) ToLookupConnectorResultOutputWithContext(ctx context.Context) LookupConnectorResultOutput {
+	return o
+}
+
+// ID of the connector.
+func (o LookupConnectorResultOutput) ConnectorId() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupConnectorResult) int { return v.ConnectorId }).(pulumi.IntOutput)
+}
+
+// Name of the connector.
+func (o LookupConnectorResultOutput) ConnectorName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupConnectorResult) *string { return v.ConnectorName }).(pulumi.StringPtrOutput)
+}
+
+// The connector properties.
+func (o LookupConnectorResultOutput) ConnectorProperties() pulumi.MapOutput {
+	return o.ApplyT(func(v LookupConnectorResult) map[string]interface{} { return v.ConnectorProperties }).(pulumi.MapOutput)
+}
+
+// Type of connector.
+func (o LookupConnectorResultOutput) ConnectorType() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupConnectorResult) string { return v.ConnectorType }).(pulumi.StringOutput)
+}
+
+// The created time.
+func (o LookupConnectorResultOutput) Created() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupConnectorResult) string { return v.Created }).(pulumi.StringOutput)
+}
+
+// Description of the connector.
+func (o LookupConnectorResultOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupConnectorResult) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Display name of the connector.
+func (o LookupConnectorResultOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupConnectorResult) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+// Resource ID.
+func (o LookupConnectorResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupConnectorResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// If this is an internal connector.
+func (o LookupConnectorResultOutput) IsInternal() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupConnectorResult) *bool { return v.IsInternal }).(pulumi.BoolPtrOutput)
+}
+
+// The last modified time.
+func (o LookupConnectorResultOutput) LastModified() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupConnectorResult) string { return v.LastModified }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o LookupConnectorResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupConnectorResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// State of connector.
+func (o LookupConnectorResultOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupConnectorResult) string { return v.State }).(pulumi.StringOutput)
+}
+
+// The hub name.
+func (o LookupConnectorResultOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupConnectorResult) string { return v.TenantId }).(pulumi.StringOutput)
+}
+
+// Resource type.
+func (o LookupConnectorResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupConnectorResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupConnectorResultOutput{})
 }

@@ -4,6 +4,9 @@
 package servicefabricmesh
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -43,4 +46,80 @@ type LookupSecretValueResult struct {
 	Type string `pulumi:"type"`
 	// The actual value of the secret.
 	Value *string `pulumi:"value"`
+}
+
+func LookupSecretValueOutput(ctx *pulumi.Context, args LookupSecretValueOutputArgs, opts ...pulumi.InvokeOption) LookupSecretValueResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupSecretValueResult, error) {
+			args := v.(LookupSecretValueArgs)
+			r, err := LookupSecretValue(ctx, &args, opts...)
+			return *r, err
+		}).(LookupSecretValueResultOutput)
+}
+
+type LookupSecretValueOutputArgs struct {
+	// Azure resource group name
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the secret resource.
+	SecretResourceName pulumi.StringInput `pulumi:"secretResourceName"`
+	// The name of the secret resource value which is typically the version identifier for the value.
+	SecretValueResourceName pulumi.StringInput `pulumi:"secretValueResourceName"`
+}
+
+func (LookupSecretValueOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupSecretValueArgs)(nil)).Elem()
+}
+
+// This type describes a value of a secret resource. The name of this resource is the version identifier corresponding to this secret value.
+type LookupSecretValueResultOutput struct{ *pulumi.OutputState }
+
+func (LookupSecretValueResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupSecretValueResult)(nil)).Elem()
+}
+
+func (o LookupSecretValueResultOutput) ToLookupSecretValueResultOutput() LookupSecretValueResultOutput {
+	return o
+}
+
+func (o LookupSecretValueResultOutput) ToLookupSecretValueResultOutputWithContext(ctx context.Context) LookupSecretValueResultOutput {
+	return o
+}
+
+// Fully qualified identifier for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+func (o LookupSecretValueResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSecretValueResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The geo-location where the resource lives
+func (o LookupSecretValueResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSecretValueResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o LookupSecretValueResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSecretValueResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// State of the resource.
+func (o LookupSecretValueResultOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSecretValueResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Resource tags.
+func (o LookupSecretValueResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupSecretValueResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+func (o LookupSecretValueResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSecretValueResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The actual value of the secret.
+func (o LookupSecretValueResultOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSecretValueResult) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupSecretValueResultOutput{})
 }

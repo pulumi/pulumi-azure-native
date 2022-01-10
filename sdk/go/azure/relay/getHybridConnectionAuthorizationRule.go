@@ -4,6 +4,9 @@
 package relay
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -39,4 +42,67 @@ type LookupHybridConnectionAuthorizationRuleResult struct {
 	Rights []string `pulumi:"rights"`
 	// Resource type.
 	Type string `pulumi:"type"`
+}
+
+func LookupHybridConnectionAuthorizationRuleOutput(ctx *pulumi.Context, args LookupHybridConnectionAuthorizationRuleOutputArgs, opts ...pulumi.InvokeOption) LookupHybridConnectionAuthorizationRuleResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupHybridConnectionAuthorizationRuleResult, error) {
+			args := v.(LookupHybridConnectionAuthorizationRuleArgs)
+			r, err := LookupHybridConnectionAuthorizationRule(ctx, &args, opts...)
+			return *r, err
+		}).(LookupHybridConnectionAuthorizationRuleResultOutput)
+}
+
+type LookupHybridConnectionAuthorizationRuleOutputArgs struct {
+	// The authorization rule name.
+	AuthorizationRuleName pulumi.StringInput `pulumi:"authorizationRuleName"`
+	// The hybrid connection name.
+	HybridConnectionName pulumi.StringInput `pulumi:"hybridConnectionName"`
+	// The namespace name
+	NamespaceName pulumi.StringInput `pulumi:"namespaceName"`
+	// Name of the Resource group within the Azure subscription.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupHybridConnectionAuthorizationRuleOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupHybridConnectionAuthorizationRuleArgs)(nil)).Elem()
+}
+
+// Description of a namespace authorization rule.
+type LookupHybridConnectionAuthorizationRuleResultOutput struct{ *pulumi.OutputState }
+
+func (LookupHybridConnectionAuthorizationRuleResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupHybridConnectionAuthorizationRuleResult)(nil)).Elem()
+}
+
+func (o LookupHybridConnectionAuthorizationRuleResultOutput) ToLookupHybridConnectionAuthorizationRuleResultOutput() LookupHybridConnectionAuthorizationRuleResultOutput {
+	return o
+}
+
+func (o LookupHybridConnectionAuthorizationRuleResultOutput) ToLookupHybridConnectionAuthorizationRuleResultOutputWithContext(ctx context.Context) LookupHybridConnectionAuthorizationRuleResultOutput {
+	return o
+}
+
+// Resource ID.
+func (o LookupHybridConnectionAuthorizationRuleResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupHybridConnectionAuthorizationRuleResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o LookupHybridConnectionAuthorizationRuleResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupHybridConnectionAuthorizationRuleResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The rights associated with the rule.
+func (o LookupHybridConnectionAuthorizationRuleResultOutput) Rights() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupHybridConnectionAuthorizationRuleResult) []string { return v.Rights }).(pulumi.StringArrayOutput)
+}
+
+// Resource type.
+func (o LookupHybridConnectionAuthorizationRuleResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupHybridConnectionAuthorizationRuleResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupHybridConnectionAuthorizationRuleResultOutput{})
 }

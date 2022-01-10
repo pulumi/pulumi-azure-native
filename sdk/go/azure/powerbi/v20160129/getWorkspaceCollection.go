@@ -4,6 +4,9 @@
 package v20160129
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -36,4 +39,75 @@ type LookupWorkspaceCollectionResult struct {
 	Tags       map[string]string `pulumi:"tags"`
 	// Resource type
 	Type *string `pulumi:"type"`
+}
+
+func LookupWorkspaceCollectionOutput(ctx *pulumi.Context, args LookupWorkspaceCollectionOutputArgs, opts ...pulumi.InvokeOption) LookupWorkspaceCollectionResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupWorkspaceCollectionResult, error) {
+			args := v.(LookupWorkspaceCollectionArgs)
+			r, err := LookupWorkspaceCollection(ctx, &args, opts...)
+			return *r, err
+		}).(LookupWorkspaceCollectionResultOutput)
+}
+
+type LookupWorkspaceCollectionOutputArgs struct {
+	// Azure resource group
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// Power BI Embedded Workspace Collection name
+	WorkspaceCollectionName pulumi.StringInput `pulumi:"workspaceCollectionName"`
+}
+
+func (LookupWorkspaceCollectionOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupWorkspaceCollectionArgs)(nil)).Elem()
+}
+
+type LookupWorkspaceCollectionResultOutput struct{ *pulumi.OutputState }
+
+func (LookupWorkspaceCollectionResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupWorkspaceCollectionResult)(nil)).Elem()
+}
+
+func (o LookupWorkspaceCollectionResultOutput) ToLookupWorkspaceCollectionResultOutput() LookupWorkspaceCollectionResultOutput {
+	return o
+}
+
+func (o LookupWorkspaceCollectionResultOutput) ToLookupWorkspaceCollectionResultOutputWithContext(ctx context.Context) LookupWorkspaceCollectionResultOutput {
+	return o
+}
+
+// Resource id
+func (o LookupWorkspaceCollectionResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupWorkspaceCollectionResult) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// Azure location
+func (o LookupWorkspaceCollectionResultOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupWorkspaceCollectionResult) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Workspace collection name
+func (o LookupWorkspaceCollectionResultOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupWorkspaceCollectionResult) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Properties
+func (o LookupWorkspaceCollectionResultOutput) Properties() pulumi.AnyOutput {
+	return o.ApplyT(func(v LookupWorkspaceCollectionResult) interface{} { return v.Properties }).(pulumi.AnyOutput)
+}
+
+func (o LookupWorkspaceCollectionResultOutput) Sku() AzureSkuResponsePtrOutput {
+	return o.ApplyT(func(v LookupWorkspaceCollectionResult) *AzureSkuResponse { return v.Sku }).(AzureSkuResponsePtrOutput)
+}
+
+func (o LookupWorkspaceCollectionResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupWorkspaceCollectionResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type
+func (o LookupWorkspaceCollectionResultOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupWorkspaceCollectionResult) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupWorkspaceCollectionResultOutput{})
 }

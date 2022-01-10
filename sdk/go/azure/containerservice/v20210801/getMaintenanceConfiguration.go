@@ -4,6 +4,9 @@
 package v20210801
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -40,4 +43,75 @@ type LookupMaintenanceConfigurationResult struct {
 	TimeInWeek []TimeInWeekResponse `pulumi:"timeInWeek"`
 	// Resource type
 	Type string `pulumi:"type"`
+}
+
+func LookupMaintenanceConfigurationOutput(ctx *pulumi.Context, args LookupMaintenanceConfigurationOutputArgs, opts ...pulumi.InvokeOption) LookupMaintenanceConfigurationResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupMaintenanceConfigurationResult, error) {
+			args := v.(LookupMaintenanceConfigurationArgs)
+			r, err := LookupMaintenanceConfiguration(ctx, &args, opts...)
+			return *r, err
+		}).(LookupMaintenanceConfigurationResultOutput)
+}
+
+type LookupMaintenanceConfigurationOutputArgs struct {
+	// The name of the maintenance configuration.
+	ConfigName pulumi.StringInput `pulumi:"configName"`
+	// The name of the resource group.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the managed cluster resource.
+	ResourceName pulumi.StringInput `pulumi:"resourceName"`
+}
+
+func (LookupMaintenanceConfigurationOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupMaintenanceConfigurationArgs)(nil)).Elem()
+}
+
+// See [planned maintenance](https://docs.microsoft.com/azure/aks/planned-maintenance) for more information about planned maintenance.
+type LookupMaintenanceConfigurationResultOutput struct{ *pulumi.OutputState }
+
+func (LookupMaintenanceConfigurationResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupMaintenanceConfigurationResult)(nil)).Elem()
+}
+
+func (o LookupMaintenanceConfigurationResultOutput) ToLookupMaintenanceConfigurationResultOutput() LookupMaintenanceConfigurationResultOutput {
+	return o
+}
+
+func (o LookupMaintenanceConfigurationResultOutput) ToLookupMaintenanceConfigurationResultOutputWithContext(ctx context.Context) LookupMaintenanceConfigurationResultOutput {
+	return o
+}
+
+// Resource ID.
+func (o LookupMaintenanceConfigurationResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupMaintenanceConfigurationResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The name of the resource that is unique within a resource group. This name can be used to access the resource.
+func (o LookupMaintenanceConfigurationResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupMaintenanceConfigurationResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Time slots on which upgrade is not allowed.
+func (o LookupMaintenanceConfigurationResultOutput) NotAllowedTime() TimeSpanResponseArrayOutput {
+	return o.ApplyT(func(v LookupMaintenanceConfigurationResult) []TimeSpanResponse { return v.NotAllowedTime }).(TimeSpanResponseArrayOutput)
+}
+
+// The system metadata relating to this resource.
+func (o LookupMaintenanceConfigurationResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupMaintenanceConfigurationResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// If two array entries specify the same day of the week, the applied configuration is the union of times in both entries.
+func (o LookupMaintenanceConfigurationResultOutput) TimeInWeek() TimeInWeekResponseArrayOutput {
+	return o.ApplyT(func(v LookupMaintenanceConfigurationResult) []TimeInWeekResponse { return v.TimeInWeek }).(TimeInWeekResponseArrayOutput)
+}
+
+// Resource type
+func (o LookupMaintenanceConfigurationResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupMaintenanceConfigurationResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupMaintenanceConfigurationResultOutput{})
 }

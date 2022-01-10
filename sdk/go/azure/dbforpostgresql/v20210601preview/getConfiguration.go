@@ -4,6 +4,9 @@
 package v20210601preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -58,4 +61,120 @@ type LookupConfigurationResult struct {
 	Unit string `pulumi:"unit"`
 	// Value of the configuration.
 	Value *string `pulumi:"value"`
+}
+
+func LookupConfigurationOutput(ctx *pulumi.Context, args LookupConfigurationOutputArgs, opts ...pulumi.InvokeOption) LookupConfigurationResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupConfigurationResult, error) {
+			args := v.(LookupConfigurationArgs)
+			r, err := LookupConfiguration(ctx, &args, opts...)
+			return *r, err
+		}).(LookupConfigurationResultOutput)
+}
+
+type LookupConfigurationOutputArgs struct {
+	// The name of the server configuration.
+	ConfigurationName pulumi.StringInput `pulumi:"configurationName"`
+	// The name of the resource group. The name is case insensitive.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the server.
+	ServerName pulumi.StringInput `pulumi:"serverName"`
+}
+
+func (LookupConfigurationOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupConfigurationArgs)(nil)).Elem()
+}
+
+// Represents a Configuration.
+type LookupConfigurationResultOutput struct{ *pulumi.OutputState }
+
+func (LookupConfigurationResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupConfigurationResult)(nil)).Elem()
+}
+
+func (o LookupConfigurationResultOutput) ToLookupConfigurationResultOutput() LookupConfigurationResultOutput {
+	return o
+}
+
+func (o LookupConfigurationResultOutput) ToLookupConfigurationResultOutputWithContext(ctx context.Context) LookupConfigurationResultOutput {
+	return o
+}
+
+// Allowed values of the configuration.
+func (o LookupConfigurationResultOutput) AllowedValues() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupConfigurationResult) string { return v.AllowedValues }).(pulumi.StringOutput)
+}
+
+// Data type of the configuration.
+func (o LookupConfigurationResultOutput) DataType() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupConfigurationResult) string { return v.DataType }).(pulumi.StringOutput)
+}
+
+// Default value of the configuration.
+func (o LookupConfigurationResultOutput) DefaultValue() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupConfigurationResult) string { return v.DefaultValue }).(pulumi.StringOutput)
+}
+
+// Description of the configuration.
+func (o LookupConfigurationResultOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupConfigurationResult) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// Configuration documentation link.
+func (o LookupConfigurationResultOutput) DocumentationLink() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupConfigurationResult) string { return v.DocumentationLink }).(pulumi.StringOutput)
+}
+
+// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+func (o LookupConfigurationResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupConfigurationResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Configuration is pending restart or not.
+func (o LookupConfigurationResultOutput) IsConfigPendingRestart() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupConfigurationResult) bool { return v.IsConfigPendingRestart }).(pulumi.BoolOutput)
+}
+
+// Configuration dynamic or static.
+func (o LookupConfigurationResultOutput) IsDynamicConfig() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupConfigurationResult) bool { return v.IsDynamicConfig }).(pulumi.BoolOutput)
+}
+
+// Configuration read-only or not.
+func (o LookupConfigurationResultOutput) IsReadOnly() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupConfigurationResult) bool { return v.IsReadOnly }).(pulumi.BoolOutput)
+}
+
+// The name of the resource
+func (o LookupConfigurationResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupConfigurationResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Source of the configuration.
+func (o LookupConfigurationResultOutput) Source() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupConfigurationResult) *string { return v.Source }).(pulumi.StringPtrOutput)
+}
+
+// The system metadata relating to this resource.
+func (o LookupConfigurationResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupConfigurationResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o LookupConfigurationResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupConfigurationResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Configuration unit.
+func (o LookupConfigurationResultOutput) Unit() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupConfigurationResult) string { return v.Unit }).(pulumi.StringOutput)
+}
+
+// Value of the configuration.
+func (o LookupConfigurationResultOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupConfigurationResult) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupConfigurationResultOutput{})
 }

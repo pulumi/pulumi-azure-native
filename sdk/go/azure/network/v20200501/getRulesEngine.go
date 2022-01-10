@@ -4,6 +4,9 @@
 package v20200501
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -38,4 +41,70 @@ type LookupRulesEngineResult struct {
 	Rules []RulesEngineRuleResponse `pulumi:"rules"`
 	// Resource type.
 	Type string `pulumi:"type"`
+}
+
+func LookupRulesEngineOutput(ctx *pulumi.Context, args LookupRulesEngineOutputArgs, opts ...pulumi.InvokeOption) LookupRulesEngineResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupRulesEngineResult, error) {
+			args := v.(LookupRulesEngineArgs)
+			r, err := LookupRulesEngine(ctx, &args, opts...)
+			return *r, err
+		}).(LookupRulesEngineResultOutput)
+}
+
+type LookupRulesEngineOutputArgs struct {
+	// Name of the Front Door which is globally unique.
+	FrontDoorName pulumi.StringInput `pulumi:"frontDoorName"`
+	// Name of the Resource group within the Azure subscription.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// Name of the Rules Engine which is unique within the Front Door.
+	RulesEngineName pulumi.StringInput `pulumi:"rulesEngineName"`
+}
+
+func (LookupRulesEngineOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupRulesEngineArgs)(nil)).Elem()
+}
+
+// A rules engine configuration containing a list of rules that will run to modify the runtime behavior of the request and response.
+type LookupRulesEngineResultOutput struct{ *pulumi.OutputState }
+
+func (LookupRulesEngineResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupRulesEngineResult)(nil)).Elem()
+}
+
+func (o LookupRulesEngineResultOutput) ToLookupRulesEngineResultOutput() LookupRulesEngineResultOutput {
+	return o
+}
+
+func (o LookupRulesEngineResultOutput) ToLookupRulesEngineResultOutputWithContext(ctx context.Context) LookupRulesEngineResultOutput {
+	return o
+}
+
+// Resource ID.
+func (o LookupRulesEngineResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRulesEngineResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o LookupRulesEngineResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRulesEngineResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Resource status.
+func (o LookupRulesEngineResultOutput) ResourceState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRulesEngineResult) string { return v.ResourceState }).(pulumi.StringOutput)
+}
+
+// A list of rules that define a particular Rules Engine Configuration.
+func (o LookupRulesEngineResultOutput) Rules() RulesEngineRuleResponseArrayOutput {
+	return o.ApplyT(func(v LookupRulesEngineResult) []RulesEngineRuleResponse { return v.Rules }).(RulesEngineRuleResponseArrayOutput)
+}
+
+// Resource type.
+func (o LookupRulesEngineResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRulesEngineResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupRulesEngineResultOutput{})
 }

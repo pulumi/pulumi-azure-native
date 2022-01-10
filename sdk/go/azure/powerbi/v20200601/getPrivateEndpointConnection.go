@@ -4,6 +4,9 @@
 package v20200601
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -40,4 +43,81 @@ type LookupPrivateEndpointConnectionResult struct {
 	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Specifies the type of the resource.
 	Type string `pulumi:"type"`
+}
+
+func LookupPrivateEndpointConnectionOutput(ctx *pulumi.Context, args LookupPrivateEndpointConnectionOutputArgs, opts ...pulumi.InvokeOption) LookupPrivateEndpointConnectionResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupPrivateEndpointConnectionResult, error) {
+			args := v.(LookupPrivateEndpointConnectionArgs)
+			r, err := LookupPrivateEndpointConnection(ctx, &args, opts...)
+			return *r, err
+		}).(LookupPrivateEndpointConnectionResultOutput)
+}
+
+type LookupPrivateEndpointConnectionOutputArgs struct {
+	// The name of the Azure resource.
+	AzureResourceName pulumi.StringInput `pulumi:"azureResourceName"`
+	// The name of the private endpoint.
+	PrivateEndpointName pulumi.StringInput `pulumi:"privateEndpointName"`
+	// The name of the resource group.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupPrivateEndpointConnectionOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupPrivateEndpointConnectionArgs)(nil)).Elem()
+}
+
+type LookupPrivateEndpointConnectionResultOutput struct{ *pulumi.OutputState }
+
+func (LookupPrivateEndpointConnectionResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupPrivateEndpointConnectionResult)(nil)).Elem()
+}
+
+func (o LookupPrivateEndpointConnectionResultOutput) ToLookupPrivateEndpointConnectionResultOutput() LookupPrivateEndpointConnectionResultOutput {
+	return o
+}
+
+func (o LookupPrivateEndpointConnectionResultOutput) ToLookupPrivateEndpointConnectionResultOutputWithContext(ctx context.Context) LookupPrivateEndpointConnectionResultOutput {
+	return o
+}
+
+// Specifies the id of the resource.
+func (o LookupPrivateEndpointConnectionResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPrivateEndpointConnectionResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Specifies the name of the resource.
+func (o LookupPrivateEndpointConnectionResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPrivateEndpointConnectionResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Specifies the private endpoint.
+func (o LookupPrivateEndpointConnectionResultOutput) PrivateEndpoint() PrivateEndpointResponsePtrOutput {
+	return o.ApplyT(func(v LookupPrivateEndpointConnectionResult) *PrivateEndpointResponse { return v.PrivateEndpoint }).(PrivateEndpointResponsePtrOutput)
+}
+
+// Specifies the connection state.
+func (o LookupPrivateEndpointConnectionResultOutput) PrivateLinkServiceConnectionState() ConnectionStateResponsePtrOutput {
+	return o.ApplyT(func(v LookupPrivateEndpointConnectionResult) *ConnectionStateResponse {
+		return v.PrivateLinkServiceConnectionState
+	}).(ConnectionStateResponsePtrOutput)
+}
+
+// Provisioning state of the Private Endpoint Connection.
+func (o LookupPrivateEndpointConnectionResultOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupPrivateEndpointConnectionResult) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+}
+
+// The system meta data relating to this resource.
+func (o LookupPrivateEndpointConnectionResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupPrivateEndpointConnectionResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Specifies the type of the resource.
+func (o LookupPrivateEndpointConnectionResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPrivateEndpointConnectionResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupPrivateEndpointConnectionResultOutput{})
 }

@@ -4,6 +4,9 @@
 package v20210301preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -80,4 +83,172 @@ type LookupIncidentResult struct {
 	Title string `pulumi:"title"`
 	// Azure resource type
 	Type string `pulumi:"type"`
+}
+
+func LookupIncidentOutput(ctx *pulumi.Context, args LookupIncidentOutputArgs, opts ...pulumi.InvokeOption) LookupIncidentResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupIncidentResult, error) {
+			args := v.(LookupIncidentArgs)
+			r, err := LookupIncident(ctx, &args, opts...)
+			return *r, err
+		}).(LookupIncidentResultOutput)
+}
+
+type LookupIncidentOutputArgs struct {
+	// Incident ID
+	IncidentId pulumi.StringInput `pulumi:"incidentId"`
+	// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
+	OperationalInsightsResourceProvider pulumi.StringInput `pulumi:"operationalInsightsResourceProvider"`
+	// The name of the resource group. The name is case insensitive.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the workspace.
+	WorkspaceName pulumi.StringInput `pulumi:"workspaceName"`
+}
+
+func (LookupIncidentOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupIncidentArgs)(nil)).Elem()
+}
+
+// Represents an incident in Azure Security Insights.
+type LookupIncidentResultOutput struct{ *pulumi.OutputState }
+
+func (LookupIncidentResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupIncidentResult)(nil)).Elem()
+}
+
+func (o LookupIncidentResultOutput) ToLookupIncidentResultOutput() LookupIncidentResultOutput {
+	return o
+}
+
+func (o LookupIncidentResultOutput) ToLookupIncidentResultOutputWithContext(ctx context.Context) LookupIncidentResultOutput {
+	return o
+}
+
+// Additional data on the incident
+func (o LookupIncidentResultOutput) AdditionalData() IncidentAdditionalDataResponseOutput {
+	return o.ApplyT(func(v LookupIncidentResult) IncidentAdditionalDataResponse { return v.AdditionalData }).(IncidentAdditionalDataResponseOutput)
+}
+
+// The reason the incident was closed
+func (o LookupIncidentResultOutput) Classification() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupIncidentResult) *string { return v.Classification }).(pulumi.StringPtrOutput)
+}
+
+// Describes the reason the incident was closed
+func (o LookupIncidentResultOutput) ClassificationComment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupIncidentResult) *string { return v.ClassificationComment }).(pulumi.StringPtrOutput)
+}
+
+// The classification reason the incident was closed with
+func (o LookupIncidentResultOutput) ClassificationReason() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupIncidentResult) *string { return v.ClassificationReason }).(pulumi.StringPtrOutput)
+}
+
+// The time the incident was created
+func (o LookupIncidentResultOutput) CreatedTimeUtc() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupIncidentResult) string { return v.CreatedTimeUtc }).(pulumi.StringOutput)
+}
+
+// The description of the incident
+func (o LookupIncidentResultOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupIncidentResult) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Etag of the azure resource
+func (o LookupIncidentResultOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupIncidentResult) *string { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// The time of the first activity in the incident
+func (o LookupIncidentResultOutput) FirstActivityTimeUtc() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupIncidentResult) *string { return v.FirstActivityTimeUtc }).(pulumi.StringPtrOutput)
+}
+
+// Azure resource Id
+func (o LookupIncidentResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupIncidentResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// A sequential number
+func (o LookupIncidentResultOutput) IncidentNumber() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupIncidentResult) int { return v.IncidentNumber }).(pulumi.IntOutput)
+}
+
+// The deep-link url to the incident in Azure portal
+func (o LookupIncidentResultOutput) IncidentUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupIncidentResult) string { return v.IncidentUrl }).(pulumi.StringOutput)
+}
+
+// List of labels relevant to this incident
+func (o LookupIncidentResultOutput) Labels() IncidentLabelResponseArrayOutput {
+	return o.ApplyT(func(v LookupIncidentResult) []IncidentLabelResponse { return v.Labels }).(IncidentLabelResponseArrayOutput)
+}
+
+// The time of the last activity in the incident
+func (o LookupIncidentResultOutput) LastActivityTimeUtc() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupIncidentResult) *string { return v.LastActivityTimeUtc }).(pulumi.StringPtrOutput)
+}
+
+// The last time the incident was updated
+func (o LookupIncidentResultOutput) LastModifiedTimeUtc() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupIncidentResult) string { return v.LastModifiedTimeUtc }).(pulumi.StringOutput)
+}
+
+// Azure resource name
+func (o LookupIncidentResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupIncidentResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Describes a user that the incident is assigned to
+func (o LookupIncidentResultOutput) Owner() IncidentOwnerInfoResponsePtrOutput {
+	return o.ApplyT(func(v LookupIncidentResult) *IncidentOwnerInfoResponse { return v.Owner }).(IncidentOwnerInfoResponsePtrOutput)
+}
+
+// The incident ID assigned by the incident provider
+func (o LookupIncidentResultOutput) ProviderIncidentId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupIncidentResult) *string { return v.ProviderIncidentId }).(pulumi.StringPtrOutput)
+}
+
+// The name of the source provider that generated the incident
+func (o LookupIncidentResultOutput) ProviderName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupIncidentResult) *string { return v.ProviderName }).(pulumi.StringPtrOutput)
+}
+
+// List of resource ids of Analytic rules related to the incident
+func (o LookupIncidentResultOutput) RelatedAnalyticRuleIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupIncidentResult) []string { return v.RelatedAnalyticRuleIds }).(pulumi.StringArrayOutput)
+}
+
+// The severity of the incident
+func (o LookupIncidentResultOutput) Severity() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupIncidentResult) string { return v.Severity }).(pulumi.StringOutput)
+}
+
+// The status of the incident
+func (o LookupIncidentResultOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupIncidentResult) string { return v.Status }).(pulumi.StringOutput)
+}
+
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+func (o LookupIncidentResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupIncidentResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Describes a team for the incident
+func (o LookupIncidentResultOutput) TeamInformation() TeamInformationResponsePtrOutput {
+	return o.ApplyT(func(v LookupIncidentResult) *TeamInformationResponse { return v.TeamInformation }).(TeamInformationResponsePtrOutput)
+}
+
+// The title of the incident
+func (o LookupIncidentResultOutput) Title() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupIncidentResult) string { return v.Title }).(pulumi.StringOutput)
+}
+
+// Azure resource type
+func (o LookupIncidentResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupIncidentResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupIncidentResultOutput{})
 }

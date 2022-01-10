@@ -4,6 +4,9 @@
 package v20210827
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -28,4 +31,48 @@ type ListClusterLanguageExtensionsArgs struct {
 type ListClusterLanguageExtensionsResult struct {
 	// The list of language extensions.
 	Value []LanguageExtensionResponse `pulumi:"value"`
+}
+
+func ListClusterLanguageExtensionsOutput(ctx *pulumi.Context, args ListClusterLanguageExtensionsOutputArgs, opts ...pulumi.InvokeOption) ListClusterLanguageExtensionsResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (ListClusterLanguageExtensionsResult, error) {
+			args := v.(ListClusterLanguageExtensionsArgs)
+			r, err := ListClusterLanguageExtensions(ctx, &args, opts...)
+			return *r, err
+		}).(ListClusterLanguageExtensionsResultOutput)
+}
+
+type ListClusterLanguageExtensionsOutputArgs struct {
+	// The name of the Kusto cluster.
+	ClusterName pulumi.StringInput `pulumi:"clusterName"`
+	// The name of the resource group containing the Kusto cluster.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (ListClusterLanguageExtensionsOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListClusterLanguageExtensionsArgs)(nil)).Elem()
+}
+
+// The list of language extension objects.
+type ListClusterLanguageExtensionsResultOutput struct{ *pulumi.OutputState }
+
+func (ListClusterLanguageExtensionsResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListClusterLanguageExtensionsResult)(nil)).Elem()
+}
+
+func (o ListClusterLanguageExtensionsResultOutput) ToListClusterLanguageExtensionsResultOutput() ListClusterLanguageExtensionsResultOutput {
+	return o
+}
+
+func (o ListClusterLanguageExtensionsResultOutput) ToListClusterLanguageExtensionsResultOutputWithContext(ctx context.Context) ListClusterLanguageExtensionsResultOutput {
+	return o
+}
+
+// The list of language extensions.
+func (o ListClusterLanguageExtensionsResultOutput) Value() LanguageExtensionResponseArrayOutput {
+	return o.ApplyT(func(v ListClusterLanguageExtensionsResult) []LanguageExtensionResponse { return v.Value }).(LanguageExtensionResponseArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(ListClusterLanguageExtensionsResultOutput{})
 }

@@ -4,6 +4,9 @@
 package v20160601
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -43,4 +46,81 @@ type LookupDataManagerResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// The Resource type.
 	Type string `pulumi:"type"`
+}
+
+func LookupDataManagerOutput(ctx *pulumi.Context, args LookupDataManagerOutputArgs, opts ...pulumi.InvokeOption) LookupDataManagerResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupDataManagerResult, error) {
+			args := v.(LookupDataManagerArgs)
+			r, err := LookupDataManager(ctx, &args, opts...)
+			return *r, err
+		}).(LookupDataManagerResultOutput)
+}
+
+type LookupDataManagerOutputArgs struct {
+	// The name of the DataManager Resource within the specified resource group. DataManager names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
+	DataManagerName pulumi.StringInput `pulumi:"dataManagerName"`
+	// The Resource Group Name
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupDataManagerOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupDataManagerArgs)(nil)).Elem()
+}
+
+// The DataManager resource.
+type LookupDataManagerResultOutput struct{ *pulumi.OutputState }
+
+func (LookupDataManagerResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupDataManagerResult)(nil)).Elem()
+}
+
+func (o LookupDataManagerResultOutput) ToLookupDataManagerResultOutput() LookupDataManagerResultOutput {
+	return o
+}
+
+func (o LookupDataManagerResultOutput) ToLookupDataManagerResultOutputWithContext(ctx context.Context) LookupDataManagerResultOutput {
+	return o
+}
+
+// Etag of the Resource.
+func (o LookupDataManagerResultOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDataManagerResult) *string { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// The Resource Id.
+func (o LookupDataManagerResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDataManagerResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The location of the resource. This will be one of the supported and registered Azure Geo Regions (e.g. West US, East
+// US, Southeast Asia, etc.). The geo region of a resource cannot be changed once it is created, but if an identical geo
+// region is specified on update the request will succeed.
+func (o LookupDataManagerResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDataManagerResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// The Resource Name.
+func (o LookupDataManagerResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDataManagerResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The sku type.
+func (o LookupDataManagerResultOutput) Sku() SkuResponsePtrOutput {
+	return o.ApplyT(func(v LookupDataManagerResult) *SkuResponse { return v.Sku }).(SkuResponsePtrOutput)
+}
+
+// The list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource
+// (across resource groups).
+func (o LookupDataManagerResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupDataManagerResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The Resource type.
+func (o LookupDataManagerResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDataManagerResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupDataManagerResultOutput{})
 }

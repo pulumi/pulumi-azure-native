@@ -4,6 +4,9 @@
 package storsimple
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -33,4 +36,52 @@ type ListDeviceFailoverTarsArgs struct {
 type ListDeviceFailoverTarsResult struct {
 	// The list of all the failover targets.
 	Value []FailoverTargetResponse `pulumi:"value"`
+}
+
+func ListDeviceFailoverTarsOutput(ctx *pulumi.Context, args ListDeviceFailoverTarsOutputArgs, opts ...pulumi.InvokeOption) ListDeviceFailoverTarsResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (ListDeviceFailoverTarsResult, error) {
+			args := v.(ListDeviceFailoverTarsArgs)
+			r, err := ListDeviceFailoverTars(ctx, &args, opts...)
+			return *r, err
+		}).(ListDeviceFailoverTarsResultOutput)
+}
+
+type ListDeviceFailoverTarsOutputArgs struct {
+	// The manager name
+	ManagerName pulumi.StringInput `pulumi:"managerName"`
+	// The resource group name
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The source device name on which failover is performed.
+	SourceDeviceName pulumi.StringInput `pulumi:"sourceDeviceName"`
+	// The list of path IDs of the volume containers that needs to be failed-over, for which we want to fetch the eligible targets.
+	VolumeContainers pulumi.StringArrayInput `pulumi:"volumeContainers"`
+}
+
+func (ListDeviceFailoverTarsOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListDeviceFailoverTarsArgs)(nil)).Elem()
+}
+
+// The list of all devices in a resource and their eligibility status as a failover target device.
+type ListDeviceFailoverTarsResultOutput struct{ *pulumi.OutputState }
+
+func (ListDeviceFailoverTarsResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListDeviceFailoverTarsResult)(nil)).Elem()
+}
+
+func (o ListDeviceFailoverTarsResultOutput) ToListDeviceFailoverTarsResultOutput() ListDeviceFailoverTarsResultOutput {
+	return o
+}
+
+func (o ListDeviceFailoverTarsResultOutput) ToListDeviceFailoverTarsResultOutputWithContext(ctx context.Context) ListDeviceFailoverTarsResultOutput {
+	return o
+}
+
+// The list of all the failover targets.
+func (o ListDeviceFailoverTarsResultOutput) Value() FailoverTargetResponseArrayOutput {
+	return o.ApplyT(func(v ListDeviceFailoverTarsResult) []FailoverTargetResponse { return v.Value }).(FailoverTargetResponseArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(ListDeviceFailoverTarsResultOutput{})
 }

@@ -414,6 +414,56 @@ type ApiErrorBaseResponse struct {
 	Target *string `pulumi:"target"`
 }
 
+// Api error base.
+type ApiErrorBaseResponseOutput struct{ *pulumi.OutputState }
+
+func (ApiErrorBaseResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiErrorBaseResponse)(nil)).Elem()
+}
+
+func (o ApiErrorBaseResponseOutput) ToApiErrorBaseResponseOutput() ApiErrorBaseResponseOutput {
+	return o
+}
+
+func (o ApiErrorBaseResponseOutput) ToApiErrorBaseResponseOutputWithContext(ctx context.Context) ApiErrorBaseResponseOutput {
+	return o
+}
+
+// The error code.
+func (o ApiErrorBaseResponseOutput) Code() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApiErrorBaseResponse) *string { return v.Code }).(pulumi.StringPtrOutput)
+}
+
+// The error message.
+func (o ApiErrorBaseResponseOutput) Message() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApiErrorBaseResponse) *string { return v.Message }).(pulumi.StringPtrOutput)
+}
+
+// The target of the particular error.
+func (o ApiErrorBaseResponseOutput) Target() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApiErrorBaseResponse) *string { return v.Target }).(pulumi.StringPtrOutput)
+}
+
+type ApiErrorBaseResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ApiErrorBaseResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApiErrorBaseResponse)(nil)).Elem()
+}
+
+func (o ApiErrorBaseResponseArrayOutput) ToApiErrorBaseResponseArrayOutput() ApiErrorBaseResponseArrayOutput {
+	return o
+}
+
+func (o ApiErrorBaseResponseArrayOutput) ToApiErrorBaseResponseArrayOutputWithContext(ctx context.Context) ApiErrorBaseResponseArrayOutput {
+	return o
+}
+
+func (o ApiErrorBaseResponseArrayOutput) Index(i pulumi.IntInput) ApiErrorBaseResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApiErrorBaseResponse {
+		return vs[0].([]ApiErrorBaseResponse)[vs[1].(int)]
+	}).(ApiErrorBaseResponseOutput)
+}
+
 // Api error.
 type ApiErrorResponse struct {
 	// The error code.
@@ -426,6 +476,46 @@ type ApiErrorResponse struct {
 	Message *string `pulumi:"message"`
 	// The target of the particular error.
 	Target *string `pulumi:"target"`
+}
+
+// Api error.
+type ApiErrorResponseOutput struct{ *pulumi.OutputState }
+
+func (ApiErrorResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiErrorResponse)(nil)).Elem()
+}
+
+func (o ApiErrorResponseOutput) ToApiErrorResponseOutput() ApiErrorResponseOutput {
+	return o
+}
+
+func (o ApiErrorResponseOutput) ToApiErrorResponseOutputWithContext(ctx context.Context) ApiErrorResponseOutput {
+	return o
+}
+
+// The error code.
+func (o ApiErrorResponseOutput) Code() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApiErrorResponse) *string { return v.Code }).(pulumi.StringPtrOutput)
+}
+
+// The Api error details
+func (o ApiErrorResponseOutput) Details() ApiErrorBaseResponseArrayOutput {
+	return o.ApplyT(func(v ApiErrorResponse) []ApiErrorBaseResponse { return v.Details }).(ApiErrorBaseResponseArrayOutput)
+}
+
+// The Api inner error
+func (o ApiErrorResponseOutput) Innererror() InnerErrorResponsePtrOutput {
+	return o.ApplyT(func(v ApiErrorResponse) *InnerErrorResponse { return v.Innererror }).(InnerErrorResponsePtrOutput)
+}
+
+// The error message.
+func (o ApiErrorResponseOutput) Message() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApiErrorResponse) *string { return v.Message }).(pulumi.StringPtrOutput)
+}
+
+// The target of the particular error.
+func (o ApiErrorResponseOutput) Target() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApiErrorResponse) *string { return v.Target }).(pulumi.StringPtrOutput)
 }
 
 // The configuration parameters used for performing automatic OS upgrade.
@@ -3285,6 +3375,75 @@ type InnerErrorResponse struct {
 	Exceptiontype *string `pulumi:"exceptiontype"`
 }
 
+// Inner error details.
+type InnerErrorResponseOutput struct{ *pulumi.OutputState }
+
+func (InnerErrorResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InnerErrorResponse)(nil)).Elem()
+}
+
+func (o InnerErrorResponseOutput) ToInnerErrorResponseOutput() InnerErrorResponseOutput {
+	return o
+}
+
+func (o InnerErrorResponseOutput) ToInnerErrorResponseOutputWithContext(ctx context.Context) InnerErrorResponseOutput {
+	return o
+}
+
+// The internal error message or exception dump.
+func (o InnerErrorResponseOutput) Errordetail() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InnerErrorResponse) *string { return v.Errordetail }).(pulumi.StringPtrOutput)
+}
+
+// The exception type.
+func (o InnerErrorResponseOutput) Exceptiontype() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InnerErrorResponse) *string { return v.Exceptiontype }).(pulumi.StringPtrOutput)
+}
+
+type InnerErrorResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (InnerErrorResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InnerErrorResponse)(nil)).Elem()
+}
+
+func (o InnerErrorResponsePtrOutput) ToInnerErrorResponsePtrOutput() InnerErrorResponsePtrOutput {
+	return o
+}
+
+func (o InnerErrorResponsePtrOutput) ToInnerErrorResponsePtrOutputWithContext(ctx context.Context) InnerErrorResponsePtrOutput {
+	return o
+}
+
+func (o InnerErrorResponsePtrOutput) Elem() InnerErrorResponseOutput {
+	return o.ApplyT(func(v *InnerErrorResponse) InnerErrorResponse {
+		if v != nil {
+			return *v
+		}
+		var ret InnerErrorResponse
+		return ret
+	}).(InnerErrorResponseOutput)
+}
+
+// The internal error message or exception dump.
+func (o InnerErrorResponsePtrOutput) Errordetail() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InnerErrorResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Errordetail
+	}).(pulumi.StringPtrOutput)
+}
+
+// The exception type.
+func (o InnerErrorResponsePtrOutput) Exceptiontype() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InnerErrorResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Exceptiontype
+	}).(pulumi.StringPtrOutput)
+}
+
 // Instance view status.
 type InstanceViewStatus struct {
 	// The status code.
@@ -4281,6 +4440,26 @@ func (o LinuxConfigurationResponsePtrOutput) Ssh() SshConfigurationResponsePtrOu
 type LogAnalyticsOutputResponse struct {
 	// Output file Uri path to blob container.
 	Output string `pulumi:"output"`
+}
+
+// LogAnalytics output properties
+type LogAnalyticsOutputResponseOutput struct{ *pulumi.OutputState }
+
+func (LogAnalyticsOutputResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogAnalyticsOutputResponse)(nil)).Elem()
+}
+
+func (o LogAnalyticsOutputResponseOutput) ToLogAnalyticsOutputResponseOutput() LogAnalyticsOutputResponseOutput {
+	return o
+}
+
+func (o LogAnalyticsOutputResponseOutput) ToLogAnalyticsOutputResponseOutputWithContext(ctx context.Context) LogAnalyticsOutputResponseOutput {
+	return o
+}
+
+// Output file Uri path to blob container.
+func (o LogAnalyticsOutputResponseOutput) Output() pulumi.StringOutput {
+	return o.ApplyT(func(v LogAnalyticsOutputResponse) string { return v.Output }).(pulumi.StringOutput)
 }
 
 // Maintenance Operation Status.
@@ -14759,6 +14938,9 @@ func init() {
 	pulumi.RegisterOutputType(ApiEntityReferencePtrOutput{})
 	pulumi.RegisterOutputType(ApiEntityReferenceResponseOutput{})
 	pulumi.RegisterOutputType(ApiEntityReferenceResponsePtrOutput{})
+	pulumi.RegisterOutputType(ApiErrorBaseResponseOutput{})
+	pulumi.RegisterOutputType(ApiErrorBaseResponseArrayOutput{})
+	pulumi.RegisterOutputType(ApiErrorResponseOutput{})
 	pulumi.RegisterOutputType(AutoOSUpgradePolicyOutput{})
 	pulumi.RegisterOutputType(AutoOSUpgradePolicyPtrOutput{})
 	pulumi.RegisterOutputType(AutoOSUpgradePolicyResponseOutput{})
@@ -14804,6 +14986,8 @@ func init() {
 	pulumi.RegisterOutputType(ImageStorageProfilePtrOutput{})
 	pulumi.RegisterOutputType(ImageStorageProfileResponseOutput{})
 	pulumi.RegisterOutputType(ImageStorageProfileResponsePtrOutput{})
+	pulumi.RegisterOutputType(InnerErrorResponseOutput{})
+	pulumi.RegisterOutputType(InnerErrorResponsePtrOutput{})
 	pulumi.RegisterOutputType(InstanceViewStatusOutput{})
 	pulumi.RegisterOutputType(InstanceViewStatusArrayOutput{})
 	pulumi.RegisterOutputType(InstanceViewStatusResponseOutput{})
@@ -14821,6 +15005,7 @@ func init() {
 	pulumi.RegisterOutputType(LinuxConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(LinuxConfigurationResponseOutput{})
 	pulumi.RegisterOutputType(LinuxConfigurationResponsePtrOutput{})
+	pulumi.RegisterOutputType(LogAnalyticsOutputResponseOutput{})
 	pulumi.RegisterOutputType(MaintenanceRedeployStatusResponseOutput{})
 	pulumi.RegisterOutputType(MaintenanceRedeployStatusResponsePtrOutput{})
 	pulumi.RegisterOutputType(ManagedDiskParametersOutput{})

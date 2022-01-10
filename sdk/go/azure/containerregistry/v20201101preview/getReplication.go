@@ -4,6 +4,9 @@
 package v20201101preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -65,4 +68,95 @@ func (val *LookupReplicationResult) Defaults() *LookupReplicationResult {
 		tmp.ZoneRedundancy = &zoneRedundancy_
 	}
 	return &tmp
+}
+
+func LookupReplicationOutput(ctx *pulumi.Context, args LookupReplicationOutputArgs, opts ...pulumi.InvokeOption) LookupReplicationResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupReplicationResult, error) {
+			args := v.(LookupReplicationArgs)
+			r, err := LookupReplication(ctx, &args, opts...)
+			return *r, err
+		}).(LookupReplicationResultOutput)
+}
+
+type LookupReplicationOutputArgs struct {
+	// The name of the container registry.
+	RegistryName pulumi.StringInput `pulumi:"registryName"`
+	// The name of the replication.
+	ReplicationName pulumi.StringInput `pulumi:"replicationName"`
+	// The name of the resource group to which the container registry belongs.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupReplicationOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupReplicationArgs)(nil)).Elem()
+}
+
+// An object that represents a replication for a container registry.
+type LookupReplicationResultOutput struct{ *pulumi.OutputState }
+
+func (LookupReplicationResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupReplicationResult)(nil)).Elem()
+}
+
+func (o LookupReplicationResultOutput) ToLookupReplicationResultOutput() LookupReplicationResultOutput {
+	return o
+}
+
+func (o LookupReplicationResultOutput) ToLookupReplicationResultOutputWithContext(ctx context.Context) LookupReplicationResultOutput {
+	return o
+}
+
+// The resource ID.
+func (o LookupReplicationResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupReplicationResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The location of the resource. This cannot be changed after the resource is created.
+func (o LookupReplicationResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupReplicationResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the resource.
+func (o LookupReplicationResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupReplicationResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The provisioning state of the replication at the time the operation was called.
+func (o LookupReplicationResultOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupReplicationResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Specifies whether the replication's regional endpoint is enabled. Requests will not be routed to a replication whose regional endpoint is disabled, however its data will continue to be synced with other replications.
+func (o LookupReplicationResultOutput) RegionEndpointEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupReplicationResult) *bool { return v.RegionEndpointEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// The status of the replication at the time the operation was called.
+func (o LookupReplicationResultOutput) Status() StatusResponseOutput {
+	return o.ApplyT(func(v LookupReplicationResult) StatusResponse { return v.Status }).(StatusResponseOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o LookupReplicationResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupReplicationResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The tags of the resource.
+func (o LookupReplicationResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupReplicationResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource.
+func (o LookupReplicationResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupReplicationResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Whether or not zone redundancy is enabled for this container registry replication
+func (o LookupReplicationResultOutput) ZoneRedundancy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupReplicationResult) *string { return v.ZoneRedundancy }).(pulumi.StringPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupReplicationResultOutput{})
 }

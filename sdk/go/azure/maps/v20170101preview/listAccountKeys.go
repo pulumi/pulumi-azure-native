@@ -4,6 +4,9 @@
 package v20170101preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -32,4 +35,58 @@ type ListAccountKeysResult struct {
 	PrimaryKey string `pulumi:"primaryKey"`
 	// The secondary key for accessing the Maps REST APIs.
 	SecondaryKey string `pulumi:"secondaryKey"`
+}
+
+func ListAccountKeysOutput(ctx *pulumi.Context, args ListAccountKeysOutputArgs, opts ...pulumi.InvokeOption) ListAccountKeysResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (ListAccountKeysResult, error) {
+			args := v.(ListAccountKeysArgs)
+			r, err := ListAccountKeys(ctx, &args, opts...)
+			return *r, err
+		}).(ListAccountKeysResultOutput)
+}
+
+type ListAccountKeysOutputArgs struct {
+	// The name of the Maps Account.
+	AccountName pulumi.StringInput `pulumi:"accountName"`
+	// The name of the Azure Resource Group.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (ListAccountKeysOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListAccountKeysArgs)(nil)).Elem()
+}
+
+// The set of keys which can be used to access the Maps REST APIs. Two keys are provided for key rotation without interruption.
+type ListAccountKeysResultOutput struct{ *pulumi.OutputState }
+
+func (ListAccountKeysResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListAccountKeysResult)(nil)).Elem()
+}
+
+func (o ListAccountKeysResultOutput) ToListAccountKeysResultOutput() ListAccountKeysResultOutput {
+	return o
+}
+
+func (o ListAccountKeysResultOutput) ToListAccountKeysResultOutputWithContext(ctx context.Context) ListAccountKeysResultOutput {
+	return o
+}
+
+// The full Azure resource identifier of the Maps Account.
+func (o ListAccountKeysResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v ListAccountKeysResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The primary key for accessing the Maps REST APIs.
+func (o ListAccountKeysResultOutput) PrimaryKey() pulumi.StringOutput {
+	return o.ApplyT(func(v ListAccountKeysResult) string { return v.PrimaryKey }).(pulumi.StringOutput)
+}
+
+// The secondary key for accessing the Maps REST APIs.
+func (o ListAccountKeysResultOutput) SecondaryKey() pulumi.StringOutput {
+	return o.ApplyT(func(v ListAccountKeysResult) string { return v.SecondaryKey }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(ListAccountKeysResultOutput{})
 }

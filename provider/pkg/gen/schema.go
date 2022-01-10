@@ -257,7 +257,6 @@ func PulumiSchema(providerMap openapi.AzureProviders) (*pschema.PackageSpec, *re
 	pkg.Language["go"] = rawMessage(map[string]interface{}{
 		"importBasePath":                 goBasePath,
 		"packageImportAliases":           golangImportAliases,
-		"disableFunctionOutputVersions":  true,
 		"generateResourceContainerTypes": false,
 		"disableInputTypeRegistrations":  true,
 	})

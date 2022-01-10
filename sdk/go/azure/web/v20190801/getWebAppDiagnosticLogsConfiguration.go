@@ -4,6 +4,9 @@
 package v20190801
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -53,4 +56,89 @@ func (val *LookupWebAppDiagnosticLogsConfigurationResult) Defaults() *LookupWebA
 	tmp.ApplicationLogs = tmp.ApplicationLogs.Defaults()
 
 	return &tmp
+}
+
+func LookupWebAppDiagnosticLogsConfigurationOutput(ctx *pulumi.Context, args LookupWebAppDiagnosticLogsConfigurationOutputArgs, opts ...pulumi.InvokeOption) LookupWebAppDiagnosticLogsConfigurationResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupWebAppDiagnosticLogsConfigurationResult, error) {
+			args := v.(LookupWebAppDiagnosticLogsConfigurationArgs)
+			r, err := LookupWebAppDiagnosticLogsConfiguration(ctx, &args, opts...)
+			return *r, err
+		}).(LookupWebAppDiagnosticLogsConfigurationResultOutput)
+}
+
+type LookupWebAppDiagnosticLogsConfigurationOutputArgs struct {
+	// Name of the app.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Name of the resource group to which the resource belongs.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupWebAppDiagnosticLogsConfigurationOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupWebAppDiagnosticLogsConfigurationArgs)(nil)).Elem()
+}
+
+// Configuration of App Service site logs.
+type LookupWebAppDiagnosticLogsConfigurationResultOutput struct{ *pulumi.OutputState }
+
+func (LookupWebAppDiagnosticLogsConfigurationResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupWebAppDiagnosticLogsConfigurationResult)(nil)).Elem()
+}
+
+func (o LookupWebAppDiagnosticLogsConfigurationResultOutput) ToLookupWebAppDiagnosticLogsConfigurationResultOutput() LookupWebAppDiagnosticLogsConfigurationResultOutput {
+	return o
+}
+
+func (o LookupWebAppDiagnosticLogsConfigurationResultOutput) ToLookupWebAppDiagnosticLogsConfigurationResultOutputWithContext(ctx context.Context) LookupWebAppDiagnosticLogsConfigurationResultOutput {
+	return o
+}
+
+// Application logs configuration.
+func (o LookupWebAppDiagnosticLogsConfigurationResultOutput) ApplicationLogs() ApplicationLogsConfigResponsePtrOutput {
+	return o.ApplyT(func(v LookupWebAppDiagnosticLogsConfigurationResult) *ApplicationLogsConfigResponse {
+		return v.ApplicationLogs
+	}).(ApplicationLogsConfigResponsePtrOutput)
+}
+
+// Detailed error messages configuration.
+func (o LookupWebAppDiagnosticLogsConfigurationResultOutput) DetailedErrorMessages() EnabledConfigResponsePtrOutput {
+	return o.ApplyT(func(v LookupWebAppDiagnosticLogsConfigurationResult) *EnabledConfigResponse {
+		return v.DetailedErrorMessages
+	}).(EnabledConfigResponsePtrOutput)
+}
+
+// Failed requests tracing configuration.
+func (o LookupWebAppDiagnosticLogsConfigurationResultOutput) FailedRequestsTracing() EnabledConfigResponsePtrOutput {
+	return o.ApplyT(func(v LookupWebAppDiagnosticLogsConfigurationResult) *EnabledConfigResponse {
+		return v.FailedRequestsTracing
+	}).(EnabledConfigResponsePtrOutput)
+}
+
+// HTTP logs configuration.
+func (o LookupWebAppDiagnosticLogsConfigurationResultOutput) HttpLogs() HttpLogsConfigResponsePtrOutput {
+	return o.ApplyT(func(v LookupWebAppDiagnosticLogsConfigurationResult) *HttpLogsConfigResponse { return v.HttpLogs }).(HttpLogsConfigResponsePtrOutput)
+}
+
+// Resource Id.
+func (o LookupWebAppDiagnosticLogsConfigurationResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWebAppDiagnosticLogsConfigurationResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Kind of resource.
+func (o LookupWebAppDiagnosticLogsConfigurationResultOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupWebAppDiagnosticLogsConfigurationResult) *string { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Resource Name.
+func (o LookupWebAppDiagnosticLogsConfigurationResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWebAppDiagnosticLogsConfigurationResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Resource type.
+func (o LookupWebAppDiagnosticLogsConfigurationResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWebAppDiagnosticLogsConfigurationResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupWebAppDiagnosticLogsConfigurationResultOutput{})
 }

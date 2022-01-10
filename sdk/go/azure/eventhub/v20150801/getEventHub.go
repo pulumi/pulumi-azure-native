@@ -4,6 +4,9 @@
 package v20150801
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -48,4 +51,95 @@ type LookupEventHubResult struct {
 	Type string `pulumi:"type"`
 	// The exact time the message was updated.
 	UpdatedAt string `pulumi:"updatedAt"`
+}
+
+func LookupEventHubOutput(ctx *pulumi.Context, args LookupEventHubOutputArgs, opts ...pulumi.InvokeOption) LookupEventHubResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupEventHubResult, error) {
+			args := v.(LookupEventHubArgs)
+			r, err := LookupEventHub(ctx, &args, opts...)
+			return *r, err
+		}).(LookupEventHubResultOutput)
+}
+
+type LookupEventHubOutputArgs struct {
+	// The Event Hub name
+	EventHubName pulumi.StringInput `pulumi:"eventHubName"`
+	// The Namespace name
+	NamespaceName pulumi.StringInput `pulumi:"namespaceName"`
+	// Name of the resource group within the azure subscription.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupEventHubOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupEventHubArgs)(nil)).Elem()
+}
+
+// Single item in List or Get Event Hub operation
+type LookupEventHubResultOutput struct{ *pulumi.OutputState }
+
+func (LookupEventHubResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupEventHubResult)(nil)).Elem()
+}
+
+func (o LookupEventHubResultOutput) ToLookupEventHubResultOutput() LookupEventHubResultOutput {
+	return o
+}
+
+func (o LookupEventHubResultOutput) ToLookupEventHubResultOutputWithContext(ctx context.Context) LookupEventHubResultOutput {
+	return o
+}
+
+// Exact time the Event Hub was created.
+func (o LookupEventHubResultOutput) CreatedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupEventHubResult) string { return v.CreatedAt }).(pulumi.StringOutput)
+}
+
+// Resource Id
+func (o LookupEventHubResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupEventHubResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Resource location
+func (o LookupEventHubResultOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupEventHubResult) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Number of days to retain the events for this Event Hub.
+func (o LookupEventHubResultOutput) MessageRetentionInDays() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v LookupEventHubResult) *float64 { return v.MessageRetentionInDays }).(pulumi.Float64PtrOutput)
+}
+
+// Resource name
+func (o LookupEventHubResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupEventHubResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Number of partitions created for the Event Hub.
+func (o LookupEventHubResultOutput) PartitionCount() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v LookupEventHubResult) *float64 { return v.PartitionCount }).(pulumi.Float64PtrOutput)
+}
+
+// Current number of shards on the Event Hub.
+func (o LookupEventHubResultOutput) PartitionIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupEventHubResult) []string { return v.PartitionIds }).(pulumi.StringArrayOutput)
+}
+
+// Enumerates the possible values for the status of the Event Hub.
+func (o LookupEventHubResultOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupEventHubResult) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+// Resource type
+func (o LookupEventHubResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupEventHubResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The exact time the message was updated.
+func (o LookupEventHubResultOutput) UpdatedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupEventHubResult) string { return v.UpdatedAt }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupEventHubResultOutput{})
 }

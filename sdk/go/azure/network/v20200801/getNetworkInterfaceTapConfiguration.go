@@ -4,6 +4,9 @@
 package v20200801
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -51,4 +54,77 @@ func (val *LookupNetworkInterfaceTapConfigurationResult) Defaults() *LookupNetwo
 	tmp.VirtualNetworkTap = tmp.VirtualNetworkTap.Defaults()
 
 	return &tmp
+}
+
+func LookupNetworkInterfaceTapConfigurationOutput(ctx *pulumi.Context, args LookupNetworkInterfaceTapConfigurationOutputArgs, opts ...pulumi.InvokeOption) LookupNetworkInterfaceTapConfigurationResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupNetworkInterfaceTapConfigurationResult, error) {
+			args := v.(LookupNetworkInterfaceTapConfigurationArgs)
+			r, err := LookupNetworkInterfaceTapConfiguration(ctx, &args, opts...)
+			return *r, err
+		}).(LookupNetworkInterfaceTapConfigurationResultOutput)
+}
+
+type LookupNetworkInterfaceTapConfigurationOutputArgs struct {
+	// The name of the network interface.
+	NetworkInterfaceName pulumi.StringInput `pulumi:"networkInterfaceName"`
+	// The name of the resource group.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the tap configuration.
+	TapConfigurationName pulumi.StringInput `pulumi:"tapConfigurationName"`
+}
+
+func (LookupNetworkInterfaceTapConfigurationOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupNetworkInterfaceTapConfigurationArgs)(nil)).Elem()
+}
+
+// Tap configuration in a Network Interface.
+type LookupNetworkInterfaceTapConfigurationResultOutput struct{ *pulumi.OutputState }
+
+func (LookupNetworkInterfaceTapConfigurationResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupNetworkInterfaceTapConfigurationResult)(nil)).Elem()
+}
+
+func (o LookupNetworkInterfaceTapConfigurationResultOutput) ToLookupNetworkInterfaceTapConfigurationResultOutput() LookupNetworkInterfaceTapConfigurationResultOutput {
+	return o
+}
+
+func (o LookupNetworkInterfaceTapConfigurationResultOutput) ToLookupNetworkInterfaceTapConfigurationResultOutputWithContext(ctx context.Context) LookupNetworkInterfaceTapConfigurationResultOutput {
+	return o
+}
+
+// A unique read-only string that changes whenever the resource is updated.
+func (o LookupNetworkInterfaceTapConfigurationResultOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupNetworkInterfaceTapConfigurationResult) string { return v.Etag }).(pulumi.StringOutput)
+}
+
+// Resource ID.
+func (o LookupNetworkInterfaceTapConfigurationResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupNetworkInterfaceTapConfigurationResult) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource that is unique within a resource group. This name can be used to access the resource.
+func (o LookupNetworkInterfaceTapConfigurationResultOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupNetworkInterfaceTapConfigurationResult) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The provisioning state of the network interface tap configuration resource.
+func (o LookupNetworkInterfaceTapConfigurationResultOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupNetworkInterfaceTapConfigurationResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Sub Resource type.
+func (o LookupNetworkInterfaceTapConfigurationResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupNetworkInterfaceTapConfigurationResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The reference to the Virtual Network Tap resource.
+func (o LookupNetworkInterfaceTapConfigurationResultOutput) VirtualNetworkTap() VirtualNetworkTapResponsePtrOutput {
+	return o.ApplyT(func(v LookupNetworkInterfaceTapConfigurationResult) *VirtualNetworkTapResponse {
+		return v.VirtualNetworkTap
+	}).(VirtualNetworkTapResponsePtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupNetworkInterfaceTapConfigurationResultOutput{})
 }

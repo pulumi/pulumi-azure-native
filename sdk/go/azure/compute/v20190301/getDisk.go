@@ -4,6 +4,9 @@
 package v20190301
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -66,4 +69,143 @@ type LookupDiskResult struct {
 	UniqueId string `pulumi:"uniqueId"`
 	// The Logical zone list for Disk.
 	Zones []string `pulumi:"zones"`
+}
+
+func LookupDiskOutput(ctx *pulumi.Context, args LookupDiskOutputArgs, opts ...pulumi.InvokeOption) LookupDiskResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupDiskResult, error) {
+			args := v.(LookupDiskArgs)
+			r, err := LookupDisk(ctx, &args, opts...)
+			return *r, err
+		}).(LookupDiskResultOutput)
+}
+
+type LookupDiskOutputArgs struct {
+	// The name of the managed disk that is being created. The name can't be changed after the disk is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.
+	DiskName pulumi.StringInput `pulumi:"diskName"`
+	// The name of the resource group.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupDiskOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupDiskArgs)(nil)).Elem()
+}
+
+// Disk resource.
+type LookupDiskResultOutput struct{ *pulumi.OutputState }
+
+func (LookupDiskResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupDiskResult)(nil)).Elem()
+}
+
+func (o LookupDiskResultOutput) ToLookupDiskResultOutput() LookupDiskResultOutput {
+	return o
+}
+
+func (o LookupDiskResultOutput) ToLookupDiskResultOutputWithContext(ctx context.Context) LookupDiskResultOutput {
+	return o
+}
+
+// Disk source information. CreationData information cannot be changed after the disk has been created.
+func (o LookupDiskResultOutput) CreationData() CreationDataResponseOutput {
+	return o.ApplyT(func(v LookupDiskResult) CreationDataResponse { return v.CreationData }).(CreationDataResponseOutput)
+}
+
+// The number of IOPS allowed for this disk; only settable for UltraSSD disks. One operation can transfer between 4k and 256k bytes.
+func (o LookupDiskResultOutput) DiskIOPSReadWrite() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v LookupDiskResult) *float64 { return v.DiskIOPSReadWrite }).(pulumi.Float64PtrOutput)
+}
+
+// The bandwidth allowed for this disk; only settable for UltraSSD disks. MBps means millions of bytes per second - MB here uses the ISO notation, of powers of 10.
+func (o LookupDiskResultOutput) DiskMBpsReadWrite() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupDiskResult) *int { return v.DiskMBpsReadWrite }).(pulumi.IntPtrOutput)
+}
+
+// The size of the disk in bytes. This field is read only.
+func (o LookupDiskResultOutput) DiskSizeBytes() pulumi.Float64Output {
+	return o.ApplyT(func(v LookupDiskResult) float64 { return v.DiskSizeBytes }).(pulumi.Float64Output)
+}
+
+// If creationData.createOption is Empty, this field is mandatory and it indicates the size of the disk to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.
+func (o LookupDiskResultOutput) DiskSizeGB() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupDiskResult) *int { return v.DiskSizeGB }).(pulumi.IntPtrOutput)
+}
+
+// The state of the disk.
+func (o LookupDiskResultOutput) DiskState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDiskResult) string { return v.DiskState }).(pulumi.StringOutput)
+}
+
+// Encryption settings collection used for Azure Disk Encryption, can contain multiple encryption settings per disk or snapshot.
+func (o LookupDiskResultOutput) EncryptionSettingsCollection() EncryptionSettingsCollectionResponsePtrOutput {
+	return o.ApplyT(func(v LookupDiskResult) *EncryptionSettingsCollectionResponse { return v.EncryptionSettingsCollection }).(EncryptionSettingsCollectionResponsePtrOutput)
+}
+
+// The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
+func (o LookupDiskResultOutput) HyperVGeneration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDiskResult) *string { return v.HyperVGeneration }).(pulumi.StringPtrOutput)
+}
+
+// Resource Id
+func (o LookupDiskResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDiskResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Resource location
+func (o LookupDiskResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDiskResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// A relative URI containing the ID of the VM that has the disk attached.
+func (o LookupDiskResultOutput) ManagedBy() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDiskResult) string { return v.ManagedBy }).(pulumi.StringOutput)
+}
+
+// Resource name
+func (o LookupDiskResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDiskResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The Operating System type.
+func (o LookupDiskResultOutput) OsType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDiskResult) *string { return v.OsType }).(pulumi.StringPtrOutput)
+}
+
+// The disk provisioning state.
+func (o LookupDiskResultOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDiskResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, or UltraSSD_LRS.
+func (o LookupDiskResultOutput) Sku() DiskSkuResponsePtrOutput {
+	return o.ApplyT(func(v LookupDiskResult) *DiskSkuResponse { return v.Sku }).(DiskSkuResponsePtrOutput)
+}
+
+// Resource tags
+func (o LookupDiskResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupDiskResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The time when the disk was created.
+func (o LookupDiskResultOutput) TimeCreated() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDiskResult) string { return v.TimeCreated }).(pulumi.StringOutput)
+}
+
+// Resource type
+func (o LookupDiskResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDiskResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Unique Guid identifying the resource.
+func (o LookupDiskResultOutput) UniqueId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDiskResult) string { return v.UniqueId }).(pulumi.StringOutput)
+}
+
+// The Logical zone list for Disk.
+func (o LookupDiskResultOutput) Zones() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupDiskResult) []string { return v.Zones }).(pulumi.StringArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupDiskResultOutput{})
 }

@@ -4,6 +4,9 @@
 package v20201001
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -63,4 +66,93 @@ func (val *LookupActivityLogAlertResult) Defaults() *LookupActivityLogAlertResul
 		tmp.Location = &location_
 	}
 	return &tmp
+}
+
+func LookupActivityLogAlertOutput(ctx *pulumi.Context, args LookupActivityLogAlertOutputArgs, opts ...pulumi.InvokeOption) LookupActivityLogAlertResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupActivityLogAlertResult, error) {
+			args := v.(LookupActivityLogAlertArgs)
+			r, err := LookupActivityLogAlert(ctx, &args, opts...)
+			return *r, err
+		}).(LookupActivityLogAlertResultOutput)
+}
+
+type LookupActivityLogAlertOutputArgs struct {
+	// The name of the Activity Log Alert rule.
+	ActivityLogAlertName pulumi.StringInput `pulumi:"activityLogAlertName"`
+	// The name of the resource group. The name is case insensitive.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupActivityLogAlertOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupActivityLogAlertArgs)(nil)).Elem()
+}
+
+// An Activity Log Alert rule resource.
+type LookupActivityLogAlertResultOutput struct{ *pulumi.OutputState }
+
+func (LookupActivityLogAlertResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupActivityLogAlertResult)(nil)).Elem()
+}
+
+func (o LookupActivityLogAlertResultOutput) ToLookupActivityLogAlertResultOutput() LookupActivityLogAlertResultOutput {
+	return o
+}
+
+func (o LookupActivityLogAlertResultOutput) ToLookupActivityLogAlertResultOutputWithContext(ctx context.Context) LookupActivityLogAlertResultOutput {
+	return o
+}
+
+// The actions that will activate when the condition is met.
+func (o LookupActivityLogAlertResultOutput) Actions() ActionListResponseOutput {
+	return o.ApplyT(func(v LookupActivityLogAlertResult) ActionListResponse { return v.Actions }).(ActionListResponseOutput)
+}
+
+// The condition that will cause this alert to activate.
+func (o LookupActivityLogAlertResultOutput) Condition() AlertRuleAllOfConditionResponseOutput {
+	return o.ApplyT(func(v LookupActivityLogAlertResult) AlertRuleAllOfConditionResponse { return v.Condition }).(AlertRuleAllOfConditionResponseOutput)
+}
+
+// A description of this Activity Log Alert rule.
+func (o LookupActivityLogAlertResultOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupActivityLogAlertResult) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Indicates whether this Activity Log Alert rule is enabled. If an Activity Log Alert rule is not enabled, then none of its actions will be activated.
+func (o LookupActivityLogAlertResultOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupActivityLogAlertResult) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// The resource Id.
+func (o LookupActivityLogAlertResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupActivityLogAlertResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The location of the resource. Since Azure Activity Log Alerts is a global service, the location of the rules should always be 'global'.
+func (o LookupActivityLogAlertResultOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupActivityLogAlertResult) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource.
+func (o LookupActivityLogAlertResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupActivityLogAlertResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// A list of resource IDs that will be used as prefixes. The alert will only apply to Activity Log events with resource IDs that fall under one of these prefixes. This list must include at least one item.
+func (o LookupActivityLogAlertResultOutput) Scopes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupActivityLogAlertResult) []string { return v.Scopes }).(pulumi.StringArrayOutput)
+}
+
+// The tags of the resource.
+func (o LookupActivityLogAlertResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupActivityLogAlertResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource.
+func (o LookupActivityLogAlertResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupActivityLogAlertResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupActivityLogAlertResultOutput{})
 }

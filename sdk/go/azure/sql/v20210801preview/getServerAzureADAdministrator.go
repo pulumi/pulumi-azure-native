@@ -4,6 +4,9 @@
 package v20210801preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -44,4 +47,85 @@ type LookupServerAzureADAdministratorResult struct {
 	TenantId *string `pulumi:"tenantId"`
 	// Resource type.
 	Type string `pulumi:"type"`
+}
+
+func LookupServerAzureADAdministratorOutput(ctx *pulumi.Context, args LookupServerAzureADAdministratorOutputArgs, opts ...pulumi.InvokeOption) LookupServerAzureADAdministratorResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupServerAzureADAdministratorResult, error) {
+			args := v.(LookupServerAzureADAdministratorArgs)
+			r, err := LookupServerAzureADAdministrator(ctx, &args, opts...)
+			return *r, err
+		}).(LookupServerAzureADAdministratorResultOutput)
+}
+
+type LookupServerAzureADAdministratorOutputArgs struct {
+	// The name of server active directory administrator.
+	AdministratorName pulumi.StringInput `pulumi:"administratorName"`
+	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the server.
+	ServerName pulumi.StringInput `pulumi:"serverName"`
+}
+
+func (LookupServerAzureADAdministratorOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupServerAzureADAdministratorArgs)(nil)).Elem()
+}
+
+// Azure Active Directory administrator.
+type LookupServerAzureADAdministratorResultOutput struct{ *pulumi.OutputState }
+
+func (LookupServerAzureADAdministratorResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupServerAzureADAdministratorResult)(nil)).Elem()
+}
+
+func (o LookupServerAzureADAdministratorResultOutput) ToLookupServerAzureADAdministratorResultOutput() LookupServerAzureADAdministratorResultOutput {
+	return o
+}
+
+func (o LookupServerAzureADAdministratorResultOutput) ToLookupServerAzureADAdministratorResultOutputWithContext(ctx context.Context) LookupServerAzureADAdministratorResultOutput {
+	return o
+}
+
+// Type of the sever administrator.
+func (o LookupServerAzureADAdministratorResultOutput) AdministratorType() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServerAzureADAdministratorResult) string { return v.AdministratorType }).(pulumi.StringOutput)
+}
+
+// Azure Active Directory only Authentication enabled.
+func (o LookupServerAzureADAdministratorResultOutput) AzureADOnlyAuthentication() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupServerAzureADAdministratorResult) bool { return v.AzureADOnlyAuthentication }).(pulumi.BoolOutput)
+}
+
+// Resource ID.
+func (o LookupServerAzureADAdministratorResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServerAzureADAdministratorResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Login name of the server administrator.
+func (o LookupServerAzureADAdministratorResultOutput) Login() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServerAzureADAdministratorResult) string { return v.Login }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o LookupServerAzureADAdministratorResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServerAzureADAdministratorResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// SID (object ID) of the server administrator.
+func (o LookupServerAzureADAdministratorResultOutput) Sid() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServerAzureADAdministratorResult) string { return v.Sid }).(pulumi.StringOutput)
+}
+
+// Tenant ID of the administrator.
+func (o LookupServerAzureADAdministratorResultOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupServerAzureADAdministratorResult) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+}
+
+// Resource type.
+func (o LookupServerAzureADAdministratorResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServerAzureADAdministratorResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupServerAzureADAdministratorResultOutput{})
 }

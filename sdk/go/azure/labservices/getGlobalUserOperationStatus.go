@@ -4,6 +4,9 @@
 package labservices
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -29,4 +32,48 @@ type GetGlobalUserOperationStatusArgs struct {
 type GetGlobalUserOperationStatusResult struct {
 	// status of the long running operation for an environment
 	Status string `pulumi:"status"`
+}
+
+func GetGlobalUserOperationStatusOutput(ctx *pulumi.Context, args GetGlobalUserOperationStatusOutputArgs, opts ...pulumi.InvokeOption) GetGlobalUserOperationStatusResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetGlobalUserOperationStatusResult, error) {
+			args := v.(GetGlobalUserOperationStatusArgs)
+			r, err := GetGlobalUserOperationStatus(ctx, &args, opts...)
+			return *r, err
+		}).(GetGlobalUserOperationStatusResultOutput)
+}
+
+type GetGlobalUserOperationStatusOutputArgs struct {
+	// The operation url of long running operation
+	OperationUrl pulumi.StringInput `pulumi:"operationUrl"`
+	// The name of the user.
+	UserName pulumi.StringInput `pulumi:"userName"`
+}
+
+func (GetGlobalUserOperationStatusOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetGlobalUserOperationStatusArgs)(nil)).Elem()
+}
+
+// Status Details of the long running operation for an environment
+type GetGlobalUserOperationStatusResultOutput struct{ *pulumi.OutputState }
+
+func (GetGlobalUserOperationStatusResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetGlobalUserOperationStatusResult)(nil)).Elem()
+}
+
+func (o GetGlobalUserOperationStatusResultOutput) ToGetGlobalUserOperationStatusResultOutput() GetGlobalUserOperationStatusResultOutput {
+	return o
+}
+
+func (o GetGlobalUserOperationStatusResultOutput) ToGetGlobalUserOperationStatusResultOutputWithContext(ctx context.Context) GetGlobalUserOperationStatusResultOutput {
+	return o
+}
+
+// status of the long running operation for an environment
+func (o GetGlobalUserOperationStatusResultOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v GetGlobalUserOperationStatusResult) string { return v.Status }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetGlobalUserOperationStatusResultOutput{})
 }

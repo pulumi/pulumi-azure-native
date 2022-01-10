@@ -4,6 +4,9 @@
 package v20200315preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -42,4 +45,80 @@ type LookupIscsiTargetResult struct {
 	Tpgs []TargetPortalGroupResponse `pulumi:"tpgs"`
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type string `pulumi:"type"`
+}
+
+func LookupIscsiTargetOutput(ctx *pulumi.Context, args LookupIscsiTargetOutputArgs, opts ...pulumi.InvokeOption) LookupIscsiTargetResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupIscsiTargetResult, error) {
+			args := v.(LookupIscsiTargetArgs)
+			r, err := LookupIscsiTarget(ctx, &args, opts...)
+			return *r, err
+		}).(LookupIscsiTargetResultOutput)
+}
+
+type LookupIscsiTargetOutputArgs struct {
+	// The name of the Disk pool.
+	DiskPoolName pulumi.StringInput `pulumi:"diskPoolName"`
+	// The name of the iSCSI target.
+	IscsiTargetName pulumi.StringInput `pulumi:"iscsiTargetName"`
+	// The name of the resource group. The name is case insensitive.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupIscsiTargetOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupIscsiTargetArgs)(nil)).Elem()
+}
+
+// Response for iSCSI target requests.
+type LookupIscsiTargetResultOutput struct{ *pulumi.OutputState }
+
+func (LookupIscsiTargetResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupIscsiTargetResult)(nil)).Elem()
+}
+
+func (o LookupIscsiTargetResultOutput) ToLookupIscsiTargetResultOutput() LookupIscsiTargetResultOutput {
+	return o
+}
+
+func (o LookupIscsiTargetResultOutput) ToLookupIscsiTargetResultOutputWithContext(ctx context.Context) LookupIscsiTargetResultOutput {
+	return o
+}
+
+// Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+func (o LookupIscsiTargetResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupIscsiTargetResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o LookupIscsiTargetResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupIscsiTargetResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// State of the operation on the resource.
+func (o LookupIscsiTargetResultOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupIscsiTargetResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Operational status of the iSCSI target.
+func (o LookupIscsiTargetResultOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupIscsiTargetResult) string { return v.Status }).(pulumi.StringOutput)
+}
+
+// iSCSI target IQN (iSCSI Qualified Name); example: "iqn.2005-03.org.iscsi:server".
+func (o LookupIscsiTargetResultOutput) TargetIqn() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupIscsiTargetResult) string { return v.TargetIqn }).(pulumi.StringOutput)
+}
+
+// List of iSCSI target portal groups. Can have 1 portal group at most.
+func (o LookupIscsiTargetResultOutput) Tpgs() TargetPortalGroupResponseArrayOutput {
+	return o.ApplyT(func(v LookupIscsiTargetResult) []TargetPortalGroupResponse { return v.Tpgs }).(TargetPortalGroupResponseArrayOutput)
+}
+
+// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+func (o LookupIscsiTargetResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupIscsiTargetResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupIscsiTargetResultOutput{})
 }

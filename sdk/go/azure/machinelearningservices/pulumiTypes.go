@@ -1536,6 +1536,71 @@ type AmlComputeNodeInformationResponse struct {
 	RunId string `pulumi:"runId"`
 }
 
+// Compute node information related to a AmlCompute.
+type AmlComputeNodeInformationResponseOutput struct{ *pulumi.OutputState }
+
+func (AmlComputeNodeInformationResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AmlComputeNodeInformationResponse)(nil)).Elem()
+}
+
+func (o AmlComputeNodeInformationResponseOutput) ToAmlComputeNodeInformationResponseOutput() AmlComputeNodeInformationResponseOutput {
+	return o
+}
+
+func (o AmlComputeNodeInformationResponseOutput) ToAmlComputeNodeInformationResponseOutputWithContext(ctx context.Context) AmlComputeNodeInformationResponseOutput {
+	return o
+}
+
+// ID of the compute node.
+func (o AmlComputeNodeInformationResponseOutput) NodeId() pulumi.StringOutput {
+	return o.ApplyT(func(v AmlComputeNodeInformationResponse) string { return v.NodeId }).(pulumi.StringOutput)
+}
+
+// State of the compute node. Values are idle, running, preparing, unusable, leaving and preempted.
+func (o AmlComputeNodeInformationResponseOutput) NodeState() pulumi.StringOutput {
+	return o.ApplyT(func(v AmlComputeNodeInformationResponse) string { return v.NodeState }).(pulumi.StringOutput)
+}
+
+// SSH port number of the node.
+func (o AmlComputeNodeInformationResponseOutput) Port() pulumi.Float64Output {
+	return o.ApplyT(func(v AmlComputeNodeInformationResponse) float64 { return v.Port }).(pulumi.Float64Output)
+}
+
+// Private IP address of the compute node.
+func (o AmlComputeNodeInformationResponseOutput) PrivateIpAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v AmlComputeNodeInformationResponse) string { return v.PrivateIpAddress }).(pulumi.StringOutput)
+}
+
+// Public IP address of the compute node.
+func (o AmlComputeNodeInformationResponseOutput) PublicIpAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v AmlComputeNodeInformationResponse) string { return v.PublicIpAddress }).(pulumi.StringOutput)
+}
+
+// ID of the Experiment running on the node, if any else null.
+func (o AmlComputeNodeInformationResponseOutput) RunId() pulumi.StringOutput {
+	return o.ApplyT(func(v AmlComputeNodeInformationResponse) string { return v.RunId }).(pulumi.StringOutput)
+}
+
+type AmlComputeNodeInformationResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (AmlComputeNodeInformationResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AmlComputeNodeInformationResponse)(nil)).Elem()
+}
+
+func (o AmlComputeNodeInformationResponseArrayOutput) ToAmlComputeNodeInformationResponseArrayOutput() AmlComputeNodeInformationResponseArrayOutput {
+	return o
+}
+
+func (o AmlComputeNodeInformationResponseArrayOutput) ToAmlComputeNodeInformationResponseArrayOutputWithContext(ctx context.Context) AmlComputeNodeInformationResponseArrayOutput {
+	return o
+}
+
+func (o AmlComputeNodeInformationResponseArrayOutput) Index(i pulumi.IntInput) AmlComputeNodeInformationResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AmlComputeNodeInformationResponse {
+		return vs[0].([]AmlComputeNodeInformationResponse)[vs[1].(int)]
+	}).(AmlComputeNodeInformationResponseOutput)
+}
+
 // AML Compute properties
 type AmlComputeProperties struct {
 	// Enable or disable node public IP address provisioning. Possible values are: Possible values are: true - Indicates that the compute nodes will have public IPs provisioned. false - Indicates that the compute nodes will have a private endpoint and no public IPs.
@@ -13871,6 +13936,28 @@ type ListNotebookKeysResultResponse struct {
 	SecondaryAccessKey string `pulumi:"secondaryAccessKey"`
 }
 
+type ListNotebookKeysResultResponseOutput struct{ *pulumi.OutputState }
+
+func (ListNotebookKeysResultResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListNotebookKeysResultResponse)(nil)).Elem()
+}
+
+func (o ListNotebookKeysResultResponseOutput) ToListNotebookKeysResultResponseOutput() ListNotebookKeysResultResponseOutput {
+	return o
+}
+
+func (o ListNotebookKeysResultResponseOutput) ToListNotebookKeysResultResponseOutputWithContext(ctx context.Context) ListNotebookKeysResultResponseOutput {
+	return o
+}
+
+func (o ListNotebookKeysResultResponseOutput) PrimaryAccessKey() pulumi.StringOutput {
+	return o.ApplyT(func(v ListNotebookKeysResultResponse) string { return v.PrimaryAccessKey }).(pulumi.StringOutput)
+}
+
+func (o ListNotebookKeysResultResponseOutput) SecondaryAccessKey() pulumi.StringOutput {
+	return o.ApplyT(func(v ListNotebookKeysResultResponse) string { return v.SecondaryAccessKey }).(pulumi.StringOutput)
+}
+
 // Represents configuration for machine learning assisted features in a labeling job.
 type MLAssistConfiguration struct {
 	// The compute designated for inferencing.
@@ -16422,6 +16509,48 @@ type PasswordResponse struct {
 	Value string `pulumi:"value"`
 }
 
+type PasswordResponseOutput struct{ *pulumi.OutputState }
+
+func (PasswordResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PasswordResponse)(nil)).Elem()
+}
+
+func (o PasswordResponseOutput) ToPasswordResponseOutput() PasswordResponseOutput {
+	return o
+}
+
+func (o PasswordResponseOutput) ToPasswordResponseOutputWithContext(ctx context.Context) PasswordResponseOutput {
+	return o
+}
+
+func (o PasswordResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v PasswordResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o PasswordResponseOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v PasswordResponse) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type PasswordResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (PasswordResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PasswordResponse)(nil)).Elem()
+}
+
+func (o PasswordResponseArrayOutput) ToPasswordResponseArrayOutput() PasswordResponseArrayOutput {
+	return o
+}
+
+func (o PasswordResponseArrayOutput) ToPasswordResponseArrayOutputWithContext(ctx context.Context) PasswordResponseArrayOutput {
+	return o
+}
+
+func (o PasswordResponseArrayOutput) Index(i pulumi.IntInput) PasswordResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PasswordResponse {
+		return vs[0].([]PasswordResponse)[vs[1].(int)]
+	}).(PasswordResponseOutput)
+}
+
 // Settings for a personal compute instance.
 type PersonalComputeInstanceSettings struct {
 	// A user explicitly assigned to a personal compute instance.
@@ -17063,6 +17192,32 @@ type RegistryListCredentialsResultResponse struct {
 	Location  string             `pulumi:"location"`
 	Passwords []PasswordResponse `pulumi:"passwords"`
 	Username  string             `pulumi:"username"`
+}
+
+type RegistryListCredentialsResultResponseOutput struct{ *pulumi.OutputState }
+
+func (RegistryListCredentialsResultResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegistryListCredentialsResultResponse)(nil)).Elem()
+}
+
+func (o RegistryListCredentialsResultResponseOutput) ToRegistryListCredentialsResultResponseOutput() RegistryListCredentialsResultResponseOutput {
+	return o
+}
+
+func (o RegistryListCredentialsResultResponseOutput) ToRegistryListCredentialsResultResponseOutputWithContext(ctx context.Context) RegistryListCredentialsResultResponseOutput {
+	return o
+}
+
+func (o RegistryListCredentialsResultResponseOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v RegistryListCredentialsResultResponse) string { return v.Location }).(pulumi.StringOutput)
+}
+
+func (o RegistryListCredentialsResultResponseOutput) Passwords() PasswordResponseArrayOutput {
+	return o.ApplyT(func(v RegistryListCredentialsResultResponse) []PasswordResponse { return v.Passwords }).(PasswordResponseArrayOutput)
+}
+
+func (o RegistryListCredentialsResultResponseOutput) Username() pulumi.StringOutput {
+	return o.ApplyT(func(v RegistryListCredentialsResultResponse) string { return v.Username }).(pulumi.StringOutput)
 }
 
 // Represents a resource ID. For example, for a subnet, it is the resource URL for the subnet.
@@ -19278,6 +19433,8 @@ func init() {
 	pulumi.RegisterOutputType(AKSServiceCreateRequestDataCollectionPtrOutput{})
 	pulumi.RegisterOutputType(AKSServiceCreateRequestLivenessProbeRequirementsOutput{})
 	pulumi.RegisterOutputType(AKSServiceCreateRequestLivenessProbeRequirementsPtrOutput{})
+	pulumi.RegisterOutputType(AmlComputeNodeInformationResponseOutput{})
+	pulumi.RegisterOutputType(AmlComputeNodeInformationResponseArrayOutput{})
 	pulumi.RegisterOutputType(AzureDataLakeSectionResponseOutput{})
 	pulumi.RegisterOutputType(AzureDataLakeSectionResponsePtrOutput{})
 	pulumi.RegisterOutputType(AzureMySqlSectionResponseOutput{})
@@ -19422,6 +19579,7 @@ func init() {
 	pulumi.RegisterOutputType(LinkedWorkspacePropsOutput{})
 	pulumi.RegisterOutputType(LinkedWorkspacePropsPtrOutput{})
 	pulumi.RegisterOutputType(LinkedWorkspacePropsResponseOutput{})
+	pulumi.RegisterOutputType(ListNotebookKeysResultResponseOutput{})
 	pulumi.RegisterOutputType(MLAssistConfigurationOutput{})
 	pulumi.RegisterOutputType(MLAssistConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(MLAssistConfigurationResponseOutput{})
@@ -19447,6 +19605,8 @@ func init() {
 	pulumi.RegisterOutputType(NotebookResourceInfoResponseOutput{})
 	pulumi.RegisterOutputType(OnlineEndpointTypeOutput{})
 	pulumi.RegisterOutputType(OnlineEndpointResponseOutput{})
+	pulumi.RegisterOutputType(PasswordResponseOutput{})
+	pulumi.RegisterOutputType(PasswordResponseArrayOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionResponseOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionResponseArrayOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointResponseOutput{})
@@ -19458,6 +19618,7 @@ func init() {
 	pulumi.RegisterOutputType(RCranPackageArrayOutput{})
 	pulumi.RegisterOutputType(RGitHubPackageOutput{})
 	pulumi.RegisterOutputType(RGitHubPackageArrayOutput{})
+	pulumi.RegisterOutputType(RegistryListCredentialsResultResponseOutput{})
 	pulumi.RegisterOutputType(ResourceIdentityOutput{})
 	pulumi.RegisterOutputType(ResourceIdentityPtrOutput{})
 	pulumi.RegisterOutputType(ResourceIdentityResponseOutput{})

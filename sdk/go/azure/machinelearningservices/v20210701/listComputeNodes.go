@@ -4,6 +4,9 @@
 package v20210701
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -32,4 +35,55 @@ type ListComputeNodesResult struct {
 	NextLink string `pulumi:"nextLink"`
 	// The collection of returned AmlCompute nodes details.
 	Nodes []AmlComputeNodeInformationResponse `pulumi:"nodes"`
+}
+
+func ListComputeNodesOutput(ctx *pulumi.Context, args ListComputeNodesOutputArgs, opts ...pulumi.InvokeOption) ListComputeNodesResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (ListComputeNodesResult, error) {
+			args := v.(ListComputeNodesArgs)
+			r, err := ListComputeNodes(ctx, &args, opts...)
+			return *r, err
+		}).(ListComputeNodesResultOutput)
+}
+
+type ListComputeNodesOutputArgs struct {
+	// Name of the Azure Machine Learning compute.
+	ComputeName pulumi.StringInput `pulumi:"computeName"`
+	// The name of the resource group. The name is case insensitive.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// Name of Azure Machine Learning workspace.
+	WorkspaceName pulumi.StringInput `pulumi:"workspaceName"`
+}
+
+func (ListComputeNodesOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListComputeNodesArgs)(nil)).Elem()
+}
+
+// Result of AmlCompute Nodes
+type ListComputeNodesResultOutput struct{ *pulumi.OutputState }
+
+func (ListComputeNodesResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListComputeNodesResult)(nil)).Elem()
+}
+
+func (o ListComputeNodesResultOutput) ToListComputeNodesResultOutput() ListComputeNodesResultOutput {
+	return o
+}
+
+func (o ListComputeNodesResultOutput) ToListComputeNodesResultOutputWithContext(ctx context.Context) ListComputeNodesResultOutput {
+	return o
+}
+
+// The continuation token.
+func (o ListComputeNodesResultOutput) NextLink() pulumi.StringOutput {
+	return o.ApplyT(func(v ListComputeNodesResult) string { return v.NextLink }).(pulumi.StringOutput)
+}
+
+// The collection of returned AmlCompute nodes details.
+func (o ListComputeNodesResultOutput) Nodes() AmlComputeNodeInformationResponseArrayOutput {
+	return o.ApplyT(func(v ListComputeNodesResult) []AmlComputeNodeInformationResponse { return v.Nodes }).(AmlComputeNodeInformationResponseArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(ListComputeNodesResultOutput{})
 }

@@ -4,6 +4,9 @@
 package v20150801
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -40,4 +43,72 @@ type ListQueueKeysResult struct {
 	SecondaryConnectionString *string `pulumi:"secondaryConnectionString"`
 	// A base64-encoded 256-bit primary key for signing and validating the SAS token.
 	SecondaryKey *string `pulumi:"secondaryKey"`
+}
+
+func ListQueueKeysOutput(ctx *pulumi.Context, args ListQueueKeysOutputArgs, opts ...pulumi.InvokeOption) ListQueueKeysResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (ListQueueKeysResult, error) {
+			args := v.(ListQueueKeysArgs)
+			r, err := ListQueueKeys(ctx, &args, opts...)
+			return *r, err
+		}).(ListQueueKeysResultOutput)
+}
+
+type ListQueueKeysOutputArgs struct {
+	// The authorization rule name.
+	AuthorizationRuleName pulumi.StringInput `pulumi:"authorizationRuleName"`
+	// The namespace name
+	NamespaceName pulumi.StringInput `pulumi:"namespaceName"`
+	// The queue name.
+	QueueName pulumi.StringInput `pulumi:"queueName"`
+	// Name of the Resource group within the Azure subscription.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (ListQueueKeysOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListQueueKeysArgs)(nil)).Elem()
+}
+
+// Namespace/ServiceBus Connection String
+type ListQueueKeysResultOutput struct{ *pulumi.OutputState }
+
+func (ListQueueKeysResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListQueueKeysResult)(nil)).Elem()
+}
+
+func (o ListQueueKeysResultOutput) ToListQueueKeysResultOutput() ListQueueKeysResultOutput {
+	return o
+}
+
+func (o ListQueueKeysResultOutput) ToListQueueKeysResultOutputWithContext(ctx context.Context) ListQueueKeysResultOutput {
+	return o
+}
+
+// A string that describes the authorization rule.
+func (o ListQueueKeysResultOutput) KeyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListQueueKeysResult) *string { return v.KeyName }).(pulumi.StringPtrOutput)
+}
+
+// Primary connection string of the created namespace authorization rule.
+func (o ListQueueKeysResultOutput) PrimaryConnectionString() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListQueueKeysResult) *string { return v.PrimaryConnectionString }).(pulumi.StringPtrOutput)
+}
+
+// A base64-encoded 256-bit primary key for signing and validating the SAS token.
+func (o ListQueueKeysResultOutput) PrimaryKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListQueueKeysResult) *string { return v.PrimaryKey }).(pulumi.StringPtrOutput)
+}
+
+// Secondary connection string of the created namespace authorization rule.
+func (o ListQueueKeysResultOutput) SecondaryConnectionString() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListQueueKeysResult) *string { return v.SecondaryConnectionString }).(pulumi.StringPtrOutput)
+}
+
+// A base64-encoded 256-bit primary key for signing and validating the SAS token.
+func (o ListQueueKeysResultOutput) SecondaryKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListQueueKeysResult) *string { return v.SecondaryKey }).(pulumi.StringPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(ListQueueKeysResultOutput{})
 }

@@ -4,6 +4,9 @@
 package datafactory
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -41,4 +44,72 @@ type LookupManagedPrivateEndpointResult struct {
 	Properties ManagedPrivateEndpointResponse `pulumi:"properties"`
 	// The resource type.
 	Type string `pulumi:"type"`
+}
+
+func LookupManagedPrivateEndpointOutput(ctx *pulumi.Context, args LookupManagedPrivateEndpointOutputArgs, opts ...pulumi.InvokeOption) LookupManagedPrivateEndpointResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupManagedPrivateEndpointResult, error) {
+			args := v.(LookupManagedPrivateEndpointArgs)
+			r, err := LookupManagedPrivateEndpoint(ctx, &args, opts...)
+			return *r, err
+		}).(LookupManagedPrivateEndpointResultOutput)
+}
+
+type LookupManagedPrivateEndpointOutputArgs struct {
+	// The factory name.
+	FactoryName pulumi.StringInput `pulumi:"factoryName"`
+	// Managed private endpoint name
+	ManagedPrivateEndpointName pulumi.StringInput `pulumi:"managedPrivateEndpointName"`
+	// Managed virtual network name
+	ManagedVirtualNetworkName pulumi.StringInput `pulumi:"managedVirtualNetworkName"`
+	// The resource group name.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupManagedPrivateEndpointOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupManagedPrivateEndpointArgs)(nil)).Elem()
+}
+
+// Managed private endpoint resource type.
+type LookupManagedPrivateEndpointResultOutput struct{ *pulumi.OutputState }
+
+func (LookupManagedPrivateEndpointResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupManagedPrivateEndpointResult)(nil)).Elem()
+}
+
+func (o LookupManagedPrivateEndpointResultOutput) ToLookupManagedPrivateEndpointResultOutput() LookupManagedPrivateEndpointResultOutput {
+	return o
+}
+
+func (o LookupManagedPrivateEndpointResultOutput) ToLookupManagedPrivateEndpointResultOutputWithContext(ctx context.Context) LookupManagedPrivateEndpointResultOutput {
+	return o
+}
+
+// Etag identifies change in the resource.
+func (o LookupManagedPrivateEndpointResultOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupManagedPrivateEndpointResult) string { return v.Etag }).(pulumi.StringOutput)
+}
+
+// The resource identifier.
+func (o LookupManagedPrivateEndpointResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupManagedPrivateEndpointResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The resource name.
+func (o LookupManagedPrivateEndpointResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupManagedPrivateEndpointResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Managed private endpoint properties.
+func (o LookupManagedPrivateEndpointResultOutput) Properties() ManagedPrivateEndpointResponseOutput {
+	return o.ApplyT(func(v LookupManagedPrivateEndpointResult) ManagedPrivateEndpointResponse { return v.Properties }).(ManagedPrivateEndpointResponseOutput)
+}
+
+// The resource type.
+func (o LookupManagedPrivateEndpointResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupManagedPrivateEndpointResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupManagedPrivateEndpointResultOutput{})
 }

@@ -4,6 +4,9 @@
 package v20170605preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -56,4 +59,112 @@ type LookupCloudEndpointResult struct {
 	StorageAccountTenantId *string `pulumi:"storageAccountTenantId"`
 	// The type of the resource
 	Type string `pulumi:"type"`
+}
+
+func LookupCloudEndpointOutput(ctx *pulumi.Context, args LookupCloudEndpointOutputArgs, opts ...pulumi.InvokeOption) LookupCloudEndpointResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupCloudEndpointResult, error) {
+			args := v.(LookupCloudEndpointArgs)
+			r, err := LookupCloudEndpoint(ctx, &args, opts...)
+			return *r, err
+		}).(LookupCloudEndpointResultOutput)
+}
+
+type LookupCloudEndpointOutputArgs struct {
+	// Name of Cloud Endpoint object.
+	CloudEndpointName pulumi.StringInput `pulumi:"cloudEndpointName"`
+	// The name of the resource group within the user's subscription. The name is case insensitive.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// Name of Storage Sync Service resource.
+	StorageSyncServiceName pulumi.StringInput `pulumi:"storageSyncServiceName"`
+	// Name of Sync Group resource.
+	SyncGroupName pulumi.StringInput `pulumi:"syncGroupName"`
+}
+
+func (LookupCloudEndpointOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupCloudEndpointArgs)(nil)).Elem()
+}
+
+// Cloud Endpoint object.
+type LookupCloudEndpointResultOutput struct{ *pulumi.OutputState }
+
+func (LookupCloudEndpointResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupCloudEndpointResult)(nil)).Elem()
+}
+
+func (o LookupCloudEndpointResultOutput) ToLookupCloudEndpointResultOutput() LookupCloudEndpointResultOutput {
+	return o
+}
+
+func (o LookupCloudEndpointResultOutput) ToLookupCloudEndpointResultOutputWithContext(ctx context.Context) LookupCloudEndpointResultOutput {
+	return o
+}
+
+// Backup Enabled
+func (o LookupCloudEndpointResultOutput) BackupEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupCloudEndpointResult) bool { return v.BackupEnabled }).(pulumi.BoolOutput)
+}
+
+// Friendly Name
+func (o LookupCloudEndpointResultOutput) FriendlyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupCloudEndpointResult) *string { return v.FriendlyName }).(pulumi.StringPtrOutput)
+}
+
+// The id of the resource.
+func (o LookupCloudEndpointResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCloudEndpointResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// CloudEndpoint lastWorkflowId
+func (o LookupCloudEndpointResultOutput) LastWorkflowId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupCloudEndpointResult) *string { return v.LastWorkflowId }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource.
+func (o LookupCloudEndpointResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCloudEndpointResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Partnership Id
+func (o LookupCloudEndpointResultOutput) PartnershipId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupCloudEndpointResult) *string { return v.PartnershipId }).(pulumi.StringPtrOutput)
+}
+
+// CloudEndpoint Provisioning State
+func (o LookupCloudEndpointResultOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupCloudEndpointResult) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+}
+
+// Storage Account name.
+func (o LookupCloudEndpointResultOutput) StorageAccount() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupCloudEndpointResult) *string { return v.StorageAccount }).(pulumi.StringPtrOutput)
+}
+
+// Storage Account access key.
+func (o LookupCloudEndpointResultOutput) StorageAccountKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupCloudEndpointResult) *string { return v.StorageAccountKey }).(pulumi.StringPtrOutput)
+}
+
+// Storage Account Resource Id
+func (o LookupCloudEndpointResultOutput) StorageAccountResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupCloudEndpointResult) *string { return v.StorageAccountResourceId }).(pulumi.StringPtrOutput)
+}
+
+// Storage Account Share name
+func (o LookupCloudEndpointResultOutput) StorageAccountShareName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupCloudEndpointResult) *string { return v.StorageAccountShareName }).(pulumi.StringPtrOutput)
+}
+
+// Storage Account Tenant Id
+func (o LookupCloudEndpointResultOutput) StorageAccountTenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupCloudEndpointResult) *string { return v.StorageAccountTenantId }).(pulumi.StringPtrOutput)
+}
+
+// The type of the resource
+func (o LookupCloudEndpointResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCloudEndpointResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupCloudEndpointResultOutput{})
 }

@@ -842,7 +842,6 @@ class SchemaResponse(dict):
     def __init__(__self__, *,
                  categories: Sequence[str],
                  labels: Sequence[str],
-                 name: str,
                  restored_logs: 'outputs.RestoredLogsResponse',
                  search_results: 'outputs.SearchResultsResponse',
                  solutions: Sequence[str],
@@ -852,12 +851,12 @@ class SchemaResponse(dict):
                  table_type: str,
                  columns: Optional[Sequence['outputs.ColumnResponse']] = None,
                  description: Optional[str] = None,
-                 display_name: Optional[str] = None):
+                 display_name: Optional[str] = None,
+                 name: Optional[str] = None):
         """
         Table's schema.
         :param Sequence[str] categories: Table category.
         :param Sequence[str] labels: Table labels.
-        :param str name: Table name.
         :param 'RestoredLogsResponse' restored_logs: Parameters of the restore operation that initiated this table.
         :param 'SearchResultsResponse' search_results: Parameters of the search job that initiated this table.
         :param Sequence[str] solutions: List of solutions the table is affiliated with
@@ -868,10 +867,10 @@ class SchemaResponse(dict):
         :param Sequence['ColumnResponse'] columns: A list of table custom columns.
         :param str description: Table description.
         :param str display_name: Table display name.
+        :param str name: Table name.
         """
         pulumi.set(__self__, "categories", categories)
         pulumi.set(__self__, "labels", labels)
-        pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "restored_logs", restored_logs)
         pulumi.set(__self__, "search_results", search_results)
         pulumi.set(__self__, "solutions", solutions)
@@ -885,6 +884,8 @@ class SchemaResponse(dict):
             pulumi.set(__self__, "description", description)
         if display_name is not None:
             pulumi.set(__self__, "display_name", display_name)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
@@ -901,14 +902,6 @@ class SchemaResponse(dict):
         Table labels.
         """
         return pulumi.get(self, "labels")
-
-    @property
-    @pulumi.getter
-    def name(self) -> str:
-        """
-        Table name.
-        """
-        return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="restoredLogs")
@@ -989,6 +982,14 @@ class SchemaResponse(dict):
         Table display name.
         """
         return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Table name.
+        """
+        return pulumi.get(self, "name")
 
 
 @pulumi.output_type

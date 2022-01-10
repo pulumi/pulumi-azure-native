@@ -4010,6 +4010,110 @@ type AzureResourceErrorInfoResponse struct {
 	Message string `pulumi:"message"`
 }
 
+// The azure resource error info.
+type AzureResourceErrorInfoResponseOutput struct{ *pulumi.OutputState }
+
+func (AzureResourceErrorInfoResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureResourceErrorInfoResponse)(nil)).Elem()
+}
+
+func (o AzureResourceErrorInfoResponseOutput) ToAzureResourceErrorInfoResponseOutput() AzureResourceErrorInfoResponseOutput {
+	return o
+}
+
+func (o AzureResourceErrorInfoResponseOutput) ToAzureResourceErrorInfoResponseOutputWithContext(ctx context.Context) AzureResourceErrorInfoResponseOutput {
+	return o
+}
+
+// The error code.
+func (o AzureResourceErrorInfoResponseOutput) Code() pulumi.StringOutput {
+	return o.ApplyT(func(v AzureResourceErrorInfoResponse) string { return v.Code }).(pulumi.StringOutput)
+}
+
+// The error details.
+func (o AzureResourceErrorInfoResponseOutput) Details() AzureResourceErrorInfoResponseArrayOutput {
+	return o.ApplyT(func(v AzureResourceErrorInfoResponse) []AzureResourceErrorInfoResponse { return v.Details }).(AzureResourceErrorInfoResponseArrayOutput)
+}
+
+// The error message.
+func (o AzureResourceErrorInfoResponseOutput) Message() pulumi.StringOutput {
+	return o.ApplyT(func(v AzureResourceErrorInfoResponse) string { return v.Message }).(pulumi.StringOutput)
+}
+
+type AzureResourceErrorInfoResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (AzureResourceErrorInfoResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AzureResourceErrorInfoResponse)(nil)).Elem()
+}
+
+func (o AzureResourceErrorInfoResponsePtrOutput) ToAzureResourceErrorInfoResponsePtrOutput() AzureResourceErrorInfoResponsePtrOutput {
+	return o
+}
+
+func (o AzureResourceErrorInfoResponsePtrOutput) ToAzureResourceErrorInfoResponsePtrOutputWithContext(ctx context.Context) AzureResourceErrorInfoResponsePtrOutput {
+	return o
+}
+
+func (o AzureResourceErrorInfoResponsePtrOutput) Elem() AzureResourceErrorInfoResponseOutput {
+	return o.ApplyT(func(v *AzureResourceErrorInfoResponse) AzureResourceErrorInfoResponse {
+		if v != nil {
+			return *v
+		}
+		var ret AzureResourceErrorInfoResponse
+		return ret
+	}).(AzureResourceErrorInfoResponseOutput)
+}
+
+// The error code.
+func (o AzureResourceErrorInfoResponsePtrOutput) Code() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureResourceErrorInfoResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Code
+	}).(pulumi.StringPtrOutput)
+}
+
+// The error details.
+func (o AzureResourceErrorInfoResponsePtrOutput) Details() AzureResourceErrorInfoResponseArrayOutput {
+	return o.ApplyT(func(v *AzureResourceErrorInfoResponse) []AzureResourceErrorInfoResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Details
+	}).(AzureResourceErrorInfoResponseArrayOutput)
+}
+
+// The error message.
+func (o AzureResourceErrorInfoResponsePtrOutput) Message() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureResourceErrorInfoResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Message
+	}).(pulumi.StringPtrOutput)
+}
+
+type AzureResourceErrorInfoResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (AzureResourceErrorInfoResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AzureResourceErrorInfoResponse)(nil)).Elem()
+}
+
+func (o AzureResourceErrorInfoResponseArrayOutput) ToAzureResourceErrorInfoResponseArrayOutput() AzureResourceErrorInfoResponseArrayOutput {
+	return o
+}
+
+func (o AzureResourceErrorInfoResponseArrayOutput) ToAzureResourceErrorInfoResponseArrayOutputWithContext(ctx context.Context) AzureResourceErrorInfoResponseArrayOutput {
+	return o
+}
+
+func (o AzureResourceErrorInfoResponseArrayOutput) Index(i pulumi.IntInput) AzureResourceErrorInfoResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AzureResourceErrorInfoResponse {
+		return vs[0].([]AzureResourceErrorInfoResponse)[vs[1].(int)]
+	}).(AzureResourceErrorInfoResponseOutput)
+}
+
 // The B2B partner content.
 type B2BPartnerContent struct {
 	// The list of partner business identities.
@@ -11576,6 +11680,57 @@ type ExpressionResponse struct {
 	Value          interface{}                     `pulumi:"value"`
 }
 
+type ExpressionResponseOutput struct{ *pulumi.OutputState }
+
+func (ExpressionResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExpressionResponse)(nil)).Elem()
+}
+
+func (o ExpressionResponseOutput) ToExpressionResponseOutput() ExpressionResponseOutput {
+	return o
+}
+
+func (o ExpressionResponseOutput) ToExpressionResponseOutputWithContext(ctx context.Context) ExpressionResponseOutput {
+	return o
+}
+
+// The azure resource error info.
+func (o ExpressionResponseOutput) Error() AzureResourceErrorInfoResponsePtrOutput {
+	return o.ApplyT(func(v ExpressionResponse) *AzureResourceErrorInfoResponse { return v.Error }).(AzureResourceErrorInfoResponsePtrOutput)
+}
+
+func (o ExpressionResponseOutput) Subexpressions() ExpressionResponseArrayOutput {
+	return o.ApplyT(func(v ExpressionResponse) []ExpressionResponse { return v.Subexpressions }).(ExpressionResponseArrayOutput)
+}
+
+func (o ExpressionResponseOutput) Text() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExpressionResponse) *string { return v.Text }).(pulumi.StringPtrOutput)
+}
+
+func (o ExpressionResponseOutput) Value() pulumi.AnyOutput {
+	return o.ApplyT(func(v ExpressionResponse) interface{} { return v.Value }).(pulumi.AnyOutput)
+}
+
+type ExpressionResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ExpressionResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ExpressionResponse)(nil)).Elem()
+}
+
+func (o ExpressionResponseArrayOutput) ToExpressionResponseArrayOutput() ExpressionResponseArrayOutput {
+	return o
+}
+
+func (o ExpressionResponseArrayOutput) ToExpressionResponseArrayOutputWithContext(ctx context.Context) ExpressionResponseArrayOutput {
+	return o
+}
+
+func (o ExpressionResponseArrayOutput) Index(i pulumi.IntInput) ExpressionResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ExpressionResponse {
+		return vs[0].([]ExpressionResponse)[vs[1].(int)]
+	}).(ExpressionResponseOutput)
+}
+
 type ExpressionRootResponse struct {
 	// The azure resource error info.
 	Error *AzureResourceErrorInfoResponse `pulumi:"error"`
@@ -11584,6 +11739,62 @@ type ExpressionRootResponse struct {
 	Subexpressions []ExpressionResponse `pulumi:"subexpressions"`
 	Text           *string              `pulumi:"text"`
 	Value          interface{}          `pulumi:"value"`
+}
+
+type ExpressionRootResponseOutput struct{ *pulumi.OutputState }
+
+func (ExpressionRootResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExpressionRootResponse)(nil)).Elem()
+}
+
+func (o ExpressionRootResponseOutput) ToExpressionRootResponseOutput() ExpressionRootResponseOutput {
+	return o
+}
+
+func (o ExpressionRootResponseOutput) ToExpressionRootResponseOutputWithContext(ctx context.Context) ExpressionRootResponseOutput {
+	return o
+}
+
+// The azure resource error info.
+func (o ExpressionRootResponseOutput) Error() AzureResourceErrorInfoResponsePtrOutput {
+	return o.ApplyT(func(v ExpressionRootResponse) *AzureResourceErrorInfoResponse { return v.Error }).(AzureResourceErrorInfoResponsePtrOutput)
+}
+
+// The path.
+func (o ExpressionRootResponseOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExpressionRootResponse) *string { return v.Path }).(pulumi.StringPtrOutput)
+}
+
+func (o ExpressionRootResponseOutput) Subexpressions() ExpressionResponseArrayOutput {
+	return o.ApplyT(func(v ExpressionRootResponse) []ExpressionResponse { return v.Subexpressions }).(ExpressionResponseArrayOutput)
+}
+
+func (o ExpressionRootResponseOutput) Text() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExpressionRootResponse) *string { return v.Text }).(pulumi.StringPtrOutput)
+}
+
+func (o ExpressionRootResponseOutput) Value() pulumi.AnyOutput {
+	return o.ApplyT(func(v ExpressionRootResponse) interface{} { return v.Value }).(pulumi.AnyOutput)
+}
+
+type ExpressionRootResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ExpressionRootResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ExpressionRootResponse)(nil)).Elem()
+}
+
+func (o ExpressionRootResponseArrayOutput) ToExpressionRootResponseArrayOutput() ExpressionRootResponseArrayOutput {
+	return o
+}
+
+func (o ExpressionRootResponseArrayOutput) ToExpressionRootResponseArrayOutputWithContext(ctx context.Context) ExpressionRootResponseArrayOutput {
+	return o
+}
+
+func (o ExpressionRootResponseArrayOutput) Index(i pulumi.IntInput) ExpressionRootResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ExpressionRootResponse {
+		return vs[0].([]ExpressionRootResponse)[vs[1].(int)]
+	}).(ExpressionRootResponseOutput)
 }
 
 // The parameters schema of integration account map.
@@ -12500,6 +12711,51 @@ type KeyVaultKeyResponse struct {
 	Kid *string `pulumi:"kid"`
 }
 
+// The key vault key.
+type KeyVaultKeyResponseOutput struct{ *pulumi.OutputState }
+
+func (KeyVaultKeyResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyVaultKeyResponse)(nil)).Elem()
+}
+
+func (o KeyVaultKeyResponseOutput) ToKeyVaultKeyResponseOutput() KeyVaultKeyResponseOutput {
+	return o
+}
+
+func (o KeyVaultKeyResponseOutput) ToKeyVaultKeyResponseOutputWithContext(ctx context.Context) KeyVaultKeyResponseOutput {
+	return o
+}
+
+// The key attributes.
+func (o KeyVaultKeyResponseOutput) Attributes() KeyVaultKeyResponseAttributesPtrOutput {
+	return o.ApplyT(func(v KeyVaultKeyResponse) *KeyVaultKeyResponseAttributes { return v.Attributes }).(KeyVaultKeyResponseAttributesPtrOutput)
+}
+
+// The key id.
+func (o KeyVaultKeyResponseOutput) Kid() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KeyVaultKeyResponse) *string { return v.Kid }).(pulumi.StringPtrOutput)
+}
+
+type KeyVaultKeyResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (KeyVaultKeyResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]KeyVaultKeyResponse)(nil)).Elem()
+}
+
+func (o KeyVaultKeyResponseArrayOutput) ToKeyVaultKeyResponseArrayOutput() KeyVaultKeyResponseArrayOutput {
+	return o
+}
+
+func (o KeyVaultKeyResponseArrayOutput) ToKeyVaultKeyResponseArrayOutputWithContext(ctx context.Context) KeyVaultKeyResponseArrayOutput {
+	return o
+}
+
+func (o KeyVaultKeyResponseArrayOutput) Index(i pulumi.IntInput) KeyVaultKeyResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) KeyVaultKeyResponse {
+		return vs[0].([]KeyVaultKeyResponse)[vs[1].(int)]
+	}).(KeyVaultKeyResponseOutput)
+}
+
 // The key attributes.
 type KeyVaultKeyResponseAttributes struct {
 	// When the key was created.
@@ -12510,12 +12766,152 @@ type KeyVaultKeyResponseAttributes struct {
 	Updated *float64 `pulumi:"updated"`
 }
 
+// The key attributes.
+type KeyVaultKeyResponseAttributesOutput struct{ *pulumi.OutputState }
+
+func (KeyVaultKeyResponseAttributesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyVaultKeyResponseAttributes)(nil)).Elem()
+}
+
+func (o KeyVaultKeyResponseAttributesOutput) ToKeyVaultKeyResponseAttributesOutput() KeyVaultKeyResponseAttributesOutput {
+	return o
+}
+
+func (o KeyVaultKeyResponseAttributesOutput) ToKeyVaultKeyResponseAttributesOutputWithContext(ctx context.Context) KeyVaultKeyResponseAttributesOutput {
+	return o
+}
+
+// When the key was created.
+func (o KeyVaultKeyResponseAttributesOutput) Created() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v KeyVaultKeyResponseAttributes) *float64 { return v.Created }).(pulumi.Float64PtrOutput)
+}
+
+// Whether the key is enabled or not.
+func (o KeyVaultKeyResponseAttributesOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v KeyVaultKeyResponseAttributes) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// When the key was updated.
+func (o KeyVaultKeyResponseAttributesOutput) Updated() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v KeyVaultKeyResponseAttributes) *float64 { return v.Updated }).(pulumi.Float64PtrOutput)
+}
+
+type KeyVaultKeyResponseAttributesPtrOutput struct{ *pulumi.OutputState }
+
+func (KeyVaultKeyResponseAttributesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KeyVaultKeyResponseAttributes)(nil)).Elem()
+}
+
+func (o KeyVaultKeyResponseAttributesPtrOutput) ToKeyVaultKeyResponseAttributesPtrOutput() KeyVaultKeyResponseAttributesPtrOutput {
+	return o
+}
+
+func (o KeyVaultKeyResponseAttributesPtrOutput) ToKeyVaultKeyResponseAttributesPtrOutputWithContext(ctx context.Context) KeyVaultKeyResponseAttributesPtrOutput {
+	return o
+}
+
+func (o KeyVaultKeyResponseAttributesPtrOutput) Elem() KeyVaultKeyResponseAttributesOutput {
+	return o.ApplyT(func(v *KeyVaultKeyResponseAttributes) KeyVaultKeyResponseAttributes {
+		if v != nil {
+			return *v
+		}
+		var ret KeyVaultKeyResponseAttributes
+		return ret
+	}).(KeyVaultKeyResponseAttributesOutput)
+}
+
+// When the key was created.
+func (o KeyVaultKeyResponseAttributesPtrOutput) Created() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *KeyVaultKeyResponseAttributes) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.Created
+	}).(pulumi.Float64PtrOutput)
+}
+
+// Whether the key is enabled or not.
+func (o KeyVaultKeyResponseAttributesPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *KeyVaultKeyResponseAttributes) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// When the key was updated.
+func (o KeyVaultKeyResponseAttributesPtrOutput) Updated() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *KeyVaultKeyResponseAttributes) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.Updated
+	}).(pulumi.Float64PtrOutput)
+}
+
 // The key vault reference.
 type KeyVaultReference struct {
 	// The resource id.
 	Id *string `pulumi:"id"`
 	// The key vault name.
 	Name *string `pulumi:"name"`
+}
+
+// KeyVaultReferenceInput is an input type that accepts KeyVaultReferenceArgs and KeyVaultReferenceOutput values.
+// You can construct a concrete instance of `KeyVaultReferenceInput` via:
+//
+//          KeyVaultReferenceArgs{...}
+type KeyVaultReferenceInput interface {
+	pulumi.Input
+
+	ToKeyVaultReferenceOutput() KeyVaultReferenceOutput
+	ToKeyVaultReferenceOutputWithContext(context.Context) KeyVaultReferenceOutput
+}
+
+// The key vault reference.
+type KeyVaultReferenceArgs struct {
+	// The resource id.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// The key vault name.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+}
+
+func (KeyVaultReferenceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyVaultReference)(nil)).Elem()
+}
+
+func (i KeyVaultReferenceArgs) ToKeyVaultReferenceOutput() KeyVaultReferenceOutput {
+	return i.ToKeyVaultReferenceOutputWithContext(context.Background())
+}
+
+func (i KeyVaultReferenceArgs) ToKeyVaultReferenceOutputWithContext(ctx context.Context) KeyVaultReferenceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultReferenceOutput)
+}
+
+// The key vault reference.
+type KeyVaultReferenceOutput struct{ *pulumi.OutputState }
+
+func (KeyVaultReferenceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyVaultReference)(nil)).Elem()
+}
+
+func (o KeyVaultReferenceOutput) ToKeyVaultReferenceOutput() KeyVaultReferenceOutput {
+	return o
+}
+
+func (o KeyVaultReferenceOutput) ToKeyVaultReferenceOutputWithContext(ctx context.Context) KeyVaultReferenceOutput {
+	return o
+}
+
+// The resource id.
+func (o KeyVaultReferenceOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KeyVaultReference) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// The key vault name.
+func (o KeyVaultReferenceOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KeyVaultReference) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 // The integration account partner content.
@@ -13781,6 +14177,120 @@ type WorkflowTriggerListCallbackUrlQueriesResponse struct {
 	Sp *string `pulumi:"sp"`
 	// The SAS version.
 	Sv *string `pulumi:"sv"`
+}
+
+// Gets the workflow trigger callback URL query parameters.
+type WorkflowTriggerListCallbackUrlQueriesResponseOutput struct{ *pulumi.OutputState }
+
+func (WorkflowTriggerListCallbackUrlQueriesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowTriggerListCallbackUrlQueriesResponse)(nil)).Elem()
+}
+
+func (o WorkflowTriggerListCallbackUrlQueriesResponseOutput) ToWorkflowTriggerListCallbackUrlQueriesResponseOutput() WorkflowTriggerListCallbackUrlQueriesResponseOutput {
+	return o
+}
+
+func (o WorkflowTriggerListCallbackUrlQueriesResponseOutput) ToWorkflowTriggerListCallbackUrlQueriesResponseOutputWithContext(ctx context.Context) WorkflowTriggerListCallbackUrlQueriesResponseOutput {
+	return o
+}
+
+// The api version.
+func (o WorkflowTriggerListCallbackUrlQueriesResponseOutput) ApiVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkflowTriggerListCallbackUrlQueriesResponse) *string { return v.ApiVersion }).(pulumi.StringPtrOutput)
+}
+
+// The SAS timestamp.
+func (o WorkflowTriggerListCallbackUrlQueriesResponseOutput) Se() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkflowTriggerListCallbackUrlQueriesResponse) *string { return v.Se }).(pulumi.StringPtrOutput)
+}
+
+// The SAS signature.
+func (o WorkflowTriggerListCallbackUrlQueriesResponseOutput) Sig() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkflowTriggerListCallbackUrlQueriesResponse) *string { return v.Sig }).(pulumi.StringPtrOutput)
+}
+
+// The SAS permissions.
+func (o WorkflowTriggerListCallbackUrlQueriesResponseOutput) Sp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkflowTriggerListCallbackUrlQueriesResponse) *string { return v.Sp }).(pulumi.StringPtrOutput)
+}
+
+// The SAS version.
+func (o WorkflowTriggerListCallbackUrlQueriesResponseOutput) Sv() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkflowTriggerListCallbackUrlQueriesResponse) *string { return v.Sv }).(pulumi.StringPtrOutput)
+}
+
+type WorkflowTriggerListCallbackUrlQueriesResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (WorkflowTriggerListCallbackUrlQueriesResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkflowTriggerListCallbackUrlQueriesResponse)(nil)).Elem()
+}
+
+func (o WorkflowTriggerListCallbackUrlQueriesResponsePtrOutput) ToWorkflowTriggerListCallbackUrlQueriesResponsePtrOutput() WorkflowTriggerListCallbackUrlQueriesResponsePtrOutput {
+	return o
+}
+
+func (o WorkflowTriggerListCallbackUrlQueriesResponsePtrOutput) ToWorkflowTriggerListCallbackUrlQueriesResponsePtrOutputWithContext(ctx context.Context) WorkflowTriggerListCallbackUrlQueriesResponsePtrOutput {
+	return o
+}
+
+func (o WorkflowTriggerListCallbackUrlQueriesResponsePtrOutput) Elem() WorkflowTriggerListCallbackUrlQueriesResponseOutput {
+	return o.ApplyT(func(v *WorkflowTriggerListCallbackUrlQueriesResponse) WorkflowTriggerListCallbackUrlQueriesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret WorkflowTriggerListCallbackUrlQueriesResponse
+		return ret
+	}).(WorkflowTriggerListCallbackUrlQueriesResponseOutput)
+}
+
+// The api version.
+func (o WorkflowTriggerListCallbackUrlQueriesResponsePtrOutput) ApiVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkflowTriggerListCallbackUrlQueriesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ApiVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+// The SAS timestamp.
+func (o WorkflowTriggerListCallbackUrlQueriesResponsePtrOutput) Se() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkflowTriggerListCallbackUrlQueriesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Se
+	}).(pulumi.StringPtrOutput)
+}
+
+// The SAS signature.
+func (o WorkflowTriggerListCallbackUrlQueriesResponsePtrOutput) Sig() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkflowTriggerListCallbackUrlQueriesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Sig
+	}).(pulumi.StringPtrOutput)
+}
+
+// The SAS permissions.
+func (o WorkflowTriggerListCallbackUrlQueriesResponsePtrOutput) Sp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkflowTriggerListCallbackUrlQueriesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Sp
+	}).(pulumi.StringPtrOutput)
+}
+
+// The SAS version.
+func (o WorkflowTriggerListCallbackUrlQueriesResponsePtrOutput) Sv() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkflowTriggerListCallbackUrlQueriesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Sv
+	}).(pulumi.StringPtrOutput)
 }
 
 // The workflow trigger recurrence.
@@ -20020,6 +20530,9 @@ func init() {
 	pulumi.RegisterOutputType(AgreementContentResponseOutput{})
 	pulumi.RegisterOutputType(AssemblyPropertiesOutput{})
 	pulumi.RegisterOutputType(AssemblyPropertiesResponseOutput{})
+	pulumi.RegisterOutputType(AzureResourceErrorInfoResponseOutput{})
+	pulumi.RegisterOutputType(AzureResourceErrorInfoResponsePtrOutput{})
+	pulumi.RegisterOutputType(AzureResourceErrorInfoResponseArrayOutput{})
 	pulumi.RegisterOutputType(B2BPartnerContentOutput{})
 	pulumi.RegisterOutputType(B2BPartnerContentPtrOutput{})
 	pulumi.RegisterOutputType(B2BPartnerContentResponseOutput{})
@@ -20098,6 +20611,10 @@ func init() {
 	pulumi.RegisterOutputType(EdifactValidationSettingsPtrOutput{})
 	pulumi.RegisterOutputType(EdifactValidationSettingsResponseOutput{})
 	pulumi.RegisterOutputType(EdifactValidationSettingsResponsePtrOutput{})
+	pulumi.RegisterOutputType(ExpressionResponseOutput{})
+	pulumi.RegisterOutputType(ExpressionResponseArrayOutput{})
+	pulumi.RegisterOutputType(ExpressionRootResponseOutput{})
+	pulumi.RegisterOutputType(ExpressionRootResponseArrayOutput{})
 	pulumi.RegisterOutputType(IntegrationAccountMapPropertiesParametersSchemaOutput{})
 	pulumi.RegisterOutputType(IntegrationAccountMapPropertiesParametersSchemaPtrOutput{})
 	pulumi.RegisterOutputType(IntegrationAccountMapPropertiesResponseParametersSchemaOutput{})
@@ -20114,6 +20631,11 @@ func init() {
 	pulumi.RegisterOutputType(KeyVaultKeyReferenceResponsePtrOutput{})
 	pulumi.RegisterOutputType(KeyVaultKeyReferenceResponseKeyVaultOutput{})
 	pulumi.RegisterOutputType(KeyVaultKeyReferenceResponseKeyVaultPtrOutput{})
+	pulumi.RegisterOutputType(KeyVaultKeyResponseOutput{})
+	pulumi.RegisterOutputType(KeyVaultKeyResponseArrayOutput{})
+	pulumi.RegisterOutputType(KeyVaultKeyResponseAttributesOutput{})
+	pulumi.RegisterOutputType(KeyVaultKeyResponseAttributesPtrOutput{})
+	pulumi.RegisterOutputType(KeyVaultReferenceOutput{})
 	pulumi.RegisterOutputType(PartnerContentOutput{})
 	pulumi.RegisterOutputType(PartnerContentResponseOutput{})
 	pulumi.RegisterOutputType(RecurrenceScheduleOutput{})
@@ -20136,6 +20658,8 @@ func init() {
 	pulumi.RegisterOutputType(WorkflowParameterMapOutput{})
 	pulumi.RegisterOutputType(WorkflowParameterResponseOutput{})
 	pulumi.RegisterOutputType(WorkflowParameterResponseMapOutput{})
+	pulumi.RegisterOutputType(WorkflowTriggerListCallbackUrlQueriesResponseOutput{})
+	pulumi.RegisterOutputType(WorkflowTriggerListCallbackUrlQueriesResponsePtrOutput{})
 	pulumi.RegisterOutputType(WorkflowTriggerRecurrenceOutput{})
 	pulumi.RegisterOutputType(WorkflowTriggerRecurrencePtrOutput{})
 	pulumi.RegisterOutputType(WorkflowTriggerRecurrenceResponseOutput{})

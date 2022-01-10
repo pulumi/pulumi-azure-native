@@ -6298,6 +6298,61 @@ type IdentifierResponse struct {
 	Type string `pulumi:"type"`
 }
 
+// A domain specific resource identifier.
+type IdentifierResponseOutput struct{ *pulumi.OutputState }
+
+func (IdentifierResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentifierResponse)(nil)).Elem()
+}
+
+func (o IdentifierResponseOutput) ToIdentifierResponseOutput() IdentifierResponseOutput {
+	return o
+}
+
+func (o IdentifierResponseOutput) ToIdentifierResponseOutputWithContext(ctx context.Context) IdentifierResponseOutput {
+	return o
+}
+
+// Resource Id.
+func (o IdentifierResponseOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v IdentifierResponse) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Kind of resource.
+func (o IdentifierResponseOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IdentifierResponse) *string { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Resource Name.
+func (o IdentifierResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v IdentifierResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Resource type.
+func (o IdentifierResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v IdentifierResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type IdentifierResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (IdentifierResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IdentifierResponse)(nil)).Elem()
+}
+
+func (o IdentifierResponseArrayOutput) ToIdentifierResponseArrayOutput() IdentifierResponseArrayOutput {
+	return o
+}
+
+func (o IdentifierResponseArrayOutput) ToIdentifierResponseArrayOutputWithContext(ctx context.Context) IdentifierResponseArrayOutput {
+	return o
+}
+
+func (o IdentifierResponseArrayOutput) Index(i pulumi.IntInput) IdentifierResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IdentifierResponse {
+		return vs[0].([]IdentifierResponse)[vs[1].(int)]
+	}).(IdentifierResponseOutput)
+}
+
 // IP security restriction on an app.
 type IpSecurityRestriction struct {
 	// Allow or Deny access for this IP range.
@@ -13034,6 +13089,8 @@ func init() {
 	pulumi.RegisterOutputType(HttpLogsConfigPtrOutput{})
 	pulumi.RegisterOutputType(HttpLogsConfigResponseOutput{})
 	pulumi.RegisterOutputType(HttpLogsConfigResponsePtrOutput{})
+	pulumi.RegisterOutputType(IdentifierResponseOutput{})
+	pulumi.RegisterOutputType(IdentifierResponseArrayOutput{})
 	pulumi.RegisterOutputType(IpSecurityRestrictionOutput{})
 	pulumi.RegisterOutputType(IpSecurityRestrictionArrayOutput{})
 	pulumi.RegisterOutputType(IpSecurityRestrictionResponseOutput{})

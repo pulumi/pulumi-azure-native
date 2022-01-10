@@ -4,6 +4,9 @@
 package v20150615
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -46,4 +49,95 @@ type LookupVirtualMachineScaleSetResult struct {
 	UpgradePolicy *UpgradePolicyResponse `pulumi:"upgradePolicy"`
 	// The virtual machine profile.
 	VirtualMachineProfile *VirtualMachineScaleSetVMProfileResponse `pulumi:"virtualMachineProfile"`
+}
+
+func LookupVirtualMachineScaleSetOutput(ctx *pulumi.Context, args LookupVirtualMachineScaleSetOutputArgs, opts ...pulumi.InvokeOption) LookupVirtualMachineScaleSetResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupVirtualMachineScaleSetResult, error) {
+			args := v.(LookupVirtualMachineScaleSetArgs)
+			r, err := LookupVirtualMachineScaleSet(ctx, &args, opts...)
+			return *r, err
+		}).(LookupVirtualMachineScaleSetResultOutput)
+}
+
+type LookupVirtualMachineScaleSetOutputArgs struct {
+	// The name of the resource group.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the VM scale set.
+	VmScaleSetName pulumi.StringInput `pulumi:"vmScaleSetName"`
+}
+
+func (LookupVirtualMachineScaleSetOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupVirtualMachineScaleSetArgs)(nil)).Elem()
+}
+
+// Describes a Virtual Machine Scale Set.
+type LookupVirtualMachineScaleSetResultOutput struct{ *pulumi.OutputState }
+
+func (LookupVirtualMachineScaleSetResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupVirtualMachineScaleSetResult)(nil)).Elem()
+}
+
+func (o LookupVirtualMachineScaleSetResultOutput) ToLookupVirtualMachineScaleSetResultOutput() LookupVirtualMachineScaleSetResultOutput {
+	return o
+}
+
+func (o LookupVirtualMachineScaleSetResultOutput) ToLookupVirtualMachineScaleSetResultOutputWithContext(ctx context.Context) LookupVirtualMachineScaleSetResultOutput {
+	return o
+}
+
+// Resource Id
+func (o LookupVirtualMachineScaleSetResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVirtualMachineScaleSetResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Resource location
+func (o LookupVirtualMachineScaleSetResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVirtualMachineScaleSetResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource name
+func (o LookupVirtualMachineScaleSetResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVirtualMachineScaleSetResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Specifies whether the Virtual Machine Scale Set should be overprovisioned.
+func (o LookupVirtualMachineScaleSetResultOutput) OverProvision() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupVirtualMachineScaleSetResult) *bool { return v.OverProvision }).(pulumi.BoolPtrOutput)
+}
+
+// The provisioning state, which only appears in the response.
+func (o LookupVirtualMachineScaleSetResultOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVirtualMachineScaleSetResult) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+}
+
+// The virtual machine scale set sku.
+func (o LookupVirtualMachineScaleSetResultOutput) Sku() SkuResponsePtrOutput {
+	return o.ApplyT(func(v LookupVirtualMachineScaleSetResult) *SkuResponse { return v.Sku }).(SkuResponsePtrOutput)
+}
+
+// Resource tags
+func (o LookupVirtualMachineScaleSetResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupVirtualMachineScaleSetResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type
+func (o LookupVirtualMachineScaleSetResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVirtualMachineScaleSetResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The upgrade policy.
+func (o LookupVirtualMachineScaleSetResultOutput) UpgradePolicy() UpgradePolicyResponsePtrOutput {
+	return o.ApplyT(func(v LookupVirtualMachineScaleSetResult) *UpgradePolicyResponse { return v.UpgradePolicy }).(UpgradePolicyResponsePtrOutput)
+}
+
+// The virtual machine profile.
+func (o LookupVirtualMachineScaleSetResultOutput) VirtualMachineProfile() VirtualMachineScaleSetVMProfileResponsePtrOutput {
+	return o.ApplyT(func(v LookupVirtualMachineScaleSetResult) *VirtualMachineScaleSetVMProfileResponse {
+		return v.VirtualMachineProfile
+	}).(VirtualMachineScaleSetVMProfileResponsePtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupVirtualMachineScaleSetResultOutput{})
 }

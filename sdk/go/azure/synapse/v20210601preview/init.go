@@ -51,6 +51,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &PrivateEndpointConnection{}
 	case "azure-native:synapse/v20210601preview:PrivateLinkHub":
 		r = &PrivateLinkHub{}
+	case "azure-native:synapse/v20210601preview:ReadOnlyFollowingDatabase":
+		r = &ReadOnlyFollowingDatabase{}
 	case "azure-native:synapse/v20210601preview:ReadWriteDatabase":
 		r = &ReadWriteDatabase{}
 	case "azure-native:synapse/v20210601preview:SqlPool":

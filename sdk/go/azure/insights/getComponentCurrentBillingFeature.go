@@ -4,6 +4,9 @@
 package insights
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -31,4 +34,55 @@ type LookupComponentCurrentBillingFeatureResult struct {
 	CurrentBillingFeatures []string `pulumi:"currentBillingFeatures"`
 	// An Application Insights component daily data volume cap
 	DataVolumeCap *ApplicationInsightsComponentDataVolumeCapResponse `pulumi:"dataVolumeCap"`
+}
+
+func LookupComponentCurrentBillingFeatureOutput(ctx *pulumi.Context, args LookupComponentCurrentBillingFeatureOutputArgs, opts ...pulumi.InvokeOption) LookupComponentCurrentBillingFeatureResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupComponentCurrentBillingFeatureResult, error) {
+			args := v.(LookupComponentCurrentBillingFeatureArgs)
+			r, err := LookupComponentCurrentBillingFeature(ctx, &args, opts...)
+			return *r, err
+		}).(LookupComponentCurrentBillingFeatureResultOutput)
+}
+
+type LookupComponentCurrentBillingFeatureOutputArgs struct {
+	// The name of the resource group. The name is case insensitive.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the Application Insights component resource.
+	ResourceName pulumi.StringInput `pulumi:"resourceName"`
+}
+
+func (LookupComponentCurrentBillingFeatureOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupComponentCurrentBillingFeatureArgs)(nil)).Elem()
+}
+
+// An Application Insights component billing features
+type LookupComponentCurrentBillingFeatureResultOutput struct{ *pulumi.OutputState }
+
+func (LookupComponentCurrentBillingFeatureResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupComponentCurrentBillingFeatureResult)(nil)).Elem()
+}
+
+func (o LookupComponentCurrentBillingFeatureResultOutput) ToLookupComponentCurrentBillingFeatureResultOutput() LookupComponentCurrentBillingFeatureResultOutput {
+	return o
+}
+
+func (o LookupComponentCurrentBillingFeatureResultOutput) ToLookupComponentCurrentBillingFeatureResultOutputWithContext(ctx context.Context) LookupComponentCurrentBillingFeatureResultOutput {
+	return o
+}
+
+// Current enabled pricing plan. When the component is in the Enterprise plan, this will list both 'Basic' and 'Application Insights Enterprise'.
+func (o LookupComponentCurrentBillingFeatureResultOutput) CurrentBillingFeatures() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupComponentCurrentBillingFeatureResult) []string { return v.CurrentBillingFeatures }).(pulumi.StringArrayOutput)
+}
+
+// An Application Insights component daily data volume cap
+func (o LookupComponentCurrentBillingFeatureResultOutput) DataVolumeCap() ApplicationInsightsComponentDataVolumeCapResponsePtrOutput {
+	return o.ApplyT(func(v LookupComponentCurrentBillingFeatureResult) *ApplicationInsightsComponentDataVolumeCapResponse {
+		return v.DataVolumeCap
+	}).(ApplicationInsightsComponentDataVolumeCapResponsePtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupComponentCurrentBillingFeatureResultOutput{})
 }

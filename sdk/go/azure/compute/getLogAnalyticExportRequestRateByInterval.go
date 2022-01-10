@@ -4,6 +4,9 @@
 package compute
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -45,4 +48,66 @@ type GetLogAnalyticExportRequestRateByIntervalArgs struct {
 type GetLogAnalyticExportRequestRateByIntervalResult struct {
 	// LogAnalyticsOutput
 	Properties LogAnalyticsOutputResponse `pulumi:"properties"`
+}
+
+func GetLogAnalyticExportRequestRateByIntervalOutput(ctx *pulumi.Context, args GetLogAnalyticExportRequestRateByIntervalOutputArgs, opts ...pulumi.InvokeOption) GetLogAnalyticExportRequestRateByIntervalResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetLogAnalyticExportRequestRateByIntervalResult, error) {
+			args := v.(GetLogAnalyticExportRequestRateByIntervalArgs)
+			r, err := GetLogAnalyticExportRequestRateByInterval(ctx, &args, opts...)
+			return *r, err
+		}).(GetLogAnalyticExportRequestRateByIntervalResultOutput)
+}
+
+type GetLogAnalyticExportRequestRateByIntervalOutputArgs struct {
+	// SAS Uri of the logging blob container to which LogAnalytics Api writes output logs to.
+	BlobContainerSasUri pulumi.StringInput `pulumi:"blobContainerSasUri"`
+	// From time of the query
+	FromTime pulumi.StringInput `pulumi:"fromTime"`
+	// Group query result by Client Application ID.
+	GroupByClientApplicationId pulumi.BoolPtrInput `pulumi:"groupByClientApplicationId"`
+	// Group query result by Operation Name.
+	GroupByOperationName pulumi.BoolPtrInput `pulumi:"groupByOperationName"`
+	// Group query result by Resource Name.
+	GroupByResourceName pulumi.BoolPtrInput `pulumi:"groupByResourceName"`
+	// Group query result by Throttle Policy applied.
+	GroupByThrottlePolicy pulumi.BoolPtrInput `pulumi:"groupByThrottlePolicy"`
+	// Group query result by User Agent.
+	GroupByUserAgent pulumi.BoolPtrInput `pulumi:"groupByUserAgent"`
+	// Interval value in minutes used to create LogAnalytics call rate logs.
+	IntervalLength IntervalInMinsInput `pulumi:"intervalLength"`
+	// The location upon which virtual-machine-sizes is queried.
+	Location pulumi.StringInput `pulumi:"location"`
+	// To time of the query
+	ToTime pulumi.StringInput `pulumi:"toTime"`
+}
+
+func (GetLogAnalyticExportRequestRateByIntervalOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLogAnalyticExportRequestRateByIntervalArgs)(nil)).Elem()
+}
+
+// LogAnalytics operation status response
+type GetLogAnalyticExportRequestRateByIntervalResultOutput struct{ *pulumi.OutputState }
+
+func (GetLogAnalyticExportRequestRateByIntervalResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLogAnalyticExportRequestRateByIntervalResult)(nil)).Elem()
+}
+
+func (o GetLogAnalyticExportRequestRateByIntervalResultOutput) ToGetLogAnalyticExportRequestRateByIntervalResultOutput() GetLogAnalyticExportRequestRateByIntervalResultOutput {
+	return o
+}
+
+func (o GetLogAnalyticExportRequestRateByIntervalResultOutput) ToGetLogAnalyticExportRequestRateByIntervalResultOutputWithContext(ctx context.Context) GetLogAnalyticExportRequestRateByIntervalResultOutput {
+	return o
+}
+
+// LogAnalyticsOutput
+func (o GetLogAnalyticExportRequestRateByIntervalResultOutput) Properties() LogAnalyticsOutputResponseOutput {
+	return o.ApplyT(func(v GetLogAnalyticExportRequestRateByIntervalResult) LogAnalyticsOutputResponse {
+		return v.Properties
+	}).(LogAnalyticsOutputResponseOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetLogAnalyticExportRequestRateByIntervalResultOutput{})
 }

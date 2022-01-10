@@ -4,6 +4,9 @@
 package storsimple
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -29,4 +32,48 @@ type ListManagerActivationKeyArgs struct {
 type ListManagerActivationKeyResult struct {
 	// The activation key for the device.
 	ActivationKey string `pulumi:"activationKey"`
+}
+
+func ListManagerActivationKeyOutput(ctx *pulumi.Context, args ListManagerActivationKeyOutputArgs, opts ...pulumi.InvokeOption) ListManagerActivationKeyResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (ListManagerActivationKeyResult, error) {
+			args := v.(ListManagerActivationKeyArgs)
+			r, err := ListManagerActivationKey(ctx, &args, opts...)
+			return *r, err
+		}).(ListManagerActivationKeyResultOutput)
+}
+
+type ListManagerActivationKeyOutputArgs struct {
+	// The manager name
+	ManagerName pulumi.StringInput `pulumi:"managerName"`
+	// The resource group name
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (ListManagerActivationKeyOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListManagerActivationKeyArgs)(nil)).Elem()
+}
+
+// The key.
+type ListManagerActivationKeyResultOutput struct{ *pulumi.OutputState }
+
+func (ListManagerActivationKeyResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListManagerActivationKeyResult)(nil)).Elem()
+}
+
+func (o ListManagerActivationKeyResultOutput) ToListManagerActivationKeyResultOutput() ListManagerActivationKeyResultOutput {
+	return o
+}
+
+func (o ListManagerActivationKeyResultOutput) ToListManagerActivationKeyResultOutputWithContext(ctx context.Context) ListManagerActivationKeyResultOutput {
+	return o
+}
+
+// The activation key for the device.
+func (o ListManagerActivationKeyResultOutput) ActivationKey() pulumi.StringOutput {
+	return o.ApplyT(func(v ListManagerActivationKeyResult) string { return v.ActivationKey }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(ListManagerActivationKeyResultOutput{})
 }

@@ -4,6 +4,9 @@
 package v20210601
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -36,4 +39,65 @@ type LookupTableResult struct {
 	TableName string `pulumi:"tableName"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
+}
+
+func LookupTableOutput(ctx *pulumi.Context, args LookupTableOutputArgs, opts ...pulumi.InvokeOption) LookupTableResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupTableResult, error) {
+			args := v.(LookupTableArgs)
+			r, err := LookupTable(ctx, &args, opts...)
+			return *r, err
+		}).(LookupTableResultOutput)
+}
+
+type LookupTableOutputArgs struct {
+	// The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
+	AccountName pulumi.StringInput `pulumi:"accountName"`
+	// The name of the resource group within the user's subscription. The name is case insensitive.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// A table name must be unique within a storage account and must be between 3 and 63 characters.The name must comprise of only alphanumeric characters and it cannot begin with a numeric character.
+	TableName pulumi.StringInput `pulumi:"tableName"`
+}
+
+func (LookupTableOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupTableArgs)(nil)).Elem()
+}
+
+// Properties of the table, including Id, resource name, resource type.
+type LookupTableResultOutput struct{ *pulumi.OutputState }
+
+func (LookupTableResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupTableResult)(nil)).Elem()
+}
+
+func (o LookupTableResultOutput) ToLookupTableResultOutput() LookupTableResultOutput {
+	return o
+}
+
+func (o LookupTableResultOutput) ToLookupTableResultOutputWithContext(ctx context.Context) LookupTableResultOutput {
+	return o
+}
+
+// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+func (o LookupTableResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTableResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o LookupTableResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTableResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Table name under the specified account
+func (o LookupTableResultOutput) TableName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTableResult) string { return v.TableName }).(pulumi.StringOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o LookupTableResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTableResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupTableResultOutput{})
 }

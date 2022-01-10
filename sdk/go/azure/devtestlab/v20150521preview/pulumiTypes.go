@@ -2093,6 +2093,46 @@ type LabVhdResponse struct {
 	Id *string `pulumi:"id"`
 }
 
+// Properties of a VHD in the lab.
+type LabVhdResponseOutput struct{ *pulumi.OutputState }
+
+func (LabVhdResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LabVhdResponse)(nil)).Elem()
+}
+
+func (o LabVhdResponseOutput) ToLabVhdResponseOutput() LabVhdResponseOutput {
+	return o
+}
+
+func (o LabVhdResponseOutput) ToLabVhdResponseOutputWithContext(ctx context.Context) LabVhdResponseOutput {
+	return o
+}
+
+// The absolute URI of the VHD.
+func (o LabVhdResponseOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LabVhdResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+type LabVhdResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (LabVhdResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LabVhdResponse)(nil)).Elem()
+}
+
+func (o LabVhdResponseArrayOutput) ToLabVhdResponseArrayOutput() LabVhdResponseArrayOutput {
+	return o
+}
+
+func (o LabVhdResponseArrayOutput) ToLabVhdResponseArrayOutputWithContext(ctx context.Context) LabVhdResponseArrayOutput {
+	return o
+}
+
+func (o LabVhdResponseArrayOutput) Index(i pulumi.IntInput) LabVhdResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LabVhdResponse {
+		return vs[0].([]LabVhdResponse)[vs[1].(int)]
+	}).(LabVhdResponseOutput)
+}
+
 // A virtual machine.
 type LabVirtualMachine struct {
 	// The artifact deployment status for the virtual machine.
@@ -4184,6 +4224,8 @@ func init() {
 	pulumi.RegisterOutputType(HourDetailsPtrOutput{})
 	pulumi.RegisterOutputType(HourDetailsResponseOutput{})
 	pulumi.RegisterOutputType(HourDetailsResponsePtrOutput{})
+	pulumi.RegisterOutputType(LabVhdResponseOutput{})
+	pulumi.RegisterOutputType(LabVhdResponseArrayOutput{})
 	pulumi.RegisterOutputType(LabVirtualMachineOutput{})
 	pulumi.RegisterOutputType(LabVirtualMachinePtrOutput{})
 	pulumi.RegisterOutputType(LabVirtualMachineResponseOutput{})

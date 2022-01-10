@@ -4,6 +4,9 @@
 package v20160627preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -30,4 +33,53 @@ type GetRegistryCredentialsResult struct {
 	Password *string `pulumi:"password"`
 	// The administrator username.
 	Username *string `pulumi:"username"`
+}
+
+func GetRegistryCredentialsOutput(ctx *pulumi.Context, args GetRegistryCredentialsOutputArgs, opts ...pulumi.InvokeOption) GetRegistryCredentialsResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetRegistryCredentialsResult, error) {
+			args := v.(GetRegistryCredentialsArgs)
+			r, err := GetRegistryCredentials(ctx, &args, opts...)
+			return *r, err
+		}).(GetRegistryCredentialsResultOutput)
+}
+
+type GetRegistryCredentialsOutputArgs struct {
+	// The name of the container registry.
+	RegistryName pulumi.StringInput `pulumi:"registryName"`
+	// The name of the resource group to which the container registry belongs.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (GetRegistryCredentialsOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRegistryCredentialsArgs)(nil)).Elem()
+}
+
+// The result of a request to get the administrator login credentials for a container registry.
+type GetRegistryCredentialsResultOutput struct{ *pulumi.OutputState }
+
+func (GetRegistryCredentialsResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRegistryCredentialsResult)(nil)).Elem()
+}
+
+func (o GetRegistryCredentialsResultOutput) ToGetRegistryCredentialsResultOutput() GetRegistryCredentialsResultOutput {
+	return o
+}
+
+func (o GetRegistryCredentialsResultOutput) ToGetRegistryCredentialsResultOutputWithContext(ctx context.Context) GetRegistryCredentialsResultOutput {
+	return o
+}
+
+// The administrator password.
+func (o GetRegistryCredentialsResultOutput) Password() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetRegistryCredentialsResult) *string { return v.Password }).(pulumi.StringPtrOutput)
+}
+
+// The administrator username.
+func (o GetRegistryCredentialsResultOutput) Username() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetRegistryCredentialsResult) *string { return v.Username }).(pulumi.StringPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetRegistryCredentialsResultOutput{})
 }

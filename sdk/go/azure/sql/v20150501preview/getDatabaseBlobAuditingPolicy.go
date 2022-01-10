@@ -4,6 +4,9 @@
 package v20150501preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -50,4 +53,97 @@ type LookupDatabaseBlobAuditingPolicyResult struct {
 	StorageEndpoint *string `pulumi:"storageEndpoint"`
 	// Resource type.
 	Type string `pulumi:"type"`
+}
+
+func LookupDatabaseBlobAuditingPolicyOutput(ctx *pulumi.Context, args LookupDatabaseBlobAuditingPolicyOutputArgs, opts ...pulumi.InvokeOption) LookupDatabaseBlobAuditingPolicyResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupDatabaseBlobAuditingPolicyResult, error) {
+			args := v.(LookupDatabaseBlobAuditingPolicyArgs)
+			r, err := LookupDatabaseBlobAuditingPolicy(ctx, &args, opts...)
+			return *r, err
+		}).(LookupDatabaseBlobAuditingPolicyResultOutput)
+}
+
+type LookupDatabaseBlobAuditingPolicyOutputArgs struct {
+	// The name of the blob auditing policy.
+	BlobAuditingPolicyName pulumi.StringInput `pulumi:"blobAuditingPolicyName"`
+	// The name of the database for which the blob audit policy is defined.
+	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
+	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the server.
+	ServerName pulumi.StringInput `pulumi:"serverName"`
+}
+
+func (LookupDatabaseBlobAuditingPolicyOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupDatabaseBlobAuditingPolicyArgs)(nil)).Elem()
+}
+
+// A database blob auditing policy.
+type LookupDatabaseBlobAuditingPolicyResultOutput struct{ *pulumi.OutputState }
+
+func (LookupDatabaseBlobAuditingPolicyResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupDatabaseBlobAuditingPolicyResult)(nil)).Elem()
+}
+
+func (o LookupDatabaseBlobAuditingPolicyResultOutput) ToLookupDatabaseBlobAuditingPolicyResultOutput() LookupDatabaseBlobAuditingPolicyResultOutput {
+	return o
+}
+
+func (o LookupDatabaseBlobAuditingPolicyResultOutput) ToLookupDatabaseBlobAuditingPolicyResultOutputWithContext(ctx context.Context) LookupDatabaseBlobAuditingPolicyResultOutput {
+	return o
+}
+
+// Specifies the Actions and Actions-Groups to audit.
+func (o LookupDatabaseBlobAuditingPolicyResultOutput) AuditActionsAndGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupDatabaseBlobAuditingPolicyResult) []string { return v.AuditActionsAndGroups }).(pulumi.StringArrayOutput)
+}
+
+// Resource ID.
+func (o LookupDatabaseBlobAuditingPolicyResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDatabaseBlobAuditingPolicyResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Specifies whether storageAccountAccessKey value is the storage’s secondary key.
+func (o LookupDatabaseBlobAuditingPolicyResultOutput) IsStorageSecondaryKeyInUse() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupDatabaseBlobAuditingPolicyResult) *bool { return v.IsStorageSecondaryKeyInUse }).(pulumi.BoolPtrOutput)
+}
+
+// Resource kind.
+func (o LookupDatabaseBlobAuditingPolicyResultOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDatabaseBlobAuditingPolicyResult) string { return v.Kind }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o LookupDatabaseBlobAuditingPolicyResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDatabaseBlobAuditingPolicyResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Specifies the number of days to keep in the audit logs.
+func (o LookupDatabaseBlobAuditingPolicyResultOutput) RetentionDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupDatabaseBlobAuditingPolicyResult) *int { return v.RetentionDays }).(pulumi.IntPtrOutput)
+}
+
+// Specifies the state of the policy. If state is Enabled, storageEndpoint and storageAccountAccessKey are required.
+func (o LookupDatabaseBlobAuditingPolicyResultOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDatabaseBlobAuditingPolicyResult) string { return v.State }).(pulumi.StringOutput)
+}
+
+// Specifies the blob storage subscription Id.
+func (o LookupDatabaseBlobAuditingPolicyResultOutput) StorageAccountSubscriptionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDatabaseBlobAuditingPolicyResult) *string { return v.StorageAccountSubscriptionId }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). If state is Enabled, storageEndpoint is required.
+func (o LookupDatabaseBlobAuditingPolicyResultOutput) StorageEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDatabaseBlobAuditingPolicyResult) *string { return v.StorageEndpoint }).(pulumi.StringPtrOutput)
+}
+
+// Resource type.
+func (o LookupDatabaseBlobAuditingPolicyResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDatabaseBlobAuditingPolicyResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupDatabaseBlobAuditingPolicyResultOutput{})
 }

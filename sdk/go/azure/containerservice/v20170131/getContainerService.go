@@ -4,6 +4,9 @@
 package v20170131
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -65,4 +68,121 @@ func (val *LookupContainerServiceResult) Defaults() *LookupContainerServiceResul
 	tmp.MasterProfile = *tmp.MasterProfile.Defaults()
 
 	return &tmp
+}
+
+func LookupContainerServiceOutput(ctx *pulumi.Context, args LookupContainerServiceOutputArgs, opts ...pulumi.InvokeOption) LookupContainerServiceResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupContainerServiceResult, error) {
+			args := v.(LookupContainerServiceArgs)
+			r, err := LookupContainerService(ctx, &args, opts...)
+			return *r, err
+		}).(LookupContainerServiceResultOutput)
+}
+
+type LookupContainerServiceOutputArgs struct {
+	// The name of the container service in the specified subscription and resource group.
+	ContainerServiceName pulumi.StringInput `pulumi:"containerServiceName"`
+	// The name of the resource group.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupContainerServiceOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupContainerServiceArgs)(nil)).Elem()
+}
+
+// Container service.
+type LookupContainerServiceResultOutput struct{ *pulumi.OutputState }
+
+func (LookupContainerServiceResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupContainerServiceResult)(nil)).Elem()
+}
+
+func (o LookupContainerServiceResultOutput) ToLookupContainerServiceResultOutput() LookupContainerServiceResultOutput {
+	return o
+}
+
+func (o LookupContainerServiceResultOutput) ToLookupContainerServiceResultOutputWithContext(ctx context.Context) LookupContainerServiceResultOutput {
+	return o
+}
+
+// Properties of the agent pool.
+func (o LookupContainerServiceResultOutput) AgentPoolProfiles() ContainerServiceAgentPoolProfileResponseArrayOutput {
+	return o.ApplyT(func(v LookupContainerServiceResult) []ContainerServiceAgentPoolProfileResponse {
+		return v.AgentPoolProfiles
+	}).(ContainerServiceAgentPoolProfileResponseArrayOutput)
+}
+
+// Properties for custom clusters.
+func (o LookupContainerServiceResultOutput) CustomProfile() ContainerServiceCustomProfileResponsePtrOutput {
+	return o.ApplyT(func(v LookupContainerServiceResult) *ContainerServiceCustomProfileResponse { return v.CustomProfile }).(ContainerServiceCustomProfileResponsePtrOutput)
+}
+
+// Properties of the diagnostic agent.
+func (o LookupContainerServiceResultOutput) DiagnosticsProfile() ContainerServiceDiagnosticsProfileResponsePtrOutput {
+	return o.ApplyT(func(v LookupContainerServiceResult) *ContainerServiceDiagnosticsProfileResponse {
+		return v.DiagnosticsProfile
+	}).(ContainerServiceDiagnosticsProfileResponsePtrOutput)
+}
+
+// Resource Id
+func (o LookupContainerServiceResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupContainerServiceResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Properties of Linux VMs.
+func (o LookupContainerServiceResultOutput) LinuxProfile() ContainerServiceLinuxProfileResponseOutput {
+	return o.ApplyT(func(v LookupContainerServiceResult) ContainerServiceLinuxProfileResponse { return v.LinuxProfile }).(ContainerServiceLinuxProfileResponseOutput)
+}
+
+// Resource location
+func (o LookupContainerServiceResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupContainerServiceResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// Properties of master agents.
+func (o LookupContainerServiceResultOutput) MasterProfile() ContainerServiceMasterProfileResponseOutput {
+	return o.ApplyT(func(v LookupContainerServiceResult) ContainerServiceMasterProfileResponse { return v.MasterProfile }).(ContainerServiceMasterProfileResponseOutput)
+}
+
+// Resource name
+func (o LookupContainerServiceResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupContainerServiceResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Properties of the orchestrator.
+func (o LookupContainerServiceResultOutput) OrchestratorProfile() ContainerServiceOrchestratorProfileResponsePtrOutput {
+	return o.ApplyT(func(v LookupContainerServiceResult) *ContainerServiceOrchestratorProfileResponse {
+		return v.OrchestratorProfile
+	}).(ContainerServiceOrchestratorProfileResponsePtrOutput)
+}
+
+// the current deployment or provisioning state, which only appears in the response.
+func (o LookupContainerServiceResultOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupContainerServiceResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Properties for cluster service principals.
+func (o LookupContainerServiceResultOutput) ServicePrincipalProfile() ContainerServiceServicePrincipalProfileResponsePtrOutput {
+	return o.ApplyT(func(v LookupContainerServiceResult) *ContainerServiceServicePrincipalProfileResponse {
+		return v.ServicePrincipalProfile
+	}).(ContainerServiceServicePrincipalProfileResponsePtrOutput)
+}
+
+// Resource tags
+func (o LookupContainerServiceResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupContainerServiceResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type
+func (o LookupContainerServiceResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupContainerServiceResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Properties of Windows VMs.
+func (o LookupContainerServiceResultOutput) WindowsProfile() ContainerServiceWindowsProfileResponsePtrOutput {
+	return o.ApplyT(func(v LookupContainerServiceResult) *ContainerServiceWindowsProfileResponse { return v.WindowsProfile }).(ContainerServiceWindowsProfileResponsePtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupContainerServiceResultOutput{})
 }

@@ -4,6 +4,9 @@
 package v20181101preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -49,4 +52,96 @@ type LookupTemplateArtifactResult struct {
 	Template interface{} `pulumi:"template"`
 	// Type of this resource.
 	Type string `pulumi:"type"`
+}
+
+func LookupTemplateArtifactOutput(ctx *pulumi.Context, args LookupTemplateArtifactOutputArgs, opts ...pulumi.InvokeOption) LookupTemplateArtifactResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupTemplateArtifactResult, error) {
+			args := v.(LookupTemplateArtifactArgs)
+			r, err := LookupTemplateArtifact(ctx, &args, opts...)
+			return *r, err
+		}).(LookupTemplateArtifactResultOutput)
+}
+
+type LookupTemplateArtifactOutputArgs struct {
+	// Name of the blueprint artifact.
+	ArtifactName pulumi.StringInput `pulumi:"artifactName"`
+	// Name of the blueprint definition.
+	BlueprintName pulumi.StringInput `pulumi:"blueprintName"`
+	// The scope of the resource. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: '/subscriptions/{subscriptionId}').
+	ResourceScope pulumi.StringInput `pulumi:"resourceScope"`
+}
+
+func (LookupTemplateArtifactOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupTemplateArtifactArgs)(nil)).Elem()
+}
+
+// Blueprint artifact that deploys a Resource Manager template.
+type LookupTemplateArtifactResultOutput struct{ *pulumi.OutputState }
+
+func (LookupTemplateArtifactResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupTemplateArtifactResult)(nil)).Elem()
+}
+
+func (o LookupTemplateArtifactResultOutput) ToLookupTemplateArtifactResultOutput() LookupTemplateArtifactResultOutput {
+	return o
+}
+
+func (o LookupTemplateArtifactResultOutput) ToLookupTemplateArtifactResultOutputWithContext(ctx context.Context) LookupTemplateArtifactResultOutput {
+	return o
+}
+
+// Artifacts which need to be deployed before the specified artifact.
+func (o LookupTemplateArtifactResultOutput) DependsOn() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupTemplateArtifactResult) []string { return v.DependsOn }).(pulumi.StringArrayOutput)
+}
+
+// Multi-line explain this resource.
+func (o LookupTemplateArtifactResultOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupTemplateArtifactResult) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// One-liner string explain this resource.
+func (o LookupTemplateArtifactResultOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupTemplateArtifactResult) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+// String Id used to locate any resource on Azure.
+func (o LookupTemplateArtifactResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTemplateArtifactResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Specifies the kind of blueprint artifact.
+// Expected value is 'template'.
+func (o LookupTemplateArtifactResultOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTemplateArtifactResult) string { return v.Kind }).(pulumi.StringOutput)
+}
+
+// Name of this resource.
+func (o LookupTemplateArtifactResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTemplateArtifactResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Resource Manager template blueprint artifact parameter values.
+func (o LookupTemplateArtifactResultOutput) Parameters() ParameterValueResponseMapOutput {
+	return o.ApplyT(func(v LookupTemplateArtifactResult) map[string]ParameterValueResponse { return v.Parameters }).(ParameterValueResponseMapOutput)
+}
+
+// If applicable, the name of the resource group placeholder to which the Resource Manager template blueprint artifact will be deployed.
+func (o LookupTemplateArtifactResultOutput) ResourceGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupTemplateArtifactResult) *string { return v.ResourceGroup }).(pulumi.StringPtrOutput)
+}
+
+// The Resource Manager template blueprint artifact body.
+func (o LookupTemplateArtifactResultOutput) Template() pulumi.AnyOutput {
+	return o.ApplyT(func(v LookupTemplateArtifactResult) interface{} { return v.Template }).(pulumi.AnyOutput)
+}
+
+// Type of this resource.
+func (o LookupTemplateArtifactResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTemplateArtifactResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupTemplateArtifactResultOutput{})
 }

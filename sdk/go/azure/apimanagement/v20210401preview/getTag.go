@@ -4,6 +4,9 @@
 package v20210401preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -36,4 +39,65 @@ type LookupTagResult struct {
 	Name string `pulumi:"name"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
+}
+
+func LookupTagOutput(ctx *pulumi.Context, args LookupTagOutputArgs, opts ...pulumi.InvokeOption) LookupTagResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupTagResult, error) {
+			args := v.(LookupTagArgs)
+			r, err := LookupTag(ctx, &args, opts...)
+			return *r, err
+		}).(LookupTagResultOutput)
+}
+
+type LookupTagOutputArgs struct {
+	// The name of the resource group.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the API Management service.
+	ServiceName pulumi.StringInput `pulumi:"serviceName"`
+	// Tag identifier. Must be unique in the current API Management service instance.
+	TagId pulumi.StringInput `pulumi:"tagId"`
+}
+
+func (LookupTagOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupTagArgs)(nil)).Elem()
+}
+
+// Tag Contract details.
+type LookupTagResultOutput struct{ *pulumi.OutputState }
+
+func (LookupTagResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupTagResult)(nil)).Elem()
+}
+
+func (o LookupTagResultOutput) ToLookupTagResultOutput() LookupTagResultOutput {
+	return o
+}
+
+func (o LookupTagResultOutput) ToLookupTagResultOutputWithContext(ctx context.Context) LookupTagResultOutput {
+	return o
+}
+
+// Tag name.
+func (o LookupTagResultOutput) DisplayName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTagResult) string { return v.DisplayName }).(pulumi.StringOutput)
+}
+
+// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+func (o LookupTagResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTagResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o LookupTagResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTagResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o LookupTagResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTagResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupTagResultOutput{})
 }

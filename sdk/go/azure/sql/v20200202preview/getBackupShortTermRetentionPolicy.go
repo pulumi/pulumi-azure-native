@@ -4,6 +4,9 @@
 package v20200202preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -38,4 +41,67 @@ type LookupBackupShortTermRetentionPolicyResult struct {
 	RetentionDays *int `pulumi:"retentionDays"`
 	// Resource type.
 	Type string `pulumi:"type"`
+}
+
+func LookupBackupShortTermRetentionPolicyOutput(ctx *pulumi.Context, args LookupBackupShortTermRetentionPolicyOutputArgs, opts ...pulumi.InvokeOption) LookupBackupShortTermRetentionPolicyResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupBackupShortTermRetentionPolicyResult, error) {
+			args := v.(LookupBackupShortTermRetentionPolicyArgs)
+			r, err := LookupBackupShortTermRetentionPolicy(ctx, &args, opts...)
+			return *r, err
+		}).(LookupBackupShortTermRetentionPolicyResultOutput)
+}
+
+type LookupBackupShortTermRetentionPolicyOutputArgs struct {
+	// The name of the database.
+	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
+	// The policy name. Should always be "default".
+	PolicyName pulumi.StringInput `pulumi:"policyName"`
+	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the server.
+	ServerName pulumi.StringInput `pulumi:"serverName"`
+}
+
+func (LookupBackupShortTermRetentionPolicyOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupBackupShortTermRetentionPolicyArgs)(nil)).Elem()
+}
+
+// A short term retention policy.
+type LookupBackupShortTermRetentionPolicyResultOutput struct{ *pulumi.OutputState }
+
+func (LookupBackupShortTermRetentionPolicyResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupBackupShortTermRetentionPolicyResult)(nil)).Elem()
+}
+
+func (o LookupBackupShortTermRetentionPolicyResultOutput) ToLookupBackupShortTermRetentionPolicyResultOutput() LookupBackupShortTermRetentionPolicyResultOutput {
+	return o
+}
+
+func (o LookupBackupShortTermRetentionPolicyResultOutput) ToLookupBackupShortTermRetentionPolicyResultOutputWithContext(ctx context.Context) LookupBackupShortTermRetentionPolicyResultOutput {
+	return o
+}
+
+// Resource ID.
+func (o LookupBackupShortTermRetentionPolicyResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBackupShortTermRetentionPolicyResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o LookupBackupShortTermRetentionPolicyResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBackupShortTermRetentionPolicyResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The backup retention period in days. This is how many days Point-in-Time Restore will be supported.
+func (o LookupBackupShortTermRetentionPolicyResultOutput) RetentionDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupBackupShortTermRetentionPolicyResult) *int { return v.RetentionDays }).(pulumi.IntPtrOutput)
+}
+
+// Resource type.
+func (o LookupBackupShortTermRetentionPolicyResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBackupShortTermRetentionPolicyResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupBackupShortTermRetentionPolicyResultOutput{})
 }

@@ -4,6 +4,9 @@
 package v20200601preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -56,4 +59,118 @@ type LookupLinkedSubscriptionResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Type of Resource.
 	Type string `pulumi:"type"`
+}
+
+func LookupLinkedSubscriptionOutput(ctx *pulumi.Context, args LookupLinkedSubscriptionOutputArgs, opts ...pulumi.InvokeOption) LookupLinkedSubscriptionResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupLinkedSubscriptionResult, error) {
+			args := v.(LookupLinkedSubscriptionArgs)
+			r, err := LookupLinkedSubscription(ctx, &args, opts...)
+			return *r, err
+		}).(LookupLinkedSubscriptionResultOutput)
+}
+
+type LookupLinkedSubscriptionOutputArgs struct {
+	// Name of the Linked Subscription resource.
+	LinkedSubscriptionName pulumi.StringInput `pulumi:"linkedSubscriptionName"`
+	// Name of the resource group.
+	ResourceGroup pulumi.StringInput `pulumi:"resourceGroup"`
+}
+
+func (LookupLinkedSubscriptionOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupLinkedSubscriptionArgs)(nil)).Elem()
+}
+
+// Linked Subscription information.
+type LookupLinkedSubscriptionResultOutput struct{ *pulumi.OutputState }
+
+func (LookupLinkedSubscriptionResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupLinkedSubscriptionResult)(nil)).Elem()
+}
+
+func (o LookupLinkedSubscriptionResultOutput) ToLookupLinkedSubscriptionResultOutput() LookupLinkedSubscriptionResultOutput {
+	return o
+}
+
+func (o LookupLinkedSubscriptionResultOutput) ToLookupLinkedSubscriptionResultOutputWithContext(ctx context.Context) LookupLinkedSubscriptionResultOutput {
+	return o
+}
+
+// The status of the remote management connection of the Azure Stack device.
+func (o LookupLinkedSubscriptionResultOutput) DeviceConnectionStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupLinkedSubscriptionResult) string { return v.DeviceConnectionStatus }).(pulumi.StringOutput)
+}
+
+// The identifier of the Azure Stack device for remote management.
+func (o LookupLinkedSubscriptionResultOutput) DeviceId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupLinkedSubscriptionResult) string { return v.DeviceId }).(pulumi.StringOutput)
+}
+
+// The connection state of the Azure Stack device.
+func (o LookupLinkedSubscriptionResultOutput) DeviceLinkState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupLinkedSubscriptionResult) string { return v.DeviceLinkState }).(pulumi.StringOutput)
+}
+
+// The object identifier associated with the Azure Stack device connecting to Azure.
+func (o LookupLinkedSubscriptionResultOutput) DeviceObjectId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupLinkedSubscriptionResult) string { return v.DeviceObjectId }).(pulumi.StringOutput)
+}
+
+// The entity tag used for optimistic concurrency when modifying the resource.
+func (o LookupLinkedSubscriptionResultOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupLinkedSubscriptionResult) *string { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// ID of the resource.
+func (o LookupLinkedSubscriptionResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupLinkedSubscriptionResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The kind of the resource.
+func (o LookupLinkedSubscriptionResultOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupLinkedSubscriptionResult) string { return v.Kind }).(pulumi.StringOutput)
+}
+
+// The last remote management connection time for the Azure Stack device connected to the linked subscription resource.
+func (o LookupLinkedSubscriptionResultOutput) LastConnectedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupLinkedSubscriptionResult) string { return v.LastConnectedTime }).(pulumi.StringOutput)
+}
+
+// The identifier associated with the device subscription.
+func (o LookupLinkedSubscriptionResultOutput) LinkedSubscriptionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupLinkedSubscriptionResult) *string { return v.LinkedSubscriptionId }).(pulumi.StringPtrOutput)
+}
+
+// Location of the resource.
+func (o LookupLinkedSubscriptionResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupLinkedSubscriptionResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// Name of the resource.
+func (o LookupLinkedSubscriptionResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupLinkedSubscriptionResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The identifier associated with the device registration.
+func (o LookupLinkedSubscriptionResultOutput) RegistrationResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupLinkedSubscriptionResult) *string { return v.RegistrationResourceId }).(pulumi.StringPtrOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o LookupLinkedSubscriptionResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupLinkedSubscriptionResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Custom tags for the resource.
+func (o LookupLinkedSubscriptionResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupLinkedSubscriptionResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Type of Resource.
+func (o LookupLinkedSubscriptionResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupLinkedSubscriptionResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupLinkedSubscriptionResultOutput{})
 }

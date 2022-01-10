@@ -4,6 +4,9 @@
 package v20150521preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -48,4 +51,95 @@ type LookupVirtualNetworkResourceResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource.
 	Type *string `pulumi:"type"`
+}
+
+func LookupVirtualNetworkResourceOutput(ctx *pulumi.Context, args LookupVirtualNetworkResourceOutputArgs, opts ...pulumi.InvokeOption) LookupVirtualNetworkResourceResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupVirtualNetworkResourceResult, error) {
+			args := v.(LookupVirtualNetworkResourceArgs)
+			r, err := LookupVirtualNetworkResource(ctx, &args, opts...)
+			return *r, err
+		}).(LookupVirtualNetworkResourceResultOutput)
+}
+
+type LookupVirtualNetworkResourceOutputArgs struct {
+	// The name of the lab.
+	LabName pulumi.StringInput `pulumi:"labName"`
+	// The name of the virtual network.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The name of the resource group.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupVirtualNetworkResourceOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupVirtualNetworkResourceArgs)(nil)).Elem()
+}
+
+// A virtual network.
+type LookupVirtualNetworkResourceResultOutput struct{ *pulumi.OutputState }
+
+func (LookupVirtualNetworkResourceResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupVirtualNetworkResourceResult)(nil)).Elem()
+}
+
+func (o LookupVirtualNetworkResourceResultOutput) ToLookupVirtualNetworkResourceResultOutput() LookupVirtualNetworkResourceResultOutput {
+	return o
+}
+
+func (o LookupVirtualNetworkResourceResultOutput) ToLookupVirtualNetworkResourceResultOutputWithContext(ctx context.Context) LookupVirtualNetworkResourceResultOutput {
+	return o
+}
+
+// The allowed subnets of the virtual network.
+func (o LookupVirtualNetworkResourceResultOutput) AllowedSubnets() SubnetResponseArrayOutput {
+	return o.ApplyT(func(v LookupVirtualNetworkResourceResult) []SubnetResponse { return v.AllowedSubnets }).(SubnetResponseArrayOutput)
+}
+
+// The description of the virtual network.
+func (o LookupVirtualNetworkResourceResultOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVirtualNetworkResourceResult) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The Microsoft.Network resource identifier of the virtual network.
+func (o LookupVirtualNetworkResourceResultOutput) ExternalProviderResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVirtualNetworkResourceResult) *string { return v.ExternalProviderResourceId }).(pulumi.StringPtrOutput)
+}
+
+// The identifier of the resource.
+func (o LookupVirtualNetworkResourceResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVirtualNetworkResourceResult) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// The location of the resource.
+func (o LookupVirtualNetworkResourceResultOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVirtualNetworkResourceResult) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource.
+func (o LookupVirtualNetworkResourceResultOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVirtualNetworkResourceResult) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The provisioning status of the resource.
+func (o LookupVirtualNetworkResourceResultOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVirtualNetworkResourceResult) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+}
+
+// The subnet overrides of the virtual network.
+func (o LookupVirtualNetworkResourceResultOutput) SubnetOverrides() SubnetOverrideResponseArrayOutput {
+	return o.ApplyT(func(v LookupVirtualNetworkResourceResult) []SubnetOverrideResponse { return v.SubnetOverrides }).(SubnetOverrideResponseArrayOutput)
+}
+
+// The tags of the resource.
+func (o LookupVirtualNetworkResourceResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupVirtualNetworkResourceResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource.
+func (o LookupVirtualNetworkResourceResultOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVirtualNetworkResourceResult) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupVirtualNetworkResourceResultOutput{})
 }

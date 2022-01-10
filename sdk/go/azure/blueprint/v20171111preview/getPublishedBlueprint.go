@@ -4,6 +4,9 @@
 package v20171111preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -50,4 +53,102 @@ type LookupPublishedBlueprintResult struct {
 	TargetScope *string `pulumi:"targetScope"`
 	// Type of this resource.
 	Type string `pulumi:"type"`
+}
+
+func LookupPublishedBlueprintOutput(ctx *pulumi.Context, args LookupPublishedBlueprintOutputArgs, opts ...pulumi.InvokeOption) LookupPublishedBlueprintResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupPublishedBlueprintResult, error) {
+			args := v.(LookupPublishedBlueprintArgs)
+			r, err := LookupPublishedBlueprint(ctx, &args, opts...)
+			return *r, err
+		}).(LookupPublishedBlueprintResultOutput)
+}
+
+type LookupPublishedBlueprintOutputArgs struct {
+	// name of the blueprint.
+	BlueprintName pulumi.StringInput `pulumi:"blueprintName"`
+	// ManagementGroup where blueprint stores.
+	ManagementGroupName pulumi.StringInput `pulumi:"managementGroupName"`
+	// version of the published blueprint.
+	VersionId pulumi.StringInput `pulumi:"versionId"`
+}
+
+func (LookupPublishedBlueprintOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupPublishedBlueprintArgs)(nil)).Elem()
+}
+
+// Represents a published Blueprint.
+type LookupPublishedBlueprintResultOutput struct{ *pulumi.OutputState }
+
+func (LookupPublishedBlueprintResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupPublishedBlueprintResult)(nil)).Elem()
+}
+
+func (o LookupPublishedBlueprintResultOutput) ToLookupPublishedBlueprintResultOutput() LookupPublishedBlueprintResultOutput {
+	return o
+}
+
+func (o LookupPublishedBlueprintResultOutput) ToLookupPublishedBlueprintResultOutputWithContext(ctx context.Context) LookupPublishedBlueprintResultOutput {
+	return o
+}
+
+// Name of the Blueprint definition.
+func (o LookupPublishedBlueprintResultOutput) BlueprintName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupPublishedBlueprintResult) *string { return v.BlueprintName }).(pulumi.StringPtrOutput)
+}
+
+// Version-specific change notes
+func (o LookupPublishedBlueprintResultOutput) ChangeNotes() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupPublishedBlueprintResult) *string { return v.ChangeNotes }).(pulumi.StringPtrOutput)
+}
+
+// Multi-line explain this resource.
+func (o LookupPublishedBlueprintResultOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupPublishedBlueprintResult) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// One-liner string explain this resource.
+func (o LookupPublishedBlueprintResultOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupPublishedBlueprintResult) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+// String Id used to locate any resource on Azure.
+func (o LookupPublishedBlueprintResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPublishedBlueprintResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Name of this resource.
+func (o LookupPublishedBlueprintResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPublishedBlueprintResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Parameters required by this Blueprint definition.
+func (o LookupPublishedBlueprintResultOutput) Parameters() ParameterDefinitionResponseMapOutput {
+	return o.ApplyT(func(v LookupPublishedBlueprintResult) map[string]ParameterDefinitionResponse { return v.Parameters }).(ParameterDefinitionResponseMapOutput)
+}
+
+// Resource group placeholders defined by this Blueprint definition.
+func (o LookupPublishedBlueprintResultOutput) ResourceGroups() ResourceGroupDefinitionResponseMapOutput {
+	return o.ApplyT(func(v LookupPublishedBlueprintResult) map[string]ResourceGroupDefinitionResponse {
+		return v.ResourceGroups
+	}).(ResourceGroupDefinitionResponseMapOutput)
+}
+
+// Status of the Blueprint. This field is readonly.
+func (o LookupPublishedBlueprintResultOutput) Status() BlueprintStatusResponseOutput {
+	return o.ApplyT(func(v LookupPublishedBlueprintResult) BlueprintStatusResponse { return v.Status }).(BlueprintStatusResponseOutput)
+}
+
+// The scope where this Blueprint can be applied.
+func (o LookupPublishedBlueprintResultOutput) TargetScope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupPublishedBlueprintResult) *string { return v.TargetScope }).(pulumi.StringPtrOutput)
+}
+
+// Type of this resource.
+func (o LookupPublishedBlueprintResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPublishedBlueprintResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupPublishedBlueprintResultOutput{})
 }

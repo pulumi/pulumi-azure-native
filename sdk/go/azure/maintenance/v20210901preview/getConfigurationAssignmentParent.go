@@ -4,6 +4,9 @@
 package v20210901preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -50,4 +53,88 @@ type LookupConfigurationAssignmentParentResult struct {
 	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Type of the resource
 	Type string `pulumi:"type"`
+}
+
+func LookupConfigurationAssignmentParentOutput(ctx *pulumi.Context, args LookupConfigurationAssignmentParentOutputArgs, opts ...pulumi.InvokeOption) LookupConfigurationAssignmentParentResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupConfigurationAssignmentParentResult, error) {
+			args := v.(LookupConfigurationAssignmentParentArgs)
+			r, err := LookupConfigurationAssignmentParent(ctx, &args, opts...)
+			return *r, err
+		}).(LookupConfigurationAssignmentParentResultOutput)
+}
+
+type LookupConfigurationAssignmentParentOutputArgs struct {
+	// Configuration assignment name
+	ConfigurationAssignmentName pulumi.StringInput `pulumi:"configurationAssignmentName"`
+	// Resource provider name
+	ProviderName pulumi.StringInput `pulumi:"providerName"`
+	// Resource group name
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// Resource identifier
+	ResourceName pulumi.StringInput `pulumi:"resourceName"`
+	// Resource parent identifier
+	ResourceParentName pulumi.StringInput `pulumi:"resourceParentName"`
+	// Resource parent type
+	ResourceParentType pulumi.StringInput `pulumi:"resourceParentType"`
+	// Resource type
+	ResourceType pulumi.StringInput `pulumi:"resourceType"`
+}
+
+func (LookupConfigurationAssignmentParentOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupConfigurationAssignmentParentArgs)(nil)).Elem()
+}
+
+// Configuration Assignment
+type LookupConfigurationAssignmentParentResultOutput struct{ *pulumi.OutputState }
+
+func (LookupConfigurationAssignmentParentResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupConfigurationAssignmentParentResult)(nil)).Elem()
+}
+
+func (o LookupConfigurationAssignmentParentResultOutput) ToLookupConfigurationAssignmentParentResultOutput() LookupConfigurationAssignmentParentResultOutput {
+	return o
+}
+
+func (o LookupConfigurationAssignmentParentResultOutput) ToLookupConfigurationAssignmentParentResultOutputWithContext(ctx context.Context) LookupConfigurationAssignmentParentResultOutput {
+	return o
+}
+
+// Fully qualified identifier of the resource
+func (o LookupConfigurationAssignmentParentResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupConfigurationAssignmentParentResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Location of the resource
+func (o LookupConfigurationAssignmentParentResultOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupConfigurationAssignmentParentResult) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The maintenance configuration Id
+func (o LookupConfigurationAssignmentParentResultOutput) MaintenanceConfigurationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupConfigurationAssignmentParentResult) *string { return v.MaintenanceConfigurationId }).(pulumi.StringPtrOutput)
+}
+
+// Name of the resource
+func (o LookupConfigurationAssignmentParentResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupConfigurationAssignmentParentResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The unique resourceId
+func (o LookupConfigurationAssignmentParentResultOutput) ResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupConfigurationAssignmentParentResult) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
+}
+
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+func (o LookupConfigurationAssignmentParentResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupConfigurationAssignmentParentResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Type of the resource
+func (o LookupConfigurationAssignmentParentResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupConfigurationAssignmentParentResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupConfigurationAssignmentParentResultOutput{})
 }

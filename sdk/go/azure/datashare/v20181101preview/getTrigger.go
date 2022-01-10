@@ -4,6 +4,9 @@
 package v20181101preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -40,4 +43,67 @@ type LookupTriggerResult struct {
 	Name string `pulumi:"name"`
 	// Type of the azure resource
 	Type string `pulumi:"type"`
+}
+
+func LookupTriggerOutput(ctx *pulumi.Context, args LookupTriggerOutputArgs, opts ...pulumi.InvokeOption) LookupTriggerResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupTriggerResult, error) {
+			args := v.(LookupTriggerArgs)
+			r, err := LookupTrigger(ctx, &args, opts...)
+			return *r, err
+		}).(LookupTriggerResultOutput)
+}
+
+type LookupTriggerOutputArgs struct {
+	// The name of the share account.
+	AccountName pulumi.StringInput `pulumi:"accountName"`
+	// The resource group name.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the shareSubscription.
+	ShareSubscriptionName pulumi.StringInput `pulumi:"shareSubscriptionName"`
+	// The name of the trigger.
+	TriggerName pulumi.StringInput `pulumi:"triggerName"`
+}
+
+func (LookupTriggerOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupTriggerArgs)(nil)).Elem()
+}
+
+// A Trigger data transfer object.
+type LookupTriggerResultOutput struct{ *pulumi.OutputState }
+
+func (LookupTriggerResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupTriggerResult)(nil)).Elem()
+}
+
+func (o LookupTriggerResultOutput) ToLookupTriggerResultOutput() LookupTriggerResultOutput {
+	return o
+}
+
+func (o LookupTriggerResultOutput) ToLookupTriggerResultOutputWithContext(ctx context.Context) LookupTriggerResultOutput {
+	return o
+}
+
+// The resource id of the azure resource
+func (o LookupTriggerResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTriggerResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Kind of synchronization on trigger.
+func (o LookupTriggerResultOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTriggerResult) string { return v.Kind }).(pulumi.StringOutput)
+}
+
+// Name of the azure resource
+func (o LookupTriggerResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTriggerResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Type of the azure resource
+func (o LookupTriggerResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTriggerResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupTriggerResultOutput{})
 }

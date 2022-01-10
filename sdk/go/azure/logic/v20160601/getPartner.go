@@ -4,6 +4,9 @@
 package v20160601
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -48,4 +51,95 @@ type LookupPartnerResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Gets the resource type.
 	Type string `pulumi:"type"`
+}
+
+func LookupPartnerOutput(ctx *pulumi.Context, args LookupPartnerOutputArgs, opts ...pulumi.InvokeOption) LookupPartnerResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupPartnerResult, error) {
+			args := v.(LookupPartnerArgs)
+			r, err := LookupPartner(ctx, &args, opts...)
+			return *r, err
+		}).(LookupPartnerResultOutput)
+}
+
+type LookupPartnerOutputArgs struct {
+	// The integration account name.
+	IntegrationAccountName pulumi.StringInput `pulumi:"integrationAccountName"`
+	// The integration account partner name.
+	PartnerName pulumi.StringInput `pulumi:"partnerName"`
+	// The resource group name.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupPartnerOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupPartnerArgs)(nil)).Elem()
+}
+
+// The integration account partner.
+type LookupPartnerResultOutput struct{ *pulumi.OutputState }
+
+func (LookupPartnerResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupPartnerResult)(nil)).Elem()
+}
+
+func (o LookupPartnerResultOutput) ToLookupPartnerResultOutput() LookupPartnerResultOutput {
+	return o
+}
+
+func (o LookupPartnerResultOutput) ToLookupPartnerResultOutputWithContext(ctx context.Context) LookupPartnerResultOutput {
+	return o
+}
+
+// The changed time.
+func (o LookupPartnerResultOutput) ChangedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPartnerResult) string { return v.ChangedTime }).(pulumi.StringOutput)
+}
+
+// The partner content.
+func (o LookupPartnerResultOutput) Content() PartnerContentResponseOutput {
+	return o.ApplyT(func(v LookupPartnerResult) PartnerContentResponse { return v.Content }).(PartnerContentResponseOutput)
+}
+
+// The created time.
+func (o LookupPartnerResultOutput) CreatedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPartnerResult) string { return v.CreatedTime }).(pulumi.StringOutput)
+}
+
+// The resource id.
+func (o LookupPartnerResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPartnerResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The resource location.
+func (o LookupPartnerResultOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupPartnerResult) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The metadata.
+func (o LookupPartnerResultOutput) Metadata() pulumi.AnyOutput {
+	return o.ApplyT(func(v LookupPartnerResult) interface{} { return v.Metadata }).(pulumi.AnyOutput)
+}
+
+// Gets the resource name.
+func (o LookupPartnerResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPartnerResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The partner type.
+func (o LookupPartnerResultOutput) PartnerType() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPartnerResult) string { return v.PartnerType }).(pulumi.StringOutput)
+}
+
+// The resource tags.
+func (o LookupPartnerResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupPartnerResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Gets the resource type.
+func (o LookupPartnerResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPartnerResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupPartnerResultOutput{})
 }

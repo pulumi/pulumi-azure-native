@@ -4,6 +4,9 @@
 package v20200601
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -46,4 +49,90 @@ type LookupIpGroupResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.
 	Type string `pulumi:"type"`
+}
+
+func LookupIpGroupOutput(ctx *pulumi.Context, args LookupIpGroupOutputArgs, opts ...pulumi.InvokeOption) LookupIpGroupResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupIpGroupResult, error) {
+			args := v.(LookupIpGroupArgs)
+			r, err := LookupIpGroup(ctx, &args, opts...)
+			return *r, err
+		}).(LookupIpGroupResultOutput)
+}
+
+type LookupIpGroupOutputArgs struct {
+	// Expands resourceIds (of Firewalls/Network Security Groups etc.) back referenced by the IpGroups resource.
+	Expand pulumi.StringPtrInput `pulumi:"expand"`
+	// The name of the ipGroups.
+	IpGroupsName pulumi.StringInput `pulumi:"ipGroupsName"`
+	// The name of the resource group.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupIpGroupOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupIpGroupArgs)(nil)).Elem()
+}
+
+// The IpGroups resource information.
+type LookupIpGroupResultOutput struct{ *pulumi.OutputState }
+
+func (LookupIpGroupResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupIpGroupResult)(nil)).Elem()
+}
+
+func (o LookupIpGroupResultOutput) ToLookupIpGroupResultOutput() LookupIpGroupResultOutput {
+	return o
+}
+
+func (o LookupIpGroupResultOutput) ToLookupIpGroupResultOutputWithContext(ctx context.Context) LookupIpGroupResultOutput {
+	return o
+}
+
+// A unique read-only string that changes whenever the resource is updated.
+func (o LookupIpGroupResultOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupIpGroupResult) string { return v.Etag }).(pulumi.StringOutput)
+}
+
+// List of references to Azure resources that this IpGroups is associated with.
+func (o LookupIpGroupResultOutput) Firewalls() SubResourceResponseArrayOutput {
+	return o.ApplyT(func(v LookupIpGroupResult) []SubResourceResponse { return v.Firewalls }).(SubResourceResponseArrayOutput)
+}
+
+// Resource ID.
+func (o LookupIpGroupResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupIpGroupResult) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// IpAddresses/IpAddressPrefixes in the IpGroups resource.
+func (o LookupIpGroupResultOutput) IpAddresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupIpGroupResult) []string { return v.IpAddresses }).(pulumi.StringArrayOutput)
+}
+
+// Resource location.
+func (o LookupIpGroupResultOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupIpGroupResult) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Resource name.
+func (o LookupIpGroupResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupIpGroupResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The provisioning state of the IpGroups resource.
+func (o LookupIpGroupResultOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupIpGroupResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Resource tags.
+func (o LookupIpGroupResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupIpGroupResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type.
+func (o LookupIpGroupResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupIpGroupResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupIpGroupResultOutput{})
 }

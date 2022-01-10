@@ -4,6 +4,9 @@
 package v20190101preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -48,4 +51,89 @@ type LookupBookmarkRelationResult struct {
 	RelatedResourceType string `pulumi:"relatedResourceType"`
 	// Azure resource type
 	Type string `pulumi:"type"`
+}
+
+func LookupBookmarkRelationOutput(ctx *pulumi.Context, args LookupBookmarkRelationOutputArgs, opts ...pulumi.InvokeOption) LookupBookmarkRelationResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupBookmarkRelationResult, error) {
+			args := v.(LookupBookmarkRelationArgs)
+			r, err := LookupBookmarkRelation(ctx, &args, opts...)
+			return *r, err
+		}).(LookupBookmarkRelationResultOutput)
+}
+
+type LookupBookmarkRelationOutputArgs struct {
+	// Bookmark ID
+	BookmarkId pulumi.StringInput `pulumi:"bookmarkId"`
+	// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
+	OperationalInsightsResourceProvider pulumi.StringInput `pulumi:"operationalInsightsResourceProvider"`
+	// Relation Name
+	RelationName pulumi.StringInput `pulumi:"relationName"`
+	// The name of the resource group within the user's subscription. The name is case insensitive.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the workspace.
+	WorkspaceName pulumi.StringInput `pulumi:"workspaceName"`
+}
+
+func (LookupBookmarkRelationOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupBookmarkRelationArgs)(nil)).Elem()
+}
+
+// Represents a relation between two resources
+type LookupBookmarkRelationResultOutput struct{ *pulumi.OutputState }
+
+func (LookupBookmarkRelationResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupBookmarkRelationResult)(nil)).Elem()
+}
+
+func (o LookupBookmarkRelationResultOutput) ToLookupBookmarkRelationResultOutput() LookupBookmarkRelationResultOutput {
+	return o
+}
+
+func (o LookupBookmarkRelationResultOutput) ToLookupBookmarkRelationResultOutputWithContext(ctx context.Context) LookupBookmarkRelationResultOutput {
+	return o
+}
+
+// Etag of the azure resource
+func (o LookupBookmarkRelationResultOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupBookmarkRelationResult) *string { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// Azure resource Id
+func (o LookupBookmarkRelationResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBookmarkRelationResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Azure resource name
+func (o LookupBookmarkRelationResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBookmarkRelationResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The resource ID of the related resource
+func (o LookupBookmarkRelationResultOutput) RelatedResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBookmarkRelationResult) string { return v.RelatedResourceId }).(pulumi.StringOutput)
+}
+
+// The resource kind of the related resource
+func (o LookupBookmarkRelationResultOutput) RelatedResourceKind() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBookmarkRelationResult) string { return v.RelatedResourceKind }).(pulumi.StringOutput)
+}
+
+// The name of the related resource
+func (o LookupBookmarkRelationResultOutput) RelatedResourceName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBookmarkRelationResult) string { return v.RelatedResourceName }).(pulumi.StringOutput)
+}
+
+// The resource type of the related resource
+func (o LookupBookmarkRelationResultOutput) RelatedResourceType() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBookmarkRelationResult) string { return v.RelatedResourceType }).(pulumi.StringOutput)
+}
+
+// Azure resource type
+func (o LookupBookmarkRelationResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBookmarkRelationResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupBookmarkRelationResultOutput{})
 }

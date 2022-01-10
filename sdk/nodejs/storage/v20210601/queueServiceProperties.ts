@@ -79,7 +79,7 @@ export class QueueServiceProperties extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:storage:QueueServiceProperties" }, { type: "azure-native:storage/v20190601:QueueServiceProperties" }, { type: "azure-native:storage/v20200801preview:QueueServiceProperties" }, { type: "azure-native:storage/v20210101:QueueServiceProperties" }, { type: "azure-native:storage/v20210201:QueueServiceProperties" }, { type: "azure-native:storage/v20210401:QueueServiceProperties" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:storage:QueueServiceProperties" }, { type: "azure-native:storage/v20190601:QueueServiceProperties" }, { type: "azure-native:storage/v20200801preview:QueueServiceProperties" }, { type: "azure-native:storage/v20210101:QueueServiceProperties" }, { type: "azure-native:storage/v20210201:QueueServiceProperties" }, { type: "azure-native:storage/v20210401:QueueServiceProperties" }, { type: "azure-native:storage/v20210801:QueueServiceProperties" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(QueueServiceProperties.__pulumiType, name, resourceInputs, opts);
     }

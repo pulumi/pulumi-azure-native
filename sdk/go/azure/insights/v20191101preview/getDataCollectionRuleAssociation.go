@@ -4,6 +4,9 @@
 package v20191101preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -40,4 +43,78 @@ type LookupDataCollectionRuleAssociationResult struct {
 	ProvisioningState string `pulumi:"provisioningState"`
 	// The type of the resource.
 	Type string `pulumi:"type"`
+}
+
+func LookupDataCollectionRuleAssociationOutput(ctx *pulumi.Context, args LookupDataCollectionRuleAssociationOutputArgs, opts ...pulumi.InvokeOption) LookupDataCollectionRuleAssociationResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupDataCollectionRuleAssociationResult, error) {
+			args := v.(LookupDataCollectionRuleAssociationArgs)
+			r, err := LookupDataCollectionRuleAssociation(ctx, &args, opts...)
+			return *r, err
+		}).(LookupDataCollectionRuleAssociationResultOutput)
+}
+
+type LookupDataCollectionRuleAssociationOutputArgs struct {
+	// The name of the association. The name is case insensitive.
+	AssociationName pulumi.StringInput `pulumi:"associationName"`
+	// The identifier of the resource.
+	ResourceUri pulumi.StringInput `pulumi:"resourceUri"`
+}
+
+func (LookupDataCollectionRuleAssociationOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupDataCollectionRuleAssociationArgs)(nil)).Elem()
+}
+
+// Definition of generic ARM proxy resource.
+type LookupDataCollectionRuleAssociationResultOutput struct{ *pulumi.OutputState }
+
+func (LookupDataCollectionRuleAssociationResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupDataCollectionRuleAssociationResult)(nil)).Elem()
+}
+
+func (o LookupDataCollectionRuleAssociationResultOutput) ToLookupDataCollectionRuleAssociationResultOutput() LookupDataCollectionRuleAssociationResultOutput {
+	return o
+}
+
+func (o LookupDataCollectionRuleAssociationResultOutput) ToLookupDataCollectionRuleAssociationResultOutputWithContext(ctx context.Context) LookupDataCollectionRuleAssociationResultOutput {
+	return o
+}
+
+// The resource ID of the data collection rule that is to be associated.
+func (o LookupDataCollectionRuleAssociationResultOutput) DataCollectionRuleId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDataCollectionRuleAssociationResult) *string { return v.DataCollectionRuleId }).(pulumi.StringPtrOutput)
+}
+
+// Description of the association.
+func (o LookupDataCollectionRuleAssociationResultOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDataCollectionRuleAssociationResult) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Resource entity tag (ETag).
+func (o LookupDataCollectionRuleAssociationResultOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDataCollectionRuleAssociationResult) string { return v.Etag }).(pulumi.StringOutput)
+}
+
+// Fully qualified ID of the resource.
+func (o LookupDataCollectionRuleAssociationResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDataCollectionRuleAssociationResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The name of the resource.
+func (o LookupDataCollectionRuleAssociationResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDataCollectionRuleAssociationResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The resource provisioning state.
+func (o LookupDataCollectionRuleAssociationResultOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDataCollectionRuleAssociationResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The type of the resource.
+func (o LookupDataCollectionRuleAssociationResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDataCollectionRuleAssociationResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupDataCollectionRuleAssociationResultOutput{})
 }

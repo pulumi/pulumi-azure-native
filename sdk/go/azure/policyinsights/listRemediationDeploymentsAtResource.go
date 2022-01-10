@@ -4,6 +4,9 @@
 package policyinsights
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -33,4 +36,55 @@ type ListRemediationDeploymentsAtResourceResult struct {
 	NextLink string `pulumi:"nextLink"`
 	// Array of deployments for the remediation.
 	Value []RemediationDeploymentResponse `pulumi:"value"`
+}
+
+func ListRemediationDeploymentsAtResourceOutput(ctx *pulumi.Context, args ListRemediationDeploymentsAtResourceOutputArgs, opts ...pulumi.InvokeOption) ListRemediationDeploymentsAtResourceResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (ListRemediationDeploymentsAtResourceResult, error) {
+			args := v.(ListRemediationDeploymentsAtResourceArgs)
+			r, err := ListRemediationDeploymentsAtResource(ctx, &args, opts...)
+			return *r, err
+		}).(ListRemediationDeploymentsAtResourceResultOutput)
+}
+
+type ListRemediationDeploymentsAtResourceOutputArgs struct {
+	// The name of the remediation.
+	RemediationName pulumi.StringInput `pulumi:"remediationName"`
+	// Resource ID.
+	ResourceId pulumi.StringInput `pulumi:"resourceId"`
+	// Maximum number of records to return.
+	Top pulumi.IntPtrInput `pulumi:"top"`
+}
+
+func (ListRemediationDeploymentsAtResourceOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListRemediationDeploymentsAtResourceArgs)(nil)).Elem()
+}
+
+// List of deployments for a remediation.
+type ListRemediationDeploymentsAtResourceResultOutput struct{ *pulumi.OutputState }
+
+func (ListRemediationDeploymentsAtResourceResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListRemediationDeploymentsAtResourceResult)(nil)).Elem()
+}
+
+func (o ListRemediationDeploymentsAtResourceResultOutput) ToListRemediationDeploymentsAtResourceResultOutput() ListRemediationDeploymentsAtResourceResultOutput {
+	return o
+}
+
+func (o ListRemediationDeploymentsAtResourceResultOutput) ToListRemediationDeploymentsAtResourceResultOutputWithContext(ctx context.Context) ListRemediationDeploymentsAtResourceResultOutput {
+	return o
+}
+
+// The URL to get the next set of results.
+func (o ListRemediationDeploymentsAtResourceResultOutput) NextLink() pulumi.StringOutput {
+	return o.ApplyT(func(v ListRemediationDeploymentsAtResourceResult) string { return v.NextLink }).(pulumi.StringOutput)
+}
+
+// Array of deployments for the remediation.
+func (o ListRemediationDeploymentsAtResourceResultOutput) Value() RemediationDeploymentResponseArrayOutput {
+	return o.ApplyT(func(v ListRemediationDeploymentsAtResourceResult) []RemediationDeploymentResponse { return v.Value }).(RemediationDeploymentResponseArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(ListRemediationDeploymentsAtResourceResultOutput{})
 }

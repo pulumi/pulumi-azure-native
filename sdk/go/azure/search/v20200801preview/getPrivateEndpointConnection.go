@@ -4,6 +4,9 @@
 package v20200801preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -47,4 +50,67 @@ func (val *LookupPrivateEndpointConnectionResult) Defaults() *LookupPrivateEndpo
 	tmp.Properties = *tmp.Properties.Defaults()
 
 	return &tmp
+}
+
+func LookupPrivateEndpointConnectionOutput(ctx *pulumi.Context, args LookupPrivateEndpointConnectionOutputArgs, opts ...pulumi.InvokeOption) LookupPrivateEndpointConnectionResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupPrivateEndpointConnectionResult, error) {
+			args := v.(LookupPrivateEndpointConnectionArgs)
+			r, err := LookupPrivateEndpointConnection(ctx, &args, opts...)
+			return *r, err
+		}).(LookupPrivateEndpointConnectionResultOutput)
+}
+
+type LookupPrivateEndpointConnectionOutputArgs struct {
+	// The name of the private endpoint connection to the Azure Cognitive Search service with the specified resource group.
+	PrivateEndpointConnectionName pulumi.StringInput `pulumi:"privateEndpointConnectionName"`
+	// The name of the resource group within the current subscription. You can obtain this value from the Azure Resource Manager API or the portal.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the Azure Cognitive Search service associated with the specified resource group.
+	SearchServiceName pulumi.StringInput `pulumi:"searchServiceName"`
+}
+
+func (LookupPrivateEndpointConnectionOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupPrivateEndpointConnectionArgs)(nil)).Elem()
+}
+
+// Describes an existing Private Endpoint connection to the Azure Cognitive Search service.
+type LookupPrivateEndpointConnectionResultOutput struct{ *pulumi.OutputState }
+
+func (LookupPrivateEndpointConnectionResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupPrivateEndpointConnectionResult)(nil)).Elem()
+}
+
+func (o LookupPrivateEndpointConnectionResultOutput) ToLookupPrivateEndpointConnectionResultOutput() LookupPrivateEndpointConnectionResultOutput {
+	return o
+}
+
+func (o LookupPrivateEndpointConnectionResultOutput) ToLookupPrivateEndpointConnectionResultOutputWithContext(ctx context.Context) LookupPrivateEndpointConnectionResultOutput {
+	return o
+}
+
+// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+func (o LookupPrivateEndpointConnectionResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPrivateEndpointConnectionResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o LookupPrivateEndpointConnectionResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPrivateEndpointConnectionResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Describes the properties of an existing Private Endpoint connection to the Azure Cognitive Search service.
+func (o LookupPrivateEndpointConnectionResultOutput) Properties() PrivateEndpointConnectionPropertiesResponseOutput {
+	return o.ApplyT(func(v LookupPrivateEndpointConnectionResult) PrivateEndpointConnectionPropertiesResponse {
+		return v.Properties
+	}).(PrivateEndpointConnectionPropertiesResponseOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o LookupPrivateEndpointConnectionResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPrivateEndpointConnectionResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupPrivateEndpointConnectionResultOutput{})
 }

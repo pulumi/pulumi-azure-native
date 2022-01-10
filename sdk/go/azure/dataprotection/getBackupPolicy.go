@@ -4,6 +4,9 @@
 package dataprotection
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -38,4 +41,69 @@ type LookupBackupPolicyResult struct {
 	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...
 	Type string `pulumi:"type"`
+}
+
+func LookupBackupPolicyOutput(ctx *pulumi.Context, args LookupBackupPolicyOutputArgs, opts ...pulumi.InvokeOption) LookupBackupPolicyResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupBackupPolicyResult, error) {
+			args := v.(LookupBackupPolicyArgs)
+			r, err := LookupBackupPolicy(ctx, &args, opts...)
+			return *r, err
+		}).(LookupBackupPolicyResultOutput)
+}
+
+type LookupBackupPolicyOutputArgs struct {
+	BackupPolicyName pulumi.StringInput `pulumi:"backupPolicyName"`
+	// The name of the resource group where the backup vault is present.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the backup vault.
+	VaultName pulumi.StringInput `pulumi:"vaultName"`
+}
+
+func (LookupBackupPolicyOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupBackupPolicyArgs)(nil)).Elem()
+}
+
+// BaseBackupPolicy resource
+type LookupBackupPolicyResultOutput struct{ *pulumi.OutputState }
+
+func (LookupBackupPolicyResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupBackupPolicyResult)(nil)).Elem()
+}
+
+func (o LookupBackupPolicyResultOutput) ToLookupBackupPolicyResultOutput() LookupBackupPolicyResultOutput {
+	return o
+}
+
+func (o LookupBackupPolicyResultOutput) ToLookupBackupPolicyResultOutputWithContext(ctx context.Context) LookupBackupPolicyResultOutput {
+	return o
+}
+
+// Resource Id represents the complete path to the resource.
+func (o LookupBackupPolicyResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBackupPolicyResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Resource name associated with the resource.
+func (o LookupBackupPolicyResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBackupPolicyResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// BaseBackupPolicyResource properties
+func (o LookupBackupPolicyResultOutput) Properties() BackupPolicyResponseOutput {
+	return o.ApplyT(func(v LookupBackupPolicyResult) BackupPolicyResponse { return v.Properties }).(BackupPolicyResponseOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o LookupBackupPolicyResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupBackupPolicyResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...
+func (o LookupBackupPolicyResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBackupPolicyResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupBackupPolicyResultOutput{})
 }

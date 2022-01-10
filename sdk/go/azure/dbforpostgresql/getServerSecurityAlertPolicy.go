@@ -4,6 +4,9 @@
 package dbforpostgresql
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -49,4 +52,95 @@ type LookupServerSecurityAlertPolicyResult struct {
 	StorageEndpoint *string `pulumi:"storageEndpoint"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
+}
+
+func LookupServerSecurityAlertPolicyOutput(ctx *pulumi.Context, args LookupServerSecurityAlertPolicyOutputArgs, opts ...pulumi.InvokeOption) LookupServerSecurityAlertPolicyResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupServerSecurityAlertPolicyResult, error) {
+			args := v.(LookupServerSecurityAlertPolicyArgs)
+			r, err := LookupServerSecurityAlertPolicy(ctx, &args, opts...)
+			return *r, err
+		}).(LookupServerSecurityAlertPolicyResultOutput)
+}
+
+type LookupServerSecurityAlertPolicyOutputArgs struct {
+	// The name of the resource group. The name is case insensitive.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the security alert policy.
+	SecurityAlertPolicyName pulumi.StringInput `pulumi:"securityAlertPolicyName"`
+	// The name of the server.
+	ServerName pulumi.StringInput `pulumi:"serverName"`
+}
+
+func (LookupServerSecurityAlertPolicyOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupServerSecurityAlertPolicyArgs)(nil)).Elem()
+}
+
+// A server security alert policy.
+type LookupServerSecurityAlertPolicyResultOutput struct{ *pulumi.OutputState }
+
+func (LookupServerSecurityAlertPolicyResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupServerSecurityAlertPolicyResult)(nil)).Elem()
+}
+
+func (o LookupServerSecurityAlertPolicyResultOutput) ToLookupServerSecurityAlertPolicyResultOutput() LookupServerSecurityAlertPolicyResultOutput {
+	return o
+}
+
+func (o LookupServerSecurityAlertPolicyResultOutput) ToLookupServerSecurityAlertPolicyResultOutputWithContext(ctx context.Context) LookupServerSecurityAlertPolicyResultOutput {
+	return o
+}
+
+// Specifies an array of alerts that are disabled. Allowed values are: Sql_Injection, Sql_Injection_Vulnerability, Access_Anomaly
+func (o LookupServerSecurityAlertPolicyResultOutput) DisabledAlerts() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupServerSecurityAlertPolicyResult) []string { return v.DisabledAlerts }).(pulumi.StringArrayOutput)
+}
+
+// Specifies that the alert is sent to the account administrators.
+func (o LookupServerSecurityAlertPolicyResultOutput) EmailAccountAdmins() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupServerSecurityAlertPolicyResult) *bool { return v.EmailAccountAdmins }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies an array of e-mail addresses to which the alert is sent.
+func (o LookupServerSecurityAlertPolicyResultOutput) EmailAddresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupServerSecurityAlertPolicyResult) []string { return v.EmailAddresses }).(pulumi.StringArrayOutput)
+}
+
+// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+func (o LookupServerSecurityAlertPolicyResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServerSecurityAlertPolicyResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o LookupServerSecurityAlertPolicyResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServerSecurityAlertPolicyResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Specifies the number of days to keep in the Threat Detection audit logs.
+func (o LookupServerSecurityAlertPolicyResultOutput) RetentionDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupServerSecurityAlertPolicyResult) *int { return v.RetentionDays }).(pulumi.IntPtrOutput)
+}
+
+// Specifies the state of the policy, whether it is enabled or disabled.
+func (o LookupServerSecurityAlertPolicyResultOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServerSecurityAlertPolicyResult) string { return v.State }).(pulumi.StringOutput)
+}
+
+// Specifies the identifier key of the Threat Detection audit storage account.
+func (o LookupServerSecurityAlertPolicyResultOutput) StorageAccountAccessKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupServerSecurityAlertPolicyResult) *string { return v.StorageAccountAccessKey }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs.
+func (o LookupServerSecurityAlertPolicyResultOutput) StorageEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupServerSecurityAlertPolicyResult) *string { return v.StorageEndpoint }).(pulumi.StringPtrOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o LookupServerSecurityAlertPolicyResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServerSecurityAlertPolicyResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupServerSecurityAlertPolicyResultOutput{})
 }

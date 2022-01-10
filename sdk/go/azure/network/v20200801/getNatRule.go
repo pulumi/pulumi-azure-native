@@ -4,6 +4,9 @@
 package v20200801
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -50,4 +53,100 @@ type LookupNatRuleResult struct {
 	ProvisioningState string `pulumi:"provisioningState"`
 	// Resource type.
 	Type string `pulumi:"type"`
+}
+
+func LookupNatRuleOutput(ctx *pulumi.Context, args LookupNatRuleOutputArgs, opts ...pulumi.InvokeOption) LookupNatRuleResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupNatRuleResult, error) {
+			args := v.(LookupNatRuleArgs)
+			r, err := LookupNatRule(ctx, &args, opts...)
+			return *r, err
+		}).(LookupNatRuleResultOutput)
+}
+
+type LookupNatRuleOutputArgs struct {
+	// The name of the gateway.
+	GatewayName pulumi.StringInput `pulumi:"gatewayName"`
+	// The name of the nat rule.
+	NatRuleName pulumi.StringInput `pulumi:"natRuleName"`
+	// The resource group name of the VpnGateway.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupNatRuleOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupNatRuleArgs)(nil)).Elem()
+}
+
+// VpnGatewayNatRule Resource.
+type LookupNatRuleResultOutput struct{ *pulumi.OutputState }
+
+func (LookupNatRuleResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupNatRuleResult)(nil)).Elem()
+}
+
+func (o LookupNatRuleResultOutput) ToLookupNatRuleResultOutput() LookupNatRuleResultOutput {
+	return o
+}
+
+func (o LookupNatRuleResultOutput) ToLookupNatRuleResultOutputWithContext(ctx context.Context) LookupNatRuleResultOutput {
+	return o
+}
+
+// List of egress VpnSiteLinkConnections.
+func (o LookupNatRuleResultOutput) EgressVpnSiteLinkConnections() SubResourceResponseArrayOutput {
+	return o.ApplyT(func(v LookupNatRuleResult) []SubResourceResponse { return v.EgressVpnSiteLinkConnections }).(SubResourceResponseArrayOutput)
+}
+
+// A unique read-only string that changes whenever the resource is updated.
+func (o LookupNatRuleResultOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupNatRuleResult) string { return v.Etag }).(pulumi.StringOutput)
+}
+
+// The private IP address external mapping for NAT.
+func (o LookupNatRuleResultOutput) ExternalMappings() VpnNatRuleMappingResponseArrayOutput {
+	return o.ApplyT(func(v LookupNatRuleResult) []VpnNatRuleMappingResponse { return v.ExternalMappings }).(VpnNatRuleMappingResponseArrayOutput)
+}
+
+// Resource ID.
+func (o LookupNatRuleResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupNatRuleResult) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// List of ingress VpnSiteLinkConnections.
+func (o LookupNatRuleResultOutput) IngressVpnSiteLinkConnections() SubResourceResponseArrayOutput {
+	return o.ApplyT(func(v LookupNatRuleResult) []SubResourceResponse { return v.IngressVpnSiteLinkConnections }).(SubResourceResponseArrayOutput)
+}
+
+// The private IP address internal mapping for NAT.
+func (o LookupNatRuleResultOutput) InternalMappings() VpnNatRuleMappingResponseArrayOutput {
+	return o.ApplyT(func(v LookupNatRuleResult) []VpnNatRuleMappingResponse { return v.InternalMappings }).(VpnNatRuleMappingResponseArrayOutput)
+}
+
+// The IP Configuration ID this NAT rule applies to.
+func (o LookupNatRuleResultOutput) IpConfigurationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupNatRuleResult) *string { return v.IpConfigurationId }).(pulumi.StringPtrOutput)
+}
+
+// The Source NAT direction of a VPN NAT.
+func (o LookupNatRuleResultOutput) Mode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupNatRuleResult) *string { return v.Mode }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource that is unique within a resource group. This name can be used to access the resource.
+func (o LookupNatRuleResultOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupNatRuleResult) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The provisioning state of the NAT Rule resource.
+func (o LookupNatRuleResultOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupNatRuleResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Resource type.
+func (o LookupNatRuleResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupNatRuleResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupNatRuleResultOutput{})
 }

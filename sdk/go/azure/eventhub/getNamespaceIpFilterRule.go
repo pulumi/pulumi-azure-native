@@ -4,6 +4,9 @@
 package eventhub
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -41,4 +44,75 @@ type LookupNamespaceIpFilterRuleResult struct {
 	Name string `pulumi:"name"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
+}
+
+func LookupNamespaceIpFilterRuleOutput(ctx *pulumi.Context, args LookupNamespaceIpFilterRuleOutputArgs, opts ...pulumi.InvokeOption) LookupNamespaceIpFilterRuleResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupNamespaceIpFilterRuleResult, error) {
+			args := v.(LookupNamespaceIpFilterRuleArgs)
+			r, err := LookupNamespaceIpFilterRule(ctx, &args, opts...)
+			return *r, err
+		}).(LookupNamespaceIpFilterRuleResultOutput)
+}
+
+type LookupNamespaceIpFilterRuleOutputArgs struct {
+	// The IP Filter Rule name.
+	IpFilterRuleName pulumi.StringInput `pulumi:"ipFilterRuleName"`
+	// The Namespace name
+	NamespaceName pulumi.StringInput `pulumi:"namespaceName"`
+	// Name of the resource group within the azure subscription.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupNamespaceIpFilterRuleOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupNamespaceIpFilterRuleArgs)(nil)).Elem()
+}
+
+// Single item in a List or Get IpFilterRules operation
+type LookupNamespaceIpFilterRuleResultOutput struct{ *pulumi.OutputState }
+
+func (LookupNamespaceIpFilterRuleResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupNamespaceIpFilterRuleResult)(nil)).Elem()
+}
+
+func (o LookupNamespaceIpFilterRuleResultOutput) ToLookupNamespaceIpFilterRuleResultOutput() LookupNamespaceIpFilterRuleResultOutput {
+	return o
+}
+
+func (o LookupNamespaceIpFilterRuleResultOutput) ToLookupNamespaceIpFilterRuleResultOutputWithContext(ctx context.Context) LookupNamespaceIpFilterRuleResultOutput {
+	return o
+}
+
+// The IP Filter Action
+func (o LookupNamespaceIpFilterRuleResultOutput) Action() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupNamespaceIpFilterRuleResult) *string { return v.Action }).(pulumi.StringPtrOutput)
+}
+
+// IP Filter name
+func (o LookupNamespaceIpFilterRuleResultOutput) FilterName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupNamespaceIpFilterRuleResult) *string { return v.FilterName }).(pulumi.StringPtrOutput)
+}
+
+// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+func (o LookupNamespaceIpFilterRuleResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupNamespaceIpFilterRuleResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// IP Mask
+func (o LookupNamespaceIpFilterRuleResultOutput) IpMask() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupNamespaceIpFilterRuleResult) *string { return v.IpMask }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource
+func (o LookupNamespaceIpFilterRuleResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupNamespaceIpFilterRuleResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o LookupNamespaceIpFilterRuleResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupNamespaceIpFilterRuleResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupNamespaceIpFilterRuleResultOutput{})
 }

@@ -4,6 +4,9 @@
 package v20151001preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -34,4 +37,57 @@ type ListAccountSasTokensResult struct {
 	NextLink string `pulumi:"nextLink"`
 	// The results of the list operation.
 	Value []SasTokenInformationResponse `pulumi:"value"`
+}
+
+func ListAccountSasTokensOutput(ctx *pulumi.Context, args ListAccountSasTokensOutputArgs, opts ...pulumi.InvokeOption) ListAccountSasTokensResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (ListAccountSasTokensResult, error) {
+			args := v.(ListAccountSasTokensArgs)
+			r, err := ListAccountSasTokens(ctx, &args, opts...)
+			return *r, err
+		}).(ListAccountSasTokensResultOutput)
+}
+
+type ListAccountSasTokensOutputArgs struct {
+	// The name of the Data Lake Analytics account.
+	AccountName pulumi.StringInput `pulumi:"accountName"`
+	// The name of the Azure storage container for which the SAS token is being requested.
+	ContainerName pulumi.StringInput `pulumi:"containerName"`
+	// The name of the Azure resource group.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the Azure storage account for which the SAS token is being requested.
+	StorageAccountName pulumi.StringInput `pulumi:"storageAccountName"`
+}
+
+func (ListAccountSasTokensOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListAccountSasTokensArgs)(nil)).Elem()
+}
+
+// The SAS response that contains the storage account, container and associated SAS token for connection use.
+type ListAccountSasTokensResultOutput struct{ *pulumi.OutputState }
+
+func (ListAccountSasTokensResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListAccountSasTokensResult)(nil)).Elem()
+}
+
+func (o ListAccountSasTokensResultOutput) ToListAccountSasTokensResultOutput() ListAccountSasTokensResultOutput {
+	return o
+}
+
+func (o ListAccountSasTokensResultOutput) ToListAccountSasTokensResultOutputWithContext(ctx context.Context) ListAccountSasTokensResultOutput {
+	return o
+}
+
+// The link (url) to the next page of results.
+func (o ListAccountSasTokensResultOutput) NextLink() pulumi.StringOutput {
+	return o.ApplyT(func(v ListAccountSasTokensResult) string { return v.NextLink }).(pulumi.StringOutput)
+}
+
+// The results of the list operation.
+func (o ListAccountSasTokensResultOutput) Value() SasTokenInformationResponseArrayOutput {
+	return o.ApplyT(func(v ListAccountSasTokensResult) []SasTokenInformationResponse { return v.Value }).(SasTokenInformationResponseArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(ListAccountSasTokensResultOutput{})
 }

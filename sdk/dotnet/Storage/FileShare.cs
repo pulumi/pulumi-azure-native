@@ -150,6 +150,7 @@ namespace Pulumi.AzureNative.Storage
                     new Pulumi.Alias { Type = "azure-native:storage/v20210201:FileShare"},
                     new Pulumi.Alias { Type = "azure-native:storage/v20210401:FileShare"},
                     new Pulumi.Alias { Type = "azure-native:storage/v20210601:FileShare"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20210801:FileShare"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

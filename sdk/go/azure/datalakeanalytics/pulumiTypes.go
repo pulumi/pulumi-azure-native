@@ -839,6 +839,46 @@ type SasTokenInformationResponse struct {
 	AccessToken string `pulumi:"accessToken"`
 }
 
+// SAS token information.
+type SasTokenInformationResponseOutput struct{ *pulumi.OutputState }
+
+func (SasTokenInformationResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SasTokenInformationResponse)(nil)).Elem()
+}
+
+func (o SasTokenInformationResponseOutput) ToSasTokenInformationResponseOutput() SasTokenInformationResponseOutput {
+	return o
+}
+
+func (o SasTokenInformationResponseOutput) ToSasTokenInformationResponseOutputWithContext(ctx context.Context) SasTokenInformationResponseOutput {
+	return o
+}
+
+// The access token for the associated Azure Storage Container.
+func (o SasTokenInformationResponseOutput) AccessToken() pulumi.StringOutput {
+	return o.ApplyT(func(v SasTokenInformationResponse) string { return v.AccessToken }).(pulumi.StringOutput)
+}
+
+type SasTokenInformationResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (SasTokenInformationResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SasTokenInformationResponse)(nil)).Elem()
+}
+
+func (o SasTokenInformationResponseArrayOutput) ToSasTokenInformationResponseArrayOutput() SasTokenInformationResponseArrayOutput {
+	return o
+}
+
+func (o SasTokenInformationResponseArrayOutput) ToSasTokenInformationResponseArrayOutputWithContext(ctx context.Context) SasTokenInformationResponseArrayOutput {
+	return o
+}
+
+func (o SasTokenInformationResponseArrayOutput) Index(i pulumi.IntInput) SasTokenInformationResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SasTokenInformationResponse {
+		return vs[0].([]SasTokenInformationResponse)[vs[1].(int)]
+	}).(SasTokenInformationResponseOutput)
+}
+
 // Azure Storage account information.
 type StorageAccountInformationResponse struct {
 	// The resource identifier.
@@ -997,6 +1037,8 @@ func init() {
 	pulumi.RegisterOutputType(FirewallRuleResponseArrayOutput{})
 	pulumi.RegisterOutputType(HiveMetastoreResponseOutput{})
 	pulumi.RegisterOutputType(HiveMetastoreResponseArrayOutput{})
+	pulumi.RegisterOutputType(SasTokenInformationResponseOutput{})
+	pulumi.RegisterOutputType(SasTokenInformationResponseArrayOutput{})
 	pulumi.RegisterOutputType(StorageAccountInformationResponseOutput{})
 	pulumi.RegisterOutputType(StorageAccountInformationResponseArrayOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkRuleResponseOutput{})

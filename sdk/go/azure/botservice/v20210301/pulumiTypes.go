@@ -1009,6 +1009,180 @@ type ChannelSettingsResponse struct {
 	Sites []SiteResponse `pulumi:"sites"`
 }
 
+// Channel settings definition
+type ChannelSettingsResponseOutput struct{ *pulumi.OutputState }
+
+func (ChannelSettingsResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelSettingsResponse)(nil)).Elem()
+}
+
+func (o ChannelSettingsResponseOutput) ToChannelSettingsResponseOutput() ChannelSettingsResponseOutput {
+	return o
+}
+
+func (o ChannelSettingsResponseOutput) ToChannelSettingsResponseOutputWithContext(ctx context.Context) ChannelSettingsResponseOutput {
+	return o
+}
+
+// The bot icon url
+func (o ChannelSettingsResponseOutput) BotIconUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ChannelSettingsResponse) *string { return v.BotIconUrl }).(pulumi.StringPtrOutput)
+}
+
+// The bot id
+func (o ChannelSettingsResponseOutput) BotId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ChannelSettingsResponse) *string { return v.BotId }).(pulumi.StringPtrOutput)
+}
+
+// The channel display name
+func (o ChannelSettingsResponseOutput) ChannelDisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ChannelSettingsResponse) *string { return v.ChannelDisplayName }).(pulumi.StringPtrOutput)
+}
+
+// The channel id
+func (o ChannelSettingsResponseOutput) ChannelId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ChannelSettingsResponse) *string { return v.ChannelId }).(pulumi.StringPtrOutput)
+}
+
+// Opt-out of local authentication and ensure only MSI and AAD can be used exclusively for authentication.
+func (o ChannelSettingsResponseOutput) DisableLocalAuth() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ChannelSettingsResponse) *bool { return v.DisableLocalAuth }).(pulumi.BoolPtrOutput)
+}
+
+// The extensionKey1
+func (o ChannelSettingsResponseOutput) ExtensionKey1() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ChannelSettingsResponse) *string { return v.ExtensionKey1 }).(pulumi.StringPtrOutput)
+}
+
+// The extensionKey2
+func (o ChannelSettingsResponseOutput) ExtensionKey2() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ChannelSettingsResponse) *string { return v.ExtensionKey2 }).(pulumi.StringPtrOutput)
+}
+
+// Whether this channel is enabled for the bot
+func (o ChannelSettingsResponseOutput) IsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ChannelSettingsResponse) *bool { return v.IsEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// The list of sites
+func (o ChannelSettingsResponseOutput) Sites() SiteResponseArrayOutput {
+	return o.ApplyT(func(v ChannelSettingsResponse) []SiteResponse { return v.Sites }).(SiteResponseArrayOutput)
+}
+
+type ChannelSettingsResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ChannelSettingsResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelSettingsResponse)(nil)).Elem()
+}
+
+func (o ChannelSettingsResponsePtrOutput) ToChannelSettingsResponsePtrOutput() ChannelSettingsResponsePtrOutput {
+	return o
+}
+
+func (o ChannelSettingsResponsePtrOutput) ToChannelSettingsResponsePtrOutputWithContext(ctx context.Context) ChannelSettingsResponsePtrOutput {
+	return o
+}
+
+func (o ChannelSettingsResponsePtrOutput) Elem() ChannelSettingsResponseOutput {
+	return o.ApplyT(func(v *ChannelSettingsResponse) ChannelSettingsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ChannelSettingsResponse
+		return ret
+	}).(ChannelSettingsResponseOutput)
+}
+
+// The bot icon url
+func (o ChannelSettingsResponsePtrOutput) BotIconUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelSettingsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BotIconUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+// The bot id
+func (o ChannelSettingsResponsePtrOutput) BotId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelSettingsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BotId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The channel display name
+func (o ChannelSettingsResponsePtrOutput) ChannelDisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelSettingsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ChannelDisplayName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The channel id
+func (o ChannelSettingsResponsePtrOutput) ChannelId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelSettingsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ChannelId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Opt-out of local authentication and ensure only MSI and AAD can be used exclusively for authentication.
+func (o ChannelSettingsResponsePtrOutput) DisableLocalAuth() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ChannelSettingsResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.DisableLocalAuth
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The extensionKey1
+func (o ChannelSettingsResponsePtrOutput) ExtensionKey1() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelSettingsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ExtensionKey1
+	}).(pulumi.StringPtrOutput)
+}
+
+// The extensionKey2
+func (o ChannelSettingsResponsePtrOutput) ExtensionKey2() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelSettingsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ExtensionKey2
+	}).(pulumi.StringPtrOutput)
+}
+
+// Whether this channel is enabled for the bot
+func (o ChannelSettingsResponsePtrOutput) IsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ChannelSettingsResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IsEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The list of sites
+func (o ChannelSettingsResponsePtrOutput) Sites() SiteResponseArrayOutput {
+	return o.ApplyT(func(v *ChannelSettingsResponse) []SiteResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Sites
+	}).(SiteResponseArrayOutput)
+}
+
 // Extra Parameter in a Connection Setting Properties to indicate service provider specific properties
 type ConnectionSettingParameter struct {
 	// Key for the Connection Setting Parameter.
@@ -2086,6 +2260,106 @@ func (val *SiteResponse) Defaults() *SiteResponse {
 	return &tmp
 }
 
+// A site for the channel
+type SiteResponseOutput struct{ *pulumi.OutputState }
+
+func (SiteResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SiteResponse)(nil)).Elem()
+}
+
+func (o SiteResponseOutput) ToSiteResponseOutput() SiteResponseOutput {
+	return o
+}
+
+func (o SiteResponseOutput) ToSiteResponseOutputWithContext(ctx context.Context) SiteResponseOutput {
+	return o
+}
+
+// Entity Tag
+func (o SiteResponseOutput) ETag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SiteResponse) *string { return v.ETag }).(pulumi.StringPtrOutput)
+}
+
+// Whether this site is enabled for block user upload.
+func (o SiteResponseOutput) IsBlockUserUploadEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SiteResponse) *bool { return v.IsBlockUserUploadEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Whether this site is enabled for DirectLine channel.
+func (o SiteResponseOutput) IsEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v SiteResponse) bool { return v.IsEnabled }).(pulumi.BoolOutput)
+}
+
+// Whether this site is enabled for authentication with Bot Framework.
+func (o SiteResponseOutput) IsSecureSiteEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SiteResponse) *bool { return v.IsSecureSiteEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Whether this site is token enabled for channel
+func (o SiteResponseOutput) IsTokenEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SiteResponse) *bool { return v.IsTokenEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Whether this site is enabled for Bot Framework V1 protocol.
+func (o SiteResponseOutput) IsV1Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v SiteResponse) bool { return v.IsV1Enabled }).(pulumi.BoolOutput)
+}
+
+// Whether this site is enabled for Bot Framework V1 protocol.
+func (o SiteResponseOutput) IsV3Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v SiteResponse) bool { return v.IsV3Enabled }).(pulumi.BoolOutput)
+}
+
+// Whether this site is enabled for preview versions of Webchat
+func (o SiteResponseOutput) IsWebchatPreviewEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v SiteResponse) bool { return v.IsWebchatPreviewEnabled }).(pulumi.BoolOutput)
+}
+
+// Primary key. Value only returned through POST to the action Channel List API, otherwise empty.
+func (o SiteResponseOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v SiteResponse) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// Secondary key. Value only returned through POST to the action Channel List API, otherwise empty.
+func (o SiteResponseOutput) Key2() pulumi.StringOutput {
+	return o.ApplyT(func(v SiteResponse) string { return v.Key2 }).(pulumi.StringOutput)
+}
+
+// Site Id
+func (o SiteResponseOutput) SiteId() pulumi.StringOutput {
+	return o.ApplyT(func(v SiteResponse) string { return v.SiteId }).(pulumi.StringOutput)
+}
+
+// Site name
+func (o SiteResponseOutput) SiteName() pulumi.StringOutput {
+	return o.ApplyT(func(v SiteResponse) string { return v.SiteName }).(pulumi.StringOutput)
+}
+
+// List of Trusted Origin URLs for this site. This field is applicable only if isSecureSiteEnabled is True.
+func (o SiteResponseOutput) TrustedOrigins() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SiteResponse) []string { return v.TrustedOrigins }).(pulumi.StringArrayOutput)
+}
+
+type SiteResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (SiteResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SiteResponse)(nil)).Elem()
+}
+
+func (o SiteResponseArrayOutput) ToSiteResponseArrayOutput() SiteResponseArrayOutput {
+	return o
+}
+
+func (o SiteResponseArrayOutput) ToSiteResponseArrayOutputWithContext(ctx context.Context) SiteResponseArrayOutput {
+	return o
+}
+
+func (o SiteResponseArrayOutput) Index(i pulumi.IntInput) SiteResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SiteResponse {
+		return vs[0].([]SiteResponse)[vs[1].(int)]
+	}).(SiteResponseOutput)
+}
+
 // The SKU of the cognitive services account.
 type Sku struct {
 	// The sku name
@@ -2646,6 +2920,8 @@ func init() {
 	pulumi.RegisterOutputType(BotPropertiesOutput{})
 	pulumi.RegisterOutputType(BotPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(BotPropertiesResponseOutput{})
+	pulumi.RegisterOutputType(ChannelSettingsResponseOutput{})
+	pulumi.RegisterOutputType(ChannelSettingsResponsePtrOutput{})
 	pulumi.RegisterOutputType(ConnectionSettingParameterOutput{})
 	pulumi.RegisterOutputType(ConnectionSettingParameterArrayOutput{})
 	pulumi.RegisterOutputType(ConnectionSettingParameterResponseOutput{})
@@ -2653,6 +2929,8 @@ func init() {
 	pulumi.RegisterOutputType(ConnectionSettingPropertiesOutput{})
 	pulumi.RegisterOutputType(ConnectionSettingPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ConnectionSettingPropertiesResponseOutput{})
+	pulumi.RegisterOutputType(SiteResponseOutput{})
+	pulumi.RegisterOutputType(SiteResponseArrayOutput{})
 	pulumi.RegisterOutputType(SkuOutput{})
 	pulumi.RegisterOutputType(SkuPtrOutput{})
 	pulumi.RegisterOutputType(SkuResponseOutput{})

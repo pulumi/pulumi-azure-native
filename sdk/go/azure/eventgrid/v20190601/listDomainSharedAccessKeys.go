@@ -4,6 +4,9 @@
 package v20190601
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -30,4 +33,53 @@ type ListDomainSharedAccessKeysResult struct {
 	Key1 *string `pulumi:"key1"`
 	// Shared access key2 for the domain.
 	Key2 *string `pulumi:"key2"`
+}
+
+func ListDomainSharedAccessKeysOutput(ctx *pulumi.Context, args ListDomainSharedAccessKeysOutputArgs, opts ...pulumi.InvokeOption) ListDomainSharedAccessKeysResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (ListDomainSharedAccessKeysResult, error) {
+			args := v.(ListDomainSharedAccessKeysArgs)
+			r, err := ListDomainSharedAccessKeys(ctx, &args, opts...)
+			return *r, err
+		}).(ListDomainSharedAccessKeysResultOutput)
+}
+
+type ListDomainSharedAccessKeysOutputArgs struct {
+	// Name of the domain.
+	DomainName pulumi.StringInput `pulumi:"domainName"`
+	// The name of the resource group within the user's subscription.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (ListDomainSharedAccessKeysOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListDomainSharedAccessKeysArgs)(nil)).Elem()
+}
+
+// Shared access keys of the Domain.
+type ListDomainSharedAccessKeysResultOutput struct{ *pulumi.OutputState }
+
+func (ListDomainSharedAccessKeysResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListDomainSharedAccessKeysResult)(nil)).Elem()
+}
+
+func (o ListDomainSharedAccessKeysResultOutput) ToListDomainSharedAccessKeysResultOutput() ListDomainSharedAccessKeysResultOutput {
+	return o
+}
+
+func (o ListDomainSharedAccessKeysResultOutput) ToListDomainSharedAccessKeysResultOutputWithContext(ctx context.Context) ListDomainSharedAccessKeysResultOutput {
+	return o
+}
+
+// Shared access key1 for the domain.
+func (o ListDomainSharedAccessKeysResultOutput) Key1() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListDomainSharedAccessKeysResult) *string { return v.Key1 }).(pulumi.StringPtrOutput)
+}
+
+// Shared access key2 for the domain.
+func (o ListDomainSharedAccessKeysResultOutput) Key2() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListDomainSharedAccessKeysResult) *string { return v.Key2 }).(pulumi.StringPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(ListDomainSharedAccessKeysResultOutput{})
 }

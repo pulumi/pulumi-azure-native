@@ -4,6 +4,9 @@
 package v20151101
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -34,4 +37,66 @@ type LookupResourceGroupResult struct {
 	Properties ResourceGroupPropertiesResponse `pulumi:"properties"`
 	// Gets or sets the tags attached to the resource group.
 	Tags map[string]string `pulumi:"tags"`
+}
+
+func LookupResourceGroupOutput(ctx *pulumi.Context, args LookupResourceGroupOutputArgs, opts ...pulumi.InvokeOption) LookupResourceGroupResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupResourceGroupResult, error) {
+			args := v.(LookupResourceGroupArgs)
+			r, err := LookupResourceGroup(ctx, &args, opts...)
+			return *r, err
+		}).(LookupResourceGroupResultOutput)
+}
+
+type LookupResourceGroupOutputArgs struct {
+	// The name of the resource group to get. The name is case insensitive.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupResourceGroupOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupResourceGroupArgs)(nil)).Elem()
+}
+
+// Resource group information.
+type LookupResourceGroupResultOutput struct{ *pulumi.OutputState }
+
+func (LookupResourceGroupResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupResourceGroupResult)(nil)).Elem()
+}
+
+func (o LookupResourceGroupResultOutput) ToLookupResourceGroupResultOutput() LookupResourceGroupResultOutput {
+	return o
+}
+
+func (o LookupResourceGroupResultOutput) ToLookupResourceGroupResultOutputWithContext(ctx context.Context) LookupResourceGroupResultOutput {
+	return o
+}
+
+// Gets the ID of the resource group.
+func (o LookupResourceGroupResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupResourceGroupResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Gets or sets the location of the resource group. It cannot be changed after the resource group has been created. Has to be one of the supported Azure Locations, such as West US, East US, West Europe, East Asia, etc.
+func (o LookupResourceGroupResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupResourceGroupResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// Gets or sets the Name of the resource group.
+func (o LookupResourceGroupResultOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupResourceGroupResult) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The resource group properties.
+func (o LookupResourceGroupResultOutput) Properties() ResourceGroupPropertiesResponseOutput {
+	return o.ApplyT(func(v LookupResourceGroupResult) ResourceGroupPropertiesResponse { return v.Properties }).(ResourceGroupPropertiesResponseOutput)
+}
+
+// Gets or sets the tags attached to the resource group.
+func (o LookupResourceGroupResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupResourceGroupResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupResourceGroupResultOutput{})
 }

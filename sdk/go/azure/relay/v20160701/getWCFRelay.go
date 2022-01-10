@@ -4,6 +4,9 @@
 package v20160701
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -50,4 +53,100 @@ type LookupWCFRelayResult struct {
 	UpdatedAt string `pulumi:"updatedAt"`
 	// usermetadata is a placeholder to store user-defined string data for the HybridConnection endpoint.e.g. it can be used to store  descriptive data, such as list of teams and their contact information also user-defined configuration settings can be stored.
 	UserMetadata *string `pulumi:"userMetadata"`
+}
+
+func LookupWCFRelayOutput(ctx *pulumi.Context, args LookupWCFRelayOutputArgs, opts ...pulumi.InvokeOption) LookupWCFRelayResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupWCFRelayResult, error) {
+			args := v.(LookupWCFRelayArgs)
+			r, err := LookupWCFRelay(ctx, &args, opts...)
+			return *r, err
+		}).(LookupWCFRelayResultOutput)
+}
+
+type LookupWCFRelayOutputArgs struct {
+	// The Namespace Name
+	NamespaceName pulumi.StringInput `pulumi:"namespaceName"`
+	// The relay name
+	RelayName pulumi.StringInput `pulumi:"relayName"`
+	// Name of the Resource group within the Azure subscription.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupWCFRelayOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupWCFRelayArgs)(nil)).Elem()
+}
+
+// Description of WcfRelays Resource.
+type LookupWCFRelayResultOutput struct{ *pulumi.OutputState }
+
+func (LookupWCFRelayResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupWCFRelayResult)(nil)).Elem()
+}
+
+func (o LookupWCFRelayResultOutput) ToLookupWCFRelayResultOutput() LookupWCFRelayResultOutput {
+	return o
+}
+
+func (o LookupWCFRelayResultOutput) ToLookupWCFRelayResultOutputWithContext(ctx context.Context) LookupWCFRelayResultOutput {
+	return o
+}
+
+// The time the WCFRelay was created.
+func (o LookupWCFRelayResultOutput) CreatedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWCFRelayResult) string { return v.CreatedAt }).(pulumi.StringOutput)
+}
+
+// Resource Id
+func (o LookupWCFRelayResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWCFRelayResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// true if the relay is dynamic; otherwise, false.
+func (o LookupWCFRelayResultOutput) IsDynamic() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupWCFRelayResult) bool { return v.IsDynamic }).(pulumi.BoolOutput)
+}
+
+// The number of listeners for this relay. min : 1 and max:25 supported
+func (o LookupWCFRelayResultOutput) ListenerCount() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupWCFRelayResult) int { return v.ListenerCount }).(pulumi.IntOutput)
+}
+
+// Resource name
+func (o LookupWCFRelayResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWCFRelayResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// WCFRelay Type.
+func (o LookupWCFRelayResultOutput) RelayType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupWCFRelayResult) *string { return v.RelayType }).(pulumi.StringPtrOutput)
+}
+
+// true if client authorization is needed for this relay; otherwise, false.
+func (o LookupWCFRelayResultOutput) RequiresClientAuthorization() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupWCFRelayResult) *bool { return v.RequiresClientAuthorization }).(pulumi.BoolPtrOutput)
+}
+
+// true if transport security is needed for this relay; otherwise, false.
+func (o LookupWCFRelayResultOutput) RequiresTransportSecurity() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupWCFRelayResult) *bool { return v.RequiresTransportSecurity }).(pulumi.BoolPtrOutput)
+}
+
+// Resource type
+func (o LookupWCFRelayResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWCFRelayResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The time the namespace was updated.
+func (o LookupWCFRelayResultOutput) UpdatedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWCFRelayResult) string { return v.UpdatedAt }).(pulumi.StringOutput)
+}
+
+// usermetadata is a placeholder to store user-defined string data for the HybridConnection endpoint.e.g. it can be used to store  descriptive data, such as list of teams and their contact information also user-defined configuration settings can be stored.
+func (o LookupWCFRelayResultOutput) UserMetadata() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupWCFRelayResult) *string { return v.UserMetadata }).(pulumi.StringPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupWCFRelayResultOutput{})
 }

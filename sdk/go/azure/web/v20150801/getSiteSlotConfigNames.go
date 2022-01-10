@@ -4,6 +4,9 @@
 package v20150801
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -42,4 +45,83 @@ type LookupSiteSlotConfigNamesResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type
 	Type *string `pulumi:"type"`
+}
+
+func LookupSiteSlotConfigNamesOutput(ctx *pulumi.Context, args LookupSiteSlotConfigNamesOutputArgs, opts ...pulumi.InvokeOption) LookupSiteSlotConfigNamesResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupSiteSlotConfigNamesResult, error) {
+			args := v.(LookupSiteSlotConfigNamesArgs)
+			r, err := LookupSiteSlotConfigNames(ctx, &args, opts...)
+			return *r, err
+		}).(LookupSiteSlotConfigNamesResultOutput)
+}
+
+type LookupSiteSlotConfigNamesOutputArgs struct {
+	// Name of web app
+	Name pulumi.StringInput `pulumi:"name"`
+	// Name of resource group
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupSiteSlotConfigNamesOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupSiteSlotConfigNamesArgs)(nil)).Elem()
+}
+
+// Slot Config names azure resource
+type LookupSiteSlotConfigNamesResultOutput struct{ *pulumi.OutputState }
+
+func (LookupSiteSlotConfigNamesResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupSiteSlotConfigNamesResult)(nil)).Elem()
+}
+
+func (o LookupSiteSlotConfigNamesResultOutput) ToLookupSiteSlotConfigNamesResultOutput() LookupSiteSlotConfigNamesResultOutput {
+	return o
+}
+
+func (o LookupSiteSlotConfigNamesResultOutput) ToLookupSiteSlotConfigNamesResultOutputWithContext(ctx context.Context) LookupSiteSlotConfigNamesResultOutput {
+	return o
+}
+
+// List of application settings names
+func (o LookupSiteSlotConfigNamesResultOutput) AppSettingNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupSiteSlotConfigNamesResult) []string { return v.AppSettingNames }).(pulumi.StringArrayOutput)
+}
+
+// List of connection string names
+func (o LookupSiteSlotConfigNamesResultOutput) ConnectionStringNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupSiteSlotConfigNamesResult) []string { return v.ConnectionStringNames }).(pulumi.StringArrayOutput)
+}
+
+// Resource Id
+func (o LookupSiteSlotConfigNamesResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSiteSlotConfigNamesResult) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// Kind of resource
+func (o LookupSiteSlotConfigNamesResultOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSiteSlotConfigNamesResult) *string { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Resource Location
+func (o LookupSiteSlotConfigNamesResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSiteSlotConfigNamesResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource Name
+func (o LookupSiteSlotConfigNamesResultOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSiteSlotConfigNamesResult) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Resource tags
+func (o LookupSiteSlotConfigNamesResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupSiteSlotConfigNamesResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type
+func (o LookupSiteSlotConfigNamesResultOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSiteSlotConfigNamesResult) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupSiteSlotConfigNamesResultOutput{})
 }

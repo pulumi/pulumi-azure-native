@@ -4,6 +4,9 @@
 package hybridcompute
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -39,4 +42,70 @@ type LookupPrivateLinkScopedResourceResult struct {
 	ProvisioningState string `pulumi:"provisioningState"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
+}
+
+func LookupPrivateLinkScopedResourceOutput(ctx *pulumi.Context, args LookupPrivateLinkScopedResourceOutputArgs, opts ...pulumi.InvokeOption) LookupPrivateLinkScopedResourceResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupPrivateLinkScopedResourceResult, error) {
+			args := v.(LookupPrivateLinkScopedResourceArgs)
+			r, err := LookupPrivateLinkScopedResource(ctx, &args, opts...)
+			return *r, err
+		}).(LookupPrivateLinkScopedResourceResultOutput)
+}
+
+type LookupPrivateLinkScopedResourceOutputArgs struct {
+	// The name of the scoped resource object.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The name of the resource group.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the Azure Arc PrivateLinkScope resource.
+	ScopeName pulumi.StringInput `pulumi:"scopeName"`
+}
+
+func (LookupPrivateLinkScopedResourceOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupPrivateLinkScopedResourceArgs)(nil)).Elem()
+}
+
+// A private link scoped resource
+type LookupPrivateLinkScopedResourceResultOutput struct{ *pulumi.OutputState }
+
+func (LookupPrivateLinkScopedResourceResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupPrivateLinkScopedResourceResult)(nil)).Elem()
+}
+
+func (o LookupPrivateLinkScopedResourceResultOutput) ToLookupPrivateLinkScopedResourceResultOutput() LookupPrivateLinkScopedResourceResultOutput {
+	return o
+}
+
+func (o LookupPrivateLinkScopedResourceResultOutput) ToLookupPrivateLinkScopedResourceResultOutputWithContext(ctx context.Context) LookupPrivateLinkScopedResourceResultOutput {
+	return o
+}
+
+// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+func (o LookupPrivateLinkScopedResourceResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPrivateLinkScopedResourceResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The resource id of the scoped Azure monitor resource.
+func (o LookupPrivateLinkScopedResourceResultOutput) LinkedResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupPrivateLinkScopedResourceResult) *string { return v.LinkedResourceId }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource
+func (o LookupPrivateLinkScopedResourceResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPrivateLinkScopedResourceResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// State of the private endpoint connection.
+func (o LookupPrivateLinkScopedResourceResultOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPrivateLinkScopedResourceResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o LookupPrivateLinkScopedResourceResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPrivateLinkScopedResourceResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupPrivateLinkScopedResourceResultOutput{})
 }

@@ -4,6 +4,9 @@
 package storsimple
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -53,4 +56,99 @@ type LookupBackupScheduleResult struct {
 	StartTime string `pulumi:"startTime"`
 	// The hierarchical type of the object.
 	Type string `pulumi:"type"`
+}
+
+func LookupBackupScheduleOutput(ctx *pulumi.Context, args LookupBackupScheduleOutputArgs, opts ...pulumi.InvokeOption) LookupBackupScheduleResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupBackupScheduleResult, error) {
+			args := v.(LookupBackupScheduleArgs)
+			r, err := LookupBackupSchedule(ctx, &args, opts...)
+			return *r, err
+		}).(LookupBackupScheduleResultOutput)
+}
+
+type LookupBackupScheduleOutputArgs struct {
+	// The backup policy name.
+	BackupPolicyName pulumi.StringInput `pulumi:"backupPolicyName"`
+	// The name of the backup schedule to be fetched
+	BackupScheduleName pulumi.StringInput `pulumi:"backupScheduleName"`
+	// The device name
+	DeviceName pulumi.StringInput `pulumi:"deviceName"`
+	// The manager name
+	ManagerName pulumi.StringInput `pulumi:"managerName"`
+	// The resource group name
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupBackupScheduleOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupBackupScheduleArgs)(nil)).Elem()
+}
+
+// The backup schedule.
+type LookupBackupScheduleResultOutput struct{ *pulumi.OutputState }
+
+func (LookupBackupScheduleResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupBackupScheduleResult)(nil)).Elem()
+}
+
+func (o LookupBackupScheduleResultOutput) ToLookupBackupScheduleResultOutput() LookupBackupScheduleResultOutput {
+	return o
+}
+
+func (o LookupBackupScheduleResultOutput) ToLookupBackupScheduleResultOutputWithContext(ctx context.Context) LookupBackupScheduleResultOutput {
+	return o
+}
+
+// The type of backup which needs to be taken.
+func (o LookupBackupScheduleResultOutput) BackupType() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBackupScheduleResult) string { return v.BackupType }).(pulumi.StringOutput)
+}
+
+// The path ID that uniquely identifies the object.
+func (o LookupBackupScheduleResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBackupScheduleResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The Kind of the object. Currently only Series8000 is supported
+func (o LookupBackupScheduleResultOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupBackupScheduleResult) *string { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// The last successful backup run which was triggered for the schedule.
+func (o LookupBackupScheduleResultOutput) LastSuccessfulRun() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBackupScheduleResult) string { return v.LastSuccessfulRun }).(pulumi.StringOutput)
+}
+
+// The name of the object.
+func (o LookupBackupScheduleResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBackupScheduleResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The number of backups to be retained.
+func (o LookupBackupScheduleResultOutput) RetentionCount() pulumi.Float64Output {
+	return o.ApplyT(func(v LookupBackupScheduleResult) float64 { return v.RetentionCount }).(pulumi.Float64Output)
+}
+
+// The schedule recurrence.
+func (o LookupBackupScheduleResultOutput) ScheduleRecurrence() ScheduleRecurrenceResponseOutput {
+	return o.ApplyT(func(v LookupBackupScheduleResult) ScheduleRecurrenceResponse { return v.ScheduleRecurrence }).(ScheduleRecurrenceResponseOutput)
+}
+
+// The schedule status.
+func (o LookupBackupScheduleResultOutput) ScheduleStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBackupScheduleResult) string { return v.ScheduleStatus }).(pulumi.StringOutput)
+}
+
+// The start time of the schedule.
+func (o LookupBackupScheduleResultOutput) StartTime() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBackupScheduleResult) string { return v.StartTime }).(pulumi.StringOutput)
+}
+
+// The hierarchical type of the object.
+func (o LookupBackupScheduleResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBackupScheduleResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupBackupScheduleResultOutput{})
 }

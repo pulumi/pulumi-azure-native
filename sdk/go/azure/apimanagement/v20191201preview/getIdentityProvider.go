@@ -4,6 +4,9 @@
 package v20191201preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -52,4 +55,105 @@ type LookupIdentityProviderResult struct {
 	SignupPolicyName *string `pulumi:"signupPolicyName"`
 	// Resource type for API Management resource.
 	Type string `pulumi:"type"`
+}
+
+func LookupIdentityProviderOutput(ctx *pulumi.Context, args LookupIdentityProviderOutputArgs, opts ...pulumi.InvokeOption) LookupIdentityProviderResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupIdentityProviderResult, error) {
+			args := v.(LookupIdentityProviderArgs)
+			r, err := LookupIdentityProvider(ctx, &args, opts...)
+			return *r, err
+		}).(LookupIdentityProviderResultOutput)
+}
+
+type LookupIdentityProviderOutputArgs struct {
+	// Identity Provider Type identifier.
+	IdentityProviderName pulumi.StringInput `pulumi:"identityProviderName"`
+	// The name of the resource group.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the API Management service.
+	ServiceName pulumi.StringInput `pulumi:"serviceName"`
+}
+
+func (LookupIdentityProviderOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupIdentityProviderArgs)(nil)).Elem()
+}
+
+// Identity Provider details.
+type LookupIdentityProviderResultOutput struct{ *pulumi.OutputState }
+
+func (LookupIdentityProviderResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupIdentityProviderResult)(nil)).Elem()
+}
+
+func (o LookupIdentityProviderResultOutput) ToLookupIdentityProviderResultOutput() LookupIdentityProviderResultOutput {
+	return o
+}
+
+func (o LookupIdentityProviderResultOutput) ToLookupIdentityProviderResultOutputWithContext(ctx context.Context) LookupIdentityProviderResultOutput {
+	return o
+}
+
+// List of Allowed Tenants when configuring Azure Active Directory login.
+func (o LookupIdentityProviderResultOutput) AllowedTenants() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupIdentityProviderResult) []string { return v.AllowedTenants }).(pulumi.StringArrayOutput)
+}
+
+// OpenID Connect discovery endpoint hostname for AAD or AAD B2C.
+func (o LookupIdentityProviderResultOutput) Authority() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupIdentityProviderResult) *string { return v.Authority }).(pulumi.StringPtrOutput)
+}
+
+// Client Id of the Application in the external Identity Provider. It is App ID for Facebook login, Client ID for Google login, App ID for Microsoft.
+func (o LookupIdentityProviderResultOutput) ClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupIdentityProviderResult) string { return v.ClientId }).(pulumi.StringOutput)
+}
+
+// Client secret of the Application in external Identity Provider, used to authenticate login request. For example, it is App Secret for Facebook login, API Key for Google login, Public Key for Microsoft. This property will not be filled on 'GET' operations! Use '/listSecrets' POST request to get the value.
+func (o LookupIdentityProviderResultOutput) ClientSecret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupIdentityProviderResult) *string { return v.ClientSecret }).(pulumi.StringPtrOutput)
+}
+
+// Resource ID.
+func (o LookupIdentityProviderResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupIdentityProviderResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o LookupIdentityProviderResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupIdentityProviderResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Password Reset Policy Name. Only applies to AAD B2C Identity Provider.
+func (o LookupIdentityProviderResultOutput) PasswordResetPolicyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupIdentityProviderResult) *string { return v.PasswordResetPolicyName }).(pulumi.StringPtrOutput)
+}
+
+// Profile Editing Policy Name. Only applies to AAD B2C Identity Provider.
+func (o LookupIdentityProviderResultOutput) ProfileEditingPolicyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupIdentityProviderResult) *string { return v.ProfileEditingPolicyName }).(pulumi.StringPtrOutput)
+}
+
+// Signin Policy Name. Only applies to AAD B2C Identity Provider.
+func (o LookupIdentityProviderResultOutput) SigninPolicyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupIdentityProviderResult) *string { return v.SigninPolicyName }).(pulumi.StringPtrOutput)
+}
+
+// The TenantId to use instead of Common when logging into Active Directory
+func (o LookupIdentityProviderResultOutput) SigninTenant() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupIdentityProviderResult) *string { return v.SigninTenant }).(pulumi.StringPtrOutput)
+}
+
+// Signup Policy Name. Only applies to AAD B2C Identity Provider.
+func (o LookupIdentityProviderResultOutput) SignupPolicyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupIdentityProviderResult) *string { return v.SignupPolicyName }).(pulumi.StringPtrOutput)
+}
+
+// Resource type for API Management resource.
+func (o LookupIdentityProviderResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupIdentityProviderResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupIdentityProviderResultOutput{})
 }

@@ -4,6 +4,9 @@
 package v20180915
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -64,4 +67,129 @@ type LookupDiskResult struct {
 	Type string `pulumi:"type"`
 	// The unique immutable identifier of a resource (Guid).
 	UniqueIdentifier string `pulumi:"uniqueIdentifier"`
+}
+
+func LookupDiskOutput(ctx *pulumi.Context, args LookupDiskOutputArgs, opts ...pulumi.InvokeOption) LookupDiskResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupDiskResult, error) {
+			args := v.(LookupDiskArgs)
+			r, err := LookupDisk(ctx, &args, opts...)
+			return *r, err
+		}).(LookupDiskResultOutput)
+}
+
+type LookupDiskOutputArgs struct {
+	// Specify the $expand query. Example: 'properties($select=diskType)'
+	Expand pulumi.StringPtrInput `pulumi:"expand"`
+	// The name of the lab.
+	LabName pulumi.StringInput `pulumi:"labName"`
+	// The name of the disk.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The name of the resource group.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the user profile.
+	UserName pulumi.StringInput `pulumi:"userName"`
+}
+
+func (LookupDiskOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupDiskArgs)(nil)).Elem()
+}
+
+// A Disk.
+type LookupDiskResultOutput struct{ *pulumi.OutputState }
+
+func (LookupDiskResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupDiskResult)(nil)).Elem()
+}
+
+func (o LookupDiskResultOutput) ToLookupDiskResultOutput() LookupDiskResultOutput {
+	return o
+}
+
+func (o LookupDiskResultOutput) ToLookupDiskResultOutputWithContext(ctx context.Context) LookupDiskResultOutput {
+	return o
+}
+
+// The creation date of the disk.
+func (o LookupDiskResultOutput) CreatedDate() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDiskResult) string { return v.CreatedDate }).(pulumi.StringOutput)
+}
+
+// When backed by a blob, the name of the VHD blob without extension.
+func (o LookupDiskResultOutput) DiskBlobName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDiskResult) *string { return v.DiskBlobName }).(pulumi.StringPtrOutput)
+}
+
+// The size of the disk in Gibibytes.
+func (o LookupDiskResultOutput) DiskSizeGiB() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupDiskResult) *int { return v.DiskSizeGiB }).(pulumi.IntPtrOutput)
+}
+
+// The storage type for the disk (i.e. Standard, Premium).
+func (o LookupDiskResultOutput) DiskType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDiskResult) *string { return v.DiskType }).(pulumi.StringPtrOutput)
+}
+
+// When backed by a blob, the URI of underlying blob.
+func (o LookupDiskResultOutput) DiskUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDiskResult) *string { return v.DiskUri }).(pulumi.StringPtrOutput)
+}
+
+// The host caching policy of the disk (i.e. None, ReadOnly, ReadWrite).
+func (o LookupDiskResultOutput) HostCaching() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDiskResult) *string { return v.HostCaching }).(pulumi.StringPtrOutput)
+}
+
+// The identifier of the resource.
+func (o LookupDiskResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDiskResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The resource ID of the VM to which this disk is leased.
+func (o LookupDiskResultOutput) LeasedByLabVmId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDiskResult) *string { return v.LeasedByLabVmId }).(pulumi.StringPtrOutput)
+}
+
+// The location of the resource.
+func (o LookupDiskResultOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDiskResult) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// When backed by managed disk, this is the ID of the compute disk resource.
+func (o LookupDiskResultOutput) ManagedDiskId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDiskResult) *string { return v.ManagedDiskId }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource.
+func (o LookupDiskResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDiskResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The provisioning status of the resource.
+func (o LookupDiskResultOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDiskResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// When backed by a blob, the storage account where the blob is.
+func (o LookupDiskResultOutput) StorageAccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDiskResult) *string { return v.StorageAccountId }).(pulumi.StringPtrOutput)
+}
+
+// The tags of the resource.
+func (o LookupDiskResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupDiskResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource.
+func (o LookupDiskResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDiskResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The unique immutable identifier of a resource (Guid).
+func (o LookupDiskResultOutput) UniqueIdentifier() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDiskResult) string { return v.UniqueIdentifier }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupDiskResultOutput{})
 }

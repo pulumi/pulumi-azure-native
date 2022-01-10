@@ -4,6 +4,9 @@
 package v20190301
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -72,4 +75,155 @@ type LookupRegisteredServerResult struct {
 	StorageSyncServiceUid *string `pulumi:"storageSyncServiceUid"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
+}
+
+func LookupRegisteredServerOutput(ctx *pulumi.Context, args LookupRegisteredServerOutputArgs, opts ...pulumi.InvokeOption) LookupRegisteredServerResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupRegisteredServerResult, error) {
+			args := v.(LookupRegisteredServerArgs)
+			r, err := LookupRegisteredServer(ctx, &args, opts...)
+			return *r, err
+		}).(LookupRegisteredServerResultOutput)
+}
+
+type LookupRegisteredServerOutputArgs struct {
+	// The name of the resource group. The name is case insensitive.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// GUID identifying the on-premises server.
+	ServerId pulumi.StringInput `pulumi:"serverId"`
+	// Name of Storage Sync Service resource.
+	StorageSyncServiceName pulumi.StringInput `pulumi:"storageSyncServiceName"`
+}
+
+func (LookupRegisteredServerOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupRegisteredServerArgs)(nil)).Elem()
+}
+
+// Registered Server resource.
+type LookupRegisteredServerResultOutput struct{ *pulumi.OutputState }
+
+func (LookupRegisteredServerResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupRegisteredServerResult)(nil)).Elem()
+}
+
+func (o LookupRegisteredServerResultOutput) ToLookupRegisteredServerResultOutput() LookupRegisteredServerResultOutput {
+	return o
+}
+
+func (o LookupRegisteredServerResultOutput) ToLookupRegisteredServerResultOutputWithContext(ctx context.Context) LookupRegisteredServerResultOutput {
+	return o
+}
+
+// Registered Server Agent Version
+func (o LookupRegisteredServerResultOutput) AgentVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupRegisteredServerResult) *string { return v.AgentVersion }).(pulumi.StringPtrOutput)
+}
+
+// Registered Server clusterId
+func (o LookupRegisteredServerResultOutput) ClusterId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupRegisteredServerResult) *string { return v.ClusterId }).(pulumi.StringPtrOutput)
+}
+
+// Registered Server clusterName
+func (o LookupRegisteredServerResultOutput) ClusterName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupRegisteredServerResult) *string { return v.ClusterName }).(pulumi.StringPtrOutput)
+}
+
+// Resource discoveryEndpointUri
+func (o LookupRegisteredServerResultOutput) DiscoveryEndpointUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupRegisteredServerResult) *string { return v.DiscoveryEndpointUri }).(pulumi.StringPtrOutput)
+}
+
+// Friendly Name
+func (o LookupRegisteredServerResultOutput) FriendlyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupRegisteredServerResult) *string { return v.FriendlyName }).(pulumi.StringPtrOutput)
+}
+
+// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+func (o LookupRegisteredServerResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRegisteredServerResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Registered Server last heart beat
+func (o LookupRegisteredServerResultOutput) LastHeartBeat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupRegisteredServerResult) *string { return v.LastHeartBeat }).(pulumi.StringPtrOutput)
+}
+
+// Resource Last Operation Name
+func (o LookupRegisteredServerResultOutput) LastOperationName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupRegisteredServerResult) *string { return v.LastOperationName }).(pulumi.StringPtrOutput)
+}
+
+// Registered Server lastWorkflowId
+func (o LookupRegisteredServerResultOutput) LastWorkflowId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupRegisteredServerResult) *string { return v.LastWorkflowId }).(pulumi.StringPtrOutput)
+}
+
+// Management Endpoint Uri
+func (o LookupRegisteredServerResultOutput) ManagementEndpointUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupRegisteredServerResult) *string { return v.ManagementEndpointUri }).(pulumi.StringPtrOutput)
+}
+
+// Monitoring Configuration
+func (o LookupRegisteredServerResultOutput) MonitoringConfiguration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupRegisteredServerResult) *string { return v.MonitoringConfiguration }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource
+func (o LookupRegisteredServerResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRegisteredServerResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Registered Server Provisioning State
+func (o LookupRegisteredServerResultOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupRegisteredServerResult) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+}
+
+// Resource Location
+func (o LookupRegisteredServerResultOutput) ResourceLocation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupRegisteredServerResult) *string { return v.ResourceLocation }).(pulumi.StringPtrOutput)
+}
+
+// Registered Server Certificate
+func (o LookupRegisteredServerResultOutput) ServerCertificate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupRegisteredServerResult) *string { return v.ServerCertificate }).(pulumi.StringPtrOutput)
+}
+
+// Registered Server serverId
+func (o LookupRegisteredServerResultOutput) ServerId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupRegisteredServerResult) *string { return v.ServerId }).(pulumi.StringPtrOutput)
+}
+
+// Registered Server Management Error Code
+func (o LookupRegisteredServerResultOutput) ServerManagementErrorCode() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupRegisteredServerResult) *int { return v.ServerManagementErrorCode }).(pulumi.IntPtrOutput)
+}
+
+// Registered Server OS Version
+func (o LookupRegisteredServerResultOutput) ServerOSVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupRegisteredServerResult) *string { return v.ServerOSVersion }).(pulumi.StringPtrOutput)
+}
+
+// Registered Server serverRole
+func (o LookupRegisteredServerResultOutput) ServerRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupRegisteredServerResult) *string { return v.ServerRole }).(pulumi.StringPtrOutput)
+}
+
+// Service Location
+func (o LookupRegisteredServerResultOutput) ServiceLocation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupRegisteredServerResult) *string { return v.ServiceLocation }).(pulumi.StringPtrOutput)
+}
+
+// Registered Server storageSyncServiceUid
+func (o LookupRegisteredServerResultOutput) StorageSyncServiceUid() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupRegisteredServerResult) *string { return v.StorageSyncServiceUid }).(pulumi.StringPtrOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o LookupRegisteredServerResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRegisteredServerResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupRegisteredServerResultOutput{})
 }

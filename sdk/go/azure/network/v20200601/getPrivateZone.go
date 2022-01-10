@@ -4,6 +4,9 @@
 package v20200601
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -54,4 +57,113 @@ type LookupPrivateZoneResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource. Example - 'Microsoft.Network/privateDnsZones'.
 	Type string `pulumi:"type"`
+}
+
+func LookupPrivateZoneOutput(ctx *pulumi.Context, args LookupPrivateZoneOutputArgs, opts ...pulumi.InvokeOption) LookupPrivateZoneResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupPrivateZoneResult, error) {
+			args := v.(LookupPrivateZoneArgs)
+			r, err := LookupPrivateZone(ctx, &args, opts...)
+			return *r, err
+		}).(LookupPrivateZoneResultOutput)
+}
+
+type LookupPrivateZoneOutputArgs struct {
+	// The name of the Private DNS zone (without a terminating dot).
+	PrivateZoneName pulumi.StringInput `pulumi:"privateZoneName"`
+	// The name of the resource group.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupPrivateZoneOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupPrivateZoneArgs)(nil)).Elem()
+}
+
+// Describes a Private DNS zone.
+type LookupPrivateZoneResultOutput struct{ *pulumi.OutputState }
+
+func (LookupPrivateZoneResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupPrivateZoneResult)(nil)).Elem()
+}
+
+func (o LookupPrivateZoneResultOutput) ToLookupPrivateZoneResultOutput() LookupPrivateZoneResultOutput {
+	return o
+}
+
+func (o LookupPrivateZoneResultOutput) ToLookupPrivateZoneResultOutputWithContext(ctx context.Context) LookupPrivateZoneResultOutput {
+	return o
+}
+
+// The ETag of the zone.
+func (o LookupPrivateZoneResultOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupPrivateZoneResult) *string { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// Fully qualified resource Id for the resource. Example - '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/privateDnsZones/{privateDnsZoneName}'.
+func (o LookupPrivateZoneResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPrivateZoneResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Private zone internal Id
+func (o LookupPrivateZoneResultOutput) InternalId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPrivateZoneResult) string { return v.InternalId }).(pulumi.StringOutput)
+}
+
+// The Azure Region where the resource lives
+func (o LookupPrivateZoneResultOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupPrivateZoneResult) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The maximum number of record sets that can be created in this Private DNS zone. This is a read-only property and any attempt to set this value will be ignored.
+func (o LookupPrivateZoneResultOutput) MaxNumberOfRecordSets() pulumi.Float64Output {
+	return o.ApplyT(func(v LookupPrivateZoneResult) float64 { return v.MaxNumberOfRecordSets }).(pulumi.Float64Output)
+}
+
+// The maximum number of virtual networks that can be linked to this Private DNS zone. This is a read-only property and any attempt to set this value will be ignored.
+func (o LookupPrivateZoneResultOutput) MaxNumberOfVirtualNetworkLinks() pulumi.Float64Output {
+	return o.ApplyT(func(v LookupPrivateZoneResult) float64 { return v.MaxNumberOfVirtualNetworkLinks }).(pulumi.Float64Output)
+}
+
+// The maximum number of virtual networks that can be linked to this Private DNS zone with registration enabled. This is a read-only property and any attempt to set this value will be ignored.
+func (o LookupPrivateZoneResultOutput) MaxNumberOfVirtualNetworkLinksWithRegistration() pulumi.Float64Output {
+	return o.ApplyT(func(v LookupPrivateZoneResult) float64 { return v.MaxNumberOfVirtualNetworkLinksWithRegistration }).(pulumi.Float64Output)
+}
+
+// The name of the resource
+func (o LookupPrivateZoneResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPrivateZoneResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The current number of record sets in this Private DNS zone. This is a read-only property and any attempt to set this value will be ignored.
+func (o LookupPrivateZoneResultOutput) NumberOfRecordSets() pulumi.Float64Output {
+	return o.ApplyT(func(v LookupPrivateZoneResult) float64 { return v.NumberOfRecordSets }).(pulumi.Float64Output)
+}
+
+// The current number of virtual networks that are linked to this Private DNS zone. This is a read-only property and any attempt to set this value will be ignored.
+func (o LookupPrivateZoneResultOutput) NumberOfVirtualNetworkLinks() pulumi.Float64Output {
+	return o.ApplyT(func(v LookupPrivateZoneResult) float64 { return v.NumberOfVirtualNetworkLinks }).(pulumi.Float64Output)
+}
+
+// The current number of virtual networks that are linked to this Private DNS zone with registration enabled. This is a read-only property and any attempt to set this value will be ignored.
+func (o LookupPrivateZoneResultOutput) NumberOfVirtualNetworkLinksWithRegistration() pulumi.Float64Output {
+	return o.ApplyT(func(v LookupPrivateZoneResult) float64 { return v.NumberOfVirtualNetworkLinksWithRegistration }).(pulumi.Float64Output)
+}
+
+// The provisioning state of the resource. This is a read-only property and any attempt to set this value will be ignored.
+func (o LookupPrivateZoneResultOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPrivateZoneResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Resource tags.
+func (o LookupPrivateZoneResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupPrivateZoneResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource. Example - 'Microsoft.Network/privateDnsZones'.
+func (o LookupPrivateZoneResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPrivateZoneResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupPrivateZoneResultOutput{})
 }

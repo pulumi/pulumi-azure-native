@@ -4,6 +4,9 @@
 package v20210801preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -40,4 +43,75 @@ type LookupServerTrustCertificateResult struct {
 	Thumbprint string `pulumi:"thumbprint"`
 	// Resource type.
 	Type string `pulumi:"type"`
+}
+
+func LookupServerTrustCertificateOutput(ctx *pulumi.Context, args LookupServerTrustCertificateOutputArgs, opts ...pulumi.InvokeOption) LookupServerTrustCertificateResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupServerTrustCertificateResult, error) {
+			args := v.(LookupServerTrustCertificateArgs)
+			r, err := LookupServerTrustCertificate(ctx, &args, opts...)
+			return *r, err
+		}).(LookupServerTrustCertificateResultOutput)
+}
+
+type LookupServerTrustCertificateOutputArgs struct {
+	// Name of of the certificate to get.
+	CertificateName pulumi.StringInput `pulumi:"certificateName"`
+	// The name of the managed instance.
+	ManagedInstanceName pulumi.StringInput `pulumi:"managedInstanceName"`
+	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupServerTrustCertificateOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupServerTrustCertificateArgs)(nil)).Elem()
+}
+
+// Server trust certificate imported from box to enable connection between box and Sql Managed Instance.
+type LookupServerTrustCertificateResultOutput struct{ *pulumi.OutputState }
+
+func (LookupServerTrustCertificateResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupServerTrustCertificateResult)(nil)).Elem()
+}
+
+func (o LookupServerTrustCertificateResultOutput) ToLookupServerTrustCertificateResultOutput() LookupServerTrustCertificateResultOutput {
+	return o
+}
+
+func (o LookupServerTrustCertificateResultOutput) ToLookupServerTrustCertificateResultOutputWithContext(ctx context.Context) LookupServerTrustCertificateResultOutput {
+	return o
+}
+
+// The certificate name
+func (o LookupServerTrustCertificateResultOutput) CertificateName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServerTrustCertificateResult) string { return v.CertificateName }).(pulumi.StringOutput)
+}
+
+// Resource ID.
+func (o LookupServerTrustCertificateResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServerTrustCertificateResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o LookupServerTrustCertificateResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServerTrustCertificateResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The certificate public blob
+func (o LookupServerTrustCertificateResultOutput) PublicBlob() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupServerTrustCertificateResult) *string { return v.PublicBlob }).(pulumi.StringPtrOutput)
+}
+
+// The certificate thumbprint
+func (o LookupServerTrustCertificateResultOutput) Thumbprint() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServerTrustCertificateResult) string { return v.Thumbprint }).(pulumi.StringOutput)
+}
+
+// Resource type.
+func (o LookupServerTrustCertificateResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServerTrustCertificateResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupServerTrustCertificateResultOutput{})
 }

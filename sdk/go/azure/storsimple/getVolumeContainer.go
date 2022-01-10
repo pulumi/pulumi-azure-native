@@ -4,6 +4,9 @@
 package storsimple
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -55,4 +58,107 @@ type LookupVolumeContainerResult struct {
 	Type string `pulumi:"type"`
 	// The number of volumes in the volume Container.
 	VolumeCount int `pulumi:"volumeCount"`
+}
+
+func LookupVolumeContainerOutput(ctx *pulumi.Context, args LookupVolumeContainerOutputArgs, opts ...pulumi.InvokeOption) LookupVolumeContainerResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupVolumeContainerResult, error) {
+			args := v.(LookupVolumeContainerArgs)
+			r, err := LookupVolumeContainer(ctx, &args, opts...)
+			return *r, err
+		}).(LookupVolumeContainerResultOutput)
+}
+
+type LookupVolumeContainerOutputArgs struct {
+	// The device name
+	DeviceName pulumi.StringInput `pulumi:"deviceName"`
+	// The manager name
+	ManagerName pulumi.StringInput `pulumi:"managerName"`
+	// The resource group name
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the volume container.
+	VolumeContainerName pulumi.StringInput `pulumi:"volumeContainerName"`
+}
+
+func (LookupVolumeContainerOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupVolumeContainerArgs)(nil)).Elem()
+}
+
+// The volume container.
+type LookupVolumeContainerResultOutput struct{ *pulumi.OutputState }
+
+func (LookupVolumeContainerResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupVolumeContainerResult)(nil)).Elem()
+}
+
+func (o LookupVolumeContainerResultOutput) ToLookupVolumeContainerResultOutput() LookupVolumeContainerResultOutput {
+	return o
+}
+
+func (o LookupVolumeContainerResultOutput) ToLookupVolumeContainerResultOutputWithContext(ctx context.Context) LookupVolumeContainerResultOutput {
+	return o
+}
+
+// The bandwidth-rate set on the volume container.
+func (o LookupVolumeContainerResultOutput) BandWidthRateInMbps() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupVolumeContainerResult) *int { return v.BandWidthRateInMbps }).(pulumi.IntPtrOutput)
+}
+
+// The ID of the bandwidth setting associated with the volume container.
+func (o LookupVolumeContainerResultOutput) BandwidthSettingId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVolumeContainerResult) *string { return v.BandwidthSettingId }).(pulumi.StringPtrOutput)
+}
+
+// The key used to encrypt data in the volume container. It is required when property 'EncryptionStatus' is "Enabled".
+func (o LookupVolumeContainerResultOutput) EncryptionKey() AsymmetricEncryptedSecretResponsePtrOutput {
+	return o.ApplyT(func(v LookupVolumeContainerResult) *AsymmetricEncryptedSecretResponse { return v.EncryptionKey }).(AsymmetricEncryptedSecretResponsePtrOutput)
+}
+
+// The flag to denote whether encryption is enabled or not.
+func (o LookupVolumeContainerResultOutput) EncryptionStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVolumeContainerResult) string { return v.EncryptionStatus }).(pulumi.StringOutput)
+}
+
+// The path ID that uniquely identifies the object.
+func (o LookupVolumeContainerResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVolumeContainerResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The Kind of the object. Currently only Series8000 is supported
+func (o LookupVolumeContainerResultOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVolumeContainerResult) *string { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// The name of the object.
+func (o LookupVolumeContainerResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVolumeContainerResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The owner ship status of the volume container. Only when the status is "NotOwned", the delete operation on the volume container is permitted.
+func (o LookupVolumeContainerResultOutput) OwnerShipStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVolumeContainerResult) string { return v.OwnerShipStatus }).(pulumi.StringOutput)
+}
+
+// The path ID of storage account associated with the volume container.
+func (o LookupVolumeContainerResultOutput) StorageAccountCredentialId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVolumeContainerResult) string { return v.StorageAccountCredentialId }).(pulumi.StringOutput)
+}
+
+// The total cloud storage for the volume container.
+func (o LookupVolumeContainerResultOutput) TotalCloudStorageUsageInBytes() pulumi.Float64Output {
+	return o.ApplyT(func(v LookupVolumeContainerResult) float64 { return v.TotalCloudStorageUsageInBytes }).(pulumi.Float64Output)
+}
+
+// The hierarchical type of the object.
+func (o LookupVolumeContainerResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVolumeContainerResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The number of volumes in the volume Container.
+func (o LookupVolumeContainerResultOutput) VolumeCount() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupVolumeContainerResult) int { return v.VolumeCount }).(pulumi.IntOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupVolumeContainerResultOutput{})
 }

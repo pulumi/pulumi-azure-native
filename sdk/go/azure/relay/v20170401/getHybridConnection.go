@@ -4,6 +4,9 @@
 package v20170401
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -44,4 +47,85 @@ type LookupHybridConnectionResult struct {
 	UpdatedAt string `pulumi:"updatedAt"`
 	// The usermetadata is a placeholder to store user-defined string data for the hybrid connection endpoint. For example, it can be used to store descriptive data, such as a list of teams and their contact information. Also, user-defined configuration settings can be stored.
 	UserMetadata *string `pulumi:"userMetadata"`
+}
+
+func LookupHybridConnectionOutput(ctx *pulumi.Context, args LookupHybridConnectionOutputArgs, opts ...pulumi.InvokeOption) LookupHybridConnectionResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupHybridConnectionResult, error) {
+			args := v.(LookupHybridConnectionArgs)
+			r, err := LookupHybridConnection(ctx, &args, opts...)
+			return *r, err
+		}).(LookupHybridConnectionResultOutput)
+}
+
+type LookupHybridConnectionOutputArgs struct {
+	// The hybrid connection name.
+	HybridConnectionName pulumi.StringInput `pulumi:"hybridConnectionName"`
+	// The namespace name
+	NamespaceName pulumi.StringInput `pulumi:"namespaceName"`
+	// Name of the Resource group within the Azure subscription.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupHybridConnectionOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupHybridConnectionArgs)(nil)).Elem()
+}
+
+// Description of hybrid connection resource.
+type LookupHybridConnectionResultOutput struct{ *pulumi.OutputState }
+
+func (LookupHybridConnectionResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupHybridConnectionResult)(nil)).Elem()
+}
+
+func (o LookupHybridConnectionResultOutput) ToLookupHybridConnectionResultOutput() LookupHybridConnectionResultOutput {
+	return o
+}
+
+func (o LookupHybridConnectionResultOutput) ToLookupHybridConnectionResultOutputWithContext(ctx context.Context) LookupHybridConnectionResultOutput {
+	return o
+}
+
+// The time the hybrid connection was created.
+func (o LookupHybridConnectionResultOutput) CreatedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupHybridConnectionResult) string { return v.CreatedAt }).(pulumi.StringOutput)
+}
+
+// Resource ID.
+func (o LookupHybridConnectionResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupHybridConnectionResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The number of listeners for this hybrid connection. Note that min : 1 and max:25 are supported.
+func (o LookupHybridConnectionResultOutput) ListenerCount() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupHybridConnectionResult) int { return v.ListenerCount }).(pulumi.IntOutput)
+}
+
+// Resource name.
+func (o LookupHybridConnectionResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupHybridConnectionResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Returns true if client authorization is needed for this hybrid connection; otherwise, false.
+func (o LookupHybridConnectionResultOutput) RequiresClientAuthorization() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupHybridConnectionResult) *bool { return v.RequiresClientAuthorization }).(pulumi.BoolPtrOutput)
+}
+
+// Resource type.
+func (o LookupHybridConnectionResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupHybridConnectionResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The time the namespace was updated.
+func (o LookupHybridConnectionResultOutput) UpdatedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupHybridConnectionResult) string { return v.UpdatedAt }).(pulumi.StringOutput)
+}
+
+// The usermetadata is a placeholder to store user-defined string data for the hybrid connection endpoint. For example, it can be used to store descriptive data, such as a list of teams and their contact information. Also, user-defined configuration settings can be stored.
+func (o LookupHybridConnectionResultOutput) UserMetadata() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupHybridConnectionResult) *string { return v.UserMetadata }).(pulumi.StringPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupHybridConnectionResultOutput{})
 }

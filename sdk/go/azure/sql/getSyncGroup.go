@@ -4,6 +4,9 @@
 package sql
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -61,4 +64,122 @@ type LookupSyncGroupResult struct {
 	Type string `pulumi:"type"`
 	// If use private link connection is enabled.
 	UsePrivateLinkConnection *bool `pulumi:"usePrivateLinkConnection"`
+}
+
+func LookupSyncGroupOutput(ctx *pulumi.Context, args LookupSyncGroupOutputArgs, opts ...pulumi.InvokeOption) LookupSyncGroupResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupSyncGroupResult, error) {
+			args := v.(LookupSyncGroupArgs)
+			r, err := LookupSyncGroup(ctx, &args, opts...)
+			return *r, err
+		}).(LookupSyncGroupResultOutput)
+}
+
+type LookupSyncGroupOutputArgs struct {
+	// The name of the database on which the sync group is hosted.
+	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
+	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the server.
+	ServerName pulumi.StringInput `pulumi:"serverName"`
+	// The name of the sync group.
+	SyncGroupName pulumi.StringInput `pulumi:"syncGroupName"`
+}
+
+func (LookupSyncGroupOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupSyncGroupArgs)(nil)).Elem()
+}
+
+// An Azure SQL Database sync group.
+type LookupSyncGroupResultOutput struct{ *pulumi.OutputState }
+
+func (LookupSyncGroupResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupSyncGroupResult)(nil)).Elem()
+}
+
+func (o LookupSyncGroupResultOutput) ToLookupSyncGroupResultOutput() LookupSyncGroupResultOutput {
+	return o
+}
+
+func (o LookupSyncGroupResultOutput) ToLookupSyncGroupResultOutputWithContext(ctx context.Context) LookupSyncGroupResultOutput {
+	return o
+}
+
+// Conflict logging retention period.
+func (o LookupSyncGroupResultOutput) ConflictLoggingRetentionInDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupSyncGroupResult) *int { return v.ConflictLoggingRetentionInDays }).(pulumi.IntPtrOutput)
+}
+
+// Conflict resolution policy of the sync group.
+func (o LookupSyncGroupResultOutput) ConflictResolutionPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSyncGroupResult) *string { return v.ConflictResolutionPolicy }).(pulumi.StringPtrOutput)
+}
+
+// If conflict logging is enabled.
+func (o LookupSyncGroupResultOutput) EnableConflictLogging() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupSyncGroupResult) *bool { return v.EnableConflictLogging }).(pulumi.BoolPtrOutput)
+}
+
+// User name for the sync group hub database credential.
+func (o LookupSyncGroupResultOutput) HubDatabaseUserName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSyncGroupResult) *string { return v.HubDatabaseUserName }).(pulumi.StringPtrOutput)
+}
+
+// Resource ID.
+func (o LookupSyncGroupResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSyncGroupResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Sync interval of the sync group.
+func (o LookupSyncGroupResultOutput) Interval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupSyncGroupResult) *int { return v.Interval }).(pulumi.IntPtrOutput)
+}
+
+// Last sync time of the sync group.
+func (o LookupSyncGroupResultOutput) LastSyncTime() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSyncGroupResult) string { return v.LastSyncTime }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o LookupSyncGroupResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSyncGroupResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Private endpoint name of the sync group if use private link connection is enabled.
+func (o LookupSyncGroupResultOutput) PrivateEndpointName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSyncGroupResult) string { return v.PrivateEndpointName }).(pulumi.StringOutput)
+}
+
+// Sync schema of the sync group.
+func (o LookupSyncGroupResultOutput) Schema() SyncGroupSchemaResponsePtrOutput {
+	return o.ApplyT(func(v LookupSyncGroupResult) *SyncGroupSchemaResponse { return v.Schema }).(SyncGroupSchemaResponsePtrOutput)
+}
+
+// The name and capacity of the SKU.
+func (o LookupSyncGroupResultOutput) Sku() SkuResponsePtrOutput {
+	return o.ApplyT(func(v LookupSyncGroupResult) *SkuResponse { return v.Sku }).(SkuResponsePtrOutput)
+}
+
+// ARM resource id of the sync database in the sync group.
+func (o LookupSyncGroupResultOutput) SyncDatabaseId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSyncGroupResult) *string { return v.SyncDatabaseId }).(pulumi.StringPtrOutput)
+}
+
+// Sync state of the sync group.
+func (o LookupSyncGroupResultOutput) SyncState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSyncGroupResult) string { return v.SyncState }).(pulumi.StringOutput)
+}
+
+// Resource type.
+func (o LookupSyncGroupResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSyncGroupResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// If use private link connection is enabled.
+func (o LookupSyncGroupResultOutput) UsePrivateLinkConnection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupSyncGroupResult) *bool { return v.UsePrivateLinkConnection }).(pulumi.BoolPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupSyncGroupResultOutput{})
 }

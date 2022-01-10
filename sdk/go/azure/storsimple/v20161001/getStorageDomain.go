@@ -4,6 +4,9 @@
 package v20161001
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -40,4 +43,75 @@ type LookupStorageDomainResult struct {
 	StorageAccountCredentialIds []string `pulumi:"storageAccountCredentialIds"`
 	// The type.
 	Type string `pulumi:"type"`
+}
+
+func LookupStorageDomainOutput(ctx *pulumi.Context, args LookupStorageDomainOutputArgs, opts ...pulumi.InvokeOption) LookupStorageDomainResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupStorageDomainResult, error) {
+			args := v.(LookupStorageDomainArgs)
+			r, err := LookupStorageDomain(ctx, &args, opts...)
+			return *r, err
+		}).(LookupStorageDomainResultOutput)
+}
+
+type LookupStorageDomainOutputArgs struct {
+	// The manager name
+	ManagerName pulumi.StringInput `pulumi:"managerName"`
+	// The resource group name
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The storage domain name.
+	StorageDomainName pulumi.StringInput `pulumi:"storageDomainName"`
+}
+
+func (LookupStorageDomainOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupStorageDomainArgs)(nil)).Elem()
+}
+
+// The storage domain.
+type LookupStorageDomainResultOutput struct{ *pulumi.OutputState }
+
+func (LookupStorageDomainResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupStorageDomainResult)(nil)).Elem()
+}
+
+func (o LookupStorageDomainResultOutput) ToLookupStorageDomainResultOutput() LookupStorageDomainResultOutput {
+	return o
+}
+
+func (o LookupStorageDomainResultOutput) ToLookupStorageDomainResultOutputWithContext(ctx context.Context) LookupStorageDomainResultOutput {
+	return o
+}
+
+// The encryption key used to encrypt the data. This is a user secret.
+func (o LookupStorageDomainResultOutput) EncryptionKey() AsymmetricEncryptedSecretResponsePtrOutput {
+	return o.ApplyT(func(v LookupStorageDomainResult) *AsymmetricEncryptedSecretResponse { return v.EncryptionKey }).(AsymmetricEncryptedSecretResponsePtrOutput)
+}
+
+// The encryption status "Enabled | Disabled".
+func (o LookupStorageDomainResultOutput) EncryptionStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupStorageDomainResult) string { return v.EncryptionStatus }).(pulumi.StringOutput)
+}
+
+// The identifier.
+func (o LookupStorageDomainResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupStorageDomainResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The name.
+func (o LookupStorageDomainResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupStorageDomainResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The storage account credentials.
+func (o LookupStorageDomainResultOutput) StorageAccountCredentialIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupStorageDomainResult) []string { return v.StorageAccountCredentialIds }).(pulumi.StringArrayOutput)
+}
+
+// The type.
+func (o LookupStorageDomainResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupStorageDomainResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupStorageDomainResultOutput{})
 }

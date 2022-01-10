@@ -4,6 +4,9 @@
 package v20210430preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -42,4 +45,82 @@ type LookupConfigurationProfilesVersionResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
+}
+
+func LookupConfigurationProfilesVersionOutput(ctx *pulumi.Context, args LookupConfigurationProfilesVersionOutputArgs, opts ...pulumi.InvokeOption) LookupConfigurationProfilesVersionResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupConfigurationProfilesVersionResult, error) {
+			args := v.(LookupConfigurationProfilesVersionArgs)
+			r, err := LookupConfigurationProfilesVersion(ctx, &args, opts...)
+			return *r, err
+		}).(LookupConfigurationProfilesVersionResultOutput)
+}
+
+type LookupConfigurationProfilesVersionOutputArgs struct {
+	// The configuration profile name.
+	ConfigurationProfileName pulumi.StringInput `pulumi:"configurationProfileName"`
+	// The name of the resource group. The name is case insensitive.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The configuration profile version name.
+	VersionName pulumi.StringInput `pulumi:"versionName"`
+}
+
+func (LookupConfigurationProfilesVersionOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupConfigurationProfilesVersionArgs)(nil)).Elem()
+}
+
+// Definition of the configuration profile.
+type LookupConfigurationProfilesVersionResultOutput struct{ *pulumi.OutputState }
+
+func (LookupConfigurationProfilesVersionResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupConfigurationProfilesVersionResult)(nil)).Elem()
+}
+
+func (o LookupConfigurationProfilesVersionResultOutput) ToLookupConfigurationProfilesVersionResultOutput() LookupConfigurationProfilesVersionResultOutput {
+	return o
+}
+
+func (o LookupConfigurationProfilesVersionResultOutput) ToLookupConfigurationProfilesVersionResultOutputWithContext(ctx context.Context) LookupConfigurationProfilesVersionResultOutput {
+	return o
+}
+
+// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+func (o LookupConfigurationProfilesVersionResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupConfigurationProfilesVersionResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The geo-location where the resource lives
+func (o LookupConfigurationProfilesVersionResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupConfigurationProfilesVersionResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o LookupConfigurationProfilesVersionResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupConfigurationProfilesVersionResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Properties of the configuration profile.
+func (o LookupConfigurationProfilesVersionResultOutput) Properties() ConfigurationProfilePropertiesResponseOutput {
+	return o.ApplyT(func(v LookupConfigurationProfilesVersionResult) ConfigurationProfilePropertiesResponse {
+		return v.Properties
+	}).(ConfigurationProfilePropertiesResponseOutput)
+}
+
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+func (o LookupConfigurationProfilesVersionResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupConfigurationProfilesVersionResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource tags.
+func (o LookupConfigurationProfilesVersionResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupConfigurationProfilesVersionResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o LookupConfigurationProfilesVersionResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupConfigurationProfilesVersionResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupConfigurationProfilesVersionResultOutput{})
 }

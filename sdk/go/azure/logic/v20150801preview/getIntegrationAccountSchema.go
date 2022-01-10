@@ -4,6 +4,9 @@
 package v20150801preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -52,4 +55,111 @@ type LookupIntegrationAccountSchemaResult struct {
 	TargetNamespace *string `pulumi:"targetNamespace"`
 	// The resource type.
 	Type *string `pulumi:"type"`
+}
+
+func LookupIntegrationAccountSchemaOutput(ctx *pulumi.Context, args LookupIntegrationAccountSchemaOutputArgs, opts ...pulumi.InvokeOption) LookupIntegrationAccountSchemaResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupIntegrationAccountSchemaResult, error) {
+			args := v.(LookupIntegrationAccountSchemaArgs)
+			r, err := LookupIntegrationAccountSchema(ctx, &args, opts...)
+			return *r, err
+		}).(LookupIntegrationAccountSchemaResultOutput)
+}
+
+type LookupIntegrationAccountSchemaOutputArgs struct {
+	// The integration account name.
+	IntegrationAccountName pulumi.StringInput `pulumi:"integrationAccountName"`
+	// The resource group name.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The integration account schema name.
+	SchemaName pulumi.StringInput `pulumi:"schemaName"`
+}
+
+func (LookupIntegrationAccountSchemaOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupIntegrationAccountSchemaArgs)(nil)).Elem()
+}
+
+type LookupIntegrationAccountSchemaResultOutput struct{ *pulumi.OutputState }
+
+func (LookupIntegrationAccountSchemaResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupIntegrationAccountSchemaResult)(nil)).Elem()
+}
+
+func (o LookupIntegrationAccountSchemaResultOutput) ToLookupIntegrationAccountSchemaResultOutput() LookupIntegrationAccountSchemaResultOutput {
+	return o
+}
+
+func (o LookupIntegrationAccountSchemaResultOutput) ToLookupIntegrationAccountSchemaResultOutputWithContext(ctx context.Context) LookupIntegrationAccountSchemaResultOutput {
+	return o
+}
+
+// The changed time.
+func (o LookupIntegrationAccountSchemaResultOutput) ChangedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupIntegrationAccountSchemaResult) string { return v.ChangedTime }).(pulumi.StringOutput)
+}
+
+// The content.
+func (o LookupIntegrationAccountSchemaResultOutput) Content() pulumi.AnyOutput {
+	return o.ApplyT(func(v LookupIntegrationAccountSchemaResult) interface{} { return v.Content }).(pulumi.AnyOutput)
+}
+
+// The content link.
+func (o LookupIntegrationAccountSchemaResultOutput) ContentLink() IntegrationAccountContentLinkResponseOutput {
+	return o.ApplyT(func(v LookupIntegrationAccountSchemaResult) IntegrationAccountContentLinkResponse {
+		return v.ContentLink
+	}).(IntegrationAccountContentLinkResponseOutput)
+}
+
+// The content type.
+func (o LookupIntegrationAccountSchemaResultOutput) ContentType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupIntegrationAccountSchemaResult) *string { return v.ContentType }).(pulumi.StringPtrOutput)
+}
+
+// The created time.
+func (o LookupIntegrationAccountSchemaResultOutput) CreatedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupIntegrationAccountSchemaResult) string { return v.CreatedTime }).(pulumi.StringOutput)
+}
+
+// The resource id.
+func (o LookupIntegrationAccountSchemaResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupIntegrationAccountSchemaResult) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// The resource location.
+func (o LookupIntegrationAccountSchemaResultOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupIntegrationAccountSchemaResult) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The metadata.
+func (o LookupIntegrationAccountSchemaResultOutput) Metadata() pulumi.AnyOutput {
+	return o.ApplyT(func(v LookupIntegrationAccountSchemaResult) interface{} { return v.Metadata }).(pulumi.AnyOutput)
+}
+
+// The resource name.
+func (o LookupIntegrationAccountSchemaResultOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupIntegrationAccountSchemaResult) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The schema type.
+func (o LookupIntegrationAccountSchemaResultOutput) SchemaType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupIntegrationAccountSchemaResult) *string { return v.SchemaType }).(pulumi.StringPtrOutput)
+}
+
+// The resource tags.
+func (o LookupIntegrationAccountSchemaResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupIntegrationAccountSchemaResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The target namespace.
+func (o LookupIntegrationAccountSchemaResultOutput) TargetNamespace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupIntegrationAccountSchemaResult) *string { return v.TargetNamespace }).(pulumi.StringPtrOutput)
+}
+
+// The resource type.
+func (o LookupIntegrationAccountSchemaResultOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupIntegrationAccountSchemaResult) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupIntegrationAccountSchemaResultOutput{})
 }

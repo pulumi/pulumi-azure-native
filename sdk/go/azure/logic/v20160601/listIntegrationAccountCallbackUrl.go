@@ -4,6 +4,9 @@
 package v20160601
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -32,4 +35,52 @@ type ListIntegrationAccountCallbackUrlArgs struct {
 type ListIntegrationAccountCallbackUrlResult struct {
 	// The URL value.
 	Value *string `pulumi:"value"`
+}
+
+func ListIntegrationAccountCallbackUrlOutput(ctx *pulumi.Context, args ListIntegrationAccountCallbackUrlOutputArgs, opts ...pulumi.InvokeOption) ListIntegrationAccountCallbackUrlResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (ListIntegrationAccountCallbackUrlResult, error) {
+			args := v.(ListIntegrationAccountCallbackUrlArgs)
+			r, err := ListIntegrationAccountCallbackUrl(ctx, &args, opts...)
+			return *r, err
+		}).(ListIntegrationAccountCallbackUrlResultOutput)
+}
+
+type ListIntegrationAccountCallbackUrlOutputArgs struct {
+	// The integration account name.
+	IntegrationAccountName pulumi.StringInput `pulumi:"integrationAccountName"`
+	// The key type.
+	KeyType KeyTypePtrInput `pulumi:"keyType"`
+	// The expiry time.
+	NotAfter pulumi.StringPtrInput `pulumi:"notAfter"`
+	// The resource group name.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (ListIntegrationAccountCallbackUrlOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListIntegrationAccountCallbackUrlArgs)(nil)).Elem()
+}
+
+// The callback url.
+type ListIntegrationAccountCallbackUrlResultOutput struct{ *pulumi.OutputState }
+
+func (ListIntegrationAccountCallbackUrlResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListIntegrationAccountCallbackUrlResult)(nil)).Elem()
+}
+
+func (o ListIntegrationAccountCallbackUrlResultOutput) ToListIntegrationAccountCallbackUrlResultOutput() ListIntegrationAccountCallbackUrlResultOutput {
+	return o
+}
+
+func (o ListIntegrationAccountCallbackUrlResultOutput) ToListIntegrationAccountCallbackUrlResultOutputWithContext(ctx context.Context) ListIntegrationAccountCallbackUrlResultOutput {
+	return o
+}
+
+// The URL value.
+func (o ListIntegrationAccountCallbackUrlResultOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListIntegrationAccountCallbackUrlResult) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(ListIntegrationAccountCallbackUrlResultOutput{})
 }

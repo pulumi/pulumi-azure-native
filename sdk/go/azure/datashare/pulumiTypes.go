@@ -116,6 +116,57 @@ type ScheduledSourceSynchronizationSettingResponse struct {
 	SynchronizationTime *string `pulumi:"synchronizationTime"`
 }
 
+// A type of synchronization setting based on schedule
+type ScheduledSourceSynchronizationSettingResponseOutput struct{ *pulumi.OutputState }
+
+func (ScheduledSourceSynchronizationSettingResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScheduledSourceSynchronizationSettingResponse)(nil)).Elem()
+}
+
+func (o ScheduledSourceSynchronizationSettingResponseOutput) ToScheduledSourceSynchronizationSettingResponseOutput() ScheduledSourceSynchronizationSettingResponseOutput {
+	return o
+}
+
+func (o ScheduledSourceSynchronizationSettingResponseOutput) ToScheduledSourceSynchronizationSettingResponseOutputWithContext(ctx context.Context) ScheduledSourceSynchronizationSettingResponseOutput {
+	return o
+}
+
+// Kind of synchronization setting on share.
+// Expected value is 'ScheduleBased'.
+func (o ScheduledSourceSynchronizationSettingResponseOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v ScheduledSourceSynchronizationSettingResponse) string { return v.Kind }).(pulumi.StringOutput)
+}
+
+// Recurrence Interval
+func (o ScheduledSourceSynchronizationSettingResponseOutput) RecurrenceInterval() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ScheduledSourceSynchronizationSettingResponse) *string { return v.RecurrenceInterval }).(pulumi.StringPtrOutput)
+}
+
+// Synchronization time
+func (o ScheduledSourceSynchronizationSettingResponseOutput) SynchronizationTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ScheduledSourceSynchronizationSettingResponse) *string { return v.SynchronizationTime }).(pulumi.StringPtrOutput)
+}
+
+type ScheduledSourceSynchronizationSettingResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ScheduledSourceSynchronizationSettingResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ScheduledSourceSynchronizationSettingResponse)(nil)).Elem()
+}
+
+func (o ScheduledSourceSynchronizationSettingResponseArrayOutput) ToScheduledSourceSynchronizationSettingResponseArrayOutput() ScheduledSourceSynchronizationSettingResponseArrayOutput {
+	return o
+}
+
+func (o ScheduledSourceSynchronizationSettingResponseArrayOutput) ToScheduledSourceSynchronizationSettingResponseArrayOutputWithContext(ctx context.Context) ScheduledSourceSynchronizationSettingResponseArrayOutput {
+	return o
+}
+
+func (o ScheduledSourceSynchronizationSettingResponseArrayOutput) Index(i pulumi.IntInput) ScheduledSourceSynchronizationSettingResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ScheduledSourceSynchronizationSettingResponse {
+		return vs[0].([]ScheduledSourceSynchronizationSettingResponse)[vs[1].(int)]
+	}).(ScheduledSourceSynchronizationSettingResponseOutput)
+}
+
 // A ShareSubscriptionSynchronization data transfer object.
 type ShareSubscriptionSynchronizationResponse struct {
 	// Synchronization duration
@@ -132,6 +183,76 @@ type ShareSubscriptionSynchronizationResponse struct {
 	SynchronizationId string `pulumi:"synchronizationId"`
 	// Synchronization Mode
 	SynchronizationMode string `pulumi:"synchronizationMode"`
+}
+
+// A ShareSubscriptionSynchronization data transfer object.
+type ShareSubscriptionSynchronizationResponseOutput struct{ *pulumi.OutputState }
+
+func (ShareSubscriptionSynchronizationResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ShareSubscriptionSynchronizationResponse)(nil)).Elem()
+}
+
+func (o ShareSubscriptionSynchronizationResponseOutput) ToShareSubscriptionSynchronizationResponseOutput() ShareSubscriptionSynchronizationResponseOutput {
+	return o
+}
+
+func (o ShareSubscriptionSynchronizationResponseOutput) ToShareSubscriptionSynchronizationResponseOutputWithContext(ctx context.Context) ShareSubscriptionSynchronizationResponseOutput {
+	return o
+}
+
+// Synchronization duration
+func (o ShareSubscriptionSynchronizationResponseOutput) DurationMs() pulumi.IntOutput {
+	return o.ApplyT(func(v ShareSubscriptionSynchronizationResponse) int { return v.DurationMs }).(pulumi.IntOutput)
+}
+
+// End time of synchronization
+func (o ShareSubscriptionSynchronizationResponseOutput) EndTime() pulumi.StringOutput {
+	return o.ApplyT(func(v ShareSubscriptionSynchronizationResponse) string { return v.EndTime }).(pulumi.StringOutput)
+}
+
+// message of Synchronization
+func (o ShareSubscriptionSynchronizationResponseOutput) Message() pulumi.StringOutput {
+	return o.ApplyT(func(v ShareSubscriptionSynchronizationResponse) string { return v.Message }).(pulumi.StringOutput)
+}
+
+// start time of synchronization
+func (o ShareSubscriptionSynchronizationResponseOutput) StartTime() pulumi.StringOutput {
+	return o.ApplyT(func(v ShareSubscriptionSynchronizationResponse) string { return v.StartTime }).(pulumi.StringOutput)
+}
+
+// Raw Status
+func (o ShareSubscriptionSynchronizationResponseOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v ShareSubscriptionSynchronizationResponse) string { return v.Status }).(pulumi.StringOutput)
+}
+
+// Synchronization id
+func (o ShareSubscriptionSynchronizationResponseOutput) SynchronizationId() pulumi.StringOutput {
+	return o.ApplyT(func(v ShareSubscriptionSynchronizationResponse) string { return v.SynchronizationId }).(pulumi.StringOutput)
+}
+
+// Synchronization Mode
+func (o ShareSubscriptionSynchronizationResponseOutput) SynchronizationMode() pulumi.StringOutput {
+	return o.ApplyT(func(v ShareSubscriptionSynchronizationResponse) string { return v.SynchronizationMode }).(pulumi.StringOutput)
+}
+
+type ShareSubscriptionSynchronizationResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ShareSubscriptionSynchronizationResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ShareSubscriptionSynchronizationResponse)(nil)).Elem()
+}
+
+func (o ShareSubscriptionSynchronizationResponseArrayOutput) ToShareSubscriptionSynchronizationResponseArrayOutput() ShareSubscriptionSynchronizationResponseArrayOutput {
+	return o
+}
+
+func (o ShareSubscriptionSynchronizationResponseArrayOutput) ToShareSubscriptionSynchronizationResponseArrayOutputWithContext(ctx context.Context) ShareSubscriptionSynchronizationResponseArrayOutput {
+	return o
+}
+
+func (o ShareSubscriptionSynchronizationResponseArrayOutput) Index(i pulumi.IntInput) ShareSubscriptionSynchronizationResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ShareSubscriptionSynchronizationResponse {
+		return vs[0].([]ShareSubscriptionSynchronizationResponse)[vs[1].(int)]
+	}).(ShareSubscriptionSynchronizationResponseOutput)
 }
 
 // A ShareSynchronization data transfer object.
@@ -156,6 +277,91 @@ type ShareSynchronizationResponse struct {
 	SynchronizationId *string `pulumi:"synchronizationId"`
 	// Synchronization mode
 	SynchronizationMode string `pulumi:"synchronizationMode"`
+}
+
+// A ShareSynchronization data transfer object.
+type ShareSynchronizationResponseOutput struct{ *pulumi.OutputState }
+
+func (ShareSynchronizationResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ShareSynchronizationResponse)(nil)).Elem()
+}
+
+func (o ShareSynchronizationResponseOutput) ToShareSynchronizationResponseOutput() ShareSynchronizationResponseOutput {
+	return o
+}
+
+func (o ShareSynchronizationResponseOutput) ToShareSynchronizationResponseOutputWithContext(ctx context.Context) ShareSynchronizationResponseOutput {
+	return o
+}
+
+// Email of the user who created the synchronization
+func (o ShareSynchronizationResponseOutput) ConsumerEmail() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ShareSynchronizationResponse) *string { return v.ConsumerEmail }).(pulumi.StringPtrOutput)
+}
+
+// Name of the user who created the synchronization
+func (o ShareSynchronizationResponseOutput) ConsumerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ShareSynchronizationResponse) *string { return v.ConsumerName }).(pulumi.StringPtrOutput)
+}
+
+// Tenant name of the consumer who created the synchronization
+func (o ShareSynchronizationResponseOutput) ConsumerTenantName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ShareSynchronizationResponse) *string { return v.ConsumerTenantName }).(pulumi.StringPtrOutput)
+}
+
+// synchronization duration
+func (o ShareSynchronizationResponseOutput) DurationMs() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ShareSynchronizationResponse) *int { return v.DurationMs }).(pulumi.IntPtrOutput)
+}
+
+// End time of synchronization
+func (o ShareSynchronizationResponseOutput) EndTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ShareSynchronizationResponse) *string { return v.EndTime }).(pulumi.StringPtrOutput)
+}
+
+// message of synchronization
+func (o ShareSynchronizationResponseOutput) Message() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ShareSynchronizationResponse) *string { return v.Message }).(pulumi.StringPtrOutput)
+}
+
+// start time of synchronization
+func (o ShareSynchronizationResponseOutput) StartTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ShareSynchronizationResponse) *string { return v.StartTime }).(pulumi.StringPtrOutput)
+}
+
+// Raw Status
+func (o ShareSynchronizationResponseOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ShareSynchronizationResponse) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+// Synchronization id
+func (o ShareSynchronizationResponseOutput) SynchronizationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ShareSynchronizationResponse) *string { return v.SynchronizationId }).(pulumi.StringPtrOutput)
+}
+
+// Synchronization mode
+func (o ShareSynchronizationResponseOutput) SynchronizationMode() pulumi.StringOutput {
+	return o.ApplyT(func(v ShareSynchronizationResponse) string { return v.SynchronizationMode }).(pulumi.StringOutput)
+}
+
+type ShareSynchronizationResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ShareSynchronizationResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ShareSynchronizationResponse)(nil)).Elem()
+}
+
+func (o ShareSynchronizationResponseArrayOutput) ToShareSynchronizationResponseArrayOutput() ShareSynchronizationResponseArrayOutput {
+	return o
+}
+
+func (o ShareSynchronizationResponseArrayOutput) ToShareSynchronizationResponseArrayOutputWithContext(ctx context.Context) ShareSynchronizationResponseArrayOutput {
+	return o
+}
+
+func (o ShareSynchronizationResponseArrayOutput) Index(i pulumi.IntInput) ShareSynchronizationResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ShareSynchronizationResponse {
+		return vs[0].([]ShareSynchronizationResponse)[vs[1].(int)]
+	}).(ShareSynchronizationResponseOutput)
 }
 
 // Synchronization details at data set level
@@ -190,6 +396,116 @@ type SynchronizationDetailsResponse struct {
 	Status string `pulumi:"status"`
 	// The vCore units consumed for the data set synchronization
 	VCore float64 `pulumi:"vCore"`
+}
+
+// Synchronization details at data set level
+type SynchronizationDetailsResponseOutput struct{ *pulumi.OutputState }
+
+func (SynchronizationDetailsResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SynchronizationDetailsResponse)(nil)).Elem()
+}
+
+func (o SynchronizationDetailsResponseOutput) ToSynchronizationDetailsResponseOutput() SynchronizationDetailsResponseOutput {
+	return o
+}
+
+func (o SynchronizationDetailsResponseOutput) ToSynchronizationDetailsResponseOutputWithContext(ctx context.Context) SynchronizationDetailsResponseOutput {
+	return o
+}
+
+// Id of data set
+func (o SynchronizationDetailsResponseOutput) DataSetId() pulumi.StringOutput {
+	return o.ApplyT(func(v SynchronizationDetailsResponse) string { return v.DataSetId }).(pulumi.StringOutput)
+}
+
+// Type of the data set
+func (o SynchronizationDetailsResponseOutput) DataSetType() pulumi.StringOutput {
+	return o.ApplyT(func(v SynchronizationDetailsResponse) string { return v.DataSetType }).(pulumi.StringOutput)
+}
+
+// Duration of data set level copy
+func (o SynchronizationDetailsResponseOutput) DurationMs() pulumi.IntOutput {
+	return o.ApplyT(func(v SynchronizationDetailsResponse) int { return v.DurationMs }).(pulumi.IntOutput)
+}
+
+// End time of data set level copy
+func (o SynchronizationDetailsResponseOutput) EndTime() pulumi.StringOutput {
+	return o.ApplyT(func(v SynchronizationDetailsResponse) string { return v.EndTime }).(pulumi.StringOutput)
+}
+
+// The number of files read from the source data set
+func (o SynchronizationDetailsResponseOutput) FilesRead() pulumi.Float64Output {
+	return o.ApplyT(func(v SynchronizationDetailsResponse) float64 { return v.FilesRead }).(pulumi.Float64Output)
+}
+
+// The number of files written into the sink data set
+func (o SynchronizationDetailsResponseOutput) FilesWritten() pulumi.Float64Output {
+	return o.ApplyT(func(v SynchronizationDetailsResponse) float64 { return v.FilesWritten }).(pulumi.Float64Output)
+}
+
+// Error message if any
+func (o SynchronizationDetailsResponseOutput) Message() pulumi.StringOutput {
+	return o.ApplyT(func(v SynchronizationDetailsResponse) string { return v.Message }).(pulumi.StringOutput)
+}
+
+// Name of the data set
+func (o SynchronizationDetailsResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v SynchronizationDetailsResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The number of files copied into the sink data set
+func (o SynchronizationDetailsResponseOutput) RowsCopied() pulumi.Float64Output {
+	return o.ApplyT(func(v SynchronizationDetailsResponse) float64 { return v.RowsCopied }).(pulumi.Float64Output)
+}
+
+// The number of rows read from the source data set.
+func (o SynchronizationDetailsResponseOutput) RowsRead() pulumi.Float64Output {
+	return o.ApplyT(func(v SynchronizationDetailsResponse) float64 { return v.RowsRead }).(pulumi.Float64Output)
+}
+
+// The size of the data read from the source data set in bytes
+func (o SynchronizationDetailsResponseOutput) SizeRead() pulumi.Float64Output {
+	return o.ApplyT(func(v SynchronizationDetailsResponse) float64 { return v.SizeRead }).(pulumi.Float64Output)
+}
+
+// The size of the data written into the sink data set in bytes
+func (o SynchronizationDetailsResponseOutput) SizeWritten() pulumi.Float64Output {
+	return o.ApplyT(func(v SynchronizationDetailsResponse) float64 { return v.SizeWritten }).(pulumi.Float64Output)
+}
+
+// Start time of data set level copy
+func (o SynchronizationDetailsResponseOutput) StartTime() pulumi.StringOutput {
+	return o.ApplyT(func(v SynchronizationDetailsResponse) string { return v.StartTime }).(pulumi.StringOutput)
+}
+
+// Raw Status
+func (o SynchronizationDetailsResponseOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v SynchronizationDetailsResponse) string { return v.Status }).(pulumi.StringOutput)
+}
+
+// The vCore units consumed for the data set synchronization
+func (o SynchronizationDetailsResponseOutput) VCore() pulumi.Float64Output {
+	return o.ApplyT(func(v SynchronizationDetailsResponse) float64 { return v.VCore }).(pulumi.Float64Output)
+}
+
+type SynchronizationDetailsResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (SynchronizationDetailsResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SynchronizationDetailsResponse)(nil)).Elem()
+}
+
+func (o SynchronizationDetailsResponseArrayOutput) ToSynchronizationDetailsResponseArrayOutput() SynchronizationDetailsResponseArrayOutput {
+	return o
+}
+
+func (o SynchronizationDetailsResponseArrayOutput) ToSynchronizationDetailsResponseArrayOutputWithContext(ctx context.Context) SynchronizationDetailsResponseArrayOutput {
+	return o
+}
+
+func (o SynchronizationDetailsResponseArrayOutput) Index(i pulumi.IntInput) SynchronizationDetailsResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SynchronizationDetailsResponse {
+		return vs[0].([]SynchronizationDetailsResponse)[vs[1].(int)]
+	}).(SynchronizationDetailsResponseOutput)
 }
 
 // Metadata pertaining to creation and last modification of the resource.
@@ -256,5 +572,13 @@ func (o SystemDataResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
 func init() {
 	pulumi.RegisterOutputType(IdentityOutput{})
 	pulumi.RegisterOutputType(IdentityResponseOutput{})
+	pulumi.RegisterOutputType(ScheduledSourceSynchronizationSettingResponseOutput{})
+	pulumi.RegisterOutputType(ScheduledSourceSynchronizationSettingResponseArrayOutput{})
+	pulumi.RegisterOutputType(ShareSubscriptionSynchronizationResponseOutput{})
+	pulumi.RegisterOutputType(ShareSubscriptionSynchronizationResponseArrayOutput{})
+	pulumi.RegisterOutputType(ShareSynchronizationResponseOutput{})
+	pulumi.RegisterOutputType(ShareSynchronizationResponseArrayOutput{})
+	pulumi.RegisterOutputType(SynchronizationDetailsResponseOutput{})
+	pulumi.RegisterOutputType(SynchronizationDetailsResponseArrayOutput{})
 	pulumi.RegisterOutputType(SystemDataResponseOutput{})
 }

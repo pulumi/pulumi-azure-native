@@ -4,6 +4,9 @@
 package testbase
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -41,4 +44,75 @@ type LookupCustomerEventResult struct {
 	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource type.
 	Type string `pulumi:"type"`
+}
+
+func LookupCustomerEventOutput(ctx *pulumi.Context, args LookupCustomerEventOutputArgs, opts ...pulumi.InvokeOption) LookupCustomerEventResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupCustomerEventResult, error) {
+			args := v.(LookupCustomerEventArgs)
+			r, err := LookupCustomerEvent(ctx, &args, opts...)
+			return *r, err
+		}).(LookupCustomerEventResultOutput)
+}
+
+type LookupCustomerEventOutputArgs struct {
+	// The resource name of the Test Base Customer event.
+	CustomerEventName pulumi.StringInput `pulumi:"customerEventName"`
+	// The name of the resource group that contains the resource.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The resource name of the Test Base Account.
+	TestBaseAccountName pulumi.StringInput `pulumi:"testBaseAccountName"`
+}
+
+func (LookupCustomerEventOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupCustomerEventArgs)(nil)).Elem()
+}
+
+// The Customer Notification Event resource.
+type LookupCustomerEventResultOutput struct{ *pulumi.OutputState }
+
+func (LookupCustomerEventResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupCustomerEventResult)(nil)).Elem()
+}
+
+func (o LookupCustomerEventResultOutput) ToLookupCustomerEventResultOutput() LookupCustomerEventResultOutput {
+	return o
+}
+
+func (o LookupCustomerEventResultOutput) ToLookupCustomerEventResultOutputWithContext(ctx context.Context) LookupCustomerEventResultOutput {
+	return o
+}
+
+// The name of the event subscribed to.
+func (o LookupCustomerEventResultOutput) EventName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCustomerEventResult) string { return v.EventName }).(pulumi.StringOutput)
+}
+
+// Resource ID.
+func (o LookupCustomerEventResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCustomerEventResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o LookupCustomerEventResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCustomerEventResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The notification event receivers.
+func (o LookupCustomerEventResultOutput) Receivers() NotificationEventReceiverResponseArrayOutput {
+	return o.ApplyT(func(v LookupCustomerEventResult) []NotificationEventReceiverResponse { return v.Receivers }).(NotificationEventReceiverResponseArrayOutput)
+}
+
+// The system metadata relating to this resource
+func (o LookupCustomerEventResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupCustomerEventResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource type.
+func (o LookupCustomerEventResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCustomerEventResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupCustomerEventResultOutput{})
 }

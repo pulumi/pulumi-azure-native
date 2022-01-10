@@ -4,6 +4,9 @@
 package v20201001
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -28,4 +31,51 @@ type ListSiteIdentifiersAssignedToHostNameResult struct {
 	NextLink string `pulumi:"nextLink"`
 	// Collection of resources.
 	Value []IdentifierResponse `pulumi:"value"`
+}
+
+func ListSiteIdentifiersAssignedToHostNameOutput(ctx *pulumi.Context, args ListSiteIdentifiersAssignedToHostNameOutputArgs, opts ...pulumi.InvokeOption) ListSiteIdentifiersAssignedToHostNameResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (ListSiteIdentifiersAssignedToHostNameResult, error) {
+			args := v.(ListSiteIdentifiersAssignedToHostNameArgs)
+			r, err := ListSiteIdentifiersAssignedToHostName(ctx, &args, opts...)
+			return *r, err
+		}).(ListSiteIdentifiersAssignedToHostNameResultOutput)
+}
+
+type ListSiteIdentifiersAssignedToHostNameOutputArgs struct {
+	// Name of the object.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+}
+
+func (ListSiteIdentifiersAssignedToHostNameOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListSiteIdentifiersAssignedToHostNameArgs)(nil)).Elem()
+}
+
+// Collection of identifiers.
+type ListSiteIdentifiersAssignedToHostNameResultOutput struct{ *pulumi.OutputState }
+
+func (ListSiteIdentifiersAssignedToHostNameResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListSiteIdentifiersAssignedToHostNameResult)(nil)).Elem()
+}
+
+func (o ListSiteIdentifiersAssignedToHostNameResultOutput) ToListSiteIdentifiersAssignedToHostNameResultOutput() ListSiteIdentifiersAssignedToHostNameResultOutput {
+	return o
+}
+
+func (o ListSiteIdentifiersAssignedToHostNameResultOutput) ToListSiteIdentifiersAssignedToHostNameResultOutputWithContext(ctx context.Context) ListSiteIdentifiersAssignedToHostNameResultOutput {
+	return o
+}
+
+// Link to next page of resources.
+func (o ListSiteIdentifiersAssignedToHostNameResultOutput) NextLink() pulumi.StringOutput {
+	return o.ApplyT(func(v ListSiteIdentifiersAssignedToHostNameResult) string { return v.NextLink }).(pulumi.StringOutput)
+}
+
+// Collection of resources.
+func (o ListSiteIdentifiersAssignedToHostNameResultOutput) Value() IdentifierResponseArrayOutput {
+	return o.ApplyT(func(v ListSiteIdentifiersAssignedToHostNameResult) []IdentifierResponse { return v.Value }).(IdentifierResponseArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(ListSiteIdentifiersAssignedToHostNameResultOutput{})
 }

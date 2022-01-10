@@ -4,6 +4,9 @@
 package logic
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -34,4 +37,55 @@ type ListWorkflowRunActionRepetitionExpressionTracesArgs struct {
 // The expression traces.
 type ListWorkflowRunActionRepetitionExpressionTracesResult struct {
 	Inputs []ExpressionRootResponse `pulumi:"inputs"`
+}
+
+func ListWorkflowRunActionRepetitionExpressionTracesOutput(ctx *pulumi.Context, args ListWorkflowRunActionRepetitionExpressionTracesOutputArgs, opts ...pulumi.InvokeOption) ListWorkflowRunActionRepetitionExpressionTracesResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (ListWorkflowRunActionRepetitionExpressionTracesResult, error) {
+			args := v.(ListWorkflowRunActionRepetitionExpressionTracesArgs)
+			r, err := ListWorkflowRunActionRepetitionExpressionTraces(ctx, &args, opts...)
+			return *r, err
+		}).(ListWorkflowRunActionRepetitionExpressionTracesResultOutput)
+}
+
+type ListWorkflowRunActionRepetitionExpressionTracesOutputArgs struct {
+	// The workflow action name.
+	ActionName pulumi.StringInput `pulumi:"actionName"`
+	// The workflow repetition.
+	RepetitionName pulumi.StringInput `pulumi:"repetitionName"`
+	// The resource group name.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The workflow run name.
+	RunName pulumi.StringInput `pulumi:"runName"`
+	// The workflow name.
+	WorkflowName pulumi.StringInput `pulumi:"workflowName"`
+}
+
+func (ListWorkflowRunActionRepetitionExpressionTracesOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListWorkflowRunActionRepetitionExpressionTracesArgs)(nil)).Elem()
+}
+
+// The expression traces.
+type ListWorkflowRunActionRepetitionExpressionTracesResultOutput struct{ *pulumi.OutputState }
+
+func (ListWorkflowRunActionRepetitionExpressionTracesResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListWorkflowRunActionRepetitionExpressionTracesResult)(nil)).Elem()
+}
+
+func (o ListWorkflowRunActionRepetitionExpressionTracesResultOutput) ToListWorkflowRunActionRepetitionExpressionTracesResultOutput() ListWorkflowRunActionRepetitionExpressionTracesResultOutput {
+	return o
+}
+
+func (o ListWorkflowRunActionRepetitionExpressionTracesResultOutput) ToListWorkflowRunActionRepetitionExpressionTracesResultOutputWithContext(ctx context.Context) ListWorkflowRunActionRepetitionExpressionTracesResultOutput {
+	return o
+}
+
+func (o ListWorkflowRunActionRepetitionExpressionTracesResultOutput) Inputs() ExpressionRootResponseArrayOutput {
+	return o.ApplyT(func(v ListWorkflowRunActionRepetitionExpressionTracesResult) []ExpressionRootResponse {
+		return v.Inputs
+	}).(ExpressionRootResponseArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(ListWorkflowRunActionRepetitionExpressionTracesResultOutput{})
 }

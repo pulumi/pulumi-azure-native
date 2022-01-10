@@ -4,6 +4,9 @@
 package v20180330preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -50,4 +53,102 @@ type LookupStreamingLocatorResult struct {
 	StreamingPolicyName string `pulumi:"streamingPolicyName"`
 	// The type of the resource.
 	Type string `pulumi:"type"`
+}
+
+func LookupStreamingLocatorOutput(ctx *pulumi.Context, args LookupStreamingLocatorOutputArgs, opts ...pulumi.InvokeOption) LookupStreamingLocatorResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupStreamingLocatorResult, error) {
+			args := v.(LookupStreamingLocatorArgs)
+			r, err := LookupStreamingLocator(ctx, &args, opts...)
+			return *r, err
+		}).(LookupStreamingLocatorResultOutput)
+}
+
+type LookupStreamingLocatorOutputArgs struct {
+	// The Media Services account name.
+	AccountName pulumi.StringInput `pulumi:"accountName"`
+	// The name of the resource group within the Azure subscription.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The Streaming Locator name.
+	StreamingLocatorName pulumi.StringInput `pulumi:"streamingLocatorName"`
+}
+
+func (LookupStreamingLocatorOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupStreamingLocatorArgs)(nil)).Elem()
+}
+
+// A Streaming Locator resource
+type LookupStreamingLocatorResultOutput struct{ *pulumi.OutputState }
+
+func (LookupStreamingLocatorResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupStreamingLocatorResult)(nil)).Elem()
+}
+
+func (o LookupStreamingLocatorResultOutput) ToLookupStreamingLocatorResultOutput() LookupStreamingLocatorResultOutput {
+	return o
+}
+
+func (o LookupStreamingLocatorResultOutput) ToLookupStreamingLocatorResultOutputWithContext(ctx context.Context) LookupStreamingLocatorResultOutput {
+	return o
+}
+
+// Asset Name
+func (o LookupStreamingLocatorResultOutput) AssetName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupStreamingLocatorResult) string { return v.AssetName }).(pulumi.StringOutput)
+}
+
+// ContentKeys used by this Streaming Locator
+func (o LookupStreamingLocatorResultOutput) ContentKeys() StreamingLocatorUserDefinedContentKeyResponseArrayOutput {
+	return o.ApplyT(func(v LookupStreamingLocatorResult) []StreamingLocatorUserDefinedContentKeyResponse {
+		return v.ContentKeys
+	}).(StreamingLocatorUserDefinedContentKeyResponseArrayOutput)
+}
+
+// Creation time of Streaming Locator
+func (o LookupStreamingLocatorResultOutput) Created() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupStreamingLocatorResult) string { return v.Created }).(pulumi.StringOutput)
+}
+
+// Default ContentKeyPolicy used by this Streaming Locator
+func (o LookupStreamingLocatorResultOutput) DefaultContentKeyPolicyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupStreamingLocatorResult) *string { return v.DefaultContentKeyPolicyName }).(pulumi.StringPtrOutput)
+}
+
+// EndTime of Streaming Locator
+func (o LookupStreamingLocatorResultOutput) EndTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupStreamingLocatorResult) *string { return v.EndTime }).(pulumi.StringPtrOutput)
+}
+
+// Fully qualified resource ID for the resource.
+func (o LookupStreamingLocatorResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupStreamingLocatorResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The name of the resource.
+func (o LookupStreamingLocatorResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupStreamingLocatorResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// StartTime of Streaming Locator
+func (o LookupStreamingLocatorResultOutput) StartTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupStreamingLocatorResult) *string { return v.StartTime }).(pulumi.StringPtrOutput)
+}
+
+// StreamingLocatorId of Streaming Locator
+func (o LookupStreamingLocatorResultOutput) StreamingLocatorId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupStreamingLocatorResult) *string { return v.StreamingLocatorId }).(pulumi.StringPtrOutput)
+}
+
+// Streaming policy name used by this streaming locator. Either specify the name of streaming policy you created or use one of the predefined streaming polices. The predefined streaming policies available are: 'Predefined_DownloadOnly', 'Predefined_ClearStreamingOnly', 'Predefined_DownloadAndClearStreaming', 'Predefined_ClearKey', 'Predefined_SecureStreaming' and 'Predefined_SecureStreamingWithFairPlay'
+func (o LookupStreamingLocatorResultOutput) StreamingPolicyName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupStreamingLocatorResult) string { return v.StreamingPolicyName }).(pulumi.StringOutput)
+}
+
+// The type of the resource.
+func (o LookupStreamingLocatorResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupStreamingLocatorResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupStreamingLocatorResultOutput{})
 }

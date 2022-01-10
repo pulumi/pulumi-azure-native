@@ -4,6 +4,9 @@
 package v20190101preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -44,4 +47,82 @@ type LookupASCDataConnectorResult struct {
 	SubscriptionId *string `pulumi:"subscriptionId"`
 	// Azure resource type
 	Type string `pulumi:"type"`
+}
+
+func LookupASCDataConnectorOutput(ctx *pulumi.Context, args LookupASCDataConnectorOutputArgs, opts ...pulumi.InvokeOption) LookupASCDataConnectorResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupASCDataConnectorResult, error) {
+			args := v.(LookupASCDataConnectorArgs)
+			r, err := LookupASCDataConnector(ctx, &args, opts...)
+			return *r, err
+		}).(LookupASCDataConnectorResultOutput)
+}
+
+type LookupASCDataConnectorOutputArgs struct {
+	// Connector ID
+	DataConnectorId pulumi.StringInput `pulumi:"dataConnectorId"`
+	// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
+	OperationalInsightsResourceProvider pulumi.StringInput `pulumi:"operationalInsightsResourceProvider"`
+	// The name of the resource group within the user's subscription. The name is case insensitive.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the workspace.
+	WorkspaceName pulumi.StringInput `pulumi:"workspaceName"`
+}
+
+func (LookupASCDataConnectorOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupASCDataConnectorArgs)(nil)).Elem()
+}
+
+// Represents ASC (Azure Security Center) data connector.
+type LookupASCDataConnectorResultOutput struct{ *pulumi.OutputState }
+
+func (LookupASCDataConnectorResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupASCDataConnectorResult)(nil)).Elem()
+}
+
+func (o LookupASCDataConnectorResultOutput) ToLookupASCDataConnectorResultOutput() LookupASCDataConnectorResultOutput {
+	return o
+}
+
+func (o LookupASCDataConnectorResultOutput) ToLookupASCDataConnectorResultOutputWithContext(ctx context.Context) LookupASCDataConnectorResultOutput {
+	return o
+}
+
+// The available data types for the connector.
+func (o LookupASCDataConnectorResultOutput) DataTypes() AlertsDataTypeOfDataConnectorResponsePtrOutput {
+	return o.ApplyT(func(v LookupASCDataConnectorResult) *AlertsDataTypeOfDataConnectorResponse { return v.DataTypes }).(AlertsDataTypeOfDataConnectorResponsePtrOutput)
+}
+
+// Etag of the azure resource
+func (o LookupASCDataConnectorResultOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupASCDataConnectorResult) *string { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// Azure resource Id
+func (o LookupASCDataConnectorResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupASCDataConnectorResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Expected value is 'AzureSecurityCenter'.
+func (o LookupASCDataConnectorResultOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupASCDataConnectorResult) string { return v.Kind }).(pulumi.StringOutput)
+}
+
+// Azure resource name
+func (o LookupASCDataConnectorResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupASCDataConnectorResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The subscription id to connect to, and get the data from.
+func (o LookupASCDataConnectorResultOutput) SubscriptionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupASCDataConnectorResult) *string { return v.SubscriptionId }).(pulumi.StringPtrOutput)
+}
+
+// Azure resource type
+func (o LookupASCDataConnectorResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupASCDataConnectorResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupASCDataConnectorResultOutput{})
 }

@@ -4,6 +4,9 @@
 package v20210501
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -34,4 +37,57 @@ type GetIntegrationRuntimeObjectMetadatumResult struct {
 	NextLink *string `pulumi:"nextLink"`
 	// List of SSIS object metadata.
 	Value []interface{} `pulumi:"value"`
+}
+
+func GetIntegrationRuntimeObjectMetadatumOutput(ctx *pulumi.Context, args GetIntegrationRuntimeObjectMetadatumOutputArgs, opts ...pulumi.InvokeOption) GetIntegrationRuntimeObjectMetadatumResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetIntegrationRuntimeObjectMetadatumResult, error) {
+			args := v.(GetIntegrationRuntimeObjectMetadatumArgs)
+			r, err := GetIntegrationRuntimeObjectMetadatum(ctx, &args, opts...)
+			return *r, err
+		}).(GetIntegrationRuntimeObjectMetadatumResultOutput)
+}
+
+type GetIntegrationRuntimeObjectMetadatumOutputArgs struct {
+	// Integration runtime name
+	IntegrationRuntimeName pulumi.StringInput `pulumi:"integrationRuntimeName"`
+	// Metadata path.
+	MetadataPath pulumi.StringPtrInput `pulumi:"metadataPath"`
+	// The name of the resource group. The name is case insensitive.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the workspace.
+	WorkspaceName pulumi.StringInput `pulumi:"workspaceName"`
+}
+
+func (GetIntegrationRuntimeObjectMetadatumOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetIntegrationRuntimeObjectMetadatumArgs)(nil)).Elem()
+}
+
+// A list of SSIS object metadata.
+type GetIntegrationRuntimeObjectMetadatumResultOutput struct{ *pulumi.OutputState }
+
+func (GetIntegrationRuntimeObjectMetadatumResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetIntegrationRuntimeObjectMetadatumResult)(nil)).Elem()
+}
+
+func (o GetIntegrationRuntimeObjectMetadatumResultOutput) ToGetIntegrationRuntimeObjectMetadatumResultOutput() GetIntegrationRuntimeObjectMetadatumResultOutput {
+	return o
+}
+
+func (o GetIntegrationRuntimeObjectMetadatumResultOutput) ToGetIntegrationRuntimeObjectMetadatumResultOutputWithContext(ctx context.Context) GetIntegrationRuntimeObjectMetadatumResultOutput {
+	return o
+}
+
+// The link to the next page of results, if any remaining results exist.
+func (o GetIntegrationRuntimeObjectMetadatumResultOutput) NextLink() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetIntegrationRuntimeObjectMetadatumResult) *string { return v.NextLink }).(pulumi.StringPtrOutput)
+}
+
+// List of SSIS object metadata.
+func (o GetIntegrationRuntimeObjectMetadatumResultOutput) Value() pulumi.ArrayOutput {
+	return o.ApplyT(func(v GetIntegrationRuntimeObjectMetadatumResult) []interface{} { return v.Value }).(pulumi.ArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetIntegrationRuntimeObjectMetadatumResultOutput{})
 }

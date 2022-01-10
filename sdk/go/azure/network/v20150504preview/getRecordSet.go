@@ -4,6 +4,9 @@
 package v20150504preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -60,4 +63,122 @@ type LookupRecordSetResult struct {
 	Ttl *float64 `pulumi:"ttl"`
 	// The type of the record set.
 	Type string `pulumi:"type"`
+}
+
+func LookupRecordSetOutput(ctx *pulumi.Context, args LookupRecordSetOutputArgs, opts ...pulumi.InvokeOption) LookupRecordSetResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupRecordSetResult, error) {
+			args := v.(LookupRecordSetArgs)
+			r, err := LookupRecordSet(ctx, &args, opts...)
+			return *r, err
+		}).(LookupRecordSetResultOutput)
+}
+
+type LookupRecordSetOutputArgs struct {
+	// The type of DNS record.
+	RecordType pulumi.StringInput `pulumi:"recordType"`
+	// The name of the RecordSet, relative to the name of the zone.
+	RelativeRecordSetName pulumi.StringInput `pulumi:"relativeRecordSetName"`
+	// The name of the resource group. The name is case insensitive.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the zone without a terminating dot.
+	ZoneName pulumi.StringInput `pulumi:"zoneName"`
+}
+
+func (LookupRecordSetOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupRecordSetArgs)(nil)).Elem()
+}
+
+// Describes a DNS record set (a collection of DNS records with the same name and type).
+type LookupRecordSetResultOutput struct{ *pulumi.OutputState }
+
+func (LookupRecordSetResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupRecordSetResult)(nil)).Elem()
+}
+
+func (o LookupRecordSetResultOutput) ToLookupRecordSetResultOutput() LookupRecordSetResultOutput {
+	return o
+}
+
+func (o LookupRecordSetResultOutput) ToLookupRecordSetResultOutputWithContext(ctx context.Context) LookupRecordSetResultOutput {
+	return o
+}
+
+// Gets or sets the list of AAAA records in the RecordSet.
+func (o LookupRecordSetResultOutput) AAAARecords() AaaaRecordResponseArrayOutput {
+	return o.ApplyT(func(v LookupRecordSetResult) []AaaaRecordResponse { return v.AAAARecords }).(AaaaRecordResponseArrayOutput)
+}
+
+// Gets or sets the list of A records in the RecordSet.
+func (o LookupRecordSetResultOutput) ARecords() ARecordResponseArrayOutput {
+	return o.ApplyT(func(v LookupRecordSetResult) []ARecordResponse { return v.ARecords }).(ARecordResponseArrayOutput)
+}
+
+// Gets or sets the CNAME record in the RecordSet.
+func (o LookupRecordSetResultOutput) CNAMERecord() CnameRecordResponsePtrOutput {
+	return o.ApplyT(func(v LookupRecordSetResult) *CnameRecordResponse { return v.CNAMERecord }).(CnameRecordResponsePtrOutput)
+}
+
+// The etag of the record set.
+func (o LookupRecordSetResultOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupRecordSetResult) *string { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// Fully qualified domain name of the record set.
+func (o LookupRecordSetResultOutput) Fqdn() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRecordSetResult) string { return v.Fqdn }).(pulumi.StringOutput)
+}
+
+// The ID of the record set.
+func (o LookupRecordSetResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRecordSetResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Gets or sets the list of MX records in the RecordSet.
+func (o LookupRecordSetResultOutput) MXRecords() MxRecordResponseArrayOutput {
+	return o.ApplyT(func(v LookupRecordSetResult) []MxRecordResponse { return v.MXRecords }).(MxRecordResponseArrayOutput)
+}
+
+// Gets or sets the list of NS records in the RecordSet.
+func (o LookupRecordSetResultOutput) NSRecords() NsRecordResponseArrayOutput {
+	return o.ApplyT(func(v LookupRecordSetResult) []NsRecordResponse { return v.NSRecords }).(NsRecordResponseArrayOutput)
+}
+
+// The name of the record set.
+func (o LookupRecordSetResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRecordSetResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Gets or sets the list of PTR records in the RecordSet.
+func (o LookupRecordSetResultOutput) PTRRecords() PtrRecordResponseArrayOutput {
+	return o.ApplyT(func(v LookupRecordSetResult) []PtrRecordResponse { return v.PTRRecords }).(PtrRecordResponseArrayOutput)
+}
+
+// Gets or sets the SOA record in the RecordSet.
+func (o LookupRecordSetResultOutput) SOARecord() SoaRecordResponsePtrOutput {
+	return o.ApplyT(func(v LookupRecordSetResult) *SoaRecordResponse { return v.SOARecord }).(SoaRecordResponsePtrOutput)
+}
+
+// Gets or sets the list of SRV records in the RecordSet.
+func (o LookupRecordSetResultOutput) SRVRecords() SrvRecordResponseArrayOutput {
+	return o.ApplyT(func(v LookupRecordSetResult) []SrvRecordResponse { return v.SRVRecords }).(SrvRecordResponseArrayOutput)
+}
+
+// Gets or sets the list of TXT records in the RecordSet.
+func (o LookupRecordSetResultOutput) TXTRecords() TxtRecordResponseArrayOutput {
+	return o.ApplyT(func(v LookupRecordSetResult) []TxtRecordResponse { return v.TXTRecords }).(TxtRecordResponseArrayOutput)
+}
+
+// Gets or sets the TTL of the records in the RecordSet.
+func (o LookupRecordSetResultOutput) Ttl() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v LookupRecordSetResult) *float64 { return v.Ttl }).(pulumi.Float64PtrOutput)
+}
+
+// The type of the record set.
+func (o LookupRecordSetResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRecordSetResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupRecordSetResultOutput{})
 }

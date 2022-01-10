@@ -4,6 +4,9 @@
 package delegatednetwork
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -47,4 +50,93 @@ type LookupControllerDetailsResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// The type of resource.
 	Type string `pulumi:"type"`
+}
+
+func LookupControllerDetailsOutput(ctx *pulumi.Context, args LookupControllerDetailsOutputArgs, opts ...pulumi.InvokeOption) LookupControllerDetailsResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupControllerDetailsResult, error) {
+			args := v.(LookupControllerDetailsArgs)
+			r, err := LookupControllerDetails(ctx, &args, opts...)
+			return *r, err
+		}).(LookupControllerDetailsResultOutput)
+}
+
+type LookupControllerDetailsOutputArgs struct {
+	// The name of the resource group. The name is case insensitive.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the resource. It must be a minimum of 3 characters, and a maximum of 63.
+	ResourceName pulumi.StringInput `pulumi:"resourceName"`
+}
+
+func (LookupControllerDetailsOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupControllerDetailsArgs)(nil)).Elem()
+}
+
+// Represents an instance of a DNC controller.
+type LookupControllerDetailsResultOutput struct{ *pulumi.OutputState }
+
+func (LookupControllerDetailsResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupControllerDetailsResult)(nil)).Elem()
+}
+
+func (o LookupControllerDetailsResultOutput) ToLookupControllerDetailsResultOutput() LookupControllerDetailsResultOutput {
+	return o
+}
+
+func (o LookupControllerDetailsResultOutput) ToLookupControllerDetailsResultOutputWithContext(ctx context.Context) LookupControllerDetailsResultOutput {
+	return o
+}
+
+// dnc application id should be used by customer to authenticate with dnc gateway.
+func (o LookupControllerDetailsResultOutput) DncAppId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupControllerDetailsResult) string { return v.DncAppId }).(pulumi.StringOutput)
+}
+
+// dnc endpoint url that customers can use to connect to
+func (o LookupControllerDetailsResultOutput) DncEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupControllerDetailsResult) string { return v.DncEndpoint }).(pulumi.StringOutput)
+}
+
+// tenant id of dnc application id
+func (o LookupControllerDetailsResultOutput) DncTenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupControllerDetailsResult) string { return v.DncTenantId }).(pulumi.StringOutput)
+}
+
+// An identifier that represents the resource.
+func (o LookupControllerDetailsResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupControllerDetailsResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Location of the resource.
+func (o LookupControllerDetailsResultOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupControllerDetailsResult) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource.
+func (o LookupControllerDetailsResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupControllerDetailsResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The current state of dnc controller resource.
+func (o LookupControllerDetailsResultOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupControllerDetailsResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Resource guid.
+func (o LookupControllerDetailsResultOutput) ResourceGuid() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupControllerDetailsResult) string { return v.ResourceGuid }).(pulumi.StringOutput)
+}
+
+// The resource tags.
+func (o LookupControllerDetailsResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupControllerDetailsResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of resource.
+func (o LookupControllerDetailsResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupControllerDetailsResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupControllerDetailsResultOutput{})
 }

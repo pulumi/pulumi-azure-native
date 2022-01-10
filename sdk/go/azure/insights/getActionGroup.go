@@ -4,6 +4,9 @@
 package insights
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -77,4 +80,140 @@ func (val *LookupActionGroupResult) Defaults() *LookupActionGroupResult {
 		tmp.Enabled = true
 	}
 	return &tmp
+}
+
+func LookupActionGroupOutput(ctx *pulumi.Context, args LookupActionGroupOutputArgs, opts ...pulumi.InvokeOption) LookupActionGroupResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupActionGroupResult, error) {
+			args := v.(LookupActionGroupArgs)
+			r, err := LookupActionGroup(ctx, &args, opts...)
+			return *r, err
+		}).(LookupActionGroupResultOutput)
+}
+
+type LookupActionGroupOutputArgs struct {
+	// The name of the action group.
+	ActionGroupName pulumi.StringInput `pulumi:"actionGroupName"`
+	// The name of the resource group. The name is case insensitive.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupActionGroupOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupActionGroupArgs)(nil)).Elem()
+}
+
+// An action group resource.
+type LookupActionGroupResultOutput struct{ *pulumi.OutputState }
+
+func (LookupActionGroupResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupActionGroupResult)(nil)).Elem()
+}
+
+func (o LookupActionGroupResultOutput) ToLookupActionGroupResultOutput() LookupActionGroupResultOutput {
+	return o
+}
+
+func (o LookupActionGroupResultOutput) ToLookupActionGroupResultOutputWithContext(ctx context.Context) LookupActionGroupResultOutput {
+	return o
+}
+
+// The list of ARM role receivers that are part of this action group. Roles are Azure RBAC roles and only built-in roles are supported.
+func (o LookupActionGroupResultOutput) ArmRoleReceivers() ArmRoleReceiverResponseArrayOutput {
+	return o.ApplyT(func(v LookupActionGroupResult) []ArmRoleReceiverResponse { return v.ArmRoleReceivers }).(ArmRoleReceiverResponseArrayOutput)
+}
+
+// The list of AutomationRunbook receivers that are part of this action group.
+func (o LookupActionGroupResultOutput) AutomationRunbookReceivers() AutomationRunbookReceiverResponseArrayOutput {
+	return o.ApplyT(func(v LookupActionGroupResult) []AutomationRunbookReceiverResponse {
+		return v.AutomationRunbookReceivers
+	}).(AutomationRunbookReceiverResponseArrayOutput)
+}
+
+// The list of AzureAppPush receivers that are part of this action group.
+func (o LookupActionGroupResultOutput) AzureAppPushReceivers() AzureAppPushReceiverResponseArrayOutput {
+	return o.ApplyT(func(v LookupActionGroupResult) []AzureAppPushReceiverResponse { return v.AzureAppPushReceivers }).(AzureAppPushReceiverResponseArrayOutput)
+}
+
+// The list of azure function receivers that are part of this action group.
+func (o LookupActionGroupResultOutput) AzureFunctionReceivers() AzureFunctionReceiverResponseArrayOutput {
+	return o.ApplyT(func(v LookupActionGroupResult) []AzureFunctionReceiverResponse { return v.AzureFunctionReceivers }).(AzureFunctionReceiverResponseArrayOutput)
+}
+
+// The list of email receivers that are part of this action group.
+func (o LookupActionGroupResultOutput) EmailReceivers() EmailReceiverResponseArrayOutput {
+	return o.ApplyT(func(v LookupActionGroupResult) []EmailReceiverResponse { return v.EmailReceivers }).(EmailReceiverResponseArrayOutput)
+}
+
+// Indicates whether this action group is enabled. If an action group is not enabled, then none of its receivers will receive communications.
+func (o LookupActionGroupResultOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupActionGroupResult) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// The short name of the action group. This will be used in SMS messages.
+func (o LookupActionGroupResultOutput) GroupShortName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupActionGroupResult) string { return v.GroupShortName }).(pulumi.StringOutput)
+}
+
+// Azure resource Id
+func (o LookupActionGroupResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupActionGroupResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Azure resource identity
+func (o LookupActionGroupResultOutput) Identity() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupActionGroupResult) string { return v.Identity }).(pulumi.StringOutput)
+}
+
+// The list of ITSM receivers that are part of this action group.
+func (o LookupActionGroupResultOutput) ItsmReceivers() ItsmReceiverResponseArrayOutput {
+	return o.ApplyT(func(v LookupActionGroupResult) []ItsmReceiverResponse { return v.ItsmReceivers }).(ItsmReceiverResponseArrayOutput)
+}
+
+// Azure resource kind
+func (o LookupActionGroupResultOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupActionGroupResult) string { return v.Kind }).(pulumi.StringOutput)
+}
+
+// Resource location
+func (o LookupActionGroupResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupActionGroupResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// The list of logic app receivers that are part of this action group.
+func (o LookupActionGroupResultOutput) LogicAppReceivers() LogicAppReceiverResponseArrayOutput {
+	return o.ApplyT(func(v LookupActionGroupResult) []LogicAppReceiverResponse { return v.LogicAppReceivers }).(LogicAppReceiverResponseArrayOutput)
+}
+
+// Azure resource name
+func (o LookupActionGroupResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupActionGroupResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The list of SMS receivers that are part of this action group.
+func (o LookupActionGroupResultOutput) SmsReceivers() SmsReceiverResponseArrayOutput {
+	return o.ApplyT(func(v LookupActionGroupResult) []SmsReceiverResponse { return v.SmsReceivers }).(SmsReceiverResponseArrayOutput)
+}
+
+// Resource tags
+func (o LookupActionGroupResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupActionGroupResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Azure resource type
+func (o LookupActionGroupResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupActionGroupResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The list of voice receivers that are part of this action group.
+func (o LookupActionGroupResultOutput) VoiceReceivers() VoiceReceiverResponseArrayOutput {
+	return o.ApplyT(func(v LookupActionGroupResult) []VoiceReceiverResponse { return v.VoiceReceivers }).(VoiceReceiverResponseArrayOutput)
+}
+
+// The list of webhook receivers that are part of this action group.
+func (o LookupActionGroupResultOutput) WebhookReceivers() WebhookReceiverResponseArrayOutput {
+	return o.ApplyT(func(v LookupActionGroupResult) []WebhookReceiverResponse { return v.WebhookReceivers }).(WebhookReceiverResponseArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupActionGroupResultOutput{})
 }

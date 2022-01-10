@@ -4,6 +4,9 @@
 package v20210301
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -36,4 +39,70 @@ type ListWebAppConnectionStringsResult struct {
 	Properties map[string]ConnStringValueTypePairResponse `pulumi:"properties"`
 	// Resource type.
 	Type string `pulumi:"type"`
+}
+
+func ListWebAppConnectionStringsOutput(ctx *pulumi.Context, args ListWebAppConnectionStringsOutputArgs, opts ...pulumi.InvokeOption) ListWebAppConnectionStringsResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (ListWebAppConnectionStringsResult, error) {
+			args := v.(ListWebAppConnectionStringsArgs)
+			r, err := ListWebAppConnectionStrings(ctx, &args, opts...)
+			return *r, err
+		}).(ListWebAppConnectionStringsResultOutput)
+}
+
+type ListWebAppConnectionStringsOutputArgs struct {
+	// Name of the app.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Name of the resource group to which the resource belongs.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (ListWebAppConnectionStringsOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListWebAppConnectionStringsArgs)(nil)).Elem()
+}
+
+// String dictionary resource.
+type ListWebAppConnectionStringsResultOutput struct{ *pulumi.OutputState }
+
+func (ListWebAppConnectionStringsResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListWebAppConnectionStringsResult)(nil)).Elem()
+}
+
+func (o ListWebAppConnectionStringsResultOutput) ToListWebAppConnectionStringsResultOutput() ListWebAppConnectionStringsResultOutput {
+	return o
+}
+
+func (o ListWebAppConnectionStringsResultOutput) ToListWebAppConnectionStringsResultOutputWithContext(ctx context.Context) ListWebAppConnectionStringsResultOutput {
+	return o
+}
+
+// Resource Id.
+func (o ListWebAppConnectionStringsResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v ListWebAppConnectionStringsResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Kind of resource.
+func (o ListWebAppConnectionStringsResultOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListWebAppConnectionStringsResult) *string { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Resource Name.
+func (o ListWebAppConnectionStringsResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ListWebAppConnectionStringsResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Connection strings.
+func (o ListWebAppConnectionStringsResultOutput) Properties() ConnStringValueTypePairResponseMapOutput {
+	return o.ApplyT(func(v ListWebAppConnectionStringsResult) map[string]ConnStringValueTypePairResponse {
+		return v.Properties
+	}).(ConnStringValueTypePairResponseMapOutput)
+}
+
+// Resource type.
+func (o ListWebAppConnectionStringsResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ListWebAppConnectionStringsResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(ListWebAppConnectionStringsResultOutput{})
 }

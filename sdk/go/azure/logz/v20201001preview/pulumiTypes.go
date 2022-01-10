@@ -1291,6 +1291,71 @@ type MonitoredResourceResponse struct {
 	SystemData SystemDataResponse `pulumi:"systemData"`
 }
 
+// The properties of a resource currently being monitored by the Logz monitor resource.
+type MonitoredResourceResponseOutput struct{ *pulumi.OutputState }
+
+func (MonitoredResourceResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MonitoredResourceResponse)(nil)).Elem()
+}
+
+func (o MonitoredResourceResponseOutput) ToMonitoredResourceResponseOutput() MonitoredResourceResponseOutput {
+	return o
+}
+
+func (o MonitoredResourceResponseOutput) ToMonitoredResourceResponseOutputWithContext(ctx context.Context) MonitoredResourceResponseOutput {
+	return o
+}
+
+// The ARM id of the resource.
+func (o MonitoredResourceResponseOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MonitoredResourceResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// Reason for why the resource is sending logs (or why it is not sending).
+func (o MonitoredResourceResponseOutput) ReasonForLogsStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MonitoredResourceResponse) *string { return v.ReasonForLogsStatus }).(pulumi.StringPtrOutput)
+}
+
+// Reason for why the resource is sending metrics (or why it is not sending).
+func (o MonitoredResourceResponseOutput) ReasonForMetricsStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MonitoredResourceResponse) *string { return v.ReasonForMetricsStatus }).(pulumi.StringPtrOutput)
+}
+
+// Flag indicating if resource is sending logs to Logz.
+func (o MonitoredResourceResponseOutput) SendingLogs() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v MonitoredResourceResponse) *bool { return v.SendingLogs }).(pulumi.BoolPtrOutput)
+}
+
+// Flag indicating if resource is sending metrics to Logz.
+func (o MonitoredResourceResponseOutput) SendingMetrics() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v MonitoredResourceResponse) *bool { return v.SendingMetrics }).(pulumi.BoolPtrOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o MonitoredResourceResponseOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v MonitoredResourceResponse) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+type MonitoredResourceResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (MonitoredResourceResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MonitoredResourceResponse)(nil)).Elem()
+}
+
+func (o MonitoredResourceResponseArrayOutput) ToMonitoredResourceResponseArrayOutput() MonitoredResourceResponseArrayOutput {
+	return o
+}
+
+func (o MonitoredResourceResponseArrayOutput) ToMonitoredResourceResponseArrayOutputWithContext(ctx context.Context) MonitoredResourceResponseArrayOutput {
+	return o
+}
+
+func (o MonitoredResourceResponseArrayOutput) Index(i pulumi.IntInput) MonitoredResourceResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MonitoredResourceResponse {
+		return vs[0].([]MonitoredResourceResponse)[vs[1].(int)]
+	}).(MonitoredResourceResponseOutput)
+}
+
 // Definition of the properties for a TagRules resource.
 type MonitoringTagRulesProperties struct {
 	// Set of rules for sending logs for the Monitor resource.
@@ -2144,12 +2209,97 @@ type UserRoleResponseResponse struct {
 	Role *string `pulumi:"role"`
 }
 
+// Response for checking user's role for Logz.io account.
+type UserRoleResponseResponseOutput struct{ *pulumi.OutputState }
+
+func (UserRoleResponseResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserRoleResponseResponse)(nil)).Elem()
+}
+
+func (o UserRoleResponseResponseOutput) ToUserRoleResponseResponseOutput() UserRoleResponseResponseOutput {
+	return o
+}
+
+func (o UserRoleResponseResponseOutput) ToUserRoleResponseResponseOutputWithContext(ctx context.Context) UserRoleResponseResponseOutput {
+	return o
+}
+
+// User roles on configured in Logz.io account.
+func (o UserRoleResponseResponseOutput) Role() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserRoleResponseResponse) *string { return v.Role }).(pulumi.StringPtrOutput)
+}
+
+type UserRoleResponseResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (UserRoleResponseResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UserRoleResponseResponse)(nil)).Elem()
+}
+
+func (o UserRoleResponseResponseArrayOutput) ToUserRoleResponseResponseArrayOutput() UserRoleResponseResponseArrayOutput {
+	return o
+}
+
+func (o UserRoleResponseResponseArrayOutput) ToUserRoleResponseResponseArrayOutputWithContext(ctx context.Context) UserRoleResponseResponseArrayOutput {
+	return o
+}
+
+func (o UserRoleResponseResponseArrayOutput) Index(i pulumi.IntInput) UserRoleResponseResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) UserRoleResponseResponse {
+		return vs[0].([]UserRoleResponseResponse)[vs[1].(int)]
+	}).(UserRoleResponseResponseOutput)
+}
+
 // VM Resource Ids
 type VMResourcesResponse struct {
 	// Version of the Logz agent installed on the VM.
 	AgentVersion *string `pulumi:"agentVersion"`
 	// Request of a list vm host update operation.
 	Id *string `pulumi:"id"`
+}
+
+// VM Resource Ids
+type VMResourcesResponseOutput struct{ *pulumi.OutputState }
+
+func (VMResourcesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VMResourcesResponse)(nil)).Elem()
+}
+
+func (o VMResourcesResponseOutput) ToVMResourcesResponseOutput() VMResourcesResponseOutput {
+	return o
+}
+
+func (o VMResourcesResponseOutput) ToVMResourcesResponseOutputWithContext(ctx context.Context) VMResourcesResponseOutput {
+	return o
+}
+
+// Version of the Logz agent installed on the VM.
+func (o VMResourcesResponseOutput) AgentVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VMResourcesResponse) *string { return v.AgentVersion }).(pulumi.StringPtrOutput)
+}
+
+// Request of a list vm host update operation.
+func (o VMResourcesResponseOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VMResourcesResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+type VMResourcesResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (VMResourcesResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VMResourcesResponse)(nil)).Elem()
+}
+
+func (o VMResourcesResponseArrayOutput) ToVMResourcesResponseArrayOutput() VMResourcesResponseArrayOutput {
+	return o
+}
+
+func (o VMResourcesResponseArrayOutput) ToVMResourcesResponseArrayOutputWithContext(ctx context.Context) VMResourcesResponseArrayOutput {
+	return o
+}
+
+func (o VMResourcesResponseArrayOutput) Index(i pulumi.IntInput) VMResourcesResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VMResourcesResponse {
+		return vs[0].([]VMResourcesResponse)[vs[1].(int)]
+	}).(VMResourcesResponseOutput)
 }
 
 func init() {
@@ -2172,6 +2322,8 @@ func init() {
 	pulumi.RegisterOutputType(MonitorPropertiesOutput{})
 	pulumi.RegisterOutputType(MonitorPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(MonitorPropertiesResponseOutput{})
+	pulumi.RegisterOutputType(MonitoredResourceResponseOutput{})
+	pulumi.RegisterOutputType(MonitoredResourceResponseArrayOutput{})
 	pulumi.RegisterOutputType(MonitoringTagRulesPropertiesOutput{})
 	pulumi.RegisterOutputType(MonitoringTagRulesPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(MonitoringTagRulesPropertiesResponseOutput{})
@@ -2184,4 +2336,8 @@ func init() {
 	pulumi.RegisterOutputType(UserInfoPtrOutput{})
 	pulumi.RegisterOutputType(UserInfoResponseOutput{})
 	pulumi.RegisterOutputType(UserInfoResponsePtrOutput{})
+	pulumi.RegisterOutputType(UserRoleResponseResponseOutput{})
+	pulumi.RegisterOutputType(UserRoleResponseResponseArrayOutput{})
+	pulumi.RegisterOutputType(VMResourcesResponseOutput{})
+	pulumi.RegisterOutputType(VMResourcesResponseArrayOutput{})
 }

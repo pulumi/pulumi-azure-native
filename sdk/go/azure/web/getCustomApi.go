@@ -4,6 +4,9 @@
 package web
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -43,4 +46,80 @@ type LookupCustomApiResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type
 	Type string `pulumi:"type"`
+}
+
+func LookupCustomApiOutput(ctx *pulumi.Context, args LookupCustomApiOutputArgs, opts ...pulumi.InvokeOption) LookupCustomApiResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupCustomApiResult, error) {
+			args := v.(LookupCustomApiArgs)
+			r, err := LookupCustomApi(ctx, &args, opts...)
+			return *r, err
+		}).(LookupCustomApiResultOutput)
+}
+
+type LookupCustomApiOutputArgs struct {
+	// API name
+	ApiName pulumi.StringInput `pulumi:"apiName"`
+	// The resource group
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// Subscription Id
+	SubscriptionId pulumi.StringPtrInput `pulumi:"subscriptionId"`
+}
+
+func (LookupCustomApiOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupCustomApiArgs)(nil)).Elem()
+}
+
+// A custom API
+type LookupCustomApiResultOutput struct{ *pulumi.OutputState }
+
+func (LookupCustomApiResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupCustomApiResult)(nil)).Elem()
+}
+
+func (o LookupCustomApiResultOutput) ToLookupCustomApiResultOutput() LookupCustomApiResultOutput {
+	return o
+}
+
+func (o LookupCustomApiResultOutput) ToLookupCustomApiResultOutputWithContext(ctx context.Context) LookupCustomApiResultOutput {
+	return o
+}
+
+// Resource ETag
+func (o LookupCustomApiResultOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupCustomApiResult) *string { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// Resource id
+func (o LookupCustomApiResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCustomApiResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Resource location
+func (o LookupCustomApiResultOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupCustomApiResult) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Resource name
+func (o LookupCustomApiResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCustomApiResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Custom API properties
+func (o LookupCustomApiResultOutput) Properties() CustomApiPropertiesDefinitionResponseOutput {
+	return o.ApplyT(func(v LookupCustomApiResult) CustomApiPropertiesDefinitionResponse { return v.Properties }).(CustomApiPropertiesDefinitionResponseOutput)
+}
+
+// Resource tags
+func (o LookupCustomApiResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupCustomApiResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type
+func (o LookupCustomApiResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCustomApiResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupCustomApiResultOutput{})
 }

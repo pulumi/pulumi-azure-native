@@ -4,6 +4,9 @@
 package v20150801
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -46,4 +49,90 @@ type ListSitePublishingCredentialsSlotResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type
 	Type *string `pulumi:"type"`
+}
+
+func ListSitePublishingCredentialsSlotOutput(ctx *pulumi.Context, args ListSitePublishingCredentialsSlotOutputArgs, opts ...pulumi.InvokeOption) ListSitePublishingCredentialsSlotResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (ListSitePublishingCredentialsSlotResult, error) {
+			args := v.(ListSitePublishingCredentialsSlotArgs)
+			r, err := ListSitePublishingCredentialsSlot(ctx, &args, opts...)
+			return *r, err
+		}).(ListSitePublishingCredentialsSlotResultOutput)
+}
+
+type ListSitePublishingCredentialsSlotOutputArgs struct {
+	// Name of web app
+	Name pulumi.StringInput `pulumi:"name"`
+	// Name of resource group
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// Name of web app slot. If not specified then will default to production slot.
+	Slot pulumi.StringInput `pulumi:"slot"`
+}
+
+func (ListSitePublishingCredentialsSlotOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListSitePublishingCredentialsSlotArgs)(nil)).Elem()
+}
+
+// Represents user credentials used for publishing activity
+type ListSitePublishingCredentialsSlotResultOutput struct{ *pulumi.OutputState }
+
+func (ListSitePublishingCredentialsSlotResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListSitePublishingCredentialsSlotResult)(nil)).Elem()
+}
+
+func (o ListSitePublishingCredentialsSlotResultOutput) ToListSitePublishingCredentialsSlotResultOutput() ListSitePublishingCredentialsSlotResultOutput {
+	return o
+}
+
+func (o ListSitePublishingCredentialsSlotResultOutput) ToListSitePublishingCredentialsSlotResultOutputWithContext(ctx context.Context) ListSitePublishingCredentialsSlotResultOutput {
+	return o
+}
+
+// Resource Id
+func (o ListSitePublishingCredentialsSlotResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListSitePublishingCredentialsSlotResult) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// Kind of resource
+func (o ListSitePublishingCredentialsSlotResultOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListSitePublishingCredentialsSlotResult) *string { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Resource Location
+func (o ListSitePublishingCredentialsSlotResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v ListSitePublishingCredentialsSlotResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource Name
+func (o ListSitePublishingCredentialsSlotResultOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListSitePublishingCredentialsSlotResult) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Password used for publishing
+func (o ListSitePublishingCredentialsSlotResultOutput) PublishingPassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListSitePublishingCredentialsSlotResult) *string { return v.PublishingPassword }).(pulumi.StringPtrOutput)
+}
+
+// Username used for publishing
+func (o ListSitePublishingCredentialsSlotResultOutput) PublishingUserName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListSitePublishingCredentialsSlotResult) *string { return v.PublishingUserName }).(pulumi.StringPtrOutput)
+}
+
+// Service Control Manager URI, including username and password
+func (o ListSitePublishingCredentialsSlotResultOutput) ScmUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListSitePublishingCredentialsSlotResult) *string { return v.ScmUri }).(pulumi.StringPtrOutput)
+}
+
+// Resource tags
+func (o ListSitePublishingCredentialsSlotResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ListSitePublishingCredentialsSlotResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type
+func (o ListSitePublishingCredentialsSlotResultOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListSitePublishingCredentialsSlotResult) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(ListSitePublishingCredentialsSlotResultOutput{})
 }

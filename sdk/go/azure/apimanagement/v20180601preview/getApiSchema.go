@@ -4,6 +4,9 @@
 package v20180601preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -40,4 +43,72 @@ type LookupApiSchemaResult struct {
 	Type string `pulumi:"type"`
 	// Json escaped string defining the document representing the Schema.
 	Value *string `pulumi:"value"`
+}
+
+func LookupApiSchemaOutput(ctx *pulumi.Context, args LookupApiSchemaOutputArgs, opts ...pulumi.InvokeOption) LookupApiSchemaResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupApiSchemaResult, error) {
+			args := v.(LookupApiSchemaArgs)
+			r, err := LookupApiSchema(ctx, &args, opts...)
+			return *r, err
+		}).(LookupApiSchemaResultOutput)
+}
+
+type LookupApiSchemaOutputArgs struct {
+	// API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
+	ApiId pulumi.StringInput `pulumi:"apiId"`
+	// The name of the resource group.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// Schema identifier within an API. Must be unique in the current API Management service instance.
+	SchemaId pulumi.StringInput `pulumi:"schemaId"`
+	// The name of the API Management service.
+	ServiceName pulumi.StringInput `pulumi:"serviceName"`
+}
+
+func (LookupApiSchemaOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupApiSchemaArgs)(nil)).Elem()
+}
+
+// Schema Contract details.
+type LookupApiSchemaResultOutput struct{ *pulumi.OutputState }
+
+func (LookupApiSchemaResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupApiSchemaResult)(nil)).Elem()
+}
+
+func (o LookupApiSchemaResultOutput) ToLookupApiSchemaResultOutput() LookupApiSchemaResultOutput {
+	return o
+}
+
+func (o LookupApiSchemaResultOutput) ToLookupApiSchemaResultOutputWithContext(ctx context.Context) LookupApiSchemaResultOutput {
+	return o
+}
+
+// Must be a valid a media type used in a Content-Type header as defined in the RFC 2616. Media type of the schema document (e.g. application/json, application/xml).
+func (o LookupApiSchemaResultOutput) ContentType() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupApiSchemaResult) string { return v.ContentType }).(pulumi.StringOutput)
+}
+
+// Resource ID.
+func (o LookupApiSchemaResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupApiSchemaResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o LookupApiSchemaResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupApiSchemaResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Resource type for API Management resource.
+func (o LookupApiSchemaResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupApiSchemaResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Json escaped string defining the document representing the Schema.
+func (o LookupApiSchemaResultOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupApiSchemaResult) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupApiSchemaResultOutput{})
 }

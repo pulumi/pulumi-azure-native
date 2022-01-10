@@ -4,6 +4,9 @@
 package v20210101
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -48,4 +51,95 @@ type LookupClusterPrincipalAssignmentResult struct {
 	TenantName string `pulumi:"tenantName"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
+}
+
+func LookupClusterPrincipalAssignmentOutput(ctx *pulumi.Context, args LookupClusterPrincipalAssignmentOutputArgs, opts ...pulumi.InvokeOption) LookupClusterPrincipalAssignmentResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupClusterPrincipalAssignmentResult, error) {
+			args := v.(LookupClusterPrincipalAssignmentArgs)
+			r, err := LookupClusterPrincipalAssignment(ctx, &args, opts...)
+			return *r, err
+		}).(LookupClusterPrincipalAssignmentResultOutput)
+}
+
+type LookupClusterPrincipalAssignmentOutputArgs struct {
+	// The name of the Kusto cluster.
+	ClusterName pulumi.StringInput `pulumi:"clusterName"`
+	// The name of the Kusto principalAssignment.
+	PrincipalAssignmentName pulumi.StringInput `pulumi:"principalAssignmentName"`
+	// The name of the resource group containing the Kusto cluster.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupClusterPrincipalAssignmentOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupClusterPrincipalAssignmentArgs)(nil)).Elem()
+}
+
+// Class representing a cluster principal assignment.
+type LookupClusterPrincipalAssignmentResultOutput struct{ *pulumi.OutputState }
+
+func (LookupClusterPrincipalAssignmentResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupClusterPrincipalAssignmentResult)(nil)).Elem()
+}
+
+func (o LookupClusterPrincipalAssignmentResultOutput) ToLookupClusterPrincipalAssignmentResultOutput() LookupClusterPrincipalAssignmentResultOutput {
+	return o
+}
+
+func (o LookupClusterPrincipalAssignmentResultOutput) ToLookupClusterPrincipalAssignmentResultOutputWithContext(ctx context.Context) LookupClusterPrincipalAssignmentResultOutput {
+	return o
+}
+
+// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+func (o LookupClusterPrincipalAssignmentResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupClusterPrincipalAssignmentResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o LookupClusterPrincipalAssignmentResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupClusterPrincipalAssignmentResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The principal ID assigned to the cluster principal. It can be a user email, application ID, or security group name.
+func (o LookupClusterPrincipalAssignmentResultOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupClusterPrincipalAssignmentResult) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+// The principal name
+func (o LookupClusterPrincipalAssignmentResultOutput) PrincipalName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupClusterPrincipalAssignmentResult) string { return v.PrincipalName }).(pulumi.StringOutput)
+}
+
+// Principal type.
+func (o LookupClusterPrincipalAssignmentResultOutput) PrincipalType() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupClusterPrincipalAssignmentResult) string { return v.PrincipalType }).(pulumi.StringOutput)
+}
+
+// The provisioned state of the resource.
+func (o LookupClusterPrincipalAssignmentResultOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupClusterPrincipalAssignmentResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Cluster principal role.
+func (o LookupClusterPrincipalAssignmentResultOutput) Role() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupClusterPrincipalAssignmentResult) string { return v.Role }).(pulumi.StringOutput)
+}
+
+// The tenant id of the principal
+func (o LookupClusterPrincipalAssignmentResultOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupClusterPrincipalAssignmentResult) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+}
+
+// The tenant name of the principal
+func (o LookupClusterPrincipalAssignmentResultOutput) TenantName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupClusterPrincipalAssignmentResult) string { return v.TenantName }).(pulumi.StringOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o LookupClusterPrincipalAssignmentResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupClusterPrincipalAssignmentResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupClusterPrincipalAssignmentResultOutput{})
 }

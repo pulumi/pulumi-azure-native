@@ -4,6 +4,9 @@
 package v20200101
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -56,4 +59,115 @@ type LookupOuContainerResult struct {
 	TenantId string `pulumi:"tenantId"`
 	// Resource type
 	Type string `pulumi:"type"`
+}
+
+func LookupOuContainerOutput(ctx *pulumi.Context, args LookupOuContainerOutputArgs, opts ...pulumi.InvokeOption) LookupOuContainerResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupOuContainerResult, error) {
+			args := v.(LookupOuContainerArgs)
+			r, err := LookupOuContainer(ctx, &args, opts...)
+			return *r, err
+		}).(LookupOuContainerResultOutput)
+}
+
+type LookupOuContainerOutputArgs struct {
+	// The name of the domain service.
+	DomainServiceName pulumi.StringInput `pulumi:"domainServiceName"`
+	// The name of the OuContainer.
+	OuContainerName pulumi.StringInput `pulumi:"ouContainerName"`
+	// The name of the resource group within the user's subscription. The name is case insensitive.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupOuContainerOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupOuContainerArgs)(nil)).Elem()
+}
+
+// Resource for OuContainer.
+type LookupOuContainerResultOutput struct{ *pulumi.OutputState }
+
+func (LookupOuContainerResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupOuContainerResult)(nil)).Elem()
+}
+
+func (o LookupOuContainerResultOutput) ToLookupOuContainerResultOutput() LookupOuContainerResultOutput {
+	return o
+}
+
+func (o LookupOuContainerResultOutput) ToLookupOuContainerResultOutputWithContext(ctx context.Context) LookupOuContainerResultOutput {
+	return o
+}
+
+// The list of container accounts
+func (o LookupOuContainerResultOutput) Accounts() ContainerAccountResponseArrayOutput {
+	return o.ApplyT(func(v LookupOuContainerResult) []ContainerAccountResponse { return v.Accounts }).(ContainerAccountResponseArrayOutput)
+}
+
+// The OuContainer name
+func (o LookupOuContainerResultOutput) ContainerId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupOuContainerResult) string { return v.ContainerId }).(pulumi.StringOutput)
+}
+
+// The Deployment id
+func (o LookupOuContainerResultOutput) DeploymentId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupOuContainerResult) string { return v.DeploymentId }).(pulumi.StringOutput)
+}
+
+// Distinguished Name of OuContainer instance
+func (o LookupOuContainerResultOutput) DistinguishedName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupOuContainerResult) string { return v.DistinguishedName }).(pulumi.StringOutput)
+}
+
+// The domain name of Domain Services.
+func (o LookupOuContainerResultOutput) DomainName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupOuContainerResult) string { return v.DomainName }).(pulumi.StringOutput)
+}
+
+// Resource etag
+func (o LookupOuContainerResultOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupOuContainerResult) *string { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// Resource Id
+func (o LookupOuContainerResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupOuContainerResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Resource location
+func (o LookupOuContainerResultOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupOuContainerResult) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Resource name
+func (o LookupOuContainerResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupOuContainerResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The current deployment or provisioning state, which only appears in the response.
+func (o LookupOuContainerResultOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupOuContainerResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Status of OuContainer instance
+func (o LookupOuContainerResultOutput) ServiceStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupOuContainerResult) string { return v.ServiceStatus }).(pulumi.StringOutput)
+}
+
+// Resource tags
+func (o LookupOuContainerResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupOuContainerResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Azure Active Directory tenant id
+func (o LookupOuContainerResultOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupOuContainerResult) string { return v.TenantId }).(pulumi.StringOutput)
+}
+
+// Resource type
+func (o LookupOuContainerResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupOuContainerResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupOuContainerResultOutput{})
 }

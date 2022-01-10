@@ -4,6 +4,9 @@
 package v20200501
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -60,4 +63,127 @@ type LookupNetworkVirtualApplianceResult struct {
 	VirtualApplianceSites []SubResourceResponse `pulumi:"virtualApplianceSites"`
 	// The Virtual Hub where Network Virtual Appliance is being deployed.
 	VirtualHub *SubResourceResponse `pulumi:"virtualHub"`
+}
+
+func LookupNetworkVirtualApplianceOutput(ctx *pulumi.Context, args LookupNetworkVirtualApplianceOutputArgs, opts ...pulumi.InvokeOption) LookupNetworkVirtualApplianceResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupNetworkVirtualApplianceResult, error) {
+			args := v.(LookupNetworkVirtualApplianceArgs)
+			r, err := LookupNetworkVirtualAppliance(ctx, &args, opts...)
+			return *r, err
+		}).(LookupNetworkVirtualApplianceResultOutput)
+}
+
+type LookupNetworkVirtualApplianceOutputArgs struct {
+	// Expands referenced resources.
+	Expand pulumi.StringPtrInput `pulumi:"expand"`
+	// The name of Network Virtual Appliance.
+	NetworkVirtualApplianceName pulumi.StringInput `pulumi:"networkVirtualApplianceName"`
+	// The name of the resource group.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupNetworkVirtualApplianceOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupNetworkVirtualApplianceArgs)(nil)).Elem()
+}
+
+// NetworkVirtualAppliance Resource.
+type LookupNetworkVirtualApplianceResultOutput struct{ *pulumi.OutputState }
+
+func (LookupNetworkVirtualApplianceResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupNetworkVirtualApplianceResult)(nil)).Elem()
+}
+
+func (o LookupNetworkVirtualApplianceResultOutput) ToLookupNetworkVirtualApplianceResultOutput() LookupNetworkVirtualApplianceResultOutput {
+	return o
+}
+
+func (o LookupNetworkVirtualApplianceResultOutput) ToLookupNetworkVirtualApplianceResultOutputWithContext(ctx context.Context) LookupNetworkVirtualApplianceResultOutput {
+	return o
+}
+
+// BootStrapConfigurationBlobs storage URLs.
+func (o LookupNetworkVirtualApplianceResultOutput) BootStrapConfigurationBlobs() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupNetworkVirtualApplianceResult) []string { return v.BootStrapConfigurationBlobs }).(pulumi.StringArrayOutput)
+}
+
+// CloudInitConfiguration string in plain text.
+func (o LookupNetworkVirtualApplianceResultOutput) CloudInitConfiguration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupNetworkVirtualApplianceResult) *string { return v.CloudInitConfiguration }).(pulumi.StringPtrOutput)
+}
+
+// CloudInitConfigurationBlob storage URLs.
+func (o LookupNetworkVirtualApplianceResultOutput) CloudInitConfigurationBlobs() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupNetworkVirtualApplianceResult) []string { return v.CloudInitConfigurationBlobs }).(pulumi.StringArrayOutput)
+}
+
+// A unique read-only string that changes whenever the resource is updated.
+func (o LookupNetworkVirtualApplianceResultOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupNetworkVirtualApplianceResult) string { return v.Etag }).(pulumi.StringOutput)
+}
+
+// Resource ID.
+func (o LookupNetworkVirtualApplianceResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupNetworkVirtualApplianceResult) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// The service principal that has read access to cloud-init and config blob.
+func (o LookupNetworkVirtualApplianceResultOutput) Identity() ManagedServiceIdentityResponsePtrOutput {
+	return o.ApplyT(func(v LookupNetworkVirtualApplianceResult) *ManagedServiceIdentityResponse { return v.Identity }).(ManagedServiceIdentityResponsePtrOutput)
+}
+
+// Resource location.
+func (o LookupNetworkVirtualApplianceResultOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupNetworkVirtualApplianceResult) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Resource name.
+func (o LookupNetworkVirtualApplianceResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupNetworkVirtualApplianceResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Network Virtual Appliance SKU.
+func (o LookupNetworkVirtualApplianceResultOutput) NvaSku() VirtualApplianceSkuPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v LookupNetworkVirtualApplianceResult) *VirtualApplianceSkuPropertiesResponse { return v.NvaSku }).(VirtualApplianceSkuPropertiesResponsePtrOutput)
+}
+
+// The provisioning state of the resource.
+func (o LookupNetworkVirtualApplianceResultOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupNetworkVirtualApplianceResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Resource tags.
+func (o LookupNetworkVirtualApplianceResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupNetworkVirtualApplianceResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type.
+func (o LookupNetworkVirtualApplianceResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupNetworkVirtualApplianceResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// VirtualAppliance ASN.
+func (o LookupNetworkVirtualApplianceResultOutput) VirtualApplianceAsn() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v LookupNetworkVirtualApplianceResult) *float64 { return v.VirtualApplianceAsn }).(pulumi.Float64PtrOutput)
+}
+
+// List of Virtual Appliance Network Interfaces.
+func (o LookupNetworkVirtualApplianceResultOutput) VirtualApplianceNics() VirtualApplianceNicPropertiesResponseArrayOutput {
+	return o.ApplyT(func(v LookupNetworkVirtualApplianceResult) []VirtualApplianceNicPropertiesResponse {
+		return v.VirtualApplianceNics
+	}).(VirtualApplianceNicPropertiesResponseArrayOutput)
+}
+
+// List of references to VirtualApplianceSite.
+func (o LookupNetworkVirtualApplianceResultOutput) VirtualApplianceSites() SubResourceResponseArrayOutput {
+	return o.ApplyT(func(v LookupNetworkVirtualApplianceResult) []SubResourceResponse { return v.VirtualApplianceSites }).(SubResourceResponseArrayOutput)
+}
+
+// The Virtual Hub where Network Virtual Appliance is being deployed.
+func (o LookupNetworkVirtualApplianceResultOutput) VirtualHub() SubResourceResponsePtrOutput {
+	return o.ApplyT(func(v LookupNetworkVirtualApplianceResult) *SubResourceResponse { return v.VirtualHub }).(SubResourceResponsePtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupNetworkVirtualApplianceResultOutput{})
 }

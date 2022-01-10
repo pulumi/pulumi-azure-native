@@ -4,6 +4,9 @@
 package v20210101preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -30,4 +33,50 @@ type ListOpenIdConnectProviderSecretsArgs struct {
 type ListOpenIdConnectProviderSecretsResult struct {
 	// Client or app secret used in IdentityProviders, Aad, OpenID or OAuth.
 	ClientSecret *string `pulumi:"clientSecret"`
+}
+
+func ListOpenIdConnectProviderSecretsOutput(ctx *pulumi.Context, args ListOpenIdConnectProviderSecretsOutputArgs, opts ...pulumi.InvokeOption) ListOpenIdConnectProviderSecretsResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (ListOpenIdConnectProviderSecretsResult, error) {
+			args := v.(ListOpenIdConnectProviderSecretsArgs)
+			r, err := ListOpenIdConnectProviderSecrets(ctx, &args, opts...)
+			return *r, err
+		}).(ListOpenIdConnectProviderSecretsResultOutput)
+}
+
+type ListOpenIdConnectProviderSecretsOutputArgs struct {
+	// Identifier of the OpenID Connect Provider.
+	Opid pulumi.StringInput `pulumi:"opid"`
+	// The name of the resource group.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the API Management service.
+	ServiceName pulumi.StringInput `pulumi:"serviceName"`
+}
+
+func (ListOpenIdConnectProviderSecretsOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListOpenIdConnectProviderSecretsArgs)(nil)).Elem()
+}
+
+// Client or app secret used in IdentityProviders, Aad, OpenID or OAuth.
+type ListOpenIdConnectProviderSecretsResultOutput struct{ *pulumi.OutputState }
+
+func (ListOpenIdConnectProviderSecretsResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListOpenIdConnectProviderSecretsResult)(nil)).Elem()
+}
+
+func (o ListOpenIdConnectProviderSecretsResultOutput) ToListOpenIdConnectProviderSecretsResultOutput() ListOpenIdConnectProviderSecretsResultOutput {
+	return o
+}
+
+func (o ListOpenIdConnectProviderSecretsResultOutput) ToListOpenIdConnectProviderSecretsResultOutputWithContext(ctx context.Context) ListOpenIdConnectProviderSecretsResultOutput {
+	return o
+}
+
+// Client or app secret used in IdentityProviders, Aad, OpenID or OAuth.
+func (o ListOpenIdConnectProviderSecretsResultOutput) ClientSecret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListOpenIdConnectProviderSecretsResult) *string { return v.ClientSecret }).(pulumi.StringPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(ListOpenIdConnectProviderSecretsResultOutput{})
 }

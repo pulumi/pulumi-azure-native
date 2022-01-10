@@ -4,6 +4,9 @@
 package v20160601
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -48,4 +51,95 @@ type LookupCertificateResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Gets the resource type.
 	Type string `pulumi:"type"`
+}
+
+func LookupCertificateOutput(ctx *pulumi.Context, args LookupCertificateOutputArgs, opts ...pulumi.InvokeOption) LookupCertificateResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupCertificateResult, error) {
+			args := v.(LookupCertificateArgs)
+			r, err := LookupCertificate(ctx, &args, opts...)
+			return *r, err
+		}).(LookupCertificateResultOutput)
+}
+
+type LookupCertificateOutputArgs struct {
+	// The integration account certificate name.
+	CertificateName pulumi.StringInput `pulumi:"certificateName"`
+	// The integration account name.
+	IntegrationAccountName pulumi.StringInput `pulumi:"integrationAccountName"`
+	// The resource group name.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupCertificateOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupCertificateArgs)(nil)).Elem()
+}
+
+// The integration account certificate.
+type LookupCertificateResultOutput struct{ *pulumi.OutputState }
+
+func (LookupCertificateResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupCertificateResult)(nil)).Elem()
+}
+
+func (o LookupCertificateResultOutput) ToLookupCertificateResultOutput() LookupCertificateResultOutput {
+	return o
+}
+
+func (o LookupCertificateResultOutput) ToLookupCertificateResultOutputWithContext(ctx context.Context) LookupCertificateResultOutput {
+	return o
+}
+
+// The changed time.
+func (o LookupCertificateResultOutput) ChangedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCertificateResult) string { return v.ChangedTime }).(pulumi.StringOutput)
+}
+
+// The created time.
+func (o LookupCertificateResultOutput) CreatedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCertificateResult) string { return v.CreatedTime }).(pulumi.StringOutput)
+}
+
+// The resource id.
+func (o LookupCertificateResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCertificateResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The key details in the key vault.
+func (o LookupCertificateResultOutput) Key() KeyVaultKeyReferenceResponsePtrOutput {
+	return o.ApplyT(func(v LookupCertificateResult) *KeyVaultKeyReferenceResponse { return v.Key }).(KeyVaultKeyReferenceResponsePtrOutput)
+}
+
+// The resource location.
+func (o LookupCertificateResultOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupCertificateResult) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The metadata.
+func (o LookupCertificateResultOutput) Metadata() pulumi.AnyOutput {
+	return o.ApplyT(func(v LookupCertificateResult) interface{} { return v.Metadata }).(pulumi.AnyOutput)
+}
+
+// Gets the resource name.
+func (o LookupCertificateResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCertificateResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The public certificate.
+func (o LookupCertificateResultOutput) PublicCertificate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupCertificateResult) *string { return v.PublicCertificate }).(pulumi.StringPtrOutput)
+}
+
+// The resource tags.
+func (o LookupCertificateResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupCertificateResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Gets the resource type.
+func (o LookupCertificateResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCertificateResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupCertificateResultOutput{})
 }

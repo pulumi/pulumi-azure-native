@@ -4,6 +4,9 @@
 package v20210901
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -99,4 +102,153 @@ func (val *LookupRegistryResult) Defaults() *LookupRegistryResult {
 		tmp.ZoneRedundancy = &zoneRedundancy_
 	}
 	return &tmp
+}
+
+func LookupRegistryOutput(ctx *pulumi.Context, args LookupRegistryOutputArgs, opts ...pulumi.InvokeOption) LookupRegistryResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupRegistryResult, error) {
+			args := v.(LookupRegistryArgs)
+			r, err := LookupRegistry(ctx, &args, opts...)
+			return *r, err
+		}).(LookupRegistryResultOutput)
+}
+
+type LookupRegistryOutputArgs struct {
+	// The name of the container registry.
+	RegistryName pulumi.StringInput `pulumi:"registryName"`
+	// The name of the resource group to which the container registry belongs.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupRegistryOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupRegistryArgs)(nil)).Elem()
+}
+
+// An object that represents a container registry.
+type LookupRegistryResultOutput struct{ *pulumi.OutputState }
+
+func (LookupRegistryResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupRegistryResult)(nil)).Elem()
+}
+
+func (o LookupRegistryResultOutput) ToLookupRegistryResultOutput() LookupRegistryResultOutput {
+	return o
+}
+
+func (o LookupRegistryResultOutput) ToLookupRegistryResultOutputWithContext(ctx context.Context) LookupRegistryResultOutput {
+	return o
+}
+
+// The value that indicates whether the admin user is enabled.
+func (o LookupRegistryResultOutput) AdminUserEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupRegistryResult) *bool { return v.AdminUserEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// The creation date of the container registry in ISO8601 format.
+func (o LookupRegistryResultOutput) CreationDate() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRegistryResult) string { return v.CreationDate }).(pulumi.StringOutput)
+}
+
+// Enable a single data endpoint per region for serving data.
+func (o LookupRegistryResultOutput) DataEndpointEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupRegistryResult) *bool { return v.DataEndpointEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// List of host names that will serve data when dataEndpointEnabled is true.
+func (o LookupRegistryResultOutput) DataEndpointHostNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupRegistryResult) []string { return v.DataEndpointHostNames }).(pulumi.StringArrayOutput)
+}
+
+// The encryption settings of container registry.
+func (o LookupRegistryResultOutput) Encryption() EncryptionPropertyResponsePtrOutput {
+	return o.ApplyT(func(v LookupRegistryResult) *EncryptionPropertyResponse { return v.Encryption }).(EncryptionPropertyResponsePtrOutput)
+}
+
+// The resource ID.
+func (o LookupRegistryResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRegistryResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The identity of the container registry.
+func (o LookupRegistryResultOutput) Identity() IdentityPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v LookupRegistryResult) *IdentityPropertiesResponse { return v.Identity }).(IdentityPropertiesResponsePtrOutput)
+}
+
+// The location of the resource. This cannot be changed after the resource is created.
+func (o LookupRegistryResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRegistryResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// The URL that can be used to log into the container registry.
+func (o LookupRegistryResultOutput) LoginServer() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRegistryResult) string { return v.LoginServer }).(pulumi.StringOutput)
+}
+
+// The name of the resource.
+func (o LookupRegistryResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRegistryResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Whether to allow trusted Azure services to access a network restricted registry.
+func (o LookupRegistryResultOutput) NetworkRuleBypassOptions() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupRegistryResult) *string { return v.NetworkRuleBypassOptions }).(pulumi.StringPtrOutput)
+}
+
+// The network rule set for a container registry.
+func (o LookupRegistryResultOutput) NetworkRuleSet() NetworkRuleSetResponsePtrOutput {
+	return o.ApplyT(func(v LookupRegistryResult) *NetworkRuleSetResponse { return v.NetworkRuleSet }).(NetworkRuleSetResponsePtrOutput)
+}
+
+// The policies for a container registry.
+func (o LookupRegistryResultOutput) Policies() PoliciesResponsePtrOutput {
+	return o.ApplyT(func(v LookupRegistryResult) *PoliciesResponse { return v.Policies }).(PoliciesResponsePtrOutput)
+}
+
+// List of private endpoint connections for a container registry.
+func (o LookupRegistryResultOutput) PrivateEndpointConnections() PrivateEndpointConnectionResponseArrayOutput {
+	return o.ApplyT(func(v LookupRegistryResult) []PrivateEndpointConnectionResponse { return v.PrivateEndpointConnections }).(PrivateEndpointConnectionResponseArrayOutput)
+}
+
+// The provisioning state of the container registry at the time the operation was called.
+func (o LookupRegistryResultOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRegistryResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Whether or not public network access is allowed for the container registry.
+func (o LookupRegistryResultOutput) PublicNetworkAccess() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupRegistryResult) *string { return v.PublicNetworkAccess }).(pulumi.StringPtrOutput)
+}
+
+// The SKU of the container registry.
+func (o LookupRegistryResultOutput) Sku() SkuResponseOutput {
+	return o.ApplyT(func(v LookupRegistryResult) SkuResponse { return v.Sku }).(SkuResponseOutput)
+}
+
+// The status of the container registry at the time the operation was called.
+func (o LookupRegistryResultOutput) Status() StatusResponseOutput {
+	return o.ApplyT(func(v LookupRegistryResult) StatusResponse { return v.Status }).(StatusResponseOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o LookupRegistryResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupRegistryResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The tags of the resource.
+func (o LookupRegistryResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupRegistryResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource.
+func (o LookupRegistryResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRegistryResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Whether or not zone redundancy is enabled for this container registry
+func (o LookupRegistryResultOutput) ZoneRedundancy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupRegistryResult) *string { return v.ZoneRedundancy }).(pulumi.StringPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupRegistryResultOutput{})
 }

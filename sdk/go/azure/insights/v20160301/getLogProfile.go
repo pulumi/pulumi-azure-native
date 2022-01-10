@@ -4,6 +4,9 @@
 package v20160301
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -44,4 +47,91 @@ type LookupLogProfileResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Azure resource type
 	Type string `pulumi:"type"`
+}
+
+func LookupLogProfileOutput(ctx *pulumi.Context, args LookupLogProfileOutputArgs, opts ...pulumi.InvokeOption) LookupLogProfileResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupLogProfileResult, error) {
+			args := v.(LookupLogProfileArgs)
+			r, err := LookupLogProfile(ctx, &args, opts...)
+			return *r, err
+		}).(LookupLogProfileResultOutput)
+}
+
+type LookupLogProfileOutputArgs struct {
+	// The name of the log profile.
+	LogProfileName pulumi.StringInput `pulumi:"logProfileName"`
+}
+
+func (LookupLogProfileOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupLogProfileArgs)(nil)).Elem()
+}
+
+// The log profile resource.
+type LookupLogProfileResultOutput struct{ *pulumi.OutputState }
+
+func (LookupLogProfileResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupLogProfileResult)(nil)).Elem()
+}
+
+func (o LookupLogProfileResultOutput) ToLookupLogProfileResultOutput() LookupLogProfileResultOutput {
+	return o
+}
+
+func (o LookupLogProfileResultOutput) ToLookupLogProfileResultOutputWithContext(ctx context.Context) LookupLogProfileResultOutput {
+	return o
+}
+
+// the categories of the logs. These categories are created as is convenient to the user. Some values are: 'Write', 'Delete', and/or 'Action.'
+func (o LookupLogProfileResultOutput) Categories() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupLogProfileResult) []string { return v.Categories }).(pulumi.StringArrayOutput)
+}
+
+// Azure resource Id
+func (o LookupLogProfileResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupLogProfileResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Resource location
+func (o LookupLogProfileResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupLogProfileResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// List of regions for which Activity Log events should be stored or streamed. It is a comma separated list of valid ARM locations including the 'global' location.
+func (o LookupLogProfileResultOutput) Locations() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupLogProfileResult) []string { return v.Locations }).(pulumi.StringArrayOutput)
+}
+
+// Azure resource name
+func (o LookupLogProfileResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupLogProfileResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// the retention policy for the events in the log.
+func (o LookupLogProfileResultOutput) RetentionPolicy() RetentionPolicyResponseOutput {
+	return o.ApplyT(func(v LookupLogProfileResult) RetentionPolicyResponse { return v.RetentionPolicy }).(RetentionPolicyResponseOutput)
+}
+
+// The service bus rule ID of the service bus namespace in which you would like to have Event Hubs created for streaming the Activity Log. The rule ID is of the format: '{service bus resource ID}/authorizationrules/{key name}'.
+func (o LookupLogProfileResultOutput) ServiceBusRuleId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupLogProfileResult) *string { return v.ServiceBusRuleId }).(pulumi.StringPtrOutput)
+}
+
+// the resource id of the storage account to which you would like to send the Activity Log.
+func (o LookupLogProfileResultOutput) StorageAccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupLogProfileResult) *string { return v.StorageAccountId }).(pulumi.StringPtrOutput)
+}
+
+// Resource tags
+func (o LookupLogProfileResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupLogProfileResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Azure resource type
+func (o LookupLogProfileResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupLogProfileResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupLogProfileResultOutput{})
 }

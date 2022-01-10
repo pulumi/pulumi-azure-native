@@ -4,6 +4,9 @@
 package v20210301preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -36,4 +39,65 @@ type GetOnlineEndpointTokenResult struct {
 	RefreshAfterTimeUtc *float64 `pulumi:"refreshAfterTimeUtc"`
 	// Access token type.
 	TokenType *string `pulumi:"tokenType"`
+}
+
+func GetOnlineEndpointTokenOutput(ctx *pulumi.Context, args GetOnlineEndpointTokenOutputArgs, opts ...pulumi.InvokeOption) GetOnlineEndpointTokenResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetOnlineEndpointTokenResult, error) {
+			args := v.(GetOnlineEndpointTokenArgs)
+			r, err := GetOnlineEndpointToken(ctx, &args, opts...)
+			return *r, err
+		}).(GetOnlineEndpointTokenResultOutput)
+}
+
+type GetOnlineEndpointTokenOutputArgs struct {
+	// Online Endpoint name.
+	EndpointName pulumi.StringInput `pulumi:"endpointName"`
+	// The name of the resource group. The name is case insensitive.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// Name of Azure Machine Learning workspace.
+	WorkspaceName pulumi.StringInput `pulumi:"workspaceName"`
+}
+
+func (GetOnlineEndpointTokenOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetOnlineEndpointTokenArgs)(nil)).Elem()
+}
+
+// Service Token
+type GetOnlineEndpointTokenResultOutput struct{ *pulumi.OutputState }
+
+func (GetOnlineEndpointTokenResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetOnlineEndpointTokenResult)(nil)).Elem()
+}
+
+func (o GetOnlineEndpointTokenResultOutput) ToGetOnlineEndpointTokenResultOutput() GetOnlineEndpointTokenResultOutput {
+	return o
+}
+
+func (o GetOnlineEndpointTokenResultOutput) ToGetOnlineEndpointTokenResultOutputWithContext(ctx context.Context) GetOnlineEndpointTokenResultOutput {
+	return o
+}
+
+// Access token.
+func (o GetOnlineEndpointTokenResultOutput) AccessToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetOnlineEndpointTokenResult) *string { return v.AccessToken }).(pulumi.StringPtrOutput)
+}
+
+// Access token expiry time (UTC).
+func (o GetOnlineEndpointTokenResultOutput) ExpiryTimeUtc() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v GetOnlineEndpointTokenResult) *float64 { return v.ExpiryTimeUtc }).(pulumi.Float64PtrOutput)
+}
+
+// Refresh access token after time (UTC).
+func (o GetOnlineEndpointTokenResultOutput) RefreshAfterTimeUtc() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v GetOnlineEndpointTokenResult) *float64 { return v.RefreshAfterTimeUtc }).(pulumi.Float64PtrOutput)
+}
+
+// Access token type.
+func (o GetOnlineEndpointTokenResultOutput) TokenType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetOnlineEndpointTokenResult) *string { return v.TokenType }).(pulumi.StringPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetOnlineEndpointTokenResultOutput{})
 }

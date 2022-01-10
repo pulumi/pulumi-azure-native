@@ -4,6 +4,9 @@
 package v20200601preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -50,4 +53,94 @@ type LookupApiIssueResult struct {
 	Type string `pulumi:"type"`
 	// A resource identifier for the user created the issue.
 	UserId string `pulumi:"userId"`
+}
+
+func LookupApiIssueOutput(ctx *pulumi.Context, args LookupApiIssueOutputArgs, opts ...pulumi.InvokeOption) LookupApiIssueResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupApiIssueResult, error) {
+			args := v.(LookupApiIssueArgs)
+			r, err := LookupApiIssue(ctx, &args, opts...)
+			return *r, err
+		}).(LookupApiIssueResultOutput)
+}
+
+type LookupApiIssueOutputArgs struct {
+	// API identifier. Must be unique in the current API Management service instance.
+	ApiId pulumi.StringInput `pulumi:"apiId"`
+	// Expand the comment attachments.
+	ExpandCommentsAttachments pulumi.BoolPtrInput `pulumi:"expandCommentsAttachments"`
+	// Issue identifier. Must be unique in the current API Management service instance.
+	IssueId pulumi.StringInput `pulumi:"issueId"`
+	// The name of the resource group.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the API Management service.
+	ServiceName pulumi.StringInput `pulumi:"serviceName"`
+}
+
+func (LookupApiIssueOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupApiIssueArgs)(nil)).Elem()
+}
+
+// Issue Contract details.
+type LookupApiIssueResultOutput struct{ *pulumi.OutputState }
+
+func (LookupApiIssueResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupApiIssueResult)(nil)).Elem()
+}
+
+func (o LookupApiIssueResultOutput) ToLookupApiIssueResultOutput() LookupApiIssueResultOutput {
+	return o
+}
+
+func (o LookupApiIssueResultOutput) ToLookupApiIssueResultOutputWithContext(ctx context.Context) LookupApiIssueResultOutput {
+	return o
+}
+
+// A resource identifier for the API the issue was created for.
+func (o LookupApiIssueResultOutput) ApiId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupApiIssueResult) *string { return v.ApiId }).(pulumi.StringPtrOutput)
+}
+
+// Date and time when the issue was created.
+func (o LookupApiIssueResultOutput) CreatedDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupApiIssueResult) *string { return v.CreatedDate }).(pulumi.StringPtrOutput)
+}
+
+// Text describing the issue.
+func (o LookupApiIssueResultOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupApiIssueResult) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// Resource ID.
+func (o LookupApiIssueResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupApiIssueResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o LookupApiIssueResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupApiIssueResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Status of the issue.
+func (o LookupApiIssueResultOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupApiIssueResult) *string { return v.State }).(pulumi.StringPtrOutput)
+}
+
+// The issue title.
+func (o LookupApiIssueResultOutput) Title() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupApiIssueResult) string { return v.Title }).(pulumi.StringOutput)
+}
+
+// Resource type for API Management resource.
+func (o LookupApiIssueResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupApiIssueResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// A resource identifier for the user created the issue.
+func (o LookupApiIssueResultOutput) UserId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupApiIssueResult) string { return v.UserId }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupApiIssueResultOutput{})
 }

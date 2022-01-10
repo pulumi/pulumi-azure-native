@@ -4,6 +4,9 @@
 package avs
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -41,4 +44,75 @@ type LookupAuthorizationResult struct {
 	ProvisioningState string `pulumi:"provisioningState"`
 	// Resource type.
 	Type string `pulumi:"type"`
+}
+
+func LookupAuthorizationOutput(ctx *pulumi.Context, args LookupAuthorizationOutputArgs, opts ...pulumi.InvokeOption) LookupAuthorizationResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupAuthorizationResult, error) {
+			args := v.(LookupAuthorizationArgs)
+			r, err := LookupAuthorization(ctx, &args, opts...)
+			return *r, err
+		}).(LookupAuthorizationResultOutput)
+}
+
+type LookupAuthorizationOutputArgs struct {
+	// Name of the ExpressRoute Circuit Authorization in the private cloud
+	AuthorizationName pulumi.StringInput `pulumi:"authorizationName"`
+	// Name of the private cloud
+	PrivateCloudName pulumi.StringInput `pulumi:"privateCloudName"`
+	// The name of the resource group. The name is case insensitive.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupAuthorizationOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupAuthorizationArgs)(nil)).Elem()
+}
+
+// ExpressRoute Circuit Authorization
+type LookupAuthorizationResultOutput struct{ *pulumi.OutputState }
+
+func (LookupAuthorizationResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupAuthorizationResult)(nil)).Elem()
+}
+
+func (o LookupAuthorizationResultOutput) ToLookupAuthorizationResultOutput() LookupAuthorizationResultOutput {
+	return o
+}
+
+func (o LookupAuthorizationResultOutput) ToLookupAuthorizationResultOutputWithContext(ctx context.Context) LookupAuthorizationResultOutput {
+	return o
+}
+
+// The ID of the ExpressRoute Circuit Authorization
+func (o LookupAuthorizationResultOutput) ExpressRouteAuthorizationId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAuthorizationResult) string { return v.ExpressRouteAuthorizationId }).(pulumi.StringOutput)
+}
+
+// The key of the ExpressRoute Circuit Authorization
+func (o LookupAuthorizationResultOutput) ExpressRouteAuthorizationKey() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAuthorizationResult) string { return v.ExpressRouteAuthorizationKey }).(pulumi.StringOutput)
+}
+
+// Resource ID.
+func (o LookupAuthorizationResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAuthorizationResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o LookupAuthorizationResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAuthorizationResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The state of the  ExpressRoute Circuit Authorization provisioning
+func (o LookupAuthorizationResultOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAuthorizationResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Resource type.
+func (o LookupAuthorizationResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAuthorizationResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupAuthorizationResultOutput{})
 }

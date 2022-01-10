@@ -4,6 +4,9 @@
 package v20200901
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -42,4 +45,77 @@ type LookupWebAppDomainOwnershipIdentifierSlotResult struct {
 	Type string `pulumi:"type"`
 	// String representation of the identity.
 	Value *string `pulumi:"value"`
+}
+
+func LookupWebAppDomainOwnershipIdentifierSlotOutput(ctx *pulumi.Context, args LookupWebAppDomainOwnershipIdentifierSlotOutputArgs, opts ...pulumi.InvokeOption) LookupWebAppDomainOwnershipIdentifierSlotResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupWebAppDomainOwnershipIdentifierSlotResult, error) {
+			args := v.(LookupWebAppDomainOwnershipIdentifierSlotArgs)
+			r, err := LookupWebAppDomainOwnershipIdentifierSlot(ctx, &args, opts...)
+			return *r, err
+		}).(LookupWebAppDomainOwnershipIdentifierSlotResultOutput)
+}
+
+type LookupWebAppDomainOwnershipIdentifierSlotOutputArgs struct {
+	// Name of domain ownership identifier.
+	DomainOwnershipIdentifierName pulumi.StringInput `pulumi:"domainOwnershipIdentifierName"`
+	// Name of the app.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Name of the resource group to which the resource belongs.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// Name of the deployment slot. If a slot is not specified, the API will delete the binding for the production slot.
+	Slot pulumi.StringInput `pulumi:"slot"`
+}
+
+func (LookupWebAppDomainOwnershipIdentifierSlotOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupWebAppDomainOwnershipIdentifierSlotArgs)(nil)).Elem()
+}
+
+// A domain specific resource identifier.
+type LookupWebAppDomainOwnershipIdentifierSlotResultOutput struct{ *pulumi.OutputState }
+
+func (LookupWebAppDomainOwnershipIdentifierSlotResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupWebAppDomainOwnershipIdentifierSlotResult)(nil)).Elem()
+}
+
+func (o LookupWebAppDomainOwnershipIdentifierSlotResultOutput) ToLookupWebAppDomainOwnershipIdentifierSlotResultOutput() LookupWebAppDomainOwnershipIdentifierSlotResultOutput {
+	return o
+}
+
+func (o LookupWebAppDomainOwnershipIdentifierSlotResultOutput) ToLookupWebAppDomainOwnershipIdentifierSlotResultOutputWithContext(ctx context.Context) LookupWebAppDomainOwnershipIdentifierSlotResultOutput {
+	return o
+}
+
+// Resource Id.
+func (o LookupWebAppDomainOwnershipIdentifierSlotResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWebAppDomainOwnershipIdentifierSlotResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Kind of resource.
+func (o LookupWebAppDomainOwnershipIdentifierSlotResultOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupWebAppDomainOwnershipIdentifierSlotResult) *string { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Resource Name.
+func (o LookupWebAppDomainOwnershipIdentifierSlotResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWebAppDomainOwnershipIdentifierSlotResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The system metadata relating to this resource.
+func (o LookupWebAppDomainOwnershipIdentifierSlotResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupWebAppDomainOwnershipIdentifierSlotResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource type.
+func (o LookupWebAppDomainOwnershipIdentifierSlotResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWebAppDomainOwnershipIdentifierSlotResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// String representation of the identity.
+func (o LookupWebAppDomainOwnershipIdentifierSlotResultOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupWebAppDomainOwnershipIdentifierSlotResult) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupWebAppDomainOwnershipIdentifierSlotResultOutput{})
 }

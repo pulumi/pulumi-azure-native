@@ -6473,6 +6473,71 @@ type StreamingLocatorContentKeyResponse struct {
 	Value *string `pulumi:"value"`
 }
 
+// Class for content key in Streaming Locator
+type StreamingLocatorContentKeyResponseOutput struct{ *pulumi.OutputState }
+
+func (StreamingLocatorContentKeyResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamingLocatorContentKeyResponse)(nil)).Elem()
+}
+
+func (o StreamingLocatorContentKeyResponseOutput) ToStreamingLocatorContentKeyResponseOutput() StreamingLocatorContentKeyResponseOutput {
+	return o
+}
+
+func (o StreamingLocatorContentKeyResponseOutput) ToStreamingLocatorContentKeyResponseOutputWithContext(ctx context.Context) StreamingLocatorContentKeyResponseOutput {
+	return o
+}
+
+// ID of Content Key
+func (o StreamingLocatorContentKeyResponseOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v StreamingLocatorContentKeyResponse) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Label of Content Key
+func (o StreamingLocatorContentKeyResponseOutput) Label() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StreamingLocatorContentKeyResponse) *string { return v.Label }).(pulumi.StringPtrOutput)
+}
+
+// ContentKeyPolicy used by Content Key
+func (o StreamingLocatorContentKeyResponseOutput) PolicyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StreamingLocatorContentKeyResponse) *string { return v.PolicyName }).(pulumi.StringPtrOutput)
+}
+
+// Tracks which use this Content Key
+func (o StreamingLocatorContentKeyResponseOutput) Tracks() TrackSelectionResponseArrayOutput {
+	return o.ApplyT(func(v StreamingLocatorContentKeyResponse) []TrackSelectionResponse { return v.Tracks }).(TrackSelectionResponseArrayOutput)
+}
+
+// Encryption type of Content Key
+func (o StreamingLocatorContentKeyResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v StreamingLocatorContentKeyResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Value of Content Key
+func (o StreamingLocatorContentKeyResponseOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StreamingLocatorContentKeyResponse) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type StreamingLocatorContentKeyResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (StreamingLocatorContentKeyResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StreamingLocatorContentKeyResponse)(nil)).Elem()
+}
+
+func (o StreamingLocatorContentKeyResponseArrayOutput) ToStreamingLocatorContentKeyResponseArrayOutput() StreamingLocatorContentKeyResponseArrayOutput {
+	return o
+}
+
+func (o StreamingLocatorContentKeyResponseArrayOutput) ToStreamingLocatorContentKeyResponseArrayOutputWithContext(ctx context.Context) StreamingLocatorContentKeyResponseArrayOutput {
+	return o
+}
+
+func (o StreamingLocatorContentKeyResponseArrayOutput) Index(i pulumi.IntInput) StreamingLocatorContentKeyResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StreamingLocatorContentKeyResponse {
+		return vs[0].([]StreamingLocatorContentKeyResponse)[vs[1].(int)]
+	}).(StreamingLocatorContentKeyResponseOutput)
+}
+
 // Describes the properties of a user-defined content key in the Streaming Locator
 type StreamingLocatorUserDefinedContentKey struct {
 	// ID of Content Key
@@ -6659,6 +6724,56 @@ type StreamingPathResponse struct {
 	Paths []string `pulumi:"paths"`
 	// Streaming protocol
 	StreamingProtocol string `pulumi:"streamingProtocol"`
+}
+
+// Class of paths for streaming
+type StreamingPathResponseOutput struct{ *pulumi.OutputState }
+
+func (StreamingPathResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamingPathResponse)(nil)).Elem()
+}
+
+func (o StreamingPathResponseOutput) ToStreamingPathResponseOutput() StreamingPathResponseOutput {
+	return o
+}
+
+func (o StreamingPathResponseOutput) ToStreamingPathResponseOutputWithContext(ctx context.Context) StreamingPathResponseOutput {
+	return o
+}
+
+// Encryption scheme
+func (o StreamingPathResponseOutput) EncryptionScheme() pulumi.StringOutput {
+	return o.ApplyT(func(v StreamingPathResponse) string { return v.EncryptionScheme }).(pulumi.StringOutput)
+}
+
+// Streaming paths for each protocol and encryptionScheme pair
+func (o StreamingPathResponseOutput) Paths() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v StreamingPathResponse) []string { return v.Paths }).(pulumi.StringArrayOutput)
+}
+
+// Streaming protocol
+func (o StreamingPathResponseOutput) StreamingProtocol() pulumi.StringOutput {
+	return o.ApplyT(func(v StreamingPathResponse) string { return v.StreamingProtocol }).(pulumi.StringOutput)
+}
+
+type StreamingPathResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (StreamingPathResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StreamingPathResponse)(nil)).Elem()
+}
+
+func (o StreamingPathResponseArrayOutput) ToStreamingPathResponseArrayOutput() StreamingPathResponseArrayOutput {
+	return o
+}
+
+func (o StreamingPathResponseArrayOutput) ToStreamingPathResponseArrayOutputWithContext(ctx context.Context) StreamingPathResponseArrayOutput {
+	return o
+}
+
+func (o StreamingPathResponseArrayOutput) Index(i pulumi.IntInput) StreamingPathResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StreamingPathResponse {
+		return vs[0].([]StreamingPathResponse)[vs[1].(int)]
+	}).(StreamingPathResponseOutput)
 }
 
 // Class to specify properties of content key
@@ -8471,10 +8586,14 @@ func init() {
 	pulumi.RegisterOutputType(StreamingEndpointAccessControlPtrOutput{})
 	pulumi.RegisterOutputType(StreamingEndpointAccessControlResponseOutput{})
 	pulumi.RegisterOutputType(StreamingEndpointAccessControlResponsePtrOutput{})
+	pulumi.RegisterOutputType(StreamingLocatorContentKeyResponseOutput{})
+	pulumi.RegisterOutputType(StreamingLocatorContentKeyResponseArrayOutput{})
 	pulumi.RegisterOutputType(StreamingLocatorUserDefinedContentKeyOutput{})
 	pulumi.RegisterOutputType(StreamingLocatorUserDefinedContentKeyArrayOutput{})
 	pulumi.RegisterOutputType(StreamingLocatorUserDefinedContentKeyResponseOutput{})
 	pulumi.RegisterOutputType(StreamingLocatorUserDefinedContentKeyResponseArrayOutput{})
+	pulumi.RegisterOutputType(StreamingPathResponseOutput{})
+	pulumi.RegisterOutputType(StreamingPathResponseArrayOutput{})
 	pulumi.RegisterOutputType(StreamingPolicyContentKeyOutput{})
 	pulumi.RegisterOutputType(StreamingPolicyContentKeyArrayOutput{})
 	pulumi.RegisterOutputType(StreamingPolicyContentKeyResponseOutput{})

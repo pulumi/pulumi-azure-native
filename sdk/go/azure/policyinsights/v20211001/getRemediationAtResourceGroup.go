@@ -4,6 +4,9 @@
 package v20211001
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -60,4 +63,132 @@ type LookupRemediationAtResourceGroupResult struct {
 	SystemData SystemDataResponse `pulumi:"systemData"`
 	// The type of the remediation.
 	Type string `pulumi:"type"`
+}
+
+func LookupRemediationAtResourceGroupOutput(ctx *pulumi.Context, args LookupRemediationAtResourceGroupOutputArgs, opts ...pulumi.InvokeOption) LookupRemediationAtResourceGroupResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupRemediationAtResourceGroupResult, error) {
+			args := v.(LookupRemediationAtResourceGroupArgs)
+			r, err := LookupRemediationAtResourceGroup(ctx, &args, opts...)
+			return *r, err
+		}).(LookupRemediationAtResourceGroupResultOutput)
+}
+
+type LookupRemediationAtResourceGroupOutputArgs struct {
+	// The name of the remediation.
+	RemediationName pulumi.StringInput `pulumi:"remediationName"`
+	// Resource group name.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupRemediationAtResourceGroupOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupRemediationAtResourceGroupArgs)(nil)).Elem()
+}
+
+// The remediation definition.
+type LookupRemediationAtResourceGroupResultOutput struct{ *pulumi.OutputState }
+
+func (LookupRemediationAtResourceGroupResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupRemediationAtResourceGroupResult)(nil)).Elem()
+}
+
+func (o LookupRemediationAtResourceGroupResultOutput) ToLookupRemediationAtResourceGroupResultOutput() LookupRemediationAtResourceGroupResultOutput {
+	return o
+}
+
+func (o LookupRemediationAtResourceGroupResultOutput) ToLookupRemediationAtResourceGroupResultOutputWithContext(ctx context.Context) LookupRemediationAtResourceGroupResultOutput {
+	return o
+}
+
+// The remediation correlation Id. Can be used to find events related to the remediation in the activity log.
+func (o LookupRemediationAtResourceGroupResultOutput) CorrelationId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRemediationAtResourceGroupResult) string { return v.CorrelationId }).(pulumi.StringOutput)
+}
+
+// The time at which the remediation was created.
+func (o LookupRemediationAtResourceGroupResultOutput) CreatedOn() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRemediationAtResourceGroupResult) string { return v.CreatedOn }).(pulumi.StringOutput)
+}
+
+// The deployment status summary for all deployments created by the remediation.
+func (o LookupRemediationAtResourceGroupResultOutput) DeploymentStatus() RemediationDeploymentSummaryResponseOutput {
+	return o.ApplyT(func(v LookupRemediationAtResourceGroupResult) RemediationDeploymentSummaryResponse {
+		return v.DeploymentStatus
+	}).(RemediationDeploymentSummaryResponseOutput)
+}
+
+// The remediation failure threshold settings
+func (o LookupRemediationAtResourceGroupResultOutput) FailureThreshold() RemediationPropertiesResponseFailureThresholdPtrOutput {
+	return o.ApplyT(func(v LookupRemediationAtResourceGroupResult) *RemediationPropertiesResponseFailureThreshold {
+		return v.FailureThreshold
+	}).(RemediationPropertiesResponseFailureThresholdPtrOutput)
+}
+
+// The filters that will be applied to determine which resources to remediate.
+func (o LookupRemediationAtResourceGroupResultOutput) Filters() RemediationFiltersResponsePtrOutput {
+	return o.ApplyT(func(v LookupRemediationAtResourceGroupResult) *RemediationFiltersResponse { return v.Filters }).(RemediationFiltersResponsePtrOutput)
+}
+
+// The ID of the remediation.
+func (o LookupRemediationAtResourceGroupResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRemediationAtResourceGroupResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The time at which the remediation was last updated.
+func (o LookupRemediationAtResourceGroupResultOutput) LastUpdatedOn() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRemediationAtResourceGroupResult) string { return v.LastUpdatedOn }).(pulumi.StringOutput)
+}
+
+// The name of the remediation.
+func (o LookupRemediationAtResourceGroupResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRemediationAtResourceGroupResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Determines how many resources to remediate at any given time. Can be used to increase or reduce the pace of the remediation. If not provided, the default parallel deployments value is used.
+func (o LookupRemediationAtResourceGroupResultOutput) ParallelDeployments() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupRemediationAtResourceGroupResult) *int { return v.ParallelDeployments }).(pulumi.IntPtrOutput)
+}
+
+// The resource ID of the policy assignment that should be remediated.
+func (o LookupRemediationAtResourceGroupResultOutput) PolicyAssignmentId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupRemediationAtResourceGroupResult) *string { return v.PolicyAssignmentId }).(pulumi.StringPtrOutput)
+}
+
+// The policy definition reference ID of the individual definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
+func (o LookupRemediationAtResourceGroupResultOutput) PolicyDefinitionReferenceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupRemediationAtResourceGroupResult) *string { return v.PolicyDefinitionReferenceId }).(pulumi.StringPtrOutput)
+}
+
+// The status of the remediation.
+func (o LookupRemediationAtResourceGroupResultOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRemediationAtResourceGroupResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Determines the max number of resources that can be remediated by the remediation job. If not provided, the default resource count is used.
+func (o LookupRemediationAtResourceGroupResultOutput) ResourceCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupRemediationAtResourceGroupResult) *int { return v.ResourceCount }).(pulumi.IntPtrOutput)
+}
+
+// The way resources to remediate are discovered. Defaults to ExistingNonCompliant if not specified.
+func (o LookupRemediationAtResourceGroupResultOutput) ResourceDiscoveryMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupRemediationAtResourceGroupResult) *string { return v.ResourceDiscoveryMode }).(pulumi.StringPtrOutput)
+}
+
+// The remediation status message. Provides additional details regarding the state of the remediation.
+func (o LookupRemediationAtResourceGroupResultOutput) StatusMessage() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRemediationAtResourceGroupResult) string { return v.StatusMessage }).(pulumi.StringOutput)
+}
+
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+func (o LookupRemediationAtResourceGroupResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupRemediationAtResourceGroupResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the remediation.
+func (o LookupRemediationAtResourceGroupResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRemediationAtResourceGroupResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupRemediationAtResourceGroupResultOutput{})
 }

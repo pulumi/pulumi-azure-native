@@ -4,6 +4,9 @@
 package sql
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -41,4 +44,72 @@ type LookupTransparentDataEncryptionResult struct {
 	Status *string `pulumi:"status"`
 	// Resource type.
 	Type string `pulumi:"type"`
+}
+
+func LookupTransparentDataEncryptionOutput(ctx *pulumi.Context, args LookupTransparentDataEncryptionOutputArgs, opts ...pulumi.InvokeOption) LookupTransparentDataEncryptionResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupTransparentDataEncryptionResult, error) {
+			args := v.(LookupTransparentDataEncryptionArgs)
+			r, err := LookupTransparentDataEncryption(ctx, &args, opts...)
+			return *r, err
+		}).(LookupTransparentDataEncryptionResultOutput)
+}
+
+type LookupTransparentDataEncryptionOutputArgs struct {
+	// The name of the database for which the transparent data encryption applies.
+	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
+	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the server.
+	ServerName pulumi.StringInput `pulumi:"serverName"`
+	// The name of the transparent data encryption configuration.
+	TransparentDataEncryptionName pulumi.StringInput `pulumi:"transparentDataEncryptionName"`
+}
+
+func (LookupTransparentDataEncryptionOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupTransparentDataEncryptionArgs)(nil)).Elem()
+}
+
+// Represents a database transparent data encryption configuration.
+type LookupTransparentDataEncryptionResultOutput struct{ *pulumi.OutputState }
+
+func (LookupTransparentDataEncryptionResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupTransparentDataEncryptionResult)(nil)).Elem()
+}
+
+func (o LookupTransparentDataEncryptionResultOutput) ToLookupTransparentDataEncryptionResultOutput() LookupTransparentDataEncryptionResultOutput {
+	return o
+}
+
+func (o LookupTransparentDataEncryptionResultOutput) ToLookupTransparentDataEncryptionResultOutputWithContext(ctx context.Context) LookupTransparentDataEncryptionResultOutput {
+	return o
+}
+
+// Resource ID.
+func (o LookupTransparentDataEncryptionResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTransparentDataEncryptionResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Resource location.
+func (o LookupTransparentDataEncryptionResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTransparentDataEncryptionResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o LookupTransparentDataEncryptionResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTransparentDataEncryptionResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The status of the database transparent data encryption.
+func (o LookupTransparentDataEncryptionResultOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupTransparentDataEncryptionResult) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+// Resource type.
+func (o LookupTransparentDataEncryptionResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTransparentDataEncryptionResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupTransparentDataEncryptionResultOutput{})
 }

@@ -4,6 +4,9 @@
 package insights
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -27,4 +30,46 @@ type GetDiagnosticServiceTokenReadOnlyArgs struct {
 type GetDiagnosticServiceTokenReadOnlyResult struct {
 	// JWT token for accessing application insights diagnostic service data.
 	Token *string `pulumi:"token"`
+}
+
+func GetDiagnosticServiceTokenReadOnlyOutput(ctx *pulumi.Context, args GetDiagnosticServiceTokenReadOnlyOutputArgs, opts ...pulumi.InvokeOption) GetDiagnosticServiceTokenReadOnlyResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetDiagnosticServiceTokenReadOnlyResult, error) {
+			args := v.(GetDiagnosticServiceTokenReadOnlyArgs)
+			r, err := GetDiagnosticServiceTokenReadOnly(ctx, &args, opts...)
+			return *r, err
+		}).(GetDiagnosticServiceTokenReadOnlyResultOutput)
+}
+
+type GetDiagnosticServiceTokenReadOnlyOutputArgs struct {
+	// The identifier of the resource.
+	ResourceUri pulumi.StringInput `pulumi:"resourceUri"`
+}
+
+func (GetDiagnosticServiceTokenReadOnlyOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDiagnosticServiceTokenReadOnlyArgs)(nil)).Elem()
+}
+
+// The response to a diagnostic services token query.
+type GetDiagnosticServiceTokenReadOnlyResultOutput struct{ *pulumi.OutputState }
+
+func (GetDiagnosticServiceTokenReadOnlyResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDiagnosticServiceTokenReadOnlyResult)(nil)).Elem()
+}
+
+func (o GetDiagnosticServiceTokenReadOnlyResultOutput) ToGetDiagnosticServiceTokenReadOnlyResultOutput() GetDiagnosticServiceTokenReadOnlyResultOutput {
+	return o
+}
+
+func (o GetDiagnosticServiceTokenReadOnlyResultOutput) ToGetDiagnosticServiceTokenReadOnlyResultOutputWithContext(ctx context.Context) GetDiagnosticServiceTokenReadOnlyResultOutput {
+	return o
+}
+
+// JWT token for accessing application insights diagnostic service data.
+func (o GetDiagnosticServiceTokenReadOnlyResultOutput) Token() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetDiagnosticServiceTokenReadOnlyResult) *string { return v.Token }).(pulumi.StringPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetDiagnosticServiceTokenReadOnlyResultOutput{})
 }

@@ -4,6 +4,9 @@
 package v20210404preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -38,4 +41,61 @@ type ListSpacecraftAvailableContactsResult struct {
 	NextLink string `pulumi:"nextLink"`
 	// A list of available contacts
 	Value []AvailableContactsResponse `pulumi:"value"`
+}
+
+func ListSpacecraftAvailableContactsOutput(ctx *pulumi.Context, args ListSpacecraftAvailableContactsOutputArgs, opts ...pulumi.InvokeOption) ListSpacecraftAvailableContactsResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (ListSpacecraftAvailableContactsResult, error) {
+			args := v.(ListSpacecraftAvailableContactsArgs)
+			r, err := ListSpacecraftAvailableContacts(ctx, &args, opts...)
+			return *r, err
+		}).(ListSpacecraftAvailableContactsResultOutput)
+}
+
+type ListSpacecraftAvailableContactsOutputArgs struct {
+	// The reference to the contact profile resource.
+	ContactProfile ResourceReferenceInput `pulumi:"contactProfile"`
+	// End time of a contact.
+	EndTime pulumi.StringInput `pulumi:"endTime"`
+	// Name of Azure Ground Station.
+	GroundStationName pulumi.StringInput `pulumi:"groundStationName"`
+	// The name of the resource group. The name is case insensitive.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// Spacecraft ID
+	SpacecraftName pulumi.StringInput `pulumi:"spacecraftName"`
+	// Start time of a contact.
+	StartTime pulumi.StringInput `pulumi:"startTime"`
+}
+
+func (ListSpacecraftAvailableContactsOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListSpacecraftAvailableContactsArgs)(nil)).Elem()
+}
+
+// Response for the ListAvailableContacts API service call.
+type ListSpacecraftAvailableContactsResultOutput struct{ *pulumi.OutputState }
+
+func (ListSpacecraftAvailableContactsResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListSpacecraftAvailableContactsResult)(nil)).Elem()
+}
+
+func (o ListSpacecraftAvailableContactsResultOutput) ToListSpacecraftAvailableContactsResultOutput() ListSpacecraftAvailableContactsResultOutput {
+	return o
+}
+
+func (o ListSpacecraftAvailableContactsResultOutput) ToListSpacecraftAvailableContactsResultOutputWithContext(ctx context.Context) ListSpacecraftAvailableContactsResultOutput {
+	return o
+}
+
+// The URL to get the next set of results.
+func (o ListSpacecraftAvailableContactsResultOutput) NextLink() pulumi.StringOutput {
+	return o.ApplyT(func(v ListSpacecraftAvailableContactsResult) string { return v.NextLink }).(pulumi.StringOutput)
+}
+
+// A list of available contacts
+func (o ListSpacecraftAvailableContactsResultOutput) Value() AvailableContactsResponseArrayOutput {
+	return o.ApplyT(func(v ListSpacecraftAvailableContactsResult) []AvailableContactsResponse { return v.Value }).(AvailableContactsResponseArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(ListSpacecraftAvailableContactsResultOutput{})
 }

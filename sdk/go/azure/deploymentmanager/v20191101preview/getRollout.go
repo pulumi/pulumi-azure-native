@@ -4,6 +4,9 @@
 package v20191101preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -56,4 +59,115 @@ type LookupRolloutResult struct {
 	TotalRetryAttempts int `pulumi:"totalRetryAttempts"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
+}
+
+func LookupRolloutOutput(ctx *pulumi.Context, args LookupRolloutOutputArgs, opts ...pulumi.InvokeOption) LookupRolloutResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupRolloutResult, error) {
+			args := v.(LookupRolloutArgs)
+			r, err := LookupRollout(ctx, &args, opts...)
+			return *r, err
+		}).(LookupRolloutResultOutput)
+}
+
+type LookupRolloutOutputArgs struct {
+	// The name of the resource group. The name is case insensitive.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// Rollout retry attempt ordinal to get the result of. If not specified, result of the latest attempt will be returned.
+	RetryAttempt pulumi.IntPtrInput `pulumi:"retryAttempt"`
+	// The rollout name.
+	RolloutName pulumi.StringInput `pulumi:"rolloutName"`
+}
+
+func (LookupRolloutOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupRolloutArgs)(nil)).Elem()
+}
+
+// Defines the rollout.
+type LookupRolloutResultOutput struct{ *pulumi.OutputState }
+
+func (LookupRolloutResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupRolloutResult)(nil)).Elem()
+}
+
+func (o LookupRolloutResultOutput) ToLookupRolloutResultOutput() LookupRolloutResultOutput {
+	return o
+}
+
+func (o LookupRolloutResultOutput) ToLookupRolloutResultOutputWithContext(ctx context.Context) LookupRolloutResultOutput {
+	return o
+}
+
+// The reference to the artifact source resource Id where the payload is located.
+func (o LookupRolloutResultOutput) ArtifactSourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupRolloutResult) *string { return v.ArtifactSourceId }).(pulumi.StringPtrOutput)
+}
+
+// The version of the build being deployed.
+func (o LookupRolloutResultOutput) BuildVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRolloutResult) string { return v.BuildVersion }).(pulumi.StringOutput)
+}
+
+// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+func (o LookupRolloutResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRolloutResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Identity for the resource.
+func (o LookupRolloutResultOutput) Identity() IdentityResponsePtrOutput {
+	return o.ApplyT(func(v LookupRolloutResult) *IdentityResponse { return v.Identity }).(IdentityResponsePtrOutput)
+}
+
+// The geo-location where the resource lives
+func (o LookupRolloutResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRolloutResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o LookupRolloutResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRolloutResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Operational information of the rollout.
+func (o LookupRolloutResultOutput) OperationInfo() RolloutOperationInfoResponseOutput {
+	return o.ApplyT(func(v LookupRolloutResult) RolloutOperationInfoResponse { return v.OperationInfo }).(RolloutOperationInfoResponseOutput)
+}
+
+// The detailed information on the services being deployed.
+func (o LookupRolloutResultOutput) Services() ServiceResponseArrayOutput {
+	return o.ApplyT(func(v LookupRolloutResult) []ServiceResponse { return v.Services }).(ServiceResponseArrayOutput)
+}
+
+// The current status of the rollout.
+func (o LookupRolloutResultOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRolloutResult) string { return v.Status }).(pulumi.StringOutput)
+}
+
+// The list of step groups that define the orchestration.
+func (o LookupRolloutResultOutput) StepGroups() StepGroupResponseArrayOutput {
+	return o.ApplyT(func(v LookupRolloutResult) []StepGroupResponse { return v.StepGroups }).(StepGroupResponseArrayOutput)
+}
+
+// Resource tags.
+func (o LookupRolloutResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupRolloutResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The resource Id of the service topology from which service units are being referenced in step groups to be deployed.
+func (o LookupRolloutResultOutput) TargetServiceTopologyId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRolloutResult) string { return v.TargetServiceTopologyId }).(pulumi.StringOutput)
+}
+
+// The cardinal count of total number of retries performed on the rollout at a given time.
+func (o LookupRolloutResultOutput) TotalRetryAttempts() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupRolloutResult) int { return v.TotalRetryAttempts }).(pulumi.IntOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o LookupRolloutResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRolloutResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupRolloutResultOutput{})
 }

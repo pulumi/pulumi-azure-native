@@ -4,6 +4,9 @@
 package v20171111preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -30,4 +33,53 @@ type GetProjectKeysResult struct {
 	WorkspaceId string `pulumi:"workspaceId"`
 	// Key of Migration Project.
 	WorkspaceKey string `pulumi:"workspaceKey"`
+}
+
+func GetProjectKeysOutput(ctx *pulumi.Context, args GetProjectKeysOutputArgs, opts ...pulumi.InvokeOption) GetProjectKeysResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetProjectKeysResult, error) {
+			args := v.(GetProjectKeysArgs)
+			r, err := GetProjectKeys(ctx, &args, opts...)
+			return *r, err
+		}).(GetProjectKeysResultOutput)
+}
+
+type GetProjectKeysOutputArgs struct {
+	// Name of the Azure Migrate project.
+	ProjectName pulumi.StringInput `pulumi:"projectName"`
+	// Name of the Azure Resource Group that project is part of.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (GetProjectKeysOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetProjectKeysArgs)(nil)).Elem()
+}
+
+// ID and Key for Migration Project.
+type GetProjectKeysResultOutput struct{ *pulumi.OutputState }
+
+func (GetProjectKeysResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetProjectKeysResult)(nil)).Elem()
+}
+
+func (o GetProjectKeysResultOutput) ToGetProjectKeysResultOutput() GetProjectKeysResultOutput {
+	return o
+}
+
+func (o GetProjectKeysResultOutput) ToGetProjectKeysResultOutputWithContext(ctx context.Context) GetProjectKeysResultOutput {
+	return o
+}
+
+// ID of Migration Project.
+func (o GetProjectKeysResultOutput) WorkspaceId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetProjectKeysResult) string { return v.WorkspaceId }).(pulumi.StringOutput)
+}
+
+// Key of Migration Project.
+func (o GetProjectKeysResultOutput) WorkspaceKey() pulumi.StringOutput {
+	return o.ApplyT(func(v GetProjectKeysResult) string { return v.WorkspaceKey }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetProjectKeysResultOutput{})
 }

@@ -4,6 +4,9 @@
 package v20151201
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -44,4 +47,82 @@ type LookupApplicationPackageResult struct {
 	StorageUrlExpiry *string `pulumi:"storageUrlExpiry"`
 	// The version of the application package.
 	Version *string `pulumi:"version"`
+}
+
+func LookupApplicationPackageOutput(ctx *pulumi.Context, args LookupApplicationPackageOutputArgs, opts ...pulumi.InvokeOption) LookupApplicationPackageResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupApplicationPackageResult, error) {
+			args := v.(LookupApplicationPackageArgs)
+			r, err := LookupApplicationPackage(ctx, &args, opts...)
+			return *r, err
+		}).(LookupApplicationPackageResultOutput)
+}
+
+type LookupApplicationPackageOutputArgs struct {
+	// The name of the Batch account.
+	AccountName pulumi.StringInput `pulumi:"accountName"`
+	// The ID of the application.
+	ApplicationId pulumi.StringInput `pulumi:"applicationId"`
+	// The name of the resource group that contains the Batch account.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The version of the application.
+	Version pulumi.StringInput `pulumi:"version"`
+}
+
+func (LookupApplicationPackageOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupApplicationPackageArgs)(nil)).Elem()
+}
+
+// An application package which represents a particular version of an application.
+type LookupApplicationPackageResultOutput struct{ *pulumi.OutputState }
+
+func (LookupApplicationPackageResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupApplicationPackageResult)(nil)).Elem()
+}
+
+func (o LookupApplicationPackageResultOutput) ToLookupApplicationPackageResultOutput() LookupApplicationPackageResultOutput {
+	return o
+}
+
+func (o LookupApplicationPackageResultOutput) ToLookupApplicationPackageResultOutputWithContext(ctx context.Context) LookupApplicationPackageResultOutput {
+	return o
+}
+
+// The format of the application package, if the package is active.
+func (o LookupApplicationPackageResultOutput) Format() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupApplicationPackageResult) *string { return v.Format }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the application.
+func (o LookupApplicationPackageResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupApplicationPackageResult) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// The time at which the package was last activated, if the package is active.
+func (o LookupApplicationPackageResultOutput) LastActivationTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupApplicationPackageResult) *string { return v.LastActivationTime }).(pulumi.StringPtrOutput)
+}
+
+// The current state of the application package.
+func (o LookupApplicationPackageResultOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupApplicationPackageResult) *string { return v.State }).(pulumi.StringPtrOutput)
+}
+
+// The storage URL at which the application package is stored.
+func (o LookupApplicationPackageResultOutput) StorageUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupApplicationPackageResult) *string { return v.StorageUrl }).(pulumi.StringPtrOutput)
+}
+
+// The UTC time at which the storage URL will expire.
+func (o LookupApplicationPackageResultOutput) StorageUrlExpiry() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupApplicationPackageResult) *string { return v.StorageUrlExpiry }).(pulumi.StringPtrOutput)
+}
+
+// The version of the application package.
+func (o LookupApplicationPackageResultOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupApplicationPackageResult) *string { return v.Version }).(pulumi.StringPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupApplicationPackageResultOutput{})
 }

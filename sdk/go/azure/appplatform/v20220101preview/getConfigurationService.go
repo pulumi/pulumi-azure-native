@@ -4,6 +4,9 @@
 package v20220101preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -38,4 +41,70 @@ type LookupConfigurationServiceResult struct {
 	SystemData SystemDataResponse `pulumi:"systemData"`
 	// The type of the resource.
 	Type string `pulumi:"type"`
+}
+
+func LookupConfigurationServiceOutput(ctx *pulumi.Context, args LookupConfigurationServiceOutputArgs, opts ...pulumi.InvokeOption) LookupConfigurationServiceResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupConfigurationServiceResult, error) {
+			args := v.(LookupConfigurationServiceArgs)
+			r, err := LookupConfigurationService(ctx, &args, opts...)
+			return *r, err
+		}).(LookupConfigurationServiceResultOutput)
+}
+
+type LookupConfigurationServiceOutputArgs struct {
+	// The name of Application Configuration Service.
+	ConfigurationServiceName pulumi.StringInput `pulumi:"configurationServiceName"`
+	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the Service resource.
+	ServiceName pulumi.StringInput `pulumi:"serviceName"`
+}
+
+func (LookupConfigurationServiceOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupConfigurationServiceArgs)(nil)).Elem()
+}
+
+// Application Configuration Service resource
+type LookupConfigurationServiceResultOutput struct{ *pulumi.OutputState }
+
+func (LookupConfigurationServiceResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupConfigurationServiceResult)(nil)).Elem()
+}
+
+func (o LookupConfigurationServiceResultOutput) ToLookupConfigurationServiceResultOutput() LookupConfigurationServiceResultOutput {
+	return o
+}
+
+func (o LookupConfigurationServiceResultOutput) ToLookupConfigurationServiceResultOutputWithContext(ctx context.Context) LookupConfigurationServiceResultOutput {
+	return o
+}
+
+// Fully qualified resource Id for the resource.
+func (o LookupConfigurationServiceResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupConfigurationServiceResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The name of the resource.
+func (o LookupConfigurationServiceResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupConfigurationServiceResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Application Configuration Service properties payload
+func (o LookupConfigurationServiceResultOutput) Properties() ConfigurationServicePropertiesResponseOutput {
+	return o.ApplyT(func(v LookupConfigurationServiceResult) ConfigurationServicePropertiesResponse { return v.Properties }).(ConfigurationServicePropertiesResponseOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o LookupConfigurationServiceResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupConfigurationServiceResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the resource.
+func (o LookupConfigurationServiceResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupConfigurationServiceResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupConfigurationServiceResultOutput{})
 }

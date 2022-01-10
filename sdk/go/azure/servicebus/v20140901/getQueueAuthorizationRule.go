@@ -4,6 +4,9 @@
 package v20140901
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -40,4 +43,72 @@ type LookupQueueAuthorizationRuleResult struct {
 	Rights []string `pulumi:"rights"`
 	// Resource type
 	Type string `pulumi:"type"`
+}
+
+func LookupQueueAuthorizationRuleOutput(ctx *pulumi.Context, args LookupQueueAuthorizationRuleOutputArgs, opts ...pulumi.InvokeOption) LookupQueueAuthorizationRuleResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupQueueAuthorizationRuleResult, error) {
+			args := v.(LookupQueueAuthorizationRuleArgs)
+			r, err := LookupQueueAuthorizationRule(ctx, &args, opts...)
+			return *r, err
+		}).(LookupQueueAuthorizationRuleResultOutput)
+}
+
+type LookupQueueAuthorizationRuleOutputArgs struct {
+	// The authorization rule name.
+	AuthorizationRuleName pulumi.StringInput `pulumi:"authorizationRuleName"`
+	// The namespace name
+	NamespaceName pulumi.StringInput `pulumi:"namespaceName"`
+	// The queue name.
+	QueueName pulumi.StringInput `pulumi:"queueName"`
+	// Name of the Resource group within the Azure subscription.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupQueueAuthorizationRuleOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupQueueAuthorizationRuleArgs)(nil)).Elem()
+}
+
+// Description of a namespace authorization rule.
+type LookupQueueAuthorizationRuleResultOutput struct{ *pulumi.OutputState }
+
+func (LookupQueueAuthorizationRuleResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupQueueAuthorizationRuleResult)(nil)).Elem()
+}
+
+func (o LookupQueueAuthorizationRuleResultOutput) ToLookupQueueAuthorizationRuleResultOutput() LookupQueueAuthorizationRuleResultOutput {
+	return o
+}
+
+func (o LookupQueueAuthorizationRuleResultOutput) ToLookupQueueAuthorizationRuleResultOutputWithContext(ctx context.Context) LookupQueueAuthorizationRuleResultOutput {
+	return o
+}
+
+// Resource Id
+func (o LookupQueueAuthorizationRuleResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupQueueAuthorizationRuleResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Resource location.
+func (o LookupQueueAuthorizationRuleResultOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupQueueAuthorizationRuleResult) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Resource name
+func (o LookupQueueAuthorizationRuleResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupQueueAuthorizationRuleResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The rights associated with the rule.
+func (o LookupQueueAuthorizationRuleResultOutput) Rights() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupQueueAuthorizationRuleResult) []string { return v.Rights }).(pulumi.StringArrayOutput)
+}
+
+// Resource type
+func (o LookupQueueAuthorizationRuleResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupQueueAuthorizationRuleResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupQueueAuthorizationRuleResultOutput{})
 }

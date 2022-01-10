@@ -4,6 +4,9 @@
 package datashare
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -54,4 +57,103 @@ type LookupBlobDataSetResult struct {
 	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Type of the azure resource
 	Type string `pulumi:"type"`
+}
+
+func LookupBlobDataSetOutput(ctx *pulumi.Context, args LookupBlobDataSetOutputArgs, opts ...pulumi.InvokeOption) LookupBlobDataSetResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupBlobDataSetResult, error) {
+			args := v.(LookupBlobDataSetArgs)
+			r, err := LookupBlobDataSet(ctx, &args, opts...)
+			return *r, err
+		}).(LookupBlobDataSetResultOutput)
+}
+
+type LookupBlobDataSetOutputArgs struct {
+	// The name of the share account.
+	AccountName pulumi.StringInput `pulumi:"accountName"`
+	// The name of the dataSet.
+	DataSetName pulumi.StringInput `pulumi:"dataSetName"`
+	// The resource group name.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the share.
+	ShareName pulumi.StringInput `pulumi:"shareName"`
+}
+
+func (LookupBlobDataSetOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupBlobDataSetArgs)(nil)).Elem()
+}
+
+// An Azure storage blob data set.
+type LookupBlobDataSetResultOutput struct{ *pulumi.OutputState }
+
+func (LookupBlobDataSetResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupBlobDataSetResult)(nil)).Elem()
+}
+
+func (o LookupBlobDataSetResultOutput) ToLookupBlobDataSetResultOutput() LookupBlobDataSetResultOutput {
+	return o
+}
+
+func (o LookupBlobDataSetResultOutput) ToLookupBlobDataSetResultOutputWithContext(ctx context.Context) LookupBlobDataSetResultOutput {
+	return o
+}
+
+// Container that has the file path.
+func (o LookupBlobDataSetResultOutput) ContainerName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBlobDataSetResult) string { return v.ContainerName }).(pulumi.StringOutput)
+}
+
+// Unique id for identifying a data set resource
+func (o LookupBlobDataSetResultOutput) DataSetId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBlobDataSetResult) string { return v.DataSetId }).(pulumi.StringOutput)
+}
+
+// File path within the source data set
+func (o LookupBlobDataSetResultOutput) FilePath() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBlobDataSetResult) string { return v.FilePath }).(pulumi.StringOutput)
+}
+
+// The resource id of the azure resource
+func (o LookupBlobDataSetResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBlobDataSetResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Kind of data set.
+// Expected value is 'Blob'.
+func (o LookupBlobDataSetResultOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBlobDataSetResult) string { return v.Kind }).(pulumi.StringOutput)
+}
+
+// Name of the azure resource
+func (o LookupBlobDataSetResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBlobDataSetResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Resource group of storage account
+func (o LookupBlobDataSetResultOutput) ResourceGroup() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBlobDataSetResult) string { return v.ResourceGroup }).(pulumi.StringOutput)
+}
+
+// Storage account name of the source data set
+func (o LookupBlobDataSetResultOutput) StorageAccountName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBlobDataSetResult) string { return v.StorageAccountName }).(pulumi.StringOutput)
+}
+
+// Subscription id of storage account
+func (o LookupBlobDataSetResultOutput) SubscriptionId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBlobDataSetResult) string { return v.SubscriptionId }).(pulumi.StringOutput)
+}
+
+// System Data of the Azure resource.
+func (o LookupBlobDataSetResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupBlobDataSetResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Type of the azure resource
+func (o LookupBlobDataSetResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBlobDataSetResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupBlobDataSetResultOutput{})
 }

@@ -4,6 +4,9 @@
 package v20191101
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -49,4 +52,93 @@ type LookupKustoDatabaseDataSetMappingResult struct {
 	ProvisioningState string `pulumi:"provisioningState"`
 	// Type of the azure resource
 	Type string `pulumi:"type"`
+}
+
+func LookupKustoDatabaseDataSetMappingOutput(ctx *pulumi.Context, args LookupKustoDatabaseDataSetMappingOutputArgs, opts ...pulumi.InvokeOption) LookupKustoDatabaseDataSetMappingResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupKustoDatabaseDataSetMappingResult, error) {
+			args := v.(LookupKustoDatabaseDataSetMappingArgs)
+			r, err := LookupKustoDatabaseDataSetMapping(ctx, &args, opts...)
+			return *r, err
+		}).(LookupKustoDatabaseDataSetMappingResultOutput)
+}
+
+type LookupKustoDatabaseDataSetMappingOutputArgs struct {
+	// The name of the share account.
+	AccountName pulumi.StringInput `pulumi:"accountName"`
+	// The name of the dataSetMapping.
+	DataSetMappingName pulumi.StringInput `pulumi:"dataSetMappingName"`
+	// The resource group name.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the shareSubscription.
+	ShareSubscriptionName pulumi.StringInput `pulumi:"shareSubscriptionName"`
+}
+
+func (LookupKustoDatabaseDataSetMappingOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupKustoDatabaseDataSetMappingArgs)(nil)).Elem()
+}
+
+// A Kusto database data set mapping
+type LookupKustoDatabaseDataSetMappingResultOutput struct{ *pulumi.OutputState }
+
+func (LookupKustoDatabaseDataSetMappingResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupKustoDatabaseDataSetMappingResult)(nil)).Elem()
+}
+
+func (o LookupKustoDatabaseDataSetMappingResultOutput) ToLookupKustoDatabaseDataSetMappingResultOutput() LookupKustoDatabaseDataSetMappingResultOutput {
+	return o
+}
+
+func (o LookupKustoDatabaseDataSetMappingResultOutput) ToLookupKustoDatabaseDataSetMappingResultOutputWithContext(ctx context.Context) LookupKustoDatabaseDataSetMappingResultOutput {
+	return o
+}
+
+// The id of the source data set.
+func (o LookupKustoDatabaseDataSetMappingResultOutput) DataSetId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupKustoDatabaseDataSetMappingResult) string { return v.DataSetId }).(pulumi.StringOutput)
+}
+
+// Gets the status of the data set mapping.
+func (o LookupKustoDatabaseDataSetMappingResultOutput) DataSetMappingStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupKustoDatabaseDataSetMappingResult) string { return v.DataSetMappingStatus }).(pulumi.StringOutput)
+}
+
+// The resource id of the azure resource
+func (o LookupKustoDatabaseDataSetMappingResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupKustoDatabaseDataSetMappingResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Kind of data set mapping.
+// Expected value is 'KustoDatabase'.
+func (o LookupKustoDatabaseDataSetMappingResultOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupKustoDatabaseDataSetMappingResult) string { return v.Kind }).(pulumi.StringOutput)
+}
+
+// Resource id of the sink kusto cluster.
+func (o LookupKustoDatabaseDataSetMappingResultOutput) KustoClusterResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupKustoDatabaseDataSetMappingResult) string { return v.KustoClusterResourceId }).(pulumi.StringOutput)
+}
+
+// Location of the sink kusto cluster.
+func (o LookupKustoDatabaseDataSetMappingResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupKustoDatabaseDataSetMappingResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// Name of the azure resource
+func (o LookupKustoDatabaseDataSetMappingResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupKustoDatabaseDataSetMappingResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Provisioning state of the data set mapping.
+func (o LookupKustoDatabaseDataSetMappingResultOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupKustoDatabaseDataSetMappingResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Type of the azure resource
+func (o LookupKustoDatabaseDataSetMappingResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupKustoDatabaseDataSetMappingResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupKustoDatabaseDataSetMappingResultOutput{})
 }

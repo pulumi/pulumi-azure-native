@@ -4,6 +4,9 @@
 package v20180601
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -44,4 +47,88 @@ type LookupProximityPlacementGroupResult struct {
 	VirtualMachineScaleSets []SubResourceResponse `pulumi:"virtualMachineScaleSets"`
 	// A list of references to all virtual machines in the proximity placement group.
 	VirtualMachines []SubResourceResponse `pulumi:"virtualMachines"`
+}
+
+func LookupProximityPlacementGroupOutput(ctx *pulumi.Context, args LookupProximityPlacementGroupOutputArgs, opts ...pulumi.InvokeOption) LookupProximityPlacementGroupResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupProximityPlacementGroupResult, error) {
+			args := v.(LookupProximityPlacementGroupArgs)
+			r, err := LookupProximityPlacementGroup(ctx, &args, opts...)
+			return *r, err
+		}).(LookupProximityPlacementGroupResultOutput)
+}
+
+type LookupProximityPlacementGroupOutputArgs struct {
+	// The name of the proximity placement group.
+	ProximityPlacementGroupName pulumi.StringInput `pulumi:"proximityPlacementGroupName"`
+	// The name of the resource group.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupProximityPlacementGroupOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupProximityPlacementGroupArgs)(nil)).Elem()
+}
+
+// Specifies information about the proximity placement group.
+type LookupProximityPlacementGroupResultOutput struct{ *pulumi.OutputState }
+
+func (LookupProximityPlacementGroupResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupProximityPlacementGroupResult)(nil)).Elem()
+}
+
+func (o LookupProximityPlacementGroupResultOutput) ToLookupProximityPlacementGroupResultOutput() LookupProximityPlacementGroupResultOutput {
+	return o
+}
+
+func (o LookupProximityPlacementGroupResultOutput) ToLookupProximityPlacementGroupResultOutputWithContext(ctx context.Context) LookupProximityPlacementGroupResultOutput {
+	return o
+}
+
+// A list of references to all availability sets in the proximity placement group.
+func (o LookupProximityPlacementGroupResultOutput) AvailabilitySets() SubResourceResponseArrayOutput {
+	return o.ApplyT(func(v LookupProximityPlacementGroupResult) []SubResourceResponse { return v.AvailabilitySets }).(SubResourceResponseArrayOutput)
+}
+
+// Resource Id
+func (o LookupProximityPlacementGroupResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupProximityPlacementGroupResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Resource location
+func (o LookupProximityPlacementGroupResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupProximityPlacementGroupResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource name
+func (o LookupProximityPlacementGroupResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupProximityPlacementGroupResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Specifies the type of the proximity placement group. <br><br> Possible values are: <br><br> **Standard** : Co-locate resources within an Azure region or Availability Zone. <br><br> **Ultra** : For future use.
+func (o LookupProximityPlacementGroupResultOutput) ProximityPlacementGroupType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupProximityPlacementGroupResult) *string { return v.ProximityPlacementGroupType }).(pulumi.StringPtrOutput)
+}
+
+// Resource tags
+func (o LookupProximityPlacementGroupResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupProximityPlacementGroupResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type
+func (o LookupProximityPlacementGroupResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupProximityPlacementGroupResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// A list of references to all virtual machine scale sets in the proximity placement group.
+func (o LookupProximityPlacementGroupResultOutput) VirtualMachineScaleSets() SubResourceResponseArrayOutput {
+	return o.ApplyT(func(v LookupProximityPlacementGroupResult) []SubResourceResponse { return v.VirtualMachineScaleSets }).(SubResourceResponseArrayOutput)
+}
+
+// A list of references to all virtual machines in the proximity placement group.
+func (o LookupProximityPlacementGroupResultOutput) VirtualMachines() SubResourceResponseArrayOutput {
+	return o.ApplyT(func(v LookupProximityPlacementGroupResult) []SubResourceResponse { return v.VirtualMachines }).(SubResourceResponseArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupProximityPlacementGroupResultOutput{})
 }

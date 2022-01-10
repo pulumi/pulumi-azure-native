@@ -4,6 +4,9 @@
 package v20200101preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -59,4 +62,93 @@ func (val *LookupDomainResult) Defaults() *LookupDomainResult {
 		tmp.InputSchema = &inputSchema_
 	}
 	return &tmp
+}
+
+func LookupDomainOutput(ctx *pulumi.Context, args LookupDomainOutputArgs, opts ...pulumi.InvokeOption) LookupDomainResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupDomainResult, error) {
+			args := v.(LookupDomainArgs)
+			r, err := LookupDomain(ctx, &args, opts...)
+			return *r, err
+		}).(LookupDomainResultOutput)
+}
+
+type LookupDomainOutputArgs struct {
+	// Name of the domain
+	DomainName pulumi.StringInput `pulumi:"domainName"`
+	// The name of the resource group within the user's subscription.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupDomainOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupDomainArgs)(nil)).Elem()
+}
+
+// EventGrid Domain
+type LookupDomainResultOutput struct{ *pulumi.OutputState }
+
+func (LookupDomainResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupDomainResult)(nil)).Elem()
+}
+
+func (o LookupDomainResultOutput) ToLookupDomainResultOutput() LookupDomainResultOutput {
+	return o
+}
+
+func (o LookupDomainResultOutput) ToLookupDomainResultOutputWithContext(ctx context.Context) LookupDomainResultOutput {
+	return o
+}
+
+// Endpoint for the domain.
+func (o LookupDomainResultOutput) Endpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDomainResult) string { return v.Endpoint }).(pulumi.StringOutput)
+}
+
+// Fully qualified identifier of the resource
+func (o LookupDomainResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDomainResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// This determines the format that Event Grid should expect for incoming events published to the domain.
+func (o LookupDomainResultOutput) InputSchema() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDomainResult) *string { return v.InputSchema }).(pulumi.StringPtrOutput)
+}
+
+// Information about the InputSchemaMapping which specified the info about mapping event payload.
+func (o LookupDomainResultOutput) InputSchemaMapping() JsonInputSchemaMappingResponsePtrOutput {
+	return o.ApplyT(func(v LookupDomainResult) *JsonInputSchemaMappingResponse { return v.InputSchemaMapping }).(JsonInputSchemaMappingResponsePtrOutput)
+}
+
+// Location of the resource
+func (o LookupDomainResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDomainResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// Metric resource id for the domain.
+func (o LookupDomainResultOutput) MetricResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDomainResult) string { return v.MetricResourceId }).(pulumi.StringOutput)
+}
+
+// Name of the resource
+func (o LookupDomainResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDomainResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Provisioning state of the domain.
+func (o LookupDomainResultOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDomainResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Tags of the resource
+func (o LookupDomainResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupDomainResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Type of the resource
+func (o LookupDomainResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDomainResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupDomainResultOutput{})
 }

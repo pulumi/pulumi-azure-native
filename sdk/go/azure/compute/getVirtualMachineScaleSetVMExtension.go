@@ -4,6 +4,9 @@
 package compute
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -57,4 +60,111 @@ type LookupVirtualMachineScaleSetVMExtensionResult struct {
 	Type string `pulumi:"type"`
 	// Specifies the version of the script handler.
 	TypeHandlerVersion *string `pulumi:"typeHandlerVersion"`
+}
+
+func LookupVirtualMachineScaleSetVMExtensionOutput(ctx *pulumi.Context, args LookupVirtualMachineScaleSetVMExtensionOutputArgs, opts ...pulumi.InvokeOption) LookupVirtualMachineScaleSetVMExtensionResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupVirtualMachineScaleSetVMExtensionResult, error) {
+			args := v.(LookupVirtualMachineScaleSetVMExtensionArgs)
+			r, err := LookupVirtualMachineScaleSetVMExtension(ctx, &args, opts...)
+			return *r, err
+		}).(LookupVirtualMachineScaleSetVMExtensionResultOutput)
+}
+
+type LookupVirtualMachineScaleSetVMExtensionOutputArgs struct {
+	// The expand expression to apply on the operation.
+	Expand pulumi.StringPtrInput `pulumi:"expand"`
+	// The instance ID of the virtual machine.
+	InstanceId pulumi.StringInput `pulumi:"instanceId"`
+	// The name of the resource group.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the virtual machine extension.
+	VmExtensionName pulumi.StringInput `pulumi:"vmExtensionName"`
+	// The name of the VM scale set.
+	VmScaleSetName pulumi.StringInput `pulumi:"vmScaleSetName"`
+}
+
+func (LookupVirtualMachineScaleSetVMExtensionOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupVirtualMachineScaleSetVMExtensionArgs)(nil)).Elem()
+}
+
+// Describes a VMSS VM Extension.
+type LookupVirtualMachineScaleSetVMExtensionResultOutput struct{ *pulumi.OutputState }
+
+func (LookupVirtualMachineScaleSetVMExtensionResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupVirtualMachineScaleSetVMExtensionResult)(nil)).Elem()
+}
+
+func (o LookupVirtualMachineScaleSetVMExtensionResultOutput) ToLookupVirtualMachineScaleSetVMExtensionResultOutput() LookupVirtualMachineScaleSetVMExtensionResultOutput {
+	return o
+}
+
+func (o LookupVirtualMachineScaleSetVMExtensionResultOutput) ToLookupVirtualMachineScaleSetVMExtensionResultOutputWithContext(ctx context.Context) LookupVirtualMachineScaleSetVMExtensionResultOutput {
+	return o
+}
+
+// Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
+func (o LookupVirtualMachineScaleSetVMExtensionResultOutput) AutoUpgradeMinorVersion() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupVirtualMachineScaleSetVMExtensionResult) *bool { return v.AutoUpgradeMinorVersion }).(pulumi.BoolPtrOutput)
+}
+
+// Indicates whether the extension should be automatically upgraded by the platform if there is a newer version of the extension available.
+func (o LookupVirtualMachineScaleSetVMExtensionResultOutput) EnableAutomaticUpgrade() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupVirtualMachineScaleSetVMExtensionResult) *bool { return v.EnableAutomaticUpgrade }).(pulumi.BoolPtrOutput)
+}
+
+// How the extension handler should be forced to update even if the extension configuration has not changed.
+func (o LookupVirtualMachineScaleSetVMExtensionResultOutput) ForceUpdateTag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVirtualMachineScaleSetVMExtensionResult) *string { return v.ForceUpdateTag }).(pulumi.StringPtrOutput)
+}
+
+// Resource Id
+func (o LookupVirtualMachineScaleSetVMExtensionResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVirtualMachineScaleSetVMExtensionResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The virtual machine extension instance view.
+func (o LookupVirtualMachineScaleSetVMExtensionResultOutput) InstanceView() VirtualMachineExtensionInstanceViewResponsePtrOutput {
+	return o.ApplyT(func(v LookupVirtualMachineScaleSetVMExtensionResult) *VirtualMachineExtensionInstanceViewResponse {
+		return v.InstanceView
+	}).(VirtualMachineExtensionInstanceViewResponsePtrOutput)
+}
+
+// The name of the extension.
+func (o LookupVirtualMachineScaleSetVMExtensionResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVirtualMachineScaleSetVMExtensionResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
+func (o LookupVirtualMachineScaleSetVMExtensionResultOutput) ProtectedSettings() pulumi.AnyOutput {
+	return o.ApplyT(func(v LookupVirtualMachineScaleSetVMExtensionResult) interface{} { return v.ProtectedSettings }).(pulumi.AnyOutput)
+}
+
+// The provisioning state, which only appears in the response.
+func (o LookupVirtualMachineScaleSetVMExtensionResultOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVirtualMachineScaleSetVMExtensionResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The name of the extension handler publisher.
+func (o LookupVirtualMachineScaleSetVMExtensionResultOutput) Publisher() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVirtualMachineScaleSetVMExtensionResult) *string { return v.Publisher }).(pulumi.StringPtrOutput)
+}
+
+// Json formatted public settings for the extension.
+func (o LookupVirtualMachineScaleSetVMExtensionResultOutput) Settings() pulumi.AnyOutput {
+	return o.ApplyT(func(v LookupVirtualMachineScaleSetVMExtensionResult) interface{} { return v.Settings }).(pulumi.AnyOutput)
+}
+
+// Resource type
+func (o LookupVirtualMachineScaleSetVMExtensionResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVirtualMachineScaleSetVMExtensionResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Specifies the version of the script handler.
+func (o LookupVirtualMachineScaleSetVMExtensionResultOutput) TypeHandlerVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVirtualMachineScaleSetVMExtensionResult) *string { return v.TypeHandlerVersion }).(pulumi.StringPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupVirtualMachineScaleSetVMExtensionResultOutput{})
 }

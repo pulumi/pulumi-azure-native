@@ -4,6 +4,9 @@
 package v20190601
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -46,4 +49,93 @@ type LookupPolicyDefinitionAtManagementGroupResult struct {
 	PolicyType *string `pulumi:"policyType"`
 	// The type of the resource (Microsoft.Authorization/policyDefinitions).
 	Type string `pulumi:"type"`
+}
+
+func LookupPolicyDefinitionAtManagementGroupOutput(ctx *pulumi.Context, args LookupPolicyDefinitionAtManagementGroupOutputArgs, opts ...pulumi.InvokeOption) LookupPolicyDefinitionAtManagementGroupResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupPolicyDefinitionAtManagementGroupResult, error) {
+			args := v.(LookupPolicyDefinitionAtManagementGroupArgs)
+			r, err := LookupPolicyDefinitionAtManagementGroup(ctx, &args, opts...)
+			return *r, err
+		}).(LookupPolicyDefinitionAtManagementGroupResultOutput)
+}
+
+type LookupPolicyDefinitionAtManagementGroupOutputArgs struct {
+	// The ID of the management group.
+	ManagementGroupId pulumi.StringInput `pulumi:"managementGroupId"`
+	// The name of the policy definition to get.
+	PolicyDefinitionName pulumi.StringInput `pulumi:"policyDefinitionName"`
+}
+
+func (LookupPolicyDefinitionAtManagementGroupOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupPolicyDefinitionAtManagementGroupArgs)(nil)).Elem()
+}
+
+// The policy definition.
+type LookupPolicyDefinitionAtManagementGroupResultOutput struct{ *pulumi.OutputState }
+
+func (LookupPolicyDefinitionAtManagementGroupResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupPolicyDefinitionAtManagementGroupResult)(nil)).Elem()
+}
+
+func (o LookupPolicyDefinitionAtManagementGroupResultOutput) ToLookupPolicyDefinitionAtManagementGroupResultOutput() LookupPolicyDefinitionAtManagementGroupResultOutput {
+	return o
+}
+
+func (o LookupPolicyDefinitionAtManagementGroupResultOutput) ToLookupPolicyDefinitionAtManagementGroupResultOutputWithContext(ctx context.Context) LookupPolicyDefinitionAtManagementGroupResultOutput {
+	return o
+}
+
+// The policy definition description.
+func (o LookupPolicyDefinitionAtManagementGroupResultOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupPolicyDefinitionAtManagementGroupResult) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The display name of the policy definition.
+func (o LookupPolicyDefinitionAtManagementGroupResultOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupPolicyDefinitionAtManagementGroupResult) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the policy definition.
+func (o LookupPolicyDefinitionAtManagementGroupResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPolicyDefinitionAtManagementGroupResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The policy definition metadata.
+func (o LookupPolicyDefinitionAtManagementGroupResultOutput) Metadata() pulumi.AnyOutput {
+	return o.ApplyT(func(v LookupPolicyDefinitionAtManagementGroupResult) interface{} { return v.Metadata }).(pulumi.AnyOutput)
+}
+
+// The policy definition mode. Some examples are All, Indexed, Microsoft.KeyVault.Data.
+func (o LookupPolicyDefinitionAtManagementGroupResultOutput) Mode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupPolicyDefinitionAtManagementGroupResult) *string { return v.Mode }).(pulumi.StringPtrOutput)
+}
+
+// The name of the policy definition.
+func (o LookupPolicyDefinitionAtManagementGroupResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPolicyDefinitionAtManagementGroupResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Required if a parameter is used in policy rule.
+func (o LookupPolicyDefinitionAtManagementGroupResultOutput) Parameters() pulumi.AnyOutput {
+	return o.ApplyT(func(v LookupPolicyDefinitionAtManagementGroupResult) interface{} { return v.Parameters }).(pulumi.AnyOutput)
+}
+
+// The policy rule.
+func (o LookupPolicyDefinitionAtManagementGroupResultOutput) PolicyRule() pulumi.AnyOutput {
+	return o.ApplyT(func(v LookupPolicyDefinitionAtManagementGroupResult) interface{} { return v.PolicyRule }).(pulumi.AnyOutput)
+}
+
+// The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.
+func (o LookupPolicyDefinitionAtManagementGroupResultOutput) PolicyType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupPolicyDefinitionAtManagementGroupResult) *string { return v.PolicyType }).(pulumi.StringPtrOutput)
+}
+
+// The type of the resource (Microsoft.Authorization/policyDefinitions).
+func (o LookupPolicyDefinitionAtManagementGroupResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPolicyDefinitionAtManagementGroupResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupPolicyDefinitionAtManagementGroupResultOutput{})
 }

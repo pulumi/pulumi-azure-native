@@ -4,6 +4,9 @@
 package v20191101preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -46,4 +49,87 @@ type LookupServiceUnitResult struct {
 	TargetResourceGroup string `pulumi:"targetResourceGroup"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
+}
+
+func LookupServiceUnitOutput(ctx *pulumi.Context, args LookupServiceUnitOutputArgs, opts ...pulumi.InvokeOption) LookupServiceUnitResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupServiceUnitResult, error) {
+			args := v.(LookupServiceUnitArgs)
+			r, err := LookupServiceUnit(ctx, &args, opts...)
+			return *r, err
+		}).(LookupServiceUnitResultOutput)
+}
+
+type LookupServiceUnitOutputArgs struct {
+	// The name of the resource group. The name is case insensitive.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the service resource.
+	ServiceName pulumi.StringInput `pulumi:"serviceName"`
+	// The name of the service topology .
+	ServiceTopologyName pulumi.StringInput `pulumi:"serviceTopologyName"`
+	// The name of the service unit resource.
+	ServiceUnitName pulumi.StringInput `pulumi:"serviceUnitName"`
+}
+
+func (LookupServiceUnitOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupServiceUnitArgs)(nil)).Elem()
+}
+
+// Represents the response of a service unit resource.
+type LookupServiceUnitResultOutput struct{ *pulumi.OutputState }
+
+func (LookupServiceUnitResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupServiceUnitResult)(nil)).Elem()
+}
+
+func (o LookupServiceUnitResultOutput) ToLookupServiceUnitResultOutput() LookupServiceUnitResultOutput {
+	return o
+}
+
+func (o LookupServiceUnitResultOutput) ToLookupServiceUnitResultOutputWithContext(ctx context.Context) LookupServiceUnitResultOutput {
+	return o
+}
+
+// The artifacts for the service unit.
+func (o LookupServiceUnitResultOutput) Artifacts() ServiceUnitArtifactsResponsePtrOutput {
+	return o.ApplyT(func(v LookupServiceUnitResult) *ServiceUnitArtifactsResponse { return v.Artifacts }).(ServiceUnitArtifactsResponsePtrOutput)
+}
+
+// Describes the type of ARM deployment to be performed on the resource.
+func (o LookupServiceUnitResultOutput) DeploymentMode() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServiceUnitResult) string { return v.DeploymentMode }).(pulumi.StringOutput)
+}
+
+// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+func (o LookupServiceUnitResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServiceUnitResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The geo-location where the resource lives
+func (o LookupServiceUnitResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServiceUnitResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o LookupServiceUnitResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServiceUnitResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Resource tags.
+func (o LookupServiceUnitResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupServiceUnitResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The Azure Resource Group to which the resources in the service unit belong to or should be deployed to.
+func (o LookupServiceUnitResultOutput) TargetResourceGroup() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServiceUnitResult) string { return v.TargetResourceGroup }).(pulumi.StringOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o LookupServiceUnitResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServiceUnitResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupServiceUnitResultOutput{})
 }

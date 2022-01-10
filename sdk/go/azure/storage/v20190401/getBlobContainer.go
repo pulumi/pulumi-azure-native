@@ -4,6 +4,9 @@
 package v20190401
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -56,4 +59,115 @@ type LookupBlobContainerResult struct {
 	PublicAccess *string `pulumi:"publicAccess"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
+}
+
+func LookupBlobContainerOutput(ctx *pulumi.Context, args LookupBlobContainerOutputArgs, opts ...pulumi.InvokeOption) LookupBlobContainerResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupBlobContainerResult, error) {
+			args := v.(LookupBlobContainerArgs)
+			r, err := LookupBlobContainer(ctx, &args, opts...)
+			return *r, err
+		}).(LookupBlobContainerResultOutput)
+}
+
+type LookupBlobContainerOutputArgs struct {
+	// The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
+	AccountName pulumi.StringInput `pulumi:"accountName"`
+	// The name of the blob container within the specified storage account. Blob container names must be between 3 and 63 characters in length and use numbers, lower-case letters and dash (-) only. Every dash (-) character must be immediately preceded and followed by a letter or number.
+	ContainerName pulumi.StringInput `pulumi:"containerName"`
+	// The name of the resource group within the user's subscription. The name is case insensitive.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupBlobContainerOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupBlobContainerArgs)(nil)).Elem()
+}
+
+// Properties of the blob container, including Id, resource name, resource type, Etag.
+type LookupBlobContainerResultOutput struct{ *pulumi.OutputState }
+
+func (LookupBlobContainerResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupBlobContainerResult)(nil)).Elem()
+}
+
+func (o LookupBlobContainerResultOutput) ToLookupBlobContainerResultOutput() LookupBlobContainerResultOutput {
+	return o
+}
+
+func (o LookupBlobContainerResultOutput) ToLookupBlobContainerResultOutputWithContext(ctx context.Context) LookupBlobContainerResultOutput {
+	return o
+}
+
+// Resource Etag.
+func (o LookupBlobContainerResultOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBlobContainerResult) string { return v.Etag }).(pulumi.StringOutput)
+}
+
+// The hasImmutabilityPolicy public property is set to true by SRP if ImmutabilityPolicy has been created for this container. The hasImmutabilityPolicy public property is set to false by SRP if ImmutabilityPolicy has not been created for this container.
+func (o LookupBlobContainerResultOutput) HasImmutabilityPolicy() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupBlobContainerResult) bool { return v.HasImmutabilityPolicy }).(pulumi.BoolOutput)
+}
+
+// The hasLegalHold public property is set to true by SRP if there are at least one existing tag. The hasLegalHold public property is set to false by SRP if all existing legal hold tags are cleared out. There can be a maximum of 1000 blob containers with hasLegalHold=true for a given account.
+func (o LookupBlobContainerResultOutput) HasLegalHold() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupBlobContainerResult) bool { return v.HasLegalHold }).(pulumi.BoolOutput)
+}
+
+// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+func (o LookupBlobContainerResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBlobContainerResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The ImmutabilityPolicy property of the container.
+func (o LookupBlobContainerResultOutput) ImmutabilityPolicy() ImmutabilityPolicyPropertiesResponseOutput {
+	return o.ApplyT(func(v LookupBlobContainerResult) ImmutabilityPolicyPropertiesResponse { return v.ImmutabilityPolicy }).(ImmutabilityPolicyPropertiesResponseOutput)
+}
+
+// Returns the date and time the container was last modified.
+func (o LookupBlobContainerResultOutput) LastModifiedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBlobContainerResult) string { return v.LastModifiedTime }).(pulumi.StringOutput)
+}
+
+// Specifies whether the lease on a container is of infinite or fixed duration, only when the container is leased.
+func (o LookupBlobContainerResultOutput) LeaseDuration() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBlobContainerResult) string { return v.LeaseDuration }).(pulumi.StringOutput)
+}
+
+// Lease state of the container.
+func (o LookupBlobContainerResultOutput) LeaseState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBlobContainerResult) string { return v.LeaseState }).(pulumi.StringOutput)
+}
+
+// The lease status of the container.
+func (o LookupBlobContainerResultOutput) LeaseStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBlobContainerResult) string { return v.LeaseStatus }).(pulumi.StringOutput)
+}
+
+// The LegalHold property of the container.
+func (o LookupBlobContainerResultOutput) LegalHold() LegalHoldPropertiesResponseOutput {
+	return o.ApplyT(func(v LookupBlobContainerResult) LegalHoldPropertiesResponse { return v.LegalHold }).(LegalHoldPropertiesResponseOutput)
+}
+
+// A name-value pair to associate with the container as metadata.
+func (o LookupBlobContainerResultOutput) Metadata() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupBlobContainerResult) map[string]string { return v.Metadata }).(pulumi.StringMapOutput)
+}
+
+// The name of the resource
+func (o LookupBlobContainerResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBlobContainerResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Specifies whether data in the container may be accessed publicly and the level of access.
+func (o LookupBlobContainerResultOutput) PublicAccess() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupBlobContainerResult) *string { return v.PublicAccess }).(pulumi.StringPtrOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o LookupBlobContainerResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBlobContainerResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupBlobContainerResultOutput{})
 }

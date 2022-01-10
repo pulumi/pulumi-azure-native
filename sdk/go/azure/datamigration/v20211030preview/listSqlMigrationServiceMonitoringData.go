@@ -4,6 +4,9 @@
 package v20211030preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -30,4 +33,53 @@ type ListSqlMigrationServiceMonitoringDataResult struct {
 	Name string `pulumi:"name"`
 	// Integration Runtime node monitoring data.
 	Nodes []NodeMonitoringDataResponse `pulumi:"nodes"`
+}
+
+func ListSqlMigrationServiceMonitoringDataOutput(ctx *pulumi.Context, args ListSqlMigrationServiceMonitoringDataOutputArgs, opts ...pulumi.InvokeOption) ListSqlMigrationServiceMonitoringDataResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (ListSqlMigrationServiceMonitoringDataResult, error) {
+			args := v.(ListSqlMigrationServiceMonitoringDataArgs)
+			r, err := ListSqlMigrationServiceMonitoringData(ctx, &args, opts...)
+			return *r, err
+		}).(ListSqlMigrationServiceMonitoringDataResultOutput)
+}
+
+type ListSqlMigrationServiceMonitoringDataOutputArgs struct {
+	// Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// Name of the SQL Migration Service.
+	SqlMigrationServiceName pulumi.StringInput `pulumi:"sqlMigrationServiceName"`
+}
+
+func (ListSqlMigrationServiceMonitoringDataOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListSqlMigrationServiceMonitoringDataArgs)(nil)).Elem()
+}
+
+// Integration Runtime Monitoring Data.
+type ListSqlMigrationServiceMonitoringDataResultOutput struct{ *pulumi.OutputState }
+
+func (ListSqlMigrationServiceMonitoringDataResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListSqlMigrationServiceMonitoringDataResult)(nil)).Elem()
+}
+
+func (o ListSqlMigrationServiceMonitoringDataResultOutput) ToListSqlMigrationServiceMonitoringDataResultOutput() ListSqlMigrationServiceMonitoringDataResultOutput {
+	return o
+}
+
+func (o ListSqlMigrationServiceMonitoringDataResultOutput) ToListSqlMigrationServiceMonitoringDataResultOutputWithContext(ctx context.Context) ListSqlMigrationServiceMonitoringDataResultOutput {
+	return o
+}
+
+// The name of Integration Runtime.
+func (o ListSqlMigrationServiceMonitoringDataResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ListSqlMigrationServiceMonitoringDataResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Integration Runtime node monitoring data.
+func (o ListSqlMigrationServiceMonitoringDataResultOutput) Nodes() NodeMonitoringDataResponseArrayOutput {
+	return o.ApplyT(func(v ListSqlMigrationServiceMonitoringDataResult) []NodeMonitoringDataResponse { return v.Nodes }).(NodeMonitoringDataResponseArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(ListSqlMigrationServiceMonitoringDataResultOutput{})
 }

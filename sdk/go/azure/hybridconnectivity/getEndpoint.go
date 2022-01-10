@@ -4,6 +4,9 @@
 package hybridconnectivity
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -48,4 +51,97 @@ type LookupEndpointResult struct {
 	ResourceId *string `pulumi:"resourceId"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
+}
+
+func LookupEndpointOutput(ctx *pulumi.Context, args LookupEndpointOutputArgs, opts ...pulumi.InvokeOption) LookupEndpointResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupEndpointResult, error) {
+			args := v.(LookupEndpointArgs)
+			r, err := LookupEndpoint(ctx, &args, opts...)
+			return *r, err
+		}).(LookupEndpointResultOutput)
+}
+
+type LookupEndpointOutputArgs struct {
+	// The endpoint name.
+	EndpointName pulumi.StringInput `pulumi:"endpointName"`
+	// The fully qualified Azure Resource manager identifier of the resource to be connected.
+	ResourceUri pulumi.StringInput `pulumi:"resourceUri"`
+}
+
+func (LookupEndpointOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupEndpointArgs)(nil)).Elem()
+}
+
+// The endpoint for the target resource.
+type LookupEndpointResultOutput struct{ *pulumi.OutputState }
+
+func (LookupEndpointResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupEndpointResult)(nil)).Elem()
+}
+
+func (o LookupEndpointResultOutput) ToLookupEndpointResultOutput() LookupEndpointResultOutput {
+	return o
+}
+
+func (o LookupEndpointResultOutput) ToLookupEndpointResultOutputWithContext(ctx context.Context) LookupEndpointResultOutput {
+	return o
+}
+
+// The timestamp of resource creation (UTC).
+func (o LookupEndpointResultOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupEndpointResult) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
+}
+
+// The identity that created the resource.
+func (o LookupEndpointResultOutput) CreatedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupEndpointResult) *string { return v.CreatedBy }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that created the resource.
+func (o LookupEndpointResultOutput) CreatedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupEndpointResult) *string { return v.CreatedByType }).(pulumi.StringPtrOutput)
+}
+
+// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+func (o LookupEndpointResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupEndpointResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The timestamp of resource last modification (UTC)
+func (o LookupEndpointResultOutput) LastModifiedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupEndpointResult) *string { return v.LastModifiedAt }).(pulumi.StringPtrOutput)
+}
+
+// The identity that last modified the resource.
+func (o LookupEndpointResultOutput) LastModifiedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupEndpointResult) *string { return v.LastModifiedBy }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that last modified the resource.
+func (o LookupEndpointResultOutput) LastModifiedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupEndpointResult) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource
+func (o LookupEndpointResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupEndpointResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupEndpointResultOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupEndpointResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The resource Id of the connectivity endpoint (optional).
+func (o LookupEndpointResultOutput) ResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupEndpointResult) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o LookupEndpointResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupEndpointResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupEndpointResultOutput{})
 }

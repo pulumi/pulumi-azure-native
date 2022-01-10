@@ -8325,6 +8325,179 @@ func (o ObjectReplicationPolicyRuleResponseArrayOutput) Index(i pulumi.IntInput)
 	}).(ObjectReplicationPolicyRuleResponseOutput)
 }
 
+type PermissionScope struct {
+	// The permissions for the local user. Possible values include: Read (r), Write (w), Delete (d), List (l), and Create (c).
+	Permissions string `pulumi:"permissions"`
+	// The name of resource, normally the container name or the file share name, used by the local user.
+	ResourceName string `pulumi:"resourceName"`
+	// The service used by the local user, e.g. blob, file.
+	Service string `pulumi:"service"`
+}
+
+// PermissionScopeInput is an input type that accepts PermissionScopeArgs and PermissionScopeOutput values.
+// You can construct a concrete instance of `PermissionScopeInput` via:
+//
+//          PermissionScopeArgs{...}
+type PermissionScopeInput interface {
+	pulumi.Input
+
+	ToPermissionScopeOutput() PermissionScopeOutput
+	ToPermissionScopeOutputWithContext(context.Context) PermissionScopeOutput
+}
+
+type PermissionScopeArgs struct {
+	// The permissions for the local user. Possible values include: Read (r), Write (w), Delete (d), List (l), and Create (c).
+	Permissions pulumi.StringInput `pulumi:"permissions"`
+	// The name of resource, normally the container name or the file share name, used by the local user.
+	ResourceName pulumi.StringInput `pulumi:"resourceName"`
+	// The service used by the local user, e.g. blob, file.
+	Service pulumi.StringInput `pulumi:"service"`
+}
+
+func (PermissionScopeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PermissionScope)(nil)).Elem()
+}
+
+func (i PermissionScopeArgs) ToPermissionScopeOutput() PermissionScopeOutput {
+	return i.ToPermissionScopeOutputWithContext(context.Background())
+}
+
+func (i PermissionScopeArgs) ToPermissionScopeOutputWithContext(ctx context.Context) PermissionScopeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PermissionScopeOutput)
+}
+
+// PermissionScopeArrayInput is an input type that accepts PermissionScopeArray and PermissionScopeArrayOutput values.
+// You can construct a concrete instance of `PermissionScopeArrayInput` via:
+//
+//          PermissionScopeArray{ PermissionScopeArgs{...} }
+type PermissionScopeArrayInput interface {
+	pulumi.Input
+
+	ToPermissionScopeArrayOutput() PermissionScopeArrayOutput
+	ToPermissionScopeArrayOutputWithContext(context.Context) PermissionScopeArrayOutput
+}
+
+type PermissionScopeArray []PermissionScopeInput
+
+func (PermissionScopeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PermissionScope)(nil)).Elem()
+}
+
+func (i PermissionScopeArray) ToPermissionScopeArrayOutput() PermissionScopeArrayOutput {
+	return i.ToPermissionScopeArrayOutputWithContext(context.Background())
+}
+
+func (i PermissionScopeArray) ToPermissionScopeArrayOutputWithContext(ctx context.Context) PermissionScopeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PermissionScopeArrayOutput)
+}
+
+type PermissionScopeOutput struct{ *pulumi.OutputState }
+
+func (PermissionScopeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PermissionScope)(nil)).Elem()
+}
+
+func (o PermissionScopeOutput) ToPermissionScopeOutput() PermissionScopeOutput {
+	return o
+}
+
+func (o PermissionScopeOutput) ToPermissionScopeOutputWithContext(ctx context.Context) PermissionScopeOutput {
+	return o
+}
+
+// The permissions for the local user. Possible values include: Read (r), Write (w), Delete (d), List (l), and Create (c).
+func (o PermissionScopeOutput) Permissions() pulumi.StringOutput {
+	return o.ApplyT(func(v PermissionScope) string { return v.Permissions }).(pulumi.StringOutput)
+}
+
+// The name of resource, normally the container name or the file share name, used by the local user.
+func (o PermissionScopeOutput) ResourceName() pulumi.StringOutput {
+	return o.ApplyT(func(v PermissionScope) string { return v.ResourceName }).(pulumi.StringOutput)
+}
+
+// The service used by the local user, e.g. blob, file.
+func (o PermissionScopeOutput) Service() pulumi.StringOutput {
+	return o.ApplyT(func(v PermissionScope) string { return v.Service }).(pulumi.StringOutput)
+}
+
+type PermissionScopeArrayOutput struct{ *pulumi.OutputState }
+
+func (PermissionScopeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PermissionScope)(nil)).Elem()
+}
+
+func (o PermissionScopeArrayOutput) ToPermissionScopeArrayOutput() PermissionScopeArrayOutput {
+	return o
+}
+
+func (o PermissionScopeArrayOutput) ToPermissionScopeArrayOutputWithContext(ctx context.Context) PermissionScopeArrayOutput {
+	return o
+}
+
+func (o PermissionScopeArrayOutput) Index(i pulumi.IntInput) PermissionScopeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PermissionScope {
+		return vs[0].([]PermissionScope)[vs[1].(int)]
+	}).(PermissionScopeOutput)
+}
+
+type PermissionScopeResponse struct {
+	// The permissions for the local user. Possible values include: Read (r), Write (w), Delete (d), List (l), and Create (c).
+	Permissions string `pulumi:"permissions"`
+	// The name of resource, normally the container name or the file share name, used by the local user.
+	ResourceName string `pulumi:"resourceName"`
+	// The service used by the local user, e.g. blob, file.
+	Service string `pulumi:"service"`
+}
+
+type PermissionScopeResponseOutput struct{ *pulumi.OutputState }
+
+func (PermissionScopeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PermissionScopeResponse)(nil)).Elem()
+}
+
+func (o PermissionScopeResponseOutput) ToPermissionScopeResponseOutput() PermissionScopeResponseOutput {
+	return o
+}
+
+func (o PermissionScopeResponseOutput) ToPermissionScopeResponseOutputWithContext(ctx context.Context) PermissionScopeResponseOutput {
+	return o
+}
+
+// The permissions for the local user. Possible values include: Read (r), Write (w), Delete (d), List (l), and Create (c).
+func (o PermissionScopeResponseOutput) Permissions() pulumi.StringOutput {
+	return o.ApplyT(func(v PermissionScopeResponse) string { return v.Permissions }).(pulumi.StringOutput)
+}
+
+// The name of resource, normally the container name or the file share name, used by the local user.
+func (o PermissionScopeResponseOutput) ResourceName() pulumi.StringOutput {
+	return o.ApplyT(func(v PermissionScopeResponse) string { return v.ResourceName }).(pulumi.StringOutput)
+}
+
+// The service used by the local user, e.g. blob, file.
+func (o PermissionScopeResponseOutput) Service() pulumi.StringOutput {
+	return o.ApplyT(func(v PermissionScopeResponse) string { return v.Service }).(pulumi.StringOutput)
+}
+
+type PermissionScopeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (PermissionScopeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PermissionScopeResponse)(nil)).Elem()
+}
+
+func (o PermissionScopeResponseArrayOutput) ToPermissionScopeResponseArrayOutput() PermissionScopeResponseArrayOutput {
+	return o
+}
+
+func (o PermissionScopeResponseArrayOutput) ToPermissionScopeResponseArrayOutputWithContext(ctx context.Context) PermissionScopeResponseArrayOutput {
+	return o
+}
+
+func (o PermissionScopeResponseArrayOutput) Index(i pulumi.IntInput) PermissionScopeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PermissionScopeResponse {
+		return vs[0].([]PermissionScopeResponse)[vs[1].(int)]
+	}).(PermissionScopeResponseOutput)
+}
+
 // The Private Endpoint Connection resource.
 type PrivateEndpointConnectionResponse struct {
 	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
@@ -10133,6 +10306,163 @@ func (o SmbSettingResponsePtrOutput) Versions() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type SshPublicKey struct {
+	// Optional. It is used to store the function/usage of the key
+	Description *string `pulumi:"description"`
+	// Ssh public key base64 encoded. The format should be: '<keyType> <keyData>', e.g. ssh-rsa AAAABBBB
+	Key *string `pulumi:"key"`
+}
+
+// SshPublicKeyInput is an input type that accepts SshPublicKeyArgs and SshPublicKeyOutput values.
+// You can construct a concrete instance of `SshPublicKeyInput` via:
+//
+//          SshPublicKeyArgs{...}
+type SshPublicKeyInput interface {
+	pulumi.Input
+
+	ToSshPublicKeyOutput() SshPublicKeyOutput
+	ToSshPublicKeyOutputWithContext(context.Context) SshPublicKeyOutput
+}
+
+type SshPublicKeyArgs struct {
+	// Optional. It is used to store the function/usage of the key
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// Ssh public key base64 encoded. The format should be: '<keyType> <keyData>', e.g. ssh-rsa AAAABBBB
+	Key pulumi.StringPtrInput `pulumi:"key"`
+}
+
+func (SshPublicKeyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SshPublicKey)(nil)).Elem()
+}
+
+func (i SshPublicKeyArgs) ToSshPublicKeyOutput() SshPublicKeyOutput {
+	return i.ToSshPublicKeyOutputWithContext(context.Background())
+}
+
+func (i SshPublicKeyArgs) ToSshPublicKeyOutputWithContext(ctx context.Context) SshPublicKeyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SshPublicKeyOutput)
+}
+
+// SshPublicKeyArrayInput is an input type that accepts SshPublicKeyArray and SshPublicKeyArrayOutput values.
+// You can construct a concrete instance of `SshPublicKeyArrayInput` via:
+//
+//          SshPublicKeyArray{ SshPublicKeyArgs{...} }
+type SshPublicKeyArrayInput interface {
+	pulumi.Input
+
+	ToSshPublicKeyArrayOutput() SshPublicKeyArrayOutput
+	ToSshPublicKeyArrayOutputWithContext(context.Context) SshPublicKeyArrayOutput
+}
+
+type SshPublicKeyArray []SshPublicKeyInput
+
+func (SshPublicKeyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SshPublicKey)(nil)).Elem()
+}
+
+func (i SshPublicKeyArray) ToSshPublicKeyArrayOutput() SshPublicKeyArrayOutput {
+	return i.ToSshPublicKeyArrayOutputWithContext(context.Background())
+}
+
+func (i SshPublicKeyArray) ToSshPublicKeyArrayOutputWithContext(ctx context.Context) SshPublicKeyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SshPublicKeyArrayOutput)
+}
+
+type SshPublicKeyOutput struct{ *pulumi.OutputState }
+
+func (SshPublicKeyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SshPublicKey)(nil)).Elem()
+}
+
+func (o SshPublicKeyOutput) ToSshPublicKeyOutput() SshPublicKeyOutput {
+	return o
+}
+
+func (o SshPublicKeyOutput) ToSshPublicKeyOutputWithContext(ctx context.Context) SshPublicKeyOutput {
+	return o
+}
+
+// Optional. It is used to store the function/usage of the key
+func (o SshPublicKeyOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SshPublicKey) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Ssh public key base64 encoded. The format should be: '<keyType> <keyData>', e.g. ssh-rsa AAAABBBB
+func (o SshPublicKeyOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SshPublicKey) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+type SshPublicKeyArrayOutput struct{ *pulumi.OutputState }
+
+func (SshPublicKeyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SshPublicKey)(nil)).Elem()
+}
+
+func (o SshPublicKeyArrayOutput) ToSshPublicKeyArrayOutput() SshPublicKeyArrayOutput {
+	return o
+}
+
+func (o SshPublicKeyArrayOutput) ToSshPublicKeyArrayOutputWithContext(ctx context.Context) SshPublicKeyArrayOutput {
+	return o
+}
+
+func (o SshPublicKeyArrayOutput) Index(i pulumi.IntInput) SshPublicKeyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SshPublicKey {
+		return vs[0].([]SshPublicKey)[vs[1].(int)]
+	}).(SshPublicKeyOutput)
+}
+
+type SshPublicKeyResponse struct {
+	// Optional. It is used to store the function/usage of the key
+	Description *string `pulumi:"description"`
+	// Ssh public key base64 encoded. The format should be: '<keyType> <keyData>', e.g. ssh-rsa AAAABBBB
+	Key *string `pulumi:"key"`
+}
+
+type SshPublicKeyResponseOutput struct{ *pulumi.OutputState }
+
+func (SshPublicKeyResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SshPublicKeyResponse)(nil)).Elem()
+}
+
+func (o SshPublicKeyResponseOutput) ToSshPublicKeyResponseOutput() SshPublicKeyResponseOutput {
+	return o
+}
+
+func (o SshPublicKeyResponseOutput) ToSshPublicKeyResponseOutputWithContext(ctx context.Context) SshPublicKeyResponseOutput {
+	return o
+}
+
+// Optional. It is used to store the function/usage of the key
+func (o SshPublicKeyResponseOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SshPublicKeyResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Ssh public key base64 encoded. The format should be: '<keyType> <keyData>', e.g. ssh-rsa AAAABBBB
+func (o SshPublicKeyResponseOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SshPublicKeyResponse) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+type SshPublicKeyResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (SshPublicKeyResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SshPublicKeyResponse)(nil)).Elem()
+}
+
+func (o SshPublicKeyResponseArrayOutput) ToSshPublicKeyResponseArrayOutput() SshPublicKeyResponseArrayOutput {
+	return o
+}
+
+func (o SshPublicKeyResponseArrayOutput) ToSshPublicKeyResponseArrayOutputWithContext(ctx context.Context) SshPublicKeyResponseArrayOutput {
+	return o
+}
+
+func (o SshPublicKeyResponseArrayOutput) Index(i pulumi.IntInput) SshPublicKeyResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SshPublicKeyResponse {
+		return vs[0].([]SshPublicKeyResponse)[vs[1].(int)]
+	}).(SshPublicKeyResponseOutput)
+}
+
 // The URIs that are used to perform a retrieval of a public blob, file, web or dfs object via a internet routing endpoint.
 type StorageAccountInternetEndpointsResponse struct {
 	// Gets the blob endpoint.
@@ -10254,6 +10584,61 @@ type StorageAccountKeyResponse struct {
 	Permissions string `pulumi:"permissions"`
 	// Base 64-encoded value of the key.
 	Value string `pulumi:"value"`
+}
+
+// An access key for the storage account.
+type StorageAccountKeyResponseOutput struct{ *pulumi.OutputState }
+
+func (StorageAccountKeyResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageAccountKeyResponse)(nil)).Elem()
+}
+
+func (o StorageAccountKeyResponseOutput) ToStorageAccountKeyResponseOutput() StorageAccountKeyResponseOutput {
+	return o
+}
+
+func (o StorageAccountKeyResponseOutput) ToStorageAccountKeyResponseOutputWithContext(ctx context.Context) StorageAccountKeyResponseOutput {
+	return o
+}
+
+// Creation time of the key, in round trip date format.
+func (o StorageAccountKeyResponseOutput) CreationTime() pulumi.StringOutput {
+	return o.ApplyT(func(v StorageAccountKeyResponse) string { return v.CreationTime }).(pulumi.StringOutput)
+}
+
+// Name of the key.
+func (o StorageAccountKeyResponseOutput) KeyName() pulumi.StringOutput {
+	return o.ApplyT(func(v StorageAccountKeyResponse) string { return v.KeyName }).(pulumi.StringOutput)
+}
+
+// Permissions for the key -- read-only or full permissions.
+func (o StorageAccountKeyResponseOutput) Permissions() pulumi.StringOutput {
+	return o.ApplyT(func(v StorageAccountKeyResponse) string { return v.Permissions }).(pulumi.StringOutput)
+}
+
+// Base 64-encoded value of the key.
+func (o StorageAccountKeyResponseOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v StorageAccountKeyResponse) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type StorageAccountKeyResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (StorageAccountKeyResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StorageAccountKeyResponse)(nil)).Elem()
+}
+
+func (o StorageAccountKeyResponseArrayOutput) ToStorageAccountKeyResponseArrayOutput() StorageAccountKeyResponseArrayOutput {
+	return o
+}
+
+func (o StorageAccountKeyResponseArrayOutput) ToStorageAccountKeyResponseArrayOutputWithContext(ctx context.Context) StorageAccountKeyResponseArrayOutput {
+	return o
+}
+
+func (o StorageAccountKeyResponseArrayOutput) Index(i pulumi.IntInput) StorageAccountKeyResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StorageAccountKeyResponse {
+		return vs[0].([]StorageAccountKeyResponse)[vs[1].(int)]
+	}).(StorageAccountKeyResponseOutput)
 }
 
 // The URIs that are used to perform a retrieval of a public blob, queue, table, web or dfs object via a microsoft routing endpoint.
@@ -11190,6 +11575,10 @@ func init() {
 	pulumi.RegisterOutputType(ObjectReplicationPolicyRuleArrayOutput{})
 	pulumi.RegisterOutputType(ObjectReplicationPolicyRuleResponseOutput{})
 	pulumi.RegisterOutputType(ObjectReplicationPolicyRuleResponseArrayOutput{})
+	pulumi.RegisterOutputType(PermissionScopeOutput{})
+	pulumi.RegisterOutputType(PermissionScopeArrayOutput{})
+	pulumi.RegisterOutputType(PermissionScopeResponseOutput{})
+	pulumi.RegisterOutputType(PermissionScopeResponseArrayOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionResponseOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionResponseArrayOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointResponseOutput{})
@@ -11221,8 +11610,14 @@ func init() {
 	pulumi.RegisterOutputType(SmbSettingPtrOutput{})
 	pulumi.RegisterOutputType(SmbSettingResponseOutput{})
 	pulumi.RegisterOutputType(SmbSettingResponsePtrOutput{})
+	pulumi.RegisterOutputType(SshPublicKeyOutput{})
+	pulumi.RegisterOutputType(SshPublicKeyArrayOutput{})
+	pulumi.RegisterOutputType(SshPublicKeyResponseOutput{})
+	pulumi.RegisterOutputType(SshPublicKeyResponseArrayOutput{})
 	pulumi.RegisterOutputType(StorageAccountInternetEndpointsResponseOutput{})
 	pulumi.RegisterOutputType(StorageAccountInternetEndpointsResponsePtrOutput{})
+	pulumi.RegisterOutputType(StorageAccountKeyResponseOutput{})
+	pulumi.RegisterOutputType(StorageAccountKeyResponseArrayOutput{})
 	pulumi.RegisterOutputType(StorageAccountMicrosoftEndpointsResponseOutput{})
 	pulumi.RegisterOutputType(StorageAccountMicrosoftEndpointsResponsePtrOutput{})
 	pulumi.RegisterOutputType(SystemDataResponseOutput{})

@@ -192,6 +192,71 @@ type AmlComputeNodeInformationResponse struct {
 	RunId string `pulumi:"runId"`
 }
 
+// Compute node information related to a AmlCompute.
+type AmlComputeNodeInformationResponseOutput struct{ *pulumi.OutputState }
+
+func (AmlComputeNodeInformationResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AmlComputeNodeInformationResponse)(nil)).Elem()
+}
+
+func (o AmlComputeNodeInformationResponseOutput) ToAmlComputeNodeInformationResponseOutput() AmlComputeNodeInformationResponseOutput {
+	return o
+}
+
+func (o AmlComputeNodeInformationResponseOutput) ToAmlComputeNodeInformationResponseOutputWithContext(ctx context.Context) AmlComputeNodeInformationResponseOutput {
+	return o
+}
+
+// ID of the compute node.
+func (o AmlComputeNodeInformationResponseOutput) NodeId() pulumi.StringOutput {
+	return o.ApplyT(func(v AmlComputeNodeInformationResponse) string { return v.NodeId }).(pulumi.StringOutput)
+}
+
+// State of the compute node. Values are idle, running, preparing, unusable, leaving and preempted.
+func (o AmlComputeNodeInformationResponseOutput) NodeState() pulumi.StringOutput {
+	return o.ApplyT(func(v AmlComputeNodeInformationResponse) string { return v.NodeState }).(pulumi.StringOutput)
+}
+
+// SSH port number of the node.
+func (o AmlComputeNodeInformationResponseOutput) Port() pulumi.Float64Output {
+	return o.ApplyT(func(v AmlComputeNodeInformationResponse) float64 { return v.Port }).(pulumi.Float64Output)
+}
+
+// Private IP address of the compute node.
+func (o AmlComputeNodeInformationResponseOutput) PrivateIpAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v AmlComputeNodeInformationResponse) string { return v.PrivateIpAddress }).(pulumi.StringOutput)
+}
+
+// Public IP address of the compute node.
+func (o AmlComputeNodeInformationResponseOutput) PublicIpAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v AmlComputeNodeInformationResponse) string { return v.PublicIpAddress }).(pulumi.StringOutput)
+}
+
+// ID of the Experiment running on the node, if any else null.
+func (o AmlComputeNodeInformationResponseOutput) RunId() pulumi.StringOutput {
+	return o.ApplyT(func(v AmlComputeNodeInformationResponse) string { return v.RunId }).(pulumi.StringOutput)
+}
+
+type AmlComputeNodeInformationResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (AmlComputeNodeInformationResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AmlComputeNodeInformationResponse)(nil)).Elem()
+}
+
+func (o AmlComputeNodeInformationResponseArrayOutput) ToAmlComputeNodeInformationResponseArrayOutput() AmlComputeNodeInformationResponseArrayOutput {
+	return o
+}
+
+func (o AmlComputeNodeInformationResponseArrayOutput) ToAmlComputeNodeInformationResponseArrayOutputWithContext(ctx context.Context) AmlComputeNodeInformationResponseArrayOutput {
+	return o
+}
+
+func (o AmlComputeNodeInformationResponseArrayOutput) Index(i pulumi.IntInput) AmlComputeNodeInformationResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AmlComputeNodeInformationResponse {
+		return vs[0].([]AmlComputeNodeInformationResponse)[vs[1].(int)]
+	}).(AmlComputeNodeInformationResponseOutput)
+}
+
 // AML Compute properties
 type AmlComputeProperties struct {
 	// State of the public SSH port. Possible values are: Disabled - Indicates that the public ssh port is closed on all nodes of the cluster. Enabled - Indicates that the public ssh port is open on all nodes of the cluster. NotSpecified - Indicates that the public ssh port is closed on all nodes of the cluster if VNet is defined, else is open all public nodes. It can be default only during cluster creation time, after creation it will be either enabled or disabled.
@@ -1356,6 +1421,70 @@ type NotebookListCredentialsResultResponse struct {
 	SecondaryAccessKey *string `pulumi:"secondaryAccessKey"`
 }
 
+type NotebookListCredentialsResultResponseOutput struct{ *pulumi.OutputState }
+
+func (NotebookListCredentialsResultResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NotebookListCredentialsResultResponse)(nil)).Elem()
+}
+
+func (o NotebookListCredentialsResultResponseOutput) ToNotebookListCredentialsResultResponseOutput() NotebookListCredentialsResultResponseOutput {
+	return o
+}
+
+func (o NotebookListCredentialsResultResponseOutput) ToNotebookListCredentialsResultResponseOutputWithContext(ctx context.Context) NotebookListCredentialsResultResponseOutput {
+	return o
+}
+
+func (o NotebookListCredentialsResultResponseOutput) PrimaryAccessKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NotebookListCredentialsResultResponse) *string { return v.PrimaryAccessKey }).(pulumi.StringPtrOutput)
+}
+
+func (o NotebookListCredentialsResultResponseOutput) SecondaryAccessKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NotebookListCredentialsResultResponse) *string { return v.SecondaryAccessKey }).(pulumi.StringPtrOutput)
+}
+
+type NotebookListCredentialsResultResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (NotebookListCredentialsResultResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NotebookListCredentialsResultResponse)(nil)).Elem()
+}
+
+func (o NotebookListCredentialsResultResponsePtrOutput) ToNotebookListCredentialsResultResponsePtrOutput() NotebookListCredentialsResultResponsePtrOutput {
+	return o
+}
+
+func (o NotebookListCredentialsResultResponsePtrOutput) ToNotebookListCredentialsResultResponsePtrOutputWithContext(ctx context.Context) NotebookListCredentialsResultResponsePtrOutput {
+	return o
+}
+
+func (o NotebookListCredentialsResultResponsePtrOutput) Elem() NotebookListCredentialsResultResponseOutput {
+	return o.ApplyT(func(v *NotebookListCredentialsResultResponse) NotebookListCredentialsResultResponse {
+		if v != nil {
+			return *v
+		}
+		var ret NotebookListCredentialsResultResponse
+		return ret
+	}).(NotebookListCredentialsResultResponseOutput)
+}
+
+func (o NotebookListCredentialsResultResponsePtrOutput) PrimaryAccessKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NotebookListCredentialsResultResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrimaryAccessKey
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o NotebookListCredentialsResultResponsePtrOutput) SecondaryAccessKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NotebookListCredentialsResultResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SecondaryAccessKey
+	}).(pulumi.StringPtrOutput)
+}
+
 type NotebookPreparationErrorResponse struct {
 	ErrorMessage *string `pulumi:"errorMessage"`
 	StatusCode   *int    `pulumi:"statusCode"`
@@ -1466,6 +1595,48 @@ func (o NotebookResourceInfoResponseOutput) ResourceId() pulumi.StringPtrOutput 
 type PasswordResponse struct {
 	Name  string `pulumi:"name"`
 	Value string `pulumi:"value"`
+}
+
+type PasswordResponseOutput struct{ *pulumi.OutputState }
+
+func (PasswordResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PasswordResponse)(nil)).Elem()
+}
+
+func (o PasswordResponseOutput) ToPasswordResponseOutput() PasswordResponseOutput {
+	return o
+}
+
+func (o PasswordResponseOutput) ToPasswordResponseOutputWithContext(ctx context.Context) PasswordResponseOutput {
+	return o
+}
+
+func (o PasswordResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v PasswordResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o PasswordResponseOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v PasswordResponse) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type PasswordResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (PasswordResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PasswordResponse)(nil)).Elem()
+}
+
+func (o PasswordResponseArrayOutput) ToPasswordResponseArrayOutput() PasswordResponseArrayOutput {
+	return o
+}
+
+func (o PasswordResponseArrayOutput) ToPasswordResponseArrayOutputWithContext(ctx context.Context) PasswordResponseArrayOutput {
+	return o
+}
+
+func (o PasswordResponseArrayOutput) Index(i pulumi.IntInput) PasswordResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PasswordResponse {
+		return vs[0].([]PasswordResponse)[vs[1].(int)]
+	}).(PasswordResponseOutput)
 }
 
 // The Private Endpoint Connection resource.
@@ -1756,6 +1927,32 @@ type RegistryListCredentialsResultResponse struct {
 	Location  string             `pulumi:"location"`
 	Passwords []PasswordResponse `pulumi:"passwords"`
 	Username  string             `pulumi:"username"`
+}
+
+type RegistryListCredentialsResultResponseOutput struct{ *pulumi.OutputState }
+
+func (RegistryListCredentialsResultResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegistryListCredentialsResultResponse)(nil)).Elem()
+}
+
+func (o RegistryListCredentialsResultResponseOutput) ToRegistryListCredentialsResultResponseOutput() RegistryListCredentialsResultResponseOutput {
+	return o
+}
+
+func (o RegistryListCredentialsResultResponseOutput) ToRegistryListCredentialsResultResponseOutputWithContext(ctx context.Context) RegistryListCredentialsResultResponseOutput {
+	return o
+}
+
+func (o RegistryListCredentialsResultResponseOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v RegistryListCredentialsResultResponse) string { return v.Location }).(pulumi.StringOutput)
+}
+
+func (o RegistryListCredentialsResultResponseOutput) Passwords() PasswordResponseArrayOutput {
+	return o.ApplyT(func(v RegistryListCredentialsResultResponse) []PasswordResponse { return v.Passwords }).(PasswordResponseArrayOutput)
+}
+
+func (o RegistryListCredentialsResultResponseOutput) Username() pulumi.StringOutput {
+	return o.ApplyT(func(v RegistryListCredentialsResultResponse) string { return v.Username }).(pulumi.StringOutput)
 }
 
 // Represents a resource ID. For example, for a subnet, it is the resource URL for the subnet.
@@ -2430,6 +2627,8 @@ type VirtualMachineSshCredentialsResponse struct {
 }
 
 func init() {
+	pulumi.RegisterOutputType(AmlComputeNodeInformationResponseOutput{})
+	pulumi.RegisterOutputType(AmlComputeNodeInformationResponseArrayOutput{})
 	pulumi.RegisterOutputType(EncryptionPropertyOutput{})
 	pulumi.RegisterOutputType(EncryptionPropertyPtrOutput{})
 	pulumi.RegisterOutputType(EncryptionPropertyResponseOutput{})
@@ -2444,15 +2643,20 @@ func init() {
 	pulumi.RegisterOutputType(KeyVaultPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(KeyVaultPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(KeyVaultPropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(NotebookListCredentialsResultResponseOutput{})
+	pulumi.RegisterOutputType(NotebookListCredentialsResultResponsePtrOutput{})
 	pulumi.RegisterOutputType(NotebookPreparationErrorResponseOutput{})
 	pulumi.RegisterOutputType(NotebookPreparationErrorResponsePtrOutput{})
 	pulumi.RegisterOutputType(NotebookResourceInfoResponseOutput{})
+	pulumi.RegisterOutputType(PasswordResponseOutput{})
+	pulumi.RegisterOutputType(PasswordResponseArrayOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionResponseOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionResponseArrayOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointResponseOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointResponsePtrOutput{})
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStateOutput{})
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStateResponseOutput{})
+	pulumi.RegisterOutputType(RegistryListCredentialsResultResponseOutput{})
 	pulumi.RegisterOutputType(SharedPrivateLinkResourceOutput{})
 	pulumi.RegisterOutputType(SharedPrivateLinkResourceArrayOutput{})
 	pulumi.RegisterOutputType(SharedPrivateLinkResourceResponseOutput{})

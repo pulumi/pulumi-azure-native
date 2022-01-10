@@ -4,6 +4,9 @@
 package v20210601preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -39,4 +42,72 @@ type LookupSkusNestedResourceTypeSecondResult struct {
 	SystemData SystemDataResponse `pulumi:"systemData"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
+}
+
+func LookupSkusNestedResourceTypeSecondOutput(ctx *pulumi.Context, args LookupSkusNestedResourceTypeSecondOutputArgs, opts ...pulumi.InvokeOption) LookupSkusNestedResourceTypeSecondResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupSkusNestedResourceTypeSecondResult, error) {
+			args := v.(LookupSkusNestedResourceTypeSecondArgs)
+			r, err := LookupSkusNestedResourceTypeSecond(ctx, &args, opts...)
+			return *r, err
+		}).(LookupSkusNestedResourceTypeSecondResultOutput)
+}
+
+type LookupSkusNestedResourceTypeSecondOutputArgs struct {
+	// The first child resource type.
+	NestedResourceTypeFirst pulumi.StringInput `pulumi:"nestedResourceTypeFirst"`
+	// The second child resource type.
+	NestedResourceTypeSecond pulumi.StringInput `pulumi:"nestedResourceTypeSecond"`
+	// The name of the resource provider hosted within ProviderHub.
+	ProviderNamespace pulumi.StringInput `pulumi:"providerNamespace"`
+	// The resource type.
+	ResourceType pulumi.StringInput `pulumi:"resourceType"`
+	// The SKU.
+	Sku pulumi.StringInput `pulumi:"sku"`
+}
+
+func (LookupSkusNestedResourceTypeSecondOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupSkusNestedResourceTypeSecondArgs)(nil)).Elem()
+}
+
+type LookupSkusNestedResourceTypeSecondResultOutput struct{ *pulumi.OutputState }
+
+func (LookupSkusNestedResourceTypeSecondResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupSkusNestedResourceTypeSecondResult)(nil)).Elem()
+}
+
+func (o LookupSkusNestedResourceTypeSecondResultOutput) ToLookupSkusNestedResourceTypeSecondResultOutput() LookupSkusNestedResourceTypeSecondResultOutput {
+	return o
+}
+
+func (o LookupSkusNestedResourceTypeSecondResultOutput) ToLookupSkusNestedResourceTypeSecondResultOutputWithContext(ctx context.Context) LookupSkusNestedResourceTypeSecondResultOutput {
+	return o
+}
+
+// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+func (o LookupSkusNestedResourceTypeSecondResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSkusNestedResourceTypeSecondResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o LookupSkusNestedResourceTypeSecondResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSkusNestedResourceTypeSecondResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupSkusNestedResourceTypeSecondResultOutput) Properties() SkuResourceResponsePropertiesOutput {
+	return o.ApplyT(func(v LookupSkusNestedResourceTypeSecondResult) SkuResourceResponseProperties { return v.Properties }).(SkuResourceResponsePropertiesOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o LookupSkusNestedResourceTypeSecondResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupSkusNestedResourceTypeSecondResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o LookupSkusNestedResourceTypeSecondResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSkusNestedResourceTypeSecondResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupSkusNestedResourceTypeSecondResultOutput{})
 }

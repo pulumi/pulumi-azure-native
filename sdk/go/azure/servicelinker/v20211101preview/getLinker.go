@@ -4,6 +4,9 @@
 package v20211101preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -42,4 +45,83 @@ type LookupLinkerResult struct {
 	TargetId *string `pulumi:"targetId"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
+}
+
+func LookupLinkerOutput(ctx *pulumi.Context, args LookupLinkerOutputArgs, opts ...pulumi.InvokeOption) LookupLinkerResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupLinkerResult, error) {
+			args := v.(LookupLinkerArgs)
+			r, err := LookupLinker(ctx, &args, opts...)
+			return *r, err
+		}).(LookupLinkerResultOutput)
+}
+
+type LookupLinkerOutputArgs struct {
+	// The name Linker resource.
+	LinkerName pulumi.StringInput `pulumi:"linkerName"`
+	// The fully qualified Azure Resource manager identifier of the resource to be connected.
+	ResourceUri pulumi.StringInput `pulumi:"resourceUri"`
+}
+
+func (LookupLinkerOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupLinkerArgs)(nil)).Elem()
+}
+
+// Linker of source and target resource
+type LookupLinkerResultOutput struct{ *pulumi.OutputState }
+
+func (LookupLinkerResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupLinkerResult)(nil)).Elem()
+}
+
+func (o LookupLinkerResultOutput) ToLookupLinkerResultOutput() LookupLinkerResultOutput {
+	return o
+}
+
+func (o LookupLinkerResultOutput) ToLookupLinkerResultOutputWithContext(ctx context.Context) LookupLinkerResultOutput {
+	return o
+}
+
+// The authentication type.
+func (o LookupLinkerResultOutput) AuthInfo() pulumi.AnyOutput {
+	return o.ApplyT(func(v LookupLinkerResult) interface{} { return v.AuthInfo }).(pulumi.AnyOutput)
+}
+
+// The application client type
+func (o LookupLinkerResultOutput) ClientType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupLinkerResult) *string { return v.ClientType }).(pulumi.StringPtrOutput)
+}
+
+// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+func (o LookupLinkerResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupLinkerResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o LookupLinkerResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupLinkerResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The provisioning state.
+func (o LookupLinkerResultOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupLinkerResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The system data.
+func (o LookupLinkerResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupLinkerResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The resource Id of target service.
+func (o LookupLinkerResultOutput) TargetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupLinkerResult) *string { return v.TargetId }).(pulumi.StringPtrOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o LookupLinkerResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupLinkerResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupLinkerResultOutput{})
 }

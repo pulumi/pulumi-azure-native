@@ -4,6 +4,9 @@
 package v20210308
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -46,4 +49,97 @@ type GetprivateLinkServicesForM365SecurityCenterResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// The resource type.
 	Type string `pulumi:"type"`
+}
+
+func GetprivateLinkServicesForM365SecurityCenterOutput(ctx *pulumi.Context, args GetprivateLinkServicesForM365SecurityCenterOutputArgs, opts ...pulumi.InvokeOption) GetprivateLinkServicesForM365SecurityCenterResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetprivateLinkServicesForM365SecurityCenterResult, error) {
+			args := v.(GetprivateLinkServicesForM365SecurityCenterArgs)
+			r, err := GetprivateLinkServicesForM365SecurityCenter(ctx, &args, opts...)
+			return *r, err
+		}).(GetprivateLinkServicesForM365SecurityCenterResultOutput)
+}
+
+type GetprivateLinkServicesForM365SecurityCenterOutputArgs struct {
+	// The name of the resource group that contains the service instance.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the service instance.
+	ResourceName pulumi.StringInput `pulumi:"resourceName"`
+}
+
+func (GetprivateLinkServicesForM365SecurityCenterOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetprivateLinkServicesForM365SecurityCenterArgs)(nil)).Elem()
+}
+
+// The description of the service.
+type GetprivateLinkServicesForM365SecurityCenterResultOutput struct{ *pulumi.OutputState }
+
+func (GetprivateLinkServicesForM365SecurityCenterResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetprivateLinkServicesForM365SecurityCenterResult)(nil)).Elem()
+}
+
+func (o GetprivateLinkServicesForM365SecurityCenterResultOutput) ToGetprivateLinkServicesForM365SecurityCenterResultOutput() GetprivateLinkServicesForM365SecurityCenterResultOutput {
+	return o
+}
+
+func (o GetprivateLinkServicesForM365SecurityCenterResultOutput) ToGetprivateLinkServicesForM365SecurityCenterResultOutputWithContext(ctx context.Context) GetprivateLinkServicesForM365SecurityCenterResultOutput {
+	return o
+}
+
+// An etag associated with the resource, used for optimistic concurrency when editing it.
+func (o GetprivateLinkServicesForM365SecurityCenterResultOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetprivateLinkServicesForM365SecurityCenterResult) *string { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// The resource identifier.
+func (o GetprivateLinkServicesForM365SecurityCenterResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetprivateLinkServicesForM365SecurityCenterResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Setting indicating whether the service has a managed identity associated with it.
+func (o GetprivateLinkServicesForM365SecurityCenterResultOutput) Identity() ServicesResourceResponseIdentityPtrOutput {
+	return o.ApplyT(func(v GetprivateLinkServicesForM365SecurityCenterResult) *ServicesResourceResponseIdentity {
+		return v.Identity
+	}).(ServicesResourceResponseIdentityPtrOutput)
+}
+
+// The kind of the service.
+func (o GetprivateLinkServicesForM365SecurityCenterResultOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v GetprivateLinkServicesForM365SecurityCenterResult) string { return v.Kind }).(pulumi.StringOutput)
+}
+
+// The resource location.
+func (o GetprivateLinkServicesForM365SecurityCenterResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v GetprivateLinkServicesForM365SecurityCenterResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// The resource name.
+func (o GetprivateLinkServicesForM365SecurityCenterResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetprivateLinkServicesForM365SecurityCenterResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The common properties of a service.
+func (o GetprivateLinkServicesForM365SecurityCenterResultOutput) Properties() ServicesPropertiesResponseOutput {
+	return o.ApplyT(func(v GetprivateLinkServicesForM365SecurityCenterResult) ServicesPropertiesResponse {
+		return v.Properties
+	}).(ServicesPropertiesResponseOutput)
+}
+
+// Required property for system data
+func (o GetprivateLinkServicesForM365SecurityCenterResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v GetprivateLinkServicesForM365SecurityCenterResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The resource tags.
+func (o GetprivateLinkServicesForM365SecurityCenterResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetprivateLinkServicesForM365SecurityCenterResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The resource type.
+func (o GetprivateLinkServicesForM365SecurityCenterResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetprivateLinkServicesForM365SecurityCenterResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetprivateLinkServicesForM365SecurityCenterResultOutput{})
 }

@@ -4,6 +4,9 @@
 package mixedreality
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -31,4 +34,53 @@ type ListRemoteRenderingAccountKeysResult struct {
 	PrimaryKey string `pulumi:"primaryKey"`
 	// value of secondary key.
 	SecondaryKey string `pulumi:"secondaryKey"`
+}
+
+func ListRemoteRenderingAccountKeysOutput(ctx *pulumi.Context, args ListRemoteRenderingAccountKeysOutputArgs, opts ...pulumi.InvokeOption) ListRemoteRenderingAccountKeysResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (ListRemoteRenderingAccountKeysResult, error) {
+			args := v.(ListRemoteRenderingAccountKeysArgs)
+			r, err := ListRemoteRenderingAccountKeys(ctx, &args, opts...)
+			return *r, err
+		}).(ListRemoteRenderingAccountKeysResultOutput)
+}
+
+type ListRemoteRenderingAccountKeysOutputArgs struct {
+	// Name of an Mixed Reality Account.
+	AccountName pulumi.StringInput `pulumi:"accountName"`
+	// Name of an Azure resource group.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (ListRemoteRenderingAccountKeysOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListRemoteRenderingAccountKeysArgs)(nil)).Elem()
+}
+
+// Developer Keys of account
+type ListRemoteRenderingAccountKeysResultOutput struct{ *pulumi.OutputState }
+
+func (ListRemoteRenderingAccountKeysResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListRemoteRenderingAccountKeysResult)(nil)).Elem()
+}
+
+func (o ListRemoteRenderingAccountKeysResultOutput) ToListRemoteRenderingAccountKeysResultOutput() ListRemoteRenderingAccountKeysResultOutput {
+	return o
+}
+
+func (o ListRemoteRenderingAccountKeysResultOutput) ToListRemoteRenderingAccountKeysResultOutputWithContext(ctx context.Context) ListRemoteRenderingAccountKeysResultOutput {
+	return o
+}
+
+// value of primary key.
+func (o ListRemoteRenderingAccountKeysResultOutput) PrimaryKey() pulumi.StringOutput {
+	return o.ApplyT(func(v ListRemoteRenderingAccountKeysResult) string { return v.PrimaryKey }).(pulumi.StringOutput)
+}
+
+// value of secondary key.
+func (o ListRemoteRenderingAccountKeysResultOutput) SecondaryKey() pulumi.StringOutput {
+	return o.ApplyT(func(v ListRemoteRenderingAccountKeysResult) string { return v.SecondaryKey }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(ListRemoteRenderingAccountKeysResultOutput{})
 }

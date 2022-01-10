@@ -4,6 +4,9 @@
 package v20210301preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -44,4 +47,77 @@ type LookupDataConnectorResult struct {
 	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Azure resource type
 	Type string `pulumi:"type"`
+}
+
+func LookupDataConnectorOutput(ctx *pulumi.Context, args LookupDataConnectorOutputArgs, opts ...pulumi.InvokeOption) LookupDataConnectorResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupDataConnectorResult, error) {
+			args := v.(LookupDataConnectorArgs)
+			r, err := LookupDataConnector(ctx, &args, opts...)
+			return *r, err
+		}).(LookupDataConnectorResultOutput)
+}
+
+type LookupDataConnectorOutputArgs struct {
+	// Connector ID
+	DataConnectorId pulumi.StringInput `pulumi:"dataConnectorId"`
+	// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
+	OperationalInsightsResourceProvider pulumi.StringInput `pulumi:"operationalInsightsResourceProvider"`
+	// The name of the resource group. The name is case insensitive.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the workspace.
+	WorkspaceName pulumi.StringInput `pulumi:"workspaceName"`
+}
+
+func (LookupDataConnectorOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupDataConnectorArgs)(nil)).Elem()
+}
+
+// Data connector
+type LookupDataConnectorResultOutput struct{ *pulumi.OutputState }
+
+func (LookupDataConnectorResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupDataConnectorResult)(nil)).Elem()
+}
+
+func (o LookupDataConnectorResultOutput) ToLookupDataConnectorResultOutput() LookupDataConnectorResultOutput {
+	return o
+}
+
+func (o LookupDataConnectorResultOutput) ToLookupDataConnectorResultOutputWithContext(ctx context.Context) LookupDataConnectorResultOutput {
+	return o
+}
+
+// Etag of the azure resource
+func (o LookupDataConnectorResultOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDataConnectorResult) *string { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// Azure resource Id
+func (o LookupDataConnectorResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDataConnectorResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The data connector kind
+func (o LookupDataConnectorResultOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDataConnectorResult) string { return v.Kind }).(pulumi.StringOutput)
+}
+
+// Azure resource name
+func (o LookupDataConnectorResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDataConnectorResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+func (o LookupDataConnectorResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupDataConnectorResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Azure resource type
+func (o LookupDataConnectorResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDataConnectorResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupDataConnectorResultOutput{})
 }

@@ -4,6 +4,9 @@
 package v20201001preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -40,4 +43,80 @@ type LookupRoleManagementPolicyAssignmentResult struct {
 	Scope *string `pulumi:"scope"`
 	// The role management policy type.
 	Type string `pulumi:"type"`
+}
+
+func LookupRoleManagementPolicyAssignmentOutput(ctx *pulumi.Context, args LookupRoleManagementPolicyAssignmentOutputArgs, opts ...pulumi.InvokeOption) LookupRoleManagementPolicyAssignmentResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupRoleManagementPolicyAssignmentResult, error) {
+			args := v.(LookupRoleManagementPolicyAssignmentArgs)
+			r, err := LookupRoleManagementPolicyAssignment(ctx, &args, opts...)
+			return *r, err
+		}).(LookupRoleManagementPolicyAssignmentResultOutput)
+}
+
+type LookupRoleManagementPolicyAssignmentOutputArgs struct {
+	// The name of format {guid_guid} the role management policy assignment to get.
+	RoleManagementPolicyAssignmentName pulumi.StringInput `pulumi:"roleManagementPolicyAssignmentName"`
+	// The scope of the role management policy.
+	Scope pulumi.StringInput `pulumi:"scope"`
+}
+
+func (LookupRoleManagementPolicyAssignmentOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupRoleManagementPolicyAssignmentArgs)(nil)).Elem()
+}
+
+// Role management policy
+type LookupRoleManagementPolicyAssignmentResultOutput struct{ *pulumi.OutputState }
+
+func (LookupRoleManagementPolicyAssignmentResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupRoleManagementPolicyAssignmentResult)(nil)).Elem()
+}
+
+func (o LookupRoleManagementPolicyAssignmentResultOutput) ToLookupRoleManagementPolicyAssignmentResultOutput() LookupRoleManagementPolicyAssignmentResultOutput {
+	return o
+}
+
+func (o LookupRoleManagementPolicyAssignmentResultOutput) ToLookupRoleManagementPolicyAssignmentResultOutputWithContext(ctx context.Context) LookupRoleManagementPolicyAssignmentResultOutput {
+	return o
+}
+
+// The role management policy Id.
+func (o LookupRoleManagementPolicyAssignmentResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRoleManagementPolicyAssignmentResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The role management policy name.
+func (o LookupRoleManagementPolicyAssignmentResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRoleManagementPolicyAssignmentResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Additional properties of scope, role definition and policy
+func (o LookupRoleManagementPolicyAssignmentResultOutput) PolicyAssignmentProperties() PolicyAssignmentPropertiesResponseOutput {
+	return o.ApplyT(func(v LookupRoleManagementPolicyAssignmentResult) PolicyAssignmentPropertiesResponse {
+		return v.PolicyAssignmentProperties
+	}).(PolicyAssignmentPropertiesResponseOutput)
+}
+
+// The policy id role management policy assignment.
+func (o LookupRoleManagementPolicyAssignmentResultOutput) PolicyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupRoleManagementPolicyAssignmentResult) *string { return v.PolicyId }).(pulumi.StringPtrOutput)
+}
+
+// The role definition of management policy assignment.
+func (o LookupRoleManagementPolicyAssignmentResultOutput) RoleDefinitionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupRoleManagementPolicyAssignmentResult) *string { return v.RoleDefinitionId }).(pulumi.StringPtrOutput)
+}
+
+// The role management policy scope.
+func (o LookupRoleManagementPolicyAssignmentResultOutput) Scope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupRoleManagementPolicyAssignmentResult) *string { return v.Scope }).(pulumi.StringPtrOutput)
+}
+
+// The role management policy type.
+func (o LookupRoleManagementPolicyAssignmentResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRoleManagementPolicyAssignmentResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupRoleManagementPolicyAssignmentResultOutput{})
 }

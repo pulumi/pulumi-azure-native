@@ -4,6 +4,9 @@
 package v20211101
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -40,4 +43,78 @@ type LookupSqlServerInstanceResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
+}
+
+func LookupSqlServerInstanceOutput(ctx *pulumi.Context, args LookupSqlServerInstanceOutputArgs, opts ...pulumi.InvokeOption) LookupSqlServerInstanceResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupSqlServerInstanceResult, error) {
+			args := v.(LookupSqlServerInstanceArgs)
+			r, err := LookupSqlServerInstance(ctx, &args, opts...)
+			return *r, err
+		}).(LookupSqlServerInstanceResultOutput)
+}
+
+type LookupSqlServerInstanceOutputArgs struct {
+	// The name of the Azure resource group
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// Name of SQL Server Instance
+	SqlServerInstanceName pulumi.StringInput `pulumi:"sqlServerInstanceName"`
+}
+
+func (LookupSqlServerInstanceOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupSqlServerInstanceArgs)(nil)).Elem()
+}
+
+// A SqlServerInstance.
+type LookupSqlServerInstanceResultOutput struct{ *pulumi.OutputState }
+
+func (LookupSqlServerInstanceResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupSqlServerInstanceResult)(nil)).Elem()
+}
+
+func (o LookupSqlServerInstanceResultOutput) ToLookupSqlServerInstanceResultOutput() LookupSqlServerInstanceResultOutput {
+	return o
+}
+
+func (o LookupSqlServerInstanceResultOutput) ToLookupSqlServerInstanceResultOutputWithContext(ctx context.Context) LookupSqlServerInstanceResultOutput {
+	return o
+}
+
+// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+func (o LookupSqlServerInstanceResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSqlServerInstanceResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The geo-location where the resource lives
+func (o LookupSqlServerInstanceResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSqlServerInstanceResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o LookupSqlServerInstanceResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSqlServerInstanceResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// null
+func (o LookupSqlServerInstanceResultOutput) Properties() SqlServerInstancePropertiesResponseOutput {
+	return o.ApplyT(func(v LookupSqlServerInstanceResult) SqlServerInstancePropertiesResponse { return v.Properties }).(SqlServerInstancePropertiesResponseOutput)
+}
+
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+func (o LookupSqlServerInstanceResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupSqlServerInstanceResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource tags.
+func (o LookupSqlServerInstanceResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupSqlServerInstanceResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o LookupSqlServerInstanceResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSqlServerInstanceResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupSqlServerInstanceResultOutput{})
 }

@@ -1400,6 +1400,51 @@ type CredentialResultResponse struct {
 	Value string `pulumi:"value"`
 }
 
+// The credential result response.
+type CredentialResultResponseOutput struct{ *pulumi.OutputState }
+
+func (CredentialResultResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CredentialResultResponse)(nil)).Elem()
+}
+
+func (o CredentialResultResponseOutput) ToCredentialResultResponseOutput() CredentialResultResponseOutput {
+	return o
+}
+
+func (o CredentialResultResponseOutput) ToCredentialResultResponseOutputWithContext(ctx context.Context) CredentialResultResponseOutput {
+	return o
+}
+
+// The name of the credential.
+func (o CredentialResultResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v CredentialResultResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Base64-encoded Kubernetes configuration file.
+func (o CredentialResultResponseOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v CredentialResultResponse) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type CredentialResultResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (CredentialResultResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CredentialResultResponse)(nil)).Elem()
+}
+
+func (o CredentialResultResponseArrayOutput) ToCredentialResultResponseArrayOutput() CredentialResultResponseArrayOutput {
+	return o
+}
+
+func (o CredentialResultResponseArrayOutput) ToCredentialResultResponseArrayOutputWithContext(ctx context.Context) CredentialResultResponseArrayOutput {
+	return o
+}
+
+func (o CredentialResultResponseArrayOutput) Index(i pulumi.IntInput) CredentialResultResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CredentialResultResponse {
+		return vs[0].([]CredentialResultResponse)[vs[1].(int)]
+	}).(CredentialResultResponseOutput)
+}
+
 // AADProfile specifies attributes for Azure Active Directory integration.
 type ManagedClusterAADProfile struct {
 	// AAD group object IDs that will have admin role of the cluster.
@@ -6219,6 +6264,8 @@ func init() {
 	pulumi.RegisterOutputType(ContainerServiceSshPublicKeyArrayOutput{})
 	pulumi.RegisterOutputType(ContainerServiceSshPublicKeyResponseOutput{})
 	pulumi.RegisterOutputType(ContainerServiceSshPublicKeyResponseArrayOutput{})
+	pulumi.RegisterOutputType(CredentialResultResponseOutput{})
+	pulumi.RegisterOutputType(CredentialResultResponseArrayOutput{})
 	pulumi.RegisterOutputType(ManagedClusterAADProfileOutput{})
 	pulumi.RegisterOutputType(ManagedClusterAADProfilePtrOutput{})
 	pulumi.RegisterOutputType(ManagedClusterAADProfileResponseOutput{})

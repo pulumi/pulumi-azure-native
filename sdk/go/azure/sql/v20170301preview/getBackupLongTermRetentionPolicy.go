@@ -4,6 +4,9 @@
 package v20170301preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -44,4 +47,82 @@ type LookupBackupLongTermRetentionPolicyResult struct {
 	WeeklyRetention *string `pulumi:"weeklyRetention"`
 	// The yearly retention policy for an LTR backup in an ISO 8601 format.
 	YearlyRetention *string `pulumi:"yearlyRetention"`
+}
+
+func LookupBackupLongTermRetentionPolicyOutput(ctx *pulumi.Context, args LookupBackupLongTermRetentionPolicyOutputArgs, opts ...pulumi.InvokeOption) LookupBackupLongTermRetentionPolicyResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupBackupLongTermRetentionPolicyResult, error) {
+			args := v.(LookupBackupLongTermRetentionPolicyArgs)
+			r, err := LookupBackupLongTermRetentionPolicy(ctx, &args, opts...)
+			return *r, err
+		}).(LookupBackupLongTermRetentionPolicyResultOutput)
+}
+
+type LookupBackupLongTermRetentionPolicyOutputArgs struct {
+	// The name of the database.
+	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
+	// The policy name. Should always be Default.
+	PolicyName pulumi.StringInput `pulumi:"policyName"`
+	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the server.
+	ServerName pulumi.StringInput `pulumi:"serverName"`
+}
+
+func (LookupBackupLongTermRetentionPolicyOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupBackupLongTermRetentionPolicyArgs)(nil)).Elem()
+}
+
+// A long term retention policy.
+type LookupBackupLongTermRetentionPolicyResultOutput struct{ *pulumi.OutputState }
+
+func (LookupBackupLongTermRetentionPolicyResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupBackupLongTermRetentionPolicyResult)(nil)).Elem()
+}
+
+func (o LookupBackupLongTermRetentionPolicyResultOutput) ToLookupBackupLongTermRetentionPolicyResultOutput() LookupBackupLongTermRetentionPolicyResultOutput {
+	return o
+}
+
+func (o LookupBackupLongTermRetentionPolicyResultOutput) ToLookupBackupLongTermRetentionPolicyResultOutputWithContext(ctx context.Context) LookupBackupLongTermRetentionPolicyResultOutput {
+	return o
+}
+
+// Resource ID.
+func (o LookupBackupLongTermRetentionPolicyResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBackupLongTermRetentionPolicyResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The monthly retention policy for an LTR backup in an ISO 8601 format.
+func (o LookupBackupLongTermRetentionPolicyResultOutput) MonthlyRetention() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupBackupLongTermRetentionPolicyResult) *string { return v.MonthlyRetention }).(pulumi.StringPtrOutput)
+}
+
+// Resource name.
+func (o LookupBackupLongTermRetentionPolicyResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBackupLongTermRetentionPolicyResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Resource type.
+func (o LookupBackupLongTermRetentionPolicyResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBackupLongTermRetentionPolicyResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The week of year to take the yearly backup in an ISO 8601 format.
+func (o LookupBackupLongTermRetentionPolicyResultOutput) WeekOfYear() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupBackupLongTermRetentionPolicyResult) *int { return v.WeekOfYear }).(pulumi.IntPtrOutput)
+}
+
+// The weekly retention policy for an LTR backup in an ISO 8601 format.
+func (o LookupBackupLongTermRetentionPolicyResultOutput) WeeklyRetention() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupBackupLongTermRetentionPolicyResult) *string { return v.WeeklyRetention }).(pulumi.StringPtrOutput)
+}
+
+// The yearly retention policy for an LTR backup in an ISO 8601 format.
+func (o LookupBackupLongTermRetentionPolicyResultOutput) YearlyRetention() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupBackupLongTermRetentionPolicyResult) *string { return v.YearlyRetention }).(pulumi.StringPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupBackupLongTermRetentionPolicyResultOutput{})
 }

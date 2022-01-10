@@ -4,6 +4,9 @@
 package v20210401
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -48,4 +51,92 @@ type LookupACIServiceResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Specifies the type of the resource.
 	Type string `pulumi:"type"`
+}
+
+func LookupACIServiceOutput(ctx *pulumi.Context, args LookupACIServiceOutputArgs, opts ...pulumi.InvokeOption) LookupACIServiceResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupACIServiceResult, error) {
+			args := v.(LookupACIServiceArgs)
+			r, err := LookupACIService(ctx, &args, opts...)
+			return *r, err
+		}).(LookupACIServiceResultOutput)
+}
+
+type LookupACIServiceOutputArgs struct {
+	// Set to True to include Model details.
+	Expand pulumi.BoolPtrInput `pulumi:"expand"`
+	// Name of the resource group in which workspace is located.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// Name of the Azure Machine Learning service.
+	ServiceName pulumi.StringInput `pulumi:"serviceName"`
+	// Name of Azure Machine Learning workspace.
+	WorkspaceName pulumi.StringInput `pulumi:"workspaceName"`
+}
+
+func (LookupACIServiceOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupACIServiceArgs)(nil)).Elem()
+}
+
+// Machine Learning service object wrapped into ARM resource envelope.
+type LookupACIServiceResultOutput struct{ *pulumi.OutputState }
+
+func (LookupACIServiceResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupACIServiceResult)(nil)).Elem()
+}
+
+func (o LookupACIServiceResultOutput) ToLookupACIServiceResultOutput() LookupACIServiceResultOutput {
+	return o
+}
+
+func (o LookupACIServiceResultOutput) ToLookupACIServiceResultOutputWithContext(ctx context.Context) LookupACIServiceResultOutput {
+	return o
+}
+
+// Specifies the resource ID.
+func (o LookupACIServiceResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupACIServiceResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The identity of the resource.
+func (o LookupACIServiceResultOutput) Identity() IdentityResponsePtrOutput {
+	return o.ApplyT(func(v LookupACIServiceResult) *IdentityResponse { return v.Identity }).(IdentityResponsePtrOutput)
+}
+
+// Specifies the location of the resource.
+func (o LookupACIServiceResultOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupACIServiceResult) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the name of the resource.
+func (o LookupACIServiceResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupACIServiceResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Service properties
+func (o LookupACIServiceResultOutput) Properties() pulumi.AnyOutput {
+	return o.ApplyT(func(v LookupACIServiceResult) interface{} { return v.Properties }).(pulumi.AnyOutput)
+}
+
+// The sku of the workspace.
+func (o LookupACIServiceResultOutput) Sku() SkuResponsePtrOutput {
+	return o.ApplyT(func(v LookupACIServiceResult) *SkuResponse { return v.Sku }).(SkuResponsePtrOutput)
+}
+
+// Read only system data
+func (o LookupACIServiceResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupACIServiceResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Contains resource tags defined as key/value pairs.
+func (o LookupACIServiceResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupACIServiceResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Specifies the type of the resource.
+func (o LookupACIServiceResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupACIServiceResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupACIServiceResultOutput{})
 }

@@ -4,6 +4,9 @@
 package v20210315
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -38,4 +41,70 @@ type LookupNotebookWorkspaceResult struct {
 	Status string `pulumi:"status"`
 	// The type of Azure resource.
 	Type string `pulumi:"type"`
+}
+
+func LookupNotebookWorkspaceOutput(ctx *pulumi.Context, args LookupNotebookWorkspaceOutputArgs, opts ...pulumi.InvokeOption) LookupNotebookWorkspaceResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupNotebookWorkspaceResult, error) {
+			args := v.(LookupNotebookWorkspaceArgs)
+			r, err := LookupNotebookWorkspace(ctx, &args, opts...)
+			return *r, err
+		}).(LookupNotebookWorkspaceResultOutput)
+}
+
+type LookupNotebookWorkspaceOutputArgs struct {
+	// Cosmos DB database account name.
+	AccountName pulumi.StringInput `pulumi:"accountName"`
+	// The name of the notebook workspace resource.
+	NotebookWorkspaceName pulumi.StringInput `pulumi:"notebookWorkspaceName"`
+	// The name of the resource group. The name is case insensitive.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupNotebookWorkspaceOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupNotebookWorkspaceArgs)(nil)).Elem()
+}
+
+// A notebook workspace resource
+type LookupNotebookWorkspaceResultOutput struct{ *pulumi.OutputState }
+
+func (LookupNotebookWorkspaceResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupNotebookWorkspaceResult)(nil)).Elem()
+}
+
+func (o LookupNotebookWorkspaceResultOutput) ToLookupNotebookWorkspaceResultOutput() LookupNotebookWorkspaceResultOutput {
+	return o
+}
+
+func (o LookupNotebookWorkspaceResultOutput) ToLookupNotebookWorkspaceResultOutputWithContext(ctx context.Context) LookupNotebookWorkspaceResultOutput {
+	return o
+}
+
+// The unique resource identifier of the database account.
+func (o LookupNotebookWorkspaceResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupNotebookWorkspaceResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The name of the database account.
+func (o LookupNotebookWorkspaceResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupNotebookWorkspaceResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Specifies the endpoint of Notebook server.
+func (o LookupNotebookWorkspaceResultOutput) NotebookServerEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupNotebookWorkspaceResult) string { return v.NotebookServerEndpoint }).(pulumi.StringOutput)
+}
+
+// Status of the notebook workspace. Possible values are: Creating, Online, Deleting, Failed, Updating.
+func (o LookupNotebookWorkspaceResultOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupNotebookWorkspaceResult) string { return v.Status }).(pulumi.StringOutput)
+}
+
+// The type of Azure resource.
+func (o LookupNotebookWorkspaceResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupNotebookWorkspaceResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupNotebookWorkspaceResultOutput{})
 }

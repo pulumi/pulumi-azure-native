@@ -4,6 +4,9 @@
 package storsimple
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -31,4 +34,50 @@ type GetManagerDevicePublicEncryptionKeyArgs struct {
 type GetManagerDevicePublicEncryptionKeyResult struct {
 	// The key.
 	Key string `pulumi:"key"`
+}
+
+func GetManagerDevicePublicEncryptionKeyOutput(ctx *pulumi.Context, args GetManagerDevicePublicEncryptionKeyOutputArgs, opts ...pulumi.InvokeOption) GetManagerDevicePublicEncryptionKeyResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetManagerDevicePublicEncryptionKeyResult, error) {
+			args := v.(GetManagerDevicePublicEncryptionKeyArgs)
+			r, err := GetManagerDevicePublicEncryptionKey(ctx, &args, opts...)
+			return *r, err
+		}).(GetManagerDevicePublicEncryptionKeyResultOutput)
+}
+
+type GetManagerDevicePublicEncryptionKeyOutputArgs struct {
+	// The device name
+	DeviceName pulumi.StringInput `pulumi:"deviceName"`
+	// The manager name
+	ManagerName pulumi.StringInput `pulumi:"managerName"`
+	// The resource group name
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (GetManagerDevicePublicEncryptionKeyOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetManagerDevicePublicEncryptionKeyArgs)(nil)).Elem()
+}
+
+// The public key.
+type GetManagerDevicePublicEncryptionKeyResultOutput struct{ *pulumi.OutputState }
+
+func (GetManagerDevicePublicEncryptionKeyResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetManagerDevicePublicEncryptionKeyResult)(nil)).Elem()
+}
+
+func (o GetManagerDevicePublicEncryptionKeyResultOutput) ToGetManagerDevicePublicEncryptionKeyResultOutput() GetManagerDevicePublicEncryptionKeyResultOutput {
+	return o
+}
+
+func (o GetManagerDevicePublicEncryptionKeyResultOutput) ToGetManagerDevicePublicEncryptionKeyResultOutputWithContext(ctx context.Context) GetManagerDevicePublicEncryptionKeyResultOutput {
+	return o
+}
+
+// The key.
+func (o GetManagerDevicePublicEncryptionKeyResultOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetManagerDevicePublicEncryptionKeyResult) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetManagerDevicePublicEncryptionKeyResultOutput{})
 }

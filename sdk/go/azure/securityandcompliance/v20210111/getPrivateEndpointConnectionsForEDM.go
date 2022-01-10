@@ -4,6 +4,9 @@
 package v20210111
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -42,4 +45,84 @@ type LookupPrivateEndpointConnectionsForEDMResult struct {
 	SystemData SystemDataResponse `pulumi:"systemData"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
+}
+
+func LookupPrivateEndpointConnectionsForEDMOutput(ctx *pulumi.Context, args LookupPrivateEndpointConnectionsForEDMOutputArgs, opts ...pulumi.InvokeOption) LookupPrivateEndpointConnectionsForEDMResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupPrivateEndpointConnectionsForEDMResult, error) {
+			args := v.(LookupPrivateEndpointConnectionsForEDMArgs)
+			r, err := LookupPrivateEndpointConnectionsForEDM(ctx, &args, opts...)
+			return *r, err
+		}).(LookupPrivateEndpointConnectionsForEDMResultOutput)
+}
+
+type LookupPrivateEndpointConnectionsForEDMOutputArgs struct {
+	// The name of the private endpoint connection associated with the Azure resource
+	PrivateEndpointConnectionName pulumi.StringInput `pulumi:"privateEndpointConnectionName"`
+	// The name of the resource group that contains the service instance.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the service instance.
+	ResourceName pulumi.StringInput `pulumi:"resourceName"`
+}
+
+func (LookupPrivateEndpointConnectionsForEDMOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupPrivateEndpointConnectionsForEDMArgs)(nil)).Elem()
+}
+
+// The Private Endpoint Connection resource.
+type LookupPrivateEndpointConnectionsForEDMResultOutput struct{ *pulumi.OutputState }
+
+func (LookupPrivateEndpointConnectionsForEDMResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupPrivateEndpointConnectionsForEDMResult)(nil)).Elem()
+}
+
+func (o LookupPrivateEndpointConnectionsForEDMResultOutput) ToLookupPrivateEndpointConnectionsForEDMResultOutput() LookupPrivateEndpointConnectionsForEDMResultOutput {
+	return o
+}
+
+func (o LookupPrivateEndpointConnectionsForEDMResultOutput) ToLookupPrivateEndpointConnectionsForEDMResultOutputWithContext(ctx context.Context) LookupPrivateEndpointConnectionsForEDMResultOutput {
+	return o
+}
+
+// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+func (o LookupPrivateEndpointConnectionsForEDMResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPrivateEndpointConnectionsForEDMResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o LookupPrivateEndpointConnectionsForEDMResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPrivateEndpointConnectionsForEDMResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The resource of private end point.
+func (o LookupPrivateEndpointConnectionsForEDMResultOutput) PrivateEndpoint() PrivateEndpointResponsePtrOutput {
+	return o.ApplyT(func(v LookupPrivateEndpointConnectionsForEDMResult) *PrivateEndpointResponse {
+		return v.PrivateEndpoint
+	}).(PrivateEndpointResponsePtrOutput)
+}
+
+// A collection of information about the state of the connection between service consumer and provider.
+func (o LookupPrivateEndpointConnectionsForEDMResultOutput) PrivateLinkServiceConnectionState() PrivateLinkServiceConnectionStateResponseOutput {
+	return o.ApplyT(func(v LookupPrivateEndpointConnectionsForEDMResult) PrivateLinkServiceConnectionStateResponse {
+		return v.PrivateLinkServiceConnectionState
+	}).(PrivateLinkServiceConnectionStateResponseOutput)
+}
+
+// The provisioning state of the private endpoint connection resource.
+func (o LookupPrivateEndpointConnectionsForEDMResultOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPrivateEndpointConnectionsForEDMResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Required property for system data
+func (o LookupPrivateEndpointConnectionsForEDMResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupPrivateEndpointConnectionsForEDMResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o LookupPrivateEndpointConnectionsForEDMResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPrivateEndpointConnectionsForEDMResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupPrivateEndpointConnectionsForEDMResultOutput{})
 }

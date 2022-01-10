@@ -4,6 +4,9 @@
 package v20151031
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -58,4 +61,120 @@ type LookupWatcherResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource.
 	Type string `pulumi:"type"`
+}
+
+func LookupWatcherOutput(ctx *pulumi.Context, args LookupWatcherOutputArgs, opts ...pulumi.InvokeOption) LookupWatcherResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupWatcherResult, error) {
+			args := v.(LookupWatcherArgs)
+			r, err := LookupWatcher(ctx, &args, opts...)
+			return *r, err
+		}).(LookupWatcherResultOutput)
+}
+
+type LookupWatcherOutputArgs struct {
+	// The name of the automation account.
+	AutomationAccountName pulumi.StringInput `pulumi:"automationAccountName"`
+	// Name of an Azure Resource group.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The watcher name.
+	WatcherName pulumi.StringInput `pulumi:"watcherName"`
+}
+
+func (LookupWatcherOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupWatcherArgs)(nil)).Elem()
+}
+
+// Definition of the watcher type.
+type LookupWatcherResultOutput struct{ *pulumi.OutputState }
+
+func (LookupWatcherResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupWatcherResult)(nil)).Elem()
+}
+
+func (o LookupWatcherResultOutput) ToLookupWatcherResultOutput() LookupWatcherResultOutput {
+	return o
+}
+
+func (o LookupWatcherResultOutput) ToLookupWatcherResultOutputWithContext(ctx context.Context) LookupWatcherResultOutput {
+	return o
+}
+
+// Gets or sets the creation time.
+func (o LookupWatcherResultOutput) CreationTime() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWatcherResult) string { return v.CreationTime }).(pulumi.StringOutput)
+}
+
+// Gets or sets the description.
+func (o LookupWatcherResultOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupWatcherResult) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the etag of the resource.
+func (o LookupWatcherResultOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupWatcherResult) *string { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the frequency at which the watcher is invoked.
+func (o LookupWatcherResultOutput) ExecutionFrequencyInSeconds() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v LookupWatcherResult) *float64 { return v.ExecutionFrequencyInSeconds }).(pulumi.Float64PtrOutput)
+}
+
+// Fully qualified resource Id for the resource
+func (o LookupWatcherResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWatcherResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Details of the user who last modified the watcher.
+func (o LookupWatcherResultOutput) LastModifiedBy() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWatcherResult) string { return v.LastModifiedBy }).(pulumi.StringOutput)
+}
+
+// Gets or sets the last modified time.
+func (o LookupWatcherResultOutput) LastModifiedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWatcherResult) string { return v.LastModifiedTime }).(pulumi.StringOutput)
+}
+
+// The Azure Region where the resource lives
+func (o LookupWatcherResultOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupWatcherResult) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource
+func (o LookupWatcherResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWatcherResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Gets or sets the name of the script the watcher is attached to, i.e. the name of an existing runbook.
+func (o LookupWatcherResultOutput) ScriptName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupWatcherResult) *string { return v.ScriptName }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the parameters of the script.
+func (o LookupWatcherResultOutput) ScriptParameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupWatcherResult) map[string]string { return v.ScriptParameters }).(pulumi.StringMapOutput)
+}
+
+// Gets or sets the name of the hybrid worker group the watcher will run on.
+func (o LookupWatcherResultOutput) ScriptRunOn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupWatcherResult) *string { return v.ScriptRunOn }).(pulumi.StringPtrOutput)
+}
+
+// Gets the current status of the watcher.
+func (o LookupWatcherResultOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWatcherResult) string { return v.Status }).(pulumi.StringOutput)
+}
+
+// Resource tags.
+func (o LookupWatcherResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupWatcherResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource.
+func (o LookupWatcherResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWatcherResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupWatcherResultOutput{})
 }

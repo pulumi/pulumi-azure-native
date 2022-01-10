@@ -27,6 +27,7 @@ from .get_kusto_pool_database_principal_assignment import *
 from .get_kusto_pool_principal_assignment import *
 from .get_private_endpoint_connection import *
 from .get_private_link_hub import *
+from .get_read_only_following_database import *
 from .get_read_write_database import *
 from .get_sql_pool import *
 from .get_sql_pool_sensitivity_label import *
@@ -54,6 +55,7 @@ from .list_kusto_pool_follower_databases import *
 from .list_kusto_pool_language_extensions import *
 from .private_endpoint_connection import *
 from .private_link_hub import *
+from .read_only_following_database import *
 from .read_write_database import *
 from .sql_pool import *
 from .sql_pool_sensitivity_label import *

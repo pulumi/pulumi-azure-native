@@ -4,6 +4,9 @@
 package v20190601preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -87,4 +90,141 @@ func (val *ListTaskDetailsResult) Defaults() *ListTaskDetailsResult {
 	tmp.Trigger = tmp.Trigger.Defaults()
 
 	return &tmp
+}
+
+func ListTaskDetailsOutput(ctx *pulumi.Context, args ListTaskDetailsOutputArgs, opts ...pulumi.InvokeOption) ListTaskDetailsResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (ListTaskDetailsResult, error) {
+			args := v.(ListTaskDetailsArgs)
+			r, err := ListTaskDetails(ctx, &args, opts...)
+			return *r, err
+		}).(ListTaskDetailsResultOutput)
+}
+
+type ListTaskDetailsOutputArgs struct {
+	// The name of the container registry.
+	RegistryName pulumi.StringInput `pulumi:"registryName"`
+	// The name of the resource group to which the container registry belongs.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the container registry task.
+	TaskName pulumi.StringInput `pulumi:"taskName"`
+}
+
+func (ListTaskDetailsOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListTaskDetailsArgs)(nil)).Elem()
+}
+
+// The task that has the ARM resource and task properties.
+// The task will have all information to schedule a run against it.
+type ListTaskDetailsResultOutput struct{ *pulumi.OutputState }
+
+func (ListTaskDetailsResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListTaskDetailsResult)(nil)).Elem()
+}
+
+func (o ListTaskDetailsResultOutput) ToListTaskDetailsResultOutput() ListTaskDetailsResultOutput {
+	return o
+}
+
+func (o ListTaskDetailsResultOutput) ToListTaskDetailsResultOutputWithContext(ctx context.Context) ListTaskDetailsResultOutput {
+	return o
+}
+
+// The machine configuration of the run agent.
+func (o ListTaskDetailsResultOutput) AgentConfiguration() AgentPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v ListTaskDetailsResult) *AgentPropertiesResponse { return v.AgentConfiguration }).(AgentPropertiesResponsePtrOutput)
+}
+
+// The dedicated agent pool for the task.
+func (o ListTaskDetailsResultOutput) AgentPoolName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListTaskDetailsResult) *string { return v.AgentPoolName }).(pulumi.StringPtrOutput)
+}
+
+// The creation date of task.
+func (o ListTaskDetailsResultOutput) CreationDate() pulumi.StringOutput {
+	return o.ApplyT(func(v ListTaskDetailsResult) string { return v.CreationDate }).(pulumi.StringOutput)
+}
+
+// The properties that describes a set of credentials that will be used when this run is invoked.
+func (o ListTaskDetailsResultOutput) Credentials() CredentialsResponsePtrOutput {
+	return o.ApplyT(func(v ListTaskDetailsResult) *CredentialsResponse { return v.Credentials }).(CredentialsResponsePtrOutput)
+}
+
+// The resource ID.
+func (o ListTaskDetailsResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v ListTaskDetailsResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Identity for the resource.
+func (o ListTaskDetailsResultOutput) Identity() IdentityPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v ListTaskDetailsResult) *IdentityPropertiesResponse { return v.Identity }).(IdentityPropertiesResponsePtrOutput)
+}
+
+// The value of this property indicates whether the task resource is system task or not.
+func (o ListTaskDetailsResultOutput) IsSystemTask() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ListTaskDetailsResult) *bool { return v.IsSystemTask }).(pulumi.BoolPtrOutput)
+}
+
+// The location of the resource. This cannot be changed after the resource is created.
+func (o ListTaskDetailsResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v ListTaskDetailsResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// The template that describes the repository and tag information for run log artifact.
+func (o ListTaskDetailsResultOutput) LogTemplate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListTaskDetailsResult) *string { return v.LogTemplate }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource.
+func (o ListTaskDetailsResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ListTaskDetailsResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The platform properties against which the run has to happen.
+func (o ListTaskDetailsResultOutput) Platform() PlatformPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v ListTaskDetailsResult) *PlatformPropertiesResponse { return v.Platform }).(PlatformPropertiesResponsePtrOutput)
+}
+
+// The provisioning state of the task.
+func (o ListTaskDetailsResultOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v ListTaskDetailsResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The current status of task.
+func (o ListTaskDetailsResultOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListTaskDetailsResult) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+// The properties of a task step.
+func (o ListTaskDetailsResultOutput) Step() pulumi.AnyOutput {
+	return o.ApplyT(func(v ListTaskDetailsResult) interface{} { return v.Step }).(pulumi.AnyOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o ListTaskDetailsResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v ListTaskDetailsResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The tags of the resource.
+func (o ListTaskDetailsResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ListTaskDetailsResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Run timeout in seconds.
+func (o ListTaskDetailsResultOutput) Timeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ListTaskDetailsResult) *int { return v.Timeout }).(pulumi.IntPtrOutput)
+}
+
+// The properties that describe all triggers for the task.
+func (o ListTaskDetailsResultOutput) Trigger() TriggerPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v ListTaskDetailsResult) *TriggerPropertiesResponse { return v.Trigger }).(TriggerPropertiesResponsePtrOutput)
+}
+
+// The type of the resource.
+func (o ListTaskDetailsResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ListTaskDetailsResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(ListTaskDetailsResultOutput{})
 }

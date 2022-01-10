@@ -205,6 +205,36 @@ type AvailabilityInformationResponse struct {
 	DisabledReasonMessage string `pulumi:"disabledReasonMessage"`
 }
 
+// Availability information of a product system.
+type AvailabilityInformationResponseOutput struct{ *pulumi.OutputState }
+
+func (AvailabilityInformationResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AvailabilityInformationResponse)(nil)).Elem()
+}
+
+func (o AvailabilityInformationResponseOutput) ToAvailabilityInformationResponseOutput() AvailabilityInformationResponseOutput {
+	return o
+}
+
+func (o AvailabilityInformationResponseOutput) ToAvailabilityInformationResponseOutputWithContext(ctx context.Context) AvailabilityInformationResponseOutput {
+	return o
+}
+
+// Current availability stage of the product. Availability stage
+func (o AvailabilityInformationResponseOutput) AvailabilityStage() pulumi.StringOutput {
+	return o.ApplyT(func(v AvailabilityInformationResponse) string { return v.AvailabilityStage }).(pulumi.StringOutput)
+}
+
+// Reason why the product is disabled.
+func (o AvailabilityInformationResponseOutput) DisabledReason() pulumi.StringOutput {
+	return o.ApplyT(func(v AvailabilityInformationResponse) string { return v.DisabledReason }).(pulumi.StringOutput)
+}
+
+// Message for why the product is disabled.
+func (o AvailabilityInformationResponseOutput) DisabledReasonMessage() pulumi.StringOutput {
+	return o.ApplyT(func(v AvailabilityInformationResponse) string { return v.DisabledReasonMessage }).(pulumi.StringOutput)
+}
+
 // Holds billing meter details for each type of billing
 type BillingMeterDetailsResponse struct {
 	// Frequency of recurrence
@@ -217,12 +247,168 @@ type BillingMeterDetailsResponse struct {
 	Name string `pulumi:"name"`
 }
 
+// Holds billing meter details for each type of billing
+type BillingMeterDetailsResponseOutput struct{ *pulumi.OutputState }
+
+func (BillingMeterDetailsResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BillingMeterDetailsResponse)(nil)).Elem()
+}
+
+func (o BillingMeterDetailsResponseOutput) ToBillingMeterDetailsResponseOutput() BillingMeterDetailsResponseOutput {
+	return o
+}
+
+func (o BillingMeterDetailsResponseOutput) ToBillingMeterDetailsResponseOutputWithContext(ctx context.Context) BillingMeterDetailsResponseOutput {
+	return o
+}
+
+// Frequency of recurrence
+func (o BillingMeterDetailsResponseOutput) Frequency() pulumi.StringOutput {
+	return o.ApplyT(func(v BillingMeterDetailsResponse) string { return v.Frequency }).(pulumi.StringOutput)
+}
+
+// Represents MeterDetails
+func (o BillingMeterDetailsResponseOutput) MeterDetails() pulumi.AnyOutput {
+	return o.ApplyT(func(v BillingMeterDetailsResponse) interface{} { return v.MeterDetails }).(pulumi.AnyOutput)
+}
+
+// Represents Metering type (eg one-time or recurrent)
+func (o BillingMeterDetailsResponseOutput) MeteringType() pulumi.StringOutput {
+	return o.ApplyT(func(v BillingMeterDetailsResponse) string { return v.MeteringType }).(pulumi.StringOutput)
+}
+
+// Represents Billing type name
+func (o BillingMeterDetailsResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v BillingMeterDetailsResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type BillingMeterDetailsResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (BillingMeterDetailsResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BillingMeterDetailsResponse)(nil)).Elem()
+}
+
+func (o BillingMeterDetailsResponseArrayOutput) ToBillingMeterDetailsResponseArrayOutput() BillingMeterDetailsResponseArrayOutput {
+	return o
+}
+
+func (o BillingMeterDetailsResponseArrayOutput) ToBillingMeterDetailsResponseArrayOutputWithContext(ctx context.Context) BillingMeterDetailsResponseArrayOutput {
+	return o
+}
+
+func (o BillingMeterDetailsResponseArrayOutput) Index(i pulumi.IntInput) BillingMeterDetailsResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BillingMeterDetailsResponse {
+		return vs[0].([]BillingMeterDetailsResponse)[vs[1].(int)]
+	}).(BillingMeterDetailsResponseOutput)
+}
+
 // Configuration filters
 type ConfigurationFilters struct {
 	// Filters specific to product
 	FilterableProperty []FilterableProperty `pulumi:"filterableProperty"`
 	// Product hierarchy information
 	HierarchyInformation HierarchyInformation `pulumi:"hierarchyInformation"`
+}
+
+// ConfigurationFiltersInput is an input type that accepts ConfigurationFiltersArgs and ConfigurationFiltersOutput values.
+// You can construct a concrete instance of `ConfigurationFiltersInput` via:
+//
+//          ConfigurationFiltersArgs{...}
+type ConfigurationFiltersInput interface {
+	pulumi.Input
+
+	ToConfigurationFiltersOutput() ConfigurationFiltersOutput
+	ToConfigurationFiltersOutputWithContext(context.Context) ConfigurationFiltersOutput
+}
+
+// Configuration filters
+type ConfigurationFiltersArgs struct {
+	// Filters specific to product
+	FilterableProperty FilterablePropertyArrayInput `pulumi:"filterableProperty"`
+	// Product hierarchy information
+	HierarchyInformation HierarchyInformationInput `pulumi:"hierarchyInformation"`
+}
+
+func (ConfigurationFiltersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationFilters)(nil)).Elem()
+}
+
+func (i ConfigurationFiltersArgs) ToConfigurationFiltersOutput() ConfigurationFiltersOutput {
+	return i.ToConfigurationFiltersOutputWithContext(context.Background())
+}
+
+func (i ConfigurationFiltersArgs) ToConfigurationFiltersOutputWithContext(ctx context.Context) ConfigurationFiltersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationFiltersOutput)
+}
+
+// ConfigurationFiltersArrayInput is an input type that accepts ConfigurationFiltersArray and ConfigurationFiltersArrayOutput values.
+// You can construct a concrete instance of `ConfigurationFiltersArrayInput` via:
+//
+//          ConfigurationFiltersArray{ ConfigurationFiltersArgs{...} }
+type ConfigurationFiltersArrayInput interface {
+	pulumi.Input
+
+	ToConfigurationFiltersArrayOutput() ConfigurationFiltersArrayOutput
+	ToConfigurationFiltersArrayOutputWithContext(context.Context) ConfigurationFiltersArrayOutput
+}
+
+type ConfigurationFiltersArray []ConfigurationFiltersInput
+
+func (ConfigurationFiltersArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ConfigurationFilters)(nil)).Elem()
+}
+
+func (i ConfigurationFiltersArray) ToConfigurationFiltersArrayOutput() ConfigurationFiltersArrayOutput {
+	return i.ToConfigurationFiltersArrayOutputWithContext(context.Background())
+}
+
+func (i ConfigurationFiltersArray) ToConfigurationFiltersArrayOutputWithContext(ctx context.Context) ConfigurationFiltersArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationFiltersArrayOutput)
+}
+
+// Configuration filters
+type ConfigurationFiltersOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationFiltersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationFilters)(nil)).Elem()
+}
+
+func (o ConfigurationFiltersOutput) ToConfigurationFiltersOutput() ConfigurationFiltersOutput {
+	return o
+}
+
+func (o ConfigurationFiltersOutput) ToConfigurationFiltersOutputWithContext(ctx context.Context) ConfigurationFiltersOutput {
+	return o
+}
+
+// Filters specific to product
+func (o ConfigurationFiltersOutput) FilterableProperty() FilterablePropertyArrayOutput {
+	return o.ApplyT(func(v ConfigurationFilters) []FilterableProperty { return v.FilterableProperty }).(FilterablePropertyArrayOutput)
+}
+
+// Product hierarchy information
+func (o ConfigurationFiltersOutput) HierarchyInformation() HierarchyInformationOutput {
+	return o.ApplyT(func(v ConfigurationFilters) HierarchyInformation { return v.HierarchyInformation }).(HierarchyInformationOutput)
+}
+
+type ConfigurationFiltersArrayOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationFiltersArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ConfigurationFilters)(nil)).Elem()
+}
+
+func (o ConfigurationFiltersArrayOutput) ToConfigurationFiltersArrayOutput() ConfigurationFiltersArrayOutput {
+	return o
+}
+
+func (o ConfigurationFiltersArrayOutput) ToConfigurationFiltersArrayOutputWithContext(ctx context.Context) ConfigurationFiltersArrayOutput {
+	return o
+}
+
+func (o ConfigurationFiltersArrayOutput) Index(i pulumi.IntInput) ConfigurationFiltersOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ConfigurationFilters {
+		return vs[0].([]ConfigurationFilters)[vs[1].(int)]
+	}).(ConfigurationFiltersOutput)
 }
 
 // Configuration object.
@@ -245,6 +431,86 @@ type ConfigurationResponse struct {
 	ImageInformation []ImageInformationResponse `pulumi:"imageInformation"`
 	// Specifications of the configuration
 	Specifications []SpecificationResponse `pulumi:"specifications"`
+}
+
+// Configuration object.
+type ConfigurationResponseOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationResponse)(nil)).Elem()
+}
+
+func (o ConfigurationResponseOutput) ToConfigurationResponseOutput() ConfigurationResponseOutput {
+	return o
+}
+
+func (o ConfigurationResponseOutput) ToConfigurationResponseOutputWithContext(ctx context.Context) ConfigurationResponseOutput {
+	return o
+}
+
+// Availability information of the product system.
+func (o ConfigurationResponseOutput) AvailabilityInformation() AvailabilityInformationResponseOutput {
+	return o.ApplyT(func(v ConfigurationResponse) AvailabilityInformationResponse { return v.AvailabilityInformation }).(AvailabilityInformationResponseOutput)
+}
+
+// Cost information for the product system.
+func (o ConfigurationResponseOutput) CostInformation() CostInformationResponseOutput {
+	return o.ApplyT(func(v ConfigurationResponse) CostInformationResponse { return v.CostInformation }).(CostInformationResponseOutput)
+}
+
+// Description related to the product system.
+func (o ConfigurationResponseOutput) Description() DescriptionResponseOutput {
+	return o.ApplyT(func(v ConfigurationResponse) DescriptionResponse { return v.Description }).(DescriptionResponseOutput)
+}
+
+// Dimensions of the configuration
+func (o ConfigurationResponseOutput) Dimensions() DimensionsResponseOutput {
+	return o.ApplyT(func(v ConfigurationResponse) DimensionsResponse { return v.Dimensions }).(DimensionsResponseOutput)
+}
+
+// Display Name for the product system.
+func (o ConfigurationResponseOutput) DisplayName() pulumi.StringOutput {
+	return o.ApplyT(func(v ConfigurationResponse) string { return v.DisplayName }).(pulumi.StringOutput)
+}
+
+// list of filters supported for a product
+func (o ConfigurationResponseOutput) FilterableProperties() FilterablePropertyResponseArrayOutput {
+	return o.ApplyT(func(v ConfigurationResponse) []FilterablePropertyResponse { return v.FilterableProperties }).(FilterablePropertyResponseArrayOutput)
+}
+
+// Hierarchy information of a product.
+func (o ConfigurationResponseOutput) HierarchyInformation() HierarchyInformationResponseOutput {
+	return o.ApplyT(func(v ConfigurationResponse) HierarchyInformationResponse { return v.HierarchyInformation }).(HierarchyInformationResponseOutput)
+}
+
+// Image information for the product system.
+func (o ConfigurationResponseOutput) ImageInformation() ImageInformationResponseArrayOutput {
+	return o.ApplyT(func(v ConfigurationResponse) []ImageInformationResponse { return v.ImageInformation }).(ImageInformationResponseArrayOutput)
+}
+
+// Specifications of the configuration
+func (o ConfigurationResponseOutput) Specifications() SpecificationResponseArrayOutput {
+	return o.ApplyT(func(v ConfigurationResponse) []SpecificationResponse { return v.Specifications }).(SpecificationResponseArrayOutput)
+}
+
+type ConfigurationResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ConfigurationResponse)(nil)).Elem()
+}
+
+func (o ConfigurationResponseArrayOutput) ToConfigurationResponseArrayOutput() ConfigurationResponseArrayOutput {
+	return o
+}
+
+func (o ConfigurationResponseArrayOutput) ToConfigurationResponseArrayOutputWithContext(ctx context.Context) ConfigurationResponseArrayOutput {
+	return o
+}
+
+func (o ConfigurationResponseArrayOutput) Index(i pulumi.IntInput) ConfigurationResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ConfigurationResponse {
+		return vs[0].([]ConfigurationResponse)[vs[1].(int)]
+	}).(ConfigurationResponseOutput)
 }
 
 // Contact Details.
@@ -400,6 +666,31 @@ type CostInformationResponse struct {
 	BillingMeterDetails []BillingMeterDetailsResponse `pulumi:"billingMeterDetails"`
 }
 
+// Cost information for the product system
+type CostInformationResponseOutput struct{ *pulumi.OutputState }
+
+func (CostInformationResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CostInformationResponse)(nil)).Elem()
+}
+
+func (o CostInformationResponseOutput) ToCostInformationResponseOutput() CostInformationResponseOutput {
+	return o
+}
+
+func (o CostInformationResponseOutput) ToCostInformationResponseOutputWithContext(ctx context.Context) CostInformationResponseOutput {
+	return o
+}
+
+// Default url to display billing information
+func (o CostInformationResponseOutput) BillingInfoUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v CostInformationResponse) string { return v.BillingInfoUrl }).(pulumi.StringOutput)
+}
+
+// Details on the various billing aspects for the product system.
+func (o CostInformationResponseOutput) BillingMeterDetails() BillingMeterDetailsResponseArrayOutput {
+	return o.ApplyT(func(v CostInformationResponse) []BillingMeterDetailsResponse { return v.BillingMeterDetails }).(BillingMeterDetailsResponseArrayOutput)
+}
+
 // Holds Customer subscription details. Clients can display available products to unregistered customers by explicitly passing subscription details
 type CustomerSubscriptionDetails struct {
 	// Location placement Id of a subscription
@@ -410,12 +701,283 @@ type CustomerSubscriptionDetails struct {
 	RegisteredFeatures []CustomerSubscriptionRegisteredFeatures `pulumi:"registeredFeatures"`
 }
 
+// CustomerSubscriptionDetailsInput is an input type that accepts CustomerSubscriptionDetailsArgs and CustomerSubscriptionDetailsOutput values.
+// You can construct a concrete instance of `CustomerSubscriptionDetailsInput` via:
+//
+//          CustomerSubscriptionDetailsArgs{...}
+type CustomerSubscriptionDetailsInput interface {
+	pulumi.Input
+
+	ToCustomerSubscriptionDetailsOutput() CustomerSubscriptionDetailsOutput
+	ToCustomerSubscriptionDetailsOutputWithContext(context.Context) CustomerSubscriptionDetailsOutput
+}
+
+// Holds Customer subscription details. Clients can display available products to unregistered customers by explicitly passing subscription details
+type CustomerSubscriptionDetailsArgs struct {
+	// Location placement Id of a subscription
+	LocationPlacementId pulumi.StringPtrInput `pulumi:"locationPlacementId"`
+	// Quota ID of a subscription
+	QuotaId pulumi.StringInput `pulumi:"quotaId"`
+	// List of registered feature flags for subscription
+	RegisteredFeatures CustomerSubscriptionRegisteredFeaturesArrayInput `pulumi:"registeredFeatures"`
+}
+
+func (CustomerSubscriptionDetailsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomerSubscriptionDetails)(nil)).Elem()
+}
+
+func (i CustomerSubscriptionDetailsArgs) ToCustomerSubscriptionDetailsOutput() CustomerSubscriptionDetailsOutput {
+	return i.ToCustomerSubscriptionDetailsOutputWithContext(context.Background())
+}
+
+func (i CustomerSubscriptionDetailsArgs) ToCustomerSubscriptionDetailsOutputWithContext(ctx context.Context) CustomerSubscriptionDetailsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomerSubscriptionDetailsOutput)
+}
+
+func (i CustomerSubscriptionDetailsArgs) ToCustomerSubscriptionDetailsPtrOutput() CustomerSubscriptionDetailsPtrOutput {
+	return i.ToCustomerSubscriptionDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i CustomerSubscriptionDetailsArgs) ToCustomerSubscriptionDetailsPtrOutputWithContext(ctx context.Context) CustomerSubscriptionDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomerSubscriptionDetailsOutput).ToCustomerSubscriptionDetailsPtrOutputWithContext(ctx)
+}
+
+// CustomerSubscriptionDetailsPtrInput is an input type that accepts CustomerSubscriptionDetailsArgs, CustomerSubscriptionDetailsPtr and CustomerSubscriptionDetailsPtrOutput values.
+// You can construct a concrete instance of `CustomerSubscriptionDetailsPtrInput` via:
+//
+//          CustomerSubscriptionDetailsArgs{...}
+//
+//  or:
+//
+//          nil
+type CustomerSubscriptionDetailsPtrInput interface {
+	pulumi.Input
+
+	ToCustomerSubscriptionDetailsPtrOutput() CustomerSubscriptionDetailsPtrOutput
+	ToCustomerSubscriptionDetailsPtrOutputWithContext(context.Context) CustomerSubscriptionDetailsPtrOutput
+}
+
+type customerSubscriptionDetailsPtrType CustomerSubscriptionDetailsArgs
+
+func CustomerSubscriptionDetailsPtr(v *CustomerSubscriptionDetailsArgs) CustomerSubscriptionDetailsPtrInput {
+	return (*customerSubscriptionDetailsPtrType)(v)
+}
+
+func (*customerSubscriptionDetailsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CustomerSubscriptionDetails)(nil)).Elem()
+}
+
+func (i *customerSubscriptionDetailsPtrType) ToCustomerSubscriptionDetailsPtrOutput() CustomerSubscriptionDetailsPtrOutput {
+	return i.ToCustomerSubscriptionDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i *customerSubscriptionDetailsPtrType) ToCustomerSubscriptionDetailsPtrOutputWithContext(ctx context.Context) CustomerSubscriptionDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomerSubscriptionDetailsPtrOutput)
+}
+
+// Holds Customer subscription details. Clients can display available products to unregistered customers by explicitly passing subscription details
+type CustomerSubscriptionDetailsOutput struct{ *pulumi.OutputState }
+
+func (CustomerSubscriptionDetailsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomerSubscriptionDetails)(nil)).Elem()
+}
+
+func (o CustomerSubscriptionDetailsOutput) ToCustomerSubscriptionDetailsOutput() CustomerSubscriptionDetailsOutput {
+	return o
+}
+
+func (o CustomerSubscriptionDetailsOutput) ToCustomerSubscriptionDetailsOutputWithContext(ctx context.Context) CustomerSubscriptionDetailsOutput {
+	return o
+}
+
+func (o CustomerSubscriptionDetailsOutput) ToCustomerSubscriptionDetailsPtrOutput() CustomerSubscriptionDetailsPtrOutput {
+	return o.ToCustomerSubscriptionDetailsPtrOutputWithContext(context.Background())
+}
+
+func (o CustomerSubscriptionDetailsOutput) ToCustomerSubscriptionDetailsPtrOutputWithContext(ctx context.Context) CustomerSubscriptionDetailsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CustomerSubscriptionDetails) *CustomerSubscriptionDetails {
+		return &v
+	}).(CustomerSubscriptionDetailsPtrOutput)
+}
+
+// Location placement Id of a subscription
+func (o CustomerSubscriptionDetailsOutput) LocationPlacementId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomerSubscriptionDetails) *string { return v.LocationPlacementId }).(pulumi.StringPtrOutput)
+}
+
+// Quota ID of a subscription
+func (o CustomerSubscriptionDetailsOutput) QuotaId() pulumi.StringOutput {
+	return o.ApplyT(func(v CustomerSubscriptionDetails) string { return v.QuotaId }).(pulumi.StringOutput)
+}
+
+// List of registered feature flags for subscription
+func (o CustomerSubscriptionDetailsOutput) RegisteredFeatures() CustomerSubscriptionRegisteredFeaturesArrayOutput {
+	return o.ApplyT(func(v CustomerSubscriptionDetails) []CustomerSubscriptionRegisteredFeatures {
+		return v.RegisteredFeatures
+	}).(CustomerSubscriptionRegisteredFeaturesArrayOutput)
+}
+
+type CustomerSubscriptionDetailsPtrOutput struct{ *pulumi.OutputState }
+
+func (CustomerSubscriptionDetailsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CustomerSubscriptionDetails)(nil)).Elem()
+}
+
+func (o CustomerSubscriptionDetailsPtrOutput) ToCustomerSubscriptionDetailsPtrOutput() CustomerSubscriptionDetailsPtrOutput {
+	return o
+}
+
+func (o CustomerSubscriptionDetailsPtrOutput) ToCustomerSubscriptionDetailsPtrOutputWithContext(ctx context.Context) CustomerSubscriptionDetailsPtrOutput {
+	return o
+}
+
+func (o CustomerSubscriptionDetailsPtrOutput) Elem() CustomerSubscriptionDetailsOutput {
+	return o.ApplyT(func(v *CustomerSubscriptionDetails) CustomerSubscriptionDetails {
+		if v != nil {
+			return *v
+		}
+		var ret CustomerSubscriptionDetails
+		return ret
+	}).(CustomerSubscriptionDetailsOutput)
+}
+
+// Location placement Id of a subscription
+func (o CustomerSubscriptionDetailsPtrOutput) LocationPlacementId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomerSubscriptionDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LocationPlacementId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Quota ID of a subscription
+func (o CustomerSubscriptionDetailsPtrOutput) QuotaId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomerSubscriptionDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.QuotaId
+	}).(pulumi.StringPtrOutput)
+}
+
+// List of registered feature flags for subscription
+func (o CustomerSubscriptionDetailsPtrOutput) RegisteredFeatures() CustomerSubscriptionRegisteredFeaturesArrayOutput {
+	return o.ApplyT(func(v *CustomerSubscriptionDetails) []CustomerSubscriptionRegisteredFeatures {
+		if v == nil {
+			return nil
+		}
+		return v.RegisteredFeatures
+	}).(CustomerSubscriptionRegisteredFeaturesArrayOutput)
+}
+
 // Represents subscription registered features
 type CustomerSubscriptionRegisteredFeatures struct {
 	// Name of subscription registered feature
 	Name *string `pulumi:"name"`
 	// State of subscription registered feature
 	State *string `pulumi:"state"`
+}
+
+// CustomerSubscriptionRegisteredFeaturesInput is an input type that accepts CustomerSubscriptionRegisteredFeaturesArgs and CustomerSubscriptionRegisteredFeaturesOutput values.
+// You can construct a concrete instance of `CustomerSubscriptionRegisteredFeaturesInput` via:
+//
+//          CustomerSubscriptionRegisteredFeaturesArgs{...}
+type CustomerSubscriptionRegisteredFeaturesInput interface {
+	pulumi.Input
+
+	ToCustomerSubscriptionRegisteredFeaturesOutput() CustomerSubscriptionRegisteredFeaturesOutput
+	ToCustomerSubscriptionRegisteredFeaturesOutputWithContext(context.Context) CustomerSubscriptionRegisteredFeaturesOutput
+}
+
+// Represents subscription registered features
+type CustomerSubscriptionRegisteredFeaturesArgs struct {
+	// Name of subscription registered feature
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// State of subscription registered feature
+	State pulumi.StringPtrInput `pulumi:"state"`
+}
+
+func (CustomerSubscriptionRegisteredFeaturesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomerSubscriptionRegisteredFeatures)(nil)).Elem()
+}
+
+func (i CustomerSubscriptionRegisteredFeaturesArgs) ToCustomerSubscriptionRegisteredFeaturesOutput() CustomerSubscriptionRegisteredFeaturesOutput {
+	return i.ToCustomerSubscriptionRegisteredFeaturesOutputWithContext(context.Background())
+}
+
+func (i CustomerSubscriptionRegisteredFeaturesArgs) ToCustomerSubscriptionRegisteredFeaturesOutputWithContext(ctx context.Context) CustomerSubscriptionRegisteredFeaturesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomerSubscriptionRegisteredFeaturesOutput)
+}
+
+// CustomerSubscriptionRegisteredFeaturesArrayInput is an input type that accepts CustomerSubscriptionRegisteredFeaturesArray and CustomerSubscriptionRegisteredFeaturesArrayOutput values.
+// You can construct a concrete instance of `CustomerSubscriptionRegisteredFeaturesArrayInput` via:
+//
+//          CustomerSubscriptionRegisteredFeaturesArray{ CustomerSubscriptionRegisteredFeaturesArgs{...} }
+type CustomerSubscriptionRegisteredFeaturesArrayInput interface {
+	pulumi.Input
+
+	ToCustomerSubscriptionRegisteredFeaturesArrayOutput() CustomerSubscriptionRegisteredFeaturesArrayOutput
+	ToCustomerSubscriptionRegisteredFeaturesArrayOutputWithContext(context.Context) CustomerSubscriptionRegisteredFeaturesArrayOutput
+}
+
+type CustomerSubscriptionRegisteredFeaturesArray []CustomerSubscriptionRegisteredFeaturesInput
+
+func (CustomerSubscriptionRegisteredFeaturesArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CustomerSubscriptionRegisteredFeatures)(nil)).Elem()
+}
+
+func (i CustomerSubscriptionRegisteredFeaturesArray) ToCustomerSubscriptionRegisteredFeaturesArrayOutput() CustomerSubscriptionRegisteredFeaturesArrayOutput {
+	return i.ToCustomerSubscriptionRegisteredFeaturesArrayOutputWithContext(context.Background())
+}
+
+func (i CustomerSubscriptionRegisteredFeaturesArray) ToCustomerSubscriptionRegisteredFeaturesArrayOutputWithContext(ctx context.Context) CustomerSubscriptionRegisteredFeaturesArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomerSubscriptionRegisteredFeaturesArrayOutput)
+}
+
+// Represents subscription registered features
+type CustomerSubscriptionRegisteredFeaturesOutput struct{ *pulumi.OutputState }
+
+func (CustomerSubscriptionRegisteredFeaturesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomerSubscriptionRegisteredFeatures)(nil)).Elem()
+}
+
+func (o CustomerSubscriptionRegisteredFeaturesOutput) ToCustomerSubscriptionRegisteredFeaturesOutput() CustomerSubscriptionRegisteredFeaturesOutput {
+	return o
+}
+
+func (o CustomerSubscriptionRegisteredFeaturesOutput) ToCustomerSubscriptionRegisteredFeaturesOutputWithContext(ctx context.Context) CustomerSubscriptionRegisteredFeaturesOutput {
+	return o
+}
+
+// Name of subscription registered feature
+func (o CustomerSubscriptionRegisteredFeaturesOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomerSubscriptionRegisteredFeatures) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// State of subscription registered feature
+func (o CustomerSubscriptionRegisteredFeaturesOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomerSubscriptionRegisteredFeatures) *string { return v.State }).(pulumi.StringPtrOutput)
+}
+
+type CustomerSubscriptionRegisteredFeaturesArrayOutput struct{ *pulumi.OutputState }
+
+func (CustomerSubscriptionRegisteredFeaturesArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CustomerSubscriptionRegisteredFeatures)(nil)).Elem()
+}
+
+func (o CustomerSubscriptionRegisteredFeaturesArrayOutput) ToCustomerSubscriptionRegisteredFeaturesArrayOutput() CustomerSubscriptionRegisteredFeaturesArrayOutput {
+	return o
+}
+
+func (o CustomerSubscriptionRegisteredFeaturesArrayOutput) ToCustomerSubscriptionRegisteredFeaturesArrayOutputWithContext(ctx context.Context) CustomerSubscriptionRegisteredFeaturesArrayOutput {
+	return o
+}
+
+func (o CustomerSubscriptionRegisteredFeaturesArrayOutput) Index(i pulumi.IntInput) CustomerSubscriptionRegisteredFeaturesOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CustomerSubscriptionRegisteredFeatures {
+		return vs[0].([]CustomerSubscriptionRegisteredFeatures)[vs[1].(int)]
+	}).(CustomerSubscriptionRegisteredFeaturesOutput)
 }
 
 // Description related properties of a product system.
@@ -432,6 +994,51 @@ type DescriptionResponse struct {
 	LongDescription string `pulumi:"longDescription"`
 	// Short description of the product system.
 	ShortDescription string `pulumi:"shortDescription"`
+}
+
+// Description related properties of a product system.
+type DescriptionResponseOutput struct{ *pulumi.OutputState }
+
+func (DescriptionResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DescriptionResponse)(nil)).Elem()
+}
+
+func (o DescriptionResponseOutput) ToDescriptionResponseOutput() DescriptionResponseOutput {
+	return o
+}
+
+func (o DescriptionResponseOutput) ToDescriptionResponseOutputWithContext(ctx context.Context) DescriptionResponseOutput {
+	return o
+}
+
+// Attributes for the product system.
+func (o DescriptionResponseOutput) Attributes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DescriptionResponse) []string { return v.Attributes }).(pulumi.StringArrayOutput)
+}
+
+// Type of description.
+func (o DescriptionResponseOutput) DescriptionType() pulumi.StringOutput {
+	return o.ApplyT(func(v DescriptionResponse) string { return v.DescriptionType }).(pulumi.StringOutput)
+}
+
+// Keywords for the product system.
+func (o DescriptionResponseOutput) Keywords() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DescriptionResponse) []string { return v.Keywords }).(pulumi.StringArrayOutput)
+}
+
+// Links for the product system.
+func (o DescriptionResponseOutput) Links() LinkResponseArrayOutput {
+	return o.ApplyT(func(v DescriptionResponse) []LinkResponse { return v.Links }).(LinkResponseArrayOutput)
+}
+
+// Long description of the product system.
+func (o DescriptionResponseOutput) LongDescription() pulumi.StringOutput {
+	return o.ApplyT(func(v DescriptionResponse) string { return v.LongDescription }).(pulumi.StringOutput)
+}
+
+// Short description of the product system.
+func (o DescriptionResponseOutput) ShortDescription() pulumi.StringOutput {
+	return o.ApplyT(func(v DescriptionResponse) string { return v.ShortDescription }).(pulumi.StringOutput)
 }
 
 // Device details.
@@ -510,6 +1117,56 @@ type DimensionsResponse struct {
 	WeightUnit string `pulumi:"weightUnit"`
 	// Width of the device.
 	Width float64 `pulumi:"width"`
+}
+
+// Dimensions of a configuration.
+type DimensionsResponseOutput struct{ *pulumi.OutputState }
+
+func (DimensionsResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DimensionsResponse)(nil)).Elem()
+}
+
+func (o DimensionsResponseOutput) ToDimensionsResponseOutput() DimensionsResponseOutput {
+	return o
+}
+
+func (o DimensionsResponseOutput) ToDimensionsResponseOutputWithContext(ctx context.Context) DimensionsResponseOutput {
+	return o
+}
+
+// Depth of the device.
+func (o DimensionsResponseOutput) Depth() pulumi.Float64Output {
+	return o.ApplyT(func(v DimensionsResponse) float64 { return v.Depth }).(pulumi.Float64Output)
+}
+
+// Height of the device.
+func (o DimensionsResponseOutput) Height() pulumi.Float64Output {
+	return o.ApplyT(func(v DimensionsResponse) float64 { return v.Height }).(pulumi.Float64Output)
+}
+
+// Length of the device.
+func (o DimensionsResponseOutput) Length() pulumi.Float64Output {
+	return o.ApplyT(func(v DimensionsResponse) float64 { return v.Length }).(pulumi.Float64Output)
+}
+
+// Unit for the dimensions of length, height and width.
+func (o DimensionsResponseOutput) LengthHeightUnit() pulumi.StringOutput {
+	return o.ApplyT(func(v DimensionsResponse) string { return v.LengthHeightUnit }).(pulumi.StringOutput)
+}
+
+// Weight of the device.
+func (o DimensionsResponseOutput) Weight() pulumi.Float64Output {
+	return o.ApplyT(func(v DimensionsResponse) float64 { return v.Weight }).(pulumi.Float64Output)
+}
+
+// Unit for the dimensions of weight.
+func (o DimensionsResponseOutput) WeightUnit() pulumi.StringOutput {
+	return o.ApplyT(func(v DimensionsResponse) string { return v.WeightUnit }).(pulumi.StringOutput)
+}
+
+// Width of the device.
+func (o DimensionsResponseOutput) Width() pulumi.Float64Output {
+	return o.ApplyT(func(v DimensionsResponse) float64 { return v.Width }).(pulumi.Float64Output)
 }
 
 // Describes product display information
@@ -924,12 +1581,158 @@ type FilterableProperty struct {
 	Type string `pulumi:"type"`
 }
 
+// FilterablePropertyInput is an input type that accepts FilterablePropertyArgs and FilterablePropertyOutput values.
+// You can construct a concrete instance of `FilterablePropertyInput` via:
+//
+//          FilterablePropertyArgs{...}
+type FilterablePropertyInput interface {
+	pulumi.Input
+
+	ToFilterablePropertyOutput() FilterablePropertyOutput
+	ToFilterablePropertyOutputWithContext(context.Context) FilterablePropertyOutput
+}
+
+// Different types of filters supported and its values.
+type FilterablePropertyArgs struct {
+	// Values to be filtered.
+	SupportedValues pulumi.StringArrayInput `pulumi:"supportedValues"`
+	// Type of product filter.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (FilterablePropertyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FilterableProperty)(nil)).Elem()
+}
+
+func (i FilterablePropertyArgs) ToFilterablePropertyOutput() FilterablePropertyOutput {
+	return i.ToFilterablePropertyOutputWithContext(context.Background())
+}
+
+func (i FilterablePropertyArgs) ToFilterablePropertyOutputWithContext(ctx context.Context) FilterablePropertyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FilterablePropertyOutput)
+}
+
+// FilterablePropertyArrayInput is an input type that accepts FilterablePropertyArray and FilterablePropertyArrayOutput values.
+// You can construct a concrete instance of `FilterablePropertyArrayInput` via:
+//
+//          FilterablePropertyArray{ FilterablePropertyArgs{...} }
+type FilterablePropertyArrayInput interface {
+	pulumi.Input
+
+	ToFilterablePropertyArrayOutput() FilterablePropertyArrayOutput
+	ToFilterablePropertyArrayOutputWithContext(context.Context) FilterablePropertyArrayOutput
+}
+
+type FilterablePropertyArray []FilterablePropertyInput
+
+func (FilterablePropertyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FilterableProperty)(nil)).Elem()
+}
+
+func (i FilterablePropertyArray) ToFilterablePropertyArrayOutput() FilterablePropertyArrayOutput {
+	return i.ToFilterablePropertyArrayOutputWithContext(context.Background())
+}
+
+func (i FilterablePropertyArray) ToFilterablePropertyArrayOutputWithContext(ctx context.Context) FilterablePropertyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FilterablePropertyArrayOutput)
+}
+
+// Different types of filters supported and its values.
+type FilterablePropertyOutput struct{ *pulumi.OutputState }
+
+func (FilterablePropertyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FilterableProperty)(nil)).Elem()
+}
+
+func (o FilterablePropertyOutput) ToFilterablePropertyOutput() FilterablePropertyOutput {
+	return o
+}
+
+func (o FilterablePropertyOutput) ToFilterablePropertyOutputWithContext(ctx context.Context) FilterablePropertyOutput {
+	return o
+}
+
+// Values to be filtered.
+func (o FilterablePropertyOutput) SupportedValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FilterableProperty) []string { return v.SupportedValues }).(pulumi.StringArrayOutput)
+}
+
+// Type of product filter.
+func (o FilterablePropertyOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v FilterableProperty) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type FilterablePropertyArrayOutput struct{ *pulumi.OutputState }
+
+func (FilterablePropertyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FilterableProperty)(nil)).Elem()
+}
+
+func (o FilterablePropertyArrayOutput) ToFilterablePropertyArrayOutput() FilterablePropertyArrayOutput {
+	return o
+}
+
+func (o FilterablePropertyArrayOutput) ToFilterablePropertyArrayOutputWithContext(ctx context.Context) FilterablePropertyArrayOutput {
+	return o
+}
+
+func (o FilterablePropertyArrayOutput) Index(i pulumi.IntInput) FilterablePropertyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FilterableProperty {
+		return vs[0].([]FilterableProperty)[vs[1].(int)]
+	}).(FilterablePropertyOutput)
+}
+
 // Different types of filters supported and its values.
 type FilterablePropertyResponse struct {
 	// Values to be filtered.
 	SupportedValues []string `pulumi:"supportedValues"`
 	// Type of product filter.
 	Type string `pulumi:"type"`
+}
+
+// Different types of filters supported and its values.
+type FilterablePropertyResponseOutput struct{ *pulumi.OutputState }
+
+func (FilterablePropertyResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FilterablePropertyResponse)(nil)).Elem()
+}
+
+func (o FilterablePropertyResponseOutput) ToFilterablePropertyResponseOutput() FilterablePropertyResponseOutput {
+	return o
+}
+
+func (o FilterablePropertyResponseOutput) ToFilterablePropertyResponseOutputWithContext(ctx context.Context) FilterablePropertyResponseOutput {
+	return o
+}
+
+// Values to be filtered.
+func (o FilterablePropertyResponseOutput) SupportedValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FilterablePropertyResponse) []string { return v.SupportedValues }).(pulumi.StringArrayOutput)
+}
+
+// Type of product filter.
+func (o FilterablePropertyResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v FilterablePropertyResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type FilterablePropertyResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (FilterablePropertyResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FilterablePropertyResponse)(nil)).Elem()
+}
+
+func (o FilterablePropertyResponseArrayOutput) ToFilterablePropertyResponseArrayOutput() FilterablePropertyResponseArrayOutput {
+	return o
+}
+
+func (o FilterablePropertyResponseArrayOutput) ToFilterablePropertyResponseArrayOutputWithContext(ctx context.Context) FilterablePropertyResponseArrayOutput {
+	return o
+}
+
+func (o FilterablePropertyResponseArrayOutput) Index(i pulumi.IntInput) FilterablePropertyResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FilterablePropertyResponse {
+		return vs[0].([]FilterablePropertyResponse)[vs[1].(int)]
+	}).(FilterablePropertyResponseOutput)
 }
 
 // Forward shipment details.
@@ -1116,12 +1919,102 @@ type ImageInformationResponse struct {
 	ImageUrl string `pulumi:"imageUrl"`
 }
 
+// Image for the product
+type ImageInformationResponseOutput struct{ *pulumi.OutputState }
+
+func (ImageInformationResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageInformationResponse)(nil)).Elem()
+}
+
+func (o ImageInformationResponseOutput) ToImageInformationResponseOutput() ImageInformationResponseOutput {
+	return o
+}
+
+func (o ImageInformationResponseOutput) ToImageInformationResponseOutputWithContext(ctx context.Context) ImageInformationResponseOutput {
+	return o
+}
+
+// Type of the image
+func (o ImageInformationResponseOutput) ImageType() pulumi.StringOutput {
+	return o.ApplyT(func(v ImageInformationResponse) string { return v.ImageType }).(pulumi.StringOutput)
+}
+
+// Url of the image
+func (o ImageInformationResponseOutput) ImageUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v ImageInformationResponse) string { return v.ImageUrl }).(pulumi.StringOutput)
+}
+
+type ImageInformationResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ImageInformationResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ImageInformationResponse)(nil)).Elem()
+}
+
+func (o ImageInformationResponseArrayOutput) ToImageInformationResponseArrayOutput() ImageInformationResponseArrayOutput {
+	return o
+}
+
+func (o ImageInformationResponseArrayOutput) ToImageInformationResponseArrayOutputWithContext(ctx context.Context) ImageInformationResponseArrayOutput {
+	return o
+}
+
+func (o ImageInformationResponseArrayOutput) Index(i pulumi.IntInput) ImageInformationResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ImageInformationResponse {
+		return vs[0].([]ImageInformationResponse)[vs[1].(int)]
+	}).(ImageInformationResponseOutput)
+}
+
 // Returns link related to the product
 type LinkResponse struct {
 	// Type of link
 	LinkType string `pulumi:"linkType"`
 	// Url of the link
 	LinkUrl string `pulumi:"linkUrl"`
+}
+
+// Returns link related to the product
+type LinkResponseOutput struct{ *pulumi.OutputState }
+
+func (LinkResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkResponse)(nil)).Elem()
+}
+
+func (o LinkResponseOutput) ToLinkResponseOutput() LinkResponseOutput {
+	return o
+}
+
+func (o LinkResponseOutput) ToLinkResponseOutputWithContext(ctx context.Context) LinkResponseOutput {
+	return o
+}
+
+// Type of link
+func (o LinkResponseOutput) LinkType() pulumi.StringOutput {
+	return o.ApplyT(func(v LinkResponse) string { return v.LinkType }).(pulumi.StringOutput)
+}
+
+// Url of the link
+func (o LinkResponseOutput) LinkUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v LinkResponse) string { return v.LinkUrl }).(pulumi.StringOutput)
+}
+
+type LinkResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (LinkResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LinkResponse)(nil)).Elem()
+}
+
+func (o LinkResponseArrayOutput) ToLinkResponseArrayOutput() LinkResponseArrayOutput {
+	return o
+}
+
+func (o LinkResponseArrayOutput) ToLinkResponseArrayOutputWithContext(ctx context.Context) LinkResponseArrayOutput {
+	return o
+}
+
+func (o LinkResponseArrayOutput) Index(i pulumi.IntInput) LinkResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LinkResponse {
+		return vs[0].([]LinkResponse)[vs[1].(int)]
+	}).(LinkResponseOutput)
 }
 
 // Management resource preference to link device
@@ -2153,6 +3046,86 @@ type ProductFamilyResponse struct {
 	ResourceProviderDetails []ResourceProviderDetailsResponse `pulumi:"resourceProviderDetails"`
 }
 
+// Product Family
+type ProductFamilyResponseOutput struct{ *pulumi.OutputState }
+
+func (ProductFamilyResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProductFamilyResponse)(nil)).Elem()
+}
+
+func (o ProductFamilyResponseOutput) ToProductFamilyResponseOutput() ProductFamilyResponseOutput {
+	return o
+}
+
+func (o ProductFamilyResponseOutput) ToProductFamilyResponseOutputWithContext(ctx context.Context) ProductFamilyResponseOutput {
+	return o
+}
+
+// Availability information of the product system.
+func (o ProductFamilyResponseOutput) AvailabilityInformation() AvailabilityInformationResponseOutput {
+	return o.ApplyT(func(v ProductFamilyResponse) AvailabilityInformationResponse { return v.AvailabilityInformation }).(AvailabilityInformationResponseOutput)
+}
+
+// Cost information for the product system.
+func (o ProductFamilyResponseOutput) CostInformation() CostInformationResponseOutput {
+	return o.ApplyT(func(v ProductFamilyResponse) CostInformationResponse { return v.CostInformation }).(CostInformationResponseOutput)
+}
+
+// Description related to the product system.
+func (o ProductFamilyResponseOutput) Description() DescriptionResponseOutput {
+	return o.ApplyT(func(v ProductFamilyResponse) DescriptionResponse { return v.Description }).(DescriptionResponseOutput)
+}
+
+// Display Name for the product system.
+func (o ProductFamilyResponseOutput) DisplayName() pulumi.StringOutput {
+	return o.ApplyT(func(v ProductFamilyResponse) string { return v.DisplayName }).(pulumi.StringOutput)
+}
+
+// list of filters supported for a product
+func (o ProductFamilyResponseOutput) FilterableProperties() FilterablePropertyResponseArrayOutput {
+	return o.ApplyT(func(v ProductFamilyResponse) []FilterablePropertyResponse { return v.FilterableProperties }).(FilterablePropertyResponseArrayOutput)
+}
+
+// Hierarchy information of a product.
+func (o ProductFamilyResponseOutput) HierarchyInformation() HierarchyInformationResponseOutput {
+	return o.ApplyT(func(v ProductFamilyResponse) HierarchyInformationResponse { return v.HierarchyInformation }).(HierarchyInformationResponseOutput)
+}
+
+// Image information for the product system.
+func (o ProductFamilyResponseOutput) ImageInformation() ImageInformationResponseArrayOutput {
+	return o.ApplyT(func(v ProductFamilyResponse) []ImageInformationResponse { return v.ImageInformation }).(ImageInformationResponseArrayOutput)
+}
+
+// List of product lines supported in the product family
+func (o ProductFamilyResponseOutput) ProductLines() ProductLineResponseArrayOutput {
+	return o.ApplyT(func(v ProductFamilyResponse) []ProductLineResponse { return v.ProductLines }).(ProductLineResponseArrayOutput)
+}
+
+// Contains details related to resource provider
+func (o ProductFamilyResponseOutput) ResourceProviderDetails() ResourceProviderDetailsResponseArrayOutput {
+	return o.ApplyT(func(v ProductFamilyResponse) []ResourceProviderDetailsResponse { return v.ResourceProviderDetails }).(ResourceProviderDetailsResponseArrayOutput)
+}
+
+type ProductFamilyResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ProductFamilyResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProductFamilyResponse)(nil)).Elem()
+}
+
+func (o ProductFamilyResponseArrayOutput) ToProductFamilyResponseArrayOutput() ProductFamilyResponseArrayOutput {
+	return o
+}
+
+func (o ProductFamilyResponseArrayOutput) ToProductFamilyResponseArrayOutputWithContext(ctx context.Context) ProductFamilyResponseArrayOutput {
+	return o
+}
+
+func (o ProductFamilyResponseArrayOutput) Index(i pulumi.IntInput) ProductFamilyResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProductFamilyResponse {
+		return vs[0].([]ProductFamilyResponse)[vs[1].(int)]
+	}).(ProductFamilyResponseOutput)
+}
+
 // Product line
 type ProductLineResponse struct {
 	// Availability information of the product system.
@@ -2173,6 +3146,81 @@ type ProductLineResponse struct {
 	Products []ProductResponse `pulumi:"products"`
 }
 
+// Product line
+type ProductLineResponseOutput struct{ *pulumi.OutputState }
+
+func (ProductLineResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProductLineResponse)(nil)).Elem()
+}
+
+func (o ProductLineResponseOutput) ToProductLineResponseOutput() ProductLineResponseOutput {
+	return o
+}
+
+func (o ProductLineResponseOutput) ToProductLineResponseOutputWithContext(ctx context.Context) ProductLineResponseOutput {
+	return o
+}
+
+// Availability information of the product system.
+func (o ProductLineResponseOutput) AvailabilityInformation() AvailabilityInformationResponseOutput {
+	return o.ApplyT(func(v ProductLineResponse) AvailabilityInformationResponse { return v.AvailabilityInformation }).(AvailabilityInformationResponseOutput)
+}
+
+// Cost information for the product system.
+func (o ProductLineResponseOutput) CostInformation() CostInformationResponseOutput {
+	return o.ApplyT(func(v ProductLineResponse) CostInformationResponse { return v.CostInformation }).(CostInformationResponseOutput)
+}
+
+// Description related to the product system.
+func (o ProductLineResponseOutput) Description() DescriptionResponseOutput {
+	return o.ApplyT(func(v ProductLineResponse) DescriptionResponse { return v.Description }).(DescriptionResponseOutput)
+}
+
+// Display Name for the product system.
+func (o ProductLineResponseOutput) DisplayName() pulumi.StringOutput {
+	return o.ApplyT(func(v ProductLineResponse) string { return v.DisplayName }).(pulumi.StringOutput)
+}
+
+// list of filters supported for a product
+func (o ProductLineResponseOutput) FilterableProperties() FilterablePropertyResponseArrayOutput {
+	return o.ApplyT(func(v ProductLineResponse) []FilterablePropertyResponse { return v.FilterableProperties }).(FilterablePropertyResponseArrayOutput)
+}
+
+// Hierarchy information of a product.
+func (o ProductLineResponseOutput) HierarchyInformation() HierarchyInformationResponseOutput {
+	return o.ApplyT(func(v ProductLineResponse) HierarchyInformationResponse { return v.HierarchyInformation }).(HierarchyInformationResponseOutput)
+}
+
+// Image information for the product system.
+func (o ProductLineResponseOutput) ImageInformation() ImageInformationResponseArrayOutput {
+	return o.ApplyT(func(v ProductLineResponse) []ImageInformationResponse { return v.ImageInformation }).(ImageInformationResponseArrayOutput)
+}
+
+// List of products in the product line
+func (o ProductLineResponseOutput) Products() ProductResponseArrayOutput {
+	return o.ApplyT(func(v ProductLineResponse) []ProductResponse { return v.Products }).(ProductResponseArrayOutput)
+}
+
+type ProductLineResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ProductLineResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProductLineResponse)(nil)).Elem()
+}
+
+func (o ProductLineResponseArrayOutput) ToProductLineResponseArrayOutput() ProductLineResponseArrayOutput {
+	return o
+}
+
+func (o ProductLineResponseArrayOutput) ToProductLineResponseArrayOutputWithContext(ctx context.Context) ProductLineResponseArrayOutput {
+	return o
+}
+
+func (o ProductLineResponseArrayOutput) Index(i pulumi.IntInput) ProductLineResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProductLineResponse {
+		return vs[0].([]ProductLineResponse)[vs[1].(int)]
+	}).(ProductLineResponseOutput)
+}
+
 // List of Products
 type ProductResponse struct {
 	// Availability information of the product system.
@@ -2191,6 +3239,81 @@ type ProductResponse struct {
 	HierarchyInformation HierarchyInformationResponse `pulumi:"hierarchyInformation"`
 	// Image information for the product system.
 	ImageInformation []ImageInformationResponse `pulumi:"imageInformation"`
+}
+
+// List of Products
+type ProductResponseOutput struct{ *pulumi.OutputState }
+
+func (ProductResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProductResponse)(nil)).Elem()
+}
+
+func (o ProductResponseOutput) ToProductResponseOutput() ProductResponseOutput {
+	return o
+}
+
+func (o ProductResponseOutput) ToProductResponseOutputWithContext(ctx context.Context) ProductResponseOutput {
+	return o
+}
+
+// Availability information of the product system.
+func (o ProductResponseOutput) AvailabilityInformation() AvailabilityInformationResponseOutput {
+	return o.ApplyT(func(v ProductResponse) AvailabilityInformationResponse { return v.AvailabilityInformation }).(AvailabilityInformationResponseOutput)
+}
+
+// List of configurations for the product
+func (o ProductResponseOutput) Configurations() ConfigurationResponseArrayOutput {
+	return o.ApplyT(func(v ProductResponse) []ConfigurationResponse { return v.Configurations }).(ConfigurationResponseArrayOutput)
+}
+
+// Cost information for the product system.
+func (o ProductResponseOutput) CostInformation() CostInformationResponseOutput {
+	return o.ApplyT(func(v ProductResponse) CostInformationResponse { return v.CostInformation }).(CostInformationResponseOutput)
+}
+
+// Description related to the product system.
+func (o ProductResponseOutput) Description() DescriptionResponseOutput {
+	return o.ApplyT(func(v ProductResponse) DescriptionResponse { return v.Description }).(DescriptionResponseOutput)
+}
+
+// Display Name for the product system.
+func (o ProductResponseOutput) DisplayName() pulumi.StringOutput {
+	return o.ApplyT(func(v ProductResponse) string { return v.DisplayName }).(pulumi.StringOutput)
+}
+
+// list of filters supported for a product
+func (o ProductResponseOutput) FilterableProperties() FilterablePropertyResponseArrayOutput {
+	return o.ApplyT(func(v ProductResponse) []FilterablePropertyResponse { return v.FilterableProperties }).(FilterablePropertyResponseArrayOutput)
+}
+
+// Hierarchy information of a product.
+func (o ProductResponseOutput) HierarchyInformation() HierarchyInformationResponseOutput {
+	return o.ApplyT(func(v ProductResponse) HierarchyInformationResponse { return v.HierarchyInformation }).(HierarchyInformationResponseOutput)
+}
+
+// Image information for the product system.
+func (o ProductResponseOutput) ImageInformation() ImageInformationResponseArrayOutput {
+	return o.ApplyT(func(v ProductResponse) []ImageInformationResponse { return v.ImageInformation }).(ImageInformationResponseArrayOutput)
+}
+
+type ProductResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ProductResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProductResponse)(nil)).Elem()
+}
+
+func (o ProductResponseArrayOutput) ToProductResponseArrayOutput() ProductResponseArrayOutput {
+	return o
+}
+
+func (o ProductResponseArrayOutput) ToProductResponseArrayOutputWithContext(ctx context.Context) ProductResponseArrayOutput {
+	return o
+}
+
+func (o ProductResponseArrayOutput) Index(i pulumi.IntInput) ProductResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProductResponse {
+		return vs[0].([]ProductResponse)[vs[1].(int)]
+	}).(ProductResponseOutput)
 }
 
 // Billing type Purchase meter details
@@ -2842,6 +3965,51 @@ type SpecificationResponse struct {
 	Value string `pulumi:"value"`
 }
 
+// Specifications of the configurations
+type SpecificationResponseOutput struct{ *pulumi.OutputState }
+
+func (SpecificationResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpecificationResponse)(nil)).Elem()
+}
+
+func (o SpecificationResponseOutput) ToSpecificationResponseOutput() SpecificationResponseOutput {
+	return o
+}
+
+func (o SpecificationResponseOutput) ToSpecificationResponseOutputWithContext(ctx context.Context) SpecificationResponseOutput {
+	return o
+}
+
+// Name of the specification
+func (o SpecificationResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v SpecificationResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Value of the specification
+func (o SpecificationResponseOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v SpecificationResponse) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type SpecificationResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (SpecificationResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SpecificationResponse)(nil)).Elem()
+}
+
+func (o SpecificationResponseArrayOutput) ToSpecificationResponseArrayOutput() SpecificationResponseArrayOutput {
+	return o
+}
+
+func (o SpecificationResponseArrayOutput) ToSpecificationResponseArrayOutputWithContext(ctx context.Context) SpecificationResponseArrayOutput {
+	return o
+}
+
+func (o SpecificationResponseArrayOutput) Index(i pulumi.IntInput) SpecificationResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SpecificationResponse {
+		return vs[0].([]SpecificationResponse)[vs[1].(int)]
+	}).(SpecificationResponseOutput)
+}
+
 // Resource stage details.
 type StageDetailsResponse struct {
 	// Display name of the resource stage.
@@ -3170,15 +4338,74 @@ func (o TransportPreferencesResponsePtrOutput) PreferredShipmentType() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
+type FilterablePropertyArrayMap map[string]FilterablePropertyArrayInput
+
+func (FilterablePropertyArrayMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string][]FilterableProperty)(nil)).Elem()
+}
+
+func (i FilterablePropertyArrayMap) ToFilterablePropertyArrayMapOutput() FilterablePropertyArrayMapOutput {
+	return i.ToFilterablePropertyArrayMapOutputWithContext(context.Background())
+}
+
+func (i FilterablePropertyArrayMap) ToFilterablePropertyArrayMapOutputWithContext(ctx context.Context) FilterablePropertyArrayMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FilterablePropertyArrayMapOutput)
+}
+
+// FilterablePropertyArrayMapInput is an input type that accepts FilterablePropertyArrayMap and FilterablePropertyArrayMapOutput values.
+// You can construct a concrete instance of `FilterablePropertyArrayMapInput` via:
+//
+//          FilterablePropertyArrayMap{ "key": FilterablePropertyArray{ FilterablePropertyArgs{...} } }
+type FilterablePropertyArrayMapInput interface {
+	pulumi.Input
+
+	ToFilterablePropertyArrayMapOutput() FilterablePropertyArrayMapOutput
+	ToFilterablePropertyArrayMapOutputWithContext(context.Context) FilterablePropertyArrayMapOutput
+}
+
+type FilterablePropertyArrayMapOutput struct{ *pulumi.OutputState }
+
+func (FilterablePropertyArrayMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string][]FilterableProperty)(nil)).Elem()
+}
+
+func (o FilterablePropertyArrayMapOutput) ToFilterablePropertyArrayMapOutput() FilterablePropertyArrayMapOutput {
+	return o
+}
+
+func (o FilterablePropertyArrayMapOutput) ToFilterablePropertyArrayMapOutputWithContext(ctx context.Context) FilterablePropertyArrayMapOutput {
+	return o
+}
+
+func (o FilterablePropertyArrayMapOutput) MapIndex(k pulumi.StringInput) FilterablePropertyArrayOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) []FilterableProperty {
+		return vs[0].(map[string][]FilterableProperty)[vs[1].(string)]
+	}).(FilterablePropertyArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(AddressDetailsOutput{})
 	pulumi.RegisterOutputType(AddressDetailsResponseOutput{})
 	pulumi.RegisterOutputType(AddressPropertiesOutput{})
 	pulumi.RegisterOutputType(AddressPropertiesResponseOutput{})
+	pulumi.RegisterOutputType(AvailabilityInformationResponseOutput{})
+	pulumi.RegisterOutputType(BillingMeterDetailsResponseOutput{})
+	pulumi.RegisterOutputType(BillingMeterDetailsResponseArrayOutput{})
+	pulumi.RegisterOutputType(ConfigurationFiltersOutput{})
+	pulumi.RegisterOutputType(ConfigurationFiltersArrayOutput{})
+	pulumi.RegisterOutputType(ConfigurationResponseOutput{})
+	pulumi.RegisterOutputType(ConfigurationResponseArrayOutput{})
 	pulumi.RegisterOutputType(ContactDetailsOutput{})
 	pulumi.RegisterOutputType(ContactDetailsResponseOutput{})
+	pulumi.RegisterOutputType(CostInformationResponseOutput{})
+	pulumi.RegisterOutputType(CustomerSubscriptionDetailsOutput{})
+	pulumi.RegisterOutputType(CustomerSubscriptionDetailsPtrOutput{})
+	pulumi.RegisterOutputType(CustomerSubscriptionRegisteredFeaturesOutput{})
+	pulumi.RegisterOutputType(CustomerSubscriptionRegisteredFeaturesArrayOutput{})
+	pulumi.RegisterOutputType(DescriptionResponseOutput{})
 	pulumi.RegisterOutputType(DeviceDetailsResponseOutput{})
 	pulumi.RegisterOutputType(DeviceDetailsResponseArrayOutput{})
+	pulumi.RegisterOutputType(DimensionsResponseOutput{})
 	pulumi.RegisterOutputType(DisplayInfoResponseOutput{})
 	pulumi.RegisterOutputType(DisplayInfoResponsePtrOutput{})
 	pulumi.RegisterOutputType(EncryptionPreferencesOutput{})
@@ -3189,9 +4416,17 @@ func init() {
 	pulumi.RegisterOutputType(ErrorAdditionalInfoResponseArrayOutput{})
 	pulumi.RegisterOutputType(ErrorDetailResponseOutput{})
 	pulumi.RegisterOutputType(ErrorDetailResponseArrayOutput{})
+	pulumi.RegisterOutputType(FilterablePropertyOutput{})
+	pulumi.RegisterOutputType(FilterablePropertyArrayOutput{})
+	pulumi.RegisterOutputType(FilterablePropertyResponseOutput{})
+	pulumi.RegisterOutputType(FilterablePropertyResponseArrayOutput{})
 	pulumi.RegisterOutputType(ForwardShippingDetailsResponseOutput{})
 	pulumi.RegisterOutputType(HierarchyInformationOutput{})
 	pulumi.RegisterOutputType(HierarchyInformationResponseOutput{})
+	pulumi.RegisterOutputType(ImageInformationResponseOutput{})
+	pulumi.RegisterOutputType(ImageInformationResponseArrayOutput{})
+	pulumi.RegisterOutputType(LinkResponseOutput{})
+	pulumi.RegisterOutputType(LinkResponseArrayOutput{})
 	pulumi.RegisterOutputType(ManagementResourcePreferencesOutput{})
 	pulumi.RegisterOutputType(ManagementResourcePreferencesPtrOutput{})
 	pulumi.RegisterOutputType(ManagementResourcePreferencesResponseOutput{})
@@ -3208,6 +4443,12 @@ func init() {
 	pulumi.RegisterOutputType(PreferencesResponsePtrOutput{})
 	pulumi.RegisterOutputType(ProductDetailsOutput{})
 	pulumi.RegisterOutputType(ProductDetailsResponseOutput{})
+	pulumi.RegisterOutputType(ProductFamilyResponseOutput{})
+	pulumi.RegisterOutputType(ProductFamilyResponseArrayOutput{})
+	pulumi.RegisterOutputType(ProductLineResponseOutput{})
+	pulumi.RegisterOutputType(ProductLineResponseArrayOutput{})
+	pulumi.RegisterOutputType(ProductResponseOutput{})
+	pulumi.RegisterOutputType(ProductResponseArrayOutput{})
 	pulumi.RegisterOutputType(ResourceProviderDetailsResponseOutput{})
 	pulumi.RegisterOutputType(ResourceProviderDetailsResponseArrayOutput{})
 	pulumi.RegisterOutputType(ReverseShippingDetailsResponseOutput{})
@@ -3215,6 +4456,8 @@ func init() {
 	pulumi.RegisterOutputType(ShippingAddressPtrOutput{})
 	pulumi.RegisterOutputType(ShippingAddressResponseOutput{})
 	pulumi.RegisterOutputType(ShippingAddressResponsePtrOutput{})
+	pulumi.RegisterOutputType(SpecificationResponseOutput{})
+	pulumi.RegisterOutputType(SpecificationResponseArrayOutput{})
 	pulumi.RegisterOutputType(StageDetailsResponseOutput{})
 	pulumi.RegisterOutputType(StageDetailsResponseArrayOutput{})
 	pulumi.RegisterOutputType(SystemDataResponseOutput{})
@@ -3222,4 +4465,5 @@ func init() {
 	pulumi.RegisterOutputType(TransportPreferencesPtrOutput{})
 	pulumi.RegisterOutputType(TransportPreferencesResponseOutput{})
 	pulumi.RegisterOutputType(TransportPreferencesResponsePtrOutput{})
+	pulumi.RegisterOutputType(FilterablePropertyArrayMapOutput{})
 }

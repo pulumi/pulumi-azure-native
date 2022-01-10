@@ -4,6 +4,9 @@
 package v20191201preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -42,4 +45,77 @@ type LookupGatewayHostnameConfigurationResult struct {
 	NegotiateClientCertificate *bool `pulumi:"negotiateClientCertificate"`
 	// Resource type for API Management resource.
 	Type string `pulumi:"type"`
+}
+
+func LookupGatewayHostnameConfigurationOutput(ctx *pulumi.Context, args LookupGatewayHostnameConfigurationOutputArgs, opts ...pulumi.InvokeOption) LookupGatewayHostnameConfigurationResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupGatewayHostnameConfigurationResult, error) {
+			args := v.(LookupGatewayHostnameConfigurationArgs)
+			r, err := LookupGatewayHostnameConfiguration(ctx, &args, opts...)
+			return *r, err
+		}).(LookupGatewayHostnameConfigurationResultOutput)
+}
+
+type LookupGatewayHostnameConfigurationOutputArgs struct {
+	// Gateway entity identifier. Must be unique in the current API Management service instance. Must not have value 'managed'
+	GatewayId pulumi.StringInput `pulumi:"gatewayId"`
+	// Gateway hostname configuration identifier. Must be unique in the scope of parent Gateway entity.
+	HcId pulumi.StringInput `pulumi:"hcId"`
+	// The name of the resource group.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the API Management service.
+	ServiceName pulumi.StringInput `pulumi:"serviceName"`
+}
+
+func (LookupGatewayHostnameConfigurationOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupGatewayHostnameConfigurationArgs)(nil)).Elem()
+}
+
+// Gateway hostname configuration details.
+type LookupGatewayHostnameConfigurationResultOutput struct{ *pulumi.OutputState }
+
+func (LookupGatewayHostnameConfigurationResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupGatewayHostnameConfigurationResult)(nil)).Elem()
+}
+
+func (o LookupGatewayHostnameConfigurationResultOutput) ToLookupGatewayHostnameConfigurationResultOutput() LookupGatewayHostnameConfigurationResultOutput {
+	return o
+}
+
+func (o LookupGatewayHostnameConfigurationResultOutput) ToLookupGatewayHostnameConfigurationResultOutputWithContext(ctx context.Context) LookupGatewayHostnameConfigurationResultOutput {
+	return o
+}
+
+// Identifier of Certificate entity that will be used for TLS connection establishment
+func (o LookupGatewayHostnameConfigurationResultOutput) CertificateId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupGatewayHostnameConfigurationResult) *string { return v.CertificateId }).(pulumi.StringPtrOutput)
+}
+
+// Hostname value. Supports valid domain name, partial or full wildcard
+func (o LookupGatewayHostnameConfigurationResultOutput) Hostname() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupGatewayHostnameConfigurationResult) *string { return v.Hostname }).(pulumi.StringPtrOutput)
+}
+
+// Resource ID.
+func (o LookupGatewayHostnameConfigurationResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupGatewayHostnameConfigurationResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o LookupGatewayHostnameConfigurationResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupGatewayHostnameConfigurationResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Determines whether gateway requests client certificate
+func (o LookupGatewayHostnameConfigurationResultOutput) NegotiateClientCertificate() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupGatewayHostnameConfigurationResult) *bool { return v.NegotiateClientCertificate }).(pulumi.BoolPtrOutput)
+}
+
+// Resource type for API Management resource.
+func (o LookupGatewayHostnameConfigurationResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupGatewayHostnameConfigurationResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupGatewayHostnameConfigurationResultOutput{})
 }

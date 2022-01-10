@@ -4,6 +4,9 @@
 package v20180901preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -36,4 +39,68 @@ type LookupAssociationResult struct {
 	TargetResourceId *string `pulumi:"targetResourceId"`
 	// The association type.
 	Type string `pulumi:"type"`
+}
+
+func LookupAssociationOutput(ctx *pulumi.Context, args LookupAssociationOutputArgs, opts ...pulumi.InvokeOption) LookupAssociationResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupAssociationResult, error) {
+			args := v.(LookupAssociationArgs)
+			r, err := LookupAssociation(ctx, &args, opts...)
+			return *r, err
+		}).(LookupAssociationResultOutput)
+}
+
+type LookupAssociationOutputArgs struct {
+	// The name of the association.
+	AssociationName pulumi.StringInput `pulumi:"associationName"`
+	// The scope of the association.
+	Scope pulumi.StringInput `pulumi:"scope"`
+}
+
+func (LookupAssociationOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupAssociationArgs)(nil)).Elem()
+}
+
+// The resource definition of this association.
+type LookupAssociationResultOutput struct{ *pulumi.OutputState }
+
+func (LookupAssociationResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupAssociationResult)(nil)).Elem()
+}
+
+func (o LookupAssociationResultOutput) ToLookupAssociationResultOutput() LookupAssociationResultOutput {
+	return o
+}
+
+func (o LookupAssociationResultOutput) ToLookupAssociationResultOutputWithContext(ctx context.Context) LookupAssociationResultOutput {
+	return o
+}
+
+// The association id.
+func (o LookupAssociationResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAssociationResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The association name.
+func (o LookupAssociationResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAssociationResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The provisioning state of the association.
+func (o LookupAssociationResultOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAssociationResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The REST resource instance of the target resource for this association.
+func (o LookupAssociationResultOutput) TargetResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupAssociationResult) *string { return v.TargetResourceId }).(pulumi.StringPtrOutput)
+}
+
+// The association type.
+func (o LookupAssociationResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAssociationResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupAssociationResultOutput{})
 }

@@ -4,6 +4,9 @@
 package v20191011preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -46,4 +49,93 @@ type LookupNotebookProxyResult struct {
 	SystemData *NotebookResourceSystemDataResponse `pulumi:"systemData"`
 	// The type of the resource. Ex- Microsoft.Storage/storageAccounts or Microsoft.Notebooks/notebookProxies.
 	Type string `pulumi:"type"`
+}
+
+func LookupNotebookProxyOutput(ctx *pulumi.Context, args LookupNotebookProxyOutputArgs, opts ...pulumi.InvokeOption) LookupNotebookProxyResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupNotebookProxyResult, error) {
+			args := v.(LookupNotebookProxyArgs)
+			r, err := LookupNotebookProxy(ctx, &args, opts...)
+			return *r, err
+		}).(LookupNotebookProxyResultOutput)
+}
+
+type LookupNotebookProxyOutputArgs struct {
+	// The name of the resource group. The name is case insensitive.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the resource.
+	ResourceName pulumi.StringInput `pulumi:"resourceName"`
+}
+
+func (LookupNotebookProxyOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupNotebookProxyArgs)(nil)).Elem()
+}
+
+// A NotebookProxy resource.
+type LookupNotebookProxyResultOutput struct{ *pulumi.OutputState }
+
+func (LookupNotebookProxyResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupNotebookProxyResult)(nil)).Elem()
+}
+
+func (o LookupNotebookProxyResultOutput) ToLookupNotebookProxyResultOutput() LookupNotebookProxyResultOutput {
+	return o
+}
+
+func (o LookupNotebookProxyResultOutput) ToLookupNotebookProxyResultOutputWithContext(ctx context.Context) LookupNotebookProxyResultOutput {
+	return o
+}
+
+// The friendly string identifier of the creator of the NotebookProxy resource.
+func (o LookupNotebookProxyResultOutput) Hostname() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupNotebookProxyResult) *string { return v.Hostname }).(pulumi.StringPtrOutput)
+}
+
+// Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+func (o LookupNotebookProxyResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupNotebookProxyResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o LookupNotebookProxyResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupNotebookProxyResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The public DNS name
+func (o LookupNotebookProxyResultOutput) PublicDns() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupNotebookProxyResult) *string { return v.PublicDns }).(pulumi.StringPtrOutput)
+}
+
+// Allow public network access on a V-Net locked notebook resource
+func (o LookupNotebookProxyResultOutput) PublicNetworkAccess() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupNotebookProxyResult) *string { return v.PublicNetworkAccess }).(pulumi.StringPtrOutput)
+}
+
+// The region of the NotebookProxy resource.
+func (o LookupNotebookProxyResultOutput) Region() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupNotebookProxyResult) *string { return v.Region }).(pulumi.StringPtrOutput)
+}
+
+// The unique identifier (a GUID) generated for every resource.
+func (o LookupNotebookProxyResultOutput) ResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupNotebookProxyResult) string { return v.ResourceId }).(pulumi.StringOutput)
+}
+
+// The alternate application ID used for auth token request in the data plane
+func (o LookupNotebookProxyResultOutput) SecondaryAppId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupNotebookProxyResult) *string { return v.SecondaryAppId }).(pulumi.StringPtrOutput)
+}
+
+// System data for notebook resource
+func (o LookupNotebookProxyResultOutput) SystemData() NotebookResourceSystemDataResponsePtrOutput {
+	return o.ApplyT(func(v LookupNotebookProxyResult) *NotebookResourceSystemDataResponse { return v.SystemData }).(NotebookResourceSystemDataResponsePtrOutput)
+}
+
+// The type of the resource. Ex- Microsoft.Storage/storageAccounts or Microsoft.Notebooks/notebookProxies.
+func (o LookupNotebookProxyResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupNotebookProxyResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupNotebookProxyResultOutput{})
 }

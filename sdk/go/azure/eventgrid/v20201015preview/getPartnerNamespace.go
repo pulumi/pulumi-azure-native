@@ -4,6 +4,9 @@
 package v20201015preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -45,4 +48,89 @@ type LookupPartnerNamespaceResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Type of the resource.
 	Type string `pulumi:"type"`
+}
+
+func LookupPartnerNamespaceOutput(ctx *pulumi.Context, args LookupPartnerNamespaceOutputArgs, opts ...pulumi.InvokeOption) LookupPartnerNamespaceResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupPartnerNamespaceResult, error) {
+			args := v.(LookupPartnerNamespaceArgs)
+			r, err := LookupPartnerNamespace(ctx, &args, opts...)
+			return *r, err
+		}).(LookupPartnerNamespaceResultOutput)
+}
+
+type LookupPartnerNamespaceOutputArgs struct {
+	// Name of the partner namespace.
+	PartnerNamespaceName pulumi.StringInput `pulumi:"partnerNamespaceName"`
+	// The name of the resource group within the user's subscription.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupPartnerNamespaceOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupPartnerNamespaceArgs)(nil)).Elem()
+}
+
+// EventGrid Partner Namespace.
+type LookupPartnerNamespaceResultOutput struct{ *pulumi.OutputState }
+
+func (LookupPartnerNamespaceResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupPartnerNamespaceResult)(nil)).Elem()
+}
+
+func (o LookupPartnerNamespaceResultOutput) ToLookupPartnerNamespaceResultOutput() LookupPartnerNamespaceResultOutput {
+	return o
+}
+
+func (o LookupPartnerNamespaceResultOutput) ToLookupPartnerNamespaceResultOutputWithContext(ctx context.Context) LookupPartnerNamespaceResultOutput {
+	return o
+}
+
+// Endpoint for the partner namespace.
+func (o LookupPartnerNamespaceResultOutput) Endpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPartnerNamespaceResult) string { return v.Endpoint }).(pulumi.StringOutput)
+}
+
+// Fully qualified identifier of the resource.
+func (o LookupPartnerNamespaceResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPartnerNamespaceResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Location of the resource.
+func (o LookupPartnerNamespaceResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPartnerNamespaceResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// Name of the resource.
+func (o LookupPartnerNamespaceResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPartnerNamespaceResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The fully qualified ARM Id of the partner registration that should be associated with this partner namespace. This takes the following format:
+// /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventGrid/partnerRegistrations/{partnerRegistrationName}.
+func (o LookupPartnerNamespaceResultOutput) PartnerRegistrationFullyQualifiedId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupPartnerNamespaceResult) *string { return v.PartnerRegistrationFullyQualifiedId }).(pulumi.StringPtrOutput)
+}
+
+// Provisioning state of the partner namespace.
+func (o LookupPartnerNamespaceResultOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPartnerNamespaceResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The system metadata relating to Partner Namespace resource.
+func (o LookupPartnerNamespaceResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupPartnerNamespaceResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Tags of the resource.
+func (o LookupPartnerNamespaceResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupPartnerNamespaceResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Type of the resource.
+func (o LookupPartnerNamespaceResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPartnerNamespaceResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupPartnerNamespaceResultOutput{})
 }

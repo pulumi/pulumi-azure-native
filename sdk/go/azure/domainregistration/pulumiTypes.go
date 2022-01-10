@@ -535,6 +535,46 @@ type NameIdentifierResponse struct {
 	Name *string `pulumi:"name"`
 }
 
+// Identifies an object.
+type NameIdentifierResponseOutput struct{ *pulumi.OutputState }
+
+func (NameIdentifierResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NameIdentifierResponse)(nil)).Elem()
+}
+
+func (o NameIdentifierResponseOutput) ToNameIdentifierResponseOutput() NameIdentifierResponseOutput {
+	return o
+}
+
+func (o NameIdentifierResponseOutput) ToNameIdentifierResponseOutputWithContext(ctx context.Context) NameIdentifierResponseOutput {
+	return o
+}
+
+// Name of the object.
+func (o NameIdentifierResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NameIdentifierResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+type NameIdentifierResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (NameIdentifierResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NameIdentifierResponse)(nil)).Elem()
+}
+
+func (o NameIdentifierResponseArrayOutput) ToNameIdentifierResponseArrayOutput() NameIdentifierResponseArrayOutput {
+	return o
+}
+
+func (o NameIdentifierResponseArrayOutput) ToNameIdentifierResponseArrayOutputWithContext(ctx context.Context) NameIdentifierResponseArrayOutput {
+	return o
+}
+
+func (o NameIdentifierResponseArrayOutput) Index(i pulumi.IntInput) NameIdentifierResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NameIdentifierResponse {
+		return vs[0].([]NameIdentifierResponse)[vs[1].(int)]
+	}).(NameIdentifierResponseOutput)
+}
+
 // Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponse struct {
 	// The timestamp of resource creation (UTC).
@@ -608,6 +648,61 @@ type TldLegalAgreementResponse struct {
 	Url *string `pulumi:"url"`
 }
 
+// Legal agreement for a top level domain.
+type TldLegalAgreementResponseOutput struct{ *pulumi.OutputState }
+
+func (TldLegalAgreementResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TldLegalAgreementResponse)(nil)).Elem()
+}
+
+func (o TldLegalAgreementResponseOutput) ToTldLegalAgreementResponseOutput() TldLegalAgreementResponseOutput {
+	return o
+}
+
+func (o TldLegalAgreementResponseOutput) ToTldLegalAgreementResponseOutputWithContext(ctx context.Context) TldLegalAgreementResponseOutput {
+	return o
+}
+
+// Unique identifier for the agreement.
+func (o TldLegalAgreementResponseOutput) AgreementKey() pulumi.StringOutput {
+	return o.ApplyT(func(v TldLegalAgreementResponse) string { return v.AgreementKey }).(pulumi.StringOutput)
+}
+
+// Agreement details.
+func (o TldLegalAgreementResponseOutput) Content() pulumi.StringOutput {
+	return o.ApplyT(func(v TldLegalAgreementResponse) string { return v.Content }).(pulumi.StringOutput)
+}
+
+// Agreement title.
+func (o TldLegalAgreementResponseOutput) Title() pulumi.StringOutput {
+	return o.ApplyT(func(v TldLegalAgreementResponse) string { return v.Title }).(pulumi.StringOutput)
+}
+
+// URL where a copy of the agreement details is hosted.
+func (o TldLegalAgreementResponseOutput) Url() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TldLegalAgreementResponse) *string { return v.Url }).(pulumi.StringPtrOutput)
+}
+
+type TldLegalAgreementResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (TldLegalAgreementResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TldLegalAgreementResponse)(nil)).Elem()
+}
+
+func (o TldLegalAgreementResponseArrayOutput) ToTldLegalAgreementResponseArrayOutput() TldLegalAgreementResponseArrayOutput {
+	return o
+}
+
+func (o TldLegalAgreementResponseArrayOutput) ToTldLegalAgreementResponseArrayOutputWithContext(ctx context.Context) TldLegalAgreementResponseArrayOutput {
+	return o
+}
+
+func (o TldLegalAgreementResponseArrayOutput) Index(i pulumi.IntInput) TldLegalAgreementResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TldLegalAgreementResponse {
+		return vs[0].([]TldLegalAgreementResponse)[vs[1].(int)]
+	}).(TldLegalAgreementResponseOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(AddressOutput{})
 	pulumi.RegisterOutputType(AddressPtrOutput{})
@@ -615,5 +710,9 @@ func init() {
 	pulumi.RegisterOutputType(DomainPurchaseConsentOutput{})
 	pulumi.RegisterOutputType(HostNameResponseOutput{})
 	pulumi.RegisterOutputType(HostNameResponseArrayOutput{})
+	pulumi.RegisterOutputType(NameIdentifierResponseOutput{})
+	pulumi.RegisterOutputType(NameIdentifierResponseArrayOutput{})
 	pulumi.RegisterOutputType(SystemDataResponseOutput{})
+	pulumi.RegisterOutputType(TldLegalAgreementResponseOutput{})
+	pulumi.RegisterOutputType(TldLegalAgreementResponseArrayOutput{})
 }

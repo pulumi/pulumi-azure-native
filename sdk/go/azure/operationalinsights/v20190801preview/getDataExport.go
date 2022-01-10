@@ -4,6 +4,9 @@
 package v20190801preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -48,4 +51,95 @@ type LookupDataExportResult struct {
 	TableNames []string `pulumi:"tableNames"`
 	// Resource type.
 	Type string `pulumi:"type"`
+}
+
+func LookupDataExportOutput(ctx *pulumi.Context, args LookupDataExportOutputArgs, opts ...pulumi.InvokeOption) LookupDataExportResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupDataExportResult, error) {
+			args := v.(LookupDataExportArgs)
+			r, err := LookupDataExport(ctx, &args, opts...)
+			return *r, err
+		}).(LookupDataExportResultOutput)
+}
+
+type LookupDataExportOutputArgs struct {
+	// The data export rule name.
+	DataExportName pulumi.StringInput `pulumi:"dataExportName"`
+	// The name of the resource group to get. The name is case insensitive.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The Log Analytics workspace name.
+	WorkspaceName pulumi.StringInput `pulumi:"workspaceName"`
+}
+
+func (LookupDataExportOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupDataExportArgs)(nil)).Elem()
+}
+
+// The top level data export resource container.
+type LookupDataExportResultOutput struct{ *pulumi.OutputState }
+
+func (LookupDataExportResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupDataExportResult)(nil)).Elem()
+}
+
+func (o LookupDataExportResultOutput) ToLookupDataExportResultOutput() LookupDataExportResultOutput {
+	return o
+}
+
+func (o LookupDataExportResultOutput) ToLookupDataExportResultOutputWithContext(ctx context.Context) LookupDataExportResultOutput {
+	return o
+}
+
+// The latest data export rule modification time.
+func (o LookupDataExportResultOutput) CreatedDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDataExportResult) *string { return v.CreatedDate }).(pulumi.StringPtrOutput)
+}
+
+// The data export rule ID.
+func (o LookupDataExportResultOutput) DataExportId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDataExportResult) *string { return v.DataExportId }).(pulumi.StringPtrOutput)
+}
+
+// Active when enabled.
+func (o LookupDataExportResultOutput) Enable() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupDataExportResult) *bool { return v.Enable }).(pulumi.BoolPtrOutput)
+}
+
+// Optional. Allows to define an Event Hub name. Not applicable when destination is Storage Account.
+func (o LookupDataExportResultOutput) EventHubName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDataExportResult) *string { return v.EventHubName }).(pulumi.StringPtrOutput)
+}
+
+// Resource ID.
+func (o LookupDataExportResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDataExportResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Date and time when the export was last modified.
+func (o LookupDataExportResultOutput) LastModifiedDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDataExportResult) *string { return v.LastModifiedDate }).(pulumi.StringPtrOutput)
+}
+
+// Resource name.
+func (o LookupDataExportResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDataExportResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The destination resource ID. This can be copied from the Properties entry of the destination resource in Azure.
+func (o LookupDataExportResultOutput) ResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDataExportResult) string { return v.ResourceId }).(pulumi.StringOutput)
+}
+
+// An array of tables to export, for example: [“Heartbeat, SecurityEvent”].
+func (o LookupDataExportResultOutput) TableNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupDataExportResult) []string { return v.TableNames }).(pulumi.StringArrayOutput)
+}
+
+// Resource type.
+func (o LookupDataExportResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDataExportResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupDataExportResultOutput{})
 }

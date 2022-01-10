@@ -4,6 +4,9 @@
 package v20210601preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -44,4 +47,82 @@ type ListEventHubKeysResult struct {
 	SecondaryConnectionString string `pulumi:"secondaryConnectionString"`
 	// A base64-encoded 256-bit primary key for signing and validating the SAS token.
 	SecondaryKey string `pulumi:"secondaryKey"`
+}
+
+func ListEventHubKeysOutput(ctx *pulumi.Context, args ListEventHubKeysOutputArgs, opts ...pulumi.InvokeOption) ListEventHubKeysResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (ListEventHubKeysResult, error) {
+			args := v.(ListEventHubKeysArgs)
+			r, err := ListEventHubKeys(ctx, &args, opts...)
+			return *r, err
+		}).(ListEventHubKeysResultOutput)
+}
+
+type ListEventHubKeysOutputArgs struct {
+	// The authorization rule name.
+	AuthorizationRuleName pulumi.StringInput `pulumi:"authorizationRuleName"`
+	// The Event Hub name
+	EventHubName pulumi.StringInput `pulumi:"eventHubName"`
+	// The Namespace name
+	NamespaceName pulumi.StringInput `pulumi:"namespaceName"`
+	// Name of the resource group within the azure subscription.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (ListEventHubKeysOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListEventHubKeysArgs)(nil)).Elem()
+}
+
+// Namespace/EventHub Connection String
+type ListEventHubKeysResultOutput struct{ *pulumi.OutputState }
+
+func (ListEventHubKeysResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListEventHubKeysResult)(nil)).Elem()
+}
+
+func (o ListEventHubKeysResultOutput) ToListEventHubKeysResultOutput() ListEventHubKeysResultOutput {
+	return o
+}
+
+func (o ListEventHubKeysResultOutput) ToListEventHubKeysResultOutputWithContext(ctx context.Context) ListEventHubKeysResultOutput {
+	return o
+}
+
+// Primary connection string of the alias if GEO DR is enabled
+func (o ListEventHubKeysResultOutput) AliasPrimaryConnectionString() pulumi.StringOutput {
+	return o.ApplyT(func(v ListEventHubKeysResult) string { return v.AliasPrimaryConnectionString }).(pulumi.StringOutput)
+}
+
+// Secondary  connection string of the alias if GEO DR is enabled
+func (o ListEventHubKeysResultOutput) AliasSecondaryConnectionString() pulumi.StringOutput {
+	return o.ApplyT(func(v ListEventHubKeysResult) string { return v.AliasSecondaryConnectionString }).(pulumi.StringOutput)
+}
+
+// A string that describes the AuthorizationRule.
+func (o ListEventHubKeysResultOutput) KeyName() pulumi.StringOutput {
+	return o.ApplyT(func(v ListEventHubKeysResult) string { return v.KeyName }).(pulumi.StringOutput)
+}
+
+// Primary connection string of the created namespace AuthorizationRule.
+func (o ListEventHubKeysResultOutput) PrimaryConnectionString() pulumi.StringOutput {
+	return o.ApplyT(func(v ListEventHubKeysResult) string { return v.PrimaryConnectionString }).(pulumi.StringOutput)
+}
+
+// A base64-encoded 256-bit primary key for signing and validating the SAS token.
+func (o ListEventHubKeysResultOutput) PrimaryKey() pulumi.StringOutput {
+	return o.ApplyT(func(v ListEventHubKeysResult) string { return v.PrimaryKey }).(pulumi.StringOutput)
+}
+
+// Secondary connection string of the created namespace AuthorizationRule.
+func (o ListEventHubKeysResultOutput) SecondaryConnectionString() pulumi.StringOutput {
+	return o.ApplyT(func(v ListEventHubKeysResult) string { return v.SecondaryConnectionString }).(pulumi.StringOutput)
+}
+
+// A base64-encoded 256-bit primary key for signing and validating the SAS token.
+func (o ListEventHubKeysResultOutput) SecondaryKey() pulumi.StringOutput {
+	return o.ApplyT(func(v ListEventHubKeysResult) string { return v.SecondaryKey }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(ListEventHubKeysResultOutput{})
 }

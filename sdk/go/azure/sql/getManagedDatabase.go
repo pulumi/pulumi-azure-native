@@ -4,6 +4,9 @@
 package sql
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -53,4 +56,105 @@ type LookupManagedDatabaseResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.
 	Type string `pulumi:"type"`
+}
+
+func LookupManagedDatabaseOutput(ctx *pulumi.Context, args LookupManagedDatabaseOutputArgs, opts ...pulumi.InvokeOption) LookupManagedDatabaseResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupManagedDatabaseResult, error) {
+			args := v.(LookupManagedDatabaseArgs)
+			r, err := LookupManagedDatabase(ctx, &args, opts...)
+			return *r, err
+		}).(LookupManagedDatabaseResultOutput)
+}
+
+type LookupManagedDatabaseOutputArgs struct {
+	// The name of the database.
+	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
+	// The name of the managed instance.
+	ManagedInstanceName pulumi.StringInput `pulumi:"managedInstanceName"`
+	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupManagedDatabaseOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupManagedDatabaseArgs)(nil)).Elem()
+}
+
+// A managed database resource.
+type LookupManagedDatabaseResultOutput struct{ *pulumi.OutputState }
+
+func (LookupManagedDatabaseResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupManagedDatabaseResult)(nil)).Elem()
+}
+
+func (o LookupManagedDatabaseResultOutput) ToLookupManagedDatabaseResultOutput() LookupManagedDatabaseResultOutput {
+	return o
+}
+
+func (o LookupManagedDatabaseResultOutput) ToLookupManagedDatabaseResultOutputWithContext(ctx context.Context) LookupManagedDatabaseResultOutput {
+	return o
+}
+
+// Collation of the metadata catalog.
+func (o LookupManagedDatabaseResultOutput) CatalogCollation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupManagedDatabaseResult) *string { return v.CatalogCollation }).(pulumi.StringPtrOutput)
+}
+
+// Collation of the managed database.
+func (o LookupManagedDatabaseResultOutput) Collation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupManagedDatabaseResult) *string { return v.Collation }).(pulumi.StringPtrOutput)
+}
+
+// Creation date of the database.
+func (o LookupManagedDatabaseResultOutput) CreationDate() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupManagedDatabaseResult) string { return v.CreationDate }).(pulumi.StringOutput)
+}
+
+// Geo paired region.
+func (o LookupManagedDatabaseResultOutput) DefaultSecondaryLocation() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupManagedDatabaseResult) string { return v.DefaultSecondaryLocation }).(pulumi.StringOutput)
+}
+
+// Earliest restore point in time for point in time restore.
+func (o LookupManagedDatabaseResultOutput) EarliestRestorePoint() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupManagedDatabaseResult) string { return v.EarliestRestorePoint }).(pulumi.StringOutput)
+}
+
+// Instance Failover Group resource identifier that this managed database belongs to.
+func (o LookupManagedDatabaseResultOutput) FailoverGroupId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupManagedDatabaseResult) string { return v.FailoverGroupId }).(pulumi.StringOutput)
+}
+
+// Resource ID.
+func (o LookupManagedDatabaseResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupManagedDatabaseResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Resource location.
+func (o LookupManagedDatabaseResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupManagedDatabaseResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o LookupManagedDatabaseResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupManagedDatabaseResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Status of the database.
+func (o LookupManagedDatabaseResultOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupManagedDatabaseResult) string { return v.Status }).(pulumi.StringOutput)
+}
+
+// Resource tags.
+func (o LookupManagedDatabaseResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupManagedDatabaseResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type.
+func (o LookupManagedDatabaseResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupManagedDatabaseResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupManagedDatabaseResultOutput{})
 }

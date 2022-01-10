@@ -4,6 +4,9 @@
 package v20211201
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -34,4 +37,57 @@ type ListProductFamiliesResult struct {
 	NextLink *string `pulumi:"nextLink"`
 	// List of product families.
 	Value []ProductFamilyResponse `pulumi:"value"`
+}
+
+func ListProductFamiliesOutput(ctx *pulumi.Context, args ListProductFamiliesOutputArgs, opts ...pulumi.InvokeOption) ListProductFamiliesResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (ListProductFamiliesResult, error) {
+			args := v.(ListProductFamiliesArgs)
+			r, err := ListProductFamilies(ctx, &args, opts...)
+			return *r, err
+		}).(ListProductFamiliesResultOutput)
+}
+
+type ListProductFamiliesOutputArgs struct {
+	// Customer subscription properties. Clients can display available products to unregistered customers by explicitly passing subscription details
+	CustomerSubscriptionDetails CustomerSubscriptionDetailsPtrInput `pulumi:"customerSubscriptionDetails"`
+	// $expand is supported on configurations parameter for product, which provides details on the configurations for the product.
+	Expand pulumi.StringPtrInput `pulumi:"expand"`
+	// Dictionary of filterable properties on product family.
+	FilterableProperties FilterablePropertyArrayMapInput `pulumi:"filterableProperties"`
+	// $skipToken is supported on list of product families, which provides the next page in the list of product families.
+	SkipToken pulumi.StringPtrInput `pulumi:"skipToken"`
+}
+
+func (ListProductFamiliesOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListProductFamiliesArgs)(nil)).Elem()
+}
+
+// The list of product families.
+type ListProductFamiliesResultOutput struct{ *pulumi.OutputState }
+
+func (ListProductFamiliesResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListProductFamiliesResult)(nil)).Elem()
+}
+
+func (o ListProductFamiliesResultOutput) ToListProductFamiliesResultOutput() ListProductFamiliesResultOutput {
+	return o
+}
+
+func (o ListProductFamiliesResultOutput) ToListProductFamiliesResultOutputWithContext(ctx context.Context) ListProductFamiliesResultOutput {
+	return o
+}
+
+// Link for the next set of product families.
+func (o ListProductFamiliesResultOutput) NextLink() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListProductFamiliesResult) *string { return v.NextLink }).(pulumi.StringPtrOutput)
+}
+
+// List of product families.
+func (o ListProductFamiliesResultOutput) Value() ProductFamilyResponseArrayOutput {
+	return o.ApplyT(func(v ListProductFamiliesResult) []ProductFamilyResponse { return v.Value }).(ProductFamilyResponseArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(ListProductFamiliesResultOutput{})
 }

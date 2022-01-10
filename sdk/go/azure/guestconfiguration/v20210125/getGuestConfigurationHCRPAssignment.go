@@ -4,6 +4,9 @@
 package v20210125
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -51,4 +54,77 @@ func (val *LookupGuestConfigurationHCRPAssignmentResult) Defaults() *LookupGuest
 	tmp.Properties = *tmp.Properties.Defaults()
 
 	return &tmp
+}
+
+func LookupGuestConfigurationHCRPAssignmentOutput(ctx *pulumi.Context, args LookupGuestConfigurationHCRPAssignmentOutputArgs, opts ...pulumi.InvokeOption) LookupGuestConfigurationHCRPAssignmentResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupGuestConfigurationHCRPAssignmentResult, error) {
+			args := v.(LookupGuestConfigurationHCRPAssignmentArgs)
+			r, err := LookupGuestConfigurationHCRPAssignment(ctx, &args, opts...)
+			return *r, err
+		}).(LookupGuestConfigurationHCRPAssignmentResultOutput)
+}
+
+type LookupGuestConfigurationHCRPAssignmentOutputArgs struct {
+	// The guest configuration assignment name.
+	GuestConfigurationAssignmentName pulumi.StringInput `pulumi:"guestConfigurationAssignmentName"`
+	// The name of the ARC machine.
+	MachineName pulumi.StringInput `pulumi:"machineName"`
+	// The resource group name.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupGuestConfigurationHCRPAssignmentOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupGuestConfigurationHCRPAssignmentArgs)(nil)).Elem()
+}
+
+// Guest configuration assignment is an association between a machine and guest configuration.
+type LookupGuestConfigurationHCRPAssignmentResultOutput struct{ *pulumi.OutputState }
+
+func (LookupGuestConfigurationHCRPAssignmentResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupGuestConfigurationHCRPAssignmentResult)(nil)).Elem()
+}
+
+func (o LookupGuestConfigurationHCRPAssignmentResultOutput) ToLookupGuestConfigurationHCRPAssignmentResultOutput() LookupGuestConfigurationHCRPAssignmentResultOutput {
+	return o
+}
+
+func (o LookupGuestConfigurationHCRPAssignmentResultOutput) ToLookupGuestConfigurationHCRPAssignmentResultOutputWithContext(ctx context.Context) LookupGuestConfigurationHCRPAssignmentResultOutput {
+	return o
+}
+
+// ARM resource id of the guest configuration assignment.
+func (o LookupGuestConfigurationHCRPAssignmentResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupGuestConfigurationHCRPAssignmentResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Region where the VM is located.
+func (o LookupGuestConfigurationHCRPAssignmentResultOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupGuestConfigurationHCRPAssignmentResult) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Name of the guest configuration assignment.
+func (o LookupGuestConfigurationHCRPAssignmentResultOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupGuestConfigurationHCRPAssignmentResult) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Properties of the Guest configuration assignment.
+func (o LookupGuestConfigurationHCRPAssignmentResultOutput) Properties() GuestConfigurationAssignmentPropertiesResponseOutput {
+	return o.ApplyT(func(v LookupGuestConfigurationHCRPAssignmentResult) GuestConfigurationAssignmentPropertiesResponse {
+		return v.Properties
+	}).(GuestConfigurationAssignmentPropertiesResponseOutput)
+}
+
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+func (o LookupGuestConfigurationHCRPAssignmentResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupGuestConfigurationHCRPAssignmentResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the resource.
+func (o LookupGuestConfigurationHCRPAssignmentResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupGuestConfigurationHCRPAssignmentResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupGuestConfigurationHCRPAssignmentResultOutput{})
 }

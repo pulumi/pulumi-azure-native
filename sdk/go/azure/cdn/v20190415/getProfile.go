@@ -4,6 +4,9 @@
 package v20190415
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -42,4 +45,83 @@ type LookupProfileResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.
 	Type string `pulumi:"type"`
+}
+
+func LookupProfileOutput(ctx *pulumi.Context, args LookupProfileOutputArgs, opts ...pulumi.InvokeOption) LookupProfileResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupProfileResult, error) {
+			args := v.(LookupProfileArgs)
+			r, err := LookupProfile(ctx, &args, opts...)
+			return *r, err
+		}).(LookupProfileResultOutput)
+}
+
+type LookupProfileOutputArgs struct {
+	// Name of the CDN profile which is unique within the resource group.
+	ProfileName pulumi.StringInput `pulumi:"profileName"`
+	// Name of the Resource group within the Azure subscription.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupProfileOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupProfileArgs)(nil)).Elem()
+}
+
+// CDN profile is a logical grouping of endpoints that share the same settings, such as CDN provider and pricing tier.
+type LookupProfileResultOutput struct{ *pulumi.OutputState }
+
+func (LookupProfileResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupProfileResult)(nil)).Elem()
+}
+
+func (o LookupProfileResultOutput) ToLookupProfileResultOutput() LookupProfileResultOutput {
+	return o
+}
+
+func (o LookupProfileResultOutput) ToLookupProfileResultOutputWithContext(ctx context.Context) LookupProfileResultOutput {
+	return o
+}
+
+// Resource ID.
+func (o LookupProfileResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupProfileResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Resource location.
+func (o LookupProfileResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupProfileResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o LookupProfileResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupProfileResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Provisioning status of the profile.
+func (o LookupProfileResultOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupProfileResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Resource status of the profile.
+func (o LookupProfileResultOutput) ResourceState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupProfileResult) string { return v.ResourceState }).(pulumi.StringOutput)
+}
+
+// The pricing tier (defines a CDN provider, feature list and rate) of the CDN profile.
+func (o LookupProfileResultOutput) Sku() SkuResponseOutput {
+	return o.ApplyT(func(v LookupProfileResult) SkuResponse { return v.Sku }).(SkuResponseOutput)
+}
+
+// Resource tags.
+func (o LookupProfileResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupProfileResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type.
+func (o LookupProfileResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupProfileResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupProfileResultOutput{})
 }

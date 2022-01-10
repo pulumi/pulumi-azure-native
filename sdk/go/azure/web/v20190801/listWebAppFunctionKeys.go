@@ -4,6 +4,9 @@
 package v20190801
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -38,4 +41,70 @@ type ListWebAppFunctionKeysResult struct {
 	Properties map[string]string `pulumi:"properties"`
 	// Resource type.
 	Type string `pulumi:"type"`
+}
+
+func ListWebAppFunctionKeysOutput(ctx *pulumi.Context, args ListWebAppFunctionKeysOutputArgs, opts ...pulumi.InvokeOption) ListWebAppFunctionKeysResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (ListWebAppFunctionKeysResult, error) {
+			args := v.(ListWebAppFunctionKeysArgs)
+			r, err := ListWebAppFunctionKeys(ctx, &args, opts...)
+			return *r, err
+		}).(ListWebAppFunctionKeysResultOutput)
+}
+
+type ListWebAppFunctionKeysOutputArgs struct {
+	// Function name.
+	FunctionName pulumi.StringInput `pulumi:"functionName"`
+	// Site name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Name of the resource group to which the resource belongs.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (ListWebAppFunctionKeysOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListWebAppFunctionKeysArgs)(nil)).Elem()
+}
+
+// String dictionary resource.
+type ListWebAppFunctionKeysResultOutput struct{ *pulumi.OutputState }
+
+func (ListWebAppFunctionKeysResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListWebAppFunctionKeysResult)(nil)).Elem()
+}
+
+func (o ListWebAppFunctionKeysResultOutput) ToListWebAppFunctionKeysResultOutput() ListWebAppFunctionKeysResultOutput {
+	return o
+}
+
+func (o ListWebAppFunctionKeysResultOutput) ToListWebAppFunctionKeysResultOutputWithContext(ctx context.Context) ListWebAppFunctionKeysResultOutput {
+	return o
+}
+
+// Resource Id.
+func (o ListWebAppFunctionKeysResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v ListWebAppFunctionKeysResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Kind of resource.
+func (o ListWebAppFunctionKeysResultOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListWebAppFunctionKeysResult) *string { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Resource Name.
+func (o ListWebAppFunctionKeysResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ListWebAppFunctionKeysResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Settings.
+func (o ListWebAppFunctionKeysResultOutput) Properties() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ListWebAppFunctionKeysResult) map[string]string { return v.Properties }).(pulumi.StringMapOutput)
+}
+
+// Resource type.
+func (o ListWebAppFunctionKeysResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ListWebAppFunctionKeysResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(ListWebAppFunctionKeysResultOutput{})
 }

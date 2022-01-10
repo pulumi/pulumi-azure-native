@@ -4,6 +4,9 @@
 package v20200601
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -32,4 +35,55 @@ type ListWebAppSiteBackupsSlotResult struct {
 	NextLink string `pulumi:"nextLink"`
 	// Collection of resources.
 	Value []BackupItemResponse `pulumi:"value"`
+}
+
+func ListWebAppSiteBackupsSlotOutput(ctx *pulumi.Context, args ListWebAppSiteBackupsSlotOutputArgs, opts ...pulumi.InvokeOption) ListWebAppSiteBackupsSlotResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (ListWebAppSiteBackupsSlotResult, error) {
+			args := v.(ListWebAppSiteBackupsSlotArgs)
+			r, err := ListWebAppSiteBackupsSlot(ctx, &args, opts...)
+			return *r, err
+		}).(ListWebAppSiteBackupsSlotResultOutput)
+}
+
+type ListWebAppSiteBackupsSlotOutputArgs struct {
+	// Name of the app.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Name of the resource group to which the resource belongs.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// Name of the deployment slot. If a slot is not specified, the API will get backups of the production slot.
+	Slot pulumi.StringInput `pulumi:"slot"`
+}
+
+func (ListWebAppSiteBackupsSlotOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListWebAppSiteBackupsSlotArgs)(nil)).Elem()
+}
+
+// Collection of backup items.
+type ListWebAppSiteBackupsSlotResultOutput struct{ *pulumi.OutputState }
+
+func (ListWebAppSiteBackupsSlotResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListWebAppSiteBackupsSlotResult)(nil)).Elem()
+}
+
+func (o ListWebAppSiteBackupsSlotResultOutput) ToListWebAppSiteBackupsSlotResultOutput() ListWebAppSiteBackupsSlotResultOutput {
+	return o
+}
+
+func (o ListWebAppSiteBackupsSlotResultOutput) ToListWebAppSiteBackupsSlotResultOutputWithContext(ctx context.Context) ListWebAppSiteBackupsSlotResultOutput {
+	return o
+}
+
+// Link to next page of resources.
+func (o ListWebAppSiteBackupsSlotResultOutput) NextLink() pulumi.StringOutput {
+	return o.ApplyT(func(v ListWebAppSiteBackupsSlotResult) string { return v.NextLink }).(pulumi.StringOutput)
+}
+
+// Collection of resources.
+func (o ListWebAppSiteBackupsSlotResultOutput) Value() BackupItemResponseArrayOutput {
+	return o.ApplyT(func(v ListWebAppSiteBackupsSlotResult) []BackupItemResponse { return v.Value }).(BackupItemResponseArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(ListWebAppSiteBackupsSlotResultOutput{})
 }

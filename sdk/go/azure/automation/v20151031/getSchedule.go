@@ -4,6 +4,9 @@
 package v20151031
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -75,4 +78,130 @@ func (val *LookupScheduleResult) Defaults() *LookupScheduleResult {
 		tmp.IsEnabled = &isEnabled_
 	}
 	return &tmp
+}
+
+func LookupScheduleOutput(ctx *pulumi.Context, args LookupScheduleOutputArgs, opts ...pulumi.InvokeOption) LookupScheduleResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupScheduleResult, error) {
+			args := v.(LookupScheduleArgs)
+			r, err := LookupSchedule(ctx, &args, opts...)
+			return *r, err
+		}).(LookupScheduleResultOutput)
+}
+
+type LookupScheduleOutputArgs struct {
+	// The name of the automation account.
+	AutomationAccountName pulumi.StringInput `pulumi:"automationAccountName"`
+	// Name of an Azure Resource group.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The schedule name.
+	ScheduleName pulumi.StringInput `pulumi:"scheduleName"`
+}
+
+func (LookupScheduleOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupScheduleArgs)(nil)).Elem()
+}
+
+// Definition of the schedule.
+type LookupScheduleResultOutput struct{ *pulumi.OutputState }
+
+func (LookupScheduleResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupScheduleResult)(nil)).Elem()
+}
+
+func (o LookupScheduleResultOutput) ToLookupScheduleResultOutput() LookupScheduleResultOutput {
+	return o
+}
+
+func (o LookupScheduleResultOutput) ToLookupScheduleResultOutputWithContext(ctx context.Context) LookupScheduleResultOutput {
+	return o
+}
+
+// Gets or sets the advanced schedule.
+func (o LookupScheduleResultOutput) AdvancedSchedule() AdvancedScheduleResponsePtrOutput {
+	return o.ApplyT(func(v LookupScheduleResult) *AdvancedScheduleResponse { return v.AdvancedSchedule }).(AdvancedScheduleResponsePtrOutput)
+}
+
+// Gets or sets the creation time.
+func (o LookupScheduleResultOutput) CreationTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupScheduleResult) *string { return v.CreationTime }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the description.
+func (o LookupScheduleResultOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupScheduleResult) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the end time of the schedule.
+func (o LookupScheduleResultOutput) ExpiryTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupScheduleResult) *string { return v.ExpiryTime }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the expiry time's offset in minutes.
+func (o LookupScheduleResultOutput) ExpiryTimeOffsetMinutes() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v LookupScheduleResult) *float64 { return v.ExpiryTimeOffsetMinutes }).(pulumi.Float64PtrOutput)
+}
+
+// Gets or sets the frequency of the schedule.
+func (o LookupScheduleResultOutput) Frequency() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupScheduleResult) *string { return v.Frequency }).(pulumi.StringPtrOutput)
+}
+
+// Fully qualified resource Id for the resource
+func (o LookupScheduleResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupScheduleResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Gets or sets the interval of the schedule.
+func (o LookupScheduleResultOutput) Interval() pulumi.AnyOutput {
+	return o.ApplyT(func(v LookupScheduleResult) interface{} { return v.Interval }).(pulumi.AnyOutput)
+}
+
+// Gets or sets a value indicating whether this schedule is enabled.
+func (o LookupScheduleResultOutput) IsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupScheduleResult) *bool { return v.IsEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Gets or sets the last modified time.
+func (o LookupScheduleResultOutput) LastModifiedTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupScheduleResult) *string { return v.LastModifiedTime }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource
+func (o LookupScheduleResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupScheduleResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Gets or sets the next run time of the schedule.
+func (o LookupScheduleResultOutput) NextRun() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupScheduleResult) *string { return v.NextRun }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the next run time's offset in minutes.
+func (o LookupScheduleResultOutput) NextRunOffsetMinutes() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v LookupScheduleResult) *float64 { return v.NextRunOffsetMinutes }).(pulumi.Float64PtrOutput)
+}
+
+// Gets or sets the start time of the schedule.
+func (o LookupScheduleResultOutput) StartTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupScheduleResult) *string { return v.StartTime }).(pulumi.StringPtrOutput)
+}
+
+// Gets the start time's offset in minutes.
+func (o LookupScheduleResultOutput) StartTimeOffsetMinutes() pulumi.Float64Output {
+	return o.ApplyT(func(v LookupScheduleResult) float64 { return v.StartTimeOffsetMinutes }).(pulumi.Float64Output)
+}
+
+// Gets or sets the time zone of the schedule.
+func (o LookupScheduleResultOutput) TimeZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupScheduleResult) *string { return v.TimeZone }).(pulumi.StringPtrOutput)
+}
+
+// The type of the resource.
+func (o LookupScheduleResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupScheduleResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupScheduleResultOutput{})
 }

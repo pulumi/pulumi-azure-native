@@ -16,6 +16,60 @@ type ActorResponse struct {
 	Name *string `pulumi:"name"`
 }
 
+// The agent that initiated the event. For most situations, this could be from the authorization context of the request.
+type ActorResponseOutput struct{ *pulumi.OutputState }
+
+func (ActorResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActorResponse)(nil)).Elem()
+}
+
+func (o ActorResponseOutput) ToActorResponseOutput() ActorResponseOutput {
+	return o
+}
+
+func (o ActorResponseOutput) ToActorResponseOutputWithContext(ctx context.Context) ActorResponseOutput {
+	return o
+}
+
+// The subject or username associated with the request context that generated the event.
+func (o ActorResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActorResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+type ActorResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ActorResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActorResponse)(nil)).Elem()
+}
+
+func (o ActorResponsePtrOutput) ToActorResponsePtrOutput() ActorResponsePtrOutput {
+	return o
+}
+
+func (o ActorResponsePtrOutput) ToActorResponsePtrOutputWithContext(ctx context.Context) ActorResponsePtrOutput {
+	return o
+}
+
+func (o ActorResponsePtrOutput) Elem() ActorResponseOutput {
+	return o.ApplyT(func(v *ActorResponse) ActorResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ActorResponse
+		return ret
+	}).(ActorResponseOutput)
+}
+
+// The subject or username associated with the request context that generated the event.
+func (o ActorResponsePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActorResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
 // The content of the event request message.
 type EventContentResponse struct {
 	// The action that encompasses the provided event.
@@ -34,6 +88,150 @@ type EventContentResponse struct {
 	Timestamp *string `pulumi:"timestamp"`
 }
 
+// The content of the event request message.
+type EventContentResponseOutput struct{ *pulumi.OutputState }
+
+func (EventContentResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventContentResponse)(nil)).Elem()
+}
+
+func (o EventContentResponseOutput) ToEventContentResponseOutput() EventContentResponseOutput {
+	return o
+}
+
+func (o EventContentResponseOutput) ToEventContentResponseOutputWithContext(ctx context.Context) EventContentResponseOutput {
+	return o
+}
+
+// The action that encompasses the provided event.
+func (o EventContentResponseOutput) Action() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventContentResponse) *string { return v.Action }).(pulumi.StringPtrOutput)
+}
+
+// The agent that initiated the event. For most situations, this could be from the authorization context of the request.
+func (o EventContentResponseOutput) Actor() ActorResponsePtrOutput {
+	return o.ApplyT(func(v EventContentResponse) *ActorResponse { return v.Actor }).(ActorResponsePtrOutput)
+}
+
+// The event ID.
+func (o EventContentResponseOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventContentResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// The request that generated the event.
+func (o EventContentResponseOutput) Request() RequestResponsePtrOutput {
+	return o.ApplyT(func(v EventContentResponse) *RequestResponse { return v.Request }).(RequestResponsePtrOutput)
+}
+
+// The registry node that generated the event. Put differently, while the actor initiates the event, the source generates it.
+func (o EventContentResponseOutput) Source() SourceResponsePtrOutput {
+	return o.ApplyT(func(v EventContentResponse) *SourceResponse { return v.Source }).(SourceResponsePtrOutput)
+}
+
+// The target of the event.
+func (o EventContentResponseOutput) Target() TargetResponsePtrOutput {
+	return o.ApplyT(func(v EventContentResponse) *TargetResponse { return v.Target }).(TargetResponsePtrOutput)
+}
+
+// The time at which the event occurred.
+func (o EventContentResponseOutput) Timestamp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventContentResponse) *string { return v.Timestamp }).(pulumi.StringPtrOutput)
+}
+
+type EventContentResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (EventContentResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventContentResponse)(nil)).Elem()
+}
+
+func (o EventContentResponsePtrOutput) ToEventContentResponsePtrOutput() EventContentResponsePtrOutput {
+	return o
+}
+
+func (o EventContentResponsePtrOutput) ToEventContentResponsePtrOutputWithContext(ctx context.Context) EventContentResponsePtrOutput {
+	return o
+}
+
+func (o EventContentResponsePtrOutput) Elem() EventContentResponseOutput {
+	return o.ApplyT(func(v *EventContentResponse) EventContentResponse {
+		if v != nil {
+			return *v
+		}
+		var ret EventContentResponse
+		return ret
+	}).(EventContentResponseOutput)
+}
+
+// The action that encompasses the provided event.
+func (o EventContentResponsePtrOutput) Action() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventContentResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Action
+	}).(pulumi.StringPtrOutput)
+}
+
+// The agent that initiated the event. For most situations, this could be from the authorization context of the request.
+func (o EventContentResponsePtrOutput) Actor() ActorResponsePtrOutput {
+	return o.ApplyT(func(v *EventContentResponse) *ActorResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Actor
+	}).(ActorResponsePtrOutput)
+}
+
+// The event ID.
+func (o EventContentResponsePtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventContentResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+// The request that generated the event.
+func (o EventContentResponsePtrOutput) Request() RequestResponsePtrOutput {
+	return o.ApplyT(func(v *EventContentResponse) *RequestResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Request
+	}).(RequestResponsePtrOutput)
+}
+
+// The registry node that generated the event. Put differently, while the actor initiates the event, the source generates it.
+func (o EventContentResponsePtrOutput) Source() SourceResponsePtrOutput {
+	return o.ApplyT(func(v *EventContentResponse) *SourceResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Source
+	}).(SourceResponsePtrOutput)
+}
+
+// The target of the event.
+func (o EventContentResponsePtrOutput) Target() TargetResponsePtrOutput {
+	return o.ApplyT(func(v *EventContentResponse) *TargetResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Target
+	}).(TargetResponsePtrOutput)
+}
+
+// The time at which the event occurred.
+func (o EventContentResponsePtrOutput) Timestamp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventContentResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Timestamp
+	}).(pulumi.StringPtrOutput)
+}
+
 // The event request message sent to the service URI.
 type EventRequestMessageResponse struct {
 	// The content of the event request message.
@@ -48,6 +246,120 @@ type EventRequestMessageResponse struct {
 	Version *string `pulumi:"version"`
 }
 
+// The event request message sent to the service URI.
+type EventRequestMessageResponseOutput struct{ *pulumi.OutputState }
+
+func (EventRequestMessageResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventRequestMessageResponse)(nil)).Elem()
+}
+
+func (o EventRequestMessageResponseOutput) ToEventRequestMessageResponseOutput() EventRequestMessageResponseOutput {
+	return o
+}
+
+func (o EventRequestMessageResponseOutput) ToEventRequestMessageResponseOutputWithContext(ctx context.Context) EventRequestMessageResponseOutput {
+	return o
+}
+
+// The content of the event request message.
+func (o EventRequestMessageResponseOutput) Content() EventContentResponsePtrOutput {
+	return o.ApplyT(func(v EventRequestMessageResponse) *EventContentResponse { return v.Content }).(EventContentResponsePtrOutput)
+}
+
+// The headers of the event request message.
+func (o EventRequestMessageResponseOutput) Headers() pulumi.StringMapOutput {
+	return o.ApplyT(func(v EventRequestMessageResponse) map[string]string { return v.Headers }).(pulumi.StringMapOutput)
+}
+
+// The HTTP method used to send the event request message.
+func (o EventRequestMessageResponseOutput) Method() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventRequestMessageResponse) *string { return v.Method }).(pulumi.StringPtrOutput)
+}
+
+// The URI used to send the event request message.
+func (o EventRequestMessageResponseOutput) RequestUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventRequestMessageResponse) *string { return v.RequestUri }).(pulumi.StringPtrOutput)
+}
+
+// The HTTP message version.
+func (o EventRequestMessageResponseOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventRequestMessageResponse) *string { return v.Version }).(pulumi.StringPtrOutput)
+}
+
+type EventRequestMessageResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (EventRequestMessageResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventRequestMessageResponse)(nil)).Elem()
+}
+
+func (o EventRequestMessageResponsePtrOutput) ToEventRequestMessageResponsePtrOutput() EventRequestMessageResponsePtrOutput {
+	return o
+}
+
+func (o EventRequestMessageResponsePtrOutput) ToEventRequestMessageResponsePtrOutputWithContext(ctx context.Context) EventRequestMessageResponsePtrOutput {
+	return o
+}
+
+func (o EventRequestMessageResponsePtrOutput) Elem() EventRequestMessageResponseOutput {
+	return o.ApplyT(func(v *EventRequestMessageResponse) EventRequestMessageResponse {
+		if v != nil {
+			return *v
+		}
+		var ret EventRequestMessageResponse
+		return ret
+	}).(EventRequestMessageResponseOutput)
+}
+
+// The content of the event request message.
+func (o EventRequestMessageResponsePtrOutput) Content() EventContentResponsePtrOutput {
+	return o.ApplyT(func(v *EventRequestMessageResponse) *EventContentResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Content
+	}).(EventContentResponsePtrOutput)
+}
+
+// The headers of the event request message.
+func (o EventRequestMessageResponsePtrOutput) Headers() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *EventRequestMessageResponse) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Headers
+	}).(pulumi.StringMapOutput)
+}
+
+// The HTTP method used to send the event request message.
+func (o EventRequestMessageResponsePtrOutput) Method() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventRequestMessageResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Method
+	}).(pulumi.StringPtrOutput)
+}
+
+// The URI used to send the event request message.
+func (o EventRequestMessageResponsePtrOutput) RequestUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventRequestMessageResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RequestUri
+	}).(pulumi.StringPtrOutput)
+}
+
+// The HTTP message version.
+func (o EventRequestMessageResponsePtrOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventRequestMessageResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Version
+	}).(pulumi.StringPtrOutput)
+}
+
 // The event for a webhook.
 type EventResponse struct {
 	// The event request message sent to the service URI.
@@ -56,6 +368,56 @@ type EventResponse struct {
 	EventResponseMessage *EventResponseMessageResponse `pulumi:"eventResponseMessage"`
 	// The event ID.
 	Id *string `pulumi:"id"`
+}
+
+// The event for a webhook.
+type EventResponseOutput struct{ *pulumi.OutputState }
+
+func (EventResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventResponse)(nil)).Elem()
+}
+
+func (o EventResponseOutput) ToEventResponseOutput() EventResponseOutput {
+	return o
+}
+
+func (o EventResponseOutput) ToEventResponseOutputWithContext(ctx context.Context) EventResponseOutput {
+	return o
+}
+
+// The event request message sent to the service URI.
+func (o EventResponseOutput) EventRequestMessage() EventRequestMessageResponsePtrOutput {
+	return o.ApplyT(func(v EventResponse) *EventRequestMessageResponse { return v.EventRequestMessage }).(EventRequestMessageResponsePtrOutput)
+}
+
+// The event response message received from the service URI.
+func (o EventResponseOutput) EventResponseMessage() EventResponseMessageResponsePtrOutput {
+	return o.ApplyT(func(v EventResponse) *EventResponseMessageResponse { return v.EventResponseMessage }).(EventResponseMessageResponsePtrOutput)
+}
+
+// The event ID.
+func (o EventResponseOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+type EventResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (EventResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventResponse)(nil)).Elem()
+}
+
+func (o EventResponseArrayOutput) ToEventResponseArrayOutput() EventResponseArrayOutput {
+	return o
+}
+
+func (o EventResponseArrayOutput) ToEventResponseArrayOutputWithContext(ctx context.Context) EventResponseArrayOutput {
+	return o
+}
+
+func (o EventResponseArrayOutput) Index(i pulumi.IntInput) EventResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EventResponse {
+		return vs[0].([]EventResponse)[vs[1].(int)]
+	}).(EventResponseOutput)
 }
 
 // The event response message received from the service URI.
@@ -70,6 +432,120 @@ type EventResponseMessageResponse struct {
 	StatusCode *string `pulumi:"statusCode"`
 	// The HTTP message version.
 	Version *string `pulumi:"version"`
+}
+
+// The event response message received from the service URI.
+type EventResponseMessageResponseOutput struct{ *pulumi.OutputState }
+
+func (EventResponseMessageResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventResponseMessageResponse)(nil)).Elem()
+}
+
+func (o EventResponseMessageResponseOutput) ToEventResponseMessageResponseOutput() EventResponseMessageResponseOutput {
+	return o
+}
+
+func (o EventResponseMessageResponseOutput) ToEventResponseMessageResponseOutputWithContext(ctx context.Context) EventResponseMessageResponseOutput {
+	return o
+}
+
+// The content of the event response message.
+func (o EventResponseMessageResponseOutput) Content() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventResponseMessageResponse) *string { return v.Content }).(pulumi.StringPtrOutput)
+}
+
+// The headers of the event response message.
+func (o EventResponseMessageResponseOutput) Headers() pulumi.StringMapOutput {
+	return o.ApplyT(func(v EventResponseMessageResponse) map[string]string { return v.Headers }).(pulumi.StringMapOutput)
+}
+
+// The reason phrase of the event response message.
+func (o EventResponseMessageResponseOutput) ReasonPhrase() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventResponseMessageResponse) *string { return v.ReasonPhrase }).(pulumi.StringPtrOutput)
+}
+
+// The status code of the event response message.
+func (o EventResponseMessageResponseOutput) StatusCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventResponseMessageResponse) *string { return v.StatusCode }).(pulumi.StringPtrOutput)
+}
+
+// The HTTP message version.
+func (o EventResponseMessageResponseOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventResponseMessageResponse) *string { return v.Version }).(pulumi.StringPtrOutput)
+}
+
+type EventResponseMessageResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (EventResponseMessageResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventResponseMessageResponse)(nil)).Elem()
+}
+
+func (o EventResponseMessageResponsePtrOutput) ToEventResponseMessageResponsePtrOutput() EventResponseMessageResponsePtrOutput {
+	return o
+}
+
+func (o EventResponseMessageResponsePtrOutput) ToEventResponseMessageResponsePtrOutputWithContext(ctx context.Context) EventResponseMessageResponsePtrOutput {
+	return o
+}
+
+func (o EventResponseMessageResponsePtrOutput) Elem() EventResponseMessageResponseOutput {
+	return o.ApplyT(func(v *EventResponseMessageResponse) EventResponseMessageResponse {
+		if v != nil {
+			return *v
+		}
+		var ret EventResponseMessageResponse
+		return ret
+	}).(EventResponseMessageResponseOutput)
+}
+
+// The content of the event response message.
+func (o EventResponseMessageResponsePtrOutput) Content() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventResponseMessageResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Content
+	}).(pulumi.StringPtrOutput)
+}
+
+// The headers of the event response message.
+func (o EventResponseMessageResponsePtrOutput) Headers() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *EventResponseMessageResponse) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Headers
+	}).(pulumi.StringMapOutput)
+}
+
+// The reason phrase of the event response message.
+func (o EventResponseMessageResponsePtrOutput) ReasonPhrase() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventResponseMessageResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ReasonPhrase
+	}).(pulumi.StringPtrOutput)
+}
+
+// The status code of the event response message.
+func (o EventResponseMessageResponsePtrOutput) StatusCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventResponseMessageResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StatusCode
+	}).(pulumi.StringPtrOutput)
+}
+
+// The HTTP message version.
+func (o EventResponseMessageResponsePtrOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventResponseMessageResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Version
+	}).(pulumi.StringPtrOutput)
 }
 
 // IP rule with specific IP or IP range in CIDR format.
@@ -1092,6 +1568,51 @@ type RegistryPasswordResponse struct {
 	Value *string `pulumi:"value"`
 }
 
+// The login password for the container registry.
+type RegistryPasswordResponseOutput struct{ *pulumi.OutputState }
+
+func (RegistryPasswordResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegistryPasswordResponse)(nil)).Elem()
+}
+
+func (o RegistryPasswordResponseOutput) ToRegistryPasswordResponseOutput() RegistryPasswordResponseOutput {
+	return o
+}
+
+func (o RegistryPasswordResponseOutput) ToRegistryPasswordResponseOutputWithContext(ctx context.Context) RegistryPasswordResponseOutput {
+	return o
+}
+
+// The password name.
+func (o RegistryPasswordResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RegistryPasswordResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The password value.
+func (o RegistryPasswordResponseOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RegistryPasswordResponse) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type RegistryPasswordResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (RegistryPasswordResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RegistryPasswordResponse)(nil)).Elem()
+}
+
+func (o RegistryPasswordResponseArrayOutput) ToRegistryPasswordResponseArrayOutput() RegistryPasswordResponseArrayOutput {
+	return o
+}
+
+func (o RegistryPasswordResponseArrayOutput) ToRegistryPasswordResponseArrayOutputWithContext(ctx context.Context) RegistryPasswordResponseArrayOutput {
+	return o
+}
+
+func (o RegistryPasswordResponseArrayOutput) Index(i pulumi.IntInput) RegistryPasswordResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RegistryPasswordResponse {
+		return vs[0].([]RegistryPasswordResponse)[vs[1].(int)]
+	}).(RegistryPasswordResponseOutput)
+}
+
 // The request that generated the event.
 type RequestResponse struct {
 	// The IP or hostname and possibly port of the client connection that initiated the event. This is the RemoteAddr from the standard http request.
@@ -1104,6 +1625,120 @@ type RequestResponse struct {
 	Method *string `pulumi:"method"`
 	// The user agent header of the request.
 	Useragent *string `pulumi:"useragent"`
+}
+
+// The request that generated the event.
+type RequestResponseOutput struct{ *pulumi.OutputState }
+
+func (RequestResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RequestResponse)(nil)).Elem()
+}
+
+func (o RequestResponseOutput) ToRequestResponseOutput() RequestResponseOutput {
+	return o
+}
+
+func (o RequestResponseOutput) ToRequestResponseOutputWithContext(ctx context.Context) RequestResponseOutput {
+	return o
+}
+
+// The IP or hostname and possibly port of the client connection that initiated the event. This is the RemoteAddr from the standard http request.
+func (o RequestResponseOutput) Addr() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RequestResponse) *string { return v.Addr }).(pulumi.StringPtrOutput)
+}
+
+// The externally accessible hostname of the registry instance, as specified by the http host header on incoming requests.
+func (o RequestResponseOutput) Host() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RequestResponse) *string { return v.Host }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the request that initiated the event.
+func (o RequestResponseOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RequestResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// The request method that generated the event.
+func (o RequestResponseOutput) Method() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RequestResponse) *string { return v.Method }).(pulumi.StringPtrOutput)
+}
+
+// The user agent header of the request.
+func (o RequestResponseOutput) Useragent() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RequestResponse) *string { return v.Useragent }).(pulumi.StringPtrOutput)
+}
+
+type RequestResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (RequestResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RequestResponse)(nil)).Elem()
+}
+
+func (o RequestResponsePtrOutput) ToRequestResponsePtrOutput() RequestResponsePtrOutput {
+	return o
+}
+
+func (o RequestResponsePtrOutput) ToRequestResponsePtrOutputWithContext(ctx context.Context) RequestResponsePtrOutput {
+	return o
+}
+
+func (o RequestResponsePtrOutput) Elem() RequestResponseOutput {
+	return o.ApplyT(func(v *RequestResponse) RequestResponse {
+		if v != nil {
+			return *v
+		}
+		var ret RequestResponse
+		return ret
+	}).(RequestResponseOutput)
+}
+
+// The IP or hostname and possibly port of the client connection that initiated the event. This is the RemoteAddr from the standard http request.
+func (o RequestResponsePtrOutput) Addr() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RequestResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Addr
+	}).(pulumi.StringPtrOutput)
+}
+
+// The externally accessible hostname of the registry instance, as specified by the http host header on incoming requests.
+func (o RequestResponsePtrOutput) Host() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RequestResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Host
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ID of the request that initiated the event.
+func (o RequestResponsePtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RequestResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+// The request method that generated the event.
+func (o RequestResponsePtrOutput) Method() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RequestResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Method
+	}).(pulumi.StringPtrOutput)
+}
+
+// The user agent header of the request.
+func (o RequestResponsePtrOutput) Useragent() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RequestResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Useragent
+	}).(pulumi.StringPtrOutput)
 }
 
 // The retention policy for a container registry.
@@ -1489,6 +2124,75 @@ type SourceResponse struct {
 	InstanceID *string `pulumi:"instanceID"`
 }
 
+// The registry node that generated the event. Put differently, while the actor initiates the event, the source generates it.
+type SourceResponseOutput struct{ *pulumi.OutputState }
+
+func (SourceResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SourceResponse)(nil)).Elem()
+}
+
+func (o SourceResponseOutput) ToSourceResponseOutput() SourceResponseOutput {
+	return o
+}
+
+func (o SourceResponseOutput) ToSourceResponseOutputWithContext(ctx context.Context) SourceResponseOutput {
+	return o
+}
+
+// The IP or hostname and the port of the registry node that generated the event. Generally, this will be resolved by os.Hostname() along with the running port.
+func (o SourceResponseOutput) Addr() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SourceResponse) *string { return v.Addr }).(pulumi.StringPtrOutput)
+}
+
+// The running instance of an application. Changes after each restart.
+func (o SourceResponseOutput) InstanceID() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SourceResponse) *string { return v.InstanceID }).(pulumi.StringPtrOutput)
+}
+
+type SourceResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (SourceResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SourceResponse)(nil)).Elem()
+}
+
+func (o SourceResponsePtrOutput) ToSourceResponsePtrOutput() SourceResponsePtrOutput {
+	return o
+}
+
+func (o SourceResponsePtrOutput) ToSourceResponsePtrOutputWithContext(ctx context.Context) SourceResponsePtrOutput {
+	return o
+}
+
+func (o SourceResponsePtrOutput) Elem() SourceResponseOutput {
+	return o.ApplyT(func(v *SourceResponse) SourceResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SourceResponse
+		return ret
+	}).(SourceResponseOutput)
+}
+
+// The IP or hostname and the port of the registry node that generated the event. Generally, this will be resolved by os.Hostname() along with the running port.
+func (o SourceResponsePtrOutput) Addr() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SourceResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Addr
+	}).(pulumi.StringPtrOutput)
+}
+
+// The running instance of an application. Changes after each restart.
+func (o SourceResponsePtrOutput) InstanceID() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SourceResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.InstanceID
+	}).(pulumi.StringPtrOutput)
+}
+
 // The status of an Azure resource at the time the operation was called.
 type StatusResponse struct {
 	// The short label for the status.
@@ -1749,6 +2453,180 @@ type TargetResponse struct {
 	Url *string `pulumi:"url"`
 	// The version of the artifact.
 	Version *string `pulumi:"version"`
+}
+
+// The target of the event.
+type TargetResponseOutput struct{ *pulumi.OutputState }
+
+func (TargetResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TargetResponse)(nil)).Elem()
+}
+
+func (o TargetResponseOutput) ToTargetResponseOutput() TargetResponseOutput {
+	return o
+}
+
+func (o TargetResponseOutput) ToTargetResponseOutputWithContext(ctx context.Context) TargetResponseOutput {
+	return o
+}
+
+// The digest of the content, as defined by the Registry V2 HTTP API Specification.
+func (o TargetResponseOutput) Digest() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TargetResponse) *string { return v.Digest }).(pulumi.StringPtrOutput)
+}
+
+// The number of bytes of the content. Same as Size field.
+func (o TargetResponseOutput) Length() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v TargetResponse) *float64 { return v.Length }).(pulumi.Float64PtrOutput)
+}
+
+// The MIME type of the referenced object.
+func (o TargetResponseOutput) MediaType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TargetResponse) *string { return v.MediaType }).(pulumi.StringPtrOutput)
+}
+
+// The name of the artifact.
+func (o TargetResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TargetResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The repository name.
+func (o TargetResponseOutput) Repository() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TargetResponse) *string { return v.Repository }).(pulumi.StringPtrOutput)
+}
+
+// The number of bytes of the content. Same as Length field.
+func (o TargetResponseOutput) Size() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v TargetResponse) *float64 { return v.Size }).(pulumi.Float64PtrOutput)
+}
+
+// The tag name.
+func (o TargetResponseOutput) Tag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TargetResponse) *string { return v.Tag }).(pulumi.StringPtrOutput)
+}
+
+// The direct URL to the content.
+func (o TargetResponseOutput) Url() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TargetResponse) *string { return v.Url }).(pulumi.StringPtrOutput)
+}
+
+// The version of the artifact.
+func (o TargetResponseOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TargetResponse) *string { return v.Version }).(pulumi.StringPtrOutput)
+}
+
+type TargetResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (TargetResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TargetResponse)(nil)).Elem()
+}
+
+func (o TargetResponsePtrOutput) ToTargetResponsePtrOutput() TargetResponsePtrOutput {
+	return o
+}
+
+func (o TargetResponsePtrOutput) ToTargetResponsePtrOutputWithContext(ctx context.Context) TargetResponsePtrOutput {
+	return o
+}
+
+func (o TargetResponsePtrOutput) Elem() TargetResponseOutput {
+	return o.ApplyT(func(v *TargetResponse) TargetResponse {
+		if v != nil {
+			return *v
+		}
+		var ret TargetResponse
+		return ret
+	}).(TargetResponseOutput)
+}
+
+// The digest of the content, as defined by the Registry V2 HTTP API Specification.
+func (o TargetResponsePtrOutput) Digest() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TargetResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Digest
+	}).(pulumi.StringPtrOutput)
+}
+
+// The number of bytes of the content. Same as Size field.
+func (o TargetResponsePtrOutput) Length() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *TargetResponse) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.Length
+	}).(pulumi.Float64PtrOutput)
+}
+
+// The MIME type of the referenced object.
+func (o TargetResponsePtrOutput) MediaType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TargetResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MediaType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the artifact.
+func (o TargetResponsePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TargetResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// The repository name.
+func (o TargetResponsePtrOutput) Repository() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TargetResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Repository
+	}).(pulumi.StringPtrOutput)
+}
+
+// The number of bytes of the content. Same as Length field.
+func (o TargetResponsePtrOutput) Size() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *TargetResponse) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.Size
+	}).(pulumi.Float64PtrOutput)
+}
+
+// The tag name.
+func (o TargetResponsePtrOutput) Tag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TargetResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Tag
+	}).(pulumi.StringPtrOutput)
+}
+
+// The direct URL to the content.
+func (o TargetResponsePtrOutput) Url() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TargetResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Url
+	}).(pulumi.StringPtrOutput)
+}
+
+// The version of the artifact.
+func (o TargetResponsePtrOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TargetResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Version
+	}).(pulumi.StringPtrOutput)
 }
 
 // The content trust policy for a container registry.
@@ -2210,6 +3088,16 @@ func (o VirtualNetworkRuleResponseArrayOutput) Index(i pulumi.IntInput) VirtualN
 }
 
 func init() {
+	pulumi.RegisterOutputType(ActorResponseOutput{})
+	pulumi.RegisterOutputType(ActorResponsePtrOutput{})
+	pulumi.RegisterOutputType(EventContentResponseOutput{})
+	pulumi.RegisterOutputType(EventContentResponsePtrOutput{})
+	pulumi.RegisterOutputType(EventRequestMessageResponseOutput{})
+	pulumi.RegisterOutputType(EventRequestMessageResponsePtrOutput{})
+	pulumi.RegisterOutputType(EventResponseOutput{})
+	pulumi.RegisterOutputType(EventResponseArrayOutput{})
+	pulumi.RegisterOutputType(EventResponseMessageResponseOutput{})
+	pulumi.RegisterOutputType(EventResponseMessageResponsePtrOutput{})
 	pulumi.RegisterOutputType(IPRuleOutput{})
 	pulumi.RegisterOutputType(IPRuleArrayOutput{})
 	pulumi.RegisterOutputType(IPRuleResponseOutput{})
@@ -2226,17 +3114,25 @@ func init() {
 	pulumi.RegisterOutputType(QuarantinePolicyPtrOutput{})
 	pulumi.RegisterOutputType(QuarantinePolicyResponseOutput{})
 	pulumi.RegisterOutputType(QuarantinePolicyResponsePtrOutput{})
+	pulumi.RegisterOutputType(RegistryPasswordResponseOutput{})
+	pulumi.RegisterOutputType(RegistryPasswordResponseArrayOutput{})
+	pulumi.RegisterOutputType(RequestResponseOutput{})
+	pulumi.RegisterOutputType(RequestResponsePtrOutput{})
 	pulumi.RegisterOutputType(RetentionPolicyOutput{})
 	pulumi.RegisterOutputType(RetentionPolicyPtrOutput{})
 	pulumi.RegisterOutputType(RetentionPolicyResponseOutput{})
 	pulumi.RegisterOutputType(RetentionPolicyResponsePtrOutput{})
 	pulumi.RegisterOutputType(SkuOutput{})
 	pulumi.RegisterOutputType(SkuResponseOutput{})
+	pulumi.RegisterOutputType(SourceResponseOutput{})
+	pulumi.RegisterOutputType(SourceResponsePtrOutput{})
 	pulumi.RegisterOutputType(StatusResponseOutput{})
 	pulumi.RegisterOutputType(StorageAccountPropertiesOutput{})
 	pulumi.RegisterOutputType(StorageAccountPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(StorageAccountPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(StorageAccountPropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(TargetResponseOutput{})
+	pulumi.RegisterOutputType(TargetResponsePtrOutput{})
 	pulumi.RegisterOutputType(TrustPolicyOutput{})
 	pulumi.RegisterOutputType(TrustPolicyPtrOutput{})
 	pulumi.RegisterOutputType(TrustPolicyResponseOutput{})

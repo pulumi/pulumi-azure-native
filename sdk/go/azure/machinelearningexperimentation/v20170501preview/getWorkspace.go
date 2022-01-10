@@ -4,6 +4,9 @@
 package v20170501preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -50,4 +53,100 @@ type LookupWorkspaceResult struct {
 	Type string `pulumi:"type"`
 	// The immutable id of this workspace.
 	WorkspaceId string `pulumi:"workspaceId"`
+}
+
+func LookupWorkspaceOutput(ctx *pulumi.Context, args LookupWorkspaceOutputArgs, opts ...pulumi.InvokeOption) LookupWorkspaceResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupWorkspaceResult, error) {
+			args := v.(LookupWorkspaceArgs)
+			r, err := LookupWorkspace(ctx, &args, opts...)
+			return *r, err
+		}).(LookupWorkspaceResultOutput)
+}
+
+type LookupWorkspaceOutputArgs struct {
+	// The name of the machine learning team account.
+	AccountName pulumi.StringInput `pulumi:"accountName"`
+	// The name of the resource group to which the machine learning team account belongs.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the machine learning team account workspace.
+	WorkspaceName pulumi.StringInput `pulumi:"workspaceName"`
+}
+
+func (LookupWorkspaceOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupWorkspaceArgs)(nil)).Elem()
+}
+
+// An object that represents a machine learning team account workspace.
+type LookupWorkspaceResultOutput struct{ *pulumi.OutputState }
+
+func (LookupWorkspaceResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupWorkspaceResult)(nil)).Elem()
+}
+
+func (o LookupWorkspaceResultOutput) ToLookupWorkspaceResultOutput() LookupWorkspaceResultOutput {
+	return o
+}
+
+func (o LookupWorkspaceResultOutput) ToLookupWorkspaceResultOutputWithContext(ctx context.Context) LookupWorkspaceResultOutput {
+	return o
+}
+
+// The immutable id of the team account which contains this workspace.
+func (o LookupWorkspaceResultOutput) AccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWorkspaceResult) string { return v.AccountId }).(pulumi.StringOutput)
+}
+
+// The creation date of the machine learning workspace in ISO8601 format.
+func (o LookupWorkspaceResultOutput) CreationDate() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWorkspaceResult) string { return v.CreationDate }).(pulumi.StringOutput)
+}
+
+// The description of this workspace.
+func (o LookupWorkspaceResultOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupWorkspaceResult) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The friendly name for this workspace. This will be the workspace name in the arm id when the workspace object gets created
+func (o LookupWorkspaceResultOutput) FriendlyName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWorkspaceResult) string { return v.FriendlyName }).(pulumi.StringOutput)
+}
+
+// The resource ID.
+func (o LookupWorkspaceResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWorkspaceResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The location of the resource. This cannot be changed after the resource is created.
+func (o LookupWorkspaceResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWorkspaceResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the resource.
+func (o LookupWorkspaceResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWorkspaceResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The current deployment state of team account workspace resource. The provisioningState is to indicate states for resource provisioning.
+func (o LookupWorkspaceResultOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWorkspaceResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The tags of the resource.
+func (o LookupWorkspaceResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupWorkspaceResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource.
+func (o LookupWorkspaceResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWorkspaceResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The immutable id of this workspace.
+func (o LookupWorkspaceResultOutput) WorkspaceId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWorkspaceResult) string { return v.WorkspaceId }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupWorkspaceResultOutput{})
 }

@@ -4,6 +4,9 @@
 package appplatform
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -54,4 +57,77 @@ func (val *LookupAppResult) Defaults() *LookupAppResult {
 	tmp.Properties = *tmp.Properties.Defaults()
 
 	return &tmp
+}
+
+func LookupAppOutput(ctx *pulumi.Context, args LookupAppOutputArgs, opts ...pulumi.InvokeOption) LookupAppResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupAppResult, error) {
+			args := v.(LookupAppArgs)
+			r, err := LookupApp(ctx, &args, opts...)
+			return *r, err
+		}).(LookupAppResultOutput)
+}
+
+type LookupAppOutputArgs struct {
+	// The name of the App resource.
+	AppName pulumi.StringInput `pulumi:"appName"`
+	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the Service resource.
+	ServiceName pulumi.StringInput `pulumi:"serviceName"`
+	// Indicates whether sync status
+	SyncStatus pulumi.StringPtrInput `pulumi:"syncStatus"`
+}
+
+func (LookupAppOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupAppArgs)(nil)).Elem()
+}
+
+// App resource payload
+type LookupAppResultOutput struct{ *pulumi.OutputState }
+
+func (LookupAppResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupAppResult)(nil)).Elem()
+}
+
+func (o LookupAppResultOutput) ToLookupAppResultOutput() LookupAppResultOutput {
+	return o
+}
+
+func (o LookupAppResultOutput) ToLookupAppResultOutputWithContext(ctx context.Context) LookupAppResultOutput {
+	return o
+}
+
+// Fully qualified resource Id for the resource.
+func (o LookupAppResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAppResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The Managed Identity type of the app resource
+func (o LookupAppResultOutput) Identity() ManagedIdentityPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v LookupAppResult) *ManagedIdentityPropertiesResponse { return v.Identity }).(ManagedIdentityPropertiesResponsePtrOutput)
+}
+
+// The GEO location of the application, always the same with its parent resource
+func (o LookupAppResultOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupAppResult) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource.
+func (o LookupAppResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAppResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Properties of the App resource
+func (o LookupAppResultOutput) Properties() AppResourcePropertiesResponseOutput {
+	return o.ApplyT(func(v LookupAppResult) AppResourcePropertiesResponse { return v.Properties }).(AppResourcePropertiesResponseOutput)
+}
+
+// The type of the resource.
+func (o LookupAppResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAppResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupAppResultOutput{})
 }

@@ -3392,6 +3392,61 @@ type ConsentLinkDefinitionResponse struct {
 	Status *string `pulumi:"status"`
 }
 
+// A consent link
+type ConsentLinkDefinitionResponseOutput struct{ *pulumi.OutputState }
+
+func (ConsentLinkDefinitionResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConsentLinkDefinitionResponse)(nil)).Elem()
+}
+
+func (o ConsentLinkDefinitionResponseOutput) ToConsentLinkDefinitionResponseOutput() ConsentLinkDefinitionResponseOutput {
+	return o
+}
+
+func (o ConsentLinkDefinitionResponseOutput) ToConsentLinkDefinitionResponseOutputWithContext(ctx context.Context) ConsentLinkDefinitionResponseOutput {
+	return o
+}
+
+// Display name of the parameter in the connection provider's OAuth settings
+func (o ConsentLinkDefinitionResponseOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConsentLinkDefinitionResponse) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+// URI for first party login
+func (o ConsentLinkDefinitionResponseOutput) FirstPartyLoginUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConsentLinkDefinitionResponse) *string { return v.FirstPartyLoginUri }).(pulumi.StringPtrOutput)
+}
+
+// URI for the consent link
+func (o ConsentLinkDefinitionResponseOutput) Link() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConsentLinkDefinitionResponse) *string { return v.Link }).(pulumi.StringPtrOutput)
+}
+
+// Status of the link
+func (o ConsentLinkDefinitionResponseOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConsentLinkDefinitionResponse) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+type ConsentLinkDefinitionResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ConsentLinkDefinitionResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ConsentLinkDefinitionResponse)(nil)).Elem()
+}
+
+func (o ConsentLinkDefinitionResponseArrayOutput) ToConsentLinkDefinitionResponseArrayOutput() ConsentLinkDefinitionResponseArrayOutput {
+	return o
+}
+
+func (o ConsentLinkDefinitionResponseArrayOutput) ToConsentLinkDefinitionResponseArrayOutputWithContext(ctx context.Context) ConsentLinkDefinitionResponseArrayOutput {
+	return o
+}
+
+func (o ConsentLinkDefinitionResponseArrayOutput) Index(i pulumi.IntInput) ConsentLinkDefinitionResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ConsentLinkDefinitionResponse {
+		return vs[0].([]ConsentLinkDefinitionResponse)[vs[1].(int)]
+	}).(ConsentLinkDefinitionResponseOutput)
+}
+
 // Consent link definition
 type ConsentLinkParameterDefinition struct {
 	// AAD OID (user or group) if the principal type is ActiveDirectory. MSA PUID if the principal type is MicrosoftAccount
@@ -3402,6 +3457,121 @@ type ConsentLinkParameterDefinition struct {
 	RedirectUrl *string `pulumi:"redirectUrl"`
 	// The tenant id
 	TenantId *string `pulumi:"tenantId"`
+}
+
+// ConsentLinkParameterDefinitionInput is an input type that accepts ConsentLinkParameterDefinitionArgs and ConsentLinkParameterDefinitionOutput values.
+// You can construct a concrete instance of `ConsentLinkParameterDefinitionInput` via:
+//
+//          ConsentLinkParameterDefinitionArgs{...}
+type ConsentLinkParameterDefinitionInput interface {
+	pulumi.Input
+
+	ToConsentLinkParameterDefinitionOutput() ConsentLinkParameterDefinitionOutput
+	ToConsentLinkParameterDefinitionOutputWithContext(context.Context) ConsentLinkParameterDefinitionOutput
+}
+
+// Consent link definition
+type ConsentLinkParameterDefinitionArgs struct {
+	// AAD OID (user or group) if the principal type is ActiveDirectory. MSA PUID if the principal type is MicrosoftAccount
+	ObjectId pulumi.StringPtrInput `pulumi:"objectId"`
+	// Name of the parameter in the connection provider's OAuth settings
+	ParameterName pulumi.StringPtrInput `pulumi:"parameterName"`
+	// Name of the parameter in the connection provider's OAuth settings
+	RedirectUrl pulumi.StringPtrInput `pulumi:"redirectUrl"`
+	// The tenant id
+	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
+}
+
+func (ConsentLinkParameterDefinitionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConsentLinkParameterDefinition)(nil)).Elem()
+}
+
+func (i ConsentLinkParameterDefinitionArgs) ToConsentLinkParameterDefinitionOutput() ConsentLinkParameterDefinitionOutput {
+	return i.ToConsentLinkParameterDefinitionOutputWithContext(context.Background())
+}
+
+func (i ConsentLinkParameterDefinitionArgs) ToConsentLinkParameterDefinitionOutputWithContext(ctx context.Context) ConsentLinkParameterDefinitionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConsentLinkParameterDefinitionOutput)
+}
+
+// ConsentLinkParameterDefinitionArrayInput is an input type that accepts ConsentLinkParameterDefinitionArray and ConsentLinkParameterDefinitionArrayOutput values.
+// You can construct a concrete instance of `ConsentLinkParameterDefinitionArrayInput` via:
+//
+//          ConsentLinkParameterDefinitionArray{ ConsentLinkParameterDefinitionArgs{...} }
+type ConsentLinkParameterDefinitionArrayInput interface {
+	pulumi.Input
+
+	ToConsentLinkParameterDefinitionArrayOutput() ConsentLinkParameterDefinitionArrayOutput
+	ToConsentLinkParameterDefinitionArrayOutputWithContext(context.Context) ConsentLinkParameterDefinitionArrayOutput
+}
+
+type ConsentLinkParameterDefinitionArray []ConsentLinkParameterDefinitionInput
+
+func (ConsentLinkParameterDefinitionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ConsentLinkParameterDefinition)(nil)).Elem()
+}
+
+func (i ConsentLinkParameterDefinitionArray) ToConsentLinkParameterDefinitionArrayOutput() ConsentLinkParameterDefinitionArrayOutput {
+	return i.ToConsentLinkParameterDefinitionArrayOutputWithContext(context.Background())
+}
+
+func (i ConsentLinkParameterDefinitionArray) ToConsentLinkParameterDefinitionArrayOutputWithContext(ctx context.Context) ConsentLinkParameterDefinitionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConsentLinkParameterDefinitionArrayOutput)
+}
+
+// Consent link definition
+type ConsentLinkParameterDefinitionOutput struct{ *pulumi.OutputState }
+
+func (ConsentLinkParameterDefinitionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConsentLinkParameterDefinition)(nil)).Elem()
+}
+
+func (o ConsentLinkParameterDefinitionOutput) ToConsentLinkParameterDefinitionOutput() ConsentLinkParameterDefinitionOutput {
+	return o
+}
+
+func (o ConsentLinkParameterDefinitionOutput) ToConsentLinkParameterDefinitionOutputWithContext(ctx context.Context) ConsentLinkParameterDefinitionOutput {
+	return o
+}
+
+// AAD OID (user or group) if the principal type is ActiveDirectory. MSA PUID if the principal type is MicrosoftAccount
+func (o ConsentLinkParameterDefinitionOutput) ObjectId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConsentLinkParameterDefinition) *string { return v.ObjectId }).(pulumi.StringPtrOutput)
+}
+
+// Name of the parameter in the connection provider's OAuth settings
+func (o ConsentLinkParameterDefinitionOutput) ParameterName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConsentLinkParameterDefinition) *string { return v.ParameterName }).(pulumi.StringPtrOutput)
+}
+
+// Name of the parameter in the connection provider's OAuth settings
+func (o ConsentLinkParameterDefinitionOutput) RedirectUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConsentLinkParameterDefinition) *string { return v.RedirectUrl }).(pulumi.StringPtrOutput)
+}
+
+// The tenant id
+func (o ConsentLinkParameterDefinitionOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConsentLinkParameterDefinition) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+}
+
+type ConsentLinkParameterDefinitionArrayOutput struct{ *pulumi.OutputState }
+
+func (ConsentLinkParameterDefinitionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ConsentLinkParameterDefinition)(nil)).Elem()
+}
+
+func (o ConsentLinkParameterDefinitionArrayOutput) ToConsentLinkParameterDefinitionArrayOutput() ConsentLinkParameterDefinitionArrayOutput {
+	return o
+}
+
+func (o ConsentLinkParameterDefinitionArrayOutput) ToConsentLinkParameterDefinitionArrayOutputWithContext(ctx context.Context) ConsentLinkParameterDefinitionArrayOutput {
+	return o
+}
+
+func (o ConsentLinkParameterDefinitionArrayOutput) Index(i pulumi.IntInput) ConsentLinkParameterDefinitionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ConsentLinkParameterDefinition {
+		return vs[0].([]ConsentLinkParameterDefinition)[vs[1].(int)]
+	}).(ConsentLinkParameterDefinitionOutput)
 }
 
 // Custom API properties
@@ -4404,6 +4574,26 @@ func (o WsdlServiceResponsePtrOutput) QualifiedName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type WsdlServiceResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (WsdlServiceResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WsdlServiceResponse)(nil)).Elem()
+}
+
+func (o WsdlServiceResponseArrayOutput) ToWsdlServiceResponseArrayOutput() WsdlServiceResponseArrayOutput {
+	return o
+}
+
+func (o WsdlServiceResponseArrayOutput) ToWsdlServiceResponseArrayOutputWithContext(ctx context.Context) WsdlServiceResponseArrayOutput {
+	return o
+}
+
+func (o WsdlServiceResponseArrayOutput) Index(i pulumi.IntInput) WsdlServiceResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WsdlServiceResponse {
+		return vs[0].([]WsdlServiceResponse)[vs[1].(int)]
+	}).(WsdlServiceResponseOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ApiConnectionDefinitionPropertiesOutput{})
 	pulumi.RegisterOutputType(ApiConnectionDefinitionPropertiesPtrOutput{})
@@ -4451,6 +4641,10 @@ func init() {
 	pulumi.RegisterOutputType(ConnectionStatusDefinitionArrayOutput{})
 	pulumi.RegisterOutputType(ConnectionStatusDefinitionResponseOutput{})
 	pulumi.RegisterOutputType(ConnectionStatusDefinitionResponseArrayOutput{})
+	pulumi.RegisterOutputType(ConsentLinkDefinitionResponseOutput{})
+	pulumi.RegisterOutputType(ConsentLinkDefinitionResponseArrayOutput{})
+	pulumi.RegisterOutputType(ConsentLinkParameterDefinitionOutput{})
+	pulumi.RegisterOutputType(ConsentLinkParameterDefinitionArrayOutput{})
 	pulumi.RegisterOutputType(CustomApiPropertiesDefinitionOutput{})
 	pulumi.RegisterOutputType(CustomApiPropertiesDefinitionPtrOutput{})
 	pulumi.RegisterOutputType(CustomApiPropertiesDefinitionResponseOutput{})
@@ -4462,4 +4656,5 @@ func init() {
 	pulumi.RegisterOutputType(WsdlServicePtrOutput{})
 	pulumi.RegisterOutputType(WsdlServiceResponseOutput{})
 	pulumi.RegisterOutputType(WsdlServiceResponsePtrOutput{})
+	pulumi.RegisterOutputType(WsdlServiceResponseArrayOutput{})
 }

@@ -13,7 +13,7 @@ import (
 
 // Class representing a Kusto database.
 //
-// Deprecated: Please use one of the variants: ReadWriteDatabase.
+// Deprecated: Please use one of the variants: ReadOnlyFollowingDatabase, ReadWriteDatabase.
 type KustoPoolDatabase struct {
 	pulumi.CustomResourceState
 

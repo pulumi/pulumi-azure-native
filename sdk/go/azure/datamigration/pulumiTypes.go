@@ -2923,6 +2923,85 @@ type NodeMonitoringDataResponse struct {
 	SentBytes float64 `pulumi:"sentBytes"`
 }
 
+type NodeMonitoringDataResponseOutput struct{ *pulumi.OutputState }
+
+func (NodeMonitoringDataResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NodeMonitoringDataResponse)(nil)).Elem()
+}
+
+func (o NodeMonitoringDataResponseOutput) ToNodeMonitoringDataResponseOutput() NodeMonitoringDataResponseOutput {
+	return o
+}
+
+func (o NodeMonitoringDataResponseOutput) ToNodeMonitoringDataResponseOutputWithContext(ctx context.Context) NodeMonitoringDataResponseOutput {
+	return o
+}
+
+//  Unmatched properties from the message are deserialized in this collection.
+func (o NodeMonitoringDataResponseOutput) AdditionalProperties() pulumi.MapOutput {
+	return o.ApplyT(func(v NodeMonitoringDataResponse) map[string]interface{} { return v.AdditionalProperties }).(pulumi.MapOutput)
+}
+
+// Available memory (MB) on the integration runtime node.
+func (o NodeMonitoringDataResponseOutput) AvailableMemoryInMB() pulumi.IntOutput {
+	return o.ApplyT(func(v NodeMonitoringDataResponse) int { return v.AvailableMemoryInMB }).(pulumi.IntOutput)
+}
+
+// Maximum concurrent jobs on the integration runtime node.
+func (o NodeMonitoringDataResponseOutput) ConcurrentJobsLimit() pulumi.IntOutput {
+	return o.ApplyT(func(v NodeMonitoringDataResponse) int { return v.ConcurrentJobsLimit }).(pulumi.IntOutput)
+}
+
+// The number of jobs currently running on the integration runtime node.
+func (o NodeMonitoringDataResponseOutput) ConcurrentJobsRunning() pulumi.IntOutput {
+	return o.ApplyT(func(v NodeMonitoringDataResponse) int { return v.ConcurrentJobsRunning }).(pulumi.IntOutput)
+}
+
+// CPU percentage on the integration runtime node.
+func (o NodeMonitoringDataResponseOutput) CpuUtilization() pulumi.IntOutput {
+	return o.ApplyT(func(v NodeMonitoringDataResponse) int { return v.CpuUtilization }).(pulumi.IntOutput)
+}
+
+// The maximum concurrent jobs in this integration runtime.
+func (o NodeMonitoringDataResponseOutput) MaxConcurrentJobs() pulumi.IntOutput {
+	return o.ApplyT(func(v NodeMonitoringDataResponse) int { return v.MaxConcurrentJobs }).(pulumi.IntOutput)
+}
+
+// Name of the integration runtime node.
+func (o NodeMonitoringDataResponseOutput) NodeName() pulumi.StringOutput {
+	return o.ApplyT(func(v NodeMonitoringDataResponse) string { return v.NodeName }).(pulumi.StringOutput)
+}
+
+// Received bytes on the integration runtime node.
+func (o NodeMonitoringDataResponseOutput) ReceivedBytes() pulumi.Float64Output {
+	return o.ApplyT(func(v NodeMonitoringDataResponse) float64 { return v.ReceivedBytes }).(pulumi.Float64Output)
+}
+
+// Sent bytes on the integration runtime node.
+func (o NodeMonitoringDataResponseOutput) SentBytes() pulumi.Float64Output {
+	return o.ApplyT(func(v NodeMonitoringDataResponse) float64 { return v.SentBytes }).(pulumi.Float64Output)
+}
+
+type NodeMonitoringDataResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (NodeMonitoringDataResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NodeMonitoringDataResponse)(nil)).Elem()
+}
+
+func (o NodeMonitoringDataResponseArrayOutput) ToNodeMonitoringDataResponseArrayOutput() NodeMonitoringDataResponseArrayOutput {
+	return o
+}
+
+func (o NodeMonitoringDataResponseArrayOutput) ToNodeMonitoringDataResponseArrayOutputWithContext(ctx context.Context) NodeMonitoringDataResponseArrayOutput {
+	return o
+}
+
+func (o NodeMonitoringDataResponseArrayOutput) Index(i pulumi.IntInput) NodeMonitoringDataResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NodeMonitoringDataResponse {
+		return vs[0].([]NodeMonitoringDataResponse)[vs[1].(int)]
+	}).(NodeMonitoringDataResponseOutput)
+}
+
 // Error information in OData format.
 type ODataErrorResponse struct {
 	// The machine-readable description of the error, such as 'InvalidRequest' or 'InternalServerError'
@@ -4152,6 +4231,8 @@ func init() {
 	pulumi.RegisterOutputType(DatabaseInfoArrayOutput{})
 	pulumi.RegisterOutputType(DatabaseInfoResponseOutput{})
 	pulumi.RegisterOutputType(DatabaseInfoResponseArrayOutput{})
+	pulumi.RegisterOutputType(NodeMonitoringDataResponseOutput{})
+	pulumi.RegisterOutputType(NodeMonitoringDataResponseArrayOutput{})
 	pulumi.RegisterOutputType(ProjectFilePropertiesOutput{})
 	pulumi.RegisterOutputType(ProjectFilePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ProjectFilePropertiesResponseOutput{})

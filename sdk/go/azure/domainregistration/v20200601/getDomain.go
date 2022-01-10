@@ -4,6 +4,9 @@
 package v20200601
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -81,4 +84,148 @@ func (val *LookupDomainResult) Defaults() *LookupDomainResult {
 		tmp.AutoRenew = &autoRenew_
 	}
 	return &tmp
+}
+
+func LookupDomainOutput(ctx *pulumi.Context, args LookupDomainOutputArgs, opts ...pulumi.InvokeOption) LookupDomainResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupDomainResult, error) {
+			args := v.(LookupDomainArgs)
+			r, err := LookupDomain(ctx, &args, opts...)
+			return *r, err
+		}).(LookupDomainResultOutput)
+}
+
+type LookupDomainOutputArgs struct {
+	// Name of the domain.
+	DomainName pulumi.StringInput `pulumi:"domainName"`
+	// Name of the resource group to which the resource belongs.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupDomainOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupDomainArgs)(nil)).Elem()
+}
+
+// Information about a domain.
+type LookupDomainResultOutput struct{ *pulumi.OutputState }
+
+func (LookupDomainResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupDomainResult)(nil)).Elem()
+}
+
+func (o LookupDomainResultOutput) ToLookupDomainResultOutput() LookupDomainResultOutput {
+	return o
+}
+
+func (o LookupDomainResultOutput) ToLookupDomainResultOutputWithContext(ctx context.Context) LookupDomainResultOutput {
+	return o
+}
+
+func (o LookupDomainResultOutput) AuthCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDomainResult) *string { return v.AuthCode }).(pulumi.StringPtrOutput)
+}
+
+// <code>true</code> if the domain should be automatically renewed; otherwise, <code>false</code>.
+func (o LookupDomainResultOutput) AutoRenew() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupDomainResult) *bool { return v.AutoRenew }).(pulumi.BoolPtrOutput)
+}
+
+// Domain creation timestamp.
+func (o LookupDomainResultOutput) CreatedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDomainResult) string { return v.CreatedTime }).(pulumi.StringOutput)
+}
+
+// Current DNS type
+func (o LookupDomainResultOutput) DnsType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDomainResult) *string { return v.DnsType }).(pulumi.StringPtrOutput)
+}
+
+// Azure DNS Zone to use
+func (o LookupDomainResultOutput) DnsZoneId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDomainResult) *string { return v.DnsZoneId }).(pulumi.StringPtrOutput)
+}
+
+// Reasons why domain is not renewable.
+func (o LookupDomainResultOutput) DomainNotRenewableReasons() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupDomainResult) []string { return v.DomainNotRenewableReasons }).(pulumi.StringArrayOutput)
+}
+
+// Domain expiration timestamp.
+func (o LookupDomainResultOutput) ExpirationTime() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDomainResult) string { return v.ExpirationTime }).(pulumi.StringOutput)
+}
+
+// Resource Id.
+func (o LookupDomainResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDomainResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Kind of resource.
+func (o LookupDomainResultOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDomainResult) *string { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Timestamp when the domain was renewed last time.
+func (o LookupDomainResultOutput) LastRenewedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDomainResult) string { return v.LastRenewedTime }).(pulumi.StringOutput)
+}
+
+// Resource Location.
+func (o LookupDomainResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDomainResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// All hostnames derived from the domain and assigned to Azure resources.
+func (o LookupDomainResultOutput) ManagedHostNames() HostNameResponseArrayOutput {
+	return o.ApplyT(func(v LookupDomainResult) []HostNameResponse { return v.ManagedHostNames }).(HostNameResponseArrayOutput)
+}
+
+// Resource Name.
+func (o LookupDomainResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDomainResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Name servers.
+func (o LookupDomainResultOutput) NameServers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupDomainResult) []string { return v.NameServers }).(pulumi.StringArrayOutput)
+}
+
+// <code>true</code> if domain privacy is enabled for this domain; otherwise, <code>false</code>.
+func (o LookupDomainResultOutput) Privacy() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupDomainResult) *bool { return v.Privacy }).(pulumi.BoolPtrOutput)
+}
+
+// Domain provisioning state.
+func (o LookupDomainResultOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDomainResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// <code>true</code> if Azure can assign this domain to App Service apps; otherwise, <code>false</code>. This value will be <code>true</code> if domain registration status is active and
+//  it is hosted on name servers Azure has programmatic access to.
+func (o LookupDomainResultOutput) ReadyForDnsRecordManagement() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupDomainResult) bool { return v.ReadyForDnsRecordManagement }).(pulumi.BoolOutput)
+}
+
+// Domain registration status.
+func (o LookupDomainResultOutput) RegistrationStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDomainResult) string { return v.RegistrationStatus }).(pulumi.StringOutput)
+}
+
+// Resource tags.
+func (o LookupDomainResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupDomainResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Target DNS type (would be used for migration)
+func (o LookupDomainResultOutput) TargetDnsType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDomainResult) *string { return v.TargetDnsType }).(pulumi.StringPtrOutput)
+}
+
+// Resource type.
+func (o LookupDomainResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDomainResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupDomainResultOutput{})
 }

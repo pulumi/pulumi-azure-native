@@ -4,6 +4,9 @@
 package v20210901privatepreview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -42,4 +45,80 @@ type LookupApplicationTypeResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Azure resource type.
 	Type string `pulumi:"type"`
+}
+
+func LookupApplicationTypeOutput(ctx *pulumi.Context, args LookupApplicationTypeOutputArgs, opts ...pulumi.InvokeOption) LookupApplicationTypeResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupApplicationTypeResult, error) {
+			args := v.(LookupApplicationTypeArgs)
+			r, err := LookupApplicationType(ctx, &args, opts...)
+			return *r, err
+		}).(LookupApplicationTypeResultOutput)
+}
+
+type LookupApplicationTypeOutputArgs struct {
+	// The name of the application type name resource.
+	ApplicationTypeName pulumi.StringInput `pulumi:"applicationTypeName"`
+	// The name of the cluster resource.
+	ClusterName pulumi.StringInput `pulumi:"clusterName"`
+	// The name of the resource group.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupApplicationTypeOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupApplicationTypeArgs)(nil)).Elem()
+}
+
+// The application type name resource
+type LookupApplicationTypeResultOutput struct{ *pulumi.OutputState }
+
+func (LookupApplicationTypeResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupApplicationTypeResult)(nil)).Elem()
+}
+
+func (o LookupApplicationTypeResultOutput) ToLookupApplicationTypeResultOutput() LookupApplicationTypeResultOutput {
+	return o
+}
+
+func (o LookupApplicationTypeResultOutput) ToLookupApplicationTypeResultOutputWithContext(ctx context.Context) LookupApplicationTypeResultOutput {
+	return o
+}
+
+// Azure resource identifier.
+func (o LookupApplicationTypeResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupApplicationTypeResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Resource location depends on the parent resource.
+func (o LookupApplicationTypeResultOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupApplicationTypeResult) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Azure resource name.
+func (o LookupApplicationTypeResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupApplicationTypeResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The current deployment or provisioning state, which only appears in the response.
+func (o LookupApplicationTypeResultOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupApplicationTypeResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o LookupApplicationTypeResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupApplicationTypeResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Azure resource tags.
+func (o LookupApplicationTypeResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupApplicationTypeResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Azure resource type.
+func (o LookupApplicationTypeResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupApplicationTypeResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupApplicationTypeResultOutput{})
 }

@@ -4,6 +4,9 @@
 package v20200901
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -38,4 +41,61 @@ type ListShareSynchronizationsResult struct {
 	NextLink *string `pulumi:"nextLink"`
 	// Collection of items of type DataTransferObjects.
 	Value []ShareSynchronizationResponse `pulumi:"value"`
+}
+
+func ListShareSynchronizationsOutput(ctx *pulumi.Context, args ListShareSynchronizationsOutputArgs, opts ...pulumi.InvokeOption) ListShareSynchronizationsResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (ListShareSynchronizationsResult, error) {
+			args := v.(ListShareSynchronizationsArgs)
+			r, err := ListShareSynchronizations(ctx, &args, opts...)
+			return *r, err
+		}).(ListShareSynchronizationsResultOutput)
+}
+
+type ListShareSynchronizationsOutputArgs struct {
+	// The name of the share account.
+	AccountName pulumi.StringInput `pulumi:"accountName"`
+	// Filters the results using OData syntax.
+	Filter pulumi.StringPtrInput `pulumi:"filter"`
+	// Sorts the results using OData syntax.
+	Orderby pulumi.StringPtrInput `pulumi:"orderby"`
+	// The resource group name.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the share.
+	ShareName pulumi.StringInput `pulumi:"shareName"`
+	// Continuation token
+	SkipToken pulumi.StringPtrInput `pulumi:"skipToken"`
+}
+
+func (ListShareSynchronizationsOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListShareSynchronizationsArgs)(nil)).Elem()
+}
+
+// List response for get ShareSynchronization.
+type ListShareSynchronizationsResultOutput struct{ *pulumi.OutputState }
+
+func (ListShareSynchronizationsResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListShareSynchronizationsResult)(nil)).Elem()
+}
+
+func (o ListShareSynchronizationsResultOutput) ToListShareSynchronizationsResultOutput() ListShareSynchronizationsResultOutput {
+	return o
+}
+
+func (o ListShareSynchronizationsResultOutput) ToListShareSynchronizationsResultOutputWithContext(ctx context.Context) ListShareSynchronizationsResultOutput {
+	return o
+}
+
+// The Url of next result page.
+func (o ListShareSynchronizationsResultOutput) NextLink() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListShareSynchronizationsResult) *string { return v.NextLink }).(pulumi.StringPtrOutput)
+}
+
+// Collection of items of type DataTransferObjects.
+func (o ListShareSynchronizationsResultOutput) Value() ShareSynchronizationResponseArrayOutput {
+	return o.ApplyT(func(v ListShareSynchronizationsResult) []ShareSynchronizationResponse { return v.Value }).(ShareSynchronizationResponseArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(ListShareSynchronizationsResultOutput{})
 }

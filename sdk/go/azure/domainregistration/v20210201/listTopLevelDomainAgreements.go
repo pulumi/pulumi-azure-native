@@ -4,6 +4,9 @@
 package v20210201
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -32,4 +35,55 @@ type ListTopLevelDomainAgreementsResult struct {
 	NextLink string `pulumi:"nextLink"`
 	// Collection of resources.
 	Value []TldLegalAgreementResponse `pulumi:"value"`
+}
+
+func ListTopLevelDomainAgreementsOutput(ctx *pulumi.Context, args ListTopLevelDomainAgreementsOutputArgs, opts ...pulumi.InvokeOption) ListTopLevelDomainAgreementsResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (ListTopLevelDomainAgreementsResult, error) {
+			args := v.(ListTopLevelDomainAgreementsArgs)
+			r, err := ListTopLevelDomainAgreements(ctx, &args, opts...)
+			return *r, err
+		}).(ListTopLevelDomainAgreementsResultOutput)
+}
+
+type ListTopLevelDomainAgreementsOutputArgs struct {
+	// If <code>true</code>, then the list of agreements will include agreements for domain transfer as well; otherwise, <code>false</code>.
+	ForTransfer pulumi.BoolPtrInput `pulumi:"forTransfer"`
+	// If <code>true</code>, then the list of agreements will include agreements for domain privacy as well; otherwise, <code>false</code>.
+	IncludePrivacy pulumi.BoolPtrInput `pulumi:"includePrivacy"`
+	// Name of the top-level domain.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (ListTopLevelDomainAgreementsOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListTopLevelDomainAgreementsArgs)(nil)).Elem()
+}
+
+// Collection of top-level domain legal agreements.
+type ListTopLevelDomainAgreementsResultOutput struct{ *pulumi.OutputState }
+
+func (ListTopLevelDomainAgreementsResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListTopLevelDomainAgreementsResult)(nil)).Elem()
+}
+
+func (o ListTopLevelDomainAgreementsResultOutput) ToListTopLevelDomainAgreementsResultOutput() ListTopLevelDomainAgreementsResultOutput {
+	return o
+}
+
+func (o ListTopLevelDomainAgreementsResultOutput) ToListTopLevelDomainAgreementsResultOutputWithContext(ctx context.Context) ListTopLevelDomainAgreementsResultOutput {
+	return o
+}
+
+// Link to next page of resources.
+func (o ListTopLevelDomainAgreementsResultOutput) NextLink() pulumi.StringOutput {
+	return o.ApplyT(func(v ListTopLevelDomainAgreementsResult) string { return v.NextLink }).(pulumi.StringOutput)
+}
+
+// Collection of resources.
+func (o ListTopLevelDomainAgreementsResultOutput) Value() TldLegalAgreementResponseArrayOutput {
+	return o.ApplyT(func(v ListTopLevelDomainAgreementsResult) []TldLegalAgreementResponse { return v.Value }).(TldLegalAgreementResponseArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(ListTopLevelDomainAgreementsResultOutput{})
 }

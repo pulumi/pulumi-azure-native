@@ -484,12 +484,126 @@ type FailoverSetEligibilityResultResponse struct {
 	IsEligibleForFailover *bool `pulumi:"isEligibleForFailover"`
 }
 
+// The eligibility result of failover set, for failover.
+type FailoverSetEligibilityResultResponseOutput struct{ *pulumi.OutputState }
+
+func (FailoverSetEligibilityResultResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FailoverSetEligibilityResultResponse)(nil)).Elem()
+}
+
+func (o FailoverSetEligibilityResultResponseOutput) ToFailoverSetEligibilityResultResponseOutput() FailoverSetEligibilityResultResponseOutput {
+	return o
+}
+
+func (o FailoverSetEligibilityResultResponseOutput) ToFailoverSetEligibilityResultResponseOutputWithContext(ctx context.Context) FailoverSetEligibilityResultResponseOutput {
+	return o
+}
+
+// The error message, if the failover set is not eligible for failover.
+func (o FailoverSetEligibilityResultResponseOutput) ErrorMessage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FailoverSetEligibilityResultResponse) *string { return v.ErrorMessage }).(pulumi.StringPtrOutput)
+}
+
+// Represents if this failover set is eligible for failover or not.
+func (o FailoverSetEligibilityResultResponseOutput) IsEligibleForFailover() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FailoverSetEligibilityResultResponse) *bool { return v.IsEligibleForFailover }).(pulumi.BoolPtrOutput)
+}
+
+type FailoverSetEligibilityResultResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (FailoverSetEligibilityResultResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FailoverSetEligibilityResultResponse)(nil)).Elem()
+}
+
+func (o FailoverSetEligibilityResultResponsePtrOutput) ToFailoverSetEligibilityResultResponsePtrOutput() FailoverSetEligibilityResultResponsePtrOutput {
+	return o
+}
+
+func (o FailoverSetEligibilityResultResponsePtrOutput) ToFailoverSetEligibilityResultResponsePtrOutputWithContext(ctx context.Context) FailoverSetEligibilityResultResponsePtrOutput {
+	return o
+}
+
+func (o FailoverSetEligibilityResultResponsePtrOutput) Elem() FailoverSetEligibilityResultResponseOutput {
+	return o.ApplyT(func(v *FailoverSetEligibilityResultResponse) FailoverSetEligibilityResultResponse {
+		if v != nil {
+			return *v
+		}
+		var ret FailoverSetEligibilityResultResponse
+		return ret
+	}).(FailoverSetEligibilityResultResponseOutput)
+}
+
+// The error message, if the failover set is not eligible for failover.
+func (o FailoverSetEligibilityResultResponsePtrOutput) ErrorMessage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FailoverSetEligibilityResultResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ErrorMessage
+	}).(pulumi.StringPtrOutput)
+}
+
+// Represents if this failover set is eligible for failover or not.
+func (o FailoverSetEligibilityResultResponsePtrOutput) IsEligibleForFailover() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FailoverSetEligibilityResultResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IsEligibleForFailover
+	}).(pulumi.BoolPtrOutput)
+}
+
 // The failover set on a device.
 type FailoverSetResponse struct {
 	// The eligibility result of the failover set, for failover.
 	EligibilityResult *FailoverSetEligibilityResultResponse `pulumi:"eligibilityResult"`
 	// The list of meta data of volume containers, which are part of the failover set.
 	VolumeContainers []VolumeContainerFailoverMetadataResponse `pulumi:"volumeContainers"`
+}
+
+// The failover set on a device.
+type FailoverSetResponseOutput struct{ *pulumi.OutputState }
+
+func (FailoverSetResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FailoverSetResponse)(nil)).Elem()
+}
+
+func (o FailoverSetResponseOutput) ToFailoverSetResponseOutput() FailoverSetResponseOutput {
+	return o
+}
+
+func (o FailoverSetResponseOutput) ToFailoverSetResponseOutputWithContext(ctx context.Context) FailoverSetResponseOutput {
+	return o
+}
+
+// The eligibility result of the failover set, for failover.
+func (o FailoverSetResponseOutput) EligibilityResult() FailoverSetEligibilityResultResponsePtrOutput {
+	return o.ApplyT(func(v FailoverSetResponse) *FailoverSetEligibilityResultResponse { return v.EligibilityResult }).(FailoverSetEligibilityResultResponsePtrOutput)
+}
+
+// The list of meta data of volume containers, which are part of the failover set.
+func (o FailoverSetResponseOutput) VolumeContainers() VolumeContainerFailoverMetadataResponseArrayOutput {
+	return o.ApplyT(func(v FailoverSetResponse) []VolumeContainerFailoverMetadataResponse { return v.VolumeContainers }).(VolumeContainerFailoverMetadataResponseArrayOutput)
+}
+
+type FailoverSetResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (FailoverSetResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FailoverSetResponse)(nil)).Elem()
+}
+
+func (o FailoverSetResponseArrayOutput) ToFailoverSetResponseArrayOutput() FailoverSetResponseArrayOutput {
+	return o
+}
+
+func (o FailoverSetResponseArrayOutput) ToFailoverSetResponseArrayOutputWithContext(ctx context.Context) FailoverSetResponseArrayOutput {
+	return o
+}
+
+func (o FailoverSetResponseArrayOutput) Index(i pulumi.IntInput) FailoverSetResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FailoverSetResponse {
+		return vs[0].([]FailoverSetResponse)[vs[1].(int)]
+	}).(FailoverSetResponseOutput)
 }
 
 // Represents the eligibility of a device as a failover target device.
@@ -516,6 +630,96 @@ type FailoverTargetResponse struct {
 	ModelDescription *string `pulumi:"modelDescription"`
 	// The count of volumes on the device.
 	VolumesCount *int `pulumi:"volumesCount"`
+}
+
+// Represents the eligibility of a device as a failover target device.
+type FailoverTargetResponseOutput struct{ *pulumi.OutputState }
+
+func (FailoverTargetResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FailoverTargetResponse)(nil)).Elem()
+}
+
+func (o FailoverTargetResponseOutput) ToFailoverTargetResponseOutput() FailoverTargetResponseOutput {
+	return o
+}
+
+func (o FailoverTargetResponseOutput) ToFailoverTargetResponseOutputWithContext(ctx context.Context) FailoverTargetResponseOutput {
+	return o
+}
+
+// The amount of free local storage available on the device in bytes.
+func (o FailoverTargetResponseOutput) AvailableLocalStorageInBytes() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v FailoverTargetResponse) *float64 { return v.AvailableLocalStorageInBytes }).(pulumi.Float64PtrOutput)
+}
+
+// The amount of free tiered storage available for the device in bytes.
+func (o FailoverTargetResponseOutput) AvailableTieredStorageInBytes() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v FailoverTargetResponse) *float64 { return v.AvailableTieredStorageInBytes }).(pulumi.Float64PtrOutput)
+}
+
+// The count of data containers on the device.
+func (o FailoverTargetResponseOutput) DataContainersCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FailoverTargetResponse) *int { return v.DataContainersCount }).(pulumi.IntPtrOutput)
+}
+
+// The path ID of the device.
+func (o FailoverTargetResponseOutput) DeviceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FailoverTargetResponse) *string { return v.DeviceId }).(pulumi.StringPtrOutput)
+}
+
+// The geo location (applicable only for cloud appliances) of the device.
+func (o FailoverTargetResponseOutput) DeviceLocation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FailoverTargetResponse) *string { return v.DeviceLocation }).(pulumi.StringPtrOutput)
+}
+
+// The software version of the device.
+func (o FailoverTargetResponseOutput) DeviceSoftwareVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FailoverTargetResponse) *string { return v.DeviceSoftwareVersion }).(pulumi.StringPtrOutput)
+}
+
+// The status of the device.
+func (o FailoverTargetResponseOutput) DeviceStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FailoverTargetResponse) *string { return v.DeviceStatus }).(pulumi.StringPtrOutput)
+}
+
+// The eligibility result of the device, as a failover target device.
+func (o FailoverTargetResponseOutput) EligibilityResult() TargetEligibilityResultResponsePtrOutput {
+	return o.ApplyT(func(v FailoverTargetResponse) *TargetEligibilityResultResponse { return v.EligibilityResult }).(TargetEligibilityResultResponsePtrOutput)
+}
+
+// The friendly name for the current version of software on the device.
+func (o FailoverTargetResponseOutput) FriendlyDeviceSoftwareVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FailoverTargetResponse) *string { return v.FriendlyDeviceSoftwareVersion }).(pulumi.StringPtrOutput)
+}
+
+// The model number of the device.
+func (o FailoverTargetResponseOutput) ModelDescription() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FailoverTargetResponse) *string { return v.ModelDescription }).(pulumi.StringPtrOutput)
+}
+
+// The count of volumes on the device.
+func (o FailoverTargetResponseOutput) VolumesCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FailoverTargetResponse) *int { return v.VolumesCount }).(pulumi.IntPtrOutput)
+}
+
+type FailoverTargetResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (FailoverTargetResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FailoverTargetResponse)(nil)).Elem()
+}
+
+func (o FailoverTargetResponseArrayOutput) ToFailoverTargetResponseArrayOutput() FailoverTargetResponseArrayOutput {
+	return o
+}
+
+func (o FailoverTargetResponseArrayOutput) ToFailoverTargetResponseArrayOutputWithContext(ctx context.Context) FailoverTargetResponseArrayOutput {
+	return o
+}
+
+func (o FailoverTargetResponseArrayOutput) Index(i pulumi.IntInput) FailoverTargetResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FailoverTargetResponse {
+		return vs[0].([]FailoverTargetResponse)[vs[1].(int)]
+	}).(FailoverTargetResponseOutput)
 }
 
 // Intrinsic settings which refers to the type of the StorSimple Manager.
@@ -1041,12 +1245,131 @@ type TargetEligibilityErrorMessageResponse struct {
 	ResultCode *string `pulumi:"resultCode"`
 }
 
+// The error/warning message due to which the device is ineligible as a failover target device.
+type TargetEligibilityErrorMessageResponseOutput struct{ *pulumi.OutputState }
+
+func (TargetEligibilityErrorMessageResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TargetEligibilityErrorMessageResponse)(nil)).Elem()
+}
+
+func (o TargetEligibilityErrorMessageResponseOutput) ToTargetEligibilityErrorMessageResponseOutput() TargetEligibilityErrorMessageResponseOutput {
+	return o
+}
+
+func (o TargetEligibilityErrorMessageResponseOutput) ToTargetEligibilityErrorMessageResponseOutputWithContext(ctx context.Context) TargetEligibilityErrorMessageResponseOutput {
+	return o
+}
+
+// The localized error message stating the reason why the device is not eligible as a target device.
+func (o TargetEligibilityErrorMessageResponseOutput) Message() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TargetEligibilityErrorMessageResponse) *string { return v.Message }).(pulumi.StringPtrOutput)
+}
+
+// The localized resolution message for the error.
+func (o TargetEligibilityErrorMessageResponseOutput) Resolution() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TargetEligibilityErrorMessageResponse) *string { return v.Resolution }).(pulumi.StringPtrOutput)
+}
+
+// The result code for the error, due to which the device does not qualify as a failover target device.
+func (o TargetEligibilityErrorMessageResponseOutput) ResultCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TargetEligibilityErrorMessageResponse) *string { return v.ResultCode }).(pulumi.StringPtrOutput)
+}
+
+type TargetEligibilityErrorMessageResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (TargetEligibilityErrorMessageResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TargetEligibilityErrorMessageResponse)(nil)).Elem()
+}
+
+func (o TargetEligibilityErrorMessageResponseArrayOutput) ToTargetEligibilityErrorMessageResponseArrayOutput() TargetEligibilityErrorMessageResponseArrayOutput {
+	return o
+}
+
+func (o TargetEligibilityErrorMessageResponseArrayOutput) ToTargetEligibilityErrorMessageResponseArrayOutputWithContext(ctx context.Context) TargetEligibilityErrorMessageResponseArrayOutput {
+	return o
+}
+
+func (o TargetEligibilityErrorMessageResponseArrayOutput) Index(i pulumi.IntInput) TargetEligibilityErrorMessageResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TargetEligibilityErrorMessageResponse {
+		return vs[0].([]TargetEligibilityErrorMessageResponse)[vs[1].(int)]
+	}).(TargetEligibilityErrorMessageResponseOutput)
+}
+
 // The eligibility result of device, as a failover target device.
 type TargetEligibilityResultResponse struct {
 	// The eligibility status of device, as a failover target device.
 	EligibilityStatus *string `pulumi:"eligibilityStatus"`
 	// The list of error messages, if a device does not qualify as a failover target device.
 	Messages []TargetEligibilityErrorMessageResponse `pulumi:"messages"`
+}
+
+// The eligibility result of device, as a failover target device.
+type TargetEligibilityResultResponseOutput struct{ *pulumi.OutputState }
+
+func (TargetEligibilityResultResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TargetEligibilityResultResponse)(nil)).Elem()
+}
+
+func (o TargetEligibilityResultResponseOutput) ToTargetEligibilityResultResponseOutput() TargetEligibilityResultResponseOutput {
+	return o
+}
+
+func (o TargetEligibilityResultResponseOutput) ToTargetEligibilityResultResponseOutputWithContext(ctx context.Context) TargetEligibilityResultResponseOutput {
+	return o
+}
+
+// The eligibility status of device, as a failover target device.
+func (o TargetEligibilityResultResponseOutput) EligibilityStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TargetEligibilityResultResponse) *string { return v.EligibilityStatus }).(pulumi.StringPtrOutput)
+}
+
+// The list of error messages, if a device does not qualify as a failover target device.
+func (o TargetEligibilityResultResponseOutput) Messages() TargetEligibilityErrorMessageResponseArrayOutput {
+	return o.ApplyT(func(v TargetEligibilityResultResponse) []TargetEligibilityErrorMessageResponse { return v.Messages }).(TargetEligibilityErrorMessageResponseArrayOutput)
+}
+
+type TargetEligibilityResultResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (TargetEligibilityResultResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TargetEligibilityResultResponse)(nil)).Elem()
+}
+
+func (o TargetEligibilityResultResponsePtrOutput) ToTargetEligibilityResultResponsePtrOutput() TargetEligibilityResultResponsePtrOutput {
+	return o
+}
+
+func (o TargetEligibilityResultResponsePtrOutput) ToTargetEligibilityResultResponsePtrOutputWithContext(ctx context.Context) TargetEligibilityResultResponsePtrOutput {
+	return o
+}
+
+func (o TargetEligibilityResultResponsePtrOutput) Elem() TargetEligibilityResultResponseOutput {
+	return o.ApplyT(func(v *TargetEligibilityResultResponse) TargetEligibilityResultResponse {
+		if v != nil {
+			return *v
+		}
+		var ret TargetEligibilityResultResponse
+		return ret
+	}).(TargetEligibilityResultResponseOutput)
+}
+
+// The eligibility status of device, as a failover target device.
+func (o TargetEligibilityResultResponsePtrOutput) EligibilityStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TargetEligibilityResultResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EligibilityStatus
+	}).(pulumi.StringPtrOutput)
+}
+
+// The list of error messages, if a device does not qualify as a failover target device.
+func (o TargetEligibilityResultResponsePtrOutput) Messages() TargetEligibilityErrorMessageResponseArrayOutput {
+	return o.ApplyT(func(v *TargetEligibilityResultResponse) []TargetEligibilityErrorMessageResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Messages
+	}).(TargetEligibilityErrorMessageResponseArrayOutput)
 }
 
 // The time.
@@ -1170,6 +1493,51 @@ type VolumeContainerFailoverMetadataResponse struct {
 	Volumes []VolumeFailoverMetadataResponse `pulumi:"volumes"`
 }
 
+// The metadata of the volume container, that is being considered as part of a failover set.
+type VolumeContainerFailoverMetadataResponseOutput struct{ *pulumi.OutputState }
+
+func (VolumeContainerFailoverMetadataResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VolumeContainerFailoverMetadataResponse)(nil)).Elem()
+}
+
+func (o VolumeContainerFailoverMetadataResponseOutput) ToVolumeContainerFailoverMetadataResponseOutput() VolumeContainerFailoverMetadataResponseOutput {
+	return o
+}
+
+func (o VolumeContainerFailoverMetadataResponseOutput) ToVolumeContainerFailoverMetadataResponseOutputWithContext(ctx context.Context) VolumeContainerFailoverMetadataResponseOutput {
+	return o
+}
+
+// The path ID of the volume container.
+func (o VolumeContainerFailoverMetadataResponseOutput) VolumeContainerId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VolumeContainerFailoverMetadataResponse) *string { return v.VolumeContainerId }).(pulumi.StringPtrOutput)
+}
+
+// The list of metadata of volumes inside the volume container, which contains valid cloud snapshots.
+func (o VolumeContainerFailoverMetadataResponseOutput) Volumes() VolumeFailoverMetadataResponseArrayOutput {
+	return o.ApplyT(func(v VolumeContainerFailoverMetadataResponse) []VolumeFailoverMetadataResponse { return v.Volumes }).(VolumeFailoverMetadataResponseArrayOutput)
+}
+
+type VolumeContainerFailoverMetadataResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (VolumeContainerFailoverMetadataResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VolumeContainerFailoverMetadataResponse)(nil)).Elem()
+}
+
+func (o VolumeContainerFailoverMetadataResponseArrayOutput) ToVolumeContainerFailoverMetadataResponseArrayOutput() VolumeContainerFailoverMetadataResponseArrayOutput {
+	return o
+}
+
+func (o VolumeContainerFailoverMetadataResponseArrayOutput) ToVolumeContainerFailoverMetadataResponseArrayOutputWithContext(ctx context.Context) VolumeContainerFailoverMetadataResponseArrayOutput {
+	return o
+}
+
+func (o VolumeContainerFailoverMetadataResponseArrayOutput) Index(i pulumi.IntInput) VolumeContainerFailoverMetadataResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VolumeContainerFailoverMetadataResponse {
+		return vs[0].([]VolumeContainerFailoverMetadataResponse)[vs[1].(int)]
+	}).(VolumeContainerFailoverMetadataResponseOutput)
+}
+
 // The metadata of a volume that has valid cloud snapshot.
 type VolumeFailoverMetadataResponse struct {
 	// The date at which the snapshot was taken.
@@ -1188,6 +1556,76 @@ type VolumeFailoverMetadataResponse struct {
 	VolumeType *string `pulumi:"volumeType"`
 }
 
+// The metadata of a volume that has valid cloud snapshot.
+type VolumeFailoverMetadataResponseOutput struct{ *pulumi.OutputState }
+
+func (VolumeFailoverMetadataResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VolumeFailoverMetadataResponse)(nil)).Elem()
+}
+
+func (o VolumeFailoverMetadataResponseOutput) ToVolumeFailoverMetadataResponseOutput() VolumeFailoverMetadataResponseOutput {
+	return o
+}
+
+func (o VolumeFailoverMetadataResponseOutput) ToVolumeFailoverMetadataResponseOutputWithContext(ctx context.Context) VolumeFailoverMetadataResponseOutput {
+	return o
+}
+
+// The date at which the snapshot was taken.
+func (o VolumeFailoverMetadataResponseOutput) BackupCreatedDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VolumeFailoverMetadataResponse) *string { return v.BackupCreatedDate }).(pulumi.StringPtrOutput)
+}
+
+// The path ID of the backup-element for this volume, inside the backup set.
+func (o VolumeFailoverMetadataResponseOutput) BackupElementId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VolumeFailoverMetadataResponse) *string { return v.BackupElementId }).(pulumi.StringPtrOutput)
+}
+
+// The path ID of the backup set.
+func (o VolumeFailoverMetadataResponseOutput) BackupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VolumeFailoverMetadataResponse) *string { return v.BackupId }).(pulumi.StringPtrOutput)
+}
+
+// The path ID of the backup policy using which the snapshot was taken.
+func (o VolumeFailoverMetadataResponseOutput) BackupPolicyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VolumeFailoverMetadataResponse) *string { return v.BackupPolicyId }).(pulumi.StringPtrOutput)
+}
+
+// The size of the volume in bytes at the time the snapshot was taken.
+func (o VolumeFailoverMetadataResponseOutput) SizeInBytes() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v VolumeFailoverMetadataResponse) *float64 { return v.SizeInBytes }).(pulumi.Float64PtrOutput)
+}
+
+// The path ID of the volume.
+func (o VolumeFailoverMetadataResponseOutput) VolumeId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VolumeFailoverMetadataResponse) *string { return v.VolumeId }).(pulumi.StringPtrOutput)
+}
+
+// The type of the volume.
+func (o VolumeFailoverMetadataResponseOutput) VolumeType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VolumeFailoverMetadataResponse) *string { return v.VolumeType }).(pulumi.StringPtrOutput)
+}
+
+type VolumeFailoverMetadataResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (VolumeFailoverMetadataResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VolumeFailoverMetadataResponse)(nil)).Elem()
+}
+
+func (o VolumeFailoverMetadataResponseArrayOutput) ToVolumeFailoverMetadataResponseArrayOutput() VolumeFailoverMetadataResponseArrayOutput {
+	return o
+}
+
+func (o VolumeFailoverMetadataResponseArrayOutput) ToVolumeFailoverMetadataResponseArrayOutputWithContext(ctx context.Context) VolumeFailoverMetadataResponseArrayOutput {
+	return o
+}
+
+func (o VolumeFailoverMetadataResponseArrayOutput) Index(i pulumi.IntInput) VolumeFailoverMetadataResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VolumeFailoverMetadataResponse {
+		return vs[0].([]VolumeFailoverMetadataResponse)[vs[1].(int)]
+	}).(VolumeFailoverMetadataResponseOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(AsymmetricEncryptedSecretOutput{})
 	pulumi.RegisterOutputType(AsymmetricEncryptedSecretPtrOutput{})
@@ -1197,6 +1635,12 @@ func init() {
 	pulumi.RegisterOutputType(BandwidthScheduleArrayOutput{})
 	pulumi.RegisterOutputType(BandwidthScheduleResponseOutput{})
 	pulumi.RegisterOutputType(BandwidthScheduleResponseArrayOutput{})
+	pulumi.RegisterOutputType(FailoverSetEligibilityResultResponseOutput{})
+	pulumi.RegisterOutputType(FailoverSetEligibilityResultResponsePtrOutput{})
+	pulumi.RegisterOutputType(FailoverSetResponseOutput{})
+	pulumi.RegisterOutputType(FailoverSetResponseArrayOutput{})
+	pulumi.RegisterOutputType(FailoverTargetResponseOutput{})
+	pulumi.RegisterOutputType(FailoverTargetResponseArrayOutput{})
 	pulumi.RegisterOutputType(ManagerIntrinsicSettingsOutput{})
 	pulumi.RegisterOutputType(ManagerIntrinsicSettingsPtrOutput{})
 	pulumi.RegisterOutputType(ManagerIntrinsicSettingsResponseOutput{})
@@ -1207,6 +1651,14 @@ func init() {
 	pulumi.RegisterOutputType(ManagerSkuResponsePtrOutput{})
 	pulumi.RegisterOutputType(ScheduleRecurrenceOutput{})
 	pulumi.RegisterOutputType(ScheduleRecurrenceResponseOutput{})
+	pulumi.RegisterOutputType(TargetEligibilityErrorMessageResponseOutput{})
+	pulumi.RegisterOutputType(TargetEligibilityErrorMessageResponseArrayOutput{})
+	pulumi.RegisterOutputType(TargetEligibilityResultResponseOutput{})
+	pulumi.RegisterOutputType(TargetEligibilityResultResponsePtrOutput{})
 	pulumi.RegisterOutputType(TimeOutput{})
 	pulumi.RegisterOutputType(TimeResponseOutput{})
+	pulumi.RegisterOutputType(VolumeContainerFailoverMetadataResponseOutput{})
+	pulumi.RegisterOutputType(VolumeContainerFailoverMetadataResponseArrayOutput{})
+	pulumi.RegisterOutputType(VolumeFailoverMetadataResponseOutput{})
+	pulumi.RegisterOutputType(VolumeFailoverMetadataResponseArrayOutput{})
 }

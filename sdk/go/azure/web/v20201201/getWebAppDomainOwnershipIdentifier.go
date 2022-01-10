@@ -4,6 +4,9 @@
 package v20201201
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -38,4 +41,70 @@ type LookupWebAppDomainOwnershipIdentifierResult struct {
 	Type string `pulumi:"type"`
 	// String representation of the identity.
 	Value *string `pulumi:"value"`
+}
+
+func LookupWebAppDomainOwnershipIdentifierOutput(ctx *pulumi.Context, args LookupWebAppDomainOwnershipIdentifierOutputArgs, opts ...pulumi.InvokeOption) LookupWebAppDomainOwnershipIdentifierResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupWebAppDomainOwnershipIdentifierResult, error) {
+			args := v.(LookupWebAppDomainOwnershipIdentifierArgs)
+			r, err := LookupWebAppDomainOwnershipIdentifier(ctx, &args, opts...)
+			return *r, err
+		}).(LookupWebAppDomainOwnershipIdentifierResultOutput)
+}
+
+type LookupWebAppDomainOwnershipIdentifierOutputArgs struct {
+	// Name of domain ownership identifier.
+	DomainOwnershipIdentifierName pulumi.StringInput `pulumi:"domainOwnershipIdentifierName"`
+	// Name of the app.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Name of the resource group to which the resource belongs.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupWebAppDomainOwnershipIdentifierOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupWebAppDomainOwnershipIdentifierArgs)(nil)).Elem()
+}
+
+// A domain specific resource identifier.
+type LookupWebAppDomainOwnershipIdentifierResultOutput struct{ *pulumi.OutputState }
+
+func (LookupWebAppDomainOwnershipIdentifierResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupWebAppDomainOwnershipIdentifierResult)(nil)).Elem()
+}
+
+func (o LookupWebAppDomainOwnershipIdentifierResultOutput) ToLookupWebAppDomainOwnershipIdentifierResultOutput() LookupWebAppDomainOwnershipIdentifierResultOutput {
+	return o
+}
+
+func (o LookupWebAppDomainOwnershipIdentifierResultOutput) ToLookupWebAppDomainOwnershipIdentifierResultOutputWithContext(ctx context.Context) LookupWebAppDomainOwnershipIdentifierResultOutput {
+	return o
+}
+
+// Resource Id.
+func (o LookupWebAppDomainOwnershipIdentifierResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWebAppDomainOwnershipIdentifierResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Kind of resource.
+func (o LookupWebAppDomainOwnershipIdentifierResultOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupWebAppDomainOwnershipIdentifierResult) *string { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Resource Name.
+func (o LookupWebAppDomainOwnershipIdentifierResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWebAppDomainOwnershipIdentifierResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Resource type.
+func (o LookupWebAppDomainOwnershipIdentifierResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWebAppDomainOwnershipIdentifierResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// String representation of the identity.
+func (o LookupWebAppDomainOwnershipIdentifierResultOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupWebAppDomainOwnershipIdentifierResult) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupWebAppDomainOwnershipIdentifierResultOutput{})
 }

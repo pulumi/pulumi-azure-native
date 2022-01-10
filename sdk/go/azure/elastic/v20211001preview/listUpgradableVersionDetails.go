@@ -4,6 +4,9 @@
 package v20211001preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -30,4 +33,53 @@ type ListUpgradableVersionDetailsResult struct {
 	CurrentVersion *string `pulumi:"currentVersion"`
 	// Stack Versions that this version can upgrade to
 	UpgradableVersions []string `pulumi:"upgradableVersions"`
+}
+
+func ListUpgradableVersionDetailsOutput(ctx *pulumi.Context, args ListUpgradableVersionDetailsOutputArgs, opts ...pulumi.InvokeOption) ListUpgradableVersionDetailsResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (ListUpgradableVersionDetailsResult, error) {
+			args := v.(ListUpgradableVersionDetailsArgs)
+			r, err := ListUpgradableVersionDetails(ctx, &args, opts...)
+			return *r, err
+		}).(ListUpgradableVersionDetailsResultOutput)
+}
+
+type ListUpgradableVersionDetailsOutputArgs struct {
+	// Monitor resource name
+	MonitorName pulumi.StringInput `pulumi:"monitorName"`
+	// The name of the resource group to which the Elastic resource belongs.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (ListUpgradableVersionDetailsOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListUpgradableVersionDetailsArgs)(nil)).Elem()
+}
+
+// Stack Versions that this version can upgrade to
+type ListUpgradableVersionDetailsResultOutput struct{ *pulumi.OutputState }
+
+func (ListUpgradableVersionDetailsResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListUpgradableVersionDetailsResult)(nil)).Elem()
+}
+
+func (o ListUpgradableVersionDetailsResultOutput) ToListUpgradableVersionDetailsResultOutput() ListUpgradableVersionDetailsResultOutput {
+	return o
+}
+
+func (o ListUpgradableVersionDetailsResultOutput) ToListUpgradableVersionDetailsResultOutputWithContext(ctx context.Context) ListUpgradableVersionDetailsResultOutput {
+	return o
+}
+
+// Current version of the elastic monitor
+func (o ListUpgradableVersionDetailsResultOutput) CurrentVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListUpgradableVersionDetailsResult) *string { return v.CurrentVersion }).(pulumi.StringPtrOutput)
+}
+
+// Stack Versions that this version can upgrade to
+func (o ListUpgradableVersionDetailsResultOutput) UpgradableVersions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ListUpgradableVersionDetailsResult) []string { return v.UpgradableVersions }).(pulumi.StringArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(ListUpgradableVersionDetailsResultOutput{})
 }

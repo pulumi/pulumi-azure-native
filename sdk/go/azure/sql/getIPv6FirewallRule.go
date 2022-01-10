@@ -4,6 +4,9 @@
 package sql
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -39,4 +42,70 @@ type LookupIPv6FirewallRuleResult struct {
 	StartIPv6Address *string `pulumi:"startIPv6Address"`
 	// Resource type.
 	Type string `pulumi:"type"`
+}
+
+func LookupIPv6FirewallRuleOutput(ctx *pulumi.Context, args LookupIPv6FirewallRuleOutputArgs, opts ...pulumi.InvokeOption) LookupIPv6FirewallRuleResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupIPv6FirewallRuleResult, error) {
+			args := v.(LookupIPv6FirewallRuleArgs)
+			r, err := LookupIPv6FirewallRule(ctx, &args, opts...)
+			return *r, err
+		}).(LookupIPv6FirewallRuleResultOutput)
+}
+
+type LookupIPv6FirewallRuleOutputArgs struct {
+	// The name of the firewall rule.
+	FirewallRuleName pulumi.StringInput `pulumi:"firewallRuleName"`
+	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the server.
+	ServerName pulumi.StringInput `pulumi:"serverName"`
+}
+
+func (LookupIPv6FirewallRuleOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupIPv6FirewallRuleArgs)(nil)).Elem()
+}
+
+// An IPv6 server firewall rule.
+type LookupIPv6FirewallRuleResultOutput struct{ *pulumi.OutputState }
+
+func (LookupIPv6FirewallRuleResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupIPv6FirewallRuleResult)(nil)).Elem()
+}
+
+func (o LookupIPv6FirewallRuleResultOutput) ToLookupIPv6FirewallRuleResultOutput() LookupIPv6FirewallRuleResultOutput {
+	return o
+}
+
+func (o LookupIPv6FirewallRuleResultOutput) ToLookupIPv6FirewallRuleResultOutputWithContext(ctx context.Context) LookupIPv6FirewallRuleResultOutput {
+	return o
+}
+
+// The end IP address of the firewall rule. Must be IPv6 format. Must be greater than or equal to startIpAddress.
+func (o LookupIPv6FirewallRuleResultOutput) EndIPv6Address() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupIPv6FirewallRuleResult) *string { return v.EndIPv6Address }).(pulumi.StringPtrOutput)
+}
+
+// Resource ID.
+func (o LookupIPv6FirewallRuleResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupIPv6FirewallRuleResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o LookupIPv6FirewallRuleResultOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupIPv6FirewallRuleResult) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The start IP address of the firewall rule. Must be IPv6 format.
+func (o LookupIPv6FirewallRuleResultOutput) StartIPv6Address() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupIPv6FirewallRuleResult) *string { return v.StartIPv6Address }).(pulumi.StringPtrOutput)
+}
+
+// Resource type.
+func (o LookupIPv6FirewallRuleResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupIPv6FirewallRuleResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupIPv6FirewallRuleResultOutput{})
 }

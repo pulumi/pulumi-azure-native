@@ -4,6 +4,9 @@
 package securityinsights
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -54,4 +57,106 @@ type LookupFusionAlertRuleResult struct {
 	Tactics []string `pulumi:"tactics"`
 	// Azure resource type
 	Type string `pulumi:"type"`
+}
+
+func LookupFusionAlertRuleOutput(ctx *pulumi.Context, args LookupFusionAlertRuleOutputArgs, opts ...pulumi.InvokeOption) LookupFusionAlertRuleResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupFusionAlertRuleResult, error) {
+			args := v.(LookupFusionAlertRuleArgs)
+			r, err := LookupFusionAlertRule(ctx, &args, opts...)
+			return *r, err
+		}).(LookupFusionAlertRuleResultOutput)
+}
+
+type LookupFusionAlertRuleOutputArgs struct {
+	// The name of the resource group within the user's subscription. The name is case insensitive.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// Alert rule ID
+	RuleId pulumi.StringInput `pulumi:"ruleId"`
+	// The name of the workspace.
+	WorkspaceName pulumi.StringInput `pulumi:"workspaceName"`
+}
+
+func (LookupFusionAlertRuleOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupFusionAlertRuleArgs)(nil)).Elem()
+}
+
+// Represents Fusion alert rule.
+type LookupFusionAlertRuleResultOutput struct{ *pulumi.OutputState }
+
+func (LookupFusionAlertRuleResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupFusionAlertRuleResult)(nil)).Elem()
+}
+
+func (o LookupFusionAlertRuleResultOutput) ToLookupFusionAlertRuleResultOutput() LookupFusionAlertRuleResultOutput {
+	return o
+}
+
+func (o LookupFusionAlertRuleResultOutput) ToLookupFusionAlertRuleResultOutputWithContext(ctx context.Context) LookupFusionAlertRuleResultOutput {
+	return o
+}
+
+// The Name of the alert rule template used to create this rule.
+func (o LookupFusionAlertRuleResultOutput) AlertRuleTemplateName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupFusionAlertRuleResult) string { return v.AlertRuleTemplateName }).(pulumi.StringOutput)
+}
+
+// The description of the alert rule.
+func (o LookupFusionAlertRuleResultOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupFusionAlertRuleResult) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// The display name for alerts created by this alert rule.
+func (o LookupFusionAlertRuleResultOutput) DisplayName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupFusionAlertRuleResult) string { return v.DisplayName }).(pulumi.StringOutput)
+}
+
+// Determines whether this alert rule is enabled or disabled.
+func (o LookupFusionAlertRuleResultOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupFusionAlertRuleResult) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// Etag of the azure resource
+func (o LookupFusionAlertRuleResultOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupFusionAlertRuleResult) *string { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// Azure resource Id
+func (o LookupFusionAlertRuleResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupFusionAlertRuleResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The kind of the alert rule
+// Expected value is 'Fusion'.
+func (o LookupFusionAlertRuleResultOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupFusionAlertRuleResult) string { return v.Kind }).(pulumi.StringOutput)
+}
+
+// The last time that this alert has been modified.
+func (o LookupFusionAlertRuleResultOutput) LastModifiedUtc() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupFusionAlertRuleResult) string { return v.LastModifiedUtc }).(pulumi.StringOutput)
+}
+
+// Azure resource name
+func (o LookupFusionAlertRuleResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupFusionAlertRuleResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The severity for alerts created by this alert rule.
+func (o LookupFusionAlertRuleResultOutput) Severity() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupFusionAlertRuleResult) string { return v.Severity }).(pulumi.StringOutput)
+}
+
+// The tactics of the alert rule
+func (o LookupFusionAlertRuleResultOutput) Tactics() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupFusionAlertRuleResult) []string { return v.Tactics }).(pulumi.StringArrayOutput)
+}
+
+// Azure resource type
+func (o LookupFusionAlertRuleResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupFusionAlertRuleResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupFusionAlertRuleResultOutput{})
 }

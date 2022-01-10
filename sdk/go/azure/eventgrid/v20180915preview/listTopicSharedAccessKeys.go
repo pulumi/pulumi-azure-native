@@ -4,6 +4,9 @@
 package v20180915preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -30,4 +33,53 @@ type ListTopicSharedAccessKeysResult struct {
 	Key1 *string `pulumi:"key1"`
 	// Shared access key2 for the topic.
 	Key2 *string `pulumi:"key2"`
+}
+
+func ListTopicSharedAccessKeysOutput(ctx *pulumi.Context, args ListTopicSharedAccessKeysOutputArgs, opts ...pulumi.InvokeOption) ListTopicSharedAccessKeysResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (ListTopicSharedAccessKeysResult, error) {
+			args := v.(ListTopicSharedAccessKeysArgs)
+			r, err := ListTopicSharedAccessKeys(ctx, &args, opts...)
+			return *r, err
+		}).(ListTopicSharedAccessKeysResultOutput)
+}
+
+type ListTopicSharedAccessKeysOutputArgs struct {
+	// The name of the resource group within the user's subscription.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// Name of the topic
+	TopicName pulumi.StringInput `pulumi:"topicName"`
+}
+
+func (ListTopicSharedAccessKeysOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListTopicSharedAccessKeysArgs)(nil)).Elem()
+}
+
+// Shared access keys of the Topic
+type ListTopicSharedAccessKeysResultOutput struct{ *pulumi.OutputState }
+
+func (ListTopicSharedAccessKeysResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListTopicSharedAccessKeysResult)(nil)).Elem()
+}
+
+func (o ListTopicSharedAccessKeysResultOutput) ToListTopicSharedAccessKeysResultOutput() ListTopicSharedAccessKeysResultOutput {
+	return o
+}
+
+func (o ListTopicSharedAccessKeysResultOutput) ToListTopicSharedAccessKeysResultOutputWithContext(ctx context.Context) ListTopicSharedAccessKeysResultOutput {
+	return o
+}
+
+// Shared access key1 for the topic.
+func (o ListTopicSharedAccessKeysResultOutput) Key1() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListTopicSharedAccessKeysResult) *string { return v.Key1 }).(pulumi.StringPtrOutput)
+}
+
+// Shared access key2 for the topic.
+func (o ListTopicSharedAccessKeysResultOutput) Key2() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListTopicSharedAccessKeysResult) *string { return v.Key2 }).(pulumi.StringPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(ListTopicSharedAccessKeysResultOutput{})
 }

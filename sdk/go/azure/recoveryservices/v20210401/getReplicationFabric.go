@@ -4,6 +4,9 @@
 package v20210401
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -40,4 +43,72 @@ type LookupReplicationFabricResult struct {
 	Properties FabricPropertiesResponse `pulumi:"properties"`
 	// Resource Type
 	Type string `pulumi:"type"`
+}
+
+func LookupReplicationFabricOutput(ctx *pulumi.Context, args LookupReplicationFabricOutputArgs, opts ...pulumi.InvokeOption) LookupReplicationFabricResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupReplicationFabricResult, error) {
+			args := v.(LookupReplicationFabricArgs)
+			r, err := LookupReplicationFabric(ctx, &args, opts...)
+			return *r, err
+		}).(LookupReplicationFabricResultOutput)
+}
+
+type LookupReplicationFabricOutputArgs struct {
+	// Fabric name.
+	FabricName pulumi.StringInput `pulumi:"fabricName"`
+	// OData filter options.
+	Filter pulumi.StringPtrInput `pulumi:"filter"`
+	// The name of the resource group where the recovery services vault is present.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the recovery services vault.
+	ResourceName pulumi.StringInput `pulumi:"resourceName"`
+}
+
+func (LookupReplicationFabricOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupReplicationFabricArgs)(nil)).Elem()
+}
+
+// Fabric definition.
+type LookupReplicationFabricResultOutput struct{ *pulumi.OutputState }
+
+func (LookupReplicationFabricResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupReplicationFabricResult)(nil)).Elem()
+}
+
+func (o LookupReplicationFabricResultOutput) ToLookupReplicationFabricResultOutput() LookupReplicationFabricResultOutput {
+	return o
+}
+
+func (o LookupReplicationFabricResultOutput) ToLookupReplicationFabricResultOutputWithContext(ctx context.Context) LookupReplicationFabricResultOutput {
+	return o
+}
+
+// Resource Id
+func (o LookupReplicationFabricResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupReplicationFabricResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Resource Location
+func (o LookupReplicationFabricResultOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupReplicationFabricResult) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Resource Name
+func (o LookupReplicationFabricResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupReplicationFabricResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Fabric related data.
+func (o LookupReplicationFabricResultOutput) Properties() FabricPropertiesResponseOutput {
+	return o.ApplyT(func(v LookupReplicationFabricResult) FabricPropertiesResponse { return v.Properties }).(FabricPropertiesResponseOutput)
+}
+
+// Resource Type
+func (o LookupReplicationFabricResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupReplicationFabricResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupReplicationFabricResultOutput{})
 }

@@ -4,6 +4,9 @@
 package v20160401
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -61,4 +64,98 @@ func (val *LookupZoneResult) Defaults() *LookupZoneResult {
 		tmp.ZoneType = &zoneType_
 	}
 	return &tmp
+}
+
+func LookupZoneOutput(ctx *pulumi.Context, args LookupZoneOutputArgs, opts ...pulumi.InvokeOption) LookupZoneResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupZoneResult, error) {
+			args := v.(LookupZoneArgs)
+			r, err := LookupZone(ctx, &args, opts...)
+			return *r, err
+		}).(LookupZoneResultOutput)
+}
+
+type LookupZoneOutputArgs struct {
+	// The name of the resource group. The name is case insensitive.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the DNS zone (without a terminating dot).
+	ZoneName pulumi.StringInput `pulumi:"zoneName"`
+}
+
+func (LookupZoneOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupZoneArgs)(nil)).Elem()
+}
+
+// Describes a DNS zone.
+type LookupZoneResultOutput struct{ *pulumi.OutputState }
+
+func (LookupZoneResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupZoneResult)(nil)).Elem()
+}
+
+func (o LookupZoneResultOutput) ToLookupZoneResultOutput() LookupZoneResultOutput {
+	return o
+}
+
+func (o LookupZoneResultOutput) ToLookupZoneResultOutputWithContext(ctx context.Context) LookupZoneResultOutput {
+	return o
+}
+
+// The etag of the zone.
+func (o LookupZoneResultOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupZoneResult) *string { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+func (o LookupZoneResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupZoneResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The geo-location where the resource lives
+func (o LookupZoneResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupZoneResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// The maximum number of record sets that can be created in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.
+func (o LookupZoneResultOutput) MaxNumberOfRecordSets() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v LookupZoneResult) *float64 { return v.MaxNumberOfRecordSets }).(pulumi.Float64PtrOutput)
+}
+
+// The maximum number of records per record set that can be created in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.
+func (o LookupZoneResultOutput) MaxNumberOfRecordsPerRecordSet() pulumi.Float64Output {
+	return o.ApplyT(func(v LookupZoneResult) float64 { return v.MaxNumberOfRecordsPerRecordSet }).(pulumi.Float64Output)
+}
+
+// The name of the resource
+func (o LookupZoneResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupZoneResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The name servers for this DNS zone. This is a read-only property and any attempt to set this value will be ignored.
+func (o LookupZoneResultOutput) NameServers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupZoneResult) []string { return v.NameServers }).(pulumi.StringArrayOutput)
+}
+
+// The current number of record sets in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.
+func (o LookupZoneResultOutput) NumberOfRecordSets() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v LookupZoneResult) *float64 { return v.NumberOfRecordSets }).(pulumi.Float64PtrOutput)
+}
+
+// Resource tags.
+func (o LookupZoneResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupZoneResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o LookupZoneResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupZoneResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The type of this DNS zone (Public or Private).
+func (o LookupZoneResultOutput) ZoneType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupZoneResult) *string { return v.ZoneType }).(pulumi.StringPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupZoneResultOutput{})
 }

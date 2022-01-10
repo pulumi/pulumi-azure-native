@@ -4,6 +4,9 @@
 package v20200501
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -44,4 +47,82 @@ type LookupAssetFilterResult struct {
 	Tracks []FilterTrackSelectionResponse `pulumi:"tracks"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
+}
+
+func LookupAssetFilterOutput(ctx *pulumi.Context, args LookupAssetFilterOutputArgs, opts ...pulumi.InvokeOption) LookupAssetFilterResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupAssetFilterResult, error) {
+			args := v.(LookupAssetFilterArgs)
+			r, err := LookupAssetFilter(ctx, &args, opts...)
+			return *r, err
+		}).(LookupAssetFilterResultOutput)
+}
+
+type LookupAssetFilterOutputArgs struct {
+	// The Media Services account name.
+	AccountName pulumi.StringInput `pulumi:"accountName"`
+	// The Asset name.
+	AssetName pulumi.StringInput `pulumi:"assetName"`
+	// The Asset Filter name
+	FilterName pulumi.StringInput `pulumi:"filterName"`
+	// The name of the resource group within the Azure subscription.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupAssetFilterOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupAssetFilterArgs)(nil)).Elem()
+}
+
+// An Asset Filter.
+type LookupAssetFilterResultOutput struct{ *pulumi.OutputState }
+
+func (LookupAssetFilterResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupAssetFilterResult)(nil)).Elem()
+}
+
+func (o LookupAssetFilterResultOutput) ToLookupAssetFilterResultOutput() LookupAssetFilterResultOutput {
+	return o
+}
+
+func (o LookupAssetFilterResultOutput) ToLookupAssetFilterResultOutputWithContext(ctx context.Context) LookupAssetFilterResultOutput {
+	return o
+}
+
+// The first quality.
+func (o LookupAssetFilterResultOutput) FirstQuality() FirstQualityResponsePtrOutput {
+	return o.ApplyT(func(v LookupAssetFilterResult) *FirstQualityResponse { return v.FirstQuality }).(FirstQualityResponsePtrOutput)
+}
+
+// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+func (o LookupAssetFilterResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAssetFilterResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o LookupAssetFilterResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAssetFilterResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The presentation time range.
+func (o LookupAssetFilterResultOutput) PresentationTimeRange() PresentationTimeRangeResponsePtrOutput {
+	return o.ApplyT(func(v LookupAssetFilterResult) *PresentationTimeRangeResponse { return v.PresentationTimeRange }).(PresentationTimeRangeResponsePtrOutput)
+}
+
+// The system metadata relating to this resource.
+func (o LookupAssetFilterResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupAssetFilterResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The tracks selection conditions.
+func (o LookupAssetFilterResultOutput) Tracks() FilterTrackSelectionResponseArrayOutput {
+	return o.ApplyT(func(v LookupAssetFilterResult) []FilterTrackSelectionResponse { return v.Tracks }).(FilterTrackSelectionResponseArrayOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o LookupAssetFilterResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAssetFilterResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupAssetFilterResultOutput{})
 }

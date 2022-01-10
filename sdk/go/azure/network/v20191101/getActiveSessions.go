@@ -4,6 +4,9 @@
 package v20191101
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -30,4 +33,53 @@ type GetActiveSessionsResult struct {
 	NextLink *string `pulumi:"nextLink"`
 	// List of active sessions on the bastion.
 	Value []BastionActiveSessionResponse `pulumi:"value"`
+}
+
+func GetActiveSessionsOutput(ctx *pulumi.Context, args GetActiveSessionsOutputArgs, opts ...pulumi.InvokeOption) GetActiveSessionsResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetActiveSessionsResult, error) {
+			args := v.(GetActiveSessionsArgs)
+			r, err := GetActiveSessions(ctx, &args, opts...)
+			return *r, err
+		}).(GetActiveSessionsResultOutput)
+}
+
+type GetActiveSessionsOutputArgs struct {
+	// The name of the Bastion Host.
+	BastionHostName pulumi.StringInput `pulumi:"bastionHostName"`
+	// The name of the resource group.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (GetActiveSessionsOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetActiveSessionsArgs)(nil)).Elem()
+}
+
+// Response for GetActiveSessions.
+type GetActiveSessionsResultOutput struct{ *pulumi.OutputState }
+
+func (GetActiveSessionsResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetActiveSessionsResult)(nil)).Elem()
+}
+
+func (o GetActiveSessionsResultOutput) ToGetActiveSessionsResultOutput() GetActiveSessionsResultOutput {
+	return o
+}
+
+func (o GetActiveSessionsResultOutput) ToGetActiveSessionsResultOutputWithContext(ctx context.Context) GetActiveSessionsResultOutput {
+	return o
+}
+
+// The URL to get the next set of results.
+func (o GetActiveSessionsResultOutput) NextLink() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetActiveSessionsResult) *string { return v.NextLink }).(pulumi.StringPtrOutput)
+}
+
+// List of active sessions on the bastion.
+func (o GetActiveSessionsResultOutput) Value() BastionActiveSessionResponseArrayOutput {
+	return o.ApplyT(func(v GetActiveSessionsResult) []BastionActiveSessionResponse { return v.Value }).(BastionActiveSessionResponseArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetActiveSessionsResultOutput{})
 }

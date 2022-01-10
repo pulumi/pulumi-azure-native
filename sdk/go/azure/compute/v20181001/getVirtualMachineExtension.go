@@ -4,6 +4,9 @@
 package v20181001
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -56,4 +59,114 @@ type LookupVirtualMachineExtensionResult struct {
 	Type string `pulumi:"type"`
 	// Specifies the version of the script handler.
 	TypeHandlerVersion *string `pulumi:"typeHandlerVersion"`
+}
+
+func LookupVirtualMachineExtensionOutput(ctx *pulumi.Context, args LookupVirtualMachineExtensionOutputArgs, opts ...pulumi.InvokeOption) LookupVirtualMachineExtensionResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupVirtualMachineExtensionResult, error) {
+			args := v.(LookupVirtualMachineExtensionArgs)
+			r, err := LookupVirtualMachineExtension(ctx, &args, opts...)
+			return *r, err
+		}).(LookupVirtualMachineExtensionResultOutput)
+}
+
+type LookupVirtualMachineExtensionOutputArgs struct {
+	// The expand expression to apply on the operation.
+	Expand pulumi.StringPtrInput `pulumi:"expand"`
+	// The name of the resource group.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the virtual machine extension.
+	VmExtensionName pulumi.StringInput `pulumi:"vmExtensionName"`
+	// The name of the virtual machine containing the extension.
+	VmName pulumi.StringInput `pulumi:"vmName"`
+}
+
+func (LookupVirtualMachineExtensionOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupVirtualMachineExtensionArgs)(nil)).Elem()
+}
+
+// Describes a Virtual Machine Extension.
+type LookupVirtualMachineExtensionResultOutput struct{ *pulumi.OutputState }
+
+func (LookupVirtualMachineExtensionResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupVirtualMachineExtensionResult)(nil)).Elem()
+}
+
+func (o LookupVirtualMachineExtensionResultOutput) ToLookupVirtualMachineExtensionResultOutput() LookupVirtualMachineExtensionResultOutput {
+	return o
+}
+
+func (o LookupVirtualMachineExtensionResultOutput) ToLookupVirtualMachineExtensionResultOutputWithContext(ctx context.Context) LookupVirtualMachineExtensionResultOutput {
+	return o
+}
+
+// Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
+func (o LookupVirtualMachineExtensionResultOutput) AutoUpgradeMinorVersion() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupVirtualMachineExtensionResult) *bool { return v.AutoUpgradeMinorVersion }).(pulumi.BoolPtrOutput)
+}
+
+// How the extension handler should be forced to update even if the extension configuration has not changed.
+func (o LookupVirtualMachineExtensionResultOutput) ForceUpdateTag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVirtualMachineExtensionResult) *string { return v.ForceUpdateTag }).(pulumi.StringPtrOutput)
+}
+
+// Resource Id
+func (o LookupVirtualMachineExtensionResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVirtualMachineExtensionResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The virtual machine extension instance view.
+func (o LookupVirtualMachineExtensionResultOutput) InstanceView() VirtualMachineExtensionInstanceViewResponsePtrOutput {
+	return o.ApplyT(func(v LookupVirtualMachineExtensionResult) *VirtualMachineExtensionInstanceViewResponse {
+		return v.InstanceView
+	}).(VirtualMachineExtensionInstanceViewResponsePtrOutput)
+}
+
+// Resource location
+func (o LookupVirtualMachineExtensionResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVirtualMachineExtensionResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource name
+func (o LookupVirtualMachineExtensionResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVirtualMachineExtensionResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
+func (o LookupVirtualMachineExtensionResultOutput) ProtectedSettings() pulumi.AnyOutput {
+	return o.ApplyT(func(v LookupVirtualMachineExtensionResult) interface{} { return v.ProtectedSettings }).(pulumi.AnyOutput)
+}
+
+// The provisioning state, which only appears in the response.
+func (o LookupVirtualMachineExtensionResultOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVirtualMachineExtensionResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The name of the extension handler publisher.
+func (o LookupVirtualMachineExtensionResultOutput) Publisher() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVirtualMachineExtensionResult) *string { return v.Publisher }).(pulumi.StringPtrOutput)
+}
+
+// Json formatted public settings for the extension.
+func (o LookupVirtualMachineExtensionResultOutput) Settings() pulumi.AnyOutput {
+	return o.ApplyT(func(v LookupVirtualMachineExtensionResult) interface{} { return v.Settings }).(pulumi.AnyOutput)
+}
+
+// Resource tags
+func (o LookupVirtualMachineExtensionResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupVirtualMachineExtensionResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type
+func (o LookupVirtualMachineExtensionResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVirtualMachineExtensionResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Specifies the version of the script handler.
+func (o LookupVirtualMachineExtensionResultOutput) TypeHandlerVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVirtualMachineExtensionResult) *string { return v.TypeHandlerVersion }).(pulumi.StringPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupVirtualMachineExtensionResultOutput{})
 }

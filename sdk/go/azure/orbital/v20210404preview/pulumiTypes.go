@@ -36,6 +36,96 @@ type AvailableContactsResponse struct {
 	TxStartTime string `pulumi:"txStartTime"`
 }
 
+// Customer retrieves list of Available Contacts for a spacecraft resource. Later, one of the available contact can be selected to create a contact.
+type AvailableContactsResponseOutput struct{ *pulumi.OutputState }
+
+func (AvailableContactsResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AvailableContactsResponse)(nil)).Elem()
+}
+
+func (o AvailableContactsResponseOutput) ToAvailableContactsResponseOutput() AvailableContactsResponseOutput {
+	return o
+}
+
+func (o AvailableContactsResponseOutput) ToAvailableContactsResponseOutputWithContext(ctx context.Context) AvailableContactsResponseOutput {
+	return o
+}
+
+// Azimuth of the antenna at the end of the contact in decimal degrees.
+func (o AvailableContactsResponseOutput) EndAzimuthDegrees() pulumi.Float64Output {
+	return o.ApplyT(func(v AvailableContactsResponse) float64 { return v.EndAzimuthDegrees }).(pulumi.Float64Output)
+}
+
+// Spacecraft elevation above the horizon at contact end.
+func (o AvailableContactsResponseOutput) EndElevationDegrees() pulumi.Float64Output {
+	return o.ApplyT(func(v AvailableContactsResponse) float64 { return v.EndElevationDegrees }).(pulumi.Float64Output)
+}
+
+// Name of Azure Ground Station.
+func (o AvailableContactsResponseOutput) GroundStationName() pulumi.StringOutput {
+	return o.ApplyT(func(v AvailableContactsResponse) string { return v.GroundStationName }).(pulumi.StringOutput)
+}
+
+// Maximum elevation of the antenna during the contact in decimal degrees.
+func (o AvailableContactsResponseOutput) MaximumElevationDegrees() pulumi.Float64Output {
+	return o.ApplyT(func(v AvailableContactsResponse) float64 { return v.MaximumElevationDegrees }).(pulumi.Float64Output)
+}
+
+// Time to lost receiving a signal.
+func (o AvailableContactsResponseOutput) RxEndTime() pulumi.StringOutput {
+	return o.ApplyT(func(v AvailableContactsResponse) string { return v.RxEndTime }).(pulumi.StringOutput)
+}
+
+// Earliest time to receive a signal.
+func (o AvailableContactsResponseOutput) RxStartTime() pulumi.StringOutput {
+	return o.ApplyT(func(v AvailableContactsResponse) string { return v.RxStartTime }).(pulumi.StringOutput)
+}
+
+// The reference to the spacecraft resource.
+func (o AvailableContactsResponseOutput) Spacecraft() ResourceReferenceResponsePtrOutput {
+	return o.ApplyT(func(v AvailableContactsResponse) *ResourceReferenceResponse { return v.Spacecraft }).(ResourceReferenceResponsePtrOutput)
+}
+
+// Azimuth of the antenna at the start of the contact in decimal degrees.
+func (o AvailableContactsResponseOutput) StartAzimuthDegrees() pulumi.Float64Output {
+	return o.ApplyT(func(v AvailableContactsResponse) float64 { return v.StartAzimuthDegrees }).(pulumi.Float64Output)
+}
+
+// Spacecraft elevation above the horizon at contact start.
+func (o AvailableContactsResponseOutput) StartElevationDegrees() pulumi.Float64Output {
+	return o.ApplyT(func(v AvailableContactsResponse) float64 { return v.StartElevationDegrees }).(pulumi.Float64Output)
+}
+
+// Time at which antenna transmit will be disabled.
+func (o AvailableContactsResponseOutput) TxEndTime() pulumi.StringOutput {
+	return o.ApplyT(func(v AvailableContactsResponse) string { return v.TxEndTime }).(pulumi.StringOutput)
+}
+
+// Time at which antenna transmit will be enabled.
+func (o AvailableContactsResponseOutput) TxStartTime() pulumi.StringOutput {
+	return o.ApplyT(func(v AvailableContactsResponse) string { return v.TxStartTime }).(pulumi.StringOutput)
+}
+
+type AvailableContactsResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (AvailableContactsResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AvailableContactsResponse)(nil)).Elem()
+}
+
+func (o AvailableContactsResponseArrayOutput) ToAvailableContactsResponseArrayOutput() AvailableContactsResponseArrayOutput {
+	return o
+}
+
+func (o AvailableContactsResponseArrayOutput) ToAvailableContactsResponseArrayOutputWithContext(ctx context.Context) AvailableContactsResponseArrayOutput {
+	return o
+}
+
+func (o AvailableContactsResponseArrayOutput) Index(i pulumi.IntInput) AvailableContactsResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AvailableContactsResponse {
+		return vs[0].([]AvailableContactsResponse)[vs[1].(int)]
+	}).(AvailableContactsResponseOutput)
+}
+
 // Contact Profile link
 type ContactProfileLink struct {
 	// Contact Profile Link Channel
@@ -698,6 +788,40 @@ func (o ResourceReferenceResponseOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResourceReferenceResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+type ResourceReferenceResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ResourceReferenceResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceReferenceResponse)(nil)).Elem()
+}
+
+func (o ResourceReferenceResponsePtrOutput) ToResourceReferenceResponsePtrOutput() ResourceReferenceResponsePtrOutput {
+	return o
+}
+
+func (o ResourceReferenceResponsePtrOutput) ToResourceReferenceResponsePtrOutputWithContext(ctx context.Context) ResourceReferenceResponsePtrOutput {
+	return o
+}
+
+func (o ResourceReferenceResponsePtrOutput) Elem() ResourceReferenceResponseOutput {
+	return o.ApplyT(func(v *ResourceReferenceResponse) ResourceReferenceResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ResourceReferenceResponse
+		return ret
+	}).(ResourceReferenceResponseOutput)
+}
+
+// Resource ID.
+func (o ResourceReferenceResponsePtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceReferenceResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
 // Spacecraft Link
 type SpacecraftLink struct {
 	// Bandwidth in MHz
@@ -954,6 +1078,8 @@ func (o SystemDataResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
 }
 
 func init() {
+	pulumi.RegisterOutputType(AvailableContactsResponseOutput{})
+	pulumi.RegisterOutputType(AvailableContactsResponseArrayOutput{})
 	pulumi.RegisterOutputType(ContactProfileLinkOutput{})
 	pulumi.RegisterOutputType(ContactProfileLinkArrayOutput{})
 	pulumi.RegisterOutputType(ContactProfileLinkChannelOutput{})
@@ -966,6 +1092,7 @@ func init() {
 	pulumi.RegisterOutputType(EndPointResponseOutput{})
 	pulumi.RegisterOutputType(ResourceReferenceOutput{})
 	pulumi.RegisterOutputType(ResourceReferenceResponseOutput{})
+	pulumi.RegisterOutputType(ResourceReferenceResponsePtrOutput{})
 	pulumi.RegisterOutputType(SpacecraftLinkOutput{})
 	pulumi.RegisterOutputType(SpacecraftLinkArrayOutput{})
 	pulumi.RegisterOutputType(SpacecraftLinkResponseOutput{})

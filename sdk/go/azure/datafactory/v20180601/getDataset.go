@@ -4,6 +4,9 @@
 package v20180601
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -38,4 +41,70 @@ type LookupDatasetResult struct {
 	Properties interface{} `pulumi:"properties"`
 	// The resource type.
 	Type string `pulumi:"type"`
+}
+
+func LookupDatasetOutput(ctx *pulumi.Context, args LookupDatasetOutputArgs, opts ...pulumi.InvokeOption) LookupDatasetResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupDatasetResult, error) {
+			args := v.(LookupDatasetArgs)
+			r, err := LookupDataset(ctx, &args, opts...)
+			return *r, err
+		}).(LookupDatasetResultOutput)
+}
+
+type LookupDatasetOutputArgs struct {
+	// The dataset name.
+	DatasetName pulumi.StringInput `pulumi:"datasetName"`
+	// The factory name.
+	FactoryName pulumi.StringInput `pulumi:"factoryName"`
+	// The resource group name.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupDatasetOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupDatasetArgs)(nil)).Elem()
+}
+
+// Dataset resource type.
+type LookupDatasetResultOutput struct{ *pulumi.OutputState }
+
+func (LookupDatasetResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupDatasetResult)(nil)).Elem()
+}
+
+func (o LookupDatasetResultOutput) ToLookupDatasetResultOutput() LookupDatasetResultOutput {
+	return o
+}
+
+func (o LookupDatasetResultOutput) ToLookupDatasetResultOutputWithContext(ctx context.Context) LookupDatasetResultOutput {
+	return o
+}
+
+// Etag identifies change in the resource.
+func (o LookupDatasetResultOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDatasetResult) string { return v.Etag }).(pulumi.StringOutput)
+}
+
+// The resource identifier.
+func (o LookupDatasetResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDatasetResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The resource name.
+func (o LookupDatasetResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDatasetResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Dataset properties.
+func (o LookupDatasetResultOutput) Properties() pulumi.AnyOutput {
+	return o.ApplyT(func(v LookupDatasetResult) interface{} { return v.Properties }).(pulumi.AnyOutput)
+}
+
+// The resource type.
+func (o LookupDatasetResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDatasetResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupDatasetResultOutput{})
 }

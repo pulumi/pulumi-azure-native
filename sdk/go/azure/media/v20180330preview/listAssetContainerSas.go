@@ -4,6 +4,9 @@
 package v20180330preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -34,4 +37,54 @@ type ListAssetContainerSasArgs struct {
 type ListAssetContainerSasResult struct {
 	// The list of Asset container SAS URLs.
 	AssetContainerSasUrls []string `pulumi:"assetContainerSasUrls"`
+}
+
+func ListAssetContainerSasOutput(ctx *pulumi.Context, args ListAssetContainerSasOutputArgs, opts ...pulumi.InvokeOption) ListAssetContainerSasResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (ListAssetContainerSasResult, error) {
+			args := v.(ListAssetContainerSasArgs)
+			r, err := ListAssetContainerSas(ctx, &args, opts...)
+			return *r, err
+		}).(ListAssetContainerSasResultOutput)
+}
+
+type ListAssetContainerSasOutputArgs struct {
+	// The Media Services account name.
+	AccountName pulumi.StringInput `pulumi:"accountName"`
+	// The Asset name.
+	AssetName pulumi.StringInput `pulumi:"assetName"`
+	// The SAS URL expiration time.  This must be less than 24 hours from the current time.
+	ExpiryTime pulumi.StringPtrInput `pulumi:"expiryTime"`
+	// The permissions to set on the SAS URL.
+	Permissions pulumi.StringPtrInput `pulumi:"permissions"`
+	// The name of the resource group within the Azure subscription.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (ListAssetContainerSasOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListAssetContainerSasArgs)(nil)).Elem()
+}
+
+// The Asset Storage container SAS URLs.
+type ListAssetContainerSasResultOutput struct{ *pulumi.OutputState }
+
+func (ListAssetContainerSasResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListAssetContainerSasResult)(nil)).Elem()
+}
+
+func (o ListAssetContainerSasResultOutput) ToListAssetContainerSasResultOutput() ListAssetContainerSasResultOutput {
+	return o
+}
+
+func (o ListAssetContainerSasResultOutput) ToListAssetContainerSasResultOutputWithContext(ctx context.Context) ListAssetContainerSasResultOutput {
+	return o
+}
+
+// The list of Asset container SAS URLs.
+func (o ListAssetContainerSasResultOutput) AssetContainerSasUrls() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ListAssetContainerSasResult) []string { return v.AssetContainerSasUrls }).(pulumi.StringArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(ListAssetContainerSasResultOutput{})
 }

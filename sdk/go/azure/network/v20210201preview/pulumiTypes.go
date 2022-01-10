@@ -38,6 +38,105 @@ type ActiveConnectivityConfigurationResponse struct {
 	Region *string `pulumi:"region"`
 }
 
+// Active connectivity configuration.
+type ActiveConnectivityConfigurationResponseOutput struct{ *pulumi.OutputState }
+
+func (ActiveConnectivityConfigurationResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActiveConnectivityConfigurationResponse)(nil)).Elem()
+}
+
+func (o ActiveConnectivityConfigurationResponseOutput) ToActiveConnectivityConfigurationResponseOutput() ActiveConnectivityConfigurationResponseOutput {
+	return o
+}
+
+func (o ActiveConnectivityConfigurationResponseOutput) ToActiveConnectivityConfigurationResponseOutputWithContext(ctx context.Context) ActiveConnectivityConfigurationResponseOutput {
+	return o
+}
+
+// Groups for configuration
+func (o ActiveConnectivityConfigurationResponseOutput) AppliesToGroups() ConnectivityGroupItemResponseArrayOutput {
+	return o.ApplyT(func(v ActiveConnectivityConfigurationResponse) []ConnectivityGroupItemResponse {
+		return v.AppliesToGroups
+	}).(ConnectivityGroupItemResponseArrayOutput)
+}
+
+// Deployment time string.
+func (o ActiveConnectivityConfigurationResponseOutput) CommitTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActiveConnectivityConfigurationResponse) *string { return v.CommitTime }).(pulumi.StringPtrOutput)
+}
+
+// Effective configuration groups.
+func (o ActiveConnectivityConfigurationResponseOutput) ConfigurationGroups() ConfigurationGroupResponseArrayOutput {
+	return o.ApplyT(func(v ActiveConnectivityConfigurationResponse) []ConfigurationGroupResponse {
+		return v.ConfigurationGroups
+	}).(ConfigurationGroupResponseArrayOutput)
+}
+
+// Connectivity topology type.
+func (o ActiveConnectivityConfigurationResponseOutput) ConnectivityTopology() pulumi.StringOutput {
+	return o.ApplyT(func(v ActiveConnectivityConfigurationResponse) string { return v.ConnectivityTopology }).(pulumi.StringOutput)
+}
+
+// Flag if need to remove current existing peerings.
+func (o ActiveConnectivityConfigurationResponseOutput) DeleteExistingPeering() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActiveConnectivityConfigurationResponse) *string { return v.DeleteExistingPeering }).(pulumi.StringPtrOutput)
+}
+
+// A description of the connectivity configuration.
+func (o ActiveConnectivityConfigurationResponseOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActiveConnectivityConfigurationResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// A friendly name for the resource.
+func (o ActiveConnectivityConfigurationResponseOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActiveConnectivityConfigurationResponse) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+// List of hubItems
+func (o ActiveConnectivityConfigurationResponseOutput) Hubs() HubResponseArrayOutput {
+	return o.ApplyT(func(v ActiveConnectivityConfigurationResponse) []HubResponse { return v.Hubs }).(HubResponseArrayOutput)
+}
+
+// Resource ID.
+func (o ActiveConnectivityConfigurationResponseOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActiveConnectivityConfigurationResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// Flag if global mesh is supported.
+func (o ActiveConnectivityConfigurationResponseOutput) IsGlobal() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActiveConnectivityConfigurationResponse) *string { return v.IsGlobal }).(pulumi.StringPtrOutput)
+}
+
+// The provisioning state of the connectivity configuration resource.
+func (o ActiveConnectivityConfigurationResponseOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v ActiveConnectivityConfigurationResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Deployment region.
+func (o ActiveConnectivityConfigurationResponseOutput) Region() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActiveConnectivityConfigurationResponse) *string { return v.Region }).(pulumi.StringPtrOutput)
+}
+
+type ActiveConnectivityConfigurationResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ActiveConnectivityConfigurationResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ActiveConnectivityConfigurationResponse)(nil)).Elem()
+}
+
+func (o ActiveConnectivityConfigurationResponseArrayOutput) ToActiveConnectivityConfigurationResponseArrayOutput() ActiveConnectivityConfigurationResponseArrayOutput {
+	return o
+}
+
+func (o ActiveConnectivityConfigurationResponseArrayOutput) ToActiveConnectivityConfigurationResponseArrayOutputWithContext(ctx context.Context) ActiveConnectivityConfigurationResponseArrayOutput {
+	return o
+}
+
+func (o ActiveConnectivityConfigurationResponseArrayOutput) Index(i pulumi.IntInput) ActiveConnectivityConfigurationResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ActiveConnectivityConfigurationResponse {
+		return vs[0].([]ActiveConnectivityConfigurationResponse)[vs[1].(int)]
+	}).(ActiveConnectivityConfigurationResponseOutput)
+}
+
 // Network default admin rule.
 type ActiveDefaultSecurityAdminRuleResponse struct {
 	// Indicates the access allowed for this particular rule
@@ -301,6 +400,76 @@ type ConfigurationGroupResponse struct {
 	ProvisioningState string `pulumi:"provisioningState"`
 }
 
+// The network configuration group resource
+type ConfigurationGroupResponseOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationGroupResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationGroupResponse)(nil)).Elem()
+}
+
+func (o ConfigurationGroupResponseOutput) ToConfigurationGroupResponseOutput() ConfigurationGroupResponseOutput {
+	return o
+}
+
+func (o ConfigurationGroupResponseOutput) ToConfigurationGroupResponseOutputWithContext(ctx context.Context) ConfigurationGroupResponseOutput {
+	return o
+}
+
+// Network group conditional filter.
+func (o ConfigurationGroupResponseOutput) ConditionalMembership() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConfigurationGroupResponse) *string { return v.ConditionalMembership }).(pulumi.StringPtrOutput)
+}
+
+// A description of the network group.
+func (o ConfigurationGroupResponseOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConfigurationGroupResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// A friendly name for the network group.
+func (o ConfigurationGroupResponseOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConfigurationGroupResponse) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+// Group members of network group.
+func (o ConfigurationGroupResponseOutput) GroupMembers() GroupMembersItemResponseArrayOutput {
+	return o.ApplyT(func(v ConfigurationGroupResponse) []GroupMembersItemResponse { return v.GroupMembers }).(GroupMembersItemResponseArrayOutput)
+}
+
+// Resource ID.
+func (o ConfigurationGroupResponseOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConfigurationGroupResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// Group member type.
+func (o ConfigurationGroupResponseOutput) MemberType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConfigurationGroupResponse) *string { return v.MemberType }).(pulumi.StringPtrOutput)
+}
+
+// The provisioning state of the scope assignment resource.
+func (o ConfigurationGroupResponseOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v ConfigurationGroupResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+type ConfigurationGroupResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationGroupResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ConfigurationGroupResponse)(nil)).Elem()
+}
+
+func (o ConfigurationGroupResponseArrayOutput) ToConfigurationGroupResponseArrayOutput() ConfigurationGroupResponseArrayOutput {
+	return o
+}
+
+func (o ConfigurationGroupResponseArrayOutput) ToConfigurationGroupResponseArrayOutputWithContext(ctx context.Context) ConfigurationGroupResponseArrayOutput {
+	return o
+}
+
+func (o ConfigurationGroupResponseArrayOutput) Index(i pulumi.IntInput) ConfigurationGroupResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ConfigurationGroupResponse {
+		return vs[0].([]ConfigurationGroupResponse)[vs[1].(int)]
+	}).(ConfigurationGroupResponseOutput)
+}
+
 type ConnectivityGroupItem struct {
 	// Group connectivity type.
 	GroupConnectivity *string `pulumi:"groupConnectivity"`
@@ -514,6 +683,95 @@ type EffectiveConnectivityConfigurationResponse struct {
 	ProvisioningState string `pulumi:"provisioningState"`
 }
 
+// The network manager effective connectivity configuration
+type EffectiveConnectivityConfigurationResponseOutput struct{ *pulumi.OutputState }
+
+func (EffectiveConnectivityConfigurationResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EffectiveConnectivityConfigurationResponse)(nil)).Elem()
+}
+
+func (o EffectiveConnectivityConfigurationResponseOutput) ToEffectiveConnectivityConfigurationResponseOutput() EffectiveConnectivityConfigurationResponseOutput {
+	return o
+}
+
+func (o EffectiveConnectivityConfigurationResponseOutput) ToEffectiveConnectivityConfigurationResponseOutputWithContext(ctx context.Context) EffectiveConnectivityConfigurationResponseOutput {
+	return o
+}
+
+// Groups for configuration
+func (o EffectiveConnectivityConfigurationResponseOutput) AppliesToGroups() ConnectivityGroupItemResponseArrayOutput {
+	return o.ApplyT(func(v EffectiveConnectivityConfigurationResponse) []ConnectivityGroupItemResponse {
+		return v.AppliesToGroups
+	}).(ConnectivityGroupItemResponseArrayOutput)
+}
+
+// Effective configuration groups.
+func (o EffectiveConnectivityConfigurationResponseOutput) ConfigurationGroups() ConfigurationGroupResponseArrayOutput {
+	return o.ApplyT(func(v EffectiveConnectivityConfigurationResponse) []ConfigurationGroupResponse {
+		return v.ConfigurationGroups
+	}).(ConfigurationGroupResponseArrayOutput)
+}
+
+// Connectivity topology type.
+func (o EffectiveConnectivityConfigurationResponseOutput) ConnectivityTopology() pulumi.StringOutput {
+	return o.ApplyT(func(v EffectiveConnectivityConfigurationResponse) string { return v.ConnectivityTopology }).(pulumi.StringOutput)
+}
+
+// Flag if need to remove current existing peerings.
+func (o EffectiveConnectivityConfigurationResponseOutput) DeleteExistingPeering() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EffectiveConnectivityConfigurationResponse) *string { return v.DeleteExistingPeering }).(pulumi.StringPtrOutput)
+}
+
+// A description of the connectivity configuration.
+func (o EffectiveConnectivityConfigurationResponseOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EffectiveConnectivityConfigurationResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// A friendly name for the resource.
+func (o EffectiveConnectivityConfigurationResponseOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EffectiveConnectivityConfigurationResponse) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+// List of hubItems
+func (o EffectiveConnectivityConfigurationResponseOutput) Hubs() HubResponseArrayOutput {
+	return o.ApplyT(func(v EffectiveConnectivityConfigurationResponse) []HubResponse { return v.Hubs }).(HubResponseArrayOutput)
+}
+
+// Resource ID.
+func (o EffectiveConnectivityConfigurationResponseOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EffectiveConnectivityConfigurationResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// Flag if global mesh is supported.
+func (o EffectiveConnectivityConfigurationResponseOutput) IsGlobal() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EffectiveConnectivityConfigurationResponse) *string { return v.IsGlobal }).(pulumi.StringPtrOutput)
+}
+
+// The provisioning state of the connectivity configuration resource.
+func (o EffectiveConnectivityConfigurationResponseOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v EffectiveConnectivityConfigurationResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+type EffectiveConnectivityConfigurationResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (EffectiveConnectivityConfigurationResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EffectiveConnectivityConfigurationResponse)(nil)).Elem()
+}
+
+func (o EffectiveConnectivityConfigurationResponseArrayOutput) ToEffectiveConnectivityConfigurationResponseArrayOutput() EffectiveConnectivityConfigurationResponseArrayOutput {
+	return o
+}
+
+func (o EffectiveConnectivityConfigurationResponseArrayOutput) ToEffectiveConnectivityConfigurationResponseArrayOutputWithContext(ctx context.Context) EffectiveConnectivityConfigurationResponseArrayOutput {
+	return o
+}
+
+func (o EffectiveConnectivityConfigurationResponseArrayOutput) Index(i pulumi.IntInput) EffectiveConnectivityConfigurationResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EffectiveConnectivityConfigurationResponse {
+		return vs[0].([]EffectiveConnectivityConfigurationResponse)[vs[1].(int)]
+	}).(EffectiveConnectivityConfigurationResponseOutput)
+}
+
 // Network default admin rule.
 type EffectiveDefaultSecurityAdminRuleResponse struct {
 	// Indicates the access allowed for this particular rule
@@ -610,6 +868,56 @@ type EffectiveVirtualNetworkResponse struct {
 	Location *string `pulumi:"location"`
 	// Membership Type.
 	MembershipType *string `pulumi:"membershipType"`
+}
+
+// Effective Virtual Network
+type EffectiveVirtualNetworkResponseOutput struct{ *pulumi.OutputState }
+
+func (EffectiveVirtualNetworkResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EffectiveVirtualNetworkResponse)(nil)).Elem()
+}
+
+func (o EffectiveVirtualNetworkResponseOutput) ToEffectiveVirtualNetworkResponseOutput() EffectiveVirtualNetworkResponseOutput {
+	return o
+}
+
+func (o EffectiveVirtualNetworkResponseOutput) ToEffectiveVirtualNetworkResponseOutputWithContext(ctx context.Context) EffectiveVirtualNetworkResponseOutput {
+	return o
+}
+
+// Effective vnet Id.
+func (o EffectiveVirtualNetworkResponseOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EffectiveVirtualNetworkResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// Location of vnet.
+func (o EffectiveVirtualNetworkResponseOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EffectiveVirtualNetworkResponse) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Membership Type.
+func (o EffectiveVirtualNetworkResponseOutput) MembershipType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EffectiveVirtualNetworkResponse) *string { return v.MembershipType }).(pulumi.StringPtrOutput)
+}
+
+type EffectiveVirtualNetworkResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (EffectiveVirtualNetworkResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EffectiveVirtualNetworkResponse)(nil)).Elem()
+}
+
+func (o EffectiveVirtualNetworkResponseArrayOutput) ToEffectiveVirtualNetworkResponseArrayOutput() EffectiveVirtualNetworkResponseArrayOutput {
+	return o
+}
+
+func (o EffectiveVirtualNetworkResponseArrayOutput) ToEffectiveVirtualNetworkResponseArrayOutputWithContext(ctx context.Context) EffectiveVirtualNetworkResponseArrayOutput {
+	return o
+}
+
+func (o EffectiveVirtualNetworkResponseArrayOutput) Index(i pulumi.IntInput) EffectiveVirtualNetworkResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EffectiveVirtualNetworkResponse {
+		return vs[0].([]EffectiveVirtualNetworkResponse)[vs[1].(int)]
+	}).(EffectiveVirtualNetworkResponseOutput)
 }
 
 // GroupMembers Item.
@@ -934,6 +1242,71 @@ type NetworkManagerDeploymentStatusResponse struct {
 	ErrorMessage *string `pulumi:"errorMessage"`
 	// Region Name.
 	Region *string `pulumi:"region"`
+}
+
+// Network Manager Deployment Status.
+type NetworkManagerDeploymentStatusResponseOutput struct{ *pulumi.OutputState }
+
+func (NetworkManagerDeploymentStatusResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkManagerDeploymentStatusResponse)(nil)).Elem()
+}
+
+func (o NetworkManagerDeploymentStatusResponseOutput) ToNetworkManagerDeploymentStatusResponseOutput() NetworkManagerDeploymentStatusResponseOutput {
+	return o
+}
+
+func (o NetworkManagerDeploymentStatusResponseOutput) ToNetworkManagerDeploymentStatusResponseOutputWithContext(ctx context.Context) NetworkManagerDeploymentStatusResponseOutput {
+	return o
+}
+
+// Commit Time.
+func (o NetworkManagerDeploymentStatusResponseOutput) CommitTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkManagerDeploymentStatusResponse) *string { return v.CommitTime }).(pulumi.StringPtrOutput)
+}
+
+// List of configuration ids.
+func (o NetworkManagerDeploymentStatusResponseOutput) ConfigurationIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v NetworkManagerDeploymentStatusResponse) []string { return v.ConfigurationIds }).(pulumi.StringArrayOutput)
+}
+
+// Deployment Status.
+func (o NetworkManagerDeploymentStatusResponseOutput) DeploymentStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkManagerDeploymentStatusResponse) *string { return v.DeploymentStatus }).(pulumi.StringPtrOutput)
+}
+
+// Configuration Deployment Type.
+func (o NetworkManagerDeploymentStatusResponseOutput) DeploymentType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkManagerDeploymentStatusResponse) *string { return v.DeploymentType }).(pulumi.StringPtrOutput)
+}
+
+// Error Message.
+func (o NetworkManagerDeploymentStatusResponseOutput) ErrorMessage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkManagerDeploymentStatusResponse) *string { return v.ErrorMessage }).(pulumi.StringPtrOutput)
+}
+
+// Region Name.
+func (o NetworkManagerDeploymentStatusResponseOutput) Region() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkManagerDeploymentStatusResponse) *string { return v.Region }).(pulumi.StringPtrOutput)
+}
+
+type NetworkManagerDeploymentStatusResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (NetworkManagerDeploymentStatusResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NetworkManagerDeploymentStatusResponse)(nil)).Elem()
+}
+
+func (o NetworkManagerDeploymentStatusResponseArrayOutput) ToNetworkManagerDeploymentStatusResponseArrayOutput() NetworkManagerDeploymentStatusResponseArrayOutput {
+	return o
+}
+
+func (o NetworkManagerDeploymentStatusResponseArrayOutput) ToNetworkManagerDeploymentStatusResponseArrayOutputWithContext(ctx context.Context) NetworkManagerDeploymentStatusResponseArrayOutput {
+	return o
+}
+
+func (o NetworkManagerDeploymentStatusResponseArrayOutput) Index(i pulumi.IntInput) NetworkManagerDeploymentStatusResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NetworkManagerDeploymentStatusResponse {
+		return vs[0].([]NetworkManagerDeploymentStatusResponse)[vs[1].(int)]
+	}).(NetworkManagerDeploymentStatusResponseOutput)
 }
 
 // Scope of Network Manager.
@@ -1380,12 +1753,20 @@ func (o SystemDataResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
 }
 
 func init() {
+	pulumi.RegisterOutputType(ActiveConnectivityConfigurationResponseOutput{})
+	pulumi.RegisterOutputType(ActiveConnectivityConfigurationResponseArrayOutput{})
 	pulumi.RegisterOutputType(AddressPrefixItemResponseOutput{})
 	pulumi.RegisterOutputType(AddressPrefixItemResponseArrayOutput{})
+	pulumi.RegisterOutputType(ConfigurationGroupResponseOutput{})
+	pulumi.RegisterOutputType(ConfigurationGroupResponseArrayOutput{})
 	pulumi.RegisterOutputType(ConnectivityGroupItemOutput{})
 	pulumi.RegisterOutputType(ConnectivityGroupItemArrayOutput{})
 	pulumi.RegisterOutputType(ConnectivityGroupItemResponseOutput{})
 	pulumi.RegisterOutputType(ConnectivityGroupItemResponseArrayOutput{})
+	pulumi.RegisterOutputType(EffectiveConnectivityConfigurationResponseOutput{})
+	pulumi.RegisterOutputType(EffectiveConnectivityConfigurationResponseArrayOutput{})
+	pulumi.RegisterOutputType(EffectiveVirtualNetworkResponseOutput{})
+	pulumi.RegisterOutputType(EffectiveVirtualNetworkResponseArrayOutput{})
 	pulumi.RegisterOutputType(GroupMembersItemOutput{})
 	pulumi.RegisterOutputType(GroupMembersItemArrayOutput{})
 	pulumi.RegisterOutputType(GroupMembersItemResponseOutput{})
@@ -1394,6 +1775,8 @@ func init() {
 	pulumi.RegisterOutputType(HubArrayOutput{})
 	pulumi.RegisterOutputType(HubResponseOutput{})
 	pulumi.RegisterOutputType(HubResponseArrayOutput{})
+	pulumi.RegisterOutputType(NetworkManagerDeploymentStatusResponseOutput{})
+	pulumi.RegisterOutputType(NetworkManagerDeploymentStatusResponseArrayOutput{})
 	pulumi.RegisterOutputType(NetworkManagerPropertiesNetworkManagerScopesOutput{})
 	pulumi.RegisterOutputType(NetworkManagerPropertiesNetworkManagerScopesPtrOutput{})
 	pulumi.RegisterOutputType(NetworkManagerPropertiesResponseNetworkManagerScopesOutput{})

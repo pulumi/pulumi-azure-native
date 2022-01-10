@@ -4,6 +4,9 @@
 package v20210404preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -54,4 +57,113 @@ type LookupSpacecraftResult struct {
 	TleLine2 *string `pulumi:"tleLine2"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
+}
+
+func LookupSpacecraftOutput(ctx *pulumi.Context, args LookupSpacecraftOutputArgs, opts ...pulumi.InvokeOption) LookupSpacecraftResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupSpacecraftResult, error) {
+			args := v.(LookupSpacecraftArgs)
+			r, err := LookupSpacecraft(ctx, &args, opts...)
+			return *r, err
+		}).(LookupSpacecraftResultOutput)
+}
+
+type LookupSpacecraftOutputArgs struct {
+	// The name of the resource group. The name is case insensitive.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// Spacecraft ID
+	SpacecraftName pulumi.StringInput `pulumi:"spacecraftName"`
+}
+
+func (LookupSpacecraftOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupSpacecraftArgs)(nil)).Elem()
+}
+
+// Customer creates a spacecraft resource to schedule a contact.
+type LookupSpacecraftResultOutput struct{ *pulumi.OutputState }
+
+func (LookupSpacecraftResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupSpacecraftResult)(nil)).Elem()
+}
+
+func (o LookupSpacecraftResultOutput) ToLookupSpacecraftResultOutput() LookupSpacecraftResultOutput {
+	return o
+}
+
+func (o LookupSpacecraftResultOutput) ToLookupSpacecraftResultOutputWithContext(ctx context.Context) LookupSpacecraftResultOutput {
+	return o
+}
+
+// Authorization status of spacecraft.
+func (o LookupSpacecraftResultOutput) AuthorizationStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSpacecraftResult) string { return v.AuthorizationStatus }).(pulumi.StringOutput)
+}
+
+// Details of the authorization status.
+func (o LookupSpacecraftResultOutput) AuthorizationStatusExtended() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSpacecraftResult) string { return v.AuthorizationStatusExtended }).(pulumi.StringOutput)
+}
+
+// A unique read-only string that changes whenever the resource is updated.
+func (o LookupSpacecraftResultOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSpacecraftResult) string { return v.Etag }).(pulumi.StringOutput)
+}
+
+// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+func (o LookupSpacecraftResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSpacecraftResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Links of the Spacecraft
+func (o LookupSpacecraftResultOutput) Links() SpacecraftLinkResponseArrayOutput {
+	return o.ApplyT(func(v LookupSpacecraftResult) []SpacecraftLinkResponse { return v.Links }).(SpacecraftLinkResponseArrayOutput)
+}
+
+// The geo-location where the resource lives
+func (o LookupSpacecraftResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSpacecraftResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o LookupSpacecraftResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSpacecraftResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// NORAD ID of the spacecraft.
+func (o LookupSpacecraftResultOutput) NoradId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSpacecraftResult) string { return v.NoradId }).(pulumi.StringOutput)
+}
+
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+func (o LookupSpacecraftResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupSpacecraftResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource tags.
+func (o LookupSpacecraftResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupSpacecraftResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Title line of Two Line Element (TLE).
+func (o LookupSpacecraftResultOutput) TitleLine() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSpacecraftResult) *string { return v.TitleLine }).(pulumi.StringPtrOutput)
+}
+
+// Line 1 of Two Line Element (TLE).
+func (o LookupSpacecraftResultOutput) TleLine1() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSpacecraftResult) *string { return v.TleLine1 }).(pulumi.StringPtrOutput)
+}
+
+// Line 2 of Two Line Element (TLE).
+func (o LookupSpacecraftResultOutput) TleLine2() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSpacecraftResult) *string { return v.TleLine2 }).(pulumi.StringPtrOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o LookupSpacecraftResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSpacecraftResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupSpacecraftResultOutput{})
 }

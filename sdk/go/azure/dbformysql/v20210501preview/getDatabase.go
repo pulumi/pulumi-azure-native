@@ -4,6 +4,9 @@
 package v20210501preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -40,4 +43,75 @@ type LookupDatabaseResult struct {
 	SystemData SystemDataResponse `pulumi:"systemData"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
+}
+
+func LookupDatabaseOutput(ctx *pulumi.Context, args LookupDatabaseOutputArgs, opts ...pulumi.InvokeOption) LookupDatabaseResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupDatabaseResult, error) {
+			args := v.(LookupDatabaseArgs)
+			r, err := LookupDatabase(ctx, &args, opts...)
+			return *r, err
+		}).(LookupDatabaseResultOutput)
+}
+
+type LookupDatabaseOutputArgs struct {
+	// The name of the database.
+	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
+	// The name of the resource group. The name is case insensitive.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the server.
+	ServerName pulumi.StringInput `pulumi:"serverName"`
+}
+
+func (LookupDatabaseOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupDatabaseArgs)(nil)).Elem()
+}
+
+// Represents a Database.
+type LookupDatabaseResultOutput struct{ *pulumi.OutputState }
+
+func (LookupDatabaseResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupDatabaseResult)(nil)).Elem()
+}
+
+func (o LookupDatabaseResultOutput) ToLookupDatabaseResultOutput() LookupDatabaseResultOutput {
+	return o
+}
+
+func (o LookupDatabaseResultOutput) ToLookupDatabaseResultOutputWithContext(ctx context.Context) LookupDatabaseResultOutput {
+	return o
+}
+
+// The charset of the database.
+func (o LookupDatabaseResultOutput) Charset() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDatabaseResult) *string { return v.Charset }).(pulumi.StringPtrOutput)
+}
+
+// The collation of the database.
+func (o LookupDatabaseResultOutput) Collation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDatabaseResult) *string { return v.Collation }).(pulumi.StringPtrOutput)
+}
+
+// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+func (o LookupDatabaseResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDatabaseResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o LookupDatabaseResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDatabaseResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The system metadata relating to this resource.
+func (o LookupDatabaseResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupDatabaseResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o LookupDatabaseResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDatabaseResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupDatabaseResultOutput{})
 }

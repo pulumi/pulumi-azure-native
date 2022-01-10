@@ -4,6 +4,9 @@
 package v20170330
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -44,4 +47,85 @@ type LookupImageResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type
 	Type string `pulumi:"type"`
+}
+
+func LookupImageOutput(ctx *pulumi.Context, args LookupImageOutputArgs, opts ...pulumi.InvokeOption) LookupImageResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupImageResult, error) {
+			args := v.(LookupImageArgs)
+			r, err := LookupImage(ctx, &args, opts...)
+			return *r, err
+		}).(LookupImageResultOutput)
+}
+
+type LookupImageOutputArgs struct {
+	// The expand expression to apply on the operation.
+	Expand pulumi.StringPtrInput `pulumi:"expand"`
+	// The name of the image.
+	ImageName pulumi.StringInput `pulumi:"imageName"`
+	// The name of the resource group.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupImageOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupImageArgs)(nil)).Elem()
+}
+
+// The source user image virtual hard disk. The virtual hard disk will be copied before being attached to the virtual machine. If SourceImage is provided, the destination virtual hard drive must not exist.
+type LookupImageResultOutput struct{ *pulumi.OutputState }
+
+func (LookupImageResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupImageResult)(nil)).Elem()
+}
+
+func (o LookupImageResultOutput) ToLookupImageResultOutput() LookupImageResultOutput {
+	return o
+}
+
+func (o LookupImageResultOutput) ToLookupImageResultOutputWithContext(ctx context.Context) LookupImageResultOutput {
+	return o
+}
+
+// Resource Id
+func (o LookupImageResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupImageResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Resource location
+func (o LookupImageResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupImageResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource name
+func (o LookupImageResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupImageResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The provisioning state.
+func (o LookupImageResultOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupImageResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The source virtual machine from which Image is created.
+func (o LookupImageResultOutput) SourceVirtualMachine() SubResourceResponsePtrOutput {
+	return o.ApplyT(func(v LookupImageResult) *SubResourceResponse { return v.SourceVirtualMachine }).(SubResourceResponsePtrOutput)
+}
+
+// Specifies the storage settings for the virtual machine disks.
+func (o LookupImageResultOutput) StorageProfile() ImageStorageProfileResponsePtrOutput {
+	return o.ApplyT(func(v LookupImageResult) *ImageStorageProfileResponse { return v.StorageProfile }).(ImageStorageProfileResponsePtrOutput)
+}
+
+// Resource tags
+func (o LookupImageResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupImageResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type
+func (o LookupImageResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupImageResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupImageResultOutput{})
 }

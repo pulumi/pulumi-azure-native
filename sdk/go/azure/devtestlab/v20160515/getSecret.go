@@ -4,6 +4,9 @@
 package v20160515
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -48,4 +51,89 @@ type LookupSecretResult struct {
 	UniqueIdentifier *string `pulumi:"uniqueIdentifier"`
 	// The value of the secret for secret creation.
 	Value *string `pulumi:"value"`
+}
+
+func LookupSecretOutput(ctx *pulumi.Context, args LookupSecretOutputArgs, opts ...pulumi.InvokeOption) LookupSecretResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupSecretResult, error) {
+			args := v.(LookupSecretArgs)
+			r, err := LookupSecret(ctx, &args, opts...)
+			return *r, err
+		}).(LookupSecretResultOutput)
+}
+
+type LookupSecretOutputArgs struct {
+	// Specify the $expand query. Example: 'properties($select=value)'
+	Expand pulumi.StringPtrInput `pulumi:"expand"`
+	// The name of the lab.
+	LabName pulumi.StringInput `pulumi:"labName"`
+	// The name of the secret.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The name of the resource group.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the user profile.
+	UserName pulumi.StringInput `pulumi:"userName"`
+}
+
+func (LookupSecretOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupSecretArgs)(nil)).Elem()
+}
+
+// A secret.
+type LookupSecretResultOutput struct{ *pulumi.OutputState }
+
+func (LookupSecretResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupSecretResult)(nil)).Elem()
+}
+
+func (o LookupSecretResultOutput) ToLookupSecretResultOutput() LookupSecretResultOutput {
+	return o
+}
+
+func (o LookupSecretResultOutput) ToLookupSecretResultOutputWithContext(ctx context.Context) LookupSecretResultOutput {
+	return o
+}
+
+// The identifier of the resource.
+func (o LookupSecretResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSecretResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The location of the resource.
+func (o LookupSecretResultOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSecretResult) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource.
+func (o LookupSecretResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSecretResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The provisioning status of the resource.
+func (o LookupSecretResultOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSecretResult) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+}
+
+// The tags of the resource.
+func (o LookupSecretResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupSecretResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource.
+func (o LookupSecretResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSecretResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The unique immutable identifier of a resource (Guid).
+func (o LookupSecretResultOutput) UniqueIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSecretResult) *string { return v.UniqueIdentifier }).(pulumi.StringPtrOutput)
+}
+
+// The value of the secret for secret creation.
+func (o LookupSecretResultOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSecretResult) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupSecretResultOutput{})
 }

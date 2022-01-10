@@ -4,6 +4,9 @@
 package v20190701
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -38,4 +41,65 @@ type LookupTriggerResult struct {
 	Name string `pulumi:"name"`
 	// The hierarchical type of the object.
 	Type string `pulumi:"type"`
+}
+
+func LookupTriggerOutput(ctx *pulumi.Context, args LookupTriggerOutputArgs, opts ...pulumi.InvokeOption) LookupTriggerResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupTriggerResult, error) {
+			args := v.(LookupTriggerArgs)
+			r, err := LookupTrigger(ctx, &args, opts...)
+			return *r, err
+		}).(LookupTriggerResultOutput)
+}
+
+type LookupTriggerOutputArgs struct {
+	// The device name.
+	DeviceName pulumi.StringInput `pulumi:"deviceName"`
+	// The trigger name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The resource group name.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupTriggerOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupTriggerArgs)(nil)).Elem()
+}
+
+// Trigger details.
+type LookupTriggerResultOutput struct{ *pulumi.OutputState }
+
+func (LookupTriggerResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupTriggerResult)(nil)).Elem()
+}
+
+func (o LookupTriggerResultOutput) ToLookupTriggerResultOutput() LookupTriggerResultOutput {
+	return o
+}
+
+func (o LookupTriggerResultOutput) ToLookupTriggerResultOutputWithContext(ctx context.Context) LookupTriggerResultOutput {
+	return o
+}
+
+// The path ID that uniquely identifies the object.
+func (o LookupTriggerResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTriggerResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Trigger Kind.
+func (o LookupTriggerResultOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTriggerResult) string { return v.Kind }).(pulumi.StringOutput)
+}
+
+// The object name.
+func (o LookupTriggerResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTriggerResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The hierarchical type of the object.
+func (o LookupTriggerResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTriggerResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupTriggerResultOutput{})
 }

@@ -4,6 +4,9 @@
 package v20140901
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -40,4 +43,75 @@ type LookupNotificationHubResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Gets or sets resource type of the NotificationHub.
 	Type *string `pulumi:"type"`
+}
+
+func LookupNotificationHubOutput(ctx *pulumi.Context, args LookupNotificationHubOutputArgs, opts ...pulumi.InvokeOption) LookupNotificationHubResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupNotificationHubResult, error) {
+			args := v.(LookupNotificationHubArgs)
+			r, err := LookupNotificationHub(ctx, &args, opts...)
+			return *r, err
+		}).(LookupNotificationHubResultOutput)
+}
+
+type LookupNotificationHubOutputArgs struct {
+	// The namespace name.
+	NamespaceName pulumi.StringInput `pulumi:"namespaceName"`
+	// The notification hub name.
+	NotificationHubName pulumi.StringInput `pulumi:"notificationHubName"`
+	// The name of the resource group.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupNotificationHubOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupNotificationHubArgs)(nil)).Elem()
+}
+
+// Description of a NotificationHub Resource.
+type LookupNotificationHubResultOutput struct{ *pulumi.OutputState }
+
+func (LookupNotificationHubResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupNotificationHubResult)(nil)).Elem()
+}
+
+func (o LookupNotificationHubResultOutput) ToLookupNotificationHubResultOutput() LookupNotificationHubResultOutput {
+	return o
+}
+
+func (o LookupNotificationHubResultOutput) ToLookupNotificationHubResultOutputWithContext(ctx context.Context) LookupNotificationHubResultOutput {
+	return o
+}
+
+// Gets or sets the id of the created NotificationHub.
+func (o LookupNotificationHubResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupNotificationHubResult) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets datacenter location of the NotificationHub.
+func (o LookupNotificationHubResultOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupNotificationHubResult) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets name of the NotificationHub.
+func (o LookupNotificationHubResultOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupNotificationHubResult) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets properties of the NotificationHub.
+func (o LookupNotificationHubResultOutput) Properties() NotificationHubPropertiesResponseOutput {
+	return o.ApplyT(func(v LookupNotificationHubResult) NotificationHubPropertiesResponse { return v.Properties }).(NotificationHubPropertiesResponseOutput)
+}
+
+// Gets or sets tags of the NotificationHub.
+func (o LookupNotificationHubResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupNotificationHubResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Gets or sets resource type of the NotificationHub.
+func (o LookupNotificationHubResultOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupNotificationHubResult) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupNotificationHubResultOutput{})
 }

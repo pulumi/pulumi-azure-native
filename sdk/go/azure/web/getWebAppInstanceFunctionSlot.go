@@ -4,6 +4,9 @@
 package web
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -65,4 +68,132 @@ type LookupWebAppInstanceFunctionSlotResult struct {
 	TestDataHref *string `pulumi:"testDataHref"`
 	// Resource type.
 	Type string `pulumi:"type"`
+}
+
+func LookupWebAppInstanceFunctionSlotOutput(ctx *pulumi.Context, args LookupWebAppInstanceFunctionSlotOutputArgs, opts ...pulumi.InvokeOption) LookupWebAppInstanceFunctionSlotResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupWebAppInstanceFunctionSlotResult, error) {
+			args := v.(LookupWebAppInstanceFunctionSlotArgs)
+			r, err := LookupWebAppInstanceFunctionSlot(ctx, &args, opts...)
+			return *r, err
+		}).(LookupWebAppInstanceFunctionSlotResultOutput)
+}
+
+type LookupWebAppInstanceFunctionSlotOutputArgs struct {
+	// Function name.
+	FunctionName pulumi.StringInput `pulumi:"functionName"`
+	// Site name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Name of the resource group to which the resource belongs.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// Name of the deployment slot.
+	Slot pulumi.StringInput `pulumi:"slot"`
+}
+
+func (LookupWebAppInstanceFunctionSlotOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupWebAppInstanceFunctionSlotArgs)(nil)).Elem()
+}
+
+// Function information.
+type LookupWebAppInstanceFunctionSlotResultOutput struct{ *pulumi.OutputState }
+
+func (LookupWebAppInstanceFunctionSlotResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupWebAppInstanceFunctionSlotResult)(nil)).Elem()
+}
+
+func (o LookupWebAppInstanceFunctionSlotResultOutput) ToLookupWebAppInstanceFunctionSlotResultOutput() LookupWebAppInstanceFunctionSlotResultOutput {
+	return o
+}
+
+func (o LookupWebAppInstanceFunctionSlotResultOutput) ToLookupWebAppInstanceFunctionSlotResultOutputWithContext(ctx context.Context) LookupWebAppInstanceFunctionSlotResultOutput {
+	return o
+}
+
+// Config information.
+func (o LookupWebAppInstanceFunctionSlotResultOutput) Config() pulumi.AnyOutput {
+	return o.ApplyT(func(v LookupWebAppInstanceFunctionSlotResult) interface{} { return v.Config }).(pulumi.AnyOutput)
+}
+
+// Config URI.
+func (o LookupWebAppInstanceFunctionSlotResultOutput) ConfigHref() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupWebAppInstanceFunctionSlotResult) *string { return v.ConfigHref }).(pulumi.StringPtrOutput)
+}
+
+// File list.
+func (o LookupWebAppInstanceFunctionSlotResultOutput) Files() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupWebAppInstanceFunctionSlotResult) map[string]string { return v.Files }).(pulumi.StringMapOutput)
+}
+
+// Function App ID.
+func (o LookupWebAppInstanceFunctionSlotResultOutput) FunctionAppId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupWebAppInstanceFunctionSlotResult) *string { return v.FunctionAppId }).(pulumi.StringPtrOutput)
+}
+
+// Function URI.
+func (o LookupWebAppInstanceFunctionSlotResultOutput) Href() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupWebAppInstanceFunctionSlotResult) *string { return v.Href }).(pulumi.StringPtrOutput)
+}
+
+// Resource Id.
+func (o LookupWebAppInstanceFunctionSlotResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWebAppInstanceFunctionSlotResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The invocation URL
+func (o LookupWebAppInstanceFunctionSlotResultOutput) InvokeUrlTemplate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupWebAppInstanceFunctionSlotResult) *string { return v.InvokeUrlTemplate }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets a value indicating whether the function is disabled
+func (o LookupWebAppInstanceFunctionSlotResultOutput) IsDisabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupWebAppInstanceFunctionSlotResult) *bool { return v.IsDisabled }).(pulumi.BoolPtrOutput)
+}
+
+// Kind of resource.
+func (o LookupWebAppInstanceFunctionSlotResultOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupWebAppInstanceFunctionSlotResult) *string { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// The function language
+func (o LookupWebAppInstanceFunctionSlotResultOutput) Language() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupWebAppInstanceFunctionSlotResult) *string { return v.Language }).(pulumi.StringPtrOutput)
+}
+
+// Resource Name.
+func (o LookupWebAppInstanceFunctionSlotResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWebAppInstanceFunctionSlotResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Script URI.
+func (o LookupWebAppInstanceFunctionSlotResultOutput) ScriptHref() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupWebAppInstanceFunctionSlotResult) *string { return v.ScriptHref }).(pulumi.StringPtrOutput)
+}
+
+// Script root path URI.
+func (o LookupWebAppInstanceFunctionSlotResultOutput) ScriptRootPathHref() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupWebAppInstanceFunctionSlotResult) *string { return v.ScriptRootPathHref }).(pulumi.StringPtrOutput)
+}
+
+// Secrets file URI.
+func (o LookupWebAppInstanceFunctionSlotResultOutput) SecretsFileHref() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupWebAppInstanceFunctionSlotResult) *string { return v.SecretsFileHref }).(pulumi.StringPtrOutput)
+}
+
+// Test data used when testing via the Azure Portal.
+func (o LookupWebAppInstanceFunctionSlotResultOutput) TestData() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupWebAppInstanceFunctionSlotResult) *string { return v.TestData }).(pulumi.StringPtrOutput)
+}
+
+// Test data URI.
+func (o LookupWebAppInstanceFunctionSlotResultOutput) TestDataHref() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupWebAppInstanceFunctionSlotResult) *string { return v.TestDataHref }).(pulumi.StringPtrOutput)
+}
+
+// Resource type.
+func (o LookupWebAppInstanceFunctionSlotResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWebAppInstanceFunctionSlotResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupWebAppInstanceFunctionSlotResultOutput{})
 }

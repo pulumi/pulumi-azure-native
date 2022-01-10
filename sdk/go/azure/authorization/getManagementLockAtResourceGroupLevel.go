@@ -4,6 +4,9 @@
 package authorization
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -39,4 +42,73 @@ type LookupManagementLockAtResourceGroupLevelResult struct {
 	Owners []ManagementLockOwnerResponse `pulumi:"owners"`
 	// The resource type of the lock - Microsoft.Authorization/locks.
 	Type string `pulumi:"type"`
+}
+
+func LookupManagementLockAtResourceGroupLevelOutput(ctx *pulumi.Context, args LookupManagementLockAtResourceGroupLevelOutputArgs, opts ...pulumi.InvokeOption) LookupManagementLockAtResourceGroupLevelResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupManagementLockAtResourceGroupLevelResult, error) {
+			args := v.(LookupManagementLockAtResourceGroupLevelArgs)
+			r, err := LookupManagementLockAtResourceGroupLevel(ctx, &args, opts...)
+			return *r, err
+		}).(LookupManagementLockAtResourceGroupLevelResultOutput)
+}
+
+type LookupManagementLockAtResourceGroupLevelOutputArgs struct {
+	// The name of the lock to get.
+	LockName pulumi.StringInput `pulumi:"lockName"`
+	// The name of the locked resource group.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupManagementLockAtResourceGroupLevelOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupManagementLockAtResourceGroupLevelArgs)(nil)).Elem()
+}
+
+// The lock information.
+type LookupManagementLockAtResourceGroupLevelResultOutput struct{ *pulumi.OutputState }
+
+func (LookupManagementLockAtResourceGroupLevelResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupManagementLockAtResourceGroupLevelResult)(nil)).Elem()
+}
+
+func (o LookupManagementLockAtResourceGroupLevelResultOutput) ToLookupManagementLockAtResourceGroupLevelResultOutput() LookupManagementLockAtResourceGroupLevelResultOutput {
+	return o
+}
+
+func (o LookupManagementLockAtResourceGroupLevelResultOutput) ToLookupManagementLockAtResourceGroupLevelResultOutputWithContext(ctx context.Context) LookupManagementLockAtResourceGroupLevelResultOutput {
+	return o
+}
+
+// The resource ID of the lock.
+func (o LookupManagementLockAtResourceGroupLevelResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupManagementLockAtResourceGroupLevelResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The level of the lock. Possible values are: NotSpecified, CanNotDelete, ReadOnly. CanNotDelete means authorized users are able to read and modify the resources, but not delete. ReadOnly means authorized users can only read from a resource, but they can't modify or delete it.
+func (o LookupManagementLockAtResourceGroupLevelResultOutput) Level() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupManagementLockAtResourceGroupLevelResult) string { return v.Level }).(pulumi.StringOutput)
+}
+
+// The name of the lock.
+func (o LookupManagementLockAtResourceGroupLevelResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupManagementLockAtResourceGroupLevelResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Notes about the lock. Maximum of 512 characters.
+func (o LookupManagementLockAtResourceGroupLevelResultOutput) Notes() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupManagementLockAtResourceGroupLevelResult) *string { return v.Notes }).(pulumi.StringPtrOutput)
+}
+
+// The owners of the lock.
+func (o LookupManagementLockAtResourceGroupLevelResultOutput) Owners() ManagementLockOwnerResponseArrayOutput {
+	return o.ApplyT(func(v LookupManagementLockAtResourceGroupLevelResult) []ManagementLockOwnerResponse { return v.Owners }).(ManagementLockOwnerResponseArrayOutput)
+}
+
+// The resource type of the lock - Microsoft.Authorization/locks.
+func (o LookupManagementLockAtResourceGroupLevelResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupManagementLockAtResourceGroupLevelResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupManagementLockAtResourceGroupLevelResultOutput{})
 }

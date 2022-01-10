@@ -4,6 +4,9 @@
 package web
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -43,4 +46,66 @@ type ListConnectionKeysResult struct {
 	ConnectionKey *string `pulumi:"connectionKey"`
 	// Tokens/Claim
 	ParameterValues map[string]interface{} `pulumi:"parameterValues"`
+}
+
+func ListConnectionKeysOutput(ctx *pulumi.Context, args ListConnectionKeysOutputArgs, opts ...pulumi.InvokeOption) ListConnectionKeysResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (ListConnectionKeysResult, error) {
+			args := v.(ListConnectionKeysArgs)
+			r, err := ListConnectionKeys(ctx, &args, opts...)
+			return *r, err
+		}).(ListConnectionKeysResultOutput)
+}
+
+type ListConnectionKeysOutputArgs struct {
+	// The connection name.
+	ConnectionName pulumi.StringInput `pulumi:"connectionName"`
+	// Resource Id
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Kind of resource
+	Kind pulumi.StringPtrInput `pulumi:"kind"`
+	// Resource Location
+	Location pulumi.StringPtrInput `pulumi:"location"`
+	// Resource Name
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The resource group name.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// Resource tags
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+	// Resource type
+	Type pulumi.StringPtrInput `pulumi:"type"`
+	// time span for how long the keys will be valid
+	ValidityTimeSpan pulumi.StringPtrInput `pulumi:"validityTimeSpan"`
+}
+
+func (ListConnectionKeysOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListConnectionKeysArgs)(nil)).Elem()
+}
+
+type ListConnectionKeysResultOutput struct{ *pulumi.OutputState }
+
+func (ListConnectionKeysResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListConnectionKeysResult)(nil)).Elem()
+}
+
+func (o ListConnectionKeysResultOutput) ToListConnectionKeysResultOutput() ListConnectionKeysResultOutput {
+	return o
+}
+
+func (o ListConnectionKeysResultOutput) ToListConnectionKeysResultOutputWithContext(ctx context.Context) ListConnectionKeysResultOutput {
+	return o
+}
+
+// Connection Key
+func (o ListConnectionKeysResultOutput) ConnectionKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListConnectionKeysResult) *string { return v.ConnectionKey }).(pulumi.StringPtrOutput)
+}
+
+// Tokens/Claim
+func (o ListConnectionKeysResultOutput) ParameterValues() pulumi.MapOutput {
+	return o.ApplyT(func(v ListConnectionKeysResult) map[string]interface{} { return v.ParameterValues }).(pulumi.MapOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(ListConnectionKeysResultOutput{})
 }

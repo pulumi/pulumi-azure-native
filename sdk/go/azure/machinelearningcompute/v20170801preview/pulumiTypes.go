@@ -459,6 +459,75 @@ type AppInsightsCredentialsResponse struct {
 	InstrumentationKey *string `pulumi:"instrumentationKey"`
 }
 
+// AppInsights credentials.
+type AppInsightsCredentialsResponseOutput struct{ *pulumi.OutputState }
+
+func (AppInsightsCredentialsResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppInsightsCredentialsResponse)(nil)).Elem()
+}
+
+func (o AppInsightsCredentialsResponseOutput) ToAppInsightsCredentialsResponseOutput() AppInsightsCredentialsResponseOutput {
+	return o
+}
+
+func (o AppInsightsCredentialsResponseOutput) ToAppInsightsCredentialsResponseOutputWithContext(ctx context.Context) AppInsightsCredentialsResponseOutput {
+	return o
+}
+
+// The AppInsights application ID.
+func (o AppInsightsCredentialsResponseOutput) AppId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AppInsightsCredentialsResponse) *string { return v.AppId }).(pulumi.StringPtrOutput)
+}
+
+// The AppInsights instrumentation key. This is not returned in response of GET/PUT on the resource. To see this please call listKeys API.
+func (o AppInsightsCredentialsResponseOutput) InstrumentationKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AppInsightsCredentialsResponse) *string { return v.InstrumentationKey }).(pulumi.StringPtrOutput)
+}
+
+type AppInsightsCredentialsResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (AppInsightsCredentialsResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AppInsightsCredentialsResponse)(nil)).Elem()
+}
+
+func (o AppInsightsCredentialsResponsePtrOutput) ToAppInsightsCredentialsResponsePtrOutput() AppInsightsCredentialsResponsePtrOutput {
+	return o
+}
+
+func (o AppInsightsCredentialsResponsePtrOutput) ToAppInsightsCredentialsResponsePtrOutputWithContext(ctx context.Context) AppInsightsCredentialsResponsePtrOutput {
+	return o
+}
+
+func (o AppInsightsCredentialsResponsePtrOutput) Elem() AppInsightsCredentialsResponseOutput {
+	return o.ApplyT(func(v *AppInsightsCredentialsResponse) AppInsightsCredentialsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret AppInsightsCredentialsResponse
+		return ret
+	}).(AppInsightsCredentialsResponseOutput)
+}
+
+// The AppInsights application ID.
+func (o AppInsightsCredentialsResponsePtrOutput) AppId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AppInsightsCredentialsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AppId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The AppInsights instrumentation key. This is not returned in response of GET/PUT on the resource. To see this please call listKeys API.
+func (o AppInsightsCredentialsResponsePtrOutput) InstrumentationKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AppInsightsCredentialsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.InstrumentationKey
+	}).(pulumi.StringPtrOutput)
+}
+
 // Properties of App Insights.
 type AppInsightsProperties struct {
 	// ARM resource ID of the App Insights.
@@ -1057,6 +1126,105 @@ type ContainerRegistryCredentialsResponse struct {
 	Username string `pulumi:"username"`
 }
 
+// Information about the Azure Container Registry which contains the images deployed to the cluster.
+type ContainerRegistryCredentialsResponseOutput struct{ *pulumi.OutputState }
+
+func (ContainerRegistryCredentialsResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerRegistryCredentialsResponse)(nil)).Elem()
+}
+
+func (o ContainerRegistryCredentialsResponseOutput) ToContainerRegistryCredentialsResponseOutput() ContainerRegistryCredentialsResponseOutput {
+	return o
+}
+
+func (o ContainerRegistryCredentialsResponseOutput) ToContainerRegistryCredentialsResponseOutputWithContext(ctx context.Context) ContainerRegistryCredentialsResponseOutput {
+	return o
+}
+
+// The ACR login server name. User name is the first part of the FQDN.
+func (o ContainerRegistryCredentialsResponseOutput) LoginServer() pulumi.StringOutput {
+	return o.ApplyT(func(v ContainerRegistryCredentialsResponse) string { return v.LoginServer }).(pulumi.StringOutput)
+}
+
+// The ACR primary password.
+func (o ContainerRegistryCredentialsResponseOutput) Password() pulumi.StringOutput {
+	return o.ApplyT(func(v ContainerRegistryCredentialsResponse) string { return v.Password }).(pulumi.StringOutput)
+}
+
+// The ACR secondary password.
+func (o ContainerRegistryCredentialsResponseOutput) Password2() pulumi.StringOutput {
+	return o.ApplyT(func(v ContainerRegistryCredentialsResponse) string { return v.Password2 }).(pulumi.StringOutput)
+}
+
+// The ACR login username.
+func (o ContainerRegistryCredentialsResponseOutput) Username() pulumi.StringOutput {
+	return o.ApplyT(func(v ContainerRegistryCredentialsResponse) string { return v.Username }).(pulumi.StringOutput)
+}
+
+type ContainerRegistryCredentialsResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ContainerRegistryCredentialsResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContainerRegistryCredentialsResponse)(nil)).Elem()
+}
+
+func (o ContainerRegistryCredentialsResponsePtrOutput) ToContainerRegistryCredentialsResponsePtrOutput() ContainerRegistryCredentialsResponsePtrOutput {
+	return o
+}
+
+func (o ContainerRegistryCredentialsResponsePtrOutput) ToContainerRegistryCredentialsResponsePtrOutputWithContext(ctx context.Context) ContainerRegistryCredentialsResponsePtrOutput {
+	return o
+}
+
+func (o ContainerRegistryCredentialsResponsePtrOutput) Elem() ContainerRegistryCredentialsResponseOutput {
+	return o.ApplyT(func(v *ContainerRegistryCredentialsResponse) ContainerRegistryCredentialsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ContainerRegistryCredentialsResponse
+		return ret
+	}).(ContainerRegistryCredentialsResponseOutput)
+}
+
+// The ACR login server name. User name is the first part of the FQDN.
+func (o ContainerRegistryCredentialsResponsePtrOutput) LoginServer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ContainerRegistryCredentialsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.LoginServer
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ACR primary password.
+func (o ContainerRegistryCredentialsResponsePtrOutput) Password() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ContainerRegistryCredentialsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Password
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ACR secondary password.
+func (o ContainerRegistryCredentialsResponsePtrOutput) Password2() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ContainerRegistryCredentialsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Password2
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ACR login username.
+func (o ContainerRegistryCredentialsResponsePtrOutput) Username() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ContainerRegistryCredentialsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Username
+	}).(pulumi.StringPtrOutput)
+}
+
 // Properties of Azure Container Registry.
 type ContainerRegistryProperties struct {
 	// ARM resource ID of the Azure Container Registry used to store Docker images for web services in the cluster. If not provided one will be created. This cannot be changed once the cluster is created.
@@ -1265,6 +1433,92 @@ type ContainerServiceCredentialsResponse struct {
 	ImagePullSecretName string `pulumi:"imagePullSecretName"`
 	// Service principal configuration used by Kubernetes.
 	ServicePrincipalConfiguration ServicePrincipalPropertiesResponse `pulumi:"servicePrincipalConfiguration"`
+}
+
+// Information about the Azure Container Registry which contains the images deployed to the cluster.
+type ContainerServiceCredentialsResponseOutput struct{ *pulumi.OutputState }
+
+func (ContainerServiceCredentialsResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerServiceCredentialsResponse)(nil)).Elem()
+}
+
+func (o ContainerServiceCredentialsResponseOutput) ToContainerServiceCredentialsResponseOutput() ContainerServiceCredentialsResponseOutput {
+	return o
+}
+
+func (o ContainerServiceCredentialsResponseOutput) ToContainerServiceCredentialsResponseOutputWithContext(ctx context.Context) ContainerServiceCredentialsResponseOutput {
+	return o
+}
+
+// The ACS kube config file.
+func (o ContainerServiceCredentialsResponseOutput) AcsKubeConfig() pulumi.StringOutput {
+	return o.ApplyT(func(v ContainerServiceCredentialsResponse) string { return v.AcsKubeConfig }).(pulumi.StringOutput)
+}
+
+// The ACR image pull secret name which was created in Kubernetes.
+func (o ContainerServiceCredentialsResponseOutput) ImagePullSecretName() pulumi.StringOutput {
+	return o.ApplyT(func(v ContainerServiceCredentialsResponse) string { return v.ImagePullSecretName }).(pulumi.StringOutput)
+}
+
+// Service principal configuration used by Kubernetes.
+func (o ContainerServiceCredentialsResponseOutput) ServicePrincipalConfiguration() ServicePrincipalPropertiesResponseOutput {
+	return o.ApplyT(func(v ContainerServiceCredentialsResponse) ServicePrincipalPropertiesResponse {
+		return v.ServicePrincipalConfiguration
+	}).(ServicePrincipalPropertiesResponseOutput)
+}
+
+type ContainerServiceCredentialsResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ContainerServiceCredentialsResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContainerServiceCredentialsResponse)(nil)).Elem()
+}
+
+func (o ContainerServiceCredentialsResponsePtrOutput) ToContainerServiceCredentialsResponsePtrOutput() ContainerServiceCredentialsResponsePtrOutput {
+	return o
+}
+
+func (o ContainerServiceCredentialsResponsePtrOutput) ToContainerServiceCredentialsResponsePtrOutputWithContext(ctx context.Context) ContainerServiceCredentialsResponsePtrOutput {
+	return o
+}
+
+func (o ContainerServiceCredentialsResponsePtrOutput) Elem() ContainerServiceCredentialsResponseOutput {
+	return o.ApplyT(func(v *ContainerServiceCredentialsResponse) ContainerServiceCredentialsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ContainerServiceCredentialsResponse
+		return ret
+	}).(ContainerServiceCredentialsResponseOutput)
+}
+
+// The ACS kube config file.
+func (o ContainerServiceCredentialsResponsePtrOutput) AcsKubeConfig() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ContainerServiceCredentialsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AcsKubeConfig
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ACR image pull secret name which was created in Kubernetes.
+func (o ContainerServiceCredentialsResponsePtrOutput) ImagePullSecretName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ContainerServiceCredentialsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ImagePullSecretName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Service principal configuration used by Kubernetes.
+func (o ContainerServiceCredentialsResponsePtrOutput) ServicePrincipalConfiguration() ServicePrincipalPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v *ContainerServiceCredentialsResponse) *ServicePrincipalPropertiesResponse {
+		if v == nil {
+			return nil
+		}
+		return &v.ServicePrincipalConfiguration
+	}).(ServicePrincipalPropertiesResponsePtrOutput)
 }
 
 // Error detail information.
@@ -2812,6 +3066,90 @@ type StorageAccountCredentialsResponse struct {
 	SecondaryKey string `pulumi:"secondaryKey"`
 }
 
+// Access information for the storage account.
+type StorageAccountCredentialsResponseOutput struct{ *pulumi.OutputState }
+
+func (StorageAccountCredentialsResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageAccountCredentialsResponse)(nil)).Elem()
+}
+
+func (o StorageAccountCredentialsResponseOutput) ToStorageAccountCredentialsResponseOutput() StorageAccountCredentialsResponseOutput {
+	return o
+}
+
+func (o StorageAccountCredentialsResponseOutput) ToStorageAccountCredentialsResponseOutputWithContext(ctx context.Context) StorageAccountCredentialsResponseOutput {
+	return o
+}
+
+// The primary key of the storage account.
+func (o StorageAccountCredentialsResponseOutput) PrimaryKey() pulumi.StringOutput {
+	return o.ApplyT(func(v StorageAccountCredentialsResponse) string { return v.PrimaryKey }).(pulumi.StringOutput)
+}
+
+// The ARM resource ID of the storage account.
+func (o StorageAccountCredentialsResponseOutput) ResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v StorageAccountCredentialsResponse) string { return v.ResourceId }).(pulumi.StringOutput)
+}
+
+// The secondary key of the storage account.
+func (o StorageAccountCredentialsResponseOutput) SecondaryKey() pulumi.StringOutput {
+	return o.ApplyT(func(v StorageAccountCredentialsResponse) string { return v.SecondaryKey }).(pulumi.StringOutput)
+}
+
+type StorageAccountCredentialsResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (StorageAccountCredentialsResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StorageAccountCredentialsResponse)(nil)).Elem()
+}
+
+func (o StorageAccountCredentialsResponsePtrOutput) ToStorageAccountCredentialsResponsePtrOutput() StorageAccountCredentialsResponsePtrOutput {
+	return o
+}
+
+func (o StorageAccountCredentialsResponsePtrOutput) ToStorageAccountCredentialsResponsePtrOutputWithContext(ctx context.Context) StorageAccountCredentialsResponsePtrOutput {
+	return o
+}
+
+func (o StorageAccountCredentialsResponsePtrOutput) Elem() StorageAccountCredentialsResponseOutput {
+	return o.ApplyT(func(v *StorageAccountCredentialsResponse) StorageAccountCredentialsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret StorageAccountCredentialsResponse
+		return ret
+	}).(StorageAccountCredentialsResponseOutput)
+}
+
+// The primary key of the storage account.
+func (o StorageAccountCredentialsResponsePtrOutput) PrimaryKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StorageAccountCredentialsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PrimaryKey
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ARM resource ID of the storage account.
+func (o StorageAccountCredentialsResponsePtrOutput) ResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StorageAccountCredentialsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ResourceId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The secondary key of the storage account.
+func (o StorageAccountCredentialsResponsePtrOutput) SecondaryKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StorageAccountCredentialsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SecondaryKey
+	}).(pulumi.StringPtrOutput)
+}
+
 // Properties of Storage Account.
 type StorageAccountProperties struct {
 	// ARM resource ID of the Azure Storage Account to store CLI specific files. If not provided one will be created. This cannot be changed once the cluster is created.
@@ -3177,6 +3515,8 @@ func init() {
 	pulumi.RegisterOutputType(AcsClusterPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(AcsClusterPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(AcsClusterPropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(AppInsightsCredentialsResponseOutput{})
+	pulumi.RegisterOutputType(AppInsightsCredentialsResponsePtrOutput{})
 	pulumi.RegisterOutputType(AppInsightsPropertiesOutput{})
 	pulumi.RegisterOutputType(AppInsightsPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(AppInsightsPropertiesResponseOutput{})
@@ -3185,10 +3525,14 @@ func init() {
 	pulumi.RegisterOutputType(AutoScaleConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(AutoScaleConfigurationResponseOutput{})
 	pulumi.RegisterOutputType(AutoScaleConfigurationResponsePtrOutput{})
+	pulumi.RegisterOutputType(ContainerRegistryCredentialsResponseOutput{})
+	pulumi.RegisterOutputType(ContainerRegistryCredentialsResponsePtrOutput{})
 	pulumi.RegisterOutputType(ContainerRegistryPropertiesOutput{})
 	pulumi.RegisterOutputType(ContainerRegistryPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ContainerRegistryPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(ContainerRegistryPropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(ContainerServiceCredentialsResponseOutput{})
+	pulumi.RegisterOutputType(ContainerServiceCredentialsResponsePtrOutput{})
 	pulumi.RegisterOutputType(ErrorDetailResponseOutput{})
 	pulumi.RegisterOutputType(ErrorDetailResponseArrayOutput{})
 	pulumi.RegisterOutputType(ErrorResponseResponseOutput{})
@@ -3215,6 +3559,8 @@ func init() {
 	pulumi.RegisterOutputType(SslConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(SslConfigurationResponseOutput{})
 	pulumi.RegisterOutputType(SslConfigurationResponsePtrOutput{})
+	pulumi.RegisterOutputType(StorageAccountCredentialsResponseOutput{})
+	pulumi.RegisterOutputType(StorageAccountCredentialsResponsePtrOutput{})
 	pulumi.RegisterOutputType(StorageAccountPropertiesOutput{})
 	pulumi.RegisterOutputType(StorageAccountPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(StorageAccountPropertiesResponseOutput{})

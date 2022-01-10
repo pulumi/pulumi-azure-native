@@ -4,6 +4,9 @@
 package v20160301
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -34,4 +37,64 @@ type LookupJobResult struct {
 	Properties JobPropertiesResponse `pulumi:"properties"`
 	// Gets the job resource type.
 	Type string `pulumi:"type"`
+}
+
+func LookupJobOutput(ctx *pulumi.Context, args LookupJobOutputArgs, opts ...pulumi.InvokeOption) LookupJobResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupJobResult, error) {
+			args := v.(LookupJobArgs)
+			r, err := LookupJob(ctx, &args, opts...)
+			return *r, err
+		}).(LookupJobResultOutput)
+}
+
+type LookupJobOutputArgs struct {
+	// The job collection name.
+	JobCollectionName pulumi.StringInput `pulumi:"jobCollectionName"`
+	// The job name.
+	JobName pulumi.StringInput `pulumi:"jobName"`
+	// The resource group name.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupJobOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupJobArgs)(nil)).Elem()
+}
+
+type LookupJobResultOutput struct{ *pulumi.OutputState }
+
+func (LookupJobResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupJobResult)(nil)).Elem()
+}
+
+func (o LookupJobResultOutput) ToLookupJobResultOutput() LookupJobResultOutput {
+	return o
+}
+
+func (o LookupJobResultOutput) ToLookupJobResultOutputWithContext(ctx context.Context) LookupJobResultOutput {
+	return o
+}
+
+// Gets the job resource identifier.
+func (o LookupJobResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupJobResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Gets the job resource name.
+func (o LookupJobResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupJobResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Gets or sets the job properties.
+func (o LookupJobResultOutput) Properties() JobPropertiesResponseOutput {
+	return o.ApplyT(func(v LookupJobResult) JobPropertiesResponse { return v.Properties }).(JobPropertiesResponseOutput)
+}
+
+// Gets the job resource type.
+func (o LookupJobResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupJobResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupJobResultOutput{})
 }

@@ -4,6 +4,9 @@
 package v20150521preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -54,4 +57,107 @@ type LookupPolicyResourceResult struct {
 	Threshold *string `pulumi:"threshold"`
 	// The type of the resource.
 	Type *string `pulumi:"type"`
+}
+
+func LookupPolicyResourceOutput(ctx *pulumi.Context, args LookupPolicyResourceOutputArgs, opts ...pulumi.InvokeOption) LookupPolicyResourceResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupPolicyResourceResult, error) {
+			args := v.(LookupPolicyResourceArgs)
+			r, err := LookupPolicyResource(ctx, &args, opts...)
+			return *r, err
+		}).(LookupPolicyResourceResultOutput)
+}
+
+type LookupPolicyResourceOutputArgs struct {
+	// The name of the lab.
+	LabName pulumi.StringInput `pulumi:"labName"`
+	// The name of the policy.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The name of the policy set.
+	PolicySetName pulumi.StringInput `pulumi:"policySetName"`
+	// The name of the resource group.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupPolicyResourceOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupPolicyResourceArgs)(nil)).Elem()
+}
+
+// A Policy.
+type LookupPolicyResourceResultOutput struct{ *pulumi.OutputState }
+
+func (LookupPolicyResourceResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupPolicyResourceResult)(nil)).Elem()
+}
+
+func (o LookupPolicyResourceResultOutput) ToLookupPolicyResourceResultOutput() LookupPolicyResourceResultOutput {
+	return o
+}
+
+func (o LookupPolicyResourceResultOutput) ToLookupPolicyResourceResultOutputWithContext(ctx context.Context) LookupPolicyResourceResultOutput {
+	return o
+}
+
+// The description of the policy.
+func (o LookupPolicyResourceResultOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupPolicyResourceResult) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The evaluator type of the policy.
+func (o LookupPolicyResourceResultOutput) EvaluatorType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupPolicyResourceResult) *string { return v.EvaluatorType }).(pulumi.StringPtrOutput)
+}
+
+// The fact data of the policy.
+func (o LookupPolicyResourceResultOutput) FactData() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupPolicyResourceResult) *string { return v.FactData }).(pulumi.StringPtrOutput)
+}
+
+// The fact name of the policy.
+func (o LookupPolicyResourceResultOutput) FactName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupPolicyResourceResult) *string { return v.FactName }).(pulumi.StringPtrOutput)
+}
+
+// The identifier of the resource.
+func (o LookupPolicyResourceResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupPolicyResourceResult) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// The location of the resource.
+func (o LookupPolicyResourceResultOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupPolicyResourceResult) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource.
+func (o LookupPolicyResourceResultOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupPolicyResourceResult) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The provisioning status of the resource.
+func (o LookupPolicyResourceResultOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupPolicyResourceResult) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+}
+
+// The status of the policy.
+func (o LookupPolicyResourceResultOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupPolicyResourceResult) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+// The tags of the resource.
+func (o LookupPolicyResourceResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupPolicyResourceResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The threshold of the policy.
+func (o LookupPolicyResourceResultOutput) Threshold() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupPolicyResourceResult) *string { return v.Threshold }).(pulumi.StringPtrOutput)
+}
+
+// The type of the resource.
+func (o LookupPolicyResourceResultOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupPolicyResourceResult) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupPolicyResourceResultOutput{})
 }

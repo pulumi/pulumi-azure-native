@@ -4,6 +4,9 @@
 package v20150401
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -38,4 +41,70 @@ type LookupDatabaseAccountCassandraKeyspaceResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// The type of Azure resource.
 	Type string `pulumi:"type"`
+}
+
+func LookupDatabaseAccountCassandraKeyspaceOutput(ctx *pulumi.Context, args LookupDatabaseAccountCassandraKeyspaceOutputArgs, opts ...pulumi.InvokeOption) LookupDatabaseAccountCassandraKeyspaceResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupDatabaseAccountCassandraKeyspaceResult, error) {
+			args := v.(LookupDatabaseAccountCassandraKeyspaceArgs)
+			r, err := LookupDatabaseAccountCassandraKeyspace(ctx, &args, opts...)
+			return *r, err
+		}).(LookupDatabaseAccountCassandraKeyspaceResultOutput)
+}
+
+type LookupDatabaseAccountCassandraKeyspaceOutputArgs struct {
+	// Cosmos DB database account name.
+	AccountName pulumi.StringInput `pulumi:"accountName"`
+	// Cosmos DB keyspace name.
+	KeyspaceName pulumi.StringInput `pulumi:"keyspaceName"`
+	// Name of an Azure resource group.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupDatabaseAccountCassandraKeyspaceOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupDatabaseAccountCassandraKeyspaceArgs)(nil)).Elem()
+}
+
+// An Azure Cosmos DB Cassandra keyspace.
+type LookupDatabaseAccountCassandraKeyspaceResultOutput struct{ *pulumi.OutputState }
+
+func (LookupDatabaseAccountCassandraKeyspaceResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupDatabaseAccountCassandraKeyspaceResult)(nil)).Elem()
+}
+
+func (o LookupDatabaseAccountCassandraKeyspaceResultOutput) ToLookupDatabaseAccountCassandraKeyspaceResultOutput() LookupDatabaseAccountCassandraKeyspaceResultOutput {
+	return o
+}
+
+func (o LookupDatabaseAccountCassandraKeyspaceResultOutput) ToLookupDatabaseAccountCassandraKeyspaceResultOutputWithContext(ctx context.Context) LookupDatabaseAccountCassandraKeyspaceResultOutput {
+	return o
+}
+
+// The unique resource identifier of the database account.
+func (o LookupDatabaseAccountCassandraKeyspaceResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDatabaseAccountCassandraKeyspaceResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The location of the resource group to which the resource belongs.
+func (o LookupDatabaseAccountCassandraKeyspaceResultOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDatabaseAccountCassandraKeyspaceResult) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The name of the database account.
+func (o LookupDatabaseAccountCassandraKeyspaceResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDatabaseAccountCassandraKeyspaceResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
+func (o LookupDatabaseAccountCassandraKeyspaceResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupDatabaseAccountCassandraKeyspaceResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of Azure resource.
+func (o LookupDatabaseAccountCassandraKeyspaceResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDatabaseAccountCassandraKeyspaceResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupDatabaseAccountCassandraKeyspaceResultOutput{})
 }

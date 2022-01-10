@@ -2482,6 +2482,51 @@ type DatabaseAccountConnectionStringResponse struct {
 	Description string `pulumi:"description"`
 }
 
+// Connection string for the Cosmos DB account
+type DatabaseAccountConnectionStringResponseOutput struct{ *pulumi.OutputState }
+
+func (DatabaseAccountConnectionStringResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabaseAccountConnectionStringResponse)(nil)).Elem()
+}
+
+func (o DatabaseAccountConnectionStringResponseOutput) ToDatabaseAccountConnectionStringResponseOutput() DatabaseAccountConnectionStringResponseOutput {
+	return o
+}
+
+func (o DatabaseAccountConnectionStringResponseOutput) ToDatabaseAccountConnectionStringResponseOutputWithContext(ctx context.Context) DatabaseAccountConnectionStringResponseOutput {
+	return o
+}
+
+// Value of the connection string
+func (o DatabaseAccountConnectionStringResponseOutput) ConnectionString() pulumi.StringOutput {
+	return o.ApplyT(func(v DatabaseAccountConnectionStringResponse) string { return v.ConnectionString }).(pulumi.StringOutput)
+}
+
+// Description of the connection string
+func (o DatabaseAccountConnectionStringResponseOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v DatabaseAccountConnectionStringResponse) string { return v.Description }).(pulumi.StringOutput)
+}
+
+type DatabaseAccountConnectionStringResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (DatabaseAccountConnectionStringResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DatabaseAccountConnectionStringResponse)(nil)).Elem()
+}
+
+func (o DatabaseAccountConnectionStringResponseArrayOutput) ToDatabaseAccountConnectionStringResponseArrayOutput() DatabaseAccountConnectionStringResponseArrayOutput {
+	return o
+}
+
+func (o DatabaseAccountConnectionStringResponseArrayOutput) ToDatabaseAccountConnectionStringResponseArrayOutputWithContext(ctx context.Context) DatabaseAccountConnectionStringResponseArrayOutput {
+	return o
+}
+
+func (o DatabaseAccountConnectionStringResponseArrayOutput) Index(i pulumi.IntInput) DatabaseAccountConnectionStringResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DatabaseAccountConnectionStringResponse {
+		return vs[0].([]DatabaseAccountConnectionStringResponse)[vs[1].(int)]
+	}).(DatabaseAccountConnectionStringResponseOutput)
+}
+
 type ExcludedPath struct {
 	// The path for which the indexing behavior applies to. Index paths typically start with root and end with wildcard (/path/*)
 	Path *string `pulumi:"path"`
@@ -7841,6 +7886,8 @@ func init() {
 	pulumi.RegisterOutputType(ContainerPartitionKeyResponseOutput{})
 	pulumi.RegisterOutputType(ContainerPartitionKeyResponsePtrOutput{})
 	pulumi.RegisterOutputType(CreateUpdateOptionsOutput{})
+	pulumi.RegisterOutputType(DatabaseAccountConnectionStringResponseOutput{})
+	pulumi.RegisterOutputType(DatabaseAccountConnectionStringResponseArrayOutput{})
 	pulumi.RegisterOutputType(ExcludedPathOutput{})
 	pulumi.RegisterOutputType(ExcludedPathArrayOutput{})
 	pulumi.RegisterOutputType(ExcludedPathResponseOutput{})

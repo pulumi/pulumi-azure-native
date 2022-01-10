@@ -4,6 +4,9 @@
 package v20210301
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -48,4 +51,92 @@ type LookupSqlPoolWorkloadGroupResult struct {
 	QueryExecutionTimeout *int `pulumi:"queryExecutionTimeout"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
+}
+
+func LookupSqlPoolWorkloadGroupOutput(ctx *pulumi.Context, args LookupSqlPoolWorkloadGroupOutputArgs, opts ...pulumi.InvokeOption) LookupSqlPoolWorkloadGroupResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupSqlPoolWorkloadGroupResult, error) {
+			args := v.(LookupSqlPoolWorkloadGroupArgs)
+			r, err := LookupSqlPoolWorkloadGroup(ctx, &args, opts...)
+			return *r, err
+		}).(LookupSqlPoolWorkloadGroupResultOutput)
+}
+
+type LookupSqlPoolWorkloadGroupOutputArgs struct {
+	// The name of the resource group. The name is case insensitive.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// SQL pool name
+	SqlPoolName pulumi.StringInput `pulumi:"sqlPoolName"`
+	// The name of the workload group.
+	WorkloadGroupName pulumi.StringInput `pulumi:"workloadGroupName"`
+	// The name of the workspace
+	WorkspaceName pulumi.StringInput `pulumi:"workspaceName"`
+}
+
+func (LookupSqlPoolWorkloadGroupOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupSqlPoolWorkloadGroupArgs)(nil)).Elem()
+}
+
+// Workload group operations for a sql pool
+type LookupSqlPoolWorkloadGroupResultOutput struct{ *pulumi.OutputState }
+
+func (LookupSqlPoolWorkloadGroupResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupSqlPoolWorkloadGroupResult)(nil)).Elem()
+}
+
+func (o LookupSqlPoolWorkloadGroupResultOutput) ToLookupSqlPoolWorkloadGroupResultOutput() LookupSqlPoolWorkloadGroupResultOutput {
+	return o
+}
+
+func (o LookupSqlPoolWorkloadGroupResultOutput) ToLookupSqlPoolWorkloadGroupResultOutputWithContext(ctx context.Context) LookupSqlPoolWorkloadGroupResultOutput {
+	return o
+}
+
+// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+func (o LookupSqlPoolWorkloadGroupResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSqlPoolWorkloadGroupResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The workload group importance level.
+func (o LookupSqlPoolWorkloadGroupResultOutput) Importance() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSqlPoolWorkloadGroupResult) *string { return v.Importance }).(pulumi.StringPtrOutput)
+}
+
+// The workload group cap percentage resource.
+func (o LookupSqlPoolWorkloadGroupResultOutput) MaxResourcePercent() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupSqlPoolWorkloadGroupResult) int { return v.MaxResourcePercent }).(pulumi.IntOutput)
+}
+
+// The workload group request maximum grant percentage.
+func (o LookupSqlPoolWorkloadGroupResultOutput) MaxResourcePercentPerRequest() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v LookupSqlPoolWorkloadGroupResult) *float64 { return v.MaxResourcePercentPerRequest }).(pulumi.Float64PtrOutput)
+}
+
+// The workload group minimum percentage resource.
+func (o LookupSqlPoolWorkloadGroupResultOutput) MinResourcePercent() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupSqlPoolWorkloadGroupResult) int { return v.MinResourcePercent }).(pulumi.IntOutput)
+}
+
+// The workload group request minimum grant percentage.
+func (o LookupSqlPoolWorkloadGroupResultOutput) MinResourcePercentPerRequest() pulumi.Float64Output {
+	return o.ApplyT(func(v LookupSqlPoolWorkloadGroupResult) float64 { return v.MinResourcePercentPerRequest }).(pulumi.Float64Output)
+}
+
+// The name of the resource
+func (o LookupSqlPoolWorkloadGroupResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSqlPoolWorkloadGroupResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The workload group query execution timeout.
+func (o LookupSqlPoolWorkloadGroupResultOutput) QueryExecutionTimeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupSqlPoolWorkloadGroupResult) *int { return v.QueryExecutionTimeout }).(pulumi.IntPtrOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o LookupSqlPoolWorkloadGroupResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSqlPoolWorkloadGroupResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupSqlPoolWorkloadGroupResultOutput{})
 }

@@ -4,6 +4,9 @@
 package v20190501preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -46,4 +49,87 @@ type LookupScopeMapResult struct {
 	SystemData SystemDataResponse `pulumi:"systemData"`
 	// The type of the resource.
 	Type string `pulumi:"type"`
+}
+
+func LookupScopeMapOutput(ctx *pulumi.Context, args LookupScopeMapOutputArgs, opts ...pulumi.InvokeOption) LookupScopeMapResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupScopeMapResult, error) {
+			args := v.(LookupScopeMapArgs)
+			r, err := LookupScopeMap(ctx, &args, opts...)
+			return *r, err
+		}).(LookupScopeMapResultOutput)
+}
+
+type LookupScopeMapOutputArgs struct {
+	// The name of the container registry.
+	RegistryName pulumi.StringInput `pulumi:"registryName"`
+	// The name of the resource group to which the container registry belongs.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the scope map.
+	ScopeMapName pulumi.StringInput `pulumi:"scopeMapName"`
+}
+
+func (LookupScopeMapOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupScopeMapArgs)(nil)).Elem()
+}
+
+// An object that represents a scope map for a container registry.
+type LookupScopeMapResultOutput struct{ *pulumi.OutputState }
+
+func (LookupScopeMapResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupScopeMapResult)(nil)).Elem()
+}
+
+func (o LookupScopeMapResultOutput) ToLookupScopeMapResultOutput() LookupScopeMapResultOutput {
+	return o
+}
+
+func (o LookupScopeMapResultOutput) ToLookupScopeMapResultOutputWithContext(ctx context.Context) LookupScopeMapResultOutput {
+	return o
+}
+
+// The list of scoped permissions for registry artifacts.
+// E.g. repositories/repository-name/content/read,
+// repositories/repository-name/metadata/write
+func (o LookupScopeMapResultOutput) Actions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupScopeMapResult) []string { return v.Actions }).(pulumi.StringArrayOutput)
+}
+
+// The creation date of scope map.
+func (o LookupScopeMapResultOutput) CreationDate() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupScopeMapResult) string { return v.CreationDate }).(pulumi.StringOutput)
+}
+
+// The user friendly description of the scope map.
+func (o LookupScopeMapResultOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupScopeMapResult) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The resource ID.
+func (o LookupScopeMapResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupScopeMapResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The name of the resource.
+func (o LookupScopeMapResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupScopeMapResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Provisioning state of the resource.
+func (o LookupScopeMapResultOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupScopeMapResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o LookupScopeMapResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupScopeMapResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the resource.
+func (o LookupScopeMapResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupScopeMapResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupScopeMapResultOutput{})
 }

@@ -4,6 +4,9 @@
 package datashare
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -43,4 +46,72 @@ type LookupDataSetMappingResult struct {
 	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Type of the azure resource
 	Type string `pulumi:"type"`
+}
+
+func LookupDataSetMappingOutput(ctx *pulumi.Context, args LookupDataSetMappingOutputArgs, opts ...pulumi.InvokeOption) LookupDataSetMappingResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupDataSetMappingResult, error) {
+			args := v.(LookupDataSetMappingArgs)
+			r, err := LookupDataSetMapping(ctx, &args, opts...)
+			return *r, err
+		}).(LookupDataSetMappingResultOutput)
+}
+
+type LookupDataSetMappingOutputArgs struct {
+	// The name of the share account.
+	AccountName pulumi.StringInput `pulumi:"accountName"`
+	// The name of the dataSetMapping.
+	DataSetMappingName pulumi.StringInput `pulumi:"dataSetMappingName"`
+	// The resource group name.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the shareSubscription.
+	ShareSubscriptionName pulumi.StringInput `pulumi:"shareSubscriptionName"`
+}
+
+func (LookupDataSetMappingOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupDataSetMappingArgs)(nil)).Elem()
+}
+
+// A data set mapping data transfer object.
+type LookupDataSetMappingResultOutput struct{ *pulumi.OutputState }
+
+func (LookupDataSetMappingResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupDataSetMappingResult)(nil)).Elem()
+}
+
+func (o LookupDataSetMappingResultOutput) ToLookupDataSetMappingResultOutput() LookupDataSetMappingResultOutput {
+	return o
+}
+
+func (o LookupDataSetMappingResultOutput) ToLookupDataSetMappingResultOutputWithContext(ctx context.Context) LookupDataSetMappingResultOutput {
+	return o
+}
+
+// The resource id of the azure resource
+func (o LookupDataSetMappingResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDataSetMappingResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Kind of data set mapping.
+func (o LookupDataSetMappingResultOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDataSetMappingResult) string { return v.Kind }).(pulumi.StringOutput)
+}
+
+// Name of the azure resource
+func (o LookupDataSetMappingResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDataSetMappingResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// System Data of the Azure resource.
+func (o LookupDataSetMappingResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupDataSetMappingResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Type of the azure resource
+func (o LookupDataSetMappingResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDataSetMappingResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupDataSetMappingResultOutput{})
 }

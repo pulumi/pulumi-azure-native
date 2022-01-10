@@ -75,7 +75,7 @@ class DatabaseArgs:
         :param pulumi.Input[str] database_name: The name of the database.
         :param pulumi.Input[str] elastic_pool_id: The resource identifier of the elastic pool containing this database.
         :param pulumi.Input[str] federated_client_id: The Client id used for cross tenant per database CMK scenario
-        :param pulumi.Input[int] high_availability_replica_count: The number of secondary replicas associated with the database that are used to provide high availability.
+        :param pulumi.Input[int] high_availability_replica_count: The number of secondary replicas associated with the database that are used to provide high availability. Not applicable to a Hyperscale database within an elastic pool.
         :param pulumi.Input['DatabaseIdentityArgs'] identity: The Azure Active Directory identity of the database.
         :param pulumi.Input[bool] is_ledger_on: Whether or not this database is a ledger database, which means all tables in the database are ledger tables. Note: the value of this property cannot be changed after the database has been created.
         :param pulumi.Input[Union[str, 'DatabaseLicenseType']] license_type: The license type to apply for this database. `LicenseIncluded` if you need a license, or `BasePrice` if you have a license and are eligible for the Azure Hybrid Benefit.
@@ -85,7 +85,7 @@ class DatabaseArgs:
         :param pulumi.Input[float] max_size_bytes: The max size of the database expressed in bytes.
         :param pulumi.Input[float] min_capacity: Minimal capacity that database will always have allocated, if not paused
         :param pulumi.Input[str] primary_delegated_identity_client_id: The Primary Delegated Identity Client id used for per database CMK - for internal use only
-        :param pulumi.Input[Union[str, 'DatabaseReadScale']] read_scale: The state of read-only routing. If enabled, connections that have application intent set to readonly in their connection string may be routed to a readonly secondary replica in the same region.
+        :param pulumi.Input[Union[str, 'DatabaseReadScale']] read_scale: The state of read-only routing. If enabled, connections that have application intent set to readonly in their connection string may be routed to a readonly secondary replica in the same region. Not applicable to a Hyperscale database within an elastic pool.
         :param pulumi.Input[str] recoverable_database_id: The resource identifier of the recoverable database associated with create operation of this database.
         :param pulumi.Input[str] recovery_services_recovery_point_id: The resource identifier of the recovery point associated with create operation of this database.
         :param pulumi.Input[Union[str, 'BackupStorageRedundancy']] requested_backup_storage_redundancy: The storage account type to be used to store backups for this database.
@@ -300,7 +300,7 @@ class DatabaseArgs:
     @pulumi.getter(name="highAvailabilityReplicaCount")
     def high_availability_replica_count(self) -> Optional[pulumi.Input[int]]:
         """
-        The number of secondary replicas associated with the database that are used to provide high availability.
+        The number of secondary replicas associated with the database that are used to provide high availability. Not applicable to a Hyperscale database within an elastic pool.
         """
         return pulumi.get(self, "high_availability_replica_count")
 
@@ -420,7 +420,7 @@ class DatabaseArgs:
     @pulumi.getter(name="readScale")
     def read_scale(self) -> Optional[pulumi.Input[Union[str, 'DatabaseReadScale']]]:
         """
-        The state of read-only routing. If enabled, connections that have application intent set to readonly in their connection string may be routed to a readonly secondary replica in the same region.
+        The state of read-only routing. If enabled, connections that have application intent set to readonly in their connection string may be routed to a readonly secondary replica in the same region. Not applicable to a Hyperscale database within an elastic pool.
         """
         return pulumi.get(self, "read_scale")
 
@@ -649,7 +649,7 @@ class Database(pulumi.CustomResource):
         :param pulumi.Input[str] database_name: The name of the database.
         :param pulumi.Input[str] elastic_pool_id: The resource identifier of the elastic pool containing this database.
         :param pulumi.Input[str] federated_client_id: The Client id used for cross tenant per database CMK scenario
-        :param pulumi.Input[int] high_availability_replica_count: The number of secondary replicas associated with the database that are used to provide high availability.
+        :param pulumi.Input[int] high_availability_replica_count: The number of secondary replicas associated with the database that are used to provide high availability. Not applicable to a Hyperscale database within an elastic pool.
         :param pulumi.Input[pulumi.InputType['DatabaseIdentityArgs']] identity: The Azure Active Directory identity of the database.
         :param pulumi.Input[bool] is_ledger_on: Whether or not this database is a ledger database, which means all tables in the database are ledger tables. Note: the value of this property cannot be changed after the database has been created.
         :param pulumi.Input[Union[str, 'DatabaseLicenseType']] license_type: The license type to apply for this database. `LicenseIncluded` if you need a license, or `BasePrice` if you have a license and are eligible for the Azure Hybrid Benefit.
@@ -659,7 +659,7 @@ class Database(pulumi.CustomResource):
         :param pulumi.Input[float] max_size_bytes: The max size of the database expressed in bytes.
         :param pulumi.Input[float] min_capacity: Minimal capacity that database will always have allocated, if not paused
         :param pulumi.Input[str] primary_delegated_identity_client_id: The Primary Delegated Identity Client id used for per database CMK - for internal use only
-        :param pulumi.Input[Union[str, 'DatabaseReadScale']] read_scale: The state of read-only routing. If enabled, connections that have application intent set to readonly in their connection string may be routed to a readonly secondary replica in the same region.
+        :param pulumi.Input[Union[str, 'DatabaseReadScale']] read_scale: The state of read-only routing. If enabled, connections that have application intent set to readonly in their connection string may be routed to a readonly secondary replica in the same region. Not applicable to a Hyperscale database within an elastic pool.
         :param pulumi.Input[str] recoverable_database_id: The resource identifier of the recoverable database associated with create operation of this database.
         :param pulumi.Input[str] recovery_services_recovery_point_id: The resource identifier of the recovery point associated with create operation of this database.
         :param pulumi.Input[Union[str, 'BackupStorageRedundancy']] requested_backup_storage_redundancy: The storage account type to be used to store backups for this database.
@@ -979,7 +979,7 @@ class Database(pulumi.CustomResource):
     @pulumi.getter(name="highAvailabilityReplicaCount")
     def high_availability_replica_count(self) -> pulumi.Output[Optional[int]]:
         """
-        The number of secondary replicas associated with the database that are used to provide high availability.
+        The number of secondary replicas associated with the database that are used to provide high availability. Not applicable to a Hyperscale database within an elastic pool.
         """
         return pulumi.get(self, "high_availability_replica_count")
 
@@ -1099,7 +1099,7 @@ class Database(pulumi.CustomResource):
     @pulumi.getter(name="readScale")
     def read_scale(self) -> pulumi.Output[Optional[str]]:
         """
-        The state of read-only routing. If enabled, connections that have application intent set to readonly in their connection string may be routed to a readonly secondary replica in the same region.
+        The state of read-only routing. If enabled, connections that have application intent set to readonly in their connection string may be routed to a readonly secondary replica in the same region. Not applicable to a Hyperscale database within an elastic pool.
         """
         return pulumi.get(self, "read_scale")
 

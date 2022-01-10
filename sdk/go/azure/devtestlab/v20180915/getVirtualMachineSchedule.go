@@ -4,6 +4,9 @@
 package v20180915
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -79,4 +82,131 @@ func (val *LookupVirtualMachineScheduleResult) Defaults() *LookupVirtualMachineS
 		tmp.Status = &status_
 	}
 	return &tmp
+}
+
+func LookupVirtualMachineScheduleOutput(ctx *pulumi.Context, args LookupVirtualMachineScheduleOutputArgs, opts ...pulumi.InvokeOption) LookupVirtualMachineScheduleResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupVirtualMachineScheduleResult, error) {
+			args := v.(LookupVirtualMachineScheduleArgs)
+			r, err := LookupVirtualMachineSchedule(ctx, &args, opts...)
+			return *r, err
+		}).(LookupVirtualMachineScheduleResultOutput)
+}
+
+type LookupVirtualMachineScheduleOutputArgs struct {
+	// Specify the $expand query. Example: 'properties($select=status)'
+	Expand pulumi.StringPtrInput `pulumi:"expand"`
+	// The name of the lab.
+	LabName pulumi.StringInput `pulumi:"labName"`
+	// The name of the schedule.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The name of the resource group.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the virtual machine.
+	VirtualMachineName pulumi.StringInput `pulumi:"virtualMachineName"`
+}
+
+func (LookupVirtualMachineScheduleOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupVirtualMachineScheduleArgs)(nil)).Elem()
+}
+
+// A schedule.
+type LookupVirtualMachineScheduleResultOutput struct{ *pulumi.OutputState }
+
+func (LookupVirtualMachineScheduleResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupVirtualMachineScheduleResult)(nil)).Elem()
+}
+
+func (o LookupVirtualMachineScheduleResultOutput) ToLookupVirtualMachineScheduleResultOutput() LookupVirtualMachineScheduleResultOutput {
+	return o
+}
+
+func (o LookupVirtualMachineScheduleResultOutput) ToLookupVirtualMachineScheduleResultOutputWithContext(ctx context.Context) LookupVirtualMachineScheduleResultOutput {
+	return o
+}
+
+// The creation date of the schedule.
+func (o LookupVirtualMachineScheduleResultOutput) CreatedDate() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVirtualMachineScheduleResult) string { return v.CreatedDate }).(pulumi.StringOutput)
+}
+
+// If the schedule will occur once each day of the week, specify the daily recurrence.
+func (o LookupVirtualMachineScheduleResultOutput) DailyRecurrence() DayDetailsResponsePtrOutput {
+	return o.ApplyT(func(v LookupVirtualMachineScheduleResult) *DayDetailsResponse { return v.DailyRecurrence }).(DayDetailsResponsePtrOutput)
+}
+
+// If the schedule will occur multiple times a day, specify the hourly recurrence.
+func (o LookupVirtualMachineScheduleResultOutput) HourlyRecurrence() HourDetailsResponsePtrOutput {
+	return o.ApplyT(func(v LookupVirtualMachineScheduleResult) *HourDetailsResponse { return v.HourlyRecurrence }).(HourDetailsResponsePtrOutput)
+}
+
+// The identifier of the resource.
+func (o LookupVirtualMachineScheduleResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVirtualMachineScheduleResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The location of the resource.
+func (o LookupVirtualMachineScheduleResultOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVirtualMachineScheduleResult) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource.
+func (o LookupVirtualMachineScheduleResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVirtualMachineScheduleResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Notification settings.
+func (o LookupVirtualMachineScheduleResultOutput) NotificationSettings() NotificationSettingsResponsePtrOutput {
+	return o.ApplyT(func(v LookupVirtualMachineScheduleResult) *NotificationSettingsResponse {
+		return v.NotificationSettings
+	}).(NotificationSettingsResponsePtrOutput)
+}
+
+// The provisioning status of the resource.
+func (o LookupVirtualMachineScheduleResultOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVirtualMachineScheduleResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The status of the schedule (i.e. Enabled, Disabled)
+func (o LookupVirtualMachineScheduleResultOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVirtualMachineScheduleResult) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+// The tags of the resource.
+func (o LookupVirtualMachineScheduleResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupVirtualMachineScheduleResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The resource ID to which the schedule belongs
+func (o LookupVirtualMachineScheduleResultOutput) TargetResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVirtualMachineScheduleResult) *string { return v.TargetResourceId }).(pulumi.StringPtrOutput)
+}
+
+// The task type of the schedule (e.g. LabVmsShutdownTask, LabVmAutoStart).
+func (o LookupVirtualMachineScheduleResultOutput) TaskType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVirtualMachineScheduleResult) *string { return v.TaskType }).(pulumi.StringPtrOutput)
+}
+
+// The time zone ID (e.g. Pacific Standard time).
+func (o LookupVirtualMachineScheduleResultOutput) TimeZoneId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVirtualMachineScheduleResult) *string { return v.TimeZoneId }).(pulumi.StringPtrOutput)
+}
+
+// The type of the resource.
+func (o LookupVirtualMachineScheduleResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVirtualMachineScheduleResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The unique immutable identifier of a resource (Guid).
+func (o LookupVirtualMachineScheduleResultOutput) UniqueIdentifier() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVirtualMachineScheduleResult) string { return v.UniqueIdentifier }).(pulumi.StringOutput)
+}
+
+// If the schedule will occur only some days of the week, specify the weekly recurrence.
+func (o LookupVirtualMachineScheduleResultOutput) WeeklyRecurrence() WeekDetailsResponsePtrOutput {
+	return o.ApplyT(func(v LookupVirtualMachineScheduleResult) *WeekDetailsResponse { return v.WeeklyRecurrence }).(WeekDetailsResponsePtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupVirtualMachineScheduleResultOutput{})
 }

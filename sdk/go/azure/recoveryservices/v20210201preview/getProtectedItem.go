@@ -4,6 +4,9 @@
 package v20210201preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -48,4 +51,86 @@ type LookupProtectedItemResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...
 	Type string `pulumi:"type"`
+}
+
+func LookupProtectedItemOutput(ctx *pulumi.Context, args LookupProtectedItemOutputArgs, opts ...pulumi.InvokeOption) LookupProtectedItemResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupProtectedItemResult, error) {
+			args := v.(LookupProtectedItemArgs)
+			r, err := LookupProtectedItem(ctx, &args, opts...)
+			return *r, err
+		}).(LookupProtectedItemResultOutput)
+}
+
+type LookupProtectedItemOutputArgs struct {
+	// Container name associated with the backed up item.
+	ContainerName pulumi.StringInput `pulumi:"containerName"`
+	// Fabric name associated with the backed up item.
+	FabricName pulumi.StringInput `pulumi:"fabricName"`
+	// OData filter options.
+	Filter pulumi.StringPtrInput `pulumi:"filter"`
+	// Backed up item name whose details are to be fetched.
+	ProtectedItemName pulumi.StringInput `pulumi:"protectedItemName"`
+	// The name of the resource group where the recovery services vault is present.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the recovery services vault.
+	VaultName pulumi.StringInput `pulumi:"vaultName"`
+}
+
+func (LookupProtectedItemOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupProtectedItemArgs)(nil)).Elem()
+}
+
+// Base class for backup items.
+type LookupProtectedItemResultOutput struct{ *pulumi.OutputState }
+
+func (LookupProtectedItemResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupProtectedItemResult)(nil)).Elem()
+}
+
+func (o LookupProtectedItemResultOutput) ToLookupProtectedItemResultOutput() LookupProtectedItemResultOutput {
+	return o
+}
+
+func (o LookupProtectedItemResultOutput) ToLookupProtectedItemResultOutputWithContext(ctx context.Context) LookupProtectedItemResultOutput {
+	return o
+}
+
+// Optional ETag.
+func (o LookupProtectedItemResultOutput) ETag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupProtectedItemResult) *string { return v.ETag }).(pulumi.StringPtrOutput)
+}
+
+// Resource Id represents the complete path to the resource.
+func (o LookupProtectedItemResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupProtectedItemResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Resource location.
+func (o LookupProtectedItemResultOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupProtectedItemResult) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Resource name associated with the resource.
+func (o LookupProtectedItemResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupProtectedItemResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// ProtectedItemResource properties
+func (o LookupProtectedItemResultOutput) Properties() pulumi.AnyOutput {
+	return o.ApplyT(func(v LookupProtectedItemResult) interface{} { return v.Properties }).(pulumi.AnyOutput)
+}
+
+// Resource tags.
+func (o LookupProtectedItemResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupProtectedItemResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...
+func (o LookupProtectedItemResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupProtectedItemResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupProtectedItemResultOutput{})
 }

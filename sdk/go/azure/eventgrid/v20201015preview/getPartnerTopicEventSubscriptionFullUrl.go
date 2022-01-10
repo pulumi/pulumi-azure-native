@@ -4,6 +4,9 @@
 package v20201015preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -30,4 +33,50 @@ type GetPartnerTopicEventSubscriptionFullUrlArgs struct {
 type GetPartnerTopicEventSubscriptionFullUrlResult struct {
 	// The URL that represents the endpoint of the destination of an event subscription.
 	EndpointUrl *string `pulumi:"endpointUrl"`
+}
+
+func GetPartnerTopicEventSubscriptionFullUrlOutput(ctx *pulumi.Context, args GetPartnerTopicEventSubscriptionFullUrlOutputArgs, opts ...pulumi.InvokeOption) GetPartnerTopicEventSubscriptionFullUrlResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetPartnerTopicEventSubscriptionFullUrlResult, error) {
+			args := v.(GetPartnerTopicEventSubscriptionFullUrlArgs)
+			r, err := GetPartnerTopicEventSubscriptionFullUrl(ctx, &args, opts...)
+			return *r, err
+		}).(GetPartnerTopicEventSubscriptionFullUrlResultOutput)
+}
+
+type GetPartnerTopicEventSubscriptionFullUrlOutputArgs struct {
+	// Name of the event subscription to be created. Event subscription names must be between 3 and 100 characters in length and use alphanumeric letters only.
+	EventSubscriptionName pulumi.StringInput `pulumi:"eventSubscriptionName"`
+	// Name of the partner topic.
+	PartnerTopicName pulumi.StringInput `pulumi:"partnerTopicName"`
+	// The name of the resource group within the user's subscription.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (GetPartnerTopicEventSubscriptionFullUrlOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPartnerTopicEventSubscriptionFullUrlArgs)(nil)).Elem()
+}
+
+// Full endpoint url of an event subscription
+type GetPartnerTopicEventSubscriptionFullUrlResultOutput struct{ *pulumi.OutputState }
+
+func (GetPartnerTopicEventSubscriptionFullUrlResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPartnerTopicEventSubscriptionFullUrlResult)(nil)).Elem()
+}
+
+func (o GetPartnerTopicEventSubscriptionFullUrlResultOutput) ToGetPartnerTopicEventSubscriptionFullUrlResultOutput() GetPartnerTopicEventSubscriptionFullUrlResultOutput {
+	return o
+}
+
+func (o GetPartnerTopicEventSubscriptionFullUrlResultOutput) ToGetPartnerTopicEventSubscriptionFullUrlResultOutputWithContext(ctx context.Context) GetPartnerTopicEventSubscriptionFullUrlResultOutput {
+	return o
+}
+
+// The URL that represents the endpoint of the destination of an event subscription.
+func (o GetPartnerTopicEventSubscriptionFullUrlResultOutput) EndpointUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetPartnerTopicEventSubscriptionFullUrlResult) *string { return v.EndpointUrl }).(pulumi.StringPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetPartnerTopicEventSubscriptionFullUrlResultOutput{})
 }

@@ -4,6 +4,9 @@
 package v20190601
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -67,4 +70,107 @@ func (val *LookupJobDefinitionResult) Defaults() *LookupJobDefinitionResult {
 		tmp.UserConfirmation = &userConfirmation_
 	}
 	return &tmp
+}
+
+func LookupJobDefinitionOutput(ctx *pulumi.Context, args LookupJobDefinitionOutputArgs, opts ...pulumi.InvokeOption) LookupJobDefinitionResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupJobDefinitionResult, error) {
+			args := v.(LookupJobDefinitionArgs)
+			r, err := LookupJobDefinition(ctx, &args, opts...)
+			return *r, err
+		}).(LookupJobDefinitionResultOutput)
+}
+
+type LookupJobDefinitionOutputArgs struct {
+	// The name of the DataManager Resource within the specified resource group. DataManager names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
+	DataManagerName pulumi.StringInput `pulumi:"dataManagerName"`
+	// The data service name of the job definition
+	DataServiceName pulumi.StringInput `pulumi:"dataServiceName"`
+	// The job definition name that is being queried.
+	JobDefinitionName pulumi.StringInput `pulumi:"jobDefinitionName"`
+	// The Resource Group Name
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupJobDefinitionOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupJobDefinitionArgs)(nil)).Elem()
+}
+
+// Job Definition.
+type LookupJobDefinitionResultOutput struct{ *pulumi.OutputState }
+
+func (LookupJobDefinitionResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupJobDefinitionResult)(nil)).Elem()
+}
+
+func (o LookupJobDefinitionResultOutput) ToLookupJobDefinitionResultOutput() LookupJobDefinitionResultOutput {
+	return o
+}
+
+func (o LookupJobDefinitionResultOutput) ToLookupJobDefinitionResultOutputWithContext(ctx context.Context) LookupJobDefinitionResultOutput {
+	return o
+}
+
+// List of customer secrets containing a key identifier and key value. The key identifier is a way for the specific data source to understand the key. Value contains customer secret encrypted by the encryptionKeys.
+func (o LookupJobDefinitionResultOutput) CustomerSecrets() CustomerSecretResponseArrayOutput {
+	return o.ApplyT(func(v LookupJobDefinitionResult) []CustomerSecretResponse { return v.CustomerSecrets }).(CustomerSecretResponseArrayOutput)
+}
+
+// A generic json used differently by each data service type.
+func (o LookupJobDefinitionResultOutput) DataServiceInput() pulumi.AnyOutput {
+	return o.ApplyT(func(v LookupJobDefinitionResult) interface{} { return v.DataServiceInput }).(pulumi.AnyOutput)
+}
+
+// Data Sink Id associated to the job definition.
+func (o LookupJobDefinitionResultOutput) DataSinkId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupJobDefinitionResult) string { return v.DataSinkId }).(pulumi.StringOutput)
+}
+
+// Data Source Id associated to the job definition.
+func (o LookupJobDefinitionResultOutput) DataSourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupJobDefinitionResult) string { return v.DataSourceId }).(pulumi.StringOutput)
+}
+
+// Id of the object.
+func (o LookupJobDefinitionResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupJobDefinitionResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Last modified time of the job definition.
+func (o LookupJobDefinitionResultOutput) LastModifiedTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupJobDefinitionResult) *string { return v.LastModifiedTime }).(pulumi.StringPtrOutput)
+}
+
+// Name of the object.
+func (o LookupJobDefinitionResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupJobDefinitionResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// This is the preferred geo location for the job to run.
+func (o LookupJobDefinitionResultOutput) RunLocation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupJobDefinitionResult) *string { return v.RunLocation }).(pulumi.StringPtrOutput)
+}
+
+// Schedule for running the job definition
+func (o LookupJobDefinitionResultOutput) Schedules() ScheduleResponseArrayOutput {
+	return o.ApplyT(func(v LookupJobDefinitionResult) []ScheduleResponse { return v.Schedules }).(ScheduleResponseArrayOutput)
+}
+
+// State of the job definition.
+func (o LookupJobDefinitionResultOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupJobDefinitionResult) string { return v.State }).(pulumi.StringOutput)
+}
+
+// Type of the object.
+func (o LookupJobDefinitionResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupJobDefinitionResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Enum to detect if user confirmation is required. If not passed will default to NotRequired.
+func (o LookupJobDefinitionResultOutput) UserConfirmation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupJobDefinitionResult) *string { return v.UserConfirmation }).(pulumi.StringPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupJobDefinitionResultOutput{})
 }

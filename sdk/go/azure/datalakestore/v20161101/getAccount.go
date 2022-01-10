@@ -4,6 +4,9 @@
 package v20161101
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -74,4 +77,163 @@ type LookupAccountResult struct {
 	Type string `pulumi:"type"`
 	// The list of virtual network rules associated with this Data Lake Store account.
 	VirtualNetworkRules []VirtualNetworkRuleResponse `pulumi:"virtualNetworkRules"`
+}
+
+func LookupAccountOutput(ctx *pulumi.Context, args LookupAccountOutputArgs, opts ...pulumi.InvokeOption) LookupAccountResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupAccountResult, error) {
+			args := v.(LookupAccountArgs)
+			r, err := LookupAccount(ctx, &args, opts...)
+			return *r, err
+		}).(LookupAccountResultOutput)
+}
+
+type LookupAccountOutputArgs struct {
+	// The name of the Data Lake Store account.
+	AccountName pulumi.StringInput `pulumi:"accountName"`
+	// The name of the Azure resource group.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupAccountOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupAccountArgs)(nil)).Elem()
+}
+
+// Data Lake Store account information.
+type LookupAccountResultOutput struct{ *pulumi.OutputState }
+
+func (LookupAccountResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupAccountResult)(nil)).Elem()
+}
+
+func (o LookupAccountResultOutput) ToLookupAccountResultOutput() LookupAccountResultOutput {
+	return o
+}
+
+func (o LookupAccountResultOutput) ToLookupAccountResultOutputWithContext(ctx context.Context) LookupAccountResultOutput {
+	return o
+}
+
+// The unique identifier associated with this Data Lake Store account.
+func (o LookupAccountResultOutput) AccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAccountResult) string { return v.AccountId }).(pulumi.StringOutput)
+}
+
+// The account creation time.
+func (o LookupAccountResultOutput) CreationTime() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAccountResult) string { return v.CreationTime }).(pulumi.StringOutput)
+}
+
+// The commitment tier in use for the current month.
+func (o LookupAccountResultOutput) CurrentTier() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAccountResult) string { return v.CurrentTier }).(pulumi.StringOutput)
+}
+
+// The default owner group for all new folders and files created in the Data Lake Store account.
+func (o LookupAccountResultOutput) DefaultGroup() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAccountResult) string { return v.DefaultGroup }).(pulumi.StringOutput)
+}
+
+// The Key Vault encryption configuration.
+func (o LookupAccountResultOutput) EncryptionConfig() EncryptionConfigResponseOutput {
+	return o.ApplyT(func(v LookupAccountResult) EncryptionConfigResponse { return v.EncryptionConfig }).(EncryptionConfigResponseOutput)
+}
+
+// The current state of encryption provisioning for this Data Lake Store account.
+func (o LookupAccountResultOutput) EncryptionProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAccountResult) string { return v.EncryptionProvisioningState }).(pulumi.StringOutput)
+}
+
+// The current state of encryption for this Data Lake Store account.
+func (o LookupAccountResultOutput) EncryptionState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAccountResult) string { return v.EncryptionState }).(pulumi.StringOutput)
+}
+
+// The full CName endpoint for this account.
+func (o LookupAccountResultOutput) Endpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAccountResult) string { return v.Endpoint }).(pulumi.StringOutput)
+}
+
+// The current state of allowing or disallowing IPs originating within Azure through the firewall. If the firewall is disabled, this is not enforced.
+func (o LookupAccountResultOutput) FirewallAllowAzureIps() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAccountResult) string { return v.FirewallAllowAzureIps }).(pulumi.StringOutput)
+}
+
+// The list of firewall rules associated with this Data Lake Store account.
+func (o LookupAccountResultOutput) FirewallRules() FirewallRuleResponseArrayOutput {
+	return o.ApplyT(func(v LookupAccountResult) []FirewallRuleResponse { return v.FirewallRules }).(FirewallRuleResponseArrayOutput)
+}
+
+// The current state of the IP address firewall for this Data Lake Store account.
+func (o LookupAccountResultOutput) FirewallState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAccountResult) string { return v.FirewallState }).(pulumi.StringOutput)
+}
+
+// The resource identifier.
+func (o LookupAccountResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAccountResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The Key Vault encryption identity, if any.
+func (o LookupAccountResultOutput) Identity() EncryptionIdentityResponseOutput {
+	return o.ApplyT(func(v LookupAccountResult) EncryptionIdentityResponse { return v.Identity }).(EncryptionIdentityResponseOutput)
+}
+
+// The account last modified time.
+func (o LookupAccountResultOutput) LastModifiedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAccountResult) string { return v.LastModifiedTime }).(pulumi.StringOutput)
+}
+
+// The resource location.
+func (o LookupAccountResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAccountResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// The resource name.
+func (o LookupAccountResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAccountResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The commitment tier to use for next month.
+func (o LookupAccountResultOutput) NewTier() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAccountResult) string { return v.NewTier }).(pulumi.StringOutput)
+}
+
+// The provisioning status of the Data Lake Store account.
+func (o LookupAccountResultOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAccountResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The state of the Data Lake Store account.
+func (o LookupAccountResultOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAccountResult) string { return v.State }).(pulumi.StringOutput)
+}
+
+// The resource tags.
+func (o LookupAccountResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupAccountResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The current state of the trusted identity provider feature for this Data Lake Store account.
+func (o LookupAccountResultOutput) TrustedIdProviderState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAccountResult) string { return v.TrustedIdProviderState }).(pulumi.StringOutput)
+}
+
+// The list of trusted identity providers associated with this Data Lake Store account.
+func (o LookupAccountResultOutput) TrustedIdProviders() TrustedIdProviderResponseArrayOutput {
+	return o.ApplyT(func(v LookupAccountResult) []TrustedIdProviderResponse { return v.TrustedIdProviders }).(TrustedIdProviderResponseArrayOutput)
+}
+
+// The resource type.
+func (o LookupAccountResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAccountResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The list of virtual network rules associated with this Data Lake Store account.
+func (o LookupAccountResultOutput) VirtualNetworkRules() VirtualNetworkRuleResponseArrayOutput {
+	return o.ApplyT(func(v LookupAccountResult) []VirtualNetworkRuleResponse { return v.VirtualNetworkRules }).(VirtualNetworkRuleResponseArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupAccountResultOutput{})
 }

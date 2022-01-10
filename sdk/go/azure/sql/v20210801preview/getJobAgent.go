@@ -4,6 +4,9 @@
 package v20210801preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -44,4 +47,85 @@ type LookupJobAgentResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.
 	Type string `pulumi:"type"`
+}
+
+func LookupJobAgentOutput(ctx *pulumi.Context, args LookupJobAgentOutputArgs, opts ...pulumi.InvokeOption) LookupJobAgentResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupJobAgentResult, error) {
+			args := v.(LookupJobAgentArgs)
+			r, err := LookupJobAgent(ctx, &args, opts...)
+			return *r, err
+		}).(LookupJobAgentResultOutput)
+}
+
+type LookupJobAgentOutputArgs struct {
+	// The name of the job agent to be retrieved.
+	JobAgentName pulumi.StringInput `pulumi:"jobAgentName"`
+	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of the server.
+	ServerName pulumi.StringInput `pulumi:"serverName"`
+}
+
+func (LookupJobAgentOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupJobAgentArgs)(nil)).Elem()
+}
+
+// An Azure SQL job agent.
+type LookupJobAgentResultOutput struct{ *pulumi.OutputState }
+
+func (LookupJobAgentResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupJobAgentResult)(nil)).Elem()
+}
+
+func (o LookupJobAgentResultOutput) ToLookupJobAgentResultOutput() LookupJobAgentResultOutput {
+	return o
+}
+
+func (o LookupJobAgentResultOutput) ToLookupJobAgentResultOutputWithContext(ctx context.Context) LookupJobAgentResultOutput {
+	return o
+}
+
+// Resource ID of the database to store job metadata in.
+func (o LookupJobAgentResultOutput) DatabaseId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupJobAgentResult) string { return v.DatabaseId }).(pulumi.StringOutput)
+}
+
+// Resource ID.
+func (o LookupJobAgentResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupJobAgentResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Resource location.
+func (o LookupJobAgentResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupJobAgentResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o LookupJobAgentResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupJobAgentResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The name and tier of the SKU.
+func (o LookupJobAgentResultOutput) Sku() SkuResponsePtrOutput {
+	return o.ApplyT(func(v LookupJobAgentResult) *SkuResponse { return v.Sku }).(SkuResponsePtrOutput)
+}
+
+// The state of the job agent.
+func (o LookupJobAgentResultOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupJobAgentResult) string { return v.State }).(pulumi.StringOutput)
+}
+
+// Resource tags.
+func (o LookupJobAgentResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupJobAgentResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type.
+func (o LookupJobAgentResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupJobAgentResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupJobAgentResultOutput{})
 }

@@ -20,6 +20,56 @@ type ClusterJobResponse struct {
 	StreamingUnits int `pulumi:"streamingUnits"`
 }
 
+// A streaming job.
+type ClusterJobResponseOutput struct{ *pulumi.OutputState }
+
+func (ClusterJobResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterJobResponse)(nil)).Elem()
+}
+
+func (o ClusterJobResponseOutput) ToClusterJobResponseOutput() ClusterJobResponseOutput {
+	return o
+}
+
+func (o ClusterJobResponseOutput) ToClusterJobResponseOutputWithContext(ctx context.Context) ClusterJobResponseOutput {
+	return o
+}
+
+// Resource ID of the streaming job.
+func (o ClusterJobResponseOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterJobResponse) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The current execution state of the streaming job.
+func (o ClusterJobResponseOutput) JobState() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterJobResponse) string { return v.JobState }).(pulumi.StringOutput)
+}
+
+// The number of streaming units that are used by the streaming job.
+func (o ClusterJobResponseOutput) StreamingUnits() pulumi.IntOutput {
+	return o.ApplyT(func(v ClusterJobResponse) int { return v.StreamingUnits }).(pulumi.IntOutput)
+}
+
+type ClusterJobResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ClusterJobResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClusterJobResponse)(nil)).Elem()
+}
+
+func (o ClusterJobResponseArrayOutput) ToClusterJobResponseArrayOutput() ClusterJobResponseArrayOutput {
+	return o
+}
+
+func (o ClusterJobResponseArrayOutput) ToClusterJobResponseArrayOutputWithContext(ctx context.Context) ClusterJobResponseArrayOutput {
+	return o
+}
+
+func (o ClusterJobResponseArrayOutput) Index(i pulumi.IntInput) ClusterJobResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ClusterJobResponse {
+		return vs[0].([]ClusterJobResponse)[vs[1].(int)]
+	}).(ClusterJobResponseOutput)
+}
+
 // The properties associated with a Stream Analytics cluster.
 type ClusterPropertiesResponse struct {
 	// Represents the number of streaming units currently being used on the cluster.
@@ -769,6 +819,8 @@ func (o PrivateLinkServiceConnectionResponseArrayOutput) Index(i pulumi.IntInput
 }
 
 func init() {
+	pulumi.RegisterOutputType(ClusterJobResponseOutput{})
+	pulumi.RegisterOutputType(ClusterJobResponseArrayOutput{})
 	pulumi.RegisterOutputType(ClusterPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(ClusterSkuOutput{})
 	pulumi.RegisterOutputType(ClusterSkuPtrOutput{})

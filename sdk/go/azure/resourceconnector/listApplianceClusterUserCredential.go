@@ -4,6 +4,9 @@
 package resourceconnector
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -31,4 +34,57 @@ type ListApplianceClusterUserCredentialResult struct {
 	HybridConnectionConfig HybridConnectionConfigResponse `pulumi:"hybridConnectionConfig"`
 	// The list of appliance kubeconfigs.
 	Kubeconfigs []ApplianceCredentialKubeconfigResponse `pulumi:"kubeconfigs"`
+}
+
+func ListApplianceClusterUserCredentialOutput(ctx *pulumi.Context, args ListApplianceClusterUserCredentialOutputArgs, opts ...pulumi.InvokeOption) ListApplianceClusterUserCredentialResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (ListApplianceClusterUserCredentialResult, error) {
+			args := v.(ListApplianceClusterUserCredentialArgs)
+			r, err := ListApplianceClusterUserCredential(ctx, &args, opts...)
+			return *r, err
+		}).(ListApplianceClusterUserCredentialResultOutput)
+}
+
+type ListApplianceClusterUserCredentialOutputArgs struct {
+	// The name of the resource group. The name is case insensitive.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// Appliances name.
+	ResourceName pulumi.StringInput `pulumi:"resourceName"`
+}
+
+func (ListApplianceClusterUserCredentialOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListApplianceClusterUserCredentialArgs)(nil)).Elem()
+}
+
+// The List Cluster User Credential appliance.
+type ListApplianceClusterUserCredentialResultOutput struct{ *pulumi.OutputState }
+
+func (ListApplianceClusterUserCredentialResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListApplianceClusterUserCredentialResult)(nil)).Elem()
+}
+
+func (o ListApplianceClusterUserCredentialResultOutput) ToListApplianceClusterUserCredentialResultOutput() ListApplianceClusterUserCredentialResultOutput {
+	return o
+}
+
+func (o ListApplianceClusterUserCredentialResultOutput) ToListApplianceClusterUserCredentialResultOutputWithContext(ctx context.Context) ListApplianceClusterUserCredentialResultOutput {
+	return o
+}
+
+// Contains the REP (rendezvous endpoint) and “Listener” access token from notification service (NS).
+func (o ListApplianceClusterUserCredentialResultOutput) HybridConnectionConfig() HybridConnectionConfigResponseOutput {
+	return o.ApplyT(func(v ListApplianceClusterUserCredentialResult) HybridConnectionConfigResponse {
+		return v.HybridConnectionConfig
+	}).(HybridConnectionConfigResponseOutput)
+}
+
+// The list of appliance kubeconfigs.
+func (o ListApplianceClusterUserCredentialResultOutput) Kubeconfigs() ApplianceCredentialKubeconfigResponseArrayOutput {
+	return o.ApplyT(func(v ListApplianceClusterUserCredentialResult) []ApplianceCredentialKubeconfigResponse {
+		return v.Kubeconfigs
+	}).(ApplianceCredentialKubeconfigResponseArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(ListApplianceClusterUserCredentialResultOutput{})
 }

@@ -4,6 +4,9 @@
 package v20200512preview
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -42,4 +45,83 @@ type LookupFarmBeatsModelResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
+}
+
+func LookupFarmBeatsModelOutput(ctx *pulumi.Context, args LookupFarmBeatsModelOutputArgs, opts ...pulumi.InvokeOption) LookupFarmBeatsModelResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupFarmBeatsModelResult, error) {
+			args := v.(LookupFarmBeatsModelArgs)
+			r, err := LookupFarmBeatsModel(ctx, &args, opts...)
+			return *r, err
+		}).(LookupFarmBeatsModelResultOutput)
+}
+
+type LookupFarmBeatsModelOutputArgs struct {
+	// FarmBeats resource name.
+	FarmBeatsResourceName pulumi.StringInput `pulumi:"farmBeatsResourceName"`
+	// The name of the resource group. The name is case insensitive.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupFarmBeatsModelOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupFarmBeatsModelArgs)(nil)).Elem()
+}
+
+// FarmBeats ARM Resource.
+type LookupFarmBeatsModelResultOutput struct{ *pulumi.OutputState }
+
+func (LookupFarmBeatsModelResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupFarmBeatsModelResult)(nil)).Elem()
+}
+
+func (o LookupFarmBeatsModelResultOutput) ToLookupFarmBeatsModelResultOutput() LookupFarmBeatsModelResultOutput {
+	return o
+}
+
+func (o LookupFarmBeatsModelResultOutput) ToLookupFarmBeatsModelResultOutputWithContext(ctx context.Context) LookupFarmBeatsModelResultOutput {
+	return o
+}
+
+// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+func (o LookupFarmBeatsModelResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupFarmBeatsModelResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Uri of the FarmBeats instance.
+func (o LookupFarmBeatsModelResultOutput) InstanceUri() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupFarmBeatsModelResult) string { return v.InstanceUri }).(pulumi.StringOutput)
+}
+
+// The geo-location where the resource lives
+func (o LookupFarmBeatsModelResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupFarmBeatsModelResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o LookupFarmBeatsModelResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupFarmBeatsModelResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// FarmBeats instance provisioning state.
+func (o LookupFarmBeatsModelResultOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupFarmBeatsModelResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o LookupFarmBeatsModelResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupFarmBeatsModelResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource tags.
+func (o LookupFarmBeatsModelResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupFarmBeatsModelResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o LookupFarmBeatsModelResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupFarmBeatsModelResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupFarmBeatsModelResultOutput{})
 }
