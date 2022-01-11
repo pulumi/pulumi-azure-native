@@ -28230,7 +28230,6 @@
           }
         ],
         "apiVersions": [
-          "2022-01-03",
           "2021-11-01",
           "2021-07-01",
           "2021-04-01",
@@ -29481,7 +29480,6 @@
           }
         ],
         "apiVersions": [
-          "2022-01-03",
           "2021-11-01",
           "2021-07-01",
           "2021-04-01",
@@ -39360,6 +39358,7 @@
           "Germany West Central",
           "Norway East",
           "West US 3",
+          "Sweden Central",
           "Central US EUAP",
           "East US 2 EUAP"
         ],
@@ -39519,6 +39518,10 @@
             ]
           },
           {
+            "location": "Sweden Central",
+            "zones": []
+          },
+          {
             "location": "Switzerland North",
             "zones": []
           },
@@ -39606,6 +39609,7 @@
           "Germany West Central",
           "Norway East",
           "West US 3",
+          "Sweden Central",
           "Central US EUAP",
           "East US 2 EUAP"
         ],
@@ -39658,6 +39662,7 @@
           "Germany West Central",
           "Norway East",
           "West US 3",
+          "Sweden Central",
           "Central US EUAP",
           "East US 2 EUAP"
         ],
@@ -39710,6 +39715,7 @@
           "Germany West Central",
           "Norway East",
           "West US 3",
+          "Sweden Central",
           "Central US EUAP",
           "East US 2 EUAP"
         ],
@@ -39762,6 +39768,7 @@
           "Germany West Central",
           "Norway East",
           "West US 3",
+          "Sweden Central",
           "Central US EUAP",
           "East US 2 EUAP"
         ],
@@ -39814,6 +39821,7 @@
           "Germany West Central",
           "Norway East",
           "West US 3",
+          "Sweden Central",
           "Central US EUAP",
           "East US 2 EUAP"
         ],
@@ -39912,6 +39920,7 @@
           "Germany West Central",
           "Norway East",
           "West US 3",
+          "Sweden Central",
           "Central US EUAP",
           "East US 2 EUAP"
         ],
@@ -40486,6 +40495,7 @@
           "Norway East",
           "Norway West",
           "West US 3",
+          "Sweden Central",
           "Central US EUAP",
           "East US 2 EUAP"
         ],
@@ -79530,6 +79540,19 @@
         ],
         "properties": null,
         "resourceType": "operations"
+      },
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2021-04-30-preview"
+        ],
+        "capabilities": "None",
+        "defaultApiVersion": null,
+        "locationMappings": null,
+        "locations": [],
+        "properties": null,
+        "resourceType": "listServicePrincipalId"
       }
     ]
   },
@@ -95232,7 +95255,10 @@
         "apiVersions": [
           "2021-11-15-preview",
           "2021-10-01-preview",
-          "2020-05-01-preview"
+          "2020-05-01-preview",
+          "2019-01-01-preview",
+          "2018-10-15",
+          "2017-12-01-preview"
         ],
         "capabilities": "None",
         "defaultApiVersion": null,
@@ -99156,6 +99182,7 @@
           "Central India",
           "UK South",
           "France Central",
+          "Korea Central",
           "Australia East",
           "North Europe",
           "West Central US",
@@ -99164,6 +99191,21 @@
         ],
         "properties": null,
         "resourceType": "accounts"
+      },
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2021-12-01"
+        ],
+        "capabilities": "None",
+        "defaultApiVersion": null,
+        "locationMappings": null,
+        "locations": [
+          "Korea Central"
+        ],
+        "properties": null,
+        "resourceType": "accounts/kafkaConfigurations"
       },
       {
         "aliases": null,
@@ -99285,6 +99327,7 @@
           "Central India",
           "UK South",
           "France Central",
+          "Korea Central",
           "Australia East",
           "North Europe",
           "West Central US",
@@ -106525,170 +106568,6 @@
         "locations": [],
         "properties": null,
         "resourceType": "updateCommunicationPreference"
-      }
-    ]
-  },
-  {
-    "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/RavenHq.Db",
-    "namespace": "RavenHq.Db",
-    "providerAuthorizationConsentState": "NotRequired",
-    "registrationPolicy": "RegistrationRequired",
-    "registrationState": "NotRegistered",
-    "resourceTypes": [
-      {
-        "aliases": null,
-        "apiProfiles": null,
-        "apiVersions": [
-          "2016-07-18"
-        ],
-        "capabilities": "SupportsTags, SupportsLocation",
-        "defaultApiVersion": null,
-        "locationMappings": null,
-        "locations": [
-          "East US",
-          "North Europe",
-          "West Europe"
-        ],
-        "properties": null,
-        "resourceType": "databases"
-      },
-      {
-        "aliases": null,
-        "apiProfiles": null,
-        "apiVersions": [
-          "2016-07-18"
-        ],
-        "capabilities": "None",
-        "defaultApiVersion": null,
-        "locationMappings": null,
-        "locations": [],
-        "properties": null,
-        "resourceType": "operations"
-      },
-      {
-        "aliases": null,
-        "apiProfiles": null,
-        "apiVersions": [
-          "2016-07-18"
-        ],
-        "capabilities": "None",
-        "defaultApiVersion": null,
-        "locationMappings": null,
-        "locations": [],
-        "properties": null,
-        "resourceType": "listCommunicationPreference"
-      },
-      {
-        "aliases": null,
-        "apiProfiles": null,
-        "apiVersions": [
-          "2016-07-18"
-        ],
-        "capabilities": "None",
-        "defaultApiVersion": null,
-        "locationMappings": null,
-        "locations": [],
-        "properties": null,
-        "resourceType": "updateCommunicationPreference"
-      }
-    ]
-  },
-  {
-    "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Sendgrid.Email",
-    "namespace": "Sendgrid.Email",
-    "providerAuthorizationConsentState": "NotRequired",
-    "registrationPolicy": "RegistrationRequired",
-    "registrationState": "NotRegistered",
-    "resourceTypes": [
-      {
-        "aliases": null,
-        "apiProfiles": null,
-        "apiVersions": [
-          "2015-01-01"
-        ],
-        "capabilities": "SupportsTags, SupportsLocation",
-        "defaultApiVersion": null,
-        "locationMappings": null,
-        "locations": [
-          "Australia East",
-          "Australia Southeast",
-          "Brazil South",
-          "Canada Central",
-          "Canada East",
-          "Central India",
-          "Central US",
-          "East Asia",
-          "East US",
-          "East US 2",
-          "France Central",
-          "France South",
-          "Japan East",
-          "Japan West",
-          "Korea Central",
-          "North Central US",
-          "North Europe",
-          "South Africa North",
-          "South Africa West",
-          "South Central US",
-          "South India",
-          "Southeast Asia",
-          "UAE Central",
-          "UAE North",
-          "UK South",
-          "UK West",
-          "West Central US",
-          "West Europe",
-          "West India",
-          "West US",
-          "West US 2"
-        ],
-        "properties": null,
-        "resourceType": "accounts"
-      },
-      {
-        "aliases": null,
-        "apiProfiles": null,
-        "apiVersions": [
-          "2015-01-01"
-        ],
-        "capabilities": "None",
-        "defaultApiVersion": null,
-        "locationMappings": null,
-        "locations": [
-          "Australia East",
-          "Australia Southeast",
-          "Brazil South",
-          "Canada Central",
-          "Canada East",
-          "Central India",
-          "Central US",
-          "East Asia",
-          "East US",
-          "East US 2",
-          "France Central",
-          "France South",
-          "Japan East",
-          "Japan West",
-          "Korea Central",
-          "North Central US",
-          "North Europe",
-          "South Africa North",
-          "South Africa West",
-          "South Central US",
-          "South India",
-          "Southeast Asia",
-          "UAE Central",
-          "UAE North",
-          "UK South",
-          "UK West",
-          "West Central US",
-          "West Europe",
-          "West India",
-          "West US",
-          "West US 2"
-        ],
-        "properties": null,
-        "resourceType": "operations"
       }
     ]
   },
