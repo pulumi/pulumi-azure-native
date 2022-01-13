@@ -108,6 +108,7 @@ class SkuArgs:
     def __init__(__self__, *,
                  name: Optional[pulumi.Input[Union[str, 'SkuName']]] = None):
         """
+        SKU of the dedicated HSM
         :param pulumi.Input[Union[str, 'SkuName']] name: SKU of the dedicated HSM
         """
         if name is not None:

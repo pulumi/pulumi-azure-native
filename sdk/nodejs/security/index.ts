@@ -30,7 +30,6 @@ export * from "./getDeviceSecurityGroup";
 export * from "./getIngestionSetting";
 export * from "./getIotSecuritySolution";
 export * from "./getJitNetworkAccessPolicy";
-export * from "./getScanner";
 export * from "./getSecurityConnector";
 export * from "./getSecurityContact";
 export * from "./getServerVulnerabilityAssessment";
@@ -42,7 +41,6 @@ export * from "./iotSecuritySolution";
 export * from "./jitNetworkAccessPolicy";
 export * from "./listIngestionSettingConnectionStrings";
 export * from "./listIngestionSettingTokens";
-export * from "./scanner";
 export * from "./securityConnector";
 export * from "./securityContact";
 export * from "./serverVulnerabilityAssessment";
@@ -66,7 +64,6 @@ import * as v20210115preview from "./v20210115preview";
 import * as v20210601 from "./v20210601";
 import * as v20210701preview from "./v20210701preview";
 import * as v20210801preview from "./v20210801preview";
-import * as v20211201preview from "./v20211201preview";
 
 export {
     v20150601preview,
@@ -81,7 +78,6 @@ export {
     v20210601,
     v20210701preview,
     v20210801preview,
-    v20211201preview,
 };
 
 // Import resources to register:
@@ -99,7 +95,6 @@ import { DeviceSecurityGroup } from "./deviceSecurityGroup";
 import { IngestionSetting } from "./ingestionSetting";
 import { IotSecuritySolution } from "./iotSecuritySolution";
 import { JitNetworkAccessPolicy } from "./jitNetworkAccessPolicy";
-import { Scanner } from "./scanner";
 import { SecurityConnector } from "./securityConnector";
 import { SecurityContact } from "./securityContact";
 import { ServerVulnerabilityAssessment } from "./serverVulnerabilityAssessment";
@@ -139,8 +134,6 @@ const _module = {
                 return new IotSecuritySolution(name, <any>undefined, { urn })
             case "azure-native:security:JitNetworkAccessPolicy":
                 return new JitNetworkAccessPolicy(name, <any>undefined, { urn })
-            case "azure-native:security:Scanner":
-                return new Scanner(name, <any>undefined, { urn })
             case "azure-native:security:SecurityConnector":
                 return new SecurityConnector(name, <any>undefined, { urn })
             case "azure-native:security:SecurityContact":

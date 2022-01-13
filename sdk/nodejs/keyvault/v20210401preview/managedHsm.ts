@@ -98,7 +98,7 @@ export class ManagedHsm extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:keyvault:ManagedHsm" }, { type: "azure-native:keyvault/v20200401preview:ManagedHsm" }, { type: "azure-native:keyvault/v20210601preview:ManagedHsm" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:keyvault:ManagedHsm" }, { type: "azure-native:keyvault/v20200401preview:ManagedHsm" }, { type: "azure-native:keyvault/v20210601preview:ManagedHsm" }, { type: "azure-native:keyvault/v20211001:ManagedHsm" }, { type: "azure-native:keyvault/v20211101preview:ManagedHsm" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ManagedHsm.__pulumiType, name, resourceInputs, opts);
     }

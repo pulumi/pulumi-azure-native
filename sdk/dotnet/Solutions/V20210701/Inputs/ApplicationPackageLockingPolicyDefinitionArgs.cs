@@ -27,6 +27,18 @@ namespace Pulumi.AzureNative.Solutions.V20210701.Inputs
             set => _allowedActions = value;
         }
 
+        [Input("allowedDataActions")]
+        private InputList<string>? _allowedDataActions;
+
+        /// <summary>
+        /// The deny assignment excluded data actions.
+        /// </summary>
+        public InputList<string> AllowedDataActions
+        {
+            get => _allowedDataActions ?? (_allowedDataActions = new InputList<string>());
+            set => _allowedDataActions = value;
+        }
+
         public ApplicationPackageLockingPolicyDefinitionArgs()
         {
         }

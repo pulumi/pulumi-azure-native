@@ -7973,6 +7973,22 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "fluidrelay/v20210830preview",
+  "fqn": "pulumi_azure_native.fluidrelay.v20210830preview",
+  "classes": {
+   "azure-native:fluidrelay/v20210830preview:FluidRelayServer": "FluidRelayServer"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "fluidrelay/v20210910preview",
+  "fqn": "pulumi_azure_native.fluidrelay.v20210910preview",
+  "classes": {
+   "azure-native:fluidrelay/v20210910preview:FluidRelayServer": "FluidRelayServer"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "guestconfiguration",
   "fqn": "pulumi_azure_native.guestconfiguration",
   "classes": {
@@ -8056,6 +8072,14 @@ _utilities.register(
   "fqn": "pulumi_azure_native.hardwaresecuritymodules.v20181031preview",
   "classes": {
    "azure-native:hardwaresecuritymodules/v20181031preview:DedicatedHsm": "DedicatedHsm"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "hardwaresecuritymodules/v20211130",
+  "fqn": "pulumi_azure_native.hardwaresecuritymodules.v20211130",
+  "classes": {
+   "azure-native:hardwaresecuritymodules/v20211130:DedicatedHsm": "DedicatedHsm"
   }
  },
  {
@@ -8971,6 +8995,32 @@ _utilities.register(
    "azure-native:keyvault/v20210601preview:PrivateEndpointConnection": "PrivateEndpointConnection",
    "azure-native:keyvault/v20210601preview:Secret": "Secret",
    "azure-native:keyvault/v20210601preview:Vault": "Vault"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "keyvault/v20211001",
+  "fqn": "pulumi_azure_native.keyvault.v20211001",
+  "classes": {
+   "azure-native:keyvault/v20211001:Key": "Key",
+   "azure-native:keyvault/v20211001:MHSMPrivateEndpointConnection": "MHSMPrivateEndpointConnection",
+   "azure-native:keyvault/v20211001:ManagedHsm": "ManagedHsm",
+   "azure-native:keyvault/v20211001:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:keyvault/v20211001:Secret": "Secret",
+   "azure-native:keyvault/v20211001:Vault": "Vault"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "keyvault/v20211101preview",
+  "fqn": "pulumi_azure_native.keyvault.v20211101preview",
+  "classes": {
+   "azure-native:keyvault/v20211101preview:Key": "Key",
+   "azure-native:keyvault/v20211101preview:MHSMPrivateEndpointConnection": "MHSMPrivateEndpointConnection",
+   "azure-native:keyvault/v20211101preview:ManagedHsm": "ManagedHsm",
+   "azure-native:keyvault/v20211101preview:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:keyvault/v20211101preview:Secret": "Secret",
+   "azure-native:keyvault/v20211101preview:Vault": "Vault"
   }
  },
  {
@@ -14103,6 +14153,23 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "recoveryservices/v20211101",
+  "fqn": "pulumi_azure_native.recoveryservices.v20211101",
+  "classes": {
+   "azure-native:recoveryservices/v20211101:ReplicationFabric": "ReplicationFabric",
+   "azure-native:recoveryservices/v20211101:ReplicationMigrationItem": "ReplicationMigrationItem",
+   "azure-native:recoveryservices/v20211101:ReplicationNetworkMapping": "ReplicationNetworkMapping",
+   "azure-native:recoveryservices/v20211101:ReplicationPolicy": "ReplicationPolicy",
+   "azure-native:recoveryservices/v20211101:ReplicationProtectedItem": "ReplicationProtectedItem",
+   "azure-native:recoveryservices/v20211101:ReplicationProtectionContainerMapping": "ReplicationProtectionContainerMapping",
+   "azure-native:recoveryservices/v20211101:ReplicationRecoveryPlan": "ReplicationRecoveryPlan",
+   "azure-native:recoveryservices/v20211101:ReplicationRecoveryServicesProvider": "ReplicationRecoveryServicesProvider",
+   "azure-native:recoveryservices/v20211101:ReplicationStorageClassificationMapping": "ReplicationStorageClassificationMapping",
+   "azure-native:recoveryservices/v20211101:ReplicationvCenter": "ReplicationvCenter"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "recoveryservices/v20211101preview",
   "fqn": "pulumi_azure_native.recoveryservices.v20211101preview",
   "classes": {
@@ -14643,7 +14710,6 @@ _utilities.register(
    "azure-native:security:IngestionSetting": "IngestionSetting",
    "azure-native:security:IotSecuritySolution": "IotSecuritySolution",
    "azure-native:security:JitNetworkAccessPolicy": "JitNetworkAccessPolicy",
-   "azure-native:security:Scanner": "Scanner",
    "azure-native:security:SecurityConnector": "SecurityConnector",
    "azure-native:security:SecurityContact": "SecurityContact",
    "azure-native:security:ServerVulnerabilityAssessment": "ServerVulnerabilityAssessment",
@@ -14764,14 +14830,6 @@ _utilities.register(
   "classes": {
    "azure-native:security/v20210801preview:Assignment": "Assignment",
    "azure-native:security/v20210801preview:Standard": "Standard"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "security/v20211201preview",
-  "fqn": "pulumi_azure_native.security.v20211201preview",
-  "classes": {
-   "azure-native:security/v20211201preview:Scanner": "Scanner"
   }
  },
  {

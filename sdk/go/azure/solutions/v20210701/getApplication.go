@@ -44,7 +44,7 @@ type LookupApplicationResult struct {
 	// Resource ID
 	Id string `pulumi:"id"`
 	// The identity of the resource.
-	Identity *ManagedServiceIdentityResponse `pulumi:"identity"`
+	Identity *IdentityResponse `pulumi:"identity"`
 	// The managed application Jit access policy.
 	JitAccessPolicy *ApplicationJitAccessPolicyResponse `pulumi:"jitAccessPolicy"`
 	// The kind of the managed application. Allowed values are MarketPlace and ServiceCatalog.
@@ -154,8 +154,8 @@ func (o LookupApplicationResultOutput) Id() pulumi.StringOutput {
 }
 
 // The identity of the resource.
-func (o LookupApplicationResultOutput) Identity() ManagedServiceIdentityResponsePtrOutput {
-	return o.ApplyT(func(v LookupApplicationResult) *ManagedServiceIdentityResponse { return v.Identity }).(ManagedServiceIdentityResponsePtrOutput)
+func (o LookupApplicationResultOutput) Identity() IdentityResponsePtrOutput {
+	return o.ApplyT(func(v LookupApplicationResult) *IdentityResponse { return v.Identity }).(IdentityResponsePtrOutput)
 }
 
 // The managed application Jit access policy.

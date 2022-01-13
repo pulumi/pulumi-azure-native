@@ -62,7 +62,7 @@ export class Application extends pulumi.CustomResource {
     /**
      * The identity of the resource.
      */
-    public readonly identity!: pulumi.Output<outputs.solutions.v20210701.ManagedServiceIdentityResponse | undefined>;
+    public readonly identity!: pulumi.Output<outputs.solutions.v20210701.IdentityResponse | undefined>;
     /**
      * The managed application Jit access policy.
      */
@@ -231,7 +231,7 @@ export interface ApplicationArgs {
     /**
      * The identity of the resource.
      */
-    identity?: pulumi.Input<inputs.solutions.v20210701.ManagedServiceIdentityArgs>;
+    identity?: pulumi.Input<inputs.solutions.v20210701.IdentityArgs>;
     /**
      * The managed application Jit access policy.
      */

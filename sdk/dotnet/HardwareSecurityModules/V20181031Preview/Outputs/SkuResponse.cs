@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.HardwareSecurityModules.V20181031Preview.Outputs
 {
 
+    /// <summary>
+    /// SKU of the dedicated HSM
+    /// </summary>
     [OutputType]
     public sealed class SkuResponse
     {

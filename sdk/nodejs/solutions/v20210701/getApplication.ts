@@ -68,7 +68,7 @@ export interface GetApplicationResult {
     /**
      * The identity of the resource.
      */
-    readonly identity?: outputs.solutions.v20210701.ManagedServiceIdentityResponse;
+    readonly identity?: outputs.solutions.v20210701.IdentityResponse;
     /**
      * The managed application Jit access policy.
      */

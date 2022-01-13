@@ -99,7 +99,7 @@ namespace Pulumi.AzureNative.Solutions.V20210701
         /// <summary>
         /// The identity of the resource.
         /// </summary>
-        public readonly Outputs.ManagedServiceIdentityResponse? Identity;
+        public readonly Outputs.IdentityResponse? Identity;
         /// <summary>
         /// The managed application Jit access policy.
         /// </summary>
@@ -189,7 +189,7 @@ namespace Pulumi.AzureNative.Solutions.V20210701
 
             string id,
 
-            Outputs.ManagedServiceIdentityResponse? identity,
+            Outputs.IdentityResponse? identity,
 
             Outputs.ApplicationJitAccessPolicyResponse? jitAccessPolicy,
 

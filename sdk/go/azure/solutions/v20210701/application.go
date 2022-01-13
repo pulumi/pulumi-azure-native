@@ -28,7 +28,7 @@ type Application struct {
 	// The read-only customer support property that is retrieved from the application package.
 	CustomerSupport ApplicationPackageContactResponseOutput `pulumi:"customerSupport"`
 	// The identity of the resource.
-	Identity ManagedServiceIdentityResponsePtrOutput `pulumi:"identity"`
+	Identity IdentityResponsePtrOutput `pulumi:"identity"`
 	// The managed application Jit access policy.
 	JitAccessPolicy ApplicationJitAccessPolicyResponsePtrOutput `pulumi:"jitAccessPolicy"`
 	// The kind of the managed application. Allowed values are MarketPlace and ServiceCatalog.
@@ -138,7 +138,7 @@ type applicationArgs struct {
 	// The name of the managed application.
 	ApplicationName *string `pulumi:"applicationName"`
 	// The identity of the resource.
-	Identity *ManagedServiceIdentity `pulumi:"identity"`
+	Identity *Identity `pulumi:"identity"`
 	// The managed application Jit access policy.
 	JitAccessPolicy *ApplicationJitAccessPolicy `pulumi:"jitAccessPolicy"`
 	// The kind of the managed application. Allowed values are MarketPlace and ServiceCatalog.
@@ -168,7 +168,7 @@ type ApplicationArgs struct {
 	// The name of the managed application.
 	ApplicationName pulumi.StringPtrInput
 	// The identity of the resource.
-	Identity ManagedServiceIdentityPtrInput
+	Identity IdentityPtrInput
 	// The managed application Jit access policy.
 	JitAccessPolicy ApplicationJitAccessPolicyPtrInput
 	// The kind of the managed application. Allowed values are MarketPlace and ServiceCatalog.

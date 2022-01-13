@@ -141,9 +141,13 @@ class NetworkProfileResponse(dict):
 
 @pulumi.output_type
 class SkuResponse(dict):
+    """
+    SKU of the dedicated HSM
+    """
     def __init__(__self__, *,
                  name: Optional[str] = None):
         """
+        SKU of the dedicated HSM
         :param str name: SKU of the dedicated HSM
         """
         if name is not None:

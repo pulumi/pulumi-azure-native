@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.HardwareSecurityModules.Inputs
 {
 
+    /// <summary>
+    /// SKU of the dedicated HSM
+    /// </summary>
     public sealed class SkuArgs : Pulumi.ResourceArgs
     {
         /// <summary>

@@ -55,7 +55,7 @@ namespace Pulumi.AzureNative.Solutions.V20210701
         /// The identity of the resource.
         /// </summary>
         [Output("identity")]
-        public Output<Outputs.ManagedServiceIdentityResponse?> Identity { get; private set; } = null!;
+        public Output<Outputs.IdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// The managed application Jit access policy.
@@ -235,7 +235,7 @@ namespace Pulumi.AzureNative.Solutions.V20210701
         /// The identity of the resource.
         /// </summary>
         [Input("identity")]
-        public Input<Inputs.ManagedServiceIdentityArgs>? Identity { get; set; }
+        public Input<Inputs.IdentityArgs>? Identity { get; set; }
 
         /// <summary>
         /// The managed application Jit access policy.

@@ -285,13 +285,17 @@ class ApplicationNotificationPolicyArgs:
 @pulumi.input_type
 class ApplicationPackageLockingPolicyDefinitionArgs:
     def __init__(__self__, *,
-                 allowed_actions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+                 allowed_actions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 allowed_data_actions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Managed application locking policy.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_actions: The deny assignment excluded actions.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_data_actions: The deny assignment excluded data actions.
         """
         if allowed_actions is not None:
             pulumi.set(__self__, "allowed_actions", allowed_actions)
+        if allowed_data_actions is not None:
+            pulumi.set(__self__, "allowed_data_actions", allowed_data_actions)
 
     @property
     @pulumi.getter(name="allowedActions")
@@ -304,6 +308,18 @@ class ApplicationPackageLockingPolicyDefinitionArgs:
     @allowed_actions.setter
     def allowed_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "allowed_actions", value)
+
+    @property
+    @pulumi.getter(name="allowedDataActions")
+    def allowed_data_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The deny assignment excluded data actions.
+        """
+        return pulumi.get(self, "allowed_data_actions")
+
+    @allowed_data_actions.setter
+    def allowed_data_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "allowed_data_actions", value)
 
 
 @pulumi.input_type

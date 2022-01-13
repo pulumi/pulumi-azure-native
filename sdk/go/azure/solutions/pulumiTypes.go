@@ -1578,6 +1578,8 @@ func (o ApplicationPackageContactResponseOutput) Phone() pulumi.StringOutput {
 type ApplicationPackageLockingPolicyDefinition struct {
 	// The deny assignment excluded actions.
 	AllowedActions []string `pulumi:"allowedActions"`
+	// The deny assignment excluded data actions.
+	AllowedDataActions []string `pulumi:"allowedDataActions"`
 }
 
 // ApplicationPackageLockingPolicyDefinitionInput is an input type that accepts ApplicationPackageLockingPolicyDefinitionArgs and ApplicationPackageLockingPolicyDefinitionOutput values.
@@ -1595,6 +1597,8 @@ type ApplicationPackageLockingPolicyDefinitionInput interface {
 type ApplicationPackageLockingPolicyDefinitionArgs struct {
 	// The deny assignment excluded actions.
 	AllowedActions pulumi.StringArrayInput `pulumi:"allowedActions"`
+	// The deny assignment excluded data actions.
+	AllowedDataActions pulumi.StringArrayInput `pulumi:"allowedDataActions"`
 }
 
 func (ApplicationPackageLockingPolicyDefinitionArgs) ElementType() reflect.Type {
@@ -1680,6 +1684,11 @@ func (o ApplicationPackageLockingPolicyDefinitionOutput) AllowedActions() pulumi
 	return o.ApplyT(func(v ApplicationPackageLockingPolicyDefinition) []string { return v.AllowedActions }).(pulumi.StringArrayOutput)
 }
 
+// The deny assignment excluded data actions.
+func (o ApplicationPackageLockingPolicyDefinitionOutput) AllowedDataActions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ApplicationPackageLockingPolicyDefinition) []string { return v.AllowedDataActions }).(pulumi.StringArrayOutput)
+}
+
 type ApplicationPackageLockingPolicyDefinitionPtrOutput struct{ *pulumi.OutputState }
 
 func (ApplicationPackageLockingPolicyDefinitionPtrOutput) ElementType() reflect.Type {
@@ -1714,10 +1723,22 @@ func (o ApplicationPackageLockingPolicyDefinitionPtrOutput) AllowedActions() pul
 	}).(pulumi.StringArrayOutput)
 }
 
+// The deny assignment excluded data actions.
+func (o ApplicationPackageLockingPolicyDefinitionPtrOutput) AllowedDataActions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ApplicationPackageLockingPolicyDefinition) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AllowedDataActions
+	}).(pulumi.StringArrayOutput)
+}
+
 // Managed application locking policy.
 type ApplicationPackageLockingPolicyDefinitionResponse struct {
 	// The deny assignment excluded actions.
 	AllowedActions []string `pulumi:"allowedActions"`
+	// The deny assignment excluded data actions.
+	AllowedDataActions []string `pulumi:"allowedDataActions"`
 }
 
 // Managed application locking policy.
@@ -1738,6 +1759,11 @@ func (o ApplicationPackageLockingPolicyDefinitionResponseOutput) ToApplicationPa
 // The deny assignment excluded actions.
 func (o ApplicationPackageLockingPolicyDefinitionResponseOutput) AllowedActions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ApplicationPackageLockingPolicyDefinitionResponse) []string { return v.AllowedActions }).(pulumi.StringArrayOutput)
+}
+
+// The deny assignment excluded data actions.
+func (o ApplicationPackageLockingPolicyDefinitionResponseOutput) AllowedDataActions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ApplicationPackageLockingPolicyDefinitionResponse) []string { return v.AllowedDataActions }).(pulumi.StringArrayOutput)
 }
 
 type ApplicationPackageLockingPolicyDefinitionResponsePtrOutput struct{ *pulumi.OutputState }
@@ -1771,6 +1797,16 @@ func (o ApplicationPackageLockingPolicyDefinitionResponsePtrOutput) AllowedActio
 			return nil
 		}
 		return v.AllowedActions
+	}).(pulumi.StringArrayOutput)
+}
+
+// The deny assignment excluded data actions.
+func (o ApplicationPackageLockingPolicyDefinitionResponsePtrOutput) AllowedDataActions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ApplicationPackageLockingPolicyDefinitionResponse) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AllowedDataActions
 	}).(pulumi.StringArrayOutput)
 }
 

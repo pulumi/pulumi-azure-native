@@ -594,6 +594,7 @@ func (o NetworkProfileResponsePtrOutput) Subnet() ApiEntityReferenceResponsePtrO
 	}).(ApiEntityReferenceResponsePtrOutput)
 }
 
+// SKU of the dedicated HSM
 type Sku struct {
 	// SKU of the dedicated HSM
 	Name *string `pulumi:"name"`
@@ -610,6 +611,7 @@ type SkuInput interface {
 	ToSkuOutputWithContext(context.Context) SkuOutput
 }
 
+// SKU of the dedicated HSM
 type SkuArgs struct {
 	// SKU of the dedicated HSM
 	Name pulumi.StringPtrInput `pulumi:"name"`
@@ -627,6 +629,7 @@ func (i SkuArgs) ToSkuOutputWithContext(ctx context.Context) SkuOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SkuOutput)
 }
 
+// SKU of the dedicated HSM
 type SkuOutput struct{ *pulumi.OutputState }
 
 func (SkuOutput) ElementType() reflect.Type {
@@ -646,11 +649,13 @@ func (o SkuOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Sku) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// SKU of the dedicated HSM
 type SkuResponse struct {
 	// SKU of the dedicated HSM
 	Name *string `pulumi:"name"`
 }
 
+// SKU of the dedicated HSM
 type SkuResponseOutput struct{ *pulumi.OutputState }
 
 func (SkuResponseOutput) ElementType() reflect.Type {

@@ -13,9 +13,11 @@ export * from "../types/enums/hardwaresecuritymodules";
 
 // Export sub-modules:
 import * as v20181031preview from "./v20181031preview";
+import * as v20211130 from "./v20211130";
 
 export {
     v20181031preview,
+    v20211130,
 };
 
 // Import resources to register:

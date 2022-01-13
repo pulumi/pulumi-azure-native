@@ -20,7 +20,34 @@ namespace Pulumi.AzureNative.HardwareSecurityModules.V20181031Preview
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// The dedicated HSM is a Safenet Luna Network HSM A790 device.
+        /// </summary>
         public static SkuName SafeNet_Luna_Network_HSM_A790 { get; } = new SkuName("SafeNet Luna Network HSM A790");
+        /// <summary>
+        /// The dedicated HSM is a payShield 10K, model PS10-D, 10Gb Ethernet Hardware Platform device with 1 local master key which supports up to 60 calls per second.
+        /// </summary>
+        public static SkuName PayShield10K_LMK1_CPS60 { get; } = new SkuName("payShield10K_LMK1_CPS60");
+        /// <summary>
+        /// The dedicated HSM is a payShield 10K, model PS10-D, 10Gb Ethernet Hardware Platform device with 1 local master key which supports up to 250 calls per second.
+        /// </summary>
+        public static SkuName PayShield10K_LMK1_CPS250 { get; } = new SkuName("payShield10K_LMK1_CPS250");
+        /// <summary>
+        /// The dedicated HSM is a payShield 10K, model PS10-D, 10Gb Ethernet Hardware Platform device with 1 local master key which supports up to 2500 calls per second.
+        /// </summary>
+        public static SkuName PayShield10K_LMK1_CPS2500 { get; } = new SkuName("payShield10K_LMK1_CPS2500");
+        /// <summary>
+        /// The dedicated HSM is a payShield 10K, model PS10-D, 10Gb Ethernet Hardware Platform device with 2 local master keys which supports up to 60 calls per second.
+        /// </summary>
+        public static SkuName PayShield10K_LMK2_CPS60 { get; } = new SkuName("payShield10K_LMK2_CPS60");
+        /// <summary>
+        /// The dedicated HSM is a payShield 10K, model PS10-D, 10Gb Ethernet Hardware Platform device with 2 local master keys which supports up to 250 calls per second.
+        /// </summary>
+        public static SkuName PayShield10K_LMK2_CPS250 { get; } = new SkuName("payShield10K_LMK2_CPS250");
+        /// <summary>
+        /// The dedicated HSM is a payShield 10K, model PS10-D, 10Gb Ethernet Hardware Platform device with 2 local master keys which supports up to 2500 calls per second.
+        /// </summary>
+        public static SkuName PayShield10K_LMK2_CPS2500 { get; } = new SkuName("payShield10K_LMK2_CPS2500");
 
         public static bool operator ==(SkuName left, SkuName right) => left.Equals(right);
         public static bool operator !=(SkuName left, SkuName right) => !left.Equals(right);

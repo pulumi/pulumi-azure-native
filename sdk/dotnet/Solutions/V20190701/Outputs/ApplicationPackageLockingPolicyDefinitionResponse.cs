@@ -20,11 +20,19 @@ namespace Pulumi.AzureNative.Solutions.V20190701.Outputs
         /// The deny assignment excluded actions.
         /// </summary>
         public readonly ImmutableArray<string> AllowedActions;
+        /// <summary>
+        /// The deny assignment excluded data actions.
+        /// </summary>
+        public readonly ImmutableArray<string> AllowedDataActions;
 
         [OutputConstructor]
-        private ApplicationPackageLockingPolicyDefinitionResponse(ImmutableArray<string> allowedActions)
+        private ApplicationPackageLockingPolicyDefinitionResponse(
+            ImmutableArray<string> allowedActions,
+
+            ImmutableArray<string> allowedDataActions)
         {
             AllowedActions = allowedActions;
+            AllowedDataActions = allowedDataActions;
         }
     }
 }

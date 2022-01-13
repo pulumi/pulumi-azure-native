@@ -101,6 +101,7 @@ namespace Pulumi.AzureNative.HardwareSecurityModules.V20181031Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:hardwaresecuritymodules:DedicatedHsm"},
+                    new Pulumi.Alias { Type = "azure-native:hardwaresecuritymodules/v20211130:DedicatedHsm"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

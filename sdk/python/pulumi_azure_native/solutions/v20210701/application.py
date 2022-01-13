@@ -20,7 +20,7 @@ class ApplicationArgs:
                  resource_group_name: pulumi.Input[str],
                  application_definition_id: Optional[pulumi.Input[str]] = None,
                  application_name: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None,
+                 identity: Optional[pulumi.Input['IdentityArgs']] = None,
                  jit_access_policy: Optional[pulumi.Input['ApplicationJitAccessPolicyArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  managed_by: Optional[pulumi.Input[str]] = None,
@@ -35,7 +35,7 @@ class ApplicationArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] application_definition_id: The fully qualified path of managed application definition Id.
         :param pulumi.Input[str] application_name: The name of the managed application.
-        :param pulumi.Input['ManagedServiceIdentityArgs'] identity: The identity of the resource.
+        :param pulumi.Input['IdentityArgs'] identity: The identity of the resource.
         :param pulumi.Input['ApplicationJitAccessPolicyArgs'] jit_access_policy: The managed application Jit access policy.
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[str] managed_by: ID of the resource that manages this resource.
@@ -120,14 +120,14 @@ class ApplicationArgs:
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['ManagedServiceIdentityArgs']]:
+    def identity(self) -> Optional[pulumi.Input['IdentityArgs']]:
         """
         The identity of the resource.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['ManagedServiceIdentityArgs']]):
+    def identity(self, value: Optional[pulumi.Input['IdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @property
@@ -234,7 +234,7 @@ class Application(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application_definition_id: Optional[pulumi.Input[str]] = None,
                  application_name: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['IdentityArgs']]] = None,
                  jit_access_policy: Optional[pulumi.Input[pulumi.InputType['ApplicationJitAccessPolicyArgs']]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -253,7 +253,7 @@ class Application(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] application_definition_id: The fully qualified path of managed application definition Id.
         :param pulumi.Input[str] application_name: The name of the managed application.
-        :param pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']] identity: The identity of the resource.
+        :param pulumi.Input[pulumi.InputType['IdentityArgs']] identity: The identity of the resource.
         :param pulumi.Input[pulumi.InputType['ApplicationJitAccessPolicyArgs']] jit_access_policy: The managed application Jit access policy.
         :param pulumi.Input[str] kind: The kind of the managed application. Allowed values are MarketPlace and ServiceCatalog.
         :param pulumi.Input[str] location: Resource location
@@ -291,7 +291,7 @@ class Application(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application_definition_id: Optional[pulumi.Input[str]] = None,
                  application_name: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['IdentityArgs']]] = None,
                  jit_access_policy: Optional[pulumi.Input[pulumi.InputType['ApplicationJitAccessPolicyArgs']]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -446,7 +446,7 @@ class Application(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def identity(self) -> pulumi.Output[Optional['outputs.ManagedServiceIdentityResponse']]:
+    def identity(self) -> pulumi.Output[Optional['outputs.IdentityResponse']]:
         """
         The identity of the resource.
         """

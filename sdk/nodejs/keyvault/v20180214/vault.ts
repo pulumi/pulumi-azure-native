@@ -90,7 +90,7 @@ export class Vault extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:keyvault:Vault" }, { type: "azure-native:keyvault/v20150601:Vault" }, { type: "azure-native:keyvault/v20161001:Vault" }, { type: "azure-native:keyvault/v20180214preview:Vault" }, { type: "azure-native:keyvault/v20190901:Vault" }, { type: "azure-native:keyvault/v20200401preview:Vault" }, { type: "azure-native:keyvault/v20210401preview:Vault" }, { type: "azure-native:keyvault/v20210601preview:Vault" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:keyvault:Vault" }, { type: "azure-native:keyvault/v20150601:Vault" }, { type: "azure-native:keyvault/v20161001:Vault" }, { type: "azure-native:keyvault/v20180214preview:Vault" }, { type: "azure-native:keyvault/v20190901:Vault" }, { type: "azure-native:keyvault/v20200401preview:Vault" }, { type: "azure-native:keyvault/v20210401preview:Vault" }, { type: "azure-native:keyvault/v20210601preview:Vault" }, { type: "azure-native:keyvault/v20211001:Vault" }, { type: "azure-native:keyvault/v20211101preview:Vault" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Vault.__pulumiType, name, resourceInputs, opts);
     }

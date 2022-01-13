@@ -90,14 +90,14 @@ export const JitSchedulingType = {
  */
 export type JitSchedulingType = (typeof JitSchedulingType)[keyof typeof JitSchedulingType];
 
-export const ManagedServiceIdentityType = {
-    None: "None",
+export const ResourceIdentityType = {
     SystemAssigned: "SystemAssigned",
     UserAssigned: "UserAssigned",
-    SystemAssigned_UserAssigned: "SystemAssigned,UserAssigned",
+    SystemAssigned_UserAssigned: "SystemAssigned, UserAssigned",
+    None: "None",
 } as const;
 
 /**
- * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+ * The identity type.
  */
-export type ManagedServiceIdentityType = (typeof ManagedServiceIdentityType)[keyof typeof ManagedServiceIdentityType];
+export type ResourceIdentityType = (typeof ResourceIdentityType)[keyof typeof ResourceIdentityType];

@@ -554,6 +554,8 @@ class ApplicationPackageLockingPolicyDefinitionResponse(dict):
         suggest = None
         if key == "allowedActions":
             suggest = "allowed_actions"
+        elif key == "allowedDataActions":
+            suggest = "allowed_data_actions"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ApplicationPackageLockingPolicyDefinitionResponse. Access the value via the '{suggest}' property getter instead.")
@@ -567,13 +569,17 @@ class ApplicationPackageLockingPolicyDefinitionResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 allowed_actions: Optional[Sequence[str]] = None):
+                 allowed_actions: Optional[Sequence[str]] = None,
+                 allowed_data_actions: Optional[Sequence[str]] = None):
         """
         Managed application locking policy.
         :param Sequence[str] allowed_actions: The deny assignment excluded actions.
+        :param Sequence[str] allowed_data_actions: The deny assignment excluded data actions.
         """
         if allowed_actions is not None:
             pulumi.set(__self__, "allowed_actions", allowed_actions)
+        if allowed_data_actions is not None:
+            pulumi.set(__self__, "allowed_data_actions", allowed_data_actions)
 
     @property
     @pulumi.getter(name="allowedActions")
@@ -582,6 +588,14 @@ class ApplicationPackageLockingPolicyDefinitionResponse(dict):
         The deny assignment excluded actions.
         """
         return pulumi.get(self, "allowed_actions")
+
+    @property
+    @pulumi.getter(name="allowedDataActions")
+    def allowed_data_actions(self) -> Optional[Sequence[str]]:
+        """
+        The deny assignment excluded data actions.
+        """
+        return pulumi.get(self, "allowed_data_actions")
 
 
 @pulumi.output_type

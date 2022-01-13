@@ -159,7 +159,7 @@ class GetApplicationResult:
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional['outputs.ManagedServiceIdentityResponse']:
+    def identity(self) -> Optional['outputs.IdentityResponse']:
         """
         The identity of the resource.
         """
