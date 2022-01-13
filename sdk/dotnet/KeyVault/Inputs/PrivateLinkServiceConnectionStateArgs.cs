@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.KeyVault.Inputs
         /// A message indicating if changes on the service provider require any updates on the consumer.
         /// </summary>
         [Input("actionsRequired")]
-        public InputUnion<string, Pulumi.AzureNative.KeyVault.ActionsRequired>? ActionsRequired { get; set; }
+        public Input<string>? ActionsRequired { get; set; }
 
         /// <summary>
         /// The reason for approval or rejection.

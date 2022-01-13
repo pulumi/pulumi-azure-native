@@ -146,7 +146,7 @@ class MHSMPrivateEndpointConnection(pulumi.CustomResource):
                  __props__=None):
         """
         Private endpoint connection resource.
-        API Version: 2021-10-01.
+        API Version: 2021-06-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -166,7 +166,7 @@ class MHSMPrivateEndpointConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Private endpoint connection resource.
-        API Version: 2021-10-01.
+        API Version: 2021-06-01-preview.
 
         :param str resource_name: The name of the resource.
         :param MHSMPrivateEndpointConnectionArgs args: The arguments to use to populate this resource's properties.

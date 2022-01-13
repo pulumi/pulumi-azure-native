@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Resource information with extended details.
- * API Version: 2021-11-30.
+ * API Version: 2018-10-31-preview.
  */
 export function getDedicatedHsm(args: GetDedicatedHsmArgs, opts?: pulumi.InvokeOptions): Promise<GetDedicatedHsmResult> {
     if (!opts) {
@@ -47,10 +47,6 @@ export interface GetDedicatedHsmResult {
      */
     readonly location: string;
     /**
-     * Specifies the management network interfaces of the dedicated hsm.
-     */
-    readonly managementNetworkProfile?: outputs.hardwaresecuritymodules.NetworkProfileResponse;
-    /**
      * The name of the dedicated HSM.
      */
     readonly name: string;
@@ -74,10 +70,6 @@ export interface GetDedicatedHsmResult {
      * Resource Status Message.
      */
     readonly statusMessage: string;
-    /**
-     * Metadata pertaining to creation and last modification of the resource
-     */
-    readonly systemData: outputs.hardwaresecuritymodules.SystemDataResponse;
     /**
      * Resource tags
      */

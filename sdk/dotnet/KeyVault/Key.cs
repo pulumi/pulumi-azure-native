@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.KeyVault
 {
     /// <summary>
     /// The key resource.
-    /// API Version: 2021-10-01.
+    /// API Version: 2019-09-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:keyvault:Key")]
     public partial class Key : Pulumi.CustomResource

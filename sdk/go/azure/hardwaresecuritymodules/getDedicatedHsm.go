@@ -11,7 +11,7 @@ import (
 )
 
 // Resource information with extended details.
-// API Version: 2021-11-30.
+// API Version: 2018-10-31-preview.
 func LookupDedicatedHsm(ctx *pulumi.Context, args *LookupDedicatedHsmArgs, opts ...pulumi.InvokeOption) (*LookupDedicatedHsmResult, error) {
 	var rv LookupDedicatedHsmResult
 	err := ctx.Invoke("azure-native:hardwaresecuritymodules:getDedicatedHsm", args, &rv, opts...)
@@ -34,8 +34,6 @@ type LookupDedicatedHsmResult struct {
 	Id string `pulumi:"id"`
 	// The supported Azure location where the dedicated HSM should be created.
 	Location string `pulumi:"location"`
-	// Specifies the management network interfaces of the dedicated hsm.
-	ManagementNetworkProfile *NetworkProfileResponse `pulumi:"managementNetworkProfile"`
 	// The name of the dedicated HSM.
 	Name string `pulumi:"name"`
 	// Specifies the network interfaces of the dedicated hsm.
@@ -48,8 +46,6 @@ type LookupDedicatedHsmResult struct {
 	StampId *string `pulumi:"stampId"`
 	// Resource Status Message.
 	StatusMessage string `pulumi:"statusMessage"`
-	// Metadata pertaining to creation and last modification of the resource
-	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// The resource type of the dedicated HSM.
@@ -103,11 +99,6 @@ func (o LookupDedicatedHsmResultOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDedicatedHsmResult) string { return v.Location }).(pulumi.StringOutput)
 }
 
-// Specifies the management network interfaces of the dedicated hsm.
-func (o LookupDedicatedHsmResultOutput) ManagementNetworkProfile() NetworkProfileResponsePtrOutput {
-	return o.ApplyT(func(v LookupDedicatedHsmResult) *NetworkProfileResponse { return v.ManagementNetworkProfile }).(NetworkProfileResponsePtrOutput)
-}
-
 // The name of the dedicated HSM.
 func (o LookupDedicatedHsmResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDedicatedHsmResult) string { return v.Name }).(pulumi.StringOutput)
@@ -136,11 +127,6 @@ func (o LookupDedicatedHsmResultOutput) StampId() pulumi.StringPtrOutput {
 // Resource Status Message.
 func (o LookupDedicatedHsmResultOutput) StatusMessage() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDedicatedHsmResult) string { return v.StatusMessage }).(pulumi.StringOutput)
-}
-
-// Metadata pertaining to creation and last modification of the resource
-func (o LookupDedicatedHsmResultOutput) SystemData() SystemDataResponseOutput {
-	return o.ApplyT(func(v LookupDedicatedHsmResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
 }
 
 // Resource tags

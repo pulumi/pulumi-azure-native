@@ -12,7 +12,7 @@ import (
 )
 
 // Resource information with extended details.
-// API Version: 2021-10-01.
+// API Version: 2019-09-01.
 type Vault struct {
 	pulumi.CustomResourceState
 
@@ -22,8 +22,6 @@ type Vault struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Properties of the vault
 	Properties VaultPropertiesResponseOutput `pulumi:"properties"`
-	// System metadata for the key vault.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Tags assigned to the key vault resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Resource type of the key vault resource.

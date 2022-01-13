@@ -11,7 +11,7 @@ import (
 )
 
 // Resource information with extended details.
-// API Version: 2021-10-01.
+// API Version: 2019-09-01.
 func LookupSecret(ctx *pulumi.Context, args *LookupSecretArgs, opts ...pulumi.InvokeOption) (*LookupSecretResult, error) {
 	var rv LookupSecretResult
 	err := ctx.Invoke("azure-native:keyvault:getSecret", args, &rv, opts...)

@@ -70,7 +70,6 @@ class NetworkProfileArgs:
                  network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceArgs']]]] = None,
                  subnet: Optional[pulumi.Input['ApiEntityReferenceArgs']] = None):
         """
-        The network profile definition.
         :param pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceArgs']]] network_interfaces: Specifies the list of resource Ids for the network interfaces associated with the dedicated HSM.
         :param pulumi.Input['ApiEntityReferenceArgs'] subnet: Specifies the identifier of the subnet.
         """

@@ -14,14 +14,14 @@ namespace Pulumi.AzureNative.KeyVault
     {
         /// <summary>
         /// Resource information with extended details.
-        /// API Version: 2021-10-01.
+        /// API Version: 2021-06-01-preview.
         /// </summary>
         public static Task<GetManagedHsmResult> InvokeAsync(GetManagedHsmArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetManagedHsmResult>("azure-native:keyvault:getManagedHsm", args ?? new GetManagedHsmArgs(), options.WithVersion());
 
         /// <summary>
         /// Resource information with extended details.
-        /// API Version: 2021-10-01.
+        /// API Version: 2021-06-01-preview.
         /// </summary>
         public static Output<GetManagedHsmResult> Invoke(GetManagedHsmInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetManagedHsmResult>("azure-native:keyvault:getManagedHsm", args ?? new GetManagedHsmInvokeArgs(), options.WithVersion());

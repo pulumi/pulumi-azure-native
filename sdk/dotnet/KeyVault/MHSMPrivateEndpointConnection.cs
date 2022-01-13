@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.KeyVault
 {
     /// <summary>
     /// Private endpoint connection resource.
-    /// API Version: 2021-10-01.
+    /// API Version: 2021-06-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:keyvault:MHSMPrivateEndpointConnection")]
     public partial class MHSMPrivateEndpointConnection : Pulumi.CustomResource

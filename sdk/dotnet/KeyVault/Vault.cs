@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.KeyVault
 {
     /// <summary>
     /// Resource information with extended details.
-    /// API Version: 2021-10-01.
+    /// API Version: 2019-09-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:keyvault:Vault")]
     public partial class Vault : Pulumi.CustomResource
@@ -33,12 +33,6 @@ namespace Pulumi.AzureNative.KeyVault
         /// </summary>
         [Output("properties")]
         public Output<Outputs.VaultPropertiesResponse> Properties { get; private set; } = null!;
-
-        /// <summary>
-        /// System metadata for the key vault.
-        /// </summary>
-        [Output("systemData")]
-        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Tags assigned to the key vault resource.

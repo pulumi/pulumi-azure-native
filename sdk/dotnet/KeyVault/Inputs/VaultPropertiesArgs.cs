@@ -82,12 +82,6 @@ namespace Pulumi.AzureNative.KeyVault.Inputs
         public InputUnion<string, Pulumi.AzureNative.KeyVault.VaultProvisioningState>? ProvisioningState { get; set; }
 
         /// <summary>
-        /// Property to specify whether the vault will accept traffic from public internet. If set to 'disabled' all traffic except private endpoint traffic and that that originates from trusted services will be blocked. This will override the set firewall rules, meaning that even if the firewall rules are present we will not honor the rules.
-        /// </summary>
-        [Input("publicNetworkAccess")]
-        public Input<string>? PublicNetworkAccess { get; set; }
-
-        /// <summary>
         /// SKU details
         /// </summary>
         [Input("sku", required: true)]
@@ -106,7 +100,7 @@ namespace Pulumi.AzureNative.KeyVault.Inputs
         public Input<string> TenantId { get; set; } = null!;
 
         /// <summary>
-        /// The URI of the vault for performing operations on keys and secrets.
+        /// The URI of the vault for performing operations on keys and secrets. This property is readonly
         /// </summary>
         [Input("vaultUri")]
         public Input<string>? VaultUri { get; set; }
@@ -115,7 +109,6 @@ namespace Pulumi.AzureNative.KeyVault.Inputs
         {
             EnableRbacAuthorization = false;
             EnableSoftDelete = true;
-            PublicNetworkAccess = "enabled";
             SoftDeleteRetentionInDays = 90;
         }
     }

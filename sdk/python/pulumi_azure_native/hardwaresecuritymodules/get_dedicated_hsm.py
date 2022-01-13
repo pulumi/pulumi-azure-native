@@ -21,16 +21,13 @@ class GetDedicatedHsmResult:
     """
     Resource information with extended details.
     """
-    def __init__(__self__, id=None, location=None, management_network_profile=None, name=None, network_profile=None, provisioning_state=None, sku=None, stamp_id=None, status_message=None, system_data=None, tags=None, type=None, zones=None):
+    def __init__(__self__, id=None, location=None, name=None, network_profile=None, provisioning_state=None, sku=None, stamp_id=None, status_message=None, tags=None, type=None, zones=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
-        if management_network_profile and not isinstance(management_network_profile, dict):
-            raise TypeError("Expected argument 'management_network_profile' to be a dict")
-        pulumi.set(__self__, "management_network_profile", management_network_profile)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -49,9 +46,6 @@ class GetDedicatedHsmResult:
         if status_message and not isinstance(status_message, str):
             raise TypeError("Expected argument 'status_message' to be a str")
         pulumi.set(__self__, "status_message", status_message)
-        if system_data and not isinstance(system_data, dict):
-            raise TypeError("Expected argument 'system_data' to be a dict")
-        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -77,14 +71,6 @@ class GetDedicatedHsmResult:
         The supported Azure location where the dedicated HSM should be created.
         """
         return pulumi.get(self, "location")
-
-    @property
-    @pulumi.getter(name="managementNetworkProfile")
-    def management_network_profile(self) -> Optional['outputs.NetworkProfileResponse']:
-        """
-        Specifies the management network interfaces of the dedicated hsm.
-        """
-        return pulumi.get(self, "management_network_profile")
 
     @property
     @pulumi.getter
@@ -135,14 +121,6 @@ class GetDedicatedHsmResult:
         return pulumi.get(self, "status_message")
 
     @property
-    @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.SystemDataResponse':
-        """
-        Metadata pertaining to creation and last modification of the resource
-        """
-        return pulumi.get(self, "system_data")
-
-    @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
         """
@@ -175,14 +153,12 @@ class AwaitableGetDedicatedHsmResult(GetDedicatedHsmResult):
         return GetDedicatedHsmResult(
             id=self.id,
             location=self.location,
-            management_network_profile=self.management_network_profile,
             name=self.name,
             network_profile=self.network_profile,
             provisioning_state=self.provisioning_state,
             sku=self.sku,
             stamp_id=self.stamp_id,
             status_message=self.status_message,
-            system_data=self.system_data,
             tags=self.tags,
             type=self.type,
             zones=self.zones)
@@ -193,7 +169,7 @@ def get_dedicated_hsm(name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDedicatedHsmResult:
     """
     Resource information with extended details.
-    API Version: 2021-11-30.
+    API Version: 2018-10-31-preview.
 
 
     :param str name: The name of the dedicated HSM.
@@ -211,14 +187,12 @@ def get_dedicated_hsm(name: Optional[str] = None,
     return AwaitableGetDedicatedHsmResult(
         id=__ret__.id,
         location=__ret__.location,
-        management_network_profile=__ret__.management_network_profile,
         name=__ret__.name,
         network_profile=__ret__.network_profile,
         provisioning_state=__ret__.provisioning_state,
         sku=__ret__.sku,
         stamp_id=__ret__.stamp_id,
         status_message=__ret__.status_message,
-        system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type,
         zones=__ret__.zones)
@@ -230,7 +204,7 @@ def get_dedicated_hsm_output(name: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDedicatedHsmResult]:
     """
     Resource information with extended details.
-    API Version: 2021-11-30.
+    API Version: 2018-10-31-preview.
 
 
     :param str name: The name of the dedicated HSM.

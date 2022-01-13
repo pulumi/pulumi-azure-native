@@ -112,7 +112,7 @@ class Vault(pulumi.CustomResource):
                  __props__=None):
         """
         Resource information with extended details.
-        API Version: 2021-10-01.
+        API Version: 2019-09-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -130,7 +130,7 @@ class Vault(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource information with extended details.
-        API Version: 2021-10-01.
+        API Version: 2019-09-01.
 
         :param str resource_name: The name of the resource.
         :param VaultArgs args: The arguments to use to populate this resource's properties.
@@ -174,7 +174,6 @@ class Vault(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["vault_name"] = vault_name
             __props__.__dict__["name"] = None
-            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:keyvault/v20150601:Vault"), pulumi.Alias(type_="azure-native:keyvault/v20161001:Vault"), pulumi.Alias(type_="azure-native:keyvault/v20180214:Vault"), pulumi.Alias(type_="azure-native:keyvault/v20180214preview:Vault"), pulumi.Alias(type_="azure-native:keyvault/v20190901:Vault"), pulumi.Alias(type_="azure-native:keyvault/v20200401preview:Vault"), pulumi.Alias(type_="azure-native:keyvault/v20210401preview:Vault"), pulumi.Alias(type_="azure-native:keyvault/v20210601preview:Vault"), pulumi.Alias(type_="azure-native:keyvault/v20211001:Vault"), pulumi.Alias(type_="azure-native:keyvault/v20211101preview:Vault")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -203,7 +202,6 @@ class Vault(pulumi.CustomResource):
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["properties"] = None
-        __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return Vault(resource_name, opts=opts, __props__=__props__)
@@ -231,14 +229,6 @@ class Vault(pulumi.CustomResource):
         Properties of the vault
         """
         return pulumi.get(self, "properties")
-
-    @property
-    @pulumi.getter(name="systemData")
-    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
-        """
-        System metadata for the key vault.
-        """
-        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

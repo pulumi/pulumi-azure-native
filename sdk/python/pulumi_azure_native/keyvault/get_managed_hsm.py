@@ -133,7 +133,7 @@ def get_managed_hsm(name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetManagedHsmResult:
     """
     Resource information with extended details.
-    API Version: 2021-10-01.
+    API Version: 2021-06-01-preview.
 
 
     :param str name: The name of the managed HSM Pool.
@@ -165,7 +165,7 @@ def get_managed_hsm_output(name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetManagedHsmResult]:
     """
     Resource information with extended details.
-    API Version: 2021-10-01.
+    API Version: 2021-06-01-preview.
 
 
     :param str name: The name of the managed HSM Pool.

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.KeyVault
 {
     /// <summary>
     /// Resource information with extended details.
-    /// API Version: 2021-10-01.
+    /// API Version: 2021-06-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:keyvault:ManagedHsm")]
     public partial class ManagedHsm : Pulumi.CustomResource

@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Resource information with extended details.
- * API Version: 2021-10-01.
+ * API Version: 2019-09-01.
  */
 export class Vault extends pulumi.CustomResource {
     /**
@@ -49,10 +49,6 @@ export class Vault extends pulumi.CustomResource {
      */
     public readonly properties!: pulumi.Output<outputs.keyvault.VaultPropertiesResponse>;
     /**
-     * System metadata for the key vault.
-     */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.keyvault.SystemDataResponse>;
-    /**
      * Tags assigned to the key vault resource.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -84,13 +80,11 @@ export class Vault extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["vaultName"] = args ? args.vaultName : undefined;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["properties"] = undefined /*out*/;
-            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }

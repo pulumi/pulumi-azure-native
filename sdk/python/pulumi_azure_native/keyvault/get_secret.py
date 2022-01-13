@@ -110,7 +110,7 @@ def get_secret(resource_group_name: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSecretResult:
     """
     Resource information with extended details.
-    API Version: 2021-10-01.
+    API Version: 2019-09-01.
 
 
     :param str resource_group_name: The name of the Resource Group to which the vault belongs.
@@ -143,7 +143,7 @@ def get_secret_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSecretResult]:
     """
     Resource information with extended details.
-    API Version: 2021-10-01.
+    API Version: 2019-09-01.
 
 
     :param str resource_group_name: The name of the Resource Group to which the vault belongs.

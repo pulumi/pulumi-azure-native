@@ -350,14 +350,12 @@ func (o IPRuleResponseArrayOutput) Index(i pulumi.IntInput) IPRuleResponseOutput
 	}).(IPRuleResponseOutput)
 }
 
-// The object attributes managed by the Azure Key Vault service.
+// The attributes of the key.
 type KeyAttributes struct {
 	// Determines whether or not the object is enabled.
 	Enabled *bool `pulumi:"enabled"`
 	// Expiry date in seconds since 1970-01-01T00:00:00Z.
 	Expires *float64 `pulumi:"expires"`
-	// Indicates if the private key can be exported.
-	Exportable *bool `pulumi:"exportable"`
 	// Not before date in seconds since 1970-01-01T00:00:00Z.
 	NotBefore *float64 `pulumi:"notBefore"`
 }
@@ -373,14 +371,12 @@ type KeyAttributesInput interface {
 	ToKeyAttributesOutputWithContext(context.Context) KeyAttributesOutput
 }
 
-// The object attributes managed by the Azure Key Vault service.
+// The attributes of the key.
 type KeyAttributesArgs struct {
 	// Determines whether or not the object is enabled.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 	// Expiry date in seconds since 1970-01-01T00:00:00Z.
 	Expires pulumi.Float64PtrInput `pulumi:"expires"`
-	// Indicates if the private key can be exported.
-	Exportable pulumi.BoolPtrInput `pulumi:"exportable"`
 	// Not before date in seconds since 1970-01-01T00:00:00Z.
 	NotBefore pulumi.Float64PtrInput `pulumi:"notBefore"`
 }
@@ -438,7 +434,7 @@ func (i *keyAttributesPtrType) ToKeyAttributesPtrOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(KeyAttributesPtrOutput)
 }
 
-// The object attributes managed by the Azure Key Vault service.
+// The attributes of the key.
 type KeyAttributesOutput struct{ *pulumi.OutputState }
 
 func (KeyAttributesOutput) ElementType() reflect.Type {
@@ -471,11 +467,6 @@ func (o KeyAttributesOutput) Enabled() pulumi.BoolPtrOutput {
 // Expiry date in seconds since 1970-01-01T00:00:00Z.
 func (o KeyAttributesOutput) Expires() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v KeyAttributes) *float64 { return v.Expires }).(pulumi.Float64PtrOutput)
-}
-
-// Indicates if the private key can be exported.
-func (o KeyAttributesOutput) Exportable() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v KeyAttributes) *bool { return v.Exportable }).(pulumi.BoolPtrOutput)
 }
 
 // Not before date in seconds since 1970-01-01T00:00:00Z.
@@ -527,16 +518,6 @@ func (o KeyAttributesPtrOutput) Expires() pulumi.Float64PtrOutput {
 	}).(pulumi.Float64PtrOutput)
 }
 
-// Indicates if the private key can be exported.
-func (o KeyAttributesPtrOutput) Exportable() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *KeyAttributes) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.Exportable
-	}).(pulumi.BoolPtrOutput)
-}
-
 // Not before date in seconds since 1970-01-01T00:00:00Z.
 func (o KeyAttributesPtrOutput) NotBefore() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *KeyAttributes) *float64 {
@@ -547,7 +528,7 @@ func (o KeyAttributesPtrOutput) NotBefore() pulumi.Float64PtrOutput {
 	}).(pulumi.Float64PtrOutput)
 }
 
-// The object attributes managed by the Azure Key Vault service.
+// The attributes of the key.
 type KeyAttributesResponse struct {
 	// Creation time in seconds since 1970-01-01T00:00:00Z.
 	Created float64 `pulumi:"created"`
@@ -555,8 +536,6 @@ type KeyAttributesResponse struct {
 	Enabled *bool `pulumi:"enabled"`
 	// Expiry date in seconds since 1970-01-01T00:00:00Z.
 	Expires *float64 `pulumi:"expires"`
-	// Indicates if the private key can be exported.
-	Exportable *bool `pulumi:"exportable"`
 	// Not before date in seconds since 1970-01-01T00:00:00Z.
 	NotBefore *float64 `pulumi:"notBefore"`
 	// The deletion recovery level currently in effect for the object. If it contains 'Purgeable', then the object can be permanently deleted by a privileged user; otherwise, only the system can purge the object at the end of the retention interval.
@@ -565,7 +544,7 @@ type KeyAttributesResponse struct {
 	Updated float64 `pulumi:"updated"`
 }
 
-// The object attributes managed by the Azure Key Vault service.
+// The attributes of the key.
 type KeyAttributesResponseOutput struct{ *pulumi.OutputState }
 
 func (KeyAttributesResponseOutput) ElementType() reflect.Type {
@@ -593,11 +572,6 @@ func (o KeyAttributesResponseOutput) Enabled() pulumi.BoolPtrOutput {
 // Expiry date in seconds since 1970-01-01T00:00:00Z.
 func (o KeyAttributesResponseOutput) Expires() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v KeyAttributesResponse) *float64 { return v.Expires }).(pulumi.Float64PtrOutput)
-}
-
-// Indicates if the private key can be exported.
-func (o KeyAttributesResponseOutput) Exportable() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v KeyAttributesResponse) *bool { return v.Exportable }).(pulumi.BoolPtrOutput)
 }
 
 // Not before date in seconds since 1970-01-01T00:00:00Z.
@@ -667,16 +641,6 @@ func (o KeyAttributesResponsePtrOutput) Expires() pulumi.Float64PtrOutput {
 		}
 		return v.Expires
 	}).(pulumi.Float64PtrOutput)
-}
-
-// Indicates if the private key can be exported.
-func (o KeyAttributesResponsePtrOutput) Exportable() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *KeyAttributesResponse) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.Exportable
-	}).(pulumi.BoolPtrOutput)
 }
 
 // Not before date in seconds since 1970-01-01T00:00:00Z.
@@ -3914,15 +3878,13 @@ type VaultProperties struct {
 	NetworkAcls *NetworkRuleSet `pulumi:"networkAcls"`
 	// Provisioning state of the vault.
 	ProvisioningState *string `pulumi:"provisioningState"`
-	// Property to specify whether the vault will accept traffic from public internet. If set to 'disabled' all traffic except private endpoint traffic and that that originates from trusted services will be blocked. This will override the set firewall rules, meaning that even if the firewall rules are present we will not honor the rules.
-	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
 	// SKU details
 	Sku Sku `pulumi:"sku"`
 	// softDelete data retention days. It accepts >=7 and <=90.
 	SoftDeleteRetentionInDays *int `pulumi:"softDeleteRetentionInDays"`
 	// The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
 	TenantId string `pulumi:"tenantId"`
-	// The URI of the vault for performing operations on keys and secrets.
+	// The URI of the vault for performing operations on keys and secrets. This property is readonly
 	VaultUri *string `pulumi:"vaultUri"`
 }
 
@@ -3939,10 +3901,6 @@ func (val *VaultProperties) Defaults() *VaultProperties {
 	if isZero(tmp.EnableSoftDelete) {
 		enableSoftDelete_ := true
 		tmp.EnableSoftDelete = &enableSoftDelete_
-	}
-	if isZero(tmp.PublicNetworkAccess) {
-		publicNetworkAccess_ := "enabled"
-		tmp.PublicNetworkAccess = &publicNetworkAccess_
 	}
 	if isZero(tmp.SoftDeleteRetentionInDays) {
 		softDeleteRetentionInDays_ := 90
@@ -3984,15 +3942,13 @@ type VaultPropertiesArgs struct {
 	NetworkAcls NetworkRuleSetPtrInput `pulumi:"networkAcls"`
 	// Provisioning state of the vault.
 	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
-	// Property to specify whether the vault will accept traffic from public internet. If set to 'disabled' all traffic except private endpoint traffic and that that originates from trusted services will be blocked. This will override the set firewall rules, meaning that even if the firewall rules are present we will not honor the rules.
-	PublicNetworkAccess pulumi.StringPtrInput `pulumi:"publicNetworkAccess"`
 	// SKU details
 	Sku SkuInput `pulumi:"sku"`
 	// softDelete data retention days. It accepts >=7 and <=90.
 	SoftDeleteRetentionInDays pulumi.IntPtrInput `pulumi:"softDeleteRetentionInDays"`
 	// The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
 	TenantId pulumi.StringInput `pulumi:"tenantId"`
-	// The URI of the vault for performing operations on keys and secrets.
+	// The URI of the vault for performing operations on keys and secrets. This property is readonly
 	VaultUri pulumi.StringPtrInput `pulumi:"vaultUri"`
 }
 
@@ -4073,11 +4029,6 @@ func (o VaultPropertiesOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VaultProperties) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
 }
 
-// Property to specify whether the vault will accept traffic from public internet. If set to 'disabled' all traffic except private endpoint traffic and that that originates from trusted services will be blocked. This will override the set firewall rules, meaning that even if the firewall rules are present we will not honor the rules.
-func (o VaultPropertiesOutput) PublicNetworkAccess() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VaultProperties) *string { return v.PublicNetworkAccess }).(pulumi.StringPtrOutput)
-}
-
 // SKU details
 func (o VaultPropertiesOutput) Sku() SkuOutput {
 	return o.ApplyT(func(v VaultProperties) Sku { return v.Sku }).(SkuOutput)
@@ -4093,7 +4044,7 @@ func (o VaultPropertiesOutput) TenantId() pulumi.StringOutput {
 	return o.ApplyT(func(v VaultProperties) string { return v.TenantId }).(pulumi.StringOutput)
 }
 
-// The URI of the vault for performing operations on keys and secrets.
+// The URI of the vault for performing operations on keys and secrets. This property is readonly
 func (o VaultPropertiesOutput) VaultUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VaultProperties) *string { return v.VaultUri }).(pulumi.StringPtrOutput)
 }
@@ -4122,15 +4073,13 @@ type VaultPropertiesResponse struct {
 	PrivateEndpointConnections []PrivateEndpointConnectionItemResponse `pulumi:"privateEndpointConnections"`
 	// Provisioning state of the vault.
 	ProvisioningState *string `pulumi:"provisioningState"`
-	// Property to specify whether the vault will accept traffic from public internet. If set to 'disabled' all traffic except private endpoint traffic and that that originates from trusted services will be blocked. This will override the set firewall rules, meaning that even if the firewall rules are present we will not honor the rules.
-	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
 	// SKU details
 	Sku SkuResponse `pulumi:"sku"`
 	// softDelete data retention days. It accepts >=7 and <=90.
 	SoftDeleteRetentionInDays *int `pulumi:"softDeleteRetentionInDays"`
 	// The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
 	TenantId string `pulumi:"tenantId"`
-	// The URI of the vault for performing operations on keys and secrets.
+	// The URI of the vault for performing operations on keys and secrets. This property is readonly
 	VaultUri *string `pulumi:"vaultUri"`
 }
 
@@ -4147,10 +4096,6 @@ func (val *VaultPropertiesResponse) Defaults() *VaultPropertiesResponse {
 	if isZero(tmp.EnableSoftDelete) {
 		enableSoftDelete_ := true
 		tmp.EnableSoftDelete = &enableSoftDelete_
-	}
-	if isZero(tmp.PublicNetworkAccess) {
-		publicNetworkAccess_ := "enabled"
-		tmp.PublicNetworkAccess = &publicNetworkAccess_
 	}
 	if isZero(tmp.SoftDeleteRetentionInDays) {
 		softDeleteRetentionInDays_ := 90
@@ -4231,11 +4176,6 @@ func (o VaultPropertiesResponseOutput) ProvisioningState() pulumi.StringPtrOutpu
 	return o.ApplyT(func(v VaultPropertiesResponse) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
 }
 
-// Property to specify whether the vault will accept traffic from public internet. If set to 'disabled' all traffic except private endpoint traffic and that that originates from trusted services will be blocked. This will override the set firewall rules, meaning that even if the firewall rules are present we will not honor the rules.
-func (o VaultPropertiesResponseOutput) PublicNetworkAccess() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VaultPropertiesResponse) *string { return v.PublicNetworkAccess }).(pulumi.StringPtrOutput)
-}
-
 // SKU details
 func (o VaultPropertiesResponseOutput) Sku() SkuResponseOutput {
 	return o.ApplyT(func(v VaultPropertiesResponse) SkuResponse { return v.Sku }).(SkuResponseOutput)
@@ -4251,7 +4191,7 @@ func (o VaultPropertiesResponseOutput) TenantId() pulumi.StringOutput {
 	return o.ApplyT(func(v VaultPropertiesResponse) string { return v.TenantId }).(pulumi.StringOutput)
 }
 
-// The URI of the vault for performing operations on keys and secrets.
+// The URI of the vault for performing operations on keys and secrets. This property is readonly
 func (o VaultPropertiesResponseOutput) VaultUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VaultPropertiesResponse) *string { return v.VaultUri }).(pulumi.StringPtrOutput)
 }

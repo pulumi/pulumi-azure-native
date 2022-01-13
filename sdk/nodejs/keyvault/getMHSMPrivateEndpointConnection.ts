@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Private endpoint connection resource.
- * API Version: 2021-10-01.
+ * API Version: 2021-06-01-preview.
  */
 export function getMHSMPrivateEndpointConnection(args: GetMHSMPrivateEndpointConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetMHSMPrivateEndpointConnectionResult> {
     if (!opts) {
