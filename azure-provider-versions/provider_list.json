@@ -56431,8 +56431,10 @@
           }
         ],
         "apiVersions": [
+          "2021-12-01",
           "2021-11-15",
           "2021-11-01-preview",
+          "2021-11-01",
           "2021-10-01",
           "2021-08-01",
           "2021-07-01",
@@ -56524,7 +56526,9 @@
           }
         ],
         "apiVersions": [
+          "2021-12-01",
           "2021-11-01-preview",
+          "2021-11-01",
           "2021-10-01",
           "2021-08-01",
           "2021-07-01",
@@ -56577,7 +56581,9 @@
           }
         ],
         "apiVersions": [
+          "2021-12-01",
           "2021-11-01-preview",
+          "2021-11-01",
           "2021-10-01",
           "2021-08-01",
           "2021-07-01",
@@ -96182,6 +96188,58 @@
         "locations": [],
         "properties": null,
         "resourceType": "privateStores/queryNotificationsState"
+      },
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2021-12-01"
+        ],
+        "capabilities": "None",
+        "defaultApiVersion": null,
+        "locationMappings": null,
+        "locations": [],
+        "properties": null,
+        "resourceType": "privateStores/fetchAllSubscriptionsInTenant"
+      },
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2021-12-01"
+        ],
+        "capabilities": "None",
+        "defaultApiVersion": null,
+        "locationMappings": null,
+        "locations": [],
+        "properties": null,
+        "resourceType": "privateStores/listNewPlansNotifications"
+      },
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2021-12-01"
+        ],
+        "capabilities": "None",
+        "defaultApiVersion": null,
+        "locationMappings": null,
+        "locations": [],
+        "properties": null,
+        "resourceType": "privateStores/listStopSellOffersPlansNotifications"
+      },
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2021-12-01"
+        ],
+        "capabilities": "None",
+        "defaultApiVersion": null,
+        "locationMappings": null,
+        "locations": [],
+        "properties": null,
+        "resourceType": "privateStores/listSubscriptionsContext"
       },
       {
         "aliases": null,
