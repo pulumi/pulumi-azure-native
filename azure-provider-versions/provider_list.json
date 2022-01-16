@@ -56431,8 +56431,10 @@
           }
         ],
         "apiVersions": [
+          "2021-12-01",
           "2021-11-15",
           "2021-11-01-preview",
+          "2021-11-01",
           "2021-10-01",
           "2021-08-01",
           "2021-07-01",
@@ -56524,7 +56526,9 @@
           }
         ],
         "apiVersions": [
+          "2021-12-01",
           "2021-11-01-preview",
+          "2021-11-01",
           "2021-10-01",
           "2021-08-01",
           "2021-07-01",
@@ -56577,7 +56581,9 @@
           }
         ],
         "apiVersions": [
+          "2021-12-01",
           "2021-11-01-preview",
+          "2021-11-01",
           "2021-10-01",
           "2021-08-01",
           "2021-07-01",
@@ -64185,6 +64191,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-10-01",
           "2020-05-01-preview"
         ],
         "capabilities": "None",
@@ -64260,6 +64267,9 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-10-01",
+          "2021-03-01-preview",
+          "2020-09-01-preview",
           "2020-05-01-preview"
         ],
         "capabilities": "None",
@@ -77213,7 +77223,8 @@
           "Norway East",
           "UK West",
           "Switzerland West",
-          "Germany North"
+          "Germany North",
+          "Sweden Central"
         ],
         "properties": null,
         "resourceType": "DomainServices"
@@ -77264,7 +77275,8 @@
           "Norway East",
           "UK West",
           "Switzerland West",
-          "Germany North"
+          "Germany North",
+          "Sweden Central"
         ],
         "properties": null,
         "resourceType": "DomainServices/oucontainer"
@@ -77316,7 +77328,8 @@
           "Norway East",
           "UK West",
           "Switzerland West",
-          "Germany North"
+          "Germany North",
+          "Sweden Central"
         ],
         "properties": null,
         "resourceType": "locations"
@@ -77368,7 +77381,8 @@
           "Norway East",
           "UK West",
           "Switzerland West",
-          "Germany North"
+          "Germany North",
+          "Sweden Central"
         ],
         "properties": null,
         "resourceType": "locations/operationresults"
@@ -77420,7 +77434,8 @@
           "Norway East",
           "UK West",
           "Switzerland West",
-          "Germany North"
+          "Germany North",
+          "Sweden Central"
         ],
         "properties": null,
         "resourceType": "operations"
@@ -93173,7 +93188,6 @@
           "North Europe",
           "West Europe",
           "Canada Central",
-          "Canada East",
           "UK South",
           "UK West",
           "Australia East",
@@ -93376,6 +93390,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-12-10-preview",
           "2021-06-10-preview",
           "2021-05-20",
           "2021-05-17-preview",
@@ -93422,6 +93437,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-12-10-preview",
           "2021-06-10-preview",
           "2021-05-20",
           "2021-05-17-preview",
@@ -93461,6 +93477,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-12-10-preview",
           "2021-06-10-preview",
           "2021-05-20",
           "2021-05-17-preview",
@@ -93506,6 +93523,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-12-10-preview",
           "2021-06-10-preview",
           "2021-05-20",
           "2021-05-17-preview",
@@ -93532,6 +93550,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-12-10-preview",
           "2021-06-10-preview",
           "2021-05-20",
           "2021-05-17-preview",
@@ -93577,6 +93596,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-12-10-preview",
           "2021-06-10-preview",
           "2021-05-20",
           "2021-05-17-preview",
@@ -93622,6 +93642,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-12-10-preview",
           "2021-06-10-preview",
           "2021-05-20",
           "2021-05-17-preview",
@@ -93647,6 +93668,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-12-10-preview",
           "2021-06-10-preview",
           "2021-05-20",
           "2021-05-17-preview",
@@ -93687,6 +93709,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-12-10-preview",
           "2021-06-10-preview",
           "2021-05-20",
           "2021-05-17-preview",
@@ -93726,6 +93749,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-12-10-preview",
           "2021-06-10-preview",
           "2021-05-20",
           "2021-05-17-preview",
@@ -93766,6 +93790,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-12-10-preview",
           "2021-06-10-preview",
           "2021-05-20",
           "2021-05-17-preview",
@@ -94721,6 +94746,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-11-01-preview",
           "2021-02-01-preview"
         ],
         "capabilities": "None",
@@ -96182,6 +96208,58 @@
         "locations": [],
         "properties": null,
         "resourceType": "privateStores/queryNotificationsState"
+      },
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2021-12-01"
+        ],
+        "capabilities": "None",
+        "defaultApiVersion": null,
+        "locationMappings": null,
+        "locations": [],
+        "properties": null,
+        "resourceType": "privateStores/fetchAllSubscriptionsInTenant"
+      },
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2021-12-01"
+        ],
+        "capabilities": "None",
+        "defaultApiVersion": null,
+        "locationMappings": null,
+        "locations": [],
+        "properties": null,
+        "resourceType": "privateStores/listNewPlansNotifications"
+      },
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2021-12-01"
+        ],
+        "capabilities": "None",
+        "defaultApiVersion": null,
+        "locationMappings": null,
+        "locations": [],
+        "properties": null,
+        "resourceType": "privateStores/listStopSellOffersPlansNotifications"
+      },
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2021-12-01"
+        ],
+        "capabilities": "None",
+        "defaultApiVersion": null,
+        "locationMappings": null,
+        "locations": [],
+        "properties": null,
+        "resourceType": "privateStores/listSubscriptionsContext"
       },
       {
         "aliases": null,
@@ -98916,6 +98994,7 @@
           "United States",
           "East US",
           "West US",
+          "Central US",
           "South Africa",
           "UK",
           "Japan",
