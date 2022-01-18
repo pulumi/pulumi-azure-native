@@ -87,7 +87,6 @@ generate_nodejs::
 build_nodejs:: VERSION := $(shell pulumictl get version --language javascript)
 build_nodejs::
 	cd ${PACKDIR}/nodejs/ && \
-	echo "module fake_nodejs_module // Exclude this directory from Go tools\n\ngo 1.16" > go.mod && \
 	yarn install && \
 	NODE_OPTIONS=--max-old-space-size=8192 yarn run tsc --diagnostics && \
 	cp ../../README.md ../../LICENSE package.json yarn.lock ./bin/ && \
@@ -99,7 +98,6 @@ generate_python::
 build_python:: PYPI_VERSION := $(shell pulumictl get version --language python)
 build_python::
 	cd sdk/python/ && \
-	echo "module fake_python_module // Exclude this directory from Go tools\n\ngo 1.16" > go.mod && \
 	cp ../../README.md . && \
 	python3 setup.py clean --all 2>/dev/null && \
 	rm -rf ./bin/ ../python.bin/ && cp -R . ../python.bin && mv ../python.bin ./bin && \
@@ -116,7 +114,6 @@ generate_dotnet::
 build_dotnet:: DOTNET_VERSION := $(shell pulumictl get version --language dotnet)
 build_dotnet::
 	cd ${PACKDIR}/dotnet/ && \
-	echo "module fake_dotnet_module // Exclude this directory from Go tools\n\ngo 1.16" > go.mod && \
 	echo "azure-native\n${DOTNET_VERSION}" >version.txt && \
 	dotnet build /p:Version=${DOTNET_VERSION}
 
@@ -129,9 +126,9 @@ build_go::
 	GOGC=50 go list github.com/pulumi/pulumi-azure-native/sdk/go/azure/... | grep -v "latest\|\/v.*"$ | xargs -L 1 go build
 
 clean::
-	rm -rf sdk/nodejs && mkdir sdk/nodejs
-	rm -rf sdk/python && mkdir sdk/python && cp README.md sdk/python
-	rm -rf sdk/dotnet && mkdir sdk/dotnet
+	rm -rf $$(find sdk/nodejs -depth 1 -name "*" ! -name "go.mod")
+	rm -rf $$(find sdk/python -depth 1 -name "*" ! -name "go.mod" ! -name "README.md")
+	rm -rf $$(find sdk/dotnet -depth 1 -name "*" ! -name "go.mod")
 	rm -rf sdk/go/azure
 	rm -rf sdk/schema
 
