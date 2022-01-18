@@ -87,6 +87,7 @@ generate_nodejs::
 build_nodejs:: VERSION := $(shell pulumictl get version --language javascript)
 build_nodejs::
 	cd ${PACKDIR}/nodejs/ && \
+	echo "module fake_nodejs_module // Exclude this directory from Go tools\n\ngo 1.16" > go.mod && \
 	yarn install && \
 	NODE_OPTIONS=--max-old-space-size=8192 yarn run tsc --diagnostics && \
 	cp ../../README.md ../../LICENSE package.json yarn.lock ./bin/ && \
@@ -98,11 +99,12 @@ generate_python::
 build_python:: PYPI_VERSION := $(shell pulumictl get version --language python)
 build_python::
 	cd sdk/python/ && \
+	echo "module fake_python_module // Exclude this directory from Go tools\n\ngo 1.16" > go.mod && \
 	cp ../../README.md . && \
 	python3 setup.py clean --all 2>/dev/null && \
 	rm -rf ./bin/ ../python.bin/ && cp -R . ../python.bin && mv ../python.bin ./bin && \
 	sed -i.bak -e 's/^VERSION = .*/VERSION = "$(PYPI_VERSION)"/g' -e 's/^PLUGIN_VERSION = .*/PLUGIN_VERSION = "$(VERSION)"/g' ./bin/setup.py && \
-	rm ./bin/setup.py.bak && \
+	rm ./bin/setup.py.bak && rm ./bin/go.mod && \
 	cd ./bin && python3 setup.py build sdist
 
 generate_dotnet::
@@ -114,6 +116,7 @@ generate_dotnet::
 build_dotnet:: DOTNET_VERSION := $(shell pulumictl get version --language dotnet)
 build_dotnet::
 	cd ${PACKDIR}/dotnet/ && \
+	echo "module fake_dotnet_module // Exclude this directory from Go tools\n\ngo 1.16" > go.mod && \
 	echo "azure-native\n${DOTNET_VERSION}" >version.txt && \
 	dotnet build /p:Version=${DOTNET_VERSION}
 
@@ -126,9 +129,9 @@ build_go::
 	GOGC=50 go list github.com/pulumi/pulumi-azure-native/sdk/go/azure/... | grep -v "latest\|\/v.*"$ | xargs -L 1 go build
 
 clean::
-	rm -rf sdk/nodejs && mkdir sdk/nodejs && touch sdk/nodejs/go.mod
-	rm -rf sdk/python && mkdir sdk/python && touch sdk/python/go.mod && cp README.md sdk/python
-	rm -rf sdk/dotnet && mkdir sdk/dotnet && touch sdk/dotnet/go.mod
+	rm -rf sdk/nodejs && mkdir sdk/nodejs
+	rm -rf sdk/python && mkdir sdk/python && cp README.md sdk/python
+	rm -rf sdk/dotnet && mkdir sdk/dotnet
 	rm -rf sdk/go/azure
 	rm -rf sdk/schema
 
