@@ -103,6 +103,7 @@ build_python::
 	rm -rf ./bin/ ../python.bin/ && cp -R . ../python.bin && mv ../python.bin ./bin && \
 	sed -i.bak -e 's/^VERSION = .*/VERSION = "$(PYPI_VERSION)"/g' -e 's/^PLUGIN_VERSION = .*/PLUGIN_VERSION = "$(VERSION)"/g' ./bin/setup.py && \
 	rm ./bin/setup.py.bak && \
+	rm ./bin/go.mod && \
 	cd ./bin && python3 setup.py build sdist
 
 generate_dotnet::
@@ -126,9 +127,9 @@ build_go::
 	GOGC=50 go list github.com/pulumi/pulumi-azure-native/sdk/go/azure/... | grep -v "latest\|\/v.*"$ | xargs -L 1 go build
 
 clean::
-	rm -rf sdk/nodejs && mkdir sdk/nodejs && touch sdk/nodejs/go.mod
-	rm -rf sdk/python && mkdir sdk/python && touch sdk/python/go.mod && cp README.md sdk/python
-	rm -rf sdk/dotnet && mkdir sdk/dotnet && touch sdk/dotnet/go.mod
+	rm -rf $$(find sdk/nodejs -mindepth 1 -maxdepth 1 ! -name "go.mod")
+	rm -rf $$(find sdk/python -mindepth 1 -maxdepth 1 ! -name "go.mod" ! -name "README.md")
+	rm -rf $$(find sdk/dotnet -mindepth 1 -maxdepth 1 ! -name "go.mod")
 	rm -rf sdk/go/azure
 	rm -rf sdk/schema
 
