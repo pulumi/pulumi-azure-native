@@ -126,9 +126,9 @@ build_go::
 	GOGC=50 go list github.com/pulumi/pulumi-azure-native/sdk/go/azure/... | grep -v "latest\|\/v.*"$ | xargs -L 1 go build
 
 clean::
-	rm -rf $$(find sdk/nodejs -depth 1 -name "*" ! -name "go.mod")
-	rm -rf $$(find sdk/python -depth 1 -name "*" ! -name "go.mod" ! -name "README.md")
-	rm -rf $$(find sdk/dotnet -depth 1 -name "*" ! -name "go.mod")
+	rm -rf $$(find sdk/nodejs -mindepth 1 -maxdepth 1 ! -name "go.mod")
+	rm -rf $$(find sdk/python -mindepth 1 -maxdepth 1 ! -name "go.mod" ! -name "README.md")
+	rm -rf $$(find sdk/dotnet -mindepth 1 -maxdepth 1 ! -name "go.mod")
 	rm -rf sdk/go/azure
 	rm -rf sdk/schema
 
