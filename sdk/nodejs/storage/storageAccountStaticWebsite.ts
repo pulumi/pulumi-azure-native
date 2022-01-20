@@ -74,9 +74,7 @@ export class StorageAccountStaticWebsite extends pulumi.CustomResource {
             resourceInputs["error404Document"] = undefined /*out*/;
             resourceInputs["indexDocument"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(StorageAccountStaticWebsite.__pulumiType, name, resourceInputs, opts);
     }
 }

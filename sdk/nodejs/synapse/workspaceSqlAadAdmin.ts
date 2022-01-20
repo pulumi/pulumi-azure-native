@@ -5,9 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Workspace active directory administrator
- * API Version: 2021-03-01.
- *
  * Note: SQL AAD Admin is configured automatically during workspace creation and assigned to the current user. One can't add more admins with this resource unless you manually delete the current SQL AAD Admin.
  */
 export class WorkspaceSqlAadAdmin extends pulumi.CustomResource {
@@ -37,30 +34,6 @@ export class WorkspaceSqlAadAdmin extends pulumi.CustomResource {
         return obj['__pulumiType'] === WorkspaceSqlAadAdmin.__pulumiType;
     }
 
-    /**
-     * Workspace active directory administrator type
-     */
-    public readonly administratorType!: pulumi.Output<string | undefined>;
-    /**
-     * Login of the workspace active directory administrator
-     */
-    public readonly login!: pulumi.Output<string | undefined>;
-    /**
-     * The name of the resource
-     */
-    public /*out*/ readonly name!: pulumi.Output<string>;
-    /**
-     * Object ID of the workspace active directory administrator
-     */
-    public readonly sid!: pulumi.Output<string | undefined>;
-    /**
-     * Tenant ID of the workspace active directory administrator
-     */
-    public readonly tenantId!: pulumi.Output<string | undefined>;
-    /**
-     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-     */
-    public /*out*/ readonly type!: pulumi.Output<string>;
 
     /**
      * Create a WorkspaceSqlAadAdmin resource with the given unique name, arguments, and options.
@@ -69,37 +42,13 @@ export class WorkspaceSqlAadAdmin extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: WorkspaceSqlAadAdminArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: WorkspaceSqlAadAdminArgs, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'resourceGroupName'");
-            }
-            if ((!args || args.workspaceName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'workspaceName'");
-            }
-            resourceInputs["administratorType"] = args ? args.administratorType : undefined;
-            resourceInputs["login"] = args ? args.login : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sid"] = args ? args.sid : undefined;
-            resourceInputs["tenantId"] = args ? args.tenantId : undefined;
-            resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
-            resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["administratorType"] = undefined /*out*/;
-            resourceInputs["login"] = undefined /*out*/;
-            resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["sid"] = undefined /*out*/;
-            resourceInputs["tenantId"] = undefined /*out*/;
-            resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        const aliasOpts = { aliases: [{ type: "azure-native:synapse/v20190601preview:WorkspaceSqlAadAdmin" }, { type: "azure-native:synapse/v20201201:WorkspaceSqlAadAdmin" }, { type: "azure-native:synapse/v20210301:WorkspaceSqlAadAdmin" }, { type: "azure-native:synapse/v20210401preview:WorkspaceSqlAadAdmin" }, { type: "azure-native:synapse/v20210501:WorkspaceSqlAadAdmin" }, { type: "azure-native:synapse/v20210601:WorkspaceSqlAadAdmin" }, { type: "azure-native:synapse/v20210601preview:WorkspaceSqlAadAdmin" }] };
-        opts = pulumi.mergeOptions(opts, aliasOpts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(WorkspaceSqlAadAdmin.__pulumiType, name, resourceInputs, opts);
     }
 }
@@ -108,28 +57,4 @@ export class WorkspaceSqlAadAdmin extends pulumi.CustomResource {
  * The set of arguments for constructing a WorkspaceSqlAadAdmin resource.
  */
 export interface WorkspaceSqlAadAdminArgs {
-    /**
-     * Workspace active directory administrator type
-     */
-    administratorType?: pulumi.Input<string>;
-    /**
-     * Login of the workspace active directory administrator
-     */
-    login?: pulumi.Input<string>;
-    /**
-     * The name of the resource group. The name is case insensitive.
-     */
-    resourceGroupName: pulumi.Input<string>;
-    /**
-     * Object ID of the workspace active directory administrator
-     */
-    sid?: pulumi.Input<string>;
-    /**
-     * Tenant ID of the workspace active directory administrator
-     */
-    tenantId?: pulumi.Input<string>;
-    /**
-     * The name of the workspace
-     */
-    workspaceName: pulumi.Input<string>;
 }
