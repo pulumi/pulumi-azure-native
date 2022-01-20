@@ -21,60 +21,8 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "azure-native:synapse:BigDataPool":
-		r = &BigDataPool{}
-	case "azure-native:synapse:DataConnection":
-		r = &DataConnection{}
-	case "azure-native:synapse:Database":
-		r = &Database{}
-	case "azure-native:synapse:DatabasePrincipalAssignment":
-		r = &DatabasePrincipalAssignment{}
-	case "azure-native:synapse:EventGridDataConnection":
-		r = &EventGridDataConnection{}
-	case "azure-native:synapse:EventHubDataConnection":
-		r = &EventHubDataConnection{}
-	case "azure-native:synapse:IntegrationRuntime":
-		r = &IntegrationRuntime{}
-	case "azure-native:synapse:IotHubDataConnection":
-		r = &IotHubDataConnection{}
-	case "azure-native:synapse:IpFirewallRule":
-		r = &IpFirewallRule{}
-	case "azure-native:synapse:Key":
-		r = &Key{}
-	case "azure-native:synapse:KustoPoolAttachedDatabaseConfiguration":
-		r = &KustoPoolAttachedDatabaseConfiguration{}
-	case "azure-native:synapse:KustoPoolPrincipalAssignment":
-		r = &KustoPoolPrincipalAssignment{}
-	case "azure-native:synapse:PrivateEndpointConnection":
-		r = &PrivateEndpointConnection{}
-	case "azure-native:synapse:PrivateLinkHub":
-		r = &PrivateLinkHub{}
-	case "azure-native:synapse:ReadWriteDatabase":
-		r = &ReadWriteDatabase{}
-	case "azure-native:synapse:SqlPool":
-		r = &SqlPool{}
-	case "azure-native:synapse:SqlPoolSensitivityLabel":
-		r = &SqlPoolSensitivityLabel{}
-	case "azure-native:synapse:SqlPoolTransparentDataEncryption":
-		r = &SqlPoolTransparentDataEncryption{}
-	case "azure-native:synapse:SqlPoolVulnerabilityAssessment":
-		r = &SqlPoolVulnerabilityAssessment{}
-	case "azure-native:synapse:SqlPoolVulnerabilityAssessmentRuleBaseline":
-		r = &SqlPoolVulnerabilityAssessmentRuleBaseline{}
-	case "azure-native:synapse:SqlPoolWorkloadClassifier":
-		r = &SqlPoolWorkloadClassifier{}
-	case "azure-native:synapse:SqlPoolWorkloadGroup":
-		r = &SqlPoolWorkloadGroup{}
-	case "azure-native:synapse:Workspace":
-		r = &Workspace{}
-	case "azure-native:synapse:WorkspaceAadAdmin":
-		r = &WorkspaceAadAdmin{}
-	case "azure-native:synapse:WorkspaceManagedSqlServerVulnerabilityAssessment":
-		r = &WorkspaceManagedSqlServerVulnerabilityAssessment{}
 	case "azure-native:synapse:WorkspaceSqlAadAdmin":
 		r = &WorkspaceSqlAadAdmin{}
-	case "azure-native:synapse:kustoPool":
-		r = &KustoPool{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
