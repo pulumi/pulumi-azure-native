@@ -66,6 +66,7 @@ namespace Pulumi.AzureNative.Logz.V20201001
                 {
                     new Pulumi.Alias { Type = "azure-native:logz:TagRule"},
                     new Pulumi.Alias { Type = "azure-native:logz/v20201001preview:TagRule"},
+                    new Pulumi.Alias { Type = "azure-native:logz/v20220101preview:TagRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

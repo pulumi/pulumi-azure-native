@@ -35,7 +35,7 @@ type AFDOrigin struct {
 	// Provisioning status
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// The properties of the private link resource for private origin.
-	SharedPrivateLinkResource SharedPrivateLinkResourcePropertiesResponseArrayOutput `pulumi:"sharedPrivateLinkResource"`
+	SharedPrivateLinkResource SharedPrivateLinkResourcePropertiesResponsePtrOutput `pulumi:"sharedPrivateLinkResource"`
 	// Read only system data
 	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Resource type.
@@ -127,7 +127,7 @@ type afdoriginArgs struct {
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The properties of the private link resource for private origin.
-	SharedPrivateLinkResource []SharedPrivateLinkResourceProperties `pulumi:"sharedPrivateLinkResource"`
+	SharedPrivateLinkResource *SharedPrivateLinkResourceProperties `pulumi:"sharedPrivateLinkResource"`
 	// Weight of the origin in given origin group for load balancing. Must be between 1 and 1000
 	Weight *int `pulumi:"weight"`
 }
@@ -157,7 +157,7 @@ type AFDOriginArgs struct {
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName pulumi.StringInput
 	// The properties of the private link resource for private origin.
-	SharedPrivateLinkResource SharedPrivateLinkResourcePropertiesArrayInput
+	SharedPrivateLinkResource SharedPrivateLinkResourcePropertiesPtrInput
 	// Weight of the origin in given origin group for load balancing. Must be between 1 and 1000
 	Weight pulumi.IntPtrInput
 }

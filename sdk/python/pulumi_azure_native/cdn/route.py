@@ -20,7 +20,7 @@ class RouteArgs:
                  origin_group: pulumi.Input['ResourceReferenceArgs'],
                  profile_name: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
-                 compression_settings: Optional[pulumi.Input[Sequence[pulumi.Input['CompressionSettingsArgs']]]] = None,
+                 compression_settings: Optional[pulumi.Input['CompressionSettingsArgs']] = None,
                  custom_domains: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceReferenceArgs']]]] = None,
                  enabled_state: Optional[pulumi.Input[Union[str, 'EnabledState']]] = None,
                  forwarding_protocol: Optional[pulumi.Input[Union[str, 'ForwardingProtocol']]] = None,
@@ -38,7 +38,7 @@ class RouteArgs:
         :param pulumi.Input['ResourceReferenceArgs'] origin_group: A reference to the origin group.
         :param pulumi.Input[str] profile_name: Name of the CDN profile which is unique within the resource group.
         :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription.
-        :param pulumi.Input[Sequence[pulumi.Input['CompressionSettingsArgs']]] compression_settings: compression settings.
+        :param pulumi.Input['CompressionSettingsArgs'] compression_settings: compression settings.
         :param pulumi.Input[Sequence[pulumi.Input['ResourceReferenceArgs']]] custom_domains: Domains referenced by this endpoint.
         :param pulumi.Input[Union[str, 'EnabledState']] enabled_state: Whether to enable use of this rule. Permitted values are 'Enabled' or 'Disabled'
         :param pulumi.Input[Union[str, 'ForwardingProtocol']] forwarding_protocol: Protocol this rule will use when forwarding traffic to backends.
@@ -130,14 +130,14 @@ class RouteArgs:
 
     @property
     @pulumi.getter(name="compressionSettings")
-    def compression_settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CompressionSettingsArgs']]]]:
+    def compression_settings(self) -> Optional[pulumi.Input['CompressionSettingsArgs']]:
         """
         compression settings.
         """
         return pulumi.get(self, "compression_settings")
 
     @compression_settings.setter
-    def compression_settings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CompressionSettingsArgs']]]]):
+    def compression_settings(self, value: Optional[pulumi.Input['CompressionSettingsArgs']]):
         pulumi.set(self, "compression_settings", value)
 
     @property
@@ -278,7 +278,7 @@ class Route(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 compression_settings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CompressionSettingsArgs']]]]] = None,
+                 compression_settings: Optional[pulumi.Input[pulumi.InputType['CompressionSettingsArgs']]] = None,
                  custom_domains: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceReferenceArgs']]]]] = None,
                  enabled_state: Optional[pulumi.Input[Union[str, 'EnabledState']]] = None,
                  endpoint_name: Optional[pulumi.Input[str]] = None,
@@ -301,7 +301,7 @@ class Route(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CompressionSettingsArgs']]]] compression_settings: compression settings.
+        :param pulumi.Input[pulumi.InputType['CompressionSettingsArgs']] compression_settings: compression settings.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceReferenceArgs']]]] custom_domains: Domains referenced by this endpoint.
         :param pulumi.Input[Union[str, 'EnabledState']] enabled_state: Whether to enable use of this rule. Permitted values are 'Enabled' or 'Disabled'
         :param pulumi.Input[str] endpoint_name: Name of the endpoint under the profile which is unique globally.
@@ -343,7 +343,7 @@ class Route(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 compression_settings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CompressionSettingsArgs']]]]] = None,
+                 compression_settings: Optional[pulumi.Input[pulumi.InputType['CompressionSettingsArgs']]] = None,
                  custom_domains: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceReferenceArgs']]]]] = None,
                  enabled_state: Optional[pulumi.Input[Union[str, 'EnabledState']]] = None,
                  endpoint_name: Optional[pulumi.Input[str]] = None,
@@ -445,7 +445,7 @@ class Route(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="compressionSettings")
-    def compression_settings(self) -> pulumi.Output[Optional[Sequence['outputs.CompressionSettingsResponse']]]:
+    def compression_settings(self) -> pulumi.Output[Optional['outputs.CompressionSettingsResponse']]:
         """
         compression settings.
         """

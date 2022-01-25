@@ -281,6 +281,8 @@ export type ManagedRuleEnabledState = (typeof ManagedRuleEnabledState)[keyof typ
 
 export const ManagedServiceIdentityType = {
     SystemAssigned: "SystemAssigned",
+    UserAssigned: "UserAssigned",
+    SystemAssigned_UserAssigned: "SystemAssigned, UserAssigned",
     None: "None",
 } as const;
 

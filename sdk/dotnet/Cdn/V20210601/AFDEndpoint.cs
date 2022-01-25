@@ -43,12 +43,6 @@ namespace Pulumi.AzureNative.Cdn.V20210601
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Send and receive timeout on forwarding request to the origin. When timeout is reached, the request fails and returns.
-        /// </summary>
-        [Output("originResponseTimeoutSeconds")]
-        public Output<int?> OriginResponseTimeoutSeconds { get; private set; } = null!;
-
-        /// <summary>
         /// The name of the profile which holds the endpoint.
         /// </summary>
         [Output("profileName")]
@@ -145,12 +139,6 @@ namespace Pulumi.AzureNative.Cdn.V20210601
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
-
-        /// <summary>
-        /// Send and receive timeout on forwarding request to the origin. When timeout is reached, the request fails and returns.
-        /// </summary>
-        [Input("originResponseTimeoutSeconds")]
-        public Input<int>? OriginResponseTimeoutSeconds { get; set; }
 
         /// <summary>
         /// Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.

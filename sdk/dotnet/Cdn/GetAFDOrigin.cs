@@ -138,7 +138,7 @@ namespace Pulumi.AzureNative.Cdn
         /// <summary>
         /// The properties of the private link resource for private origin.
         /// </summary>
-        public readonly ImmutableArray<Outputs.SharedPrivateLinkResourcePropertiesResponse> SharedPrivateLinkResource;
+        public readonly Outputs.SharedPrivateLinkResourcePropertiesResponse? SharedPrivateLinkResource;
         /// <summary>
         /// Read only system data
         /// </summary>
@@ -176,7 +176,7 @@ namespace Pulumi.AzureNative.Cdn
 
             string provisioningState,
 
-            ImmutableArray<Outputs.SharedPrivateLinkResourcePropertiesResponse> sharedPrivateLinkResource,
+            Outputs.SharedPrivateLinkResourcePropertiesResponse? sharedPrivateLinkResource,
 
             Outputs.SystemDataResponse systemData,
 

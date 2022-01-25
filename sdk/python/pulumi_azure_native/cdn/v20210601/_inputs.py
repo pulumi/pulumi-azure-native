@@ -475,12 +475,14 @@ class ClientPortMatchConditionParametersArgs:
                  operator: pulumi.Input[Union[str, 'ClientPortOperator']],
                  type_name: pulumi.Input[str],
                  match_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 negate_condition: Optional[pulumi.Input[bool]] = None):
+                 negate_condition: Optional[pulumi.Input[bool]] = None,
+                 transforms: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'Transform']]]]] = None):
         """
         Defines the parameters for ClientPort match conditions
         :param pulumi.Input[Union[str, 'ClientPortOperator']] operator: Describes operator to be matched
         :param pulumi.Input[Sequence[pulumi.Input[str]]] match_values: The match value for the condition of the delivery rule
         :param pulumi.Input[bool] negate_condition: Describes if this is negate condition or not
+        :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'Transform']]]] transforms: List of transforms
         """
         pulumi.set(__self__, "operator", operator)
         pulumi.set(__self__, "type_name", type_name)
@@ -488,6 +490,8 @@ class ClientPortMatchConditionParametersArgs:
             pulumi.set(__self__, "match_values", match_values)
         if negate_condition is not None:
             pulumi.set(__self__, "negate_condition", negate_condition)
+        if transforms is not None:
+            pulumi.set(__self__, "transforms", transforms)
 
     @property
     @pulumi.getter
@@ -533,6 +537,18 @@ class ClientPortMatchConditionParametersArgs:
     @negate_condition.setter
     def negate_condition(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "negate_condition", value)
+
+    @property
+    @pulumi.getter
+    def transforms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'Transform']]]]]:
+        """
+        List of transforms
+        """
+        return pulumi.get(self, "transforms")
+
+    @transforms.setter
+    def transforms(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'Transform']]]]]):
+        pulumi.set(self, "transforms", value)
 
 
 @pulumi.input_type
@@ -2646,12 +2662,14 @@ class IsDeviceMatchConditionParametersArgs:
                  operator: pulumi.Input[Union[str, 'IsDeviceOperator']],
                  type_name: pulumi.Input[str],
                  match_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 negate_condition: Optional[pulumi.Input[bool]] = None):
+                 negate_condition: Optional[pulumi.Input[bool]] = None,
+                 transforms: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'Transform']]]]] = None):
         """
         Defines the parameters for IsDevice match conditions
         :param pulumi.Input[Union[str, 'IsDeviceOperator']] operator: Describes operator to be matched
         :param pulumi.Input[Sequence[pulumi.Input[str]]] match_values: The match value for the condition of the delivery rule
         :param pulumi.Input[bool] negate_condition: Describes if this is negate condition or not
+        :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'Transform']]]] transforms: List of transforms
         """
         pulumi.set(__self__, "operator", operator)
         pulumi.set(__self__, "type_name", type_name)
@@ -2659,6 +2677,8 @@ class IsDeviceMatchConditionParametersArgs:
             pulumi.set(__self__, "match_values", match_values)
         if negate_condition is not None:
             pulumi.set(__self__, "negate_condition", negate_condition)
+        if transforms is not None:
+            pulumi.set(__self__, "transforms", transforms)
 
     @property
     @pulumi.getter
@@ -2704,6 +2724,18 @@ class IsDeviceMatchConditionParametersArgs:
     @negate_condition.setter
     def negate_condition(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "negate_condition", value)
+
+    @property
+    @pulumi.getter
+    def transforms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'Transform']]]]]:
+        """
+        List of transforms
+        """
+        return pulumi.get(self, "transforms")
+
+    @transforms.setter
+    def transforms(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'Transform']]]]]):
+        pulumi.set(self, "transforms", value)
 
 
 @pulumi.input_type
@@ -3072,13 +3104,17 @@ class ManagedRuleSetArgs:
 @pulumi.input_type
 class ManagedServiceIdentityArgs:
     def __init__(__self__, *,
-                 type: Optional[pulumi.Input[Union[str, 'ManagedServiceIdentityType']]] = None):
+                 type: Optional[pulumi.Input[Union[str, 'ManagedServiceIdentityType']]] = None,
+                 user_assigned_identities: Optional[pulumi.Input[Mapping[str, Any]]] = None):
         """
         Managed service identity.
         :param pulumi.Input[Union[str, 'ManagedServiceIdentityType']] type: Type of managed service identity.
+        :param pulumi.Input[Mapping[str, Any]] user_assigned_identities: The list of user assigned identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}
         """
         if type is not None:
             pulumi.set(__self__, "type", type)
+        if user_assigned_identities is not None:
+            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
 
     @property
     @pulumi.getter
@@ -3091,6 +3127,18 @@ class ManagedServiceIdentityArgs:
     @type.setter
     def type(self, value: Optional[pulumi.Input[Union[str, 'ManagedServiceIdentityType']]]):
         pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="userAssignedIdentities")
+    def user_assigned_identities(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+        """
+        The list of user assigned identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}
+        """
+        return pulumi.get(self, "user_assigned_identities")
+
+    @user_assigned_identities.setter
+    def user_assigned_identities(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+        pulumi.set(self, "user_assigned_identities", value)
 
 
 @pulumi.input_type
@@ -4456,12 +4504,14 @@ class ServerPortMatchConditionParametersArgs:
                  operator: pulumi.Input[Union[str, 'ServerPortOperator']],
                  type_name: pulumi.Input[str],
                  match_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 negate_condition: Optional[pulumi.Input[bool]] = None):
+                 negate_condition: Optional[pulumi.Input[bool]] = None,
+                 transforms: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'Transform']]]]] = None):
         """
         Defines the parameters for ServerPort match conditions
         :param pulumi.Input[Union[str, 'ServerPortOperator']] operator: Describes operator to be matched
         :param pulumi.Input[Sequence[pulumi.Input[str]]] match_values: The match value for the condition of the delivery rule
         :param pulumi.Input[bool] negate_condition: Describes if this is negate condition or not
+        :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'Transform']]]] transforms: List of transforms
         """
         pulumi.set(__self__, "operator", operator)
         pulumi.set(__self__, "type_name", type_name)
@@ -4469,6 +4519,8 @@ class ServerPortMatchConditionParametersArgs:
             pulumi.set(__self__, "match_values", match_values)
         if negate_condition is not None:
             pulumi.set(__self__, "negate_condition", negate_condition)
+        if transforms is not None:
+            pulumi.set(__self__, "transforms", transforms)
 
     @property
     @pulumi.getter
@@ -4514,6 +4566,18 @@ class ServerPortMatchConditionParametersArgs:
     @negate_condition.setter
     def negate_condition(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "negate_condition", value)
+
+    @property
+    @pulumi.getter
+    def transforms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'Transform']]]]]:
+        """
+        List of transforms
+        """
+        return pulumi.get(self, "transforms")
+
+    @transforms.setter
+    def transforms(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'Transform']]]]]):
+        pulumi.set(self, "transforms", value)
 
 
 @pulumi.input_type
@@ -4647,12 +4711,14 @@ class SocketAddrMatchConditionParametersArgs:
                  operator: pulumi.Input[Union[str, 'SocketAddrOperator']],
                  type_name: pulumi.Input[str],
                  match_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 negate_condition: Optional[pulumi.Input[bool]] = None):
+                 negate_condition: Optional[pulumi.Input[bool]] = None,
+                 transforms: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'Transform']]]]] = None):
         """
         Defines the parameters for SocketAddress match conditions
         :param pulumi.Input[Union[str, 'SocketAddrOperator']] operator: Describes operator to be matched
         :param pulumi.Input[Sequence[pulumi.Input[str]]] match_values: The match value for the condition of the delivery rule
         :param pulumi.Input[bool] negate_condition: Describes if this is negate condition or not
+        :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'Transform']]]] transforms: List of transforms
         """
         pulumi.set(__self__, "operator", operator)
         pulumi.set(__self__, "type_name", type_name)
@@ -4660,6 +4726,8 @@ class SocketAddrMatchConditionParametersArgs:
             pulumi.set(__self__, "match_values", match_values)
         if negate_condition is not None:
             pulumi.set(__self__, "negate_condition", negate_condition)
+        if transforms is not None:
+            pulumi.set(__self__, "transforms", transforms)
 
     @property
     @pulumi.getter
@@ -4706,6 +4774,18 @@ class SocketAddrMatchConditionParametersArgs:
     def negate_condition(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "negate_condition", value)
 
+    @property
+    @pulumi.getter
+    def transforms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'Transform']]]]]:
+        """
+        List of transforms
+        """
+        return pulumi.get(self, "transforms")
+
+    @transforms.setter
+    def transforms(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'Transform']]]]]):
+        pulumi.set(self, "transforms", value)
+
 
 @pulumi.input_type
 class SslProtocolMatchConditionParametersArgs:
@@ -4713,12 +4793,14 @@ class SslProtocolMatchConditionParametersArgs:
                  operator: pulumi.Input[Union[str, 'SslProtocolOperator']],
                  type_name: pulumi.Input[str],
                  match_values: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'SslProtocol']]]]] = None,
-                 negate_condition: Optional[pulumi.Input[bool]] = None):
+                 negate_condition: Optional[pulumi.Input[bool]] = None,
+                 transforms: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'Transform']]]]] = None):
         """
         Defines the parameters for SslProtocol match conditions
         :param pulumi.Input[Union[str, 'SslProtocolOperator']] operator: Describes operator to be matched
         :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'SslProtocol']]]] match_values: The match value for the condition of the delivery rule
         :param pulumi.Input[bool] negate_condition: Describes if this is negate condition or not
+        :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'Transform']]]] transforms: List of transforms
         """
         pulumi.set(__self__, "operator", operator)
         pulumi.set(__self__, "type_name", type_name)
@@ -4726,6 +4808,8 @@ class SslProtocolMatchConditionParametersArgs:
             pulumi.set(__self__, "match_values", match_values)
         if negate_condition is not None:
             pulumi.set(__self__, "negate_condition", negate_condition)
+        if transforms is not None:
+            pulumi.set(__self__, "transforms", transforms)
 
     @property
     @pulumi.getter
@@ -4771,6 +4855,18 @@ class SslProtocolMatchConditionParametersArgs:
     @negate_condition.setter
     def negate_condition(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "negate_condition", value)
+
+    @property
+    @pulumi.getter
+    def transforms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'Transform']]]]]:
+        """
+        List of transforms
+        """
+        return pulumi.get(self, "transforms")
+
+    @transforms.setter
+    def transforms(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'Transform']]]]]):
+        pulumi.set(self, "transforms", value)
 
 
 @pulumi.input_type

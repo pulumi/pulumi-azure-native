@@ -9,6 +9,7 @@ export * from "./getWebPubSub";
 export * from "./getWebPubSubHub";
 export * from "./getWebPubSubPrivateEndpointConnection";
 export * from "./getWebPubSubSharedPrivateLinkResource";
+export * from "./listWebPubSubKeys";
 export * from "./webPubSub";
 export * from "./webPubSubHub";
 export * from "./webPubSubPrivateEndpointConnection";

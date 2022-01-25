@@ -39,6 +39,18 @@ namespace Pulumi.AzureNative.Cdn.V20210601.Inputs
         [Input("operator", required: true)]
         public InputUnion<string, Pulumi.AzureNative.Cdn.V20210601.IsDeviceOperator> Operator { get; set; } = null!;
 
+        [Input("transforms")]
+        private InputList<Union<string, Pulumi.AzureNative.Cdn.V20210601.Transform>>? _transforms;
+
+        /// <summary>
+        /// List of transforms
+        /// </summary>
+        public InputList<Union<string, Pulumi.AzureNative.Cdn.V20210601.Transform>> Transforms
+        {
+            get => _transforms ?? (_transforms = new InputList<Union<string, Pulumi.AzureNative.Cdn.V20210601.Transform>>());
+            set => _transforms = value;
+        }
+
         [Input("typeName", required: true)]
         public Input<string> TypeName { get; set; } = null!;
 

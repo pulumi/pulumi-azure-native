@@ -73,6 +73,9 @@ func NewDedicatedHostGroup(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:compute/v20210401:DedicatedHostGroup"),
 		},
+		{
+			Type: pulumi.String("azure-native:compute/v20211101:DedicatedHostGroup"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource DedicatedHostGroup

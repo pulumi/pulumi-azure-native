@@ -151,7 +151,7 @@ export class VirtualMachineRunCommandByVirtualMachine extends pulumi.CustomResou
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:compute:VirtualMachineRunCommandByVirtualMachine" }, { type: "azure-native:compute/v20200601:VirtualMachineRunCommandByVirtualMachine" }, { type: "azure-native:compute/v20201201:VirtualMachineRunCommandByVirtualMachine" }, { type: "azure-native:compute/v20210301:VirtualMachineRunCommandByVirtualMachine" }, { type: "azure-native:compute/v20210401:VirtualMachineRunCommandByVirtualMachine" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:compute:VirtualMachineRunCommandByVirtualMachine" }, { type: "azure-native:compute/v20200601:VirtualMachineRunCommandByVirtualMachine" }, { type: "azure-native:compute/v20201201:VirtualMachineRunCommandByVirtualMachine" }, { type: "azure-native:compute/v20210301:VirtualMachineRunCommandByVirtualMachine" }, { type: "azure-native:compute/v20210401:VirtualMachineRunCommandByVirtualMachine" }, { type: "azure-native:compute/v20211101:VirtualMachineRunCommandByVirtualMachine" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(VirtualMachineRunCommandByVirtualMachine.__pulumiType, name, resourceInputs, opts);
     }

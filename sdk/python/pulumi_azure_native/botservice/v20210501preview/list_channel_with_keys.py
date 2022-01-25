@@ -21,7 +21,13 @@ class ListChannelWithKeysResult:
     """
     The ARM channel of list channel with keys operation response.
     """
-    def __init__(__self__, etag=None, id=None, kind=None, location=None, name=None, properties=None, resource=None, setting=None, sku=None, tags=None, type=None, zones=None):
+    def __init__(__self__, changed_time=None, entity_tag=None, etag=None, id=None, kind=None, location=None, name=None, properties=None, provisioning_state=None, resource=None, setting=None, sku=None, tags=None, type=None, zones=None):
+        if changed_time and not isinstance(changed_time, str):
+            raise TypeError("Expected argument 'changed_time' to be a str")
+        pulumi.set(__self__, "changed_time", changed_time)
+        if entity_tag and not isinstance(entity_tag, str):
+            raise TypeError("Expected argument 'entity_tag' to be a str")
+        pulumi.set(__self__, "entity_tag", entity_tag)
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
@@ -40,6 +46,9 @@ class ListChannelWithKeysResult:
         if properties and not isinstance(properties, dict):
             raise TypeError("Expected argument 'properties' to be a dict")
         pulumi.set(__self__, "properties", properties)
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
         if resource and not isinstance(resource, dict):
             raise TypeError("Expected argument 'resource' to be a dict")
         pulumi.set(__self__, "resource", resource)
@@ -58,6 +67,22 @@ class ListChannelWithKeysResult:
         if zones and not isinstance(zones, list):
             raise TypeError("Expected argument 'zones' to be a list")
         pulumi.set(__self__, "zones", zones)
+
+    @property
+    @pulumi.getter(name="changedTime")
+    def changed_time(self) -> Optional[str]:
+        """
+        Changed time of the resource
+        """
+        return pulumi.get(self, "changed_time")
+
+    @property
+    @pulumi.getter(name="entityTag")
+    def entity_tag(self) -> Optional[str]:
+        """
+        Entity tag of the resource
+        """
+        return pulumi.get(self, "entity_tag")
 
     @property
     @pulumi.getter
@@ -106,6 +131,14 @@ class ListChannelWithKeysResult:
         The set of properties specific to bot channel resource
         """
         return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> Optional[str]:
+        """
+        Provisioning state of the resource
+        """
+        return pulumi.get(self, "provisioning_state")
 
     @property
     @pulumi.getter
@@ -162,12 +195,15 @@ class AwaitableListChannelWithKeysResult(ListChannelWithKeysResult):
         if False:
             yield self
         return ListChannelWithKeysResult(
+            changed_time=self.changed_time,
+            entity_tag=self.entity_tag,
             etag=self.etag,
             id=self.id,
             kind=self.kind,
             location=self.location,
             name=self.name,
             properties=self.properties,
+            provisioning_state=self.provisioning_state,
             resource=self.resource,
             setting=self.setting,
             sku=self.sku,
@@ -199,12 +235,15 @@ def list_channel_with_keys(channel_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:botservice/v20210501preview:listChannelWithKeys', __args__, opts=opts, typ=ListChannelWithKeysResult).value
 
     return AwaitableListChannelWithKeysResult(
+        changed_time=__ret__.changed_time,
+        entity_tag=__ret__.entity_tag,
         etag=__ret__.etag,
         id=__ret__.id,
         kind=__ret__.kind,
         location=__ret__.location,
         name=__ret__.name,
         properties=__ret__.properties,
+        provisioning_state=__ret__.provisioning_state,
         resource=__ret__.resource,
         setting=__ret__.setting,
         sku=__ret__.sku,

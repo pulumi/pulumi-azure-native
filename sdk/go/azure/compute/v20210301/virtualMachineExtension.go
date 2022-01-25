@@ -105,6 +105,9 @@ func NewVirtualMachineExtension(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:compute/v20210701:VirtualMachineExtension"),
 		},
+		{
+			Type: pulumi.String("azure-native:compute/v20211101:VirtualMachineExtension"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource VirtualMachineExtension

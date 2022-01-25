@@ -303,6 +303,8 @@ class ManagedServiceIdentityType(str, Enum):
     Type of managed service identity.
     """
     SYSTEM_ASSIGNED = "SystemAssigned"
+    USER_ASSIGNED = "UserAssigned"
+    SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned, UserAssigned"
     NONE = "None"
 
 

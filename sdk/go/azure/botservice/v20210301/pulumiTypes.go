@@ -23,6 +23,19 @@ type AlexaChannel struct {
 	Properties *AlexaChannelProperties `pulumi:"properties"`
 }
 
+// Defaults sets the appropriate defaults for AlexaChannel
+func (val *AlexaChannel) Defaults() *AlexaChannel {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Location) {
+		location_ := "global"
+		tmp.Location = &location_
+	}
+	return &tmp
+}
+
 // The parameters to provide for the Alexa channel.
 type AlexaChannelProperties struct {
 	// The Alexa skill Id
@@ -58,14 +71,25 @@ type AlexaChannelResponse struct {
 	ProvisioningState string `pulumi:"provisioningState"`
 }
 
+// Defaults sets the appropriate defaults for AlexaChannelResponse
+func (val *AlexaChannelResponse) Defaults() *AlexaChannelResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Location) {
+		location_ := "global"
+		tmp.Location = &location_
+	}
+	return &tmp
+}
+
 // The parameters to provide for the Bot.
 type BotProperties struct {
 	// Contains resource all settings defined as key/value pairs.
 	AllSettings map[string]string `pulumi:"allSettings"`
 	// The hint (e.g. keyVault secret resourceId) on how to fetch the app secret
 	AppPasswordHint *string `pulumi:"appPasswordHint"`
-	// The CMK encryption status
-	CmekEncryptionStatus *string `pulumi:"cmekEncryptionStatus"`
 	// The CMK Url
 	CmekKeyVaultUrl *string `pulumi:"cmekKeyVaultUrl"`
 	// The description of the bot
@@ -86,8 +110,6 @@ type BotProperties struct {
 	IconUrl *string `pulumi:"iconUrl"`
 	// Whether Cmek is enabled
 	IsCmekEnabled *bool `pulumi:"isCmekEnabled"`
-	// Whether the bot is developerAppInsightsApiKey set
-	IsDeveloperAppInsightsApiKeySet *bool `pulumi:"isDeveloperAppInsightsApiKeySet"`
 	// Whether the bot is streaming supported
 	IsStreamingSupported *bool `pulumi:"isStreamingSupported"`
 	// Collection of LUIS App Ids
@@ -124,6 +146,10 @@ func (val *BotProperties) Defaults() *BotProperties {
 		return nil
 	}
 	tmp := *val
+	if isZero(tmp.IsStreamingSupported) {
+		isStreamingSupported_ := false
+		tmp.IsStreamingSupported = &isStreamingSupported_
+	}
 	if isZero(tmp.PublicNetworkAccess) {
 		publicNetworkAccess_ := "Enabled"
 		tmp.PublicNetworkAccess = &publicNetworkAccess_
@@ -148,8 +174,6 @@ type BotPropertiesArgs struct {
 	AllSettings pulumi.StringMapInput `pulumi:"allSettings"`
 	// The hint (e.g. keyVault secret resourceId) on how to fetch the app secret
 	AppPasswordHint pulumi.StringPtrInput `pulumi:"appPasswordHint"`
-	// The CMK encryption status
-	CmekEncryptionStatus pulumi.StringPtrInput `pulumi:"cmekEncryptionStatus"`
 	// The CMK Url
 	CmekKeyVaultUrl pulumi.StringPtrInput `pulumi:"cmekKeyVaultUrl"`
 	// The description of the bot
@@ -170,8 +194,6 @@ type BotPropertiesArgs struct {
 	IconUrl pulumi.StringPtrInput `pulumi:"iconUrl"`
 	// Whether Cmek is enabled
 	IsCmekEnabled pulumi.BoolPtrInput `pulumi:"isCmekEnabled"`
-	// Whether the bot is developerAppInsightsApiKey set
-	IsDeveloperAppInsightsApiKeySet pulumi.BoolPtrInput `pulumi:"isDeveloperAppInsightsApiKeySet"`
 	// Whether the bot is streaming supported
 	IsStreamingSupported pulumi.BoolPtrInput `pulumi:"isStreamingSupported"`
 	// Collection of LUIS App Ids
@@ -290,11 +312,6 @@ func (o BotPropertiesOutput) AppPasswordHint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BotProperties) *string { return v.AppPasswordHint }).(pulumi.StringPtrOutput)
 }
 
-// The CMK encryption status
-func (o BotPropertiesOutput) CmekEncryptionStatus() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v BotProperties) *string { return v.CmekEncryptionStatus }).(pulumi.StringPtrOutput)
-}
-
 // The CMK Url
 func (o BotPropertiesOutput) CmekKeyVaultUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BotProperties) *string { return v.CmekKeyVaultUrl }).(pulumi.StringPtrOutput)
@@ -343,11 +360,6 @@ func (o BotPropertiesOutput) IconUrl() pulumi.StringPtrOutput {
 // Whether Cmek is enabled
 func (o BotPropertiesOutput) IsCmekEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v BotProperties) *bool { return v.IsCmekEnabled }).(pulumi.BoolPtrOutput)
-}
-
-// Whether the bot is developerAppInsightsApiKey set
-func (o BotPropertiesOutput) IsDeveloperAppInsightsApiKeySet() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v BotProperties) *bool { return v.IsDeveloperAppInsightsApiKeySet }).(pulumi.BoolPtrOutput)
 }
 
 // Whether the bot is streaming supported
@@ -464,16 +476,6 @@ func (o BotPropertiesPtrOutput) AppPasswordHint() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The CMK encryption status
-func (o BotPropertiesPtrOutput) CmekEncryptionStatus() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *BotProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CmekEncryptionStatus
-	}).(pulumi.StringPtrOutput)
-}
-
 // The CMK Url
 func (o BotPropertiesPtrOutput) CmekKeyVaultUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BotProperties) *string {
@@ -571,16 +573,6 @@ func (o BotPropertiesPtrOutput) IsCmekEnabled() pulumi.BoolPtrOutput {
 			return nil
 		}
 		return v.IsCmekEnabled
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Whether the bot is developerAppInsightsApiKey set
-func (o BotPropertiesPtrOutput) IsDeveloperAppInsightsApiKeySet() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *BotProperties) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.IsDeveloperAppInsightsApiKeySet
 	}).(pulumi.BoolPtrOutput)
 }
 
@@ -731,7 +723,7 @@ type BotPropertiesResponse struct {
 	// The hint (e.g. keyVault secret resourceId) on how to fetch the app secret
 	AppPasswordHint *string `pulumi:"appPasswordHint"`
 	// The CMK encryption status
-	CmekEncryptionStatus *string `pulumi:"cmekEncryptionStatus"`
+	CmekEncryptionStatus string `pulumi:"cmekEncryptionStatus"`
 	// The CMK Url
 	CmekKeyVaultUrl *string `pulumi:"cmekKeyVaultUrl"`
 	// Collection of channels for which the bot is configured
@@ -759,7 +751,7 @@ type BotPropertiesResponse struct {
 	// Whether Cmek is enabled
 	IsCmekEnabled *bool `pulumi:"isCmekEnabled"`
 	// Whether the bot is developerAppInsightsApiKey set
-	IsDeveloperAppInsightsApiKeySet *bool `pulumi:"isDeveloperAppInsightsApiKeySet"`
+	IsDeveloperAppInsightsApiKeySet bool `pulumi:"isDeveloperAppInsightsApiKeySet"`
 	// Whether the bot is streaming supported
 	IsStreamingSupported *bool `pulumi:"isStreamingSupported"`
 	// Collection of LUIS App Ids
@@ -800,6 +792,10 @@ func (val *BotPropertiesResponse) Defaults() *BotPropertiesResponse {
 		return nil
 	}
 	tmp := *val
+	if isZero(tmp.IsStreamingSupported) {
+		isStreamingSupported_ := false
+		tmp.IsStreamingSupported = &isStreamingSupported_
+	}
 	if isZero(tmp.PublicNetworkAccess) {
 		publicNetworkAccess_ := "Enabled"
 		tmp.PublicNetworkAccess = &publicNetworkAccess_
@@ -833,8 +829,8 @@ func (o BotPropertiesResponseOutput) AppPasswordHint() pulumi.StringPtrOutput {
 }
 
 // The CMK encryption status
-func (o BotPropertiesResponseOutput) CmekEncryptionStatus() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v BotPropertiesResponse) *string { return v.CmekEncryptionStatus }).(pulumi.StringPtrOutput)
+func (o BotPropertiesResponseOutput) CmekEncryptionStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v BotPropertiesResponse) string { return v.CmekEncryptionStatus }).(pulumi.StringOutput)
 }
 
 // The CMK Url
@@ -903,8 +899,8 @@ func (o BotPropertiesResponseOutput) IsCmekEnabled() pulumi.BoolPtrOutput {
 }
 
 // Whether the bot is developerAppInsightsApiKey set
-func (o BotPropertiesResponseOutput) IsDeveloperAppInsightsApiKeySet() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v BotPropertiesResponse) *bool { return v.IsDeveloperAppInsightsApiKeySet }).(pulumi.BoolPtrOutput)
+func (o BotPropertiesResponseOutput) IsDeveloperAppInsightsApiKeySet() pulumi.BoolOutput {
+	return o.ApplyT(func(v BotPropertiesResponse) bool { return v.IsDeveloperAppInsightsApiKeySet }).(pulumi.BoolOutput)
 }
 
 // Whether the bot is streaming supported
@@ -1739,6 +1735,19 @@ type DirectLineChannel struct {
 	Properties *DirectLineChannelProperties `pulumi:"properties"`
 }
 
+// Defaults sets the appropriate defaults for DirectLineChannel
+func (val *DirectLineChannel) Defaults() *DirectLineChannel {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Location) {
+		location_ := "global"
+		tmp.Location = &location_
+	}
+	return &tmp
+}
+
 // The parameters to provide for the Direct Line channel.
 type DirectLineChannelProperties struct {
 	// Direct Line embed code of the resource
@@ -1768,6 +1777,19 @@ type DirectLineChannelResponse struct {
 	Properties *DirectLineChannelPropertiesResponse `pulumi:"properties"`
 	// Provisioning state of the resource
 	ProvisioningState string `pulumi:"provisioningState"`
+}
+
+// Defaults sets the appropriate defaults for DirectLineChannelResponse
+func (val *DirectLineChannelResponse) Defaults() *DirectLineChannelResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Location) {
+		location_ := "global"
+		tmp.Location = &location_
+	}
+	return &tmp
 }
 
 // A site for the Direct Line channel
@@ -1825,6 +1847,19 @@ type DirectLineSpeechChannel struct {
 	Properties *DirectLineSpeechChannelProperties `pulumi:"properties"`
 }
 
+// Defaults sets the appropriate defaults for DirectLineSpeechChannel
+func (val *DirectLineSpeechChannel) Defaults() *DirectLineSpeechChannel {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Location) {
+		location_ := "global"
+		tmp.Location = &location_
+	}
+	return &tmp
+}
+
 // The parameters to provide for the DirectLine Speech channel.
 type DirectLineSpeechChannelProperties struct {
 	// The cognitive service region with this channel registration.
@@ -1872,6 +1907,19 @@ type DirectLineSpeechChannelResponse struct {
 	ProvisioningState string `pulumi:"provisioningState"`
 }
 
+// Defaults sets the appropriate defaults for DirectLineSpeechChannelResponse
+func (val *DirectLineSpeechChannelResponse) Defaults() *DirectLineSpeechChannelResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Location) {
+		location_ := "global"
+		tmp.Location = &location_
+	}
+	return &tmp
+}
+
 // Email channel definition
 type EmailChannel struct {
 	// The channel name
@@ -1883,6 +1931,19 @@ type EmailChannel struct {
 	Location *string `pulumi:"location"`
 	// The set of properties specific to email channel resource
 	Properties *EmailChannelProperties `pulumi:"properties"`
+}
+
+// Defaults sets the appropriate defaults for EmailChannel
+func (val *EmailChannel) Defaults() *EmailChannel {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Location) {
+		location_ := "global"
+		tmp.Location = &location_
+	}
+	return &tmp
 }
 
 // The parameters to provide for the Email channel.
@@ -1920,6 +1981,19 @@ type EmailChannelResponse struct {
 	ProvisioningState string `pulumi:"provisioningState"`
 }
 
+// Defaults sets the appropriate defaults for EmailChannelResponse
+func (val *EmailChannelResponse) Defaults() *EmailChannelResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Location) {
+		location_ := "global"
+		tmp.Location = &location_
+	}
+	return &tmp
+}
+
 // Facebook channel definition
 type FacebookChannel struct {
 	// The channel name
@@ -1931,6 +2005,19 @@ type FacebookChannel struct {
 	Location *string `pulumi:"location"`
 	// The set of properties specific to bot facebook channel
 	Properties *FacebookChannelProperties `pulumi:"properties"`
+}
+
+// Defaults sets the appropriate defaults for FacebookChannel
+func (val *FacebookChannel) Defaults() *FacebookChannel {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Location) {
+		location_ := "global"
+		tmp.Location = &location_
+	}
+	return &tmp
 }
 
 // The parameters to provide for the Facebook channel.
@@ -1976,6 +2063,19 @@ type FacebookChannelResponse struct {
 	ProvisioningState string `pulumi:"provisioningState"`
 }
 
+// Defaults sets the appropriate defaults for FacebookChannelResponse
+func (val *FacebookChannelResponse) Defaults() *FacebookChannelResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Location) {
+		location_ := "global"
+		tmp.Location = &location_
+	}
+	return &tmp
+}
+
 // A Facebook page for Facebook channel registration
 type FacebookPage struct {
 	// Facebook application access token. Value only returned through POST to the action Channel List API, otherwise empty.
@@ -2003,6 +2103,19 @@ type KikChannel struct {
 	Location *string `pulumi:"location"`
 	// The set of properties specific to Kik channel resource
 	Properties *KikChannelProperties `pulumi:"properties"`
+}
+
+// Defaults sets the appropriate defaults for KikChannel
+func (val *KikChannel) Defaults() *KikChannel {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Location) {
+		location_ := "global"
+		tmp.Location = &location_
+	}
+	return &tmp
 }
 
 // The parameters to provide for the Kik channel.
@@ -2044,6 +2157,19 @@ type KikChannelResponse struct {
 	ProvisioningState string `pulumi:"provisioningState"`
 }
 
+// Defaults sets the appropriate defaults for KikChannelResponse
+func (val *KikChannelResponse) Defaults() *KikChannelResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Location) {
+		location_ := "global"
+		tmp.Location = &location_
+	}
+	return &tmp
+}
+
 // Line channel definition
 type LineChannel struct {
 	// The channel name
@@ -2055,6 +2181,19 @@ type LineChannel struct {
 	Location *string `pulumi:"location"`
 	// The set of properties specific to line channel resource
 	Properties *LineChannelProperties `pulumi:"properties"`
+}
+
+// Defaults sets the appropriate defaults for LineChannel
+func (val *LineChannel) Defaults() *LineChannel {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Location) {
+		location_ := "global"
+		tmp.Location = &location_
+	}
+	return &tmp
 }
 
 // The parameters to provide for the Line channel.
@@ -2088,6 +2227,19 @@ type LineChannelResponse struct {
 	ProvisioningState string `pulumi:"provisioningState"`
 }
 
+// Defaults sets the appropriate defaults for LineChannelResponse
+func (val *LineChannelResponse) Defaults() *LineChannelResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Location) {
+		location_ := "global"
+		tmp.Location = &location_
+	}
+	return &tmp
+}
+
 // The properties corresponding to a line channel registration
 type LineRegistration struct {
 	// Access token for the line channel registration
@@ -2119,6 +2271,21 @@ type MsTeamsChannel struct {
 	Properties *MsTeamsChannelProperties `pulumi:"properties"`
 }
 
+// Defaults sets the appropriate defaults for MsTeamsChannel
+func (val *MsTeamsChannel) Defaults() *MsTeamsChannel {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Location) {
+		location_ := "global"
+		tmp.Location = &location_
+	}
+	tmp.Properties = tmp.Properties.Defaults()
+
+	return &tmp
+}
+
 // The parameters to provide for the Microsoft Teams channel.
 type MsTeamsChannelProperties struct {
 	// Whether this channel accepted terms
@@ -2133,6 +2300,19 @@ type MsTeamsChannelProperties struct {
 	IncomingCallRoute *string `pulumi:"incomingCallRoute"`
 	// Whether this channel is enabled for the bot
 	IsEnabled bool `pulumi:"isEnabled"`
+}
+
+// Defaults sets the appropriate defaults for MsTeamsChannelProperties
+func (val *MsTeamsChannelProperties) Defaults() *MsTeamsChannelProperties {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.AcceptedTerms) {
+		acceptedTerms_ := true
+		tmp.AcceptedTerms = &acceptedTerms_
+	}
+	return &tmp
 }
 
 // The parameters to provide for the Microsoft Teams channel.
@@ -2151,6 +2331,19 @@ type MsTeamsChannelPropertiesResponse struct {
 	IsEnabled bool `pulumi:"isEnabled"`
 }
 
+// Defaults sets the appropriate defaults for MsTeamsChannelPropertiesResponse
+func (val *MsTeamsChannelPropertiesResponse) Defaults() *MsTeamsChannelPropertiesResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.AcceptedTerms) {
+		acceptedTerms_ := true
+		tmp.AcceptedTerms = &acceptedTerms_
+	}
+	return &tmp
+}
+
 // Microsoft Teams channel definition
 type MsTeamsChannelResponse struct {
 	// The channel name
@@ -2164,6 +2357,21 @@ type MsTeamsChannelResponse struct {
 	Properties *MsTeamsChannelPropertiesResponse `pulumi:"properties"`
 	// Provisioning state of the resource
 	ProvisioningState string `pulumi:"provisioningState"`
+}
+
+// Defaults sets the appropriate defaults for MsTeamsChannelResponse
+func (val *MsTeamsChannelResponse) Defaults() *MsTeamsChannelResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Location) {
+		location_ := "global"
+		tmp.Location = &location_
+	}
+	tmp.Properties = tmp.Properties.Defaults()
+
+	return &tmp
 }
 
 // Extra Parameters specific to each Service Provider
@@ -2590,6 +2798,19 @@ type SkypeChannel struct {
 	Properties *SkypeChannelProperties `pulumi:"properties"`
 }
 
+// Defaults sets the appropriate defaults for SkypeChannel
+func (val *SkypeChannel) Defaults() *SkypeChannel {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Location) {
+		location_ := "global"
+		tmp.Location = &location_
+	}
+	return &tmp
+}
+
 // The parameters to provide for the Microsoft Teams channel.
 type SkypeChannelProperties struct {
 	// Calling web hook for Skype channel
@@ -2653,6 +2874,19 @@ type SkypeChannelResponse struct {
 	ProvisioningState string `pulumi:"provisioningState"`
 }
 
+// Defaults sets the appropriate defaults for SkypeChannelResponse
+func (val *SkypeChannelResponse) Defaults() *SkypeChannelResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Location) {
+		location_ := "global"
+		tmp.Location = &location_
+	}
+	return &tmp
+}
+
 // Slack channel definition
 type SlackChannel struct {
 	// The channel name
@@ -2664,6 +2898,19 @@ type SlackChannel struct {
 	Location *string `pulumi:"location"`
 	// The set of properties specific to Slack channel resource
 	Properties *SlackChannelProperties `pulumi:"properties"`
+}
+
+// Defaults sets the appropriate defaults for SlackChannel
+func (val *SlackChannel) Defaults() *SlackChannel {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Location) {
+		location_ := "global"
+		tmp.Location = &location_
+	}
+	return &tmp
 }
 
 // The parameters to provide for the Slack channel.
@@ -2721,6 +2968,19 @@ type SlackChannelResponse struct {
 	ProvisioningState string `pulumi:"provisioningState"`
 }
 
+// Defaults sets the appropriate defaults for SlackChannelResponse
+func (val *SlackChannelResponse) Defaults() *SlackChannelResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Location) {
+		location_ := "global"
+		tmp.Location = &location_
+	}
+	return &tmp
+}
+
 // Sms channel definition
 type SmsChannel struct {
 	// The channel name
@@ -2732,6 +2992,19 @@ type SmsChannel struct {
 	Location *string `pulumi:"location"`
 	// The set of properties specific to Sms channel resource
 	Properties *SmsChannelProperties `pulumi:"properties"`
+}
+
+// Defaults sets the appropriate defaults for SmsChannel
+func (val *SmsChannel) Defaults() *SmsChannel {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Location) {
+		location_ := "global"
+		tmp.Location = &location_
+	}
+	return &tmp
 }
 
 // The parameters to provide for the Sms channel.
@@ -2777,6 +3050,19 @@ type SmsChannelResponse struct {
 	ProvisioningState string `pulumi:"provisioningState"`
 }
 
+// Defaults sets the appropriate defaults for SmsChannelResponse
+func (val *SmsChannelResponse) Defaults() *SmsChannelResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Location) {
+		location_ := "global"
+		tmp.Location = &location_
+	}
+	return &tmp
+}
+
 // Telegram channel definition
 type TelegramChannel struct {
 	// The channel name
@@ -2788,6 +3074,19 @@ type TelegramChannel struct {
 	Location *string `pulumi:"location"`
 	// The set of properties specific to Telegram channel resource
 	Properties *TelegramChannelProperties `pulumi:"properties"`
+}
+
+// Defaults sets the appropriate defaults for TelegramChannel
+func (val *TelegramChannel) Defaults() *TelegramChannel {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Location) {
+		location_ := "global"
+		tmp.Location = &location_
+	}
+	return &tmp
 }
 
 // The parameters to provide for the Telegram channel.
@@ -2825,6 +3124,19 @@ type TelegramChannelResponse struct {
 	ProvisioningState string `pulumi:"provisioningState"`
 }
 
+// Defaults sets the appropriate defaults for TelegramChannelResponse
+func (val *TelegramChannelResponse) Defaults() *TelegramChannelResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Location) {
+		location_ := "global"
+		tmp.Location = &location_
+	}
+	return &tmp
+}
+
 // Web Chat channel definition
 type WebChatChannel struct {
 	// The channel name
@@ -2836,6 +3148,19 @@ type WebChatChannel struct {
 	Location *string `pulumi:"location"`
 	// The set of properties specific to Web Chat channel resource
 	Properties *WebChatChannelProperties `pulumi:"properties"`
+}
+
+// Defaults sets the appropriate defaults for WebChatChannel
+func (val *WebChatChannel) Defaults() *WebChatChannel {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Location) {
+		location_ := "global"
+		tmp.Location = &location_
+	}
+	return &tmp
 }
 
 // The parameters to provide for the Web Chat channel.
@@ -2865,6 +3190,19 @@ type WebChatChannelResponse struct {
 	Properties *WebChatChannelPropertiesResponse `pulumi:"properties"`
 	// Provisioning state of the resource
 	ProvisioningState string `pulumi:"provisioningState"`
+}
+
+// Defaults sets the appropriate defaults for WebChatChannelResponse
+func (val *WebChatChannelResponse) Defaults() *WebChatChannelResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Location) {
+		location_ := "global"
+		tmp.Location = &location_
+	}
+	return &tmp
 }
 
 // A site for the Webchat channel

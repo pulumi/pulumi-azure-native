@@ -21,7 +21,7 @@ class GetAFDEndpointResult:
     """
     CDN endpoint is the entity within a CDN profile containing configuration information such as origin, protocol, content caching and delivery behavior. The AzureFrontDoor endpoint uses the URL format <endpointname>.azureedge.net.
     """
-    def __init__(__self__, deployment_status=None, enabled_state=None, host_name=None, id=None, location=None, name=None, origin_response_timeout_seconds=None, profile_name=None, provisioning_state=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, deployment_status=None, enabled_state=None, host_name=None, id=None, location=None, name=None, profile_name=None, provisioning_state=None, system_data=None, tags=None, type=None):
         if deployment_status and not isinstance(deployment_status, str):
             raise TypeError("Expected argument 'deployment_status' to be a str")
         pulumi.set(__self__, "deployment_status", deployment_status)
@@ -40,9 +40,6 @@ class GetAFDEndpointResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if origin_response_timeout_seconds and not isinstance(origin_response_timeout_seconds, int):
-            raise TypeError("Expected argument 'origin_response_timeout_seconds' to be a int")
-        pulumi.set(__self__, "origin_response_timeout_seconds", origin_response_timeout_seconds)
         if profile_name and not isinstance(profile_name, str):
             raise TypeError("Expected argument 'profile_name' to be a str")
         pulumi.set(__self__, "profile_name", profile_name)
@@ -105,14 +102,6 @@ class GetAFDEndpointResult:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="originResponseTimeoutSeconds")
-    def origin_response_timeout_seconds(self) -> Optional[int]:
-        """
-        Send and receive timeout on forwarding request to the origin. When timeout is reached, the request fails and returns.
-        """
-        return pulumi.get(self, "origin_response_timeout_seconds")
-
-    @property
     @pulumi.getter(name="profileName")
     def profile_name(self) -> str:
         """
@@ -165,7 +154,6 @@ class AwaitableGetAFDEndpointResult(GetAFDEndpointResult):
             id=self.id,
             location=self.location,
             name=self.name,
-            origin_response_timeout_seconds=self.origin_response_timeout_seconds,
             profile_name=self.profile_name,
             provisioning_state=self.provisioning_state,
             system_data=self.system_data,
@@ -202,7 +190,6 @@ def get_afd_endpoint(endpoint_name: Optional[str] = None,
         id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
-        origin_response_timeout_seconds=__ret__.origin_response_timeout_seconds,
         profile_name=__ret__.profile_name,
         provisioning_state=__ret__.provisioning_state,
         system_data=__ret__.system_data,

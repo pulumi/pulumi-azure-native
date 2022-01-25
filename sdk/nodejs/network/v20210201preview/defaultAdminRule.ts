@@ -175,7 +175,7 @@ export class DefaultAdminRule extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:network:DefaultAdminRule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network:DefaultAdminRule" }, { type: "azure-native:network/v20210501preview:DefaultAdminRule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DefaultAdminRule.__pulumiType, name, resourceInputs, opts);
     }

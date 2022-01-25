@@ -101,6 +101,7 @@ namespace Pulumi.AzureNative.Network.V20210201Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:network:NetworkGroup"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210501preview:NetworkGroup"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -103,6 +103,8 @@ class AlexaChannelArgs:
         pulumi.set(__self__, "channel_name", 'AlexaChannel')
         if etag is not None:
             pulumi.set(__self__, "etag", etag)
+        if location is None:
+            location = 'global'
         if location is not None:
             pulumi.set(__self__, "location", location)
         if properties is not None:
@@ -166,7 +168,6 @@ class BotPropertiesArgs:
                  msa_app_id: pulumi.Input[str],
                  all_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  app_password_hint: Optional[pulumi.Input[str]] = None,
-                 cmek_encryption_status: Optional[pulumi.Input[str]] = None,
                  cmek_key_vault_url: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  developer_app_insight_key: Optional[pulumi.Input[str]] = None,
@@ -175,7 +176,6 @@ class BotPropertiesArgs:
                  disable_local_auth: Optional[pulumi.Input[bool]] = None,
                  icon_url: Optional[pulumi.Input[str]] = None,
                  is_cmek_enabled: Optional[pulumi.Input[bool]] = None,
-                 is_developer_app_insights_api_key_set: Optional[pulumi.Input[bool]] = None,
                  is_streaming_supported: Optional[pulumi.Input[bool]] = None,
                  luis_app_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  luis_key: Optional[pulumi.Input[str]] = None,
@@ -196,7 +196,6 @@ class BotPropertiesArgs:
         :param pulumi.Input[str] msa_app_id: Microsoft App Id for the bot
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] all_settings: Contains resource all settings defined as key/value pairs.
         :param pulumi.Input[str] app_password_hint: The hint (e.g. keyVault secret resourceId) on how to fetch the app secret
-        :param pulumi.Input[str] cmek_encryption_status: The CMK encryption status
         :param pulumi.Input[str] cmek_key_vault_url: The CMK Url
         :param pulumi.Input[str] description: The description of the bot
         :param pulumi.Input[str] developer_app_insight_key: The Application Insights key
@@ -205,7 +204,6 @@ class BotPropertiesArgs:
         :param pulumi.Input[bool] disable_local_auth: Opt-out of local authentication and ensure only MSI and AAD can be used exclusively for authentication.
         :param pulumi.Input[str] icon_url: The Icon Url of the bot
         :param pulumi.Input[bool] is_cmek_enabled: Whether Cmek is enabled
-        :param pulumi.Input[bool] is_developer_app_insights_api_key_set: Whether the bot is developerAppInsightsApiKey set
         :param pulumi.Input[bool] is_streaming_supported: Whether the bot is streaming supported
         :param pulumi.Input[Sequence[pulumi.Input[str]]] luis_app_ids: Collection of LUIS App Ids
         :param pulumi.Input[str] luis_key: The LUIS Key
@@ -227,8 +225,6 @@ class BotPropertiesArgs:
             pulumi.set(__self__, "all_settings", all_settings)
         if app_password_hint is not None:
             pulumi.set(__self__, "app_password_hint", app_password_hint)
-        if cmek_encryption_status is not None:
-            pulumi.set(__self__, "cmek_encryption_status", cmek_encryption_status)
         if cmek_key_vault_url is not None:
             pulumi.set(__self__, "cmek_key_vault_url", cmek_key_vault_url)
         if description is not None:
@@ -245,8 +241,8 @@ class BotPropertiesArgs:
             pulumi.set(__self__, "icon_url", icon_url)
         if is_cmek_enabled is not None:
             pulumi.set(__self__, "is_cmek_enabled", is_cmek_enabled)
-        if is_developer_app_insights_api_key_set is not None:
-            pulumi.set(__self__, "is_developer_app_insights_api_key_set", is_developer_app_insights_api_key_set)
+        if is_streaming_supported is None:
+            is_streaming_supported = False
         if is_streaming_supported is not None:
             pulumi.set(__self__, "is_streaming_supported", is_streaming_supported)
         if luis_app_ids is not None:
@@ -335,18 +331,6 @@ class BotPropertiesArgs:
     @app_password_hint.setter
     def app_password_hint(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "app_password_hint", value)
-
-    @property
-    @pulumi.getter(name="cmekEncryptionStatus")
-    def cmek_encryption_status(self) -> Optional[pulumi.Input[str]]:
-        """
-        The CMK encryption status
-        """
-        return pulumi.get(self, "cmek_encryption_status")
-
-    @cmek_encryption_status.setter
-    def cmek_encryption_status(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "cmek_encryption_status", value)
 
     @property
     @pulumi.getter(name="cmekKeyVaultUrl")
@@ -443,18 +427,6 @@ class BotPropertiesArgs:
     @is_cmek_enabled.setter
     def is_cmek_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "is_cmek_enabled", value)
-
-    @property
-    @pulumi.getter(name="isDeveloperAppInsightsApiKeySet")
-    def is_developer_app_insights_api_key_set(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Whether the bot is developerAppInsightsApiKey set
-        """
-        return pulumi.get(self, "is_developer_app_insights_api_key_set")
-
-    @is_developer_app_insights_api_key_set.setter
-    def is_developer_app_insights_api_key_set(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "is_developer_app_insights_api_key_set", value)
 
     @property
     @pulumi.getter(name="isStreamingSupported")
@@ -863,6 +835,8 @@ class DirectLineChannelArgs:
         pulumi.set(__self__, "channel_name", 'DirectLineChannel')
         if etag is not None:
             pulumi.set(__self__, "etag", etag)
+        if location is None:
+            location = 'global'
         if location is not None:
             pulumi.set(__self__, "location", location)
         if properties is not None:
@@ -1154,6 +1128,8 @@ class DirectLineSpeechChannelArgs:
         pulumi.set(__self__, "channel_name", 'DirectLineSpeechChannel')
         if etag is not None:
             pulumi.set(__self__, "etag", etag)
+        if location is None:
+            location = 'global'
         if location is not None:
             pulumi.set(__self__, "location", location)
         if properties is not None:
@@ -1281,6 +1257,8 @@ class EmailChannelArgs:
         pulumi.set(__self__, "channel_name", 'EmailChannel')
         if etag is not None:
             pulumi.set(__self__, "etag", etag)
+        if location is None:
+            location = 'global'
         if location is not None:
             pulumi.set(__self__, "location", location)
         if properties is not None:
@@ -1424,6 +1402,8 @@ class FacebookChannelArgs:
         pulumi.set(__self__, "channel_name", 'FacebookChannel')
         if etag is not None:
             pulumi.set(__self__, "etag", etag)
+        if location is None:
+            location = 'global'
         if location is not None:
             pulumi.set(__self__, "location", location)
         if properties is not None:
@@ -1606,6 +1586,8 @@ class KikChannelArgs:
         pulumi.set(__self__, "channel_name", 'KikChannel')
         if etag is not None:
             pulumi.set(__self__, "etag", etag)
+        if location is None:
+            location = 'global'
         if location is not None:
             pulumi.set(__self__, "location", location)
         if properties is not None:
@@ -1702,6 +1684,8 @@ class LineChannelArgs:
         pulumi.set(__self__, "channel_name", 'LineChannel')
         if etag is not None:
             pulumi.set(__self__, "etag", etag)
+        if location is None:
+            location = 'global'
         if location is not None:
             pulumi.set(__self__, "location", location)
         if properties is not None:
@@ -1918,6 +1902,8 @@ class MsTeamsChannelArgs:
         pulumi.set(__self__, "channel_name", 'MsTeamsChannel')
         if etag is not None:
             pulumi.set(__self__, "etag", etag)
+        if location is None:
+            location = 'global'
         if location is not None:
             pulumi.set(__self__, "location", location)
         if properties is not None:
@@ -2237,6 +2223,8 @@ class SkypeChannelArgs:
         pulumi.set(__self__, "channel_name", 'SkypeChannel')
         if etag is not None:
             pulumi.set(__self__, "etag", etag)
+        if location is None:
+            location = 'global'
         if location is not None:
             pulumi.set(__self__, "location", location)
         if properties is not None:
@@ -2429,6 +2417,8 @@ class SlackChannelArgs:
         pulumi.set(__self__, "channel_name", 'SlackChannel')
         if etag is not None:
             pulumi.set(__self__, "etag", etag)
+        if location is None:
+            location = 'global'
         if location is not None:
             pulumi.set(__self__, "location", location)
         if properties is not None:
@@ -2587,6 +2577,8 @@ class SmsChannelArgs:
         pulumi.set(__self__, "channel_name", 'SmsChannel')
         if etag is not None:
             pulumi.set(__self__, "etag", etag)
+        if location is None:
+            location = 'global'
         if location is not None:
             pulumi.set(__self__, "location", location)
         if properties is not None:
@@ -2715,6 +2707,8 @@ class TelegramChannelArgs:
         pulumi.set(__self__, "channel_name", 'TelegramChannel')
         if etag is not None:
             pulumi.set(__self__, "etag", etag)
+        if location is None:
+            location = 'global'
         if location is not None:
             pulumi.set(__self__, "location", location)
         if properties is not None:
@@ -2812,6 +2806,8 @@ class WebChatChannelArgs:
         pulumi.set(__self__, "channel_name", 'WebChatChannel')
         if etag is not None:
             pulumi.set(__self__, "etag", etag)
+        if location is None:
+            location = 'global'
         if location is not None:
             pulumi.set(__self__, "location", location)
         if properties is not None:

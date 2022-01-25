@@ -5,6 +5,8 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export * from "./getMetricsSource";
+export * from "./getMetricsSourceTagRule";
 export * from "./getMonitor";
 export * from "./getSubAccount";
 export * from "./getSubAccountTagRule";
@@ -14,6 +16,8 @@ export * from "./listMonitorUserRoles";
 export * from "./listMonitorVMHosts";
 export * from "./listSubAccountMonitoredResources";
 export * from "./listSubAccountVMHosts";
+export * from "./metricsSource";
+export * from "./metricsSourceTagRule";
 export * from "./monitor";
 export * from "./subAccount";
 export * from "./subAccountTagRule";
@@ -25,13 +29,17 @@ export * from "../types/enums/logz";
 // Export sub-modules:
 import * as v20201001 from "./v20201001";
 import * as v20201001preview from "./v20201001preview";
+import * as v20220101preview from "./v20220101preview";
 
 export {
     v20201001,
     v20201001preview,
+    v20220101preview,
 };
 
 // Import resources to register:
+import { MetricsSource } from "./metricsSource";
+import { MetricsSourceTagRule } from "./metricsSourceTagRule";
 import { Monitor } from "./monitor";
 import { SubAccount } from "./subAccount";
 import { SubAccountTagRule } from "./subAccountTagRule";
@@ -41,6 +49,10 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure-native:logz:MetricsSource":
+                return new MetricsSource(name, <any>undefined, { urn })
+            case "azure-native:logz:MetricsSourceTagRule":
+                return new MetricsSourceTagRule(name, <any>undefined, { urn })
             case "azure-native:logz:Monitor":
                 return new Monitor(name, <any>undefined, { urn })
             case "azure-native:logz:SubAccount":

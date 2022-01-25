@@ -95,7 +95,7 @@ namespace Pulumi.AzureNative.Cdn.V20200901
         /// <summary>
         /// compression settings.
         /// </summary>
-        public readonly ImmutableArray<Outputs.CompressionSettingsResponse> CompressionSettings;
+        public readonly Outputs.CompressionSettingsResponse? CompressionSettings;
         /// <summary>
         /// Domains referenced by this endpoint.
         /// </summary>
@@ -164,7 +164,7 @@ namespace Pulumi.AzureNative.Cdn.V20200901
 
         [OutputConstructor]
         private GetRouteResult(
-            ImmutableArray<Outputs.CompressionSettingsResponse> compressionSettings,
+            Outputs.CompressionSettingsResponse? compressionSettings,
 
             ImmutableArray<Outputs.ResourceReferenceResponse> customDomains,
 

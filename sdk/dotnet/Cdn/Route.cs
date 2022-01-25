@@ -20,7 +20,7 @@ namespace Pulumi.AzureNative.Cdn
         /// compression settings.
         /// </summary>
         [Output("compressionSettings")]
-        public Output<ImmutableArray<Outputs.CompressionSettingsResponse>> CompressionSettings { get; private set; } = null!;
+        public Output<Outputs.CompressionSettingsResponse?> CompressionSettings { get; private set; } = null!;
 
         /// <summary>
         /// Domains referenced by this endpoint.
@@ -165,17 +165,11 @@ namespace Pulumi.AzureNative.Cdn
 
     public sealed class RouteArgs : Pulumi.ResourceArgs
     {
-        [Input("compressionSettings")]
-        private InputList<Inputs.CompressionSettingsArgs>? _compressionSettings;
-
         /// <summary>
         /// compression settings.
         /// </summary>
-        public InputList<Inputs.CompressionSettingsArgs> CompressionSettings
-        {
-            get => _compressionSettings ?? (_compressionSettings = new InputList<Inputs.CompressionSettingsArgs>());
-            set => _compressionSettings = value;
-        }
+        [Input("compressionSettings")]
+        public Input<Inputs.CompressionSettingsArgs>? CompressionSettings { get; set; }
 
         [Input("customDomains")]
         private InputList<Inputs.ResourceReferenceArgs>? _customDomains;

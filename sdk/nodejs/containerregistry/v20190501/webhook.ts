@@ -117,7 +117,7 @@ export class Webhook extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:containerregistry:Webhook" }, { type: "azure-native:containerregistry/v20170601preview:Webhook" }, { type: "azure-native:containerregistry/v20171001:Webhook" }, { type: "azure-native:containerregistry/v20191201preview:Webhook" }, { type: "azure-native:containerregistry/v20201101preview:Webhook" }, { type: "azure-native:containerregistry/v20210601preview:Webhook" }, { type: "azure-native:containerregistry/v20210801preview:Webhook" }, { type: "azure-native:containerregistry/v20210901:Webhook" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:containerregistry:Webhook" }, { type: "azure-native:containerregistry/v20170601preview:Webhook" }, { type: "azure-native:containerregistry/v20171001:Webhook" }, { type: "azure-native:containerregistry/v20191201preview:Webhook" }, { type: "azure-native:containerregistry/v20201101preview:Webhook" }, { type: "azure-native:containerregistry/v20210601preview:Webhook" }, { type: "azure-native:containerregistry/v20210801preview:Webhook" }, { type: "azure-native:containerregistry/v20210901:Webhook" }, { type: "azure-native:containerregistry/v20211201preview:Webhook" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Webhook.__pulumiType, name, resourceInputs, opts);
     }

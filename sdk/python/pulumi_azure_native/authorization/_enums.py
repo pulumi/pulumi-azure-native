@@ -7,6 +7,7 @@ from enum import Enum
 __all__ = [
     'AccessReviewRecurrencePatternType',
     'AccessReviewRecurrenceRangeType',
+    'AccessReviewResult',
     'DefaultDecisionType',
     'EnforcementMode',
     'ExemptionCategory',
@@ -33,6 +34,17 @@ class AccessReviewRecurrenceRangeType(str, Enum):
     END_DATE = "endDate"
     NO_END = "noEnd"
     NUMBERED = "numbered"
+
+
+class AccessReviewResult(str, Enum):
+    """
+    Represents a reviewer's decision for a given review
+    """
+    APPROVE = "Approve"
+    DENY = "Deny"
+    NOT_REVIEWED = "NotReviewed"
+    DONT_KNOW = "DontKnow"
+    NOT_NOTIFIED = "NotNotified"
 
 
 class DefaultDecisionType(str, Enum):

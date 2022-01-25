@@ -27,6 +27,7 @@ import * as v20201001preview from "./v20201001preview";
 import * as v20210301preview from "./v20210301preview";
 import * as v20210601 from "./v20210601";
 import * as v20210701preview from "./v20210701preview";
+import * as v20211116preview from "./v20211116preview";
 
 export {
     v20150101,
@@ -54,6 +55,7 @@ export {
     v20210301preview,
     v20210601,
     v20210701preview,
+    v20211116preview,
 };
 
 export const AccessReviewRecurrencePatternType = {
@@ -76,6 +78,19 @@ export const AccessReviewRecurrenceRangeType = {
  * The recurrence range type. The possible values are: endDate, noEnd, numbered.
  */
 export type AccessReviewRecurrenceRangeType = (typeof AccessReviewRecurrenceRangeType)[keyof typeof AccessReviewRecurrenceRangeType];
+
+export const AccessReviewResult = {
+    Approve: "Approve",
+    Deny: "Deny",
+    NotReviewed: "NotReviewed",
+    DontKnow: "DontKnow",
+    NotNotified: "NotNotified",
+} as const;
+
+/**
+ * Represents a reviewer's decision for a given review
+ */
+export type AccessReviewResult = (typeof AccessReviewResult)[keyof typeof AccessReviewResult];
 
 export const DefaultDecisionType = {
     Approve: "Approve",

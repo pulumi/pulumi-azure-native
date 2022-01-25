@@ -94,7 +94,7 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:appconfiguration:PrivateEndpointConnection" }, { type: "azure-native:appconfiguration/v20200601:PrivateEndpointConnection" }, { type: "azure-native:appconfiguration/v20200701preview:PrivateEndpointConnection" }, { type: "azure-native:appconfiguration/v20210301preview:PrivateEndpointConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:appconfiguration:PrivateEndpointConnection" }, { type: "azure-native:appconfiguration/v20200601:PrivateEndpointConnection" }, { type: "azure-native:appconfiguration/v20200701preview:PrivateEndpointConnection" }, { type: "azure-native:appconfiguration/v20210301preview:PrivateEndpointConnection" }, { type: "azure-native:appconfiguration/v20211001preview:PrivateEndpointConnection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PrivateEndpointConnection.__pulumiType, name, resourceInputs, opts);
     }

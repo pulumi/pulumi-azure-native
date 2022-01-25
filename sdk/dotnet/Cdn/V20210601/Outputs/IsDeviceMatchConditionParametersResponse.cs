@@ -28,6 +28,10 @@ namespace Pulumi.AzureNative.Cdn.V20210601.Outputs
         /// Describes operator to be matched
         /// </summary>
         public readonly string Operator;
+        /// <summary>
+        /// List of transforms
+        /// </summary>
+        public readonly ImmutableArray<string> Transforms;
         public readonly string TypeName;
 
         [OutputConstructor]
@@ -38,11 +42,14 @@ namespace Pulumi.AzureNative.Cdn.V20210601.Outputs
 
             string @operator,
 
+            ImmutableArray<string> transforms,
+
             string typeName)
         {
             MatchValues = matchValues;
             NegateCondition = negateCondition;
             Operator = @operator;
+            Transforms = transforms;
             TypeName = typeName;
         }
     }

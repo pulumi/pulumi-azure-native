@@ -42,8 +42,6 @@ type LookupAFDEndpointResult struct {
 	Location string `pulumi:"location"`
 	// Resource name.
 	Name string `pulumi:"name"`
-	// Send and receive timeout on forwarding request to the origin. When timeout is reached, the request fails and returns.
-	OriginResponseTimeoutSeconds *int `pulumi:"originResponseTimeoutSeconds"`
 	// The name of the profile which holds the endpoint.
 	ProfileName string `pulumi:"profileName"`
 	// Provisioning status
@@ -120,11 +118,6 @@ func (o LookupAFDEndpointResultOutput) Location() pulumi.StringOutput {
 // Resource name.
 func (o LookupAFDEndpointResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAFDEndpointResult) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Send and receive timeout on forwarding request to the origin. When timeout is reached, the request fails and returns.
-func (o LookupAFDEndpointResultOutput) OriginResponseTimeoutSeconds() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v LookupAFDEndpointResult) *int { return v.OriginResponseTimeoutSeconds }).(pulumi.IntPtrOutput)
 }
 
 // The name of the profile which holds the endpoint.

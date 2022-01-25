@@ -168,7 +168,7 @@ export class Extension extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:azurestackhci/v20210101preview:Extension" }, { type: "azure-native:azurestackhci/v20210901:Extension" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:azurestackhci/v20210101preview:Extension" }, { type: "azure-native:azurestackhci/v20210901:Extension" }, { type: "azure-native:azurestackhci/v20220101:Extension" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Extension.__pulumiType, name, resourceInputs, opts);
     }

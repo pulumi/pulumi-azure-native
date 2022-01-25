@@ -75,7 +75,7 @@ export class AFDOrigin extends pulumi.CustomResource {
     /**
      * The properties of the private link resource for private origin.
      */
-    public readonly sharedPrivateLinkResource!: pulumi.Output<outputs.cdn.v20200901.SharedPrivateLinkResourcePropertiesResponse[] | undefined>;
+    public readonly sharedPrivateLinkResource!: pulumi.Output<outputs.cdn.v20200901.SharedPrivateLinkResourcePropertiesResponse | undefined>;
     /**
      * Read only system data
      */
@@ -206,7 +206,7 @@ export interface AFDOriginArgs {
     /**
      * The properties of the private link resource for private origin.
      */
-    sharedPrivateLinkResource?: pulumi.Input<pulumi.Input<inputs.cdn.v20200901.SharedPrivateLinkResourcePropertiesArgs>[]>;
+    sharedPrivateLinkResource?: pulumi.Input<inputs.cdn.v20200901.SharedPrivateLinkResourcePropertiesArgs>;
     /**
      * Weight of the origin in given origin group for load balancing. Must be between 1 and 1000
      */

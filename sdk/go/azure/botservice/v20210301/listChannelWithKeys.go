@@ -31,6 +31,10 @@ type ListChannelWithKeysArgs struct {
 
 // The ARM channel of list channel with keys operation response.
 type ListChannelWithKeysResult struct {
+	// Changed time of the resource
+	ChangedTime *string `pulumi:"changedTime"`
+	// Entity tag of the resource
+	EntityTag *string `pulumi:"entityTag"`
 	// Entity Tag
 	Etag *string `pulumi:"etag"`
 	// Specifies the resource ID.
@@ -43,6 +47,8 @@ type ListChannelWithKeysResult struct {
 	Name string `pulumi:"name"`
 	// The set of properties specific to bot channel resource
 	Properties interface{} `pulumi:"properties"`
+	// Provisioning state of the resource
+	ProvisioningState *string `pulumi:"provisioningState"`
 	// The set of properties specific to bot channel resource
 	Resource interface{} `pulumi:"resource"`
 	// Channel settings
@@ -94,6 +100,16 @@ func (o ListChannelWithKeysResultOutput) ToListChannelWithKeysResultOutputWithCo
 	return o
 }
 
+// Changed time of the resource
+func (o ListChannelWithKeysResultOutput) ChangedTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListChannelWithKeysResult) *string { return v.ChangedTime }).(pulumi.StringPtrOutput)
+}
+
+// Entity tag of the resource
+func (o ListChannelWithKeysResultOutput) EntityTag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListChannelWithKeysResult) *string { return v.EntityTag }).(pulumi.StringPtrOutput)
+}
+
 // Entity Tag
 func (o ListChannelWithKeysResultOutput) Etag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ListChannelWithKeysResult) *string { return v.Etag }).(pulumi.StringPtrOutput)
@@ -122,6 +138,11 @@ func (o ListChannelWithKeysResultOutput) Name() pulumi.StringOutput {
 // The set of properties specific to bot channel resource
 func (o ListChannelWithKeysResultOutput) Properties() pulumi.AnyOutput {
 	return o.ApplyT(func(v ListChannelWithKeysResult) interface{} { return v.Properties }).(pulumi.AnyOutput)
+}
+
+// Provisioning state of the resource
+func (o ListChannelWithKeysResultOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListChannelWithKeysResult) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
 }
 
 // The set of properties specific to bot channel resource

@@ -43,6 +43,14 @@ export interface ListChannelWithKeysArgs {
  */
 export interface ListChannelWithKeysResult {
     /**
+     * Changed time of the resource
+     */
+    readonly changedTime?: string;
+    /**
+     * Entity tag of the resource
+     */
+    readonly entityTag?: string;
+    /**
      * Entity Tag
      */
     readonly etag?: string;
@@ -66,6 +74,10 @@ export interface ListChannelWithKeysResult {
      * The set of properties specific to bot channel resource
      */
     readonly properties: outputs.botservice.v20210301.AlexaChannelResponse | outputs.botservice.v20210301.DirectLineChannelResponse | outputs.botservice.v20210301.DirectLineSpeechChannelResponse | outputs.botservice.v20210301.EmailChannelResponse | outputs.botservice.v20210301.FacebookChannelResponse | outputs.botservice.v20210301.KikChannelResponse | outputs.botservice.v20210301.LineChannelResponse | outputs.botservice.v20210301.MsTeamsChannelResponse | outputs.botservice.v20210301.SkypeChannelResponse | outputs.botservice.v20210301.SlackChannelResponse | outputs.botservice.v20210301.SmsChannelResponse | outputs.botservice.v20210301.TelegramChannelResponse | outputs.botservice.v20210301.WebChatChannelResponse;
+    /**
+     * Provisioning state of the resource
+     */
+    readonly provisioningState?: string;
     /**
      * The set of properties specific to bot channel resource
      */

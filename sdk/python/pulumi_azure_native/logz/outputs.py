@@ -15,6 +15,8 @@ __all__ = [
     'IdentityPropertiesResponse',
     'LogRulesResponse',
     'LogzOrganizationPropertiesResponse',
+    'MetricRulesResponse',
+    'MetricsTagRulesPropertiesResponse',
     'MonitorPropertiesResponse',
     'MonitoredResourceResponse',
     'MonitoringTagRulesPropertiesResponse',
@@ -283,6 +285,136 @@ class LogzOrganizationPropertiesResponse(dict):
         The login URL specific to this Logz Organization.
         """
         return pulumi.get(self, "single_sign_on_url")
+
+
+@pulumi.output_type
+class MetricRulesResponse(dict):
+    """
+    Set of rules for sending metrics for the Monitor resource.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "filteringTags":
+            suggest = "filtering_tags"
+        elif key == "subscriptionId":
+            suggest = "subscription_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MetricRulesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MetricRulesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MetricRulesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 filtering_tags: Optional[Sequence['outputs.FilteringTagResponse']] = None,
+                 subscription_id: Optional[str] = None):
+        """
+        Set of rules for sending metrics for the Monitor resource.
+        :param Sequence['FilteringTagResponse'] filtering_tags: List of filtering tags to be used for capturing metrics. If empty, all resources will be captured. If only Exclude action is specified, the rules will apply to the list of all available resources. If Include actions are specified, the rules will only include resources with the associated tags.
+        :param str subscription_id: Subscription Id for which filtering tags are applicable
+        """
+        if filtering_tags is not None:
+            pulumi.set(__self__, "filtering_tags", filtering_tags)
+        if subscription_id is not None:
+            pulumi.set(__self__, "subscription_id", subscription_id)
+
+    @property
+    @pulumi.getter(name="filteringTags")
+    def filtering_tags(self) -> Optional[Sequence['outputs.FilteringTagResponse']]:
+        """
+        List of filtering tags to be used for capturing metrics. If empty, all resources will be captured. If only Exclude action is specified, the rules will apply to the list of all available resources. If Include actions are specified, the rules will only include resources with the associated tags.
+        """
+        return pulumi.get(self, "filtering_tags")
+
+    @property
+    @pulumi.getter(name="subscriptionId")
+    def subscription_id(self) -> Optional[str]:
+        """
+        Subscription Id for which filtering tags are applicable
+        """
+        return pulumi.get(self, "subscription_id")
+
+
+@pulumi.output_type
+class MetricsTagRulesPropertiesResponse(dict):
+    """
+    Definition of the properties for a TagRules resource.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "systemData":
+            suggest = "system_data"
+        elif key == "metricRules":
+            suggest = "metric_rules"
+        elif key == "sendMetrics":
+            suggest = "send_metrics"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MetricsTagRulesPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MetricsTagRulesPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MetricsTagRulesPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 provisioning_state: str,
+                 system_data: 'outputs.SystemDataResponse',
+                 metric_rules: Optional[Sequence['outputs.MetricRulesResponse']] = None,
+                 send_metrics: Optional[bool] = None):
+        """
+        Definition of the properties for a TagRules resource.
+        :param str provisioning_state: Flag specifying if the resource provisioning state as tracked by ARM.
+        :param 'SystemDataResponse' system_data: Metadata pertaining to creation and last modification of the resource.
+        :param bool send_metrics: Flag specifying if metrics from Azure resources should be sent for the Monitor resource.
+        """
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "system_data", system_data)
+        if metric_rules is not None:
+            pulumi.set(__self__, "metric_rules", metric_rules)
+        if send_metrics is not None:
+            pulumi.set(__self__, "send_metrics", send_metrics)
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Flag specifying if the resource provisioning state as tracked by ARM.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
+    @pulumi.getter(name="metricRules")
+    def metric_rules(self) -> Optional[Sequence['outputs.MetricRulesResponse']]:
+        return pulumi.get(self, "metric_rules")
+
+    @property
+    @pulumi.getter(name="sendMetrics")
+    def send_metrics(self) -> Optional[bool]:
+        """
+        Flag specifying if metrics from Azure resources should be sent for the Monitor resource.
+        """
+        return pulumi.get(self, "send_metrics")
 
 
 @pulumi.output_type

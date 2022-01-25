@@ -89,6 +89,9 @@ func NewImage(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:compute/v20210701:Image"),
 		},
+		{
+			Type: pulumi.String("azure-native:compute/v20211101:Image"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Image

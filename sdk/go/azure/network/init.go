@@ -97,6 +97,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &LoadBalancerBackendAddressPool{}
 	case "azure-native:network:LocalNetworkGateway":
 		r = &LocalNetworkGateway{}
+	case "azure-native:network:ManagementGroupNetworkManagerConnection":
+		r = &ManagementGroupNetworkManagerConnection{}
 	case "azure-native:network:NatGateway":
 		r = &NatGateway{}
 	case "azure-native:network:NatRule":
@@ -161,6 +163,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &RoutingIntent{}
 	case "azure-native:network:RulesEngine":
 		r = &RulesEngine{}
+	case "azure-native:network:ScopeConnection":
+		r = &ScopeConnection{}
 	case "azure-native:network:SecurityAdminConfiguration":
 		r = &SecurityAdminConfiguration{}
 	case "azure-native:network:SecurityPartnerProvider":
@@ -173,8 +177,12 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ServiceEndpointPolicy{}
 	case "azure-native:network:ServiceEndpointPolicyDefinition":
 		r = &ServiceEndpointPolicyDefinition{}
+	case "azure-native:network:StaticMember":
+		r = &StaticMember{}
 	case "azure-native:network:Subnet":
 		r = &Subnet{}
+	case "azure-native:network:SubscriptionNetworkManagerConnection":
+		r = &SubscriptionNetworkManagerConnection{}
 	case "azure-native:network:TrafficManagerUserMetricsKey":
 		r = &TrafficManagerUserMetricsKey{}
 	case "azure-native:network:UserRule":

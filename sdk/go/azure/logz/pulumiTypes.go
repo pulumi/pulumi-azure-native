@@ -1002,6 +1002,368 @@ func (o LogzOrganizationPropertiesResponsePtrOutput) SingleSignOnUrl() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
+// Set of rules for sending metrics for the Monitor resource.
+type MetricRules struct {
+	// List of filtering tags to be used for capturing metrics. If empty, all resources will be captured. If only Exclude action is specified, the rules will apply to the list of all available resources. If Include actions are specified, the rules will only include resources with the associated tags.
+	FilteringTags []FilteringTag `pulumi:"filteringTags"`
+	// Subscription Id for which filtering tags are applicable
+	SubscriptionId *string `pulumi:"subscriptionId"`
+}
+
+// MetricRulesInput is an input type that accepts MetricRulesArgs and MetricRulesOutput values.
+// You can construct a concrete instance of `MetricRulesInput` via:
+//
+//          MetricRulesArgs{...}
+type MetricRulesInput interface {
+	pulumi.Input
+
+	ToMetricRulesOutput() MetricRulesOutput
+	ToMetricRulesOutputWithContext(context.Context) MetricRulesOutput
+}
+
+// Set of rules for sending metrics for the Monitor resource.
+type MetricRulesArgs struct {
+	// List of filtering tags to be used for capturing metrics. If empty, all resources will be captured. If only Exclude action is specified, the rules will apply to the list of all available resources. If Include actions are specified, the rules will only include resources with the associated tags.
+	FilteringTags FilteringTagArrayInput `pulumi:"filteringTags"`
+	// Subscription Id for which filtering tags are applicable
+	SubscriptionId pulumi.StringPtrInput `pulumi:"subscriptionId"`
+}
+
+func (MetricRulesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MetricRules)(nil)).Elem()
+}
+
+func (i MetricRulesArgs) ToMetricRulesOutput() MetricRulesOutput {
+	return i.ToMetricRulesOutputWithContext(context.Background())
+}
+
+func (i MetricRulesArgs) ToMetricRulesOutputWithContext(ctx context.Context) MetricRulesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MetricRulesOutput)
+}
+
+// MetricRulesArrayInput is an input type that accepts MetricRulesArray and MetricRulesArrayOutput values.
+// You can construct a concrete instance of `MetricRulesArrayInput` via:
+//
+//          MetricRulesArray{ MetricRulesArgs{...} }
+type MetricRulesArrayInput interface {
+	pulumi.Input
+
+	ToMetricRulesArrayOutput() MetricRulesArrayOutput
+	ToMetricRulesArrayOutputWithContext(context.Context) MetricRulesArrayOutput
+}
+
+type MetricRulesArray []MetricRulesInput
+
+func (MetricRulesArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MetricRules)(nil)).Elem()
+}
+
+func (i MetricRulesArray) ToMetricRulesArrayOutput() MetricRulesArrayOutput {
+	return i.ToMetricRulesArrayOutputWithContext(context.Background())
+}
+
+func (i MetricRulesArray) ToMetricRulesArrayOutputWithContext(ctx context.Context) MetricRulesArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MetricRulesArrayOutput)
+}
+
+// Set of rules for sending metrics for the Monitor resource.
+type MetricRulesOutput struct{ *pulumi.OutputState }
+
+func (MetricRulesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MetricRules)(nil)).Elem()
+}
+
+func (o MetricRulesOutput) ToMetricRulesOutput() MetricRulesOutput {
+	return o
+}
+
+func (o MetricRulesOutput) ToMetricRulesOutputWithContext(ctx context.Context) MetricRulesOutput {
+	return o
+}
+
+// List of filtering tags to be used for capturing metrics. If empty, all resources will be captured. If only Exclude action is specified, the rules will apply to the list of all available resources. If Include actions are specified, the rules will only include resources with the associated tags.
+func (o MetricRulesOutput) FilteringTags() FilteringTagArrayOutput {
+	return o.ApplyT(func(v MetricRules) []FilteringTag { return v.FilteringTags }).(FilteringTagArrayOutput)
+}
+
+// Subscription Id for which filtering tags are applicable
+func (o MetricRulesOutput) SubscriptionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MetricRules) *string { return v.SubscriptionId }).(pulumi.StringPtrOutput)
+}
+
+type MetricRulesArrayOutput struct{ *pulumi.OutputState }
+
+func (MetricRulesArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MetricRules)(nil)).Elem()
+}
+
+func (o MetricRulesArrayOutput) ToMetricRulesArrayOutput() MetricRulesArrayOutput {
+	return o
+}
+
+func (o MetricRulesArrayOutput) ToMetricRulesArrayOutputWithContext(ctx context.Context) MetricRulesArrayOutput {
+	return o
+}
+
+func (o MetricRulesArrayOutput) Index(i pulumi.IntInput) MetricRulesOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MetricRules {
+		return vs[0].([]MetricRules)[vs[1].(int)]
+	}).(MetricRulesOutput)
+}
+
+// Set of rules for sending metrics for the Monitor resource.
+type MetricRulesResponse struct {
+	// List of filtering tags to be used for capturing metrics. If empty, all resources will be captured. If only Exclude action is specified, the rules will apply to the list of all available resources. If Include actions are specified, the rules will only include resources with the associated tags.
+	FilteringTags []FilteringTagResponse `pulumi:"filteringTags"`
+	// Subscription Id for which filtering tags are applicable
+	SubscriptionId *string `pulumi:"subscriptionId"`
+}
+
+// Set of rules for sending metrics for the Monitor resource.
+type MetricRulesResponseOutput struct{ *pulumi.OutputState }
+
+func (MetricRulesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MetricRulesResponse)(nil)).Elem()
+}
+
+func (o MetricRulesResponseOutput) ToMetricRulesResponseOutput() MetricRulesResponseOutput {
+	return o
+}
+
+func (o MetricRulesResponseOutput) ToMetricRulesResponseOutputWithContext(ctx context.Context) MetricRulesResponseOutput {
+	return o
+}
+
+// List of filtering tags to be used for capturing metrics. If empty, all resources will be captured. If only Exclude action is specified, the rules will apply to the list of all available resources. If Include actions are specified, the rules will only include resources with the associated tags.
+func (o MetricRulesResponseOutput) FilteringTags() FilteringTagResponseArrayOutput {
+	return o.ApplyT(func(v MetricRulesResponse) []FilteringTagResponse { return v.FilteringTags }).(FilteringTagResponseArrayOutput)
+}
+
+// Subscription Id for which filtering tags are applicable
+func (o MetricRulesResponseOutput) SubscriptionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MetricRulesResponse) *string { return v.SubscriptionId }).(pulumi.StringPtrOutput)
+}
+
+type MetricRulesResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (MetricRulesResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MetricRulesResponse)(nil)).Elem()
+}
+
+func (o MetricRulesResponseArrayOutput) ToMetricRulesResponseArrayOutput() MetricRulesResponseArrayOutput {
+	return o
+}
+
+func (o MetricRulesResponseArrayOutput) ToMetricRulesResponseArrayOutputWithContext(ctx context.Context) MetricRulesResponseArrayOutput {
+	return o
+}
+
+func (o MetricRulesResponseArrayOutput) Index(i pulumi.IntInput) MetricRulesResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MetricRulesResponse {
+		return vs[0].([]MetricRulesResponse)[vs[1].(int)]
+	}).(MetricRulesResponseOutput)
+}
+
+// Definition of the properties for a TagRules resource.
+type MetricsTagRulesProperties struct {
+	MetricRules []MetricRules `pulumi:"metricRules"`
+	// Flag specifying if metrics from Azure resources should be sent for the Monitor resource.
+	SendMetrics *bool `pulumi:"sendMetrics"`
+}
+
+// MetricsTagRulesPropertiesInput is an input type that accepts MetricsTagRulesPropertiesArgs and MetricsTagRulesPropertiesOutput values.
+// You can construct a concrete instance of `MetricsTagRulesPropertiesInput` via:
+//
+//          MetricsTagRulesPropertiesArgs{...}
+type MetricsTagRulesPropertiesInput interface {
+	pulumi.Input
+
+	ToMetricsTagRulesPropertiesOutput() MetricsTagRulesPropertiesOutput
+	ToMetricsTagRulesPropertiesOutputWithContext(context.Context) MetricsTagRulesPropertiesOutput
+}
+
+// Definition of the properties for a TagRules resource.
+type MetricsTagRulesPropertiesArgs struct {
+	MetricRules MetricRulesArrayInput `pulumi:"metricRules"`
+	// Flag specifying if metrics from Azure resources should be sent for the Monitor resource.
+	SendMetrics pulumi.BoolPtrInput `pulumi:"sendMetrics"`
+}
+
+func (MetricsTagRulesPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MetricsTagRulesProperties)(nil)).Elem()
+}
+
+func (i MetricsTagRulesPropertiesArgs) ToMetricsTagRulesPropertiesOutput() MetricsTagRulesPropertiesOutput {
+	return i.ToMetricsTagRulesPropertiesOutputWithContext(context.Background())
+}
+
+func (i MetricsTagRulesPropertiesArgs) ToMetricsTagRulesPropertiesOutputWithContext(ctx context.Context) MetricsTagRulesPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MetricsTagRulesPropertiesOutput)
+}
+
+func (i MetricsTagRulesPropertiesArgs) ToMetricsTagRulesPropertiesPtrOutput() MetricsTagRulesPropertiesPtrOutput {
+	return i.ToMetricsTagRulesPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i MetricsTagRulesPropertiesArgs) ToMetricsTagRulesPropertiesPtrOutputWithContext(ctx context.Context) MetricsTagRulesPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MetricsTagRulesPropertiesOutput).ToMetricsTagRulesPropertiesPtrOutputWithContext(ctx)
+}
+
+// MetricsTagRulesPropertiesPtrInput is an input type that accepts MetricsTagRulesPropertiesArgs, MetricsTagRulesPropertiesPtr and MetricsTagRulesPropertiesPtrOutput values.
+// You can construct a concrete instance of `MetricsTagRulesPropertiesPtrInput` via:
+//
+//          MetricsTagRulesPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type MetricsTagRulesPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToMetricsTagRulesPropertiesPtrOutput() MetricsTagRulesPropertiesPtrOutput
+	ToMetricsTagRulesPropertiesPtrOutputWithContext(context.Context) MetricsTagRulesPropertiesPtrOutput
+}
+
+type metricsTagRulesPropertiesPtrType MetricsTagRulesPropertiesArgs
+
+func MetricsTagRulesPropertiesPtr(v *MetricsTagRulesPropertiesArgs) MetricsTagRulesPropertiesPtrInput {
+	return (*metricsTagRulesPropertiesPtrType)(v)
+}
+
+func (*metricsTagRulesPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MetricsTagRulesProperties)(nil)).Elem()
+}
+
+func (i *metricsTagRulesPropertiesPtrType) ToMetricsTagRulesPropertiesPtrOutput() MetricsTagRulesPropertiesPtrOutput {
+	return i.ToMetricsTagRulesPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *metricsTagRulesPropertiesPtrType) ToMetricsTagRulesPropertiesPtrOutputWithContext(ctx context.Context) MetricsTagRulesPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MetricsTagRulesPropertiesPtrOutput)
+}
+
+// Definition of the properties for a TagRules resource.
+type MetricsTagRulesPropertiesOutput struct{ *pulumi.OutputState }
+
+func (MetricsTagRulesPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MetricsTagRulesProperties)(nil)).Elem()
+}
+
+func (o MetricsTagRulesPropertiesOutput) ToMetricsTagRulesPropertiesOutput() MetricsTagRulesPropertiesOutput {
+	return o
+}
+
+func (o MetricsTagRulesPropertiesOutput) ToMetricsTagRulesPropertiesOutputWithContext(ctx context.Context) MetricsTagRulesPropertiesOutput {
+	return o
+}
+
+func (o MetricsTagRulesPropertiesOutput) ToMetricsTagRulesPropertiesPtrOutput() MetricsTagRulesPropertiesPtrOutput {
+	return o.ToMetricsTagRulesPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o MetricsTagRulesPropertiesOutput) ToMetricsTagRulesPropertiesPtrOutputWithContext(ctx context.Context) MetricsTagRulesPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MetricsTagRulesProperties) *MetricsTagRulesProperties {
+		return &v
+	}).(MetricsTagRulesPropertiesPtrOutput)
+}
+
+func (o MetricsTagRulesPropertiesOutput) MetricRules() MetricRulesArrayOutput {
+	return o.ApplyT(func(v MetricsTagRulesProperties) []MetricRules { return v.MetricRules }).(MetricRulesArrayOutput)
+}
+
+// Flag specifying if metrics from Azure resources should be sent for the Monitor resource.
+func (o MetricsTagRulesPropertiesOutput) SendMetrics() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v MetricsTagRulesProperties) *bool { return v.SendMetrics }).(pulumi.BoolPtrOutput)
+}
+
+type MetricsTagRulesPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (MetricsTagRulesPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MetricsTagRulesProperties)(nil)).Elem()
+}
+
+func (o MetricsTagRulesPropertiesPtrOutput) ToMetricsTagRulesPropertiesPtrOutput() MetricsTagRulesPropertiesPtrOutput {
+	return o
+}
+
+func (o MetricsTagRulesPropertiesPtrOutput) ToMetricsTagRulesPropertiesPtrOutputWithContext(ctx context.Context) MetricsTagRulesPropertiesPtrOutput {
+	return o
+}
+
+func (o MetricsTagRulesPropertiesPtrOutput) Elem() MetricsTagRulesPropertiesOutput {
+	return o.ApplyT(func(v *MetricsTagRulesProperties) MetricsTagRulesProperties {
+		if v != nil {
+			return *v
+		}
+		var ret MetricsTagRulesProperties
+		return ret
+	}).(MetricsTagRulesPropertiesOutput)
+}
+
+func (o MetricsTagRulesPropertiesPtrOutput) MetricRules() MetricRulesArrayOutput {
+	return o.ApplyT(func(v *MetricsTagRulesProperties) []MetricRules {
+		if v == nil {
+			return nil
+		}
+		return v.MetricRules
+	}).(MetricRulesArrayOutput)
+}
+
+// Flag specifying if metrics from Azure resources should be sent for the Monitor resource.
+func (o MetricsTagRulesPropertiesPtrOutput) SendMetrics() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *MetricsTagRulesProperties) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.SendMetrics
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Definition of the properties for a TagRules resource.
+type MetricsTagRulesPropertiesResponse struct {
+	MetricRules []MetricRulesResponse `pulumi:"metricRules"`
+	// Flag specifying if the resource provisioning state as tracked by ARM.
+	ProvisioningState string `pulumi:"provisioningState"`
+	// Flag specifying if metrics from Azure resources should be sent for the Monitor resource.
+	SendMetrics *bool `pulumi:"sendMetrics"`
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData SystemDataResponse `pulumi:"systemData"`
+}
+
+// Definition of the properties for a TagRules resource.
+type MetricsTagRulesPropertiesResponseOutput struct{ *pulumi.OutputState }
+
+func (MetricsTagRulesPropertiesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MetricsTagRulesPropertiesResponse)(nil)).Elem()
+}
+
+func (o MetricsTagRulesPropertiesResponseOutput) ToMetricsTagRulesPropertiesResponseOutput() MetricsTagRulesPropertiesResponseOutput {
+	return o
+}
+
+func (o MetricsTagRulesPropertiesResponseOutput) ToMetricsTagRulesPropertiesResponseOutputWithContext(ctx context.Context) MetricsTagRulesPropertiesResponseOutput {
+	return o
+}
+
+func (o MetricsTagRulesPropertiesResponseOutput) MetricRules() MetricRulesResponseArrayOutput {
+	return o.ApplyT(func(v MetricsTagRulesPropertiesResponse) []MetricRulesResponse { return v.MetricRules }).(MetricRulesResponseArrayOutput)
+}
+
+// Flag specifying if the resource provisioning state as tracked by ARM.
+func (o MetricsTagRulesPropertiesResponseOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v MetricsTagRulesPropertiesResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Flag specifying if metrics from Azure resources should be sent for the Monitor resource.
+func (o MetricsTagRulesPropertiesResponseOutput) SendMetrics() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v MetricsTagRulesPropertiesResponse) *bool { return v.SendMetrics }).(pulumi.BoolPtrOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o MetricsTagRulesPropertiesResponseOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v MetricsTagRulesPropertiesResponse) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
 // Properties specific to the monitor resource.
 type MonitorProperties struct {
 	LogzOrganizationProperties *LogzOrganizationProperties `pulumi:"logzOrganizationProperties"`
@@ -2319,6 +2681,13 @@ func init() {
 	pulumi.RegisterOutputType(LogzOrganizationPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(LogzOrganizationPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(LogzOrganizationPropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(MetricRulesOutput{})
+	pulumi.RegisterOutputType(MetricRulesArrayOutput{})
+	pulumi.RegisterOutputType(MetricRulesResponseOutput{})
+	pulumi.RegisterOutputType(MetricRulesResponseArrayOutput{})
+	pulumi.RegisterOutputType(MetricsTagRulesPropertiesOutput{})
+	pulumi.RegisterOutputType(MetricsTagRulesPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(MetricsTagRulesPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(MonitorPropertiesOutput{})
 	pulumi.RegisterOutputType(MonitorPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(MonitorPropertiesResponseOutput{})

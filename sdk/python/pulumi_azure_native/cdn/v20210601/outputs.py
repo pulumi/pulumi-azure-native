@@ -112,6 +112,7 @@ __all__ = [
     'UrlSigningKeyParametersResponse',
     'UrlSigningKeyResponse',
     'UrlSigningParamIdentifierResponse',
+    'UserAssignedIdentityResponse',
     'UserManagedHttpsParametersResponse',
 ]
 
@@ -738,12 +739,14 @@ class ClientPortMatchConditionParametersResponse(dict):
                  operator: str,
                  type_name: str,
                  match_values: Optional[Sequence[str]] = None,
-                 negate_condition: Optional[bool] = None):
+                 negate_condition: Optional[bool] = None,
+                 transforms: Optional[Sequence[str]] = None):
         """
         Defines the parameters for ClientPort match conditions
         :param str operator: Describes operator to be matched
         :param Sequence[str] match_values: The match value for the condition of the delivery rule
         :param bool negate_condition: Describes if this is negate condition or not
+        :param Sequence[str] transforms: List of transforms
         """
         pulumi.set(__self__, "operator", operator)
         pulumi.set(__self__, "type_name", type_name)
@@ -751,6 +754,8 @@ class ClientPortMatchConditionParametersResponse(dict):
             pulumi.set(__self__, "match_values", match_values)
         if negate_condition is not None:
             pulumi.set(__self__, "negate_condition", negate_condition)
+        if transforms is not None:
+            pulumi.set(__self__, "transforms", transforms)
 
     @property
     @pulumi.getter
@@ -780,6 +785,14 @@ class ClientPortMatchConditionParametersResponse(dict):
         Describes if this is negate condition or not
         """
         return pulumi.get(self, "negate_condition")
+
+    @property
+    @pulumi.getter
+    def transforms(self) -> Optional[Sequence[str]]:
+        """
+        List of transforms
+        """
+        return pulumi.get(self, "transforms")
 
 
 @pulumi.output_type
@@ -3098,12 +3111,14 @@ class IsDeviceMatchConditionParametersResponse(dict):
                  operator: str,
                  type_name: str,
                  match_values: Optional[Sequence[str]] = None,
-                 negate_condition: Optional[bool] = None):
+                 negate_condition: Optional[bool] = None,
+                 transforms: Optional[Sequence[str]] = None):
         """
         Defines the parameters for IsDevice match conditions
         :param str operator: Describes operator to be matched
         :param Sequence[str] match_values: The match value for the condition of the delivery rule
         :param bool negate_condition: Describes if this is negate condition or not
+        :param Sequence[str] transforms: List of transforms
         """
         pulumi.set(__self__, "operator", operator)
         pulumi.set(__self__, "type_name", type_name)
@@ -3111,6 +3126,8 @@ class IsDeviceMatchConditionParametersResponse(dict):
             pulumi.set(__self__, "match_values", match_values)
         if negate_condition is not None:
             pulumi.set(__self__, "negate_condition", negate_condition)
+        if transforms is not None:
+            pulumi.set(__self__, "transforms", transforms)
 
     @property
     @pulumi.getter
@@ -3140,6 +3157,14 @@ class IsDeviceMatchConditionParametersResponse(dict):
         Describes if this is negate condition or not
         """
         return pulumi.get(self, "negate_condition")
+
+    @property
+    @pulumi.getter
+    def transforms(self) -> Optional[Sequence[str]]:
+        """
+        List of transforms
+        """
+        return pulumi.get(self, "transforms")
 
 
 @pulumi.output_type
@@ -3748,6 +3773,8 @@ class ManagedServiceIdentityResponse(dict):
             suggest = "principal_id"
         elif key == "tenantId":
             suggest = "tenant_id"
+        elif key == "userAssignedIdentities":
+            suggest = "user_assigned_identities"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ManagedServiceIdentityResponse. Access the value via the '{suggest}' property getter instead.")
@@ -3763,17 +3790,21 @@ class ManagedServiceIdentityResponse(dict):
     def __init__(__self__, *,
                  principal_id: str,
                  tenant_id: str,
-                 type: Optional[str] = None):
+                 type: Optional[str] = None,
+                 user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']] = None):
         """
         Managed service identity.
         :param str principal_id: Principal Id of managed service identity.
         :param str tenant_id: Tenant of managed service identity.
         :param str type: Type of managed service identity.
+        :param Mapping[str, 'UserAssignedIdentityResponse'] user_assigned_identities: The list of user assigned identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}
         """
         pulumi.set(__self__, "principal_id", principal_id)
         pulumi.set(__self__, "tenant_id", tenant_id)
         if type is not None:
             pulumi.set(__self__, "type", type)
+        if user_assigned_identities is not None:
+            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
 
     @property
     @pulumi.getter(name="principalId")
@@ -3798,6 +3829,14 @@ class ManagedServiceIdentityResponse(dict):
         Type of managed service identity.
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="userAssignedIdentities")
+    def user_assigned_identities(self) -> Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']]:
+        """
+        The list of user assigned identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}
+        """
+        return pulumi.get(self, "user_assigned_identities")
 
 
 @pulumi.output_type
@@ -5280,12 +5319,14 @@ class ServerPortMatchConditionParametersResponse(dict):
                  operator: str,
                  type_name: str,
                  match_values: Optional[Sequence[str]] = None,
-                 negate_condition: Optional[bool] = None):
+                 negate_condition: Optional[bool] = None,
+                 transforms: Optional[Sequence[str]] = None):
         """
         Defines the parameters for ServerPort match conditions
         :param str operator: Describes operator to be matched
         :param Sequence[str] match_values: The match value for the condition of the delivery rule
         :param bool negate_condition: Describes if this is negate condition or not
+        :param Sequence[str] transforms: List of transforms
         """
         pulumi.set(__self__, "operator", operator)
         pulumi.set(__self__, "type_name", type_name)
@@ -5293,6 +5334,8 @@ class ServerPortMatchConditionParametersResponse(dict):
             pulumi.set(__self__, "match_values", match_values)
         if negate_condition is not None:
             pulumi.set(__self__, "negate_condition", negate_condition)
+        if transforms is not None:
+            pulumi.set(__self__, "transforms", transforms)
 
     @property
     @pulumi.getter
@@ -5322,6 +5365,14 @@ class ServerPortMatchConditionParametersResponse(dict):
         Describes if this is negate condition or not
         """
         return pulumi.get(self, "negate_condition")
+
+    @property
+    @pulumi.getter
+    def transforms(self) -> Optional[Sequence[str]]:
+        """
+        List of transforms
+        """
+        return pulumi.get(self, "transforms")
 
 
 @pulumi.output_type
@@ -5496,12 +5547,14 @@ class SocketAddrMatchConditionParametersResponse(dict):
                  operator: str,
                  type_name: str,
                  match_values: Optional[Sequence[str]] = None,
-                 negate_condition: Optional[bool] = None):
+                 negate_condition: Optional[bool] = None,
+                 transforms: Optional[Sequence[str]] = None):
         """
         Defines the parameters for SocketAddress match conditions
         :param str operator: Describes operator to be matched
         :param Sequence[str] match_values: The match value for the condition of the delivery rule
         :param bool negate_condition: Describes if this is negate condition or not
+        :param Sequence[str] transforms: List of transforms
         """
         pulumi.set(__self__, "operator", operator)
         pulumi.set(__self__, "type_name", type_name)
@@ -5509,6 +5562,8 @@ class SocketAddrMatchConditionParametersResponse(dict):
             pulumi.set(__self__, "match_values", match_values)
         if negate_condition is not None:
             pulumi.set(__self__, "negate_condition", negate_condition)
+        if transforms is not None:
+            pulumi.set(__self__, "transforms", transforms)
 
     @property
     @pulumi.getter
@@ -5538,6 +5593,14 @@ class SocketAddrMatchConditionParametersResponse(dict):
         Describes if this is negate condition or not
         """
         return pulumi.get(self, "negate_condition")
+
+    @property
+    @pulumi.getter
+    def transforms(self) -> Optional[Sequence[str]]:
+        """
+        List of transforms
+        """
+        return pulumi.get(self, "transforms")
 
 
 @pulumi.output_type
@@ -5570,12 +5633,14 @@ class SslProtocolMatchConditionParametersResponse(dict):
                  operator: str,
                  type_name: str,
                  match_values: Optional[Sequence[str]] = None,
-                 negate_condition: Optional[bool] = None):
+                 negate_condition: Optional[bool] = None,
+                 transforms: Optional[Sequence[str]] = None):
         """
         Defines the parameters for SslProtocol match conditions
         :param str operator: Describes operator to be matched
         :param Sequence[str] match_values: The match value for the condition of the delivery rule
         :param bool negate_condition: Describes if this is negate condition or not
+        :param Sequence[str] transforms: List of transforms
         """
         pulumi.set(__self__, "operator", operator)
         pulumi.set(__self__, "type_name", type_name)
@@ -5583,6 +5648,8 @@ class SslProtocolMatchConditionParametersResponse(dict):
             pulumi.set(__self__, "match_values", match_values)
         if negate_condition is not None:
             pulumi.set(__self__, "negate_condition", negate_condition)
+        if transforms is not None:
+            pulumi.set(__self__, "transforms", transforms)
 
     @property
     @pulumi.getter
@@ -5612,6 +5679,14 @@ class SslProtocolMatchConditionParametersResponse(dict):
         Describes if this is negate condition or not
         """
         return pulumi.get(self, "negate_condition")
+
+    @property
+    @pulumi.getter
+    def transforms(self) -> Optional[Sequence[str]]:
+        """
+        List of transforms
+        """
+        return pulumi.get(self, "transforms")
 
 
 @pulumi.output_type
@@ -6520,6 +6595,58 @@ class UrlSigningParamIdentifierResponse(dict):
         Parameter name
         """
         return pulumi.get(self, "param_name")
+
+
+@pulumi.output_type
+class UserAssignedIdentityResponse(dict):
+    """
+    User Assigned identity.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientId":
+            suggest = "client_id"
+        elif key == "principalId":
+            suggest = "principal_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserAssignedIdentityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserAssignedIdentityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserAssignedIdentityResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 client_id: str,
+                 principal_id: str):
+        """
+        User Assigned identity.
+        :param str client_id: Client Id of user assigned identity
+        :param str principal_id: Principal Id of user assigned identity
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "principal_id", principal_id)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> str:
+        """
+        Client Id of user assigned identity
+        """
+        return pulumi.get(self, "client_id")
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        """
+        Principal Id of user assigned identity
+        """
+        return pulumi.get(self, "principal_id")
 
 
 @pulumi.output_type

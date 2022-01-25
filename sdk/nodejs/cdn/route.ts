@@ -39,7 +39,7 @@ export class Route extends pulumi.CustomResource {
     /**
      * compression settings.
      */
-    public readonly compressionSettings!: pulumi.Output<outputs.cdn.CompressionSettingsResponse[] | undefined>;
+    public readonly compressionSettings!: pulumi.Output<outputs.cdn.CompressionSettingsResponse | undefined>;
     /**
      * Domains referenced by this endpoint.
      */
@@ -181,7 +181,7 @@ export interface RouteArgs {
     /**
      * compression settings.
      */
-    compressionSettings?: pulumi.Input<pulumi.Input<inputs.cdn.CompressionSettingsArgs>[]>;
+    compressionSettings?: pulumi.Input<inputs.cdn.CompressionSettingsArgs>;
     /**
      * Domains referenced by this endpoint.
      */

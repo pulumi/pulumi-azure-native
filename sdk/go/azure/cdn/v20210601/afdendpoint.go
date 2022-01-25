@@ -24,8 +24,6 @@ type AFDEndpoint struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Send and receive timeout on forwarding request to the origin. When timeout is reached, the request fails and returns.
-	OriginResponseTimeoutSeconds pulumi.IntPtrOutput `pulumi:"originResponseTimeoutSeconds"`
 	// The name of the profile which holds the endpoint.
 	ProfileName pulumi.StringOutput `pulumi:"profileName"`
 	// Provisioning status
@@ -98,8 +96,6 @@ type afdendpointArgs struct {
 	EndpointName *string `pulumi:"endpointName"`
 	// Resource location.
 	Location *string `pulumi:"location"`
-	// Send and receive timeout on forwarding request to the origin. When timeout is reached, the request fails and returns.
-	OriginResponseTimeoutSeconds *int `pulumi:"originResponseTimeoutSeconds"`
 	// Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
 	ProfileName string `pulumi:"profileName"`
 	// Name of the Resource group within the Azure subscription.
@@ -116,8 +112,6 @@ type AFDEndpointArgs struct {
 	EndpointName pulumi.StringPtrInput
 	// Resource location.
 	Location pulumi.StringPtrInput
-	// Send and receive timeout on forwarding request to the origin. When timeout is reached, the request fails and returns.
-	OriginResponseTimeoutSeconds pulumi.IntPtrInput
 	// Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
 	ProfileName pulumi.StringInput
 	// Name of the Resource group within the Azure subscription.

@@ -48,6 +48,9 @@ func NewSubAccountTagRule(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:logz/v20201001preview:SubAccountTagRule"),
 		},
+		{
+			Type: pulumi.String("azure-native:logz/v20220101preview:SubAccountTagRule"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource SubAccountTagRule

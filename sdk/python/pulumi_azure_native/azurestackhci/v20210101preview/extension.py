@@ -415,7 +415,7 @@ class Extension(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["per_node_extension_details"] = None
             __props__.__dict__["provisioning_state"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:azurestackhci:Extension"), pulumi.Alias(type_="azure-native:azurestackhci/v20210901:Extension")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:azurestackhci:Extension"), pulumi.Alias(type_="azure-native:azurestackhci/v20210901:Extension"), pulumi.Alias(type_="azure-native:azurestackhci/v20220101:Extension")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Extension, __self__).__init__(
             'azure-native:azurestackhci/v20210101preview:Extension',

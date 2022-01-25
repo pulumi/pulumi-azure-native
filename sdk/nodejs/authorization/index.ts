@@ -5,7 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export * from "./accessReviewHistoryDefinitionById";
 export * from "./accessReviewScheduleDefinitionById";
+export * from "./getAccessReviewHistoryDefinitionById";
 export * from "./getAccessReviewScheduleDefinitionById";
 export * from "./getClientConfig";
 export * from "./getClientToken";
@@ -70,6 +72,7 @@ import * as v20201001preview from "./v20201001preview";
 import * as v20210301preview from "./v20210301preview";
 import * as v20210601 from "./v20210601";
 import * as v20210701preview from "./v20210701preview";
+import * as v20211116preview from "./v20211116preview";
 
 export {
     v20150101,
@@ -100,9 +103,11 @@ export {
     v20210301preview,
     v20210601,
     v20210701preview,
+    v20211116preview,
 };
 
 // Import resources to register:
+import { AccessReviewHistoryDefinitionById } from "./accessReviewHistoryDefinitionById";
 import { AccessReviewScheduleDefinitionById } from "./accessReviewScheduleDefinitionById";
 import { ManagementLockAtResourceGroupLevel } from "./managementLockAtResourceGroupLevel";
 import { ManagementLockAtResourceLevel } from "./managementLockAtResourceLevel";
@@ -123,6 +128,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure-native:authorization:AccessReviewHistoryDefinitionById":
+                return new AccessReviewHistoryDefinitionById(name, <any>undefined, { urn })
             case "azure-native:authorization:AccessReviewScheduleDefinitionById":
                 return new AccessReviewScheduleDefinitionById(name, <any>undefined, { urn })
             case "azure-native:authorization:ManagementLockAtResourceGroupLevel":

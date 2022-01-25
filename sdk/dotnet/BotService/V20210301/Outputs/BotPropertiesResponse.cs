@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.BotService.V20210301.Outputs
         /// <summary>
         /// The CMK encryption status
         /// </summary>
-        public readonly string? CmekEncryptionStatus;
+        public readonly string CmekEncryptionStatus;
         /// <summary>
         /// The CMK Url
         /// </summary>
@@ -83,7 +83,7 @@ namespace Pulumi.AzureNative.BotService.V20210301.Outputs
         /// <summary>
         /// Whether the bot is developerAppInsightsApiKey set
         /// </summary>
-        public readonly bool? IsDeveloperAppInsightsApiKeySet;
+        public readonly bool IsDeveloperAppInsightsApiKeySet;
         /// <summary>
         /// Whether the bot is streaming supported
         /// </summary>
@@ -155,7 +155,7 @@ namespace Pulumi.AzureNative.BotService.V20210301.Outputs
 
             string? appPasswordHint,
 
-            string? cmekEncryptionStatus,
+            string cmekEncryptionStatus,
 
             string? cmekKeyVaultUrl,
 
@@ -183,7 +183,7 @@ namespace Pulumi.AzureNative.BotService.V20210301.Outputs
 
             bool? isCmekEnabled,
 
-            bool? isDeveloperAppInsightsApiKeySet,
+            bool isDeveloperAppInsightsApiKeySet,
 
             bool? isStreamingSupported,
 

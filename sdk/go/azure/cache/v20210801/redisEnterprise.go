@@ -67,6 +67,9 @@ func NewRedisEnterprise(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:cache/v20210301:RedisEnterprise"),
 		},
+		{
+			Type: pulumi.String("azure-native:cache/v20220101:RedisEnterprise"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource RedisEnterprise

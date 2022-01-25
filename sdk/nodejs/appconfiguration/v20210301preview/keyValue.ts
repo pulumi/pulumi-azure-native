@@ -124,7 +124,7 @@ export class KeyValue extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:appconfiguration:KeyValue" }, { type: "azure-native:appconfiguration/v20200701preview:KeyValue" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:appconfiguration:KeyValue" }, { type: "azure-native:appconfiguration/v20200701preview:KeyValue" }, { type: "azure-native:appconfiguration/v20211001preview:KeyValue" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(KeyValue.__pulumiType, name, resourceInputs, opts);
     }

@@ -102,10 +102,6 @@ namespace Pulumi.AzureNative.Cdn.V20210601
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Send and receive timeout on forwarding request to the origin. When timeout is reached, the request fails and returns.
-        /// </summary>
-        public readonly int? OriginResponseTimeoutSeconds;
-        /// <summary>
         /// The name of the profile which holds the endpoint.
         /// </summary>
         public readonly string ProfileName;
@@ -140,8 +136,6 @@ namespace Pulumi.AzureNative.Cdn.V20210601
 
             string name,
 
-            int? originResponseTimeoutSeconds,
-
             string profileName,
 
             string provisioningState,
@@ -158,7 +152,6 @@ namespace Pulumi.AzureNative.Cdn.V20210601
             Id = id;
             Location = location;
             Name = name;
-            OriginResponseTimeoutSeconds = originResponseTimeoutSeconds;
             ProfileName = profileName;
             ProvisioningState = provisioningState;
             SystemData = systemData;

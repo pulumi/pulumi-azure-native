@@ -20,7 +20,6 @@ class AFDEndpointArgs:
                  enabled_state: Optional[pulumi.Input[Union[str, 'EnabledState']]] = None,
                  endpoint_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 origin_response_timeout_seconds: Optional[pulumi.Input[int]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a AFDEndpoint resource.
@@ -29,7 +28,6 @@ class AFDEndpointArgs:
         :param pulumi.Input[Union[str, 'EnabledState']] enabled_state: Whether to enable use of this rule. Permitted values are 'Enabled' or 'Disabled'
         :param pulumi.Input[str] endpoint_name: Name of the endpoint under the profile which is unique globally.
         :param pulumi.Input[str] location: Resource location.
-        :param pulumi.Input[int] origin_response_timeout_seconds: Send and receive timeout on forwarding request to the origin. When timeout is reached, the request fails and returns.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "profile_name", profile_name)
@@ -40,8 +38,6 @@ class AFDEndpointArgs:
             pulumi.set(__self__, "endpoint_name", endpoint_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
-        if origin_response_timeout_seconds is not None:
-            pulumi.set(__self__, "origin_response_timeout_seconds", origin_response_timeout_seconds)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -106,18 +102,6 @@ class AFDEndpointArgs:
         pulumi.set(self, "location", value)
 
     @property
-    @pulumi.getter(name="originResponseTimeoutSeconds")
-    def origin_response_timeout_seconds(self) -> Optional[pulumi.Input[int]]:
-        """
-        Send and receive timeout on forwarding request to the origin. When timeout is reached, the request fails and returns.
-        """
-        return pulumi.get(self, "origin_response_timeout_seconds")
-
-    @origin_response_timeout_seconds.setter
-    def origin_response_timeout_seconds(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "origin_response_timeout_seconds", value)
-
-    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -138,7 +122,6 @@ class AFDEndpoint(pulumi.CustomResource):
                  enabled_state: Optional[pulumi.Input[Union[str, 'EnabledState']]] = None,
                  endpoint_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 origin_response_timeout_seconds: Optional[pulumi.Input[int]] = None,
                  profile_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -151,7 +134,6 @@ class AFDEndpoint(pulumi.CustomResource):
         :param pulumi.Input[Union[str, 'EnabledState']] enabled_state: Whether to enable use of this rule. Permitted values are 'Enabled' or 'Disabled'
         :param pulumi.Input[str] endpoint_name: Name of the endpoint under the profile which is unique globally.
         :param pulumi.Input[str] location: Resource location.
-        :param pulumi.Input[int] origin_response_timeout_seconds: Send and receive timeout on forwarding request to the origin. When timeout is reached, the request fails and returns.
         :param pulumi.Input[str] profile_name: Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
         :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
@@ -183,7 +165,6 @@ class AFDEndpoint(pulumi.CustomResource):
                  enabled_state: Optional[pulumi.Input[Union[str, 'EnabledState']]] = None,
                  endpoint_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 origin_response_timeout_seconds: Optional[pulumi.Input[int]] = None,
                  profile_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -202,7 +183,6 @@ class AFDEndpoint(pulumi.CustomResource):
             __props__.__dict__["enabled_state"] = enabled_state
             __props__.__dict__["endpoint_name"] = endpoint_name
             __props__.__dict__["location"] = location
-            __props__.__dict__["origin_response_timeout_seconds"] = origin_response_timeout_seconds
             if profile_name is None and not opts.urn:
                 raise TypeError("Missing required property 'profile_name'")
             __props__.__dict__["profile_name"] = profile_name
@@ -245,7 +225,6 @@ class AFDEndpoint(pulumi.CustomResource):
         __props__.__dict__["host_name"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
-        __props__.__dict__["origin_response_timeout_seconds"] = None
         __props__.__dict__["profile_name"] = None
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["system_data"] = None
@@ -289,14 +268,6 @@ class AFDEndpoint(pulumi.CustomResource):
         Resource name.
         """
         return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter(name="originResponseTimeoutSeconds")
-    def origin_response_timeout_seconds(self) -> pulumi.Output[Optional[int]]:
-        """
-        Send and receive timeout on forwarding request to the origin. When timeout is reached, the request fails and returns.
-        """
-        return pulumi.get(self, "origin_response_timeout_seconds")
 
     @property
     @pulumi.getter(name="profileName")

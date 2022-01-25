@@ -47,6 +47,9 @@ func NewSubAccount(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:logz/v20201001:SubAccount"),
 		},
+		{
+			Type: pulumi.String("azure-native:logz/v20220101preview:SubAccount"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource SubAccount

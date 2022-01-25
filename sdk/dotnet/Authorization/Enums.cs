@@ -71,6 +71,40 @@ namespace Pulumi.AzureNative.Authorization
     }
 
     /// <summary>
+    /// Represents a reviewer's decision for a given review
+    /// </summary>
+    [EnumType]
+    public readonly struct AccessReviewResult : IEquatable<AccessReviewResult>
+    {
+        private readonly string _value;
+
+        private AccessReviewResult(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AccessReviewResult Approve { get; } = new AccessReviewResult("Approve");
+        public static AccessReviewResult Deny { get; } = new AccessReviewResult("Deny");
+        public static AccessReviewResult NotReviewed { get; } = new AccessReviewResult("NotReviewed");
+        public static AccessReviewResult DontKnow { get; } = new AccessReviewResult("DontKnow");
+        public static AccessReviewResult NotNotified { get; } = new AccessReviewResult("NotNotified");
+
+        public static bool operator ==(AccessReviewResult left, AccessReviewResult right) => left.Equals(right);
+        public static bool operator !=(AccessReviewResult left, AccessReviewResult right) => !left.Equals(right);
+
+        public static explicit operator string(AccessReviewResult value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AccessReviewResult other && Equals(other);
+        public bool Equals(AccessReviewResult other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// This specifies the behavior for the autoReview feature when an access review completes.
     /// </summary>
     [EnumType]

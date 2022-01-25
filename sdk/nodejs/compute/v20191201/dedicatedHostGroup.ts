@@ -102,7 +102,7 @@ export class DedicatedHostGroup extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:compute:DedicatedHostGroup" }, { type: "azure-native:compute/v20190301:DedicatedHostGroup" }, { type: "azure-native:compute/v20190701:DedicatedHostGroup" }, { type: "azure-native:compute/v20200601:DedicatedHostGroup" }, { type: "azure-native:compute/v20201201:DedicatedHostGroup" }, { type: "azure-native:compute/v20210301:DedicatedHostGroup" }, { type: "azure-native:compute/v20210401:DedicatedHostGroup" }, { type: "azure-native:compute/v20210701:DedicatedHostGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:compute:DedicatedHostGroup" }, { type: "azure-native:compute/v20190301:DedicatedHostGroup" }, { type: "azure-native:compute/v20190701:DedicatedHostGroup" }, { type: "azure-native:compute/v20200601:DedicatedHostGroup" }, { type: "azure-native:compute/v20201201:DedicatedHostGroup" }, { type: "azure-native:compute/v20210301:DedicatedHostGroup" }, { type: "azure-native:compute/v20210401:DedicatedHostGroup" }, { type: "azure-native:compute/v20210701:DedicatedHostGroup" }, { type: "azure-native:compute/v20211101:DedicatedHostGroup" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DedicatedHostGroup.__pulumiType, name, resourceInputs, opts);
     }

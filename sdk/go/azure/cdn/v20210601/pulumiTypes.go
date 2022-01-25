@@ -863,7 +863,9 @@ type ClientPortMatchConditionParameters struct {
 	NegateCondition *bool `pulumi:"negateCondition"`
 	// Describes operator to be matched
 	Operator string `pulumi:"operator"`
-	TypeName string `pulumi:"typeName"`
+	// List of transforms
+	Transforms []string `pulumi:"transforms"`
+	TypeName   string   `pulumi:"typeName"`
 }
 
 // Defines the parameters for ClientPort match conditions
@@ -874,7 +876,9 @@ type ClientPortMatchConditionParametersResponse struct {
 	NegateCondition *bool `pulumi:"negateCondition"`
 	// Describes operator to be matched
 	Operator string `pulumi:"operator"`
-	TypeName string `pulumi:"typeName"`
+	// List of transforms
+	Transforms []string `pulumi:"transforms"`
+	TypeName   string   `pulumi:"typeName"`
 }
 
 // settings for compression.
@@ -4007,7 +4011,9 @@ type IsDeviceMatchConditionParameters struct {
 	NegateCondition *bool `pulumi:"negateCondition"`
 	// Describes operator to be matched
 	Operator string `pulumi:"operator"`
-	TypeName string `pulumi:"typeName"`
+	// List of transforms
+	Transforms []string `pulumi:"transforms"`
+	TypeName   string   `pulumi:"typeName"`
 }
 
 // Defines the parameters for IsDevice match conditions
@@ -4018,7 +4024,9 @@ type IsDeviceMatchConditionParametersResponse struct {
 	NegateCondition *bool `pulumi:"negateCondition"`
 	// Describes operator to be matched
 	Operator string `pulumi:"operator"`
-	TypeName string `pulumi:"typeName"`
+	// List of transforms
+	Transforms []string `pulumi:"transforms"`
+	TypeName   string   `pulumi:"typeName"`
 }
 
 // Describes the parameters for using a user's KeyVault certificate for securing custom domain.
@@ -5224,6 +5232,8 @@ func (o ManagedRuleSetResponseArrayOutput) Index(i pulumi.IntInput) ManagedRuleS
 type ManagedServiceIdentity struct {
 	// Type of managed service identity.
 	Type *string `pulumi:"type"`
+	// The list of user assigned identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}
+	UserAssignedIdentities map[string]interface{} `pulumi:"userAssignedIdentities"`
 }
 
 // ManagedServiceIdentityInput is an input type that accepts ManagedServiceIdentityArgs and ManagedServiceIdentityOutput values.
@@ -5241,6 +5251,8 @@ type ManagedServiceIdentityInput interface {
 type ManagedServiceIdentityArgs struct {
 	// Type of managed service identity.
 	Type pulumi.StringPtrInput `pulumi:"type"`
+	// The list of user assigned identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}
+	UserAssignedIdentities pulumi.MapInput `pulumi:"userAssignedIdentities"`
 }
 
 func (ManagedServiceIdentityArgs) ElementType() reflect.Type {
@@ -5326,6 +5338,11 @@ func (o ManagedServiceIdentityOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedServiceIdentity) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
+// The list of user assigned identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}
+func (o ManagedServiceIdentityOutput) UserAssignedIdentities() pulumi.MapOutput {
+	return o.ApplyT(func(v ManagedServiceIdentity) map[string]interface{} { return v.UserAssignedIdentities }).(pulumi.MapOutput)
+}
+
 type ManagedServiceIdentityPtrOutput struct{ *pulumi.OutputState }
 
 func (ManagedServiceIdentityPtrOutput) ElementType() reflect.Type {
@@ -5360,6 +5377,16 @@ func (o ManagedServiceIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The list of user assigned identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}
+func (o ManagedServiceIdentityPtrOutput) UserAssignedIdentities() pulumi.MapOutput {
+	return o.ApplyT(func(v *ManagedServiceIdentity) map[string]interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.UserAssignedIdentities
+	}).(pulumi.MapOutput)
+}
+
 // Managed service identity.
 type ManagedServiceIdentityResponse struct {
 	// Principal Id of managed service identity.
@@ -5368,6 +5395,8 @@ type ManagedServiceIdentityResponse struct {
 	TenantId string `pulumi:"tenantId"`
 	// Type of managed service identity.
 	Type *string `pulumi:"type"`
+	// The list of user assigned identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}
+	UserAssignedIdentities map[string]UserAssignedIdentityResponse `pulumi:"userAssignedIdentities"`
 }
 
 // Managed service identity.
@@ -5398,6 +5427,13 @@ func (o ManagedServiceIdentityResponseOutput) TenantId() pulumi.StringOutput {
 // Type of managed service identity.
 func (o ManagedServiceIdentityResponseOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedServiceIdentityResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+// The list of user assigned identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}
+func (o ManagedServiceIdentityResponseOutput) UserAssignedIdentities() UserAssignedIdentityResponseMapOutput {
+	return o.ApplyT(func(v ManagedServiceIdentityResponse) map[string]UserAssignedIdentityResponse {
+		return v.UserAssignedIdentities
+	}).(UserAssignedIdentityResponseMapOutput)
 }
 
 type ManagedServiceIdentityResponsePtrOutput struct{ *pulumi.OutputState }
@@ -5452,6 +5488,16 @@ func (o ManagedServiceIdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 		}
 		return v.Type
 	}).(pulumi.StringPtrOutput)
+}
+
+// The list of user assigned identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}
+func (o ManagedServiceIdentityResponsePtrOutput) UserAssignedIdentities() UserAssignedIdentityResponseMapOutput {
+	return o.ApplyT(func(v *ManagedServiceIdentityResponse) map[string]UserAssignedIdentityResponse {
+		if v == nil {
+			return nil
+		}
+		return v.UserAssignedIdentities
+	}).(UserAssignedIdentityResponseMapOutput)
 }
 
 // Define match conditions
@@ -7754,7 +7800,9 @@ type ServerPortMatchConditionParameters struct {
 	NegateCondition *bool `pulumi:"negateCondition"`
 	// Describes operator to be matched
 	Operator string `pulumi:"operator"`
-	TypeName string `pulumi:"typeName"`
+	// List of transforms
+	Transforms []string `pulumi:"transforms"`
+	TypeName   string   `pulumi:"typeName"`
 }
 
 // Defines the parameters for ServerPort match conditions
@@ -7765,7 +7813,9 @@ type ServerPortMatchConditionParametersResponse struct {
 	NegateCondition *bool `pulumi:"negateCondition"`
 	// Describes operator to be matched
 	Operator string `pulumi:"operator"`
-	TypeName string `pulumi:"typeName"`
+	// List of transforms
+	Transforms []string `pulumi:"transforms"`
+	TypeName   string   `pulumi:"typeName"`
 }
 
 // Describes the properties of an existing Shared Private Link Resource to use when connecting to a private origin.
@@ -8127,7 +8177,9 @@ type SocketAddrMatchConditionParameters struct {
 	NegateCondition *bool `pulumi:"negateCondition"`
 	// Describes operator to be matched
 	Operator string `pulumi:"operator"`
-	TypeName string `pulumi:"typeName"`
+	// List of transforms
+	Transforms []string `pulumi:"transforms"`
+	TypeName   string   `pulumi:"typeName"`
 }
 
 // Defines the parameters for SocketAddress match conditions
@@ -8138,7 +8190,9 @@ type SocketAddrMatchConditionParametersResponse struct {
 	NegateCondition *bool `pulumi:"negateCondition"`
 	// Describes operator to be matched
 	Operator string `pulumi:"operator"`
-	TypeName string `pulumi:"typeName"`
+	// List of transforms
+	Transforms []string `pulumi:"transforms"`
+	TypeName   string   `pulumi:"typeName"`
 }
 
 // Defines the parameters for SslProtocol match conditions
@@ -8149,7 +8203,9 @@ type SslProtocolMatchConditionParameters struct {
 	NegateCondition *bool `pulumi:"negateCondition"`
 	// Describes operator to be matched
 	Operator string `pulumi:"operator"`
-	TypeName string `pulumi:"typeName"`
+	// List of transforms
+	Transforms []string `pulumi:"transforms"`
+	TypeName   string   `pulumi:"typeName"`
 }
 
 // Defines the parameters for SslProtocol match conditions
@@ -8160,7 +8216,9 @@ type SslProtocolMatchConditionParametersResponse struct {
 	NegateCondition *bool `pulumi:"negateCondition"`
 	// Describes operator to be matched
 	Operator string `pulumi:"operator"`
-	TypeName string `pulumi:"typeName"`
+	// List of transforms
+	Transforms []string `pulumi:"transforms"`
+	TypeName   string   `pulumi:"typeName"`
 }
 
 // Read only system data
@@ -8634,6 +8692,59 @@ type UrlSigningParamIdentifierResponse struct {
 	ParamName string `pulumi:"paramName"`
 }
 
+// User Assigned identity.
+type UserAssignedIdentityResponse struct {
+	// Client Id of user assigned identity
+	ClientId string `pulumi:"clientId"`
+	// Principal Id of user assigned identity
+	PrincipalId string `pulumi:"principalId"`
+}
+
+// User Assigned identity.
+type UserAssignedIdentityResponseOutput struct{ *pulumi.OutputState }
+
+func (UserAssignedIdentityResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserAssignedIdentityResponse)(nil)).Elem()
+}
+
+func (o UserAssignedIdentityResponseOutput) ToUserAssignedIdentityResponseOutput() UserAssignedIdentityResponseOutput {
+	return o
+}
+
+func (o UserAssignedIdentityResponseOutput) ToUserAssignedIdentityResponseOutputWithContext(ctx context.Context) UserAssignedIdentityResponseOutput {
+	return o
+}
+
+// Client Id of user assigned identity
+func (o UserAssignedIdentityResponseOutput) ClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v UserAssignedIdentityResponse) string { return v.ClientId }).(pulumi.StringOutput)
+}
+
+// Principal Id of user assigned identity
+func (o UserAssignedIdentityResponseOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v UserAssignedIdentityResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+type UserAssignedIdentityResponseMapOutput struct{ *pulumi.OutputState }
+
+func (UserAssignedIdentityResponseMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]UserAssignedIdentityResponse)(nil)).Elem()
+}
+
+func (o UserAssignedIdentityResponseMapOutput) ToUserAssignedIdentityResponseMapOutput() UserAssignedIdentityResponseMapOutput {
+	return o
+}
+
+func (o UserAssignedIdentityResponseMapOutput) ToUserAssignedIdentityResponseMapOutputWithContext(ctx context.Context) UserAssignedIdentityResponseMapOutput {
+	return o
+}
+
+func (o UserAssignedIdentityResponseMapOutput) MapIndex(k pulumi.StringInput) UserAssignedIdentityResponseOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) UserAssignedIdentityResponse {
+		return vs[0].(map[string]UserAssignedIdentityResponse)[vs[1].(string)]
+	}).(UserAssignedIdentityResponseOutput)
+}
+
 // Defines the certificate source parameters using user's keyvault certificate for enabling SSL.
 type UserManagedHttpsParametersResponse struct {
 	// Defines the source of the SSL certificate.
@@ -8780,4 +8891,6 @@ func init() {
 	pulumi.RegisterOutputType(UrlSigningKeyArrayOutput{})
 	pulumi.RegisterOutputType(UrlSigningKeyResponseOutput{})
 	pulumi.RegisterOutputType(UrlSigningKeyResponseArrayOutput{})
+	pulumi.RegisterOutputType(UserAssignedIdentityResponseOutput{})
+	pulumi.RegisterOutputType(UserAssignedIdentityResponseMapOutput{})
 }

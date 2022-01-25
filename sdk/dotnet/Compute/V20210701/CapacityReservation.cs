@@ -108,6 +108,7 @@ namespace Pulumi.AzureNative.Compute.V20210701
                 {
                     new Pulumi.Alias { Type = "azure-native:compute:CapacityReservation"},
                     new Pulumi.Alias { Type = "azure-native:compute/v20210401:CapacityReservation"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20211101:CapacityReservation"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

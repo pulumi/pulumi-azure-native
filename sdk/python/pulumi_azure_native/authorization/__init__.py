@@ -6,7 +6,9 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
+from .access_review_history_definition_by_id import *
 from .access_review_schedule_definition_by_id import *
+from .get_access_review_history_definition_by_id import *
 from .get_access_review_schedule_definition_by_id import *
 from .get_client_config import *
 from .get_client_token import *
@@ -99,6 +101,8 @@ if typing.TYPE_CHECKING:
     v20210601 = __v20210601
     import pulumi_azure_native.authorization.v20210701preview as __v20210701preview
     v20210701preview = __v20210701preview
+    import pulumi_azure_native.authorization.v20211116preview as __v20211116preview
+    v20211116preview = __v20211116preview
 else:
     v20150101 = _utilities.lazy_import('pulumi_azure_native.authorization.v20150101')
     v20150701 = _utilities.lazy_import('pulumi_azure_native.authorization.v20150701')
@@ -128,4 +132,5 @@ else:
     v20210301preview = _utilities.lazy_import('pulumi_azure_native.authorization.v20210301preview')
     v20210601 = _utilities.lazy_import('pulumi_azure_native.authorization.v20210601')
     v20210701preview = _utilities.lazy_import('pulumi_azure_native.authorization.v20210701preview')
+    v20211116preview = _utilities.lazy_import('pulumi_azure_native.authorization.v20211116preview')
 

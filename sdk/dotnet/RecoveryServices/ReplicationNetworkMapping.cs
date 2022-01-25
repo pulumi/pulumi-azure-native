@@ -76,6 +76,7 @@ namespace Pulumi.AzureNative.RecoveryServices
                     new Pulumi.Alias { Type = "azure-native:recoveryservices/v20210801:ReplicationNetworkMapping"},
                     new Pulumi.Alias { Type = "azure-native:recoveryservices/v20211001:ReplicationNetworkMapping"},
                     new Pulumi.Alias { Type = "azure-native:recoveryservices/v20211101:ReplicationNetworkMapping"},
+                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20211201:ReplicationNetworkMapping"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

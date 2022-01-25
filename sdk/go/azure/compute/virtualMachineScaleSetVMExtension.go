@@ -78,6 +78,9 @@ func NewVirtualMachineScaleSetVMExtension(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:compute/v20210701:VirtualMachineScaleSetVMExtension"),
 		},
+		{
+			Type: pulumi.String("azure-native:compute/v20211101:VirtualMachineScaleSetVMExtension"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource VirtualMachineScaleSetVMExtension

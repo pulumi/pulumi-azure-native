@@ -714,8 +714,10 @@ const (
 type ManagedServiceIdentityType string
 
 const (
-	ManagedServiceIdentityTypeSystemAssigned = ManagedServiceIdentityType("SystemAssigned")
-	ManagedServiceIdentityTypeNone           = ManagedServiceIdentityType("None")
+	ManagedServiceIdentityTypeSystemAssigned               = ManagedServiceIdentityType("SystemAssigned")
+	ManagedServiceIdentityTypeUserAssigned                 = ManagedServiceIdentityType("UserAssigned")
+	ManagedServiceIdentityType_SystemAssigned_UserAssigned = ManagedServiceIdentityType("SystemAssigned, UserAssigned")
+	ManagedServiceIdentityTypeNone                         = ManagedServiceIdentityType("None")
 )
 
 // If this rule is a match should the rules engine continue running the remaining rules or stop. If not present, defaults to Continue.

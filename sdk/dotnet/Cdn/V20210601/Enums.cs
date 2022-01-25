@@ -802,6 +802,8 @@ namespace Pulumi.AzureNative.Cdn.V20210601
         }
 
         public static ManagedServiceIdentityType SystemAssigned { get; } = new ManagedServiceIdentityType("SystemAssigned");
+        public static ManagedServiceIdentityType UserAssigned { get; } = new ManagedServiceIdentityType("UserAssigned");
+        public static ManagedServiceIdentityType SystemAssigned_UserAssigned { get; } = new ManagedServiceIdentityType("SystemAssigned, UserAssigned");
         public static ManagedServiceIdentityType None { get; } = new ManagedServiceIdentityType("None");
 
         public static bool operator ==(ManagedServiceIdentityType left, ManagedServiceIdentityType right) => left.Equals(right);

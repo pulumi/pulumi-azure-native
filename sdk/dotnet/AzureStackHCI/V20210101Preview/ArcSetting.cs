@@ -114,6 +114,7 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20210101Preview
                 {
                     new Pulumi.Alias { Type = "azure-native:azurestackhci:ArcSetting"},
                     new Pulumi.Alias { Type = "azure-native:azurestackhci/v20210901:ArcSetting"},
+                    new Pulumi.Alias { Type = "azure-native:azurestackhci/v20220101:ArcSetting"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

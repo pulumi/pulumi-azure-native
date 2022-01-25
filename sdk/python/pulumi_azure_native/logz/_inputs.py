@@ -14,6 +14,8 @@ __all__ = [
     'IdentityPropertiesArgs',
     'LogRulesArgs',
     'LogzOrganizationPropertiesArgs',
+    'MetricRulesArgs',
+    'MetricsTagRulesPropertiesArgs',
     'MonitorPropertiesArgs',
     'MonitoringTagRulesPropertiesArgs',
     'PlanDataArgs',
@@ -218,6 +220,82 @@ class LogzOrganizationPropertiesArgs:
     @single_sign_on_url.setter
     def single_sign_on_url(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "single_sign_on_url", value)
+
+
+@pulumi.input_type
+class MetricRulesArgs:
+    def __init__(__self__, *,
+                 filtering_tags: Optional[pulumi.Input[Sequence[pulumi.Input['FilteringTagArgs']]]] = None,
+                 subscription_id: Optional[pulumi.Input[str]] = None):
+        """
+        Set of rules for sending metrics for the Monitor resource.
+        :param pulumi.Input[Sequence[pulumi.Input['FilteringTagArgs']]] filtering_tags: List of filtering tags to be used for capturing metrics. If empty, all resources will be captured. If only Exclude action is specified, the rules will apply to the list of all available resources. If Include actions are specified, the rules will only include resources with the associated tags.
+        :param pulumi.Input[str] subscription_id: Subscription Id for which filtering tags are applicable
+        """
+        if filtering_tags is not None:
+            pulumi.set(__self__, "filtering_tags", filtering_tags)
+        if subscription_id is not None:
+            pulumi.set(__self__, "subscription_id", subscription_id)
+
+    @property
+    @pulumi.getter(name="filteringTags")
+    def filtering_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FilteringTagArgs']]]]:
+        """
+        List of filtering tags to be used for capturing metrics. If empty, all resources will be captured. If only Exclude action is specified, the rules will apply to the list of all available resources. If Include actions are specified, the rules will only include resources with the associated tags.
+        """
+        return pulumi.get(self, "filtering_tags")
+
+    @filtering_tags.setter
+    def filtering_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FilteringTagArgs']]]]):
+        pulumi.set(self, "filtering_tags", value)
+
+    @property
+    @pulumi.getter(name="subscriptionId")
+    def subscription_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Subscription Id for which filtering tags are applicable
+        """
+        return pulumi.get(self, "subscription_id")
+
+    @subscription_id.setter
+    def subscription_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "subscription_id", value)
+
+
+@pulumi.input_type
+class MetricsTagRulesPropertiesArgs:
+    def __init__(__self__, *,
+                 metric_rules: Optional[pulumi.Input[Sequence[pulumi.Input['MetricRulesArgs']]]] = None,
+                 send_metrics: Optional[pulumi.Input[bool]] = None):
+        """
+        Definition of the properties for a TagRules resource.
+        :param pulumi.Input[bool] send_metrics: Flag specifying if metrics from Azure resources should be sent for the Monitor resource.
+        """
+        if metric_rules is not None:
+            pulumi.set(__self__, "metric_rules", metric_rules)
+        if send_metrics is not None:
+            pulumi.set(__self__, "send_metrics", send_metrics)
+
+    @property
+    @pulumi.getter(name="metricRules")
+    def metric_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MetricRulesArgs']]]]:
+        return pulumi.get(self, "metric_rules")
+
+    @metric_rules.setter
+    def metric_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MetricRulesArgs']]]]):
+        pulumi.set(self, "metric_rules", value)
+
+    @property
+    @pulumi.getter(name="sendMetrics")
+    def send_metrics(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Flag specifying if metrics from Azure resources should be sent for the Monitor resource.
+        """
+        return pulumi.get(self, "send_metrics")
+
+    @send_metrics.setter
+    def send_metrics(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "send_metrics", value)
 
 
 @pulumi.input_type

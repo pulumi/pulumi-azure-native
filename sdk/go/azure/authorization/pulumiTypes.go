@@ -10,6 +10,267 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Access Review History Definition Instance.
+type AccessReviewHistoryInstance struct {
+	// The display name for the parent history definition.
+	DisplayName *string `pulumi:"displayName"`
+	// Date time when history data report expires and the associated data is deleted.
+	Expiration *string `pulumi:"expiration"`
+	// Date time when the history data report is scheduled to be generated.
+	FulfilledDateTime *string `pulumi:"fulfilledDateTime"`
+	// Date time used when selecting review data, all reviews included in data end on or before this date. For use only with one-time/non-recurring reports.
+	ReviewHistoryPeriodEndDateTime *string `pulumi:"reviewHistoryPeriodEndDateTime"`
+	// Date time used when selecting review data, all reviews included in data start on or after this date. For use only with one-time/non-recurring reports.
+	ReviewHistoryPeriodStartDateTime *string `pulumi:"reviewHistoryPeriodStartDateTime"`
+	// Date time when the history data report is scheduled to be generated.
+	RunDateTime *string `pulumi:"runDateTime"`
+}
+
+// AccessReviewHistoryInstanceInput is an input type that accepts AccessReviewHistoryInstanceArgs and AccessReviewHistoryInstanceOutput values.
+// You can construct a concrete instance of `AccessReviewHistoryInstanceInput` via:
+//
+//          AccessReviewHistoryInstanceArgs{...}
+type AccessReviewHistoryInstanceInput interface {
+	pulumi.Input
+
+	ToAccessReviewHistoryInstanceOutput() AccessReviewHistoryInstanceOutput
+	ToAccessReviewHistoryInstanceOutputWithContext(context.Context) AccessReviewHistoryInstanceOutput
+}
+
+// Access Review History Definition Instance.
+type AccessReviewHistoryInstanceArgs struct {
+	// The display name for the parent history definition.
+	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
+	// Date time when history data report expires and the associated data is deleted.
+	Expiration pulumi.StringPtrInput `pulumi:"expiration"`
+	// Date time when the history data report is scheduled to be generated.
+	FulfilledDateTime pulumi.StringPtrInput `pulumi:"fulfilledDateTime"`
+	// Date time used when selecting review data, all reviews included in data end on or before this date. For use only with one-time/non-recurring reports.
+	ReviewHistoryPeriodEndDateTime pulumi.StringPtrInput `pulumi:"reviewHistoryPeriodEndDateTime"`
+	// Date time used when selecting review data, all reviews included in data start on or after this date. For use only with one-time/non-recurring reports.
+	ReviewHistoryPeriodStartDateTime pulumi.StringPtrInput `pulumi:"reviewHistoryPeriodStartDateTime"`
+	// Date time when the history data report is scheduled to be generated.
+	RunDateTime pulumi.StringPtrInput `pulumi:"runDateTime"`
+}
+
+func (AccessReviewHistoryInstanceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccessReviewHistoryInstance)(nil)).Elem()
+}
+
+func (i AccessReviewHistoryInstanceArgs) ToAccessReviewHistoryInstanceOutput() AccessReviewHistoryInstanceOutput {
+	return i.ToAccessReviewHistoryInstanceOutputWithContext(context.Background())
+}
+
+func (i AccessReviewHistoryInstanceArgs) ToAccessReviewHistoryInstanceOutputWithContext(ctx context.Context) AccessReviewHistoryInstanceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccessReviewHistoryInstanceOutput)
+}
+
+// AccessReviewHistoryInstanceArrayInput is an input type that accepts AccessReviewHistoryInstanceArray and AccessReviewHistoryInstanceArrayOutput values.
+// You can construct a concrete instance of `AccessReviewHistoryInstanceArrayInput` via:
+//
+//          AccessReviewHistoryInstanceArray{ AccessReviewHistoryInstanceArgs{...} }
+type AccessReviewHistoryInstanceArrayInput interface {
+	pulumi.Input
+
+	ToAccessReviewHistoryInstanceArrayOutput() AccessReviewHistoryInstanceArrayOutput
+	ToAccessReviewHistoryInstanceArrayOutputWithContext(context.Context) AccessReviewHistoryInstanceArrayOutput
+}
+
+type AccessReviewHistoryInstanceArray []AccessReviewHistoryInstanceInput
+
+func (AccessReviewHistoryInstanceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AccessReviewHistoryInstance)(nil)).Elem()
+}
+
+func (i AccessReviewHistoryInstanceArray) ToAccessReviewHistoryInstanceArrayOutput() AccessReviewHistoryInstanceArrayOutput {
+	return i.ToAccessReviewHistoryInstanceArrayOutputWithContext(context.Background())
+}
+
+func (i AccessReviewHistoryInstanceArray) ToAccessReviewHistoryInstanceArrayOutputWithContext(ctx context.Context) AccessReviewHistoryInstanceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccessReviewHistoryInstanceArrayOutput)
+}
+
+// Access Review History Definition Instance.
+type AccessReviewHistoryInstanceOutput struct{ *pulumi.OutputState }
+
+func (AccessReviewHistoryInstanceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccessReviewHistoryInstance)(nil)).Elem()
+}
+
+func (o AccessReviewHistoryInstanceOutput) ToAccessReviewHistoryInstanceOutput() AccessReviewHistoryInstanceOutput {
+	return o
+}
+
+func (o AccessReviewHistoryInstanceOutput) ToAccessReviewHistoryInstanceOutputWithContext(ctx context.Context) AccessReviewHistoryInstanceOutput {
+	return o
+}
+
+// The display name for the parent history definition.
+func (o AccessReviewHistoryInstanceOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AccessReviewHistoryInstance) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+// Date time when history data report expires and the associated data is deleted.
+func (o AccessReviewHistoryInstanceOutput) Expiration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AccessReviewHistoryInstance) *string { return v.Expiration }).(pulumi.StringPtrOutput)
+}
+
+// Date time when the history data report is scheduled to be generated.
+func (o AccessReviewHistoryInstanceOutput) FulfilledDateTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AccessReviewHistoryInstance) *string { return v.FulfilledDateTime }).(pulumi.StringPtrOutput)
+}
+
+// Date time used when selecting review data, all reviews included in data end on or before this date. For use only with one-time/non-recurring reports.
+func (o AccessReviewHistoryInstanceOutput) ReviewHistoryPeriodEndDateTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AccessReviewHistoryInstance) *string { return v.ReviewHistoryPeriodEndDateTime }).(pulumi.StringPtrOutput)
+}
+
+// Date time used when selecting review data, all reviews included in data start on or after this date. For use only with one-time/non-recurring reports.
+func (o AccessReviewHistoryInstanceOutput) ReviewHistoryPeriodStartDateTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AccessReviewHistoryInstance) *string { return v.ReviewHistoryPeriodStartDateTime }).(pulumi.StringPtrOutput)
+}
+
+// Date time when the history data report is scheduled to be generated.
+func (o AccessReviewHistoryInstanceOutput) RunDateTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AccessReviewHistoryInstance) *string { return v.RunDateTime }).(pulumi.StringPtrOutput)
+}
+
+type AccessReviewHistoryInstanceArrayOutput struct{ *pulumi.OutputState }
+
+func (AccessReviewHistoryInstanceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AccessReviewHistoryInstance)(nil)).Elem()
+}
+
+func (o AccessReviewHistoryInstanceArrayOutput) ToAccessReviewHistoryInstanceArrayOutput() AccessReviewHistoryInstanceArrayOutput {
+	return o
+}
+
+func (o AccessReviewHistoryInstanceArrayOutput) ToAccessReviewHistoryInstanceArrayOutputWithContext(ctx context.Context) AccessReviewHistoryInstanceArrayOutput {
+	return o
+}
+
+func (o AccessReviewHistoryInstanceArrayOutput) Index(i pulumi.IntInput) AccessReviewHistoryInstanceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AccessReviewHistoryInstance {
+		return vs[0].([]AccessReviewHistoryInstance)[vs[1].(int)]
+	}).(AccessReviewHistoryInstanceOutput)
+}
+
+// Access Review History Definition Instance.
+type AccessReviewHistoryInstanceResponse struct {
+	// The display name for the parent history definition.
+	DisplayName *string `pulumi:"displayName"`
+	// Uri which can be used to retrieve review history data. To generate this Uri, generateDownloadUri() must be called for a specific accessReviewHistoryDefinitionInstance. The link expires after a 24 hour period. Callers can see the expiration date time by looking at the 'se' parameter in the generated uri.
+	DownloadUri string `pulumi:"downloadUri"`
+	// Date time when history data report expires and the associated data is deleted.
+	Expiration *string `pulumi:"expiration"`
+	// Date time when the history data report is scheduled to be generated.
+	FulfilledDateTime *string `pulumi:"fulfilledDateTime"`
+	// The access review history definition instance id.
+	Id string `pulumi:"id"`
+	// The access review history definition instance unique id.
+	Name string `pulumi:"name"`
+	// Date time used when selecting review data, all reviews included in data end on or before this date. For use only with one-time/non-recurring reports.
+	ReviewHistoryPeriodEndDateTime *string `pulumi:"reviewHistoryPeriodEndDateTime"`
+	// Date time used when selecting review data, all reviews included in data start on or after this date. For use only with one-time/non-recurring reports.
+	ReviewHistoryPeriodStartDateTime *string `pulumi:"reviewHistoryPeriodStartDateTime"`
+	// Date time when the history data report is scheduled to be generated.
+	RunDateTime *string `pulumi:"runDateTime"`
+	// Status of the requested review history instance data. This is either requested, in-progress, done or error. The state transitions are as follows - Requested -> InProgress -> Done -> Expired
+	Status string `pulumi:"status"`
+	// The resource type.
+	Type string `pulumi:"type"`
+}
+
+// Access Review History Definition Instance.
+type AccessReviewHistoryInstanceResponseOutput struct{ *pulumi.OutputState }
+
+func (AccessReviewHistoryInstanceResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccessReviewHistoryInstanceResponse)(nil)).Elem()
+}
+
+func (o AccessReviewHistoryInstanceResponseOutput) ToAccessReviewHistoryInstanceResponseOutput() AccessReviewHistoryInstanceResponseOutput {
+	return o
+}
+
+func (o AccessReviewHistoryInstanceResponseOutput) ToAccessReviewHistoryInstanceResponseOutputWithContext(ctx context.Context) AccessReviewHistoryInstanceResponseOutput {
+	return o
+}
+
+// The display name for the parent history definition.
+func (o AccessReviewHistoryInstanceResponseOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AccessReviewHistoryInstanceResponse) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+// Uri which can be used to retrieve review history data. To generate this Uri, generateDownloadUri() must be called for a specific accessReviewHistoryDefinitionInstance. The link expires after a 24 hour period. Callers can see the expiration date time by looking at the 'se' parameter in the generated uri.
+func (o AccessReviewHistoryInstanceResponseOutput) DownloadUri() pulumi.StringOutput {
+	return o.ApplyT(func(v AccessReviewHistoryInstanceResponse) string { return v.DownloadUri }).(pulumi.StringOutput)
+}
+
+// Date time when history data report expires and the associated data is deleted.
+func (o AccessReviewHistoryInstanceResponseOutput) Expiration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AccessReviewHistoryInstanceResponse) *string { return v.Expiration }).(pulumi.StringPtrOutput)
+}
+
+// Date time when the history data report is scheduled to be generated.
+func (o AccessReviewHistoryInstanceResponseOutput) FulfilledDateTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AccessReviewHistoryInstanceResponse) *string { return v.FulfilledDateTime }).(pulumi.StringPtrOutput)
+}
+
+// The access review history definition instance id.
+func (o AccessReviewHistoryInstanceResponseOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v AccessReviewHistoryInstanceResponse) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The access review history definition instance unique id.
+func (o AccessReviewHistoryInstanceResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v AccessReviewHistoryInstanceResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Date time used when selecting review data, all reviews included in data end on or before this date. For use only with one-time/non-recurring reports.
+func (o AccessReviewHistoryInstanceResponseOutput) ReviewHistoryPeriodEndDateTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AccessReviewHistoryInstanceResponse) *string { return v.ReviewHistoryPeriodEndDateTime }).(pulumi.StringPtrOutput)
+}
+
+// Date time used when selecting review data, all reviews included in data start on or after this date. For use only with one-time/non-recurring reports.
+func (o AccessReviewHistoryInstanceResponseOutput) ReviewHistoryPeriodStartDateTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AccessReviewHistoryInstanceResponse) *string { return v.ReviewHistoryPeriodStartDateTime }).(pulumi.StringPtrOutput)
+}
+
+// Date time when the history data report is scheduled to be generated.
+func (o AccessReviewHistoryInstanceResponseOutput) RunDateTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AccessReviewHistoryInstanceResponse) *string { return v.RunDateTime }).(pulumi.StringPtrOutput)
+}
+
+// Status of the requested review history instance data. This is either requested, in-progress, done or error. The state transitions are as follows - Requested -> InProgress -> Done -> Expired
+func (o AccessReviewHistoryInstanceResponseOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v AccessReviewHistoryInstanceResponse) string { return v.Status }).(pulumi.StringOutput)
+}
+
+// The resource type.
+func (o AccessReviewHistoryInstanceResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v AccessReviewHistoryInstanceResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type AccessReviewHistoryInstanceResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (AccessReviewHistoryInstanceResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AccessReviewHistoryInstanceResponse)(nil)).Elem()
+}
+
+func (o AccessReviewHistoryInstanceResponseArrayOutput) ToAccessReviewHistoryInstanceResponseArrayOutput() AccessReviewHistoryInstanceResponseArrayOutput {
+	return o
+}
+
+func (o AccessReviewHistoryInstanceResponseArrayOutput) ToAccessReviewHistoryInstanceResponseArrayOutputWithContext(ctx context.Context) AccessReviewHistoryInstanceResponseArrayOutput {
+	return o
+}
+
+func (o AccessReviewHistoryInstanceResponseArrayOutput) Index(i pulumi.IntInput) AccessReviewHistoryInstanceResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AccessReviewHistoryInstanceResponse {
+		return vs[0].([]AccessReviewHistoryInstanceResponse)[vs[1].(int)]
+	}).(AccessReviewHistoryInstanceResponseOutput)
+}
+
 // Access Review Instance.
 type AccessReviewInstance struct {
 	// The DateTime when the review instance is scheduled to end.
@@ -351,6 +612,196 @@ func (o AccessReviewReviewerResponseArrayOutput) Index(i pulumi.IntInput) Access
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AccessReviewReviewerResponse {
 		return vs[0].([]AccessReviewReviewerResponse)[vs[1].(int)]
 	}).(AccessReviewReviewerResponseOutput)
+}
+
+// Descriptor for what needs to be reviewed
+type AccessReviewScope struct {
+	// Flag to indicate whether to expand nested memberships or not.
+	ExpandNestedMemberships *bool `pulumi:"expandNestedMemberships"`
+	// Duration users are inactive for. The value should be in ISO  8601 format (http://en.wikipedia.org/wiki/ISO_8601#Durations).This code can be used to convert TimeSpan to a valid interval string: XmlConvert.ToString(new TimeSpan(hours, minutes, seconds))
+	InactiveDuration *string `pulumi:"inactiveDuration"`
+}
+
+// AccessReviewScopeInput is an input type that accepts AccessReviewScopeArgs and AccessReviewScopeOutput values.
+// You can construct a concrete instance of `AccessReviewScopeInput` via:
+//
+//          AccessReviewScopeArgs{...}
+type AccessReviewScopeInput interface {
+	pulumi.Input
+
+	ToAccessReviewScopeOutput() AccessReviewScopeOutput
+	ToAccessReviewScopeOutputWithContext(context.Context) AccessReviewScopeOutput
+}
+
+// Descriptor for what needs to be reviewed
+type AccessReviewScopeArgs struct {
+	// Flag to indicate whether to expand nested memberships or not.
+	ExpandNestedMemberships pulumi.BoolPtrInput `pulumi:"expandNestedMemberships"`
+	// Duration users are inactive for. The value should be in ISO  8601 format (http://en.wikipedia.org/wiki/ISO_8601#Durations).This code can be used to convert TimeSpan to a valid interval string: XmlConvert.ToString(new TimeSpan(hours, minutes, seconds))
+	InactiveDuration pulumi.StringPtrInput `pulumi:"inactiveDuration"`
+}
+
+func (AccessReviewScopeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccessReviewScope)(nil)).Elem()
+}
+
+func (i AccessReviewScopeArgs) ToAccessReviewScopeOutput() AccessReviewScopeOutput {
+	return i.ToAccessReviewScopeOutputWithContext(context.Background())
+}
+
+func (i AccessReviewScopeArgs) ToAccessReviewScopeOutputWithContext(ctx context.Context) AccessReviewScopeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccessReviewScopeOutput)
+}
+
+// AccessReviewScopeArrayInput is an input type that accepts AccessReviewScopeArray and AccessReviewScopeArrayOutput values.
+// You can construct a concrete instance of `AccessReviewScopeArrayInput` via:
+//
+//          AccessReviewScopeArray{ AccessReviewScopeArgs{...} }
+type AccessReviewScopeArrayInput interface {
+	pulumi.Input
+
+	ToAccessReviewScopeArrayOutput() AccessReviewScopeArrayOutput
+	ToAccessReviewScopeArrayOutputWithContext(context.Context) AccessReviewScopeArrayOutput
+}
+
+type AccessReviewScopeArray []AccessReviewScopeInput
+
+func (AccessReviewScopeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AccessReviewScope)(nil)).Elem()
+}
+
+func (i AccessReviewScopeArray) ToAccessReviewScopeArrayOutput() AccessReviewScopeArrayOutput {
+	return i.ToAccessReviewScopeArrayOutputWithContext(context.Background())
+}
+
+func (i AccessReviewScopeArray) ToAccessReviewScopeArrayOutputWithContext(ctx context.Context) AccessReviewScopeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccessReviewScopeArrayOutput)
+}
+
+// Descriptor for what needs to be reviewed
+type AccessReviewScopeOutput struct{ *pulumi.OutputState }
+
+func (AccessReviewScopeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccessReviewScope)(nil)).Elem()
+}
+
+func (o AccessReviewScopeOutput) ToAccessReviewScopeOutput() AccessReviewScopeOutput {
+	return o
+}
+
+func (o AccessReviewScopeOutput) ToAccessReviewScopeOutputWithContext(ctx context.Context) AccessReviewScopeOutput {
+	return o
+}
+
+// Flag to indicate whether to expand nested memberships or not.
+func (o AccessReviewScopeOutput) ExpandNestedMemberships() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AccessReviewScope) *bool { return v.ExpandNestedMemberships }).(pulumi.BoolPtrOutput)
+}
+
+// Duration users are inactive for. The value should be in ISO  8601 format (http://en.wikipedia.org/wiki/ISO_8601#Durations).This code can be used to convert TimeSpan to a valid interval string: XmlConvert.ToString(new TimeSpan(hours, minutes, seconds))
+func (o AccessReviewScopeOutput) InactiveDuration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AccessReviewScope) *string { return v.InactiveDuration }).(pulumi.StringPtrOutput)
+}
+
+type AccessReviewScopeArrayOutput struct{ *pulumi.OutputState }
+
+func (AccessReviewScopeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AccessReviewScope)(nil)).Elem()
+}
+
+func (o AccessReviewScopeArrayOutput) ToAccessReviewScopeArrayOutput() AccessReviewScopeArrayOutput {
+	return o
+}
+
+func (o AccessReviewScopeArrayOutput) ToAccessReviewScopeArrayOutputWithContext(ctx context.Context) AccessReviewScopeArrayOutput {
+	return o
+}
+
+func (o AccessReviewScopeArrayOutput) Index(i pulumi.IntInput) AccessReviewScopeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AccessReviewScope {
+		return vs[0].([]AccessReviewScope)[vs[1].(int)]
+	}).(AccessReviewScopeOutput)
+}
+
+// Descriptor for what needs to be reviewed
+type AccessReviewScopeResponse struct {
+	// The role assignment state eligible/active to review
+	AssignmentState string `pulumi:"assignmentState"`
+	// Flag to indicate whether to expand nested memberships or not.
+	ExpandNestedMemberships *bool `pulumi:"expandNestedMemberships"`
+	// Duration users are inactive for. The value should be in ISO  8601 format (http://en.wikipedia.org/wiki/ISO_8601#Durations).This code can be used to convert TimeSpan to a valid interval string: XmlConvert.ToString(new TimeSpan(hours, minutes, seconds))
+	InactiveDuration *string `pulumi:"inactiveDuration"`
+	// The identity type user/servicePrincipal to review
+	PrincipalType string `pulumi:"principalType"`
+	// ResourceId in which this review is getting created
+	ResourceId string `pulumi:"resourceId"`
+	// This is used to indicate the role being reviewed
+	RoleDefinitionId string `pulumi:"roleDefinitionId"`
+}
+
+// Descriptor for what needs to be reviewed
+type AccessReviewScopeResponseOutput struct{ *pulumi.OutputState }
+
+func (AccessReviewScopeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccessReviewScopeResponse)(nil)).Elem()
+}
+
+func (o AccessReviewScopeResponseOutput) ToAccessReviewScopeResponseOutput() AccessReviewScopeResponseOutput {
+	return o
+}
+
+func (o AccessReviewScopeResponseOutput) ToAccessReviewScopeResponseOutputWithContext(ctx context.Context) AccessReviewScopeResponseOutput {
+	return o
+}
+
+// The role assignment state eligible/active to review
+func (o AccessReviewScopeResponseOutput) AssignmentState() pulumi.StringOutput {
+	return o.ApplyT(func(v AccessReviewScopeResponse) string { return v.AssignmentState }).(pulumi.StringOutput)
+}
+
+// Flag to indicate whether to expand nested memberships or not.
+func (o AccessReviewScopeResponseOutput) ExpandNestedMemberships() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AccessReviewScopeResponse) *bool { return v.ExpandNestedMemberships }).(pulumi.BoolPtrOutput)
+}
+
+// Duration users are inactive for. The value should be in ISO  8601 format (http://en.wikipedia.org/wiki/ISO_8601#Durations).This code can be used to convert TimeSpan to a valid interval string: XmlConvert.ToString(new TimeSpan(hours, minutes, seconds))
+func (o AccessReviewScopeResponseOutput) InactiveDuration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AccessReviewScopeResponse) *string { return v.InactiveDuration }).(pulumi.StringPtrOutput)
+}
+
+// The identity type user/servicePrincipal to review
+func (o AccessReviewScopeResponseOutput) PrincipalType() pulumi.StringOutput {
+	return o.ApplyT(func(v AccessReviewScopeResponse) string { return v.PrincipalType }).(pulumi.StringOutput)
+}
+
+// ResourceId in which this review is getting created
+func (o AccessReviewScopeResponseOutput) ResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v AccessReviewScopeResponse) string { return v.ResourceId }).(pulumi.StringOutput)
+}
+
+// This is used to indicate the role being reviewed
+func (o AccessReviewScopeResponseOutput) RoleDefinitionId() pulumi.StringOutput {
+	return o.ApplyT(func(v AccessReviewScopeResponse) string { return v.RoleDefinitionId }).(pulumi.StringOutput)
+}
+
+type AccessReviewScopeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (AccessReviewScopeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AccessReviewScopeResponse)(nil)).Elem()
+}
+
+func (o AccessReviewScopeResponseArrayOutput) ToAccessReviewScopeResponseArrayOutput() AccessReviewScopeResponseArrayOutput {
+	return o
+}
+
+func (o AccessReviewScopeResponseArrayOutput) ToAccessReviewScopeResponseArrayOutputWithContext(ctx context.Context) AccessReviewScopeResponseArrayOutput {
+	return o
+}
+
+func (o AccessReviewScopeResponseArrayOutput) Index(i pulumi.IntInput) AccessReviewScopeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AccessReviewScopeResponse {
+		return vs[0].([]AccessReviewScopeResponse)[vs[1].(int)]
+	}).(AccessReviewScopeResponseOutput)
 }
 
 // Identity for the resource.
@@ -2664,6 +3115,10 @@ func (o SystemDataResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
 }
 
 func init() {
+	pulumi.RegisterOutputType(AccessReviewHistoryInstanceOutput{})
+	pulumi.RegisterOutputType(AccessReviewHistoryInstanceArrayOutput{})
+	pulumi.RegisterOutputType(AccessReviewHistoryInstanceResponseOutput{})
+	pulumi.RegisterOutputType(AccessReviewHistoryInstanceResponseArrayOutput{})
 	pulumi.RegisterOutputType(AccessReviewInstanceOutput{})
 	pulumi.RegisterOutputType(AccessReviewInstanceArrayOutput{})
 	pulumi.RegisterOutputType(AccessReviewInstanceResponseOutput{})
@@ -2672,6 +3127,10 @@ func init() {
 	pulumi.RegisterOutputType(AccessReviewReviewerArrayOutput{})
 	pulumi.RegisterOutputType(AccessReviewReviewerResponseOutput{})
 	pulumi.RegisterOutputType(AccessReviewReviewerResponseArrayOutput{})
+	pulumi.RegisterOutputType(AccessReviewScopeOutput{})
+	pulumi.RegisterOutputType(AccessReviewScopeArrayOutput{})
+	pulumi.RegisterOutputType(AccessReviewScopeResponseOutput{})
+	pulumi.RegisterOutputType(AccessReviewScopeResponseArrayOutput{})
 	pulumi.RegisterOutputType(IdentityOutput{})
 	pulumi.RegisterOutputType(IdentityPtrOutput{})
 	pulumi.RegisterOutputType(IdentityResponseOutput{})

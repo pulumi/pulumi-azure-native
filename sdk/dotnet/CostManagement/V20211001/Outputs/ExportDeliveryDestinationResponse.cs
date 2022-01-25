@@ -29,6 +29,10 @@ namespace Pulumi.AzureNative.CostManagement.V20211001.Outputs
         /// </summary>
         public readonly string? RootFolderPath;
         /// <summary>
+        /// A SAS token for the storage account. For a restricted set of Azure customers this together with storageAccount can be specified instead of resourceId. Note: the value returned by the API for this property will always be obfuscated. Returning this same obfuscated value will not result in the SAS token being updated. To update this value a new SAS token must be specified.
+        /// </summary>
+        public readonly string? SasToken;
+        /// <summary>
         /// The storage account where exports will be uploaded. For a restricted set of Azure customers this together with sasToken can be specified instead of resourceId.
         /// </summary>
         public readonly string? StorageAccount;
@@ -41,11 +45,14 @@ namespace Pulumi.AzureNative.CostManagement.V20211001.Outputs
 
             string? rootFolderPath,
 
+            string? sasToken,
+
             string? storageAccount)
         {
             Container = container;
             ResourceId = resourceId;
             RootFolderPath = rootFolderPath;
+            SasToken = sasToken;
             StorageAccount = storageAccount;
         }
     }

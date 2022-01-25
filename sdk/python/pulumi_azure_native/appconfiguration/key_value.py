@@ -200,7 +200,7 @@ class KeyValue(pulumi.CustomResource):
             __props__.__dict__["locked"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:appconfiguration/v20200701preview:KeyValue"), pulumi.Alias(type_="azure-native:appconfiguration/v20210301preview:KeyValue")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:appconfiguration/v20200701preview:KeyValue"), pulumi.Alias(type_="azure-native:appconfiguration/v20210301preview:KeyValue"), pulumi.Alias(type_="azure-native:appconfiguration/v20211001preview:KeyValue")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(KeyValue, __self__).__init__(
             'azure-native:appconfiguration:KeyValue',

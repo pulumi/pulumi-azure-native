@@ -5,11 +5,13 @@
 import * as v20201001 from "./v20201001";
 import * as v20210101preview from "./v20210101preview";
 import * as v20210901 from "./v20210901";
+import * as v20220101 from "./v20220101";
 
 export {
     v20201001,
     v20210101preview,
     v20210901,
+    v20220101,
 };
 
 export const CreatedByType = {

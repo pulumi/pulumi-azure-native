@@ -16,7 +16,7 @@ type Route struct {
 	pulumi.CustomResourceState
 
 	// compression settings.
-	CompressionSettings CompressionSettingsResponseArrayOutput `pulumi:"compressionSettings"`
+	CompressionSettings CompressionSettingsResponsePtrOutput `pulumi:"compressionSettings"`
 	// Domains referenced by this endpoint.
 	CustomDomains    ResourceReferenceResponseArrayOutput `pulumi:"customDomains"`
 	DeploymentStatus pulumi.StringOutput                  `pulumi:"deploymentStatus"`
@@ -111,7 +111,7 @@ func (RouteState) ElementType() reflect.Type {
 
 type routeArgs struct {
 	// compression settings.
-	CompressionSettings []CompressionSettings `pulumi:"compressionSettings"`
+	CompressionSettings *CompressionSettings `pulumi:"compressionSettings"`
 	// Domains referenced by this endpoint.
 	CustomDomains []ResourceReference `pulumi:"customDomains"`
 	// Whether to enable use of this rule. Permitted values are 'Enabled' or 'Disabled'
@@ -147,7 +147,7 @@ type routeArgs struct {
 // The set of arguments for constructing a Route resource.
 type RouteArgs struct {
 	// compression settings.
-	CompressionSettings CompressionSettingsArrayInput
+	CompressionSettings CompressionSettingsPtrInput
 	// Domains referenced by this endpoint.
 	CustomDomains ResourceReferenceArrayInput
 	// Whether to enable use of this rule. Permitted values are 'Enabled' or 'Disabled'

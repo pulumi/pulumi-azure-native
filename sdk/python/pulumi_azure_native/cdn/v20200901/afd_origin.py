@@ -27,7 +27,7 @@ class AFDOriginArgs:
                  origin_host_header: Optional[pulumi.Input[str]] = None,
                  origin_name: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
-                 shared_private_link_resource: Optional[pulumi.Input[Sequence[pulumi.Input['SharedPrivateLinkResourcePropertiesArgs']]]] = None,
+                 shared_private_link_resource: Optional[pulumi.Input['SharedPrivateLinkResourcePropertiesArgs']] = None,
                  weight: Optional[pulumi.Input[int]] = None):
         """
         The set of arguments for constructing a AFDOrigin resource.
@@ -42,7 +42,7 @@ class AFDOriginArgs:
         :param pulumi.Input[str] origin_host_header: The host header value sent to the origin with each request. If you leave this blank, the request hostname determines this value. Azure CDN origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin hostname by default. This overrides the host header defined at Endpoint
         :param pulumi.Input[str] origin_name: Name of the origin that is unique within the profile.
         :param pulumi.Input[int] priority: Priority of origin in given origin group for load balancing. Higher priorities will not be used for load balancing if any lower priority origin is healthy.Must be between 1 and 5
-        :param pulumi.Input[Sequence[pulumi.Input['SharedPrivateLinkResourcePropertiesArgs']]] shared_private_link_resource: The properties of the private link resource for private origin.
+        :param pulumi.Input['SharedPrivateLinkResourcePropertiesArgs'] shared_private_link_resource: The properties of the private link resource for private origin.
         :param pulumi.Input[int] weight: Weight of the origin in given origin group for load balancing. Must be between 1 and 1000
         """
         pulumi.set(__self__, "host_name", host_name)
@@ -202,14 +202,14 @@ class AFDOriginArgs:
 
     @property
     @pulumi.getter(name="sharedPrivateLinkResource")
-    def shared_private_link_resource(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SharedPrivateLinkResourcePropertiesArgs']]]]:
+    def shared_private_link_resource(self) -> Optional[pulumi.Input['SharedPrivateLinkResourcePropertiesArgs']]:
         """
         The properties of the private link resource for private origin.
         """
         return pulumi.get(self, "shared_private_link_resource")
 
     @shared_private_link_resource.setter
-    def shared_private_link_resource(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SharedPrivateLinkResourcePropertiesArgs']]]]):
+    def shared_private_link_resource(self, value: Optional[pulumi.Input['SharedPrivateLinkResourcePropertiesArgs']]):
         pulumi.set(self, "shared_private_link_resource", value)
 
     @property
@@ -241,7 +241,7 @@ class AFDOrigin(pulumi.CustomResource):
                  priority: Optional[pulumi.Input[int]] = None,
                  profile_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 shared_private_link_resource: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SharedPrivateLinkResourcePropertiesArgs']]]]] = None,
+                 shared_private_link_resource: Optional[pulumi.Input[pulumi.InputType['SharedPrivateLinkResourcePropertiesArgs']]] = None,
                  weight: Optional[pulumi.Input[int]] = None,
                  __props__=None):
         """
@@ -260,7 +260,7 @@ class AFDOrigin(pulumi.CustomResource):
         :param pulumi.Input[int] priority: Priority of origin in given origin group for load balancing. Higher priorities will not be used for load balancing if any lower priority origin is healthy.Must be between 1 and 5
         :param pulumi.Input[str] profile_name: Name of the CDN profile which is unique within the resource group.
         :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SharedPrivateLinkResourcePropertiesArgs']]]] shared_private_link_resource: The properties of the private link resource for private origin.
+        :param pulumi.Input[pulumi.InputType['SharedPrivateLinkResourcePropertiesArgs']] shared_private_link_resource: The properties of the private link resource for private origin.
         :param pulumi.Input[int] weight: Weight of the origin in given origin group for load balancing. Must be between 1 and 1000
         """
         ...
@@ -298,7 +298,7 @@ class AFDOrigin(pulumi.CustomResource):
                  priority: Optional[pulumi.Input[int]] = None,
                  profile_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 shared_private_link_resource: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SharedPrivateLinkResourcePropertiesArgs']]]]] = None,
+                 shared_private_link_resource: Optional[pulumi.Input[pulumi.InputType['SharedPrivateLinkResourcePropertiesArgs']]] = None,
                  weight: Optional[pulumi.Input[int]] = None,
                  __props__=None):
         if opts is None:
@@ -457,7 +457,7 @@ class AFDOrigin(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sharedPrivateLinkResource")
-    def shared_private_link_resource(self) -> pulumi.Output[Optional[Sequence['outputs.SharedPrivateLinkResourcePropertiesResponse']]]:
+    def shared_private_link_resource(self) -> pulumi.Output[Optional['outputs.SharedPrivateLinkResourcePropertiesResponse']]:
         """
         The properties of the private link resource for private origin.
         """

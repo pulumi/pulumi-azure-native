@@ -72,6 +72,7 @@ namespace Pulumi.AzureNative.Logz.V20201001Preview
                 {
                     new Pulumi.Alias { Type = "azure-native:logz:Monitor"},
                     new Pulumi.Alias { Type = "azure-native:logz/v20201001:Monitor"},
+                    new Pulumi.Alias { Type = "azure-native:logz/v20220101preview:Monitor"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

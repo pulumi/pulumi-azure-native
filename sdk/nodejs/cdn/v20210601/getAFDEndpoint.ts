@@ -64,10 +64,6 @@ export interface GetAFDEndpointResult {
      */
     readonly name: string;
     /**
-     * Send and receive timeout on forwarding request to the origin. When timeout is reached, the request fails and returns.
-     */
-    readonly originResponseTimeoutSeconds?: number;
-    /**
      * The name of the profile which holds the endpoint.
      */
     readonly profileName: string;

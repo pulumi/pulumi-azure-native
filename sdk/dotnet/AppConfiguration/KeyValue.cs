@@ -107,6 +107,7 @@ namespace Pulumi.AzureNative.AppConfiguration
                 {
                     new Pulumi.Alias { Type = "azure-native:appconfiguration/v20200701preview:KeyValue"},
                     new Pulumi.Alias { Type = "azure-native:appconfiguration/v20210301preview:KeyValue"},
+                    new Pulumi.Alias { Type = "azure-native:appconfiguration/v20211001preview:KeyValue"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

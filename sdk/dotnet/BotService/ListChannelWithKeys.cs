@@ -83,6 +83,14 @@ namespace Pulumi.AzureNative.BotService
     public sealed class ListChannelWithKeysResult
     {
         /// <summary>
+        /// Changed time of the resource
+        /// </summary>
+        public readonly string? ChangedTime;
+        /// <summary>
+        /// Entity tag of the resource
+        /// </summary>
+        public readonly string? EntityTag;
+        /// <summary>
         /// Entity Tag
         /// </summary>
         public readonly string? Etag;
@@ -106,6 +114,10 @@ namespace Pulumi.AzureNative.BotService
         /// The set of properties specific to bot channel resource
         /// </summary>
         public readonly object Properties;
+        /// <summary>
+        /// Provisioning state of the resource
+        /// </summary>
+        public readonly string? ProvisioningState;
         /// <summary>
         /// The set of properties specific to bot channel resource
         /// </summary>
@@ -133,6 +145,10 @@ namespace Pulumi.AzureNative.BotService
 
         [OutputConstructor]
         private ListChannelWithKeysResult(
+            string? changedTime,
+
+            string? entityTag,
+
             string? etag,
 
             string id,
@@ -144,6 +160,8 @@ namespace Pulumi.AzureNative.BotService
             string name,
 
             object properties,
+
+            string? provisioningState,
 
             object? resource,
 
@@ -157,12 +175,15 @@ namespace Pulumi.AzureNative.BotService
 
             ImmutableArray<string> zones)
         {
+            ChangedTime = changedTime;
+            EntityTag = entityTag;
             Etag = etag;
             Id = id;
             Kind = kind;
             Location = location;
             Name = name;
             Properties = properties;
+            ProvisioningState = provisioningState;
             Resource = resource;
             Setting = setting;
             Sku = sku;

@@ -34,12 +34,6 @@ namespace Pulumi.AzureNative.BotService.Inputs
         public Input<string>? AppPasswordHint { get; set; }
 
         /// <summary>
-        /// The CMK encryption status
-        /// </summary>
-        [Input("cmekEncryptionStatus")]
-        public Input<string>? CmekEncryptionStatus { get; set; }
-
-        /// <summary>
         /// The CMK Url
         /// </summary>
         [Input("cmekKeyVaultUrl")]
@@ -98,12 +92,6 @@ namespace Pulumi.AzureNative.BotService.Inputs
         /// </summary>
         [Input("isCmekEnabled")]
         public Input<bool>? IsCmekEnabled { get; set; }
-
-        /// <summary>
-        /// Whether the bot is developerAppInsightsApiKey set
-        /// </summary>
-        [Input("isDeveloperAppInsightsApiKeySet")]
-        public Input<bool>? IsDeveloperAppInsightsApiKeySet { get; set; }
 
         /// <summary>
         /// Whether the bot is streaming supported
@@ -203,6 +191,7 @@ namespace Pulumi.AzureNative.BotService.Inputs
 
         public BotPropertiesArgs()
         {
+            IsStreamingSupported = false;
             PublicNetworkAccess = "Enabled";
         }
     }

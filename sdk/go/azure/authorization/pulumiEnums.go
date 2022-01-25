@@ -27,6 +27,17 @@ const (
 	AccessReviewRecurrenceRangeTypeNumbered = AccessReviewRecurrenceRangeType("numbered")
 )
 
+// Represents a reviewer's decision for a given review
+type AccessReviewResult string
+
+const (
+	AccessReviewResultApprove     = AccessReviewResult("Approve")
+	AccessReviewResultDeny        = AccessReviewResult("Deny")
+	AccessReviewResultNotReviewed = AccessReviewResult("NotReviewed")
+	AccessReviewResultDontKnow    = AccessReviewResult("DontKnow")
+	AccessReviewResultNotNotified = AccessReviewResult("NotNotified")
+)
+
 // This specifies the behavior for the autoReview feature when an access review completes.
 type DefaultDecisionType string
 

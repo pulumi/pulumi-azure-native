@@ -77,6 +77,7 @@ export * from "./getIpGroup";
 export * from "./getLoadBalancer";
 export * from "./getLoadBalancerBackendAddressPool";
 export * from "./getLocalNetworkGateway";
+export * from "./getManagementGroupNetworkManagerConnection";
 export * from "./getNatGateway";
 export * from "./getNatRule";
 export * from "./getNetworkExperimentProfile";
@@ -111,13 +112,16 @@ export * from "./getRouteFilterRule";
 export * from "./getRouteTable";
 export * from "./getRoutingIntent";
 export * from "./getRulesEngine";
+export * from "./getScopeConnection";
 export * from "./getSecurityAdminConfiguration";
 export * from "./getSecurityPartnerProvider";
 export * from "./getSecurityRule";
 export * from "./getSecurityUserConfiguration";
 export * from "./getServiceEndpointPolicy";
 export * from "./getServiceEndpointPolicyDefinition";
+export * from "./getStaticMember";
 export * from "./getSubnet";
+export * from "./getSubscriptionNetworkManagerConnection";
 export * from "./getTrafficManagerUserMetricsKey";
 export * from "./getUserRule";
 export * from "./getUserRuleCollection";
@@ -165,6 +169,7 @@ export * from "./listNetworkManagerEffectiveSecurityAdminRule";
 export * from "./loadBalancer";
 export * from "./loadBalancerBackendAddressPool";
 export * from "./localNetworkGateway";
+export * from "./managementGroupNetworkManagerConnection";
 export * from "./natGateway";
 export * from "./natRule";
 export * from "./networkExperimentProfile";
@@ -197,13 +202,16 @@ export * from "./routeFilterRule";
 export * from "./routeTable";
 export * from "./routingIntent";
 export * from "./rulesEngine";
+export * from "./scopeConnection";
 export * from "./securityAdminConfiguration";
 export * from "./securityPartnerProvider";
 export * from "./securityRule";
 export * from "./securityUserConfiguration";
 export * from "./serviceEndpointPolicy";
 export * from "./serviceEndpointPolicyDefinition";
+export * from "./staticMember";
 export * from "./subnet";
+export * from "./subscriptionNetworkManagerConnection";
 export * from "./trafficManagerUserMetricsKey";
 export * from "./userRule";
 export * from "./userRuleCollection";
@@ -287,6 +295,7 @@ import * as v20210201preview from "./v20210201preview";
 import * as v20210301 from "./v20210301";
 import * as v20210301preview from "./v20210301preview";
 import * as v20210501 from "./v20210501";
+import * as v20210501preview from "./v20210501preview";
 
 export {
     v20150501preview,
@@ -343,6 +352,7 @@ export {
     v20210301,
     v20210301preview,
     v20210501,
+    v20210501preview,
 };
 
 // Import resources to register:
@@ -384,6 +394,7 @@ import { IpGroup } from "./ipGroup";
 import { LoadBalancer } from "./loadBalancer";
 import { LoadBalancerBackendAddressPool } from "./loadBalancerBackendAddressPool";
 import { LocalNetworkGateway } from "./localNetworkGateway";
+import { ManagementGroupNetworkManagerConnection } from "./managementGroupNetworkManagerConnection";
 import { NatGateway } from "./natGateway";
 import { NatRule } from "./natRule";
 import { NetworkExperimentProfile } from "./networkExperimentProfile";
@@ -416,13 +427,16 @@ import { RouteFilterRule } from "./routeFilterRule";
 import { RouteTable } from "./routeTable";
 import { RoutingIntent } from "./routingIntent";
 import { RulesEngine } from "./rulesEngine";
+import { ScopeConnection } from "./scopeConnection";
 import { SecurityAdminConfiguration } from "./securityAdminConfiguration";
 import { SecurityPartnerProvider } from "./securityPartnerProvider";
 import { SecurityRule } from "./securityRule";
 import { SecurityUserConfiguration } from "./securityUserConfiguration";
 import { ServiceEndpointPolicy } from "./serviceEndpointPolicy";
 import { ServiceEndpointPolicyDefinition } from "./serviceEndpointPolicyDefinition";
+import { StaticMember } from "./staticMember";
 import { Subnet } from "./subnet";
+import { SubscriptionNetworkManagerConnection } from "./subscriptionNetworkManagerConnection";
 import { TrafficManagerUserMetricsKey } from "./trafficManagerUserMetricsKey";
 import { UserRule } from "./userRule";
 import { UserRuleCollection } from "./userRuleCollection";
@@ -528,6 +542,8 @@ const _module = {
                 return new LoadBalancerBackendAddressPool(name, <any>undefined, { urn })
             case "azure-native:network:LocalNetworkGateway":
                 return new LocalNetworkGateway(name, <any>undefined, { urn })
+            case "azure-native:network:ManagementGroupNetworkManagerConnection":
+                return new ManagementGroupNetworkManagerConnection(name, <any>undefined, { urn })
             case "azure-native:network:NatGateway":
                 return new NatGateway(name, <any>undefined, { urn })
             case "azure-native:network:NatRule":
@@ -592,6 +608,8 @@ const _module = {
                 return new RoutingIntent(name, <any>undefined, { urn })
             case "azure-native:network:RulesEngine":
                 return new RulesEngine(name, <any>undefined, { urn })
+            case "azure-native:network:ScopeConnection":
+                return new ScopeConnection(name, <any>undefined, { urn })
             case "azure-native:network:SecurityAdminConfiguration":
                 return new SecurityAdminConfiguration(name, <any>undefined, { urn })
             case "azure-native:network:SecurityPartnerProvider":
@@ -604,8 +622,12 @@ const _module = {
                 return new ServiceEndpointPolicy(name, <any>undefined, { urn })
             case "azure-native:network:ServiceEndpointPolicyDefinition":
                 return new ServiceEndpointPolicyDefinition(name, <any>undefined, { urn })
+            case "azure-native:network:StaticMember":
+                return new StaticMember(name, <any>undefined, { urn })
             case "azure-native:network:Subnet":
                 return new Subnet(name, <any>undefined, { urn })
+            case "azure-native:network:SubscriptionNetworkManagerConnection":
+                return new SubscriptionNetworkManagerConnection(name, <any>undefined, { urn })
             case "azure-native:network:TrafficManagerUserMetricsKey":
                 return new TrafficManagerUserMetricsKey(name, <any>undefined, { urn })
             case "azure-native:network:UserRule":

@@ -72,6 +72,7 @@ namespace Pulumi.AzureNative.Network.V20210201Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:network:UserRule"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210501preview:UserRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

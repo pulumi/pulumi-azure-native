@@ -50,7 +50,7 @@ export interface GetRouteResult {
     /**
      * compression settings.
      */
-    readonly compressionSettings?: outputs.cdn.v20200901.CompressionSettingsResponse[];
+    readonly compressionSettings?: outputs.cdn.v20200901.CompressionSettingsResponse;
     /**
      * Domains referenced by this endpoint.
      */

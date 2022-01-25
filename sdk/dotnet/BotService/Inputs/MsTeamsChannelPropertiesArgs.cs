@@ -53,6 +53,7 @@ namespace Pulumi.AzureNative.BotService.Inputs
 
         public MsTeamsChannelPropertiesArgs()
         {
+            AcceptedTerms = true;
         }
     }
 }

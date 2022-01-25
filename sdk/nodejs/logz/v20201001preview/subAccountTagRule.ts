@@ -89,7 +89,7 @@ export class SubAccountTagRule extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:logz:SubAccountTagRule" }, { type: "azure-native:logz/v20201001:SubAccountTagRule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:logz:SubAccountTagRule" }, { type: "azure-native:logz/v20201001:SubAccountTagRule" }, { type: "azure-native:logz/v20220101preview:SubAccountTagRule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SubAccountTagRule.__pulumiType, name, resourceInputs, opts);
     }

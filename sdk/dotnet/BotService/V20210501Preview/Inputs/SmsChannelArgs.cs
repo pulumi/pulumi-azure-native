@@ -42,6 +42,7 @@ namespace Pulumi.AzureNative.BotService.V20210501Preview.Inputs
 
         public SmsChannelArgs()
         {
+            Location = "global";
         }
     }
 }

@@ -35,7 +35,7 @@ type LookupRouteArgs struct {
 // Friendly Routes name mapping to the any Routes or secret related information.
 type LookupRouteResult struct {
 	// compression settings.
-	CompressionSettings []CompressionSettingsResponse `pulumi:"compressionSettings"`
+	CompressionSettings *CompressionSettingsResponse `pulumi:"compressionSettings"`
 	// Domains referenced by this endpoint.
 	CustomDomains    []ResourceReferenceResponse `pulumi:"customDomains"`
 	DeploymentStatus string                      `pulumi:"deploymentStatus"`
@@ -111,8 +111,8 @@ func (o LookupRouteResultOutput) ToLookupRouteResultOutputWithContext(ctx contex
 }
 
 // compression settings.
-func (o LookupRouteResultOutput) CompressionSettings() CompressionSettingsResponseArrayOutput {
-	return o.ApplyT(func(v LookupRouteResult) []CompressionSettingsResponse { return v.CompressionSettings }).(CompressionSettingsResponseArrayOutput)
+func (o LookupRouteResultOutput) CompressionSettings() CompressionSettingsResponsePtrOutput {
+	return o.ApplyT(func(v LookupRouteResult) *CompressionSettingsResponse { return v.CompressionSettings }).(CompressionSettingsResponsePtrOutput)
 }
 
 // Domains referenced by this endpoint.

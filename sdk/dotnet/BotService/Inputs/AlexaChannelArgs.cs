@@ -42,6 +42,7 @@ namespace Pulumi.AzureNative.BotService.Inputs
 
         public AlexaChannelArgs()
         {
+            Location = "global";
         }
     }
 }

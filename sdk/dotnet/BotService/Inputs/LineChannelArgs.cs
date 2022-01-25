@@ -42,6 +42,7 @@ namespace Pulumi.AzureNative.BotService.Inputs
 
         public LineChannelArgs()
         {
+            Location = "global";
         }
     }
 }

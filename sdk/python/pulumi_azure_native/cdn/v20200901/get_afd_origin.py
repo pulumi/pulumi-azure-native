@@ -55,8 +55,8 @@ class GetAFDOriginResult:
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
-        if shared_private_link_resource and not isinstance(shared_private_link_resource, list):
-            raise TypeError("Expected argument 'shared_private_link_resource' to be a list")
+        if shared_private_link_resource and not isinstance(shared_private_link_resource, dict):
+            raise TypeError("Expected argument 'shared_private_link_resource' to be a dict")
         pulumi.set(__self__, "shared_private_link_resource", shared_private_link_resource)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
@@ -155,7 +155,7 @@ class GetAFDOriginResult:
 
     @property
     @pulumi.getter(name="sharedPrivateLinkResource")
-    def shared_private_link_resource(self) -> Optional[Sequence['outputs.SharedPrivateLinkResourcePropertiesResponse']]:
+    def shared_private_link_resource(self) -> Optional['outputs.SharedPrivateLinkResourcePropertiesResponse']:
         """
         The properties of the private link resource for private origin.
         """

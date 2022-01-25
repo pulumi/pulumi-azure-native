@@ -92,7 +92,7 @@ export interface GetAFDOriginResult {
     /**
      * The properties of the private link resource for private origin.
      */
-    readonly sharedPrivateLinkResource?: outputs.cdn.SharedPrivateLinkResourcePropertiesResponse[];
+    readonly sharedPrivateLinkResource?: outputs.cdn.SharedPrivateLinkResourcePropertiesResponse;
     /**
      * Read only system data
      */

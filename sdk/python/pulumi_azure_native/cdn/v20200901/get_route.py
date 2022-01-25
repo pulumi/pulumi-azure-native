@@ -22,8 +22,8 @@ class GetRouteResult:
     Friendly Routes name mapping to the any Routes or secret related information.
     """
     def __init__(__self__, compression_settings=None, custom_domains=None, deployment_status=None, enabled_state=None, forwarding_protocol=None, https_redirect=None, id=None, link_to_default_domain=None, name=None, origin_group=None, origin_path=None, patterns_to_match=None, provisioning_state=None, query_string_caching_behavior=None, rule_sets=None, supported_protocols=None, system_data=None, type=None):
-        if compression_settings and not isinstance(compression_settings, list):
-            raise TypeError("Expected argument 'compression_settings' to be a list")
+        if compression_settings and not isinstance(compression_settings, dict):
+            raise TypeError("Expected argument 'compression_settings' to be a dict")
         pulumi.set(__self__, "compression_settings", compression_settings)
         if custom_domains and not isinstance(custom_domains, list):
             raise TypeError("Expected argument 'custom_domains' to be a list")
@@ -79,7 +79,7 @@ class GetRouteResult:
 
     @property
     @pulumi.getter(name="compressionSettings")
-    def compression_settings(self) -> Optional[Sequence['outputs.CompressionSettingsResponse']]:
+    def compression_settings(self) -> Optional['outputs.CompressionSettingsResponse']:
         """
         compression settings.
         """

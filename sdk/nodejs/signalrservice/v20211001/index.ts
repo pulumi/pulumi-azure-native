@@ -8,6 +8,7 @@ import * as utilities from "../../utilities";
 export * from "./getSignalR";
 export * from "./getSignalRPrivateEndpointConnection";
 export * from "./getSignalRSharedPrivateLinkResource";
+export * from "./listSignalRKeys";
 export * from "./signalR";
 export * from "./signalRPrivateEndpointConnection";
 export * from "./signalRSharedPrivateLinkResource";

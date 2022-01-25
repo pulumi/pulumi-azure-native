@@ -108,6 +108,7 @@ namespace Pulumi.AzureNative.Network
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:network/v20210201preview:NetworkManager"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210501preview:NetworkManager"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

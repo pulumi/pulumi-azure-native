@@ -960,6 +960,8 @@ type ExportDeliveryDestinationResponse struct {
 	ResourceId *string `pulumi:"resourceId"`
 	// The name of the directory where exports will be uploaded.
 	RootFolderPath *string `pulumi:"rootFolderPath"`
+	// A SAS token for the storage account. For a restricted set of Azure customers this together with storageAccount can be specified instead of resourceId. Note: the value returned by the API for this property will always be obfuscated. Returning this same obfuscated value will not result in the SAS token being updated. To update this value a new SAS token must be specified.
+	SasToken *string `pulumi:"sasToken"`
 	// The storage account where exports will be uploaded. For a restricted set of Azure customers this together with sasToken can be specified instead of resourceId.
 	StorageAccount *string `pulumi:"storageAccount"`
 }
@@ -992,6 +994,11 @@ func (o ExportDeliveryDestinationResponseOutput) ResourceId() pulumi.StringPtrOu
 // The name of the directory where exports will be uploaded.
 func (o ExportDeliveryDestinationResponseOutput) RootFolderPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExportDeliveryDestinationResponse) *string { return v.RootFolderPath }).(pulumi.StringPtrOutput)
+}
+
+// A SAS token for the storage account. For a restricted set of Azure customers this together with storageAccount can be specified instead of resourceId. Note: the value returned by the API for this property will always be obfuscated. Returning this same obfuscated value will not result in the SAS token being updated. To update this value a new SAS token must be specified.
+func (o ExportDeliveryDestinationResponseOutput) SasToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExportDeliveryDestinationResponse) *string { return v.SasToken }).(pulumi.StringPtrOutput)
 }
 
 // The storage account where exports will be uploaded. For a restricted set of Azure customers this together with sasToken can be specified instead of resourceId.
@@ -1050,6 +1057,16 @@ func (o ExportDeliveryDestinationResponsePtrOutput) RootFolderPath() pulumi.Stri
 			return nil
 		}
 		return v.RootFolderPath
+	}).(pulumi.StringPtrOutput)
+}
+
+// A SAS token for the storage account. For a restricted set of Azure customers this together with storageAccount can be specified instead of resourceId. Note: the value returned by the API for this property will always be obfuscated. Returning this same obfuscated value will not result in the SAS token being updated. To update this value a new SAS token must be specified.
+func (o ExportDeliveryDestinationResponsePtrOutput) SasToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExportDeliveryDestinationResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SasToken
 	}).(pulumi.StringPtrOutput)
 }
 

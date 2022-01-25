@@ -179,6 +179,8 @@ class AlexaChannelResponse(dict):
         pulumi.set(__self__, "provisioning_state", provisioning_state)
         if etag is not None:
             pulumi.set(__self__, "etag", etag)
+        if location is None:
+            location = 'global'
         if location is not None:
             pulumi.set(__self__, "location", location)
         if properties is not None:
@@ -234,7 +236,9 @@ class BotPropertiesResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "configuredChannels":
+        if key == "cmekEncryptionStatus":
+            suggest = "cmek_encryption_status"
+        elif key == "configuredChannels":
             suggest = "configured_channels"
         elif key == "displayName":
             suggest = "display_name"
@@ -242,6 +246,8 @@ class BotPropertiesResponse(dict):
             suggest = "enabled_channels"
         elif key == "endpointVersion":
             suggest = "endpoint_version"
+        elif key == "isDeveloperAppInsightsApiKeySet":
+            suggest = "is_developer_app_insights_api_key_set"
         elif key == "migrationToken":
             suggest = "migration_token"
         elif key == "msaAppId":
@@ -252,8 +258,6 @@ class BotPropertiesResponse(dict):
             suggest = "all_settings"
         elif key == "appPasswordHint":
             suggest = "app_password_hint"
-        elif key == "cmekEncryptionStatus":
-            suggest = "cmek_encryption_status"
         elif key == "cmekKeyVaultUrl":
             suggest = "cmek_key_vault_url"
         elif key == "developerAppInsightKey":
@@ -268,8 +272,6 @@ class BotPropertiesResponse(dict):
             suggest = "icon_url"
         elif key == "isCmekEnabled":
             suggest = "is_cmek_enabled"
-        elif key == "isDeveloperAppInsightsApiKeySet":
-            suggest = "is_developer_app_insights_api_key_set"
         elif key == "isStreamingSupported":
             suggest = "is_streaming_supported"
         elif key == "luisAppIds":
@@ -307,17 +309,18 @@ class BotPropertiesResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 cmek_encryption_status: str,
                  configured_channels: Sequence[str],
                  display_name: str,
                  enabled_channels: Sequence[str],
                  endpoint: str,
                  endpoint_version: str,
+                 is_developer_app_insights_api_key_set: bool,
                  migration_token: str,
                  msa_app_id: str,
                  provisioning_state: str,
                  all_settings: Optional[Mapping[str, str]] = None,
                  app_password_hint: Optional[str] = None,
-                 cmek_encryption_status: Optional[str] = None,
                  cmek_key_vault_url: Optional[str] = None,
                  description: Optional[str] = None,
                  developer_app_insight_key: Optional[str] = None,
@@ -326,7 +329,6 @@ class BotPropertiesResponse(dict):
                  disable_local_auth: Optional[bool] = None,
                  icon_url: Optional[str] = None,
                  is_cmek_enabled: Optional[bool] = None,
-                 is_developer_app_insights_api_key_set: Optional[bool] = None,
                  is_streaming_supported: Optional[bool] = None,
                  luis_app_ids: Optional[Sequence[str]] = None,
                  luis_key: Optional[str] = None,
@@ -342,17 +344,18 @@ class BotPropertiesResponse(dict):
                  storage_resource_id: Optional[str] = None):
         """
         The parameters to provide for the Bot.
+        :param str cmek_encryption_status: The CMK encryption status
         :param Sequence[str] configured_channels: Collection of channels for which the bot is configured
         :param str display_name: The Name of the bot
         :param Sequence[str] enabled_channels: Collection of channels for which the bot is enabled
         :param str endpoint: The bot's endpoint
         :param str endpoint_version: The bot's endpoint version
+        :param bool is_developer_app_insights_api_key_set: Whether the bot is developerAppInsightsApiKey set
         :param str migration_token: Token used to migrate non Azure bot to azure subscription
         :param str msa_app_id: Microsoft App Id for the bot
         :param str provisioning_state: Provisioning state of the resource
         :param Mapping[str, str] all_settings: Contains resource all settings defined as key/value pairs.
         :param str app_password_hint: The hint (e.g. keyVault secret resourceId) on how to fetch the app secret
-        :param str cmek_encryption_status: The CMK encryption status
         :param str cmek_key_vault_url: The CMK Url
         :param str description: The description of the bot
         :param str developer_app_insight_key: The Application Insights key
@@ -361,7 +364,6 @@ class BotPropertiesResponse(dict):
         :param bool disable_local_auth: Opt-out of local authentication and ensure only MSI and AAD can be used exclusively for authentication.
         :param str icon_url: The Icon Url of the bot
         :param bool is_cmek_enabled: Whether Cmek is enabled
-        :param bool is_developer_app_insights_api_key_set: Whether the bot is developerAppInsightsApiKey set
         :param bool is_streaming_supported: Whether the bot is streaming supported
         :param Sequence[str] luis_app_ids: Collection of LUIS App Ids
         :param str luis_key: The LUIS Key
@@ -376,11 +378,13 @@ class BotPropertiesResponse(dict):
         :param str schema_transformation_version: The channel schema transformation version for the bot
         :param str storage_resource_id: The storage resourceId for the bot
         """
+        pulumi.set(__self__, "cmek_encryption_status", cmek_encryption_status)
         pulumi.set(__self__, "configured_channels", configured_channels)
         pulumi.set(__self__, "display_name", display_name)
         pulumi.set(__self__, "enabled_channels", enabled_channels)
         pulumi.set(__self__, "endpoint", endpoint)
         pulumi.set(__self__, "endpoint_version", endpoint_version)
+        pulumi.set(__self__, "is_developer_app_insights_api_key_set", is_developer_app_insights_api_key_set)
         pulumi.set(__self__, "migration_token", migration_token)
         pulumi.set(__self__, "msa_app_id", msa_app_id)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
@@ -388,8 +392,6 @@ class BotPropertiesResponse(dict):
             pulumi.set(__self__, "all_settings", all_settings)
         if app_password_hint is not None:
             pulumi.set(__self__, "app_password_hint", app_password_hint)
-        if cmek_encryption_status is not None:
-            pulumi.set(__self__, "cmek_encryption_status", cmek_encryption_status)
         if cmek_key_vault_url is not None:
             pulumi.set(__self__, "cmek_key_vault_url", cmek_key_vault_url)
         if description is not None:
@@ -406,8 +408,8 @@ class BotPropertiesResponse(dict):
             pulumi.set(__self__, "icon_url", icon_url)
         if is_cmek_enabled is not None:
             pulumi.set(__self__, "is_cmek_enabled", is_cmek_enabled)
-        if is_developer_app_insights_api_key_set is not None:
-            pulumi.set(__self__, "is_developer_app_insights_api_key_set", is_developer_app_insights_api_key_set)
+        if is_streaming_supported is None:
+            is_streaming_supported = False
         if is_streaming_supported is not None:
             pulumi.set(__self__, "is_streaming_supported", is_streaming_supported)
         if luis_app_ids is not None:
@@ -436,6 +438,14 @@ class BotPropertiesResponse(dict):
             pulumi.set(__self__, "schema_transformation_version", schema_transformation_version)
         if storage_resource_id is not None:
             pulumi.set(__self__, "storage_resource_id", storage_resource_id)
+
+    @property
+    @pulumi.getter(name="cmekEncryptionStatus")
+    def cmek_encryption_status(self) -> str:
+        """
+        The CMK encryption status
+        """
+        return pulumi.get(self, "cmek_encryption_status")
 
     @property
     @pulumi.getter(name="configuredChannels")
@@ -478,6 +488,14 @@ class BotPropertiesResponse(dict):
         return pulumi.get(self, "endpoint_version")
 
     @property
+    @pulumi.getter(name="isDeveloperAppInsightsApiKeySet")
+    def is_developer_app_insights_api_key_set(self) -> bool:
+        """
+        Whether the bot is developerAppInsightsApiKey set
+        """
+        return pulumi.get(self, "is_developer_app_insights_api_key_set")
+
+    @property
     @pulumi.getter(name="migrationToken")
     def migration_token(self) -> str:
         """
@@ -516,14 +534,6 @@ class BotPropertiesResponse(dict):
         The hint (e.g. keyVault secret resourceId) on how to fetch the app secret
         """
         return pulumi.get(self, "app_password_hint")
-
-    @property
-    @pulumi.getter(name="cmekEncryptionStatus")
-    def cmek_encryption_status(self) -> Optional[str]:
-        """
-        The CMK encryption status
-        """
-        return pulumi.get(self, "cmek_encryption_status")
 
     @property
     @pulumi.getter(name="cmekKeyVaultUrl")
@@ -588,14 +598,6 @@ class BotPropertiesResponse(dict):
         Whether Cmek is enabled
         """
         return pulumi.get(self, "is_cmek_enabled")
-
-    @property
-    @pulumi.getter(name="isDeveloperAppInsightsApiKeySet")
-    def is_developer_app_insights_api_key_set(self) -> Optional[bool]:
-        """
-        Whether the bot is developerAppInsightsApiKey set
-        """
-        return pulumi.get(self, "is_developer_app_insights_api_key_set")
 
     @property
     @pulumi.getter(name="isStreamingSupported")
@@ -1108,6 +1110,8 @@ class DirectLineChannelResponse(dict):
         pulumi.set(__self__, "provisioning_state", provisioning_state)
         if etag is not None:
             pulumi.set(__self__, "etag", etag)
+        if location is None:
+            location = 'global'
         if location is not None:
             pulumi.set(__self__, "location", location)
         if properties is not None:
@@ -1461,6 +1465,8 @@ class DirectLineSpeechChannelResponse(dict):
         pulumi.set(__self__, "provisioning_state", provisioning_state)
         if etag is not None:
             pulumi.set(__self__, "etag", etag)
+        if location is None:
+            location = 'global'
         if location is not None:
             pulumi.set(__self__, "location", location)
         if properties is not None:
@@ -1615,6 +1621,8 @@ class EmailChannelResponse(dict):
         pulumi.set(__self__, "provisioning_state", provisioning_state)
         if etag is not None:
             pulumi.set(__self__, "etag", etag)
+        if location is None:
+            location = 'global'
         if location is not None:
             pulumi.set(__self__, "location", location)
         if properties is not None:
@@ -1929,6 +1937,8 @@ class FacebookChannelResponse(dict):
         pulumi.set(__self__, "provisioning_state", provisioning_state)
         if etag is not None:
             pulumi.set(__self__, "etag", etag)
+        if location is None:
+            location = 'global'
         if location is not None:
             pulumi.set(__self__, "location", location)
         if properties is not None:
@@ -2150,6 +2160,8 @@ class KikChannelResponse(dict):
         pulumi.set(__self__, "provisioning_state", provisioning_state)
         if etag is not None:
             pulumi.set(__self__, "etag", etag)
+        if location is None:
+            location = 'global'
         if location is not None:
             pulumi.set(__self__, "location", location)
         if properties is not None:
@@ -2305,6 +2317,8 @@ class LineChannelResponse(dict):
         pulumi.set(__self__, "provisioning_state", provisioning_state)
         if etag is not None:
             pulumi.set(__self__, "etag", etag)
+        if location is None:
+            location = 'global'
         if location is not None:
             pulumi.set(__self__, "location", location)
         if properties is not None:
@@ -2468,6 +2482,8 @@ class MsTeamsChannelPropertiesResponse(dict):
         :param str incoming_call_route: Webhook for Microsoft Teams channel calls
         """
         pulumi.set(__self__, "is_enabled", is_enabled)
+        if accepted_terms is None:
+            accepted_terms = True
         if accepted_terms is not None:
             pulumi.set(__self__, "accepted_terms", accepted_terms)
         if calling_web_hook is not None:
@@ -2571,6 +2587,8 @@ class MsTeamsChannelResponse(dict):
         pulumi.set(__self__, "provisioning_state", provisioning_state)
         if etag is not None:
             pulumi.set(__self__, "etag", etag)
+        if location is None:
+            location = 'global'
         if location is not None:
             pulumi.set(__self__, "location", location)
         if properties is not None:
@@ -3341,6 +3359,8 @@ class SkypeChannelResponse(dict):
         pulumi.set(__self__, "provisioning_state", provisioning_state)
         if etag is not None:
             pulumi.set(__self__, "etag", etag)
+        if location is None:
+            location = 'global'
         if location is not None:
             pulumi.set(__self__, "location", location)
         if properties is not None:
@@ -3592,6 +3612,8 @@ class SlackChannelResponse(dict):
         pulumi.set(__self__, "provisioning_state", provisioning_state)
         if etag is not None:
             pulumi.set(__self__, "etag", etag)
+        if location is None:
+            location = 'global'
         if location is not None:
             pulumi.set(__self__, "location", location)
         if properties is not None:
@@ -3773,6 +3795,8 @@ class SmsChannelResponse(dict):
         pulumi.set(__self__, "provisioning_state", provisioning_state)
         if etag is not None:
             pulumi.set(__self__, "etag", etag)
+        if location is None:
+            location = 'global'
         if location is not None:
             pulumi.set(__self__, "location", location)
         if properties is not None:
@@ -3930,6 +3954,8 @@ class TelegramChannelResponse(dict):
         pulumi.set(__self__, "provisioning_state", provisioning_state)
         if etag is not None:
             pulumi.set(__self__, "etag", etag)
+        if location is None:
+            location = 'global'
         if location is not None:
             pulumi.set(__self__, "location", location)
         if properties is not None:
@@ -4071,6 +4097,8 @@ class WebChatChannelResponse(dict):
         pulumi.set(__self__, "provisioning_state", provisioning_state)
         if etag is not None:
             pulumi.set(__self__, "etag", etag)
+        if location is None:
+            location = 'global'
         if location is not None:
             pulumi.set(__self__, "location", location)
         if properties is not None:

@@ -86,6 +86,7 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20210801Preview
                     new Pulumi.Alias { Type = "azure-native:containerregistry/v20191201preview:PipelineRun"},
                     new Pulumi.Alias { Type = "azure-native:containerregistry/v20201101preview:PipelineRun"},
                     new Pulumi.Alias { Type = "azure-native:containerregistry/v20210601preview:PipelineRun"},
+                    new Pulumi.Alias { Type = "azure-native:containerregistry/v20211201preview:PipelineRun"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

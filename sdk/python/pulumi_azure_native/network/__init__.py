@@ -78,6 +78,7 @@ from .get_ip_group import *
 from .get_load_balancer import *
 from .get_load_balancer_backend_address_pool import *
 from .get_local_network_gateway import *
+from .get_management_group_network_manager_connection import *
 from .get_nat_gateway import *
 from .get_nat_rule import *
 from .get_network_experiment_profile import *
@@ -112,13 +113,16 @@ from .get_route_filter_rule import *
 from .get_route_table import *
 from .get_routing_intent import *
 from .get_rules_engine import *
+from .get_scope_connection import *
 from .get_security_admin_configuration import *
 from .get_security_partner_provider import *
 from .get_security_rule import *
 from .get_security_user_configuration import *
 from .get_service_endpoint_policy import *
 from .get_service_endpoint_policy_definition import *
+from .get_static_member import *
 from .get_subnet import *
+from .get_subscription_network_manager_connection import *
 from .get_traffic_manager_user_metrics_key import *
 from .get_user_rule import *
 from .get_user_rule_collection import *
@@ -166,6 +170,7 @@ from .list_network_manager_effective_security_admin_rule import *
 from .load_balancer import *
 from .load_balancer_backend_address_pool import *
 from .local_network_gateway import *
+from .management_group_network_manager_connection import *
 from .nat_gateway import *
 from .nat_rule import *
 from .network_experiment_profile import *
@@ -198,13 +203,16 @@ from .route_filter_rule import *
 from .route_table import *
 from .routing_intent import *
 from .rules_engine import *
+from .scope_connection import *
 from .security_admin_configuration import *
 from .security_partner_provider import *
 from .security_rule import *
 from .security_user_configuration import *
 from .service_endpoint_policy import *
 from .service_endpoint_policy_definition import *
+from .static_member import *
 from .subnet import *
+from .subscription_network_manager_connection import *
 from .traffic_manager_user_metrics_key import *
 from .user_rule import *
 from .user_rule_collection import *
@@ -342,6 +350,8 @@ if typing.TYPE_CHECKING:
     v20210301preview = __v20210301preview
     import pulumi_azure_native.network.v20210501 as __v20210501
     v20210501 = __v20210501
+    import pulumi_azure_native.network.v20210501preview as __v20210501preview
+    v20210501preview = __v20210501preview
 else:
     v20150501preview = _utilities.lazy_import('pulumi_azure_native.network.v20150501preview')
     v20150504preview = _utilities.lazy_import('pulumi_azure_native.network.v20150504preview')
@@ -397,4 +407,5 @@ else:
     v20210301 = _utilities.lazy_import('pulumi_azure_native.network.v20210301')
     v20210301preview = _utilities.lazy_import('pulumi_azure_native.network.v20210301preview')
     v20210501 = _utilities.lazy_import('pulumi_azure_native.network.v20210501')
+    v20210501preview = _utilities.lazy_import('pulumi_azure_native.network.v20210501preview')
 
