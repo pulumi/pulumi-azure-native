@@ -1,14 +1,19 @@
-CHANGELOG
-=========
+# CHANGELOG
 
 ## HEAD (Unreleased)
+
+---
+
+## 1.54.0 (2022-01-25)
 
 #### Breaking Changes published by Microsoft:
 
 - `security.Scanner` resource and function removed
   ([source](https://github.com/Azure/azure-rest-api-specs/pull/17232))
-
----
+- `cdn.Route` and `cdn.AFDOrigin` property types changed
+  ([source](https://github.com/Azure/azure-rest-api-specs/pull/17278))
+- `botservice:BotProperties` `isDeveloperAppInsightsApiKeySet` and `cmekEncryptionStatus` properties removed
+  ([source](https://github.com/Azure/azure-rest-api-specs/pull/17112))
 
 ## 1.53.0 (2022-01-10)
 
@@ -141,7 +146,7 @@ CHANGELOG
 
 - Avoid provider credentials leaking into state.
   [#1309](https://github.com/pulumi/pulumi-azure-native/issues/1309)
-  
+
   **PLEASE READ**
 
   If you set credentials through environment variables (e.g. `ARM_CLIENT_SECRET`) AND
@@ -157,7 +162,6 @@ CHANGELOG
   Note that the Pulumi state backend also encrypts the state as a whole and other state backends
   support a similar mechanism which should significantly limit exposure of the credentials.
   Nonetheless, We sincerely regret the inconvenience this causes.
-
 
 #### New resources:
 
@@ -525,7 +529,7 @@ CHANGELOG
 - `redis.Redis` now has configuration properties specified correctly
   ([source](https://github.com/Azure/azure-rest-api-specs/pull/15674))
 - `extendedlocation.customLocation` casing corrected to `extendedlocation.CustomLocation`
-  ([source](https://github.com/Azure/azure-rest-api-specs/pull/15676))  
+  ([source](https://github.com/Azure/azure-rest-api-specs/pull/15676))
 
 #### Bug Fixes
 
@@ -540,7 +544,7 @@ CHANGELOG
 
 #### Breaking Changes published by Microsoft:
 
-- SKU property removed from `purview.Account` 
+- SKU property removed from `purview.Account`
   ([source](https://github.com/Azure/azure-rest-api-specs/pull/15965))
 
 ## 1.27.0 (2021-09-10)
@@ -593,7 +597,7 @@ CHANGELOG
 #### Updated API versions for top-level resources
 
 - `authorization:ManagementLock*` resources and functions updated from `2016-09-01` to `2017-04-01`
-- `aadiam.privateLinkForAzureAd" changed from `2020-03-01-preview` to `2020-03-01`
+- `aadiam.privateLinkForAzureAd" changed from `2020-03-01-preview`to`2020-03-01`
 
 ---
 
@@ -886,7 +890,7 @@ This removes the following changes of 1.23.0:
 #### Updated API versions for top-level resources
 
 - `securityinsights.IncidentComment` and `securityinsights.IncidentRelation` promoted
-  from `2019-01-01-preview` to `2021-03-01-preview` to unify with other resources of 
+  from `2019-01-01-preview` to `2021-03-01-preview` to unify with other resources of
   the `securityinsights` module. New API contains no breaking changes.
 
 #### Breaking Changes published by Microsoft
@@ -919,7 +923,6 @@ This removes the following changes of 1.23.0:
 - `operationalinsights.listWorkspaceKeys` - this function was deprecated on
   the Azure side, and the API doesn't work anymore. Use `operationalinsights.getSharedKeys`
   instead. See [#882](https://github.com/pulumi/pulumi-azure-native/issues/882).
-
 
 ## 1.11.0 (2021-06-09)
 
@@ -1396,7 +1399,6 @@ New module for Test Base management:
 - `dbforpostgresql.v20200214preview.Configuration` - PostgreSQL Flexible Server Configuration (preview)
   [#711](https://github.com/pulumi/pulumi-azure-native/issues/711)
 
-
 ## 1.0.1 (2021-04-19)
 
 - Fix SDK regression for .NET, Python and Typescript introduced in [#pulumi/6686](https://github.com/pulumi/pulumi/pull/6686)
@@ -1410,8 +1412,8 @@ The native Azure provider for Pulumi is now generally available.
 
 - Depend on Pulumi 3.0, which includes improvements to Python resource arguments and key translation, Go SDK performance, Node SDK performance, general availability of Automation API, and more.
 - Generate consistent names for object types regardless on whether or not they are
-transitively reachable from resources or functions. Many input type names have changed
-across Node.js, .NET, and Python SDKs
+  transitively reachable from resources or functions. Many input type names have changed
+  across Node.js, .NET, and Python SDKs
   [#pulumi/6686](https://github.com/pulumi/pulumi/pull/6686)
 
 ## 0.9.0 (2021-04-16)
@@ -1514,7 +1516,6 @@ new azure_nextgen.storage.StorageAccount("sa", ...);
 
 Note: `storage.Blob` and `storage.StorageAccountStaticWebsite` are top-level resources only, their `latest` counterpart has been removed.
 
-
 #### Auto-naming ([#5](https://github.com/pulumi/pulumi-azure-nextgen/issues/5))
 
 Auto-naming is applied for properties that are the last path parameters in their API endpoint path.
@@ -1531,10 +1532,10 @@ const resourceGroup = new resources.ResourceGroup("rg");
 // the actual resource would be named e.g. "rg8a43bc22"
 
 const blob = new storage.Blob("wwwroot", {
-    resourceGroupName: resourceGroup.name,
-    accountName: storageAccount.name,
-    containerName: storageContainer.name,
-    source: new pulumi.asset.FileArchive("wwwroot"),
+  resourceGroupName: resourceGroup.name,
+  accountName: storageAccount.name,
+  containerName: storageContainer.name,
+  source: new pulumi.asset.FileArchive("wwwroot"),
 });
 // blob name is simply "wwwroot"
 ```
@@ -1739,7 +1740,7 @@ New resources:
 
 Fixes:
 
-- Retrieve ID in get* invokes ([#48](https://github.com/pulumi/pulumi-azure-nextgen/issues/48))
+- Retrieve ID in get\* invokes ([#48](https://github.com/pulumi/pulumi-azure-nextgen/issues/48))
 
 ## 0.2.8 (2020-11-23)
 
