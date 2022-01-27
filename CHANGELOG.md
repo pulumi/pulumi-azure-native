@@ -2,6 +2,8 @@
 
 ## HEAD (Unreleased)
 
+- Upgrade to Pulumi v3.23.0
+
 ---
 
 ## 1.54.0 (2022-01-25)
