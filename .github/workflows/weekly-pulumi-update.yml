@@ -51,6 +51,9 @@ jobs:
           if ! git diff-files --quiet; then
             echo ::set-output name=changes::1
           fi
+      - name: Initialize submodules
+        if: steps.gomod.outputs.changes != 0
+        run: make init_submodules
       - name: Build codegen binaries
         if: steps.gomod.outputs.changes != 0
         run: make codegen
