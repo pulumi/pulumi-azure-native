@@ -23,40 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "azure-native:storage:Blob":
 		r = &Blob{}
-	case "azure-native:storage:BlobContainer":
-		r = &BlobContainer{}
-	case "azure-native:storage:BlobContainerImmutabilityPolicy":
-		r = &BlobContainerImmutabilityPolicy{}
-	case "azure-native:storage:BlobInventoryPolicy":
-		r = &BlobInventoryPolicy{}
-	case "azure-native:storage:BlobServiceProperties":
-		r = &BlobServiceProperties{}
-	case "azure-native:storage:EncryptionScope":
-		r = &EncryptionScope{}
-	case "azure-native:storage:FileServiceProperties":
-		r = &FileServiceProperties{}
-	case "azure-native:storage:FileShare":
-		r = &FileShare{}
-	case "azure-native:storage:LocalUser":
-		r = &LocalUser{}
-	case "azure-native:storage:ManagementPolicy":
-		r = &ManagementPolicy{}
-	case "azure-native:storage:ObjectReplicationPolicy":
-		r = &ObjectReplicationPolicy{}
-	case "azure-native:storage:PrivateEndpointConnection":
-		r = &PrivateEndpointConnection{}
-	case "azure-native:storage:Queue":
-		r = &Queue{}
-	case "azure-native:storage:QueueServiceProperties":
-		r = &QueueServiceProperties{}
-	case "azure-native:storage:StorageAccount":
-		r = &StorageAccount{}
 	case "azure-native:storage:StorageAccountStaticWebsite":
 		r = &StorageAccountStaticWebsite{}
-	case "azure-native:storage:Table":
-		r = &Table{}
-	case "azure-native:storage:TableServiceProperties":
-		r = &TableServiceProperties{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
