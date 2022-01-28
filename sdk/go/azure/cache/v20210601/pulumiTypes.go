@@ -910,6 +910,8 @@ type RedisCommonPropertiesResponseRedisConfiguration struct {
 	RdbBackupMaxSnapshotCount *string `pulumi:"rdbBackupMaxSnapshotCount"`
 	// The storage account connection string for storing rdb file
 	RdbStorageConnectionString *string `pulumi:"rdbStorageConnectionString"`
+	// Zonal Configuration
+	ZonalConfiguration string `pulumi:"zonalConfiguration"`
 }
 
 // All Redis Settings. Few possible keys: rdb-backup-enabled,rdb-storage-connection-string,rdb-backup-frequency,maxmemory-delta,maxmemory-policy,notify-keyspace-events,maxmemory-samples,slowlog-log-slower-than,slowlog-max-len,list-max-ziplist-entries,list-max-ziplist-value,hash-max-ziplist-entries,hash-max-ziplist-value,set-max-intset-entries,zset-max-ziplist-entries,zset-max-ziplist-value etc.
@@ -996,6 +998,11 @@ func (o RedisCommonPropertiesResponseRedisConfigurationOutput) RdbBackupMaxSnaps
 // The storage account connection string for storing rdb file
 func (o RedisCommonPropertiesResponseRedisConfigurationOutput) RdbStorageConnectionString() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RedisCommonPropertiesResponseRedisConfiguration) *string { return v.RdbStorageConnectionString }).(pulumi.StringPtrOutput)
+}
+
+// Zonal Configuration
+func (o RedisCommonPropertiesResponseRedisConfigurationOutput) ZonalConfiguration() pulumi.StringOutput {
+	return o.ApplyT(func(v RedisCommonPropertiesResponseRedisConfiguration) string { return v.ZonalConfiguration }).(pulumi.StringOutput)
 }
 
 type RedisCommonPropertiesResponseRedisConfigurationPtrOutput struct{ *pulumi.OutputState }
@@ -1149,6 +1156,16 @@ func (o RedisCommonPropertiesResponseRedisConfigurationPtrOutput) RdbStorageConn
 			return nil
 		}
 		return v.RdbStorageConnectionString
+	}).(pulumi.StringPtrOutput)
+}
+
+// Zonal Configuration
+func (o RedisCommonPropertiesResponseRedisConfigurationPtrOutput) ZonalConfiguration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RedisCommonPropertiesResponseRedisConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ZonalConfiguration
 	}).(pulumi.StringPtrOutput)
 }
 

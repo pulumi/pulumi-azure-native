@@ -68,6 +68,10 @@ namespace Pulumi.AzureNative.Cache.V20210601.Outputs
         /// The storage account connection string for storing rdb file
         /// </summary>
         public readonly string? RdbStorageConnectionString;
+        /// <summary>
+        /// Zonal Configuration
+        /// </summary>
+        public readonly string ZonalConfiguration;
 
         [OutputConstructor]
         private RedisCommonPropertiesResponseRedisConfiguration(
@@ -95,7 +99,9 @@ namespace Pulumi.AzureNative.Cache.V20210601.Outputs
 
             string? rdbBackupMaxSnapshotCount,
 
-            string? rdbStorageConnectionString)
+            string? rdbStorageConnectionString,
+
+            string zonalConfiguration)
         {
             AofStorageConnectionString0 = aofStorageConnectionString0;
             AofStorageConnectionString1 = aofStorageConnectionString1;
@@ -110,6 +116,7 @@ namespace Pulumi.AzureNative.Cache.V20210601.Outputs
             RdbBackupFrequency = rdbBackupFrequency;
             RdbBackupMaxSnapshotCount = rdbBackupMaxSnapshotCount;
             RdbStorageConnectionString = rdbStorageConnectionString;
+            ZonalConfiguration = zonalConfiguration;
         }
     }
 }

@@ -350,6 +350,8 @@ class RedisCommonPropertiesResponseRedisConfiguration(dict):
             suggest = "preferred_data_archive_auth_method"
         elif key == "preferredDataPersistenceAuthMethod":
             suggest = "preferred_data_persistence_auth_method"
+        elif key == "zonalConfiguration":
+            suggest = "zonal_configuration"
         elif key == "aofStorageConnectionString0":
             suggest = "aof_storage_connection_string0"
         elif key == "aofStorageConnectionString1":
@@ -386,6 +388,7 @@ class RedisCommonPropertiesResponseRedisConfiguration(dict):
                  maxclients: str,
                  preferred_data_archive_auth_method: str,
                  preferred_data_persistence_auth_method: str,
+                 zonal_configuration: str,
                  aof_storage_connection_string0: Optional[str] = None,
                  aof_storage_connection_string1: Optional[str] = None,
                  maxfragmentationmemory_reserved: Optional[str] = None,
@@ -401,6 +404,7 @@ class RedisCommonPropertiesResponseRedisConfiguration(dict):
         :param str maxclients: The max clients config
         :param str preferred_data_archive_auth_method: Preferred auth method to communicate to storage account used for data archive, specify SAS or ManagedIdentity, default value is SAS
         :param str preferred_data_persistence_auth_method: Preferred auth method to communicate to storage account used for data persistence, specify SAS or ManagedIdentity, default value is SAS
+        :param str zonal_configuration: Zonal Configuration
         :param str aof_storage_connection_string0: First storage account connection string
         :param str aof_storage_connection_string1: Second storage account connection string
         :param str maxfragmentationmemory_reserved: Value in megabytes reserved for fragmentation per shard
@@ -415,6 +419,7 @@ class RedisCommonPropertiesResponseRedisConfiguration(dict):
         pulumi.set(__self__, "maxclients", maxclients)
         pulumi.set(__self__, "preferred_data_archive_auth_method", preferred_data_archive_auth_method)
         pulumi.set(__self__, "preferred_data_persistence_auth_method", preferred_data_persistence_auth_method)
+        pulumi.set(__self__, "zonal_configuration", zonal_configuration)
         if aof_storage_connection_string0 is not None:
             pulumi.set(__self__, "aof_storage_connection_string0", aof_storage_connection_string0)
         if aof_storage_connection_string1 is not None:
@@ -459,6 +464,14 @@ class RedisCommonPropertiesResponseRedisConfiguration(dict):
         Preferred auth method to communicate to storage account used for data persistence, specify SAS or ManagedIdentity, default value is SAS
         """
         return pulumi.get(self, "preferred_data_persistence_auth_method")
+
+    @property
+    @pulumi.getter(name="zonalConfiguration")
+    def zonal_configuration(self) -> str:
+        """
+        Zonal Configuration
+        """
+        return pulumi.get(self, "zonal_configuration")
 
     @property
     @pulumi.getter(name="aofStorageConnectionString0")
