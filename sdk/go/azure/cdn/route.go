@@ -12,17 +12,19 @@ import (
 )
 
 // Friendly Routes name mapping to the any Routes or secret related information.
-// API Version: 2020-09-01.
+// API Version: 2021-06-01.
 type Route struct {
 	pulumi.CustomResourceState
 
-	// compression settings.
-	CompressionSettings CompressionSettingsResponsePtrOutput `pulumi:"compressionSettings"`
+	// The caching configuration for this route. To disable caching, do not provide a cacheConfiguration object.
+	CacheConfiguration AfdRouteCacheConfigurationResponsePtrOutput `pulumi:"cacheConfiguration"`
 	// Domains referenced by this endpoint.
-	CustomDomains    ResourceReferenceResponseArrayOutput `pulumi:"customDomains"`
-	DeploymentStatus pulumi.StringOutput                  `pulumi:"deploymentStatus"`
+	CustomDomains    ActivatedResourceReferenceResponseArrayOutput `pulumi:"customDomains"`
+	DeploymentStatus pulumi.StringOutput                           `pulumi:"deploymentStatus"`
 	// Whether to enable use of this rule. Permitted values are 'Enabled' or 'Disabled'
 	EnabledState pulumi.StringPtrOutput `pulumi:"enabledState"`
+	// The name of the endpoint which holds the route.
+	EndpointName pulumi.StringOutput `pulumi:"endpointName"`
 	// Protocol this rule will use when forwarding traffic to backends.
 	ForwardingProtocol pulumi.StringPtrOutput `pulumi:"forwardingProtocol"`
 	// Whether to automatically redirect HTTP traffic to HTTPS traffic. Note that this is a easy way to set up this rule and it will be the first rule that gets executed.
@@ -39,8 +41,6 @@ type Route struct {
 	PatternsToMatch pulumi.StringArrayOutput `pulumi:"patternsToMatch"`
 	// Provisioning status
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Defines how CDN caches requests that include query strings. You can ignore any query strings when caching, bypass caching to prevent requests that contain query strings from being cached, or cache every request with a unique URL.
-	QueryStringCachingBehavior pulumi.StringPtrOutput `pulumi:"queryStringCachingBehavior"`
 	// rule sets referenced by this endpoint.
 	RuleSets ResourceReferenceResponseArrayOutput `pulumi:"ruleSets"`
 	// List of supported protocols for this route.
@@ -111,10 +111,10 @@ func (RouteState) ElementType() reflect.Type {
 }
 
 type routeArgs struct {
-	// compression settings.
-	CompressionSettings *CompressionSettings `pulumi:"compressionSettings"`
+	// The caching configuration for this route. To disable caching, do not provide a cacheConfiguration object.
+	CacheConfiguration *AfdRouteCacheConfiguration `pulumi:"cacheConfiguration"`
 	// Domains referenced by this endpoint.
-	CustomDomains []ResourceReference `pulumi:"customDomains"`
+	CustomDomains []ActivatedResourceReference `pulumi:"customDomains"`
 	// Whether to enable use of this rule. Permitted values are 'Enabled' or 'Disabled'
 	EnabledState *string `pulumi:"enabledState"`
 	// Name of the endpoint under the profile which is unique globally.
@@ -131,10 +131,8 @@ type routeArgs struct {
 	OriginPath *string `pulumi:"originPath"`
 	// The route patterns of the rule.
 	PatternsToMatch []string `pulumi:"patternsToMatch"`
-	// Name of the CDN profile which is unique within the resource group.
+	// Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
 	ProfileName string `pulumi:"profileName"`
-	// Defines how CDN caches requests that include query strings. You can ignore any query strings when caching, bypass caching to prevent requests that contain query strings from being cached, or cache every request with a unique URL.
-	QueryStringCachingBehavior *AfdQueryStringCachingBehavior `pulumi:"queryStringCachingBehavior"`
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Name of the routing rule.
@@ -147,10 +145,10 @@ type routeArgs struct {
 
 // The set of arguments for constructing a Route resource.
 type RouteArgs struct {
-	// compression settings.
-	CompressionSettings CompressionSettingsPtrInput
+	// The caching configuration for this route. To disable caching, do not provide a cacheConfiguration object.
+	CacheConfiguration AfdRouteCacheConfigurationPtrInput
 	// Domains referenced by this endpoint.
-	CustomDomains ResourceReferenceArrayInput
+	CustomDomains ActivatedResourceReferenceArrayInput
 	// Whether to enable use of this rule. Permitted values are 'Enabled' or 'Disabled'
 	EnabledState pulumi.StringPtrInput
 	// Name of the endpoint under the profile which is unique globally.
@@ -167,10 +165,8 @@ type RouteArgs struct {
 	OriginPath pulumi.StringPtrInput
 	// The route patterns of the rule.
 	PatternsToMatch pulumi.StringArrayInput
-	// Name of the CDN profile which is unique within the resource group.
+	// Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
 	ProfileName pulumi.StringInput
-	// Defines how CDN caches requests that include query strings. You can ignore any query strings when caching, bypass caching to prevent requests that contain query strings from being cached, or cache every request with a unique URL.
-	QueryStringCachingBehavior AfdQueryStringCachingBehaviorPtrInput
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName pulumi.StringInput
 	// Name of the routing rule.

@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.Cdn.Outputs
         /// <summary>
         /// List of domains.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ResourceReferenceResponse> Domains;
+        public readonly ImmutableArray<Outputs.ActivatedResourceReferenceResponse> Domains;
         /// <summary>
         /// List of paths
         /// </summary>
@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Cdn.Outputs
 
         [OutputConstructor]
         private SecurityPolicyWebApplicationFirewallAssociationResponse(
-            ImmutableArray<Outputs.ResourceReferenceResponse> domains,
+            ImmutableArray<Outputs.ActivatedResourceReferenceResponse> domains,
 
             ImmutableArray<string> patternsToMatch)
         {

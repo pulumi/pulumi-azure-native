@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * CDN origin is the source of the content being delivered via CDN. When the edge nodes represented by an endpoint do not have the requested content cached, they attempt to fetch it from one or more of the configured origins.
- * API Version: 2020-09-01.
+ * API Version: 2021-06-01.
  */
 export class AFDOrigin extends pulumi.CustomResource {
     /**
@@ -46,6 +46,10 @@ export class AFDOrigin extends pulumi.CustomResource {
      */
     public readonly enabledState!: pulumi.Output<string | undefined>;
     /**
+     * Whether to enable certificate name check at origin level
+     */
+    public readonly enforceCertificateNameCheck!: pulumi.Output<boolean | undefined>;
+    /**
      * The address of the origin. Domain names, IPv4 addresses, and IPv6 addresses are supported.This should be unique across all origins in an endpoint.
      */
     public readonly hostName!: pulumi.Output<string>;
@@ -62,6 +66,10 @@ export class AFDOrigin extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
+     * The name of the origin group which contains this origin.
+     */
+    public readonly originGroupName!: pulumi.Output<string>;
+    /**
      * The host header value sent to the origin with each request. If you leave this blank, the request hostname determines this value. Azure CDN origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin hostname by default. This overrides the host header defined at Endpoint
      */
     public readonly originHostHeader!: pulumi.Output<string | undefined>;
@@ -76,7 +84,7 @@ export class AFDOrigin extends pulumi.CustomResource {
     /**
      * The properties of the private link resource for private origin.
      */
-    public readonly sharedPrivateLinkResource!: pulumi.Output<outputs.cdn.SharedPrivateLinkResourcePropertiesResponse | undefined>;
+    public readonly sharedPrivateLinkResource!: pulumi.Output<outputs.cdn.SharedPrivateLinkResourcePropertiesResponse[] | undefined>;
     /**
      * Read only system data
      */
@@ -115,6 +123,7 @@ export class AFDOrigin extends pulumi.CustomResource {
             }
             resourceInputs["azureOrigin"] = args ? args.azureOrigin : undefined;
             resourceInputs["enabledState"] = args ? args.enabledState : undefined;
+            resourceInputs["enforceCertificateNameCheck"] = args ? args.enforceCertificateNameCheck : undefined;
             resourceInputs["hostName"] = args ? args.hostName : undefined;
             resourceInputs["httpPort"] = args ? args.httpPort : undefined;
             resourceInputs["httpsPort"] = args ? args.httpsPort : undefined;
@@ -135,10 +144,12 @@ export class AFDOrigin extends pulumi.CustomResource {
             resourceInputs["azureOrigin"] = undefined /*out*/;
             resourceInputs["deploymentStatus"] = undefined /*out*/;
             resourceInputs["enabledState"] = undefined /*out*/;
+            resourceInputs["enforceCertificateNameCheck"] = undefined /*out*/;
             resourceInputs["hostName"] = undefined /*out*/;
             resourceInputs["httpPort"] = undefined /*out*/;
             resourceInputs["httpsPort"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["originGroupName"] = undefined /*out*/;
             resourceInputs["originHostHeader"] = undefined /*out*/;
             resourceInputs["priority"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
@@ -169,6 +180,10 @@ export interface AFDOriginArgs {
      */
     enabledState?: pulumi.Input<string | enums.cdn.EnabledState>;
     /**
+     * Whether to enable certificate name check at origin level
+     */
+    enforceCertificateNameCheck?: pulumi.Input<boolean>;
+    /**
      * The address of the origin. Domain names, IPv4 addresses, and IPv6 addresses are supported.This should be unique across all origins in an endpoint.
      */
     hostName: pulumi.Input<string>;
@@ -197,7 +212,7 @@ export interface AFDOriginArgs {
      */
     priority?: pulumi.Input<number>;
     /**
-     * Name of the CDN profile which is unique within the resource group.
+     * Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
      */
     profileName: pulumi.Input<string>;
     /**
@@ -207,7 +222,7 @@ export interface AFDOriginArgs {
     /**
      * The properties of the private link resource for private origin.
      */
-    sharedPrivateLinkResource?: pulumi.Input<inputs.cdn.SharedPrivateLinkResourcePropertiesArgs>;
+    sharedPrivateLinkResource?: pulumi.Input<pulumi.Input<inputs.cdn.SharedPrivateLinkResourcePropertiesArgs>[]>;
     /**
      * Weight of the origin in given origin group for load balancing. Must be between 1 and 1000
      */

@@ -1077,8 +1077,6 @@ class ReportConfigFilterResponse(dict):
         suggest = None
         if key == "and":
             suggest = "and_"
-        elif key == "not":
-            suggest = "not_"
         elif key == "or":
             suggest = "or_"
 
@@ -1096,14 +1094,12 @@ class ReportConfigFilterResponse(dict):
     def __init__(__self__, *,
                  and_: Optional[Sequence['outputs.ReportConfigFilterResponse']] = None,
                  dimensions: Optional['outputs.ReportConfigComparisonExpressionResponse'] = None,
-                 not_: Optional['outputs.ReportConfigFilterResponse'] = None,
                  or_: Optional[Sequence['outputs.ReportConfigFilterResponse']] = None,
                  tags: Optional['outputs.ReportConfigComparisonExpressionResponse'] = None):
         """
         The filter expression to be used in the report.
         :param Sequence['ReportConfigFilterResponse'] and_: The logical "AND" expression. Must have at least 2 items.
         :param 'ReportConfigComparisonExpressionResponse' dimensions: Has comparison expression for a dimension
-        :param 'ReportConfigFilterResponse' not_: The logical "NOT" expression.
         :param Sequence['ReportConfigFilterResponse'] or_: The logical "OR" expression. Must have at least 2 items.
         :param 'ReportConfigComparisonExpressionResponse' tags: Has comparison expression for a tag
         """
@@ -1111,8 +1107,6 @@ class ReportConfigFilterResponse(dict):
             pulumi.set(__self__, "and_", and_)
         if dimensions is not None:
             pulumi.set(__self__, "dimensions", dimensions)
-        if not_ is not None:
-            pulumi.set(__self__, "not_", not_)
         if or_ is not None:
             pulumi.set(__self__, "or_", or_)
         if tags is not None:
@@ -1133,14 +1127,6 @@ class ReportConfigFilterResponse(dict):
         Has comparison expression for a dimension
         """
         return pulumi.get(self, "dimensions")
-
-    @property
-    @pulumi.getter(name="not")
-    def not_(self) -> Optional['outputs.ReportConfigFilterResponse']:
-        """
-        The logical "NOT" expression.
-        """
-        return pulumi.get(self, "not_")
 
     @property
     @pulumi.getter(name="or")

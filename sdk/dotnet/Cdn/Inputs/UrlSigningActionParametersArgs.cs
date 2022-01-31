@@ -21,9 +21,6 @@ namespace Pulumi.AzureNative.Cdn.Inputs
         [Input("algorithm")]
         public InputUnion<string, Pulumi.AzureNative.Cdn.Algorithm>? Algorithm { get; set; }
 
-        [Input("odataType", required: true)]
-        public Input<string> OdataType { get; set; } = null!;
-
         [Input("parameterNameOverride")]
         private InputList<Inputs.UrlSigningParamIdentifierArgs>? _parameterNameOverride;
 
@@ -35,6 +32,9 @@ namespace Pulumi.AzureNative.Cdn.Inputs
             get => _parameterNameOverride ?? (_parameterNameOverride = new InputList<Inputs.UrlSigningParamIdentifierArgs>());
             set => _parameterNameOverride = value;
         }
+
+        [Input("typeName", required: true)]
+        public Input<string> TypeName { get; set; } = null!;
 
         public UrlSigningActionParametersArgs()
         {

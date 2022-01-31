@@ -19,7 +19,7 @@ class RuleSetArgs:
                  rule_set_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a RuleSet resource.
-        :param pulumi.Input[str] profile_name: Name of the CDN profile which is unique within the resource group.
+        :param pulumi.Input[str] profile_name: Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
         :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription.
         :param pulumi.Input[str] rule_set_name: Name of the rule set under the profile which is unique globally
         """
@@ -32,7 +32,7 @@ class RuleSetArgs:
     @pulumi.getter(name="profileName")
     def profile_name(self) -> pulumi.Input[str]:
         """
-        Name of the CDN profile which is unique within the resource group.
+        Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
         """
         return pulumi.get(self, "profile_name")
 
@@ -76,11 +76,11 @@ class RuleSet(pulumi.CustomResource):
                  __props__=None):
         """
         Friendly RuleSet name mapping to the any RuleSet or secret related information.
-        API Version: 2020-09-01.
+        API Version: 2021-06-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] profile_name: Name of the CDN profile which is unique within the resource group.
+        :param pulumi.Input[str] profile_name: Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
         :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription.
         :param pulumi.Input[str] rule_set_name: Name of the rule set under the profile which is unique globally
         """
@@ -92,7 +92,7 @@ class RuleSet(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Friendly RuleSet name mapping to the any RuleSet or secret related information.
-        API Version: 2020-09-01.
+        API Version: 2021-06-01.
 
         :param str resource_name: The name of the resource.
         :param RuleSetArgs args: The arguments to use to populate this resource's properties.
@@ -162,6 +162,7 @@ class RuleSet(pulumi.CustomResource):
 
         __props__.__dict__["deployment_status"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["profile_name"] = None
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
@@ -179,6 +180,14 @@ class RuleSet(pulumi.CustomResource):
         Resource name.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="profileName")
+    def profile_name(self) -> pulumi.Output[str]:
+        """
+        The name of the profile which holds the rule set.
+        """
+        return pulumi.get(self, "profile_name")
 
     @property
     @pulumi.getter(name="provisioningState")

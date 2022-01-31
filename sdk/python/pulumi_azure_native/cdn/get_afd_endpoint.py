@@ -21,7 +21,7 @@ class GetAFDEndpointResult:
     """
     CDN endpoint is the entity within a CDN profile containing configuration information such as origin, protocol, content caching and delivery behavior. The AzureFrontDoor endpoint uses the URL format <endpointname>.azureedge.net.
     """
-    def __init__(__self__, deployment_status=None, enabled_state=None, host_name=None, id=None, location=None, name=None, origin_response_timeout_seconds=None, provisioning_state=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, deployment_status=None, enabled_state=None, host_name=None, id=None, location=None, name=None, profile_name=None, provisioning_state=None, system_data=None, tags=None, type=None):
         if deployment_status and not isinstance(deployment_status, str):
             raise TypeError("Expected argument 'deployment_status' to be a str")
         pulumi.set(__self__, "deployment_status", deployment_status)
@@ -40,9 +40,9 @@ class GetAFDEndpointResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if origin_response_timeout_seconds and not isinstance(origin_response_timeout_seconds, int):
-            raise TypeError("Expected argument 'origin_response_timeout_seconds' to be a int")
-        pulumi.set(__self__, "origin_response_timeout_seconds", origin_response_timeout_seconds)
+        if profile_name and not isinstance(profile_name, str):
+            raise TypeError("Expected argument 'profile_name' to be a str")
+        pulumi.set(__self__, "profile_name", profile_name)
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
@@ -102,12 +102,12 @@ class GetAFDEndpointResult:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="originResponseTimeoutSeconds")
-    def origin_response_timeout_seconds(self) -> Optional[int]:
+    @pulumi.getter(name="profileName")
+    def profile_name(self) -> str:
         """
-        Send and receive timeout on forwarding request to the origin. When timeout is reached, the request fails and returns.
+        The name of the profile which holds the endpoint.
         """
-        return pulumi.get(self, "origin_response_timeout_seconds")
+        return pulumi.get(self, "profile_name")
 
     @property
     @pulumi.getter(name="provisioningState")
@@ -154,7 +154,7 @@ class AwaitableGetAFDEndpointResult(GetAFDEndpointResult):
             id=self.id,
             location=self.location,
             name=self.name,
-            origin_response_timeout_seconds=self.origin_response_timeout_seconds,
+            profile_name=self.profile_name,
             provisioning_state=self.provisioning_state,
             system_data=self.system_data,
             tags=self.tags,
@@ -167,11 +167,11 @@ def get_afd_endpoint(endpoint_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAFDEndpointResult:
     """
     CDN endpoint is the entity within a CDN profile containing configuration information such as origin, protocol, content caching and delivery behavior. The AzureFrontDoor endpoint uses the URL format <endpointname>.azureedge.net.
-    API Version: 2020-09-01.
+    API Version: 2021-06-01.
 
 
     :param str endpoint_name: Name of the endpoint under the profile which is unique globally.
-    :param str profile_name: Name of the CDN profile which is unique within the resource group.
+    :param str profile_name: Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
     :param str resource_group_name: Name of the Resource group within the Azure subscription.
     """
     __args__ = dict()
@@ -191,7 +191,7 @@ def get_afd_endpoint(endpoint_name: Optional[str] = None,
         id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
-        origin_response_timeout_seconds=__ret__.origin_response_timeout_seconds,
+        profile_name=__ret__.profile_name,
         provisioning_state=__ret__.provisioning_state,
         system_data=__ret__.system_data,
         tags=__ret__.tags,
@@ -205,11 +205,11 @@ def get_afd_endpoint_output(endpoint_name: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAFDEndpointResult]:
     """
     CDN endpoint is the entity within a CDN profile containing configuration information such as origin, protocol, content caching and delivery behavior. The AzureFrontDoor endpoint uses the URL format <endpointname>.azureedge.net.
-    API Version: 2020-09-01.
+    API Version: 2021-06-01.
 
 
     :param str endpoint_name: Name of the endpoint under the profile which is unique globally.
-    :param str profile_name: Name of the CDN profile which is unique within the resource group.
+    :param str profile_name: Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
     :param str resource_group_name: Name of the Resource group within the Azure subscription.
     """
     ...

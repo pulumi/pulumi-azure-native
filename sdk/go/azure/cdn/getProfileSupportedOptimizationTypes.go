@@ -11,7 +11,7 @@ import (
 )
 
 // The result of the GetSupportedOptimizationTypes API
-// API Version: 2020-09-01.
+// API Version: 2021-06-01.
 func GetProfileSupportedOptimizationTypes(ctx *pulumi.Context, args *GetProfileSupportedOptimizationTypesArgs, opts ...pulumi.InvokeOption) (*GetProfileSupportedOptimizationTypesResult, error) {
 	var rv GetProfileSupportedOptimizationTypesResult
 	err := ctx.Invoke("azure-native:cdn:getProfileSupportedOptimizationTypes", args, &rv, opts...)
@@ -22,7 +22,7 @@ func GetProfileSupportedOptimizationTypes(ctx *pulumi.Context, args *GetProfileS
 }
 
 type GetProfileSupportedOptimizationTypesArgs struct {
-	// Name of the CDN profile which is unique within the resource group.
+	// Name of the Azure Front Door Standard or Azure Front Door Premium or CDN profile which is unique within the resource group.
 	ProfileName string `pulumi:"profileName"`
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -44,7 +44,7 @@ func GetProfileSupportedOptimizationTypesOutput(ctx *pulumi.Context, args GetPro
 }
 
 type GetProfileSupportedOptimizationTypesOutputArgs struct {
-	// Name of the CDN profile which is unique within the resource group.
+	// Name of the Azure Front Door Standard or Azure Front Door Premium or CDN profile which is unique within the resource group.
 	ProfileName pulumi.StringInput `pulumi:"profileName"`
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`

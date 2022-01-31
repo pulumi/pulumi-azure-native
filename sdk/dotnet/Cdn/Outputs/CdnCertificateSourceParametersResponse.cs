@@ -20,16 +20,16 @@ namespace Pulumi.AzureNative.Cdn.Outputs
         /// Type of certificate used
         /// </summary>
         public readonly string CertificateType;
-        public readonly string OdataType;
+        public readonly string TypeName;
 
         [OutputConstructor]
         private CdnCertificateSourceParametersResponse(
             string certificateType,
 
-            string odataType)
+            string typeName)
         {
             CertificateType = certificateType;
-            OdataType = odataType;
+            TypeName = typeName;
         }
     }
 }

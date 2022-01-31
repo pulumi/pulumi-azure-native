@@ -22,27 +22,29 @@ class AFDOriginArgs:
                  resource_group_name: pulumi.Input[str],
                  azure_origin: Optional[pulumi.Input['ResourceReferenceArgs']] = None,
                  enabled_state: Optional[pulumi.Input[Union[str, 'EnabledState']]] = None,
+                 enforce_certificate_name_check: Optional[pulumi.Input[bool]] = None,
                  http_port: Optional[pulumi.Input[int]] = None,
                  https_port: Optional[pulumi.Input[int]] = None,
                  origin_host_header: Optional[pulumi.Input[str]] = None,
                  origin_name: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
-                 shared_private_link_resource: Optional[pulumi.Input['SharedPrivateLinkResourcePropertiesArgs']] = None,
+                 shared_private_link_resource: Optional[pulumi.Input[Sequence[pulumi.Input['SharedPrivateLinkResourcePropertiesArgs']]]] = None,
                  weight: Optional[pulumi.Input[int]] = None):
         """
         The set of arguments for constructing a AFDOrigin resource.
         :param pulumi.Input[str] host_name: The address of the origin. Domain names, IPv4 addresses, and IPv6 addresses are supported.This should be unique across all origins in an endpoint.
         :param pulumi.Input[str] origin_group_name: Name of the origin group which is unique within the profile.
-        :param pulumi.Input[str] profile_name: Name of the CDN profile which is unique within the resource group.
+        :param pulumi.Input[str] profile_name: Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
         :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription.
         :param pulumi.Input['ResourceReferenceArgs'] azure_origin: Resource reference to the Azure origin resource.
         :param pulumi.Input[Union[str, 'EnabledState']] enabled_state: Whether to enable health probes to be made against backends defined under backendPools. Health probes can only be disabled if there is a single enabled backend in single enabled backend pool.
+        :param pulumi.Input[bool] enforce_certificate_name_check: Whether to enable certificate name check at origin level
         :param pulumi.Input[int] http_port: The value of the HTTP port. Must be between 1 and 65535.
         :param pulumi.Input[int] https_port: The value of the HTTPS port. Must be between 1 and 65535.
         :param pulumi.Input[str] origin_host_header: The host header value sent to the origin with each request. If you leave this blank, the request hostname determines this value. Azure CDN origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin hostname by default. This overrides the host header defined at Endpoint
         :param pulumi.Input[str] origin_name: Name of the origin that is unique within the profile.
         :param pulumi.Input[int] priority: Priority of origin in given origin group for load balancing. Higher priorities will not be used for load balancing if any lower priority origin is healthy.Must be between 1 and 5
-        :param pulumi.Input['SharedPrivateLinkResourcePropertiesArgs'] shared_private_link_resource: The properties of the private link resource for private origin.
+        :param pulumi.Input[Sequence[pulumi.Input['SharedPrivateLinkResourcePropertiesArgs']]] shared_private_link_resource: The properties of the private link resource for private origin.
         :param pulumi.Input[int] weight: Weight of the origin in given origin group for load balancing. Must be between 1 and 1000
         """
         pulumi.set(__self__, "host_name", host_name)
@@ -53,6 +55,8 @@ class AFDOriginArgs:
             pulumi.set(__self__, "azure_origin", azure_origin)
         if enabled_state is not None:
             pulumi.set(__self__, "enabled_state", enabled_state)
+        if enforce_certificate_name_check is not None:
+            pulumi.set(__self__, "enforce_certificate_name_check", enforce_certificate_name_check)
         if http_port is not None:
             pulumi.set(__self__, "http_port", http_port)
         if https_port is not None:
@@ -96,7 +100,7 @@ class AFDOriginArgs:
     @pulumi.getter(name="profileName")
     def profile_name(self) -> pulumi.Input[str]:
         """
-        Name of the CDN profile which is unique within the resource group.
+        Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
         """
         return pulumi.get(self, "profile_name")
 
@@ -139,6 +143,18 @@ class AFDOriginArgs:
     @enabled_state.setter
     def enabled_state(self, value: Optional[pulumi.Input[Union[str, 'EnabledState']]]):
         pulumi.set(self, "enabled_state", value)
+
+    @property
+    @pulumi.getter(name="enforceCertificateNameCheck")
+    def enforce_certificate_name_check(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to enable certificate name check at origin level
+        """
+        return pulumi.get(self, "enforce_certificate_name_check")
+
+    @enforce_certificate_name_check.setter
+    def enforce_certificate_name_check(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enforce_certificate_name_check", value)
 
     @property
     @pulumi.getter(name="httpPort")
@@ -202,14 +218,14 @@ class AFDOriginArgs:
 
     @property
     @pulumi.getter(name="sharedPrivateLinkResource")
-    def shared_private_link_resource(self) -> Optional[pulumi.Input['SharedPrivateLinkResourcePropertiesArgs']]:
+    def shared_private_link_resource(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SharedPrivateLinkResourcePropertiesArgs']]]]:
         """
         The properties of the private link resource for private origin.
         """
         return pulumi.get(self, "shared_private_link_resource")
 
     @shared_private_link_resource.setter
-    def shared_private_link_resource(self, value: Optional[pulumi.Input['SharedPrivateLinkResourcePropertiesArgs']]):
+    def shared_private_link_resource(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SharedPrivateLinkResourcePropertiesArgs']]]]):
         pulumi.set(self, "shared_private_link_resource", value)
 
     @property
@@ -232,6 +248,7 @@ class AFDOrigin(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  azure_origin: Optional[pulumi.Input[pulumi.InputType['ResourceReferenceArgs']]] = None,
                  enabled_state: Optional[pulumi.Input[Union[str, 'EnabledState']]] = None,
+                 enforce_certificate_name_check: Optional[pulumi.Input[bool]] = None,
                  host_name: Optional[pulumi.Input[str]] = None,
                  http_port: Optional[pulumi.Input[int]] = None,
                  https_port: Optional[pulumi.Input[int]] = None,
@@ -241,17 +258,18 @@ class AFDOrigin(pulumi.CustomResource):
                  priority: Optional[pulumi.Input[int]] = None,
                  profile_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 shared_private_link_resource: Optional[pulumi.Input[pulumi.InputType['SharedPrivateLinkResourcePropertiesArgs']]] = None,
+                 shared_private_link_resource: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SharedPrivateLinkResourcePropertiesArgs']]]]] = None,
                  weight: Optional[pulumi.Input[int]] = None,
                  __props__=None):
         """
         CDN origin is the source of the content being delivered via CDN. When the edge nodes represented by an endpoint do not have the requested content cached, they attempt to fetch it from one or more of the configured origins.
-        API Version: 2020-09-01.
+        API Version: 2021-06-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['ResourceReferenceArgs']] azure_origin: Resource reference to the Azure origin resource.
         :param pulumi.Input[Union[str, 'EnabledState']] enabled_state: Whether to enable health probes to be made against backends defined under backendPools. Health probes can only be disabled if there is a single enabled backend in single enabled backend pool.
+        :param pulumi.Input[bool] enforce_certificate_name_check: Whether to enable certificate name check at origin level
         :param pulumi.Input[str] host_name: The address of the origin. Domain names, IPv4 addresses, and IPv6 addresses are supported.This should be unique across all origins in an endpoint.
         :param pulumi.Input[int] http_port: The value of the HTTP port. Must be between 1 and 65535.
         :param pulumi.Input[int] https_port: The value of the HTTPS port. Must be between 1 and 65535.
@@ -259,9 +277,9 @@ class AFDOrigin(pulumi.CustomResource):
         :param pulumi.Input[str] origin_host_header: The host header value sent to the origin with each request. If you leave this blank, the request hostname determines this value. Azure CDN origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin hostname by default. This overrides the host header defined at Endpoint
         :param pulumi.Input[str] origin_name: Name of the origin that is unique within the profile.
         :param pulumi.Input[int] priority: Priority of origin in given origin group for load balancing. Higher priorities will not be used for load balancing if any lower priority origin is healthy.Must be between 1 and 5
-        :param pulumi.Input[str] profile_name: Name of the CDN profile which is unique within the resource group.
+        :param pulumi.Input[str] profile_name: Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
         :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription.
-        :param pulumi.Input[pulumi.InputType['SharedPrivateLinkResourcePropertiesArgs']] shared_private_link_resource: The properties of the private link resource for private origin.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SharedPrivateLinkResourcePropertiesArgs']]]] shared_private_link_resource: The properties of the private link resource for private origin.
         :param pulumi.Input[int] weight: Weight of the origin in given origin group for load balancing. Must be between 1 and 1000
         """
         ...
@@ -272,7 +290,7 @@ class AFDOrigin(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         CDN origin is the source of the content being delivered via CDN. When the edge nodes represented by an endpoint do not have the requested content cached, they attempt to fetch it from one or more of the configured origins.
-        API Version: 2020-09-01.
+        API Version: 2021-06-01.
 
         :param str resource_name: The name of the resource.
         :param AFDOriginArgs args: The arguments to use to populate this resource's properties.
@@ -291,6 +309,7 @@ class AFDOrigin(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  azure_origin: Optional[pulumi.Input[pulumi.InputType['ResourceReferenceArgs']]] = None,
                  enabled_state: Optional[pulumi.Input[Union[str, 'EnabledState']]] = None,
+                 enforce_certificate_name_check: Optional[pulumi.Input[bool]] = None,
                  host_name: Optional[pulumi.Input[str]] = None,
                  http_port: Optional[pulumi.Input[int]] = None,
                  https_port: Optional[pulumi.Input[int]] = None,
@@ -300,7 +319,7 @@ class AFDOrigin(pulumi.CustomResource):
                  priority: Optional[pulumi.Input[int]] = None,
                  profile_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 shared_private_link_resource: Optional[pulumi.Input[pulumi.InputType['SharedPrivateLinkResourcePropertiesArgs']]] = None,
+                 shared_private_link_resource: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SharedPrivateLinkResourcePropertiesArgs']]]]] = None,
                  weight: Optional[pulumi.Input[int]] = None,
                  __props__=None):
         if opts is None:
@@ -316,6 +335,7 @@ class AFDOrigin(pulumi.CustomResource):
 
             __props__.__dict__["azure_origin"] = azure_origin
             __props__.__dict__["enabled_state"] = enabled_state
+            __props__.__dict__["enforce_certificate_name_check"] = enforce_certificate_name_check
             if host_name is None and not opts.urn:
                 raise TypeError("Missing required property 'host_name'")
             __props__.__dict__["host_name"] = host_name
@@ -367,10 +387,12 @@ class AFDOrigin(pulumi.CustomResource):
         __props__.__dict__["azure_origin"] = None
         __props__.__dict__["deployment_status"] = None
         __props__.__dict__["enabled_state"] = None
+        __props__.__dict__["enforce_certificate_name_check"] = None
         __props__.__dict__["host_name"] = None
         __props__.__dict__["http_port"] = None
         __props__.__dict__["https_port"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["origin_group_name"] = None
         __props__.__dict__["origin_host_header"] = None
         __props__.__dict__["priority"] = None
         __props__.__dict__["provisioning_state"] = None
@@ -400,6 +422,14 @@ class AFDOrigin(pulumi.CustomResource):
         Whether to enable health probes to be made against backends defined under backendPools. Health probes can only be disabled if there is a single enabled backend in single enabled backend pool.
         """
         return pulumi.get(self, "enabled_state")
+
+    @property
+    @pulumi.getter(name="enforceCertificateNameCheck")
+    def enforce_certificate_name_check(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Whether to enable certificate name check at origin level
+        """
+        return pulumi.get(self, "enforce_certificate_name_check")
 
     @property
     @pulumi.getter(name="hostName")
@@ -434,6 +464,14 @@ class AFDOrigin(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="originGroupName")
+    def origin_group_name(self) -> pulumi.Output[str]:
+        """
+        The name of the origin group which contains this origin.
+        """
+        return pulumi.get(self, "origin_group_name")
+
+    @property
     @pulumi.getter(name="originHostHeader")
     def origin_host_header(self) -> pulumi.Output[Optional[str]]:
         """
@@ -459,7 +497,7 @@ class AFDOrigin(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sharedPrivateLinkResource")
-    def shared_private_link_resource(self) -> pulumi.Output[Optional['outputs.SharedPrivateLinkResourcePropertiesResponse']]:
+    def shared_private_link_resource(self) -> pulumi.Output[Optional[Sequence['outputs.SharedPrivateLinkResourcePropertiesResponse']]]:
         """
         The properties of the private link resource for private origin.
         """

@@ -14,14 +14,14 @@ namespace Pulumi.AzureNative.Cdn
     {
         /// <summary>
         /// Friendly RuleSet name mapping to the any RuleSet or secret related information.
-        /// API Version: 2020-09-01.
+        /// API Version: 2021-06-01.
         /// </summary>
         public static Task<GetRuleSetResult> InvokeAsync(GetRuleSetArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRuleSetResult>("azure-native:cdn:getRuleSet", args ?? new GetRuleSetArgs(), options.WithVersion());
 
         /// <summary>
         /// Friendly RuleSet name mapping to the any RuleSet or secret related information.
-        /// API Version: 2020-09-01.
+        /// API Version: 2021-06-01.
         /// </summary>
         public static Output<GetRuleSetResult> Invoke(GetRuleSetInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetRuleSetResult>("azure-native:cdn:getRuleSet", args ?? new GetRuleSetInvokeArgs(), options.WithVersion());
@@ -31,7 +31,7 @@ namespace Pulumi.AzureNative.Cdn
     public sealed class GetRuleSetArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Name of the CDN profile which is unique within the resource group.
+        /// Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
         /// </summary>
         [Input("profileName", required: true)]
         public string ProfileName { get; set; } = null!;
@@ -56,7 +56,7 @@ namespace Pulumi.AzureNative.Cdn
     public sealed class GetRuleSetInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Name of the CDN profile which is unique within the resource group.
+        /// Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
         /// </summary>
         [Input("profileName", required: true)]
         public Input<string> ProfileName { get; set; } = null!;
@@ -92,6 +92,10 @@ namespace Pulumi.AzureNative.Cdn
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// The name of the profile which holds the rule set.
+        /// </summary>
+        public readonly string ProfileName;
+        /// <summary>
         /// Provisioning status
         /// </summary>
         public readonly string ProvisioningState;
@@ -112,6 +116,8 @@ namespace Pulumi.AzureNative.Cdn
 
             string name,
 
+            string profileName,
+
             string provisioningState,
 
             Outputs.SystemDataResponse systemData,
@@ -121,6 +127,7 @@ namespace Pulumi.AzureNative.Cdn
             DeploymentStatus = deploymentStatus;
             Id = id;
             Name = name;
+            ProfileName = profileName;
             ProvisioningState = provisioningState;
             SystemData = systemData;
             Type = type;

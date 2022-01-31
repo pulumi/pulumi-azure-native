@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Cdn
 {
     /// <summary>
     /// Origin group comprising of origins is used for load balancing to origins when the content cannot be served from CDN.
-    /// API Version: 2020-09-01.
+    /// API Version: 2021-06-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:cdn:OriginGroup")]
     public partial class OriginGroup : Pulumi.CustomResource

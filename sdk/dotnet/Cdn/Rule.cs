@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Cdn
 {
     /// <summary>
     /// Friendly Rules name mapping to the any Rules or secret related information.
-    /// API Version: 2020-09-01.
+    /// API Version: 2021-06-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:cdn:Rule")]
     public partial class Rule : Pulumi.CustomResource
@@ -54,6 +54,12 @@ namespace Pulumi.AzureNative.Cdn
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// The name of the rule set containing the rule.
+        /// </summary>
+        [Output("ruleSetName")]
+        public Output<string> RuleSetName { get; private set; } = null!;
 
         /// <summary>
         /// Read only system data
@@ -154,7 +160,7 @@ namespace Pulumi.AzureNative.Cdn
         public Input<int> Order { get; set; } = null!;
 
         /// <summary>
-        /// Name of the CDN profile which is unique within the resource group.
+        /// Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
         /// </summary>
         [Input("profileName", required: true)]
         public Input<string> ProfileName { get; set; } = null!;

@@ -14,14 +14,14 @@ namespace Pulumi.AzureNative.Cdn
     {
         /// <summary>
         /// SecurityPolicy association for AzureFrontDoor profile
-        /// API Version: 2020-09-01.
+        /// API Version: 2021-06-01.
         /// </summary>
         public static Task<GetSecurityPolicyResult> InvokeAsync(GetSecurityPolicyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSecurityPolicyResult>("azure-native:cdn:getSecurityPolicy", args ?? new GetSecurityPolicyArgs(), options.WithVersion());
 
         /// <summary>
         /// SecurityPolicy association for AzureFrontDoor profile
-        /// API Version: 2020-09-01.
+        /// API Version: 2021-06-01.
         /// </summary>
         public static Output<GetSecurityPolicyResult> Invoke(GetSecurityPolicyInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetSecurityPolicyResult>("azure-native:cdn:getSecurityPolicy", args ?? new GetSecurityPolicyInvokeArgs(), options.WithVersion());
@@ -31,7 +31,7 @@ namespace Pulumi.AzureNative.Cdn
     public sealed class GetSecurityPolicyArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Name of the CDN profile which is unique within the resource group.
+        /// Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
         /// </summary>
         [Input("profileName", required: true)]
         public string ProfileName { get; set; } = null!;
@@ -56,7 +56,7 @@ namespace Pulumi.AzureNative.Cdn
     public sealed class GetSecurityPolicyInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Name of the CDN profile which is unique within the resource group.
+        /// Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
         /// </summary>
         [Input("profileName", required: true)]
         public Input<string> ProfileName { get; set; } = null!;
@@ -96,6 +96,10 @@ namespace Pulumi.AzureNative.Cdn
         /// </summary>
         public readonly Outputs.SecurityPolicyWebApplicationFirewallParametersResponse? Parameters;
         /// <summary>
+        /// The name of the profile which holds the security policy.
+        /// </summary>
+        public readonly string ProfileName;
+        /// <summary>
         /// Provisioning status
         /// </summary>
         public readonly string ProvisioningState;
@@ -118,6 +122,8 @@ namespace Pulumi.AzureNative.Cdn
 
             Outputs.SecurityPolicyWebApplicationFirewallParametersResponse? parameters,
 
+            string profileName,
+
             string provisioningState,
 
             Outputs.SystemDataResponse systemData,
@@ -128,6 +134,7 @@ namespace Pulumi.AzureNative.Cdn
             Id = id;
             Name = name;
             Parameters = parameters;
+            ProfileName = profileName;
             ProvisioningState = provisioningState;
             SystemData = systemData;
             Type = type;

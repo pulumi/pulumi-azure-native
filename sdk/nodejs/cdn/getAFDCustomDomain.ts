@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Friendly domain name mapping to the endpoint hostname that the customer provides for branding purposes, e.g. www.contoso.com.
- * API Version: 2020-09-01.
+ * API Version: 2021-06-01.
  */
 export function getAFDCustomDomain(args: GetAFDCustomDomainArgs, opts?: pulumi.InvokeOptions): Promise<GetAFDCustomDomainResult> {
     if (!opts) {
@@ -30,7 +30,7 @@ export interface GetAFDCustomDomainArgs {
      */
     customDomainName: string;
     /**
-     * Name of the CDN profile which is unique within the resource group.
+     * Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
      */
     profileName: string;
     /**
@@ -65,6 +65,14 @@ export interface GetAFDCustomDomainResult {
      */
     readonly name: string;
     /**
+     * Resource reference to the Azure resource where custom domain ownership was prevalidated
+     */
+    readonly preValidatedCustomDomainResourceId?: outputs.cdn.ResourceReferenceResponse;
+    /**
+     * The name of the profile which holds the domain.
+     */
+    readonly profileName: string;
+    /**
      * Provisioning status
      */
     readonly provisioningState: string;
@@ -96,7 +104,7 @@ export interface GetAFDCustomDomainOutputArgs {
      */
     customDomainName: pulumi.Input<string>;
     /**
-     * Name of the CDN profile which is unique within the resource group.
+     * Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
      */
     profileName: pulumi.Input<string>;
     /**
