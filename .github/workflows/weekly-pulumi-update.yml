@@ -44,8 +44,7 @@ jobs:
           go get github.com/pulumi/pulumi/sdk/v3
           go mod download
           go mod tidy
-          cd ..
-          cd provider
+          cd ../sdk
           go get github.com/pulumi/pulumi/sdk/v3
           go mod download
           go mod tidy
@@ -69,7 +68,7 @@ jobs:
           git commit -m "Regenerating Python SDK based on updated modules" || echo "ignore commit failure, may be empty"
           git add sdk/dotnet
           git commit -m "Regenerating .NET SDK based on updated modules" || echo "ignore commit failure, may be empty"
-          git add sdk/go
+          git add sdk/go*
           git commit -m "Regenerating Go SDK based on updated modules" || echo "ignore commit failure, may be empty"
           git add .
           git commit -m "Updated modules"
