@@ -9,9 +9,7 @@ export function listWorkspaceCollectionAccessKeys(args: ListWorkspaceCollectionA
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:powerbi/v20160129:listWorkspaceCollectionAccessKeys", {
         "resourceGroupName": args.resourceGroupName,
         "workspaceCollectionName": args.workspaceCollectionName,

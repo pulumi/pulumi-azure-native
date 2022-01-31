@@ -13,9 +13,7 @@ export function listAssetStreamingLocators(args: ListAssetStreamingLocatorsArgs,
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:media/v20210601:listAssetStreamingLocators", {
         "accountName": args.accountName,
         "assetName": args.assetName,

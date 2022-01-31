@@ -13,9 +13,7 @@ export function getPython2Package(args: GetPython2PackageArgs, opts?: pulumi.Inv
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:automation/v20180630:getPython2Package", {
         "automationAccountName": args.automationAccountName,
         "packageName": args.packageName,

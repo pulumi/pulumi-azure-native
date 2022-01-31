@@ -14,9 +14,7 @@ export function getHanaInstance(args: GetHanaInstanceArgs, opts?: pulumi.InvokeO
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:hanaonazure:getHanaInstance", {
         "hanaInstanceName": args.hanaInstanceName,
         "resourceGroupName": args.resourceGroupName,

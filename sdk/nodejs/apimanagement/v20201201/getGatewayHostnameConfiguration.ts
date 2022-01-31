@@ -12,9 +12,7 @@ export function getGatewayHostnameConfiguration(args: GetGatewayHostnameConfigur
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:apimanagement/v20201201:getGatewayHostnameConfiguration", {
         "gatewayId": args.gatewayId,
         "hcId": args.hcId,

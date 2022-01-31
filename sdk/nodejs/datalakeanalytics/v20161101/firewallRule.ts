@@ -87,9 +87,7 @@ export class FirewallRule extends pulumi.CustomResource {
             resourceInputs["startIpAddress"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:datalakeanalytics:FirewallRule" }, { type: "azure-native:datalakeanalytics/v20151001preview:FirewallRule" }, { type: "azure-native:datalakeanalytics/v20191101preview:FirewallRule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(FirewallRule.__pulumiType, name, resourceInputs, opts);

@@ -81,9 +81,7 @@ export class DeploymentAtManagementGroupScope extends pulumi.CustomResource {
             resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:resources:DeploymentAtManagementGroupScope" }, { type: "azure-native:resources/v20190501:DeploymentAtManagementGroupScope" }, { type: "azure-native:resources/v20190510:DeploymentAtManagementGroupScope" }, { type: "azure-native:resources/v20190701:DeploymentAtManagementGroupScope" }, { type: "azure-native:resources/v20191001:DeploymentAtManagementGroupScope" }, { type: "azure-native:resources/v20200601:DeploymentAtManagementGroupScope" }, { type: "azure-native:resources/v20200801:DeploymentAtManagementGroupScope" }, { type: "azure-native:resources/v20201001:DeploymentAtManagementGroupScope" }, { type: "azure-native:resources/v20210101:DeploymentAtManagementGroupScope" }, { type: "azure-native:resources/v20210401:DeploymentAtManagementGroupScope" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DeploymentAtManagementGroupScope.__pulumiType, name, resourceInputs, opts);

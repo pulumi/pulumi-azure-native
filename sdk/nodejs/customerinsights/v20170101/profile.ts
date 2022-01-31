@@ -178,9 +178,7 @@ export class Profile extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["typeName"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:customerinsights:Profile" }, { type: "azure-native:customerinsights/v20170426:Profile" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Profile.__pulumiType, name, resourceInputs, opts);

@@ -69,9 +69,7 @@ export class ResourceTypeRegistration extends pulumi.CustomResource {
             resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:providerhub/v20201120:ResourceTypeRegistration" }, { type: "azure-native:providerhub/v20210501preview:ResourceTypeRegistration" }, { type: "azure-native:providerhub/v20210601preview:ResourceTypeRegistration" }, { type: "azure-native:providerhub/v20210901preview:ResourceTypeRegistration" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ResourceTypeRegistration.__pulumiType, name, resourceInputs, opts);

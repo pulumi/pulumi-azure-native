@@ -13,9 +13,7 @@ export function getStandardEnvironment(args: GetStandardEnvironmentArgs, opts?: 
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:timeseriesinsights/v20180815preview:getStandardEnvironment", {
         "environmentName": args.environmentName,
         "expand": args.expand,

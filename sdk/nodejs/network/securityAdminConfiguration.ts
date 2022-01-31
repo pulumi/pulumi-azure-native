@@ -113,9 +113,7 @@ export class SecurityAdminConfiguration extends pulumi.CustomResource {
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:network/v20210201preview:SecurityAdminConfiguration" }, { type: "azure-native:network/v20210501preview:SecurityAdminConfiguration" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SecurityAdminConfiguration.__pulumiType, name, resourceInputs, opts);

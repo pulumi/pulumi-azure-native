@@ -12,9 +12,7 @@ export function getSqlDBTableDataSet(args: GetSqlDBTableDataSetArgs, opts?: pulu
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:datashare/v20191101:getSqlDBTableDataSet", {
         "accountName": args.accountName,
         "dataSetName": args.dataSetName,

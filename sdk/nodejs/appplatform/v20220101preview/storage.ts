@@ -82,9 +82,7 @@ export class Storage extends pulumi.CustomResource {
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:appplatform:Storage" }, { type: "azure-native:appplatform/v20210901preview:Storage" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Storage.__pulumiType, name, resourceInputs, opts);

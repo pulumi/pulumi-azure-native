@@ -14,9 +14,7 @@ export function getDeploymentAtTenantScope(args: GetDeploymentAtTenantScopeArgs,
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:resources:getDeploymentAtTenantScope", {
         "deploymentName": args.deploymentName,
     }, opts);

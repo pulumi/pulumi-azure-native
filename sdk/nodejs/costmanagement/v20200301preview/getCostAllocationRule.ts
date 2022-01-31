@@ -13,9 +13,7 @@ export function getCostAllocationRule(args: GetCostAllocationRuleArgs, opts?: pu
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:costmanagement/v20200301preview:getCostAllocationRule", {
         "billingAccountId": args.billingAccountId,
         "ruleName": args.ruleName,

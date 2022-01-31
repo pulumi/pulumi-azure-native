@@ -12,9 +12,7 @@ export function listRedisKeys(args: ListRedisKeysArgs, opts?: pulumi.InvokeOptio
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:cache/v20201201:listRedisKeys", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

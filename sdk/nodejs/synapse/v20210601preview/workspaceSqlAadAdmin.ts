@@ -92,9 +92,7 @@ export class WorkspaceSqlAadAdmin extends pulumi.CustomResource {
             resourceInputs["tenantId"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:synapse:WorkspaceSqlAadAdmin" }, { type: "azure-native:synapse/v20190601preview:WorkspaceSqlAadAdmin" }, { type: "azure-native:synapse/v20201201:WorkspaceSqlAadAdmin" }, { type: "azure-native:synapse/v20210301:WorkspaceSqlAadAdmin" }, { type: "azure-native:synapse/v20210401preview:WorkspaceSqlAadAdmin" }, { type: "azure-native:synapse/v20210501:WorkspaceSqlAadAdmin" }, { type: "azure-native:synapse/v20210601:WorkspaceSqlAadAdmin" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WorkspaceSqlAadAdmin.__pulumiType, name, resourceInputs, opts);

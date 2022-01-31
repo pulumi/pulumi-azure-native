@@ -129,9 +129,7 @@ export class ContainerService extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["windowsProfile"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:containerservice/v20160330:ContainerService" }, { type: "azure-native:containerservice/v20160930:ContainerService" }, { type: "azure-native:containerservice/v20170131:ContainerService" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ContainerService.__pulumiType, name, resourceInputs, opts);

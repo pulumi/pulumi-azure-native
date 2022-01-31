@@ -12,9 +12,7 @@ export function getClusterPrincipalAssignment(args: GetClusterPrincipalAssignmen
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:kusto/v20200614:getClusterPrincipalAssignment", {
         "clusterName": args.clusterName,
         "principalAssignmentName": args.principalAssignmentName,

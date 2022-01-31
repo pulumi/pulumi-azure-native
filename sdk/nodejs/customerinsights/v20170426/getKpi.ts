@@ -13,9 +13,7 @@ export function getKpi(args: GetKpiArgs, opts?: pulumi.InvokeOptions): Promise<G
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:customerinsights/v20170426:getKpi", {
         "hubName": args.hubName,
         "kpiName": args.kpiName,

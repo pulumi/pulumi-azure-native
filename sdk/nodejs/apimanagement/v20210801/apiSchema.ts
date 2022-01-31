@@ -100,9 +100,7 @@ export class ApiSchema extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["value"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:ApiSchema" }, { type: "azure-native:apimanagement/v20170301:ApiSchema" }, { type: "azure-native:apimanagement/v20180101:ApiSchema" }, { type: "azure-native:apimanagement/v20180601preview:ApiSchema" }, { type: "azure-native:apimanagement/v20190101:ApiSchema" }, { type: "azure-native:apimanagement/v20191201:ApiSchema" }, { type: "azure-native:apimanagement/v20191201preview:ApiSchema" }, { type: "azure-native:apimanagement/v20200601preview:ApiSchema" }, { type: "azure-native:apimanagement/v20201201:ApiSchema" }, { type: "azure-native:apimanagement/v20210101preview:ApiSchema" }, { type: "azure-native:apimanagement/v20210401preview:ApiSchema" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ApiSchema.__pulumiType, name, resourceInputs, opts);

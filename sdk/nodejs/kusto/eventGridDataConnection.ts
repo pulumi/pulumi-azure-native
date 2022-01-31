@@ -154,9 +154,7 @@ export class EventGridDataConnection extends pulumi.CustomResource {
             resourceInputs["tableName"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:kusto/v20190121:EventGridDataConnection" }, { type: "azure-native:kusto/v20190515:EventGridDataConnection" }, { type: "azure-native:kusto/v20190907:EventGridDataConnection" }, { type: "azure-native:kusto/v20191109:EventGridDataConnection" }, { type: "azure-native:kusto/v20200215:EventGridDataConnection" }, { type: "azure-native:kusto/v20200614:EventGridDataConnection" }, { type: "azure-native:kusto/v20200918:EventGridDataConnection" }, { type: "azure-native:kusto/v20210101:EventGridDataConnection" }, { type: "azure-native:kusto/v20210827:EventGridDataConnection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(EventGridDataConnection.__pulumiType, name, resourceInputs, opts);

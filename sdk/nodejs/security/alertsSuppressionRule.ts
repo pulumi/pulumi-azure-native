@@ -114,9 +114,7 @@ export class AlertsSuppressionRule extends pulumi.CustomResource {
             resourceInputs["suppressionAlertsScope"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:security/v20190101preview:AlertsSuppressionRule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AlertsSuppressionRule.__pulumiType, name, resourceInputs, opts);

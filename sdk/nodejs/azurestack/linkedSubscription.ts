@@ -145,9 +145,7 @@ export class LinkedSubscription extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:azurestack/v20200601preview:LinkedSubscription" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(LinkedSubscription.__pulumiType, name, resourceInputs, opts);

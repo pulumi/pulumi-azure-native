@@ -119,9 +119,7 @@ export class OriginGroup extends pulumi.CustomResource {
             resourceInputs["trafficRestorationTimeToHealedOrNewEndpointsInMinutes"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:cdn:OriginGroup" }, { type: "azure-native:cdn/v20191231:OriginGroup" }, { type: "azure-native:cdn/v20200331:OriginGroup" }, { type: "azure-native:cdn/v20200415:OriginGroup" }, { type: "azure-native:cdn/v20210601:OriginGroup" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(OriginGroup.__pulumiType, name, resourceInputs, opts);

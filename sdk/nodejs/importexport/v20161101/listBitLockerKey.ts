@@ -13,9 +13,7 @@ export function listBitLockerKey(args: ListBitLockerKeyArgs, opts?: pulumi.Invok
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:importexport/v20161101:listBitLockerKey", {
         "jobName": args.jobName,
         "resourceGroupName": args.resourceGroupName,

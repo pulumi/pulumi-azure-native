@@ -127,9 +127,7 @@ export class IpAllocation extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["virtualNetwork"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:network:IpAllocation" }, { type: "azure-native:network/v20200301:IpAllocation" }, { type: "azure-native:network/v20200401:IpAllocation" }, { type: "azure-native:network/v20200501:IpAllocation" }, { type: "azure-native:network/v20200701:IpAllocation" }, { type: "azure-native:network/v20200801:IpAllocation" }, { type: "azure-native:network/v20201101:IpAllocation" }, { type: "azure-native:network/v20210201:IpAllocation" }, { type: "azure-native:network/v20210301:IpAllocation" }, { type: "azure-native:network/v20210501:IpAllocation" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(IpAllocation.__pulumiType, name, resourceInputs, opts);

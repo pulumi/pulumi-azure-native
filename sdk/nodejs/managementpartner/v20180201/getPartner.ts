@@ -12,9 +12,7 @@ export function getPartner(args: GetPartnerArgs, opts?: pulumi.InvokeOptions): P
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:managementpartner/v20180201:getPartner", {
         "partnerId": args.partnerId,
     }, opts);

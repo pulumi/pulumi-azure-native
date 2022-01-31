@@ -80,9 +80,7 @@ export class WebAppAzureStorageAccounts extends pulumi.CustomResource {
             resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:web:WebAppAzureStorageAccounts" }, { type: "azure-native:web/v20180201:WebAppAzureStorageAccounts" }, { type: "azure-native:web/v20181101:WebAppAzureStorageAccounts" }, { type: "azure-native:web/v20190801:WebAppAzureStorageAccounts" }, { type: "azure-native:web/v20200601:WebAppAzureStorageAccounts" }, { type: "azure-native:web/v20200901:WebAppAzureStorageAccounts" }, { type: "azure-native:web/v20201001:WebAppAzureStorageAccounts" }, { type: "azure-native:web/v20201201:WebAppAzureStorageAccounts" }, { type: "azure-native:web/v20210115:WebAppAzureStorageAccounts" }, { type: "azure-native:web/v20210201:WebAppAzureStorageAccounts" }, { type: "azure-native:web/v20210301:WebAppAzureStorageAccounts" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WebAppAzureStorageAccounts.__pulumiType, name, resourceInputs, opts);

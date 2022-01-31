@@ -97,9 +97,7 @@ export class DataPool extends pulumi.CustomResource {
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:autonomousdevelopmentplatform:DataPool" }, { type: "azure-native:autonomousdevelopmentplatform/v20200701preview:DataPool" }, { type: "azure-native:autonomousdevelopmentplatform/v20211101preview:DataPool" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DataPool.__pulumiType, name, resourceInputs, opts);

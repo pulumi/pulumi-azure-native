@@ -13,9 +13,7 @@ export function getImage(args: GetImageArgs, opts?: pulumi.InvokeOptions): Promi
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:compute/v20170330:getImage", {
         "expand": args.expand,
         "imageName": args.imageName,

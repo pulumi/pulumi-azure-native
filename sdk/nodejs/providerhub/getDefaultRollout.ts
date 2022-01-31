@@ -14,9 +14,7 @@ export function getDefaultRollout(args: GetDefaultRolloutArgs, opts?: pulumi.Inv
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:providerhub:getDefaultRollout", {
         "providerNamespace": args.providerNamespace,
         "rolloutName": args.rolloutName,

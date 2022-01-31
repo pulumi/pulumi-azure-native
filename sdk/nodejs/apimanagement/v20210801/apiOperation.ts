@@ -131,9 +131,7 @@ export class ApiOperation extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["urlTemplate"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:ApiOperation" }, { type: "azure-native:apimanagement/v20160707:ApiOperation" }, { type: "azure-native:apimanagement/v20161010:ApiOperation" }, { type: "azure-native:apimanagement/v20170301:ApiOperation" }, { type: "azure-native:apimanagement/v20180101:ApiOperation" }, { type: "azure-native:apimanagement/v20180601preview:ApiOperation" }, { type: "azure-native:apimanagement/v20190101:ApiOperation" }, { type: "azure-native:apimanagement/v20191201:ApiOperation" }, { type: "azure-native:apimanagement/v20191201preview:ApiOperation" }, { type: "azure-native:apimanagement/v20200601preview:ApiOperation" }, { type: "azure-native:apimanagement/v20201201:ApiOperation" }, { type: "azure-native:apimanagement/v20210101preview:ApiOperation" }, { type: "azure-native:apimanagement/v20210401preview:ApiOperation" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ApiOperation.__pulumiType, name, resourceInputs, opts);

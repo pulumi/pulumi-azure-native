@@ -13,9 +13,7 @@ export function getConfigurationProfile(args: GetConfigurationProfileArgs, opts?
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:changeanalysis/v20200401preview:getConfigurationProfile", {
         "profileName": args.profileName,
     }, opts);

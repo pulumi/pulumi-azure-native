@@ -13,9 +13,7 @@ export function getRemoteRenderingAccount(args: GetRemoteRenderingAccountArgs, o
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:mixedreality/v20210101:getRemoteRenderingAccount", {
         "accountName": args.accountName,
         "resourceGroupName": args.resourceGroupName,

@@ -12,9 +12,7 @@ export function getGlobalReachConnection(args: GetGlobalReachConnectionArgs, opt
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:avs/v20211201:getGlobalReachConnection", {
         "globalReachConnectionName": args.globalReachConnectionName,
         "privateCloudName": args.privateCloudName,

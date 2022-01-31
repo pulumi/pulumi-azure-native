@@ -95,9 +95,7 @@ export class GremlinResourceGremlinGraph extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:documentdb:GremlinResourceGremlinGraph" }, { type: "azure-native:documentdb/v20150401:GremlinResourceGremlinGraph" }, { type: "azure-native:documentdb/v20150408:GremlinResourceGremlinGraph" }, { type: "azure-native:documentdb/v20151106:GremlinResourceGremlinGraph" }, { type: "azure-native:documentdb/v20160319:GremlinResourceGremlinGraph" }, { type: "azure-native:documentdb/v20160331:GremlinResourceGremlinGraph" }, { type: "azure-native:documentdb/v20190801:GremlinResourceGremlinGraph" }, { type: "azure-native:documentdb/v20191212:GremlinResourceGremlinGraph" }, { type: "azure-native:documentdb/v20200301:GremlinResourceGremlinGraph" }, { type: "azure-native:documentdb/v20200401:GremlinResourceGremlinGraph" }, { type: "azure-native:documentdb/v20200601preview:GremlinResourceGremlinGraph" }, { type: "azure-native:documentdb/v20200901:GremlinResourceGremlinGraph" }, { type: "azure-native:documentdb/v20210115:GremlinResourceGremlinGraph" }, { type: "azure-native:documentdb/v20210301preview:GremlinResourceGremlinGraph" }, { type: "azure-native:documentdb/v20210315:GremlinResourceGremlinGraph" }, { type: "azure-native:documentdb/v20210401preview:GremlinResourceGremlinGraph" }, { type: "azure-native:documentdb/v20210415:GremlinResourceGremlinGraph" }, { type: "azure-native:documentdb/v20210615:GremlinResourceGremlinGraph" }, { type: "azure-native:documentdb/v20210701preview:GremlinResourceGremlinGraph" }, { type: "azure-native:documentdb/v20211015:GremlinResourceGremlinGraph" }, { type: "azure-native:documentdb/v20211015preview:GremlinResourceGremlinGraph" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(GremlinResourceGremlinGraph.__pulumiType, name, resourceInputs, opts);

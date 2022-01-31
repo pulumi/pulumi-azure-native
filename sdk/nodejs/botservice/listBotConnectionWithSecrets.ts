@@ -14,9 +14,7 @@ export function listBotConnectionWithSecrets(args: ListBotConnectionWithSecretsA
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:botservice:listBotConnectionWithSecrets", {
         "connectionName": args.connectionName,
         "resourceGroupName": args.resourceGroupName,

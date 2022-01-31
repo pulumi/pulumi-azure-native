@@ -13,9 +13,7 @@ export function getRoleAssignmentArtifact(args: GetRoleAssignmentArtifactArgs, o
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:blueprint:getRoleAssignmentArtifact", {
         "artifactName": args.artifactName,
         "blueprintName": args.blueprintName,

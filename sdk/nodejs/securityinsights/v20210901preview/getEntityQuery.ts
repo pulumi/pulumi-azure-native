@@ -15,9 +15,7 @@ export function getEntityQuery(args: GetEntityQueryArgs, opts?: pulumi.InvokeOpt
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:securityinsights/v20210901preview:getEntityQuery", {
         "entityQueryId": args.entityQueryId,
         "resourceGroupName": args.resourceGroupName,

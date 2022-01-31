@@ -13,9 +13,7 @@ export function getGremlinResourceGremlinDatabase(args: GetGremlinResourceGremli
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:documentdb/v20211015:getGremlinResourceGremlinDatabase", {
         "accountName": args.accountName,
         "databaseName": args.databaseName,

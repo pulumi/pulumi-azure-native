@@ -107,9 +107,7 @@ export class EmailTemplate extends pulumi.CustomResource {
             resourceInputs["title"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:apimanagement/v20170301:EmailTemplate" }, { type: "azure-native:apimanagement/v20180101:EmailTemplate" }, { type: "azure-native:apimanagement/v20180601preview:EmailTemplate" }, { type: "azure-native:apimanagement/v20190101:EmailTemplate" }, { type: "azure-native:apimanagement/v20191201:EmailTemplate" }, { type: "azure-native:apimanagement/v20191201preview:EmailTemplate" }, { type: "azure-native:apimanagement/v20200601preview:EmailTemplate" }, { type: "azure-native:apimanagement/v20201201:EmailTemplate" }, { type: "azure-native:apimanagement/v20210101preview:EmailTemplate" }, { type: "azure-native:apimanagement/v20210401preview:EmailTemplate" }, { type: "azure-native:apimanagement/v20210801:EmailTemplate" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(EmailTemplate.__pulumiType, name, resourceInputs, opts);

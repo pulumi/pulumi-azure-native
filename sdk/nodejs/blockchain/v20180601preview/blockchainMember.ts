@@ -168,9 +168,7 @@ export class BlockchainMember extends pulumi.CustomResource {
             resourceInputs["userName"] = undefined /*out*/;
             resourceInputs["validatorNodesSku"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:blockchain:BlockchainMember" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(BlockchainMember.__pulumiType, name, resourceInputs, opts);

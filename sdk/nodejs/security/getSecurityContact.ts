@@ -14,9 +14,7 @@ export function getSecurityContact(args: GetSecurityContactArgs, opts?: pulumi.I
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:security:getSecurityContact", {
         "securityContactName": args.securityContactName,
     }, opts);

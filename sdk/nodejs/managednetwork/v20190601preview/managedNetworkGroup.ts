@@ -118,9 +118,7 @@ export class ManagedNetworkGroup extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["virtualNetworks"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:managednetwork:ManagedNetworkGroup" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ManagedNetworkGroup.__pulumiType, name, resourceInputs, opts);

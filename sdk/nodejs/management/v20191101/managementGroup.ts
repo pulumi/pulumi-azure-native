@@ -98,9 +98,7 @@ export class ManagementGroup extends pulumi.CustomResource {
             resourceInputs["tenantId"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:management:ManagementGroup" }, { type: "azure-native:management/v20171101preview:ManagementGroup" }, { type: "azure-native:management/v20180101preview:ManagementGroup" }, { type: "azure-native:management/v20180301preview:ManagementGroup" }, { type: "azure-native:management/v20200201:ManagementGroup" }, { type: "azure-native:management/v20200501:ManagementGroup" }, { type: "azure-native:management/v20201001:ManagementGroup" }, { type: "azure-native:management/v20210401:ManagementGroup" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ManagementGroup.__pulumiType, name, resourceInputs, opts);

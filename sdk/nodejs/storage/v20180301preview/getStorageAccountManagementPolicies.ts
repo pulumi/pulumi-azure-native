@@ -12,9 +12,7 @@ export function getStorageAccountManagementPolicies(args: GetStorageAccountManag
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:storage/v20180301preview:getStorageAccountManagementPolicies", {
         "accountName": args.accountName,
         "managementPolicyName": args.managementPolicyName,

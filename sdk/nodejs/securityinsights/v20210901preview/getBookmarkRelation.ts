@@ -13,9 +13,7 @@ export function getBookmarkRelation(args: GetBookmarkRelationArgs, opts?: pulumi
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:securityinsights/v20210901preview:getBookmarkRelation", {
         "bookmarkId": args.bookmarkId,
         "relationName": args.relationName,

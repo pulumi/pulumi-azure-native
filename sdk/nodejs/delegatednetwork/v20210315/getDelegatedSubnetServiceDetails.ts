@@ -13,9 +13,7 @@ export function getDelegatedSubnetServiceDetails(args: GetDelegatedSubnetService
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:delegatednetwork/v20210315:getDelegatedSubnetServiceDetails", {
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,

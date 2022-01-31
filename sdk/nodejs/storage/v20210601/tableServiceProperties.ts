@@ -76,9 +76,7 @@ export class TableServiceProperties extends pulumi.CustomResource {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:storage:TableServiceProperties" }, { type: "azure-native:storage/v20190601:TableServiceProperties" }, { type: "azure-native:storage/v20200801preview:TableServiceProperties" }, { type: "azure-native:storage/v20210101:TableServiceProperties" }, { type: "azure-native:storage/v20210201:TableServiceProperties" }, { type: "azure-native:storage/v20210401:TableServiceProperties" }, { type: "azure-native:storage/v20210801:TableServiceProperties" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(TableServiceProperties.__pulumiType, name, resourceInputs, opts);

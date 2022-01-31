@@ -13,9 +13,7 @@ export function listSiteConnectionStringsSlot(args: ListSiteConnectionStringsSlo
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:web/v20150801:listSiteConnectionStringsSlot", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

@@ -13,9 +13,7 @@ export function getSqlResourceSqlStoredProcedure(args: GetSqlResourceSqlStoredPr
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:documentdb/v20210115:getSqlResourceSqlStoredProcedure", {
         "accountName": args.accountName,
         "containerName": args.containerName,

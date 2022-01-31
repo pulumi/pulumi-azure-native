@@ -12,9 +12,7 @@ export function getWebAppHybridConnectionSlot(args: GetWebAppHybridConnectionSlo
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:web/v20210115:getWebAppHybridConnectionSlot", {
         "name": args.name,
         "namespaceName": args.namespaceName,

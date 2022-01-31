@@ -118,9 +118,7 @@ export class KustoClusterDataSet extends pulumi.CustomResource {
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:datashare/v20181101preview:KustoClusterDataSet" }, { type: "azure-native:datashare/v20191101:KustoClusterDataSet" }, { type: "azure-native:datashare/v20200901:KustoClusterDataSet" }, { type: "azure-native:datashare/v20201001preview:KustoClusterDataSet" }, { type: "azure-native:datashare/v20210801:KustoClusterDataSet" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(KustoClusterDataSet.__pulumiType, name, resourceInputs, opts);

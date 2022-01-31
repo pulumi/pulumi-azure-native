@@ -144,9 +144,7 @@ export class SmartDetectorAlertRule extends pulumi.CustomResource {
             resourceInputs["throttling"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:alertsmanagement:SmartDetectorAlertRule" }, { type: "azure-native:alertsmanagement/v20190301:SmartDetectorAlertRule" }, { type: "azure-native:alertsmanagement/v20210401:SmartDetectorAlertRule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SmartDetectorAlertRule.__pulumiType, name, resourceInputs, opts);

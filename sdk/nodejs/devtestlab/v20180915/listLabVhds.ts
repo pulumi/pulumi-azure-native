@@ -13,9 +13,7 @@ export function listLabVhds(args: ListLabVhdsArgs, opts?: pulumi.InvokeOptions):
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:devtestlab/v20180915:listLabVhds", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

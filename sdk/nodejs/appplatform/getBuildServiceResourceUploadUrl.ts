@@ -13,9 +13,7 @@ export function getBuildServiceResourceUploadUrl(args: GetBuildServiceResourceUp
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:appplatform:getBuildServiceResourceUploadUrl", {
         "buildServiceName": args.buildServiceName,
         "resourceGroupName": args.resourceGroupName,

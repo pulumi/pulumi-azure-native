@@ -88,9 +88,7 @@ export class PrivateEndpoint extends pulumi.CustomResource {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:streamanalytics:PrivateEndpoint" }, { type: "azure-native:streamanalytics/v20200301preview:PrivateEndpoint" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PrivateEndpoint.__pulumiType, name, resourceInputs, opts);

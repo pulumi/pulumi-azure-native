@@ -13,9 +13,7 @@ export function getVirtualNetworkResource(args: GetVirtualNetworkResourceArgs, o
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:devtestlab/v20150521preview:getVirtualNetworkResource", {
         "labName": args.labName,
         "name": args.name,

@@ -114,9 +114,7 @@ export class Zone extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["zoneType"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:network:Zone" }, { type: "azure-native:network/v20150504preview:Zone" }, { type: "azure-native:network/v20160401:Zone" }, { type: "azure-native:network/v20171001:Zone" }, { type: "azure-native:network/v20180301preview:Zone" }, { type: "azure-native:network/v20180501:Zone" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Zone.__pulumiType, name, resourceInputs, opts);

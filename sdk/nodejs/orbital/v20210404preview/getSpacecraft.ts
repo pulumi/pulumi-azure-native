@@ -13,9 +13,7 @@ export function getSpacecraft(args: GetSpacecraftArgs, opts?: pulumi.InvokeOptio
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:orbital/v20210404preview:getSpacecraft", {
         "resourceGroupName": args.resourceGroupName,
         "spacecraftName": args.spacecraftName,

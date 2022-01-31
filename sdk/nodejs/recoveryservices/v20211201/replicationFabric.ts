@@ -82,9 +82,7 @@ export class ReplicationFabric extends pulumi.CustomResource {
             resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:recoveryservices:ReplicationFabric" }, { type: "azure-native:recoveryservices/v20160810:ReplicationFabric" }, { type: "azure-native:recoveryservices/v20180110:ReplicationFabric" }, { type: "azure-native:recoveryservices/v20180710:ReplicationFabric" }, { type: "azure-native:recoveryservices/v20210210:ReplicationFabric" }, { type: "azure-native:recoveryservices/v20210301:ReplicationFabric" }, { type: "azure-native:recoveryservices/v20210401:ReplicationFabric" }, { type: "azure-native:recoveryservices/v20210601:ReplicationFabric" }, { type: "azure-native:recoveryservices/v20210701:ReplicationFabric" }, { type: "azure-native:recoveryservices/v20210801:ReplicationFabric" }, { type: "azure-native:recoveryservices/v20211001:ReplicationFabric" }, { type: "azure-native:recoveryservices/v20211101:ReplicationFabric" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ReplicationFabric.__pulumiType, name, resourceInputs, opts);

@@ -121,9 +121,7 @@ export class RoleAssignmentArtifact extends pulumi.CustomResource {
             resourceInputs["roleDefinitionId"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(RoleAssignmentArtifact.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -70,9 +70,7 @@ export class Skus extends pulumi.CustomResource {
             resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:providerhub:Skus" }, { type: "azure-native:providerhub/v20210501preview:Skus" }, { type: "azure-native:providerhub/v20210601preview:Skus" }, { type: "azure-native:providerhub/v20210901preview:Skus" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Skus.__pulumiType, name, resourceInputs, opts);

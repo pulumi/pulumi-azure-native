@@ -14,9 +14,7 @@ export function getAssetFilter(args: GetAssetFilterArgs, opts?: pulumi.InvokeOpt
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:media:getAssetFilter", {
         "accountName": args.accountName,
         "assetName": args.assetName,

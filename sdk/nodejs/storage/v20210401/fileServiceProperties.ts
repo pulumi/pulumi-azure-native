@@ -94,9 +94,7 @@ export class FileServiceProperties extends pulumi.CustomResource {
             resourceInputs["sku"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:storage:FileServiceProperties" }, { type: "azure-native:storage/v20190401:FileServiceProperties" }, { type: "azure-native:storage/v20190601:FileServiceProperties" }, { type: "azure-native:storage/v20200801preview:FileServiceProperties" }, { type: "azure-native:storage/v20210101:FileServiceProperties" }, { type: "azure-native:storage/v20210201:FileServiceProperties" }, { type: "azure-native:storage/v20210601:FileServiceProperties" }, { type: "azure-native:storage/v20210801:FileServiceProperties" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(FileServiceProperties.__pulumiType, name, resourceInputs, opts);

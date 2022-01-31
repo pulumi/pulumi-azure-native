@@ -82,9 +82,7 @@ export class FirewallRule extends pulumi.CustomResource {
             resourceInputs["startIpAddress"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:sql/v20140401:FirewallRule" }, { type: "azure-native:sql/v20150501preview:FirewallRule" }, { type: "azure-native:sql/v20200202preview:FirewallRule" }, { type: "azure-native:sql/v20200801preview:FirewallRule" }, { type: "azure-native:sql/v20201101preview:FirewallRule" }, { type: "azure-native:sql/v20210201preview:FirewallRule" }, { type: "azure-native:sql/v20210501preview:FirewallRule" }, { type: "azure-native:sql/v20210801preview:FirewallRule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(FirewallRule.__pulumiType, name, resourceInputs, opts);

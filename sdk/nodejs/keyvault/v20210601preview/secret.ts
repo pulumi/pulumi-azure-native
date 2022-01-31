@@ -91,9 +91,7 @@ export class Secret extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:keyvault:Secret" }, { type: "azure-native:keyvault/v20161001:Secret" }, { type: "azure-native:keyvault/v20180214:Secret" }, { type: "azure-native:keyvault/v20180214preview:Secret" }, { type: "azure-native:keyvault/v20190901:Secret" }, { type: "azure-native:keyvault/v20200401preview:Secret" }, { type: "azure-native:keyvault/v20210401preview:Secret" }, { type: "azure-native:keyvault/v20211001:Secret" }, { type: "azure-native:keyvault/v20211101preview:Secret" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Secret.__pulumiType, name, resourceInputs, opts);

@@ -12,9 +12,7 @@ export function listIotDpsResourceKeysForKeyName(args: ListIotDpsResourceKeysFor
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:devices/v20200101:listIotDpsResourceKeysForKeyName", {
         "keyName": args.keyName,
         "provisioningServiceName": args.provisioningServiceName,

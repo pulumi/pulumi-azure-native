@@ -98,9 +98,7 @@ export class WebAppRelayServiceConnectionSlot extends pulumi.CustomResource {
             resourceInputs["resourceType"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:web:WebAppRelayServiceConnectionSlot" }, { type: "azure-native:web/v20150801:WebAppRelayServiceConnectionSlot" }, { type: "azure-native:web/v20160801:WebAppRelayServiceConnectionSlot" }, { type: "azure-native:web/v20180201:WebAppRelayServiceConnectionSlot" }, { type: "azure-native:web/v20181101:WebAppRelayServiceConnectionSlot" }, { type: "azure-native:web/v20190801:WebAppRelayServiceConnectionSlot" }, { type: "azure-native:web/v20200601:WebAppRelayServiceConnectionSlot" }, { type: "azure-native:web/v20200901:WebAppRelayServiceConnectionSlot" }, { type: "azure-native:web/v20201001:WebAppRelayServiceConnectionSlot" }, { type: "azure-native:web/v20201201:WebAppRelayServiceConnectionSlot" }, { type: "azure-native:web/v20210115:WebAppRelayServiceConnectionSlot" }, { type: "azure-native:web/v20210201:WebAppRelayServiceConnectionSlot" }, { type: "azure-native:web/v20210301:WebAppRelayServiceConnectionSlot" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WebAppRelayServiceConnectionSlot.__pulumiType, name, resourceInputs, opts);

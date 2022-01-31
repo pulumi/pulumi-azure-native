@@ -13,9 +13,7 @@ export function getDomainOwnershipIdentifier(args: GetDomainOwnershipIdentifierA
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:domainregistration/v20201001:getDomainOwnershipIdentifier", {
         "domainName": args.domainName,
         "name": args.name,

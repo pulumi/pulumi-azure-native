@@ -94,9 +94,7 @@ export class Addon extends pulumi.CustomResource {
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:databoxedge:Addon" }, { type: "azure-native:databoxedge/v20200901:Addon" }, { type: "azure-native:databoxedge/v20200901preview:Addon" }, { type: "azure-native:databoxedge/v20201201:Addon" }, { type: "azure-native:databoxedge/v20210201:Addon" }, { type: "azure-native:databoxedge/v20210201preview:Addon" }, { type: "azure-native:databoxedge/v20210601preview:Addon" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Addon.__pulumiType, name, resourceInputs, opts);

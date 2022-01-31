@@ -14,9 +14,7 @@ export function getEventHubDataConnection(args: GetEventHubDataConnectionArgs, o
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:synapse:getEventHubDataConnection", {
         "dataConnectionName": args.dataConnectionName,
         "databaseName": args.databaseName,

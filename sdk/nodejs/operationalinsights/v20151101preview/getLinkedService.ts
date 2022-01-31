@@ -12,9 +12,7 @@ export function getLinkedService(args: GetLinkedServiceArgs, opts?: pulumi.Invok
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:operationalinsights/v20151101preview:getLinkedService", {
         "linkedServiceName": args.linkedServiceName,
         "resourceGroupName": args.resourceGroupName,

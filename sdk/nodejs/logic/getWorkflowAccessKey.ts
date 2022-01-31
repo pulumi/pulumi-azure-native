@@ -12,9 +12,7 @@ export function getWorkflowAccessKey(args: GetWorkflowAccessKeyArgs, opts?: pulu
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:logic:getWorkflowAccessKey", {
         "accessKeyName": args.accessKeyName,
         "resourceGroupName": args.resourceGroupName,

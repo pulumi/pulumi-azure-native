@@ -16,9 +16,7 @@ export function getDeploymentScript(args: GetDeploymentScriptArgs, opts?: pulumi
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:resources:getDeploymentScript", {
         "resourceGroupName": args.resourceGroupName,
         "scriptName": args.scriptName,

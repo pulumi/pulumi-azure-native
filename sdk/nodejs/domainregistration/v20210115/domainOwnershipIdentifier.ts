@@ -80,9 +80,7 @@ export class DomainOwnershipIdentifier extends pulumi.CustomResource {
             resourceInputs["ownershipId"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:domainregistration:DomainOwnershipIdentifier" }, { type: "azure-native:domainregistration/v20150401:DomainOwnershipIdentifier" }, { type: "azure-native:domainregistration/v20180201:DomainOwnershipIdentifier" }, { type: "azure-native:domainregistration/v20190801:DomainOwnershipIdentifier" }, { type: "azure-native:domainregistration/v20200601:DomainOwnershipIdentifier" }, { type: "azure-native:domainregistration/v20200901:DomainOwnershipIdentifier" }, { type: "azure-native:domainregistration/v20201001:DomainOwnershipIdentifier" }, { type: "azure-native:domainregistration/v20201201:DomainOwnershipIdentifier" }, { type: "azure-native:domainregistration/v20210101:DomainOwnershipIdentifier" }, { type: "azure-native:domainregistration/v20210201:DomainOwnershipIdentifier" }, { type: "azure-native:domainregistration/v20210301:DomainOwnershipIdentifier" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DomainOwnershipIdentifier.__pulumiType, name, resourceInputs, opts);

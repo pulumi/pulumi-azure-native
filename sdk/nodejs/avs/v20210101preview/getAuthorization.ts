@@ -12,9 +12,7 @@ export function getAuthorization(args: GetAuthorizationArgs, opts?: pulumi.Invok
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:avs/v20210101preview:getAuthorization", {
         "authorizationName": args.authorizationName,
         "privateCloudName": args.privateCloudName,

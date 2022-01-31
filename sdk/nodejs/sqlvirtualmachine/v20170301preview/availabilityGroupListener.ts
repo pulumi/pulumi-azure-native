@@ -100,9 +100,7 @@ export class AvailabilityGroupListener extends pulumi.CustomResource {
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:sqlvirtualmachine:AvailabilityGroupListener" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AvailabilityGroupListener.__pulumiType, name, resourceInputs, opts);

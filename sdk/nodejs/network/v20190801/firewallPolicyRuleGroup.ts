@@ -95,9 +95,7 @@ export class FirewallPolicyRuleGroup extends pulumi.CustomResource {
             resourceInputs["rules"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:network:FirewallPolicyRuleGroup" }, { type: "azure-native:network/v20190601:FirewallPolicyRuleGroup" }, { type: "azure-native:network/v20190701:FirewallPolicyRuleGroup" }, { type: "azure-native:network/v20190901:FirewallPolicyRuleGroup" }, { type: "azure-native:network/v20191101:FirewallPolicyRuleGroup" }, { type: "azure-native:network/v20191201:FirewallPolicyRuleGroup" }, { type: "azure-native:network/v20200301:FirewallPolicyRuleGroup" }, { type: "azure-native:network/v20200401:FirewallPolicyRuleGroup" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(FirewallPolicyRuleGroup.__pulumiType, name, resourceInputs, opts);

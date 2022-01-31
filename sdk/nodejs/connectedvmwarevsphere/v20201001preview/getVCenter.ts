@@ -13,9 +13,7 @@ export function getVCenter(args: GetVCenterArgs, opts?: pulumi.InvokeOptions): P
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:connectedvmwarevsphere/v20201001preview:getVCenter", {
         "resourceGroupName": args.resourceGroupName,
         "vcenterName": args.vcenterName,

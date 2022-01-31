@@ -13,9 +13,7 @@ export function getAvailabilitySet(args: GetAvailabilitySetArgs, opts?: pulumi.I
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:compute/v20181001:getAvailabilitySet", {
         "availabilitySetName": args.availabilitySetName,
         "resourceGroupName": args.resourceGroupName,

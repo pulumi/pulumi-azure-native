@@ -14,9 +14,7 @@ export function getNetworkInterfaceTapConfiguration(args: GetNetworkInterfaceTap
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:network:getNetworkInterfaceTapConfiguration", {
         "networkInterfaceName": args.networkInterfaceName,
         "resourceGroupName": args.resourceGroupName,

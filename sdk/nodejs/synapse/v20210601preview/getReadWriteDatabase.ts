@@ -13,9 +13,7 @@ export function getReadWriteDatabase(args: GetReadWriteDatabaseArgs, opts?: pulu
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:synapse/v20210601preview:getReadWriteDatabase", {
         "databaseName": args.databaseName,
         "kustoPoolName": args.kustoPoolName,

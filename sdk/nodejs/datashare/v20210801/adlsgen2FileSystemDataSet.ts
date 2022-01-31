@@ -132,9 +132,7 @@ export class ADLSGen2FileSystemDataSet extends pulumi.CustomResource {
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:datashare:ADLSGen2FileSystemDataSet" }, { type: "azure-native:datashare/v20181101preview:ADLSGen2FileSystemDataSet" }, { type: "azure-native:datashare/v20191101:ADLSGen2FileSystemDataSet" }, { type: "azure-native:datashare/v20200901:ADLSGen2FileSystemDataSet" }, { type: "azure-native:datashare/v20201001preview:ADLSGen2FileSystemDataSet" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ADLSGen2FileSystemDataSet.__pulumiType, name, resourceInputs, opts);

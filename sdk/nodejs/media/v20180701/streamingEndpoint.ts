@@ -182,9 +182,7 @@ export class StreamingEndpoint extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:media:StreamingEndpoint" }, { type: "azure-native:media/v20180330preview:StreamingEndpoint" }, { type: "azure-native:media/v20180601preview:StreamingEndpoint" }, { type: "azure-native:media/v20190501preview:StreamingEndpoint" }, { type: "azure-native:media/v20200501:StreamingEndpoint" }, { type: "azure-native:media/v20210601:StreamingEndpoint" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(StreamingEndpoint.__pulumiType, name, resourceInputs, opts);

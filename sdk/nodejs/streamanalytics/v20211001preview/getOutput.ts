@@ -13,9 +13,7 @@ export function getOutput(args: GetOutputArgs, opts?: pulumi.InvokeOptions): Pro
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:streamanalytics/v20211001preview:getOutput", {
         "jobName": args.jobName,
         "outputName": args.outputName,

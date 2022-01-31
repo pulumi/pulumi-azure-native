@@ -12,9 +12,7 @@ export function getService(args: GetServiceArgs, opts?: pulumi.InvokeOptions): P
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:deploymentmanager/v20191101preview:getService", {
         "resourceGroupName": args.resourceGroupName,
         "serviceName": args.serviceName,

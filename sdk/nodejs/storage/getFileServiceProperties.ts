@@ -14,9 +14,7 @@ export function getFileServiceProperties(args: GetFileServicePropertiesArgs, opt
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:storage:getFileServiceProperties", {
         "accountName": args.accountName,
         "fileServicesName": args.fileServicesName,

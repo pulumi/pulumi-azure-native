@@ -137,9 +137,7 @@ export class MLBehaviorAnalyticsAlertRule extends pulumi.CustomResource {
             resourceInputs["tactics"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:securityinsights:MLBehaviorAnalyticsAlertRule" }, { type: "azure-native:securityinsights/v20200101:MLBehaviorAnalyticsAlertRule" }, { type: "azure-native:securityinsights/v20210301preview:MLBehaviorAnalyticsAlertRule" }, { type: "azure-native:securityinsights/v20210901preview:MLBehaviorAnalyticsAlertRule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(MLBehaviorAnalyticsAlertRule.__pulumiType, name, resourceInputs, opts);

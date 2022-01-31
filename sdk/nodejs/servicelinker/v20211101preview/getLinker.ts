@@ -13,9 +13,7 @@ export function getLinker(args: GetLinkerArgs, opts?: pulumi.InvokeOptions): Pro
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:servicelinker/v20211101preview:getLinker", {
         "linkerName": args.linkerName,
         "resourceUri": args.resourceUri,

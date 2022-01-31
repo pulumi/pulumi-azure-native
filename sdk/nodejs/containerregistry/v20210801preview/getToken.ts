@@ -13,9 +13,7 @@ export function getToken(args: GetTokenArgs, opts?: pulumi.InvokeOptions): Promi
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:containerregistry/v20210801preview:getToken", {
         "registryName": args.registryName,
         "resourceGroupName": args.resourceGroupName,

@@ -60,9 +60,7 @@ export class ConsoleWithLocation extends pulumi.CustomResource {
         } else {
             resourceInputs["properties"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:portal:ConsoleWithLocation" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ConsoleWithLocation.__pulumiType, name, resourceInputs, opts);

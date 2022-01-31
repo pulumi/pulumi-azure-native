@@ -13,9 +13,7 @@ export function getGen2Environment(args: GetGen2EnvironmentArgs, opts?: pulumi.I
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:timeseriesinsights/v20210331preview:getGen2Environment", {
         "environmentName": args.environmentName,
         "expand": args.expand,

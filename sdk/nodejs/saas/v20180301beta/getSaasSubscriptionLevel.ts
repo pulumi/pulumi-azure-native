@@ -13,9 +13,7 @@ export function getSaasSubscriptionLevel(args: GetSaasSubscriptionLevelArgs, opt
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:saas/v20180301beta:getSaasSubscriptionLevel", {
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,

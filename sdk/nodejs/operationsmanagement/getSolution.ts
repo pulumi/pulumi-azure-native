@@ -14,9 +14,7 @@ export function getSolution(args: GetSolutionArgs, opts?: pulumi.InvokeOptions):
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:operationsmanagement:getSolution", {
         "resourceGroupName": args.resourceGroupName,
         "solutionName": args.solutionName,

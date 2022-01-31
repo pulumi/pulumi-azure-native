@@ -13,9 +13,7 @@ export function listMonitorHosts(args: ListMonitorHostsArgs, opts?: pulumi.Invok
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:datadog/v20200201preview:listMonitorHosts", {
         "monitorName": args.monitorName,
         "resourceGroupName": args.resourceGroupName,

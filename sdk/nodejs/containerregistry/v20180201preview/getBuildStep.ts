@@ -13,9 +13,7 @@ export function getBuildStep(args: GetBuildStepArgs, opts?: pulumi.InvokeOptions
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:containerregistry/v20180201preview:getBuildStep", {
         "buildTaskName": args.buildTaskName,
         "registryName": args.registryName,

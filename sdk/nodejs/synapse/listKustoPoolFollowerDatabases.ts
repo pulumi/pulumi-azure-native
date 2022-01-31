@@ -14,9 +14,7 @@ export function listKustoPoolFollowerDatabases(args: ListKustoPoolFollowerDataba
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:synapse:listKustoPoolFollowerDatabases", {
         "kustoPoolName": args.kustoPoolName,
         "resourceGroupName": args.resourceGroupName,

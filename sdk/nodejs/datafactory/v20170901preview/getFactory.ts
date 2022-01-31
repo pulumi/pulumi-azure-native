@@ -13,9 +13,7 @@ export function getFactory(args: GetFactoryArgs, opts?: pulumi.InvokeOptions): P
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:datafactory/v20170901preview:getFactory", {
         "factoryName": args.factoryName,
         "resourceGroupName": args.resourceGroupName,

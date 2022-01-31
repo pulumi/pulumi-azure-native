@@ -14,9 +14,7 @@ export function getEntity(args?: GetEntityArgs, opts?: pulumi.InvokeOptions): Pr
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:management/v20210401:getEntity", {
         "filter": args.filter,
         "groupName": args.groupName,

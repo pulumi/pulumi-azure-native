@@ -85,9 +85,7 @@ export class ActionRuleByName extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:alertsmanagement/v20181102privatepreview:ActionRuleByName" }, { type: "azure-native:alertsmanagement/v20190505preview:ActionRuleByName" }, { type: "azure-native:alertsmanagement/v20210808:ActionRuleByName" }, { type: "azure-native:alertsmanagement/v20210808preview:ActionRuleByName" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ActionRuleByName.__pulumiType, name, resourceInputs, opts);

@@ -12,9 +12,7 @@ export function getBuildServiceBuildResultLog(args: GetBuildServiceBuildResultLo
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:appplatform/v20220101preview:getBuildServiceBuildResultLog", {
         "buildName": args.buildName,
         "buildResultName": args.buildResultName,

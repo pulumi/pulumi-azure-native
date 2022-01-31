@@ -10,9 +10,7 @@ export function getSkusNestedResourceTypeFirst(args: GetSkusNestedResourceTypeFi
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:providerhub/v20210501preview:getSkusNestedResourceTypeFirst", {
         "nestedResourceTypeFirst": args.nestedResourceTypeFirst,
         "providerNamespace": args.providerNamespace,

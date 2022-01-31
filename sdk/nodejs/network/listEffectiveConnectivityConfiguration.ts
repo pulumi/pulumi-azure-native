@@ -14,9 +14,7 @@ export function listEffectiveConnectivityConfiguration(args: ListEffectiveConnec
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:network:listEffectiveConnectivityConfiguration", {
         "resourceGroupName": args.resourceGroupName,
         "skipToken": args.skipToken,

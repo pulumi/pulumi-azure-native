@@ -13,9 +13,7 @@ export function getProfile(args: GetProfileArgs, opts?: pulumi.InvokeOptions): P
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:customerinsights/v20170101:getProfile", {
         "hubName": args.hubName,
         "localeCode": args.localeCode,

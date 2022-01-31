@@ -118,9 +118,7 @@ export class SnapshotPolicy extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["weeklySchedule"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:netapp:SnapshotPolicy" }, { type: "azure-native:netapp/v20200501:SnapshotPolicy" }, { type: "azure-native:netapp/v20200601:SnapshotPolicy" }, { type: "azure-native:netapp/v20200701:SnapshotPolicy" }, { type: "azure-native:netapp/v20200901:SnapshotPolicy" }, { type: "azure-native:netapp/v20201101:SnapshotPolicy" }, { type: "azure-native:netapp/v20201201:SnapshotPolicy" }, { type: "azure-native:netapp/v20210201:SnapshotPolicy" }, { type: "azure-native:netapp/v20210401:SnapshotPolicy" }, { type: "azure-native:netapp/v20210401preview:SnapshotPolicy" }, { type: "azure-native:netapp/v20210601:SnapshotPolicy" }, { type: "azure-native:netapp/v20210801:SnapshotPolicy" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SnapshotPolicy.__pulumiType, name, resourceInputs, opts);

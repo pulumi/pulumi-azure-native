@@ -13,9 +13,7 @@ export function getSqlResourceSqlContainer(args: GetSqlResourceSqlContainerArgs,
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:documentdb/v20211015:getSqlResourceSqlContainer", {
         "accountName": args.accountName,
         "containerName": args.containerName,

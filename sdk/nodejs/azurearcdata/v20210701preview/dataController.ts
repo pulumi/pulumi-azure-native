@@ -99,9 +99,7 @@ export class DataController extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:azurearcdata:DataController" }, { type: "azure-native:azurearcdata/v20210601preview:DataController" }, { type: "azure-native:azurearcdata/v20210801:DataController" }, { type: "azure-native:azurearcdata/v20211101:DataController" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DataController.__pulumiType, name, resourceInputs, opts);

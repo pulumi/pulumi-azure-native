@@ -13,9 +13,7 @@ export function getCassandraResourceCassandraKeyspace(args: GetCassandraResource
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:documentdb/v20211015preview:getCassandraResourceCassandraKeyspace", {
         "accountName": args.accountName,
         "keyspaceName": args.keyspaceName,

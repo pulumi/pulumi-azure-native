@@ -92,9 +92,7 @@ export class ConsumerGroup extends pulumi.CustomResource {
             resourceInputs["updatedAt"] = undefined /*out*/;
             resourceInputs["userMetadata"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:eventhub/v20140901:ConsumerGroup" }, { type: "azure-native:eventhub/v20150801:ConsumerGroup" }, { type: "azure-native:eventhub/v20170401:ConsumerGroup" }, { type: "azure-native:eventhub/v20180101preview:ConsumerGroup" }, { type: "azure-native:eventhub/v20210101preview:ConsumerGroup" }, { type: "azure-native:eventhub/v20210601preview:ConsumerGroup" }, { type: "azure-native:eventhub/v20211101:ConsumerGroup" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ConsumerGroup.__pulumiType, name, resourceInputs, opts);

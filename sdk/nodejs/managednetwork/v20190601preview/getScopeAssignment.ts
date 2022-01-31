@@ -12,9 +12,7 @@ export function getScopeAssignment(args: GetScopeAssignmentArgs, opts?: pulumi.I
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:managednetwork/v20190601preview:getScopeAssignment", {
         "scope": args.scope,
         "scopeAssignmentName": args.scopeAssignmentName,

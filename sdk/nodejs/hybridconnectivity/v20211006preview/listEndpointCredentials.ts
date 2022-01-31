@@ -12,9 +12,7 @@ export function listEndpointCredentials(args: ListEndpointCredentialsArgs, opts?
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:hybridconnectivity/v20211006preview:listEndpointCredentials", {
         "endpointName": args.endpointName,
         "expiresin": args.expiresin,

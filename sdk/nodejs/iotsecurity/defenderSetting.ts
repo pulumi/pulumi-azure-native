@@ -104,9 +104,7 @@ export class DefenderSetting extends pulumi.CustomResource {
             resourceInputs["sentinelWorkspaceResourceIds"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:iotsecurity/v20210201preview:DefenderSetting" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DefenderSetting.__pulumiType, name, resourceInputs, opts);

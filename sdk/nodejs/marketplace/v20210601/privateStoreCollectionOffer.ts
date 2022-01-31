@@ -141,9 +141,7 @@ export class PrivateStoreCollectionOffer extends pulumi.CustomResource {
             resourceInputs["uniqueOfferId"] = undefined /*out*/;
             resourceInputs["updateSuppressedDueIdempotence"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:marketplace:PrivateStoreCollectionOffer" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PrivateStoreCollectionOffer.__pulumiType, name, resourceInputs, opts);

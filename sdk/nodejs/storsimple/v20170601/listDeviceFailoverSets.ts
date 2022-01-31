@@ -13,9 +13,7 @@ export function listDeviceFailoverSets(args: ListDeviceFailoverSetsArgs, opts?: 
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:storsimple/v20170601:listDeviceFailoverSets", {
         "deviceName": args.deviceName,
         "managerName": args.managerName,

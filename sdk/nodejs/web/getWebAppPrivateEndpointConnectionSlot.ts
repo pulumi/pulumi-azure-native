@@ -14,9 +14,7 @@ export function getWebAppPrivateEndpointConnectionSlot(args: GetWebAppPrivateEnd
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:web:getWebAppPrivateEndpointConnectionSlot", {
         "name": args.name,
         "privateEndpointConnectionName": args.privateEndpointConnectionName,

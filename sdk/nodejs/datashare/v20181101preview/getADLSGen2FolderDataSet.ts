@@ -12,9 +12,7 @@ export function getADLSGen2FolderDataSet(args: GetADLSGen2FolderDataSetArgs, opt
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:datashare/v20181101preview:getADLSGen2FolderDataSet", {
         "accountName": args.accountName,
         "dataSetName": args.dataSetName,

@@ -12,9 +12,7 @@ export function listStorageAccountKeys(args: ListStorageAccountKeysArgs, opts?: 
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:storage/v20150501preview:listStorageAccountKeys", {
         "accountName": args.accountName,
         "resourceGroupName": args.resourceGroupName,

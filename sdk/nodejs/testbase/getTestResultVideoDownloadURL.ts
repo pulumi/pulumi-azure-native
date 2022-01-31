@@ -13,9 +13,7 @@ export function getTestResultVideoDownloadURL(args: GetTestResultVideoDownloadUR
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:testbase:getTestResultVideoDownloadURL", {
         "packageName": args.packageName,
         "resourceGroupName": args.resourceGroupName,

@@ -88,9 +88,7 @@ export class PrivateEndpointConnectionControllerPrivateEndpointConnection extend
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(PrivateEndpointConnectionControllerPrivateEndpointConnection.__pulumiType, name, resourceInputs, opts);
     }
 }

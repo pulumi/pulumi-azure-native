@@ -13,9 +13,7 @@ export function getResourceManagementPrivateLink(args: GetResourceManagementPriv
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:authorization:getResourceManagementPrivateLink", {
         "resourceGroupName": args.resourceGroupName,
         "rmplName": args.rmplName,

@@ -88,9 +88,7 @@ export class SqlResourceSqlRoleDefinition extends pulumi.CustomResource {
             resourceInputs["roleName"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:documentdb:SqlResourceSqlRoleDefinition" }, { type: "azure-native:documentdb/v20210301preview:SqlResourceSqlRoleDefinition" }, { type: "azure-native:documentdb/v20210401preview:SqlResourceSqlRoleDefinition" }, { type: "azure-native:documentdb/v20210415:SqlResourceSqlRoleDefinition" }, { type: "azure-native:documentdb/v20210515:SqlResourceSqlRoleDefinition" }, { type: "azure-native:documentdb/v20210615:SqlResourceSqlRoleDefinition" }, { type: "azure-native:documentdb/v20210701preview:SqlResourceSqlRoleDefinition" }, { type: "azure-native:documentdb/v20211015:SqlResourceSqlRoleDefinition" }, { type: "azure-native:documentdb/v20211015preview:SqlResourceSqlRoleDefinition" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SqlResourceSqlRoleDefinition.__pulumiType, name, resourceInputs, opts);

@@ -14,9 +14,7 @@ export function getObjectAnchorsAccount(args: GetObjectAnchorsAccountArgs, opts?
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:mixedreality:getObjectAnchorsAccount", {
         "accountName": args.accountName,
         "resourceGroupName": args.resourceGroupName,

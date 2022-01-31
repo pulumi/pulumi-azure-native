@@ -13,9 +13,7 @@ export function getLiveEvent(args: GetLiveEventArgs, opts?: pulumi.InvokeOptions
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:media/v20200501:getLiveEvent", {
         "accountName": args.accountName,
         "liveEventName": args.liveEventName,

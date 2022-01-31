@@ -13,9 +13,7 @@ export function getReplicationFabric(args: GetReplicationFabricArgs, opts?: pulu
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:recoveryservices/v20210601:getReplicationFabric", {
         "fabricName": args.fabricName,
         "filter": args.filter,

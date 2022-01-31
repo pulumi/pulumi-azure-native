@@ -13,9 +13,7 @@ export function getProductPolicy(args: GetProductPolicyArgs, opts?: pulumi.Invok
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:apimanagement:getProductPolicy", {
         "format": args.format,
         "policyId": args.policyId,

@@ -13,9 +13,7 @@ export function getSiteVNETConnection(args: GetSiteVNETConnectionArgs, opts?: pu
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:web/v20150801:getSiteVNETConnection", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

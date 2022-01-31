@@ -12,9 +12,7 @@ export function getMLBehaviorAnalyticsAlertRule(args: GetMLBehaviorAnalyticsAler
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:securityinsights/v20190101preview:getMLBehaviorAnalyticsAlertRule", {
         "operationalInsightsResourceProvider": args.operationalInsightsResourceProvider,
         "resourceGroupName": args.resourceGroupName,

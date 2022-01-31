@@ -13,9 +13,7 @@ export function getReplicationMigrationItem(args: GetReplicationMigrationItemArg
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:recoveryservices/v20210601:getReplicationMigrationItem", {
         "fabricName": args.fabricName,
         "migrationItemName": args.migrationItemName,

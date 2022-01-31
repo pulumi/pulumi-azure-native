@@ -268,9 +268,7 @@ export class HostingEnvironment extends pulumi.CustomResource {
             resourceInputs["vnetSubnetName"] = undefined /*out*/;
             resourceInputs["workerPools"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:web:HostingEnvironment" }, { type: "azure-native:web/v20160901:HostingEnvironment" }, { type: "azure-native:web/v20180201:HostingEnvironment" }, { type: "azure-native:web/v20190801:HostingEnvironment" }, { type: "azure-native:web/v20200601:HostingEnvironment" }, { type: "azure-native:web/v20200901:HostingEnvironment" }, { type: "azure-native:web/v20201001:HostingEnvironment" }, { type: "azure-native:web/v20201201:HostingEnvironment" }, { type: "azure-native:web/v20210101:HostingEnvironment" }, { type: "azure-native:web/v20210115:HostingEnvironment" }, { type: "azure-native:web/v20210201:HostingEnvironment" }, { type: "azure-native:web/v20210301:HostingEnvironment" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(HostingEnvironment.__pulumiType, name, resourceInputs, opts);

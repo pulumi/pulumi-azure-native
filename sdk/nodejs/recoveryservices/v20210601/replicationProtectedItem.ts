@@ -90,9 +90,7 @@ export class ReplicationProtectedItem extends pulumi.CustomResource {
             resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:recoveryservices:ReplicationProtectedItem" }, { type: "azure-native:recoveryservices/v20160810:ReplicationProtectedItem" }, { type: "azure-native:recoveryservices/v20180110:ReplicationProtectedItem" }, { type: "azure-native:recoveryservices/v20180710:ReplicationProtectedItem" }, { type: "azure-native:recoveryservices/v20210210:ReplicationProtectedItem" }, { type: "azure-native:recoveryservices/v20210301:ReplicationProtectedItem" }, { type: "azure-native:recoveryservices/v20210401:ReplicationProtectedItem" }, { type: "azure-native:recoveryservices/v20210701:ReplicationProtectedItem" }, { type: "azure-native:recoveryservices/v20210801:ReplicationProtectedItem" }, { type: "azure-native:recoveryservices/v20211001:ReplicationProtectedItem" }, { type: "azure-native:recoveryservices/v20211101:ReplicationProtectedItem" }, { type: "azure-native:recoveryservices/v20211201:ReplicationProtectedItem" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ReplicationProtectedItem.__pulumiType, name, resourceInputs, opts);

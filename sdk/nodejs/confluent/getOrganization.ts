@@ -14,9 +14,7 @@ export function getOrganization(args: GetOrganizationArgs, opts?: pulumi.InvokeO
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:confluent:getOrganization", {
         "organizationName": args.organizationName,
         "resourceGroupName": args.resourceGroupName,

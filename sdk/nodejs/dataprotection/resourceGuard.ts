@@ -102,9 +102,7 @@ export class ResourceGuard extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:dataprotection/v20210701:ResourceGuard" }, { type: "azure-native:dataprotection/v20211001preview:ResourceGuard" }, { type: "azure-native:dataprotection/v20211201preview:ResourceGuard" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ResourceGuard.__pulumiType, name, resourceInputs, opts);

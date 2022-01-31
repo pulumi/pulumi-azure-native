@@ -12,9 +12,7 @@ export function getExpressRouteCircuitAuthorization(args: GetExpressRouteCircuit
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:network/v20191101:getExpressRouteCircuitAuthorization", {
         "authorizationName": args.authorizationName,
         "circuitName": args.circuitName,

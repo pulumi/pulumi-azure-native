@@ -14,9 +14,7 @@ export function getPrivateEndpointConnection(args: GetPrivateEndpointConnectionA
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:servicebus:getPrivateEndpointConnection", {
         "namespaceName": args.namespaceName,
         "privateEndpointConnectionName": args.privateEndpointConnectionName,

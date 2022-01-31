@@ -13,9 +13,7 @@ export function listManagerActivationKey(args: ListManagerActivationKeyArgs, opt
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:storsimple:listManagerActivationKey", {
         "managerName": args.managerName,
         "resourceGroupName": args.resourceGroupName,

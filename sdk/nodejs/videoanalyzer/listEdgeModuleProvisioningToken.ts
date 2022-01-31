@@ -13,9 +13,7 @@ export function listEdgeModuleProvisioningToken(args: ListEdgeModuleProvisioning
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:videoanalyzer:listEdgeModuleProvisioningToken", {
         "accountName": args.accountName,
         "edgeModuleName": args.edgeModuleName,

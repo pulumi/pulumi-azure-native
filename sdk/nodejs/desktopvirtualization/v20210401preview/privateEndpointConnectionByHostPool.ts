@@ -97,9 +97,7 @@ export class PrivateEndpointConnectionByHostPool extends pulumi.CustomResource {
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:desktopvirtualization:PrivateEndpointConnectionByHostPool" }, { type: "azure-native:desktopvirtualization/v20210903preview:PrivateEndpointConnectionByHostPool" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PrivateEndpointConnectionByHostPool.__pulumiType, name, resourceInputs, opts);

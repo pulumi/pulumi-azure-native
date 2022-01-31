@@ -14,9 +14,7 @@ export function listStorageAccountSAS(args: ListStorageAccountSASArgs, opts?: pu
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:storage:listStorageAccountSAS", {
         "accountName": args.accountName,
         "iPAddressOrRange": args.iPAddressOrRange,

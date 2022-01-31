@@ -14,9 +14,7 @@ export function getNetworkManager(args: GetNetworkManagerArgs, opts?: pulumi.Inv
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:network:getNetworkManager", {
         "networkManagerName": args.networkManagerName,
         "resourceGroupName": args.resourceGroupName,

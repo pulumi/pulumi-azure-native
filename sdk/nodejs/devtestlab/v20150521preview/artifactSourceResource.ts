@@ -130,9 +130,7 @@ export class ArtifactSourceResource extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["uri"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:devtestlab:ArtifactSourceResource" }, { type: "azure-native:devtestlab/v20160515:ArtifactSourceResource" }, { type: "azure-native:devtestlab/v20180915:ArtifactSourceResource" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ArtifactSourceResource.__pulumiType, name, resourceInputs, opts);

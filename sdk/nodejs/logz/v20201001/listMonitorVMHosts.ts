@@ -13,9 +13,7 @@ export function listMonitorVMHosts(args: ListMonitorVMHostsArgs, opts?: pulumi.I
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:logz/v20201001:listMonitorVMHosts", {
         "monitorName": args.monitorName,
         "resourceGroupName": args.resourceGroupName,

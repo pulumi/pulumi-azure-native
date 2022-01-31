@@ -124,9 +124,7 @@ export class CustomImageResource extends pulumi.CustomResource {
             resourceInputs["vhd"] = undefined /*out*/;
             resourceInputs["vm"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:devtestlab:CustomImageResource" }, { type: "azure-native:devtestlab/v20160515:CustomImageResource" }, { type: "azure-native:devtestlab/v20180915:CustomImageResource" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(CustomImageResource.__pulumiType, name, resourceInputs, opts);

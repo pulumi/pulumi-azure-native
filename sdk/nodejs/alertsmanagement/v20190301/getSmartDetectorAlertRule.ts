@@ -13,9 +13,7 @@ export function getSmartDetectorAlertRule(args: GetSmartDetectorAlertRuleArgs, o
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:alertsmanagement/v20190301:getSmartDetectorAlertRule", {
         "alertRuleName": args.alertRuleName,
         "expandDetector": args.expandDetector,

@@ -97,9 +97,7 @@ export class LongTermRetentionPolicy extends pulumi.CustomResource {
             resourceInputs["weeklyRetention"] = undefined /*out*/;
             resourceInputs["yearlyRetention"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:sql:LongTermRetentionPolicy" }, { type: "azure-native:sql/v20170301preview:LongTermRetentionPolicy" }, { type: "azure-native:sql/v20200202preview:LongTermRetentionPolicy" }, { type: "azure-native:sql/v20200801preview:LongTermRetentionPolicy" }, { type: "azure-native:sql/v20201101preview:LongTermRetentionPolicy" }, { type: "azure-native:sql/v20210201preview:LongTermRetentionPolicy" }, { type: "azure-native:sql/v20210801preview:LongTermRetentionPolicy" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(LongTermRetentionPolicy.__pulumiType, name, resourceInputs, opts);

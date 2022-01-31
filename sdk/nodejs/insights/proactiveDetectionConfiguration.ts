@@ -95,9 +95,7 @@ export class ProactiveDetectionConfiguration extends pulumi.CustomResource {
             resourceInputs["ruleDefinitions"] = undefined /*out*/;
             resourceInputs["sendEmailsToSubscriptionOwners"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:insights/v20150501:ProactiveDetectionConfiguration" }, { type: "azure-native:insights/v20180501preview:ProactiveDetectionConfiguration" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ProactiveDetectionConfiguration.__pulumiType, name, resourceInputs, opts);

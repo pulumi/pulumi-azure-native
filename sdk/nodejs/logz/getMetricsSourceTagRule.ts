@@ -14,9 +14,7 @@ export function getMetricsSourceTagRule(args: GetMetricsSourceTagRuleArgs, opts?
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:logz:getMetricsSourceTagRule", {
         "metricsSourceName": args.metricsSourceName,
         "monitorName": args.monitorName,

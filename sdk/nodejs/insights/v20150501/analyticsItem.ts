@@ -111,9 +111,7 @@ export class AnalyticsItem extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["version"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:insights:AnalyticsItem" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AnalyticsItem.__pulumiType, name, resourceInputs, opts);

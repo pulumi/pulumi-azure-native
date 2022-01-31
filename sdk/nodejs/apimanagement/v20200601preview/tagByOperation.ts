@@ -83,9 +83,7 @@ export class TagByOperation extends pulumi.CustomResource {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:TagByOperation" }, { type: "azure-native:apimanagement/v20170301:TagByOperation" }, { type: "azure-native:apimanagement/v20180101:TagByOperation" }, { type: "azure-native:apimanagement/v20180601preview:TagByOperation" }, { type: "azure-native:apimanagement/v20190101:TagByOperation" }, { type: "azure-native:apimanagement/v20191201:TagByOperation" }, { type: "azure-native:apimanagement/v20191201preview:TagByOperation" }, { type: "azure-native:apimanagement/v20201201:TagByOperation" }, { type: "azure-native:apimanagement/v20210101preview:TagByOperation" }, { type: "azure-native:apimanagement/v20210401preview:TagByOperation" }, { type: "azure-native:apimanagement/v20210801:TagByOperation" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(TagByOperation.__pulumiType, name, resourceInputs, opts);

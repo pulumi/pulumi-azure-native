@@ -83,9 +83,7 @@ export class HybridConnectionAuthorizationRule extends pulumi.CustomResource {
             resourceInputs["rights"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:relay:HybridConnectionAuthorizationRule" }, { type: "azure-native:relay/v20160701:HybridConnectionAuthorizationRule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(HybridConnectionAuthorizationRule.__pulumiType, name, resourceInputs, opts);

@@ -13,9 +13,7 @@ export function getPrivateStoreCollection(args: GetPrivateStoreCollectionArgs, o
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:marketplace/v20210601:getPrivateStoreCollection", {
         "collectionId": args.collectionId,
         "privateStoreId": args.privateStoreId,

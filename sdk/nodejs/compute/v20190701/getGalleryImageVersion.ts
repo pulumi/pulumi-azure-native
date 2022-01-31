@@ -13,9 +13,7 @@ export function getGalleryImageVersion(args: GetGalleryImageVersionArgs, opts?: 
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:compute/v20190701:getGalleryImageVersion", {
         "expand": args.expand,
         "galleryImageName": args.galleryImageName,

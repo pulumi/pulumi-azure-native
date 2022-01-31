@@ -13,9 +13,7 @@ export function getCompute(args: GetComputeArgs, opts?: pulumi.InvokeOptions): P
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:machinelearningservices/v20210301preview:getCompute", {
         "computeName": args.computeName,
         "resourceGroupName": args.resourceGroupName,

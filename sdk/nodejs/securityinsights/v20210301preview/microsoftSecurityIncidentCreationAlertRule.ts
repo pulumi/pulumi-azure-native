@@ -159,9 +159,7 @@ export class MicrosoftSecurityIncidentCreationAlertRule extends pulumi.CustomRes
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:securityinsights:MicrosoftSecurityIncidentCreationAlertRule" }, { type: "azure-native:securityinsights/v20190101preview:MicrosoftSecurityIncidentCreationAlertRule" }, { type: "azure-native:securityinsights/v20200101:MicrosoftSecurityIncidentCreationAlertRule" }, { type: "azure-native:securityinsights/v20210901preview:MicrosoftSecurityIncidentCreationAlertRule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(MicrosoftSecurityIncidentCreationAlertRule.__pulumiType, name, resourceInputs, opts);

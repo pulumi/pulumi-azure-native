@@ -14,9 +14,7 @@ export function getRoutingIntent(args: GetRoutingIntentArgs, opts?: pulumi.Invok
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:network:getRoutingIntent", {
         "resourceGroupName": args.resourceGroupName,
         "routingIntentName": args.routingIntentName,

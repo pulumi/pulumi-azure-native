@@ -86,9 +86,7 @@ export class ReplicationvCenter extends pulumi.CustomResource {
             resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:recoveryservices:ReplicationvCenter" }, { type: "azure-native:recoveryservices/v20160810:ReplicationvCenter" }, { type: "azure-native:recoveryservices/v20180110:ReplicationvCenter" }, { type: "azure-native:recoveryservices/v20180710:ReplicationvCenter" }, { type: "azure-native:recoveryservices/v20210301:ReplicationvCenter" }, { type: "azure-native:recoveryservices/v20210401:ReplicationvCenter" }, { type: "azure-native:recoveryservices/v20210601:ReplicationvCenter" }, { type: "azure-native:recoveryservices/v20210701:ReplicationvCenter" }, { type: "azure-native:recoveryservices/v20210801:ReplicationvCenter" }, { type: "azure-native:recoveryservices/v20211001:ReplicationvCenter" }, { type: "azure-native:recoveryservices/v20211101:ReplicationvCenter" }, { type: "azure-native:recoveryservices/v20211201:ReplicationvCenter" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ReplicationvCenter.__pulumiType, name, resourceInputs, opts);

@@ -14,9 +14,7 @@ export function listMonitorUserRoles(args: ListMonitorUserRolesArgs, opts?: pulu
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:logz:listMonitorUserRoles", {
         "emailAddress": args.emailAddress,
         "monitorName": args.monitorName,

@@ -12,9 +12,7 @@ export function listOpenShiftClusterAdminCredentials(args: ListOpenShiftClusterA
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:redhatopenshift/v20210901preview:listOpenShiftClusterAdminCredentials", {
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,

@@ -13,9 +13,7 @@ export function getTemplateSpecVersion(args: GetTemplateSpecVersionArgs, opts?: 
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:resources/v20210501:getTemplateSpecVersion", {
         "resourceGroupName": args.resourceGroupName,
         "templateSpecName": args.templateSpecName,

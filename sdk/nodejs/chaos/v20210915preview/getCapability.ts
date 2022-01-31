@@ -13,9 +13,7 @@ export function getCapability(args: GetCapabilityArgs, opts?: pulumi.InvokeOptio
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:chaos/v20210915preview:getCapability", {
         "capabilityName": args.capabilityName,
         "parentProviderNamespace": args.parentProviderNamespace,

@@ -95,9 +95,7 @@ export class VirtualApplianceSite extends pulumi.CustomResource {
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:network:VirtualApplianceSite" }, { type: "azure-native:network/v20200501:VirtualApplianceSite" }, { type: "azure-native:network/v20200601:VirtualApplianceSite" }, { type: "azure-native:network/v20200801:VirtualApplianceSite" }, { type: "azure-native:network/v20201101:VirtualApplianceSite" }, { type: "azure-native:network/v20210201:VirtualApplianceSite" }, { type: "azure-native:network/v20210301:VirtualApplianceSite" }, { type: "azure-native:network/v20210501:VirtualApplianceSite" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(VirtualApplianceSite.__pulumiType, name, resourceInputs, opts);

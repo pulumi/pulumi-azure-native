@@ -79,9 +79,7 @@ export class ContentItem extends pulumi.CustomResource {
             resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:ContentItem" }, { type: "azure-native:apimanagement/v20191201:ContentItem" }, { type: "azure-native:apimanagement/v20200601preview:ContentItem" }, { type: "azure-native:apimanagement/v20201201:ContentItem" }, { type: "azure-native:apimanagement/v20210101preview:ContentItem" }, { type: "azure-native:apimanagement/v20210801:ContentItem" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ContentItem.__pulumiType, name, resourceInputs, opts);

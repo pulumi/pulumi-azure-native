@@ -88,9 +88,7 @@ export class IpFirewallRule extends pulumi.CustomResource {
             resourceInputs["startIpAddress"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:synapse/v20190601preview:IpFirewallRule" }, { type: "azure-native:synapse/v20201201:IpFirewallRule" }, { type: "azure-native:synapse/v20210301:IpFirewallRule" }, { type: "azure-native:synapse/v20210401preview:IpFirewallRule" }, { type: "azure-native:synapse/v20210501:IpFirewallRule" }, { type: "azure-native:synapse/v20210601:IpFirewallRule" }, { type: "azure-native:synapse/v20210601preview:IpFirewallRule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(IpFirewallRule.__pulumiType, name, resourceInputs, opts);

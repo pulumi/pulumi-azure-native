@@ -12,9 +12,7 @@ export function getWebAppHybridConnection(args: GetWebAppHybridConnectionArgs, o
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:web/v20200601:getWebAppHybridConnection", {
         "name": args.name,
         "namespaceName": args.namespaceName,

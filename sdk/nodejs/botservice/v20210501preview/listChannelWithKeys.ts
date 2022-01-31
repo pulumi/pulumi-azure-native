@@ -13,9 +13,7 @@ export function listChannelWithKeys(args: ListChannelWithKeysArgs, opts?: pulumi
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:botservice/v20210501preview:listChannelWithKeys", {
         "channelName": args.channelName,
         "resourceGroupName": args.resourceGroupName,

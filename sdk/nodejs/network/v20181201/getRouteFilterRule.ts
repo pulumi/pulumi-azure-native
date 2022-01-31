@@ -12,9 +12,7 @@ export function getRouteFilterRule(args: GetRouteFilterRuleArgs, opts?: pulumi.I
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:network/v20181201:getRouteFilterRule", {
         "resourceGroupName": args.resourceGroupName,
         "routeFilterName": args.routeFilterName,

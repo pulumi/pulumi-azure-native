@@ -132,9 +132,7 @@ export class Sensor extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["zone"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:iotsecurity:Sensor" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Sensor.__pulumiType, name, resourceInputs, opts);

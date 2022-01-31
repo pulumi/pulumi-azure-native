@@ -96,9 +96,7 @@ export class Getbot extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:healthbot:getbot" }, { type: "azure-native:healthbot/v20201020preview:getbot" }, { type: "azure-native:healthbot/v20201208:getbot" }, { type: "azure-native:healthbot/v20201208preview:getbot" }, { type: "azure-native:healthbot/v20210610:getbot" }, { type: "azure-native:healthbot/v20210824:getbot" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Getbot.__pulumiType, name, resourceInputs, opts);

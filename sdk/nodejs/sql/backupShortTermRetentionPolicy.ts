@@ -80,9 +80,7 @@ export class BackupShortTermRetentionPolicy extends pulumi.CustomResource {
             resourceInputs["retentionDays"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:sql/v20171001preview:BackupShortTermRetentionPolicy" }, { type: "azure-native:sql/v20200202preview:BackupShortTermRetentionPolicy" }, { type: "azure-native:sql/v20200801preview:BackupShortTermRetentionPolicy" }, { type: "azure-native:sql/v20201101preview:BackupShortTermRetentionPolicy" }, { type: "azure-native:sql/v20210201preview:BackupShortTermRetentionPolicy" }, { type: "azure-native:sql/v20210501preview:BackupShortTermRetentionPolicy" }, { type: "azure-native:sql/v20210801preview:BackupShortTermRetentionPolicy" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(BackupShortTermRetentionPolicy.__pulumiType, name, resourceInputs, opts);

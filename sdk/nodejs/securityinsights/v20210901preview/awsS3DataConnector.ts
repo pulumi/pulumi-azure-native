@@ -128,9 +128,7 @@ export class AwsS3DataConnector extends pulumi.CustomResource {
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:securityinsights:AwsS3DataConnector" }, { type: "azure-native:securityinsights/v20190101preview:AwsS3DataConnector" }, { type: "azure-native:securityinsights/v20200101:AwsS3DataConnector" }, { type: "azure-native:securityinsights/v20210301preview:AwsS3DataConnector" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AwsS3DataConnector.__pulumiType, name, resourceInputs, opts);

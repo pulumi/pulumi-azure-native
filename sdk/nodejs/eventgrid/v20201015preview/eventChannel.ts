@@ -120,9 +120,7 @@ export class EventChannel extends pulumi.CustomResource {
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:eventgrid:EventChannel" }, { type: "azure-native:eventgrid/v20200401preview:EventChannel" }, { type: "azure-native:eventgrid/v20210601preview:EventChannel" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(EventChannel.__pulumiType, name, resourceInputs, opts);

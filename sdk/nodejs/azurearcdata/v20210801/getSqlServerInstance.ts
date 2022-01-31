@@ -13,9 +13,7 @@ export function getSqlServerInstance(args: GetSqlServerInstanceArgs, opts?: pulu
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:azurearcdata/v20210801:getSqlServerInstance", {
         "resourceGroupName": args.resourceGroupName,
         "sqlServerInstanceName": args.sqlServerInstanceName,

@@ -103,9 +103,7 @@ export class FileEventTrigger extends pulumi.CustomResource {
             resourceInputs["sourceInfo"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:databoxedge:FileEventTrigger" }, { type: "azure-native:databoxedge/v20190301:FileEventTrigger" }, { type: "azure-native:databoxedge/v20190701:FileEventTrigger" }, { type: "azure-native:databoxedge/v20190801:FileEventTrigger" }, { type: "azure-native:databoxedge/v20200901:FileEventTrigger" }, { type: "azure-native:databoxedge/v20200901preview:FileEventTrigger" }, { type: "azure-native:databoxedge/v20201201:FileEventTrigger" }, { type: "azure-native:databoxedge/v20210201:FileEventTrigger" }, { type: "azure-native:databoxedge/v20210201preview:FileEventTrigger" }, { type: "azure-native:databoxedge/v20210601:FileEventTrigger" }, { type: "azure-native:databoxedge/v20210601preview:FileEventTrigger" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(FileEventTrigger.__pulumiType, name, resourceInputs, opts);

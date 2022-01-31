@@ -13,9 +13,7 @@ export function getDatastore(args: GetDatastoreArgs, opts?: pulumi.InvokeOptions
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:machinelearningservices/v20210301preview:getDatastore", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

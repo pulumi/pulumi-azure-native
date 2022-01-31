@@ -12,9 +12,7 @@ export function listCommunicationServiceKeys(args: ListCommunicationServiceKeysA
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:communication/v20200820:listCommunicationServiceKeys", {
         "communicationServiceName": args.communicationServiceName,
         "resourceGroupName": args.resourceGroupName,

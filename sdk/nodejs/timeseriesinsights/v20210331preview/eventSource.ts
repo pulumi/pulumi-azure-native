@@ -97,9 +97,7 @@ export class EventSource extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:timeseriesinsights:EventSource" }, { type: "azure-native:timeseriesinsights/v20170228preview:EventSource" }, { type: "azure-native:timeseriesinsights/v20171115:EventSource" }, { type: "azure-native:timeseriesinsights/v20180815preview:EventSource" }, { type: "azure-native:timeseriesinsights/v20200515:EventSource" }, { type: "azure-native:timeseriesinsights/v20210630preview:EventSource" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(EventSource.__pulumiType, name, resourceInputs, opts);

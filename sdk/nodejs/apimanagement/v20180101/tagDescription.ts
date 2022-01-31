@@ -97,9 +97,7 @@ export class TagDescription extends pulumi.CustomResource {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:TagDescription" }, { type: "azure-native:apimanagement/v20170301:TagDescription" }, { type: "azure-native:apimanagement/v20180601preview:TagDescription" }, { type: "azure-native:apimanagement/v20190101:TagDescription" }, { type: "azure-native:apimanagement/v20191201:TagDescription" }, { type: "azure-native:apimanagement/v20191201preview:TagDescription" }, { type: "azure-native:apimanagement/v20200601preview:TagDescription" }, { type: "azure-native:apimanagement/v20201201:TagDescription" }, { type: "azure-native:apimanagement/v20210101preview:TagDescription" }, { type: "azure-native:apimanagement/v20210401preview:TagDescription" }, { type: "azure-native:apimanagement/v20210801:TagDescription" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(TagDescription.__pulumiType, name, resourceInputs, opts);

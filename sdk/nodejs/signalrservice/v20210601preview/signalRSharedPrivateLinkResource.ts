@@ -112,9 +112,7 @@ export class SignalRSharedPrivateLinkResource extends pulumi.CustomResource {
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:signalrservice:SignalRSharedPrivateLinkResource" }, { type: "azure-native:signalrservice/v20210401preview:SignalRSharedPrivateLinkResource" }, { type: "azure-native:signalrservice/v20210901preview:SignalRSharedPrivateLinkResource" }, { type: "azure-native:signalrservice/v20211001:SignalRSharedPrivateLinkResource" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SignalRSharedPrivateLinkResource.__pulumiType, name, resourceInputs, opts);

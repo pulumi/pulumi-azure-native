@@ -12,9 +12,7 @@ export function getDataSource(args: GetDataSourceArgs, opts?: pulumi.InvokeOptio
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:operationalinsights/v20200301preview:getDataSource", {
         "dataSourceName": args.dataSourceName,
         "resourceGroupName": args.resourceGroupName,

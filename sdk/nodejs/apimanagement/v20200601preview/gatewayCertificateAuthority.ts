@@ -79,9 +79,7 @@ export class GatewayCertificateAuthority extends pulumi.CustomResource {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:GatewayCertificateAuthority" }, { type: "azure-native:apimanagement/v20201201:GatewayCertificateAuthority" }, { type: "azure-native:apimanagement/v20210101preview:GatewayCertificateAuthority" }, { type: "azure-native:apimanagement/v20210401preview:GatewayCertificateAuthority" }, { type: "azure-native:apimanagement/v20210801:GatewayCertificateAuthority" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(GatewayCertificateAuthority.__pulumiType, name, resourceInputs, opts);

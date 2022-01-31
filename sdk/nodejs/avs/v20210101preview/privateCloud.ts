@@ -177,9 +177,7 @@ export class PrivateCloud extends pulumi.CustomResource {
             resourceInputs["vcenterPassword"] = undefined /*out*/;
             resourceInputs["vmotionNetwork"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:avs:PrivateCloud" }, { type: "azure-native:avs/v20200320:PrivateCloud" }, { type: "azure-native:avs/v20200717preview:PrivateCloud" }, { type: "azure-native:avs/v20210601:PrivateCloud" }, { type: "azure-native:avs/v20211201:PrivateCloud" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PrivateCloud.__pulumiType, name, resourceInputs, opts);

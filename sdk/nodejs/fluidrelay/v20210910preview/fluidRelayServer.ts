@@ -108,9 +108,7 @@ export class FluidRelayServer extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:fluidrelay:FluidRelayServer" }, { type: "azure-native:fluidrelay/v20210312preview:FluidRelayServer" }, { type: "azure-native:fluidrelay/v20210615preview:FluidRelayServer" }, { type: "azure-native:fluidrelay/v20210830preview:FluidRelayServer" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(FluidRelayServer.__pulumiType, name, resourceInputs, opts);

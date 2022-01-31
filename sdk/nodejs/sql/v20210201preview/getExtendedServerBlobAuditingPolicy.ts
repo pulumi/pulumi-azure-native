@@ -12,9 +12,7 @@ export function getExtendedServerBlobAuditingPolicy(args: GetExtendedServerBlobA
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:sql/v20210201preview:getExtendedServerBlobAuditingPolicy", {
         "blobAuditingPolicyName": args.blobAuditingPolicyName,
         "resourceGroupName": args.resourceGroupName,

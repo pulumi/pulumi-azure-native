@@ -129,9 +129,7 @@ export class Formula extends pulumi.CustomResource {
             resourceInputs["uniqueIdentifier"] = undefined /*out*/;
             resourceInputs["vm"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:devtestlab:Formula" }, { type: "azure-native:devtestlab/v20150521preview:Formula" }, { type: "azure-native:devtestlab/v20180915:Formula" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Formula.__pulumiType, name, resourceInputs, opts);

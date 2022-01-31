@@ -96,9 +96,7 @@ export class ApplicationPackage extends pulumi.CustomResource {
             resourceInputs["storageUrlExpiry"] = undefined /*out*/;
             resourceInputs["version"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:batch:ApplicationPackage" }, { type: "azure-native:batch/v20170101:ApplicationPackage" }, { type: "azure-native:batch/v20170501:ApplicationPackage" }, { type: "azure-native:batch/v20170901:ApplicationPackage" }, { type: "azure-native:batch/v20181201:ApplicationPackage" }, { type: "azure-native:batch/v20190401:ApplicationPackage" }, { type: "azure-native:batch/v20190801:ApplicationPackage" }, { type: "azure-native:batch/v20200301:ApplicationPackage" }, { type: "azure-native:batch/v20200501:ApplicationPackage" }, { type: "azure-native:batch/v20200901:ApplicationPackage" }, { type: "azure-native:batch/v20210101:ApplicationPackage" }, { type: "azure-native:batch/v20210601:ApplicationPackage" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ApplicationPackage.__pulumiType, name, resourceInputs, opts);

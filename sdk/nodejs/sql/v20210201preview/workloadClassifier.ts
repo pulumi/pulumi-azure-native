@@ -116,9 +116,7 @@ export class WorkloadClassifier extends pulumi.CustomResource {
             resourceInputs["startTime"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:sql:WorkloadClassifier" }, { type: "azure-native:sql/v20190601preview:WorkloadClassifier" }, { type: "azure-native:sql/v20200202preview:WorkloadClassifier" }, { type: "azure-native:sql/v20200801preview:WorkloadClassifier" }, { type: "azure-native:sql/v20201101preview:WorkloadClassifier" }, { type: "azure-native:sql/v20210501preview:WorkloadClassifier" }, { type: "azure-native:sql/v20210801preview:WorkloadClassifier" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WorkloadClassifier.__pulumiType, name, resourceInputs, opts);

@@ -90,9 +90,7 @@ export class Trigger extends pulumi.CustomResource {
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:databoxedge/v20190301:Trigger" }, { type: "azure-native:databoxedge/v20190701:Trigger" }, { type: "azure-native:databoxedge/v20190801:Trigger" }, { type: "azure-native:databoxedge/v20200501preview:Trigger" }, { type: "azure-native:databoxedge/v20200901:Trigger" }, { type: "azure-native:databoxedge/v20200901preview:Trigger" }, { type: "azure-native:databoxedge/v20201201:Trigger" }, { type: "azure-native:databoxedge/v20210201:Trigger" }, { type: "azure-native:databoxedge/v20210201preview:Trigger" }, { type: "azure-native:databoxedge/v20210601:Trigger" }, { type: "azure-native:databoxedge/v20210601preview:Trigger" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Trigger.__pulumiType, name, resourceInputs, opts);

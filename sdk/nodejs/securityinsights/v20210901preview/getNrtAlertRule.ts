@@ -13,9 +13,7 @@ export function getNrtAlertRule(args: GetNrtAlertRuleArgs, opts?: pulumi.InvokeO
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:securityinsights/v20210901preview:getNrtAlertRule", {
         "resourceGroupName": args.resourceGroupName,
         "ruleId": args.ruleId,

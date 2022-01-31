@@ -12,9 +12,7 @@ export function getServerSecurityAlertPolicy(args: GetServerSecurityAlertPolicyA
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:sql/v20170301preview:getServerSecurityAlertPolicy", {
         "resourceGroupName": args.resourceGroupName,
         "securityAlertPolicyName": args.securityAlertPolicyName,

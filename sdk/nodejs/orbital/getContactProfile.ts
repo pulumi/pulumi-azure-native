@@ -14,9 +14,7 @@ export function getContactProfile(args: GetContactProfileArgs, opts?: pulumi.Inv
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:orbital:getContactProfile", {
         "contactProfileName": args.contactProfileName,
         "resourceGroupName": args.resourceGroupName,

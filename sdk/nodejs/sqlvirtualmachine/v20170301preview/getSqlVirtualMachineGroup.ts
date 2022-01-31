@@ -13,9 +13,7 @@ export function getSqlVirtualMachineGroup(args: GetSqlVirtualMachineGroupArgs, o
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:sqlvirtualmachine/v20170301preview:getSqlVirtualMachineGroup", {
         "resourceGroupName": args.resourceGroupName,
         "sqlVirtualMachineGroupName": args.sqlVirtualMachineGroupName,

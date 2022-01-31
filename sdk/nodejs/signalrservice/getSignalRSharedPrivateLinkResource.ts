@@ -14,9 +14,7 @@ export function getSignalRSharedPrivateLinkResource(args: GetSignalRSharedPrivat
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:signalrservice:getSignalRSharedPrivateLinkResource", {
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,

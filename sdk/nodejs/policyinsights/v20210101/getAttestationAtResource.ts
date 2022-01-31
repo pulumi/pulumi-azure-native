@@ -13,9 +13,7 @@ export function getAttestationAtResource(args: GetAttestationAtResourceArgs, opt
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:policyinsights/v20210101:getAttestationAtResource", {
         "attestationName": args.attestationName,
         "resourceId": args.resourceId,

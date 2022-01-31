@@ -13,9 +13,7 @@ export function getprivateLinkServicesForM365ComplianceCenter(args: GetprivateLi
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:securityandcompliance/v20210111:getprivateLinkServicesForM365ComplianceCenter", {
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,

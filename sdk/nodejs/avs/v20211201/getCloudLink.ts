@@ -12,9 +12,7 @@ export function getCloudLink(args: GetCloudLinkArgs, opts?: pulumi.InvokeOptions
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:avs/v20211201:getCloudLink", {
         "cloudLinkName": args.cloudLinkName,
         "privateCloudName": args.privateCloudName,

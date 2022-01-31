@@ -14,9 +14,7 @@ export function getAKSService(args: GetAKSServiceArgs, opts?: pulumi.InvokeOptio
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:machinelearningservices:getAKSService", {
         "expand": args.expand,
         "resourceGroupName": args.resourceGroupName,

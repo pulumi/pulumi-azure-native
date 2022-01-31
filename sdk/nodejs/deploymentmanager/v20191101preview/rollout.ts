@@ -120,9 +120,7 @@ export class Rollout extends pulumi.CustomResource {
             resourceInputs["targetServiceTopologyId"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:deploymentmanager:Rollout" }, { type: "azure-native:deploymentmanager/v20180901preview:Rollout" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Rollout.__pulumiType, name, resourceInputs, opts);

@@ -13,9 +13,7 @@ export function getEventSubscriptionFullUrl(args: GetEventSubscriptionFullUrlArg
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:eventgrid:getEventSubscriptionFullUrl", {
         "eventSubscriptionName": args.eventSubscriptionName,
         "scope": args.scope,

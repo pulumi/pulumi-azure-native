@@ -130,9 +130,7 @@ export class Pool extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["utilizedThroughputMibps"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:netapp:Pool" }, { type: "azure-native:netapp/v20170815:Pool" }, { type: "azure-native:netapp/v20190501:Pool" }, { type: "azure-native:netapp/v20190601:Pool" }, { type: "azure-native:netapp/v20190701:Pool" }, { type: "azure-native:netapp/v20190801:Pool" }, { type: "azure-native:netapp/v20191001:Pool" }, { type: "azure-native:netapp/v20191101:Pool" }, { type: "azure-native:netapp/v20200201:Pool" }, { type: "azure-native:netapp/v20200301:Pool" }, { type: "azure-native:netapp/v20200501:Pool" }, { type: "azure-native:netapp/v20200601:Pool" }, { type: "azure-native:netapp/v20200801:Pool" }, { type: "azure-native:netapp/v20200901:Pool" }, { type: "azure-native:netapp/v20201101:Pool" }, { type: "azure-native:netapp/v20201201:Pool" }, { type: "azure-native:netapp/v20210201:Pool" }, { type: "azure-native:netapp/v20210401:Pool" }, { type: "azure-native:netapp/v20210401preview:Pool" }, { type: "azure-native:netapp/v20210601:Pool" }, { type: "azure-native:netapp/v20210801:Pool" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Pool.__pulumiType, name, resourceInputs, opts);

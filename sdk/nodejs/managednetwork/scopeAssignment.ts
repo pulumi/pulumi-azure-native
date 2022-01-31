@@ -90,9 +90,7 @@ export class ScopeAssignment extends pulumi.CustomResource {
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:managednetwork/v20190601preview:ScopeAssignment" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ScopeAssignment.__pulumiType, name, resourceInputs, opts);

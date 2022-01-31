@@ -83,9 +83,7 @@ export class BackupInstance extends pulumi.CustomResource {
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:dataprotection/v20210101:BackupInstance" }, { type: "azure-native:dataprotection/v20210201preview:BackupInstance" }, { type: "azure-native:dataprotection/v20210601preview:BackupInstance" }, { type: "azure-native:dataprotection/v20210701:BackupInstance" }, { type: "azure-native:dataprotection/v20211001preview:BackupInstance" }, { type: "azure-native:dataprotection/v20211201preview:BackupInstance" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(BackupInstance.__pulumiType, name, resourceInputs, opts);

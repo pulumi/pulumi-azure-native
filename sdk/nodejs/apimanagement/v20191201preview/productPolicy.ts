@@ -89,9 +89,7 @@ export class ProductPolicy extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["value"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:ProductPolicy" }, { type: "azure-native:apimanagement/v20170301:ProductPolicy" }, { type: "azure-native:apimanagement/v20180101:ProductPolicy" }, { type: "azure-native:apimanagement/v20180601preview:ProductPolicy" }, { type: "azure-native:apimanagement/v20190101:ProductPolicy" }, { type: "azure-native:apimanagement/v20191201:ProductPolicy" }, { type: "azure-native:apimanagement/v20200601preview:ProductPolicy" }, { type: "azure-native:apimanagement/v20201201:ProductPolicy" }, { type: "azure-native:apimanagement/v20210101preview:ProductPolicy" }, { type: "azure-native:apimanagement/v20210401preview:ProductPolicy" }, { type: "azure-native:apimanagement/v20210801:ProductPolicy" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ProductPolicy.__pulumiType, name, resourceInputs, opts);

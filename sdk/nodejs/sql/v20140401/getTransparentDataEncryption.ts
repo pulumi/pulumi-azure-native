@@ -12,9 +12,7 @@ export function getTransparentDataEncryption(args: GetTransparentDataEncryptionA
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:sql/v20140401:getTransparentDataEncryption", {
         "databaseName": args.databaseName,
         "resourceGroupName": args.resourceGroupName,

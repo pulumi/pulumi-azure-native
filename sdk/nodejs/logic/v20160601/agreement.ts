@@ -154,9 +154,7 @@ export class Agreement extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:logic:Agreement" }, { type: "azure-native:logic/v20150801preview:Agreement" }, { type: "azure-native:logic/v20180701preview:Agreement" }, { type: "azure-native:logic/v20190501:Agreement" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Agreement.__pulumiType, name, resourceInputs, opts);

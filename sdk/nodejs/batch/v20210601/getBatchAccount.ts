@@ -13,9 +13,7 @@ export function getBatchAccount(args: GetBatchAccountArgs, opts?: pulumi.InvokeO
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:batch/v20210601:getBatchAccount", {
         "accountName": args.accountName,
         "resourceGroupName": args.resourceGroupName,

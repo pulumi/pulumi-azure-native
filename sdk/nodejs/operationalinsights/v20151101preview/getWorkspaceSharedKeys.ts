@@ -12,9 +12,7 @@ export function getWorkspaceSharedKeys(args: GetWorkspaceSharedKeysArgs, opts?: 
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:operationalinsights/v20151101preview:getWorkspaceSharedKeys", {
         "resourceGroupName": args.resourceGroupName,
         "workspaceName": args.workspaceName,

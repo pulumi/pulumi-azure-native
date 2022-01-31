@@ -12,9 +12,7 @@ export function getWebAppHostNameBindingSlot(args: GetWebAppHostNameBindingSlotA
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:web/v20210115:getWebAppHostNameBindingSlot", {
         "hostName": args.hostName,
         "name": args.name,

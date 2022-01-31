@@ -138,9 +138,7 @@ export class Workflow extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["version"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:logic:Workflow" }, { type: "azure-native:logic/v20150201preview:Workflow" }, { type: "azure-native:logic/v20160601:Workflow" }, { type: "azure-native:logic/v20190501:Workflow" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Workflow.__pulumiType, name, resourceInputs, opts);

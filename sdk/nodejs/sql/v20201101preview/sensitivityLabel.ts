@@ -140,9 +140,7 @@ export class SensitivityLabel extends pulumi.CustomResource {
             resourceInputs["tableName"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:sql:SensitivityLabel" }, { type: "azure-native:sql/v20170301preview:SensitivityLabel" }, { type: "azure-native:sql/v20200202preview:SensitivityLabel" }, { type: "azure-native:sql/v20200801preview:SensitivityLabel" }, { type: "azure-native:sql/v20210201preview:SensitivityLabel" }, { type: "azure-native:sql/v20210501preview:SensitivityLabel" }, { type: "azure-native:sql/v20210801preview:SensitivityLabel" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SensitivityLabel.__pulumiType, name, resourceInputs, opts);

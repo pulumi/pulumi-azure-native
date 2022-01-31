@@ -90,9 +90,7 @@ export class DataCollectionRuleAssociation extends pulumi.CustomResource {
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:insights/v20191101preview:DataCollectionRuleAssociation" }, { type: "azure-native:insights/v20210401:DataCollectionRuleAssociation" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DataCollectionRuleAssociation.__pulumiType, name, resourceInputs, opts);

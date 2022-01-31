@@ -84,9 +84,7 @@ export class IntegrationAccount extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:logic:IntegrationAccount" }, { type: "azure-native:logic/v20150801preview:IntegrationAccount" }, { type: "azure-native:logic/v20180701preview:IntegrationAccount" }, { type: "azure-native:logic/v20190501:IntegrationAccount" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(IntegrationAccount.__pulumiType, name, resourceInputs, opts);

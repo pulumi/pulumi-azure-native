@@ -14,9 +14,7 @@ export function getPeriodicTimerEventTrigger(args: GetPeriodicTimerEventTriggerA
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:databoxedge:getPeriodicTimerEventTrigger", {
         "deviceName": args.deviceName,
         "name": args.name,

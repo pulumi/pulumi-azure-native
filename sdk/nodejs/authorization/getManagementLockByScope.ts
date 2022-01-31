@@ -14,9 +14,7 @@ export function getManagementLockByScope(args: GetManagementLockByScopeArgs, opt
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:authorization:getManagementLockByScope", {
         "lockName": args.lockName,
         "scope": args.scope,

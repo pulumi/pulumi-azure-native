@@ -13,9 +13,7 @@ export function getApplication(args: GetApplicationArgs, opts?: pulumi.InvokeOpt
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:servicefabric/v20210701preview:getApplication", {
         "applicationName": args.applicationName,
         "clusterName": args.clusterName,

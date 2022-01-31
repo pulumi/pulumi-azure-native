@@ -119,9 +119,7 @@ export class WorkloadNetworkDnsService extends pulumi.CustomResource {
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:avs/v20200717preview:WorkloadNetworkDnsService" }, { type: "azure-native:avs/v20210101preview:WorkloadNetworkDnsService" }, { type: "azure-native:avs/v20210601:WorkloadNetworkDnsService" }, { type: "azure-native:avs/v20211201:WorkloadNetworkDnsService" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WorkloadNetworkDnsService.__pulumiType, name, resourceInputs, opts);

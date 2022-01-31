@@ -108,9 +108,7 @@ export class OpenIdConnectProvider extends pulumi.CustomResource {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:OpenIdConnectProvider" }, { type: "azure-native:apimanagement/v20160707:OpenIdConnectProvider" }, { type: "azure-native:apimanagement/v20161010:OpenIdConnectProvider" }, { type: "azure-native:apimanagement/v20180101:OpenIdConnectProvider" }, { type: "azure-native:apimanagement/v20180601preview:OpenIdConnectProvider" }, { type: "azure-native:apimanagement/v20190101:OpenIdConnectProvider" }, { type: "azure-native:apimanagement/v20191201:OpenIdConnectProvider" }, { type: "azure-native:apimanagement/v20191201preview:OpenIdConnectProvider" }, { type: "azure-native:apimanagement/v20200601preview:OpenIdConnectProvider" }, { type: "azure-native:apimanagement/v20201201:OpenIdConnectProvider" }, { type: "azure-native:apimanagement/v20210101preview:OpenIdConnectProvider" }, { type: "azure-native:apimanagement/v20210401preview:OpenIdConnectProvider" }, { type: "azure-native:apimanagement/v20210801:OpenIdConnectProvider" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(OpenIdConnectProvider.__pulumiType, name, resourceInputs, opts);

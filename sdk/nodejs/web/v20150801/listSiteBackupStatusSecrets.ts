@@ -13,9 +13,7 @@ export function listSiteBackupStatusSecrets(args: ListSiteBackupStatusSecretsArg
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:web/v20150801:listSiteBackupStatusSecrets", {
         "backupId": args.backupId,
         "backupSchedule": args.backupSchedule,

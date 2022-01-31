@@ -108,9 +108,7 @@ export class MTPDataConnector extends pulumi.CustomResource {
             resourceInputs["tenantId"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:securityinsights:MTPDataConnector" }, { type: "azure-native:securityinsights/v20200101:MTPDataConnector" }, { type: "azure-native:securityinsights/v20210301preview:MTPDataConnector" }, { type: "azure-native:securityinsights/v20210901preview:MTPDataConnector" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(MTPDataConnector.__pulumiType, name, resourceInputs, opts);

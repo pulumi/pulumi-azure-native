@@ -12,9 +12,7 @@ export function getThreatIntelligenceIndicator(args: GetThreatIntelligenceIndica
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:securityinsights/v20190101preview:getThreatIntelligenceIndicator", {
         "name": args.name,
         "operationalInsightsResourceProvider": args.operationalInsightsResourceProvider,

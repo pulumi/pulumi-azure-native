@@ -13,9 +13,7 @@ export function getDefaultUserRule(args: GetDefaultUserRuleArgs, opts?: pulumi.I
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:network/v20210501preview:getDefaultUserRule", {
         "configurationName": args.configurationName,
         "networkManagerName": args.networkManagerName,

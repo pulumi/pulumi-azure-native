@@ -13,9 +13,7 @@ export function listCustomApiWsdlInterfaces(args: ListCustomApiWsdlInterfacesArg
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:web/v20160601:listCustomApiWsdlInterfaces", {
         "content": args.content,
         "importMethod": args.importMethod,

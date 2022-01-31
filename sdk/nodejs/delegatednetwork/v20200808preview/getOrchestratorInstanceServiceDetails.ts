@@ -13,9 +13,7 @@ export function getOrchestratorInstanceServiceDetails(args: GetOrchestratorInsta
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:delegatednetwork/v20200808preview:getOrchestratorInstanceServiceDetails", {
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,

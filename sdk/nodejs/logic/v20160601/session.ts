@@ -99,9 +99,7 @@ export class Session extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:logic:Session" }, { type: "azure-native:logic/v20180701preview:Session" }, { type: "azure-native:logic/v20190501:Session" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Session.__pulumiType, name, resourceInputs, opts);

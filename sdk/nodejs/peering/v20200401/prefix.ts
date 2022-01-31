@@ -112,9 +112,7 @@ export class Prefix extends pulumi.CustomResource {
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:peering:Prefix" }, { type: "azure-native:peering/v20190801preview:Prefix" }, { type: "azure-native:peering/v20190901preview:Prefix" }, { type: "azure-native:peering/v20200101preview:Prefix" }, { type: "azure-native:peering/v20201001:Prefix" }, { type: "azure-native:peering/v20210101:Prefix" }, { type: "azure-native:peering/v20210601:Prefix" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Prefix.__pulumiType, name, resourceInputs, opts);

@@ -14,9 +14,7 @@ export function getLoadTest(args: GetLoadTestArgs, opts?: pulumi.InvokeOptions):
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:loadtestservice:getLoadTest", {
         "loadTestName": args.loadTestName,
         "resourceGroupName": args.resourceGroupName,

@@ -20,9 +20,7 @@ export function getKubernetesRole(args: GetKubernetesRoleArgs, opts?: pulumi.Inv
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:databoxedge/v20210201:getKubernetesRole", {
         "deviceName": args.deviceName,
         "name": args.name,

@@ -160,9 +160,7 @@ export class VCenter extends pulumi.CustomResource {
             resourceInputs["uuid"] = undefined /*out*/;
             resourceInputs["version"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:connectedvmwarevsphere/v20201001preview:VCenter" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(VCenter.__pulumiType, name, resourceInputs, opts);

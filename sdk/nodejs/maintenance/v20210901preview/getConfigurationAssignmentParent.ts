@@ -13,9 +13,7 @@ export function getConfigurationAssignmentParent(args: GetConfigurationAssignmen
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:maintenance/v20210901preview:getConfigurationAssignmentParent", {
         "configurationAssignmentName": args.configurationAssignmentName,
         "providerName": args.providerName,

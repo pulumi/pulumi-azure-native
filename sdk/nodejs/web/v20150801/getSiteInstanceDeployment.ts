@@ -12,9 +12,7 @@ export function getSiteInstanceDeployment(args: GetSiteInstanceDeploymentArgs, o
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:web/v20150801:getSiteInstanceDeployment", {
         "id": args.id,
         "instanceId": args.instanceId,

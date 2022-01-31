@@ -142,9 +142,7 @@ export class AutomationRule extends pulumi.CustomResource {
             resourceInputs["triggeringLogic"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:securityinsights:AutomationRule" }, { type: "azure-native:securityinsights/v20190101preview:AutomationRule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AutomationRule.__pulumiType, name, resourceInputs, opts);

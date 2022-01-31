@@ -12,9 +12,7 @@ export function listAccountKeys(args: ListAccountKeysArgs, opts?: pulumi.InvokeO
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:maps/v20200201preview:listAccountKeys", {
         "accountName": args.accountName,
         "resourceGroupName": args.resourceGroupName,

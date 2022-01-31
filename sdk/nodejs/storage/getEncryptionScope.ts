@@ -14,9 +14,7 @@ export function getEncryptionScope(args: GetEncryptionScopeArgs, opts?: pulumi.I
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:storage:getEncryptionScope", {
         "accountName": args.accountName,
         "encryptionScopeName": args.encryptionScopeName,

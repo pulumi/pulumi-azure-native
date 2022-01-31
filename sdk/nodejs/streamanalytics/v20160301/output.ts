@@ -94,9 +94,7 @@ export class Output extends pulumi.CustomResource {
             resourceInputs["serialization"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:streamanalytics:Output" }, { type: "azure-native:streamanalytics/v20170401preview:Output" }, { type: "azure-native:streamanalytics/v20200301:Output" }, { type: "azure-native:streamanalytics/v20211001preview:Output" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Output.__pulumiType, name, resourceInputs, opts);

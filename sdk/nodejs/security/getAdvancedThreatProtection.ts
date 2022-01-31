@@ -13,9 +13,7 @@ export function getAdvancedThreatProtection(args: GetAdvancedThreatProtectionArg
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:security:getAdvancedThreatProtection", {
         "resourceId": args.resourceId,
         "settingName": args.settingName,

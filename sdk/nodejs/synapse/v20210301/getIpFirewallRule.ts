@@ -12,9 +12,7 @@ export function getIpFirewallRule(args: GetIpFirewallRuleArgs, opts?: pulumi.Inv
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:synapse/v20210301:getIpFirewallRule", {
         "resourceGroupName": args.resourceGroupName,
         "ruleName": args.ruleName,

@@ -119,9 +119,7 @@ export class LocalUser extends pulumi.CustomResource {
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:storage/v20210801:LocalUser" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(LocalUser.__pulumiType, name, resourceInputs, opts);

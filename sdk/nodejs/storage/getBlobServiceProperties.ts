@@ -14,9 +14,7 @@ export function getBlobServiceProperties(args: GetBlobServicePropertiesArgs, opt
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:storage:getBlobServiceProperties", {
         "accountName": args.accountName,
         "blobServicesName": args.blobServicesName,

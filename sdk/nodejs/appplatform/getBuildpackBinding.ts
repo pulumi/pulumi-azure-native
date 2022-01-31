@@ -14,9 +14,7 @@ export function getBuildpackBinding(args: GetBuildpackBindingArgs, opts?: pulumi
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:appplatform:getBuildpackBinding", {
         "buildServiceName": args.buildServiceName,
         "builderName": args.builderName,

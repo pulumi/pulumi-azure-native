@@ -13,9 +13,7 @@ export function getSoftwareUpdateConfigurationByName(args: GetSoftwareUpdateConf
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:automation/v20170515preview:getSoftwareUpdateConfigurationByName", {
         "automationAccountName": args.automationAccountName,
         "resourceGroupName": args.resourceGroupName,

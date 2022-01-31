@@ -13,9 +13,7 @@ export function getPackage(args: GetPackageArgs, opts?: pulumi.InvokeOptions): P
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:testbase/v20201216preview:getPackage", {
         "packageName": args.packageName,
         "resourceGroupName": args.resourceGroupName,

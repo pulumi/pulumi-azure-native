@@ -173,9 +173,7 @@ export class ExportConfiguration extends pulumi.CustomResource {
             resourceInputs["storageName"] = undefined /*out*/;
             resourceInputs["subscriptionId"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:insights:ExportConfiguration" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ExportConfiguration.__pulumiType, name, resourceInputs, opts);

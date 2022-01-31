@@ -14,9 +14,7 @@ export function listWebhookEvents(args: ListWebhookEventsArgs, opts?: pulumi.Inv
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:containerregistry:listWebhookEvents", {
         "registryName": args.registryName,
         "resourceGroupName": args.resourceGroupName,

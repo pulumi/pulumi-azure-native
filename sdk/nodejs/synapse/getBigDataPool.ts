@@ -14,9 +14,7 @@ export function getBigDataPool(args: GetBigDataPoolArgs, opts?: pulumi.InvokeOpt
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:synapse:getBigDataPool", {
         "bigDataPoolName": args.bigDataPoolName,
         "resourceGroupName": args.resourceGroupName,

@@ -107,9 +107,7 @@ export class OfficeIRMDataConnector extends pulumi.CustomResource {
             resourceInputs["tenantId"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:securityinsights:OfficeIRMDataConnector" }, { type: "azure-native:securityinsights/v20190101preview:OfficeIRMDataConnector" }, { type: "azure-native:securityinsights/v20200101:OfficeIRMDataConnector" }, { type: "azure-native:securityinsights/v20210301preview:OfficeIRMDataConnector" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(OfficeIRMDataConnector.__pulumiType, name, resourceInputs, opts);

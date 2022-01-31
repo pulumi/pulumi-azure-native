@@ -13,9 +13,7 @@ export function getServer(args: GetServerArgs, opts?: pulumi.InvokeOptions): Pro
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:sql/v20210801preview:getServer", {
         "expand": args.expand,
         "resourceGroupName": args.resourceGroupName,

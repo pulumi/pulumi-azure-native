@@ -13,9 +13,7 @@ export function getLabPlan(args: GetLabPlanArgs, opts?: pulumi.InvokeOptions): P
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:labservices/v20211115preview:getLabPlan", {
         "labPlanName": args.labPlanName,
         "resourceGroupName": args.resourceGroupName,

@@ -153,9 +153,7 @@ export class PrivateRecordSet extends pulumi.CustomResource {
             resourceInputs["txtRecords"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:network/v20180901:PrivateRecordSet" }, { type: "azure-native:network/v20200101:PrivateRecordSet" }, { type: "azure-native:network/v20200601:PrivateRecordSet" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PrivateRecordSet.__pulumiType, name, resourceInputs, opts);

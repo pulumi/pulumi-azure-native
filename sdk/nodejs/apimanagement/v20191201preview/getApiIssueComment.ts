@@ -12,9 +12,7 @@ export function getApiIssueComment(args: GetApiIssueCommentArgs, opts?: pulumi.I
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:apimanagement/v20191201preview:getApiIssueComment", {
         "apiId": args.apiId,
         "commentId": args.commentId,

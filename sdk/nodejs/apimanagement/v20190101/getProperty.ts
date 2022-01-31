@@ -12,9 +12,7 @@ export function getProperty(args: GetPropertyArgs, opts?: pulumi.InvokeOptions):
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:apimanagement/v20190101:getProperty", {
         "propId": args.propId,
         "resourceGroupName": args.resourceGroupName,

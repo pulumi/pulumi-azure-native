@@ -13,9 +13,7 @@ export function getCustomAssessmentAutomation(args: GetCustomAssessmentAutomatio
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:security/v20210701preview:getCustomAssessmentAutomation", {
         "customAssessmentAutomationName": args.customAssessmentAutomationName,
         "resourceGroupName": args.resourceGroupName,

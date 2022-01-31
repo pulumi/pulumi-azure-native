@@ -107,9 +107,7 @@ export class Container extends pulumi.CustomResource {
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:databoxedge:Container" }, { type: "azure-native:databoxedge/v20190801:Container" }, { type: "azure-native:databoxedge/v20200501preview:Container" }, { type: "azure-native:databoxedge/v20200901preview:Container" }, { type: "azure-native:databoxedge/v20201201:Container" }, { type: "azure-native:databoxedge/v20210201:Container" }, { type: "azure-native:databoxedge/v20210201preview:Container" }, { type: "azure-native:databoxedge/v20210601:Container" }, { type: "azure-native:databoxedge/v20210601preview:Container" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Container.__pulumiType, name, resourceInputs, opts);

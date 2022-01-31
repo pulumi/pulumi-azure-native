@@ -14,9 +14,7 @@ export function getRestorePointCollection(args: GetRestorePointCollectionArgs, o
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:compute:getRestorePointCollection", {
         "expand": args.expand,
         "resourceGroupName": args.resourceGroupName,

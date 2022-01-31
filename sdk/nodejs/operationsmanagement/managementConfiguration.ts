@@ -79,9 +79,7 @@ export class ManagementConfiguration extends pulumi.CustomResource {
             resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:operationsmanagement/v20151101preview:ManagementConfiguration" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ManagementConfiguration.__pulumiType, name, resourceInputs, opts);

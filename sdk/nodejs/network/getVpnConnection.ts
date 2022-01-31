@@ -14,9 +14,7 @@ export function getVpnConnection(args: GetVpnConnectionArgs, opts?: pulumi.Invok
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:network:getVpnConnection", {
         "connectionName": args.connectionName,
         "gatewayName": args.gatewayName,

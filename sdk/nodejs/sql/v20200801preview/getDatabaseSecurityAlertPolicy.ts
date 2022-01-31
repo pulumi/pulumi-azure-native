@@ -13,9 +13,7 @@ export function getDatabaseSecurityAlertPolicy(args: GetDatabaseSecurityAlertPol
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:sql/v20200801preview:getDatabaseSecurityAlertPolicy", {
         "databaseName": args.databaseName,
         "resourceGroupName": args.resourceGroupName,

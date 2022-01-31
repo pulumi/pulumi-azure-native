@@ -82,9 +82,7 @@ export class RulesEngine extends pulumi.CustomResource {
             resourceInputs["rules"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:network:RulesEngine" }, { type: "azure-native:network/v20200401:RulesEngine" }, { type: "azure-native:network/v20200501:RulesEngine" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(RulesEngine.__pulumiType, name, resourceInputs, opts);

@@ -114,9 +114,7 @@ export class CognitiveServicesAccount extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:cognitiveservices:CognitiveServicesAccount" }, { type: "azure-native:cognitiveservices/v20170418:CognitiveServicesAccount" }, { type: "azure-native:cognitiveservices/v20210430:CognitiveServicesAccount" }, { type: "azure-native:cognitiveservices/v20211001:CognitiveServicesAccount" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(CognitiveServicesAccount.__pulumiType, name, resourceInputs, opts);

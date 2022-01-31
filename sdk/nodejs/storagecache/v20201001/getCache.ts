@@ -13,9 +13,7 @@ export function getCache(args: GetCacheArgs, opts?: pulumi.InvokeOptions): Promi
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:storagecache/v20201001:getCache", {
         "cacheName": args.cacheName,
         "resourceGroupName": args.resourceGroupName,

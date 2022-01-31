@@ -83,9 +83,7 @@ export class EventHubAuthorizationRule extends pulumi.CustomResource {
             resourceInputs["rights"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:eventhub:EventHubAuthorizationRule" }, { type: "azure-native:eventhub/v20140901:EventHubAuthorizationRule" }, { type: "azure-native:eventhub/v20150801:EventHubAuthorizationRule" }, { type: "azure-native:eventhub/v20180101preview:EventHubAuthorizationRule" }, { type: "azure-native:eventhub/v20210101preview:EventHubAuthorizationRule" }, { type: "azure-native:eventhub/v20210601preview:EventHubAuthorizationRule" }, { type: "azure-native:eventhub/v20211101:EventHubAuthorizationRule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(EventHubAuthorizationRule.__pulumiType, name, resourceInputs, opts);

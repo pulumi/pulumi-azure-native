@@ -14,9 +14,7 @@ export function getRollout(args: GetRolloutArgs, opts?: pulumi.InvokeOptions): P
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:deploymentmanager:getRollout", {
         "resourceGroupName": args.resourceGroupName,
         "retryAttempt": args.retryAttempt,

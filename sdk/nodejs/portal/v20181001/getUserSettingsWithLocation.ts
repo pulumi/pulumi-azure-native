@@ -13,9 +13,7 @@ export function getUserSettingsWithLocation(args: GetUserSettingsWithLocationArg
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:portal/v20181001:getUserSettingsWithLocation", {
         "location": args.location,
         "userSettingsName": args.userSettingsName,

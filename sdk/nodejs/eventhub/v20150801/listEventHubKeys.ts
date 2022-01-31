@@ -12,9 +12,7 @@ export function listEventHubKeys(args: ListEventHubKeysArgs, opts?: pulumi.Invok
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:eventhub/v20150801:listEventHubKeys", {
         "authorizationRuleName": args.authorizationRuleName,
         "eventHubName": args.eventHubName,

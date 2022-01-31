@@ -13,9 +13,7 @@ export function getIscsiTarget(args: GetIscsiTargetArgs, opts?: pulumi.InvokeOpt
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:storagepool/v20210801:getIscsiTarget", {
         "diskPoolName": args.diskPoolName,
         "iscsiTargetName": args.iscsiTargetName,

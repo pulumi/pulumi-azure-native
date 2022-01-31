@@ -13,9 +13,7 @@ export function getLabAccount(args: GetLabAccountArgs, opts?: pulumi.InvokeOptio
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:labservices/v20181015:getLabAccount", {
         "expand": args.expand,
         "labAccountName": args.labAccountName,

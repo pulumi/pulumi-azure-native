@@ -10,9 +10,7 @@ export function getRecoveryPointAccessToken(args: GetRecoveryPointAccessTokenArg
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:recoveryservices/v20211115:getRecoveryPointAccessToken", {
         "containerName": args.containerName,
         "eTag": args.eTag,

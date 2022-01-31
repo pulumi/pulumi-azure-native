@@ -12,9 +12,7 @@ export function listDeploymentInfo(args: ListDeploymentInfoArgs, opts?: pulumi.I
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:elastic/v20200701:listDeploymentInfo", {
         "monitorName": args.monitorName,
         "resourceGroupName": args.resourceGroupName,

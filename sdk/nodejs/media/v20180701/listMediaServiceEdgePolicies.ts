@@ -10,9 +10,7 @@ export function listMediaServiceEdgePolicies(args: ListMediaServiceEdgePoliciesA
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:media/v20180701:listMediaServiceEdgePolicies", {
         "accountName": args.accountName,
         "deviceId": args.deviceId,

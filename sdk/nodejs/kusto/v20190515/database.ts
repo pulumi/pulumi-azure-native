@@ -100,9 +100,7 @@ export class Database extends pulumi.CustomResource {
             resourceInputs["statistics"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:kusto:Database" }, { type: "azure-native:kusto/v20170907privatepreview:Database" }, { type: "azure-native:kusto/v20180907preview:Database" }, { type: "azure-native:kusto/v20190121:Database" }, { type: "azure-native:kusto/v20190907:Database" }, { type: "azure-native:kusto/v20191109:Database" }, { type: "azure-native:kusto/v20200215:Database" }, { type: "azure-native:kusto/v20200614:Database" }, { type: "azure-native:kusto/v20200918:Database" }, { type: "azure-native:kusto/v20210101:Database" }, { type: "azure-native:kusto/v20210827:Database" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Database.__pulumiType, name, resourceInputs, opts);

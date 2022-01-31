@@ -88,9 +88,7 @@ export class MaintenanceConfiguration extends pulumi.CustomResource {
             resourceInputs["timeInWeek"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:containerservice:MaintenanceConfiguration" }, { type: "azure-native:containerservice/v20210201:MaintenanceConfiguration" }, { type: "azure-native:containerservice/v20210301:MaintenanceConfiguration" }, { type: "azure-native:containerservice/v20210501:MaintenanceConfiguration" }, { type: "azure-native:containerservice/v20210701:MaintenanceConfiguration" }, { type: "azure-native:containerservice/v20210801:MaintenanceConfiguration" }, { type: "azure-native:containerservice/v20210901:MaintenanceConfiguration" }, { type: "azure-native:containerservice/v20211001:MaintenanceConfiguration" }, { type: "azure-native:containerservice/v20211101preview:MaintenanceConfiguration" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(MaintenanceConfiguration.__pulumiType, name, resourceInputs, opts);

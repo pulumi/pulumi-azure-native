@@ -13,9 +13,7 @@ export function getManagementGroup(args: GetManagementGroupArgs, opts?: pulumi.I
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:management/v20180101preview:getManagementGroup", {
         "expand": args.expand,
         "filter": args.filter,

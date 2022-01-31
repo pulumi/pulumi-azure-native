@@ -122,9 +122,7 @@ export class PolicyAssignmentArtifact extends pulumi.CustomResource {
             resourceInputs["resourceGroup"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(PolicyAssignmentArtifact.__pulumiType, name, resourceInputs, opts);
     }
 }

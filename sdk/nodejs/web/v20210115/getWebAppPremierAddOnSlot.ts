@@ -12,9 +12,7 @@ export function getWebAppPremierAddOnSlot(args: GetWebAppPremierAddOnSlotArgs, o
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:web/v20210115:getWebAppPremierAddOnSlot", {
         "name": args.name,
         "premierAddOnName": args.premierAddOnName,

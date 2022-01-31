@@ -90,9 +90,7 @@ export class ManagementGroupSubscription extends pulumi.CustomResource {
             resourceInputs["tenant"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:management:ManagementGroupSubscription" }, { type: "azure-native:management/v20200501:ManagementGroupSubscription" }, { type: "azure-native:management/v20201001:ManagementGroupSubscription" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ManagementGroupSubscription.__pulumiType, name, resourceInputs, opts);

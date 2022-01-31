@@ -79,9 +79,7 @@ export class TagByApi extends pulumi.CustomResource {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:TagByApi" }, { type: "azure-native:apimanagement/v20170301:TagByApi" }, { type: "azure-native:apimanagement/v20180101:TagByApi" }, { type: "azure-native:apimanagement/v20180601preview:TagByApi" }, { type: "azure-native:apimanagement/v20190101:TagByApi" }, { type: "azure-native:apimanagement/v20191201:TagByApi" }, { type: "azure-native:apimanagement/v20191201preview:TagByApi" }, { type: "azure-native:apimanagement/v20200601preview:TagByApi" }, { type: "azure-native:apimanagement/v20201201:TagByApi" }, { type: "azure-native:apimanagement/v20210101preview:TagByApi" }, { type: "azure-native:apimanagement/v20210801:TagByApi" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(TagByApi.__pulumiType, name, resourceInputs, opts);

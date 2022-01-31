@@ -97,9 +97,7 @@ export class Linker extends pulumi.CustomResource {
             resourceInputs["targetId"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:servicelinker/v20211101preview:Linker" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Linker.__pulumiType, name, resourceInputs, opts);

@@ -12,9 +12,7 @@ export function getRedisLinkedServer(args: GetRedisLinkedServerArgs, opts?: pulu
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:cache/v20170201:getRedisLinkedServer", {
         "linkedServerName": args.linkedServerName,
         "name": args.name,

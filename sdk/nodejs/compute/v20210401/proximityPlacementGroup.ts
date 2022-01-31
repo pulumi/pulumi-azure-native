@@ -108,9 +108,7 @@ export class ProximityPlacementGroup extends pulumi.CustomResource {
             resourceInputs["virtualMachineScaleSets"] = undefined /*out*/;
             resourceInputs["virtualMachines"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:compute:ProximityPlacementGroup" }, { type: "azure-native:compute/v20180401:ProximityPlacementGroup" }, { type: "azure-native:compute/v20180601:ProximityPlacementGroup" }, { type: "azure-native:compute/v20181001:ProximityPlacementGroup" }, { type: "azure-native:compute/v20190301:ProximityPlacementGroup" }, { type: "azure-native:compute/v20190701:ProximityPlacementGroup" }, { type: "azure-native:compute/v20191201:ProximityPlacementGroup" }, { type: "azure-native:compute/v20200601:ProximityPlacementGroup" }, { type: "azure-native:compute/v20201201:ProximityPlacementGroup" }, { type: "azure-native:compute/v20210301:ProximityPlacementGroup" }, { type: "azure-native:compute/v20210701:ProximityPlacementGroup" }, { type: "azure-native:compute/v20211101:ProximityPlacementGroup" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ProximityPlacementGroup.__pulumiType, name, resourceInputs, opts);

@@ -69,9 +69,7 @@ export class ComponentCurrentBillingFeature extends pulumi.CustomResource {
             resourceInputs["currentBillingFeatures"] = undefined /*out*/;
             resourceInputs["dataVolumeCap"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:insights:ComponentCurrentBillingFeature" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ComponentCurrentBillingFeature.__pulumiType, name, resourceInputs, opts);

@@ -144,9 +144,7 @@ export class NetworkFunction extends pulumi.CustomResource {
             resourceInputs["vendorName"] = undefined /*out*/;
             resourceInputs["vendorProvisioningState"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:hybridnetwork:NetworkFunction" }, { type: "azure-native:hybridnetwork/v20210501:NetworkFunction" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(NetworkFunction.__pulumiType, name, resourceInputs, opts);

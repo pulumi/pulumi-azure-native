@@ -105,9 +105,7 @@ export class SyncAgent extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["version"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:sql:SyncAgent" }, { type: "azure-native:sql/v20150501preview:SyncAgent" }, { type: "azure-native:sql/v20200202preview:SyncAgent" }, { type: "azure-native:sql/v20200801preview:SyncAgent" }, { type: "azure-native:sql/v20210201preview:SyncAgent" }, { type: "azure-native:sql/v20210501preview:SyncAgent" }, { type: "azure-native:sql/v20210801preview:SyncAgent" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SyncAgent.__pulumiType, name, resourceInputs, opts);

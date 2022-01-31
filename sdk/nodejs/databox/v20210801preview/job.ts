@@ -180,9 +180,7 @@ export class Job extends pulumi.CustomResource {
             resourceInputs["transferType"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:databox:Job" }, { type: "azure-native:databox/v20180101:Job" }, { type: "azure-native:databox/v20190901:Job" }, { type: "azure-native:databox/v20200401:Job" }, { type: "azure-native:databox/v20201101:Job" }, { type: "azure-native:databox/v20210301:Job" }, { type: "azure-native:databox/v20210501:Job" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Job.__pulumiType, name, resourceInputs, opts);

@@ -120,9 +120,7 @@ export class Export extends pulumi.CustomResource {
             resourceInputs["schedule"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:costmanagement:Export" }, { type: "azure-native:costmanagement/v20190101:Export" }, { type: "azure-native:costmanagement/v20190901:Export" }, { type: "azure-native:costmanagement/v20191001:Export" }, { type: "azure-native:costmanagement/v20191101:Export" }, { type: "azure-native:costmanagement/v20200601:Export" }, { type: "azure-native:costmanagement/v20201201preview:Export" }, { type: "azure-native:costmanagement/v20211001:Export" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Export.__pulumiType, name, resourceInputs, opts);

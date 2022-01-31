@@ -109,9 +109,7 @@ export class ServiceEndpointPolicy extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:network:ServiceEndpointPolicy" }, { type: "azure-native:network/v20180701:ServiceEndpointPolicy" }, { type: "azure-native:network/v20180801:ServiceEndpointPolicy" }, { type: "azure-native:network/v20181001:ServiceEndpointPolicy" }, { type: "azure-native:network/v20181101:ServiceEndpointPolicy" }, { type: "azure-native:network/v20181201:ServiceEndpointPolicy" }, { type: "azure-native:network/v20190201:ServiceEndpointPolicy" }, { type: "azure-native:network/v20190401:ServiceEndpointPolicy" }, { type: "azure-native:network/v20190601:ServiceEndpointPolicy" }, { type: "azure-native:network/v20190701:ServiceEndpointPolicy" }, { type: "azure-native:network/v20190801:ServiceEndpointPolicy" }, { type: "azure-native:network/v20190901:ServiceEndpointPolicy" }, { type: "azure-native:network/v20191101:ServiceEndpointPolicy" }, { type: "azure-native:network/v20200301:ServiceEndpointPolicy" }, { type: "azure-native:network/v20200401:ServiceEndpointPolicy" }, { type: "azure-native:network/v20200501:ServiceEndpointPolicy" }, { type: "azure-native:network/v20200601:ServiceEndpointPolicy" }, { type: "azure-native:network/v20200701:ServiceEndpointPolicy" }, { type: "azure-native:network/v20200801:ServiceEndpointPolicy" }, { type: "azure-native:network/v20201101:ServiceEndpointPolicy" }, { type: "azure-native:network/v20210201:ServiceEndpointPolicy" }, { type: "azure-native:network/v20210301:ServiceEndpointPolicy" }, { type: "azure-native:network/v20210501:ServiceEndpointPolicy" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ServiceEndpointPolicy.__pulumiType, name, resourceInputs, opts);

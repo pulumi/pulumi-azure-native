@@ -160,9 +160,7 @@ export class RosettaNetProcessConfiguration extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:logic:RosettaNetProcessConfiguration" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(RosettaNetProcessConfiguration.__pulumiType, name, resourceInputs, opts);

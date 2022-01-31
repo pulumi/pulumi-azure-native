@@ -13,9 +13,7 @@ export function getPeering(args: GetPeeringArgs, opts?: pulumi.InvokeOptions): P
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:peering/v20201001:getPeering", {
         "peeringName": args.peeringName,
         "resourceGroupName": args.resourceGroupName,

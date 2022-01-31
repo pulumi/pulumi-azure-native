@@ -75,9 +75,7 @@ export class ServerDnsAlias extends pulumi.CustomResource {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:sql:ServerDnsAlias" }, { type: "azure-native:sql/v20170301preview:ServerDnsAlias" }, { type: "azure-native:sql/v20200202preview:ServerDnsAlias" }, { type: "azure-native:sql/v20200801preview:ServerDnsAlias" }, { type: "azure-native:sql/v20210201preview:ServerDnsAlias" }, { type: "azure-native:sql/v20210501preview:ServerDnsAlias" }, { type: "azure-native:sql/v20210801preview:ServerDnsAlias" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ServerDnsAlias.__pulumiType, name, resourceInputs, opts);

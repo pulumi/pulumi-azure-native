@@ -181,9 +181,7 @@ export class AuthorizationServer extends pulumi.CustomResource {
             resourceInputs["tokenEndpoint"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:AuthorizationServer" }, { type: "azure-native:apimanagement/v20160707:AuthorizationServer" }, { type: "azure-native:apimanagement/v20161010:AuthorizationServer" }, { type: "azure-native:apimanagement/v20170301:AuthorizationServer" }, { type: "azure-native:apimanagement/v20180101:AuthorizationServer" }, { type: "azure-native:apimanagement/v20180601preview:AuthorizationServer" }, { type: "azure-native:apimanagement/v20190101:AuthorizationServer" }, { type: "azure-native:apimanagement/v20191201:AuthorizationServer" }, { type: "azure-native:apimanagement/v20191201preview:AuthorizationServer" }, { type: "azure-native:apimanagement/v20200601preview:AuthorizationServer" }, { type: "azure-native:apimanagement/v20201201:AuthorizationServer" }, { type: "azure-native:apimanagement/v20210101preview:AuthorizationServer" }, { type: "azure-native:apimanagement/v20210801:AuthorizationServer" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AuthorizationServer.__pulumiType, name, resourceInputs, opts);

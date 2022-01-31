@@ -126,9 +126,7 @@ export class Organization extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["userDetail"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:confluent:Organization" }, { type: "azure-native:confluent/v20200301:Organization" }, { type: "azure-native:confluent/v20200301preview:Organization" }, { type: "azure-native:confluent/v20210901preview:Organization" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Organization.__pulumiType, name, resourceInputs, opts);

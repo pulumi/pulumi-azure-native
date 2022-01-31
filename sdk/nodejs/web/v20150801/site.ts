@@ -256,9 +256,7 @@ export class Site extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["usageState"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:web:Site" }, { type: "azure-native:web/v20160801:Site" }, { type: "azure-native:web/v20180201:Site" }, { type: "azure-native:web/v20181101:Site" }, { type: "azure-native:web/v20190801:Site" }, { type: "azure-native:web/v20200601:Site" }, { type: "azure-native:web/v20200901:Site" }, { type: "azure-native:web/v20201001:Site" }, { type: "azure-native:web/v20201201:Site" }, { type: "azure-native:web/v20210101:Site" }, { type: "azure-native:web/v20210115:Site" }, { type: "azure-native:web/v20210201:Site" }, { type: "azure-native:web/v20210301:Site" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Site.__pulumiType, name, resourceInputs, opts);

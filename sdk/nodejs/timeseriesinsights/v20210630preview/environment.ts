@@ -101,9 +101,7 @@ export class Environment extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:timeseriesinsights:Environment" }, { type: "azure-native:timeseriesinsights/v20170228preview:Environment" }, { type: "azure-native:timeseriesinsights/v20171115:Environment" }, { type: "azure-native:timeseriesinsights/v20180815preview:Environment" }, { type: "azure-native:timeseriesinsights/v20200515:Environment" }, { type: "azure-native:timeseriesinsights/v20210331preview:Environment" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Environment.__pulumiType, name, resourceInputs, opts);

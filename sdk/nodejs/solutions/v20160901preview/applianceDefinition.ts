@@ -141,9 +141,7 @@ export class ApplianceDefinition extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:solutions:ApplianceDefinition" }, { type: "azure-native:solutions/v20170901:ApplianceDefinition" }, { type: "azure-native:solutions/v20180601:ApplianceDefinition" }, { type: "azure-native:solutions/v20190701:ApplianceDefinition" }, { type: "azure-native:solutions/v20200821preview:ApplianceDefinition" }, { type: "azure-native:solutions/v20210701:ApplianceDefinition" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ApplianceDefinition.__pulumiType, name, resourceInputs, opts);

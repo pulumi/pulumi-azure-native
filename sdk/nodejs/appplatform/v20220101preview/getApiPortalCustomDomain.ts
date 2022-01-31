@@ -13,9 +13,7 @@ export function getApiPortalCustomDomain(args: GetApiPortalCustomDomainArgs, opt
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:appplatform/v20220101preview:getApiPortalCustomDomain", {
         "apiPortalName": args.apiPortalName,
         "domainName": args.domainName,

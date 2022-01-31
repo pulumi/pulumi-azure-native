@@ -14,9 +14,7 @@ export function getModelVersion(args: GetModelVersionArgs, opts?: pulumi.InvokeO
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:machinelearningservices:getModelVersion", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

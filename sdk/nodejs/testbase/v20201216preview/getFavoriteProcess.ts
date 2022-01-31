@@ -13,9 +13,7 @@ export function getFavoriteProcess(args: GetFavoriteProcessArgs, opts?: pulumi.I
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:testbase/v20201216preview:getFavoriteProcess", {
         "favoriteProcessResourceName": args.favoriteProcessResourceName,
         "packageName": args.packageName,

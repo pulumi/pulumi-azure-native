@@ -113,9 +113,7 @@ export class GalleryImageVersion extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:compute:GalleryImageVersion" }, { type: "azure-native:compute/v20180601:GalleryImageVersion" }, { type: "azure-native:compute/v20190301:GalleryImageVersion" }, { type: "azure-native:compute/v20190701:GalleryImageVersion" }, { type: "azure-native:compute/v20191201:GalleryImageVersion" }, { type: "azure-native:compute/v20200930:GalleryImageVersion" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(GalleryImageVersion.__pulumiType, name, resourceInputs, opts);

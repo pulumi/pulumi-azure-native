@@ -140,9 +140,7 @@ export class ThreatIntelligenceAlertRule extends pulumi.CustomResource {
             resourceInputs["tactics"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:securityinsights:ThreatIntelligenceAlertRule" }, { type: "azure-native:securityinsights/v20190101preview:ThreatIntelligenceAlertRule" }, { type: "azure-native:securityinsights/v20200101:ThreatIntelligenceAlertRule" }, { type: "azure-native:securityinsights/v20210301preview:ThreatIntelligenceAlertRule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ThreatIntelligenceAlertRule.__pulumiType, name, resourceInputs, opts);

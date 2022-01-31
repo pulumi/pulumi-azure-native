@@ -102,9 +102,7 @@ export class IotDpsResource extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:devices:IotDpsResource" }, { type: "azure-native:devices/v20170821preview:IotDpsResource" }, { type: "azure-native:devices/v20171115:IotDpsResource" }, { type: "azure-native:devices/v20180122:IotDpsResource" }, { type: "azure-native:devices/v20200101:IotDpsResource" }, { type: "azure-native:devices/v20200901preview:IotDpsResource" }, { type: "azure-native:devices/v20211015:IotDpsResource" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(IotDpsResource.__pulumiType, name, resourceInputs, opts);

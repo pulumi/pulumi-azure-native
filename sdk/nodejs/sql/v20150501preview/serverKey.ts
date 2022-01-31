@@ -115,9 +115,7 @@ export class ServerKey extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["uri"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:sql:ServerKey" }, { type: "azure-native:sql/v20200202preview:ServerKey" }, { type: "azure-native:sql/v20200801preview:ServerKey" }, { type: "azure-native:sql/v20201101preview:ServerKey" }, { type: "azure-native:sql/v20210201preview:ServerKey" }, { type: "azure-native:sql/v20210501preview:ServerKey" }, { type: "azure-native:sql/v20210801preview:ServerKey" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ServerKey.__pulumiType, name, resourceInputs, opts);

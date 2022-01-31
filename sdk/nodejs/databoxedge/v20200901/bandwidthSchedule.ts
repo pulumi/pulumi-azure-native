@@ -111,9 +111,7 @@ export class BandwidthSchedule extends pulumi.CustomResource {
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:databoxedge:BandwidthSchedule" }, { type: "azure-native:databoxedge/v20190301:BandwidthSchedule" }, { type: "azure-native:databoxedge/v20190701:BandwidthSchedule" }, { type: "azure-native:databoxedge/v20190801:BandwidthSchedule" }, { type: "azure-native:databoxedge/v20200501preview:BandwidthSchedule" }, { type: "azure-native:databoxedge/v20200901preview:BandwidthSchedule" }, { type: "azure-native:databoxedge/v20201201:BandwidthSchedule" }, { type: "azure-native:databoxedge/v20210201:BandwidthSchedule" }, { type: "azure-native:databoxedge/v20210201preview:BandwidthSchedule" }, { type: "azure-native:databoxedge/v20210601:BandwidthSchedule" }, { type: "azure-native:databoxedge/v20210601preview:BandwidthSchedule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(BandwidthSchedule.__pulumiType, name, resourceInputs, opts);

@@ -13,9 +13,7 @@ export function getAccount(args: GetAccountArgs, opts?: pulumi.InvokeOptions): P
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:purview/v20210701:getAccount", {
         "accountName": args.accountName,
         "resourceGroupName": args.resourceGroupName,

@@ -117,9 +117,7 @@ export class MHSMPrivateEndpointConnection extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:keyvault:MHSMPrivateEndpointConnection" }, { type: "azure-native:keyvault/v20210601preview:MHSMPrivateEndpointConnection" }, { type: "azure-native:keyvault/v20211001:MHSMPrivateEndpointConnection" }, { type: "azure-native:keyvault/v20211101preview:MHSMPrivateEndpointConnection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(MHSMPrivateEndpointConnection.__pulumiType, name, resourceInputs, opts);

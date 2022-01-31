@@ -13,9 +13,7 @@ export function getAFDOrigin(args: GetAFDOriginArgs, opts?: pulumi.InvokeOptions
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:cdn/v20200901:getAFDOrigin", {
         "originGroupName": args.originGroupName,
         "originName": args.originName,

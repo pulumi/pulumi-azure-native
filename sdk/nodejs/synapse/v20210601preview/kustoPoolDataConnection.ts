@@ -104,9 +104,7 @@ export class KustoPoolDataConnection extends pulumi.CustomResource {
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:synapse:KustoPoolDataConnection" }, { type: "azure-native:synapse/v20210401preview:KustoPoolDataConnection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(KustoPoolDataConnection.__pulumiType, name, resourceInputs, opts);

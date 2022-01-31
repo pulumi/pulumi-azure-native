@@ -13,9 +13,7 @@ export function getWorkloadClassifier(args: GetWorkloadClassifierArgs, opts?: pu
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:sql:getWorkloadClassifier", {
         "databaseName": args.databaseName,
         "resourceGroupName": args.resourceGroupName,

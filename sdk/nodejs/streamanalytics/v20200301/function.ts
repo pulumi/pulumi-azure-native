@@ -76,9 +76,7 @@ export class Function extends pulumi.CustomResource {
             resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:streamanalytics:Function" }, { type: "azure-native:streamanalytics/v20160301:Function" }, { type: "azure-native:streamanalytics/v20170401preview:Function" }, { type: "azure-native:streamanalytics/v20211001preview:Function" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Function.__pulumiType, name, resourceInputs, opts);

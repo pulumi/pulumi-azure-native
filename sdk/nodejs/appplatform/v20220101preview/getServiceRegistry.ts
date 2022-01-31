@@ -13,9 +13,7 @@ export function getServiceRegistry(args: GetServiceRegistryArgs, opts?: pulumi.I
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:appplatform/v20220101preview:getServiceRegistry", {
         "resourceGroupName": args.resourceGroupName,
         "serviceName": args.serviceName,

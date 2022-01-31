@@ -85,9 +85,7 @@ export class ReplicationRecoveryPlan extends pulumi.CustomResource {
             resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:recoveryservices:ReplicationRecoveryPlan" }, { type: "azure-native:recoveryservices/v20160810:ReplicationRecoveryPlan" }, { type: "azure-native:recoveryservices/v20180110:ReplicationRecoveryPlan" }, { type: "azure-native:recoveryservices/v20180710:ReplicationRecoveryPlan" }, { type: "azure-native:recoveryservices/v20210210:ReplicationRecoveryPlan" }, { type: "azure-native:recoveryservices/v20210301:ReplicationRecoveryPlan" }, { type: "azure-native:recoveryservices/v20210401:ReplicationRecoveryPlan" }, { type: "azure-native:recoveryservices/v20210601:ReplicationRecoveryPlan" }, { type: "azure-native:recoveryservices/v20210701:ReplicationRecoveryPlan" }, { type: "azure-native:recoveryservices/v20210801:ReplicationRecoveryPlan" }, { type: "azure-native:recoveryservices/v20211001:ReplicationRecoveryPlan" }, { type: "azure-native:recoveryservices/v20211101:ReplicationRecoveryPlan" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ReplicationRecoveryPlan.__pulumiType, name, resourceInputs, opts);

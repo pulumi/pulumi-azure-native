@@ -13,9 +13,7 @@ export function getService(args: GetServiceArgs, opts?: pulumi.InvokeOptions): P
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:servicefabric/v20210601:getService", {
         "applicationName": args.applicationName,
         "clusterName": args.clusterName,

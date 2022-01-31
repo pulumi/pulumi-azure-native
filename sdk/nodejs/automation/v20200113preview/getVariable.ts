@@ -12,9 +12,7 @@ export function getVariable(args: GetVariableArgs, opts?: pulumi.InvokeOptions):
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:automation/v20200113preview:getVariable", {
         "automationAccountName": args.automationAccountName,
         "resourceGroupName": args.resourceGroupName,

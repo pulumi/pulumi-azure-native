@@ -96,9 +96,7 @@ export class SiteAppSettingsSlot extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:web:SiteAppSettingsSlot" }, { type: "azure-native:web/v20160801:SiteAppSettingsSlot" }, { type: "azure-native:web/v20180201:SiteAppSettingsSlot" }, { type: "azure-native:web/v20181101:SiteAppSettingsSlot" }, { type: "azure-native:web/v20190801:SiteAppSettingsSlot" }, { type: "azure-native:web/v20200601:SiteAppSettingsSlot" }, { type: "azure-native:web/v20200901:SiteAppSettingsSlot" }, { type: "azure-native:web/v20201001:SiteAppSettingsSlot" }, { type: "azure-native:web/v20201201:SiteAppSettingsSlot" }, { type: "azure-native:web/v20210101:SiteAppSettingsSlot" }, { type: "azure-native:web/v20210115:SiteAppSettingsSlot" }, { type: "azure-native:web/v20210201:SiteAppSettingsSlot" }, { type: "azure-native:web/v20210301:SiteAppSettingsSlot" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SiteAppSettingsSlot.__pulumiType, name, resourceInputs, opts);

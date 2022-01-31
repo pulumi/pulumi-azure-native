@@ -13,9 +13,7 @@ export function getLedger(args: GetLedgerArgs, opts?: pulumi.InvokeOptions): Pro
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:confidentialledger/v20210513preview:getLedger", {
         "ledgerName": args.ledgerName,
         "resourceGroupName": args.resourceGroupName,

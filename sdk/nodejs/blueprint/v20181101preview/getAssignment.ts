@@ -13,9 +13,7 @@ export function getAssignment(args: GetAssignmentArgs, opts?: pulumi.InvokeOptio
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:blueprint/v20181101preview:getAssignment", {
         "assignmentName": args.assignmentName,
         "resourceScope": args.resourceScope,

@@ -12,9 +12,7 @@ export function getUserAssignedIdentity(args: GetUserAssignedIdentityArgs, opts?
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:managedidentity/v20181130:getUserAssignedIdentity", {
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,

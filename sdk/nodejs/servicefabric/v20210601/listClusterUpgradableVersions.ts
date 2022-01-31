@@ -12,9 +12,7 @@ export function listClusterUpgradableVersions(args: ListClusterUpgradableVersion
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:servicefabric/v20210601:listClusterUpgradableVersions", {
         "clusterName": args.clusterName,
         "resourceGroupName": args.resourceGroupName,

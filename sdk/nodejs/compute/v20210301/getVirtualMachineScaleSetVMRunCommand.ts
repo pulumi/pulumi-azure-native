@@ -13,9 +13,7 @@ export function getVirtualMachineScaleSetVMRunCommand(args: GetVirtualMachineSca
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:compute/v20210301:getVirtualMachineScaleSetVMRunCommand", {
         "expand": args.expand,
         "instanceId": args.instanceId,

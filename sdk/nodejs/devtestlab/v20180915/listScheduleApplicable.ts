@@ -13,9 +13,7 @@ export function listScheduleApplicable(args: ListScheduleApplicableArgs, opts?: 
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:devtestlab/v20180915:listScheduleApplicable", {
         "labName": args.labName,
         "name": args.name,

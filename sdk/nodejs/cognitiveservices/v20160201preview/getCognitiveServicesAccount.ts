@@ -13,9 +13,7 @@ export function getCognitiveServicesAccount(args: GetCognitiveServicesAccountArg
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:cognitiveservices/v20160201preview:getCognitiveServicesAccount", {
         "accountName": args.accountName,
         "resourceGroupName": args.resourceGroupName,

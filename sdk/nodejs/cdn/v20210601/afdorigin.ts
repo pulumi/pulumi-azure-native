@@ -157,9 +157,7 @@ export class AFDOrigin extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["weight"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:cdn:AFDOrigin" }, { type: "azure-native:cdn/v20200901:AFDOrigin" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AFDOrigin.__pulumiType, name, resourceInputs, opts);

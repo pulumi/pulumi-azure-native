@@ -146,9 +146,7 @@ export class View extends pulumi.CustomResource {
             resourceInputs["timeframe"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:costmanagement:View" }, { type: "azure-native:costmanagement/v20191101:View" }, { type: "azure-native:costmanagement/v20200601:View" }, { type: "azure-native:costmanagement/v20211001:View" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(View.__pulumiType, name, resourceInputs, opts);

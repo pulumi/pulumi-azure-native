@@ -13,9 +13,7 @@ export function getprivateLinkServicesForSCCPowershell(args: GetprivateLinkServi
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:securityandcompliance/v20210111:getprivateLinkServicesForSCCPowershell", {
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,

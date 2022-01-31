@@ -13,9 +13,7 @@ export function getServerTrustGroup(args: GetServerTrustGroupArgs, opts?: pulumi
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:sql/v20200202preview:getServerTrustGroup", {
         "locationName": args.locationName,
         "resourceGroupName": args.resourceGroupName,
