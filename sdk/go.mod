@@ -5,7 +5,7 @@ go 1.17
 require (
 	github.com/blang/semver v3.5.1+incompatible
 	github.com/pkg/errors v0.9.1
-	github.com/pulumi/pulumi/sdk/v3 v3.20.0
+	github.com/pulumi/pulumi/sdk/v3 v3.23.2
 )
 
 require (
@@ -13,7 +13,6 @@ require (
 	github.com/djherbis/times v1.2.0 // indirect
 	github.com/emirpasic/gods v1.12.0 // indirect
 	github.com/fatih/color v1.10.0 // indirect
-	github.com/gofrs/flock v0.7.1 // indirect
 	github.com/gofrs/uuid v3.3.0+incompatible // indirect
 	github.com/gogo/protobuf v1.3.1 // indirect
 	github.com/golang/glog v0.0.0-20160126235308-23def4e6c14b // indirect
@@ -31,6 +30,7 @@ require (
 	github.com/opentracing/basictracer-go v1.0.0 // indirect
 	github.com/opentracing/opentracing-go v1.1.0 // indirect
 	github.com/rivo/uniseg v0.2.0 // indirect
+	github.com/rogpeppe/go-internal v1.8.1 // indirect
 	github.com/sabhiram/go-gitignore v0.0.0-20180611051255-d3107576ba94 // indirect
 	github.com/sergi/go-diff v1.1.0 // indirect
 	github.com/spf13/cast v1.3.1 // indirect
