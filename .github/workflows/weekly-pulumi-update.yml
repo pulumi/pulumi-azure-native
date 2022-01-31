@@ -29,6 +29,8 @@ jobs:
           repo: pulumi/pulumictl
       - name: Install Pulumi CLI
         uses: pulumi/setup-pulumi@v2
+      - name: Update submodules
+        run: make init_submodules
       - name: Preparing Git Branch
         run: |
           git config --local user.email "bot@pulumi.com"
@@ -39,6 +41,11 @@ jobs:
         run: |
           cd provider
           go get github.com/pulumi/pulumi/pkg/v3
+          go get github.com/pulumi/pulumi/sdk/v3
+          go mod download
+          go mod tidy
+          cd ..
+          cd provider
           go get github.com/pulumi/pulumi/sdk/v3
           go mod download
           go mod tidy
