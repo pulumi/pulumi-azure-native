@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Defines web application firewall policy for Azure CDN.
- * API Version: 2020-09-01.
+ * API Version: 2021-06-01.
  */
 export class Policy extends pulumi.CustomResource {
     /**

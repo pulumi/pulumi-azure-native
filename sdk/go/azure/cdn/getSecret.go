@@ -11,7 +11,7 @@ import (
 )
 
 // Friendly Secret name mapping to the any Secret or secret related information.
-// API Version: 2020-09-01.
+// API Version: 2021-06-01.
 func LookupSecret(ctx *pulumi.Context, args *LookupSecretArgs, opts ...pulumi.InvokeOption) (*LookupSecretResult, error) {
 	var rv LookupSecretResult
 	err := ctx.Invoke("azure-native:cdn:getSecret", args, &rv, opts...)
@@ -22,7 +22,7 @@ func LookupSecret(ctx *pulumi.Context, args *LookupSecretArgs, opts ...pulumi.In
 }
 
 type LookupSecretArgs struct {
-	// Name of the CDN profile which is unique within the resource group.
+	// Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
 	ProfileName string `pulumi:"profileName"`
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -39,6 +39,8 @@ type LookupSecretResult struct {
 	Name string `pulumi:"name"`
 	// object which contains secret parameters
 	Parameters interface{} `pulumi:"parameters"`
+	// The name of the profile which holds the secret.
+	ProfileName string `pulumi:"profileName"`
 	// Provisioning status
 	ProvisioningState string `pulumi:"provisioningState"`
 	// Read only system data
@@ -57,7 +59,7 @@ func LookupSecretOutput(ctx *pulumi.Context, args LookupSecretOutputArgs, opts .
 }
 
 type LookupSecretOutputArgs struct {
-	// Name of the CDN profile which is unique within the resource group.
+	// Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
 	ProfileName pulumi.StringInput `pulumi:"profileName"`
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
@@ -101,6 +103,11 @@ func (o LookupSecretResultOutput) Name() pulumi.StringOutput {
 // object which contains secret parameters
 func (o LookupSecretResultOutput) Parameters() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupSecretResult) interface{} { return v.Parameters }).(pulumi.AnyOutput)
+}
+
+// The name of the profile which holds the secret.
+func (o LookupSecretResultOutput) ProfileName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSecretResult) string { return v.ProfileName }).(pulumi.StringOutput)
 }
 
 // Provisioning status

@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * CDN endpoint is the entity within a CDN profile containing configuration information such as origin, protocol, content caching and delivery behavior. The AzureFrontDoor endpoint uses the URL format <endpointname>.azureedge.net.
- * API Version: 2020-09-01.
+ * API Version: 2021-06-01.
  */
 export class AFDEndpoint extends pulumi.CustomResource {
     /**
@@ -54,9 +54,9 @@ export class AFDEndpoint extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Send and receive timeout on forwarding request to the origin. When timeout is reached, the request fails and returns.
+     * The name of the profile which holds the endpoint.
      */
-    public readonly originResponseTimeoutSeconds!: pulumi.Output<number | undefined>;
+    public readonly profileName!: pulumi.Output<string>;
     /**
      * Provisioning status
      */
@@ -94,7 +94,6 @@ export class AFDEndpoint extends pulumi.CustomResource {
             resourceInputs["enabledState"] = args ? args.enabledState : undefined;
             resourceInputs["endpointName"] = args ? args.endpointName : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["originResponseTimeoutSeconds"] = args ? args.originResponseTimeoutSeconds : undefined;
             resourceInputs["profileName"] = args ? args.profileName : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -110,7 +109,7 @@ export class AFDEndpoint extends pulumi.CustomResource {
             resourceInputs["hostName"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["originResponseTimeoutSeconds"] = undefined /*out*/;
+            resourceInputs["profileName"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
@@ -142,11 +141,7 @@ export interface AFDEndpointArgs {
      */
     location?: pulumi.Input<string>;
     /**
-     * Send and receive timeout on forwarding request to the origin. When timeout is reached, the request fails and returns.
-     */
-    originResponseTimeoutSeconds?: pulumi.Input<number>;
-    /**
-     * Name of the CDN profile which is unique within the resource group.
+     * Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
      */
     profileName: pulumi.Input<string>;
     /**

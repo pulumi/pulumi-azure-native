@@ -20,7 +20,6 @@ namespace Pulumi.AzureNative.Cdn.Outputs
         /// Describes the action that shall be taken when the certificate is removed from Key Vault.
         /// </summary>
         public readonly string DeleteRule;
-        public readonly string OdataType;
         /// <summary>
         /// Resource group of the user's Key Vault containing the SSL certificate
         /// </summary>
@@ -37,6 +36,7 @@ namespace Pulumi.AzureNative.Cdn.Outputs
         /// Subscription Id of the user's Key Vault containing the SSL certificate
         /// </summary>
         public readonly string SubscriptionId;
+        public readonly string TypeName;
         /// <summary>
         /// Describes the action that shall be taken when the certificate is updated in Key Vault.
         /// </summary>
@@ -50,8 +50,6 @@ namespace Pulumi.AzureNative.Cdn.Outputs
         private KeyVaultCertificateSourceParametersResponse(
             string deleteRule,
 
-            string odataType,
-
             string resourceGroupName,
 
             string secretName,
@@ -60,16 +58,18 @@ namespace Pulumi.AzureNative.Cdn.Outputs
 
             string subscriptionId,
 
+            string typeName,
+
             string updateRule,
 
             string vaultName)
         {
             DeleteRule = deleteRule;
-            OdataType = odataType;
             ResourceGroupName = resourceGroupName;
             SecretName = secretName;
             SecretVersion = secretVersion;
             SubscriptionId = subscriptionId;
+            TypeName = typeName;
             UpdateRule = updateRule;
             VaultName = vaultName;
         }

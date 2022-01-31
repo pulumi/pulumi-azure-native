@@ -21,7 +21,7 @@ class GetAFDCustomDomainResult:
     """
     Friendly domain name mapping to the endpoint hostname that the customer provides for branding purposes, e.g. www.contoso.com.
     """
-    def __init__(__self__, azure_dns_zone=None, deployment_status=None, domain_validation_state=None, host_name=None, id=None, name=None, provisioning_state=None, system_data=None, tls_settings=None, type=None, validation_properties=None):
+    def __init__(__self__, azure_dns_zone=None, deployment_status=None, domain_validation_state=None, host_name=None, id=None, name=None, pre_validated_custom_domain_resource_id=None, profile_name=None, provisioning_state=None, system_data=None, tls_settings=None, type=None, validation_properties=None):
         if azure_dns_zone and not isinstance(azure_dns_zone, dict):
             raise TypeError("Expected argument 'azure_dns_zone' to be a dict")
         pulumi.set(__self__, "azure_dns_zone", azure_dns_zone)
@@ -40,6 +40,12 @@ class GetAFDCustomDomainResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if pre_validated_custom_domain_resource_id and not isinstance(pre_validated_custom_domain_resource_id, dict):
+            raise TypeError("Expected argument 'pre_validated_custom_domain_resource_id' to be a dict")
+        pulumi.set(__self__, "pre_validated_custom_domain_resource_id", pre_validated_custom_domain_resource_id)
+        if profile_name and not isinstance(profile_name, str):
+            raise TypeError("Expected argument 'profile_name' to be a str")
+        pulumi.set(__self__, "profile_name", profile_name)
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
@@ -102,6 +108,22 @@ class GetAFDCustomDomainResult:
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="preValidatedCustomDomainResourceId")
+    def pre_validated_custom_domain_resource_id(self) -> Optional['outputs.ResourceReferenceResponse']:
+        """
+        Resource reference to the Azure resource where custom domain ownership was prevalidated
+        """
+        return pulumi.get(self, "pre_validated_custom_domain_resource_id")
+
+    @property
+    @pulumi.getter(name="profileName")
+    def profile_name(self) -> str:
+        """
+        The name of the profile which holds the domain.
+        """
+        return pulumi.get(self, "profile_name")
+
+    @property
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> str:
         """
@@ -154,6 +176,8 @@ class AwaitableGetAFDCustomDomainResult(GetAFDCustomDomainResult):
             host_name=self.host_name,
             id=self.id,
             name=self.name,
+            pre_validated_custom_domain_resource_id=self.pre_validated_custom_domain_resource_id,
+            profile_name=self.profile_name,
             provisioning_state=self.provisioning_state,
             system_data=self.system_data,
             tls_settings=self.tls_settings,
@@ -167,11 +191,11 @@ def get_afd_custom_domain(custom_domain_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAFDCustomDomainResult:
     """
     Friendly domain name mapping to the endpoint hostname that the customer provides for branding purposes, e.g. www.contoso.com.
-    API Version: 2020-09-01.
+    API Version: 2021-06-01.
 
 
     :param str custom_domain_name: Name of the domain under the profile which is unique globally.
-    :param str profile_name: Name of the CDN profile which is unique within the resource group.
+    :param str profile_name: Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
     :param str resource_group_name: Name of the Resource group within the Azure subscription.
     """
     __args__ = dict()
@@ -191,6 +215,8 @@ def get_afd_custom_domain(custom_domain_name: Optional[str] = None,
         host_name=__ret__.host_name,
         id=__ret__.id,
         name=__ret__.name,
+        pre_validated_custom_domain_resource_id=__ret__.pre_validated_custom_domain_resource_id,
+        profile_name=__ret__.profile_name,
         provisioning_state=__ret__.provisioning_state,
         system_data=__ret__.system_data,
         tls_settings=__ret__.tls_settings,
@@ -205,11 +231,11 @@ def get_afd_custom_domain_output(custom_domain_name: Optional[pulumi.Input[str]]
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAFDCustomDomainResult]:
     """
     Friendly domain name mapping to the endpoint hostname that the customer provides for branding purposes, e.g. www.contoso.com.
-    API Version: 2020-09-01.
+    API Version: 2021-06-01.
 
 
     :param str custom_domain_name: Name of the domain under the profile which is unique globally.
-    :param str profile_name: Name of the CDN profile which is unique within the resource group.
+    :param str profile_name: Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
     :param str resource_group_name: Name of the Resource group within the Azure subscription.
     """
     ...

@@ -14,14 +14,14 @@ namespace Pulumi.AzureNative.Cdn
     {
         /// <summary>
         /// CDN endpoint is the entity within a CDN profile containing configuration information such as origin, protocol, content caching and delivery behavior. The AzureFrontDoor endpoint uses the URL format &lt;endpointname&gt;.azureedge.net.
-        /// API Version: 2020-09-01.
+        /// API Version: 2021-06-01.
         /// </summary>
         public static Task<GetAFDEndpointResult> InvokeAsync(GetAFDEndpointArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAFDEndpointResult>("azure-native:cdn:getAFDEndpoint", args ?? new GetAFDEndpointArgs(), options.WithVersion());
 
         /// <summary>
         /// CDN endpoint is the entity within a CDN profile containing configuration information such as origin, protocol, content caching and delivery behavior. The AzureFrontDoor endpoint uses the URL format &lt;endpointname&gt;.azureedge.net.
-        /// API Version: 2020-09-01.
+        /// API Version: 2021-06-01.
         /// </summary>
         public static Output<GetAFDEndpointResult> Invoke(GetAFDEndpointInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetAFDEndpointResult>("azure-native:cdn:getAFDEndpoint", args ?? new GetAFDEndpointInvokeArgs(), options.WithVersion());
@@ -37,7 +37,7 @@ namespace Pulumi.AzureNative.Cdn
         public string EndpointName { get; set; } = null!;
 
         /// <summary>
-        /// Name of the CDN profile which is unique within the resource group.
+        /// Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
         /// </summary>
         [Input("profileName", required: true)]
         public string ProfileName { get; set; } = null!;
@@ -62,7 +62,7 @@ namespace Pulumi.AzureNative.Cdn
         public Input<string> EndpointName { get; set; } = null!;
 
         /// <summary>
-        /// Name of the CDN profile which is unique within the resource group.
+        /// Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
         /// </summary>
         [Input("profileName", required: true)]
         public Input<string> ProfileName { get; set; } = null!;
@@ -104,9 +104,9 @@ namespace Pulumi.AzureNative.Cdn
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Send and receive timeout on forwarding request to the origin. When timeout is reached, the request fails and returns.
+        /// The name of the profile which holds the endpoint.
         /// </summary>
-        public readonly int? OriginResponseTimeoutSeconds;
+        public readonly string ProfileName;
         /// <summary>
         /// Provisioning status
         /// </summary>
@@ -138,7 +138,7 @@ namespace Pulumi.AzureNative.Cdn
 
             string name,
 
-            int? originResponseTimeoutSeconds,
+            string profileName,
 
             string provisioningState,
 
@@ -154,7 +154,7 @@ namespace Pulumi.AzureNative.Cdn
             Id = id;
             Location = location;
             Name = name;
-            OriginResponseTimeoutSeconds = originResponseTimeoutSeconds;
+            ProfileName = profileName;
             ProvisioningState = provisioningState;
             SystemData = systemData;
             Tags = tags;

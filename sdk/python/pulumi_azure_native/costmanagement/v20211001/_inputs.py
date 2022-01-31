@@ -727,14 +727,12 @@ class ReportConfigFilterArgs:
     def __init__(__self__, *,
                  and_: Optional[pulumi.Input[Sequence[pulumi.Input['ReportConfigFilterArgs']]]] = None,
                  dimensions: Optional[pulumi.Input['ReportConfigComparisonExpressionArgs']] = None,
-                 not_: Optional[pulumi.Input['ReportConfigFilterArgs']] = None,
                  or_: Optional[pulumi.Input[Sequence[pulumi.Input['ReportConfigFilterArgs']]]] = None,
                  tags: Optional[pulumi.Input['ReportConfigComparisonExpressionArgs']] = None):
         """
         The filter expression to be used in the report.
         :param pulumi.Input[Sequence[pulumi.Input['ReportConfigFilterArgs']]] and_: The logical "AND" expression. Must have at least 2 items.
         :param pulumi.Input['ReportConfigComparisonExpressionArgs'] dimensions: Has comparison expression for a dimension
-        :param pulumi.Input['ReportConfigFilterArgs'] not_: The logical "NOT" expression.
         :param pulumi.Input[Sequence[pulumi.Input['ReportConfigFilterArgs']]] or_: The logical "OR" expression. Must have at least 2 items.
         :param pulumi.Input['ReportConfigComparisonExpressionArgs'] tags: Has comparison expression for a tag
         """
@@ -742,8 +740,6 @@ class ReportConfigFilterArgs:
             pulumi.set(__self__, "and_", and_)
         if dimensions is not None:
             pulumi.set(__self__, "dimensions", dimensions)
-        if not_ is not None:
-            pulumi.set(__self__, "not_", not_)
         if or_ is not None:
             pulumi.set(__self__, "or_", or_)
         if tags is not None:
@@ -772,18 +768,6 @@ class ReportConfigFilterArgs:
     @dimensions.setter
     def dimensions(self, value: Optional[pulumi.Input['ReportConfigComparisonExpressionArgs']]):
         pulumi.set(self, "dimensions", value)
-
-    @property
-    @pulumi.getter(name="not")
-    def not_(self) -> Optional[pulumi.Input['ReportConfigFilterArgs']]:
-        """
-        The logical "NOT" expression.
-        """
-        return pulumi.get(self, "not_")
-
-    @not_.setter
-    def not_(self, value: Optional[pulumi.Input['ReportConfigFilterArgs']]):
-        pulumi.set(self, "not_", value)
 
     @property
     @pulumi.getter(name="or")

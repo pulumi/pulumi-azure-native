@@ -14,14 +14,14 @@ namespace Pulumi.AzureNative.Cdn
     {
         /// <summary>
         /// Friendly Routes name mapping to the any Routes or secret related information.
-        /// API Version: 2020-09-01.
+        /// API Version: 2021-06-01.
         /// </summary>
         public static Task<GetRouteResult> InvokeAsync(GetRouteArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRouteResult>("azure-native:cdn:getRoute", args ?? new GetRouteArgs(), options.WithVersion());
 
         /// <summary>
         /// Friendly Routes name mapping to the any Routes or secret related information.
-        /// API Version: 2020-09-01.
+        /// API Version: 2021-06-01.
         /// </summary>
         public static Output<GetRouteResult> Invoke(GetRouteInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetRouteResult>("azure-native:cdn:getRoute", args ?? new GetRouteInvokeArgs(), options.WithVersion());
@@ -37,7 +37,7 @@ namespace Pulumi.AzureNative.Cdn
         public string EndpointName { get; set; } = null!;
 
         /// <summary>
-        /// Name of the CDN profile which is unique within the resource group.
+        /// Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
         /// </summary>
         [Input("profileName", required: true)]
         public string ProfileName { get; set; } = null!;
@@ -68,7 +68,7 @@ namespace Pulumi.AzureNative.Cdn
         public Input<string> EndpointName { get; set; } = null!;
 
         /// <summary>
-        /// Name of the CDN profile which is unique within the resource group.
+        /// Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
         /// </summary>
         [Input("profileName", required: true)]
         public Input<string> ProfileName { get; set; } = null!;
@@ -95,18 +95,22 @@ namespace Pulumi.AzureNative.Cdn
     public sealed class GetRouteResult
     {
         /// <summary>
-        /// compression settings.
+        /// The caching configuration for this route. To disable caching, do not provide a cacheConfiguration object.
         /// </summary>
-        public readonly Outputs.CompressionSettingsResponse? CompressionSettings;
+        public readonly Outputs.AfdRouteCacheConfigurationResponse? CacheConfiguration;
         /// <summary>
         /// Domains referenced by this endpoint.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ResourceReferenceResponse> CustomDomains;
+        public readonly ImmutableArray<Outputs.ActivatedResourceReferenceResponse> CustomDomains;
         public readonly string DeploymentStatus;
         /// <summary>
         /// Whether to enable use of this rule. Permitted values are 'Enabled' or 'Disabled'
         /// </summary>
         public readonly string? EnabledState;
+        /// <summary>
+        /// The name of the endpoint which holds the route.
+        /// </summary>
+        public readonly string EndpointName;
         /// <summary>
         /// Protocol this rule will use when forwarding traffic to backends.
         /// </summary>
@@ -144,10 +148,6 @@ namespace Pulumi.AzureNative.Cdn
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
-        /// Defines how CDN caches requests that include query strings. You can ignore any query strings when caching, bypass caching to prevent requests that contain query strings from being cached, or cache every request with a unique URL.
-        /// </summary>
-        public readonly string? QueryStringCachingBehavior;
-        /// <summary>
         /// rule sets referenced by this endpoint.
         /// </summary>
         public readonly ImmutableArray<Outputs.ResourceReferenceResponse> RuleSets;
@@ -166,13 +166,15 @@ namespace Pulumi.AzureNative.Cdn
 
         [OutputConstructor]
         private GetRouteResult(
-            Outputs.CompressionSettingsResponse? compressionSettings,
+            Outputs.AfdRouteCacheConfigurationResponse? cacheConfiguration,
 
-            ImmutableArray<Outputs.ResourceReferenceResponse> customDomains,
+            ImmutableArray<Outputs.ActivatedResourceReferenceResponse> customDomains,
 
             string deploymentStatus,
 
             string? enabledState,
+
+            string endpointName,
 
             string? forwardingProtocol,
 
@@ -192,8 +194,6 @@ namespace Pulumi.AzureNative.Cdn
 
             string provisioningState,
 
-            string? queryStringCachingBehavior,
-
             ImmutableArray<Outputs.ResourceReferenceResponse> ruleSets,
 
             ImmutableArray<string> supportedProtocols,
@@ -202,10 +202,11 @@ namespace Pulumi.AzureNative.Cdn
 
             string type)
         {
-            CompressionSettings = compressionSettings;
+            CacheConfiguration = cacheConfiguration;
             CustomDomains = customDomains;
             DeploymentStatus = deploymentStatus;
             EnabledState = enabledState;
+            EndpointName = endpointName;
             ForwardingProtocol = forwardingProtocol;
             HttpsRedirect = httpsRedirect;
             Id = id;
@@ -215,7 +216,6 @@ namespace Pulumi.AzureNative.Cdn
             OriginPath = originPath;
             PatternsToMatch = patternsToMatch;
             ProvisioningState = provisioningState;
-            QueryStringCachingBehavior = queryStringCachingBehavior;
             RuleSets = ruleSets;
             SupportedProtocols = supportedProtocols;
             SystemData = systemData;

@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * CDN endpoint is the entity within a CDN profile containing configuration information such as origin, protocol, content caching and delivery behavior. The CDN endpoint uses the URL format <endpointname>.azureedge.net.
- * API Version: 2020-09-01.
+ * API Version: 2021-06-01.
  */
 export function getEndpoint(args: GetEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetEndpointResult> {
     if (!opts) {
@@ -47,6 +47,10 @@ export interface GetEndpointResult {
      * List of content types on which compression applies. The value should be a valid MIME type.
      */
     readonly contentTypesToCompress?: string[];
+    /**
+     * The custom domains under the endpoint.
+     */
+    readonly customDomains: outputs.cdn.CustomDomainResponse[];
     /**
      * A reference to the origin group.
      */

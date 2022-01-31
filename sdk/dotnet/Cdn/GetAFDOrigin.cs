@@ -14,14 +14,14 @@ namespace Pulumi.AzureNative.Cdn
     {
         /// <summary>
         /// CDN origin is the source of the content being delivered via CDN. When the edge nodes represented by an endpoint do not have the requested content cached, they attempt to fetch it from one or more of the configured origins.
-        /// API Version: 2020-09-01.
+        /// API Version: 2021-06-01.
         /// </summary>
         public static Task<GetAFDOriginResult> InvokeAsync(GetAFDOriginArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAFDOriginResult>("azure-native:cdn:getAFDOrigin", args ?? new GetAFDOriginArgs(), options.WithVersion());
 
         /// <summary>
         /// CDN origin is the source of the content being delivered via CDN. When the edge nodes represented by an endpoint do not have the requested content cached, they attempt to fetch it from one or more of the configured origins.
-        /// API Version: 2020-09-01.
+        /// API Version: 2021-06-01.
         /// </summary>
         public static Output<GetAFDOriginResult> Invoke(GetAFDOriginInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetAFDOriginResult>("azure-native:cdn:getAFDOrigin", args ?? new GetAFDOriginInvokeArgs(), options.WithVersion());
@@ -43,7 +43,7 @@ namespace Pulumi.AzureNative.Cdn
         public string OriginName { get; set; } = null!;
 
         /// <summary>
-        /// Name of the CDN profile which is unique within the resource group.
+        /// Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
         /// </summary>
         [Input("profileName", required: true)]
         public string ProfileName { get; set; } = null!;
@@ -74,7 +74,7 @@ namespace Pulumi.AzureNative.Cdn
         public Input<string> OriginName { get; set; } = null!;
 
         /// <summary>
-        /// Name of the CDN profile which is unique within the resource group.
+        /// Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
         /// </summary>
         [Input("profileName", required: true)]
         public Input<string> ProfileName { get; set; } = null!;
@@ -104,6 +104,10 @@ namespace Pulumi.AzureNative.Cdn
         /// </summary>
         public readonly string? EnabledState;
         /// <summary>
+        /// Whether to enable certificate name check at origin level
+        /// </summary>
+        public readonly bool? EnforceCertificateNameCheck;
+        /// <summary>
         /// The address of the origin. Domain names, IPv4 addresses, and IPv6 addresses are supported.This should be unique across all origins in an endpoint.
         /// </summary>
         public readonly string HostName;
@@ -124,6 +128,10 @@ namespace Pulumi.AzureNative.Cdn
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// The name of the origin group which contains this origin.
+        /// </summary>
+        public readonly string OriginGroupName;
+        /// <summary>
         /// The host header value sent to the origin with each request. If you leave this blank, the request hostname determines this value. Azure CDN origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin hostname by default. This overrides the host header defined at Endpoint
         /// </summary>
         public readonly string? OriginHostHeader;
@@ -138,7 +146,7 @@ namespace Pulumi.AzureNative.Cdn
         /// <summary>
         /// The properties of the private link resource for private origin.
         /// </summary>
-        public readonly Outputs.SharedPrivateLinkResourcePropertiesResponse? SharedPrivateLinkResource;
+        public readonly ImmutableArray<Outputs.SharedPrivateLinkResourcePropertiesResponse> SharedPrivateLinkResource;
         /// <summary>
         /// Read only system data
         /// </summary>
@@ -160,6 +168,8 @@ namespace Pulumi.AzureNative.Cdn
 
             string? enabledState,
 
+            bool? enforceCertificateNameCheck,
+
             string hostName,
 
             int? httpPort,
@@ -170,13 +180,15 @@ namespace Pulumi.AzureNative.Cdn
 
             string name,
 
+            string originGroupName,
+
             string? originHostHeader,
 
             int? priority,
 
             string provisioningState,
 
-            Outputs.SharedPrivateLinkResourcePropertiesResponse? sharedPrivateLinkResource,
+            ImmutableArray<Outputs.SharedPrivateLinkResourcePropertiesResponse> sharedPrivateLinkResource,
 
             Outputs.SystemDataResponse systemData,
 
@@ -187,11 +199,13 @@ namespace Pulumi.AzureNative.Cdn
             AzureOrigin = azureOrigin;
             DeploymentStatus = deploymentStatus;
             EnabledState = enabledState;
+            EnforceCertificateNameCheck = enforceCertificateNameCheck;
             HostName = hostName;
             HttpPort = httpPort;
             HttpsPort = httpsPort;
             Id = id;
             Name = name;
+            OriginGroupName = originGroupName;
             OriginHostHeader = originHostHeader;
             Priority = priority;
             ProvisioningState = provisioningState;

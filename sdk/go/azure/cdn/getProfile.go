@@ -10,8 +10,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// CDN profile is a logical grouping of endpoints that share the same settings, such as CDN provider and pricing tier.
-// API Version: 2020-09-01.
+// A profile is a logical grouping of endpoints that share the same settings.
+// API Version: 2021-06-01.
 func LookupProfile(ctx *pulumi.Context, args *LookupProfileArgs, opts ...pulumi.InvokeOption) (*LookupProfileResult, error) {
 	var rv LookupProfileResult
 	err := ctx.Invoke("azure-native:cdn:getProfile", args, &rv, opts...)
@@ -22,27 +22,33 @@ func LookupProfile(ctx *pulumi.Context, args *LookupProfileArgs, opts ...pulumi.
 }
 
 type LookupProfileArgs struct {
-	// Name of the CDN profile which is unique within the resource group.
+	// Name of the Azure Front Door Standard or Azure Front Door Premium or CDN profile which is unique within the resource group.
 	ProfileName string `pulumi:"profileName"`
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
-// CDN profile is a logical grouping of endpoints that share the same settings, such as CDN provider and pricing tier.
+// A profile is a logical grouping of endpoints that share the same settings.
 type LookupProfileResult struct {
 	// The Id of the frontdoor.
-	FrontdoorId string `pulumi:"frontdoorId"`
+	FrontDoorId string `pulumi:"frontDoorId"`
 	// Resource ID.
 	Id string `pulumi:"id"`
+	// Managed service identity.
+	Identity *ManagedServiceIdentityResponse `pulumi:"identity"`
+	// Kind of the profile. Used by portal to differentiate traditional CDN profile and new AFD profile.
+	Kind string `pulumi:"kind"`
 	// Resource location.
 	Location string `pulumi:"location"`
 	// Resource name.
 	Name string `pulumi:"name"`
+	// Send and receive timeout on forwarding request to the origin. When timeout is reached, the request fails and returns.
+	OriginResponseTimeoutSeconds *int `pulumi:"originResponseTimeoutSeconds"`
 	// Provisioning status of the profile.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// Resource status of the profile.
 	ResourceState string `pulumi:"resourceState"`
-	// The pricing tier (defines a CDN provider, feature list and rate) of the CDN profile.
+	// The pricing tier (defines Azure Front Door Standard or Premium or a CDN provider, feature list and rate) of the profile.
 	Sku SkuResponse `pulumi:"sku"`
 	// Read only system data
 	SystemData SystemDataResponse `pulumi:"systemData"`
@@ -62,7 +68,7 @@ func LookupProfileOutput(ctx *pulumi.Context, args LookupProfileOutputArgs, opts
 }
 
 type LookupProfileOutputArgs struct {
-	// Name of the CDN profile which is unique within the resource group.
+	// Name of the Azure Front Door Standard or Azure Front Door Premium or CDN profile which is unique within the resource group.
 	ProfileName pulumi.StringInput `pulumi:"profileName"`
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
@@ -72,7 +78,7 @@ func (LookupProfileOutputArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*LookupProfileArgs)(nil)).Elem()
 }
 
-// CDN profile is a logical grouping of endpoints that share the same settings, such as CDN provider and pricing tier.
+// A profile is a logical grouping of endpoints that share the same settings.
 type LookupProfileResultOutput struct{ *pulumi.OutputState }
 
 func (LookupProfileResultOutput) ElementType() reflect.Type {
@@ -88,13 +94,23 @@ func (o LookupProfileResultOutput) ToLookupProfileResultOutputWithContext(ctx co
 }
 
 // The Id of the frontdoor.
-func (o LookupProfileResultOutput) FrontdoorId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupProfileResult) string { return v.FrontdoorId }).(pulumi.StringOutput)
+func (o LookupProfileResultOutput) FrontDoorId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupProfileResult) string { return v.FrontDoorId }).(pulumi.StringOutput)
 }
 
 // Resource ID.
 func (o LookupProfileResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupProfileResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Managed service identity.
+func (o LookupProfileResultOutput) Identity() ManagedServiceIdentityResponsePtrOutput {
+	return o.ApplyT(func(v LookupProfileResult) *ManagedServiceIdentityResponse { return v.Identity }).(ManagedServiceIdentityResponsePtrOutput)
+}
+
+// Kind of the profile. Used by portal to differentiate traditional CDN profile and new AFD profile.
+func (o LookupProfileResultOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupProfileResult) string { return v.Kind }).(pulumi.StringOutput)
 }
 
 // Resource location.
@@ -107,6 +123,11 @@ func (o LookupProfileResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupProfileResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Send and receive timeout on forwarding request to the origin. When timeout is reached, the request fails and returns.
+func (o LookupProfileResultOutput) OriginResponseTimeoutSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupProfileResult) *int { return v.OriginResponseTimeoutSeconds }).(pulumi.IntPtrOutput)
+}
+
 // Provisioning status of the profile.
 func (o LookupProfileResultOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupProfileResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
@@ -117,7 +138,7 @@ func (o LookupProfileResultOutput) ResourceState() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupProfileResult) string { return v.ResourceState }).(pulumi.StringOutput)
 }
 
-// The pricing tier (defines a CDN provider, feature list and rate) of the CDN profile.
+// The pricing tier (defines Azure Front Door Standard or Premium or a CDN provider, feature list and rate) of the profile.
 func (o LookupProfileResultOutput) Sku() SkuResponseOutput {
 	return o.ApplyT(func(v LookupProfileResult) SkuResponse { return v.Sku }).(SkuResponseOutput)
 }

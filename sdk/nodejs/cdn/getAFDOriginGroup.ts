@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * AFDOrigin group comprising of origins is used for load balancing to origins when the content cannot be served from CDN.
- * API Version: 2020-09-01.
+ * API Version: 2021-06-01.
  */
 export function getAFDOriginGroup(args: GetAFDOriginGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetAFDOriginGroupResult> {
     if (!opts) {
@@ -30,7 +30,7 @@ export interface GetAFDOriginGroupArgs {
      */
     originGroupName: string;
     /**
-     * Name of the CDN profile which is unique within the resource group.
+     * Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
      */
     profileName: string;
     /**
@@ -60,6 +60,10 @@ export interface GetAFDOriginGroupResult {
      * Resource name.
      */
     readonly name: string;
+    /**
+     * The name of the profile which holds the origin group.
+     */
+    readonly profileName: string;
     /**
      * Provisioning status
      */
@@ -96,7 +100,7 @@ export interface GetAFDOriginGroupOutputArgs {
      */
     originGroupName: pulumi.Input<string>;
     /**
-     * Name of the CDN profile which is unique within the resource group.
+     * Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
      */
     profileName: pulumi.Input<string>;
     /**

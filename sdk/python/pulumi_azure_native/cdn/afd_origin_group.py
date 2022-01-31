@@ -26,7 +26,7 @@ class AFDOriginGroupArgs:
                  traffic_restoration_time_to_healed_or_new_endpoints_in_minutes: Optional[pulumi.Input[int]] = None):
         """
         The set of arguments for constructing a AFDOriginGroup resource.
-        :param pulumi.Input[str] profile_name: Name of the CDN profile which is unique within the resource group.
+        :param pulumi.Input[str] profile_name: Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
         :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription.
         :param pulumi.Input['HealthProbeParametersArgs'] health_probe_settings: Health probe settings to the origin that is used to determine the health of the origin.
         :param pulumi.Input['LoadBalancingSettingsParametersArgs'] load_balancing_settings: Load balancing settings for a backend pool
@@ -54,7 +54,7 @@ class AFDOriginGroupArgs:
     @pulumi.getter(name="profileName")
     def profile_name(self) -> pulumi.Input[str]:
         """
-        Name of the CDN profile which is unique within the resource group.
+        Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
         """
         return pulumi.get(self, "profile_name")
 
@@ -163,14 +163,14 @@ class AFDOriginGroup(pulumi.CustomResource):
                  __props__=None):
         """
         AFDOrigin group comprising of origins is used for load balancing to origins when the content cannot be served from CDN.
-        API Version: 2020-09-01.
+        API Version: 2021-06-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['HealthProbeParametersArgs']] health_probe_settings: Health probe settings to the origin that is used to determine the health of the origin.
         :param pulumi.Input[pulumi.InputType['LoadBalancingSettingsParametersArgs']] load_balancing_settings: Load balancing settings for a backend pool
         :param pulumi.Input[str] origin_group_name: Name of the origin group which is unique within the endpoint.
-        :param pulumi.Input[str] profile_name: Name of the CDN profile which is unique within the resource group.
+        :param pulumi.Input[str] profile_name: Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
         :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription.
         :param pulumi.Input[pulumi.InputType['ResponseBasedOriginErrorDetectionParametersArgs']] response_based_afd_origin_error_detection_settings: The JSON object that contains the properties to determine origin health using real requests/responses. This property is currently not supported.
         :param pulumi.Input[Union[str, 'EnabledState']] session_affinity_state: Whether to allow session affinity on this host. Valid options are 'Enabled' or 'Disabled'
@@ -184,7 +184,7 @@ class AFDOriginGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         AFDOrigin group comprising of origins is used for load balancing to origins when the content cannot be served from CDN.
-        API Version: 2020-09-01.
+        API Version: 2021-06-01.
 
         :param str resource_name: The name of the resource.
         :param AFDOriginGroupArgs args: The arguments to use to populate this resource's properties.
@@ -266,6 +266,7 @@ class AFDOriginGroup(pulumi.CustomResource):
         __props__.__dict__["health_probe_settings"] = None
         __props__.__dict__["load_balancing_settings"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["profile_name"] = None
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["response_based_afd_origin_error_detection_settings"] = None
         __props__.__dict__["session_affinity_state"] = None
@@ -302,6 +303,14 @@ class AFDOriginGroup(pulumi.CustomResource):
         Resource name.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="profileName")
+    def profile_name(self) -> pulumi.Output[str]:
+        """
+        The name of the profile which holds the origin group.
+        """
+        return pulumi.get(self, "profile_name")
 
     @property
     @pulumi.getter(name="provisioningState")

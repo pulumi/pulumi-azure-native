@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Friendly Routes name mapping to the any Routes or secret related information.
- * API Version: 2020-09-01.
+ * API Version: 2021-06-01.
  */
 export function getRoute(args: GetRouteArgs, opts?: pulumi.InvokeOptions): Promise<GetRouteResult> {
     if (!opts) {
@@ -31,7 +31,7 @@ export interface GetRouteArgs {
      */
     endpointName: string;
     /**
-     * Name of the CDN profile which is unique within the resource group.
+     * Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
      */
     profileName: string;
     /**
@@ -49,18 +49,22 @@ export interface GetRouteArgs {
  */
 export interface GetRouteResult {
     /**
-     * compression settings.
+     * The caching configuration for this route. To disable caching, do not provide a cacheConfiguration object.
      */
-    readonly compressionSettings?: outputs.cdn.CompressionSettingsResponse;
+    readonly cacheConfiguration?: outputs.cdn.AfdRouteCacheConfigurationResponse;
     /**
      * Domains referenced by this endpoint.
      */
-    readonly customDomains?: outputs.cdn.ResourceReferenceResponse[];
+    readonly customDomains?: outputs.cdn.ActivatedResourceReferenceResponse[];
     readonly deploymentStatus: string;
     /**
      * Whether to enable use of this rule. Permitted values are 'Enabled' or 'Disabled'
      */
     readonly enabledState?: string;
+    /**
+     * The name of the endpoint which holds the route.
+     */
+    readonly endpointName: string;
     /**
      * Protocol this rule will use when forwarding traffic to backends.
      */
@@ -98,10 +102,6 @@ export interface GetRouteResult {
      */
     readonly provisioningState: string;
     /**
-     * Defines how CDN caches requests that include query strings. You can ignore any query strings when caching, bypass caching to prevent requests that contain query strings from being cached, or cache every request with a unique URL.
-     */
-    readonly queryStringCachingBehavior?: string;
-    /**
      * rule sets referenced by this endpoint.
      */
     readonly ruleSets?: outputs.cdn.ResourceReferenceResponse[];
@@ -129,7 +129,7 @@ export interface GetRouteOutputArgs {
      */
     endpointName: pulumi.Input<string>;
     /**
-     * Name of the CDN profile which is unique within the resource group.
+     * Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
      */
     profileName: pulumi.Input<string>;
     /**
