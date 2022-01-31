@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.HanaOnAzure.V20200207Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.HanaOnAzure.V20200207Preview
         /// A provider instance associated with a SAP monitor.
         /// </summary>
         public static Task<GetProviderInstanceResult> InvokeAsync(GetProviderInstanceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetProviderInstanceResult>("azure-native:hanaonazure/v20200207preview:getProviderInstance", args ?? new GetProviderInstanceArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetProviderInstanceResult>("azure-native:hanaonazure/v20200207preview:getProviderInstance", args ?? new GetProviderInstanceArgs(), options.WithDefaults());
 
         /// <summary>
         /// A provider instance associated with a SAP monitor.
         /// </summary>
         public static Output<GetProviderInstanceResult> Invoke(GetProviderInstanceInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetProviderInstanceResult>("azure-native:hanaonazure/v20200207preview:getProviderInstance", args ?? new GetProviderInstanceInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetProviderInstanceResult>("azure-native:hanaonazure/v20200207preview:getProviderInstance", args ?? new GetProviderInstanceInvokeArgs(), options.WithDefaults());
     }
 
 

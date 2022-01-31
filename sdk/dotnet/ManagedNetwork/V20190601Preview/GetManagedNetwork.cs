@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ManagedNetwork.V20190601Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.ManagedNetwork.V20190601Preview
         /// The Managed Network resource
         /// </summary>
         public static Task<GetManagedNetworkResult> InvokeAsync(GetManagedNetworkArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetManagedNetworkResult>("azure-native:managednetwork/v20190601preview:getManagedNetwork", args ?? new GetManagedNetworkArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetManagedNetworkResult>("azure-native:managednetwork/v20190601preview:getManagedNetwork", args ?? new GetManagedNetworkArgs(), options.WithDefaults());
 
         /// <summary>
         /// The Managed Network resource
         /// </summary>
         public static Output<GetManagedNetworkResult> Invoke(GetManagedNetworkInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetManagedNetworkResult>("azure-native:managednetwork/v20190601preview:getManagedNetwork", args ?? new GetManagedNetworkInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetManagedNetworkResult>("azure-native:managednetwork/v20190601preview:getManagedNetwork", args ?? new GetManagedNetworkInvokeArgs(), options.WithDefaults());
     }
 
 

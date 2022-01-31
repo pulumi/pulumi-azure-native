@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.BotService
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.BotService
         /// API Version: 2018-07-12.
         /// </summary>
         public static Task<GetEnterpriseChannelResult> InvokeAsync(GetEnterpriseChannelArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetEnterpriseChannelResult>("azure-native:botservice:getEnterpriseChannel", args ?? new GetEnterpriseChannelArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetEnterpriseChannelResult>("azure-native:botservice:getEnterpriseChannel", args ?? new GetEnterpriseChannelArgs(), options.WithDefaults());
 
         /// <summary>
         /// Enterprise Channel resource definition
         /// API Version: 2018-07-12.
         /// </summary>
         public static Output<GetEnterpriseChannelResult> Invoke(GetEnterpriseChannelInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetEnterpriseChannelResult>("azure-native:botservice:getEnterpriseChannel", args ?? new GetEnterpriseChannelInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetEnterpriseChannelResult>("azure-native:botservice:getEnterpriseChannel", args ?? new GetEnterpriseChannelInvokeArgs(), options.WithDefaults());
     }
 
 

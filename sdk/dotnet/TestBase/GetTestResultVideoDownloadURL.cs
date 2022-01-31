@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.TestBase
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.TestBase
         /// API Version: 2020-12-16-preview.
         /// </summary>
         public static Task<GetTestResultVideoDownloadURLResult> InvokeAsync(GetTestResultVideoDownloadURLArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetTestResultVideoDownloadURLResult>("azure-native:testbase:getTestResultVideoDownloadURL", args ?? new GetTestResultVideoDownloadURLArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetTestResultVideoDownloadURLResult>("azure-native:testbase:getTestResultVideoDownloadURL", args ?? new GetTestResultVideoDownloadURLArgs(), options.WithDefaults());
 
         /// <summary>
         /// The response of getting a download URL.
         /// API Version: 2020-12-16-preview.
         /// </summary>
         public static Output<GetTestResultVideoDownloadURLResult> Invoke(GetTestResultVideoDownloadURLInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetTestResultVideoDownloadURLResult>("azure-native:testbase:getTestResultVideoDownloadURL", args ?? new GetTestResultVideoDownloadURLInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetTestResultVideoDownloadURLResult>("azure-native:testbase:getTestResultVideoDownloadURL", args ?? new GetTestResultVideoDownloadURLInvokeArgs(), options.WithDefaults());
     }
 
 

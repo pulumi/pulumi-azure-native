@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Sql.V20210501Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Sql.V20210501Preview
         /// A server DNS alias.
         /// </summary>
         public static Task<GetServerDnsAliasResult> InvokeAsync(GetServerDnsAliasArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetServerDnsAliasResult>("azure-native:sql/v20210501preview:getServerDnsAlias", args ?? new GetServerDnsAliasArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetServerDnsAliasResult>("azure-native:sql/v20210501preview:getServerDnsAlias", args ?? new GetServerDnsAliasArgs(), options.WithDefaults());
 
         /// <summary>
         /// A server DNS alias.
         /// </summary>
         public static Output<GetServerDnsAliasResult> Invoke(GetServerDnsAliasInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetServerDnsAliasResult>("azure-native:sql/v20210501preview:getServerDnsAlias", args ?? new GetServerDnsAliasInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetServerDnsAliasResult>("azure-native:sql/v20210501preview:getServerDnsAlias", args ?? new GetServerDnsAliasInvokeArgs(), options.WithDefaults());
     }
 
 

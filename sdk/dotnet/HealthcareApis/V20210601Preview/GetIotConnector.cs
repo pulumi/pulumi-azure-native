@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.HealthcareApis.V20210601Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.HealthcareApis.V20210601Preview
         /// IoT Connector definition.
         /// </summary>
         public static Task<GetIotConnectorResult> InvokeAsync(GetIotConnectorArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetIotConnectorResult>("azure-native:healthcareapis/v20210601preview:getIotConnector", args ?? new GetIotConnectorArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetIotConnectorResult>("azure-native:healthcareapis/v20210601preview:getIotConnector", args ?? new GetIotConnectorArgs(), options.WithDefaults());
 
         /// <summary>
         /// IoT Connector definition.
         /// </summary>
         public static Output<GetIotConnectorResult> Invoke(GetIotConnectorInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetIotConnectorResult>("azure-native:healthcareapis/v20210601preview:getIotConnector", args ?? new GetIotConnectorInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetIotConnectorResult>("azure-native:healthcareapis/v20210601preview:getIotConnector", args ?? new GetIotConnectorInvokeArgs(), options.WithDefaults());
     }
 
 

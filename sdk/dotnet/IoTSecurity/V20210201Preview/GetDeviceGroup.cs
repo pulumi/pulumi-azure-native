@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.IoTSecurity.V20210201Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.IoTSecurity.V20210201Preview
         /// Device group
         /// </summary>
         public static Task<GetDeviceGroupResult> InvokeAsync(GetDeviceGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDeviceGroupResult>("azure-native:iotsecurity/v20210201preview:getDeviceGroup", args ?? new GetDeviceGroupArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDeviceGroupResult>("azure-native:iotsecurity/v20210201preview:getDeviceGroup", args ?? new GetDeviceGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Device group
         /// </summary>
         public static Output<GetDeviceGroupResult> Invoke(GetDeviceGroupInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDeviceGroupResult>("azure-native:iotsecurity/v20210201preview:getDeviceGroup", args ?? new GetDeviceGroupInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetDeviceGroupResult>("azure-native:iotsecurity/v20210201preview:getDeviceGroup", args ?? new GetDeviceGroupInvokeArgs(), options.WithDefaults());
     }
 
 

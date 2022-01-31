@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Network.V20180401
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Network.V20180401
         /// VirtualWAN Resource.
         /// </summary>
         public static Task<GetVirtualWANResult> InvokeAsync(GetVirtualWANArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualWANResult>("azure-native:network/v20180401:getVirtualWAN", args ?? new GetVirtualWANArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualWANResult>("azure-native:network/v20180401:getVirtualWAN", args ?? new GetVirtualWANArgs(), options.WithDefaults());
 
         /// <summary>
         /// VirtualWAN Resource.
         /// </summary>
         public static Output<GetVirtualWANResult> Invoke(GetVirtualWANInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetVirtualWANResult>("azure-native:network/v20180401:getVirtualWAN", args ?? new GetVirtualWANInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetVirtualWANResult>("azure-native:network/v20180401:getVirtualWAN", args ?? new GetVirtualWANInvokeArgs(), options.WithDefaults());
     }
 
 

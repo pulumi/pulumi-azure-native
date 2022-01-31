@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.StorSimple.V20161001
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.StorSimple.V20161001
         /// The iSCSI disk.
         /// </summary>
         public static Task<GetIscsiDiskResult> InvokeAsync(GetIscsiDiskArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetIscsiDiskResult>("azure-native:storsimple/v20161001:getIscsiDisk", args ?? new GetIscsiDiskArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetIscsiDiskResult>("azure-native:storsimple/v20161001:getIscsiDisk", args ?? new GetIscsiDiskArgs(), options.WithDefaults());
 
         /// <summary>
         /// The iSCSI disk.
         /// </summary>
         public static Output<GetIscsiDiskResult> Invoke(GetIscsiDiskInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetIscsiDiskResult>("azure-native:storsimple/v20161001:getIscsiDisk", args ?? new GetIscsiDiskInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetIscsiDiskResult>("azure-native:storsimple/v20161001:getIscsiDisk", args ?? new GetIscsiDiskInvokeArgs(), options.WithDefaults());
     }
 
 

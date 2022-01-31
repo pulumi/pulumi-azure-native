@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.TestBase
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.TestBase
         /// API Version: 2020-12-16-preview.
         /// </summary>
         public static Task<GetFavoriteProcessResult> InvokeAsync(GetFavoriteProcessArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetFavoriteProcessResult>("azure-native:testbase:getFavoriteProcess", args ?? new GetFavoriteProcessArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetFavoriteProcessResult>("azure-native:testbase:getFavoriteProcess", args ?? new GetFavoriteProcessArgs(), options.WithDefaults());
 
         /// <summary>
         /// A favorite process identifier.
         /// API Version: 2020-12-16-preview.
         /// </summary>
         public static Output<GetFavoriteProcessResult> Invoke(GetFavoriteProcessInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetFavoriteProcessResult>("azure-native:testbase:getFavoriteProcess", args ?? new GetFavoriteProcessInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetFavoriteProcessResult>("azure-native:testbase:getFavoriteProcess", args ?? new GetFavoriteProcessInvokeArgs(), options.WithDefaults());
     }
 
 

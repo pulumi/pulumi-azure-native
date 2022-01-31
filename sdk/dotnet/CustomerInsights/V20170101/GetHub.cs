@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.CustomerInsights.V20170101
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.CustomerInsights.V20170101
         /// Hub resource.
         /// </summary>
         public static Task<GetHubResult> InvokeAsync(GetHubArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetHubResult>("azure-native:customerinsights/v20170101:getHub", args ?? new GetHubArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetHubResult>("azure-native:customerinsights/v20170101:getHub", args ?? new GetHubArgs(), options.WithDefaults());
 
         /// <summary>
         /// Hub resource.
         /// </summary>
         public static Output<GetHubResult> Invoke(GetHubInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetHubResult>("azure-native:customerinsights/v20170101:getHub", args ?? new GetHubInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetHubResult>("azure-native:customerinsights/v20170101:getHub", args ?? new GetHubInvokeArgs(), options.WithDefaults());
     }
 
 

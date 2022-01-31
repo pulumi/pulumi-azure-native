@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Automanage.V20210430Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Automanage.V20210430Preview
         /// Definition of the configuration profile.
         /// </summary>
         public static Task<GetConfigurationProfilesVersionResult> InvokeAsync(GetConfigurationProfilesVersionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetConfigurationProfilesVersionResult>("azure-native:automanage/v20210430preview:getConfigurationProfilesVersion", args ?? new GetConfigurationProfilesVersionArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetConfigurationProfilesVersionResult>("azure-native:automanage/v20210430preview:getConfigurationProfilesVersion", args ?? new GetConfigurationProfilesVersionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Definition of the configuration profile.
         /// </summary>
         public static Output<GetConfigurationProfilesVersionResult> Invoke(GetConfigurationProfilesVersionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetConfigurationProfilesVersionResult>("azure-native:automanage/v20210430preview:getConfigurationProfilesVersion", args ?? new GetConfigurationProfilesVersionInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetConfigurationProfilesVersionResult>("azure-native:automanage/v20210430preview:getConfigurationProfilesVersion", args ?? new GetConfigurationProfilesVersionInvokeArgs(), options.WithDefaults());
     }
 
 

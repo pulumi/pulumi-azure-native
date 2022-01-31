@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Automation.V20151031
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Automation.V20151031
         /// Definition of the job schedule.
         /// </summary>
         public static Task<GetJobScheduleResult> InvokeAsync(GetJobScheduleArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetJobScheduleResult>("azure-native:automation/v20151031:getJobSchedule", args ?? new GetJobScheduleArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetJobScheduleResult>("azure-native:automation/v20151031:getJobSchedule", args ?? new GetJobScheduleArgs(), options.WithDefaults());
 
         /// <summary>
         /// Definition of the job schedule.
         /// </summary>
         public static Output<GetJobScheduleResult> Invoke(GetJobScheduleInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetJobScheduleResult>("azure-native:automation/v20151031:getJobSchedule", args ?? new GetJobScheduleInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetJobScheduleResult>("azure-native:automation/v20151031:getJobSchedule", args ?? new GetJobScheduleInvokeArgs(), options.WithDefaults());
     }
 
 

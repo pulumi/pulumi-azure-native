@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Elastic.V20200701
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Elastic.V20200701
         /// The properties of deployment in Elastic cloud corresponding to the Elastic monitor resource.
         /// </summary>
         public static Task<ListDeploymentInfoResult> InvokeAsync(ListDeploymentInfoArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListDeploymentInfoResult>("azure-native:elastic/v20200701:listDeploymentInfo", args ?? new ListDeploymentInfoArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListDeploymentInfoResult>("azure-native:elastic/v20200701:listDeploymentInfo", args ?? new ListDeploymentInfoArgs(), options.WithDefaults());
 
         /// <summary>
         /// The properties of deployment in Elastic cloud corresponding to the Elastic monitor resource.
         /// </summary>
         public static Output<ListDeploymentInfoResult> Invoke(ListDeploymentInfoInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListDeploymentInfoResult>("azure-native:elastic/v20200701:listDeploymentInfo", args ?? new ListDeploymentInfoInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<ListDeploymentInfoResult>("azure-native:elastic/v20200701:listDeploymentInfo", args ?? new ListDeploymentInfoInvokeArgs(), options.WithDefaults());
     }
 
 

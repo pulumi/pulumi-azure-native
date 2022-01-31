@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.CostManagement.V20191101
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.CostManagement.V20191101
         /// State of the myscope setting.
         /// </summary>
         public static Task<GetSettingResult> InvokeAsync(GetSettingArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSettingResult>("azure-native:costmanagement/v20191101:getSetting", args ?? new GetSettingArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSettingResult>("azure-native:costmanagement/v20191101:getSetting", args ?? new GetSettingArgs(), options.WithDefaults());
 
         /// <summary>
         /// State of the myscope setting.
         /// </summary>
         public static Output<GetSettingResult> Invoke(GetSettingInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSettingResult>("azure-native:costmanagement/v20191101:getSetting", args ?? new GetSettingInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetSettingResult>("azure-native:costmanagement/v20191101:getSetting", args ?? new GetSettingInvokeArgs(), options.WithDefaults());
     }
 
 

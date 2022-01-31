@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Peering.V20210601
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Peering.V20210601
         /// The peering service prefix class.
         /// </summary>
         public static Task<GetPrefixResult> InvokeAsync(GetPrefixArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPrefixResult>("azure-native:peering/v20210601:getPrefix", args ?? new GetPrefixArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetPrefixResult>("azure-native:peering/v20210601:getPrefix", args ?? new GetPrefixArgs(), options.WithDefaults());
 
         /// <summary>
         /// The peering service prefix class.
         /// </summary>
         public static Output<GetPrefixResult> Invoke(GetPrefixInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetPrefixResult>("azure-native:peering/v20210601:getPrefix", args ?? new GetPrefixInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetPrefixResult>("azure-native:peering/v20210601:getPrefix", args ?? new GetPrefixInvokeArgs(), options.WithDefaults());
     }
 
 

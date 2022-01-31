@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Web.V20150801
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Web.V20150801
         /// App Service Plan Model
         /// </summary>
         public static Task<GetServerFarmResult> InvokeAsync(GetServerFarmArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetServerFarmResult>("azure-native:web/v20150801:getServerFarm", args ?? new GetServerFarmArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetServerFarmResult>("azure-native:web/v20150801:getServerFarm", args ?? new GetServerFarmArgs(), options.WithDefaults());
 
         /// <summary>
         /// App Service Plan Model
         /// </summary>
         public static Output<GetServerFarmResult> Invoke(GetServerFarmInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetServerFarmResult>("azure-native:web/v20150801:getServerFarm", args ?? new GetServerFarmInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetServerFarmResult>("azure-native:web/v20150801:getServerFarm", args ?? new GetServerFarmInvokeArgs(), options.WithDefaults());
     }
 
 

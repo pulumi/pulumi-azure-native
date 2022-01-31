@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Sql.V20210801Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Sql.V20210801Preview
         /// Server trust certificate imported from box to enable connection between box and Sql Managed Instance.
         /// </summary>
         public static Task<GetServerTrustCertificateResult> InvokeAsync(GetServerTrustCertificateArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetServerTrustCertificateResult>("azure-native:sql/v20210801preview:getServerTrustCertificate", args ?? new GetServerTrustCertificateArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetServerTrustCertificateResult>("azure-native:sql/v20210801preview:getServerTrustCertificate", args ?? new GetServerTrustCertificateArgs(), options.WithDefaults());
 
         /// <summary>
         /// Server trust certificate imported from box to enable connection between box and Sql Managed Instance.
         /// </summary>
         public static Output<GetServerTrustCertificateResult> Invoke(GetServerTrustCertificateInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetServerTrustCertificateResult>("azure-native:sql/v20210801preview:getServerTrustCertificate", args ?? new GetServerTrustCertificateInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetServerTrustCertificateResult>("azure-native:sql/v20210801preview:getServerTrustCertificate", args ?? new GetServerTrustCertificateInvokeArgs(), options.WithDefaults());
     }
 
 

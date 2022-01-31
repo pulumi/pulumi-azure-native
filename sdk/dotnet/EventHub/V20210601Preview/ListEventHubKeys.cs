@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.EventHub.V20210601Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.EventHub.V20210601Preview
         /// Namespace/EventHub Connection String
         /// </summary>
         public static Task<ListEventHubKeysResult> InvokeAsync(ListEventHubKeysArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListEventHubKeysResult>("azure-native:eventhub/v20210601preview:listEventHubKeys", args ?? new ListEventHubKeysArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListEventHubKeysResult>("azure-native:eventhub/v20210601preview:listEventHubKeys", args ?? new ListEventHubKeysArgs(), options.WithDefaults());
 
         /// <summary>
         /// Namespace/EventHub Connection String
         /// </summary>
         public static Output<ListEventHubKeysResult> Invoke(ListEventHubKeysInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListEventHubKeysResult>("azure-native:eventhub/v20210601preview:listEventHubKeys", args ?? new ListEventHubKeysInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<ListEventHubKeysResult>("azure-native:eventhub/v20210601preview:listEventHubKeys", args ?? new ListEventHubKeysInvokeArgs(), options.WithDefaults());
     }
 
 

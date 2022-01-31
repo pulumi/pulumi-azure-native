@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.TestBase.V20201216Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.TestBase.V20201216Preview
         /// The response of getting a download URL.
         /// </summary>
         public static Task<GetPackageDownloadURLResult> InvokeAsync(GetPackageDownloadURLArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPackageDownloadURLResult>("azure-native:testbase/v20201216preview:getPackageDownloadURL", args ?? new GetPackageDownloadURLArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetPackageDownloadURLResult>("azure-native:testbase/v20201216preview:getPackageDownloadURL", args ?? new GetPackageDownloadURLArgs(), options.WithDefaults());
 
         /// <summary>
         /// The response of getting a download URL.
         /// </summary>
         public static Output<GetPackageDownloadURLResult> Invoke(GetPackageDownloadURLInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetPackageDownloadURLResult>("azure-native:testbase/v20201216preview:getPackageDownloadURL", args ?? new GetPackageDownloadURLInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetPackageDownloadURLResult>("azure-native:testbase/v20201216preview:getPackageDownloadURL", args ?? new GetPackageDownloadURLInvokeArgs(), options.WithDefaults());
     }
 
 

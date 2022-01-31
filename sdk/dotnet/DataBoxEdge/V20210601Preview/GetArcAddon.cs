@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DataBoxEdge.V20210601Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20210601Preview
         /// Arc Addon.
         /// </summary>
         public static Task<GetArcAddonResult> InvokeAsync(GetArcAddonArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetArcAddonResult>("azure-native:databoxedge/v20210601preview:getArcAddon", args ?? new GetArcAddonArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetArcAddonResult>("azure-native:databoxedge/v20210601preview:getArcAddon", args ?? new GetArcAddonArgs(), options.WithDefaults());
 
         /// <summary>
         /// Arc Addon.
         /// </summary>
         public static Output<GetArcAddonResult> Invoke(GetArcAddonInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetArcAddonResult>("azure-native:databoxedge/v20210601preview:getArcAddon", args ?? new GetArcAddonInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetArcAddonResult>("azure-native:databoxedge/v20210601preview:getArcAddon", args ?? new GetArcAddonInvokeArgs(), options.WithDefaults());
     }
 
 

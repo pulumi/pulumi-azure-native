@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.StorageCache.V20210301
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.StorageCache.V20210301
         /// Type of the Storage Target.
         /// </summary>
         public static Task<GetStorageTargetResult> InvokeAsync(GetStorageTargetArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetStorageTargetResult>("azure-native:storagecache/v20210301:getStorageTarget", args ?? new GetStorageTargetArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetStorageTargetResult>("azure-native:storagecache/v20210301:getStorageTarget", args ?? new GetStorageTargetArgs(), options.WithDefaults());
 
         /// <summary>
         /// Type of the Storage Target.
         /// </summary>
         public static Output<GetStorageTargetResult> Invoke(GetStorageTargetInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetStorageTargetResult>("azure-native:storagecache/v20210301:getStorageTarget", args ?? new GetStorageTargetInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetStorageTargetResult>("azure-native:storagecache/v20210301:getStorageTarget", args ?? new GetStorageTargetInvokeArgs(), options.WithDefaults());
     }
 
 

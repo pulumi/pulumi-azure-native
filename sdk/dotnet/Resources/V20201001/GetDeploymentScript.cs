@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Resources.V20201001
 {
@@ -17,13 +16,13 @@ namespace Pulumi.AzureNative.Resources.V20201001
         /// Deployment script object.
         /// </summary>
         public static Task<GetDeploymentScriptResult> InvokeAsync(GetDeploymentScriptArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDeploymentScriptResult>("azure-native:resources/v20201001:getDeploymentScript", args ?? new GetDeploymentScriptArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDeploymentScriptResult>("azure-native:resources/v20201001:getDeploymentScript", args ?? new GetDeploymentScriptArgs(), options.WithDefaults());
 
         /// <summary>
         /// Deployment script object.
         /// </summary>
         public static Output<GetDeploymentScriptResult> Invoke(GetDeploymentScriptInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDeploymentScriptResult>("azure-native:resources/v20201001:getDeploymentScript", args ?? new GetDeploymentScriptInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetDeploymentScriptResult>("azure-native:resources/v20201001:getDeploymentScript", args ?? new GetDeploymentScriptInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Storage.V20210401
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Storage.V20210401
         /// Properties of the blob container, including Id, resource name, resource type, Etag.
         /// </summary>
         public static Task<GetBlobContainerResult> InvokeAsync(GetBlobContainerArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetBlobContainerResult>("azure-native:storage/v20210401:getBlobContainer", args ?? new GetBlobContainerArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetBlobContainerResult>("azure-native:storage/v20210401:getBlobContainer", args ?? new GetBlobContainerArgs(), options.WithDefaults());
 
         /// <summary>
         /// Properties of the blob container, including Id, resource name, resource type, Etag.
         /// </summary>
         public static Output<GetBlobContainerResult> Invoke(GetBlobContainerInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetBlobContainerResult>("azure-native:storage/v20210401:getBlobContainer", args ?? new GetBlobContainerInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetBlobContainerResult>("azure-native:storage/v20210401:getBlobContainer", args ?? new GetBlobContainerInvokeArgs(), options.WithDefaults());
     }
 
 

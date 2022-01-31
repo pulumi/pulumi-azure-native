@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Web.V20150801
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Web.V20150801
         /// String dictionary resource
         /// </summary>
         public static Task<ListSiteConnectionStringsResult> InvokeAsync(ListSiteConnectionStringsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListSiteConnectionStringsResult>("azure-native:web/v20150801:listSiteConnectionStrings", args ?? new ListSiteConnectionStringsArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListSiteConnectionStringsResult>("azure-native:web/v20150801:listSiteConnectionStrings", args ?? new ListSiteConnectionStringsArgs(), options.WithDefaults());
 
         /// <summary>
         /// String dictionary resource
         /// </summary>
         public static Output<ListSiteConnectionStringsResult> Invoke(ListSiteConnectionStringsInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListSiteConnectionStringsResult>("azure-native:web/v20150801:listSiteConnectionStrings", args ?? new ListSiteConnectionStringsInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<ListSiteConnectionStringsResult>("azure-native:web/v20150801:listSiteConnectionStrings", args ?? new ListSiteConnectionStringsInvokeArgs(), options.WithDefaults());
     }
 
 

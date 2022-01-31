@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Media
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.Media
         /// API Version: 2020-02-01-preview.
         /// </summary>
         public static Task<GetMediaGraphResult> InvokeAsync(GetMediaGraphArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetMediaGraphResult>("azure-native:media:getMediaGraph", args ?? new GetMediaGraphArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetMediaGraphResult>("azure-native:media:getMediaGraph", args ?? new GetMediaGraphArgs(), options.WithDefaults());
 
         /// <summary>
         /// The Media Graph.
         /// API Version: 2020-02-01-preview.
         /// </summary>
         public static Output<GetMediaGraphResult> Invoke(GetMediaGraphInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetMediaGraphResult>("azure-native:media:getMediaGraph", args ?? new GetMediaGraphInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetMediaGraphResult>("azure-native:media:getMediaGraph", args ?? new GetMediaGraphInvokeArgs(), options.WithDefaults());
     }
 
 

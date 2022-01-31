@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.FluidRelay.V20210615Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.FluidRelay.V20210615Preview
         /// The set of available keys for this server.
         /// </summary>
         public static Task<GetFluidRelayServerKeysResult> InvokeAsync(GetFluidRelayServerKeysArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetFluidRelayServerKeysResult>("azure-native:fluidrelay/v20210615preview:getFluidRelayServerKeys", args ?? new GetFluidRelayServerKeysArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetFluidRelayServerKeysResult>("azure-native:fluidrelay/v20210615preview:getFluidRelayServerKeys", args ?? new GetFluidRelayServerKeysArgs(), options.WithDefaults());
 
         /// <summary>
         /// The set of available keys for this server.
         /// </summary>
         public static Output<GetFluidRelayServerKeysResult> Invoke(GetFluidRelayServerKeysInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetFluidRelayServerKeysResult>("azure-native:fluidrelay/v20210615preview:getFluidRelayServerKeys", args ?? new GetFluidRelayServerKeysInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetFluidRelayServerKeysResult>("azure-native:fluidrelay/v20210615preview:getFluidRelayServerKeys", args ?? new GetFluidRelayServerKeysInvokeArgs(), options.WithDefaults());
     }
 
 

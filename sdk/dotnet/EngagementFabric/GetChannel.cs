@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.EngagementFabric
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.EngagementFabric
         /// API Version: 2018-09-01-preview.
         /// </summary>
         public static Task<GetChannelResult> InvokeAsync(GetChannelArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetChannelResult>("azure-native:engagementfabric:getChannel", args ?? new GetChannelArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetChannelResult>("azure-native:engagementfabric:getChannel", args ?? new GetChannelArgs(), options.WithDefaults());
 
         /// <summary>
         /// The EngagementFabric channel
         /// API Version: 2018-09-01-preview.
         /// </summary>
         public static Output<GetChannelResult> Invoke(GetChannelInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetChannelResult>("azure-native:engagementfabric:getChannel", args ?? new GetChannelInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetChannelResult>("azure-native:engagementfabric:getChannel", args ?? new GetChannelInvokeArgs(), options.WithDefaults());
     }
 
 

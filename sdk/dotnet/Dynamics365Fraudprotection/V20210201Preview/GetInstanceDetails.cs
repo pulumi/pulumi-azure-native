@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Dynamics365Fraudprotection.V20210201Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Dynamics365Fraudprotection.V20210201Preview
         /// Represents an instance of a DFP instance resource.
         /// </summary>
         public static Task<GetInstanceDetailsResult> InvokeAsync(GetInstanceDetailsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetInstanceDetailsResult>("azure-native:dynamics365fraudprotection/v20210201preview:getInstanceDetails", args ?? new GetInstanceDetailsArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetInstanceDetailsResult>("azure-native:dynamics365fraudprotection/v20210201preview:getInstanceDetails", args ?? new GetInstanceDetailsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Represents an instance of a DFP instance resource.
         /// </summary>
         public static Output<GetInstanceDetailsResult> Invoke(GetInstanceDetailsInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetInstanceDetailsResult>("azure-native:dynamics365fraudprotection/v20210201preview:getInstanceDetails", args ?? new GetInstanceDetailsInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetInstanceDetailsResult>("azure-native:dynamics365fraudprotection/v20210201preview:getInstanceDetails", args ?? new GetInstanceDetailsInvokeArgs(), options.WithDefaults());
     }
 
 

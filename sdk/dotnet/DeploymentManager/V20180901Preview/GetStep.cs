@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DeploymentManager.V20180901Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.DeploymentManager.V20180901Preview
         /// The resource representation of a rollout step.
         /// </summary>
         public static Task<GetStepResult> InvokeAsync(GetStepArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetStepResult>("azure-native:deploymentmanager/v20180901preview:getStep", args ?? new GetStepArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetStepResult>("azure-native:deploymentmanager/v20180901preview:getStep", args ?? new GetStepArgs(), options.WithDefaults());
 
         /// <summary>
         /// The resource representation of a rollout step.
         /// </summary>
         public static Output<GetStepResult> Invoke(GetStepInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetStepResult>("azure-native:deploymentmanager/v20180901preview:getStep", args ?? new GetStepInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetStepResult>("azure-native:deploymentmanager/v20180901preview:getStep", args ?? new GetStepInvokeArgs(), options.WithDefaults());
     }
 
 

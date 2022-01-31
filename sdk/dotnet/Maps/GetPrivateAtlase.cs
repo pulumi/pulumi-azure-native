@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Maps
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.Maps
         /// API Version: 2020-02-01-preview.
         /// </summary>
         public static Task<GetPrivateAtlaseResult> InvokeAsync(GetPrivateAtlaseArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPrivateAtlaseResult>("azure-native:maps:getPrivateAtlase", args ?? new GetPrivateAtlaseArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetPrivateAtlaseResult>("azure-native:maps:getPrivateAtlase", args ?? new GetPrivateAtlaseArgs(), options.WithDefaults());
 
         /// <summary>
         /// An Azure resource which represents which will provision the ability to create private location data.
         /// API Version: 2020-02-01-preview.
         /// </summary>
         public static Output<GetPrivateAtlaseResult> Invoke(GetPrivateAtlaseInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetPrivateAtlaseResult>("azure-native:maps:getPrivateAtlase", args ?? new GetPrivateAtlaseInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetPrivateAtlaseResult>("azure-native:maps:getPrivateAtlase", args ?? new GetPrivateAtlaseInvokeArgs(), options.WithDefaults());
     }
 
 

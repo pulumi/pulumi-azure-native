@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview
         /// Service Token
         /// </summary>
         public static Task<GetOnlineEndpointTokenResult> InvokeAsync(GetOnlineEndpointTokenArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetOnlineEndpointTokenResult>("azure-native:machinelearningservices/v20210301preview:getOnlineEndpointToken", args ?? new GetOnlineEndpointTokenArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetOnlineEndpointTokenResult>("azure-native:machinelearningservices/v20210301preview:getOnlineEndpointToken", args ?? new GetOnlineEndpointTokenArgs(), options.WithDefaults());
 
         /// <summary>
         /// Service Token
         /// </summary>
         public static Output<GetOnlineEndpointTokenResult> Invoke(GetOnlineEndpointTokenInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetOnlineEndpointTokenResult>("azure-native:machinelearningservices/v20210301preview:getOnlineEndpointToken", args ?? new GetOnlineEndpointTokenInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetOnlineEndpointTokenResult>("azure-native:machinelearningservices/v20210301preview:getOnlineEndpointToken", args ?? new GetOnlineEndpointTokenInvokeArgs(), options.WithDefaults());
     }
 
 

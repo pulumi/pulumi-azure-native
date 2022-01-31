@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview
         /// Base definition for datastore secrets.
         /// </summary>
         public static Task<ListDatastoreSecretsResult> InvokeAsync(ListDatastoreSecretsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListDatastoreSecretsResult>("azure-native:machinelearningservices/v20210301preview:listDatastoreSecrets", args ?? new ListDatastoreSecretsArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListDatastoreSecretsResult>("azure-native:machinelearningservices/v20210301preview:listDatastoreSecrets", args ?? new ListDatastoreSecretsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Base definition for datastore secrets.
         /// </summary>
         public static Output<ListDatastoreSecretsResult> Invoke(ListDatastoreSecretsInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListDatastoreSecretsResult>("azure-native:machinelearningservices/v20210301preview:listDatastoreSecrets", args ?? new ListDatastoreSecretsInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<ListDatastoreSecretsResult>("azure-native:machinelearningservices/v20210301preview:listDatastoreSecrets", args ?? new ListDatastoreSecretsInvokeArgs(), options.WithDefaults());
     }
 
 

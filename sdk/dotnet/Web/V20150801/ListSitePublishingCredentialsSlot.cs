@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Web.V20150801
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Web.V20150801
         /// Represents user credentials used for publishing activity
         /// </summary>
         public static Task<ListSitePublishingCredentialsSlotResult> InvokeAsync(ListSitePublishingCredentialsSlotArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListSitePublishingCredentialsSlotResult>("azure-native:web/v20150801:listSitePublishingCredentialsSlot", args ?? new ListSitePublishingCredentialsSlotArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListSitePublishingCredentialsSlotResult>("azure-native:web/v20150801:listSitePublishingCredentialsSlot", args ?? new ListSitePublishingCredentialsSlotArgs(), options.WithDefaults());
 
         /// <summary>
         /// Represents user credentials used for publishing activity
         /// </summary>
         public static Output<ListSitePublishingCredentialsSlotResult> Invoke(ListSitePublishingCredentialsSlotInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListSitePublishingCredentialsSlotResult>("azure-native:web/v20150801:listSitePublishingCredentialsSlot", args ?? new ListSitePublishingCredentialsSlotInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<ListSitePublishingCredentialsSlotResult>("azure-native:web/v20150801:listSitePublishingCredentialsSlot", args ?? new ListSitePublishingCredentialsSlotInvokeArgs(), options.WithDefaults());
     }
 
 

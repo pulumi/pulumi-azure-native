@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Network
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.Network
         /// API Version: 2021-05-01-preview.
         /// </summary>
         public static Task<GetStaticMemberResult> InvokeAsync(GetStaticMemberArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetStaticMemberResult>("azure-native:network:getStaticMember", args ?? new GetStaticMemberArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetStaticMemberResult>("azure-native:network:getStaticMember", args ?? new GetStaticMemberArgs(), options.WithDefaults());
 
         /// <summary>
         /// StaticMember Item.
         /// API Version: 2021-05-01-preview.
         /// </summary>
         public static Output<GetStaticMemberResult> Invoke(GetStaticMemberInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetStaticMemberResult>("azure-native:network:getStaticMember", args ?? new GetStaticMemberInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetStaticMemberResult>("azure-native:network:getStaticMember", args ?? new GetStaticMemberInvokeArgs(), options.WithDefaults());
     }
 
 

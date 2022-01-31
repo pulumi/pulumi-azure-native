@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.WindowsESU
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.WindowsESU
         /// API Version: 2019-09-16-preview.
         /// </summary>
         public static Task<GetMultipleActivationKeyResult> InvokeAsync(GetMultipleActivationKeyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetMultipleActivationKeyResult>("azure-native:windowsesu:getMultipleActivationKey", args ?? new GetMultipleActivationKeyArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetMultipleActivationKeyResult>("azure-native:windowsesu:getMultipleActivationKey", args ?? new GetMultipleActivationKeyArgs(), options.WithDefaults());
 
         /// <summary>
         /// MAK key details.
         /// API Version: 2019-09-16-preview.
         /// </summary>
         public static Output<GetMultipleActivationKeyResult> Invoke(GetMultipleActivationKeyInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetMultipleActivationKeyResult>("azure-native:windowsesu:getMultipleActivationKey", args ?? new GetMultipleActivationKeyInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetMultipleActivationKeyResult>("azure-native:windowsesu:getMultipleActivationKey", args ?? new GetMultipleActivationKeyInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.MachineLearningServices
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// API Version: 2021-01-01.
         /// </summary>
         public static Task<ListMachineLearningComputeKeysResult> InvokeAsync(ListMachineLearningComputeKeysArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListMachineLearningComputeKeysResult>("azure-native:machinelearningservices:listMachineLearningComputeKeys", args ?? new ListMachineLearningComputeKeysArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListMachineLearningComputeKeysResult>("azure-native:machinelearningservices:listMachineLearningComputeKeys", args ?? new ListMachineLearningComputeKeysArgs(), options.WithDefaults());
 
         /// <summary>
         /// Secrets related to a Machine Learning compute. Might differ for every type of compute.
         /// API Version: 2021-01-01.
         /// </summary>
         public static Output<ListMachineLearningComputeKeysResult> Invoke(ListMachineLearningComputeKeysInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListMachineLearningComputeKeysResult>("azure-native:machinelearningservices:listMachineLearningComputeKeys", args ?? new ListMachineLearningComputeKeysInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<ListMachineLearningComputeKeysResult>("azure-native:machinelearningservices:listMachineLearningComputeKeys", args ?? new ListMachineLearningComputeKeysInvokeArgs(), options.WithDefaults());
     }
 
 

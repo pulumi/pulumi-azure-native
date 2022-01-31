@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ServiceFabric.V20201201Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.ServiceFabric.V20201201Preview
         /// The list of intermediate cluster code versions for an upgrade or downgrade. Or minimum and maximum upgradable version if no target was given
         /// </summary>
         public static Task<ListListUpgradableVersionPostResult> InvokeAsync(ListListUpgradableVersionPostArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListListUpgradableVersionPostResult>("azure-native:servicefabric/v20201201preview:listListUpgradableVersionPost", args ?? new ListListUpgradableVersionPostArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListListUpgradableVersionPostResult>("azure-native:servicefabric/v20201201preview:listListUpgradableVersionPost", args ?? new ListListUpgradableVersionPostArgs(), options.WithDefaults());
 
         /// <summary>
         /// The list of intermediate cluster code versions for an upgrade or downgrade. Or minimum and maximum upgradable version if no target was given
         /// </summary>
         public static Output<ListListUpgradableVersionPostResult> Invoke(ListListUpgradableVersionPostInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListListUpgradableVersionPostResult>("azure-native:servicefabric/v20201201preview:listListUpgradableVersionPost", args ?? new ListListUpgradableVersionPostInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<ListListUpgradableVersionPostResult>("azure-native:servicefabric/v20201201preview:listListUpgradableVersionPost", args ?? new ListListUpgradableVersionPostInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Network.V20210201Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Network.V20210201Preview
         /// Defines the rule collection.
         /// </summary>
         public static Task<GetUserRuleCollectionResult> InvokeAsync(GetUserRuleCollectionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetUserRuleCollectionResult>("azure-native:network/v20210201preview:getUserRuleCollection", args ?? new GetUserRuleCollectionArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetUserRuleCollectionResult>("azure-native:network/v20210201preview:getUserRuleCollection", args ?? new GetUserRuleCollectionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Defines the rule collection.
         /// </summary>
         public static Output<GetUserRuleCollectionResult> Invoke(GetUserRuleCollectionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetUserRuleCollectionResult>("azure-native:network/v20210201preview:getUserRuleCollection", args ?? new GetUserRuleCollectionInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetUserRuleCollectionResult>("azure-native:network/v20210201preview:getUserRuleCollection", args ?? new GetUserRuleCollectionInvokeArgs(), options.WithDefaults());
     }
 
 

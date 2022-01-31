@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.TimeSeriesInsights
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.TimeSeriesInsights
         /// API Version: 2020-05-15.
         /// </summary>
         public static Task<GetIoTHubEventSourceResult> InvokeAsync(GetIoTHubEventSourceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetIoTHubEventSourceResult>("azure-native:timeseriesinsights:getIoTHubEventSource", args ?? new GetIoTHubEventSourceArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetIoTHubEventSourceResult>("azure-native:timeseriesinsights:getIoTHubEventSource", args ?? new GetIoTHubEventSourceArgs(), options.WithDefaults());
 
         /// <summary>
         /// An event source that receives its data from an Azure IoTHub.
         /// API Version: 2020-05-15.
         /// </summary>
         public static Output<GetIoTHubEventSourceResult> Invoke(GetIoTHubEventSourceInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetIoTHubEventSourceResult>("azure-native:timeseriesinsights:getIoTHubEventSource", args ?? new GetIoTHubEventSourceInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetIoTHubEventSourceResult>("azure-native:timeseriesinsights:getIoTHubEventSource", args ?? new GetIoTHubEventSourceInvokeArgs(), options.WithDefaults());
     }
 
 

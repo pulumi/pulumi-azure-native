@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Sql
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.Sql
         /// API Version: 2020-11-01-preview.
         /// </summary>
         public static Task<GetWorkloadGroupResult> InvokeAsync(GetWorkloadGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetWorkloadGroupResult>("azure-native:sql:getWorkloadGroup", args ?? new GetWorkloadGroupArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetWorkloadGroupResult>("azure-native:sql:getWorkloadGroup", args ?? new GetWorkloadGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Workload group operations for a data warehouse
         /// API Version: 2020-11-01-preview.
         /// </summary>
         public static Output<GetWorkloadGroupResult> Invoke(GetWorkloadGroupInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetWorkloadGroupResult>("azure-native:sql:getWorkloadGroup", args ?? new GetWorkloadGroupInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetWorkloadGroupResult>("azure-native:sql:getWorkloadGroup", args ?? new GetWorkloadGroupInvokeArgs(), options.WithDefaults());
     }
 
 

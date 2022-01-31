@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.CostManagement
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.CostManagement
         /// API Version: 2020-03-01-preview.
         /// </summary>
         public static Task<GetCostAllocationRuleResult> InvokeAsync(GetCostAllocationRuleArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetCostAllocationRuleResult>("azure-native:costmanagement:getCostAllocationRule", args ?? new GetCostAllocationRuleArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetCostAllocationRuleResult>("azure-native:costmanagement:getCostAllocationRule", args ?? new GetCostAllocationRuleArgs(), options.WithDefaults());
 
         /// <summary>
         /// The cost allocation rule model definition
         /// API Version: 2020-03-01-preview.
         /// </summary>
         public static Output<GetCostAllocationRuleResult> Invoke(GetCostAllocationRuleInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetCostAllocationRuleResult>("azure-native:costmanagement:getCostAllocationRule", args ?? new GetCostAllocationRuleInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetCostAllocationRuleResult>("azure-native:costmanagement:getCostAllocationRule", args ?? new GetCostAllocationRuleInvokeArgs(), options.WithDefaults());
     }
 
 

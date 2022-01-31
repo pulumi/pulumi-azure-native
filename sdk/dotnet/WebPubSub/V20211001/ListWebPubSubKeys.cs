@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.WebPubSub.V20211001
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.WebPubSub.V20211001
         /// A class represents the access keys of the resource.
         /// </summary>
         public static Task<ListWebPubSubKeysResult> InvokeAsync(ListWebPubSubKeysArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListWebPubSubKeysResult>("azure-native:webpubsub/v20211001:listWebPubSubKeys", args ?? new ListWebPubSubKeysArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListWebPubSubKeysResult>("azure-native:webpubsub/v20211001:listWebPubSubKeys", args ?? new ListWebPubSubKeysArgs(), options.WithDefaults());
 
         /// <summary>
         /// A class represents the access keys of the resource.
         /// </summary>
         public static Output<ListWebPubSubKeysResult> Invoke(ListWebPubSubKeysInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListWebPubSubKeysResult>("azure-native:webpubsub/v20211001:listWebPubSubKeys", args ?? new ListWebPubSubKeysInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<ListWebPubSubKeysResult>("azure-native:webpubsub/v20211001:listWebPubSubKeys", args ?? new ListWebPubSubKeysInvokeArgs(), options.WithDefaults());
     }
 
 

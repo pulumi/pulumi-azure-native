@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Logz
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.Logz
         /// API Version: 2020-10-01.
         /// </summary>
         public static Task<ListMonitorVMHostsResult> InvokeAsync(ListMonitorVMHostsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListMonitorVMHostsResult>("azure-native:logz:listMonitorVMHosts", args ?? new ListMonitorVMHostsArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListMonitorVMHostsResult>("azure-native:logz:listMonitorVMHosts", args ?? new ListMonitorVMHostsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Response of a list VM Host Update Operation.
         /// API Version: 2020-10-01.
         /// </summary>
         public static Output<ListMonitorVMHostsResult> Invoke(ListMonitorVMHostsInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListMonitorVMHostsResult>("azure-native:logz:listMonitorVMHosts", args ?? new ListMonitorVMHostsInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<ListMonitorVMHostsResult>("azure-native:logz:listMonitorVMHosts", args ?? new ListMonitorVMHostsInvokeArgs(), options.WithDefaults());
     }
 
 

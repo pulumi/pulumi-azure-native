@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.TestBase
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.TestBase
         /// API Version: 2020-12-16-preview.
         /// </summary>
         public static Task<GetCustomerEventResult> InvokeAsync(GetCustomerEventArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetCustomerEventResult>("azure-native:testbase:getCustomerEvent", args ?? new GetCustomerEventArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetCustomerEventResult>("azure-native:testbase:getCustomerEvent", args ?? new GetCustomerEventArgs(), options.WithDefaults());
 
         /// <summary>
         /// The Customer Notification Event resource.
         /// API Version: 2020-12-16-preview.
         /// </summary>
         public static Output<GetCustomerEventResult> Invoke(GetCustomerEventInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetCustomerEventResult>("azure-native:testbase:getCustomerEvent", args ?? new GetCustomerEventInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetCustomerEventResult>("azure-native:testbase:getCustomerEvent", args ?? new GetCustomerEventInvokeArgs(), options.WithDefaults());
     }
 
 

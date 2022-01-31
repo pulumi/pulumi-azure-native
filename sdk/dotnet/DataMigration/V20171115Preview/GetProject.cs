@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DataMigration.V20171115Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.DataMigration.V20171115Preview
         /// A project resource
         /// </summary>
         public static Task<GetProjectResult> InvokeAsync(GetProjectArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetProjectResult>("azure-native:datamigration/v20171115preview:getProject", args ?? new GetProjectArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetProjectResult>("azure-native:datamigration/v20171115preview:getProject", args ?? new GetProjectArgs(), options.WithDefaults());
 
         /// <summary>
         /// A project resource
         /// </summary>
         public static Output<GetProjectResult> Invoke(GetProjectInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetProjectResult>("azure-native:datamigration/v20171115preview:getProject", args ?? new GetProjectInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetProjectResult>("azure-native:datamigration/v20171115preview:getProject", args ?? new GetProjectInvokeArgs(), options.WithDefaults());
     }
 
 

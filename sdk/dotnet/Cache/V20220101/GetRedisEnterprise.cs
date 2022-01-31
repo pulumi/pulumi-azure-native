@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Cache.V20220101
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Cache.V20220101
         /// Describes the RedisEnterprise cluster
         /// </summary>
         public static Task<GetRedisEnterpriseResult> InvokeAsync(GetRedisEnterpriseArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRedisEnterpriseResult>("azure-native:cache/v20220101:getRedisEnterprise", args ?? new GetRedisEnterpriseArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetRedisEnterpriseResult>("azure-native:cache/v20220101:getRedisEnterprise", args ?? new GetRedisEnterpriseArgs(), options.WithDefaults());
 
         /// <summary>
         /// Describes the RedisEnterprise cluster
         /// </summary>
         public static Output<GetRedisEnterpriseResult> Invoke(GetRedisEnterpriseInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetRedisEnterpriseResult>("azure-native:cache/v20220101:getRedisEnterprise", args ?? new GetRedisEnterpriseInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetRedisEnterpriseResult>("azure-native:cache/v20220101:getRedisEnterprise", args ?? new GetRedisEnterpriseInvokeArgs(), options.WithDefaults());
     }
 
 

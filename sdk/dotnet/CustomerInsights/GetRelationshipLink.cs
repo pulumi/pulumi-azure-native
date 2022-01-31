@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.CustomerInsights
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.CustomerInsights
         /// API Version: 2017-04-26.
         /// </summary>
         public static Task<GetRelationshipLinkResult> InvokeAsync(GetRelationshipLinkArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRelationshipLinkResult>("azure-native:customerinsights:getRelationshipLink", args ?? new GetRelationshipLinkArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetRelationshipLinkResult>("azure-native:customerinsights:getRelationshipLink", args ?? new GetRelationshipLinkArgs(), options.WithDefaults());
 
         /// <summary>
         /// The relationship link resource format.
         /// API Version: 2017-04-26.
         /// </summary>
         public static Output<GetRelationshipLinkResult> Invoke(GetRelationshipLinkInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetRelationshipLinkResult>("azure-native:customerinsights:getRelationshipLink", args ?? new GetRelationshipLinkInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetRelationshipLinkResult>("azure-native:customerinsights:getRelationshipLink", args ?? new GetRelationshipLinkInvokeArgs(), options.WithDefaults());
     }
 
 

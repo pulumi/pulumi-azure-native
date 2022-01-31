@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DevTestLab.V20150521Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.DevTestLab.V20150521Preview
         /// The response of a list operation.
         /// </summary>
         public static Task<ListLabVhdsResult> InvokeAsync(ListLabVhdsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListLabVhdsResult>("azure-native:devtestlab/v20150521preview:listLabVhds", args ?? new ListLabVhdsArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListLabVhdsResult>("azure-native:devtestlab/v20150521preview:listLabVhds", args ?? new ListLabVhdsArgs(), options.WithDefaults());
 
         /// <summary>
         /// The response of a list operation.
         /// </summary>
         public static Output<ListLabVhdsResult> Invoke(ListLabVhdsInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListLabVhdsResult>("azure-native:devtestlab/v20150521preview:listLabVhds", args ?? new ListLabVhdsInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<ListLabVhdsResult>("azure-native:devtestlab/v20150521preview:listLabVhds", args ?? new ListLabVhdsInvokeArgs(), options.WithDefaults());
     }
 
 

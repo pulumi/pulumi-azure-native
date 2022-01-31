@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.AzureStack.V20160101
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.AzureStack.V20160101
         /// Extended description about the product required for installing it into Azure Stack.
         /// </summary>
         public static Task<ListProductDetailsResult> InvokeAsync(ListProductDetailsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListProductDetailsResult>("azure-native:azurestack/v20160101:listProductDetails", args ?? new ListProductDetailsArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListProductDetailsResult>("azure-native:azurestack/v20160101:listProductDetails", args ?? new ListProductDetailsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Extended description about the product required for installing it into Azure Stack.
         /// </summary>
         public static Output<ListProductDetailsResult> Invoke(ListProductDetailsInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListProductDetailsResult>("azure-native:azurestack/v20160101:listProductDetails", args ?? new ListProductDetailsInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<ListProductDetailsResult>("azure-native:azurestack/v20160101:listProductDetails", args ?? new ListProductDetailsInvokeArgs(), options.WithDefaults());
     }
 
 

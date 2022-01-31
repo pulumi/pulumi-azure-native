@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.MachineLearningServices
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// API Version: 2021-01-01.
         /// </summary>
         public static Task<ListMachineLearningComputeNodesResult> InvokeAsync(ListMachineLearningComputeNodesArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListMachineLearningComputeNodesResult>("azure-native:machinelearningservices:listMachineLearningComputeNodes", args ?? new ListMachineLearningComputeNodesArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListMachineLearningComputeNodesResult>("azure-native:machinelearningservices:listMachineLearningComputeNodes", args ?? new ListMachineLearningComputeNodesArgs(), options.WithDefaults());
 
         /// <summary>
         /// Compute node information related to a AmlCompute.
         /// API Version: 2021-01-01.
         /// </summary>
         public static Output<ListMachineLearningComputeNodesResult> Invoke(ListMachineLearningComputeNodesInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListMachineLearningComputeNodesResult>("azure-native:machinelearningservices:listMachineLearningComputeNodes", args ?? new ListMachineLearningComputeNodesInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<ListMachineLearningComputeNodesResult>("azure-native:machinelearningservices:listMachineLearningComputeNodes", args ?? new ListMachineLearningComputeNodesInvokeArgs(), options.WithDefaults());
     }
 
 

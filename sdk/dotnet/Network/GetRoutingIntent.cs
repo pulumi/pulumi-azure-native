@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Network
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.Network
         /// API Version: 2021-05-01.
         /// </summary>
         public static Task<GetRoutingIntentResult> InvokeAsync(GetRoutingIntentArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRoutingIntentResult>("azure-native:network:getRoutingIntent", args ?? new GetRoutingIntentArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetRoutingIntentResult>("azure-native:network:getRoutingIntent", args ?? new GetRoutingIntentArgs(), options.WithDefaults());
 
         /// <summary>
         /// The routing intent child resource of a Virtual hub.
         /// API Version: 2021-05-01.
         /// </summary>
         public static Output<GetRoutingIntentResult> Invoke(GetRoutingIntentInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetRoutingIntentResult>("azure-native:network:getRoutingIntent", args ?? new GetRoutingIntentInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetRoutingIntentResult>("azure-native:network:getRoutingIntent", args ?? new GetRoutingIntentInvokeArgs(), options.WithDefaults());
     }
 
 

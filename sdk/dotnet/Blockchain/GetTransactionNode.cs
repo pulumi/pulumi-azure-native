@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Blockchain
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.Blockchain
         /// API Version: 2018-06-01-preview.
         /// </summary>
         public static Task<GetTransactionNodeResult> InvokeAsync(GetTransactionNodeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetTransactionNodeResult>("azure-native:blockchain:getTransactionNode", args ?? new GetTransactionNodeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetTransactionNodeResult>("azure-native:blockchain:getTransactionNode", args ?? new GetTransactionNodeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Payload of the transaction node which is the request/response of the resource provider.
         /// API Version: 2018-06-01-preview.
         /// </summary>
         public static Output<GetTransactionNodeResult> Invoke(GetTransactionNodeInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetTransactionNodeResult>("azure-native:blockchain:getTransactionNode", args ?? new GetTransactionNodeInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetTransactionNodeResult>("azure-native:blockchain:getTransactionNode", args ?? new GetTransactionNodeInvokeArgs(), options.WithDefaults());
     }
 
 

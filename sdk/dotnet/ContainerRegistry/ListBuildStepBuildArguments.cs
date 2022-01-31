@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ContainerRegistry
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.ContainerRegistry
         /// API Version: 2018-02-01-preview.
         /// </summary>
         public static Task<ListBuildStepBuildArgumentsResult> InvokeAsync(ListBuildStepBuildArgumentsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListBuildStepBuildArgumentsResult>("azure-native:containerregistry:listBuildStepBuildArguments", args ?? new ListBuildStepBuildArgumentsArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListBuildStepBuildArgumentsResult>("azure-native:containerregistry:listBuildStepBuildArguments", args ?? new ListBuildStepBuildArgumentsArgs(), options.WithDefaults());
 
         /// <summary>
         /// The list of build arguments for a build step.
         /// API Version: 2018-02-01-preview.
         /// </summary>
         public static Output<ListBuildStepBuildArgumentsResult> Invoke(ListBuildStepBuildArgumentsInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListBuildStepBuildArgumentsResult>("azure-native:containerregistry:listBuildStepBuildArguments", args ?? new ListBuildStepBuildArgumentsInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<ListBuildStepBuildArgumentsResult>("azure-native:containerregistry:listBuildStepBuildArguments", args ?? new ListBuildStepBuildArgumentsInvokeArgs(), options.WithDefaults());
     }
 
 

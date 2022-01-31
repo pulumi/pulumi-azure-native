@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.AVS
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.AVS
         /// API Version: 2021-06-01.
         /// </summary>
         public static Task<GetScriptExecutionLogsResult> InvokeAsync(GetScriptExecutionLogsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetScriptExecutionLogsResult>("azure-native:avs:getScriptExecutionLogs", args ?? new GetScriptExecutionLogsArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetScriptExecutionLogsResult>("azure-native:avs:getScriptExecutionLogs", args ?? new GetScriptExecutionLogsArgs(), options.WithDefaults());
 
         /// <summary>
         /// An instance of a script executed by a user - custom or AVS
         /// API Version: 2021-06-01.
         /// </summary>
         public static Output<GetScriptExecutionLogsResult> Invoke(GetScriptExecutionLogsInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetScriptExecutionLogsResult>("azure-native:avs:getScriptExecutionLogs", args ?? new GetScriptExecutionLogsInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetScriptExecutionLogsResult>("azure-native:avs:getScriptExecutionLogs", args ?? new GetScriptExecutionLogsInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.OperationalInsights
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.OperationalInsights
         /// API Version: 2020-08-01.
         /// </summary>
         public static Task<GetStorageInsightConfigResult> InvokeAsync(GetStorageInsightConfigArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetStorageInsightConfigResult>("azure-native:operationalinsights:getStorageInsightConfig", args ?? new GetStorageInsightConfigArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetStorageInsightConfigResult>("azure-native:operationalinsights:getStorageInsightConfig", args ?? new GetStorageInsightConfigArgs(), options.WithDefaults());
 
         /// <summary>
         /// The top level storage insight resource container.
         /// API Version: 2020-08-01.
         /// </summary>
         public static Output<GetStorageInsightConfigResult> Invoke(GetStorageInsightConfigInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetStorageInsightConfigResult>("azure-native:operationalinsights:getStorageInsightConfig", args ?? new GetStorageInsightConfigInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetStorageInsightConfigResult>("azure-native:operationalinsights:getStorageInsightConfig", args ?? new GetStorageInsightConfigInvokeArgs(), options.WithDefaults());
     }
 
 

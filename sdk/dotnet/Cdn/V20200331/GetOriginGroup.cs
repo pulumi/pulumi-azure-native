@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Cdn.V20200331
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Cdn.V20200331
         /// Origin group comprising of origins is used for load balancing to origins when the content cannot be served from CDN.
         /// </summary>
         public static Task<GetOriginGroupResult> InvokeAsync(GetOriginGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetOriginGroupResult>("azure-native:cdn/v20200331:getOriginGroup", args ?? new GetOriginGroupArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetOriginGroupResult>("azure-native:cdn/v20200331:getOriginGroup", args ?? new GetOriginGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Origin group comprising of origins is used for load balancing to origins when the content cannot be served from CDN.
         /// </summary>
         public static Output<GetOriginGroupResult> Invoke(GetOriginGroupInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetOriginGroupResult>("azure-native:cdn/v20200331:getOriginGroup", args ?? new GetOriginGroupInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetOriginGroupResult>("azure-native:cdn/v20200331:getOriginGroup", args ?? new GetOriginGroupInvokeArgs(), options.WithDefaults());
     }
 
 

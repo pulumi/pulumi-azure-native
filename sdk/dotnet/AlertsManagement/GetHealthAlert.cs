@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.AlertsManagement
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.AlertsManagement
         /// API Version: 2020-08-04-preview.
         /// </summary>
         public static Task<GetHealthAlertResult> InvokeAsync(GetHealthAlertArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetHealthAlertResult>("azure-native:alertsmanagement:getHealthAlert", args ?? new GetHealthAlertArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetHealthAlertResult>("azure-native:alertsmanagement:getHealthAlert", args ?? new GetHealthAlertArgs(), options.WithDefaults());
 
         /// <summary>
         /// The health alert resource.
         /// API Version: 2020-08-04-preview.
         /// </summary>
         public static Output<GetHealthAlertResult> Invoke(GetHealthAlertInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetHealthAlertResult>("azure-native:alertsmanagement:getHealthAlert", args ?? new GetHealthAlertInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetHealthAlertResult>("azure-native:alertsmanagement:getHealthAlert", args ?? new GetHealthAlertInvokeArgs(), options.WithDefaults());
     }
 
 

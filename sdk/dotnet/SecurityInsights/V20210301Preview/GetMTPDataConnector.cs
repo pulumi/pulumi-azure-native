@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.SecurityInsights.V20210301Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210301Preview
         /// Represents MTP (Microsoft Threat Protection) data connector.
         /// </summary>
         public static Task<GetMTPDataConnectorResult> InvokeAsync(GetMTPDataConnectorArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetMTPDataConnectorResult>("azure-native:securityinsights/v20210301preview:getMTPDataConnector", args ?? new GetMTPDataConnectorArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetMTPDataConnectorResult>("azure-native:securityinsights/v20210301preview:getMTPDataConnector", args ?? new GetMTPDataConnectorArgs(), options.WithDefaults());
 
         /// <summary>
         /// Represents MTP (Microsoft Threat Protection) data connector.
         /// </summary>
         public static Output<GetMTPDataConnectorResult> Invoke(GetMTPDataConnectorInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetMTPDataConnectorResult>("azure-native:securityinsights/v20210301preview:getMTPDataConnector", args ?? new GetMTPDataConnectorInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetMTPDataConnectorResult>("azure-native:securityinsights/v20210301preview:getMTPDataConnector", args ?? new GetMTPDataConnectorInvokeArgs(), options.WithDefaults());
     }
 
 

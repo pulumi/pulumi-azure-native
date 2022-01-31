@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Migrate
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.Migrate
         /// API Version: 2018-09-01-preview.
         /// </summary>
         public static Task<GetMigrateProjectResult> InvokeAsync(GetMigrateProjectArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetMigrateProjectResult>("azure-native:migrate:getMigrateProject", args ?? new GetMigrateProjectArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetMigrateProjectResult>("azure-native:migrate:getMigrateProject", args ?? new GetMigrateProjectArgs(), options.WithDefaults());
 
         /// <summary>
         /// Migrate Project REST Resource.
         /// API Version: 2018-09-01-preview.
         /// </summary>
         public static Output<GetMigrateProjectResult> Invoke(GetMigrateProjectInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetMigrateProjectResult>("azure-native:migrate:getMigrateProject", args ?? new GetMigrateProjectInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetMigrateProjectResult>("azure-native:migrate:getMigrateProject", args ?? new GetMigrateProjectInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Blockchain
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.Blockchain
         /// API Version: 2018-06-01-preview.
         /// </summary>
         public static Task<GetBlockchainMemberResult> InvokeAsync(GetBlockchainMemberArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetBlockchainMemberResult>("azure-native:blockchain:getBlockchainMember", args ?? new GetBlockchainMemberArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetBlockchainMemberResult>("azure-native:blockchain:getBlockchainMember", args ?? new GetBlockchainMemberArgs(), options.WithDefaults());
 
         /// <summary>
         /// Payload of the blockchain member which is exposed in the request/response of the resource provider.
         /// API Version: 2018-06-01-preview.
         /// </summary>
         public static Output<GetBlockchainMemberResult> Invoke(GetBlockchainMemberInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetBlockchainMemberResult>("azure-native:blockchain:getBlockchainMember", args ?? new GetBlockchainMemberInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetBlockchainMemberResult>("azure-native:blockchain:getBlockchainMember", args ?? new GetBlockchainMemberInvokeArgs(), options.WithDefaults());
     }
 
 

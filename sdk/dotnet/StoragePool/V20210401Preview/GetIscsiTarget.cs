@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.StoragePool.V20210401Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.StoragePool.V20210401Preview
         /// Response for iSCSI Target requests.
         /// </summary>
         public static Task<GetIscsiTargetResult> InvokeAsync(GetIscsiTargetArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetIscsiTargetResult>("azure-native:storagepool/v20210401preview:getIscsiTarget", args ?? new GetIscsiTargetArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetIscsiTargetResult>("azure-native:storagepool/v20210401preview:getIscsiTarget", args ?? new GetIscsiTargetArgs(), options.WithDefaults());
 
         /// <summary>
         /// Response for iSCSI Target requests.
         /// </summary>
         public static Output<GetIscsiTargetResult> Invoke(GetIscsiTargetInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetIscsiTargetResult>("azure-native:storagepool/v20210401preview:getIscsiTarget", args ?? new GetIscsiTargetInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetIscsiTargetResult>("azure-native:storagepool/v20210401preview:getIscsiTarget", args ?? new GetIscsiTargetInvokeArgs(), options.WithDefaults());
     }
 
 

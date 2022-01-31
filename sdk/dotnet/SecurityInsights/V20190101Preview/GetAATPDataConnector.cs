@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview
         /// Represents AATP (Azure Advanced Threat Protection) data connector.
         /// </summary>
         public static Task<GetAATPDataConnectorResult> InvokeAsync(GetAATPDataConnectorArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAATPDataConnectorResult>("azure-native:securityinsights/v20190101preview:getAATPDataConnector", args ?? new GetAATPDataConnectorArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAATPDataConnectorResult>("azure-native:securityinsights/v20190101preview:getAATPDataConnector", args ?? new GetAATPDataConnectorArgs(), options.WithDefaults());
 
         /// <summary>
         /// Represents AATP (Azure Advanced Threat Protection) data connector.
         /// </summary>
         public static Output<GetAATPDataConnectorResult> Invoke(GetAATPDataConnectorInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetAATPDataConnectorResult>("azure-native:securityinsights/v20190101preview:getAATPDataConnector", args ?? new GetAATPDataConnectorInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetAATPDataConnectorResult>("azure-native:securityinsights/v20190101preview:getAATPDataConnector", args ?? new GetAATPDataConnectorInvokeArgs(), options.WithDefaults());
     }
 
 

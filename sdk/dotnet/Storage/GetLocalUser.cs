@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Storage
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.Storage
         /// API Version: 2021-08-01.
         /// </summary>
         public static Task<GetLocalUserResult> InvokeAsync(GetLocalUserArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetLocalUserResult>("azure-native:storage:getLocalUser", args ?? new GetLocalUserArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetLocalUserResult>("azure-native:storage:getLocalUser", args ?? new GetLocalUserArgs(), options.WithDefaults());
 
         /// <summary>
         /// The local user associated with the storage accounts.
         /// API Version: 2021-08-01.
         /// </summary>
         public static Output<GetLocalUserResult> Invoke(GetLocalUserInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetLocalUserResult>("azure-native:storage:getLocalUser", args ?? new GetLocalUserInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetLocalUserResult>("azure-native:storage:getLocalUser", args ?? new GetLocalUserInvokeArgs(), options.WithDefaults());
     }
 
 

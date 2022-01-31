@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Migrate.V20180202
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Migrate.V20180202
         /// ID and Key for Migration Project.
         /// </summary>
         public static Task<GetProjectKeysResult> InvokeAsync(GetProjectKeysArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetProjectKeysResult>("azure-native:migrate/v20180202:getProjectKeys", args ?? new GetProjectKeysArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetProjectKeysResult>("azure-native:migrate/v20180202:getProjectKeys", args ?? new GetProjectKeysArgs(), options.WithDefaults());
 
         /// <summary>
         /// ID and Key for Migration Project.
         /// </summary>
         public static Output<GetProjectKeysResult> Invoke(GetProjectKeysInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetProjectKeysResult>("azure-native:migrate/v20180202:getProjectKeys", args ?? new GetProjectKeysInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetProjectKeysResult>("azure-native:migrate/v20180202:getProjectKeys", args ?? new GetProjectKeysInvokeArgs(), options.WithDefaults());
     }
 
 

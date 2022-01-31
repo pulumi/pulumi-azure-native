@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Resources
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.Resources
         /// API Version: 2020-10-01.
         /// </summary>
         public static Task<GetAzureCliScriptResult> InvokeAsync(GetAzureCliScriptArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAzureCliScriptResult>("azure-native:resources:getAzureCliScript", args ?? new GetAzureCliScriptArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAzureCliScriptResult>("azure-native:resources:getAzureCliScript", args ?? new GetAzureCliScriptArgs(), options.WithDefaults());
 
         /// <summary>
         /// Object model for the Azure CLI script.
         /// API Version: 2020-10-01.
         /// </summary>
         public static Output<GetAzureCliScriptResult> Invoke(GetAzureCliScriptInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetAzureCliScriptResult>("azure-native:resources:getAzureCliScript", args ?? new GetAzureCliScriptInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetAzureCliScriptResult>("azure-native:resources:getAzureCliScript", args ?? new GetAzureCliScriptInvokeArgs(), options.WithDefaults());
     }
 
 

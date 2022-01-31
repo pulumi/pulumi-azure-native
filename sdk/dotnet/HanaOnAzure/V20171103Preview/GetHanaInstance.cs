@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.HanaOnAzure.V20171103Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.HanaOnAzure.V20171103Preview
         /// HANA instance info on Azure (ARM properties and HANA properties)
         /// </summary>
         public static Task<GetHanaInstanceResult> InvokeAsync(GetHanaInstanceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetHanaInstanceResult>("azure-native:hanaonazure/v20171103preview:getHanaInstance", args ?? new GetHanaInstanceArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetHanaInstanceResult>("azure-native:hanaonazure/v20171103preview:getHanaInstance", args ?? new GetHanaInstanceArgs(), options.WithDefaults());
 
         /// <summary>
         /// HANA instance info on Azure (ARM properties and HANA properties)
         /// </summary>
         public static Output<GetHanaInstanceResult> Invoke(GetHanaInstanceInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetHanaInstanceResult>("azure-native:hanaonazure/v20171103preview:getHanaInstance", args ?? new GetHanaInstanceInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetHanaInstanceResult>("azure-native:hanaonazure/v20171103preview:getHanaInstance", args ?? new GetHanaInstanceInvokeArgs(), options.WithDefaults());
     }
 
 

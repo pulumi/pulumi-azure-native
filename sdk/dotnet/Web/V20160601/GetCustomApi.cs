@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Web.V20160601
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Web.V20160601
         /// A custom API
         /// </summary>
         public static Task<GetCustomApiResult> InvokeAsync(GetCustomApiArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetCustomApiResult>("azure-native:web/v20160601:getCustomApi", args ?? new GetCustomApiArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetCustomApiResult>("azure-native:web/v20160601:getCustomApi", args ?? new GetCustomApiArgs(), options.WithDefaults());
 
         /// <summary>
         /// A custom API
         /// </summary>
         public static Output<GetCustomApiResult> Invoke(GetCustomApiInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetCustomApiResult>("azure-native:web/v20160601:getCustomApi", args ?? new GetCustomApiInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetCustomApiResult>("azure-native:web/v20160601:getCustomApi", args ?? new GetCustomApiInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Automation.V20180630
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Automation.V20180630
         /// Definition of the module type.
         /// </summary>
         public static Task<GetPython2PackageResult> InvokeAsync(GetPython2PackageArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPython2PackageResult>("azure-native:automation/v20180630:getPython2Package", args ?? new GetPython2PackageArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetPython2PackageResult>("azure-native:automation/v20180630:getPython2Package", args ?? new GetPython2PackageArgs(), options.WithDefaults());
 
         /// <summary>
         /// Definition of the module type.
         /// </summary>
         public static Output<GetPython2PackageResult> Invoke(GetPython2PackageInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetPython2PackageResult>("azure-native:automation/v20180630:getPython2Package", args ?? new GetPython2PackageInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetPython2PackageResult>("azure-native:automation/v20180630:getPython2Package", args ?? new GetPython2PackageInvokeArgs(), options.WithDefaults());
     }
 
 

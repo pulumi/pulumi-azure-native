@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Web.V20160601
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Web.V20160601
         /// The gateway definition
         /// </summary>
         public static Task<GetConnectionGatewayResult> InvokeAsync(GetConnectionGatewayArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetConnectionGatewayResult>("azure-native:web/v20160601:getConnectionGateway", args ?? new GetConnectionGatewayArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetConnectionGatewayResult>("azure-native:web/v20160601:getConnectionGateway", args ?? new GetConnectionGatewayArgs(), options.WithDefaults());
 
         /// <summary>
         /// The gateway definition
         /// </summary>
         public static Output<GetConnectionGatewayResult> Invoke(GetConnectionGatewayInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetConnectionGatewayResult>("azure-native:web/v20160601:getConnectionGateway", args ?? new GetConnectionGatewayInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetConnectionGatewayResult>("azure-native:web/v20160601:getConnectionGateway", args ?? new GetConnectionGatewayInvokeArgs(), options.WithDefaults());
     }
 
 

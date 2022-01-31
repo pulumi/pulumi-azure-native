@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Automation
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.Automation
         /// API Version: 2019-06-01.
         /// </summary>
         public static Task<GetRunbookResult> InvokeAsync(GetRunbookArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRunbookResult>("azure-native:automation:getRunbook", args ?? new GetRunbookArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetRunbookResult>("azure-native:automation:getRunbook", args ?? new GetRunbookArgs(), options.WithDefaults());
 
         /// <summary>
         /// Definition of the runbook type.
         /// API Version: 2019-06-01.
         /// </summary>
         public static Output<GetRunbookResult> Invoke(GetRunbookInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetRunbookResult>("azure-native:automation:getRunbook", args ?? new GetRunbookInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetRunbookResult>("azure-native:automation:getRunbook", args ?? new GetRunbookInvokeArgs(), options.WithDefaults());
     }
 
 

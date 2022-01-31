@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.SecurityInsights
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// API Version: 2021-03-01-preview.
         /// </summary>
         public static Task<GetEyesOnResult> InvokeAsync(GetEyesOnArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetEyesOnResult>("azure-native:securityinsights:getEyesOn", args ?? new GetEyesOnArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetEyesOnResult>("azure-native:securityinsights:getEyesOn", args ?? new GetEyesOnArgs(), options.WithDefaults());
 
         /// <summary>
         /// Settings with single toggle.
         /// API Version: 2021-03-01-preview.
         /// </summary>
         public static Output<GetEyesOnResult> Invoke(GetEyesOnInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetEyesOnResult>("azure-native:securityinsights:getEyesOn", args ?? new GetEyesOnInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetEyesOnResult>("azure-native:securityinsights:getEyesOn", args ?? new GetEyesOnInvokeArgs(), options.WithDefaults());
     }
 
 

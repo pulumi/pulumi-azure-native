@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.AlertsManagement.V20210808Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.AlertsManagement.V20210808Preview
         /// Alert processing rule object containing target scopes, conditions and scheduling logic.
         /// </summary>
         public static Task<GetAlertProcessingRuleByNameResult> InvokeAsync(GetAlertProcessingRuleByNameArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAlertProcessingRuleByNameResult>("azure-native:alertsmanagement/v20210808preview:getAlertProcessingRuleByName", args ?? new GetAlertProcessingRuleByNameArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAlertProcessingRuleByNameResult>("azure-native:alertsmanagement/v20210808preview:getAlertProcessingRuleByName", args ?? new GetAlertProcessingRuleByNameArgs(), options.WithDefaults());
 
         /// <summary>
         /// Alert processing rule object containing target scopes, conditions and scheduling logic.
         /// </summary>
         public static Output<GetAlertProcessingRuleByNameResult> Invoke(GetAlertProcessingRuleByNameInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetAlertProcessingRuleByNameResult>("azure-native:alertsmanagement/v20210808preview:getAlertProcessingRuleByName", args ?? new GetAlertProcessingRuleByNameInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetAlertProcessingRuleByNameResult>("azure-native:alertsmanagement/v20210808preview:getAlertProcessingRuleByName", args ?? new GetAlertProcessingRuleByNameInvokeArgs(), options.WithDefaults());
     }
 
 

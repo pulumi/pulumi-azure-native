@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Web.V20150801
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Web.V20150801
         /// String dictionary resource
         /// </summary>
         public static Task<ListSiteMetadataResult> InvokeAsync(ListSiteMetadataArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListSiteMetadataResult>("azure-native:web/v20150801:listSiteMetadata", args ?? new ListSiteMetadataArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListSiteMetadataResult>("azure-native:web/v20150801:listSiteMetadata", args ?? new ListSiteMetadataArgs(), options.WithDefaults());
 
         /// <summary>
         /// String dictionary resource
         /// </summary>
         public static Output<ListSiteMetadataResult> Invoke(ListSiteMetadataInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListSiteMetadataResult>("azure-native:web/v20150801:listSiteMetadata", args ?? new ListSiteMetadataInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<ListSiteMetadataResult>("azure-native:web/v20150801:listSiteMetadata", args ?? new ListSiteMetadataInvokeArgs(), options.WithDefaults());
     }
 
 

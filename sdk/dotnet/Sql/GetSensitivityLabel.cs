@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Sql
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.Sql
         /// API Version: 2020-11-01-preview.
         /// </summary>
         public static Task<GetSensitivityLabelResult> InvokeAsync(GetSensitivityLabelArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSensitivityLabelResult>("azure-native:sql:getSensitivityLabel", args ?? new GetSensitivityLabelArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSensitivityLabelResult>("azure-native:sql:getSensitivityLabel", args ?? new GetSensitivityLabelArgs(), options.WithDefaults());
 
         /// <summary>
         /// A sensitivity label.
         /// API Version: 2020-11-01-preview.
         /// </summary>
         public static Output<GetSensitivityLabelResult> Invoke(GetSensitivityLabelInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSensitivityLabelResult>("azure-native:sql:getSensitivityLabel", args ?? new GetSensitivityLabelInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetSensitivityLabelResult>("azure-native:sql:getSensitivityLabel", args ?? new GetSensitivityLabelInvokeArgs(), options.WithDefaults());
     }
 
 

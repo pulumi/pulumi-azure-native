@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.RecoveryServices
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.RecoveryServices
         /// API Version: 2018-12-20.
         /// </summary>
         public static Task<GetRecoveryPointAccessTokenResult> InvokeAsync(GetRecoveryPointAccessTokenArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRecoveryPointAccessTokenResult>("azure-native:recoveryservices:getRecoveryPointAccessToken", args ?? new GetRecoveryPointAccessTokenArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetRecoveryPointAccessTokenResult>("azure-native:recoveryservices:getRecoveryPointAccessToken", args ?? new GetRecoveryPointAccessTokenArgs(), options.WithDefaults());
 
         /// <summary>
         /// 
         /// API Version: 2018-12-20.
         /// </summary>
         public static Output<GetRecoveryPointAccessTokenResult> Invoke(GetRecoveryPointAccessTokenInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetRecoveryPointAccessTokenResult>("azure-native:recoveryservices:getRecoveryPointAccessToken", args ?? new GetRecoveryPointAccessTokenInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetRecoveryPointAccessTokenResult>("azure-native:recoveryservices:getRecoveryPointAccessToken", args ?? new GetRecoveryPointAccessTokenInvokeArgs(), options.WithDefaults());
     }
 
 

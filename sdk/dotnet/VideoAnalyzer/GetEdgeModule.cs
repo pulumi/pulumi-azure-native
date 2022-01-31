@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.VideoAnalyzer
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.VideoAnalyzer
         /// API Version: 2021-05-01-preview.
         /// </summary>
         public static Task<GetEdgeModuleResult> InvokeAsync(GetEdgeModuleArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetEdgeModuleResult>("azure-native:videoanalyzer:getEdgeModule", args ?? new GetEdgeModuleArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetEdgeModuleResult>("azure-native:videoanalyzer:getEdgeModule", args ?? new GetEdgeModuleArgs(), options.WithDefaults());
 
         /// <summary>
         /// The representation of an edge module.
         /// API Version: 2021-05-01-preview.
         /// </summary>
         public static Output<GetEdgeModuleResult> Invoke(GetEdgeModuleInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetEdgeModuleResult>("azure-native:videoanalyzer:getEdgeModule", args ?? new GetEdgeModuleInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetEdgeModuleResult>("azure-native:videoanalyzer:getEdgeModule", args ?? new GetEdgeModuleInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.StorageSync.V20200301
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.StorageSync.V20200301
         /// Cloud Endpoint object.
         /// </summary>
         public static Task<GetCloudEndpointResult> InvokeAsync(GetCloudEndpointArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetCloudEndpointResult>("azure-native:storagesync/v20200301:getCloudEndpoint", args ?? new GetCloudEndpointArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetCloudEndpointResult>("azure-native:storagesync/v20200301:getCloudEndpoint", args ?? new GetCloudEndpointArgs(), options.WithDefaults());
 
         /// <summary>
         /// Cloud Endpoint object.
         /// </summary>
         public static Output<GetCloudEndpointResult> Invoke(GetCloudEndpointInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetCloudEndpointResult>("azure-native:storagesync/v20200301:getCloudEndpoint", args ?? new GetCloudEndpointInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetCloudEndpointResult>("azure-native:storagesync/v20200301:getCloudEndpoint", args ?? new GetCloudEndpointInvokeArgs(), options.WithDefaults());
     }
 
 

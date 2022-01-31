@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Features.V20210701
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Features.V20210701
         /// Subscription feature registration details
         /// </summary>
         public static Task<GetSubscriptionFeatureRegistrationResult> InvokeAsync(GetSubscriptionFeatureRegistrationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSubscriptionFeatureRegistrationResult>("azure-native:features/v20210701:getSubscriptionFeatureRegistration", args ?? new GetSubscriptionFeatureRegistrationArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSubscriptionFeatureRegistrationResult>("azure-native:features/v20210701:getSubscriptionFeatureRegistration", args ?? new GetSubscriptionFeatureRegistrationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Subscription feature registration details
         /// </summary>
         public static Output<GetSubscriptionFeatureRegistrationResult> Invoke(GetSubscriptionFeatureRegistrationInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSubscriptionFeatureRegistrationResult>("azure-native:features/v20210701:getSubscriptionFeatureRegistration", args ?? new GetSubscriptionFeatureRegistrationInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetSubscriptionFeatureRegistrationResult>("azure-native:features/v20210701:getSubscriptionFeatureRegistration", args ?? new GetSubscriptionFeatureRegistrationInvokeArgs(), options.WithDefaults());
     }
 
 

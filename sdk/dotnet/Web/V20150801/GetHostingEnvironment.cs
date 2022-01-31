@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Web.V20150801
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Web.V20150801
         /// Description of an hostingEnvironment (App Service Environment)
         /// </summary>
         public static Task<GetHostingEnvironmentResult> InvokeAsync(GetHostingEnvironmentArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetHostingEnvironmentResult>("azure-native:web/v20150801:getHostingEnvironment", args ?? new GetHostingEnvironmentArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetHostingEnvironmentResult>("azure-native:web/v20150801:getHostingEnvironment", args ?? new GetHostingEnvironmentArgs(), options.WithDefaults());
 
         /// <summary>
         /// Description of an hostingEnvironment (App Service Environment)
         /// </summary>
         public static Output<GetHostingEnvironmentResult> Invoke(GetHostingEnvironmentInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetHostingEnvironmentResult>("azure-native:web/v20150801:getHostingEnvironment", args ?? new GetHostingEnvironmentInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetHostingEnvironmentResult>("azure-native:web/v20150801:getHostingEnvironment", args ?? new GetHostingEnvironmentInvokeArgs(), options.WithDefaults());
     }
 
 

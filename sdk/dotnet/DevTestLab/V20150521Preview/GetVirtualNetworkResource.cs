@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DevTestLab.V20150521Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.DevTestLab.V20150521Preview
         /// A virtual network.
         /// </summary>
         public static Task<GetVirtualNetworkResourceResult> InvokeAsync(GetVirtualNetworkResourceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualNetworkResourceResult>("azure-native:devtestlab/v20150521preview:getVirtualNetworkResource", args ?? new GetVirtualNetworkResourceArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualNetworkResourceResult>("azure-native:devtestlab/v20150521preview:getVirtualNetworkResource", args ?? new GetVirtualNetworkResourceArgs(), options.WithDefaults());
 
         /// <summary>
         /// A virtual network.
         /// </summary>
         public static Output<GetVirtualNetworkResourceResult> Invoke(GetVirtualNetworkResourceInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetVirtualNetworkResourceResult>("azure-native:devtestlab/v20150521preview:getVirtualNetworkResource", args ?? new GetVirtualNetworkResourceInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetVirtualNetworkResourceResult>("azure-native:devtestlab/v20150521preview:getVirtualNetworkResource", args ?? new GetVirtualNetworkResourceInvokeArgs(), options.WithDefaults());
     }
 
 

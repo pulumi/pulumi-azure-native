@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Network.V20170801
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Network.V20170801
         /// Inbound NAT rule of the load balancer.
         /// </summary>
         public static Task<GetInboundNatRuleResult> InvokeAsync(GetInboundNatRuleArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetInboundNatRuleResult>("azure-native:network/v20170801:getInboundNatRule", args ?? new GetInboundNatRuleArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetInboundNatRuleResult>("azure-native:network/v20170801:getInboundNatRule", args ?? new GetInboundNatRuleArgs(), options.WithDefaults());
 
         /// <summary>
         /// Inbound NAT rule of the load balancer.
         /// </summary>
         public static Output<GetInboundNatRuleResult> Invoke(GetInboundNatRuleInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetInboundNatRuleResult>("azure-native:network/v20170801:getInboundNatRule", args ?? new GetInboundNatRuleInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetInboundNatRuleResult>("azure-native:network/v20170801:getInboundNatRule", args ?? new GetInboundNatRuleInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Network.V20210501Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Network.V20210501Preview
         /// Result of the request to list Effective Virtual Network. It contains a list of groups and a URL link to get the next set of results.
         /// </summary>
         public static Task<ListListEffectiveVirtualNetworkByNetworkGroupResult> InvokeAsync(ListListEffectiveVirtualNetworkByNetworkGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListListEffectiveVirtualNetworkByNetworkGroupResult>("azure-native:network/v20210501preview:listListEffectiveVirtualNetworkByNetworkGroup", args ?? new ListListEffectiveVirtualNetworkByNetworkGroupArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListListEffectiveVirtualNetworkByNetworkGroupResult>("azure-native:network/v20210501preview:listListEffectiveVirtualNetworkByNetworkGroup", args ?? new ListListEffectiveVirtualNetworkByNetworkGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Result of the request to list Effective Virtual Network. It contains a list of groups and a URL link to get the next set of results.
         /// </summary>
         public static Output<ListListEffectiveVirtualNetworkByNetworkGroupResult> Invoke(ListListEffectiveVirtualNetworkByNetworkGroupInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListListEffectiveVirtualNetworkByNetworkGroupResult>("azure-native:network/v20210501preview:listListEffectiveVirtualNetworkByNetworkGroup", args ?? new ListListEffectiveVirtualNetworkByNetworkGroupInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<ListListEffectiveVirtualNetworkByNetworkGroupResult>("azure-native:network/v20210501preview:listListEffectiveVirtualNetworkByNetworkGroup", args ?? new ListListEffectiveVirtualNetworkByNetworkGroupInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Web.V20210115
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Web.V20210115
         /// Remote Private Endpoint Connection ARM resource.
         /// </summary>
         public static Task<GetStaticSitePrivateEndpointConnectionResult> InvokeAsync(GetStaticSitePrivateEndpointConnectionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetStaticSitePrivateEndpointConnectionResult>("azure-native:web/v20210115:getStaticSitePrivateEndpointConnection", args ?? new GetStaticSitePrivateEndpointConnectionArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetStaticSitePrivateEndpointConnectionResult>("azure-native:web/v20210115:getStaticSitePrivateEndpointConnection", args ?? new GetStaticSitePrivateEndpointConnectionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Remote Private Endpoint Connection ARM resource.
         /// </summary>
         public static Output<GetStaticSitePrivateEndpointConnectionResult> Invoke(GetStaticSitePrivateEndpointConnectionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetStaticSitePrivateEndpointConnectionResult>("azure-native:web/v20210115:getStaticSitePrivateEndpointConnection", args ?? new GetStaticSitePrivateEndpointConnectionInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetStaticSitePrivateEndpointConnectionResult>("azure-native:web/v20210115:getStaticSitePrivateEndpointConnection", args ?? new GetStaticSitePrivateEndpointConnectionInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Logz
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.Logz
         /// API Version: 2022-01-01-preview.
         /// </summary>
         public static Task<GetMetricsSourceResult> InvokeAsync(GetMetricsSourceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetMetricsSourceResult>("azure-native:logz:getMetricsSource", args ?? new GetMetricsSourceArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetMetricsSourceResult>("azure-native:logz:getMetricsSource", args ?? new GetMetricsSourceArgs(), options.WithDefaults());
 
         /// <summary>
         /// 
         /// API Version: 2022-01-01-preview.
         /// </summary>
         public static Output<GetMetricsSourceResult> Invoke(GetMetricsSourceInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetMetricsSourceResult>("azure-native:logz:getMetricsSource", args ?? new GetMetricsSourceInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetMetricsSourceResult>("azure-native:logz:getMetricsSource", args ?? new GetMetricsSourceInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Resources
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.Resources
         /// API Version: 2020-10-01.
         /// </summary>
         public static Task<GetAzurePowerShellScriptResult> InvokeAsync(GetAzurePowerShellScriptArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAzurePowerShellScriptResult>("azure-native:resources:getAzurePowerShellScript", args ?? new GetAzurePowerShellScriptArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAzurePowerShellScriptResult>("azure-native:resources:getAzurePowerShellScript", args ?? new GetAzurePowerShellScriptArgs(), options.WithDefaults());
 
         /// <summary>
         /// Object model for the Azure PowerShell script.
         /// API Version: 2020-10-01.
         /// </summary>
         public static Output<GetAzurePowerShellScriptResult> Invoke(GetAzurePowerShellScriptInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetAzurePowerShellScriptResult>("azure-native:resources:getAzurePowerShellScript", args ?? new GetAzurePowerShellScriptInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetAzurePowerShellScriptResult>("azure-native:resources:getAzurePowerShellScript", args ?? new GetAzurePowerShellScriptInvokeArgs(), options.WithDefaults());
     }
 
 

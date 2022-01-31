@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Cache.V20210301
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Cache.V20210301
         /// The secret access keys used for authenticating connections to redis
         /// </summary>
         public static Task<ListDatabaseKeysResult> InvokeAsync(ListDatabaseKeysArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListDatabaseKeysResult>("azure-native:cache/v20210301:listDatabaseKeys", args ?? new ListDatabaseKeysArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListDatabaseKeysResult>("azure-native:cache/v20210301:listDatabaseKeys", args ?? new ListDatabaseKeysArgs(), options.WithDefaults());
 
         /// <summary>
         /// The secret access keys used for authenticating connections to redis
         /// </summary>
         public static Output<ListDatabaseKeysResult> Invoke(ListDatabaseKeysInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListDatabaseKeysResult>("azure-native:cache/v20210301:listDatabaseKeys", args ?? new ListDatabaseKeysInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<ListDatabaseKeysResult>("azure-native:cache/v20210301:listDatabaseKeys", args ?? new ListDatabaseKeysInvokeArgs(), options.WithDefaults());
     }
 
 

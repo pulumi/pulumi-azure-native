@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview
         /// Represents a relation between two resources
         /// </summary>
         public static Task<GetBookmarkRelationResult> InvokeAsync(GetBookmarkRelationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetBookmarkRelationResult>("azure-native:securityinsights/v20190101preview:getBookmarkRelation", args ?? new GetBookmarkRelationArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetBookmarkRelationResult>("azure-native:securityinsights/v20190101preview:getBookmarkRelation", args ?? new GetBookmarkRelationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Represents a relation between two resources
         /// </summary>
         public static Output<GetBookmarkRelationResult> Invoke(GetBookmarkRelationInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetBookmarkRelationResult>("azure-native:securityinsights/v20190101preview:getBookmarkRelation", args ?? new GetBookmarkRelationInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetBookmarkRelationResult>("azure-native:securityinsights/v20190101preview:getBookmarkRelation", args ?? new GetBookmarkRelationInvokeArgs(), options.WithDefaults());
     }
 
 

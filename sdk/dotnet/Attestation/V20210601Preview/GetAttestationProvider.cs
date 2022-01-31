@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Attestation.V20210601Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Attestation.V20210601Preview
         /// Attestation service response message.
         /// </summary>
         public static Task<GetAttestationProviderResult> InvokeAsync(GetAttestationProviderArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAttestationProviderResult>("azure-native:attestation/v20210601preview:getAttestationProvider", args ?? new GetAttestationProviderArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAttestationProviderResult>("azure-native:attestation/v20210601preview:getAttestationProvider", args ?? new GetAttestationProviderArgs(), options.WithDefaults());
 
         /// <summary>
         /// Attestation service response message.
         /// </summary>
         public static Output<GetAttestationProviderResult> Invoke(GetAttestationProviderInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetAttestationProviderResult>("azure-native:attestation/v20210601preview:getAttestationProvider", args ?? new GetAttestationProviderInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetAttestationProviderResult>("azure-native:attestation/v20210601preview:getAttestationProvider", args ?? new GetAttestationProviderInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Web.V20210101
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Web.V20210101
         /// User credentials used for publishing activity.
         /// </summary>
         public static Task<GetWebAppDeploymentResult> InvokeAsync(GetWebAppDeploymentArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetWebAppDeploymentResult>("azure-native:web/v20210101:getWebAppDeployment", args ?? new GetWebAppDeploymentArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetWebAppDeploymentResult>("azure-native:web/v20210101:getWebAppDeployment", args ?? new GetWebAppDeploymentArgs(), options.WithDefaults());
 
         /// <summary>
         /// User credentials used for publishing activity.
         /// </summary>
         public static Output<GetWebAppDeploymentResult> Invoke(GetWebAppDeploymentInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetWebAppDeploymentResult>("azure-native:web/v20210101:getWebAppDeployment", args ?? new GetWebAppDeploymentInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetWebAppDeploymentResult>("azure-native:web/v20210101:getWebAppDeployment", args ?? new GetWebAppDeploymentInvokeArgs(), options.WithDefaults());
     }
 
 

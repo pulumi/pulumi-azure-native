@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Security.V20170801Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Security.V20170801Preview
         /// The Advanced Threat Protection resource.
         /// </summary>
         public static Task<GetAdvancedThreatProtectionResult> InvokeAsync(GetAdvancedThreatProtectionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAdvancedThreatProtectionResult>("azure-native:security/v20170801preview:getAdvancedThreatProtection", args ?? new GetAdvancedThreatProtectionArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAdvancedThreatProtectionResult>("azure-native:security/v20170801preview:getAdvancedThreatProtection", args ?? new GetAdvancedThreatProtectionArgs(), options.WithDefaults());
 
         /// <summary>
         /// The Advanced Threat Protection resource.
         /// </summary>
         public static Output<GetAdvancedThreatProtectionResult> Invoke(GetAdvancedThreatProtectionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetAdvancedThreatProtectionResult>("azure-native:security/v20170801preview:getAdvancedThreatProtection", args ?? new GetAdvancedThreatProtectionInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetAdvancedThreatProtectionResult>("azure-native:security/v20170801preview:getAdvancedThreatProtection", args ?? new GetAdvancedThreatProtectionInvokeArgs(), options.WithDefaults());
     }
 
 

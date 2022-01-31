@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.AppPlatform
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.AppPlatform
         /// API Version: 2021-09-01-preview.
         /// </summary>
         public static Task<GetStorageResult> InvokeAsync(GetStorageArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetStorageResult>("azure-native:appplatform:getStorage", args ?? new GetStorageArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetStorageResult>("azure-native:appplatform:getStorage", args ?? new GetStorageArgs(), options.WithDefaults());
 
         /// <summary>
         /// Storage resource payload.
         /// API Version: 2021-09-01-preview.
         /// </summary>
         public static Output<GetStorageResult> Invoke(GetStorageInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetStorageResult>("azure-native:appplatform:getStorage", args ?? new GetStorageInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetStorageResult>("azure-native:appplatform:getStorage", args ?? new GetStorageInvokeArgs(), options.WithDefaults());
     }
 
 

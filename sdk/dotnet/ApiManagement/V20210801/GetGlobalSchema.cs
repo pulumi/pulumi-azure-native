@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ApiManagement.V20210801
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.ApiManagement.V20210801
         /// Global Schema Contract details.
         /// </summary>
         public static Task<GetGlobalSchemaResult> InvokeAsync(GetGlobalSchemaArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetGlobalSchemaResult>("azure-native:apimanagement/v20210801:getGlobalSchema", args ?? new GetGlobalSchemaArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetGlobalSchemaResult>("azure-native:apimanagement/v20210801:getGlobalSchema", args ?? new GetGlobalSchemaArgs(), options.WithDefaults());
 
         /// <summary>
         /// Global Schema Contract details.
         /// </summary>
         public static Output<GetGlobalSchemaResult> Invoke(GetGlobalSchemaInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetGlobalSchemaResult>("azure-native:apimanagement/v20210801:getGlobalSchema", args ?? new GetGlobalSchemaInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetGlobalSchemaResult>("azure-native:apimanagement/v20210801:getGlobalSchema", args ?? new GetGlobalSchemaInvokeArgs(), options.WithDefaults());
     }
 
 

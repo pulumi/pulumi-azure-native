@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Network.V20210501Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Network.V20210501Preview
         /// Result of the request to list networkManagerEffectiveSecurityAdminRules. It contains a list of groups and a skiptoken to get the next set of results.
         /// </summary>
         public static Task<ListNetworkManagerEffectiveSecurityAdminRulesResult> InvokeAsync(ListNetworkManagerEffectiveSecurityAdminRulesArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListNetworkManagerEffectiveSecurityAdminRulesResult>("azure-native:network/v20210501preview:listNetworkManagerEffectiveSecurityAdminRules", args ?? new ListNetworkManagerEffectiveSecurityAdminRulesArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListNetworkManagerEffectiveSecurityAdminRulesResult>("azure-native:network/v20210501preview:listNetworkManagerEffectiveSecurityAdminRules", args ?? new ListNetworkManagerEffectiveSecurityAdminRulesArgs(), options.WithDefaults());
 
         /// <summary>
         /// Result of the request to list networkManagerEffectiveSecurityAdminRules. It contains a list of groups and a skiptoken to get the next set of results.
         /// </summary>
         public static Output<ListNetworkManagerEffectiveSecurityAdminRulesResult> Invoke(ListNetworkManagerEffectiveSecurityAdminRulesInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListNetworkManagerEffectiveSecurityAdminRulesResult>("azure-native:network/v20210501preview:listNetworkManagerEffectiveSecurityAdminRules", args ?? new ListNetworkManagerEffectiveSecurityAdminRulesInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<ListNetworkManagerEffectiveSecurityAdminRulesResult>("azure-native:network/v20210501preview:listNetworkManagerEffectiveSecurityAdminRules", args ?? new ListNetworkManagerEffectiveSecurityAdminRulesInvokeArgs(), options.WithDefaults());
     }
 
 

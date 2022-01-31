@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DevTestLab.V20180915
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915
         /// A Service Fabric.
         /// </summary>
         public static Task<GetServiceFabricResult> InvokeAsync(GetServiceFabricArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetServiceFabricResult>("azure-native:devtestlab/v20180915:getServiceFabric", args ?? new GetServiceFabricArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetServiceFabricResult>("azure-native:devtestlab/v20180915:getServiceFabric", args ?? new GetServiceFabricArgs(), options.WithDefaults());
 
         /// <summary>
         /// A Service Fabric.
         /// </summary>
         public static Output<GetServiceFabricResult> Invoke(GetServiceFabricInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetServiceFabricResult>("azure-native:devtestlab/v20180915:getServiceFabric", args ?? new GetServiceFabricInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetServiceFabricResult>("azure-native:devtestlab/v20180915:getServiceFabric", args ?? new GetServiceFabricInvokeArgs(), options.WithDefaults());
     }
 
 

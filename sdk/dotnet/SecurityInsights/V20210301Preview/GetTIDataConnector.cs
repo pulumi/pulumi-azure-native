@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.SecurityInsights.V20210301Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210301Preview
         /// Represents threat intelligence data connector.
         /// </summary>
         public static Task<GetTIDataConnectorResult> InvokeAsync(GetTIDataConnectorArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetTIDataConnectorResult>("azure-native:securityinsights/v20210301preview:getTIDataConnector", args ?? new GetTIDataConnectorArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetTIDataConnectorResult>("azure-native:securityinsights/v20210301preview:getTIDataConnector", args ?? new GetTIDataConnectorArgs(), options.WithDefaults());
 
         /// <summary>
         /// Represents threat intelligence data connector.
         /// </summary>
         public static Output<GetTIDataConnectorResult> Invoke(GetTIDataConnectorInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetTIDataConnectorResult>("azure-native:securityinsights/v20210301preview:getTIDataConnector", args ?? new GetTIDataConnectorInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetTIDataConnectorResult>("azure-native:securityinsights/v20210301preview:getTIDataConnector", args ?? new GetTIDataConnectorInvokeArgs(), options.WithDefaults());
     }
 
 

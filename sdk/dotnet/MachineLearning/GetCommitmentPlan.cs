@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.MachineLearning
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.MachineLearning
         /// API Version: 2016-05-01-preview.
         /// </summary>
         public static Task<GetCommitmentPlanResult> InvokeAsync(GetCommitmentPlanArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetCommitmentPlanResult>("azure-native:machinelearning:getCommitmentPlan", args ?? new GetCommitmentPlanArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetCommitmentPlanResult>("azure-native:machinelearning:getCommitmentPlan", args ?? new GetCommitmentPlanArgs(), options.WithDefaults());
 
         /// <summary>
         /// An Azure ML commitment plan resource.
         /// API Version: 2016-05-01-preview.
         /// </summary>
         public static Output<GetCommitmentPlanResult> Invoke(GetCommitmentPlanInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetCommitmentPlanResult>("azure-native:machinelearning:getCommitmentPlan", args ?? new GetCommitmentPlanInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetCommitmentPlanResult>("azure-native:machinelearning:getCommitmentPlan", args ?? new GetCommitmentPlanInvokeArgs(), options.WithDefaults());
     }
 
 

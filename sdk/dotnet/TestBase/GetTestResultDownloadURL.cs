@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.TestBase
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.TestBase
         /// API Version: 2020-12-16-preview.
         /// </summary>
         public static Task<GetTestResultDownloadURLResult> InvokeAsync(GetTestResultDownloadURLArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetTestResultDownloadURLResult>("azure-native:testbase:getTestResultDownloadURL", args ?? new GetTestResultDownloadURLArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetTestResultDownloadURLResult>("azure-native:testbase:getTestResultDownloadURL", args ?? new GetTestResultDownloadURLArgs(), options.WithDefaults());
 
         /// <summary>
         /// The response of getting a download URL.
         /// API Version: 2020-12-16-preview.
         /// </summary>
         public static Output<GetTestResultDownloadURLResult> Invoke(GetTestResultDownloadURLInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetTestResultDownloadURLResult>("azure-native:testbase:getTestResultDownloadURL", args ?? new GetTestResultDownloadURLInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetTestResultDownloadURLResult>("azure-native:testbase:getTestResultDownloadURL", args ?? new GetTestResultDownloadURLInvokeArgs(), options.WithDefaults());
     }
 
 

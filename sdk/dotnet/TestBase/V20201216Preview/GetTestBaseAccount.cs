@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.TestBase.V20201216Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.TestBase.V20201216Preview
         /// The Test Base Account resource.
         /// </summary>
         public static Task<GetTestBaseAccountResult> InvokeAsync(GetTestBaseAccountArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetTestBaseAccountResult>("azure-native:testbase/v20201216preview:getTestBaseAccount", args ?? new GetTestBaseAccountArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetTestBaseAccountResult>("azure-native:testbase/v20201216preview:getTestBaseAccount", args ?? new GetTestBaseAccountArgs(), options.WithDefaults());
 
         /// <summary>
         /// The Test Base Account resource.
         /// </summary>
         public static Output<GetTestBaseAccountResult> Invoke(GetTestBaseAccountInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetTestBaseAccountResult>("azure-native:testbase/v20201216preview:getTestBaseAccount", args ?? new GetTestBaseAccountInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetTestBaseAccountResult>("azure-native:testbase/v20201216preview:getTestBaseAccount", args ?? new GetTestBaseAccountInvokeArgs(), options.WithDefaults());
     }
 
 

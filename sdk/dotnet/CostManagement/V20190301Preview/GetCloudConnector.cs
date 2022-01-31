@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.CostManagement.V20190301Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.CostManagement.V20190301Preview
         /// The Connector model definition
         /// </summary>
         public static Task<GetCloudConnectorResult> InvokeAsync(GetCloudConnectorArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetCloudConnectorResult>("azure-native:costmanagement/v20190301preview:getCloudConnector", args ?? new GetCloudConnectorArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetCloudConnectorResult>("azure-native:costmanagement/v20190301preview:getCloudConnector", args ?? new GetCloudConnectorArgs(), options.WithDefaults());
 
         /// <summary>
         /// The Connector model definition
         /// </summary>
         public static Output<GetCloudConnectorResult> Invoke(GetCloudConnectorInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetCloudConnectorResult>("azure-native:costmanagement/v20190301preview:getCloudConnector", args ?? new GetCloudConnectorInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetCloudConnectorResult>("azure-native:costmanagement/v20190301preview:getCloudConnector", args ?? new GetCloudConnectorInvokeArgs(), options.WithDefaults());
     }
 
 

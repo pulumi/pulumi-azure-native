@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.AppPlatform.V20220101Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.AppPlatform.V20220101Preview
         /// Service Registry resource
         /// </summary>
         public static Task<GetServiceRegistryResult> InvokeAsync(GetServiceRegistryArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetServiceRegistryResult>("azure-native:appplatform/v20220101preview:getServiceRegistry", args ?? new GetServiceRegistryArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetServiceRegistryResult>("azure-native:appplatform/v20220101preview:getServiceRegistry", args ?? new GetServiceRegistryArgs(), options.WithDefaults());
 
         /// <summary>
         /// Service Registry resource
         /// </summary>
         public static Output<GetServiceRegistryResult> Invoke(GetServiceRegistryInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetServiceRegistryResult>("azure-native:appplatform/v20220101preview:getServiceRegistry", args ?? new GetServiceRegistryInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetServiceRegistryResult>("azure-native:appplatform/v20220101preview:getServiceRegistry", args ?? new GetServiceRegistryInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DataBoxEdge.V20210201
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20210201
         /// Represents a share on the  Data Box Edge/Gateway device.
         /// </summary>
         public static Task<GetShareResult> InvokeAsync(GetShareArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetShareResult>("azure-native:databoxedge/v20210201:getShare", args ?? new GetShareArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetShareResult>("azure-native:databoxedge/v20210201:getShare", args ?? new GetShareArgs(), options.WithDefaults());
 
         /// <summary>
         /// Represents a share on the  Data Box Edge/Gateway device.
         /// </summary>
         public static Output<GetShareResult> Invoke(GetShareInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetShareResult>("azure-native:databoxedge/v20210201:getShare", args ?? new GetShareInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetShareResult>("azure-native:databoxedge/v20210201:getShare", args ?? new GetShareInvokeArgs(), options.WithDefaults());
     }
 
 

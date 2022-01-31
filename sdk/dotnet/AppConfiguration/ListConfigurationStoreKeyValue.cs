@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.AppConfiguration
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.AppConfiguration
         /// API Version: 2020-06-01.
         /// </summary>
         public static Task<ListConfigurationStoreKeyValueResult> InvokeAsync(ListConfigurationStoreKeyValueArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListConfigurationStoreKeyValueResult>("azure-native:appconfiguration:listConfigurationStoreKeyValue", args ?? new ListConfigurationStoreKeyValueArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListConfigurationStoreKeyValueResult>("azure-native:appconfiguration:listConfigurationStoreKeyValue", args ?? new ListConfigurationStoreKeyValueArgs(), options.WithDefaults());
 
         /// <summary>
         /// The result of a request to retrieve a key-value from the specified configuration store.
         /// API Version: 2020-06-01.
         /// </summary>
         public static Output<ListConfigurationStoreKeyValueResult> Invoke(ListConfigurationStoreKeyValueInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListConfigurationStoreKeyValueResult>("azure-native:appconfiguration:listConfigurationStoreKeyValue", args ?? new ListConfigurationStoreKeyValueInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<ListConfigurationStoreKeyValueResult>("azure-native:appconfiguration:listConfigurationStoreKeyValue", args ?? new ListConfigurationStoreKeyValueInvokeArgs(), options.WithDefaults());
     }
 
 

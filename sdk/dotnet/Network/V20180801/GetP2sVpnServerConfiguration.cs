@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Network.V20180801
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Network.V20180801
         /// P2SVpnServerConfiguration Resource.
         /// </summary>
         public static Task<GetP2sVpnServerConfigurationResult> InvokeAsync(GetP2sVpnServerConfigurationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetP2sVpnServerConfigurationResult>("azure-native:network/v20180801:getP2sVpnServerConfiguration", args ?? new GetP2sVpnServerConfigurationArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetP2sVpnServerConfigurationResult>("azure-native:network/v20180801:getP2sVpnServerConfiguration", args ?? new GetP2sVpnServerConfigurationArgs(), options.WithDefaults());
 
         /// <summary>
         /// P2SVpnServerConfiguration Resource.
         /// </summary>
         public static Output<GetP2sVpnServerConfigurationResult> Invoke(GetP2sVpnServerConfigurationInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetP2sVpnServerConfigurationResult>("azure-native:network/v20180801:getP2sVpnServerConfiguration", args ?? new GetP2sVpnServerConfigurationInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetP2sVpnServerConfigurationResult>("azure-native:network/v20180801:getP2sVpnServerConfiguration", args ?? new GetP2sVpnServerConfigurationInvokeArgs(), options.WithDefaults());
     }
 
 

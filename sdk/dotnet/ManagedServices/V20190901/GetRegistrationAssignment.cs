@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ManagedServices.V20190901
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.ManagedServices.V20190901
         /// Registration assignment.
         /// </summary>
         public static Task<GetRegistrationAssignmentResult> InvokeAsync(GetRegistrationAssignmentArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRegistrationAssignmentResult>("azure-native:managedservices/v20190901:getRegistrationAssignment", args ?? new GetRegistrationAssignmentArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetRegistrationAssignmentResult>("azure-native:managedservices/v20190901:getRegistrationAssignment", args ?? new GetRegistrationAssignmentArgs(), options.WithDefaults());
 
         /// <summary>
         /// Registration assignment.
         /// </summary>
         public static Output<GetRegistrationAssignmentResult> Invoke(GetRegistrationAssignmentInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetRegistrationAssignmentResult>("azure-native:managedservices/v20190901:getRegistrationAssignment", args ?? new GetRegistrationAssignmentInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetRegistrationAssignmentResult>("azure-native:managedservices/v20190901:getRegistrationAssignment", args ?? new GetRegistrationAssignmentInvokeArgs(), options.WithDefaults());
     }
 
 

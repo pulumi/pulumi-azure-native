@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Sql.V20200801Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Sql.V20200801Preview
         /// An Azure SQL Database sync agent.
         /// </summary>
         public static Task<GetSyncAgentResult> InvokeAsync(GetSyncAgentArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSyncAgentResult>("azure-native:sql/v20200801preview:getSyncAgent", args ?? new GetSyncAgentArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSyncAgentResult>("azure-native:sql/v20200801preview:getSyncAgent", args ?? new GetSyncAgentArgs(), options.WithDefaults());
 
         /// <summary>
         /// An Azure SQL Database sync agent.
         /// </summary>
         public static Output<GetSyncAgentResult> Invoke(GetSyncAgentInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSyncAgentResult>("azure-native:sql/v20200801preview:getSyncAgent", args ?? new GetSyncAgentInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetSyncAgentResult>("azure-native:sql/v20200801preview:getSyncAgent", args ?? new GetSyncAgentInvokeArgs(), options.WithDefaults());
     }
 
 

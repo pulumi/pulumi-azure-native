@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DataLakeAnalytics.V20191101Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.DataLakeAnalytics.V20191101Preview
         /// Data Lake Analytics compute policy information.
         /// </summary>
         public static Task<GetComputePolicyResult> InvokeAsync(GetComputePolicyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetComputePolicyResult>("azure-native:datalakeanalytics/v20191101preview:getComputePolicy", args ?? new GetComputePolicyArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetComputePolicyResult>("azure-native:datalakeanalytics/v20191101preview:getComputePolicy", args ?? new GetComputePolicyArgs(), options.WithDefaults());
 
         /// <summary>
         /// Data Lake Analytics compute policy information.
         /// </summary>
         public static Output<GetComputePolicyResult> Invoke(GetComputePolicyInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetComputePolicyResult>("azure-native:datalakeanalytics/v20191101preview:getComputePolicy", args ?? new GetComputePolicyInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetComputePolicyResult>("azure-native:datalakeanalytics/v20191101preview:getComputePolicy", args ?? new GetComputePolicyInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Insights
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.Insights
         /// API Version: 2016-03-01.
         /// </summary>
         public static Task<GetLogProfileResult> InvokeAsync(GetLogProfileArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetLogProfileResult>("azure-native:insights:getLogProfile", args ?? new GetLogProfileArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetLogProfileResult>("azure-native:insights:getLogProfile", args ?? new GetLogProfileArgs(), options.WithDefaults());
 
         /// <summary>
         /// The log profile resource.
         /// API Version: 2016-03-01.
         /// </summary>
         public static Output<GetLogProfileResult> Invoke(GetLogProfileInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetLogProfileResult>("azure-native:insights:getLogProfile", args ?? new GetLogProfileInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetLogProfileResult>("azure-native:insights:getLogProfile", args ?? new GetLogProfileInvokeArgs(), options.WithDefaults());
     }
 
 

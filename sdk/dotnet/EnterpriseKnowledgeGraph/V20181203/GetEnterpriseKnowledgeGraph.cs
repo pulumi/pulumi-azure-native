@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.EnterpriseKnowledgeGraph.V20181203
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.EnterpriseKnowledgeGraph.V20181203
         /// EnterpriseKnowledgeGraph resource definition
         /// </summary>
         public static Task<GetEnterpriseKnowledgeGraphResult> InvokeAsync(GetEnterpriseKnowledgeGraphArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetEnterpriseKnowledgeGraphResult>("azure-native:enterpriseknowledgegraph/v20181203:getEnterpriseKnowledgeGraph", args ?? new GetEnterpriseKnowledgeGraphArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetEnterpriseKnowledgeGraphResult>("azure-native:enterpriseknowledgegraph/v20181203:getEnterpriseKnowledgeGraph", args ?? new GetEnterpriseKnowledgeGraphArgs(), options.WithDefaults());
 
         /// <summary>
         /// EnterpriseKnowledgeGraph resource definition
         /// </summary>
         public static Output<GetEnterpriseKnowledgeGraphResult> Invoke(GetEnterpriseKnowledgeGraphInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetEnterpriseKnowledgeGraphResult>("azure-native:enterpriseknowledgegraph/v20181203:getEnterpriseKnowledgeGraph", args ?? new GetEnterpriseKnowledgeGraphInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetEnterpriseKnowledgeGraphResult>("azure-native:enterpriseknowledgegraph/v20181203:getEnterpriseKnowledgeGraph", args ?? new GetEnterpriseKnowledgeGraphInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -6,17 +6,16 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ProviderHub.V20210601Preview
 {
     public static class GetSkus
     {
         public static Task<GetSkusResult> InvokeAsync(GetSkusArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSkusResult>("azure-native:providerhub/v20210601preview:getSkus", args ?? new GetSkusArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSkusResult>("azure-native:providerhub/v20210601preview:getSkus", args ?? new GetSkusArgs(), options.WithDefaults());
 
         public static Output<GetSkusResult> Invoke(GetSkusInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSkusResult>("azure-native:providerhub/v20210601preview:getSkus", args ?? new GetSkusInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetSkusResult>("azure-native:providerhub/v20210601preview:getSkus", args ?? new GetSkusInvokeArgs(), options.WithDefaults());
     }
 
 

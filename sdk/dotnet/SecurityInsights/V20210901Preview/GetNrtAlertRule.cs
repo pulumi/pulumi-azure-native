@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.SecurityInsights.V20210901Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210901Preview
         /// Represents NRT alert rule.
         /// </summary>
         public static Task<GetNrtAlertRuleResult> InvokeAsync(GetNrtAlertRuleArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetNrtAlertRuleResult>("azure-native:securityinsights/v20210901preview:getNrtAlertRule", args ?? new GetNrtAlertRuleArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetNrtAlertRuleResult>("azure-native:securityinsights/v20210901preview:getNrtAlertRule", args ?? new GetNrtAlertRuleArgs(), options.WithDefaults());
 
         /// <summary>
         /// Represents NRT alert rule.
         /// </summary>
         public static Output<GetNrtAlertRuleResult> Invoke(GetNrtAlertRuleInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetNrtAlertRuleResult>("azure-native:securityinsights/v20210901preview:getNrtAlertRule", args ?? new GetNrtAlertRuleInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetNrtAlertRuleResult>("azure-native:securityinsights/v20210901preview:getNrtAlertRule", args ?? new GetNrtAlertRuleInvokeArgs(), options.WithDefaults());
     }
 
 

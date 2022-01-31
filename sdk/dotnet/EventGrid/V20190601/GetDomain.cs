@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.EventGrid.V20190601
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.EventGrid.V20190601
         /// EventGrid Domain.
         /// </summary>
         public static Task<GetDomainResult> InvokeAsync(GetDomainArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDomainResult>("azure-native:eventgrid/v20190601:getDomain", args ?? new GetDomainArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDomainResult>("azure-native:eventgrid/v20190601:getDomain", args ?? new GetDomainArgs(), options.WithDefaults());
 
         /// <summary>
         /// EventGrid Domain.
         /// </summary>
         public static Output<GetDomainResult> Invoke(GetDomainInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDomainResult>("azure-native:eventgrid/v20190601:getDomain", args ?? new GetDomainInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetDomainResult>("azure-native:eventgrid/v20190601:getDomain", args ?? new GetDomainInvokeArgs(), options.WithDefaults());
     }
 
 

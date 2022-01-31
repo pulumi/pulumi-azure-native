@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Web.V20150801
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Web.V20150801
         /// Description of a backup which will be performed
         /// </summary>
         public static Task<ListSiteBackupConfigurationResult> InvokeAsync(ListSiteBackupConfigurationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListSiteBackupConfigurationResult>("azure-native:web/v20150801:listSiteBackupConfiguration", args ?? new ListSiteBackupConfigurationArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListSiteBackupConfigurationResult>("azure-native:web/v20150801:listSiteBackupConfiguration", args ?? new ListSiteBackupConfigurationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Description of a backup which will be performed
         /// </summary>
         public static Output<ListSiteBackupConfigurationResult> Invoke(ListSiteBackupConfigurationInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListSiteBackupConfigurationResult>("azure-native:web/v20150801:listSiteBackupConfiguration", args ?? new ListSiteBackupConfigurationInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<ListSiteBackupConfigurationResult>("azure-native:web/v20150801:listSiteBackupConfiguration", args ?? new ListSiteBackupConfigurationInvokeArgs(), options.WithDefaults());
     }
 
 

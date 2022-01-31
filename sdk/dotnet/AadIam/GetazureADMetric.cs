@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.AadIam
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.AadIam
         /// API Version: 2020-07-01-preview.
         /// </summary>
         public static Task<GetazureADMetricResult> InvokeAsync(GetazureADMetricArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetazureADMetricResult>("azure-native:aadiam:getazureADMetric", args ?? new GetazureADMetricArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetazureADMetricResult>("azure-native:aadiam:getazureADMetric", args ?? new GetazureADMetricArgs(), options.WithDefaults());
 
         /// <summary>
         /// AzureADMetrics resource.
         /// API Version: 2020-07-01-preview.
         /// </summary>
         public static Output<GetazureADMetricResult> Invoke(GetazureADMetricInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetazureADMetricResult>("azure-native:aadiam:getazureADMetric", args ?? new GetazureADMetricInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetazureADMetricResult>("azure-native:aadiam:getazureADMetric", args ?? new GetazureADMetricInvokeArgs(), options.WithDefaults());
     }
 
 

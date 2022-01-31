@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.OpenEnergyPlatform
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.OpenEnergyPlatform
         /// API Version: 2021-06-01-preview.
         /// </summary>
         public static Task<GetEnergyServiceResult> InvokeAsync(GetEnergyServiceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetEnergyServiceResult>("azure-native:openenergyplatform:getEnergyService", args ?? new GetEnergyServiceArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetEnergyServiceResult>("azure-native:openenergyplatform:getEnergyService", args ?? new GetEnergyServiceArgs(), options.WithDefaults());
 
         /// <summary>
         /// 
         /// API Version: 2021-06-01-preview.
         /// </summary>
         public static Output<GetEnergyServiceResult> Invoke(GetEnergyServiceInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetEnergyServiceResult>("azure-native:openenergyplatform:getEnergyService", args ?? new GetEnergyServiceInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetEnergyServiceResult>("azure-native:openenergyplatform:getEnergyService", args ?? new GetEnergyServiceInvokeArgs(), options.WithDefaults());
     }
 
 

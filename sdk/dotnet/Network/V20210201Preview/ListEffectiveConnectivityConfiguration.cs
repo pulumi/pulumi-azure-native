@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Network.V20210201Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Network.V20210201Preview
         /// Result of the request to list networkManagerEffectiveConnectivityConfiguration. It contains a list of groups and a skiptoken to get the next set of results.
         /// </summary>
         public static Task<ListEffectiveConnectivityConfigurationResult> InvokeAsync(ListEffectiveConnectivityConfigurationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListEffectiveConnectivityConfigurationResult>("azure-native:network/v20210201preview:listEffectiveConnectivityConfiguration", args ?? new ListEffectiveConnectivityConfigurationArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListEffectiveConnectivityConfigurationResult>("azure-native:network/v20210201preview:listEffectiveConnectivityConfiguration", args ?? new ListEffectiveConnectivityConfigurationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Result of the request to list networkManagerEffectiveConnectivityConfiguration. It contains a list of groups and a skiptoken to get the next set of results.
         /// </summary>
         public static Output<ListEffectiveConnectivityConfigurationResult> Invoke(ListEffectiveConnectivityConfigurationInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListEffectiveConnectivityConfigurationResult>("azure-native:network/v20210201preview:listEffectiveConnectivityConfiguration", args ?? new ListEffectiveConnectivityConfigurationInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<ListEffectiveConnectivityConfigurationResult>("azure-native:network/v20210201preview:listEffectiveConnectivityConfiguration", args ?? new ListEffectiveConnectivityConfigurationInvokeArgs(), options.WithDefaults());
     }
 
 

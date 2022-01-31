@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Sql.V20200202Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Sql.V20200202Preview
         /// An Azure SQL Database sync member.
         /// </summary>
         public static Task<GetSyncMemberResult> InvokeAsync(GetSyncMemberArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSyncMemberResult>("azure-native:sql/v20200202preview:getSyncMember", args ?? new GetSyncMemberArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSyncMemberResult>("azure-native:sql/v20200202preview:getSyncMember", args ?? new GetSyncMemberArgs(), options.WithDefaults());
 
         /// <summary>
         /// An Azure SQL Database sync member.
         /// </summary>
         public static Output<GetSyncMemberResult> Invoke(GetSyncMemberInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSyncMemberResult>("azure-native:sql/v20200202preview:getSyncMember", args ?? new GetSyncMemberInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetSyncMemberResult>("azure-native:sql/v20200202preview:getSyncMember", args ?? new GetSyncMemberInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Maps.V20210701Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Maps.V20210701Preview
         /// An Azure resource which represents Maps Creator product and provides ability to manage private location data.
         /// </summary>
         public static Task<GetCreatorResult> InvokeAsync(GetCreatorArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetCreatorResult>("azure-native:maps/v20210701preview:getCreator", args ?? new GetCreatorArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetCreatorResult>("azure-native:maps/v20210701preview:getCreator", args ?? new GetCreatorArgs(), options.WithDefaults());
 
         /// <summary>
         /// An Azure resource which represents Maps Creator product and provides ability to manage private location data.
         /// </summary>
         public static Output<GetCreatorResult> Invoke(GetCreatorInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetCreatorResult>("azure-native:maps/v20210701preview:getCreator", args ?? new GetCreatorInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetCreatorResult>("azure-native:maps/v20210701preview:getCreator", args ?? new GetCreatorInvokeArgs(), options.WithDefaults());
     }
 
 

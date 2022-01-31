@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview
         /// Represents Dynamics365 data connector.
         /// </summary>
         public static Task<GetDynamics365DataConnectorResult> InvokeAsync(GetDynamics365DataConnectorArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDynamics365DataConnectorResult>("azure-native:securityinsights/v20190101preview:getDynamics365DataConnector", args ?? new GetDynamics365DataConnectorArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDynamics365DataConnectorResult>("azure-native:securityinsights/v20190101preview:getDynamics365DataConnector", args ?? new GetDynamics365DataConnectorArgs(), options.WithDefaults());
 
         /// <summary>
         /// Represents Dynamics365 data connector.
         /// </summary>
         public static Output<GetDynamics365DataConnectorResult> Invoke(GetDynamics365DataConnectorInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDynamics365DataConnectorResult>("azure-native:securityinsights/v20190101preview:getDynamics365DataConnector", args ?? new GetDynamics365DataConnectorInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetDynamics365DataConnectorResult>("azure-native:securityinsights/v20190101preview:getDynamics365DataConnector", args ?? new GetDynamics365DataConnectorInvokeArgs(), options.WithDefaults());
     }
 
 

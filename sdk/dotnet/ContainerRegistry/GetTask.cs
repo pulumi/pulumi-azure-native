@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ContainerRegistry
 {
@@ -18,7 +17,7 @@ namespace Pulumi.AzureNative.ContainerRegistry
         /// API Version: 2019-06-01-preview.
         /// </summary>
         public static Task<GetTaskResult> InvokeAsync(GetTaskArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetTaskResult>("azure-native:containerregistry:getTask", args ?? new GetTaskArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetTaskResult>("azure-native:containerregistry:getTask", args ?? new GetTaskArgs(), options.WithDefaults());
 
         /// <summary>
         /// The task that has the ARM resource and task properties. 
@@ -26,7 +25,7 @@ namespace Pulumi.AzureNative.ContainerRegistry
         /// API Version: 2019-06-01-preview.
         /// </summary>
         public static Output<GetTaskResult> Invoke(GetTaskInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetTaskResult>("azure-native:containerregistry:getTask", args ?? new GetTaskInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetTaskResult>("azure-native:containerregistry:getTask", args ?? new GetTaskInvokeArgs(), options.WithDefaults());
     }
 
 

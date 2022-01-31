@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.SecurityInsights
 {
@@ -18,14 +17,14 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// API Version: 2021-03-01-preview.
         /// </summary>
         public static Task<GetProductSettingResult> InvokeAsync(GetProductSettingArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetProductSettingResult>("azure-native:securityinsights:getProductSetting", args ?? new GetProductSettingArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetProductSettingResult>("azure-native:securityinsights:getProductSetting", args ?? new GetProductSettingArgs(), options.WithDefaults());
 
         /// <summary>
         /// The Setting.
         /// API Version: 2021-03-01-preview.
         /// </summary>
         public static Output<GetProductSettingResult> Invoke(GetProductSettingInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetProductSettingResult>("azure-native:securityinsights:getProductSetting", args ?? new GetProductSettingInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetProductSettingResult>("azure-native:securityinsights:getProductSetting", args ?? new GetProductSettingInvokeArgs(), options.WithDefaults());
     }
 
 

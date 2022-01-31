@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DataLakeStore
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.DataLakeStore
         /// API Version: 2016-11-01.
         /// </summary>
         public static Task<GetTrustedIdProviderResult> InvokeAsync(GetTrustedIdProviderArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetTrustedIdProviderResult>("azure-native:datalakestore:getTrustedIdProvider", args ?? new GetTrustedIdProviderArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetTrustedIdProviderResult>("azure-native:datalakestore:getTrustedIdProvider", args ?? new GetTrustedIdProviderArgs(), options.WithDefaults());
 
         /// <summary>
         /// Data Lake Store trusted identity provider information.
         /// API Version: 2016-11-01.
         /// </summary>
         public static Output<GetTrustedIdProviderResult> Invoke(GetTrustedIdProviderInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetTrustedIdProviderResult>("azure-native:datalakestore:getTrustedIdProvider", args ?? new GetTrustedIdProviderInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetTrustedIdProviderResult>("azure-native:datalakestore:getTrustedIdProvider", args ?? new GetTrustedIdProviderInvokeArgs(), options.WithDefaults());
     }
 
 

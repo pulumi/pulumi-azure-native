@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.StorSimple.V20161001
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.StorSimple.V20161001
         /// The storage domain.
         /// </summary>
         public static Task<GetStorageDomainResult> InvokeAsync(GetStorageDomainArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetStorageDomainResult>("azure-native:storsimple/v20161001:getStorageDomain", args ?? new GetStorageDomainArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetStorageDomainResult>("azure-native:storsimple/v20161001:getStorageDomain", args ?? new GetStorageDomainArgs(), options.WithDefaults());
 
         /// <summary>
         /// The storage domain.
         /// </summary>
         public static Output<GetStorageDomainResult> Invoke(GetStorageDomainInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetStorageDomainResult>("azure-native:storsimple/v20161001:getStorageDomain", args ?? new GetStorageDomainInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetStorageDomainResult>("azure-native:storsimple/v20161001:getStorageDomain", args ?? new GetStorageDomainInvokeArgs(), options.WithDefaults());
     }
 
 

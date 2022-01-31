@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DataShare.V20181101Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.DataShare.V20181101Preview
         /// A share data transfer object.
         /// </summary>
         public static Task<GetShareResult> InvokeAsync(GetShareArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetShareResult>("azure-native:datashare/v20181101preview:getShare", args ?? new GetShareArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetShareResult>("azure-native:datashare/v20181101preview:getShare", args ?? new GetShareArgs(), options.WithDefaults());
 
         /// <summary>
         /// A share data transfer object.
         /// </summary>
         public static Output<GetShareResult> Invoke(GetShareInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetShareResult>("azure-native:datashare/v20181101preview:getShare", args ?? new GetShareInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetShareResult>("azure-native:datashare/v20181101preview:getShare", args ?? new GetShareInvokeArgs(), options.WithDefaults());
     }
 
 

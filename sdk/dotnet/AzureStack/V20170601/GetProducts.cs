@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.AzureStack.V20170601
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.AzureStack.V20170601
         /// Pageable list of products.
         /// </summary>
         public static Task<GetProductsResult> InvokeAsync(GetProductsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetProductsResult>("azure-native:azurestack/v20170601:getProducts", args ?? new GetProductsArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetProductsResult>("azure-native:azurestack/v20170601:getProducts", args ?? new GetProductsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Pageable list of products.
         /// </summary>
         public static Output<GetProductsResult> Invoke(GetProductsInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetProductsResult>("azure-native:azurestack/v20170601:getProducts", args ?? new GetProductsInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetProductsResult>("azure-native:azurestack/v20170601:getProducts", args ?? new GetProductsInvokeArgs(), options.WithDefaults());
     }
 
 

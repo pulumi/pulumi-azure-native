@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Insights.V20180301
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Insights.V20180301
         /// The metric alert resource.
         /// </summary>
         public static Task<GetMetricAlertResult> InvokeAsync(GetMetricAlertArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetMetricAlertResult>("azure-native:insights/v20180301:getMetricAlert", args ?? new GetMetricAlertArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetMetricAlertResult>("azure-native:insights/v20180301:getMetricAlert", args ?? new GetMetricAlertArgs(), options.WithDefaults());
 
         /// <summary>
         /// The metric alert resource.
         /// </summary>
         public static Output<GetMetricAlertResult> Invoke(GetMetricAlertInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetMetricAlertResult>("azure-native:insights/v20180301:getMetricAlert", args ?? new GetMetricAlertInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetMetricAlertResult>("azure-native:insights/v20180301:getMetricAlert", args ?? new GetMetricAlertInvokeArgs(), options.WithDefaults());
     }
 
 

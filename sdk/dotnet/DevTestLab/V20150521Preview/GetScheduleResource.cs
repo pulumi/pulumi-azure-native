@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DevTestLab.V20150521Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.DevTestLab.V20150521Preview
         /// A schedule.
         /// </summary>
         public static Task<GetScheduleResourceResult> InvokeAsync(GetScheduleResourceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetScheduleResourceResult>("azure-native:devtestlab/v20150521preview:getScheduleResource", args ?? new GetScheduleResourceArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetScheduleResourceResult>("azure-native:devtestlab/v20150521preview:getScheduleResource", args ?? new GetScheduleResourceArgs(), options.WithDefaults());
 
         /// <summary>
         /// A schedule.
         /// </summary>
         public static Output<GetScheduleResourceResult> Invoke(GetScheduleResourceInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetScheduleResourceResult>("azure-native:devtestlab/v20150521preview:getScheduleResource", args ?? new GetScheduleResourceInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetScheduleResourceResult>("azure-native:devtestlab/v20150521preview:getScheduleResource", args ?? new GetScheduleResourceInvokeArgs(), options.WithDefaults());
     }
 
 

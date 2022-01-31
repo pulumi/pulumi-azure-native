@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Logz.V20220101Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Logz.V20220101Preview
         /// Capture logs and metrics of Azure resources based on ARM tags.
         /// </summary>
         public static Task<GetSubAccountTagRuleResult> InvokeAsync(GetSubAccountTagRuleArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSubAccountTagRuleResult>("azure-native:logz/v20220101preview:getSubAccountTagRule", args ?? new GetSubAccountTagRuleArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSubAccountTagRuleResult>("azure-native:logz/v20220101preview:getSubAccountTagRule", args ?? new GetSubAccountTagRuleArgs(), options.WithDefaults());
 
         /// <summary>
         /// Capture logs and metrics of Azure resources based on ARM tags.
         /// </summary>
         public static Output<GetSubAccountTagRuleResult> Invoke(GetSubAccountTagRuleInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSubAccountTagRuleResult>("azure-native:logz/v20220101preview:getSubAccountTagRule", args ?? new GetSubAccountTagRuleInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetSubAccountTagRuleResult>("azure-native:logz/v20220101preview:getSubAccountTagRule", args ?? new GetSubAccountTagRuleInvokeArgs(), options.WithDefaults());
     }
 
 

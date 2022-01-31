@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DataShare
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.DataShare
         /// API Version: 2020-09-01.
         /// </summary>
         public static Task<GetADLSGen2FileDataSetResult> InvokeAsync(GetADLSGen2FileDataSetArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetADLSGen2FileDataSetResult>("azure-native:datashare:getADLSGen2FileDataSet", args ?? new GetADLSGen2FileDataSetArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetADLSGen2FileDataSetResult>("azure-native:datashare:getADLSGen2FileDataSet", args ?? new GetADLSGen2FileDataSetArgs(), options.WithDefaults());
 
         /// <summary>
         /// An ADLS Gen 2 file data set.
         /// API Version: 2020-09-01.
         /// </summary>
         public static Output<GetADLSGen2FileDataSetResult> Invoke(GetADLSGen2FileDataSetInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetADLSGen2FileDataSetResult>("azure-native:datashare:getADLSGen2FileDataSet", args ?? new GetADLSGen2FileDataSetInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetADLSGen2FileDataSetResult>("azure-native:datashare:getADLSGen2FileDataSet", args ?? new GetADLSGen2FileDataSetInvokeArgs(), options.WithDefaults());
     }
 
 

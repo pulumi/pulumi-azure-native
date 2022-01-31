@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.AppPlatform
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.AppPlatform
         /// API Version: 2022-01-01-preview.
         /// </summary>
         public static Task<GetApiPortalResult> InvokeAsync(GetApiPortalArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetApiPortalResult>("azure-native:appplatform:getApiPortal", args ?? new GetApiPortalArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetApiPortalResult>("azure-native:appplatform:getApiPortal", args ?? new GetApiPortalArgs(), options.WithDefaults());
 
         /// <summary>
         /// API portal resource
         /// API Version: 2022-01-01-preview.
         /// </summary>
         public static Output<GetApiPortalResult> Invoke(GetApiPortalInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetApiPortalResult>("azure-native:appplatform:getApiPortal", args ?? new GetApiPortalInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetApiPortalResult>("azure-native:appplatform:getApiPortal", args ?? new GetApiPortalInvokeArgs(), options.WithDefaults());
     }
 
 

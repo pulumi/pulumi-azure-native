@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Insights
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.Insights
         /// API Version: 2019-11-01-preview.
         /// </summary>
         public static Task<GetDataCollectionRuleAssociationResult> InvokeAsync(GetDataCollectionRuleAssociationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDataCollectionRuleAssociationResult>("azure-native:insights:getDataCollectionRuleAssociation", args ?? new GetDataCollectionRuleAssociationArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDataCollectionRuleAssociationResult>("azure-native:insights:getDataCollectionRuleAssociation", args ?? new GetDataCollectionRuleAssociationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Definition of generic ARM proxy resource.
         /// API Version: 2019-11-01-preview.
         /// </summary>
         public static Output<GetDataCollectionRuleAssociationResult> Invoke(GetDataCollectionRuleAssociationInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDataCollectionRuleAssociationResult>("azure-native:insights:getDataCollectionRuleAssociation", args ?? new GetDataCollectionRuleAssociationInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetDataCollectionRuleAssociationResult>("azure-native:insights:getDataCollectionRuleAssociation", args ?? new GetDataCollectionRuleAssociationInvokeArgs(), options.WithDefaults());
     }
 
 

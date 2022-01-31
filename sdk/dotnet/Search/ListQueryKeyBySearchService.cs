@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Search
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.Search
         /// API Version: 2020-08-01.
         /// </summary>
         public static Task<ListQueryKeyBySearchServiceResult> InvokeAsync(ListQueryKeyBySearchServiceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListQueryKeyBySearchServiceResult>("azure-native:search:listQueryKeyBySearchService", args ?? new ListQueryKeyBySearchServiceArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListQueryKeyBySearchServiceResult>("azure-native:search:listQueryKeyBySearchService", args ?? new ListQueryKeyBySearchServiceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Response containing the query API keys for a given Azure Cognitive Search service.
         /// API Version: 2020-08-01.
         /// </summary>
         public static Output<ListQueryKeyBySearchServiceResult> Invoke(ListQueryKeyBySearchServiceInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListQueryKeyBySearchServiceResult>("azure-native:search:listQueryKeyBySearchService", args ?? new ListQueryKeyBySearchServiceInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<ListQueryKeyBySearchServiceResult>("azure-native:search:listQueryKeyBySearchService", args ?? new ListQueryKeyBySearchServiceInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Insights
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.Insights
         /// API Version: 2018-06-01-preview.
         /// </summary>
         public static Task<GetguestDiagnosticsSettingResult> InvokeAsync(GetguestDiagnosticsSettingArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetguestDiagnosticsSettingResult>("azure-native:insights:getguestDiagnosticsSetting", args ?? new GetguestDiagnosticsSettingArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetguestDiagnosticsSettingResult>("azure-native:insights:getguestDiagnosticsSetting", args ?? new GetguestDiagnosticsSettingArgs(), options.WithDefaults());
 
         /// <summary>
         /// Virtual machine guest diagnostics settings resource.
         /// API Version: 2018-06-01-preview.
         /// </summary>
         public static Output<GetguestDiagnosticsSettingResult> Invoke(GetguestDiagnosticsSettingInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetguestDiagnosticsSettingResult>("azure-native:insights:getguestDiagnosticsSetting", args ?? new GetguestDiagnosticsSettingInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetguestDiagnosticsSettingResult>("azure-native:insights:getguestDiagnosticsSetting", args ?? new GetguestDiagnosticsSettingInvokeArgs(), options.WithDefaults());
     }
 
 

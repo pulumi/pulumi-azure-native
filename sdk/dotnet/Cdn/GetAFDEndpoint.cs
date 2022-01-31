@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Cdn
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.Cdn
         /// API Version: 2020-09-01.
         /// </summary>
         public static Task<GetAFDEndpointResult> InvokeAsync(GetAFDEndpointArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAFDEndpointResult>("azure-native:cdn:getAFDEndpoint", args ?? new GetAFDEndpointArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAFDEndpointResult>("azure-native:cdn:getAFDEndpoint", args ?? new GetAFDEndpointArgs(), options.WithDefaults());
 
         /// <summary>
         /// CDN endpoint is the entity within a CDN profile containing configuration information such as origin, protocol, content caching and delivery behavior. The AzureFrontDoor endpoint uses the URL format &lt;endpointname&gt;.azureedge.net.
         /// API Version: 2020-09-01.
         /// </summary>
         public static Output<GetAFDEndpointResult> Invoke(GetAFDEndpointInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetAFDEndpointResult>("azure-native:cdn:getAFDEndpoint", args ?? new GetAFDEndpointInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetAFDEndpointResult>("azure-native:cdn:getAFDEndpoint", args ?? new GetAFDEndpointInvokeArgs(), options.WithDefaults());
     }
 
 

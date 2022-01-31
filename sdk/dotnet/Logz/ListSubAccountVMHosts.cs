@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Logz
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.Logz
         /// API Version: 2020-10-01.
         /// </summary>
         public static Task<ListSubAccountVMHostsResult> InvokeAsync(ListSubAccountVMHostsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListSubAccountVMHostsResult>("azure-native:logz:listSubAccountVMHosts", args ?? new ListSubAccountVMHostsArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListSubAccountVMHostsResult>("azure-native:logz:listSubAccountVMHosts", args ?? new ListSubAccountVMHostsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Response of a list VM Host Update Operation.
         /// API Version: 2020-10-01.
         /// </summary>
         public static Output<ListSubAccountVMHostsResult> Invoke(ListSubAccountVMHostsInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListSubAccountVMHostsResult>("azure-native:logz:listSubAccountVMHosts", args ?? new ListSubAccountVMHostsInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<ListSubAccountVMHostsResult>("azure-native:logz:listSubAccountVMHosts", args ?? new ListSubAccountVMHostsInvokeArgs(), options.WithDefaults());
     }
 
 

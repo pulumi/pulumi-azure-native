@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Logic.V20190501
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Logic.V20190501
         /// The assembly definition.
         /// </summary>
         public static Task<GetIntegrationAccountAssemblyResult> InvokeAsync(GetIntegrationAccountAssemblyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetIntegrationAccountAssemblyResult>("azure-native:logic/v20190501:getIntegrationAccountAssembly", args ?? new GetIntegrationAccountAssemblyArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetIntegrationAccountAssemblyResult>("azure-native:logic/v20190501:getIntegrationAccountAssembly", args ?? new GetIntegrationAccountAssemblyArgs(), options.WithDefaults());
 
         /// <summary>
         /// The assembly definition.
         /// </summary>
         public static Output<GetIntegrationAccountAssemblyResult> Invoke(GetIntegrationAccountAssemblyInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetIntegrationAccountAssemblyResult>("azure-native:logic/v20190501:getIntegrationAccountAssembly", args ?? new GetIntegrationAccountAssemblyInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetIntegrationAccountAssemblyResult>("azure-native:logic/v20190501:getIntegrationAccountAssembly", args ?? new GetIntegrationAccountAssemblyInvokeArgs(), options.WithDefaults());
     }
 
 

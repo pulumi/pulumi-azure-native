@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.CustomerInsights
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.CustomerInsights
         /// API Version: 2017-04-26.
         /// </summary>
         public static Task<GetKpiResult> InvokeAsync(GetKpiArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetKpiResult>("azure-native:customerinsights:getKpi", args ?? new GetKpiArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetKpiResult>("azure-native:customerinsights:getKpi", args ?? new GetKpiArgs(), options.WithDefaults());
 
         /// <summary>
         /// The KPI resource format.
         /// API Version: 2017-04-26.
         /// </summary>
         public static Output<GetKpiResult> Invoke(GetKpiInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetKpiResult>("azure-native:customerinsights:getKpi", args ?? new GetKpiInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetKpiResult>("azure-native:customerinsights:getKpi", args ?? new GetKpiInvokeArgs(), options.WithDefaults());
     }
 
 

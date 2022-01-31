@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ApiManagement.V20190101
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.ApiManagement.V20190101
         /// Backend details.
         /// </summary>
         public static Task<GetBackendResult> InvokeAsync(GetBackendArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetBackendResult>("azure-native:apimanagement/v20190101:getBackend", args ?? new GetBackendArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetBackendResult>("azure-native:apimanagement/v20190101:getBackend", args ?? new GetBackendArgs(), options.WithDefaults());
 
         /// <summary>
         /// Backend details.
         /// </summary>
         public static Output<GetBackendResult> Invoke(GetBackendInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetBackendResult>("azure-native:apimanagement/v20190101:getBackend", args ?? new GetBackendInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetBackendResult>("azure-native:apimanagement/v20190101:getBackend", args ?? new GetBackendInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Security.V20210701Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Security.V20210701Preview
         /// Custom entity store assignment
         /// </summary>
         public static Task<GetCustomEntityStoreAssignmentResult> InvokeAsync(GetCustomEntityStoreAssignmentArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetCustomEntityStoreAssignmentResult>("azure-native:security/v20210701preview:getCustomEntityStoreAssignment", args ?? new GetCustomEntityStoreAssignmentArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetCustomEntityStoreAssignmentResult>("azure-native:security/v20210701preview:getCustomEntityStoreAssignment", args ?? new GetCustomEntityStoreAssignmentArgs(), options.WithDefaults());
 
         /// <summary>
         /// Custom entity store assignment
         /// </summary>
         public static Output<GetCustomEntityStoreAssignmentResult> Invoke(GetCustomEntityStoreAssignmentInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetCustomEntityStoreAssignmentResult>("azure-native:security/v20210701preview:getCustomEntityStoreAssignment", args ?? new GetCustomEntityStoreAssignmentInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetCustomEntityStoreAssignmentResult>("azure-native:security/v20210701preview:getCustomEntityStoreAssignment", args ?? new GetCustomEntityStoreAssignmentInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DataFactory
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.DataFactory
         /// API Version: 2018-06-01.
         /// </summary>
         public static Task<GetDataFlowResult> InvokeAsync(GetDataFlowArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDataFlowResult>("azure-native:datafactory:getDataFlow", args ?? new GetDataFlowArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDataFlowResult>("azure-native:datafactory:getDataFlow", args ?? new GetDataFlowArgs(), options.WithDefaults());
 
         /// <summary>
         /// Data flow resource type.
         /// API Version: 2018-06-01.
         /// </summary>
         public static Output<GetDataFlowResult> Invoke(GetDataFlowInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDataFlowResult>("azure-native:datafactory:getDataFlow", args ?? new GetDataFlowInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetDataFlowResult>("azure-native:datafactory:getDataFlow", args ?? new GetDataFlowInvokeArgs(), options.WithDefaults());
     }
 
 

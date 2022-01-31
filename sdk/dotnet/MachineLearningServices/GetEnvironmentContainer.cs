@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.MachineLearningServices
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// API Version: 2021-03-01-preview.
         /// </summary>
         public static Task<GetEnvironmentContainerResult> InvokeAsync(GetEnvironmentContainerArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetEnvironmentContainerResult>("azure-native:machinelearningservices:getEnvironmentContainer", args ?? new GetEnvironmentContainerArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetEnvironmentContainerResult>("azure-native:machinelearningservices:getEnvironmentContainer", args ?? new GetEnvironmentContainerArgs(), options.WithDefaults());
 
         /// <summary>
         /// Azure Resource Manager resource envelope.
         /// API Version: 2021-03-01-preview.
         /// </summary>
         public static Output<GetEnvironmentContainerResult> Invoke(GetEnvironmentContainerInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetEnvironmentContainerResult>("azure-native:machinelearningservices:getEnvironmentContainer", args ?? new GetEnvironmentContainerInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetEnvironmentContainerResult>("azure-native:machinelearningservices:getEnvironmentContainer", args ?? new GetEnvironmentContainerInvokeArgs(), options.WithDefaults());
     }
 
 

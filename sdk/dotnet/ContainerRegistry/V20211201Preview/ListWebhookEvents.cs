@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ContainerRegistry.V20211201Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20211201Preview
         /// The result of a request to list events for a webhook.
         /// </summary>
         public static Task<ListWebhookEventsResult> InvokeAsync(ListWebhookEventsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListWebhookEventsResult>("azure-native:containerregistry/v20211201preview:listWebhookEvents", args ?? new ListWebhookEventsArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListWebhookEventsResult>("azure-native:containerregistry/v20211201preview:listWebhookEvents", args ?? new ListWebhookEventsArgs(), options.WithDefaults());
 
         /// <summary>
         /// The result of a request to list events for a webhook.
         /// </summary>
         public static Output<ListWebhookEventsResult> Invoke(ListWebhookEventsInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListWebhookEventsResult>("azure-native:containerregistry/v20211201preview:listWebhookEvents", args ?? new ListWebhookEventsInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<ListWebhookEventsResult>("azure-native:containerregistry/v20211201preview:listWebhookEvents", args ?? new ListWebhookEventsInvokeArgs(), options.WithDefaults());
     }
 
 

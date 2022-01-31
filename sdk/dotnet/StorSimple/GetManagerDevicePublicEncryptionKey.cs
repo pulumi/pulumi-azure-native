@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.StorSimple
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.StorSimple
         /// API Version: 2017-06-01.
         /// </summary>
         public static Task<GetManagerDevicePublicEncryptionKeyResult> InvokeAsync(GetManagerDevicePublicEncryptionKeyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetManagerDevicePublicEncryptionKeyResult>("azure-native:storsimple:getManagerDevicePublicEncryptionKey", args ?? new GetManagerDevicePublicEncryptionKeyArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetManagerDevicePublicEncryptionKeyResult>("azure-native:storsimple:getManagerDevicePublicEncryptionKey", args ?? new GetManagerDevicePublicEncryptionKeyArgs(), options.WithDefaults());
 
         /// <summary>
         /// The public key.
         /// API Version: 2017-06-01.
         /// </summary>
         public static Output<GetManagerDevicePublicEncryptionKeyResult> Invoke(GetManagerDevicePublicEncryptionKeyInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetManagerDevicePublicEncryptionKeyResult>("azure-native:storsimple:getManagerDevicePublicEncryptionKey", args ?? new GetManagerDevicePublicEncryptionKeyInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetManagerDevicePublicEncryptionKeyResult>("azure-native:storsimple:getManagerDevicePublicEncryptionKey", args ?? new GetManagerDevicePublicEncryptionKeyInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Synapse.V20201201
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Synapse.V20201201
         /// A SQL Analytics pool
         /// </summary>
         public static Task<GetSqlPoolResult> InvokeAsync(GetSqlPoolArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSqlPoolResult>("azure-native:synapse/v20201201:getSqlPool", args ?? new GetSqlPoolArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSqlPoolResult>("azure-native:synapse/v20201201:getSqlPool", args ?? new GetSqlPoolArgs(), options.WithDefaults());
 
         /// <summary>
         /// A SQL Analytics pool
         /// </summary>
         public static Output<GetSqlPoolResult> Invoke(GetSqlPoolInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSqlPoolResult>("azure-native:synapse/v20201201:getSqlPool", args ?? new GetSqlPoolInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetSqlPoolResult>("azure-native:synapse/v20201201:getSqlPool", args ?? new GetSqlPoolInvokeArgs(), options.WithDefaults());
     }
 
 

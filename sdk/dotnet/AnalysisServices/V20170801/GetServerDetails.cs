@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.AnalysisServices.V20170801
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.AnalysisServices.V20170801
         /// Represents an instance of an Analysis Services resource.
         /// </summary>
         public static Task<GetServerDetailsResult> InvokeAsync(GetServerDetailsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetServerDetailsResult>("azure-native:analysisservices/v20170801:getServerDetails", args ?? new GetServerDetailsArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetServerDetailsResult>("azure-native:analysisservices/v20170801:getServerDetails", args ?? new GetServerDetailsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Represents an instance of an Analysis Services resource.
         /// </summary>
         public static Output<GetServerDetailsResult> Invoke(GetServerDetailsInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetServerDetailsResult>("azure-native:analysisservices/v20170801:getServerDetails", args ?? new GetServerDetailsInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetServerDetailsResult>("azure-native:analysisservices/v20170801:getServerDetails", args ?? new GetServerDetailsInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Web.V20210201
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Web.V20210201
         /// Backup description.
         /// </summary>
         public static Task<ListWebAppBackupStatusSecretsResult> InvokeAsync(ListWebAppBackupStatusSecretsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListWebAppBackupStatusSecretsResult>("azure-native:web/v20210201:listWebAppBackupStatusSecrets", args ?? new ListWebAppBackupStatusSecretsArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListWebAppBackupStatusSecretsResult>("azure-native:web/v20210201:listWebAppBackupStatusSecrets", args ?? new ListWebAppBackupStatusSecretsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Backup description.
         /// </summary>
         public static Output<ListWebAppBackupStatusSecretsResult> Invoke(ListWebAppBackupStatusSecretsInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListWebAppBackupStatusSecretsResult>("azure-native:web/v20210201:listWebAppBackupStatusSecrets", args ?? new ListWebAppBackupStatusSecretsInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<ListWebAppBackupStatusSecretsResult>("azure-native:web/v20210201:listWebAppBackupStatusSecrets", args ?? new ListWebAppBackupStatusSecretsInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.AppPlatform.V20220101Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.AppPlatform.V20220101Preview
         /// Buildpack Binding Resource object
         /// </summary>
         public static Task<GetBuildpackBindingResult> InvokeAsync(GetBuildpackBindingArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetBuildpackBindingResult>("azure-native:appplatform/v20220101preview:getBuildpackBinding", args ?? new GetBuildpackBindingArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetBuildpackBindingResult>("azure-native:appplatform/v20220101preview:getBuildpackBinding", args ?? new GetBuildpackBindingArgs(), options.WithDefaults());
 
         /// <summary>
         /// Buildpack Binding Resource object
         /// </summary>
         public static Output<GetBuildpackBindingResult> Invoke(GetBuildpackBindingInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetBuildpackBindingResult>("azure-native:appplatform/v20220101preview:getBuildpackBinding", args ?? new GetBuildpackBindingInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetBuildpackBindingResult>("azure-native:appplatform/v20220101preview:getBuildpackBinding", args ?? new GetBuildpackBindingInvokeArgs(), options.WithDefaults());
     }
 
 

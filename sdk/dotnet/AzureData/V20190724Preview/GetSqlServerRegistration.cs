@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.AzureData.V20190724Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.AzureData.V20190724Preview
         /// A SQL server registration.
         /// </summary>
         public static Task<GetSqlServerRegistrationResult> InvokeAsync(GetSqlServerRegistrationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSqlServerRegistrationResult>("azure-native:azuredata/v20190724preview:getSqlServerRegistration", args ?? new GetSqlServerRegistrationArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSqlServerRegistrationResult>("azure-native:azuredata/v20190724preview:getSqlServerRegistration", args ?? new GetSqlServerRegistrationArgs(), options.WithDefaults());
 
         /// <summary>
         /// A SQL server registration.
         /// </summary>
         public static Output<GetSqlServerRegistrationResult> Invoke(GetSqlServerRegistrationInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSqlServerRegistrationResult>("azure-native:azuredata/v20190724preview:getSqlServerRegistration", args ?? new GetSqlServerRegistrationInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetSqlServerRegistrationResult>("azure-native:azuredata/v20190724preview:getSqlServerRegistration", args ?? new GetSqlServerRegistrationInvokeArgs(), options.WithDefaults());
     }
 
 

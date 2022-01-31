@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Sql.V20201101Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Sql.V20201101Preview
         /// A failover group.
         /// </summary>
         public static Task<GetFailoverGroupResult> InvokeAsync(GetFailoverGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetFailoverGroupResult>("azure-native:sql/v20201101preview:getFailoverGroup", args ?? new GetFailoverGroupArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetFailoverGroupResult>("azure-native:sql/v20201101preview:getFailoverGroup", args ?? new GetFailoverGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// A failover group.
         /// </summary>
         public static Output<GetFailoverGroupResult> Invoke(GetFailoverGroupInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetFailoverGroupResult>("azure-native:sql/v20201101preview:getFailoverGroup", args ?? new GetFailoverGroupInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetFailoverGroupResult>("azure-native:sql/v20201101preview:getFailoverGroup", args ?? new GetFailoverGroupInvokeArgs(), options.WithDefaults());
     }
 
 

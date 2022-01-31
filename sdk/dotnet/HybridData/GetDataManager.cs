@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.HybridData
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.HybridData
         /// API Version: 2019-06-01.
         /// </summary>
         public static Task<GetDataManagerResult> InvokeAsync(GetDataManagerArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDataManagerResult>("azure-native:hybriddata:getDataManager", args ?? new GetDataManagerArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDataManagerResult>("azure-native:hybriddata:getDataManager", args ?? new GetDataManagerArgs(), options.WithDefaults());
 
         /// <summary>
         /// The DataManager resource.
         /// API Version: 2019-06-01.
         /// </summary>
         public static Output<GetDataManagerResult> Invoke(GetDataManagerInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDataManagerResult>("azure-native:hybriddata:getDataManager", args ?? new GetDataManagerInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetDataManagerResult>("azure-native:hybriddata:getDataManager", args ?? new GetDataManagerInvokeArgs(), options.WithDefaults());
     }
 
 

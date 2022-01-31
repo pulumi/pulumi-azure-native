@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Compute.V20190701
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Compute.V20190701
         /// Specifies information about the Shared Image Gallery that you want to create or update.
         /// </summary>
         public static Task<GetGalleryResult> InvokeAsync(GetGalleryArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetGalleryResult>("azure-native:compute/v20190701:getGallery", args ?? new GetGalleryArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetGalleryResult>("azure-native:compute/v20190701:getGallery", args ?? new GetGalleryArgs(), options.WithDefaults());
 
         /// <summary>
         /// Specifies information about the Shared Image Gallery that you want to create or update.
         /// </summary>
         public static Output<GetGalleryResult> Invoke(GetGalleryInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetGalleryResult>("azure-native:compute/v20190701:getGallery", args ?? new GetGalleryInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetGalleryResult>("azure-native:compute/v20190701:getGallery", args ?? new GetGalleryInvokeArgs(), options.WithDefaults());
     }
 
 

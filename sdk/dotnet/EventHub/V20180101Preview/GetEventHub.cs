@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.EventHub.V20180101Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.EventHub.V20180101Preview
         /// Single item in List or Get Event Hub operation
         /// </summary>
         public static Task<GetEventHubResult> InvokeAsync(GetEventHubArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetEventHubResult>("azure-native:eventhub/v20180101preview:getEventHub", args ?? new GetEventHubArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetEventHubResult>("azure-native:eventhub/v20180101preview:getEventHub", args ?? new GetEventHubArgs(), options.WithDefaults());
 
         /// <summary>
         /// Single item in List or Get Event Hub operation
         /// </summary>
         public static Output<GetEventHubResult> Invoke(GetEventHubInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetEventHubResult>("azure-native:eventhub/v20180101preview:getEventHub", args ?? new GetEventHubInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetEventHubResult>("azure-native:eventhub/v20180101preview:getEventHub", args ?? new GetEventHubInvokeArgs(), options.WithDefaults());
     }
 
 

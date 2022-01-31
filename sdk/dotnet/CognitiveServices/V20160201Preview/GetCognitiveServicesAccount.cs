@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.CognitiveServices.V20160201Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.CognitiveServices.V20160201Preview
         /// Cognitive Services Account is an Azure resource representing the provisioned account, its type, location and SKU.
         /// </summary>
         public static Task<GetCognitiveServicesAccountResult> InvokeAsync(GetCognitiveServicesAccountArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetCognitiveServicesAccountResult>("azure-native:cognitiveservices/v20160201preview:getCognitiveServicesAccount", args ?? new GetCognitiveServicesAccountArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetCognitiveServicesAccountResult>("azure-native:cognitiveservices/v20160201preview:getCognitiveServicesAccount", args ?? new GetCognitiveServicesAccountArgs(), options.WithDefaults());
 
         /// <summary>
         /// Cognitive Services Account is an Azure resource representing the provisioned account, its type, location and SKU.
         /// </summary>
         public static Output<GetCognitiveServicesAccountResult> Invoke(GetCognitiveServicesAccountInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetCognitiveServicesAccountResult>("azure-native:cognitiveservices/v20160201preview:getCognitiveServicesAccount", args ?? new GetCognitiveServicesAccountInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetCognitiveServicesAccountResult>("azure-native:cognitiveservices/v20160201preview:getCognitiveServicesAccount", args ?? new GetCognitiveServicesAccountInvokeArgs(), options.WithDefaults());
     }
 
 

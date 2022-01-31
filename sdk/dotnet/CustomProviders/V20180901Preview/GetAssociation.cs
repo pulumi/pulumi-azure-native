@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.CustomProviders.V20180901Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.CustomProviders.V20180901Preview
         /// The resource definition of this association.
         /// </summary>
         public static Task<GetAssociationResult> InvokeAsync(GetAssociationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAssociationResult>("azure-native:customproviders/v20180901preview:getAssociation", args ?? new GetAssociationArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAssociationResult>("azure-native:customproviders/v20180901preview:getAssociation", args ?? new GetAssociationArgs(), options.WithDefaults());
 
         /// <summary>
         /// The resource definition of this association.
         /// </summary>
         public static Output<GetAssociationResult> Invoke(GetAssociationInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetAssociationResult>("azure-native:customproviders/v20180901preview:getAssociation", args ?? new GetAssociationInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetAssociationResult>("azure-native:customproviders/v20180901preview:getAssociation", args ?? new GetAssociationInvokeArgs(), options.WithDefaults());
     }
 
 

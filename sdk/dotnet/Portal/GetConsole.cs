@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Portal
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.Portal
         /// API Version: 2018-10-01.
         /// </summary>
         public static Task<GetConsoleResult> InvokeAsync(GetConsoleArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetConsoleResult>("azure-native:portal:getConsole", args ?? new GetConsoleArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetConsoleResult>("azure-native:portal:getConsole", args ?? new GetConsoleArgs(), options.WithDefaults());
 
         /// <summary>
         /// Cloud shell console
         /// API Version: 2018-10-01.
         /// </summary>
         public static Output<GetConsoleResult> Invoke(GetConsoleInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetConsoleResult>("azure-native:portal:getConsole", args ?? new GetConsoleInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetConsoleResult>("azure-native:portal:getConsole", args ?? new GetConsoleInvokeArgs(), options.WithDefaults());
     }
 
 

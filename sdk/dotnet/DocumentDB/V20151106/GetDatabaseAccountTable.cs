@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DocumentDB.V20151106
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.DocumentDB.V20151106
         /// An Azure Cosmos DB Table.
         /// </summary>
         public static Task<GetDatabaseAccountTableResult> InvokeAsync(GetDatabaseAccountTableArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDatabaseAccountTableResult>("azure-native:documentdb/v20151106:getDatabaseAccountTable", args ?? new GetDatabaseAccountTableArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDatabaseAccountTableResult>("azure-native:documentdb/v20151106:getDatabaseAccountTable", args ?? new GetDatabaseAccountTableArgs(), options.WithDefaults());
 
         /// <summary>
         /// An Azure Cosmos DB Table.
         /// </summary>
         public static Output<GetDatabaseAccountTableResult> Invoke(GetDatabaseAccountTableInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDatabaseAccountTableResult>("azure-native:documentdb/v20151106:getDatabaseAccountTable", args ?? new GetDatabaseAccountTableInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetDatabaseAccountTableResult>("azure-native:documentdb/v20151106:getDatabaseAccountTable", args ?? new GetDatabaseAccountTableInvokeArgs(), options.WithDefaults());
     }
 
 

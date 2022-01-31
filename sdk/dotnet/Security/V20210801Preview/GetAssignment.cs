@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Security.V20210801Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Security.V20210801Preview
         /// Security Assignment on a resource group over a given scope
         /// </summary>
         public static Task<GetAssignmentResult> InvokeAsync(GetAssignmentArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAssignmentResult>("azure-native:security/v20210801preview:getAssignment", args ?? new GetAssignmentArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAssignmentResult>("azure-native:security/v20210801preview:getAssignment", args ?? new GetAssignmentArgs(), options.WithDefaults());
 
         /// <summary>
         /// Security Assignment on a resource group over a given scope
         /// </summary>
         public static Output<GetAssignmentResult> Invoke(GetAssignmentInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetAssignmentResult>("azure-native:security/v20210801preview:getAssignment", args ?? new GetAssignmentInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetAssignmentResult>("azure-native:security/v20210801preview:getAssignment", args ?? new GetAssignmentInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Blockchain.V20180601Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Blockchain.V20180601Preview
         /// Collection of the consortium payload.
         /// </summary>
         public static Task<ListLocationConsortiumsResult> InvokeAsync(ListLocationConsortiumsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListLocationConsortiumsResult>("azure-native:blockchain/v20180601preview:listLocationConsortiums", args ?? new ListLocationConsortiumsArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListLocationConsortiumsResult>("azure-native:blockchain/v20180601preview:listLocationConsortiums", args ?? new ListLocationConsortiumsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Collection of the consortium payload.
         /// </summary>
         public static Output<ListLocationConsortiumsResult> Invoke(ListLocationConsortiumsInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListLocationConsortiumsResult>("azure-native:blockchain/v20180601preview:listLocationConsortiums", args ?? new ListLocationConsortiumsInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<ListLocationConsortiumsResult>("azure-native:blockchain/v20180601preview:listLocationConsortiums", args ?? new ListLocationConsortiumsInvokeArgs(), options.WithDefaults());
     }
 
 

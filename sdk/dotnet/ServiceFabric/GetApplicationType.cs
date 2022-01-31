@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ServiceFabric
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.ServiceFabric
         /// API Version: 2020-03-01.
         /// </summary>
         public static Task<GetApplicationTypeResult> InvokeAsync(GetApplicationTypeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetApplicationTypeResult>("azure-native:servicefabric:getApplicationType", args ?? new GetApplicationTypeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetApplicationTypeResult>("azure-native:servicefabric:getApplicationType", args ?? new GetApplicationTypeArgs(), options.WithDefaults());
 
         /// <summary>
         /// The application type name resource
         /// API Version: 2020-03-01.
         /// </summary>
         public static Output<GetApplicationTypeResult> Invoke(GetApplicationTypeInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetApplicationTypeResult>("azure-native:servicefabric:getApplicationType", args ?? new GetApplicationTypeInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetApplicationTypeResult>("azure-native:servicefabric:getApplicationType", args ?? new GetApplicationTypeInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview
         /// Represents office data connector.
         /// </summary>
         public static Task<GetOfficeDataConnectorResult> InvokeAsync(GetOfficeDataConnectorArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetOfficeDataConnectorResult>("azure-native:securityinsights/v20190101preview:getOfficeDataConnector", args ?? new GetOfficeDataConnectorArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetOfficeDataConnectorResult>("azure-native:securityinsights/v20190101preview:getOfficeDataConnector", args ?? new GetOfficeDataConnectorArgs(), options.WithDefaults());
 
         /// <summary>
         /// Represents office data connector.
         /// </summary>
         public static Output<GetOfficeDataConnectorResult> Invoke(GetOfficeDataConnectorInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetOfficeDataConnectorResult>("azure-native:securityinsights/v20190101preview:getOfficeDataConnector", args ?? new GetOfficeDataConnectorInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetOfficeDataConnectorResult>("azure-native:securityinsights/v20190101preview:getOfficeDataConnector", args ?? new GetOfficeDataConnectorInvokeArgs(), options.WithDefaults());
     }
 
 

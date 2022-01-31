@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Chaos.V20210915Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Chaos.V20210915Preview
         /// Model that represents a Capability resource.
         /// </summary>
         public static Task<GetCapabilityResult> InvokeAsync(GetCapabilityArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetCapabilityResult>("azure-native:chaos/v20210915preview:getCapability", args ?? new GetCapabilityArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetCapabilityResult>("azure-native:chaos/v20210915preview:getCapability", args ?? new GetCapabilityArgs(), options.WithDefaults());
 
         /// <summary>
         /// Model that represents a Capability resource.
         /// </summary>
         public static Output<GetCapabilityResult> Invoke(GetCapabilityInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetCapabilityResult>("azure-native:chaos/v20210915preview:getCapability", args ?? new GetCapabilityInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetCapabilityResult>("azure-native:chaos/v20210915preview:getCapability", args ?? new GetCapabilityInvokeArgs(), options.WithDefaults());
     }
 
 

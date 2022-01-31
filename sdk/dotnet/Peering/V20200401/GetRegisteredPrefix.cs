@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Peering.V20200401
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Peering.V20200401
         /// The customer's prefix that is registered by the peering service provider.
         /// </summary>
         public static Task<GetRegisteredPrefixResult> InvokeAsync(GetRegisteredPrefixArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRegisteredPrefixResult>("azure-native:peering/v20200401:getRegisteredPrefix", args ?? new GetRegisteredPrefixArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetRegisteredPrefixResult>("azure-native:peering/v20200401:getRegisteredPrefix", args ?? new GetRegisteredPrefixArgs(), options.WithDefaults());
 
         /// <summary>
         /// The customer's prefix that is registered by the peering service provider.
         /// </summary>
         public static Output<GetRegisteredPrefixResult> Invoke(GetRegisteredPrefixInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetRegisteredPrefixResult>("azure-native:peering/v20200401:getRegisteredPrefix", args ?? new GetRegisteredPrefixInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetRegisteredPrefixResult>("azure-native:peering/v20200401:getRegisteredPrefix", args ?? new GetRegisteredPrefixInvokeArgs(), options.WithDefaults());
     }
 
 

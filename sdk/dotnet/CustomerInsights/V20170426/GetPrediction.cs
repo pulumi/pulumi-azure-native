@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.CustomerInsights.V20170426
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.CustomerInsights.V20170426
         /// The prediction resource format.
         /// </summary>
         public static Task<GetPredictionResult> InvokeAsync(GetPredictionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPredictionResult>("azure-native:customerinsights/v20170426:getPrediction", args ?? new GetPredictionArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetPredictionResult>("azure-native:customerinsights/v20170426:getPrediction", args ?? new GetPredictionArgs(), options.WithDefaults());
 
         /// <summary>
         /// The prediction resource format.
         /// </summary>
         public static Output<GetPredictionResult> Invoke(GetPredictionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetPredictionResult>("azure-native:customerinsights/v20170426:getPrediction", args ?? new GetPredictionInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetPredictionResult>("azure-native:customerinsights/v20170426:getPrediction", args ?? new GetPredictionInvokeArgs(), options.WithDefaults());
     }
 
 

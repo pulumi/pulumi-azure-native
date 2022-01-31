@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.StreamAnalytics.V20211001Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20211001Preview
         /// An input object, containing all information associated with the named input. All inputs are contained under a streaming job.
         /// </summary>
         public static Task<GetInputResult> InvokeAsync(GetInputArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetInputResult>("azure-native:streamanalytics/v20211001preview:getInput", args ?? new GetInputArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetInputResult>("azure-native:streamanalytics/v20211001preview:getInput", args ?? new GetInputArgs(), options.WithDefaults());
 
         /// <summary>
         /// An input object, containing all information associated with the named input. All inputs are contained under a streaming job.
         /// </summary>
         public static Output<GetInputResult> Invoke(GetInputInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetInputResult>("azure-native:streamanalytics/v20211001preview:getInput", args ?? new GetInputInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetInputResult>("azure-native:streamanalytics/v20211001preview:getInput", args ?? new GetInputInvokeArgs(), options.WithDefaults());
     }
 
 

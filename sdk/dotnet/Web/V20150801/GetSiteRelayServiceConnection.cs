@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Web.V20150801
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Web.V20150801
         /// Class that represents a BizTalk Hybrid Connection
         /// </summary>
         public static Task<GetSiteRelayServiceConnectionResult> InvokeAsync(GetSiteRelayServiceConnectionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSiteRelayServiceConnectionResult>("azure-native:web/v20150801:getSiteRelayServiceConnection", args ?? new GetSiteRelayServiceConnectionArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSiteRelayServiceConnectionResult>("azure-native:web/v20150801:getSiteRelayServiceConnection", args ?? new GetSiteRelayServiceConnectionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Class that represents a BizTalk Hybrid Connection
         /// </summary>
         public static Output<GetSiteRelayServiceConnectionResult> Invoke(GetSiteRelayServiceConnectionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSiteRelayServiceConnectionResult>("azure-native:web/v20150801:getSiteRelayServiceConnection", args ?? new GetSiteRelayServiceConnectionInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetSiteRelayServiceConnectionResult>("azure-native:web/v20150801:getSiteRelayServiceConnection", args ?? new GetSiteRelayServiceConnectionInvokeArgs(), options.WithDefaults());
     }
 
 

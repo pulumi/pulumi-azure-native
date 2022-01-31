@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Management
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.Management
         /// API Version: 2020-05-01.
         /// </summary>
         public static Task<GetHierarchySettingResult> InvokeAsync(GetHierarchySettingArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetHierarchySettingResult>("azure-native:management:getHierarchySetting", args ?? new GetHierarchySettingArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetHierarchySettingResult>("azure-native:management:getHierarchySetting", args ?? new GetHierarchySettingArgs(), options.WithDefaults());
 
         /// <summary>
         /// Settings defined at the Management Group scope.
         /// API Version: 2020-05-01.
         /// </summary>
         public static Output<GetHierarchySettingResult> Invoke(GetHierarchySettingInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetHierarchySettingResult>("azure-native:management:getHierarchySetting", args ?? new GetHierarchySettingInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetHierarchySettingResult>("azure-native:management:getHierarchySetting", args ?? new GetHierarchySettingInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Elastic.V20200701Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Elastic.V20200701Preview
         /// Capture logs and metrics of Azure resources based on ARM tags.
         /// </summary>
         public static Task<GetTagRuleResult> InvokeAsync(GetTagRuleArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetTagRuleResult>("azure-native:elastic/v20200701preview:getTagRule", args ?? new GetTagRuleArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetTagRuleResult>("azure-native:elastic/v20200701preview:getTagRule", args ?? new GetTagRuleArgs(), options.WithDefaults());
 
         /// <summary>
         /// Capture logs and metrics of Azure resources based on ARM tags.
         /// </summary>
         public static Output<GetTagRuleResult> Invoke(GetTagRuleInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetTagRuleResult>("azure-native:elastic/v20200701preview:getTagRule", args ?? new GetTagRuleInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetTagRuleResult>("azure-native:elastic/v20200701preview:getTagRule", args ?? new GetTagRuleInvokeArgs(), options.WithDefaults());
     }
 
 

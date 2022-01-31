@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.SecurityInsights.V20210901Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210901Preview
         /// Represents OfficeIRM (Microsoft Insider Risk Management) data connector.
         /// </summary>
         public static Task<GetOfficeIRMDataConnectorResult> InvokeAsync(GetOfficeIRMDataConnectorArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetOfficeIRMDataConnectorResult>("azure-native:securityinsights/v20210901preview:getOfficeIRMDataConnector", args ?? new GetOfficeIRMDataConnectorArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetOfficeIRMDataConnectorResult>("azure-native:securityinsights/v20210901preview:getOfficeIRMDataConnector", args ?? new GetOfficeIRMDataConnectorArgs(), options.WithDefaults());
 
         /// <summary>
         /// Represents OfficeIRM (Microsoft Insider Risk Management) data connector.
         /// </summary>
         public static Output<GetOfficeIRMDataConnectorResult> Invoke(GetOfficeIRMDataConnectorInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetOfficeIRMDataConnectorResult>("azure-native:securityinsights/v20210901preview:getOfficeIRMDataConnector", args ?? new GetOfficeIRMDataConnectorInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetOfficeIRMDataConnectorResult>("azure-native:securityinsights/v20210901preview:getOfficeIRMDataConnector", args ?? new GetOfficeIRMDataConnectorInvokeArgs(), options.WithDefaults());
     }
 
 

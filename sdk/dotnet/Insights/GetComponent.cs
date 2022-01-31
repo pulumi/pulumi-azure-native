@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Insights
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.Insights
         /// API Version: 2015-05-01.
         /// </summary>
         public static Task<GetComponentResult> InvokeAsync(GetComponentArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetComponentResult>("azure-native:insights:getComponent", args ?? new GetComponentArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetComponentResult>("azure-native:insights:getComponent", args ?? new GetComponentArgs(), options.WithDefaults());
 
         /// <summary>
         /// An Application Insights component definition.
         /// API Version: 2015-05-01.
         /// </summary>
         public static Output<GetComponentResult> Invoke(GetComponentInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetComponentResult>("azure-native:insights:getComponent", args ?? new GetComponentInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetComponentResult>("azure-native:insights:getComponent", args ?? new GetComponentInvokeArgs(), options.WithDefaults());
     }
 
 

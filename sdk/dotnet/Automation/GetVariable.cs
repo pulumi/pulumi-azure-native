@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Automation
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.Automation
         /// API Version: 2019-06-01.
         /// </summary>
         public static Task<GetVariableResult> InvokeAsync(GetVariableArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVariableResult>("azure-native:automation:getVariable", args ?? new GetVariableArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetVariableResult>("azure-native:automation:getVariable", args ?? new GetVariableArgs(), options.WithDefaults());
 
         /// <summary>
         /// Definition of the variable.
         /// API Version: 2019-06-01.
         /// </summary>
         public static Output<GetVariableResult> Invoke(GetVariableInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetVariableResult>("azure-native:automation:getVariable", args ?? new GetVariableInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetVariableResult>("azure-native:automation:getVariable", args ?? new GetVariableInvokeArgs(), options.WithDefaults());
     }
 
 

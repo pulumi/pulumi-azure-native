@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Network.V20200401
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Network.V20200401
         /// IpAllocation resource.
         /// </summary>
         public static Task<GetIpAllocationResult> InvokeAsync(GetIpAllocationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetIpAllocationResult>("azure-native:network/v20200401:getIpAllocation", args ?? new GetIpAllocationArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetIpAllocationResult>("azure-native:network/v20200401:getIpAllocation", args ?? new GetIpAllocationArgs(), options.WithDefaults());
 
         /// <summary>
         /// IpAllocation resource.
         /// </summary>
         public static Output<GetIpAllocationResult> Invoke(GetIpAllocationInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetIpAllocationResult>("azure-native:network/v20200401:getIpAllocation", args ?? new GetIpAllocationInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetIpAllocationResult>("azure-native:network/v20200401:getIpAllocation", args ?? new GetIpAllocationInvokeArgs(), options.WithDefaults());
     }
 
 

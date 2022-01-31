@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Migrate
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.Migrate
         /// API Version: 2019-10-01.
         /// </summary>
         public static Task<GetImportCollectorResult> InvokeAsync(GetImportCollectorArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetImportCollectorResult>("azure-native:migrate:getImportCollector", args ?? new GetImportCollectorArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetImportCollectorResult>("azure-native:migrate:getImportCollector", args ?? new GetImportCollectorArgs(), options.WithDefaults());
 
         /// <summary>
         /// 
         /// API Version: 2019-10-01.
         /// </summary>
         public static Output<GetImportCollectorResult> Invoke(GetImportCollectorInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetImportCollectorResult>("azure-native:migrate:getImportCollector", args ?? new GetImportCollectorInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetImportCollectorResult>("azure-native:migrate:getImportCollector", args ?? new GetImportCollectorInvokeArgs(), options.WithDefaults());
     }
 
 

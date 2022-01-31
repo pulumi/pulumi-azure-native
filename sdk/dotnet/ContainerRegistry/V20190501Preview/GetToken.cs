@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ContainerRegistry.V20190501Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20190501Preview
         /// An object that represents a token for a container registry.
         /// </summary>
         public static Task<GetTokenResult> InvokeAsync(GetTokenArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetTokenResult>("azure-native:containerregistry/v20190501preview:getToken", args ?? new GetTokenArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetTokenResult>("azure-native:containerregistry/v20190501preview:getToken", args ?? new GetTokenArgs(), options.WithDefaults());
 
         /// <summary>
         /// An object that represents a token for a container registry.
         /// </summary>
         public static Output<GetTokenResult> Invoke(GetTokenInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetTokenResult>("azure-native:containerregistry/v20190501preview:getToken", args ?? new GetTokenInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetTokenResult>("azure-native:containerregistry/v20190501preview:getToken", args ?? new GetTokenInvokeArgs(), options.WithDefaults());
     }
 
 

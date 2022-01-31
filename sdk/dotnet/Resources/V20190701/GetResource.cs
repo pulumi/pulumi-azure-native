@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Resources.V20190701
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Resources.V20190701
         /// Resource information.
         /// </summary>
         public static Task<GetResourceResult> InvokeAsync(GetResourceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetResourceResult>("azure-native:resources/v20190701:getResource", args ?? new GetResourceArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetResourceResult>("azure-native:resources/v20190701:getResource", args ?? new GetResourceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource information.
         /// </summary>
         public static Output<GetResourceResult> Invoke(GetResourceInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetResourceResult>("azure-native:resources/v20190701:getResource", args ?? new GetResourceInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetResourceResult>("azure-native:resources/v20190701:getResource", args ?? new GetResourceInvokeArgs(), options.WithDefaults());
     }
 
 

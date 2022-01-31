@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DevTestLab.V20150521Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.DevTestLab.V20150521Preview
         /// A Policy.
         /// </summary>
         public static Task<GetPolicyResourceResult> InvokeAsync(GetPolicyResourceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPolicyResourceResult>("azure-native:devtestlab/v20150521preview:getPolicyResource", args ?? new GetPolicyResourceArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetPolicyResourceResult>("azure-native:devtestlab/v20150521preview:getPolicyResource", args ?? new GetPolicyResourceArgs(), options.WithDefaults());
 
         /// <summary>
         /// A Policy.
         /// </summary>
         public static Output<GetPolicyResourceResult> Invoke(GetPolicyResourceInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetPolicyResourceResult>("azure-native:devtestlab/v20150521preview:getPolicyResource", args ?? new GetPolicyResourceInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetPolicyResourceResult>("azure-native:devtestlab/v20150521preview:getPolicyResource", args ?? new GetPolicyResourceInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DataCatalog
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.DataCatalog
         /// API Version: 2016-03-30.
         /// </summary>
         public static Task<GetADCCatalogResult> InvokeAsync(GetADCCatalogArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetADCCatalogResult>("azure-native:datacatalog:getADCCatalog", args ?? new GetADCCatalogArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetADCCatalogResult>("azure-native:datacatalog:getADCCatalog", args ?? new GetADCCatalogArgs(), options.WithDefaults());
 
         /// <summary>
         /// Azure Data Catalog.
         /// API Version: 2016-03-30.
         /// </summary>
         public static Output<GetADCCatalogResult> Invoke(GetADCCatalogInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetADCCatalogResult>("azure-native:datacatalog:getADCCatalog", args ?? new GetADCCatalogInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetADCCatalogResult>("azure-native:datacatalog:getADCCatalog", args ?? new GetADCCatalogInvokeArgs(), options.WithDefaults());
     }
 
 

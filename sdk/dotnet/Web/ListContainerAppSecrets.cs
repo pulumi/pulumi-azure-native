@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Web
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.Web
         /// API Version: 2021-03-01.
         /// </summary>
         public static Task<ListContainerAppSecretsResult> InvokeAsync(ListContainerAppSecretsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListContainerAppSecretsResult>("azure-native:web:listContainerAppSecrets", args ?? new ListContainerAppSecretsArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListContainerAppSecretsResult>("azure-native:web:listContainerAppSecrets", args ?? new ListContainerAppSecretsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Container App Secrets Collection ARM resource.
         /// API Version: 2021-03-01.
         /// </summary>
         public static Output<ListContainerAppSecretsResult> Invoke(ListContainerAppSecretsInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListContainerAppSecretsResult>("azure-native:web:listContainerAppSecrets", args ?? new ListContainerAppSecretsInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<ListContainerAppSecretsResult>("azure-native:web:listContainerAppSecrets", args ?? new ListContainerAppSecretsInvokeArgs(), options.WithDefaults());
     }
 
 

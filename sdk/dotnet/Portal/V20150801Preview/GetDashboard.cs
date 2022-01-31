@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Portal.V20150801Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Portal.V20150801Preview
         /// The shared dashboard resource definition.
         /// </summary>
         public static Task<GetDashboardResult> InvokeAsync(GetDashboardArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDashboardResult>("azure-native:portal/v20150801preview:getDashboard", args ?? new GetDashboardArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDashboardResult>("azure-native:portal/v20150801preview:getDashboard", args ?? new GetDashboardArgs(), options.WithDefaults());
 
         /// <summary>
         /// The shared dashboard resource definition.
         /// </summary>
         public static Output<GetDashboardResult> Invoke(GetDashboardInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDashboardResult>("azure-native:portal/v20150801preview:getDashboard", args ?? new GetDashboardInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetDashboardResult>("azure-native:portal/v20150801preview:getDashboard", args ?? new GetDashboardInvokeArgs(), options.WithDefaults());
     }
 
 

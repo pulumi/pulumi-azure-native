@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.AzureStack.V20170601
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.AzureStack.V20170601
         /// Registration information.
         /// </summary>
         public static Task<GetRegistrationResult> InvokeAsync(GetRegistrationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRegistrationResult>("azure-native:azurestack/v20170601:getRegistration", args ?? new GetRegistrationArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetRegistrationResult>("azure-native:azurestack/v20170601:getRegistration", args ?? new GetRegistrationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Registration information.
         /// </summary>
         public static Output<GetRegistrationResult> Invoke(GetRegistrationInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetRegistrationResult>("azure-native:azurestack/v20170601:getRegistration", args ?? new GetRegistrationInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetRegistrationResult>("azure-native:azurestack/v20170601:getRegistration", args ?? new GetRegistrationInvokeArgs(), options.WithDefaults());
     }
 
 

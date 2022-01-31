@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Synapse.V20190601Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Synapse.V20190601Preview
         /// A Big Data pool
         /// </summary>
         public static Task<GetBigDataPoolResult> InvokeAsync(GetBigDataPoolArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetBigDataPoolResult>("azure-native:synapse/v20190601preview:getBigDataPool", args ?? new GetBigDataPoolArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetBigDataPoolResult>("azure-native:synapse/v20190601preview:getBigDataPool", args ?? new GetBigDataPoolArgs(), options.WithDefaults());
 
         /// <summary>
         /// A Big Data pool
         /// </summary>
         public static Output<GetBigDataPoolResult> Invoke(GetBigDataPoolInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetBigDataPoolResult>("azure-native:synapse/v20190601preview:getBigDataPool", args ?? new GetBigDataPoolInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetBigDataPoolResult>("azure-native:synapse/v20190601preview:getBigDataPool", args ?? new GetBigDataPoolInvokeArgs(), options.WithDefaults());
     }
 
 

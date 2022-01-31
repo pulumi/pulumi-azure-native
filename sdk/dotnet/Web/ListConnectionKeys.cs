@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Web
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.Web
         /// API Version: 2015-08-01-preview.
         /// </summary>
         public static Task<ListConnectionKeysResult> InvokeAsync(ListConnectionKeysArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListConnectionKeysResult>("azure-native:web:listConnectionKeys", args ?? new ListConnectionKeysArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListConnectionKeysResult>("azure-native:web:listConnectionKeys", args ?? new ListConnectionKeysArgs(), options.WithDefaults());
 
         /// <summary>
         /// 
         /// API Version: 2015-08-01-preview.
         /// </summary>
         public static Output<ListConnectionKeysResult> Invoke(ListConnectionKeysInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListConnectionKeysResult>("azure-native:web:listConnectionKeys", args ?? new ListConnectionKeysInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<ListConnectionKeysResult>("azure-native:web:listConnectionKeys", args ?? new ListConnectionKeysInvokeArgs(), options.WithDefaults());
     }
 
 

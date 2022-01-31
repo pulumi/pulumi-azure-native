@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Network
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.Network
         /// API Version: 2021-02-01-preview.
         /// </summary>
         public static Task<ListActiveConnectivityConfigurationResult> InvokeAsync(ListActiveConnectivityConfigurationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListActiveConnectivityConfigurationResult>("azure-native:network:listActiveConnectivityConfiguration", args ?? new ListActiveConnectivityConfigurationArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListActiveConnectivityConfigurationResult>("azure-native:network:listActiveConnectivityConfiguration", args ?? new ListActiveConnectivityConfigurationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Result of the request to list active connectivity configurations. It contains a list of active connectivity configurations and a skiptoken to get the next set of results.
         /// API Version: 2021-02-01-preview.
         /// </summary>
         public static Output<ListActiveConnectivityConfigurationResult> Invoke(ListActiveConnectivityConfigurationInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListActiveConnectivityConfigurationResult>("azure-native:network:listActiveConnectivityConfiguration", args ?? new ListActiveConnectivityConfigurationInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<ListActiveConnectivityConfigurationResult>("azure-native:network:listActiveConnectivityConfiguration", args ?? new ListActiveConnectivityConfigurationInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.AVS.V20210601
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.AVS.V20210601
         /// An instance of a script executed by a user - custom or AVS
         /// </summary>
         public static Task<GetScriptExecutionResult> InvokeAsync(GetScriptExecutionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetScriptExecutionResult>("azure-native:avs/v20210601:getScriptExecution", args ?? new GetScriptExecutionArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetScriptExecutionResult>("azure-native:avs/v20210601:getScriptExecution", args ?? new GetScriptExecutionArgs(), options.WithDefaults());
 
         /// <summary>
         /// An instance of a script executed by a user - custom or AVS
         /// </summary>
         public static Output<GetScriptExecutionResult> Invoke(GetScriptExecutionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetScriptExecutionResult>("azure-native:avs/v20210601:getScriptExecution", args ?? new GetScriptExecutionInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetScriptExecutionResult>("azure-native:avs/v20210601:getScriptExecution", args ?? new GetScriptExecutionInvokeArgs(), options.WithDefaults());
     }
 
 

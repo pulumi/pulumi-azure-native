@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.MachineLearningCompute
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.MachineLearningCompute
         /// API Version: 2017-08-01-preview.
         /// </summary>
         public static Task<ListOperationalizationClusterKeysResult> InvokeAsync(ListOperationalizationClusterKeysArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListOperationalizationClusterKeysResult>("azure-native:machinelearningcompute:listOperationalizationClusterKeys", args ?? new ListOperationalizationClusterKeysArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListOperationalizationClusterKeysResult>("azure-native:machinelearningcompute:listOperationalizationClusterKeys", args ?? new ListOperationalizationClusterKeysArgs(), options.WithDefaults());
 
         /// <summary>
         /// Credentials to resources in the cluster.
         /// API Version: 2017-08-01-preview.
         /// </summary>
         public static Output<ListOperationalizationClusterKeysResult> Invoke(ListOperationalizationClusterKeysInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListOperationalizationClusterKeysResult>("azure-native:machinelearningcompute:listOperationalizationClusterKeys", args ?? new ListOperationalizationClusterKeysInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<ListOperationalizationClusterKeysResult>("azure-native:machinelearningcompute:listOperationalizationClusterKeys", args ?? new ListOperationalizationClusterKeysInvokeArgs(), options.WithDefaults());
     }
 
 

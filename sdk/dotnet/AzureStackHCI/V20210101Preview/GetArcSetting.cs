@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.AzureStackHCI.V20210101Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20210101Preview
         /// ArcSetting details.
         /// </summary>
         public static Task<GetArcSettingResult> InvokeAsync(GetArcSettingArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetArcSettingResult>("azure-native:azurestackhci/v20210101preview:getArcSetting", args ?? new GetArcSettingArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetArcSettingResult>("azure-native:azurestackhci/v20210101preview:getArcSetting", args ?? new GetArcSettingArgs(), options.WithDefaults());
 
         /// <summary>
         /// ArcSetting details.
         /// </summary>
         public static Output<GetArcSettingResult> Invoke(GetArcSettingInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetArcSettingResult>("azure-native:azurestackhci/v20210101preview:getArcSetting", args ?? new GetArcSettingInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetArcSettingResult>("azure-native:azurestackhci/v20210101preview:getArcSetting", args ?? new GetArcSettingInvokeArgs(), options.WithDefaults());
     }
 
 

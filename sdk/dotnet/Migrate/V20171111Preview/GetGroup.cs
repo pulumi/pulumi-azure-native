@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Migrate.V20171111Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Migrate.V20171111Preview
         /// A group created in a Migration project.
         /// </summary>
         public static Task<GetGroupResult> InvokeAsync(GetGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetGroupResult>("azure-native:migrate/v20171111preview:getGroup", args ?? new GetGroupArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetGroupResult>("azure-native:migrate/v20171111preview:getGroup", args ?? new GetGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// A group created in a Migration project.
         /// </summary>
         public static Output<GetGroupResult> Invoke(GetGroupInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetGroupResult>("azure-native:migrate/v20171111preview:getGroup", args ?? new GetGroupInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetGroupResult>("azure-native:migrate/v20171111preview:getGroup", args ?? new GetGroupInvokeArgs(), options.WithDefaults());
     }
 
 

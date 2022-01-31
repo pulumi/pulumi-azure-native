@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Network.V20190201
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Network.V20190201
         /// Interface endpoint resource.
         /// </summary>
         public static Task<GetInterfaceEndpointResult> InvokeAsync(GetInterfaceEndpointArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetInterfaceEndpointResult>("azure-native:network/v20190201:getInterfaceEndpoint", args ?? new GetInterfaceEndpointArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetInterfaceEndpointResult>("azure-native:network/v20190201:getInterfaceEndpoint", args ?? new GetInterfaceEndpointArgs(), options.WithDefaults());
 
         /// <summary>
         /// Interface endpoint resource.
         /// </summary>
         public static Output<GetInterfaceEndpointResult> Invoke(GetInterfaceEndpointInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetInterfaceEndpointResult>("azure-native:network/v20190201:getInterfaceEndpoint", args ?? new GetInterfaceEndpointInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetInterfaceEndpointResult>("azure-native:network/v20190201:getInterfaceEndpoint", args ?? new GetInterfaceEndpointInvokeArgs(), options.WithDefaults());
     }
 
 

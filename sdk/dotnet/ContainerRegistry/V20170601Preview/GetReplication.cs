@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ContainerRegistry.V20170601Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20170601Preview
         /// An object that represents a replication for a container registry.
         /// </summary>
         public static Task<GetReplicationResult> InvokeAsync(GetReplicationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetReplicationResult>("azure-native:containerregistry/v20170601preview:getReplication", args ?? new GetReplicationArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetReplicationResult>("azure-native:containerregistry/v20170601preview:getReplication", args ?? new GetReplicationArgs(), options.WithDefaults());
 
         /// <summary>
         /// An object that represents a replication for a container registry.
         /// </summary>
         public static Output<GetReplicationResult> Invoke(GetReplicationInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetReplicationResult>("azure-native:containerregistry/v20170601preview:getReplication", args ?? new GetReplicationInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetReplicationResult>("azure-native:containerregistry/v20170601preview:getReplication", args ?? new GetReplicationInvokeArgs(), options.WithDefaults());
     }
 
 

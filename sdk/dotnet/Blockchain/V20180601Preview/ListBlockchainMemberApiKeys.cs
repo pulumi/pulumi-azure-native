@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Blockchain.V20180601Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Blockchain.V20180601Preview
         /// Collection of the API key payload which is exposed in the response of the resource provider.
         /// </summary>
         public static Task<ListBlockchainMemberApiKeysResult> InvokeAsync(ListBlockchainMemberApiKeysArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListBlockchainMemberApiKeysResult>("azure-native:blockchain/v20180601preview:listBlockchainMemberApiKeys", args ?? new ListBlockchainMemberApiKeysArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListBlockchainMemberApiKeysResult>("azure-native:blockchain/v20180601preview:listBlockchainMemberApiKeys", args ?? new ListBlockchainMemberApiKeysArgs(), options.WithDefaults());
 
         /// <summary>
         /// Collection of the API key payload which is exposed in the response of the resource provider.
         /// </summary>
         public static Output<ListBlockchainMemberApiKeysResult> Invoke(ListBlockchainMemberApiKeysInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListBlockchainMemberApiKeysResult>("azure-native:blockchain/v20180601preview:listBlockchainMemberApiKeys", args ?? new ListBlockchainMemberApiKeysInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<ListBlockchainMemberApiKeysResult>("azure-native:blockchain/v20180601preview:listBlockchainMemberApiKeys", args ?? new ListBlockchainMemberApiKeysInvokeArgs(), options.WithDefaults());
     }
 
 

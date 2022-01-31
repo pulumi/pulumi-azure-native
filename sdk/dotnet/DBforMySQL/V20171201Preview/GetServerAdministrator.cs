@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DBforMySQL.V20171201Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.DBforMySQL.V20171201Preview
         /// Represents a and external administrator to be created.
         /// </summary>
         public static Task<GetServerAdministratorResult> InvokeAsync(GetServerAdministratorArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetServerAdministratorResult>("azure-native:dbformysql/v20171201preview:getServerAdministrator", args ?? new GetServerAdministratorArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetServerAdministratorResult>("azure-native:dbformysql/v20171201preview:getServerAdministrator", args ?? new GetServerAdministratorArgs(), options.WithDefaults());
 
         /// <summary>
         /// Represents a and external administrator to be created.
         /// </summary>
         public static Output<GetServerAdministratorResult> Invoke(GetServerAdministratorInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetServerAdministratorResult>("azure-native:dbformysql/v20171201preview:getServerAdministrator", args ?? new GetServerAdministratorInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetServerAdministratorResult>("azure-native:dbformysql/v20171201preview:getServerAdministrator", args ?? new GetServerAdministratorInvokeArgs(), options.WithDefaults());
     }
 
 

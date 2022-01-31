@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Cdn.V20210601
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Cdn.V20210601
         /// Friendly RuleSet name mapping to the any RuleSet or secret related information.
         /// </summary>
         public static Task<GetRuleSetResult> InvokeAsync(GetRuleSetArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRuleSetResult>("azure-native:cdn/v20210601:getRuleSet", args ?? new GetRuleSetArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetRuleSetResult>("azure-native:cdn/v20210601:getRuleSet", args ?? new GetRuleSetArgs(), options.WithDefaults());
 
         /// <summary>
         /// Friendly RuleSet name mapping to the any RuleSet or secret related information.
         /// </summary>
         public static Output<GetRuleSetResult> Invoke(GetRuleSetInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetRuleSetResult>("azure-native:cdn/v20210601:getRuleSet", args ?? new GetRuleSetInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetRuleSetResult>("azure-native:cdn/v20210601:getRuleSet", args ?? new GetRuleSetInvokeArgs(), options.WithDefaults());
     }
 
 

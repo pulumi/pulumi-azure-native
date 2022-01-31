@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Blueprint.V20171111Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Blueprint.V20171111Preview
         /// Represents a Blueprint definition.
         /// </summary>
         public static Task<GetBlueprintResult> InvokeAsync(GetBlueprintArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetBlueprintResult>("azure-native:blueprint/v20171111preview:getBlueprint", args ?? new GetBlueprintArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetBlueprintResult>("azure-native:blueprint/v20171111preview:getBlueprint", args ?? new GetBlueprintArgs(), options.WithDefaults());
 
         /// <summary>
         /// Represents a Blueprint definition.
         /// </summary>
         public static Output<GetBlueprintResult> Invoke(GetBlueprintInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetBlueprintResult>("azure-native:blueprint/v20171111preview:getBlueprint", args ?? new GetBlueprintInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetBlueprintResult>("azure-native:blueprint/v20171111preview:getBlueprint", args ?? new GetBlueprintInvokeArgs(), options.WithDefaults());
     }
 
 

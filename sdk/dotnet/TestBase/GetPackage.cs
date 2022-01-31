@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.TestBase
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.TestBase
         /// API Version: 2020-12-16-preview.
         /// </summary>
         public static Task<GetPackageResult> InvokeAsync(GetPackageArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPackageResult>("azure-native:testbase:getPackage", args ?? new GetPackageArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetPackageResult>("azure-native:testbase:getPackage", args ?? new GetPackageArgs(), options.WithDefaults());
 
         /// <summary>
         /// The Test Base Package resource.
         /// API Version: 2020-12-16-preview.
         /// </summary>
         public static Output<GetPackageResult> Invoke(GetPackageInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetPackageResult>("azure-native:testbase:getPackage", args ?? new GetPackageInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetPackageResult>("azure-native:testbase:getPackage", args ?? new GetPackageInvokeArgs(), options.WithDefaults());
     }
 
 

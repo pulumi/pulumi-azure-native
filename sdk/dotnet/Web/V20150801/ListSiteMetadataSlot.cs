@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Web.V20150801
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Web.V20150801
         /// String dictionary resource
         /// </summary>
         public static Task<ListSiteMetadataSlotResult> InvokeAsync(ListSiteMetadataSlotArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListSiteMetadataSlotResult>("azure-native:web/v20150801:listSiteMetadataSlot", args ?? new ListSiteMetadataSlotArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListSiteMetadataSlotResult>("azure-native:web/v20150801:listSiteMetadataSlot", args ?? new ListSiteMetadataSlotArgs(), options.WithDefaults());
 
         /// <summary>
         /// String dictionary resource
         /// </summary>
         public static Output<ListSiteMetadataSlotResult> Invoke(ListSiteMetadataSlotInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListSiteMetadataSlotResult>("azure-native:web/v20150801:listSiteMetadataSlot", args ?? new ListSiteMetadataSlotInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<ListSiteMetadataSlotResult>("azure-native:web/v20150801:listSiteMetadataSlot", args ?? new ListSiteMetadataSlotInvokeArgs(), options.WithDefaults());
     }
 
 

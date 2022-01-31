@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Elastic.V20211001Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Elastic.V20211001Preview
         /// Response of a list operation.
         /// </summary>
         public static Task<ListVMHostResult> InvokeAsync(ListVMHostArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListVMHostResult>("azure-native:elastic/v20211001preview:listVMHost", args ?? new ListVMHostArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListVMHostResult>("azure-native:elastic/v20211001preview:listVMHost", args ?? new ListVMHostArgs(), options.WithDefaults());
 
         /// <summary>
         /// Response of a list operation.
         /// </summary>
         public static Output<ListVMHostResult> Invoke(ListVMHostInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListVMHostResult>("azure-native:elastic/v20211001preview:listVMHost", args ?? new ListVMHostInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<ListVMHostResult>("azure-native:elastic/v20211001preview:listVMHost", args ?? new ListVMHostInvokeArgs(), options.WithDefaults());
     }
 
 

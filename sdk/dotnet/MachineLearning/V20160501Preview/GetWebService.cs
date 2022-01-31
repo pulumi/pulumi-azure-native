@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.MachineLearning.V20160501Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.MachineLearning.V20160501Preview
         /// Instance of an Azure ML web service resource.
         /// </summary>
         public static Task<GetWebServiceResult> InvokeAsync(GetWebServiceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetWebServiceResult>("azure-native:machinelearning/v20160501preview:getWebService", args ?? new GetWebServiceArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetWebServiceResult>("azure-native:machinelearning/v20160501preview:getWebService", args ?? new GetWebServiceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Instance of an Azure ML web service resource.
         /// </summary>
         public static Output<GetWebServiceResult> Invoke(GetWebServiceInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetWebServiceResult>("azure-native:machinelearning/v20160501preview:getWebService", args ?? new GetWebServiceInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetWebServiceResult>("azure-native:machinelearning/v20160501preview:getWebService", args ?? new GetWebServiceInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.EngagementFabric
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.EngagementFabric
         /// API Version: 2018-09-01-preview.
         /// </summary>
         public static Task<GetAccountResult> InvokeAsync(GetAccountArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAccountResult>("azure-native:engagementfabric:getAccount", args ?? new GetAccountArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAccountResult>("azure-native:engagementfabric:getAccount", args ?? new GetAccountArgs(), options.WithDefaults());
 
         /// <summary>
         /// The EngagementFabric account
         /// API Version: 2018-09-01-preview.
         /// </summary>
         public static Output<GetAccountResult> Invoke(GetAccountInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetAccountResult>("azure-native:engagementfabric:getAccount", args ?? new GetAccountInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetAccountResult>("azure-native:engagementfabric:getAccount", args ?? new GetAccountInvokeArgs(), options.WithDefaults());
     }
 
 

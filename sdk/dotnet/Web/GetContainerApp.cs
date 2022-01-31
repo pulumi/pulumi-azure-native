@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Web
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.Web
         /// API Version: 2021-03-01.
         /// </summary>
         public static Task<GetContainerAppResult> InvokeAsync(GetContainerAppArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetContainerAppResult>("azure-native:web:getContainerApp", args ?? new GetContainerAppArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetContainerAppResult>("azure-native:web:getContainerApp", args ?? new GetContainerAppArgs(), options.WithDefaults());
 
         /// <summary>
         /// Container App.
         /// API Version: 2021-03-01.
         /// </summary>
         public static Output<GetContainerAppResult> Invoke(GetContainerAppInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetContainerAppResult>("azure-native:web:getContainerApp", args ?? new GetContainerAppInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetContainerAppResult>("azure-native:web:getContainerApp", args ?? new GetContainerAppInvokeArgs(), options.WithDefaults());
     }
 
 

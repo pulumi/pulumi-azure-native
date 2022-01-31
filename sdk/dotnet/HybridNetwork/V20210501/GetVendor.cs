@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.HybridNetwork.V20210501
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.HybridNetwork.V20210501
         /// Vendor resource.
         /// </summary>
         public static Task<GetVendorResult> InvokeAsync(GetVendorArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVendorResult>("azure-native:hybridnetwork/v20210501:getVendor", args ?? new GetVendorArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetVendorResult>("azure-native:hybridnetwork/v20210501:getVendor", args ?? new GetVendorArgs(), options.WithDefaults());
 
         /// <summary>
         /// Vendor resource.
         /// </summary>
         public static Output<GetVendorResult> Invoke(GetVendorInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetVendorResult>("azure-native:hybridnetwork/v20210501:getVendor", args ?? new GetVendorInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetVendorResult>("azure-native:hybridnetwork/v20210501:getVendor", args ?? new GetVendorInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DocumentDB.V20151106
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.DocumentDB.V20151106
         /// An Azure Cosmos DB MongoDB database.
         /// </summary>
         public static Task<GetDatabaseAccountMongoDBDatabaseResult> InvokeAsync(GetDatabaseAccountMongoDBDatabaseArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDatabaseAccountMongoDBDatabaseResult>("azure-native:documentdb/v20151106:getDatabaseAccountMongoDBDatabase", args ?? new GetDatabaseAccountMongoDBDatabaseArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDatabaseAccountMongoDBDatabaseResult>("azure-native:documentdb/v20151106:getDatabaseAccountMongoDBDatabase", args ?? new GetDatabaseAccountMongoDBDatabaseArgs(), options.WithDefaults());
 
         /// <summary>
         /// An Azure Cosmos DB MongoDB database.
         /// </summary>
         public static Output<GetDatabaseAccountMongoDBDatabaseResult> Invoke(GetDatabaseAccountMongoDBDatabaseInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDatabaseAccountMongoDBDatabaseResult>("azure-native:documentdb/v20151106:getDatabaseAccountMongoDBDatabase", args ?? new GetDatabaseAccountMongoDBDatabaseInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetDatabaseAccountMongoDBDatabaseResult>("azure-native:documentdb/v20151106:getDatabaseAccountMongoDBDatabase", args ?? new GetDatabaseAccountMongoDBDatabaseInvokeArgs(), options.WithDefaults());
     }
 
 

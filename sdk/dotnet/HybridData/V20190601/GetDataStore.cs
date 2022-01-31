@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.HybridData.V20190601
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.HybridData.V20190601
         /// Data store.
         /// </summary>
         public static Task<GetDataStoreResult> InvokeAsync(GetDataStoreArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDataStoreResult>("azure-native:hybriddata/v20190601:getDataStore", args ?? new GetDataStoreArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDataStoreResult>("azure-native:hybriddata/v20190601:getDataStore", args ?? new GetDataStoreArgs(), options.WithDefaults());
 
         /// <summary>
         /// Data store.
         /// </summary>
         public static Output<GetDataStoreResult> Invoke(GetDataStoreInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDataStoreResult>("azure-native:hybriddata/v20190601:getDataStore", args ?? new GetDataStoreInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetDataStoreResult>("azure-native:hybriddata/v20190601:getDataStore", args ?? new GetDataStoreInvokeArgs(), options.WithDefaults());
     }
 
 

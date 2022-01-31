@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.VMwareCloudSimple
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.VMwareCloudSimple
         /// API Version: 2019-04-01.
         /// </summary>
         public static Task<GetDedicatedCloudNodeResult> InvokeAsync(GetDedicatedCloudNodeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDedicatedCloudNodeResult>("azure-native:vmwarecloudsimple:getDedicatedCloudNode", args ?? new GetDedicatedCloudNodeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDedicatedCloudNodeResult>("azure-native:vmwarecloudsimple:getDedicatedCloudNode", args ?? new GetDedicatedCloudNodeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Dedicated cloud node model
         /// API Version: 2019-04-01.
         /// </summary>
         public static Output<GetDedicatedCloudNodeResult> Invoke(GetDedicatedCloudNodeInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDedicatedCloudNodeResult>("azure-native:vmwarecloudsimple:getDedicatedCloudNode", args ?? new GetDedicatedCloudNodeInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetDedicatedCloudNodeResult>("azure-native:vmwarecloudsimple:getDedicatedCloudNode", args ?? new GetDedicatedCloudNodeInvokeArgs(), options.WithDefaults());
     }
 
 
