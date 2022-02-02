@@ -4,6 +4,10 @@
 
 ---
 
+## 1.55.0 (2022-02-02)
+
+- Upgrade internal pulumi/pulumi dependencies to v3.23.2
+
 ## 1.54.0 (2022-01-25)
 
 #### Breaking Changes published by Microsoft:
